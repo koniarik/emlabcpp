@@ -2,7 +2,7 @@
 
 #pragma once
 
-namespace emlab {
+namespace emlabcpp {
 
 template <typename T, std::size_t N>
 class static_circular_bufer {
