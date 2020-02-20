@@ -11,10 +11,10 @@ namespace emlabcpp {
 // Class implementing circular buffer of any type for up to N elements.
 // This should work for generic type T, not just simple types.
 //
+// TODO: copy/move solve!
 //
 template <typename T, std::size_t N>
 class static_circular_buffer {
-
 	// We need real_size of the buffer to be +1 bigger than number of items
 	static constexpr std::size_t real_size = N + 1;
 
@@ -22,23 +22,9 @@ class static_circular_buffer {
 	// public types
 	// --------------------------------------------------------------------------------
 
-	static constexpr auto size_type_selector() {
-		if constexpr (real_size < std::numeric_limits<uint8_t>::max()) {
-			return uint8_t{0};
-		} else if constexpr (real_size <
-				     std::numeric_limits<uint16_t>::max()) {
-			return uint16_t{0};
-		} else {
-			return uint32_t{0};
-		}
-	}
-
 	// type for storage of one item
 	using storage_type = std::aligned_storage_t<sizeof(T), alignof(T)>;
-
-	// indexing type, function selects smallest type out of
-	// uint8_t/uint16_t/uint32_t
-	using index_type = decltype(size_type_selector());
+	using index_type = std::size_t;
 
 	using value_type = T;
 	using size_type = std::size_t;
@@ -132,17 +118,6 @@ class static_circular_buffer {
 		from_ = next(from_);
 	}
 
-	void push_front(T item) {
-		from_ = prev(from_);
-		emplace_item(from_, std::move(item));
-	}
-
-	template <typename... Args>
-	void emplace_front(Args&&... args) {
-		from_ = prev(from_);
-		emplace_item(from_, std::forward<Args>(args)...);
-	}
-
 	// methods for handling the back side of the circular buffer
 
 	[[nodiscard]] reference back() { return ref_item(data_, to_ - 1); }
@@ -151,15 +126,7 @@ class static_circular_buffer {
 		return ref_item(data_, to_ - 1);
 	}
 
-	void pop_back() {
-		to_ = prev(to_);
-		delete_item(to_);
-	}
-
-	void push_back(T item) {
-		emplace_item(to_, std::move(item));
-		to_ = next(to_);
-	}
+	void push_back(T item) { emplace_item(to_, std::move(item)); }
 
 	template <typename... Args>
 	void emplace_back(Args&&... args) {

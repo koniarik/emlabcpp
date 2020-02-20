@@ -18,56 +18,23 @@ static constexpr std::size_t buffer_size = 5;
 using trivial_buffer = static_circular_buffer<int, buffer_size>;
 using obj_buffer = static_circular_buffer<std::string, buffer_size>;
 
-TEST(static_circular_buffer_test, push_front) {
-	trivial_buffer tbuff;
-	obj_buffer obuff;
-
-	// insert into empty buffers
-
-	tbuff.push_front(42);
-	EXPECT_EQ(tbuff.front(), 42);
-
-	obuff.push_front("The five boxing wizards jump quickly.");
-	EXPECT_EQ(obuff.front(), "The five boxing wizards jump quickly.");
-
-	// inser into non-empty buffers
-
-	tbuff.push_front(-1);
-	EXPECT_EQ(tbuff.front(), -1);
-
-	obuff.push_front("Nope.");
-	EXPECT_EQ(obuff.front(), "Nope.");
-}
-
-TEST(static_circular_buffer_test, emplace_front) {
-	trivial_buffer tbuff;
-	obj_buffer obuff;
-
-	tbuff.emplace_front(42);
-	EXPECT_EQ(tbuff.front(), 42);
-
-	// This is special constructor of std::string
-	obuff.emplace_front(5, 'c');
-	EXPECT_EQ(obuff.front(), "ccccc");
-}
-
 TEST(static_circular_buffer_test, pop_front) {
 	trivial_buffer tbuff;
 	obj_buffer obuff;
 
-	tbuff.push_front(33);
-	tbuff.push_front(42);
+	tbuff.push_back(33);
+	tbuff.push_back(42);
 
-	EXPECT_EQ(tbuff.front(), 42);
-	tbuff.pop_front();
 	EXPECT_EQ(tbuff.front(), 33);
+	tbuff.pop_front();
+	EXPECT_EQ(tbuff.front(), 42);
 
-	obuff.push_front("Nope.");
-	obuff.push_front("Yes");
+	obuff.push_back("Nope.");
+	obuff.push_back("Yes");
 
-	EXPECT_EQ(obuff.front(), "Yes");
-	obuff.pop_front();
 	EXPECT_EQ(obuff.front(), "Nope.");
+	obuff.pop_front();
+	EXPECT_EQ(obuff.front(), "Yes");
 }
 
 TEST(static_circular_buffer_test, push_back) {
@@ -103,24 +70,6 @@ TEST(static_circular_buffer_test, emplace_back) {
 	EXPECT_EQ(obuff.back(), "ccccc");
 }
 
-TEST(static_circular_buffer_test, pop_back) {
-	trivial_buffer tbuff;
-	obj_buffer obuff;
-
-	tbuff.push_back(33);
-	tbuff.push_back(42);
-
-	EXPECT_EQ(tbuff.back(), 42);
-	tbuff.pop_back();
-	EXPECT_EQ(tbuff.back(), 33);
-
-	obuff.push_back("Nope.");
-	obuff.push_back("Yes");
-
-	EXPECT_EQ(obuff.back(), "Yes");
-	obuff.pop_back();
-	EXPECT_EQ(obuff.back(), "Nope.");
-}
 
 TEST(static_circular_buffer_test, circler_overflow_trivial) {
 	std::vector<int> tidata = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
