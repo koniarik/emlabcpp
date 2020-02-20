@@ -8,11 +8,11 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 enable_testing()
 
-find_package(GTest REQUIRED)
+add_subdirectory(3rd_party/google-test)
 
 include_directories(../)
 
 add_executable(static_circular_buffer_test static_circular_buffer_test.cpp)
 target_link_libraries(static_circular_buffer_test GTest::GTest GTest::Main)
-gtest_discover_tests(static_circular_buffer_test)
+add_test(NAME static_circular_buffer_test COMMAND static_circular_buffer_Test)
 
