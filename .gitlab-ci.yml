@@ -1,4 +1,4 @@
-image: gcc/gcc-9.2
+image: gcc
 
 stages:
   - build
