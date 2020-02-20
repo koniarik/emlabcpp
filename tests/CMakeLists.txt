@@ -14,5 +14,5 @@ include_directories(../)
 
 add_executable(static_circular_buffer_test static_circular_buffer_test.cpp)
 target_link_libraries(static_circular_buffer_test GTest::GTest GTest::Main)
-add_test(NAME static_circular_buffer_test COMMAND static_circular_buffer_Test)
+add_test(NAME static_circular_buffer_test COMMAND static_circular_buffer_test)
 
