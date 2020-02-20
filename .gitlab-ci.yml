@@ -9,7 +9,7 @@ build:
   tags:
     - shared-fi
   script:
-    - cmake -Bbuild -H.
+    - cmake -Bbuild tests/
     - make -Cbuild -j
   artifacts:
     untracked: true
@@ -19,7 +19,7 @@ test:
   tags:
     - shared-fi
   script:
-    - build/ctest
+    - cd build && ctest
   dependencies:
     - build
 
