@@ -21,7 +21,8 @@ class static_circular_buffer {
 	static constexpr auto size_type_selector() {
 		if constexpr (N + 1 < std::numeric_limits<uint8_t>::max()) {
 			return uint8_t{0};
-		} else if constexpr (N + 1 < std::numeric_limits<uint16_t>::max()) {
+		} else if constexpr (N + 1 <
+				     std::numeric_limits<uint16_t>::max()) {
 			return uint16_t{0};
 		} else {
 			return uint32_t{0};
@@ -46,8 +47,8 @@ class static_circular_buffer {
 
 	static constexpr std::size_t real_size = N + 1;
 	storage_type data_[real_size];  // storage of the entire dataset
-	index_type from_ = 0;   // index of the first item
-	index_type to_ = 0;     // index past the last item
+	index_type from_ = 0;		// index of the first item
+	index_type to_ = 0;		// index past the last item
 
 	// from_ == to_ means empty
 	// to_ + 1 == from_ is full
@@ -71,14 +72,10 @@ class static_circular_buffer {
 
 	void delete_item(index_type i) { ref_item(data_, i).~T(); }
 
-	void init_item(index_type i, T item) {
-		::new (reinterpret_cast<void*>(&data_[i])) T(std::move(item));
-	}
-
 	template <typename... Args>
 	void emplace_item(index_type i, Args&&... args) {
-		::new (reinterpret_cast<void*>(&data_[i]))
-		    T(std::forward<Args>(args)...);
+		void* gen_ptr = reinterpret_cast<void*>(&data_[i]);
+		::new (gen_ptr) T(std::forward<Args>(args)...);
 	}
 
 	// Reference to the item in data_storage (just trick to have shared
@@ -134,7 +131,7 @@ class static_circular_buffer {
 
 	void push_front(T item) {
 		from_ = prev(from_);
-		init_item(from_, std::move(item));
+		emplace_item(from_, std::move(item));
 	}
 
 	template <typename... Args>
@@ -157,7 +154,7 @@ class static_circular_buffer {
 	}
 
 	void push_back(T item) {
-		init_item(to_, std::move(item));
+		emplace_item(to_, std::move(item));
 		to_ = next(to_);
 	}
 
