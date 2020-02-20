@@ -11,7 +11,6 @@ namespace emlabcpp {
 // Class implementing circular buffer of any type for up to N elements.
 // This should work for generic type T, not just simple types.
 //
-// TODO: for actual N, max size is N-1, maybe change?
 //
 template <typename T, std::size_t N>
 class static_circular_buffer {
@@ -20,9 +19,9 @@ class static_circular_buffer {
 	// --------------------------------------------------------------------------------
 
 	static constexpr auto size_type_selector() {
-		if constexpr (N < std::numeric_limits<uint8_t>::max()) {
+		if constexpr (N + 1 < std::numeric_limits<uint8_t>::max()) {
 			return uint8_t{0};
-		} else if constexpr (N < std::numeric_limits<uint16_t>::max()) {
+		} else if constexpr (N + 1 < std::numeric_limits<uint16_t>::max()) {
 			return uint16_t{0};
 		} else {
 			return uint32_t{0};
@@ -45,13 +44,13 @@ class static_circular_buffer {
 	// private attributes
 	// --------------------------------------------------------------------------------
 
-	storage_type data_[N];  // storage of the entire dataset
+	static constexpr std::size_t real_size = N + 1;
+	storage_type data_[real_size];  // storage of the entire dataset
 	index_type from_ = 0;   // index of the first item
 	index_type to_ = 0;     // index past the last item
 
 	// from_ == to_ means empty
-	// to_ + 1 == from_ is full -> this practically means that it is full at
-	//   size() == N - 1 items, not optimal :/
+	// to_ + 1 == from_ is full
 
 	// private methods
 	// --------------------------------------------------------------------------------
@@ -92,9 +91,9 @@ class static_circular_buffer {
 
 	// Use this only when moving the indexes in the circular buffer -
 	// bullet-proof.
-	constexpr auto next(index_type i) const { return (i + 1) % N; }
+	constexpr auto next(index_type i) const { return (i + 1) % real_size; }
 	constexpr auto prev(index_type i) const {
-		return i == 0 ? N - 1 : i - 1;
+		return i == 0 ? real_size - 1 : i - 1;
 	}
 
        public:
@@ -115,7 +114,7 @@ class static_circular_buffer {
 		for (index_type i = 0; i < to_; ++i) {
 			delete_item(i);
 		}
-		for (index_type i = from_; i < N; ++i) {
+		for (index_type i = from_; i < real_size; ++i) {
 			delete_item(i);
 		}
 	}
@@ -176,7 +175,7 @@ class static_circular_buffer {
 		if (to_ >= from_) {
 			return to_ - from_;
 		}
-		return to_ + (N - from_);
+		return to_ + (real_size - from_);
 	}
 
 	[[nodiscard]] constexpr bool empty() const { return to_ == from_; }
