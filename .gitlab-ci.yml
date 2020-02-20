@@ -1,0 +1,25 @@
+image: gcc/9.2
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  tags:
+    - shared-fi
+  script:
+    - cmake -Bbuild -H.
+    - make -Cbuild -j
+  artifacts:
+    untracked: true
+
+test:
+  stage: test
+  tags:
+    - shared-fi
+  script:
+    - build/ctest
+  dependencies:
+    - build
+
