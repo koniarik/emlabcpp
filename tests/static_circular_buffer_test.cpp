@@ -3,16 +3,6 @@
 
 using namespace emlabcpp;
 
-TEST(static_circular_buffer_test, index_type) {
-	// Tests that index type is selected correctly
-	EXPECT_EQ(typeid(static_circular_buffer<int, 10>::index_type),
-		  typeid(uint8_t));
-	EXPECT_EQ(typeid(static_circular_buffer<int, 3000>::index_type),
-		  typeid(uint16_t));
-	EXPECT_EQ(typeid(static_circular_buffer<int, 111222333>::index_type),
-		  typeid(uint32_t));
-}
-
 static constexpr std::size_t buffer_size = 5;
 
 using trivial_buffer = static_circular_buffer<int, buffer_size>;

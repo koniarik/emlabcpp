@@ -126,7 +126,7 @@ class static_circular_buffer {
 		return ref_item(data_, to_ - 1);
 	}
 
-	void push_back(T item) { emplace_item(to_, std::move(item)); }
+	void push_back(T item) { emplace_back(std::move(item)); }
 
 	template <typename... Args>
 	void emplace_back(Args&&... args) {
