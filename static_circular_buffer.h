@@ -1,4 +1,8 @@
+#include <cstdint>
+#include <limits>
+#include <new>
 #include <type_traits>
+#include <utility>
 
 #pragma once
 
@@ -11,8 +15,9 @@ namespace emlabcpp {
 // TODO: TEST IT - UNTESTED
 //
 template <typename T, std::size_t N>
-class static_circular_bufer {
-	// private types
+class static_circular_buffer {
+       public:
+	// public types
 	// --------------------------------------------------------------------------------
 
 	static constexpr auto size_type_selector() {
@@ -26,18 +31,24 @@ class static_circular_bufer {
 	}
 
 	// type for storage of one item
-	using storage_type = std::aligned_storage_t<sizeof(T), aligonf(T)>;
+	using storage_type = std::aligned_storage_t<sizeof(T), alignof(T)>;
 
 	// indexing type, function selects smallest type out of
 	// uint8_t/uint16_t/uint32_t
 	using index_type = decltype(size_type_selector());
 
+	using value_type = T;
+	using size_type = std::size_t;
+	using reference = T&;
+	using const_reference = const reference;
+
+       private:
 	// private attributes
 	// --------------------------------------------------------------------------------
 
 	storage_type data_[N];  // storage of the entire dataset
 	index_type from_ = 0;   // index of the first item
-	index_type to_ = 0;     // index of past the last item
+	index_type to_ = 0;     // index past the last item
 
 	// from_ == to_ means empty
 	// to_ + 1 == from_ is full -> this practically means that it is full at
@@ -60,14 +71,14 @@ class static_circular_bufer {
 	// scenario, that requires features of C++ we do not want to replicate
 	// and it's bettter to hide them in methods.
 
-	void delete_item(index_type i) { ref_item(data_, i)->~T(); }
+	void delete_item(index_type i) { ref_item(data_, i).~T(); }
 
 	void init_item(index_type i, T item) {
 		::new (reinterpret_cast<void*>(&data_[i])) T(std::move(item));
 	}
 
 	template <typename... Args>
-	void emplace_item(index_type i, Args&& args) {
+	void emplace_item(index_type i, Args&&... args) {
 		::new (reinterpret_cast<void*>(&data_[i]))
 		    T(std::forward<Args>(args)...);
 	}
@@ -83,17 +94,13 @@ class static_circular_bufer {
 	// Use this only when moving the indexes in the circular buffer -
 	// bullet-proof.
 	constexpr auto next(index_type i) const { return (i + 1) % N; }
-	constexpr auto pref(index_type i) const {
+	constexpr auto prev(index_type i) const {
 		return i == 0 ? N - 1 : i - 1;
 	}
 
        public:
 	// public types
 	// --------------------------------------------------------------------------------
-	using value_type = T;
-	using size_type = std::size_t;
-	using reference = T&;
-	using const_reference = const reference;
 
 	// public methods
 	// --------------------------------------------------------------------------------
@@ -106,19 +113,19 @@ class static_circular_bufer {
 			}
 			return;
 		}
-		for (index_type i = 0; i < from_; ++i) {
+		for (index_type i = 0; i < to_; ++i) {
 			delete_item(i);
 		}
-		for (index_type i = to_; i < N; ++i) {
+		for (index_type i = from_; i < N; ++i) {
 			delete_item(i);
 		}
 	}
 
 	// methods for handling the front side of the circular buffer
 
-	[[NODISCARD]] reference front() { return ref_item(data_, from_); }
+	[[nodiscard]] reference front() { return ref_item(data_, from_); }
 
-	[[NODISCARD]] const_reference front() const {
+	[[nodiscard]] const_reference front() const {
 		return ref_item(data_, from_);
 	}
 
@@ -140,9 +147,9 @@ class static_circular_bufer {
 
 	// methods for handling the back side of the circular buffer
 
-	[[NODISCARD]] reference back() { return ref_item(data_, to_ - 1); }
+	[[nodiscard]] reference back() { return ref_item(data_, to_ - 1); }
 
-	[[NODISCARD]] const_reference back() const {
+	[[nodiscard]] const_reference back() const {
 		return ref_item(data_, to_ - 1);
 	}
 
@@ -164,16 +171,18 @@ class static_circular_bufer {
 
 	// methods for information about the usage of the buffer
 
-	[[NODISCARD]] constexpr std::size_t size() const {
-		if (to_ > from_) {
+	[[nodiscard]] constexpr std::size_t max_size() const { return N; }
+
+	[[nodiscard]] constexpr std::size_t size() const {
+		if (to_ >= from_) {
 			return to_ - from_;
 		}
 		return to_ + (N - from_);
 	}
 
-	[[NODISCARD]] constexpr bool empty() const { return to_ == from_; }
+	[[nodiscard]] constexpr bool empty() const { return to_ == from_; }
 
-	[[NODISCARD]] constexpr bool full() const { return next(to_) == from_; }
+	[[nodiscard]] constexpr bool full() const { return next(to_) == from_; }
 };
 
 }  // namespace emlabcpp
