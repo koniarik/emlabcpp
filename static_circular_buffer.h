@@ -129,4 +129,4 @@ class static_circular_bufer {
 	}
 };
 
-}  // namespace emlab
+}  // namespace emlabcpp
