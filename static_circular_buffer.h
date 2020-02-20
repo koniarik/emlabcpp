@@ -4,8 +4,17 @@
 
 namespace emlabcpp {
 
+// Class implementing circular buffer of any type for up to N elements.
+// This should work for generic type T, not just simple types.
+//
+// TODO: for actual N, max size is N-1, maybe change?
+// TODO: TEST IT - UNTESTED
+//
 template <typename T, std::size_t N>
 class static_circular_bufer {
+	// private types
+	// --------------------------------------------------------------------------------
+
 	static constexpr auto size_type_selector() {
 		if constexpr (N < std::numeric_limits<uint8_t>::max()) {
 			return uint8_t{0};
@@ -16,20 +25,42 @@ class static_circular_bufer {
 		}
 	}
 
+	// type for storage of one item
 	using storage_type = std::aligned_storage_t<sizeof(T), aligonf(T)>;
+
+	// indexing type, function selects smallest type out of
+	// uint8_t/uint16_t/uint32_t
 	using index_type = decltype(size_type_selector());
 
-	storage_type data_[N];
-	index_type from_ = 0;  // index of first item
-	index_type to_ = 0;    // index past the first item
+	// private attributes
+	// --------------------------------------------------------------------------------
+
+	storage_type data_[N];  // storage of the entire dataset
+	index_type from_ = 0;   // index of the first item
+	index_type to_ = 0;     // index of past the last item
 
 	// from_ == to_ means empty
-	// to_ + 1 == from_ is full
+	// to_ + 1 == from_ is full -> this practically means that it is full at
+	//   size() == N - 1 items, not optimal :/
 
-	// TODO: study std::launder more
-	void delete_item(index_type i) {
-		std::launder(reinterpret_cast<T*>(&data_[i]))->~T();
-	}
+	// private methods
+	// --------------------------------------------------------------------------------
+	// To understand std::launder:
+	// http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0532r0.pdf
+	//
+	// Set of [delete,init,emplace]_item methods is necessary as data_ is
+	// not array of T, but array of byte-like-type that can store T -> T
+	// does not have to be initialized there. We want to fully support T
+	// objects - their constructors/destructors are correctly called and we
+	// do not require default constructor. This implies that data_ has some
+	// slots un-initialized, some are initialized and we have to handle them
+	// correctly.
+	//
+	// All three methods are used to handle this part of the objects in this
+	// scenario, that requires features of C++ we do not want to replicate
+	// and it's bettter to hide them in methods.
+
+	void delete_item(index_type i) { ref_item(data_, i)->~T(); }
 
 	void init_item(index_type i, T item) {
 		::new (reinterpret_cast<void*>(&data_[i])) T(std::move(item));
@@ -41,22 +72,49 @@ class static_circular_bufer {
 		    T(std::forward<Args>(args)...);
 	}
 
+	// Reference to the item in data_storage (just trick to have shared
+	// const/non-const version). std::launder is necessary here per the
+	// paper linked above.
 	template <typename data_storage>
-	static auto ref_item(data_storage&& s, index_type i) {
+	static auto& ref_item(data_storage&& s, index_type i) {
 		return *std::launder(reinterpret_cast<T*>(&s[i]));
 	}
 
+	// Use this only when moving the indexes in the circular buffer -
+	// bullet-proof.
 	constexpr auto next(index_type i) const { return (i + 1) % N; }
 	constexpr auto pref(index_type i) const {
 		return i == 0 ? N - 1 : i - 1;
 	}
 
        public:
+	// public types
+	// --------------------------------------------------------------------------------
 	using value_type = T;
+	using size_type = std::size_t;
 	using reference = T&;
 	using const_reference = const reference;
 
+	// public methods
+	// --------------------------------------------------------------------------------
 	static_circular_buffer() = default;
+
+	~static_circular_buffer() {
+		if (to_ > from_) {
+			for (index_type i = from_; i < to_; ++i) {
+				delete_item(i);
+			}
+			return;
+		}
+		for (index_type i = 0; i < from_; ++i) {
+			delete_item(i);
+		}
+		for (index_type i = to_; i < N; ++i) {
+			delete_item(i);
+		}
+	}
+
+	// methods for handling the front side of the circular buffer
 
 	[[NODISCARD]] reference front() { return ref_item(data_, from_); }
 
@@ -80,6 +138,8 @@ class static_circular_bufer {
 		emplace_item(from_, std::forward<Args>(args)...);
 	}
 
+	// methods for handling the back side of the circular buffer
+
 	[[NODISCARD]] reference back() { return ref_item(data_, to_ - 1); }
 
 	[[NODISCARD]] const_reference back() const {
@@ -87,8 +147,8 @@ class static_circular_bufer {
 	}
 
 	void pop_back() {
-		delete_item(to_ - 1);
 		to_ = prev(to_);
+		delete_item(to_);
 	}
 
 	void push_back(T item) {
@@ -102,6 +162,8 @@ class static_circular_bufer {
 		to_ = next(to_);
 	}
 
+	// methods for information about the usage of the buffer
+
 	[[NODISCARD]] constexpr std::size_t size() const {
 		if (to_ > from_) {
 			return to_ - from_;
@@ -112,21 +174,6 @@ class static_circular_bufer {
 	[[NODISCARD]] constexpr bool empty() const { return to_ == from_; }
 
 	[[NODISCARD]] constexpr bool full() const { return next(to_) == from_; }
-
-	~static_circular_buffer() {
-		if (to_ > from_) {
-			for (index_type i = from_; i < to_; ++i) {
-				delete_item(i);
-			}
-			return;
-		}
-		for (index_type i = 0; i < from_; ++i) {
-			delete_item(i);
-		}
-		for (index_type i = to_; i < N; ++i) {
-			delete_item(i);
-		}
-	}
 };
 
 }  // namespace emlabcpp
