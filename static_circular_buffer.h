@@ -14,14 +14,18 @@ namespace emlabcpp {
 //
 template <typename T, std::size_t N>
 class static_circular_buffer {
+
+	// We need real_size of the buffer to be +1 bigger than number of items
+	static constexpr std::size_t real_size = N + 1;
+
        public:
 	// public types
 	// --------------------------------------------------------------------------------
 
 	static constexpr auto size_type_selector() {
-		if constexpr (N + 1 < std::numeric_limits<uint8_t>::max()) {
+		if constexpr (real_size < std::numeric_limits<uint8_t>::max()) {
 			return uint8_t{0};
-		} else if constexpr (N + 1 <
+		} else if constexpr (real_size <
 				     std::numeric_limits<uint16_t>::max()) {
 			return uint16_t{0};
 		} else {
@@ -45,7 +49,6 @@ class static_circular_buffer {
 	// private attributes
 	// --------------------------------------------------------------------------------
 
-	static constexpr std::size_t real_size = N + 1;
 	storage_type data_[real_size];  // storage of the entire dataset
 	index_type from_ = 0;		// index of the first item
 	index_type to_ = 0;		// index past the last item
