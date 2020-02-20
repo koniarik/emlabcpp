@@ -12,7 +12,6 @@ namespace emlabcpp {
 // This should work for generic type T, not just simple types.
 //
 // TODO: for actual N, max size is N-1, maybe change?
-// TODO: TEST IT - UNTESTED
 //
 template <typename T, std::size_t N>
 class static_circular_buffer {
