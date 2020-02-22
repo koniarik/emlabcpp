@@ -56,7 +56,8 @@ TEST(static_circular_buffer_test, emplace_back) {
 	EXPECT_EQ(tbuff.back(), 42);
 
 	// This is special constructor of std::string
-	obuff.emplace_back(5, 'c');
+	std::size_t i = 5;
+	obuff.emplace_back(i, 'c');
 	EXPECT_EQ(obuff.back(), "ccccc");
 }
 
@@ -171,8 +172,8 @@ TEST(static_circular_buffer_test, move_trivial) {
 		tbuff.push_back(i);
 	}
 
-	trivial_buffer cpy{ tbuff };
-	trivial_buffer moved{ std::move(tbuff) };
+	trivial_buffer cpy{tbuff};
+	trivial_buffer moved{std::move(tbuff)};
 
 	EXPECT_EQ(cpy, moved);
 
@@ -182,7 +183,7 @@ TEST(static_circular_buffer_test, move_trivial) {
 	EXPECT_EQ(cpy, moved2);
 }
 
-TEST(static_circular_buffer_test, move_object ){
+TEST(static_circular_buffer_test, move_object) {
 	obj_buffer obuff;
 	for (std::string s : {"Pack", "my", "box", "with", "five", "dozen",
 			      "liquor", "jugs."}) {
@@ -190,7 +191,7 @@ TEST(static_circular_buffer_test, move_object ){
 	}
 
 	obj_buffer cpy{obuff};
-	obj_buffer moved{std:move(obuff)};
+	obj_buffer moved{std::move(obuff)};
 
 	EXPECT_EQ(cpy, moved);
 
