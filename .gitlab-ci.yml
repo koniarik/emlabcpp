@@ -1,25 +1,26 @@
 image: cxx
 
 stages:
-  - build
   - test
 
-build:
-  stage: build
-  tags:
-    - shared-fi
-  script:
-    - cmake -Bbuild tests/
-    - make -Cbuild -j
-  artifacts:
-    untracked: true
-
-test:
+test_bare:
   stage: test
   tags:
     - shared-fi
   script:
-    - cd build && ctest
-  dependencies:
-    - build
+    - make_test
+
+test_address:
+  stage: test
+  tags:
+    - shared-fi
+  script:
+    - make test SANITIZER=address
+
+test_undefined:
+  stage: test
+  tags:
+    - shared-fi
+  script:
+    - make test SANITIZER=undefined
 
