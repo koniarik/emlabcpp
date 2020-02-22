@@ -11,7 +11,10 @@ namespace emlabcpp {
 // Class implementing circular buffer of any type for up to N elements.
 // This should work for generic type T, not just simple types.
 //
-// TODO: copy/move solve!
+// It is safe in "single consumer single producer" scenario between main loop
+// and interrupts. Because of that the behavior is as follows:
+//  - on insertion, item is inserted and than index is advanced
+//  - on removal, item is removed and than index is advanced
 //
 template <typename T, std::size_t N>
 class static_circular_buffer {
