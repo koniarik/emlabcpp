@@ -33,7 +33,7 @@ class static_circular_buffer {
 	using value_type = T;
 	using size_type = std::size_t;
 	using reference = T&;
-	using const_reference = const reference;
+	using const_reference = const T&;
 
 	// public methods
 	// --------------------------------------------------------------------------------
@@ -51,18 +51,18 @@ class static_circular_buffer {
 	static_circular_buffer& operator=(const static_circular_buffer& other) {
 		this->~static_circular_buffer();
 		::new (this) static_circular_buffer(other);
+		return *this;
 	}
 	static_circular_buffer& operator=(static_circular_buffer&& other) {
 		this->~static_circular_buffer();
 		::new (this) static_circular_buffer(std::move(other));
+		return *this;
 	}
 
 	// methods for handling the front side of the circular buffer
 
-	[[nodiscard]] reference front() { return ref_item(data_, from_); }
-	[[nodiscard]] const_reference front() const {
-		return ref_item(data_, from_);
-	}
+	[[nodiscard]] reference front() { return ref_item(from_); }
+	[[nodiscard]] const_reference front() const { return ref_item(from_); }
 
 	T pop_front() {
 		T item = std::move(front());
@@ -73,10 +73,8 @@ class static_circular_buffer {
 
 	// methods for handling the back side of the circular buffer
 
-	[[nodiscard]] reference back() { return ref_item(data_, to_ - 1); }
-	[[nodiscard]] const_reference back() const {
-		return ref_item(data_, to_ - 1);
-	}
+	[[nodiscard]] reference back() { return ref_item(to_ - 1); }
+	[[nodiscard]] const_reference back() const { return ref_item(to_ - 1); }
 
 	void push_back(T item) { emplace_back(std::move(item)); }
 
@@ -102,10 +100,10 @@ class static_circular_buffer {
 	[[nodiscard]] bool full() const { return next(to_) == from_; }
 
 	const_reference operator[](size_type i) const {
-		return ref_item(data_, (from_ + i) % real_size);
+		return ref_item((from_ + i) % real_size);
 	}
 	reference operator[](size_type i) {
-		return ref_item(data_, (from_ + i) % real_size);
+		return ref_item((from_ + i) % real_size);
 	}
 
 	void clear() { purge(); }
@@ -140,7 +138,7 @@ class static_circular_buffer {
 	// scenario, that requires features of C++ we do not want to replicate
 	// and it's bettter to hide them in methods.
 
-	void delete_item(size_type i) { ref_item(data_, i).~T(); }
+	void delete_item(size_type i) { ref_item(i).~T(); }
 
 	template <typename... Args>
 	void emplace_item(size_type i, Args&&... args) {
@@ -148,12 +146,13 @@ class static_circular_buffer {
 		::new (gen_ptr) T(std::forward<Args>(args)...);
 	}
 
-	// Reference to the item in data_storage (just trick to have shared
-	// const/non-const version). std::launder is necessary here per the
-	// paper linked above.
-	template <typename data_storage>
-	static auto& ref_item(data_storage&& s, size_type i) {
-		return *std::launder(reinterpret_cast<T*>(&s[i]));
+	// Reference to the item in data_storage. std::launder is necessary here
+	// per the paper linked above.
+	reference ref_item(size_type i) {
+		return *std::launder(reinterpret_cast<T*>(&data_[i]));
+	}
+	const_reference ref_item(size_type i) const {
+		return *std::launder(reinterpret_cast<const T*>(&data_[i]));
 	}
 
 	// Cleans entire buffer from items.
@@ -170,5 +169,27 @@ class static_circular_buffer {
 		return i == 0 ? real_size - 1 : i - 1;
 	}
 };
+
+template <typename T, std::size_t N>
+[[nodiscard]] inline bool operator==(const static_circular_buffer<T, N>& lh,
+				     const static_circular_buffer<T, N>& rh) {
+	auto size = lh.size();
+	if (size != rh.size()) {
+		return false;
+	}
+
+	for (std::size_t i = 0; i < size; ++i) {
+		if (lh[i] != rh[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+template <typename T, std::size_t N>
+[[nodiscard]] inline bool operator!=(const static_circular_buffer<T, N>& lh,
+				     const static_circular_buffer<T, N>& rh) {
+	return !(lh == rh);
+}
 
 }  // namespace emlabcpp

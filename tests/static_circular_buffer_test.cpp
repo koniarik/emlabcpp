@@ -60,7 +60,6 @@ TEST(static_circular_buffer_test, emplace_back) {
 	EXPECT_EQ(obuff.back(), "ccccc");
 }
 
-
 TEST(static_circular_buffer_test, circler_overflow_trivial) {
 	std::vector<int> tidata = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 	std::vector<int> todata;
@@ -125,3 +124,79 @@ TEST(static_circular_buffer_test, usage) {
 	EXPECT_FALSE(tbuff.full());
 	EXPECT_EQ(tbuff.size(), 1);
 }
+
+TEST(static_circular_buffer_test, copy_trivial) {
+	trivial_buffer tbuff;
+	for (int i : {1, 2, 3, 4, 5}) {
+		tbuff.push_back(i);
+	}
+
+	trivial_buffer cpy{tbuff};
+
+	EXPECT_EQ(tbuff, cpy);
+
+	tbuff.pop_front();
+	cpy.pop_front();
+
+	EXPECT_EQ(tbuff, cpy);
+
+	tbuff.push_back(42);
+
+	EXPECT_NE(tbuff, cpy);
+
+	trivial_buffer cpy2;
+	cpy2 = tbuff;
+
+	EXPECT_EQ(cpy2, tbuff);
+}
+
+TEST(static_circular_buffer_test, copy_object) {
+	obj_buffer obuff;
+	for (std::string s : {"Pack", "my", "box", "with", "five", "dozen",
+			      "liquor", "jugs."}) {
+		obuff.push_back(s);
+	}
+
+	obj_buffer cpy{obuff};
+	EXPECT_EQ(obuff, cpy);
+
+	obj_buffer cpy2;
+	cpy2 = obuff;
+	EXPECT_EQ(obuff, cpy2);
+}
+
+TEST(static_circular_buffer_test, move_trivial) {
+	trivial_buffer tbuff;
+	for (int i : {1, 2, 3, 4, 5}) {
+		tbuff.push_back(i);
+	}
+
+	trivial_buffer cpy{ tbuff };
+	trivial_buffer moved{ std::move(tbuff) };
+
+	EXPECT_EQ(cpy, moved);
+
+	trivial_buffer moved2;
+	moved2 = std::move(moved);
+
+	EXPECT_EQ(cpy, moved2);
+}
+
+TEST(static_circular_buffer_test, move_object ){
+	obj_buffer obuff;
+	for (std::string s : {"Pack", "my", "box", "with", "five", "dozen",
+			      "liquor", "jugs."}) {
+		obuff.push_back(s);
+	}
+
+	obj_buffer cpy{obuff};
+	obj_buffer moved{std:move(obuff)};
+
+	EXPECT_EQ(cpy, moved);
+
+	obj_buffer moved2;
+	moved2 = std::move(moved);
+
+	EXPECT_EQ(cpy, moved2);
+}
+
