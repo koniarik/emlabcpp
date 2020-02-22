@@ -16,6 +16,10 @@ namespace emlabcpp {
 //  - on insertion, item is inserted and than index is advanced
 //  - on removal, item is removed and than index is advanced
 //
+// In case of copy or move operations, the buffer does not have to store the
+// data internally in same manner, the data are equivavlent only from the
+// perspective of push/pop operations.
+//
 template <typename T, std::size_t N>
 class static_circular_buffer {
 	// We need real_size of the buffer to be +1 bigger than number of items
@@ -34,24 +38,42 @@ class static_circular_buffer {
 	// public methods
 	// --------------------------------------------------------------------------------
 	static_circular_buffer() = default;
+	static_circular_buffer(const static_circular_buffer& other) {
+		for (size_type i = 0; i < other.size(); ++i) {
+			push_back(other[i]);
+		}
+	}
+	static_circular_buffer(static_circular_buffer&& other) {
+		while (!other.empty()) {
+			push_back(other.pop_front());
+		}
+	}
+	static_circular_buffer& operator=(const static_circular_buffer& other) {
+		this->~static_circular_buffer();
+		::new (this) static_circular_buffer(other);
+	}
+	static_circular_buffer& operator=(static_circular_buffer&& other) {
+		this->~static_circular_buffer();
+		::new (this) static_circular_buffer(std::move(other));
+	}
 
 	// methods for handling the front side of the circular buffer
 
 	[[nodiscard]] reference front() { return ref_item(data_, from_); }
-
 	[[nodiscard]] const_reference front() const {
 		return ref_item(data_, from_);
 	}
 
-	void pop_front() {
+	T pop_front() {
+		T item = std::move(front());
 		delete_item(from_);
 		from_ = next(from_);
+		return item;
 	}
 
 	// methods for handling the back side of the circular buffer
 
 	[[nodiscard]] reference back() { return ref_item(data_, to_ - 1); }
-
 	[[nodiscard]] const_reference back() const {
 		return ref_item(data_, to_ - 1);
 	}
@@ -78,6 +100,13 @@ class static_circular_buffer {
 	[[nodiscard]] bool empty() const { return to_ == from_; }
 
 	[[nodiscard]] bool full() const { return next(to_) == from_; }
+
+	const_reference operator[](size_type i) const {
+		return ref_item(data_, (from_ + i) % real_size);
+	}
+	reference operator[](size_type i) {
+		return ref_item(data_, (from_ + i) % real_size);
+	}
 
 	void clear() { purge(); }
 
@@ -129,20 +158,9 @@ class static_circular_buffer {
 
 	// Cleans entire buffer from items.
 	void purge() {
-		if (to_ > from_) {
-			for (size_type i = from_; i < to_; ++i) {
-				delete_item(i);
-			}
-			return;
+		while (!empty()) {
+			pop_front();
 		}
-		for (size_type i = 0; i < to_; ++i) {
-			delete_item(i);
-		}
-		for (size_type i = from_; i < real_size; ++i) {
-			delete_item(i);
-		}
-		to_ = 0;
-		from_ = 0;
 	}
 
 	// Use this only when moving the indexes in the circular buffer -

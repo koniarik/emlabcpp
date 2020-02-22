@@ -1,9 +1,17 @@
 
-build_tests:
-	cmake -Bbuild tests/
+# conditionally enables sanitizers
+EXTRAARGS=$(if $(SANITIZER), -DCMAKE_CXX_FLAGS="-fsanitize=$(SANITIZER)" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=$(SANITIZER)", )
+
+.PHONY: clean build_test exec_test test
+
+clean:
+	rm -rf ./build
+
+build_test:
+	cmake -Bbuild ./tests/ $(EXTRAARGS)
 	make -Cbuild -j
 
-exec_tests: build_tests
+exec_test: build_test
 	cd build && ctest
 
-tests: exec_tests
+test: exec_test
