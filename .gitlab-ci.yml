@@ -8,7 +8,7 @@ test_bare:
   tags:
     - shared-fi
   script:
-    - make_test
+    - make test
 
 test_address:
   stage: test
