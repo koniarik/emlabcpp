@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_compile_options(
-	-Werror -Wextra -Wpedantic -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -Wnull-dereference -Wformat=2 -Wduplicated-cond -Wlogical-op -Wuseless-cast -Wunreachable-code -Wsign-conversion -Wconversion -Wdouble-promotion
+	-Werror -Wextra -Wpedantic -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -Wnull-dereference -Wformat=2 -Wduplicated-cond -Wlogical-op -Wuseless-cast -Wunreachable-code -Wsign-conversion -Wconversion -Wdouble-promotion -fmax-errors=5
 	)
 
 include_directories(../)
@@ -19,4 +19,8 @@ include_directories(../)
 add_executable(static_circular_buffer_test static_circular_buffer_test.cpp)
 target_link_libraries(static_circular_buffer_test GTest::GTest GTest::Main)
 add_test(NAME static_circular_buffer_test COMMAND static_circular_buffer_test)
+
+add_executable(algorithm_test algorithm_test.cpp)
+target_link_libraries(algorithm_test GTest::GTest GTest::Main)
+add_test(NAME algorithm_test COMMAND algorithm_test)
 
