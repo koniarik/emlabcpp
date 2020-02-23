@@ -15,3 +15,6 @@ exec_test: build_test
 	cd build && ctest
 
 test: exec_test
+
+single_header: 
+	quom include/main.h emlabcpp.h
