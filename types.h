@@ -178,4 +178,4 @@ struct is_to_stream_writable< S, T, std::void_t< decltype( std::declval< S& >() 
 template < typename S, typename T >
 constexpr bool is_to_stream_writable_v = is_to_stream_writable< S, T >::value;
 
-}  // namespace schpin
+}  // namespace emplabcpp
