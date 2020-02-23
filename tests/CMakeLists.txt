@@ -16,11 +16,12 @@ add_compile_options(
 
 include_directories(../)
 
-add_executable(static_circular_buffer_test static_circular_buffer_test.cpp)
-target_link_libraries(static_circular_buffer_test GTest::GTest GTest::Main)
-add_test(NAME static_circular_buffer_test COMMAND static_circular_buffer_test)
+function(add_emlabcpp_test name)
+    add_executable(${name} ${name}.cpp)
+    target_link_libraries(${name} GTest::GTest GTest::Main)
+    add_test(NAME ${name} COMMAND ${name})    
+endfunction()
 
-add_executable(algorithm_test algorithm_test.cpp)
-target_link_libraries(algorithm_test GTest::GTest GTest::Main)
-add_test(NAME algorithm_test COMMAND algorithm_test)
+add_emlabcpp_test(static_circular_buffer_test)
+add_emlabcpp_test(algorithm_test)
 
