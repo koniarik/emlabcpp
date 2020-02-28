@@ -1314,13 +1314,11 @@ namespace emlabcpp {
 
 /** Class representing generic quantity.
  *
- * Quantities are types which simply overlay basic numeric type (ValueType) and are tagged with some
- * unique type (Tag). The C++ type system prevents you from passing values of quantites of different
- * tags, unless explicitly stated!
+ * Quantities are types which simply overlay basic numeric type (ValueType) and give you abillity to
+ * create custom types via CRTP. The C++ type system prevents you from passing values of quantites
+ * of different implementation type.
  *
- * So if your function expects quantity with tag 'distance_tag', you can't pass it 'velocity_tag'.
- *
- * Only quantities of same Tag and ValueType are allowed following operations:
+ * The overlay implements:
  * 	+=,-=
  * 	+,-
  * 	==, !=
@@ -1329,8 +1327,6 @@ namespace emlabcpp {
  * Quantity can be multiplied or divided by it's ValueType - /,*,/=,*=
  * Additionally, we support these operations over quantity:
  * 	cos, sin
- *
- * @param Tag template param that specifies the semantical meaning of the physical quantity.
  *
  * Credits should go to https://github.com/joboccara/NamedType as I inspired by project by this
  * blogger!
@@ -1353,13 +1349,13 @@ class quantity {
         // Const reference to the internal value
         constexpr ValueType operator*() const noexcept { return value_; }
 
-        // Add other quantity of same tag and value_type
+        // Add other quantity of same T and value_type
         constexpr T &operator+=(const quantity other) noexcept {
                 value_ += *other;
                 return impl();
         }
 
-        // Subtract other quantity of same tag and value_type
+        // Subtract other quantity of same T and value_type
         constexpr T &operator-=(const quantity other) noexcept {
                 value_ -= *other;
                 return impl();
@@ -1384,13 +1380,13 @@ class quantity {
         }
 };
 
-// Sum of quantities with same tag and value_type
+// Sum of quantities with same T and value_type
 template <typename T, typename ValueType>
 constexpr T operator+(quantity<T, ValueType> lhs, const quantity<T, ValueType> rhs) {
         return lhs += rhs;
 }
 
-// Subtraction of quantities with same tag and value_type
+// Subtraction of quantities with same T and value_type
 template <typename T, typename ValueType>
 constexpr T operator-(quantity<T, ValueType> lhs, const quantity<T, ValueType> rhs) {
         return lhs -= rhs;
@@ -1432,13 +1428,13 @@ constexpr T abs(const quantity<T, ValueType> q) {
         return T(std::abs(*q));
 }
 
-// Returns cosinus of the quantity - untagged
+// Returns cosinus of the quantity as double
 template <typename T, typename ValueType>
 constexpr double cos(const quantity<T, ValueType> u) {
         return std::cos(*u);
 }
 
-// Returns sinus of the quantity - untagged
+// Returns sinus of the quantity as double
 template <typename T, typename ValueType>
 constexpr double sin(const quantity<T, ValueType> u) {
         return std::sin(*u);
@@ -1497,20 +1493,13 @@ constexpr ValueType operator/(const ValueType val, const quantity<T, ValueType> 
 // The quantity has defined partital specialization of std::numeric_limits,
 // works as is intuitive.
 template <typename T, typename ValueType>
-class std::numeric_limits<emlabcpp::quantity<T, ValueType>> {
-      public:
-        constexpr static emlabcpp::quantity<T, ValueType> lowest() {
-                return emlabcpp::quantity<T, ValueType>{std::numeric_limits<ValueType>::lowest()};
-        }
-        constexpr static emlabcpp::quantity<T, ValueType> min() {
-                return emlabcpp::quantity<T, ValueType>{std::numeric_limits<ValueType>::min()};
-        }
-        constexpr static emlabcpp::quantity<T, ValueType> max() {
-                return emlabcpp::quantity<T, ValueType>{std::numeric_limits<ValueType>::max()};
-        }
+struct std::numeric_limits<emlabcpp::quantity<T, ValueType>> {
+        constexpr static T lowest() { return T{std::numeric_limits<ValueType>::lowest()}; }
+        constexpr static T min() { return T{std::numeric_limits<ValueType>::min()}; }
+        constexpr static T max() { return T{std::numeric_limits<ValueType>::max()}; }
 };
 
-// Hash of quantity is hash of it's value and Tag::get_unit() xored.
+// Hash of quantity is hash of it's value and T::get_unit() xored.
 template <typename T, typename ValueType>
 struct std::hash<emlabcpp::quantity<T, ValueType>> {
         std::size_t operator()(const emlabcpp::quantity<T, ValueType> q) {
@@ -1523,21 +1512,21 @@ struct std::hash<emlabcpp::quantity<T, ValueType>> {
 
 namespace emlabcpp {
 
-// Physical quantity tag represents all physical units defined using the International System of
+// Physical quantity represents all physical units defined using the International System of
 // Units and more. The idea is that each used unit, is either one of the seven basic units, or
 // defined as some combination of them.  The combination is multiplication of exponents of basic
 // units.
 //
 // So, velocity is distance per time - m*s^-1.
 //
-// We defined each physical unit by defining a tag, that has exponent of each basic unit as
-// exponent. This makes it possible to specify any unit using this tag.
+// We defined each physical unit by using a template, that has exponent of each basic unit as
+// exponent. This makes it possible to specify any unit using this class.
 //
 // We expand this by providing two additional 'basic' units - angle (which is handy for us) and
 // byte.
 //
 // Given that we have the exponents of basic units as integers in the type, we can write generic
-// multiplication and division between all possible tags.
+// multiplication and division between all possible templates.
 //
 // This trick is inspired by the haskell's dimensional library which does the same.
 //
@@ -1590,12 +1579,11 @@ using radius              = length;
 // Constants of units that are relevant for us
 constexpr angle PI = angle{float(std::acos(-1))};
 
-// Multiplication of quantities of physical_quantiy_tag multiplies the internal
+// Multiplication of quantities of physical_quantiy multiplies the internal
 // values and the result is a type, where the exponents of each side of the
 // multiplication are summed.
 template <int l0, int mass0, int t0, int curr0, int temp0, int mol0, int li0, int angle0, int byte0,
-          int l1, int mass1, int t1, int curr1, int temp1, int mol1, int li1, int angle1, int byte1,
-          typename ValueType>
+          int l1, int mass1, int t1, int curr1, int temp1, int mol1, int li1, int angle1, int byte1>
 constexpr auto
 operator*(physical_quantity<l0, mass0, t0, curr0, temp0, mol0, li0, angle0, byte0> lh,
           physical_quantity<l1, mass1, t1, curr1, temp1, mol1, li1, angle1, byte1> rh) {
@@ -1604,12 +1592,11 @@ operator*(physical_quantity<l0, mass0, t0, curr0, temp0, mol0, li0, angle0, byte
                                                                                          (*rh)};
 }
 
-// Divison of quantities of physical_quantiy_tag divides the internal values and
+// Divison of quantities of physical_quantiy divides the internal values and
 // the result is a type, where the exponents of each side of the multiplication
 // are subtracted.
 template <int l0, int mass0, int t0, int curr0, int temp0, int mol0, int li0, int angle0, int byte0,
-          int l1, int mass1, int t1, int curr1, int temp1, int mol1, int li1, int angle1, int byte1,
-          typename ValueType>
+          int l1, int mass1, int t1, int curr1, int temp1, int mol1, int li1, int angle1, int byte1>
 constexpr auto
 operator/(physical_quantity<l0, mass0, t0, curr0, temp0, mol0, li0, angle0, byte0> lh,
           physical_quantity<l1, mass1, t1, curr1, temp1, mol1, li1, angle1, byte1> rh) {
@@ -1620,14 +1607,24 @@ operator/(physical_quantity<l0, mass0, t0, curr0, temp0, mol0, li0, angle0, byte
 
 // Square root of physical quantity is square root of it's value and the
 // exponents are divided in half.
-template <int l, int mass, int t, int curr, int temp, int mol, int li, int angle, int byte,
-          typename ValueType>
+template <int l, int mass, int t, int curr, int temp, int mol, int li, int angle, int byte>
 constexpr auto sqrt(physical_quantity<l, mass, t, curr, temp, mol, li, angle, byte> val) {
         return physical_quantity<l / 2, mass / 2, t / 2, curr / 2, temp / 2, mol / 2, li / 2,
-                                 angle / 2, byte / 2>{ValueType{std::sqrt(*val)}};
+                                 angle / 2, byte / 2>{float{std::sqrt(*val)}};
 }
 
 } // namespace emlabcpp
+
+template <int l, int mass, int t, int curr, int temp, int mol, int li, int angle, int byte>
+struct std::numeric_limits<
+    emlabcpp::physical_quantity<l, mass, t, curr, temp, mol, li, angle, byte>>
+    : std::numeric_limits<emlabcpp::quantity<
+          emlabcpp::physical_quantity<l, mass, t, curr, temp, mol, li, angle, byte>, float>> {};
+
+template <int l, int mass, int t, int curr, int temp, int mol, int li, int angle, int byte>
+struct std::hash<emlabcpp::physical_quantity<l, mass, t, curr, temp, mol, li, angle, byte>>
+    : std::hash<emlabcpp::quantity<
+          emlabcpp::physical_quantity<l, mass, t, curr, temp, mol, li, angle, byte>, float>> {};
 
 #inlude "view.h"
 #include <tuple>
