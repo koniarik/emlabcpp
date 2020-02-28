@@ -24,7 +24,12 @@ namespace emlabcpp {
 // This trick is inspired by the haskell's dimensional library which does the same.
 //
 template <int l, int mass, int t, int current, int temp, int mol, int li, int angle, int byte>
-struct physical_quantity_tag {
+struct physical_quantity
+    : quantity<physical_quantity<l, mass, t, current, temp, mol, li, angle, byte>, float> {
+
+        using quantity<physical_quantity<l, mass, t, current, temp, mol, li, angle, byte>,
+                       float>::quantity;
+
         static std::string get_unit() {
                 auto seg = [](std::string unit, int i) -> std::string {
                         if (i == 0) {
@@ -42,25 +47,25 @@ struct physical_quantity_tag {
 };
 
 // Table of alieses for most used physical units
-using unitless            = quantity<physical_quantity_tag<0, 0, 0, 0, 0, 0, 0, 0, 0>, float>;
-using length              = quantity<physical_quantity_tag<1, 0, 0, 0, 0, 0, 0, 0, 0>, float>;
-using mass                = quantity<physical_quantity_tag<0, 1, 0, 0, 0, 0, 0, 0, 0>, float>;
-using timeq               = quantity<physical_quantity_tag<0, 0, 1, 0, 0, 0, 0, 0, 0>, float>;
-using current             = quantity<physical_quantity_tag<0, 0, 0, 1, 0, 0, 0, 0, 0>, float>;
-using temp                = quantity<physical_quantity_tag<0, 0, 0, 0, 1, 0, 0, 0, 0>, float>;
-using amount_of_substance = quantity<physical_quantity_tag<0, 0, 0, 0, 0, 1, 0, 0, 0>, float>;
-using luminous_intensity  = quantity<physical_quantity_tag<0, 0, 0, 0, 0, 0, 1, 0, 0>, float>;
-using angle               = quantity<physical_quantity_tag<0, 0, 0, 0, 0, 0, 0, 1, 0>, float>;
-using byte                = quantity<physical_quantity_tag<0, 0, 0, 0, 0, 0, 0, 0, 1>, float>;
-using angular_velocity    = quantity<physical_quantity_tag<0, 0, -1, 0, 0, 0, 0, 1, 0>, float>;
-using area                = quantity<physical_quantity_tag<2, 0, 0, 0, 0, 0, 0, 0, 0>, float>;
-using volume              = quantity<physical_quantity_tag<3, 0, 0, 0, 0, 0, 0, 0, 0>, float>;
-using velocity            = quantity<physical_quantity_tag<1, 0, -1, 0, 0, 0, 0, 0, 0>, float>;
-using frequency           = quantity<physical_quantity_tag<0, 0, -1, 0, 0, 0, 0, 0, 0>, float>;
-using force               = quantity<physical_quantity_tag<1, 1, -2, 0, 0, 0, 0, 0, 0>, float>;
-using power               = quantity<physical_quantity_tag<2, 1, -3, 0, 0, 0, 0, 0, 0>, float>;
-using voltage             = quantity<physical_quantity_tag<2, 1, -3, -1, 0, 0, 0, 0, 0>, float>;
-using resistance          = quantity<physical_quantity_tag<2, 1, -3, -2, 0, 0, 0, 0, 0>, float>;
+using unitless            = physical_quantity<0, 0, 0, 0, 0, 0, 0, 0, 0>;
+using length              = physical_quantity<1, 0, 0, 0, 0, 0, 0, 0, 0>;
+using mass                = physical_quantity<0, 1, 0, 0, 0, 0, 0, 0, 0>;
+using timeq               = physical_quantity<0, 0, 1, 0, 0, 0, 0, 0, 0>;
+using current             = physical_quantity<0, 0, 0, 1, 0, 0, 0, 0, 0>;
+using temp                = physical_quantity<0, 0, 0, 0, 1, 0, 0, 0, 0>;
+using amount_of_substance = physical_quantity<0, 0, 0, 0, 0, 1, 0, 0, 0>;
+using luminous_intensity  = physical_quantity<0, 0, 0, 0, 0, 0, 1, 0, 0>;
+using angle               = physical_quantity<0, 0, 0, 0, 0, 0, 0, 1, 0>;
+using byte                = physical_quantity<0, 0, 0, 0, 0, 0, 0, 0, 1>;
+using angular_velocity    = physical_quantity<0, 0, -1, 0, 0, 0, 0, 1, 0>;
+using area                = physical_quantity<2, 0, 0, 0, 0, 0, 0, 0, 0>;
+using volume              = physical_quantity<3, 0, 0, 0, 0, 0, 0, 0, 0>;
+using velocity            = physical_quantity<1, 0, -1, 0, 0, 0, 0, 0, 0>;
+using frequency           = physical_quantity<0, 0, -1, 0, 0, 0, 0, 0, 0>;
+using force               = physical_quantity<1, 1, -2, 0, 0, 0, 0, 0, 0>;
+using power               = physical_quantity<2, 1, -3, 0, 0, 0, 0, 0, 0>;
+using voltage             = physical_quantity<2, 1, -3, -1, 0, 0, 0, 0, 0>;
+using resistance          = physical_quantity<2, 1, -3, -2, 0, 0, 0, 0, 0>;
 using distance            = length;
 using radius              = length;
 
@@ -74,16 +79,11 @@ template <int l0, int mass0, int t0, int curr0, int temp0, int mol0, int li0, in
           int l1, int mass1, int t1, int curr1, int temp1, int mol1, int li1, int angle1, int byte1,
           typename ValueType>
 constexpr auto
-operator*(quantity<physical_quantity_tag<l0, mass0, t0, curr0, temp0, mol0, li0, angle0, byte0>,
-                   ValueType>
-              lh,
-          quantity<physical_quantity_tag<l1, mass1, t1, curr1, temp1, mol1, li1, angle1, byte1>,
-                   ValueType>
-              rh) {
-        return quantity<
-            physical_quantity_tag<l0 + l1, mass0 + mass1, t0 + t1, curr0 + curr1, temp0 + temp1,
-                                  mol0 + mol1, li0 + li1, angle0 + angle1, byte0 + byte1>,
-            ValueType>{(*lh) * (*rh)};
+operator*(physical_quantity<l0, mass0, t0, curr0, temp0, mol0, li0, angle0, byte0> lh,
+          physical_quantity<l1, mass1, t1, curr1, temp1, mol1, li1, angle1, byte1> rh) {
+        return physical_quantity<l0 + l1, mass0 + mass1, t0 + t1, curr0 + curr1, temp0 + temp1,
+                                 mol0 + mol1, li0 + li1, angle0 + angle1, byte0 + byte1>{(*lh) *
+                                                                                         (*rh)};
 }
 
 // Divison of quantities of physical_quantiy_tag divides the internal values and
@@ -93,27 +93,20 @@ template <int l0, int mass0, int t0, int curr0, int temp0, int mol0, int li0, in
           int l1, int mass1, int t1, int curr1, int temp1, int mol1, int li1, int angle1, int byte1,
           typename ValueType>
 constexpr auto
-operator/(quantity<physical_quantity_tag<l0, mass0, t0, curr0, temp0, mol0, li0, angle0, byte0>,
-                   ValueType>
-              lh,
-          quantity<physical_quantity_tag<l1, mass1, t1, curr1, temp1, mol1, li1, angle1, byte1>,
-                   ValueType>
-              rh) {
-        return quantity<
-            physical_quantity_tag<l0 - l1, mass0 - mass1, t0 - t1, curr0 - curr1, temp0 - temp1,
-                                  mol0 - mol1, li0 - li1, angle0 - angle1, byte0 - byte1>,
-            ValueType>{(*lh) / (*rh)};
+operator/(physical_quantity<l0, mass0, t0, curr0, temp0, mol0, li0, angle0, byte0> lh,
+          physical_quantity<l1, mass1, t1, curr1, temp1, mol1, li1, angle1, byte1> rh) {
+        return physical_quantity<l0 - l1, mass0 - mass1, t0 - t1, curr0 - curr1, temp0 - temp1,
+                                 mol0 - mol1, li0 - li1, angle0 - angle1, byte0 - byte1>{(*lh) /
+                                                                                         (*rh)};
 }
 
 // Square root of physical quantity is square root of it's value and the
 // exponents are divided in half.
 template <int l, int mass, int t, int curr, int temp, int mol, int li, int angle, int byte,
           typename ValueType>
-constexpr auto
-sqrt(quantity<physical_quantity_tag<l, mass, t, curr, temp, mol, li, angle, byte>, ValueType> val) {
-        return quantity<physical_quantity_tag<l / 2, mass / 2, t / 2, curr / 2, temp / 2, mol / 2,
-                                              li / 2, angle / 2, byte / 2>,
-                        ValueType>{ValueType{std::sqrt(*val)}};
+constexpr auto sqrt(physical_quantity<l, mass, t, curr, temp, mol, li, angle, byte> val) {
+        return physical_quantity<l / 2, mass / 2, t / 2, curr / 2, temp / 2, mol / 2, li / 2,
+                                 angle / 2, byte / 2>{ValueType{std::sqrt(*val)}};
 }
 
 } // namespace emlabcpp
