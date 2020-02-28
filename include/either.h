@@ -1,5 +1,5 @@
-#include "types.h"
 #include "static_circular_buffer.h"
+#include "types.h"
 
 #include <optional>
 #include <tuple>
