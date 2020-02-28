@@ -28,3 +28,9 @@ TEST(physical_quantity_test, basic) {
         EXPECT_EQ(max(unitless{0.5f}, unitless{1.f}), unitless{1.f});
         EXPECT_EQ(min(unitless{0.5f}, unitless{1.f}), unitless{0.5f});
 }
+
+TEST(physical_quantity_test, specializations) {
+        EXPECT_EQ(*std::numeric_limits<unitless>::lowest(), std::numeric_limits<float>::lowest());
+        EXPECT_EQ(*std::numeric_limits<unitless>::min(), std::numeric_limits<float>::min());
+        EXPECT_EQ(*std::numeric_limits<unitless>::max(), std::numeric_limits<float>::max());
+}

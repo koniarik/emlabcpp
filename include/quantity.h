@@ -10,13 +10,11 @@ namespace emlabcpp {
 
 /** Class representing generic quantity.
  *
- * Quantities are types which simply overlay basic numeric type (ValueType) and are tagged with some
- * unique type (Tag). The C++ type system prevents you from passing values of quantites of different
- * tags, unless explicitly stated!
+ * Quantities are types which simply overlay basic numeric type (ValueType) and give you abillity to
+ * create custom types via CRTP. The C++ type system prevents you from passing values of quantites
+ * of different implementation type.
  *
- * So if your function expects quantity with tag 'distance_tag', you can't pass it 'velocity_tag'.
- *
- * Only quantities of same Tag and ValueType are allowed following operations:
+ * The overlay implements:
  * 	+=,-=
  * 	+,-
  * 	==, !=
@@ -25,8 +23,6 @@ namespace emlabcpp {
  * Quantity can be multiplied or divided by it's ValueType - /,*,/=,*=
  * Additionally, we support these operations over quantity:
  * 	cos, sin
- *
- * @param Tag template param that specifies the semantical meaning of the physical quantity.
  *
  * Credits should go to https://github.com/joboccara/NamedType as I inspired by project by this
  * blogger!
@@ -49,13 +45,13 @@ class quantity {
         // Const reference to the internal value
         constexpr ValueType operator*() const noexcept { return value_; }
 
-        // Add other quantity of same tag and value_type
+        // Add other quantity of same T and value_type
         constexpr T &operator+=(const quantity other) noexcept {
                 value_ += *other;
                 return impl();
         }
 
-        // Subtract other quantity of same tag and value_type
+        // Subtract other quantity of same T and value_type
         constexpr T &operator-=(const quantity other) noexcept {
                 value_ -= *other;
                 return impl();
@@ -80,13 +76,13 @@ class quantity {
         }
 };
 
-// Sum of quantities with same tag and value_type
+// Sum of quantities with same T and value_type
 template <typename T, typename ValueType>
 constexpr T operator+(quantity<T, ValueType> lhs, const quantity<T, ValueType> rhs) {
         return lhs += rhs;
 }
 
-// Subtraction of quantities with same tag and value_type
+// Subtraction of quantities with same T and value_type
 template <typename T, typename ValueType>
 constexpr T operator-(quantity<T, ValueType> lhs, const quantity<T, ValueType> rhs) {
         return lhs -= rhs;
@@ -128,13 +124,13 @@ constexpr T abs(const quantity<T, ValueType> q) {
         return T(std::abs(*q));
 }
 
-// Returns cosinus of the quantity - untagged
+// Returns cosinus of the quantity as double
 template <typename T, typename ValueType>
 constexpr double cos(const quantity<T, ValueType> u) {
         return std::cos(*u);
 }
 
-// Returns sinus of the quantity - untagged
+// Returns sinus of the quantity as double
 template <typename T, typename ValueType>
 constexpr double sin(const quantity<T, ValueType> u) {
         return std::sin(*u);
@@ -193,20 +189,13 @@ constexpr ValueType operator/(const ValueType val, const quantity<T, ValueType> 
 // The quantity has defined partital specialization of std::numeric_limits,
 // works as is intuitive.
 template <typename T, typename ValueType>
-class std::numeric_limits<emlabcpp::quantity<T, ValueType>> {
-      public:
-        constexpr static emlabcpp::quantity<T, ValueType> lowest() {
-                return emlabcpp::quantity<T, ValueType>{std::numeric_limits<ValueType>::lowest()};
-        }
-        constexpr static emlabcpp::quantity<T, ValueType> min() {
-                return emlabcpp::quantity<T, ValueType>{std::numeric_limits<ValueType>::min()};
-        }
-        constexpr static emlabcpp::quantity<T, ValueType> max() {
-                return emlabcpp::quantity<T, ValueType>{std::numeric_limits<ValueType>::max()};
-        }
+struct std::numeric_limits<emlabcpp::quantity<T, ValueType>> {
+        constexpr static T lowest() { return T{std::numeric_limits<ValueType>::lowest()}; }
+        constexpr static T min() { return T{std::numeric_limits<ValueType>::min()}; }
+        constexpr static T max() { return T{std::numeric_limits<ValueType>::max()}; }
 };
 
-// Hash of quantity is hash of it's value and Tag::get_unit() xored.
+// Hash of quantity is hash of it's value and T::get_unit() xored.
 template <typename T, typename ValueType>
 struct std::hash<emlabcpp::quantity<T, ValueType>> {
         std::size_t operator()(const emlabcpp::quantity<T, ValueType> q) {
