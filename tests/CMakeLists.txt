@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_compile_options(
+  -g
   -Werror
   -Wextra
   -Wpedantic
@@ -40,3 +41,6 @@ endfunction()
 
 add_emlabcpp_test(static_circular_buffer_test)
 add_emlabcpp_test(algorithm_test)
+add_emlabcpp_test(numeric_iterator_test)
+add_emlabcpp_test(access_iterator_test)
+add_emlabcpp_test(either_test)

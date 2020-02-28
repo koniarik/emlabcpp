@@ -54,7 +54,7 @@ constexpr T clamp(T val, T from, T to) {
 // maps input value 'input' from input range to equivalent value in output range
 template <typename U, typename T>
 constexpr U map_range(T input, T from_min, T from_max, U to_min, U to_max) {
-        return to_min + (to_max - to_min) * (input - from_min) / (from_max / from_min);
+        return to_min + (to_max - to_min) * (input - from_min) / (from_max - from_min);
 }
 
 // Returns the size of the container, regardless of what it is
