@@ -351,7 +351,7 @@ constexpr T clamp(T val, T from, T to) {
 // maps input value 'input' from input range to equivalent value in output range
 template <typename U, typename T>
 constexpr U map_range(T input, T from_min, T from_max, U to_min, U to_max) {
-        return to_min + (to_max - to_min) * (input - from_min) / (from_max / from_min);
+        return to_min + (to_max - to_min) * (input - from_min) / (from_max - from_min);
 }
 
 // Returns the size of the container, regardless of what it is
@@ -865,6 +865,860 @@ template <typename T, std::size_t N>
 [[nodiscard]] inline bool operator!=(const static_circular_buffer<T, N> &lh,
                                      const static_circular_buffer<T, N> &rh) {
         return !(lh == rh);
+}
+
+} // namespace emlabcpp
+
+#include <optional>
+#include <tuple>
+#include <type_traits>
+#include <utility>
+
+namespace emlabcpp {
+
+// Either is heterogenous structure that holds one of the two types specified.
+// This is stored as union, so the memory requirement of either is always the size of the bigger
+// element + constant for identifying which on is contained.
+//
+// The intervall value can't be directly accessed, unless both sides are same, in which case join()
+// returns the internal value. (Which is safe if both are same) In case they are different, you can
+// only access the value by either convert_left/right, bind_left/right or match, which calls
+// appropiate callable based on whenever left or right item is present.
+//
+// This prevents user of the code from errors in accessing proper side of the either.
+template <typename LH, typename RH>
+class either {
+        union {
+                LH left_;
+                RH right_;
+        };
+
+        enum class item : uint8_t { LEFT = 0, RIGHT = 1 };
+
+        item id_;
+
+      public:
+        using left_item  = LH;
+        using right_item = RH;
+
+        either(left_item &&item) noexcept : id_(item::LEFT) {
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                new (&left_) left_item(std::move(item));
+        }
+
+        either(const left_item &item) noexcept : id_(item::LEFT) {
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                new (&left_) left_item(item);
+        }
+
+        template <typename U = RH, typename = std::enable_if_t<!std::is_same_v<LH, U>>>
+        either(RH &&item) noexcept : id_(item::RIGHT) {
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                new (&right_) right_item(std::move(item));
+        }
+
+        template <typename U = RH, typename = std::enable_if_t<!std::is_same_v<LH, U>>>
+        either(const RH &item) noexcept : id_(item::RIGHT) {
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                new (&right_) right_item(item);
+        }
+
+        either(const either &other) noexcept : id_(other.id_) {
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        new (&left_) left_item(other.left_);
+                } else {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        new (&right_) right_item(other.right_);
+                }
+        }
+
+        either(either &&other) noexcept : id_(other.id_) {
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        new (&left_) left_item(std::move(other.left_));
+                } else {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        new (&right_) right_item(std::move(other.right_));
+                }
+        }
+
+        either &operator=(const either &other) {
+                if (other.id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        *this = other.left_;
+                } else {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        *this = other.right_;
+                }
+                return *this;
+        }
+
+        either &operator=(either &&other) noexcept {
+                if (other.id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        *this = std::move(other.left_);
+                } else {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        *this = std::move(other.right_);
+                }
+                return *this;
+        }
+
+        either &operator=(const left_item &other) {
+                destruct();
+                id_ = item::LEFT;
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                new (&left_) left_item(other);
+                return *this;
+        }
+        either &operator=(left_item &&other) {
+                destruct();
+                id_ = item::LEFT;
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                new (&left_) left_item(std::move(other));
+                return *this;
+        }
+
+        template <typename U = right_item, typename = std::enable_if_t<!std::is_same_v<LH, U>>>
+        either &operator=(const right_item &other) {
+                destruct();
+                id_ = item::RIGHT;
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                new (&right_) right_item(other);
+                return *this;
+        }
+
+        template <typename U = right_item, typename = std::enable_if_t<!std::is_same_v<LH, U>>>
+        either &operator=(RH &&other) {
+                destruct();
+                id_ = item::RIGHT;
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                new (&right_) right_item(std::move(other));
+                return *this;
+        }
+
+        constexpr bool is_left() const { return id_ == item::LEFT; }
+
+        template <typename LeftFunction>
+        auto convert_left(LeftFunction &&left_f) & {
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                using return_either = either<decltype(left_f(left_)), right_item>;
+
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        return return_either{left_f(left_)};
+                }
+
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                return return_either{right_};
+        }
+
+        template <typename LeftFunction>
+        auto convert_left(LeftFunction &&left_f) && {
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                using return_either = either<decltype(left_f(std::move(left_))), right_item>;
+
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        return return_either{left_f(std::move(left_))};
+                }
+
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                return return_either{std::move(right_)};
+        }
+
+        template <typename RightFunction>
+        auto convert_right(RightFunction &&right_f) & {
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                using return_either = either<left_item, decltype(right_f(right_))>;
+
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        return return_either{left_};
+                }
+
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                return return_either{right_f(right_)};
+        }
+
+        template <typename RightFunction>
+        auto convert_right(RightFunction &&right_f) && {
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                using return_either = either<left_item, decltype(right_f(std::move(right_)))>;
+
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        return return_either{std::move(left_)};
+                }
+
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                return return_either{right_f(std::move(right_))};
+        }
+
+        template <typename LeftFunction, typename RightFunction>
+        void match(LeftFunction &&left_f, RightFunction &&right_f) & {
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        left_f(left_);
+                } else {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        right_f(right_);
+                }
+        }
+
+        template <typename LeftFunction, typename RightFunction>
+        void match(LeftFunction &&left_f, RightFunction &&right_f) const & {
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        left_f(left_);
+                } else {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        right_f(right_);
+                }
+        }
+
+        template <typename LeftFunction, typename RightFunction>
+        void match(LeftFunction &&left_f, RightFunction &&right_f) && {
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        left_f(std::move(left_));
+                } else {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        right_f(std::move(right_));
+                }
+        }
+
+        template <typename U = left_item, typename K = right_item>
+        std::enable_if_t<std::is_same_v<U, K>, left_item> join() && {
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        return std::move(left_);
+                }
+
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                return std::move(right_);
+        }
+        template <typename U = left_item, typename K = right_item>
+        std::enable_if_t<std::is_same_v<U, K>, LH> join() & {
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        return left_;
+                }
+
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                return right_;
+        }
+
+        template <typename UnaryFunction>
+        auto bind_left(UnaryFunction &&left_f) & {
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                using return_either = decltype(left_f(left_));
+
+                static_assert(std::is_same_v<typename return_either::right_item, right_item>,
+                              "In bind left, the right_types has to be same!");
+
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        return left_f(left_);
+                }
+
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                return return_either{right_};
+        }
+        template <typename UnaryFunction>
+        auto bind_left(UnaryFunction &&left_f) && {
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                using return_either = decltype(left_f(std::move(left_)));
+
+                static_assert(std::is_same_v<typename return_either::right_item, right_item>,
+                              "In bind left, the right_types has to be same!");
+
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        return left_f(std::move(left_));
+                }
+
+                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                return return_either{std::move(right_)};
+        }
+
+        ~either() { destruct(); }
+
+      private:
+        void destruct() {
+                if (id_ == item::LEFT) {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        left_.~left_item();
+                } else {
+                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
+                        right_.~right_item();
+                }
+        }
+};
+
+// Marks empty assembly
+struct empty_assembly_tag {};
+
+// Function gets a set of various std::optionals and either returns all their values assembled as
+// tuple or 'empty_assembly_tag' implicating that some of the optionals was empty.
+template <typename... Ts>
+inline either<std::tuple<Ts...>, empty_assembly_tag>
+assemble_optionals(std::optional<Ts> &&... opt) {
+        if ((... && opt)) {
+                return std::make_tuple<Ts...>(std::forward<Ts>(*opt)...);
+        }
+
+        return empty_assembly_tag{};
+}
+
+// Function expects eithers of any left type, but same right type.
+// These are acceessed and either tuple of _all_ left items is returned or vector of any of right
+// items.
+//
+// This returns appropiated either< std::tuple< LeftItems... >, static_circular_buffer< Righitems, N
+// >>. This is handy for uses cases when you have expected values of multiple functions on the left,
+// and their errors on the right. It either returns all values or the errors that happend.
+
+template <typename FirstE, typename... Eithers>
+inline auto assemble_left_collect_right(FirstE &&first, Eithers &&... others) {
+        static_assert(are_same_v<typename Eithers::right_item...>,
+                      "Right items of Eithers have to be same for collection!");
+
+        using right_type        = typename FirstE::right_item;
+        constexpr std::size_t N = 1 + sizeof...(Eithers);
+
+        static_circular_buffer<right_type, N> collection;
+
+        auto convert = [&](auto &&either) {
+                using eitherT   = decltype(either);
+                using left_type = typename std::remove_reference_t<eitherT>::left_item;
+
+                return std::forward<eitherT>(either)
+                    .convert_left([&](auto &&item) { //
+                            return std::make_optional(std::forward<decltype(item)>(item));
+                    })
+                    .convert_right([&](auto &&item) {
+                            collection.push_back(std::forward<decltype(item)>(item));
+                            return std::optional<left_type>();
+                    })
+                    .join();
+        };
+
+        return assemble_optionals(convert(std::forward<FirstE>(first)),
+                                  convert(std::forward<Eithers>(others))...)
+            .convert_right([&](empty_assembly_tag) { //
+                    return collection;
+            });
+}
+} // namespace emlabcpp
+
+#include <iterator>
+
+namespace emlabcpp {
+
+template <typename T>
+struct generic_iterator_traits;
+
+template <typename T>
+class generic_iterator {
+
+        T &      impl() { return static_cast<T &>(*this); }
+        T const &impl() const { return static_cast<T const &>(*this); }
+
+      public:
+        using value_type        = typename generic_iterator_traits<T>::value_type;
+        using reference         = typename generic_iterator_traits<T>::reference;
+        using const_reference   = typename generic_iterator_traits<T>::const_reference;
+        using pointer           = typename generic_iterator_traits<T>::pointer;
+        using const_pointer     = typename generic_iterator_traits<T>::const_pointer;
+        using difference_type   = typename generic_iterator_traits<T>::difference_type;
+        using iterator_category = std::bidirectional_iterator_tag;
+
+        // Dereference to the internal driver value
+        constexpr pointer operator->() { return &*impl(); }
+
+        // Const dereference to the internal driver value
+        constexpr const_pointer operator->() const { return &*impl(); }
+
+        // Advances the driver by '1' using Driver::next(1)
+        constexpr T &operator++() {
+                impl() += 1;
+                return impl();
+        }
+
+        // Advances the driver by '1' using Driver::next(1)
+        constexpr T &operator++(int) {
+                auto copy = impl();
+                impl() += 1;
+                return copy;
+        }
+
+        // Steps back the driver by '1' using Driver::retreat(1)
+        constexpr T &operator--() {
+                impl() -= 1;
+                return impl();
+        }
+
+        // Steps back the driver by '1' using Driver::retreat(1)
+        constexpr T &operator--(int) {
+                auto copy = impl();
+                impl() -= 1;
+                return copy;
+        }
+
+        // Compares the iterators using Driver::less_than.
+        constexpr bool operator<(const generic_iterator<T> &other) const {
+                return impl() < other.impl();
+        }
+
+        // Compares the iterators using Driver::equals
+        constexpr bool operator==(const generic_iterator<T> &other) const {
+                return impl() == other.impl();
+        }
+};
+
+// A > B iff B < A
+template <typename T>
+constexpr bool operator>(const generic_iterator<T> &lh, const generic_iterator<T> &rh) {
+        return rh < lh;
+}
+
+// A <= B iff !( B > A )
+template <typename T>
+constexpr bool operator<=(const generic_iterator<T> &lh, const generic_iterator<T> &rh) {
+        return !(lh > rh);
+}
+
+// A >= B iff !( B < A )
+template <typename T>
+constexpr bool operator>=(const generic_iterator<T> &lh, const generic_iterator<T> &rh) {
+        return !(lh < rh);
+}
+
+// A != B iff !( A == B)
+template <typename T>
+constexpr bool operator!=(const generic_iterator<T> &lh, const generic_iterator<T> &rh) {
+        return !(lh == rh);
+}
+
+} // namespace emlabcpp
+
+#include <cmath>
+#include <limits>
+#include <ratio>
+#include <type_traits>
+
+namespace emlabcpp {
+
+/** Class representing generic quantity.
+ *
+ * Quantities are types which simply overlay basic numeric type (ValueType) and are tagged with some
+ * unique type (Tag). The C++ type system prevents you from passing values of quantites of different
+ * tags, unless explicitly stated!
+ *
+ * So if your function expects quantity with tag 'distance_tag', you can't pass it 'velocity_tag'.
+ *
+ * Only quantities of same Tag and ValueType are allowed following operations:
+ * 	+=,-=
+ * 	+,-
+ * 	==, !=
+ * 	<,>,>=,<=
+ * 	abs, max, min
+ * Quantity can be multiplied or divided by it's ValueType - /,*,/=,*=
+ * Additionally, we support these operations over quantity:
+ * 	cos, sin
+ *
+ * @param Tag template param that specifies the semantical meaning of the physical quantity.
+ *
+ * Credits should go to https://github.com/joboccara/NamedType as I inspired by project by this
+ * blogger!
+ */
+template <typename Tag, typename ValueType = double>
+class quantity final {
+        ValueType value_;
+
+      public:
+        using tag        = Tag;
+        using value_type = ValueType;
+
+        constexpr quantity() noexcept : value_(0) {}
+
+        // Default constructor used to create a physical quantity from value
+        constexpr explicit quantity(ValueType val) noexcept : value_(val) {}
+
+        // Const reference to the internal value
+        constexpr ValueType operator*() const noexcept { return value_; }
+
+        // Add other quantity of same tag and value_type
+        constexpr quantity &operator+=(const quantity other) noexcept {
+                value_ += *other;
+                return *this;
+        }
+
+        // Subtract other quantity of same tag and value_type
+        constexpr quantity &operator-=(const quantity other) noexcept {
+                value_ -= *other;
+                return *this;
+        }
+
+        // Divides quantity by it's value type
+        constexpr quantity &operator/=(const ValueType val) noexcept {
+                value_ /= val;
+                return *this;
+        }
+
+        // Multiplies quantity by it's value type
+        constexpr quantity &operator*=(const ValueType val) noexcept {
+                value_ *= val;
+                return *this;
+        }
+
+        // Provides explicit conversion of internal value to type T
+        template <typename T>
+        constexpr explicit operator T() const noexcept {
+                return T(value_);
+        }
+};
+
+// Sum of quantities with same tag and value_type
+template <typename Tag, typename ValueType>
+constexpr quantity<Tag, ValueType> operator+(quantity<Tag, ValueType>       lhs,
+                                             const quantity<Tag, ValueType> rhs) {
+        lhs += rhs;
+        return lhs;
+}
+
+// Subtraction of quantities with same tag and value_type
+template <typename Tag, typename ValueType>
+constexpr quantity<Tag, ValueType> operator-(quantity<Tag, ValueType>       lhs,
+                                             const quantity<Tag, ValueType> rhs) {
+        lhs -= rhs;
+        return lhs;
+}
+
+// Provides negation of the quantity
+template <typename Tag, typename ValueType>
+constexpr quantity<Tag, ValueType> operator-(const quantity<Tag, ValueType> val) {
+        return quantity<Tag, ValueType>{-*val};
+}
+
+// Comparison of internal values of quantity
+template <typename Tag, typename ValueType>
+constexpr bool operator==(const quantity<Tag, ValueType> lhs, const quantity<Tag, ValueType> rhs) {
+        return *lhs == *rhs;
+}
+
+// Comparasion of internal values
+template <typename Tag, typename ValueType>
+constexpr bool operator<(const quantity<Tag, ValueType> lhs, const quantity<Tag, ValueType> rhs) {
+        return *lhs < *rhs;
+}
+
+// Multiplication of quantity by it's value_type
+template <typename Tag, typename ValueType>
+constexpr quantity<Tag, ValueType> operator*(quantity<Tag, ValueType> q, const ValueType val) {
+        q *= val;
+        return q;
+}
+
+// Division of quantity by it's value_type
+template <typename Tag, typename ValueType>
+constexpr quantity<Tag, ValueType> operator/(quantity<Tag, ValueType> q, const ValueType val) {
+        q /= val;
+        return q;
+}
+
+// Quantity with absolute value of internal value
+template <typename Tag, typename ValueType>
+constexpr quantity<Tag, ValueType> abs(const quantity<Tag, ValueType> q) {
+        return quantity<Tag, ValueType>(std::abs(*q));
+}
+
+// Returns cosinus of the quantity - untagged
+template <typename Tag, typename ValueType>
+constexpr double cos(const quantity<Tag, ValueType> u) {
+        return std::cos(*u);
+}
+
+// Returns sinus of the quantity - untagged
+template <typename Tag, typename ValueType>
+constexpr double sin(const quantity<Tag, ValueType> u) {
+        return std::sin(*u);
+}
+
+// Quantity with maximum value of one of the quantities
+template <typename Tag, typename ValueType>
+constexpr quantity<Tag, ValueType> max(const quantity<Tag, ValueType> lh,
+                                       const quantity<Tag, ValueType> rh) {
+        return quantity<Tag, ValueType>(std::max(*lh, *rh));
+}
+
+// Quantity with minimum value of one of the quantities
+template <typename Tag, typename ValueType>
+constexpr quantity<Tag, ValueType> min(const quantity<Tag, ValueType> lh,
+                                       const quantity<Tag, ValueType> rh) {
+        return quantity<Tag, ValueType>(std::min(*lh, *rh));
+}
+
+//---------------------------------------------------------------------------
+
+// Non-equality of quantites is negation of equality.
+template <typename Tag, typename ValueType>
+constexpr bool operator!=(const quantity<Tag, ValueType> lhs, const quantity<Tag, ValueType> rhs) {
+        return !(lhs == rhs);
+}
+
+// Q1 > Q2 iff Q2 < Q1
+template <typename Tag, typename ValueType>
+constexpr bool operator>(const quantity<Tag, ValueType> lhs, const quantity<Tag, ValueType> rhs) {
+        return rhs < lhs;
+}
+// Q1 <= Q2 iff !( Q2 > Q1 )
+template <typename Tag, typename ValueType>
+constexpr bool operator<=(const quantity<Tag, ValueType> lhs, const quantity<Tag, ValueType> rhs) {
+        return !(lhs > rhs);
+}
+// Q1 >= Q2 iff !( Q2 < Q1 )
+template <typename Tag, typename ValueType>
+constexpr bool operator>=(const quantity<Tag, ValueType> lhs, const quantity<Tag, ValueType> rhs) {
+        return !(lhs < rhs);
+}
+//---------------------------------------------------------------------------
+
+// Multiplication of value_type by quantity returns quantity
+template <typename Tag, typename ValueType>
+constexpr quantity<Tag, ValueType> operator*(const ValueType                val,
+                                             const quantity<Tag, ValueType> q) {
+        return q * val;
+}
+// Division of value_type by quantity returns quantity
+template <typename Tag, typename ValueType>
+constexpr ValueType operator/(const ValueType val, const quantity<Tag, ValueType> q) {
+        return val / *q;
+}
+
+} // namespace emlabcpp
+
+// The quantity has defined partital specialization of std::numeric_limits,
+// works as is intuitive.
+template <typename Tag, typename ValueType>
+class std::numeric_limits<emlabcpp::quantity<Tag, ValueType>> {
+      public:
+        constexpr static emlabcpp::quantity<Tag, ValueType> lowest() {
+                return emlabcpp::quantity<Tag, ValueType>{std::numeric_limits<ValueType>::lowest()};
+        }
+        constexpr static emlabcpp::quantity<Tag, ValueType> min() {
+                return emlabcpp::quantity<Tag, ValueType>{std::numeric_limits<ValueType>::min()};
+        }
+        constexpr static emlabcpp::quantity<Tag, ValueType> max() {
+                return emlabcpp::quantity<Tag, ValueType>{std::numeric_limits<ValueType>::max()};
+        }
+};
+
+// Hash of quantity is hash of it's value and Tag::get_unit() xored.
+template <typename Tag, typename ValueType>
+struct std::hash<emlabcpp::quantity<Tag, ValueType>> {
+        std::size_t operator()(const emlabcpp::quantity<Tag, ValueType> q) {
+                // TODO: this should be rewritten
+                // 'reverse' the prefix+unit info in bits and than xor it with number
+                std::string unit = Tag::get_unit();
+                return std::hash<ValueType>()(*q) ^ std::hash<std::string>()(unit);
+        }
+};
+
+namespace emlabcpp {
+
+// Physical quantity tag represents all physical units defined using the International System of
+// Units and more. The idea is that each used unit, is either one of the seven basic units, or
+// defined as some combination of them.  The combination is multiplication of exponents of basic
+// units.
+//
+// So, velocity is distance per time - m*s^-1.
+//
+// We defined each physical unit by defining a tag, that has exponent of each basic unit as
+// exponent. This makes it possible to specify any unit using this tag.
+//
+// We expand this by providing two additional 'basic' units - angle (which is handy for us) and
+// byte.
+//
+// Given that we have the exponents of basic units as integers in the type, we can write generic
+// multiplication and division between all possible tags.
+//
+// This trick is inspired by the haskell's dimensional library which does the same.
+//
+template <int l, int mass, int t, int current, int temp, int mol, int li, int angle, int byte>
+struct physical_quantity_tag {
+        static std::string get_unit() {
+                auto seg = [](std::string unit, int i) -> std::string {
+                        if (i == 0) {
+                                return std::string();
+                        }
+                        if (i == 1) {
+                                return unit;
+                        }
+                        return unit + "^" + std::to_string(i);
+                };
+                return seg("m", l) + seg("g", mass) + seg("s", t) + seg("A", current) +
+                       seg("K", temp) + seg("mol", mol) + seg("cd", li) + seg("rad", angle) +
+                       seg("B", byte);
+        }
+};
+
+// Table of alieses for most used physical units
+using unitless            = quantity<physical_quantity_tag<0, 0, 0, 0, 0, 0, 0, 0, 0>, float>;
+using length              = quantity<physical_quantity_tag<1, 0, 0, 0, 0, 0, 0, 0, 0>, float>;
+using mass                = quantity<physical_quantity_tag<0, 1, 0, 0, 0, 0, 0, 0, 0>, float>;
+using timeq               = quantity<physical_quantity_tag<0, 0, 1, 0, 0, 0, 0, 0, 0>, float>;
+using current             = quantity<physical_quantity_tag<0, 0, 0, 1, 0, 0, 0, 0, 0>, float>;
+using temp                = quantity<physical_quantity_tag<0, 0, 0, 0, 1, 0, 0, 0, 0>, float>;
+using amount_of_substance = quantity<physical_quantity_tag<0, 0, 0, 0, 0, 1, 0, 0, 0>, float>;
+using luminous_intensity  = quantity<physical_quantity_tag<0, 0, 0, 0, 0, 0, 1, 0, 0>, float>;
+using angle               = quantity<physical_quantity_tag<0, 0, 0, 0, 0, 0, 0, 1, 0>, float>;
+using byte                = quantity<physical_quantity_tag<0, 0, 0, 0, 0, 0, 0, 0, 1>, float>;
+using angular_velocity    = quantity<physical_quantity_tag<0, 0, -1, 0, 0, 0, 0, 1, 0>, float>;
+using area                = quantity<physical_quantity_tag<2, 0, 0, 0, 0, 0, 0, 0, 0>, float>;
+using volume              = quantity<physical_quantity_tag<3, 0, 0, 0, 0, 0, 0, 0, 0>, float>;
+using velocity            = quantity<physical_quantity_tag<1, 0, -1, 0, 0, 0, 0, 0, 0>, float>;
+using frequency           = quantity<physical_quantity_tag<0, 0, -1, 0, 0, 0, 0, 0, 0>, float>;
+using force               = quantity<physical_quantity_tag<1, 1, -2, 0, 0, 0, 0, 0, 0>, float>;
+using power               = quantity<physical_quantity_tag<2, 1, -3, 0, 0, 0, 0, 0, 0>, float>;
+using voltage             = quantity<physical_quantity_tag<2, 1, -3, -1, 0, 0, 0, 0, 0>, float>;
+using resistance          = quantity<physical_quantity_tag<2, 1, -3, -2, 0, 0, 0, 0, 0>, float>;
+using distance            = length;
+using radius              = length;
+
+// Constants of units that are relevant for us
+constexpr angle PI = angle{float(std::acos(-1))};
+
+// Multiplication of quantities of physical_quantiy_tag multiplies the internal
+// values and the result is a type, where the exponents of each side of the
+// multiplication are summed.
+template <int l0, int mass0, int t0, int curr0, int temp0, int mol0, int li0, int angle0, int byte0,
+          int l1, int mass1, int t1, int curr1, int temp1, int mol1, int li1, int angle1, int byte1,
+          typename ValueType>
+constexpr auto
+operator*(quantity<physical_quantity_tag<l0, mass0, t0, curr0, temp0, mol0, li0, angle0, byte0>,
+                   ValueType>
+              lh,
+          quantity<physical_quantity_tag<l1, mass1, t1, curr1, temp1, mol1, li1, angle1, byte1>,
+                   ValueType>
+              rh) {
+        return quantity<
+            physical_quantity_tag<l0 + l1, mass0 + mass1, t0 + t1, curr0 + curr1, temp0 + temp1,
+                                  mol0 + mol1, li0 + li1, angle0 + angle1, byte0 + byte1>,
+            ValueType>{(*lh) * (*rh)};
+}
+
+// Divison of quantities of physical_quantiy_tag divides the internal values and
+// the result is a type, where the exponents of each side of the multiplication
+// are subtracted.
+template <int l0, int mass0, int t0, int curr0, int temp0, int mol0, int li0, int angle0, int byte0,
+          int l1, int mass1, int t1, int curr1, int temp1, int mol1, int li1, int angle1, int byte1,
+          typename ValueType>
+constexpr auto
+operator/(quantity<physical_quantity_tag<l0, mass0, t0, curr0, temp0, mol0, li0, angle0, byte0>,
+                   ValueType>
+              lh,
+          quantity<physical_quantity_tag<l1, mass1, t1, curr1, temp1, mol1, li1, angle1, byte1>,
+                   ValueType>
+              rh) {
+        return quantity<
+            physical_quantity_tag<l0 - l1, mass0 - mass1, t0 - t1, curr0 - curr1, temp0 - temp1,
+                                  mol0 - mol1, li0 - li1, angle0 - angle1, byte0 - byte1>,
+            ValueType>{(*lh) / (*rh)};
+}
+
+// Square root of physical quantity is square root of it's value and the
+// exponents are divided in half.
+template <int l, int mass, int t, int curr, int temp, int mol, int li, int angle, int byte,
+          typename ValueType>
+constexpr auto
+sqrt(quantity<physical_quantity_tag<l, mass, t, curr, temp, mol, li, angle, byte>, ValueType> val) {
+        return quantity<physical_quantity_tag<l / 2, mass / 2, t / 2, curr / 2, temp / 2, mol / 2,
+                                              li / 2, angle / 2, byte / 2>,
+                        ValueType>{ValueType{std::sqrt(*val)}};
+}
+
+} // namespace emlabcpp
+
+#inlude "view.h"
+#include <tuple>
+
+namespace emlabcpp {
+
+/* zip_ierator iterates over a group of iterators, where value is a tuple of references to value for
+ * each iterator.
+ *
+ * The design expects that all ranges of iterators are of same size.
+ */
+template <typename... Iterators>
+class zip_iterator {
+        std::tuple<Iterators...> iters_;
+
+      public:
+        constexpr zip_iterator(Iterators... iters) : iters_(std::move(iters)...) {}
+
+        // Increases each iterator
+        constexpr zip_iterator operator++() {
+                std::apply(
+                    [](auto &&... it) { //
+                            (++it, ...);
+                    },
+                    iters_);
+
+                return *this;
+        }
+
+        // Decreases each iterator
+        constexpr zip_iterator operator--() {
+                std::apply(
+                    [](auto &&... it) { //
+                            (++it, ...);
+                    },
+                    iters_);
+
+                return *this;
+        }
+
+        // Dereference of each iterator, returns tuple of references to the
+        // operator* of iterators.
+        constexpr auto operator*() {
+                return std::apply(
+                    [](auto &&... it) { //
+                            return std::forward_as_tuple((*it)...);
+                    },
+                    iters_);
+        }
+
+        // Two zip iterators are equal if all of their iterators are equal
+        constexpr bool operator==(const zip_iterator<Iterators...> &other) const {
+                return equals(other, std::index_sequence_for<Iterators...>{});
+        }
+
+      private:
+        template <typename std::size_t... Idx>
+        constexpr bool equals(const zip_iterator<Iterators...> &other,
+                              std::index_sequence<Idx...>) const {
+                return ((std::get<Idx>(iters_) == std::get<Idx>(other.iters_)) || ...);
+        }
+};
+
+template <typename... Iterators>
+constexpr bool operator!=(const zip_iterator<Iterators...> &lh,
+                          const zip_iterator<Iterators...> &rh) {
+        return !(lh == rh);
+}
+
+/* Creates a view of zip iterators for specified containers.
+ *
+ * Beware that the function does not check that containers have same size of
+ * ranges. If the size differs, increments of begin iterator will never be same
+ * as end iterator.
+ */
+template <typename... Ts>
+inline auto zip(Ts &&... cont) {
+        return view(zip_iterator(std::begin(cont)...), zip_iterator(std::end(cont)...));
 }
 
 } // namespace emlabcpp
