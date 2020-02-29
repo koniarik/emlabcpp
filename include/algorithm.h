@@ -151,9 +151,9 @@ template <typename Container, typename T>
 // Applies unary function 'f' to each element of tuple 't'
 template <typename Tuple, typename UnaryFunction>
 constexpr std::enable_if_t<is_std_tuple_v<Tuple>, void> for_each(Tuple &&t, UnaryFunction &&f) {
-        return detail::for_each_impl(std::forward<Tuple>(t), //
-                                     std::forward<UnaryFunction>(f),
-                                     std::make_index_sequence<cont_size(t)>{});
+        detail::for_each_impl(std::forward<Tuple>(t), //
+                              std::forward<UnaryFunction>(f),
+                              std::make_index_sequence<static_size_v<Tuple>>{});
 }
 
 // Applies unary function 'f' to each element of container 'cont'

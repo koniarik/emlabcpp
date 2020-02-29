@@ -10,6 +10,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 add_compile_options(
   -g
   -Werror
@@ -22,14 +24,14 @@ add_compile_options(
   -Woverloaded-virtual
   -Wnull-dereference
   -Wformat=2
-  -Wduplicated-cond
-  -Wlogical-op
-  -Wuseless-cast
+  #-Wduplicated-cond
+  #-Wlogical-op
+  #-Wuseless-cast
   -Wunreachable-code
   -Wsign-conversion
   -Wconversion
   -Wdouble-promotion
-  -fmax-errors=5)
+  -fmax-errors=15)
 
 include_directories(../include/)
 

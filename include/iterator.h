@@ -11,8 +11,8 @@ struct generic_iterator_traits;
 template <typename T>
 class generic_iterator {
 
-        T &      impl() { return static_cast<T &>(*this); }
-        T const &impl() const { return static_cast<T const &>(*this); }
+        [[nodiscard]] T &      impl() { return static_cast<T &>(*this); }
+        [[nodiscard]] T const &impl() const { return static_cast<T const &>(*this); }
 
       public:
         using value_type        = typename generic_iterator_traits<T>::value_type;

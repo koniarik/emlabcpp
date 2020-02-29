@@ -31,8 +31,8 @@ template <typename T, typename ValueType = float>
 class quantity {
         ValueType value_;
 
-        T &      impl() { return static_cast<T &>(*this); }
-        T const &impl() const { return static_cast<T const &>(*this); }
+        [[nodiscard]] T &      impl() { return static_cast<T &>(*this); }
+        [[nodiscard]] T const &impl() const { return static_cast<T const &>(*this); }
 
       public:
         using value_type = ValueType;
@@ -124,15 +124,15 @@ constexpr T abs(const quantity<T, ValueType> q) {
         return T(std::abs(*q));
 }
 
-// Returns cosinus of the quantity as double
+// Returns cosinus of the quantity as scalar
 template <typename T, typename ValueType>
-constexpr double cos(const quantity<T, ValueType> u) {
+constexpr auto cos(const quantity<T, ValueType> u) {
         return std::cos(*u);
 }
 
-// Returns sinus of the quantity as double
+// Returns sinus of the quantity as scalar
 template <typename T, typename ValueType>
-constexpr double sin(const quantity<T, ValueType> u) {
+constexpr auto sin(const quantity<T, ValueType> u) {
         return std::sin(*u);
 }
 

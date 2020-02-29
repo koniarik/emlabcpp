@@ -28,34 +28,34 @@ class view {
             : begin_(std::move(begin)), end_(std::move(end)) {}
 
         // Start of the dataset
-        constexpr Iterator begin() const { return begin_; }
+        [[nodiscard]] constexpr Iterator begin() const { return begin_; }
 
         // Past the end iterator
-        constexpr Iterator end() const { return end_; }
+        [[nodiscard]] constexpr Iterator end() const { return end_; }
 
         // Access to i-th element in the range, expects Iterator::operator[]
-        constexpr decltype(auto) operator[](std::size_t i) const { return begin_[i]; }
+        [[nodiscard]] constexpr decltype(auto) operator[](std::size_t i) const { return begin_[i]; }
 
         // Returns iterator to the last element that goes in reverse
-        constexpr reverse_iterator rbegin() const { return reverse_iterator{end_}; }
+        [[nodiscard]] constexpr reverse_iterator rbegin() const { return reverse_iterator{end_}; }
 
         // Returns iterator to the element before first element, that can go in
         // reverse
-        constexpr reverse_iterator rend() const { return reverse_iterator{begin_}; }
+        [[nodiscard]] constexpr reverse_iterator rend() const { return reverse_iterator{begin_}; }
 
         // Size of the view over dataset uses std::distance() to tell the size
-        constexpr std::size_t size() const {
+        [[nodiscard]] constexpr std::size_t size() const {
                 return static_cast<std::size_t>(std::distance(begin(), end()));
         }
 
         // View is empty if both iterators are equal
-        constexpr bool empty() const { return begin() == end(); }
+        [[nodiscard]] constexpr bool empty() const { return begin() == end(); }
 
         // Returns first value of the range
-        constexpr const value_type &front() const { return *begin_; }
+        [[nodiscard]] constexpr const value_type &front() const { return *begin_; }
 
         // Returns last value of the range
-        constexpr const value_type &back() const { return *std::prev(end_); }
+        [[nodiscard]] constexpr const value_type &back() const { return *std::prev(end_); }
 };
 
 // The container deduction guide uses iterator_of_t
@@ -79,7 +79,7 @@ constexpr view<Iter> view_n(Iter begin, Count n) {
 // first/last 5% for example, by using r=0.1
 template <typename Container>
 constexpr view<iterator_of_t<Container>> trim_view(Container &cont, float r) {
-        std::size_t step = cont.size() * (1 - r) / 2.f;
+        std::size_t step = cont.size() * (1.f - r) / 2.f;
         return {cont.begin() + step, cont.end() - step};
 }
 

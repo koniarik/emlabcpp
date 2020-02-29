@@ -14,4 +14,3 @@ TEST(numeric_iterator, basic) {
         EXPECT_EQ(max_elem(r2), 9);
         EXPECT_EQ(min_elem(r2), 0);
 }
-

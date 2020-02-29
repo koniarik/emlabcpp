@@ -42,19 +42,23 @@ class static_circular_buffer {
                         push_back(other[i]);
                 }
         }
-        static_circular_buffer(static_circular_buffer &&other) {
+        static_circular_buffer(static_circular_buffer &&other) noexcept {
                 while (!other.empty()) {
                         push_back(other.pop_front());
                 }
         }
         static_circular_buffer &operator=(const static_circular_buffer &other) {
-                this->~static_circular_buffer();
-                ::new (this) static_circular_buffer(other);
+                if (this != &other) {
+                        this->~static_circular_buffer();
+                        ::new (this) static_circular_buffer(other);
+                }
                 return *this;
         }
-        static_circular_buffer &operator=(static_circular_buffer &&other) {
-                this->~static_circular_buffer();
-                ::new (this) static_circular_buffer(std::move(other));
+        static_circular_buffer &operator=(static_circular_buffer &&other) noexcept {
+                if (this != &other) {
+                        this->~static_circular_buffer();
+                        ::new (this) static_circular_buffer(std::move(other));
+                }
                 return *this;
         }
 
@@ -109,9 +113,9 @@ class static_circular_buffer {
         // private attributes
         // --------------------------------------------------------------------------------
 
-        storage_type data_[real_size]; // storage of the entire dataset
-        size_type    from_ = 0;        // index of the first item
-        size_type    to_   = 0;        // index past the last item
+        storage_type data_[real_size] = {0}; // storage of the entire dataset
+        size_type    from_            = 0;   // index of the first item
+        size_type    to_              = 0;   // index past the last item
 
         // from_ == to_ means empty
         // to_ + 1 == from_ is full
@@ -141,8 +145,10 @@ class static_circular_buffer {
 
         // Reference to the item in data_storage. std::launder is necessary here per the paper
         // linked above.
-        reference ref_item(size_type i) { return *std::launder(reinterpret_cast<T *>(&data_[i])); }
-        const_reference ref_item(size_type i) const {
+        [[nodiscard]] reference ref_item(size_type i) {
+                return *std::launder(reinterpret_cast<T *>(&data_[i]));
+        }
+        [[nodiscard]] const_reference ref_item(size_type i) const {
                 return *std::launder(reinterpret_cast<const T *>(&data_[i]));
         }
 
@@ -154,8 +160,10 @@ class static_circular_buffer {
         }
 
         // Use this only when moving the indexes in the circular buffer - bullet-proof.
-        constexpr auto next(size_type i) const { return (i + 1) % real_size; }
-        constexpr auto prev(size_type i) const { return i == 0 ? real_size - 1 : i - 1; }
+        [[nodiscard]] constexpr auto next(size_type i) const { return (i + 1) % real_size; }
+        [[nodiscard]] constexpr auto prev(size_type i) const {
+                return i == 0 ? real_size - 1 : i - 1;
+        }
 };
 
 template <typename T, std::size_t N>

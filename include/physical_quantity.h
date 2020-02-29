@@ -70,7 +70,7 @@ using distance            = length;
 using radius              = length;
 
 // Constants of units that are relevant for us
-constexpr angle PI = angle{float(std::acos(-1))};
+constexpr angle PI = angle{3.14159265358979323846f};
 
 // Multiplication of quantities of physical_quantiy multiplies the internal
 // values and the result is a type, where the exponents of each side of the

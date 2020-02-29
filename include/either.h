@@ -132,7 +132,7 @@ class either {
                 return *this;
         }
 
-        constexpr bool is_left() const { return id_ == item::LEFT; }
+        [[nodiscard]] constexpr bool is_left() const { return id_ == item::LEFT; }
 
         template <typename LeftFunction>
         auto convert_left(LeftFunction &&left_f) & {

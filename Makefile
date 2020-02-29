@@ -5,8 +5,9 @@ rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(su
 EXTRAARGS=$(if $(SANITIZER), -DCMAKE_CXX_FLAGS="-fsanitize=$(SANITIZER)" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=$(SANITIZER)", )
 
 HEADERS=$(call rwildcard, include, *.h)
+TESTS=$(call rwildcard, tests, *.cpp)
 
-FORMAT_TARGETS = $(addsuffix .format, $(HEADERS))
+FORMAT_TARGETS = $(addsuffix .format, $(HEADERS) $(TESTS))
 
 .PHONY: clean build_test exec_test test format $(FORMAT_TARGETS)
 
@@ -29,3 +30,6 @@ format: $(FORMAT_TARGETS)
 	
 $(FORMAT_TARGETS):
 	clang-format -i $(basename $@)
+
+analyze: build_test
+	clang-tidy -p build/compile_commands.json $(TESTS)
