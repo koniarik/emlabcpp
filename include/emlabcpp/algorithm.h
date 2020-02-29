@@ -2,9 +2,9 @@
 #include <cstdlib>
 #include <tuple>
 
-#include "algorithm_detail.h"
-#include "types.h"
-#include "view.h"
+#include "emlabcpp/algorithm_detail.h"
+#include "emlabcpp/types.h"
+#include "emlabcpp/view.h"
 
 #pragma once
 

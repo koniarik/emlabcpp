@@ -1,4 +1,4 @@
-#include "static_circular_buffer.h"
+#include "emlabcpp/static_circular_buffer.h"
 #include <gtest/gtest.h>
 
 using namespace emlabcpp;

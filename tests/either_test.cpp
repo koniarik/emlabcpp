@@ -1,4 +1,4 @@
-#include "either.h"
+#include "emlabcpp/either.h"
 
 #include <gtest/gtest.h>
 

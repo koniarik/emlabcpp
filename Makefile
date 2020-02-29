@@ -24,7 +24,7 @@ exec_test: build_test
 test: exec_test
 
 single_header: 
-	quom include/main.h emlabcpp.h
+	quom include/emlabcpp/main.h emlabcpp.h
 
 format: $(FORMAT_TARGETS)
 	

@@ -1,4 +1,4 @@
-#include "physical_quantity.h"
+#include "emlabcpp/physical_quantity.h"
 
 #include <gtest/gtest.h>
 

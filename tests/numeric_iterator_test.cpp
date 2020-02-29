@@ -1,6 +1,6 @@
-#include "algorithm.h"
-#include "iterator.h"
-#include "iterators/numeric.h"
+#include "emlabcpp/algorithm.h"
+#include "emlabcpp/iterator.h"
+#include "emlabcpp/iterators/numeric.h"
 
 #include <gtest/gtest.h>
 
