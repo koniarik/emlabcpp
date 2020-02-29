@@ -21,6 +21,9 @@ TEST(Algorithm, sign) {
         EXPECT_EQ(sign(0), 0);
         EXPECT_EQ(sign(1), 1);
         EXPECT_EQ(sign(10), 1);
+
+        int i = 10;
+        EXPECT_EQ(sign(i), 1);
 }
 
 TEST(Algorithm, clamp) {

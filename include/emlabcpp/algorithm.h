@@ -31,10 +31,11 @@ struct identity {
 // returns sign of variable T: -1,0,1
 template <typename T>
 constexpr int sign(T &&val) {
-        if (T{0} > val) {
+        using U = std::decay_t<T>;
+        if (U{0} > val) {
                 return -1;
         }
-        if (T{0} < val) {
+        if (U{0} < val) {
                 return 1;
         }
         return 0;
