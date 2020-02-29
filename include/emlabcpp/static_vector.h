@@ -6,12 +6,16 @@
 
 namespace emlabcpp {
 
+// Data container for up to N elements, mirroring std::vector behavior.
 template <typename T, std::size_t N>
 class static_vector {
 
+        // type for storage of one item
         using storage_type = std::aligned_storage_t<sizeof(T), alignof(T)>;
 
       public:
+        // public types
+        // --------------------------------------------------------------------------------
         using value_type      = T;
         using size_type       = std::size_t;
         using reference       = T &;
@@ -19,6 +23,8 @@ class static_vector {
         using iterator        = T *;
         using const_iterator  = const T *;
 
+        // public methods
+        // --------------------------------------------------------------------------------
         static_vector() = default;
         static_vector(const static_vector &other) {
                 for (size_type i = 0; i < other.size(); ++i) {
@@ -45,9 +51,13 @@ class static_vector {
                 return *this;
         }
 
+        // methods for handling the front side of the circular buffer
+        
         [[nodiscard]] reference       front() { return ref_item(0); }
         [[nodiscard]] const_reference front() const { return ref_item(0); }
 
+        // methods for handling the back side of the circular buffer
+        
         void push_back(T item) { emplace_back(std::move(item)); }
 
         template <typename... Args>
@@ -65,6 +75,8 @@ class static_vector {
 
         [[nodiscard]] reference       back() { return ref_item(size_ - 1); }
         [[nodiscard]] const_reference back() const { return ref_item(size_ - 1); }
+        
+        // other methods
 
         [[nodiscard]] constexpr std::size_t max_size() const { return N; }
 
@@ -88,6 +100,8 @@ class static_vector {
         storage_type data_[N] = {0}; // storage of the entire dataset
         size_type    size_    = 0;   // count of items
 
+        // private methods
+        // --------------------------------------------------------------------------------
         void delete_item(size_type i) { ref_item(i).~T(); }
 
         template <typename... Args>
