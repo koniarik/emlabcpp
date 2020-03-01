@@ -61,7 +61,6 @@ TEST(static_vector_test, emplace_back) {
         EXPECT_EQ(obuff.back(), "ccccc");
 }
 
-
 TEST(static_vector_test, usage) {
         trivial_buffer tbuff;
 

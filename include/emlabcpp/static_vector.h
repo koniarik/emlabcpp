@@ -52,12 +52,12 @@ class static_vector {
         }
 
         // methods for handling the front side of the circular buffer
-        
+
         [[nodiscard]] reference       front() { return ref_item(0); }
         [[nodiscard]] const_reference front() const { return ref_item(0); }
 
         // methods for handling the back side of the circular buffer
-        
+
         void push_back(T item) { emplace_back(std::move(item)); }
 
         template <typename... Args>
@@ -75,7 +75,7 @@ class static_vector {
 
         [[nodiscard]] reference       back() { return ref_item(size_ - 1); }
         [[nodiscard]] const_reference back() const { return ref_item(size_ - 1); }
-        
+
         // other methods
 
         [[nodiscard]] constexpr std::size_t max_size() const { return N; }
