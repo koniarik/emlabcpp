@@ -1,3 +1,4 @@
+#include "emlabcpp/algorithm.h"
 #include "emlabcpp/static_vector.h"
 #include <gtest/gtest.h>
 
@@ -147,4 +148,20 @@ TEST(static_vector_test, move_object) {
         moved2 = std::move(moved);
 
         EXPECT_EQ(cpy, moved2);
+}
+
+TEST(static_vector_test, iterators) {
+        trivial_buffer   tbuff;
+        std::vector<int> data = {1, 2, 3, 4, 5};
+        for (int i : data) {
+                tbuff.push_back(i);
+        }
+
+        std::vector<int> res;
+        for (int i : tbuff) {
+                res.push_back(i);
+        }
+
+        bool are_equal = equal(data, res);
+        EXPECT_TRUE(are_equal);
 }

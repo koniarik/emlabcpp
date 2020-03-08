@@ -1,3 +1,4 @@
+#include "emlabcpp/iterator.h"
 #include <new>
 #include <type_traits>
 #include <utility>
@@ -6,12 +7,17 @@
 
 namespace emlabcpp {
 
+template <typename T, std::size_t N>
+class static_vector_iterator;
+
 // Data container for up to N elements, mirroring std::vector behavior.
 template <typename T, std::size_t N>
 class static_vector {
 
         // type for storage of one item
         using storage_type = std::aligned_storage_t<sizeof(T), alignof(T)>;
+
+        friend class static_vector_iterator<T, N>;
 
       public:
         // public types
@@ -20,8 +26,7 @@ class static_vector {
         using size_type       = std::size_t;
         using reference       = T &;
         using const_reference = const T &;
-        using iterator        = T *;
-        using const_iterator  = const T *;
+        using iterator        = static_vector_iterator<T, N>;
 
         // public methods
         // --------------------------------------------------------------------------------
@@ -50,6 +55,10 @@ class static_vector {
                 }
                 return *this;
         }
+
+        iterator begin() { return iterator{&data_[0]}; }
+
+        iterator end() { return iterator{&data_[size_]}; }
 
         // methods for handling the front side of the circular buffer
 
@@ -146,5 +155,47 @@ template <typename T, std::size_t N>
 [[nodiscard]] inline bool operator!=(const static_vector<T, N> &lh, const static_vector<T, N> &rh) {
         return !(lh == rh);
 }
+
+template <typename T, std::size_t N>
+struct generic_iterator_traits<static_vector_iterator<T, N>> {
+        using value_type      = T;
+        using difference_type = std::ptrdiff_t;
+        using pointer         = T *;
+        using const_pointer   = const T *;
+        using reference       = T &;
+        using const_reference = const T &;
+};
+
+template <typename T, std::size_t N>
+class static_vector_iterator : public generic_iterator<static_vector_iterator<T, N>> {
+        using storage_type = typename static_vector<T, N>::storage_type;
+
+        static_vector_iterator(storage_type *ptr) : raw_ptr_(ptr) {}
+
+        friend class static_vector<T, N>;
+
+      public:
+        T &      operator*() { return *std::launder(reinterpret_cast<T *>(raw_ptr_)); }
+        const T &operator*() const { return *std::launder(reinterpret_cast<const T *>(raw_ptr_)); }
+
+        static_vector_iterator &operator+=(std::ptrdiff_t offset) {
+                raw_ptr_ += offset;
+                return *this;
+        }
+        static_vector_iterator &operator-=(std::ptrdiff_t offset) {
+                raw_ptr_ -= offset;
+                return *this;
+        }
+
+        bool operator<(const static_vector_iterator &other) const {
+                return raw_ptr_ < other.raw_ptr_;
+        }
+        bool operator==(const static_vector_iterator &other) const {
+                return raw_ptr_ == other.raw_ptr_;
+        }
+
+      private:
+        storage_type *raw_ptr_;
+};
 
 } // namespace emlabcpp
