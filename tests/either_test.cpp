@@ -9,7 +9,7 @@ TEST(Either, assemble_left_collect_right) {
         using test_either   = either<std::string, error>;
         using test_either_2 = either<float, error>;
 
-        either<std::tuple<std::string, std::string, float>, static_circular_buffer<error, 3>>
+        either<std::tuple<std::string, std::string, float>, static_vector<error, 3>>
             assemble_either = assemble_left_collect_right(test_either{"wolololo"},
                                                           test_either{"nope"}, test_either_2{0.f});
 

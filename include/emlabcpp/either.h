@@ -1,4 +1,4 @@
-#include "emlabcpp/static_circular_buffer.h"
+#include "emlabcpp/static_vector.h"
 #include "emlabcpp/types.h"
 
 #include <optional>
@@ -310,7 +310,7 @@ assemble_optionals(std::optional<Ts> &&... opt) {
 // These are acceessed and either tuple of _all_ left items is returned or vector of any of right
 // items.
 //
-// This returns appropiated either< std::tuple< LeftItems... >, static_circular_buffer< Righitems, N
+// This returns appropiated either< std::tuple< LeftItems... >, static_vector< Righitems, N
 // >>. This is handy for uses cases when you have expected values of multiple functions on the left,
 // and their errors on the right. It either returns all values or the errors that happend.
 
@@ -322,7 +322,7 @@ inline auto assemble_left_collect_right(FirstE &&first, Eithers &&... others) {
         using right_type        = typename FirstE::right_item;
         constexpr std::size_t N = 1 + sizeof...(Eithers);
 
-        static_circular_buffer<right_type, N> collection;
+        static_vector<right_type, N> collection;
 
         auto convert = [&](auto &&either) {
                 using eitherT   = decltype(either);
