@@ -14,3 +14,9 @@ TEST(numeric_iterator, basic) {
         EXPECT_EQ(max_elem(r2), 9);
         EXPECT_EQ(min_elem(r2), 0);
 }
+
+TEST(numeric_iterator, operators) {
+        auto r = range(10);
+
+        EXPECT_EQ(r.begin() + 10, r.end());
+}

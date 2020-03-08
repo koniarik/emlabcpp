@@ -64,6 +64,18 @@ class generic_iterator {
         constexpr bool operator==(const generic_iterator<T> &other) const {
                 return impl() == other.impl();
         }
+
+        constexpr T operator+(difference_type v) const {
+                auto copy = impl();
+                copy += v;
+                return copy;
+        }
+
+        constexpr T operator-(difference_type v) const {
+                auto copy = impl();
+                copy -= v;
+                return copy;
+        }
 };
 
 // A > B iff B < A
