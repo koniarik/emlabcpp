@@ -47,10 +47,11 @@ class static_vector {
                 }
         }
         static_vector &operator=(const static_vector &other) {
-                if (this != &other) {
-                        this->~static_vector();
-                        ::new (this) static_vector(other);
+                if (this == &other) {
+                        return *this;
                 }
+                this->~static_vector();
+                ::new (this) static_vector(other);
                 return *this;
         }
         static_vector &operator=(static_vector &&other) noexcept {
@@ -84,7 +85,7 @@ class static_vector {
 
         T pop_back() {
                 T item = std::move(back());
-                delete_item(size_);
+                delete_item(size_ - 1);
                 size_ -= 1;
                 return item;
         }
@@ -163,15 +164,27 @@ template <typename T, std::size_t N>
         return !(lh == rh);
 }
 
+} // namespace emlabcpp
+
 template <typename T, std::size_t N>
-struct generic_iterator_traits<static_vector_iterator<T, N>> {
-        using value_type      = T;
-        using difference_type = std::ptrdiff_t;
-        using pointer         = T *;
-        using const_pointer   = const T *;
-        using reference       = T &;
-        using const_reference = const T &;
+struct std::iterator_traits<emlabcpp::static_vector_iterator<T, N>> {
+        using value_type        = T;
+        using difference_type   = std::ptrdiff_t;
+        using pointer           = T *;
+        using reference         = T &;
+        using iterator_category = std::random_access_iterator_tag;
 };
+
+template <typename T, std::size_t N>
+struct std::iterator_traits<emlabcpp::const_static_vector_iterator<T, N>> {
+        using value_type        = T;
+        using difference_type   = std::ptrdiff_t;
+        using pointer           = const T *;
+        using reference         = const T &;
+        using iterator_category = std::random_access_iterator_tag;
+};
+
+namespace emlabcpp {
 
 template <typename T, std::size_t N>
 class static_vector_iterator : public generic_iterator<static_vector_iterator<T, N>> {
@@ -203,16 +216,6 @@ class static_vector_iterator : public generic_iterator<static_vector_iterator<T,
 
       private:
         storage_type *raw_ptr_;
-};
-
-template <typename T, std::size_t N>
-struct generic_iterator_traits<const_static_vector_iterator<T, N>> {
-        using value_type      = T;
-        using difference_type = std::ptrdiff_t;
-        using pointer         = const T *;
-        using const_pointer   = const T *;
-        using reference       = const T &;
-        using const_reference = const T &;
 };
 
 template <typename T, std::size_t N>
