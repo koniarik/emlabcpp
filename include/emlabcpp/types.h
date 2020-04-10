@@ -116,6 +116,24 @@ template <typename T>
 constexpr bool has_static_size_v = has_static_size<std::decay_t<T>>::value;
 
 // ------------------------------------------------------------------------------------------------
+// is_container
+
+template <typename T>
+struct is_container {
+        template <typename U, typename = decltype(std::declval<U>().begin()),
+                  typename = decltype(std::declval<U>().end())>
+        static std::true_type test(int);
+
+        template <typename>
+        static std::false_type test(...);
+
+        static constexpr bool value = decltype(test<T>(0))::value;
+};
+
+template <typename T>
+constexpr bool is_container_v = is_container<T>::value;
+
+// ------------------------------------------------------------------------------------------------
 // has_push_back
 
 template <typename T>
@@ -165,5 +183,11 @@ struct mapped<std::tuple<T, Ts...> &&, UnaryFunction> {
 
 template <typename Container, typename UnaryFunction>
 using mapped_t = typename mapped<Container, UnaryFunction>::type;
+
+// ------------------------------------------------------------------------------------------------
+// tuple_of_constants
+
+template <std::size_t... Is>
+using tuple_of_constants = std::tuple<std::integral_constant<std::size_t, Is>...>;
 
 } // namespace emlabcpp

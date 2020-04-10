@@ -1,7 +1,22 @@
+#include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
 #include <tuple>
 
 #pragma once
+
+namespace emlabcpp {
+template <typename...>
+class zip_iterator;
+}
+
+template <typename... Iterators>
+struct std::iterator_traits<emlabcpp::zip_iterator<Iterators...>> {
+        using value_type      = std::tuple<typename std::iterator_traits<Iterators>::reference...>;
+        using difference_type = std::ptrdiff_t;
+        using pointer         = void;
+        using reference       = value_type;
+        using iterator_category = std::bidirectional_iterator_tag;
+};
 
 namespace emlabcpp {
 
@@ -74,9 +89,30 @@ constexpr bool operator!=(const zip_iterator<Iterators...> &lh,
  * ranges. If the size differs, increments of begin iterator will never be same
  * as end iterator.
  */
-template <typename... Ts>
+template <typename... Ts, std::enable_if_t<std::conjunction_v<is_container<Ts>...>> * = nullptr>
 inline auto zip(Ts &&... cont) {
         return view(zip_iterator(std::begin(cont)...), zip_iterator(std::end(cont)...));
+}
+
+template <typename TuplesTuple, std::size_t... ItemIndexes, std::size_t... TupleIndexes>
+inline auto tuple_zip_impl(TuplesTuple &&tpls, std::index_sequence<ItemIndexes...>,
+                           std::index_sequence<TupleIndexes...>) {
+        auto f = [&](auto index) { //
+                return std::make_tuple(
+                    std::get<decltype(index)::value>(std::get<TupleIndexes>(tpls))...);
+        };
+
+        return std::make_tuple(f(std::integral_constant<std::size_t, ItemIndexes>{})...);
+}
+
+template <typename Tuple, typename... Tuples, std::enable_if_t<is_std_tuple_v<Tuple>> * = nullptr,
+          std::enable_if_t<std::conjunction_v<is_std_tuple<std::decay_t<Tuples>>...>> * = nullptr>
+inline auto zip(Tuple &&frst, Tuples &&... tpls) {
+        static_assert(((static_size_v<Tuple> == static_size_v<Tuples>)&&...),
+                      "All tuples has to be of same size in zip");
+        return tuple_zip_impl(std::make_tuple(frst, tpls...),
+                              std::make_index_sequence<static_size_v<Tuple>>{},
+                              std::make_index_sequence<sizeof...(Tuples) + 1>{});
 }
 
 } // namespace emlabcpp
