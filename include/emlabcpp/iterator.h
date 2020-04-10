@@ -4,98 +4,129 @@
 #pragma once
 
 namespace emlabcpp {
-
-template <typename T>
+/// generic_iterator is a class using CRTP to ease implementation of custom iterators.
+/// User of the class is required to inheric from generic_iterator and pass the inheriting class as
+/// template argument Derived. The generic_iterator expectes existence of properly setup
+/// std::iterator_traits<Derived> instance, which is used to decide types for various methods.
+/// Given that generic_iterator is able to provide user with methods/functions that are based on the
+/// Derived methods.
+///
+/// For example: It is necessary for Derived class to implement only operator==, given that
+/// generic_iterator is able to provied !=
+///
+/// The Derived class is expected to provide these methods:
+///  - reference operator*();
+///  - const_reference operator*() const;
+///  - Deriver& operator+=(difference_type);
+///  - Deriver& operator-=(difference_type);
+///  - bool operator<(const Derived & other);
+///  - bool operator==(const Derived & other);
+///  - difference_type operator-(const Derived& other);
+///
+/// Give nthese methods, the generic iterator provides additional methods thanks to CRTP mechanics:
+///  - pointer operator->();
+///  - const_pointer opetrator->();
+///  - Derived& operator++();
+///  - Derived& operator++(int);
+///  - Derived& operator--();
+///  - Derived& operator--(int);
+///  - Derived operator+(difference_type);
+///  - Derived operator-(difference_type);
+///
+/// Additional to that, following free functions are usable:
+///  - bool operator>(const generic_iterator<Derived> &, const generic_iterator<Derived>&)
+///  - bool operator<=(const generic_iterator<Derived> &, const generic_iterator<Derived>&)
+///  - bool operator!=(const generic_iterator<Derived> &, const generic_iterator<Derived>&)
+///
+///
+template <typename Derived>
 class generic_iterator {
 
-        [[nodiscard]] constexpr T &      impl() { return static_cast<T &>(*this); }
-        [[nodiscard]] constexpr T const &impl() const { return static_cast<T const &>(*this); }
+        [[nodiscard]] constexpr Derived &      impl() { return static_cast<Derived &>(*this); }
+        [[nodiscard]] constexpr Derived const &impl() const {
+                return static_cast<Derived const &>(*this);
+        }
 
       public:
-        using value_type        = typename std::iterator_traits<T>::value_type;
-        using reference         = typename std::iterator_traits<T>::reference;
+        using value_type        = typename std::iterator_traits<Derived>::value_type;
+        using reference         = typename std::iterator_traits<Derived>::reference;
         using const_reference   = const reference;
-        using pointer           = typename std::iterator_traits<T>::pointer;
+        using pointer           = typename std::iterator_traits<Derived>::pointer;
         using const_pointer     = const pointer;
-        using difference_type   = typename std::iterator_traits<T>::difference_type;
-        using iterator_category = typename std::iterator_traits<T>::iterator_category;
+        using difference_type   = typename std::iterator_traits<Derived>::difference_type;
+        using iterator_category = typename std::iterator_traits<Derived>::iterator_category;
 
-        // Dereference to the internal driver value
         constexpr pointer operator->() { return &*impl(); }
 
-        // Const dereference to the internal driver value
         constexpr const_pointer operator->() const { return &*impl(); }
 
-        // Advances the driver by '1' using Driver::next(1)
-        constexpr T &operator++() {
+        constexpr Derived &operator++() {
                 impl() += 1;
                 return impl();
         }
 
-        // Advances the driver by '1' using Driver::next(1)
-        constexpr T &operator++(int) {
+        constexpr Derived &operator++(int) {
                 auto copy = impl();
                 impl() += 1;
                 return copy;
         }
 
-        // Steps back the driver by '1' using Driver::retreat(1)
-        constexpr T &operator--() {
+        constexpr Derived &operator--() {
                 impl() -= 1;
                 return impl();
         }
 
-        // Steps back the driver by '1' using Driver::retreat(1)
-        constexpr T &operator--(int) {
+        constexpr Derived &operator--(int) {
                 auto copy = impl();
                 impl() -= 1;
                 return copy;
         }
 
-        // Compares the iterators using Driver::less_than.
-        constexpr bool operator<(const generic_iterator<T> &other) const {
+        constexpr bool operator<(const generic_iterator<Derived> &other) const {
                 return impl() < other.impl();
         }
 
-        // Compares the iterators using Driver::equals
-        constexpr bool operator==(const generic_iterator<T> &other) const {
+        constexpr bool operator==(const generic_iterator<Derived> &other) const {
                 return impl() == other.impl();
         }
 
-        constexpr T operator+(difference_type v) const {
+        constexpr Derived operator+(difference_type v) const {
                 auto copy = impl();
                 copy += v;
                 return copy;
         }
 
-        constexpr T operator-(difference_type v) const {
+        constexpr Derived operator-(difference_type v) const {
                 auto copy = impl();
                 copy -= v;
                 return copy;
         }
 };
 
-// A > B iff B < A
-template <typename T>
-constexpr bool operator>(const generic_iterator<T> &lh, const generic_iterator<T> &rh) {
+/// A > B iff B < A
+template <typename Derived>
+constexpr bool operator>(const generic_iterator<Derived> &lh, const generic_iterator<Derived> &rh) {
         return rh < lh;
 }
 
-// A <= B iff !( B > A )
-template <typename T>
-constexpr bool operator<=(const generic_iterator<T> &lh, const generic_iterator<T> &rh) {
+/// A <= B iff !( B > A )
+template <typename Derived>
+constexpr bool operator<=(const generic_iterator<Derived> &lh,
+                          const generic_iterator<Derived> &rh) {
         return !(lh > rh);
 }
 
-// A >= B iff !( B < A )
-template <typename T>
-constexpr bool operator>=(const generic_iterator<T> &lh, const generic_iterator<T> &rh) {
+/// A >= B iff !( B < A )
+template <typename Derived>
+constexpr bool operator>=(const generic_iterator<Derived> &lh,
+                          const generic_iterator<Derived> &rh) {
         return !(lh < rh);
 }
 
-// A != B iff !( A == B)
-template <typename T>
-constexpr bool operator!=(const generic_iterator<T> &lh, const generic_iterator<T> &rh) {
+/// A != B iff !( A == B)
+template <typename Derived>
+constexpr bool operator!=(const generic_iterator<Derived> &lh,
+                          const generic_iterator<Derived> &rh) {
         return !(lh == rh);
 }
 

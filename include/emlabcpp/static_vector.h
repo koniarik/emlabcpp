@@ -13,11 +13,11 @@ class static_vector_iterator;
 template <typename T, std::size_t N>
 class const_static_vector_iterator;
 
-// Data container for up to N elements, mirroring std::vector behavior.
+/// Data container for up to N elements, mirroring std::vector behavior.
 template <typename T, std::size_t N>
 class static_vector {
 
-        // type for storage of one item
+        /// type for storage of one item
         using storage_type = std::aligned_storage_t<sizeof(T), alignof(T)>;
 
         friend class static_vector_iterator<T, N>;
@@ -114,8 +114,8 @@ class static_vector {
         // private attributes
         // --------------------------------------------------------------------------------
 
-        storage_type data_[N] = {0}; // storage of the entire dataset
-        size_type    size_    = 0;   // count of items
+        storage_type data_[N] = {0}; /// storage of the entire dataset
+        size_type    size_    = 0;   /// count of items
 
         // private methods
         // --------------------------------------------------------------------------------
@@ -186,6 +186,9 @@ struct std::iterator_traits<emlabcpp::const_static_vector_iterator<T, N>> {
 
 namespace emlabcpp {
 
+// TODO: merge the iterators into one impl :/
+
+/// Iterator for static vecotr - nonconst
 template <typename T, std::size_t N>
 class static_vector_iterator : public generic_iterator<static_vector_iterator<T, N>> {
         using storage_type = typename static_vector<T, N>::storage_type;
@@ -218,6 +221,7 @@ class static_vector_iterator : public generic_iterator<static_vector_iterator<T,
         storage_type *raw_ptr_;
 };
 
+/// Iterator for static vecotr - const
 template <typename T, std::size_t N>
 class const_static_vector_iterator : public generic_iterator<const_static_vector_iterator<T, N>> {
         using storage_type = typename static_vector<T, N>::storage_type;

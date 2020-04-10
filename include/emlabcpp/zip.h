@@ -20,11 +20,11 @@ struct std::iterator_traits<emlabcpp::zip_iterator<Iterators...>> {
 
 namespace emlabcpp {
 
-/* zip_ierator iterates over a group of iterators, where value is a tuple of references to value for
- * each iterator.
- *
- * The design expects that all ranges of iterators are of same size.
- */
+/// zip_ierator iterates over a group of iterators, where value is a tuple of references to value
+/// for each iterator.
+///
+/// The design expects that all ranges of iterators are of same size.
+///
 template <typename... Iterators>
 class zip_iterator {
         std::tuple<Iterators...> iters_;
@@ -32,7 +32,7 @@ class zip_iterator {
       public:
         constexpr zip_iterator(Iterators... iters) : iters_(std::move(iters)...) {}
 
-        // Increases each iterator
+        /// Increases each iterator
         constexpr zip_iterator operator++() {
                 std::apply(
                     [](auto &&... it) { //
@@ -43,7 +43,7 @@ class zip_iterator {
                 return *this;
         }
 
-        // Decreases each iterator
+        /// Decreases each iterator
         constexpr zip_iterator operator--() {
                 std::apply(
                     [](auto &&... it) { //
@@ -54,8 +54,8 @@ class zip_iterator {
                 return *this;
         }
 
-        // Dereference of each iterator, returns tuple of references to the
-        // operator* of iterators.
+        /// Dereference of each iterator, returns tuple of references to the
+        /// operator* of iterators.
         constexpr auto operator*() {
                 return std::apply(
                     [](auto &&... it) { //
@@ -64,7 +64,7 @@ class zip_iterator {
                     iters_);
         }
 
-        // Two zip iterators are equal if all of their iterators are equal
+        /// Two zip iterators are equal if all of their iterators are equal
         constexpr bool operator==(const zip_iterator<Iterators...> &other) const {
                 return equals(other, std::index_sequence_for<Iterators...>{});
         }
@@ -83,12 +83,12 @@ constexpr bool operator!=(const zip_iterator<Iterators...> &lh,
         return !(lh == rh);
 }
 
-/* Creates a view of zip iterators for specified containers.
- *
- * Beware that the function does not check that containers have same size of
- * ranges. If the size differs, increments of begin iterator will never be same
- * as end iterator.
- */
+/// Creates a view of zip iterators for specified containers.
+///
+/// Beware that the function does not check that containers have same size of
+/// ranges. If the size differs, increments of begin iterator will never be same
+/// as end iterator.
+//
 template <typename... Ts, std::enable_if_t<std::conjunction_v<is_container<Ts>...>> * = nullptr>
 inline auto zip(Ts &&... cont) {
         return view(zip_iterator(std::begin(cont)...), zip_iterator(std::end(cont)...));
@@ -105,6 +105,10 @@ inline auto tuple_zip_impl(TuplesTuple &&tpls, std::index_sequence<ItemIndexes..
         return std::make_tuple(f(std::integral_constant<std::size_t, ItemIndexes>{})...);
 }
 
+/// Zips a set of tuples of same size into a new tuple.
+///
+/// zip(tuple<A,B>(), tuple<C,D>()) -> tuple<tuple<A,C>, <tuple<B,d>>;
+///
 template <typename Tuple, typename... Tuples, std::enable_if_t<is_std_tuple_v<Tuple>> * = nullptr,
           std::enable_if_t<std::conjunction_v<is_std_tuple<std::decay_t<Tuples>>...>> * = nullptr>
 inline auto zip(Tuple &&frst, Tuples &&... tpls) {

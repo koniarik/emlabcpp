@@ -3,8 +3,10 @@
 #pragma once
 
 namespace emlabcpp {
+
 template <typename>
 class numeric_iterator;
+
 }
 
 template <typename T>
@@ -18,9 +20,10 @@ struct std::iterator_traits<emlabcpp::numeric_iterator<T>> {
 
 namespace emlabcpp {
 
-// Driver for numeric iterator - iterator over numbers (which are calculated on the fly)
-//
-// Value of type T is stored internally and incremented as the iterator is moved forward/backward
+/// numeric iterator - iterator over numbers (which are calculated on the fly)
+/// Value of type T is stored internally and incremented as the iterator is moved forward/backward
+///
+/// T has to be any type for which operators +=, <, ++ and conversion to std::ptrdiff_t are defined.
 template <typename T>
 class numeric_iterator : public generic_iterator<numeric_iterator<T>> {
         T val_;
@@ -51,14 +54,14 @@ class numeric_iterator : public generic_iterator<numeric_iterator<T>> {
         }
 };
 
-// Builds numeric view over interval [from, to)
-template <typename Numeric, typename = std::enable_if_t<std::is_arithmetic_v<Numeric>>>
+/// Builds numeric view over interval [from, to)
+template <typename Numeric>
 constexpr view<numeric_iterator<Numeric>> range(Numeric from, Numeric to) {
         return {numeric_iterator<Numeric>{from}, numeric_iterator<Numeric>{to}};
 }
 
-// Builds numeric view over interval [0, to)
-template <typename Numeric, typename = std::enable_if_t<std::is_arithmetic_v<Numeric>>>
+/// Builds numeric view over interval [0, to)
+template <typename Numeric>
 constexpr view<numeric_iterator<Numeric>> range(Numeric to) {
         return range<Numeric>(0, to);
 }
