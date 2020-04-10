@@ -6,22 +6,19 @@
 namespace emlabcpp {
 
 template <typename T>
-struct generic_iterator_traits;
-
-template <typename T>
 class generic_iterator {
 
         [[nodiscard]] constexpr T &      impl() { return static_cast<T &>(*this); }
         [[nodiscard]] constexpr T const &impl() const { return static_cast<T const &>(*this); }
 
       public:
-        using value_type        = typename generic_iterator_traits<T>::value_type;
-        using reference         = typename generic_iterator_traits<T>::reference;
-        using const_reference   = typename generic_iterator_traits<T>::const_reference;
-        using pointer           = typename generic_iterator_traits<T>::pointer;
-        using const_pointer     = typename generic_iterator_traits<T>::const_pointer;
-        using difference_type   = typename generic_iterator_traits<T>::difference_type;
-        using iterator_category = std::bidirectional_iterator_tag;
+        using value_type        = typename std::iterator_traits<T>::value_type;
+        using reference         = typename std::iterator_traits<T>::reference;
+        using const_reference   = const reference;
+        using pointer           = typename std::iterator_traits<T>::pointer;
+        using const_pointer     = const pointer;
+        using difference_type   = typename std::iterator_traits<T>::difference_type;
+        using iterator_category = typename std::iterator_traits<T>::iterator_category;
 
         // Dereference to the internal driver value
         constexpr pointer operator->() { return &*impl(); }

@@ -5,17 +5,19 @@
 namespace emlabcpp {
 template <typename, typename>
 class access_iterator;
+}
 
 template <typename Iterator, typename AccessFunction>
-struct generic_iterator_traits<access_iterator<Iterator, AccessFunction>> {
-        using value_type      = std::remove_reference_t<decltype(
+struct std::iterator_traits<emlabcpp::access_iterator<Iterator, AccessFunction>> {
+        using value_type        = std::remove_reference_t<decltype(
             std::declval<AccessFunction>()(*std::declval<Iterator>()))>;
-        using difference_type = std::ptrdiff_t;
-        using pointer         = value_type *;
-        using const_pointer   = const value_type *;
-        using reference       = value_type &;
-        using const_reference = const value_type &;
+        using difference_type   = std::ptrdiff_t;
+        using pointer           = value_type *;
+        using reference         = value_type &;
+        using iterator_category = std::random_access_iterator_tag;
 };
+
+namespace emlabcpp {
 
 // Driver for access iterator provides access to a reference of value stored in the Iterator.
 // The access is provided via the AccessFunction provided to the driver.
@@ -29,7 +31,7 @@ class access_iterator : public generic_iterator<access_iterator<Iterator, Access
 
       public:
         using value_type =
-            typename generic_iterator_traits<access_iterator<Iterator, AccessFunction>>::value_type;
+            typename std::iterator_traits<access_iterator<Iterator, AccessFunction>>::value_type;
 
         constexpr access_iterator(Iterator current, AccessFunction f)
             : current_(std::move(current)), fun_(std::move(f)) {}
@@ -51,6 +53,10 @@ class access_iterator : public generic_iterator<access_iterator<Iterator, Access
         }
         constexpr bool operator==(const access_iterator &other) const {
                 return current_ == other.current_;
+        }
+
+        constexpr std::ptrdiff_t operator-(const access_iterator &other) {
+                return current_ - other.current_;
         }
 };
 

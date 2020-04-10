@@ -3,19 +3,20 @@
 #pragma once
 
 namespace emlabcpp {
-
 template <typename>
 class numeric_iterator;
+}
 
 template <typename T>
-struct generic_iterator_traits<numeric_iterator<T>> {
-        using value_type      = T;
-        using difference_type = std::ptrdiff_t;
-        using pointer         = T *;
-        using const_pointer   = const T *;
-        using reference       = T &;
-        using const_reference = const T &;
+struct std::iterator_traits<emlabcpp::numeric_iterator<T>> {
+        using value_type        = T;
+        using difference_type   = std::ptrdiff_t;
+        using pointer           = T *;
+        using reference         = T &;
+        using iterator_category = std::random_access_iterator_tag;
 };
+
+namespace emlabcpp {
 
 // Driver for numeric iterator - iterator over numbers (which are calculated on the fly)
 //
@@ -43,6 +44,10 @@ class numeric_iterator : public generic_iterator<numeric_iterator<T>> {
         constexpr bool operator<(const numeric_iterator &other) const { return val_ < other.val_; }
         constexpr bool operator==(const numeric_iterator &other) const {
                 return val_ == other.val_;
+        }
+
+        constexpr std::ptrdiff_t operator-(const numeric_iterator &other) {
+                return static_cast<std::ptrdiff_t>(val_) - static_cast<std::ptrdiff_t>(other.val_);
         }
 };
 
