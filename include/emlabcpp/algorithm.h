@@ -75,18 +75,6 @@ template <typename T>
         return float(abs(lh - rh)) < eps;
 }
 
-// Takes Callable object 'f', which takes multiple arguments and returns
-// function that calls 'f', but accepts tuple of arguments, rather than the
-// arguments directly
-//
-// Note: returned function has copy of callable object 'f'
-template <typename Callable>
-[[nodiscard]] constexpr auto curry(Callable &&f) {
-        return [ff = std::forward<Callable>(f)](auto &&i_tuple) { //
-                return std::apply(ff, std::forward<decltype(i_tuple)>(i_tuple));
-        };
-}
-
 // Returns range over Container, which skips first item of container
 template <typename Container, typename Iterator = iterator_of_t<Container>>
 [[nodiscard]] constexpr view<Iterator> tail(Container &&cont, int step = 1) {
@@ -388,5 +376,25 @@ template <typename Container, typename T>
         }
         return res;
 }
+
+struct curry_impl {
+        template <typename Callable>
+        [[nodiscard]] constexpr auto operator()(Callable &&f) const {
+                return [ff = std::forward<Callable>(f)](auto &&i_tuple) { //
+                        return std::apply(ff, std::forward<decltype(i_tuple)>(i_tuple));
+                };
+        }
+        template <typename Callable>
+        [[nodiscard]] constexpr auto operator|(Callable &&f) const {
+                return this->operator()(f);
+        }
+};
+
+// Takes Callable object 'f', which takes multiple arguments and returns
+// function that calls 'f', but accepts tuple of arguments, rather than the
+// arguments directly
+//
+// Note: returned function has copy of callable object 'f'
+static constexpr curry_impl curry;
 
 } // namespace emlabcpp
