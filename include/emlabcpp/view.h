@@ -16,6 +16,8 @@ class view {
         using value_type = typename std::remove_reference_t<decltype(*std::declval<Iterator>())>;
         using reverse_iterator = std::reverse_iterator<Iterator>;
         using iterator         = Iterator;
+        using difference_type  = typename std::iterator_traits<Iterator>::difference_type;
+        using size_type        = std::size_t;
 
         constexpr view() = default;
 
@@ -27,6 +29,10 @@ class view {
         constexpr view(Iterator begin, Iterator end)
             : begin_(std::move(begin)), end_(std::move(end)) {}
 
+        template <typename OtherIterator,
+                  std::enable_if_t<std::is_convertible_v<OtherIterator, Iterator>> * = nullptr>
+        constexpr view(view<OtherIterator> other) : begin_(other.begin()), end_(other.end()) {}
+
         // Start of the dataset
         [[nodiscard]] constexpr Iterator begin() const { return begin_; }
 
@@ -34,7 +40,9 @@ class view {
         [[nodiscard]] constexpr Iterator end() const { return end_; }
 
         // Access to i-th element in the range, expects Iterator::operator[]
-        [[nodiscard]] constexpr decltype(auto) operator[](std::size_t i) const { return begin_[i]; }
+        [[nodiscard]] constexpr decltype(auto) operator[](size_type i) const {
+                return begin_[static_cast<difference_type>(i)];
+        }
 
         // Returns iterator to the last element that goes in reverse
         [[nodiscard]] constexpr reverse_iterator rbegin() const { return reverse_iterator{end_}; }
@@ -44,7 +52,7 @@ class view {
         [[nodiscard]] constexpr reverse_iterator rend() const { return reverse_iterator{begin_}; }
 
         // Size of the view over dataset uses std::distance() to tell the size
-        [[nodiscard]] constexpr std::size_t size() const {
+        [[nodiscard]] constexpr size_type size() const {
                 return static_cast<std::size_t>(std::distance(begin(), end()));
         }
 
