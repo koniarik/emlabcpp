@@ -47,8 +47,9 @@ struct physical_quantity
         }
 };
 
+///@defgroup physical_quantity_1 Aliases for physical quantity
+/// Type alieases of physical quantity for used quantities.
 ///@{
-/// Table of alieses for most used physical units
 using unitless            = physical_quantity<0, 0, 0, 0, 0, 0, 0, 0, 0>;
 using length              = physical_quantity<1, 0, 0, 0, 0, 0, 0, 0, 0>;
 using mass                = physical_quantity<0, 1, 0, 0, 0, 0, 0, 0, 0>;
