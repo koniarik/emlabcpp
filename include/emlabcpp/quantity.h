@@ -146,14 +146,14 @@ constexpr auto sin(const quantity<Derived, ValueType> u) {
 template <typename Derived, typename ValueType>
 constexpr Derived max(const quantity<Derived, ValueType> lh,
                       const quantity<Derived, ValueType> rh) {
-        return T(std::max(*lh, *rh));
+        return Derived(std::max(*lh, *rh));
 }
 
 /// Quantity with minimum value of one of the quantities
 template <typename Derived, typename ValueType>
 constexpr Derived min(const quantity<Derived, ValueType> lh,
                       const quantity<Derived, ValueType> rh) {
-        return T(std::min(*lh, *rh));
+        return Derived(std::min(*lh, *rh));
 }
 
 //---------------------------------------------------------------------------
