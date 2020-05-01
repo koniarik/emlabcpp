@@ -1,3 +1,4 @@
+#include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
 #include <tuple>
@@ -92,6 +93,11 @@ constexpr bool operator!=(const zip_iterator<Iterators...> &lh,
 template <typename... Ts, std::enable_if_t<std::conjunction_v<is_container<Ts>...>> * = nullptr>
 inline auto zip(Ts &&... cont) {
         return view(zip_iterator(std::begin(cont)...), zip_iterator(std::end(cont)...));
+}
+
+template <typename Container>
+inline auto enumerate(Container &&cont) {
+        return zip(range(cont.size()), cont);
 }
 
 template <typename TuplesTuple, std::size_t... ItemIndexes, std::size_t... TupleIndexes>
