@@ -1,3 +1,4 @@
+#include <string>
 
 #include "emlabcpp/quantity.h"
 
