@@ -68,12 +68,8 @@ class static_vector {
         const_iterator begin() const { return const_iterator{&data_[0]}; }
         const_iterator end() const { return const_iterator{&data_[size_]}; }
 
-        // methods for handling the front side of the circular buffer
-
         [[nodiscard]] reference       front() { return ref_item(0); }
         [[nodiscard]] const_reference front() const { return ref_item(0); }
-
-        // methods for handling the back side of the circular buffer
 
         void push_back(T item) { emplace_back(std::move(item)); }
 
