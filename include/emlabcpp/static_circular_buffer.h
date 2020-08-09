@@ -4,6 +4,8 @@
 #include <type_traits>
 #include <utility>
 
+#include "emlabcpp/iterators/subscript.h"
+
 #pragma once
 
 namespace emlabcpp {
@@ -33,6 +35,8 @@ class static_circular_buffer {
         using size_type       = std::size_t;
         using reference       = T &;
         using const_reference = const T &;
+        using iterator        = subscript_iterator<static_circular_buffer<T, N>>;
+        using const_iterator  = subscript_iterator<const static_circular_buffer<T, N>>;
 
         // public methods
         // --------------------------------------------------------------------------------
@@ -64,6 +68,9 @@ class static_circular_buffer {
 
         // methods for handling the front side of the circular buffer
 
+        [[nodiscard]] iterator       begin() { return iterator{*this, 0}; }
+        [[nodiscard]] const_iterator begin() const { return const_iterator{*this, 0}; }
+
         [[nodiscard]] reference       front() { return ref_item(from_); }
         [[nodiscard]] const_reference front() const { return ref_item(from_); }
 
@@ -75,6 +82,9 @@ class static_circular_buffer {
         }
 
         // methods for handling the back side of the circular buffer
+
+        [[nodiscard]] iterator       end() { return iterator{*this, size()}; }
+        [[nodiscard]] const_iterator end() const { return const_iterator{*this, size()}; }
 
         [[nodiscard]] reference       back() { return ref_item(to_ - 1); }
         [[nodiscard]] const_reference back() const { return ref_item(to_ - 1); }
