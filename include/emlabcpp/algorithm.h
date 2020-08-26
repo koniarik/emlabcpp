@@ -250,7 +250,11 @@ template <typename Container, typename UnaryFunction = identity,
         for_each(cont, [&](const auto &item) { //
                 res += f(item);
         });
-        return res / cont_size(cont);
+        if constexpr (std::is_arithmetic_v<T>) {
+                return res / static_cast<T>(cont_size(cont));
+        } else {
+                return res / cont_size(cont);
+        }
 }
 
 /// Applies binary function 'f(x,y)' to each combination of items x in lh_cont
