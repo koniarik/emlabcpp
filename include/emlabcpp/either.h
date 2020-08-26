@@ -322,18 +322,18 @@ inline auto assemble_left_collect_right(FirstE &&first, Eithers &&... others) {
         using right_type        = typename FirstE::right_item;
         constexpr std::size_t N = 1 + sizeof...(Eithers);
 
-        static_vector<right_type, N> collection;
+        static_vector<right_type, N> collection{};
 
-        auto convert = [&](auto &&either) {
+        auto convert = [&](auto either) {
                 using eitherT   = decltype(either);
                 using left_type = typename std::remove_reference_t<eitherT>::left_item;
 
-                return std::forward<eitherT>(either)
-                    .convert_left([&](auto &&item) { //
-                            return std::make_optional(std::forward<decltype(item)>(item));
+                return std::move(either)
+                    .convert_left([&](auto item) { //
+                            return std::make_optional(std::move(item));
                     })
-                    .convert_right([&](auto &&item) {
-                            collection.push_back(std::forward<decltype(item)>(item));
+                    .convert_right([&](auto item) {
+                            collection.emplace_back(std::move(item));
                             return std::optional<left_type>();
                     })
                     .join();
