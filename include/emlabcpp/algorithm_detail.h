@@ -32,16 +32,23 @@ template <typename Tuple, typename UnaryFunction, std::size_t... Idx>
 constexpr void for_each_impl(Tuple &&t, UnaryFunction &&f, std::index_sequence<Idx...>) {
         (f(std::get<Idx>(std::forward<Tuple>(t))), ...);
 }
-template <typename T, std::size_t N, typename Container, typename UnaryFunction>
-[[nodiscard]] inline std::array<T, N> map_f_to_a_impl(Container &&cont, UnaryFunction &&f) {
-        std::array<T, N> res;
-        std::size_t      i = 0;
-        emlabcpp::for_each(std::forward<Container>(cont),
-                           [&](auto &&item) { //
-                                   res[i] = f(std::forward<decltype(item)>(item));
-                                   ++i;
-                           });
-        return res;
+
+template <typename T, std::size_t N, typename Container, typename UnaryFunction, std::size_t... Is>
+[[nodiscard]] inline std::array<T, N> map_f_to_a_impl(Container &&cont, UnaryFunction &&f,
+                                                      std::integer_sequence<std::size_t, Is...>) {
+
+        auto process = [&](auto i) {
+                if constexpr (std::is_reference_v<Container>) {
+                        return f(cont[i]);
+                } else {
+                        return f(std::move(cont[i]));
+                }
+        };
+
+        // https://en.cppreference.com/w/cpp/language/eval_order
+        // based on standard the order of process(i) calls is defined only in case we are using
+        // constructor initializer with {} brackets. Otherwise it can be any order ...
+        return std::array<T, N>{process(Is)...};
 }
 } // namespace detail
 } // namespace emlabcpp

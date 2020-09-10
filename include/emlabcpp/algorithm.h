@@ -349,21 +349,24 @@ template <typename ResultContainer, typename Container, typename UnaryFunction =
 /// Calls function f(cont[i]) for i = 0...N and stores the result in array of an
 /// appropiate size. The functions needs size 'N' as template parameter
 template <std::size_t N, typename Container, typename UnaryFunction = identity,
-          typename T = mapped_t<Container, UnaryFunction>,
+          typename T = std::decay_t<mapped_t<Container, UnaryFunction>>,
           typename   = std::enable_if_t<!has_static_size_v<Container>>>
 [[nodiscard]] inline std::array<T, N> map_f_to_a(Container &&cont, UnaryFunction &&f = identity()) {
         return detail::map_f_to_a_impl<T, N>(std::forward<Container>(cont),
-                                             std::forward<UnaryFunction>(f));
+                                             std::forward<UnaryFunction>(f),
+                                             std::make_index_sequence<N>());
 }
 
 /// Calls function f(cont[i]) for i = 0...N and stores the result in array of an
 /// appropiate size.
 template <typename Container, std::size_t N = static_size_v<Container>,
-          typename UnaryFunction = identity, typename T = mapped_t<Container, UnaryFunction>,
-          typename = std::enable_if_t<has_static_size_v<Container>>>
+          typename UnaryFunction = identity,
+          typename T             = std::decay_t<mapped_t<Container, UnaryFunction>>,
+          typename               = std::enable_if_t<has_static_size_v<Container>>>
 [[nodiscard]] inline std::array<T, N> map_f_to_a(Container &&cont, UnaryFunction &&f = identity()) {
         return detail::map_f_to_a_impl<T, N>(std::forward<Container>(cont),
-                                             std::forward<UnaryFunction>(f));
+                                             std::forward<UnaryFunction>(f),
+                                             std::make_index_sequence<N>());
 }
 
 /// Returns cont[0] + val + cont[1] + val + cont[2] + ... + cont[n-1] + val +
