@@ -43,9 +43,9 @@ class view {
         /// Past the end iterator
         [[nodiscard]] constexpr Iterator end() const { return end_; }
 
-        /// Access to i-th element in the range, expects Iterator::operator[]
+        /// Access to i-th element in the range, expects Iterator::operator+
         [[nodiscard]] constexpr decltype(auto) operator[](size_type i) const {
-                return begin_[static_cast<difference_type>(i)];
+                return *(begin_ + static_cast<difference_type>(i));
         }
 
         /// Returns iterator to the last element that goes in reverse
@@ -72,7 +72,7 @@ class view {
 
 /// The container deduction guide uses iterator_of_t
 template <typename Container>
-view(Container &cont)->view<iterator_of_t<Container>>;
+view(Container &cont) -> view<iterator_of_t<Container>>;
 
 /// Support for our deduction guide to types - is_view_v
 template <typename Iter>
