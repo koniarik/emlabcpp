@@ -78,6 +78,9 @@ class either {
         }
 
         either &operator=(const either &other) {
+                if (this == &other) {
+                        return *this;
+                }
                 if (other.id_ == item::LEFT) {
                         // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         *this = other.left_;
@@ -314,6 +317,8 @@ assemble_optionals(std::optional<Ts> &&... opt) {
 /// >>. This is handy for uses cases when you have expected values of multiple functions on the
 /// left, / and their errors on the right. It either returns all values or the errors that happend.
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 template <typename FirstE, typename... Eithers>
 inline auto assemble_left_collect_right(FirstE &&first, Eithers &&... others) {
         static_assert(are_same_v<typename Eithers::right_item...>,
@@ -345,4 +350,5 @@ inline auto assemble_left_collect_right(FirstE &&first, Eithers &&... others) {
                     return collection;
             });
 }
+#pragma GCC diagnostic pop
 } // namespace emlabcpp
