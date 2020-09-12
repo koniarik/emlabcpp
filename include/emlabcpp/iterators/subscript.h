@@ -41,8 +41,14 @@ class subscript_iterator : public generic_iterator<subscript_iterator<Container>
         reference       operator*() { return cont_[i_]; }
         const reference operator*() const { return cont_[i_]; }
 
-        subscript_iterator &operator+=(std::size_t i) { i_ += i; }
-        subscript_iterator &operator-=(std::size_t i) { i_ -= i; }
+        subscript_iterator &operator+=(std::size_t i) {
+                i_ += i;
+                return *this;
+        }
+        subscript_iterator &operator-=(std::size_t i) {
+                i_ -= i;
+                return *this;
+        }
 
         bool operator<(const subscript_iterator &other) const { return i_ < other.i_; }
         bool operator==(const subscript_iterator &other) const {
