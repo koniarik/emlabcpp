@@ -14,7 +14,7 @@ using std::abs;
 using std::max;
 using std::min;
 
-constexpr float DEFAULT_EPSILON = 1.19e-07f;
+constexpr float default_epsilon = 1.19e-07f;
 
 /// Sometimes necessary to disable warnings of unused arguments
 template <typename T>
@@ -31,11 +31,11 @@ struct identity {
 /// returns sign of variable T: -1,0,1
 template <typename T>
 constexpr int sign(T &&val) {
-        using U = std::decay_t<T>;
-        if (U{0} > val) {
+        using value_type = std::decay_t<T>;
+        if (value_type{0} > val) {
                 return -1;
         }
-        if (U{0} < val) {
+        if (value_type{0} < val) {
                 return 1;
         }
         return 0;
@@ -71,7 +71,7 @@ template <typename Container>
 /// two items 'lh' and 'rh' are almost equal if their difference is smaller than
 /// value 'eps'
 template <typename T>
-[[nodiscard]] constexpr bool almost_equal(const T &lh, const T &rh, float eps = DEFAULT_EPSILON) {
+[[nodiscard]] constexpr bool almost_equal(const T &lh, const T &rh, float eps = default_epsilon) {
         return float(abs(lh - rh)) < eps;
 }
 
@@ -333,14 +333,14 @@ template <typename ResultContainer, typename Container, typename UnaryFunction =
 
         std::size_t i = 0;
         for_each(std::forward<Container>(cont), [&](auto &&item) {
-                using T = decltype(item);
+                using result_t = decltype(item);
                 if constexpr (is_std_array_v<ResultContainer>) {
-                        res[i] = f(std::forward<T>(cont[i]));
+                        res[i] = f(std::forward<result_t>(cont[i]));
                         ++i;
                 } else if constexpr (has_push_back_v<ResultContainer>) {
-                        res.push_back(f(std::forward<T>(item)));
+                        res.push_back(f(std::forward<result_t>(item)));
                 } else {
-                        res.insert(f(std::forward<T>(item)));
+                        res.insert(f(std::forward<result_t>(item)));
                 }
         });
         return res;
@@ -402,6 +402,6 @@ struct curry_impl {
 /// arguments directly
 ///
 /// Note: returned function has copy of callable object 'f'
-static constexpr curry_impl curry;
+static constexpr curry_impl curry; // NOLINT(readability-identifier-naming)
 
 } // namespace emlabcpp
