@@ -25,11 +25,11 @@ namespace emlabcpp {
 ///
 /// This trick is inspired by the haskell's dimensional library which does the same.
 ///
-template <int l, int mass, int t, int current, int temp, int mol, int li, int angle, int byte>
+template <int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte>
 struct physical_quantity
-    : quantity<physical_quantity<l, mass, t, current, temp, mol, li, angle, byte>, float> {
+    : quantity<physical_quantity<Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte>, float> {
 
-        using quantity<physical_quantity<l, mass, t, current, temp, mol, li, angle, byte>,
+        using quantity<physical_quantity<Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte>,
                        float>::quantity;
 
         static std::string get_unit() {
@@ -42,9 +42,9 @@ struct physical_quantity
                         }
                         return unit + "^" + std::to_string(i);
                 };
-                return seg("m", l) + seg("g", mass) + seg("s", t) + seg("A", current) +
-                       seg("K", temp) + seg("mol", mol) + seg("cd", li) + seg("rad", angle) +
-                       seg("B", byte);
+                return seg("m", Len) + seg("g", Mass) + seg("s", Time) + seg("A", Current) +
+                       seg("K", Temp) + seg("mol", Mol) + seg("cd", Li) + seg("rad", Angle) +
+                       seg("B", Byte);
         }
 };
 
@@ -75,53 +75,57 @@ using radius              = length;
 ///@}
 
 /// Constants of units that are relevant for us
-constexpr angle PI = angle{3.14159265358979323846f};
+constexpr angle pi = angle{3.14159265358979323846f};
 
 /// Multiplication of physical_quantity multiplies the internal
 /// values and the result is a type, where the exponents of each side of the
 /// multiplication are added together.
-template <int l0, int mass0, int t0, int curr0, int temp0, int mol0, int li0, int angle0, int byte0,
-          int l1, int mass1, int t1, int curr1, int temp1, int mol1, int li1, int angle1, int byte1>
+template <int Len0, int Mass0, int Time0, int Current0, int Temp0, int Mol0, int Li0, int Angle0,
+          int Byte0, int Len1, int Mass1, int Time1, int Current1, int Temp1, int Mol1, int Li1,
+          int Angle1, int Byte1>
 constexpr auto
-operator*(physical_quantity<l0, mass0, t0, curr0, temp0, mol0, li0, angle0, byte0> lh,
-          physical_quantity<l1, mass1, t1, curr1, temp1, mol1, li1, angle1, byte1> rh) {
-        return physical_quantity<l0 + l1, mass0 + mass1, t0 + t1, curr0 + curr1, temp0 + temp1,
-                                 mol0 + mol1, li0 + li1, angle0 + angle1, byte0 + byte1>{(*lh) *
-                                                                                         (*rh)};
+operator*(physical_quantity<Len0, Mass0, Time0, Current0, Temp0, Mol0, Li0, Angle0, Byte0> lh,
+          physical_quantity<Len1, Mass1, Time1, Current1, Temp1, Mol1, Li1, Angle1, Byte1> rh) {
+        return physical_quantity<Len0 + Len1, Mass0 + Mass1, Time0 + Time1, Current0 + Current1,
+                                 Temp0 + Temp1, Mol0 + Mol1, Li0 + Li1, Angle0 + Angle1,
+                                 Byte0 + Byte1>{(*lh) * (*rh)};
 }
 
 /// Divison of physical_quantiy divides the internal values and
 /// the result is a type, where the exponents of each side of the multiplication
 /// are subtracted.
-template <int l0, int mass0, int t0, int curr0, int temp0, int mol0, int li0, int angle0, int byte0,
-          int l1, int mass1, int t1, int curr1, int temp1, int mol1, int li1, int angle1, int byte1>
+template <int Len0, int Mass0, int Time0, int Current0, int Temp0, int Mol0, int Li0, int Angle0,
+          int Byte0, int Len1, int Mass1, int Time1, int Current1, int Temp1, int Mol1, int Li1,
+          int Angle1, int Byte1>
 constexpr auto
-operator/(physical_quantity<l0, mass0, t0, curr0, temp0, mol0, li0, angle0, byte0> lh,
-          physical_quantity<l1, mass1, t1, curr1, temp1, mol1, li1, angle1, byte1> rh) {
-        return physical_quantity<l0 - l1, mass0 - mass1, t0 - t1, curr0 - curr1, temp0 - temp1,
-                                 mol0 - mol1, li0 - li1, angle0 - angle1, byte0 - byte1>{(*lh) /
-                                                                                         (*rh)};
+operator/(physical_quantity<Len0, Mass0, Time0, Current0, Temp0, Mol0, Li0, Angle0, Byte0> lh,
+          physical_quantity<Len1, Mass1, Time1, Current1, Temp1, Mol1, Li1, Angle1, Byte1> rh) {
+        return physical_quantity<Len0 - Len1, Mass0 - Mass1, Time0 - Time1, Current0 - Current1,
+                                 Temp0 - Temp1, Mol0 - Mol1, Li0 - Li1, Angle0 - Angle1,
+                                 Byte0 - Byte1>{(*lh) / (*rh)};
 }
 
 /// Square root of physical quantity is square root of it's value and the
 /// exponents are divided in half.
-template <int l, int mass, int t, int curr, int temp, int mol, int li, int angle, int byte>
-constexpr auto sqrt(physical_quantity<l, mass, t, curr, temp, mol, li, angle, byte> val) {
-        return physical_quantity<l / 2, mass / 2, t / 2, curr / 2, temp / 2, mol / 2, li / 2,
-                                 angle / 2, byte / 2>{float{std::sqrt(*val)}};
+template <int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte>
+constexpr auto sqrt(physical_quantity<Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte> val) {
+        return physical_quantity<Len / 2, Mass / 2, Time / 2, Current / 2, Temp / 2, Mol / 2,
+                                 Li / 2, Angle / 2, Byte / 2>{float{std::sqrt(*val)}};
 }
 
 } // namespace emlabcpp
 
 /// std::numeric_limits<physical_quantity> follows same logic  as std::numeric_limits<float>;
-template <int l, int mass, int t, int curr, int temp, int mol, int li, int angle, int byte>
+template <int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte>
 struct std::numeric_limits<
-    emlabcpp::physical_quantity<l, mass, t, curr, temp, mol, li, angle, byte>>
+    emlabcpp::physical_quantity<Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte>>
     : std::numeric_limits<emlabcpp::quantity<
-          emlabcpp::physical_quantity<l, mass, t, curr, temp, mol, li, angle, byte>, float>> {};
+          emlabcpp::physical_quantity<Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte>,
+          float>> {};
 
 /// std::hash<physical_quantity> follows same logic  as std::hash<float>;
-template <int l, int mass, int t, int curr, int temp, int mol, int li, int angle, int byte>
-struct std::hash<emlabcpp::physical_quantity<l, mass, t, curr, temp, mol, li, angle, byte>>
+template <int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte>
+struct std::hash<emlabcpp::physical_quantity<Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte>>
     : std::hash<emlabcpp::quantity<
-          emlabcpp::physical_quantity<l, mass, t, curr, temp, mol, li, angle, byte>, float>> {};
+          emlabcpp::physical_quantity<Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte>,
+          float>> {};
