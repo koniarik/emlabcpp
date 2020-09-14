@@ -13,6 +13,7 @@ struct std::iterator_traits<emlabcpp::access_iterator<Iterator, AccessFunction>>
             std::declval<AccessFunction>()(*std::declval<Iterator>()))>;
         using difference_type   = std::ptrdiff_t;
         using pointer           = value_type *;
+        using const_pointer     = const value_type *;
         using reference         = value_type &;
         using iterator_category = std::random_access_iterator_tag;
 };

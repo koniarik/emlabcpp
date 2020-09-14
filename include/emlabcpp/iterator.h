@@ -52,7 +52,7 @@ class generic_iterator {
         using reference         = typename std::iterator_traits<Derived>::reference;
         using const_reference   = const reference;
         using pointer           = typename std::iterator_traits<Derived>::pointer;
-        using const_pointer     = const pointer;
+        using const_pointer     = typename std::iterator_traits<Derived>::const_pointer;
         using difference_type   = typename std::iterator_traits<Derived>::difference_type;
         using iterator_category = typename std::iterator_traits<Derived>::iterator_category;
 

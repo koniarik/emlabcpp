@@ -14,6 +14,7 @@ struct std::iterator_traits<emlabcpp::numeric_iterator<T>> {
         using value_type        = T;
         using difference_type   = std::ptrdiff_t;
         using pointer           = T *;
+        using const_pointer     = const T *;
         using reference         = T &;
         using iterator_category = std::random_access_iterator_tag;
 };
