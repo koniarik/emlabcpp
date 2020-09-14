@@ -160,6 +160,9 @@ template <typename T>
 struct min_max {
         T min{};
         T max{};
+
+        min_max() = default;
+        min_max(T min_i, T max_i) : min(min_i), max(max_i) {}
 };
 
 /// Applies unary function 'f(x)' to each element of container 'cont', returns
