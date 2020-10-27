@@ -71,6 +71,13 @@ class static_circular_buffer {
         [[nodiscard]] iterator       begin() { return iterator{*this, 0}; }
         [[nodiscard]] const_iterator begin() const { return const_iterator{*this, 0}; }
 
+        [[nodiscard]] std::reverse_iterator<iterator> rbegin() {
+                return std::make_reverse_iterator(end());
+        };
+        [[nodiscard]] std::reverse_iterator<const_iterator> rbegin() const {
+                return std::make_reverse_iterator(end());
+        };
+
         [[nodiscard]] reference       front() { return ref_item(from_); }
         [[nodiscard]] const_reference front() const { return ref_item(from_); }
 
@@ -85,6 +92,13 @@ class static_circular_buffer {
 
         [[nodiscard]] iterator       end() { return iterator{*this, size()}; }
         [[nodiscard]] const_iterator end() const { return const_iterator{*this, size()}; }
+
+        [[nodiscard]] std::reverse_iterator<iterator> rend() {
+                return std::make_reverse_iterator(begin());
+        };
+        [[nodiscard]] std::reverse_iterator<const_iterator> rend() const {
+                return std::make_reverse_iterator(begin());
+        };
 
         [[nodiscard]] reference       back() { return ref_item(to_ - 1); }
         [[nodiscard]] const_reference back() const { return ref_item(to_ - 1); }
