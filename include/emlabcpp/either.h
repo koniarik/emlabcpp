@@ -321,16 +321,16 @@ assemble_optionals(std::optional<Ts> &&... opt) {
 #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 template <typename FirstE, typename... Eithers>
 inline auto assemble_left_collect_right(FirstE &&first, Eithers &&... others) {
-        static_assert(are_same_v<typename Eithers::right_item...>,
+        static_assert(are_same_v<typename std::decay_t<Eithers>::right_item...>,
                       "Right items of Eithers have to be same for collection!");
 
-        using right_type               = typename FirstE::right_item;
+        using right_type               = typename std::decay_t<FirstE>::right_item;
         constexpr std::size_t either_n = 1 + sizeof...(Eithers);
 
         static_vector<right_type, either_n> collection{};
 
         auto convert = [&](auto either) {
-                using either_t   = decltype(either);
+                using either_t  = decltype(either);
                 using left_type = typename std::remove_reference_t<either_t>::left_item;
 
                 return std::move(either)
