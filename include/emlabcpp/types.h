@@ -1,6 +1,7 @@
 #include <array>
 #include <tuple>
 #include <type_traits>
+#include <vector>
 
 #pragma once
 
@@ -73,6 +74,17 @@ struct is_std_array<std::array<T, N>> : std::true_type {};
 
 template <typename T>
 constexpr bool is_std_array_v = is_std_array<std::decay_t<T>>::value;
+
+// ------------------------------------------------------------------------------------------------
+/// is_std_vector<T>::value is true if type T is std::vector
+template <typename>
+struct is_std_vector : std::false_type {};
+
+template <typename T>
+struct is_std_vector<std::vector<T>> : std::true_type {};
+
+template <typename T>
+constexpr bool is_std_vector_v = is_std_vector<std::decay_t<T>>::value;
 
 // ------------------------------------------------------------------------------------------------
 /// static_size<T>::value is size of the type T, if it has any deducable at compile time
@@ -181,6 +193,24 @@ using mapped_t = typename mapped<Container, UnaryFunction>::type;
 // ------------------------------------------------------------------------------------------------
 /// tuple_of_constants<Is..> is a tuple of integral constants in ranage Is...
 template <std::size_t... Is>
-using tuple_of_constants = std::tuple<std::integral_constant<std::size_t, Is>...>;
+using tuple_of_constants_t = std::tuple<std::integral_constant<std::size_t, Is>...>;
+
+namespace detail {
+template <typename>
+struct make_sequence_tuple_impl;
+
+template <std::size_t... Is>
+struct make_sequence_tuple_impl<std::index_sequence<Is...>> {
+        using type = tuple_of_constants_t<Is...>;
+};
+} // namespace detail
+
+template <std::size_t N>
+struct make_sequence_tuple {
+        using type = typename detail::make_sequence_tuple_impl<std::make_index_sequence<N>>::type;
+};
+
+template <std::size_t N>
+using make_sequence_tuple_t = typename make_sequence_tuple<N>::type;
 
 } // namespace emlabcpp
