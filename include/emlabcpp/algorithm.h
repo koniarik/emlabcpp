@@ -387,7 +387,7 @@ template <typename Container, typename T>
         return res;
 }
 
-struct curry_impl {
+struct uncurry_impl {
         template <typename Callable>
         [[nodiscard]] constexpr auto operator()(Callable &&f) const {
                 return [ff = std::forward<Callable>(f)](auto &&i_tuple) { //
@@ -396,7 +396,7 @@ struct curry_impl {
         }
         template <typename Callable>
         [[nodiscard]] constexpr auto operator|(Callable &&f) const {
-                return this->operator()(f);
+                return this->operator()(std::forward<Callable>(f));
         }
 };
 
@@ -405,6 +405,6 @@ struct curry_impl {
 /// arguments directly
 ///
 /// Note: returned function has copy of callable object 'f'
-static constexpr curry_impl curry; // NOLINT(readability-identifier-naming)
+static constexpr uncurry_impl uncurry; // NOLINT(readability-identifier-naming)
 
 } // namespace emlabcpp
