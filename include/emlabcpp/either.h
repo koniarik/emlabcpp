@@ -36,43 +36,33 @@ class either {
         using right_item = RH;
 
         either(left_item &&item) noexcept : id_(item::LEFT) {
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 new (&left_) left_item(std::move(item));
         }
 
-        either(const left_item &item) noexcept : id_(item::LEFT) {
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
-                new (&left_) left_item(item);
-        }
+        either(const left_item &item) noexcept : id_(item::LEFT) { new (&left_) left_item(item); }
 
         template <typename U = RH, typename = std::enable_if_t<!std::is_same_v<LH, U>>>
         either(RH &&item) noexcept : id_(item::RIGHT) {
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 new (&right_) right_item(std::move(item));
         }
 
         template <typename U = RH, typename = std::enable_if_t<!std::is_same_v<LH, U>>>
         either(const RH &item) noexcept : id_(item::RIGHT) {
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 new (&right_) right_item(item);
         }
 
         either(const either &other) noexcept : id_(other.id_) {
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         new (&left_) left_item(other.left_);
                 } else {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         new (&right_) right_item(other.right_);
                 }
         }
 
         either(either &&other) noexcept : id_(other.id_) {
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         new (&left_) left_item(std::move(other.left_));
                 } else {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         new (&right_) right_item(std::move(other.right_));
                 }
         }
@@ -82,10 +72,8 @@ class either {
                         return *this;
                 }
                 if (other.id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         *this = other.left_;
                 } else {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         *this = other.right_;
                 }
                 return *this;
@@ -93,10 +81,8 @@ class either {
 
         either &operator=(either &&other) noexcept {
                 if (other.id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         *this = std::move(other.left_);
                 } else {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         *this = std::move(other.right_);
                 }
                 return *this;
@@ -105,14 +91,12 @@ class either {
         either &operator=(const left_item &other) {
                 destruct();
                 id_ = item::LEFT;
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 new (&left_) left_item(other);
                 return *this;
         }
         either &operator=(left_item &&other) {
                 destruct();
                 id_ = item::LEFT;
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 new (&left_) left_item(std::move(other));
                 return *this;
         }
@@ -121,7 +105,6 @@ class either {
         either &operator=(const right_item &other) {
                 destruct();
                 id_ = item::RIGHT;
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 new (&right_) right_item(other);
                 return *this;
         }
@@ -130,7 +113,6 @@ class either {
         either &operator=(RH &&other) {
                 destruct();
                 id_ = item::RIGHT;
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 new (&right_) right_item(std::move(other));
                 return *this;
         }
@@ -139,67 +121,53 @@ class either {
 
         template <typename LeftFunction>
         auto convert_left(LeftFunction &&left_f) & {
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 using return_either = either<decltype(left_f(left_)), right_item>;
 
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         return return_either{left_f(left_)};
                 }
 
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 return return_either{right_};
         }
 
         template <typename LeftFunction>
         auto convert_left(LeftFunction &&left_f) && {
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 using return_either = either<decltype(left_f(std::move(left_))), right_item>;
 
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         return return_either{left_f(std::move(left_))};
                 }
 
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 return return_either{std::move(right_)};
         }
 
         template <typename RightFunction>
         auto convert_right(RightFunction &&right_f) & {
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 using return_either = either<left_item, decltype(right_f(right_))>;
 
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         return return_either{left_};
                 }
 
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 return return_either{right_f(right_)};
         }
 
         template <typename RightFunction>
         auto convert_right(RightFunction &&right_f) && {
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 using return_either = either<left_item, decltype(right_f(std::move(right_)))>;
 
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         return return_either{std::move(left_)};
                 }
 
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 return return_either{right_f(std::move(right_))};
         }
 
         template <typename LeftFunction, typename RightFunction>
         void match(LeftFunction &&left_f, RightFunction &&right_f) & {
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         left_f(left_);
                 } else {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         right_f(right_);
                 }
         }
@@ -207,10 +175,8 @@ class either {
         template <typename LeftFunction, typename RightFunction>
         void match(LeftFunction &&left_f, RightFunction &&right_f) const & {
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         left_f(left_);
                 } else {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         right_f(right_);
                 }
         }
@@ -218,10 +184,8 @@ class either {
         template <typename LeftFunction, typename RightFunction>
         void match(LeftFunction &&left_f, RightFunction &&right_f) && {
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         left_f(std::move(left_));
                 } else {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         right_f(std::move(right_));
                 }
         }
@@ -229,55 +193,72 @@ class either {
         template <typename U = left_item, typename K = right_item>
         std::enable_if_t<std::is_same_v<U, K>, left_item> join() && {
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         return std::move(left_);
                 }
 
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 return std::move(right_);
         }
         template <typename U = left_item, typename K = right_item>
         std::enable_if_t<std::is_same_v<U, K>, LH> join() & {
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         return left_;
                 }
 
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 return right_;
         }
 
         template <typename UnaryFunction>
         auto bind_left(UnaryFunction &&left_f) & {
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 using return_either = decltype(left_f(left_));
 
                 static_assert(std::is_same_v<typename return_either::right_item, right_item>,
                               "In bind left, the right_types has to be same!");
 
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         return left_f(left_);
                 }
 
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 return return_either{right_};
         }
         template <typename UnaryFunction>
         auto bind_left(UnaryFunction &&left_f) && {
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 using return_either = decltype(left_f(std::move(left_)));
 
                 static_assert(std::is_same_v<typename return_either::right_item, right_item>,
                               "In bind left, the right_types has to be same!");
 
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         return left_f(std::move(left_));
                 }
 
-                // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                 return return_either{std::move(right_)};
+        }
+
+        template <typename UnaryFunction>
+        auto bind_right(UnaryFunction &&right_f) & {
+                using return_either = decltype(right_f(right_));
+
+                static_assert(std::is_same_v<typename return_either::left_item, left_item>,
+                              "In bind right, the left_types has to be same!");
+
+                if (id_ == item::RIGHT) {
+                        return right_f(right_);
+                }
+
+                return return_either{left_};
+        }
+        template <typename UnaryFunction>
+        auto bind_right(UnaryFunction &&right_f) && {
+                using return_either = decltype(right_f(std::move(right_)));
+
+                static_assert(std::is_same_v<typename return_either::left_item, left_item>,
+                              "In bind right, the left_types has to be same!");
+
+                if (id_ == item::RIGHT) {
+                        return right_f(std::move(right_));
+                }
+
+                return return_either{std::move(left_)};
         }
 
         ~either() { destruct(); }
@@ -285,10 +266,8 @@ class either {
       private:
         void destruct() {
                 if (id_ == item::LEFT) {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         left_.~left_item();
                 } else {
-                        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-union-access)
                         right_.~right_item();
                 }
         }
