@@ -55,6 +55,15 @@ class zip_iterator {
                 return *this;
         }
 
+        constexpr zip_iterator &operator+=(std::ptrdiff_t m) {
+                for_each(iters_, [&](auto &iter) { iter += m; });
+                return *this;
+        }
+
+        constexpr std::ptrdiff_t operator-(const zip_iterator<Iterators...> &other) const {
+                return std::get<0>(iters_) - std::get<0>(other.iters_);
+        }
+
         /// Dereference of each iterator, returns tuple of references to the
         /// operator* of iterators.
         constexpr auto operator*() {
@@ -77,6 +86,12 @@ class zip_iterator {
                 return ((std::get<Idx>(iters_) == std::get<Idx>(other.iters_)) || ...);
         }
 };
+
+template <typename... Iterators>
+constexpr zip_iterator<Iterators...> operator+(zip_iterator<Iterators...> lh, std::ptrdiff_t m) {
+        lh += m;
+        return lh;
+}
 
 template <typename... Iterators>
 constexpr bool operator!=(const zip_iterator<Iterators...> &lh,
