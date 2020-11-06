@@ -50,7 +50,7 @@ class numeric_iterator : public generic_iterator<numeric_iterator<T>> {
                 return val_ == other.val_;
         }
 
-        constexpr std::ptrdiff_t operator-(const numeric_iterator &other) {
+        constexpr std::ptrdiff_t operator-(const numeric_iterator &other) const {
                 return static_cast<std::ptrdiff_t>(val_) - static_cast<std::ptrdiff_t>(other.val_);
         }
 };
