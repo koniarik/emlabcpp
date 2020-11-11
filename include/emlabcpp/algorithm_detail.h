@@ -37,11 +37,12 @@ template <typename T, std::size_t N, typename Container, typename UnaryFunction,
 [[nodiscard]] inline std::array<T, N> map_f_to_a_impl(Container &&cont, UnaryFunction &&f,
                                                       std::integer_sequence<std::size_t, Is...>) {
 
-        auto process = [&](auto i) {
+        auto iter    = cont.begin();
+        auto process = [&](auto) {
                 if constexpr (std::is_reference_v<Container>) {
-                        return f(cont[i]);
+                        return f(*iter++);
                 } else {
-                        return f(std::move(cont[i]));
+                        return f(std::move(*iter++));
                 }
         };
 
