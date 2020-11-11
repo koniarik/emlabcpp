@@ -65,7 +65,7 @@ class generic_iterator {
                 return impl();
         }
 
-        constexpr Derived &operator++(int) {
+        constexpr Derived operator++(int) {
                 auto copy = impl();
                 impl() += 1;
                 return copy;
@@ -76,7 +76,7 @@ class generic_iterator {
                 return impl();
         }
 
-        constexpr Derived &operator--(int) {
+        constexpr Derived operator--(int) {
                 auto copy = impl();
                 impl() -= 1;
                 return copy;
