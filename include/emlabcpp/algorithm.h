@@ -273,8 +273,8 @@ constexpr void for_cross_joint(LhContainer &&lh_cont, RhContainer &&rh_cont, Bin
 
 /// Returns true if call to function 'f(x)' returns true for at least one item in
 /// 'cont'
-template <typename Container, typename UnaryFunction>
-[[nodiscard]] constexpr bool any_of(const Container &cont, UnaryFunction &&f) {
+template <typename Container, typename UnaryFunction = identity>
+[[nodiscard]] constexpr bool any_of(const Container &cont, UnaryFunction &&f = identity()) {
         auto res = find_if(cont, std::forward<UnaryFunction>(f));
 
         if constexpr (is_std_tuple_v<Container>) {
@@ -286,14 +286,14 @@ template <typename Container, typename UnaryFunction>
 
 /// Returns true if call to function 'f(x)' returns false for all items in
 /// 'cont'.
-template <typename Container, typename UnaryFunction>
-[[nodiscard]] constexpr bool none_of(const Container &cont, UnaryFunction &&f) {
+template <typename Container, typename UnaryFunction = identity>
+[[nodiscard]] constexpr bool none_of(const Container &cont, UnaryFunction &&f = identity()) {
         return !any_of(cont, std::forward<UnaryFunction>(f));
 }
 
 /// Returns true if call to function 'f(x)' returns true for all items in 'cont'
-template <typename Container, typename UnaryFunction>
-[[nodiscard]] constexpr bool all_of(const Container &cont, UnaryFunction &&f) {
+template <typename Container, typename UnaryFunction = identity>
+[[nodiscard]] constexpr bool all_of(const Container &cont, UnaryFunction &&f = identity()) {
         return !any_of(cont, [&](const auto &item) { //
                 return !f(item);
         });
