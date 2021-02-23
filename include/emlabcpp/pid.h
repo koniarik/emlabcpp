@@ -4,6 +4,7 @@
 
 namespace emlabcpp {
 
+template <typename TimeType>
 class pid {
         /// based on
         /// http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/
@@ -20,13 +21,15 @@ class pid {
                 float max = 100; /// maximal output value
         };
 
+        using time_type = TimeType;
+
       private:
         config conf_;
 
         float i_term_     = 0;
         float last_input_ = 0;
 
-        float last_time_ = 0;
+        time_type last_time_;
 
         float output_ = 0;
 
@@ -39,7 +42,9 @@ class pid {
         ///          change i from 1 to 100)
 
       public:
-        pid(config conf) { set_config(conf); }
+        pid(time_type now, config conf = config{}) : last_time_(now) { set_config(conf); }
+
+        void set_time(time_type t) { last_time_ = t; }
 
         /// To correctly reset the pid, tell it the actuall output_ value
         /// That is required for cases when you set it up manually without pids knowledge
@@ -60,8 +65,8 @@ class pid {
         /// Algorithm changes it's internal value output_ to the value that should be set to a
         /// 'thing' that controls input_ value. It tries to control the 'thing' so the input
         /// eventually converges to 'desired' value
-        void update(float now, float input, float desired) {
-                float t_diff = now - last_time_;
+        void update(time_type now, float input, float desired) {
+                float t_diff = static_cast<float>(now - last_time_);
 
                 if (t_diff == 0.f) {
                         return;
@@ -74,7 +79,6 @@ class pid {
                 i_term_ = clamp(i_term_, conf_.min, conf_.max);
 
                 float input_diff = (input - last_input_) / t_diff;
-
                 output_ = conf_.p * error + i_term_ - conf_.d * input_diff;
                 output_ = clamp(output_, conf_.min, conf_.max);
 
