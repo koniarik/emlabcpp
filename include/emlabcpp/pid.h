@@ -79,8 +79,8 @@ class pid {
                 i_term_ = clamp(i_term_, conf_.min, conf_.max);
 
                 float input_diff = (input - last_input_) / t_diff;
-                output_ = conf_.p * error + i_term_ - conf_.d * input_diff;
-                output_ = clamp(output_, conf_.min, conf_.max);
+                output_          = conf_.p * error + i_term_ - conf_.d * input_diff;
+                output_          = clamp(output_, conf_.min, conf_.max);
 
                 last_input_ = input;
                 last_time_  = now;
