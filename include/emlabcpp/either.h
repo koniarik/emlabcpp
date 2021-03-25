@@ -208,7 +208,7 @@ class either {
         }
 
         template <typename T>
-        em::either<left_item, T> construct_right() & {
+        either<left_item, T> construct_right() & {
                 if (id_ == item::LEFT) {
                         return {left_};
                 }
@@ -216,7 +216,7 @@ class either {
         }
 
         template <typename T>
-        em::either<left_item, T> construct_right() && {
+        either<left_item, T> construct_right() && {
                 if (id_ == item::LEFT) {
                         return {std::move(left_)};
                 }
@@ -226,7 +226,7 @@ class either {
         template <typename UnaryFunction>
         auto bind_left(UnaryFunction &&left_f) & {
                 using return_either =
-                    em::either<typename decltype(left_f(left_))::left_item, right_item>;
+                    either<typename decltype(left_f(left_))::left_item, right_item>;
 
                 if (id_ == item::LEFT) {
                         return left_f(left_).template construct_right<right_item>();
@@ -237,7 +237,7 @@ class either {
         template <typename UnaryFunction>
         auto bind_left(UnaryFunction &&left_f) && {
                 using return_either =
-                    em::either<typename decltype(left_f(std::move(left_)))::left_item, right_item>;
+                    either<typename decltype(left_f(std::move(left_)))::left_item, right_item>;
 
                 if (id_ == item::LEFT) {
                         return left_f(std::move(left_)).template construct_right<right_item>();
@@ -247,7 +247,7 @@ class either {
         }
 
         template <typename T>
-        em::either<T, right_item> construct_left() & {
+        either<T, right_item> construct_left() & {
                 if (id_ != item::LEFT) {
                         return {right_};
                 }
@@ -255,7 +255,7 @@ class either {
         }
 
         template <typename T>
-        em::either<T, right_item> construct_left() && {
+        either<T, right_item> construct_left() && {
                 if (id_ != item::LEFT) {
                         return {std::move(right_)};
                 }
@@ -265,7 +265,7 @@ class either {
         template <typename UnaryFunction>
         auto bind_right(UnaryFunction &&right_f) & {
                 using return_either =
-                    em::either<left_item, typename decltype(right_f(right_))::right_item>;
+                    either<left_item, typename decltype(right_f(right_))::right_item>;
 
                 if (id_ == item::RIGHT) {
                         return right_f(right_).template construct_left<left_item>();
@@ -276,8 +276,7 @@ class either {
         template <typename UnaryFunction>
         auto bind_right(UnaryFunction &&right_f) && {
                 using return_either =
-                    em::either<left_item,
-                               typename decltype(right_f(std::move(right_)))::right_item>;
+                    either<left_item, typename decltype(right_f(std::move(right_)))::right_item>;
 
                 if (id_ == item::RIGHT) {
                         return right_f(std::move(right_)).template construct_left<left_item>();
