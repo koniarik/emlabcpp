@@ -4,22 +4,24 @@
 
 using namespace emlabcpp;
 
+using tpid = pid<float>;
+
 TEST(PID, base) {
-        pid::config conf;
-        pid         my_pid{conf};
+        tpid::config conf;
+        tpid         my_pid{float{0}, conf};
 
         EXPECT_EQ(my_pid.get_output(), 0);
 }
 
 TEST(PID, simple) {
-        pid::config conf;
+        tpid::config conf;
         conf.p   = 0.2f;
         conf.i   = 0.01f;
         conf.d   = 0.01f;
         conf.min = 0.f;
         conf.max = 100.f;
 
-        pid my_pid{conf};
+        tpid my_pid{float{0}, conf};
 
         float val     = 0.f;
         float desired = 100.f;
