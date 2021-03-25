@@ -74,7 +74,7 @@ class static_vector {
         void push_back(T item) { emplace_back(std::move(item)); }
 
         template <typename... Args>
-        void emplace_back(Args &&... args) {
+        void emplace_back(Args &&...args) {
                 emplace_item(size_, std::forward<Args>(args)...);
                 size_ += 1;
         }
@@ -118,7 +118,7 @@ class static_vector {
         void delete_item(size_type i) { ref_item(i).~T(); }
 
         template <typename... Args>
-        void emplace_item(size_type i, Args &&... args) {
+        void emplace_item(size_type i, Args &&...args) {
                 void *gen_ptr = reinterpret_cast<void *>(&data_[i]);
                 ::new (gen_ptr) T(std::forward<Args>(args)...);
         }
@@ -215,6 +215,10 @@ class static_vector_iterator : public generic_iterator<static_vector_iterator<T,
                 return raw_ptr_ == other.raw_ptr_;
         }
 
+        constexpr std::ptrdiff_t operator-(const static_vector_iterator &other) const {
+                return raw_ptr_ - other.raw_ptr_;
+        }
+
       private:
         storage_type *raw_ptr_;
 };
@@ -246,6 +250,10 @@ class const_static_vector_iterator : public generic_iterator<const_static_vector
         }
         bool operator==(const const_static_vector_iterator &other) const {
                 return raw_ptr_ == other.raw_ptr_;
+        }
+
+        constexpr std::ptrdiff_t operator-(const const_static_vector_iterator &other) const {
+                return raw_ptr_ - other.raw_ptr_;
         }
 
       private:
