@@ -207,55 +207,80 @@ class either {
                 return right_;
         }
 
+        template <typename T>
+        em::either<left_item, T> construct_right() & {
+                if (id_ == item::LEFT) {
+                        return {left_};
+                }
+                return {T{right_}};
+        }
+
+        template <typename T>
+        em::either<left_item, T> construct_right() && {
+                if (id_ == item::LEFT) {
+                        return {std::move(left_)};
+                }
+                return {T{std::move(right_)}};
+        }
+
         template <typename UnaryFunction>
         auto bind_left(UnaryFunction &&left_f) & {
-                using return_either = decltype(left_f(left_));
-
-                static_assert(std::is_same_v<typename return_either::right_item, right_item>,
-                              "In bind left, the right_types has to be same!");
+                using return_either =
+                    em::either<typename decltype(left_f(left_))::left_item, right_item>;
 
                 if (id_ == item::LEFT) {
-                        return left_f(left_);
+                        return left_f(left_).template construct_right<right_item>();
                 }
 
                 return return_either{right_};
         }
         template <typename UnaryFunction>
         auto bind_left(UnaryFunction &&left_f) && {
-                using return_either = decltype(left_f(std::move(left_)));
-
-                static_assert(std::is_same_v<typename return_either::right_item, right_item>,
-                              "In bind left, the right_types has to be same!");
+                using return_either =
+                    em::either<typename decltype(left_f(std::move(left_)))::left_item, right_item>;
 
                 if (id_ == item::LEFT) {
-                        return left_f(std::move(left_));
+                        return left_f(std::move(left_)).template construct_right<right_item>();
                 }
 
                 return return_either{std::move(right_)};
         }
 
+        template <typename T>
+        em::either<T, right_item> construct_left() & {
+                if (id_ != item::LEFT) {
+                        return {right_};
+                }
+                return {T{left_}};
+        }
+
+        template <typename T>
+        em::either<T, right_item> construct_left() && {
+                if (id_ != item::LEFT) {
+                        return {std::move(right_)};
+                }
+                return {T{std::move(left_)}};
+        }
+
         template <typename UnaryFunction>
         auto bind_right(UnaryFunction &&right_f) & {
-                using return_either = decltype(right_f(right_));
-
-                static_assert(std::is_same_v<typename return_either::left_item, left_item>,
-                              "In bind right, the left_types has to be same!");
+                using return_either =
+                    em::either<left_item, typename decltype(right_f(right_))::right_item>;
 
                 if (id_ == item::RIGHT) {
-                        return right_f(right_);
+                        return right_f(right_).template construct_left<left_item>();
                 }
 
                 return return_either{left_};
         }
         template <typename UnaryFunction>
         auto bind_right(UnaryFunction &&right_f) && {
-                using return_either = decltype(right_f(std::move(right_)));
-
-                static_assert(std::is_same_v<typename return_either::left_item, left_item>,
-                              "In bind right, the left_types has to be same!");
+                using return_either =
+                    em::either<left_item,
+                               typename decltype(right_f(std::move(right_)))::right_item>;
 
                 if (id_ == item::RIGHT) {
-                        return right_f(std::move(right_));
+                        return right_f(std::move(right_)).template construct_left<left_item>();
                 }
 
                 return return_either{std::move(left_)};
@@ -280,7 +305,7 @@ struct empty_assembly_tag {};
 /// tuple or 'empty_assembly_tag' implicating that some of the optionals was empty.
 template <typename... Ts>
 inline either<std::tuple<Ts...>, empty_assembly_tag>
-assemble_optionals(std::optional<Ts> &&... opt) {
+assemble_optionals(std::optional<Ts> &&...opt) {
         if ((... && opt)) {
                 return std::make_tuple<Ts...>(std::forward<Ts>(*opt)...);
         }
@@ -299,7 +324,7 @@ assemble_optionals(std::optional<Ts> &&... opt) {
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 template <typename FirstE, typename... Eithers>
-inline auto assemble_left_collect_right(FirstE &&first, Eithers &&... others) {
+inline auto assemble_left_collect_right(FirstE &&first, Eithers &&...others) {
         static_assert(are_same_v<typename std::decay_t<Eithers>::right_item...>,
                       "Right items of Eithers have to be same for collection!");
 
