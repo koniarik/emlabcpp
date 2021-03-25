@@ -4,9 +4,6 @@
 This library is a collection of small tools used by our laboratory in C++ code.
 The tools are primary designed for embedded environment - we avoid dynamic allocation of memory.
 
-There is beta version of 'doc from code' on:
-https://xkoniar.pages.fi.muni.cz/schpin-doc/API/emlabcpp.html
-
 ## algorithm.h
 Contains a subset of algorithms from \<algorith\> standard library, with a two major changes:
  1. All functions expects container with begin/end iterators as an input, not the iterators themselves
