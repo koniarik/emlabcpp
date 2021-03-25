@@ -40,7 +40,8 @@ class quantity {
         constexpr quantity() noexcept : value_(0) {}
 
         /// Default constructor used to create a physical quantity from value
-        constexpr explicit quantity(ValueType val) noexcept : value_(val) {}
+        template <typename Value>
+        constexpr explicit quantity(Value val) noexcept : value_(static_cast<ValueType>(val)) {}
 
         /// Const reference to the internal value
         constexpr ValueType operator*() const noexcept { return value_; }
@@ -78,6 +79,12 @@ class quantity {
         static std::string get_unit() { return ""; }
 };
 
+template <typename Tag, typename ValueType = float>
+class tagged_quantity : public quantity<tagged_quantity<Tag, ValueType>, ValueType> {
+        using tag = Tag;
+        using quantity<tagged_quantity<Tag, ValueType>, ValueType>::quantity;
+};
+
 /// Sum of quantities with same Derived and value_type
 template <typename Derived, typename ValueType>
 constexpr Derived operator+(quantity<Derived, ValueType>       lhs,
@@ -110,6 +117,18 @@ template <typename Derived, typename ValueType>
 constexpr bool operator<(const quantity<Derived, ValueType> lhs,
                          const quantity<Derived, ValueType> rhs) {
         return *lhs < *rhs;
+}
+
+template <typename Derived, typename ValueType, typename RhValueType,
+          typename = std::enable_if_t<std::is_arithmetic_v<RhValueType>>>
+constexpr bool operator<(const quantity<Derived, ValueType> lhs, const RhValueType rhs) {
+        return *lhs < rhs;
+}
+
+template <typename Derived, typename ValueType, typename LhValueType,
+          typename = std::enable_if_t<std::is_arithmetic_v<LhValueType>>>
+constexpr bool operator<(const LhValueType lhs, const quantity<Derived, ValueType> rhs) {
+        return lhs < *rhs;
 }
 
 /// Multiplication of quantity by it's value_type
@@ -171,6 +190,7 @@ constexpr bool operator>(const quantity<Derived, ValueType> lhs,
                          const quantity<Derived, ValueType> rhs) {
         return rhs < lhs;
 }
+
 /// Q1 <= Q2 iff !( Q2 > Q1 )
 template <typename Derived, typename ValueType>
 constexpr bool operator<=(const quantity<Derived, ValueType> lhs,
@@ -208,6 +228,11 @@ struct std::numeric_limits<emlabcpp::quantity<Derived, ValueType>> {
         constexpr static Derived min() { return Derived{std::numeric_limits<ValueType>::min()}; }
         constexpr static Derived max() { return Derived{std::numeric_limits<ValueType>::max()}; }
 };
+
+template <typename Tag, typename ValueType>
+struct std::numeric_limits<emlabcpp::tagged_quantity<Tag, ValueType>>
+    : std::numeric_limits<
+          emlabcpp::quantity<emlabcpp::tagged_quantity<Tag, ValueType>, ValueType>> {};
 
 /// Hash of quantity is hash of it's value and Derived::get_unit() xored.
 template <typename Derived, typename ValueType>
