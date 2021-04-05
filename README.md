@@ -4,6 +4,8 @@
 This library is a collection of small tools used by our laboratory in C++ code.
 The tools are primary designed for embedded environment - we avoid dynamic allocation of memory.
 
+Repository is at https://gitlab.fi.muni.cz/xkoniar/emlabcpp and mirrored to github repository https://github.com/emlab-fi/emlabcpp 
+
 ## algorithm.h
 Contains a subset of algorithms from \<algorith\> standard library, with a two major changes:
  1. All functions expects container with begin/end iterators as an input, not the iterators themselves
