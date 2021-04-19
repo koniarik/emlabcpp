@@ -3,15 +3,8 @@
 
 #pragma once
 
-namespace emlabcpp {
-template <typename Container, typename UnaryFunction>
-constexpr std::enable_if_t<!is_std_tuple_v<Container>, void> for_each(Container &&    cont,
-                                                                      UnaryFunction &&f);
+namespace emlabcpp::impl {
 
-template <typename Tuple, typename UnaryFunction>
-constexpr std::enable_if_t<is_std_tuple_v<Tuple>, void> for_each(Tuple &&t, UnaryFunction &&f);
-
-namespace detail {
 template <typename... Args, typename UnaryFunction, std::size_t... Idx>
 [[nodiscard]] constexpr std::size_t find_if_impl(const std::tuple<Args...> &t, UnaryFunction &&f,
                                                  std::index_sequence<Idx...>) {
@@ -27,10 +20,6 @@ template <typename... Args, typename UnaryFunction, std::size_t... Idx>
         (ff(std::get<Idx>(t), Idx) || ...);
 
         return res;
-}
-template <typename Tuple, typename UnaryFunction, std::size_t... Idx>
-constexpr void for_each_impl(Tuple &&t, UnaryFunction &&f, std::index_sequence<Idx...>) {
-        (f(std::get<Idx>(std::forward<Tuple>(t))), ...);
 }
 
 template <typename T, std::size_t N, typename Container, typename UnaryFunction, std::size_t... Is>
@@ -51,5 +40,39 @@ template <typename T, std::size_t N, typename Container, typename UnaryFunction,
         // constructor initializer with {} brackets. Otherwise it can be any order ...
         return std::array<T, N>{process(Is)...};
 }
-} // namespace detail
-} // namespace emlabcpp
+
+template <typename>
+struct map_f_collector;
+
+template <typename T>
+requires requires(T a, T::value_type b) {
+        a.push_back(b);
+}
+struct map_f_collector<T> {
+        void collect(T &res, typename T::value_type val) { res.push_back(std::move(val)); }
+};
+
+template <typename T>
+requires requires(T a, T::value_type b) {
+        a.insert(b);
+}
+struct map_f_collector<T> {
+        void collect(T &res, typename T::value_type val) { res.insert(std::move(val)); }
+};
+
+template <typename T, std::size_t N>
+struct map_f_collector<std::array<T, N>> {
+        std::size_t i = 0;
+
+        void collect(std::array<T, N> &res, T val) {
+                res[i] = std::move(val);
+                i += 1;
+        }
+};
+
+template <typename T>
+concept map_f_collectable = requires(T item, T::value_type val) {
+        map_f_collector<T>{}.collect(item, val);
+};
+
+} // namespace emlabcpp::impl

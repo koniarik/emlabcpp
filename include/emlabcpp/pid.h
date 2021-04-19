@@ -51,13 +51,13 @@ class pid {
         void reset(float output = 0) {
                 output_     = output;
                 last_input_ = 0;
-                i_term_     = clamp(output_, conf_.min, conf_.max);
+                i_term_     = std::clamp(output_, conf_.min, conf_.max);
         }
 
         void set_config(config conf) {
                 conf_   = conf;
-                output_ = clamp(output_, conf_.min, conf_.max);
-                i_term_ = clamp(i_term_, conf_.min, conf_.max);
+                output_ = std::clamp(output_, conf_.min, conf_.max);
+                i_term_ = std::clamp(i_term_, conf_.min, conf_.max);
         }
 
         /// call this reularly, the meaning of time value 'now' is up to you, just be consistent
@@ -76,11 +76,11 @@ class pid {
                 i_term_ += conf_.i * (error * t_diff);
                 // we want to prevent the i_term_ to escallate out of proportion, to prevent it from
                 // going to infinity and beyond
-                i_term_ = clamp(i_term_, conf_.min, conf_.max);
+                i_term_ = std::clamp(i_term_, conf_.min, conf_.max);
 
                 float input_diff = (input - last_input_) / t_diff;
                 output_          = conf_.p * error + i_term_ - conf_.d * input_diff;
-                output_          = clamp(output_, conf_.min, conf_.max);
+                output_          = std::clamp(output_, conf_.min, conf_.max);
 
                 last_input_ = input;
                 last_time_  = now;

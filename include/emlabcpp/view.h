@@ -76,7 +76,7 @@ view(Container &cont) -> view<iterator_of_t<Container>>;
 
 /// Support for our deduction guide to types - is_view_v
 template <typename Iter>
-struct detail::is_view_impl<view<Iter>> : std::true_type {};
+struct impl::is_view<view<Iter>> : std::true_type {};
 
 /// Creates view over 'n' items of dataset starting at 'begin'
 /// This does not check validity of the range!

@@ -26,14 +26,6 @@ TEST(Algorithm, sign) {
         EXPECT_EQ(sign(i), 1);
 }
 
-TEST(Algorithm, clamp) {
-        EXPECT_EQ(clamp(5, 0, 10), 5);
-        EXPECT_EQ(clamp(5, 5, 10), 5);
-        EXPECT_EQ(clamp(5, 0, 5), 5);
-        EXPECT_EQ(clamp(5, 0, 2), 2);
-        EXPECT_EQ(clamp(5, 10, 12), 10);
-}
-
 TEST(Algorithm, map_range) {
         EXPECT_EQ(map_range(5, 0, 10, 0, 100), 50);
         EXPECT_EQ(map_range(5, 0, 10, 10, 20), 15);
@@ -94,17 +86,18 @@ TEST(Algorithm, find_if) {
 }
 
 TEST(Algorithm, for_each) {
-        int tmp = 0;
-        for_each(std::vector<int>{1, 2, 3}, [&](int i) { //
+        std::vector<int> data{1, 2, 3};
+        int              tmp = 0;
+        for_each(data, [&](int i) { //
                 tmp += i;
         });
         EXPECT_EQ(tmp, 6);
 
-        tmp = 0;
+        std::size_t j = 0;
         for_each(std::tuple<int, int, int>{1, 2, 3}, [&](int i) { //
-                tmp += i;
+                EXPECT_EQ(data[j], i);
+                j++;
         });
-        EXPECT_EQ(tmp, 6);
 }
 
 TEST(Algorithm, min_max_elem) {
@@ -272,16 +265,29 @@ TEST(Algorithm, equal) {
         res = equal(std::list<int>{5, 6, 7}, std::vector<int>{7, 6, 5});
         EXPECT_FALSE(res);
 }
+template <typename Iterator>
+inline std::ostream &operator<<(std::ostream &os, const view<Iterator> &output) {
+        using value_type = decltype(*std::declval<Iterator>());
+        char delim       = ' ';
+        for (const value_type &item : output) {
+                os << delim << item;
+                delim = ',';
+        }
+        return os;
+}
 
 TEST(Algorithm, map_f) {
         std::vector<int> idata{1, 2, 3, 4};
 
         bool is_expected = equal(map_f<std::vector<int>>(idata), idata);
         EXPECT_TRUE(is_expected);
+
         is_expected = equal(map_f<std::list<int>>(idata), idata);
         EXPECT_TRUE(is_expected);
+
         is_expected = equal(map_f<std::array<int, 4>>(idata), idata);
-        EXPECT_TRUE(is_expected);
+        auto res    = map_f<std::array<int, 4>>(idata);
+        EXPECT_TRUE(is_expected) << view{res} << "," << view{idata};
 
         float mapped_sum = sum(map_f<std::list<float>>(idata, [&](int i) { //
                 return float(i) * 1.5f;

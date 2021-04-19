@@ -10,6 +10,9 @@
 
 namespace emlabcpp {
 
+template <typename T, typename LH, typename RH>
+concept either_unique_right = std::same_as<std::decay_t<T>, RH> && !std::same_as<LH, RH>;
+
 /// Either is heterogenous structure that holds one of the two types specified.
 /// This is stored as union, so the memory requirement of either is always the size of the bigger
 /// element + constant for identifying which on is contained.
@@ -41,14 +44,8 @@ class either {
 
         either(const left_item &item) noexcept : id_(item::LEFT) { new (&left_) left_item(item); }
 
-        template <typename U = RH, typename = std::enable_if_t<!std::is_same_v<LH, U>>>
-        either(RH &&item) noexcept : id_(item::RIGHT) {
-                new (&right_) right_item(std::move(item));
-        }
-
-        template <typename U = RH, typename = std::enable_if_t<!std::is_same_v<LH, U>>>
-        either(const RH &item) noexcept : id_(item::RIGHT) {
-                new (&right_) right_item(item);
+        either(either_unique_right<LH, RH> auto &&item) noexcept : id_(item::RIGHT) {
+                new (&right_) right_item(std::forward<decltype(item)>(item));
         }
 
         either(const either &other) noexcept : id_(other.id_) {
@@ -101,16 +98,14 @@ class either {
                 return *this;
         }
 
-        template <typename U = right_item, typename = std::enable_if_t<!std::is_same_v<LH, U>>>
-        either &operator=(const right_item &other) {
+        either &operator=(const either_unique_right<LH, RH> auto &other) {
                 destruct();
                 id_ = item::RIGHT;
                 new (&right_) right_item(other);
                 return *this;
         }
 
-        template <typename U = right_item, typename = std::enable_if_t<!std::is_same_v<LH, U>>>
-        either &operator=(RH &&other) {
+        either &operator=(either_unique_right<LH, RH> auto &&other) {
                 destruct();
                 id_ = item::RIGHT;
                 new (&right_) right_item(std::move(other));
@@ -119,8 +114,7 @@ class either {
 
         [[nodiscard]] constexpr bool is_left() const { return id_ == item::LEFT; }
 
-        template <typename LeftFunction>
-        auto convert_left(LeftFunction &&left_f) & {
+        auto convert_left(std::invocable<const left_item &> auto &&left_f) const & {
                 using return_either = either<decltype(left_f(left_)), right_item>;
 
                 if (id_ == item::LEFT) {
@@ -130,8 +124,7 @@ class either {
                 return return_either{right_};
         }
 
-        template <typename LeftFunction>
-        auto convert_left(LeftFunction &&left_f) && {
+        auto convert_left(std::invocable<left_item> auto &&left_f) && {
                 using return_either = either<decltype(left_f(std::move(left_))), right_item>;
 
                 if (id_ == item::LEFT) {
@@ -141,8 +134,7 @@ class either {
                 return return_either{std::move(right_)};
         }
 
-        template <typename RightFunction>
-        auto convert_right(RightFunction &&right_f) & {
+        auto convert_right(std::invocable<const right_item &> auto &&right_f) const & {
                 using return_either = either<left_item, decltype(right_f(right_))>;
 
                 if (id_ == item::LEFT) {
@@ -152,8 +144,7 @@ class either {
                 return return_either{right_f(right_)};
         }
 
-        template <typename RightFunction>
-        auto convert_right(RightFunction &&right_f) && {
+        auto convert_right(std::invocable<right_item> auto &&right_f) && {
                 using return_either = either<left_item, decltype(right_f(std::move(right_)))>;
 
                 if (id_ == item::LEFT) {
@@ -163,8 +154,8 @@ class either {
                 return return_either{right_f(std::move(right_))};
         }
 
-        template <typename LeftFunction, typename RightFunction>
-        void match(LeftFunction &&left_f, RightFunction &&right_f) & {
+        void match(std::invocable<left_item &> auto && left_f,
+                   std::invocable<right_item &> auto &&right_f) & {
                 if (id_ == item::LEFT) {
                         left_f(left_);
                 } else {
@@ -172,8 +163,8 @@ class either {
                 }
         }
 
-        template <typename LeftFunction, typename RightFunction>
-        void match(LeftFunction &&left_f, RightFunction &&right_f) const & {
+        void match(std::invocable<const left_item &> auto && left_f,
+                   std::invocable<const right_item &> auto &&right_f) const & {
                 if (id_ == item::LEFT) {
                         left_f(left_);
                 } else {
@@ -181,8 +172,8 @@ class either {
                 }
         }
 
-        template <typename LeftFunction, typename RightFunction>
-        void match(LeftFunction &&left_f, RightFunction &&right_f) && {
+        void match(std::invocable<left_item> auto && left_f,
+                   std::invocable<right_item> auto &&right_f) && {
                 if (id_ == item::LEFT) {
                         left_f(std::move(left_));
                 } else {
@@ -199,7 +190,7 @@ class either {
                 return std::move(right_);
         }
         template <typename U = left_item, typename K = right_item>
-        std::enable_if_t<std::is_same_v<U, K>, LH> join() & {
+        std::enable_if_t<std::is_same_v<U, K>, left_item> join() const & {
                 if (id_ == item::LEFT) {
                         return left_;
                 }
@@ -208,7 +199,7 @@ class either {
         }
 
         template <typename T>
-        either<left_item, T> construct_right() & {
+        either<left_item, T> construct_right() const & {
                 if (id_ == item::LEFT) {
                         return {left_};
                 }
@@ -223,8 +214,7 @@ class either {
                 return {T{std::move(right_)}};
         }
 
-        template <typename UnaryFunction>
-        auto bind_left(UnaryFunction &&left_f) & {
+        auto bind_left(std::invocable<const left_item &> auto &&left_f) const & {
                 using return_either =
                     either<typename decltype(left_f(left_))::left_item, right_item>;
 
@@ -234,8 +224,7 @@ class either {
 
                 return return_either{right_};
         }
-        template <typename UnaryFunction>
-        auto bind_left(UnaryFunction &&left_f) && {
+        auto bind_left(std::invocable<left_item> auto &&left_f) && {
                 using return_either =
                     either<typename decltype(left_f(std::move(left_)))::left_item, right_item>;
 
@@ -247,7 +236,7 @@ class either {
         }
 
         template <typename T>
-        either<T, right_item> construct_left() & {
+        either<T, right_item> construct_left() const & {
                 if (id_ != item::LEFT) {
                         return {right_};
                 }
@@ -262,8 +251,7 @@ class either {
                 return {T{std::move(left_)}};
         }
 
-        template <typename UnaryFunction>
-        auto bind_right(UnaryFunction &&right_f) & {
+        auto bind_right(std::invocable<const right_item &> auto &&right_f) const & {
                 using return_either =
                     either<left_item, typename decltype(right_f(right_))::right_item>;
 
@@ -273,8 +261,7 @@ class either {
 
                 return return_either{left_};
         }
-        template <typename UnaryFunction>
-        auto bind_right(UnaryFunction &&right_f) && {
+        auto bind_right(std::invocable<right_item> auto &&right_f) && {
                 using return_either =
                     either<left_item, typename decltype(right_f(std::move(right_)))::right_item>;
 
@@ -323,9 +310,9 @@ assemble_optionals(std::optional<Ts> &&...opt) {
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 template <typename FirstE, typename... Eithers>
-inline auto assemble_left_collect_right(FirstE &&first, Eithers &&...others) {
-        static_assert(are_same_v<typename std::decay_t<Eithers>::right_item...>,
-                      "Right items of Eithers have to be same for collection!");
+inline auto assemble_left_collect_right(FirstE &&first, Eithers &&...others) requires(
+    std::same_as<typename std::decay_t<FirstE>::right_item,
+                 typename std::decay_t<Eithers>::right_item> &&...) {
 
         using right_type               = typename std::decay_t<FirstE>::right_item;
         constexpr std::size_t either_n = 1 + sizeof...(Eithers);

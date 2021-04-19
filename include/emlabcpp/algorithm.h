@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <tuple>
 
-#include "emlabcpp/algorithm_detail.h"
+#include "emlabcpp/algorithm/impl.h"
 #include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
 
@@ -21,7 +21,8 @@ template <typename T>
 constexpr void ignore(T &&) {}
 
 /// Callable object that is inspired by std::identity
-struct identity {
+/// Marked deprecated on 19.4.2021
+struct [[deprecated]] identity {
         template <typename T>
         [[nodiscard]] constexpr T &&operator()(T &&t) const noexcept {
                 return std::forward<T>(t);
@@ -41,8 +42,9 @@ constexpr int sign(T &&val) {
         return 0;
 }
 
+/// Marked deprecated on 19.4.2021
 template <typename T>
-constexpr T clamp(T val, T from, T to) {
+[[deprecated]] constexpr T clamp(T val, T from, T to) {
         if (val < from) {
                 return from;
         }
@@ -53,16 +55,16 @@ constexpr T clamp(T val, T from, T to) {
 }
 
 /// maps input value 'input' from input range to equivalent value in output range
-template <typename U, typename T>
-constexpr U map_range(T input, T from_min, T from_max, U to_min, U to_max) {
+template <arithmetic_base U, arithmetic_base T>
+[[nodiscard]] constexpr U map_range(T input, T from_min, T from_max, U to_min, U to_max) {
         return to_min + (to_max - to_min) * (input - from_min) / (from_max - from_min);
 }
 
 /// Returns the size of the container, regardless of what it is
-template <typename Container>
+template <container Container>
 [[nodiscard]] constexpr std::size_t cont_size(const Container &cont) noexcept {
-        if constexpr (has_static_size_v<Container>) {
-                return static_size_v<Container>;
+        if constexpr (static_sized<Container>) {
+                return std::tuple_size_v<Container>;
         } else {
                 return cont.size();
         }
@@ -76,36 +78,27 @@ template <typename T>
 }
 
 /// Returns range over Container, which skips first item of container
-template <typename Container, typename Iterator = iterator_of_t<Container>>
+template <referenceable_container Container, typename Iterator = iterator_of_t<Container>>
 [[nodiscard]] constexpr view<Iterator> tail(Container &&cont, int step = 1) {
-        static_assert(!std::is_rvalue_reference_v<Container> || is_view_v<Container>,
-                      "tail() does not accept rvalue references except for types which "
-                      "can be considered a view.");
-        using namespace std;
+        using std::begin;
+        using std::end;
         return view<Iterator>(begin(cont) + step, end(cont));
 }
 
 /// Returns range over Container, which skips last item of container
-template <typename Container, typename Iterator = iterator_of_t<Container>>
+template <referenceable_container Container, typename Iterator = iterator_of_t<Container>>
 [[nodiscard]] constexpr view<Iterator> init(Container &&cont, int step = 1) {
-        static_assert(!std::is_rvalue_reference_v<Container> || is_view_v<Container>,
-                      "init() does not accept rvalue references except for types which "
-                      "can be considered a view.");
-        using namespace std;
+        using std::begin;
+        using std::end;
         return view<Iterator>(begin(cont), end(cont) - step);
 }
 
 /// Returns iterator for first item, for which call to f(*iter) holds true. end()
 /// iterator is returned otherwise. The end() iterator is taken once, before the
 /// container is iterated.
-template <typename Container, typename UnaryFunction = identity,
-          typename = std::enable_if_t<!is_std_tuple_v<Container>>>
-[[nodiscard]] constexpr iterator_of_t<Container> find_if(Container &&    cont,
-                                                         UnaryFunction &&f = identity()) {
-        static_assert(!std::is_rvalue_reference_v<Container> || is_view_v<Container>,
-                      "find_if() does not accept rvalue references except for types "
-                      "which can be considered a view.");
-        using namespace std;
+template <range_container Container, container_invocable<Container> UnaryFunction = std::identity>
+[[nodiscard]] constexpr auto find_if(const Container &cont, UnaryFunction &&f = std::identity()) {
+        using std::begin;
         auto beg = begin(cont);
         auto end = cont.end();
         for (; beg != end; ++beg) {
@@ -118,37 +111,32 @@ template <typename Container, typename UnaryFunction = identity,
 
 /// Returns index of an element in tuple 't', for which call to f(x) holds true,
 /// otherwise returns index of 'past the end' item - size of the tuple
-template <typename... Args, typename UnaryFunction = identity>
-[[nodiscard]] constexpr std::size_t find_if(const std::tuple<Args...> &t,
-                                            UnaryFunction &&           f = identity()) {
-        return detail::find_if_impl(t, std::forward<UnaryFunction>(f),
-                                    std::index_sequence_for<Args...>{});
+template <gettable_container             Container,
+          container_invocable<Container> UnaryFunction = std::identity>
+[[nodiscard]] constexpr std::size_t find_if(const Container &t,
+                                            UnaryFunction && f = std::identity()) {
+        return impl::find_if_impl(
+            t, std::forward<UnaryFunction>(f),
+            std::make_index_sequence<std::tuple_size_v<std::decay_t<Container>>>{});
 }
 
 /// Finds first item in container 'cont' that is equal to 'item', returns
 /// iterator for container and index for tuples
-template <typename Container, typename T>
+template <container Container, typename T>
 [[nodiscard]] constexpr auto find(Container &&cont, const T &item) {
-        static_assert(!std::is_rvalue_reference_v<Container> || is_view_v<Container>,
-                      "find() does not accept rvalue references except for types which "
-                      "can be considered a view.");
-        return find_if(cont, [&](const auto &sub_item) { //
-                return sub_item == item;
-        });
-}
-
-/// Applies unary function 'f' to each element of tuple 't'
-template <typename Tuple, typename UnaryFunction>
-constexpr std::enable_if_t<is_std_tuple_v<Tuple>, void> for_each(Tuple &&t, UnaryFunction &&f) {
-        detail::for_each_impl(std::forward<Tuple>(t), //
-                              std::forward<UnaryFunction>(f),
-                              std::make_index_sequence<static_size_v<Tuple>>{});
+        return find_if(cont, [&](const auto &sub_item) { return sub_item == item; });
 }
 
 /// Applies unary function 'f' to each element of container 'cont'
-template <typename Container, typename UnaryFunction>
-constexpr std::enable_if_t<!is_std_tuple_v<Container>, void> for_each(Container &&    cont,
-                                                                      UnaryFunction &&f) {
+template <gettable_container Container, container_invocable<Container> UnaryFunction>
+constexpr void for_each(Container &&cont, UnaryFunction &&f) {
+        std::apply([&](auto &&...items) { (f(std::forward<decltype(items)>(items)), ...); },
+                   std::forward<Container>(cont));
+}
+
+/// Applies unary function 'f' to each element of container 'cont'
+template <range_container Container, container_invocable<Container> UnaryFunction>
+constexpr void for_each(Container &&cont, UnaryFunction &&f) {
         for (auto &&item : std::forward<Container>(cont)) {
                 f(std::forward<decltype(item)>(item));
         }
@@ -162,16 +150,16 @@ struct min_max {
         T max{};
 
         min_max() = default;
-        min_max(T min_i, T max_i) : min(min_i), max(max_i) {}
+        min_max(T min_i, T max_i) : min(std::move(min_i)), max(std::move(max_i)) {}
 };
 
 /// Applies unary function 'f(x)' to each element of container 'cont', returns
 /// the largest and the smallest return value. of 'f(x)' calls. Returns the
 /// default value of the 'f(x)' return type if container is empty.
-template <typename Container, typename UnaryFunction = identity,
+template <container Container, container_invocable<Container> UnaryFunction = std::identity,
           typename T = std::decay_t<mapped_t<Container, UnaryFunction>>>
 [[nodiscard]] constexpr min_max<T> min_max_elem(const Container &cont,
-                                                UnaryFunction && f = identity()) {
+                                                UnaryFunction && f = std::identity()) {
         min_max<T> res;
         res.max = std::numeric_limits<T>::lowest();
         res.min = std::numeric_limits<T>::max();
@@ -187,9 +175,9 @@ template <typename Container, typename UnaryFunction = identity,
 /// Applies unary function 'f(x)' to each element of container 'cont', returns
 /// the largest return value of 'f(x)' calls. Returns lowest value of the return
 /// type if container is empty.
-template <typename Container, typename UnaryFunction = identity,
+template <container Container, container_invocable<Container> UnaryFunction = std::identity,
           typename T = std::decay_t<mapped_t<Container, UnaryFunction>>>
-[[nodiscard]] constexpr T max_elem(const Container &cont, UnaryFunction &&f = identity()) {
+[[nodiscard]] constexpr T max_elem(const Container &cont, UnaryFunction &&f = std::identity()) {
         auto val = std::numeric_limits<T>::lowest();
         for_each(cont, [&](const auto &item) { //
                 val = max(f(item), val);
@@ -200,9 +188,9 @@ template <typename Container, typename UnaryFunction = identity,
 /// Applies unary function 'f(x) to each element of container 'cont, returns the
 /// smallest return value of 'f(x)' calls. Returns maximum value of the return
 /// type if container is empty.
-template <typename Container, typename UnaryFunction = identity,
+template <container Container, container_invocable<Container> UnaryFunction = std::identity,
           typename T = std::remove_reference_t<mapped_t<Container, UnaryFunction>>>
-[[nodiscard]] constexpr T min_elem(const Container &cont, UnaryFunction &&f = identity()) {
+[[nodiscard]] constexpr T min_elem(const Container &cont, UnaryFunction &&f = std::identity()) {
         auto val = std::numeric_limits<T>::max();
         for_each(cont, [&](const auto &item) { //
                 val = min(f(item), val);
@@ -212,8 +200,9 @@ template <typename Container, typename UnaryFunction = identity,
 
 /// Applies the unary function 'f(x)' to each element of container 'cont' and
 /// returns the count of items, for which f(x) returned 'true'
-template <typename Container, typename UnaryFunction = identity>
-[[nodiscard]] constexpr std::size_t count(const Container &cont, UnaryFunction &&f = identity()) {
+template <container Container, container_invocable<Container> UnaryFunction = std::identity>
+[[nodiscard]] constexpr std::size_t count(const Container &cont,
+                                          UnaryFunction && f = std::identity()) {
         std::size_t res = 0;
         for_each(cont, [&](const auto &item) {
                 if (f(item)) {
@@ -225,9 +214,10 @@ template <typename Container, typename UnaryFunction = identity>
 
 /// Applies f(x) to each item of container 'cont', returns the sum of all the
 /// return values of each call to 'f(x)' and 'init' item
-template <typename Container, typename UnaryFunction = identity,
+template <container Container, container_invocable<Container> UnaryFunction = std::identity,
           typename T = std::decay_t<mapped_t<Container, UnaryFunction>>>
-[[nodiscard]] constexpr T sum(const Container &cont, UnaryFunction &&f = identity(), T init = {}) {
+[[nodiscard]] constexpr T sum(const Container &cont, UnaryFunction &&f = std::identity(),
+                              T init = {}) {
         for_each(cont, [&](const auto &item) { //
                 init += f(item);
         });
@@ -236,7 +226,7 @@ template <typename Container, typename UnaryFunction = identity,
 
 /// Applies function 'f(init,x)' to each element of container 'x' and actual
 /// value of 'init' in iteration, the return value is 'init' value for next round
-template <typename Container, typename T, typename BinaryFunction>
+template <container Container, typename T, typename BinaryFunction>
 [[nodiscard]] constexpr T accumulate(const Container &cont, T init, BinaryFunction &&f) {
         for_each(cont, [&](const auto &item) { //
                 init = f(std::move(init), item);
@@ -246,9 +236,9 @@ template <typename Container, typename T, typename BinaryFunction>
 
 /// Applies function 'f(x)' to each element of container 'cont' and returns the
 /// average value of each call
-template <typename Container, typename UnaryFunction = identity,
+template <container Container, container_invocable<Container> UnaryFunction = std::identity,
           typename T = std::decay_t<mapped_t<Container, UnaryFunction>>>
-[[nodiscard]] constexpr T avg(const Container &cont, UnaryFunction &&f = identity()) {
+[[nodiscard]] constexpr T avg(const Container &cont, UnaryFunction &&f = std::identity()) {
         T res{};
         for_each(cont, [&](const auto &item) { //
                 res += f(item);
@@ -262,7 +252,7 @@ template <typename Container, typename UnaryFunction = identity,
 
 /// Applies binary function 'f(x,y)' to each combination of items x in lh_cont
 /// and y in rh_cont
-template <typename LhContainer, typename RhContainer, typename BinaryFunction>
+template <container LhContainer, container RhContainer, typename BinaryFunction>
 constexpr void for_cross_joint(LhContainer &&lh_cont, RhContainer &&rh_cont, BinaryFunction &&f) {
         for_each(lh_cont, [&](auto &lh_item) {         //
                 for_each(rh_cont, [&](auto &rh_item) { //
@@ -273,8 +263,8 @@ constexpr void for_cross_joint(LhContainer &&lh_cont, RhContainer &&rh_cont, Bin
 
 /// Returns true if call to function 'f(x)' returns true for at least one item in
 /// 'cont'
-template <typename Container, typename UnaryFunction = identity>
-[[nodiscard]] constexpr bool any_of(const Container &cont, UnaryFunction &&f = identity()) {
+template <container Container, container_invocable<Container> UnaryFunction = std::identity>
+[[nodiscard]] constexpr bool any_of(const Container &cont, UnaryFunction &&f = std::identity()) {
         auto res = find_if(cont, std::forward<UnaryFunction>(f));
 
         if constexpr (is_std_tuple_v<Container>) {
@@ -286,14 +276,14 @@ template <typename Container, typename UnaryFunction = identity>
 
 /// Returns true if call to function 'f(x)' returns false for all items in
 /// 'cont'.
-template <typename Container, typename UnaryFunction = identity>
-[[nodiscard]] constexpr bool none_of(const Container &cont, UnaryFunction &&f = identity()) {
+template <container Container, container_invocable<Container> UnaryFunction = std::identity>
+[[nodiscard]] constexpr bool none_of(const Container &cont, UnaryFunction &&f = std::identity()) {
         return !any_of(cont, std::forward<UnaryFunction>(f));
 }
 
 /// Returns true if call to function 'f(x)' returns true for all items in 'cont'
-template <typename Container, typename UnaryFunction = identity>
-[[nodiscard]] constexpr bool all_of(const Container &cont, UnaryFunction &&f = identity()) {
+template <container Container, container_invocable<Container> UnaryFunction = std::identity>
+[[nodiscard]] constexpr bool all_of(const Container &cont, UnaryFunction &&f = std::identity()) {
         return !any_of(cont, [&](const auto &item) { //
                 return !f(item);
         });
@@ -301,12 +291,13 @@ template <typename Container, typename UnaryFunction = identity>
 
 /// Returns true of containers 'lh' and 'rh' has same size and lh[i] == rh[i] for
 /// all 0 <= i < size()
-template <typename LhContainer, typename RhContainer>
+template <range_container LhContainer, range_container RhContainer>
 [[nodiscard]] constexpr bool equal(const LhContainer &lh, const RhContainer &rh) {
         if (lh.size() != rh.size()) {
                 return false;
         }
-        using namespace std;
+        using std::begin;
+        using std::end;
         auto lbeg = begin(lh);
         auto rbeg = begin(rh);
         auto lend = end(lh);
@@ -326,60 +317,57 @@ template <typename LhContainer, typename RhContainer>
 ///  2. if 'ResultContainer' has push_back(x) method, that is used to insert
 ///  result of calls to f(x)
 ///  3. insert(x) method is used to insert result of calls to f(x)
-template <typename ResultContainer, typename Container, typename UnaryFunction = identity>
-[[nodiscard]] inline ResultContainer map_f(Container &&cont, UnaryFunction &&f = identity()) {
+template <impl::map_f_collectable ResultContainer, container Container,
+          container_invocable<Container> UnaryFunction = std::identity>
+[[nodiscard]] inline ResultContainer map_f(Container &&cont, UnaryFunction &&f = std::identity()) {
         static_assert(!is_std_tuple_v<ResultContainer>,
                       "This version of map_f does not work with std::tuple as "
                       "_result_ container!");
 
-        ResultContainer res{};
+        ResultContainer                        res;
+        impl::map_f_collector<ResultContainer> collector;
 
-        std::size_t i = 0;
         for_each(std::forward<Container>(cont), [&](auto &&item) {
-                using result_t = decltype(item);
-                if constexpr (is_std_array_v<ResultContainer>) {
-                        res[i] = f(std::forward<result_t>(cont[i]));
-                        ++i;
-                } else if constexpr (has_push_back_v<ResultContainer>) {
-                        res.push_back(f(std::forward<result_t>(item)));
-                } else {
-                        res.insert(f(std::forward<result_t>(item)));
-                }
+                using item_t = decltype(item);
+
+                collector.collect(res, f(std::forward<item_t>(item)));
         });
         return res;
 }
 
 /// Calls function f(cont[i]) for i = 0...N and stores the result in array of an
 /// appropiate size. The functions needs size 'N' as template parameter
-template <std::size_t N, typename Container, typename UnaryFunction = identity,
-          typename T = std::decay_t<mapped_t<Container, UnaryFunction>>,
-          typename   = std::enable_if_t<!has_static_size_v<Container>>>
-[[nodiscard]] inline std::array<T, N> map_f_to_a(Container &&cont, UnaryFunction &&f = identity()) {
-        return detail::map_f_to_a_impl<T, N>(std::forward<Container>(cont),
-                                             std::forward<UnaryFunction>(f),
-                                             std::make_index_sequence<N>());
+template <std::size_t N, container Container,
+          container_invocable<Container> UnaryFunction = std::identity,
+          typename T = std::decay_t<mapped_t<Container, UnaryFunction>>>
+[[nodiscard]] inline std::array<T, N>
+map_f_to_a(Container &&    cont,
+           UnaryFunction &&f = std::identity()) requires(!static_sized<Container>) {
+        return impl::map_f_to_a_impl<T, N>(std::forward<Container>(cont),
+                                           std::forward<UnaryFunction>(f),
+                                           std::make_index_sequence<N>());
 }
 
 /// Calls function f(cont[i]) for i = 0...N and stores the result in array of an
 /// appropiate size.
-template <typename Container, std::size_t N = static_size_v<Container>,
-          typename UnaryFunction = identity,
-          typename T             = std::decay_t<mapped_t<Container, UnaryFunction>>,
-          typename               = std::enable_if_t<has_static_size_v<Container>>>
-[[nodiscard]] inline std::array<T, N> map_f_to_a(Container &&cont, UnaryFunction &&f = identity()) {
-        return detail::map_f_to_a_impl<T, N>(std::forward<Container>(cont),
-                                             std::forward<UnaryFunction>(f),
-                                             std::make_index_sequence<N>());
+template <container Container, std::size_t N = static_size_v<Container>,
+          container_invocable<Container> UnaryFunction = std::identity,
+          typename T = std::decay_t<mapped_t<Container, UnaryFunction>>>
+[[nodiscard]] inline std::array<T, N>
+map_f_to_a(Container &&cont, UnaryFunction &&f = std::identity()) requires static_sized<Container> {
+        return impl::map_f_to_a_impl<T, N>(std::forward<Container>(cont),
+                                           std::forward<UnaryFunction>(f),
+                                           std::make_index_sequence<N>());
 }
 
 /// Returns cont[0] + val + cont[1] + val + cont[2] + ... + cont[n-1] + val +
 /// cont[n];
-template <typename Container, typename T>
+template <range_container Container, typename T>
 [[nodiscard]] constexpr T joined(const Container &cont, T &&val) {
         if (cont.empty()) {
                 return T{};
         }
-        using namespace std;
+        using std::begin;
         T res = *begin(cont);
         for (const auto &item : tail(cont)) {
                 res += val + item;
@@ -390,13 +378,13 @@ template <typename Container, typename T>
 struct uncurry_impl {
         template <typename Callable>
         [[nodiscard]] constexpr auto operator()(Callable &&f) const {
-                return [ff = std::forward<Callable>(f)](auto &&i_tuple) { //
-                        return std::apply(ff, std::forward<decltype(i_tuple)>(i_tuple));
-                };
+                return (*this) | std::forward<Callable>(f);
         }
         template <typename Callable>
         [[nodiscard]] constexpr auto operator|(Callable &&f) const {
-                return this->operator()(std::forward<Callable>(f));
+                return [ff = std::forward<Callable>(f)](auto &&i_tuple) { //
+                        return std::apply(ff, std::forward<decltype(i_tuple)>(i_tuple));
+                };
         }
 };
 
