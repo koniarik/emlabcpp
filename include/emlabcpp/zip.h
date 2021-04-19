@@ -105,7 +105,7 @@ constexpr bool operator!=(const zip_iterator<Iterators...> &lh,
 /// ranges. If the size differs, increments of begin iterator will never be same
 /// as end iterator.
 //
-template <typename... Ts, std::enable_if_t<std::conjunction_v<is_container<Ts>...>> * = nullptr>
+template <range_container... Ts>
 inline auto zip(Ts &&... cont) {
         return view(zip_iterator(std::begin(cont)...), zip_iterator(std::end(cont)...));
 }
