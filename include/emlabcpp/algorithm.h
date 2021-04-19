@@ -42,6 +42,15 @@ constexpr int sign(T &&val) {
 }
 
 template <typename T>
+struct convert_to {
+        template <typename U>
+        constexpr T operator()(U &&src) const noexcept(noexcept(T{std::forward<U>(src)})) {
+                return T{std::forward<U>(src)};
+        }
+};
+
+
+template <typename T>
 constexpr T clamp(T val, T from, T to) {
         if (val < from) {
                 return from;
