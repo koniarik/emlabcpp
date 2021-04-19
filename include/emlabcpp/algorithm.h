@@ -29,6 +29,14 @@ struct [[deprecated]] identity {
         }
 };
 
+template <typename T>
+struct convert_to {
+        template <typename U>
+        constexpr T operator()(U &&src) const noexcept(noexcept(T{std::forward<U>(src)})) {
+                return T{std::forward<U>(src)};
+        }
+};
+
 /// returns sign of variable T: -1,0,1
 template <typename T>
 constexpr int sign(T &&val) {
