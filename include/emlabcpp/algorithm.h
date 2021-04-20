@@ -50,6 +50,13 @@ constexpr int sign(T &&val) {
         return 0;
 }
 
+struct convert_to {
+        template <typename U>
+        constexpr T operator()(U &&src) const noexcept(noexcept(T{std::forward<U>(src)})) {
+                return T{std::forward<U>(src)};
+        }
+};
+
 /// Marked deprecated on 19.4.2021
 template <typename T>
 [[deprecated]] constexpr T clamp(T val, T from, T to) {
