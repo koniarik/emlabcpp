@@ -31,9 +31,8 @@ concept arithmetic = arithmetic_base<T> &&arithmetic_assignment<T>;
 
 template <typename T>
 concept gettable_container = requires(T a) {
-        {get<0>(a)};
-}
-|| requires(T a) { {std::get<0>(a)}; };
+        {std::tuple_size<std::decay_t<T>>::value}->std::convertible_to<std::size_t>;
+};
 
 // so, std::ranges::range is meh because it expects return of begin() being input_output_iterator,
 // which has to be def.constructible
