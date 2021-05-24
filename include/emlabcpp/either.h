@@ -114,7 +114,7 @@ class either {
 
         [[nodiscard]] constexpr bool is_left() const { return id_ == item::LEFT; }
 
-        auto convert_left(std::invocable<const left_item &> auto &&left_f) const & {
+        auto convert_left(auto &&left_f) const & {
                 using return_either = either<decltype(left_f(left_)), right_item>;
 
                 if (id_ == item::LEFT) {
@@ -124,7 +124,7 @@ class either {
                 return return_either{right_};
         }
 
-        auto convert_left(std::invocable<left_item> auto &&left_f) && {
+        auto convert_left(auto &&left_f) && {
                 using return_either = either<decltype(left_f(std::move(left_))), right_item>;
 
                 if (id_ == item::LEFT) {
@@ -134,7 +134,7 @@ class either {
                 return return_either{std::move(right_)};
         }
 
-        auto convert_right(std::invocable<const right_item &> auto &&right_f) const & {
+        auto convert_right(auto &&right_f) const & {
                 using return_either = either<left_item, decltype(right_f(right_))>;
 
                 if (id_ == item::LEFT) {
@@ -144,7 +144,7 @@ class either {
                 return return_either{right_f(right_)};
         }
 
-        auto convert_right(std::invocable<right_item> auto &&right_f) && {
+        auto convert_right(auto &&right_f) && {
                 using return_either = either<left_item, decltype(right_f(std::move(right_)))>;
 
                 if (id_ == item::LEFT) {
@@ -154,8 +154,12 @@ class either {
                 return return_either{right_f(std::move(right_))};
         }
 
-        void match(std::invocable<left_item &> auto && left_f,
-                   std::invocable<right_item &> auto &&right_f) & {
+        // TODO:
+        // return std::invocable concept for the callable functions here
+        //  problems: for some reason, with the concepts wrong overload kept selected, have to
+        //  figure this out
+
+        void match(auto &&left_f, auto &&right_f) & {
                 if (id_ == item::LEFT) {
                         left_f(left_);
                 } else {
@@ -163,8 +167,7 @@ class either {
                 }
         }
 
-        void match(std::invocable<const left_item &> auto && left_f,
-                   std::invocable<const right_item &> auto &&right_f) const & {
+        void match(auto &&left_f, auto &&right_f) const & {
                 if (id_ == item::LEFT) {
                         left_f(left_);
                 } else {
@@ -172,8 +175,7 @@ class either {
                 }
         }
 
-        void match(std::invocable<left_item> auto && left_f,
-                   std::invocable<right_item> auto &&right_f) && {
+        void match(auto &&left_f, auto &&right_f) && {
                 if (id_ == item::LEFT) {
                         left_f(std::move(left_));
                 } else {
