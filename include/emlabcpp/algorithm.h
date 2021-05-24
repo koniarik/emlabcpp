@@ -50,13 +50,6 @@ constexpr int sign(T &&val) {
         return 0;
 }
 
-struct convert_to {
-        template <typename U>
-        constexpr T operator()(U &&src) const noexcept(noexcept(T{std::forward<U>(src)})) {
-                return T{std::forward<U>(src)};
-        }
-};
-
 /// Marked deprecated on 19.4.2021
 template <typename T>
 [[deprecated]] constexpr T clamp(T val, T from, T to) {
@@ -112,7 +105,7 @@ template <referenceable_container Container, typename Iterator = iterator_of_t<C
 /// iterator is returned otherwise. The end() iterator is taken once, before the
 /// container is iterated.
 template <range_container Container, container_invocable<Container> UnaryFunction = std::identity>
-[[nodiscard]] constexpr auto find_if(const Container &cont, UnaryFunction &&f = std::identity()) {
+[[nodiscard]] constexpr auto find_if(Container &&cont, UnaryFunction &&f = std::identity()) {
         using std::begin;
         auto beg = begin(cont);
         auto end = cont.end();
@@ -126,10 +119,9 @@ template <range_container Container, container_invocable<Container> UnaryFunctio
 
 /// Returns index of an element in tuple 't', for which call to f(x) holds true,
 /// otherwise returns index of 'past the end' item - size of the tuple
-template <gettable_container             Container,
-          container_invocable<Container> UnaryFunction = std::identity>
-[[nodiscard]] constexpr std::size_t find_if(const Container &t,
-                                            UnaryFunction && f = std::identity()) {
+template <gettable_container Container, container_invocable<Container> UnaryFunction = std::identity>
+requires (!range_container<Container>)
+[[nodiscard]] constexpr std::size_t find_if(Container &&t, UnaryFunction &&f = std::identity()) {
         return impl::find_if_impl(
             t, std::forward<UnaryFunction>(f),
             std::make_index_sequence<std::tuple_size_v<std::decay_t<Container>>>{});
@@ -144,6 +136,7 @@ template <container Container, typename T>
 
 /// Applies unary function 'f' to each element of container 'cont'
 template <gettable_container Container, container_invocable<Container> UnaryFunction>
+requires (!range_container<Container>)
 constexpr void for_each(Container &&cont, UnaryFunction &&f) {
         std::apply([&](auto &&...items) { (f(std::forward<decltype(items)>(items)), ...); },
                    std::forward<Container>(cont));
@@ -397,7 +390,7 @@ struct uncurry_impl {
         }
         template <typename Callable>
         [[nodiscard]] constexpr auto operator|(Callable &&f) const {
-                return [ff = std::forward<Callable>(f)](auto &&i_tuple) { //
+                return [ff = std::forward<Callable>(f)](auto &&i_tuple) {
                         return std::apply(ff, std::forward<decltype(i_tuple)>(i_tuple));
                 };
         }
