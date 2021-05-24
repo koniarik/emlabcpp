@@ -19,6 +19,7 @@ template <typename Container, typename UnaryFunction>
 struct mapped;
 
 template <gettable_container Container, typename UnaryFunction>
+requires (!range_container<Container>)
 struct mapped<Container, UnaryFunction> {
         using type = decltype(std::declval<UnaryFunction>()(std::get<0>(std::declval<Container>())));
 };
