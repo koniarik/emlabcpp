@@ -51,7 +51,7 @@ class subscript_iterator : public generic_iterator<subscript_iterator<Container>
                 return *this;
         }
 
-        bool operator<(const subscript_iterator &other) const { return i_ < other.i_; }
+        auto operator<=>(const subscript_iterator &other) const { return i_ <=> other.i_; }
         bool operator==(const subscript_iterator &other) const {
                 return i_ == other.i_ && &cont_ == &other.cont_;
         }

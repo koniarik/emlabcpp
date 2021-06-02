@@ -45,8 +45,10 @@ class numeric_iterator : public generic_iterator<numeric_iterator<T>> {
                 return *this;
         }
 
-        constexpr bool operator<(const numeric_iterator &other) const { return val_ < other.val_; }
-        constexpr bool operator==(const numeric_iterator &other) const {
+        constexpr auto operator<=>(const numeric_iterator<T> &other) const {
+                return val_ <=> other.val_;
+        }
+        constexpr auto operator==(const numeric_iterator<T> &other) const {
                 return val_ == other.val_;
         }
 

@@ -82,10 +82,9 @@ class generic_iterator {
                 return copy;
         }
 
-        constexpr bool operator<(const generic_iterator<Derived> &other) const {
-                return impl() < other.impl();
+        constexpr auto operator<=>(const generic_iterator<Derived> &other) const {
+                return impl() <=> other.impl();
         }
-
         constexpr bool operator==(const generic_iterator<Derived> &other) const {
                 return impl() == other.impl();
         }
@@ -102,32 +101,5 @@ class generic_iterator {
                 return copy;
         }
 };
-
-/// A > B iff B < A
-template <typename Derived>
-constexpr bool operator>(const generic_iterator<Derived> &lh, const generic_iterator<Derived> &rh) {
-        return rh < lh;
-}
-
-/// A <= B iff !( B > A )
-template <typename Derived>
-constexpr bool operator<=(const generic_iterator<Derived> &lh,
-                          const generic_iterator<Derived> &rh) {
-        return !(lh > rh);
-}
-
-/// A >= B iff !( B < A )
-template <typename Derived>
-constexpr bool operator>=(const generic_iterator<Derived> &lh,
-                          const generic_iterator<Derived> &rh) {
-        return !(lh < rh);
-}
-
-/// A != B iff !( A == B)
-template <typename Derived>
-constexpr bool operator!=(const generic_iterator<Derived> &lh,
-                          const generic_iterator<Derived> &rh) {
-        return !(lh == rh);
-}
 
 } // namespace emlabcpp

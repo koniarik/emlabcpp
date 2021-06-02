@@ -49,8 +49,8 @@ class access_iterator : public generic_iterator<access_iterator<Iterator, Access
                 return *this;
         }
 
-        constexpr bool operator<(const access_iterator &other) const {
-                return current_ < other.current_;
+        constexpr auto operator<=>(const access_iterator &other) const {
+                return current_ <=> other.current_;
         }
         constexpr bool operator==(const access_iterator &other) const {
                 return current_ == other.current_;
