@@ -208,8 +208,8 @@ class static_vector_iterator : public generic_iterator<static_vector_iterator<T,
                 return *this;
         }
 
-        bool operator<(const static_vector_iterator &other) const {
-                return raw_ptr_ < other.raw_ptr_;
+        auto operator<=>(const static_vector_iterator &other) const {
+                return raw_ptr_ <=> other.raw_ptr_;
         }
         bool operator==(const static_vector_iterator &other) const {
                 return raw_ptr_ == other.raw_ptr_;
@@ -245,8 +245,8 @@ class const_static_vector_iterator : public generic_iterator<const_static_vector
                 return *this;
         }
 
-        bool operator<(const const_static_vector_iterator &other) const {
-                return raw_ptr_ < other.raw_ptr_;
+        auto operator<=>(const const_static_vector_iterator &other) const {
+                return raw_ptr_ <=> other.raw_ptr_;
         }
         bool operator==(const const_static_vector_iterator &other) const {
                 return raw_ptr_ == other.raw_ptr_;
