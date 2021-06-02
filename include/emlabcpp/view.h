@@ -26,15 +26,14 @@ class view {
         constexpr view() = default;
 
         /// constructor from Container, uses begin/end of the container
-        template <typename Container>
-        constexpr view(Container &cont) : begin_(std::begin(cont)), end_(std::end(cont)) {}
+        constexpr view(range_container auto &cont)
+            : begin_(std::begin(cont)), end_(std::end(cont)) {}
 
         /// constructor from the iterators that should internally be stored
         constexpr view(Iterator begin, Iterator end)
             : begin_(std::move(begin)), end_(std::move(end)) {}
 
-        template <typename OtherIterator,
-                  std::enable_if_t<std::is_convertible_v<OtherIterator, Iterator>> * = nullptr>
+        template <std::convertible_to<Iterator> OtherIterator>
         constexpr view(view<OtherIterator> other) : begin_(other.begin()), end_(other.end()) {}
 
         /// Start of the dataset iterator
@@ -71,7 +70,7 @@ class view {
 };
 
 /// The container deduction guide uses iterator_of_t
-template <typename Container>
+template <range_container Container>
 view(Container &cont) -> view<iterator_of_t<Container>>;
 
 /// Support for our deduction guide to types - is_view_v
@@ -89,16 +88,15 @@ constexpr view<Iter> view_n(Iter begin, Count n) {
 /// Creates the view over over Container, where we ignore first r*size/2 items
 /// and last r*size/2 items. This can be used to get the dataset without
 /// first/last 5% for example, by using r=0.1
-template <typename Container>
+template <range_container Container>
 constexpr view<iterator_of_t<Container>> trim_view(Container &cont, float r) {
         std::size_t step = cont.size() * (1.f - r) / 2.f;
         return {cont.begin() + step, cont.end() - step};
 }
 
 /// Returns view to the Container in reverse order.
-template <typename Container,
-          typename = std::enable_if_t<std::is_reference_v<Container> || is_view_v<Container>>>
-constexpr auto reversed(Container &&container) -> view<decltype(container.rbegin())> {
+constexpr auto reversed(referenceable_container auto &&container)
+    -> view<decltype(container.rbegin())> {
         return {container.rbegin(), container.rend()};
 }
 
