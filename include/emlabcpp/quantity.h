@@ -1,3 +1,4 @@
+#include "emlabcpp/concepts.h"
 #include <cmath>
 #include <functional>
 #include <limits>
@@ -119,14 +120,12 @@ constexpr bool operator<(const quantity<Derived, ValueType> lhs,
         return *lhs < *rhs;
 }
 
-template <typename Derived, typename ValueType, typename RhValueType,
-          typename = std::enable_if_t<std::is_arithmetic_v<RhValueType>>>
+template <typename Derived, typename ValueType, arithmetic RhValueType>
 constexpr bool operator<(const quantity<Derived, ValueType> lhs, const RhValueType rhs) {
         return *lhs < rhs;
 }
 
-template <typename Derived, typename ValueType, typename LhValueType,
-          typename = std::enable_if_t<std::is_arithmetic_v<LhValueType>>>
+template <typename Derived, typename ValueType, arithmetic LhValueType>
 constexpr bool operator<(const LhValueType lhs, const quantity<Derived, ValueType> rhs) {
         return lhs < *rhs;
 }
