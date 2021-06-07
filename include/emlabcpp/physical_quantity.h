@@ -61,6 +61,7 @@ using amount_of_substance = physical_quantity<0, 0, 0, 0, 0, 1, 0, 0, 0>;
 using luminous_intensity  = physical_quantity<0, 0, 0, 0, 0, 0, 1, 0, 0>;
 using angle               = physical_quantity<0, 0, 0, 0, 0, 0, 0, 1, 0>;
 using byte                = physical_quantity<0, 0, 0, 0, 0, 0, 0, 0, 1>;
+using acceleration        = physical_quantity<1, 0, -2, 0, 0, 0, 0, 0, 0>;
 using angular_velocity    = physical_quantity<0, 0, -1, 0, 0, 0, 0, 1, 0>;
 using area                = physical_quantity<2, 0, 0, 0, 0, 0, 0, 0, 0>;
 using volume              = physical_quantity<3, 0, 0, 0, 0, 0, 0, 0, 0>;
@@ -111,6 +112,17 @@ template <int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, i
 constexpr auto sqrt(physical_quantity<Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte> val) {
         return physical_quantity<Len / 2, Mass / 2, Time / 2, Current / 2, Temp / 2, Mol / 2,
                                  Li / 2, Angle / 2, Byte / 2>{float{std::sqrt(*val)}};
+}
+
+/// Power of physical quantity is power of root of it's value and the exponents are multiplied by
+/// the value.
+
+template <unsigned Power, int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li,
+          int Angle, int Byte>
+constexpr auto sqrt(physical_quantity<Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte> val) {
+        return physical_quantity<Len * Power, Mass * Power, Time * Power, Current * Power,
+                                 Temp * Power, Mol * Power, Li * Power, Angle * Power,
+                                 Byte * Power>{float{std::pow(*val, Power)}};
 }
 
 } // namespace emlabcpp

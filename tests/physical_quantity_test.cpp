@@ -27,6 +27,7 @@ TEST(physical_quantity_test, basic) {
         EXPECT_EQ(sin(unitless{0.f}), 0.);
         EXPECT_EQ(max(unitless{0.5f}, unitless{1.f}), unitless{1.f});
         EXPECT_EQ(min(unitless{0.5f}, unitless{1.f}), unitless{0.5f});
+        EXPECT_EQ(pow<2>(unitless{2.f}), unitless{4.f});
 }
 
 TEST(physical_quantity_test, specializations) {

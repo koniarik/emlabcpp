@@ -9,38 +9,116 @@ Repository is at https://gitlab.fi.muni.cz/xkoniar/emlabcpp and mirrored to gith
 ## algorithm.h
 Contains a subset of algorithms from \<algorith\> standard library, with a two major changes:
  1. All functions expects container with begin/end iterators as an input, not the iterators themselves
- 2. Functions are able to iterate over std::tuple
+ 2. Functions are able to iterate over `std::tuple`
  
 This is expanded with other short functions representing simple algorithms and necessary stuff.
+The two core functions are `find_if` and `for_each`, both are implemented with variant over containers and tuples.
+
+```cpp
+std::tuple< int, std::string > tpl_data;
+std::vector< int > vec_data;
+for_each(tpl_data, [&]( const auto & item ){
+    std::cout << item << '\n';
+});
+for_each(vec_data, [&]( int item ){
+    std::cout << item << '\n';
+});
+
+std::size_t index = find_if(tpl_data, [&]( auto item ){
+    return std::is_same_v< decltype(item), std::string >(item);
+});
+auto iter = find_if(vec_data, [&]( int i ){
+    return i != 0;
+});
+
+```
+
 
 ## either.h
 
-either\<A,B\> is std::variant alternative able to hold only two types.
+`either<A,B>` is `std::variant` alternative able to hold only two types.
 Either however contains multiple methods to transform it's state and type.
 This makes it possible to chain the changes in the code.
+
+```cpp
+using error = std::string;
+
+either<U, error> fuu();
+
+either<T, error> foo(int i)
+{
+    return fuu()
+        .convert_left([&](U val){
+            T res{val};
+            T.do_magic(i);
+            return res;
+        })
+        .convert_right([&](error e){
+            return "Magic was not done :(, sub error is: " + e;
+        });
+}
+
+foo(42).match(
+    [&](T val){
+        std::cout << "T happend\o/: " << val << "\n";
+    },[&](error e){
+        std::cerr << "error happend :(: " << e << "\n";
+    })
+```
 
 ## iterator.h
 
 contains generic_iterator\<Derived\> CRTP baseclass. 
-This simplifies implementation of custom iterators, as most of the methods/operators we expect of iterators can be implemented based on a small set of functions. (Operator+, Operator++(int), Operator++ can be implemetned with Operator+=)
+This simplifies implementation of custom iterators, as most of the methods/operators we expect of iterators can be implemented based on a small set of functions. (operator+, operator++(int), operator++ can be implemetned with operator+=)
 
 For implementing iterator, you only provide the basic subset for this class and it takes care of the rest.
-Keep in mind that this is for "general" use cas, and for optimal performance you may be better served with fully custom iterator.
+Keep in mind that this is for "general" use case, and for optimallity you may be better served with fully custom iterator.
 
 ### iterators/access.h
 
 Iterators overlays the data stored in input container, and provides access only to 'reference' provided by function out of item in the container.
 
+```cpp
+
+struct foo{
+    std::string attr;
+}
+
+std::vector<foo> vec_data;
+
+auto acview = access_view(vec_data, [](const foo& item){ return item.attr; });
+
+for(const std::string & item : acview)
+{
+    std::cout << item << '\n';
+}
+```
+
 ### iterators/numeric.h
 
-Iterator that mimics real data container of sequence of numbers. The number is stored inside the iterator and when iterator is advanced, so is the internal value changed.
+Iterator that mimics real data container of sequence of numbers. The number is stored inside the iterator and when iterator is advanced, so is the internal value changed. Contains also functions like `range(from,to)` that creates a range from this iterators.
 
-Contains also functions like 'range(from,to)' that creates a range from this iterators.
-This makes it possible to write: `for( int i : range(0,5) )`
+```cpp
+std::vector<int> vec_data;
+
+for(std::size_t i : range(vec_data.size()-1))
+{
+    std::cout << vec_data[i] << '-' << vec_data[i+1] << '\n';
+}
+```
 
 ### iterators/subscript.h
 
-Iterator over datatype that implemented operator[] but does not have iterators
+Iterator over datatype that implemented operator[] but does not have iterators.
+
+```cpp
+std::bitset<32> bit_data;
+
+for(bool b : subscript_view(bit_data))
+{
+    std::cout << (b ? 'a' : 'b');
+}
+```
 
 ## physical_quantity.h
 
@@ -51,20 +129,71 @@ This makes it possible to have velocity/length/time represented with this templa
 Also, the result type of operations like  length divided by time is of type velocity.
 
 This increases safety of physical computations, as it enforces correct units in the math.
+The `operator<<` is overloaded to output units for the type, such as: `0.25m`
+
+```cpp
+position uniform_accel(position s0, velocity v0, acceleration a, timeq t)
+{
+    return s0 + v0*t + 0.5*a*t*t;
+}
+
+std::cout << position{0.25};
+```
 
 ## pid.h
 
-UNTESTED
+Basic PID regulator implementation using floats, templated based on the time type;
+
+```cpp
+using time_t = uint32_t;
+pid<time_t>::config conf = {
+    .p = 0.5f, 
+    .i = 0.005f, 
+    .d = 0.2f, 
+    .min = 0.0f, 
+    .max = 256.0f
+    };
+pid<time_t> regulator{time{0}, conf};
+
+time_t time = 0;
+float state = 0.0f;
+while(true)
+{
+    regulator.update(time, state, std::cos(time*0.05f));
+    state = regulator.output();
+
+    time += 1;
+}
+```
 
 ## quantity.h
 
 Simple thin overlay over numeric types, that gives abillity to implement strongly typed numeric types.
-This is handy in case you want to enforce correctness on type level
+This is handy in case you want to enforce correctness on type level. See implementation of physical_quantity as an example.
 
 ## static_circular_buffer.h
 
 Basic implementation of circular buffer with static maximal size, that can store non-default constructible elements.
 No dynamic allocation is used.
+
+```cpp
+static_circular_buffer<std::byte, 256> buffr;
+
+for(int i : {0,1,2,3,4,5,6})
+{
+    buffr.push_back(i);
+}
+
+for(int i : buffr)
+{
+    std::cout << i << ",";
+}
+
+while(!buffr.empty())
+{
+    buffr.pop_front();
+}
+```
 
 ## static_vector.h
 
@@ -73,15 +202,55 @@ No dynamic allocation is used.
 
 ## types.h
 
-A library of handy helpers for type inspaction, mostly using SFINAE, this contains types similar to type_traits of standard library.
-This follows the pattern of std:: library - type check is structure with ::value/::type attributes and using for \_v/\_t suffixed aliases exists.
+A library of helpers for type inspection, this contains types similar to type_traits of standard library.
+This follows the pattern of std:: library - type check is structure with `::value`/`::type` attributes and using for \_v/\_t suffixed aliases exists.
+
+```cpp
+using data = std::vector<int>;
+
+auto fun = [](int i) -> std::string
+{
+    return std::to_string(i)
+};
+using fun = decltype(fun);
+
+static_assert(std::is_same_v<mapped_t<data, fun>, std::string>);
+```
 
 ## view.h
 
 Simple container storing a pair of iterators to different container - non-owning container of data.
-This is heavily used by other parts of the code, and si similar to std::span introduced in C++20
-
 This makes it possible to use API that expects data container as input, rather then pair of iterators.
+You can also use this to return as a iterator range instead of just `std::pair` of iterators.
+
+```cpp
+
+std::vector<int> vec_data{1,2,3,4,5,6};
+
+for(int i : view{vec_data})
+{
+    std::cout << i << ',';
+}
+std::cout << '\n';
+
+for(int i : view{vec_data.begin() + 2, vec_data.end()})
+{
+    std::cout << i << ',';
+}
+std::cout << '\n';
+
+for(int i : view_n(vec_data, 4))
+{
+    std::cout << i << ',';
+}
+std::cout << '\n';
+
+for(int i : reversed(vec_data))
+{
+    std::cout << i << ',';
+}
+std::cout << '\n';
+```
 
 ## zip.h
 
@@ -89,4 +258,21 @@ zip iterator over multiple data containers, which dereference value is tuple of 
 
 This is especially handy in combination with numeric iterator. Example is `enumerate(cont)` which returns zip of range over cont size and cont itself, which behaves same as enumerate on python.
 
-`for( auto [i, item] : enumerate(cont))`
+```cpp
+
+std::vector<int> vec_data{-1,1,-1,1,-1,1};
+
+for(int [i,val] : enumerate(vec_data))
+{
+    std::cout << i << "\t:" << val << '\n';
+}
+
+std::vector<std::string> names = {"john", "clark"};
+std::vector<std::string> surnames = {"deer", "kent"};
+
+for(int [name, surname] : zip(names, surnames))
+{
+    std::cout << name << '\t' << surname << '\n';
+}
+
+```
