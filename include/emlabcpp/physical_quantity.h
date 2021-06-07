@@ -117,12 +117,12 @@ constexpr auto sqrt(physical_quantity<Len, Mass, Time, Current, Temp, Mol, Li, A
 /// Power of physical quantity is power of root of it's value and the exponents are multiplied by
 /// the value.
 
-template <unsigned Power, int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li,
-          int Angle, int Byte>
-constexpr auto sqrt(physical_quantity<Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte> val) {
+template <int Power, int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle,
+          int Byte>
+constexpr auto pow(physical_quantity<Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte> val) {
         return physical_quantity<Len * Power, Mass * Power, Time * Power, Current * Power,
                                  Temp * Power, Mol * Power, Li * Power, Angle * Power,
-                                 Byte * Power>{float{std::pow(*val, Power)}};
+                                 Byte * Power>{static_cast<float>(std::pow(*val, Power))};
 }
 
 } // namespace emlabcpp
