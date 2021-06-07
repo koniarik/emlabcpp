@@ -20,15 +20,6 @@ constexpr float default_epsilon = 1.19e-07f;
 template <typename T>
 constexpr void ignore(T &&) {}
 
-/// Callable object that is inspired by std::identity
-/// Marked deprecated on 19.4.2021
-struct [[deprecated]] identity {
-        template <typename T>
-        [[nodiscard]] constexpr T &&operator()(T &&t) const noexcept {
-                return std::forward<T>(t);
-        }
-};
-
 template <typename T>
 struct convert_to {
         template <typename U>
@@ -48,18 +39,6 @@ constexpr int sign(T &&val) {
                 return 1;
         }
         return 0;
-}
-
-/// Marked deprecated on 19.4.2021
-template <typename T>
-[[deprecated]] constexpr T clamp(T val, T from, T to) {
-        if (val < from) {
-                return from;
-        }
-        if (val > to) {
-                return to;
-        }
-        return val;
 }
 
 /// maps input value 'input' from input range to equivalent value in output range
