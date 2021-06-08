@@ -6,8 +6,9 @@ EXTRAARGS=$(if $(SANITIZER), -DCMAKE_CXX_FLAGS="-fsanitize=$(SANITIZER)" -DCMAKE
 
 HEADERS=$(call rwildcard, include, *.h)
 TESTS=$(call rwildcard, tests, *.cpp)
+EXAMPLES=$(call rwildcard, examples, *.cpp)
 
-FORMAT_TARGETS = $(addsuffix .format, $(HEADERS) $(TESTS))
+FORMAT_TARGETS = $(addsuffix .format, $(HEADERS) $(TESTS) $(EXAMPLES))
 
 .PHONY: clean build_test exec_test test format $(FORMAT_TARGETS)
 
