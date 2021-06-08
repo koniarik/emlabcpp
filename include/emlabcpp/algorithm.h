@@ -20,14 +20,6 @@ constexpr float default_epsilon = 1.19e-07f;
 template <typename T>
 constexpr void ignore(T &&) {}
 
-template <typename T>
-struct convert_to {
-        template <typename U>
-        constexpr T operator()(U &&src) const noexcept(noexcept(T{std::forward<U>(src)})) {
-                return T{std::forward<U>(src)};
-        }
-};
-
 /// returns sign of variable T: -1,0,1
 template <typename T>
 constexpr int sign(T &&val) {
@@ -44,7 +36,8 @@ constexpr int sign(T &&val) {
 /// maps input value 'input' from input range to equivalent value in output range
 template <arithmetic_base U, arithmetic_base T>
 [[nodiscard]] constexpr U map_range(T input, T from_min, T from_max, U to_min, U to_max) {
-        return to_min + (to_max - to_min) * (input - from_min) / (from_max - from_min);
+        return to_min + (to_max - to_min) * static_cast<U>(input - from_min) /
+                            static_cast<U>(from_max - from_min);
 }
 
 /// Returns the size of the container, regardless of what it is
@@ -67,17 +60,13 @@ template <typename T>
 /// Returns range over Container, which skips first item of container
 template <referenceable_container Container, typename Iterator = iterator_of_t<Container>>
 [[nodiscard]] constexpr view<Iterator> tail(Container &&cont, int step = 1) {
-        using std::begin;
-        using std::end;
-        return view<Iterator>(begin(cont) + step, end(cont));
+        return view<Iterator>(std::begin(cont) + step, std::end(cont));
 }
 
 /// Returns range over Container, which skips last item of container
 template <referenceable_container Container, typename Iterator = iterator_of_t<Container>>
 [[nodiscard]] constexpr view<Iterator> init(Container &&cont, int step = 1) {
-        using std::begin;
-        using std::end;
-        return view<Iterator>(begin(cont), end(cont) - step);
+        return view<Iterator>(std::begin(cont), std::end(cont) - step);
 }
 
 /// Returns iterator for first item, for which call to f(*iter) holds true. end()
@@ -85,9 +74,8 @@ template <referenceable_container Container, typename Iterator = iterator_of_t<C
 /// container is iterated.
 template <range_container Container, container_invocable<Container> UnaryFunction = std::identity>
 [[nodiscard]] constexpr auto find_if(Container &&cont, UnaryFunction &&f = std::identity()) {
-        using std::begin;
-        auto beg = begin(cont);
-        auto end = cont.end();
+        auto beg = std::begin(cont);
+        auto end = std::end(cont);
         for (; beg != end; ++beg) {
                 if (f(*beg)) {
                         return beg;
@@ -98,9 +86,10 @@ template <range_container Container, container_invocable<Container> UnaryFunctio
 
 /// Returns index of an element in tuple 't', for which call to f(x) holds true,
 /// otherwise returns index of 'past the end' item - size of the tuple
-template <gettable_container Container, container_invocable<Container> UnaryFunction = std::identity>
-requires (!range_container<Container>)
-[[nodiscard]] constexpr std::size_t find_if(Container &&t, UnaryFunction &&f = std::identity()) {
+template <gettable_container             Container,
+          container_invocable<Container> UnaryFunction = std::identity>
+requires(!range_container<Container>) [[nodiscard]] constexpr std::size_t
+    find_if(Container &&t, UnaryFunction &&f = std::identity()) {
         return impl::find_if_impl(
             t, std::forward<UnaryFunction>(f),
             std::make_index_sequence<std::tuple_size_v<std::decay_t<Container>>>{});
@@ -110,15 +99,19 @@ requires (!range_container<Container>)
 /// iterator for container and index for tuples
 template <container Container, typename T>
 [[nodiscard]] constexpr auto find(Container &&cont, const T &item) {
-        return find_if(cont, [&](const auto &sub_item) { return sub_item == item; });
+        return find_if(cont, [&](const auto &sub_item) {
+                return sub_item == item;
+        });
 }
 
 /// Applies unary function 'f' to each element of container 'cont'
 template <gettable_container Container, container_invocable<Container> UnaryFunction>
-requires (!range_container<Container>)
-constexpr void for_each(Container &&cont, UnaryFunction &&f) {
-        std::apply([&](auto &&...items) { (f(std::forward<decltype(items)>(items)), ...); },
-                   std::forward<Container>(cont));
+requires(!range_container<Container>) constexpr void for_each(Container &&cont, UnaryFunction &&f) {
+        std::apply(
+            [&](auto &&...items) {
+                    (f(std::forward<decltype(items)>(items)), ...);
+            },
+            std::forward<Container>(cont));
 }
 
 /// Applies unary function 'f' to each element of container 'cont'
@@ -283,11 +276,9 @@ template <range_container LhContainer, range_container RhContainer>
         if (lh.size() != rh.size()) {
                 return false;
         }
-        using std::begin;
-        using std::end;
-        auto lbeg = begin(lh);
-        auto rbeg = begin(rh);
-        auto lend = end(lh);
+        auto lbeg = std::begin(lh);
+        auto rbeg = std::begin(rh);
+        auto lend = std::end(lh);
         for (; lbeg != lend; ++lbeg, ++rbeg) {
                 if (*lbeg != *rbeg) {
                         return false;
@@ -347,6 +338,16 @@ map_f_to_a(Container &&cont, UnaryFunction &&f = std::identity()) requires stati
                                            std::make_index_sequence<N>());
 }
 
+// object with operator() that constructs object of type T out of passed-in value. Usefull for
+// functions like `map_f`
+template <typename T>
+struct convert_to {
+        template <typename U>
+        constexpr T operator()(U &&src) const noexcept(noexcept(T{std::forward<U>(src)})) {
+                return T{std::forward<U>(src)};
+        }
+};
+
 /// Returns cont[0] + val + cont[1] + val + cont[2] + ... + cont[n-1] + val +
 /// cont[n];
 template <range_container Container, typename T>
@@ -354,8 +355,7 @@ template <range_container Container, typename T>
         if (cont.empty()) {
                 return T{};
         }
-        using std::begin;
-        T res = *begin(cont);
+        T res = *std::begin(cont);
         for (const auto &item : tail(cont)) {
                 res += val + item;
         }
