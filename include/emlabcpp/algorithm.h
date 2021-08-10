@@ -230,6 +230,18 @@ template <container Container, container_invocable<Container> UnaryFunction = st
         }
 }
 
+template <container Container, container_invocable<Container> UnaryFunction = std::identity,
+          typename T = std::decay_t<mapped_t<Container, UnaryFunction>>>
+[[nodiscard]] constexpr T variance(const Container &cont, UnaryFunction &&f = std::identity()) {
+        T u = avg(cont, f);
+
+        return sum(cont,
+                   [&](const auto &val) {
+                           return std::pow(f(val) - u, 2);
+                   }) /
+               cont.size();
+}
+
 /// Applies binary function 'f(x,y)' to each combination of items x in lh_cont
 /// and y in rh_cont
 template <container LhContainer, container RhContainer, typename BinaryFunction>
