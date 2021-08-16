@@ -45,7 +45,7 @@ template <typename>
 struct map_f_collector;
 
 template <typename T>
-requires requires(T a, T::value_type b) {
+requires requires(T a, typename T::value_type b) {
         a.push_back(b);
 }
 struct map_f_collector<T> {
@@ -53,7 +53,7 @@ struct map_f_collector<T> {
 };
 
 template <typename T>
-requires requires(T a, T::value_type b) {
+requires requires(T a, typename T::value_type b) {
         a.insert(b);
 }
 struct map_f_collector<T> {
@@ -71,7 +71,7 @@ struct map_f_collector<std::array<T, N>> {
 };
 
 template <typename T>
-concept map_f_collectable = requires(T item, T::value_type val) {
+concept map_f_collectable = requires(T item, typename T::value_type val) {
         map_f_collector<T>{}.collect(item, val);
 };
 
