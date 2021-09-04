@@ -20,7 +20,7 @@ build_test:
 	make -Cbuild -j
 
 exec_test: build_test
-	cd build && ctest
+	cd build && ctest --output-on-failure
 
 test: exec_test
 

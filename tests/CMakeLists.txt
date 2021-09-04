@@ -31,7 +31,9 @@ add_compile_options(
   -Wsign-conversion
   -Wconversion
   -Wdouble-promotion
-  -fmax-errors=15)
+  -fmax-errors=5
+  -DEMLABCPP_USE_STREAMS
+  )
 
 include_directories(../include/)
 
@@ -50,3 +52,4 @@ add_emlabcpp_test(physical_quantity_test)
 add_emlabcpp_test(zip_test)
 add_emlabcpp_test(static_vector_test)
 add_emlabcpp_test(pid_test)
+add_emlabcpp_test(protocol_item_test)

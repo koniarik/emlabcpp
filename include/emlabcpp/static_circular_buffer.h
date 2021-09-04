@@ -1,14 +1,15 @@
+#include "emlabcpp/iterators/subscript.h"
+
 #include <cstdint>
 #include <limits>
 #include <new>
 #include <type_traits>
 #include <utility>
 
-#include "emlabcpp/iterators/subscript.h"
-
 #pragma once
 
-namespace emlabcpp {
+namespace emlabcpp
+{
 
 /// Class implementing circular buffer of any type for up to N elements. This should work for
 /// generic type T, not just simple types.
@@ -21,125 +22,185 @@ namespace emlabcpp {
 /// In case of copy or move operations, the buffer does not have to store the data internally in
 /// same manner, the data are equivavlent only from the perspective of push/pop operations.
 ///
-template <typename T, std::size_t N>
-class static_circular_buffer {
+template < typename T, std::size_t N >
+class static_circular_buffer
+{
         /// We need real_size of the buffer to be +1 bigger than number of items
         static constexpr std::size_t real_size = N + 1;
         /// type for storage of one item
-        using storage_type = std::aligned_storage_t<sizeof(T), alignof(T)>;
+        using storage_type = std::aligned_storage_t< sizeof( T ), alignof( T ) >;
 
-      public:
+public:
         // public types
         // --------------------------------------------------------------------------------
         using value_type      = T;
         using size_type       = std::size_t;
-        using reference       = T &;
-        using const_reference = const T &;
-        using iterator        = subscript_iterator<static_circular_buffer<T, N>>;
-        using const_iterator  = subscript_iterator<const static_circular_buffer<T, N>>;
+        using reference       = T&;
+        using const_reference = const T&;
+        using iterator        = subscript_iterator< static_circular_buffer< T, N > >;
+        using const_iterator  = subscript_iterator< const static_circular_buffer< T, N > >;
 
         // public methods
         // --------------------------------------------------------------------------------
         static_circular_buffer() = default;
-        static_circular_buffer(const static_circular_buffer &other) {
-                for (size_type i = 0; i < other.size(); ++i) {
-                        push_back(other[i]);
+        static_circular_buffer( const static_circular_buffer& other )
+        {
+                for ( size_type i = 0; i < other.size(); ++i ) {
+                        push_back( other[i] );
                 }
         }
-        static_circular_buffer(static_circular_buffer &&other) noexcept {
-                while (!other.empty()) {
-                        push_back(other.pop_front());
+        static_circular_buffer( static_circular_buffer&& other ) noexcept
+        {
+                while ( !other.empty() ) {
+                        push_back( other.pop_front() );
                 }
         }
-        static_circular_buffer &operator=(const static_circular_buffer &other) {
-                if (this != &other) {
+        static_circular_buffer& operator=( const static_circular_buffer& other )
+        {
+                if ( this != &other ) {
                         this->~static_circular_buffer();
-                        ::new (this) static_circular_buffer(other);
+                        ::new ( this ) static_circular_buffer( other );
                 }
                 return *this;
         }
-        static_circular_buffer &operator=(static_circular_buffer &&other) noexcept {
-                if (this != &other) {
+        static_circular_buffer& operator=( static_circular_buffer&& other ) noexcept
+        {
+                if ( this != &other ) {
                         this->~static_circular_buffer();
-                        ::new (this) static_circular_buffer(std::move(other));
+                        ::new ( this ) static_circular_buffer( std::move( other ) );
                 }
                 return *this;
         }
 
         // methods for handling the front side of the circular buffer
 
-        [[nodiscard]] iterator       begin() { return iterator{*this, 0}; }
-        [[nodiscard]] const_iterator begin() const { return const_iterator{*this, 0}; }
+        [[nodiscard]] iterator begin()
+        {
+                return iterator{ *this, 0 };
+        }
+        [[nodiscard]] const_iterator begin() const
+        {
+                return const_iterator{ *this, 0 };
+        }
 
-        [[nodiscard]] std::reverse_iterator<iterator> rbegin() {
-                return std::make_reverse_iterator(end());
+        [[nodiscard]] std::reverse_iterator< iterator > rbegin()
+        {
+                return std::make_reverse_iterator( end() );
         };
-        [[nodiscard]] std::reverse_iterator<const_iterator> rbegin() const {
-                return std::make_reverse_iterator(end());
+        [[nodiscard]] std::reverse_iterator< const_iterator > rbegin() const
+        {
+                return std::make_reverse_iterator( end() );
         };
 
-        [[nodiscard]] reference       front() { return ref_item(from_); }
-        [[nodiscard]] const_reference front() const { return ref_item(from_); }
+        [[nodiscard]] reference front()
+        {
+                return ref_item( from_ );
+        }
+        [[nodiscard]] const_reference front() const
+        {
+                return ref_item( from_ );
+        }
 
-        T pop_front() {
-                T item = std::move(front());
-                delete_item(from_);
-                from_ = next(from_);
+        T pop_front()
+        {
+                T item = std::move( front() );
+                delete_item( from_ );
+                from_ = next( from_ );
                 return item;
         }
 
         // methods for handling the back side of the circular buffer
 
-        [[nodiscard]] iterator       end() { return iterator{*this, size()}; }
-        [[nodiscard]] const_iterator end() const { return const_iterator{*this, size()}; }
+        [[nodiscard]] iterator end()
+        {
+                return iterator{ *this, size() };
+        }
+        [[nodiscard]] const_iterator end() const
+        {
+                return const_iterator{ *this, size() };
+        }
 
-        [[nodiscard]] std::reverse_iterator<iterator> rend() {
-                return std::make_reverse_iterator(begin());
+        [[nodiscard]] std::reverse_iterator< iterator > rend()
+        {
+                return std::make_reverse_iterator( begin() );
         };
-        [[nodiscard]] std::reverse_iterator<const_iterator> rend() const {
-                return std::make_reverse_iterator(begin());
+        [[nodiscard]] std::reverse_iterator< const_iterator > rend() const
+        {
+                return std::make_reverse_iterator( begin() );
         };
 
-        [[nodiscard]] reference       back() { return ref_item(to_ - 1); }
-        [[nodiscard]] const_reference back() const { return ref_item(to_ - 1); }
+        [[nodiscard]] reference back()
+        {
+                return ref_item( to_ - 1 );
+        }
+        [[nodiscard]] const_reference back() const
+        {
+                return ref_item( to_ - 1 );
+        }
 
-        void push_back(T item) { emplace_back(std::move(item)); }
+        void push_back( T item )
+        {
+                emplace_back( std::move( item ) );
+        }
 
-        template <typename... Args>
-        void emplace_back(Args &&... args) {
-                emplace_item(to_, std::forward<Args>(args)...);
-                to_ = next(to_);
+        template < typename... Args >
+        void emplace_back( Args&&... args )
+        {
+                emplace_item( to_, std::forward< Args >( args )... );
+                to_ = next( to_ );
         }
 
         // other methods
 
-        [[nodiscard]] constexpr std::size_t max_size() const { return N; }
-
-        [[nodiscard]] std::size_t size() const {
-                if (to_ >= from_) {
-                        return to_ - from_;
-                }
-                return to_ + (real_size - from_);
+        [[nodiscard]] constexpr std::size_t max_size() const
+        {
+                return N;
         }
 
-        [[nodiscard]] bool empty() const { return to_ == from_; }
+        [[nodiscard]] std::size_t size() const
+        {
+                if ( to_ >= from_ ) {
+                        return to_ - from_;
+                }
+                return to_ + ( real_size - from_ );
+        }
 
-        [[nodiscard]] bool full() const { return next(to_) == from_; }
+        [[nodiscard]] bool empty() const
+        {
+                return to_ == from_;
+        }
 
-        const_reference operator[](size_type i) const { return ref_item((from_ + i) % real_size); }
-        reference       operator[](size_type i) { return ref_item((from_ + i) % real_size); }
+        [[nodiscard]] bool full() const
+        {
+                return next( to_ ) == from_;
+        }
 
-        void clear() { purge(); }
+        const_reference operator[]( size_type i ) const
+        {
+                return ref_item( ( from_ + i ) % real_size );
+        }
+        reference operator[]( size_type i )
+        {
+                return ref_item( ( from_ + i ) % real_size );
+        }
 
-        ~static_circular_buffer() { purge(); }
+        void clear()
+        {
+                purge();
+        }
 
-      private:
+        ~static_circular_buffer()
+        {
+                purge();
+        }
+
+private:
         // private attributes
         // --------------------------------------------------------------------------------
 
-        storage_type data_[real_size] = {0}; // storage of the entire dataset
-        size_type    from_            = 0;   // index of the first item
-        size_type    to_              = 0;   // index past the last item
+        storage_type data_[real_size] = { 0 };  // storage of the entire dataset
+        size_type    from_            = 0;      // index of the first item
+        size_type    to_              = 0;      // index past the last item
 
         // from_ == to_ means empty
         // to_ + 1 == from_ is full
@@ -159,57 +220,70 @@ class static_circular_buffer {
         // requires features of C++ we do not want to replicate and it's bettter to hide them in
         // methods.
 
-        void delete_item(size_type i) { ref_item(i).~T(); }
+        void delete_item( size_type i )
+        {
+                ref_item( i ).~T();
+        }
 
-        template <typename... Args>
-        void emplace_item(size_type i, Args &&... args) {
-                void *gen_ptr = reinterpret_cast<void *>(&data_[i]);
-                ::new (gen_ptr) T(std::forward<Args>(args)...);
+        template < typename... Args >
+        void emplace_item( size_type i, Args&&... args )
+        {
+                void* gen_ptr = reinterpret_cast< void* >( &data_[i] );
+                ::new ( gen_ptr ) T( std::forward< Args >( args )... );
         }
 
         // Reference to the item in data_storage. std::launder is necessary here per the paper
         // linked above.
-        [[nodiscard]] reference ref_item(size_type i) {
-                return *std::launder(reinterpret_cast<T *>(&data_[i]));
+        [[nodiscard]] reference ref_item( size_type i )
+        {
+                return *std::launder( reinterpret_cast< T* >( &data_[i] ) );
         }
-        [[nodiscard]] const_reference ref_item(size_type i) const {
-                return *std::launder(reinterpret_cast<const T *>(&data_[i]));
+        [[nodiscard]] const_reference ref_item( size_type i ) const
+        {
+                return *std::launder( reinterpret_cast< const T* >( &data_[i] ) );
         }
 
         // Cleans entire buffer from items.
-        void purge() {
-                while (!empty()) {
+        void purge()
+        {
+                while ( !empty() ) {
                         pop_front();
                 }
         }
 
         // Use this only when moving the indexes in the circular buffer - bullet-proof.
-        [[nodiscard]] constexpr auto next(size_type i) const { return (i + 1) % real_size; }
-        [[nodiscard]] constexpr auto prev(size_type i) const {
+        [[nodiscard]] constexpr auto next( size_type i ) const
+        {
+                return ( i + 1 ) % real_size;
+        }
+        [[nodiscard]] constexpr auto prev( size_type i ) const
+        {
                 return i == 0 ? real_size - 1 : i - 1;
         }
 };
 
-template <typename T, std::size_t N>
-[[nodiscard]] inline bool operator==(const static_circular_buffer<T, N> &lh,
-                                     const static_circular_buffer<T, N> &rh) {
+template < typename T, std::size_t N >
+[[nodiscard]] inline bool
+operator==( const static_circular_buffer< T, N >& lh, const static_circular_buffer< T, N >& rh )
+{
         auto size = lh.size();
-        if (size != rh.size()) {
+        if ( size != rh.size() ) {
                 return false;
         }
 
-        for (std::size_t i = 0; i < size; ++i) {
-                if (lh[i] != rh[i]) {
+        for ( std::size_t i = 0; i < size; ++i ) {
+                if ( lh[i] != rh[i] ) {
                         return false;
                 }
         }
         return true;
 }
 
-template <typename T, std::size_t N>
-[[nodiscard]] inline bool operator!=(const static_circular_buffer<T, N> &lh,
-                                     const static_circular_buffer<T, N> &rh) {
-        return !(lh == rh);
+template < typename T, std::size_t N >
+[[nodiscard]] inline bool
+operator!=( const static_circular_buffer< T, N >& lh, const static_circular_buffer< T, N >& rh )
+{
+        return !( lh == rh );
 }
 
-} // namespace emlabcpp
+}  // namespace emlabcpp

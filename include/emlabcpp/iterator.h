@@ -1,9 +1,11 @@
 #include "emlabcpp/view.h"
+
 #include <iterator>
 
 #pragma once
 
-namespace emlabcpp {
+namespace emlabcpp
+{
 /// generic_iterator is a class using CRTP to ease implementation of custom iterators.
 /// User of the class is required to inheric from generic_iterator and pass the inheriting class as
 /// template argument Derived. The generic_iterator expectes existence of properly setup
@@ -39,67 +41,86 @@ namespace emlabcpp {
 ///  - bool operator!=(const generic_iterator<Derived> &, const generic_iterator<Derived>&)
 ///
 ///
-template <typename Derived>
-class generic_iterator {
+template < typename Derived >
+class generic_iterator
+{
 
-        [[nodiscard]] constexpr Derived &      impl() { return static_cast<Derived &>(*this); }
-        [[nodiscard]] constexpr Derived const &impl() const {
-                return static_cast<Derived const &>(*this);
+        [[nodiscard]] constexpr Derived& impl()
+        {
+                return static_cast< Derived& >( *this );
+        }
+        [[nodiscard]] constexpr Derived const& impl() const
+        {
+                return static_cast< Derived const& >( *this );
         }
 
-      public:
-        using value_type        = typename std::iterator_traits<Derived>::value_type;
-        using reference         = typename std::iterator_traits<Derived>::reference;
+public:
+        using value_type        = typename std::iterator_traits< Derived >::value_type;
+        using reference         = typename std::iterator_traits< Derived >::reference;
         using const_reference   = const reference;
-        using pointer           = typename std::iterator_traits<Derived>::pointer;
-        using const_pointer     = typename std::iterator_traits<Derived>::const_pointer;
-        using difference_type   = typename std::iterator_traits<Derived>::difference_type;
-        using iterator_category = typename std::iterator_traits<Derived>::iterator_category;
+        using pointer           = typename std::iterator_traits< Derived >::pointer;
+        using const_pointer     = typename std::iterator_traits< Derived >::const_pointer;
+        using difference_type   = typename std::iterator_traits< Derived >::difference_type;
+        using iterator_category = typename std::iterator_traits< Derived >::iterator_category;
 
-        constexpr pointer operator->() { return &*impl(); }
+        constexpr pointer operator->()
+        {
+                return &*impl();
+        }
 
-        constexpr const_pointer operator->() const { return &*impl(); }
+        constexpr const_pointer operator->() const
+        {
+                return &*impl();
+        }
 
-        constexpr Derived &operator++() {
+        constexpr Derived& operator++()
+        {
                 impl() += 1;
                 return impl();
         }
 
-        constexpr Derived operator++(int) {
+        constexpr Derived operator++( int )
+        {
                 auto copy = impl();
                 impl() += 1;
                 return copy;
         }
 
-        constexpr Derived &operator--() {
+        constexpr Derived& operator--()
+        {
                 impl() -= 1;
                 return impl();
         }
 
-        constexpr Derived operator--(int) {
+        constexpr Derived operator--( int )
+        {
                 auto copy = impl();
                 impl() -= 1;
                 return copy;
         }
 
-        constexpr auto operator<=>(const generic_iterator<Derived> &other) const {
+        constexpr auto operator<=>( const generic_iterator< Derived >& other ) const
+        {
                 return impl() <=> other.impl();
         }
-        constexpr bool operator==(const generic_iterator<Derived> &other) const {
+        constexpr bool operator==( const generic_iterator< Derived >& other ) const
+        {
                 return impl() == other.impl();
         }
 
-        constexpr Derived operator+(difference_type v) const {
+        constexpr Derived operator+( difference_type v ) const
+        {
                 auto copy = impl();
                 copy += v;
                 return copy;
         }
 
-        constexpr Derived operator-(difference_type v) const {
+        constexpr Derived operator-( difference_type v ) const
+        {
                 auto copy = impl();
                 copy -= v;
                 return copy;
         }
 };
 
-} // namespace emlabcpp
+}  // namespace emlabcpp
