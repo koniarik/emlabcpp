@@ -1,6 +1,10 @@
 #include <optional>
 #include <type_traits>
 
+#ifdef EMLABCPP_USE_STREAMS
+#include <ostream>
+#endif
+
 #pragma once
 
 namespace emlabcpp

@@ -37,33 +37,6 @@ template < typename Container, typename UnaryFunction >
 using mapped_t = typename mapped< Container, UnaryFunction >::type;
 
 // ------------------------------------------------------------------------------------------------
-/// tuple_of_constants<Is..> is a tuple of integral constants in ranage Is...
-template < std::size_t... Is >
-using tuple_of_constants_t = std::tuple< std::integral_constant< std::size_t, Is >... >;
-
-namespace detail
-{
-        template < typename >
-        struct make_sequence_tuple_impl;
-
-        template < std::size_t... Is >
-        struct make_sequence_tuple_impl< std::index_sequence< Is... > >
-        {
-                using type = tuple_of_constants_t< Is... >;
-        };
-}  // namespace detail
-
-template < std::size_t N >
-struct make_sequence_tuple
-{
-        using type =
-            typename detail::make_sequence_tuple_impl< std::make_index_sequence< N > >::type;
-};
-
-template < std::size_t N >
-using make_sequence_tuple_t = typename make_sequence_tuple< N >::type;
-
-// ------------------------------------------------------------------------------------------------
 //// tag<V> type can be used for tagging f-calls for function overloading
 template < auto V >
 struct tag
@@ -71,6 +44,8 @@ struct tag
         using value_type = decltype( V );
 
         static constexpr value_type value = V;
+
+        friend constexpr auto operator<=>( const tag&, const tag& ) = default;
 };
 
 }  // namespace emlabcpp

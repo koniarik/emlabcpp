@@ -13,7 +13,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_compile_options(
-  -g
+  -gdwarf
   -Werror
   -Wextra
   -Wpedantic
@@ -35,11 +35,13 @@ add_compile_options(
   -DEMLABCPP_USE_STREAMS
   )
 
+# TODO: this should use top level cmake
 include_directories(../include/)
 
 function(add_emlabcpp_test name)
   add_executable(${name} ${name}.cpp)
   target_link_libraries(${name} GTest::GTest GTest::Main)
+  target_include_directories(${name} PRIVATE ../tests/include/)
   add_test(NAME ${name} COMMAND ${name})
 endfunction()
 
@@ -53,3 +55,4 @@ add_emlabcpp_test(zip_test)
 add_emlabcpp_test(static_vector_test)
 add_emlabcpp_test(pid_test)
 add_emlabcpp_test(protocol_item_test)
+add_emlabcpp_test(protocol_sophisticated_test)

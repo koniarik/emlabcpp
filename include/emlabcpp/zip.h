@@ -97,7 +97,7 @@ public:
 
 private:
         template < typename std::size_t... Idx >
-        constexpr bool
+        [[nodiscard]] constexpr bool
         equals( const zip_iterator< Iterators... >& other, std::index_sequence< Idx... > ) const
         {
                 return ( ( std::get< Idx >( iters_ ) == std::get< Idx >( other.iters_ ) ) || ... );

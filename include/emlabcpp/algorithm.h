@@ -440,6 +440,15 @@ template < range_container Container, typename T >
         return res;
 }
 
+template < std::size_t i, typename NullFunction >
+constexpr void for_each_index( NullFunction&& f )
+{
+        if constexpr ( i != 0 ) {
+                for_each_index< i - 1 >( f );
+                f.template operator()< i - 1 >();
+        }
+}
+
 struct uncurry_impl
 {
         template < typename Callable >

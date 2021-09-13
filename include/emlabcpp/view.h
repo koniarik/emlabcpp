@@ -148,8 +148,8 @@ struct impl::is_view< view< Iter > > : std::true_type
 template < typename Iter >
 constexpr view< Iter > view_n( Iter begin, std::size_t n )
 {
-        auto end =
-            std::next( begin, static_cast< std::iterator_traits< Iter >::difference_type >( n ) );
+        auto end = std::next(
+            begin, static_cast< typename std::iterator_traits< Iter >::difference_type >( n ) );
         return view< Iter >{ std::move( begin ), end };
 }
 

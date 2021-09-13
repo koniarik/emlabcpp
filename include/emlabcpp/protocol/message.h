@@ -1,3 +1,4 @@
+#include "emlabcpp/concepts.h"
 
 #include <array>
 
@@ -40,29 +41,29 @@ public:
                 static_assert( M <= N );
         }
 
-        std::size_t size() const
+        [[nodiscard]] std::size_t size() const
         {
                 return used_;
         }
 
-        uint8_t front() const
+        [[nodiscard]] uint8_t front() const
         {
                 return data_.front();
         }
 
-        uint8_t back() const
+        [[nodiscard]] uint8_t back() const
         {
                 return data_[used_ - 1];
         }
 
-        const_iterator begin() const
+        [[nodiscard]] const_iterator begin() const
         {
                 return data_.begin();
         }
 
-        const_iterator end() const
+        [[nodiscard]] const_iterator end() const
         {
-                return data_.end();
+                return data_.begin() + used_;
         }
 
         uint8_t operator[]( std::size_t i ) const

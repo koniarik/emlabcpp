@@ -1,5 +1,12 @@
 ---
-Checks:          '-*,bugprone-*,cppcore*,performance*,modernize*,readbility*,portability*,-modernize-use-trailing-return-type,-cppcoreguidelines-owning-memory,-cppcoreguidelines-special-member-functions,-cppcoreguidelines-pro-bounds-constant-array-index'
+Checks: >          
+  -*,
+  bugprone-*,
+  cppcore*, -cppcoreguidelines-owning-memory,-cppcoreguidelines-special-member-functions,-cppcoreguidelines-pro-bounds-constant-array-index,-cppcoreguidelines-avoid-magic-numbers,-cppcoreguidelines-pro-bounds-array-to-pointer-decay,-cppcoreguidelines-macro-usage,-cppcoreguidelines-avoid-c-arrays,
+  performance*,
+  modernize*, -modernize-use-trailing-return-type,-modernize-avoid-c-arrays
+  readbility*,
+  portability*,
 WarningsAsErrors: '-*'
 HeaderFilterRegex: '.*'
 AnalyzeTemporaryDtors: true
