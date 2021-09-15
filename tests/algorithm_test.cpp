@@ -76,7 +76,7 @@ TEST( Algorithm, find_if )
         EXPECT_EQ( find_if( tup ), cont_size( tup ) );
 
         std::tuple< int, int, int > tup2 = { -1, 0, 1 };
-        std::size_t                 i    = find_if( tup2, [&]( int i ) {  //
+        std::size_t                 i    = find_if( tup2, [&]( int i ) {
                 return i > 0;
         } );
         EXPECT_EQ( i, std::size_t{ 2 } );
@@ -87,7 +87,7 @@ TEST( Algorithm, find_if )
         EXPECT_EQ( find_if( vec ), vec.end() );
 
         std::vector< int > vec2 = { -1, 0, 1 };
-        auto               iter = find_if( vec2, [&]( int i ) {  //
+        auto               iter = find_if( vec2, [&]( int i ) {
                 return i > 0;
         } );
         EXPECT_EQ( iter, --vec2.end() );
@@ -97,13 +97,13 @@ TEST( Algorithm, for_each )
 {
         std::vector< int > data{ 1, 2, 3 };
         int                tmp = 0;
-        for_each( data, [&]( int i ) {  //
+        for_each( data, [&]( int i ) {
                 tmp += i;
         } );
         EXPECT_EQ( tmp, 6 );
 
         std::size_t j = 0;
-        for_each( std::tuple< int, int, int >{ 1, 2, 3 }, [&]( int i ) {  //
+        for_each( std::tuple< int, int, int >{ 1, 2, 3 }, [&]( int i ) {
                 EXPECT_EQ( data[j], i );
                 j++;
         } );
@@ -111,93 +111,73 @@ TEST( Algorithm, for_each )
 
 TEST( Algorithm, min_max_elem )
 {
-        min_max< int > res = min_max_elem(
-            std::vector< int >{ 1, 2, 3 },
-            [&]( int i ) {  //
-                    return i * 2;
-            } );
+        min_max< int > res = min_max_elem( std::vector< int >{ 1, 2, 3 }, [&]( int i ) {
+                return i * 2;
+        } );
         EXPECT_EQ( res.min, 2 );
         EXPECT_EQ( res.max, 6 );
-        res = min_max_elem(
-            std::tuple< int, int, int >{ 1, 2, 3 },
-            [&]( int i ) {  //
-                    return i * 2;
-            } );
+        res = min_max_elem( std::tuple< int, int, int >{ 1, 2, 3 }, [&]( int i ) {
+                return i * 2;
+        } );
         EXPECT_EQ( res.min, 2 );
         EXPECT_EQ( res.max, 6 );
 }
 
 TEST( Algorithm, max_elem )
 {
-        int res = max_elem(
-            std::vector< int >{ 1, 2, 3 },
-            [&]( int i ) {  //
-                    return i * 2;
-            } );
+        int res = max_elem( std::vector< int >{ 1, 2, 3 }, [&]( int i ) {
+                return i * 2;
+        } );
         EXPECT_EQ( res, 6 );
-        res = max_elem(
-            std::tuple< int, int, int >{ 1, 2, 3 },
-            [&]( int i ) {  //
-                    return i * 2;
-            } );
+        res = max_elem( std::tuple< int, int, int >{ 1, 2, 3 }, [&]( int i ) {
+                return i * 2;
+        } );
         EXPECT_EQ( res, 6 );
 }
 
 TEST( Algorithm, min_elem )
 {
-        int res = min_elem(
-            std::vector< int >{ 1, 2, 3 },
-            [&]( int i ) {  //
-                    return i * 2;
-            } );
+        int res = min_elem( std::vector< int >{ 1, 2, 3 }, [&]( int i ) {
+                return i * 2;
+        } );
         EXPECT_EQ( res, 2 );
-        res = min_elem(
-            std::tuple< int, int, int >{ 1, 2, 3 },
-            [&]( int i ) {  //
-                    return i * 2;
-            } );
+        res = min_elem( std::tuple< int, int, int >{ 1, 2, 3 }, [&]( int i ) {
+                return i * 2;
+        } );
         EXPECT_EQ( res, 2 );
 }
 
 TEST( Algorithm, count )
 {
-        std::size_t res = count(
-            std::vector< int >{ 1, 2, 3 },
-            [&]( int i ) {  //
-                    return i > 1;
-            } );
+        std::size_t res = count( std::vector< int >{ 1, 2, 3 }, [&]( int i ) {
+                return i > 1;
+        } );
         EXPECT_EQ( res, std::size_t{ 2 } );
-        res = count(
-            std::tuple< int, int, int >{ 1, 2, 3 },
-            [&]( int i ) {  //
-                    return i > 1;
-            } );
+        res = count( std::tuple< int, int, int >{ 1, 2, 3 }, [&]( int i ) {
+                return i > 1;
+        } );
         EXPECT_EQ( res, std::size_t{ 2 } );
 }
 
 TEST( Algorithm, sum )
 {
-        int res =
-            sum( std::vector< int >{ 1, 2, 3 },
-                 [&]( int i ) {  //
-                         return i * 2;
-                 } );
+        int res = sum( std::vector< int >{ 1, 2, 3 }, [&]( int i ) {
+                return i * 2;
+        } );
         EXPECT_EQ( res, 12 );
-        res =
-            sum( std::tuple< int, int, int >{ 1, 2, 3 },
-                 [&]( int i ) {  //
-                         return i * 2;
-                 } );
+        res = sum( std::tuple< int, int, int >{ 1, 2, 3 }, [&]( int i ) {
+                return i * 2;
+        } );
         EXPECT_EQ( res, 12 );
 }
 
 TEST( Algorithm, accumulate )
 {
-        int res = accumulate( std::vector< int >{ 1, 2, 3 }, -6, [&]( int i, int j ) {  //
+        int res = accumulate( std::vector< int >{ 1, 2, 3 }, -6, [&]( int i, int j ) {
                 return i + j;
         } );
         EXPECT_EQ( res, 0 );
-        res = accumulate( std::tuple< int, int, int >{ 1, 2, 3 }, -6, [&]( int i, int j ) {  //
+        res = accumulate( std::tuple< int, int, int >{ 1, 2, 3 }, -6, [&]( int i, int j ) {
                 return i + j;
         } );
         EXPECT_EQ( res, 0 );
@@ -217,7 +197,7 @@ TEST( Algorithm, for_cross_joint )
         for_cross_joint(
             std::tuple< int, int, int >{ 1, 2, 3 },
             std::vector< float >{ 4.f, 5.f, 6.f },
-            [&]( int i, float f ) {  //
+            [&]( int i, float f ) {
                     res += float( i ) * f;
             } );
         EXPECT_EQ( res, 90.f );
@@ -225,20 +205,20 @@ TEST( Algorithm, for_cross_joint )
 
 TEST( Algorithm, any_of )
 {
-        bool res = any_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {  //
+        bool res = any_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {
                 return i == 2;
         } );
         EXPECT_TRUE( res );
-        res = any_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {  //
+        res = any_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {
                 return i == 0;
         } );
         EXPECT_FALSE( res );
 
-        res = any_of( std::vector< int >{ 1, 2, 3 }, []( int i ) {  //
+        res = any_of( std::vector< int >{ 1, 2, 3 }, []( int i ) {
                 return i == 2;
         } );
         EXPECT_TRUE( res );
-        res = any_of( std::vector< int >{ 1, 2, 3 }, []( int i ) {  //
+        res = any_of( std::vector< int >{ 1, 2, 3 }, []( int i ) {
                 return i == 0;
         } );
         EXPECT_FALSE( res );
@@ -246,20 +226,20 @@ TEST( Algorithm, any_of )
 
 TEST( Algorithm, none_of )
 {
-        bool res = none_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {  //
+        bool res = none_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {
                 return i == 2;
         } );
         EXPECT_FALSE( res );
-        res = none_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {  //
+        res = none_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {
                 return i == 0;
         } );
         EXPECT_TRUE( res );
 
-        res = none_of( std::vector< int >{ 1, 2, 3 }, []( int i ) {  //
+        res = none_of( std::vector< int >{ 1, 2, 3 }, []( int i ) {
                 return i == 2;
         } );
         EXPECT_FALSE( res );
-        res = none_of( std::vector< int >{ 1, 2, 3 }, []( int i ) {  //
+        res = none_of( std::vector< int >{ 1, 2, 3 }, []( int i ) {
                 return i == 0;
         } );
         EXPECT_TRUE( res );
@@ -267,20 +247,20 @@ TEST( Algorithm, none_of )
 
 TEST( Algorithm, all_of )
 {
-        bool res = all_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {  //
+        bool res = all_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {
                 return i == 2;
         } );
         EXPECT_FALSE( res );
-        res = all_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {  //
+        res = all_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {
                 return i > 0;
         } );
         EXPECT_TRUE( res );
 
-        res = all_of( std::vector< int >{ 1, 2, 3 }, []( int i ) {  //
+        res = all_of( std::vector< int >{ 1, 2, 3 }, []( int i ) {
                 return i == 2;
         } );
         EXPECT_FALSE( res );
-        res = all_of( std::vector< int >{ 1, 2, 3 }, []( int i ) {  //
+        res = all_of( std::vector< int >{ 1, 2, 3 }, []( int i ) {
                 return i > 0;
         } );
         EXPECT_TRUE( res );
@@ -313,7 +293,7 @@ TEST( Algorithm, map_f )
         auto res    = map_f< std::array< int, 4 > >( idata );
         EXPECT_TRUE( is_expected ) << view{ res } << "," << view{ idata };
 
-        float mapped_sum = sum( map_f< std::list< float > >( idata, [&]( int i ) {  //
+        float mapped_sum = sum( map_f< std::list< float > >( idata, [&]( int i ) {
                 return float( i ) * 1.5f;
         } ) );
         EXPECT_EQ( mapped_sum, 15.f );
