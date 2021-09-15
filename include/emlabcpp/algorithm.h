@@ -291,8 +291,8 @@ template <
 template < container LhContainer, container RhContainer, typename BinaryFunction >
 constexpr void for_cross_joint( LhContainer&& lh_cont, RhContainer&& rh_cont, BinaryFunction&& f )
 {
-        for_each( lh_cont, [&]( auto& lh_item ) {          //
-                for_each( rh_cont, [&]( auto& rh_item ) {  //
+        for_each( lh_cont, [&]( auto& lh_item ) {
+                for_each( rh_cont, [&]( auto& rh_item ) {
                         f( lh_item, rh_item );
                 } );
         } );
@@ -446,6 +446,16 @@ constexpr void for_each_index( NullFunction&& f )
         if constexpr ( i != 0 ) {
                 for_each_index< i - 1 >( f );
                 f.template operator()< i - 1 >();
+        }
+}
+
+template < std::size_t i, typename NullFunction >
+constexpr bool until_index( NullFunction&& f )
+{
+        if constexpr ( i != 0 ) {
+                return until_index< i - 1 >( f ) || f.template operator()< i - 1 >();
+        } else {
+                return false;
         }
 }
 

@@ -1,5 +1,6 @@
 #include "emlabcpp/iterators/convert.h"
 #include "emlabcpp/protocol/item.h"
+#include "emlabcpp/protocol/streams.h"
 #include "util.h"
 
 #include <gtest/gtest.h>

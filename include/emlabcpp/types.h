@@ -1,6 +1,10 @@
 #include "emlabcpp/concepts.h"
 #include "emlabcpp/types/base.h"
 
+#ifdef EMLABCPP_USE_STREAMS
+#include <ostream>
+#endif
+
 #pragma once
 
 namespace emlabcpp
@@ -47,5 +51,13 @@ struct tag
 
         friend constexpr auto operator<=>( const tag&, const tag& ) = default;
 };
+
+#ifdef EMLABCPP_USE_STREAMS
+template < auto ID >
+inline std::ostream& operator<<( std::ostream& os, tag< ID > )
+{
+        return os << ID;
+}
+#endif
 
 }  // namespace emlabcpp

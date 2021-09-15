@@ -156,6 +156,7 @@ struct protocol_item< std::tuple< Ts... >, Endianess > : protocol_item_decl< std
         static constexpr std::size_t min_size =
             ( protocol_subitem< Ts, Endianess >::size_type::min_val + ... );
 
+        using def_type  = std::tuple< Ts... >;
         using size_type = bounded< std::size_t, min_size, max_size >;
 
         static constexpr size_type
@@ -165,7 +166,7 @@ struct protocol_item< std::tuple< Ts... >, Endianess > : protocol_item_decl< std
 
                 for_each_index< sizeof...( Ts ) >( [&]< std::size_t i >() {
                         using sub_item =
-                            protocol_subitem< std::tuple_element_t< i, value_type >, Endianess >;
+                            protocol_subitem< std::tuple_element_t< i, def_type >, Endianess >;
 
                         std::span< uint8_t, sub_item::max_size > sub_view{
                             iter, sub_item::max_size };
@@ -191,7 +192,7 @@ struct protocol_item< std::tuple< Ts... >, Endianess > : protocol_item_decl< std
                                 return;
                         }
 
-                        using T        = std::tuple_element_t< i, value_type >;
+                        using T        = std::tuple_element_t< i, def_type >;
                         using sub_item = protocol_subitem< T, Endianess >;
 
                         sub_item::deserialize( view{ iter, buffer.end() } )
@@ -225,8 +226,9 @@ struct protocol_item< std::variant< Ts... >, Endianess >
         using protocol_item_decl< std::variant< Ts... > >::max_size;
         using typename protocol_item_decl< std::variant< Ts... > >::value_type;
 
-        using id_type = uint8_t;
-        using id_item = protocol_subitem< id_type, Endianess >;
+        using def_type = std::variant< Ts... >;
+        using id_type  = uint8_t;
+        using id_item  = protocol_subitem< id_type, Endianess >;
 
         static_assert( sizeof...( Ts ) < std::numeric_limits< id_type >::max() );
 
@@ -242,19 +244,26 @@ struct protocol_item< std::variant< Ts... >, Endianess >
                 // TODO: maybe we should do serialization of id properly?
                 buffer[0] = static_cast< id_type >( item.index() );
 
-                return std::visit(
-                    [&]< typename T >( const T& val ) -> size_type {
-                            using subitem = protocol_subitem< T, Endianess >;
+                std::optional< size_type > opt_res;
+                until_index< sizeof...( Ts ) >( [&]< std::size_t i >() {
+                        if ( i != item.index() ) {
+                                return false;
+                        }
+                        using subitem = protocol_subitem<
+                            std::variant_alternative_t< i, def_type >,
+                            Endianess >;
 
-                            // this also asserts that id has static serialized size
-                            return bounded_constant< id_item::max_size > +
-                                   subitem::serialize_at(
-                                       buffer.template subspan<
-                                           id_item::max_size,
-                                           subitem::max_size >(),
-                                       val );
-                    },
-                    item );
+                        // this also asserts that id has static serialized size
+                        opt_res =
+                            bounded_constant< id_item::max_size > +
+                            subitem::serialize_at(
+                                buffer.template subspan< id_item::max_size, subitem::max_size >(),
+                                std::get< i >( item ) );
+
+                        return true;
+                } );
+                EMLABCPP_ASSERT( opt_res );
+                return *opt_res;
         }
 
         static constexpr auto deserialize( const view< const uint8_t* >& buffer )
@@ -265,11 +274,11 @@ struct protocol_item< std::variant< Ts... >, Endianess >
                     protocol_error_record{ PROTOCOL_NS, UNDEFVAR_ERR, 0 } };
 
                 auto item_view = tail( buffer );
-                for_each_index< sizeof...( Ts ) >( [&]< std::size_t i >() {
-                        using T = std::variant_alternative_t< i, value_type >;
+                until_index< sizeof...( Ts ) >( [&]< std::size_t i >() {
+                        using T = std::variant_alternative_t< i, def_type >;
 
                         if ( buffer[0] != i ) {
-                                return;
+                                return false;
                         }
 
                         protocol_subitem< T, Endianess >::deserialize( item_view )
@@ -283,6 +292,7 @@ struct protocol_item< std::variant< Ts... >, Endianess >
                                         rec.byte_index += 1;
                                         res = rec;
                                 } );
+                        return true;
                 } );
 
                 return res;
@@ -385,7 +395,6 @@ struct protocol_item< protocol_offset< T, Offset >, Endianess >
                 return sub_item::serialize_at( buffer, item + Offset );
         }
 
-        // TODO: maybe this class could check sanity more?
         static constexpr auto deserialize( const view< const uint8_t* >& buffer )
             -> either< protocol_result< size_type, value_type >, protocol_error_record >
         {
@@ -559,6 +568,7 @@ struct protocol_item< tag< V >, Endianess > : protocol_item_decl< tag< V > >
         }
 };
 
+// TODO: 'group' is not tested
 template < typename... Ts, protocol_endianess_enum Endianess >
 struct protocol_item< protocol_group< Ts... >, Endianess >
   : protocol_item_decl< protocol_group< Ts... > >
@@ -569,18 +579,27 @@ struct protocol_item< protocol_group< Ts... >, Endianess >
         static constexpr std::size_t min_size =
             std::min( { protocol_subitem< Ts, Endianess >::size_type::min_val... } );
 
-        using size_type = bounded< std::size_t, min_size, max_size >;
+        using def_variant = std::variant< Ts... >;
+        using size_type   = bounded< std::size_t, min_size, max_size >;
 
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
         {
-                return std::visit(
-                    [&]< typename T >( const T& val ) -> size_type {
-                            using subitem = protocol_subitem< T, Endianess >;
-                            return subitem::serialize_at(
-                                buffer.template subspan< 0, subitem::max_size >(), val );
-                    },
-                    item );
+                std::optional< size_type > opt_res;
+                until_index< sizeof...( Ts ) >( [&]< std::size_t i >() {
+                        if ( i != item.index() ) {
+                                return false;
+                        }
+                        using subitem = protocol_subitem<
+                            std::variant_alternative_t< i, def_variant >,
+                            Endianess >;
+                        opt_res = subitem::serialize_at(
+                            buffer.template subspan< 0, subitem::max_size >(),
+                            std::get< i >( item ) );
+                        return true;
+                } );
+                EMLABCPP_ASSERT( opt_res );
+                return *opt_res;
         }
 
         static constexpr auto deserialize( const view< const uint8_t* >& buffer )
@@ -588,13 +607,9 @@ struct protocol_item< protocol_group< Ts... >, Endianess >
         {
                 std::optional< protocol_result< size_type, value_type > > opt_res;
 
-                for_each_index< sizeof...( Ts ) >( [&]< std::size_t i >() {
-                        if ( opt_res ) {
-                                return;
-                        }
-
+                until_index< sizeof...( Ts ) >( [&]< std::size_t i >() {
                         using sub_item = protocol_subitem<
-                            std::variant_alternative_t< i, value_type >,
+                            std::variant_alternative_t< i, def_variant >,
                             Endianess >;
 
                         sub_item::deserialize( buffer ).match(
@@ -602,6 +617,7 @@ struct protocol_item< protocol_group< Ts... >, Endianess >
                                     opt_res.emplace( sub_res.used, value_type{ sub_res.val } );
                             },
                             [&]( protocol_error_record ) {} );
+                        return bool( opt_res );
                 } );
 
                 if ( opt_res ) {

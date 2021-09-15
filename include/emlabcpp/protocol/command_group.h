@@ -19,34 +19,41 @@ struct protocol_command
 
         template < typename... NewArgs >
         using with_args = protocol_command< ID, Args..., NewArgs... >;
+
+        constexpr static value_type
+        make_val( const typename protocol_item_decl< Args >::value_type&... args )
+        {
+                return { tag< ID >{}, args... };
+        }
 };
 
 template < typename... Cmds >
 struct protocol_command_group
 {
-        static_assert( are_same_v< typename Cmds::id_type... > );
+        static_assert(
+            are_same_v< typename Cmds::id_type... >,
+            "Each command of one group has to use same type of id" );
 
+        using cmds_type  = std::tuple< Cmds... >;
         using def_type   = protocol_group< typename Cmds::def_type... >;
         using pitem_decl = protocol_item_decl< def_type >;
         using value_type = typename pitem_decl::value_type;
+        using id_type    = typename std::tuple_element_t< 0, cmds_type >::id_type;
 
         static constexpr std::size_t max_size = protocol_item_decl< def_type >::max_size;
 
         using message_type = protocol_message< max_size >;
 
-        // TODO: that ID type should be known
-        // TODO: make proper static check that at least one cmd matches the ID
-
-        template < auto id, typename... Args >
-        static value_type make_val( Args... args )
+        template < id_type id, typename... Args >
+        requires( ( id == Cmds::id ) || ... ) constexpr static value_type
+            make_val( const Args&... args )
         {
                 std::optional< value_type > res;
 
                 for_each_index< sizeof...( Cmds ) >( [&]< std::size_t i >() {
-                        using cmd = std::tuple_element_t< i, std::tuple< Cmds... > >;
-                        using T   = typename cmd::value_type;
+                        using cmd = std::tuple_element_t< i, cmds_type >;
                         if constexpr ( cmd::id == id ) {
-                                res.emplace( T{ tag< id >{}, args... } );
+                                res.emplace( cmd::make_val( args... ) );
                         }
                 } );
 

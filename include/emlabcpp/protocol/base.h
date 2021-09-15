@@ -61,16 +61,10 @@ enum protocol_endianess_enum
         PROTOCOL_LITTLE_ENDIAN,
         PROTOCOL_PARENT_ENDIAN
 };
-// whe able to move to GCC11: using enum protocol_endianess_enum; and make it enum class
+// when able to move to GCC11: using enum protocol_endianess_enum; and make it enum class
 
 template < typename >
 inline constexpr protocol_endianess_enum protocol_endianess = PROTOCOL_PARENT_ENDIAN;
-
-template < typename... Ts >
-struct protocol_tuple
-{
-        using value_type = std::tuple< Ts... >;
-};
 
 template < typename... Ts >
 struct protocol_group
@@ -202,33 +196,5 @@ struct protocol_item_decl< protocol_group< Ts... > >
         static constexpr std::size_t max_size =
             std::max< std::size_t >( { protocol_item_decl< Ts >::max_size... } );
 };
-
-#ifdef EMLABCPP_USE_STREAMS
-// TODO: maybe put this in different header?
-inline std::ostream& operator<<( std::ostream& os, const protocol_error_record& rec )
-{
-        for ( char c : rec.ns ) {
-                os << c;
-        }
-        os << "::";
-        for ( char c : rec.err ) {
-                os << c;
-        }
-        return os << " (" << rec.byte_index << ")";
-}
-
-inline std::ostream& operator<<( std::ostream& os, const protocol_endianess_enum& val )
-{
-        switch ( val ) {
-                case PROTOCOL_BIG_ENDIAN:
-                        return os << "big endian";
-                case PROTOCOL_LITTLE_ENDIAN:
-                        return os << "little endian";
-                case PROTOCOL_PARENT_ENDIAN:
-                        return os << "parent's endian";
-        }
-        return os;
-}
-#endif
 
 }  // namespace emlabcpp
