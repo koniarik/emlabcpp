@@ -19,7 +19,7 @@ struct protocol_handler
                 std::array< uint8_t, pitem::max_size > buffer;
 
                 bounded used = pitem::serialize_at( buffer, val );
-
+                EMLABCPP_ASSERT( *used <= pitem::max_size );
                 return *message_type::make( view_n( buffer.begin(), *used ) );
         };
 
