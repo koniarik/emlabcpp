@@ -17,7 +17,6 @@ struct std::iterator_traits< emlabcpp::convert_iterator< T, Iterator > >
         using const_pointer     = value_type;
         using reference         = value_type;
         using iterator_category = std::random_access_iterator_tag;
-        // TODO: ^^ this is failure, should be decided based on Iterator
 };
 
 namespace emlabcpp

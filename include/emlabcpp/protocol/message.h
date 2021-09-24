@@ -89,7 +89,6 @@ protected:
         }
 };
 
-// TODO: maybe rather switch to CRTP?
 template < std::size_t N >
 class protocol_sizeless_message : public protocol_message< N >
 {

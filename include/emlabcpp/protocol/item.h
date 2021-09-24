@@ -230,6 +230,8 @@ struct protocol_item< std::variant< Ts... >, Endianess >
         using id_type  = uint8_t;
         using id_item  = protocol_subitem< id_type, Endianess >;
 
+        static constexpr std::size_t id_size = id_item::max_size;
+
         static_assert( sizeof...( Ts ) < std::numeric_limits< id_type >::max() );
 
         static constexpr std::size_t min_size =
@@ -241,8 +243,8 @@ struct protocol_item< std::variant< Ts... >, Endianess >
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
         {
-                // TODO: maybe we should do serialization of id properly?
-                buffer[0] = static_cast< id_type >( item.index() );
+                id_item::serialize_at(
+                    buffer.template first< id_size >(), static_cast< id_type >( item.index() ) );
 
                 std::optional< size_type > opt_res;
                 until_index< sizeof...( Ts ) >( [&]< std::size_t i >() {
@@ -270,32 +272,38 @@ struct protocol_item< std::variant< Ts... >, Endianess >
             -> either< protocol_result< size_type, value_type >, protocol_error_record >
 
         {
-                either< protocol_result< size_type, value_type >, protocol_error_record > res = {
-                    protocol_error_record{ PROTOCOL_NS, UNDEFVAR_ERR, 0 } };
+                return id_item::deserialize( buffer ).bind_left( [&]( auto sub_res ) {
+                        id_type id   = sub_res.val;
+                        bounded used = sub_res.used;
 
-                auto item_view = tail( buffer );
-                until_index< sizeof...( Ts ) >( [&]< std::size_t i >() {
-                        using T = std::variant_alternative_t< i, def_type >;
+                        either< protocol_result< size_type, value_type >, protocol_error_record >
+                            res = { protocol_error_record{ PROTOCOL_NS, UNDEFVAR_ERR, 0 } };
 
-                        if ( buffer[0] != i ) {
-                                return false;
-                        }
+                        view item_view{ buffer.begin() + *used, buffer.end() };
 
-                        protocol_subitem< T, Endianess >::deserialize( item_view )
-                            .match(
-                                [&]( auto sub_res ) {
-                                        res = protocol_result< size_type, value_type >(
-                                            sub_res.used + bounded_constant< 1 >,
-                                            value_type{ sub_res.val } );
-                                },
-                                [&]( protocol_error_record rec ) {
-                                        rec.byte_index += 1;
-                                        res = rec;
-                                } );
-                        return true;
+                        until_index< sizeof...( Ts ) >( [&]< std::size_t i >() {
+                                using T = std::variant_alternative_t< i, def_type >;
+
+                                if ( id != i ) {
+                                        return false;
+                                }
+
+                                protocol_subitem< T, Endianess >::deserialize( item_view )
+                                    .match(
+                                        [&]( auto sub_res ) {
+                                                res = protocol_result< size_type, value_type >(
+                                                    sub_res.used + bounded_constant< 1 >,
+                                                    value_type{ sub_res.val } );
+                                        },
+                                        [&]( protocol_error_record rec ) {
+                                                rec.byte_index += 1;
+                                                res = rec;
+                                        } );
+                                return true;
+                        } );
+
+                        return res;
                 } );
-
-                return res;
         }
 };
 
@@ -481,7 +489,6 @@ struct protocol_item< protocol_sized_buffer< CounterType, T >, Endianess >
 
         using sub_item = protocol_subitem< value_type, Endianess >;
 
-        // TODO: make special case of this for bounded
         using counter_item      = protocol_subitem< CounterType, Endianess >;
         using counter_size_type = typename counter_item::size_type;
 
@@ -498,7 +505,6 @@ struct protocol_item< protocol_sized_buffer< CounterType, T >, Endianess >
         {
                 auto vused =
                     sub_item::serialize_at( buffer.template last< sub_item::max_size >(), item );
-                // TODO the static cast here may be a bad idea?
                 counter_item::serialize_at(
                     buffer.template first< counter_item::max_size >(),
                     static_cast< CounterType >( *vused ) );
@@ -534,7 +540,6 @@ struct protocol_item< protocol_sized_buffer< CounterType, T >, Endianess >
         }
 };
 
-// TODO: 'tag' is not tested
 template < auto V, protocol_endianess_enum Endianess >
 struct protocol_item< tag< V >, Endianess > : protocol_item_decl< tag< V > >
 {
@@ -568,7 +573,6 @@ struct protocol_item< tag< V >, Endianess > : protocol_item_decl< tag< V > >
         }
 };
 
-// TODO: 'group' is not tested
 template < typename... Ts, protocol_endianess_enum Endianess >
 struct protocol_item< protocol_group< Ts... >, Endianess >
   : protocol_item_decl< protocol_group< Ts... > >
