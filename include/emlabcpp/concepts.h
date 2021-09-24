@@ -73,13 +73,16 @@ concept container_invocable = requires( Container cont, UnaryFunction f )
 {
         f( *cont.begin() );
 }
-|| requires( Container cont, UnaryFunction f )
-{
-        f( std::get< 0 >( cont ) );
-}
 || requires( Container cont )
 {
         std::tuple_size< std::decay_t< Container > >::value == 0;
+}
+|| requires( Container cont, UnaryFunction f )
+{
+        // this has to come after the size check, as gcc 10.2 will faill to compile the code using
+        // this concept otherwise. If container is std::tuple<> and this check comes before the size
+        // one, it fails on std::get<0> being not compailable.
+        f( std::get< 0 >( cont ) );
 };
 
 }  // namespace emlabcpp
