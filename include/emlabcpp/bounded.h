@@ -79,7 +79,11 @@ public:
 
         friend constexpr auto operator<=>( const bounded&, const bounded& ) = default;
 
-        template < std::totally_ordered_with< T > U >
+        // template < std::totally_ordered_with< T > U >
+        // so, we can't have nice things... ^^ if the type of U is constrained this way, the
+        // compiler will get into infinite recursion when trying to _test_ it in case we use <=> on
+        // identical bounded types
+        template < typename U >
         friend constexpr auto operator<=>( const bounded& b, const U& val )
         {
                 return *b <=> val;
