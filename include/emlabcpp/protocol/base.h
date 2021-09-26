@@ -113,7 +113,7 @@ template < protocol_itemizable... Ts >
 struct protocol_item_decl< std::tuple< Ts... > >
 {
         using value_type = std::tuple< typename protocol_item_decl< Ts >::value_type... >;
-        static constexpr std::size_t max_size = ( protocol_item_decl< Ts >::max_size + ... );
+        static constexpr std::size_t max_size = ( protocol_item_decl< Ts >::max_size + ... + 0 );
 };
 
 template < protocol_itemizable... Ts >
