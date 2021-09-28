@@ -487,7 +487,7 @@ struct protocol_item< protocol_sized_buffer< CounterType, T >, Endianess >
         using protocol_item_decl< protocol_sized_buffer< CounterType, T > >::max_size;
         using typename protocol_item_decl< protocol_sized_buffer< CounterType, T > >::value_type;
 
-        using sub_item = protocol_subitem< value_type, Endianess >;
+        using sub_item = protocol_subitem< T, Endianess >;
 
         using counter_item      = protocol_subitem< CounterType, Endianess >;
         using counter_size_type = typename counter_item::size_type;
