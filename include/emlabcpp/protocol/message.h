@@ -13,6 +13,7 @@ class protocol_message
 
 public:
         using value_type     = uint8_t;
+        using iterator       = uint8_t*;
         using const_iterator = const uint8_t*;
 
         static constexpr std::size_t max_size = N;
@@ -51,12 +52,27 @@ public:
                 return data_.front();
         }
 
+        [[nodiscard]] uint8_t& front()
+        {
+                return data_.front();
+        }
+
         [[nodiscard]] uint8_t back() const
         {
                 return data_[used_ - 1];
         }
 
+        [[nodiscard]] uint8_t& back()
+        {
+                return data_.front();
+        }
+
         [[nodiscard]] const_iterator begin() const
+        {
+                return data_.begin();
+        }
+
+        [[nodiscard]] iterator begin()
         {
                 return data_.begin();
         }
@@ -66,7 +82,17 @@ public:
                 return data_.begin() + used_;
         }
 
+        [[nodiscard]] iterator end()
+        {
+                return data_.begin() + used_;
+        }
+
         uint8_t operator[]( std::size_t i ) const
+        {
+                return data_[i];
+        }
+
+        uint8_t& operator[]( std::size_t i )
         {
                 return data_[i];
         }
