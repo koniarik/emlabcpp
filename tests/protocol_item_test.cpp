@@ -244,6 +244,10 @@ int main( int argc, char** argv )
             make_specific_valid_test_case<
                 PROTOCOL_BIG_ENDIAN,
                 protocol_sized_buffer< uint16_t, uint16_t > >( 666u, { 0, 2, 2, 154 } ),
+            make_specific_valid_test_case<
+                PROTOCOL_BIG_ENDIAN,
+                protocol_sized_buffer< protocol_offset< uint16_t, 2 >, uint16_t > >(
+                666u, { 0, 4, 2, 154 } ),
             make_invalid_test_case< protocol_sized_buffer< uint16_t, uint16_t > >(
                 { 0, 2, 2 }, protocol_error_record{ PROTOCOL_NS, LOWSIZE_ERR, 0 } ),
             make_invalid_test_case< protocol_sized_buffer< uint16_t, uint16_t > >(

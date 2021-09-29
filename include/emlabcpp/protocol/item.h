@@ -478,19 +478,20 @@ struct protocol_item< bounded< T, Min, Max >, Endianess >
 };
 
 template <
-    protocol_itemizable     CounterType,
+    protocol_itemizable     CounterDef,
     protocol_itemizable     T,
     protocol_endianess_enum Endianess >
-struct protocol_item< protocol_sized_buffer< CounterType, T >, Endianess >
-  : protocol_item_decl< protocol_sized_buffer< CounterType, T > >
+struct protocol_item< protocol_sized_buffer< CounterDef, T >, Endianess >
+  : protocol_item_decl< protocol_sized_buffer< CounterDef, T > >
 {
-        using protocol_item_decl< protocol_sized_buffer< CounterType, T > >::max_size;
-        using typename protocol_item_decl< protocol_sized_buffer< CounterType, T > >::value_type;
+        using protocol_item_decl< protocol_sized_buffer< CounterDef, T > >::max_size;
+        using typename protocol_item_decl< protocol_sized_buffer< CounterDef, T > >::value_type;
 
         using sub_item = protocol_subitem< T, Endianess >;
 
-        using counter_item      = protocol_subitem< CounterType, Endianess >;
+        using counter_item      = protocol_subitem< CounterDef, Endianess >;
         using counter_size_type = typename counter_item::size_type;
+        using counter_type      = typename counter_item::value_type;
 
         // we expect that counter item does not have dynamic size
         static_assert( counter_size_type::has_single_element );
@@ -507,7 +508,7 @@ struct protocol_item< protocol_sized_buffer< CounterType, T >, Endianess >
                     sub_item::serialize_at( buffer.template last< sub_item::max_size >(), item );
                 counter_item::serialize_at(
                     buffer.template first< counter_item::max_size >(),
-                    static_cast< CounterType >( *vused ) );
+                    static_cast< counter_type >( *vused ) );
                 return vused + counter_size_type{};
         }
 
@@ -515,12 +516,12 @@ struct protocol_item< protocol_sized_buffer< CounterType, T >, Endianess >
             -> either< protocol_result< size_type, value_type >, protocol_error_record >
         {
                 return counter_item::deserialize( buffer ).bind_left(
-                    [&]( protocol_result< counter_size_type, CounterType > sub_res )
+                    [&]( protocol_result< counter_size_type, counter_type > sub_res )
                         -> either<
                             protocol_result< size_type, value_type >,
                             protocol_error_record > {
-                            CounterType used       = sub_res.val;
-                            auto        start_iter = buffer.begin() + counter_item::max_size;
+                            counter_type used       = sub_res.val;
+                            auto         start_iter = buffer.begin() + counter_item::max_size;
                             if ( std::distance( start_iter, buffer.end() ) < used ) {
                                     return protocol_error_record{ PROTOCOL_NS, LOWSIZE_ERR, 0 };
                             }
