@@ -143,9 +143,9 @@ inline auto tuple_zip_impl(
     std::index_sequence< ItemIndexes... >,
     std::index_sequence< TupleIndexes... > )
 {
-        auto f = [&]( auto index ) {  //
+        auto f = [&]< typename Index >( Index ) {
                 return std::make_tuple(
-                    std::get< decltype( index )::value >( std::get< TupleIndexes >( tpls ) )... );
+                    std::get< Index::value >( std::get< TupleIndexes >( tpls ) )... );
         };
 
         return std::make_tuple( f( std::integral_constant< std::size_t, ItemIndexes >{} )... );

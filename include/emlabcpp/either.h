@@ -57,10 +57,11 @@ public:
                 new ( &left_ ) left_item( item );
         }
 
-        either( either_unique_right< LH, RH > auto&& item ) noexcept
+        template < either_unique_right< LH, RH > Item >
+        either( Item&& item ) noexcept
           : id_( item::RIGHT )
         {
-                new ( &right_ ) right_item( std::forward< decltype( item ) >( item ) );
+                new ( &right_ ) right_item( std::forward< Item >( item ) );
         }
 
         either( const either& other ) noexcept
@@ -381,9 +382,8 @@ inline auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) r
 
         static_vector< right_type, either_n > collection{};
 
-        auto convert = [&]( auto either ) {
-                using either_t  = decltype( either );
-                using left_type = typename std::remove_reference_t< either_t >::left_item;
+        auto convert = [&]< typename Either >( Either&& either ) {
+                using left_type = typename std::remove_reference_t< Either >::left_item;
 
                 return std::move( either )
                     .convert_left( [&]( auto item ) {  //

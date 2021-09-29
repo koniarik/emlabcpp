@@ -126,8 +126,8 @@ requires(
     !range_container< Container > ) constexpr void for_each( Container&& cont, UnaryFunction&& f )
 {
         std::apply(
-            [&]( auto&&... items ) {
-                    ( f( std::forward< decltype( items ) >( items ) ), ... );
+            [&]< typename... Items >( Items && ... items ) {
+                    ( f( std::forward< Items >( items ) ), ... );
             },
             std::forward< Container >( cont ) );
 }
@@ -370,10 +370,8 @@ template <
         ResultContainer                          res;
         impl::map_f_collector< ResultContainer > collector;
 
-        for_each( std::forward< Container >( cont ), [&]( auto&& item ) {
-                using item_t = decltype( item );
-
-                collector.collect( res, f( std::forward< item_t >( item ) ) );
+        for_each( std::forward< Container >( cont ), [&]< typename Item >( Item&& item ) {
+                collector.collect( res, f( std::forward< Item >( item ) ) );
         } );
         return res;
 }
@@ -469,8 +467,8 @@ struct uncurry_impl
         template < typename Callable >
         [[nodiscard]] constexpr auto operator|( Callable&& f ) const
         {
-                return [ff = std::forward< Callable >( f )]( auto&& i_tuple ) {
-                        return std::apply( ff, std::forward< decltype( i_tuple ) >( i_tuple ) );
+                return [ff = std::forward< Callable >( f )]< typename Tuple >( Tuple&& i_tuple ) {
+                        return std::apply( ff, std::forward< Tuple >( i_tuple ) );
                 };
         }
 };
