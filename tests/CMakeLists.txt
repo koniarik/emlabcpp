@@ -33,6 +33,7 @@ add_compile_options(
   -Wdouble-promotion
   -fmax-errors=5
   -DEMLABCPP_USE_STREAMS
+  -DEMLABCPP_ASSERT_NATIVE
   )
 
 # TODO: this should use top level cmake
