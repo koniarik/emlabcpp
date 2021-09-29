@@ -13,6 +13,8 @@
 namespace emlabcpp
 {
 
+// TODO: give abillity to insert command_group/tuple as protocol_item into definition of others
+
 using protocol_mark = std::array< char, 8 >;
 
 struct protocol_error_record
