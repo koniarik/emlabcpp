@@ -65,7 +65,7 @@ public:
 
         [[nodiscard]] uint8_t& back()
         {
-                return data_.front();
+                return data_[used_ - 1];
         }
 
         [[nodiscard]] const_iterator begin() const
