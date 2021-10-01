@@ -138,7 +138,7 @@ namespace detail
         {
                 return true;
         }
-};  // namespace detail
+}  // namespace detail
 
 template < typename T >
 concept protocol_message_derived = requires( T val )
