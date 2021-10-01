@@ -256,8 +256,13 @@ int main( int argc, char** argv )
             make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >( tag< 666u >{}, { 154, 2, 0, 0 } ),
             make_valid_test_case< PROTOCOL_BIG_ENDIAN >( tag< 666u >{}, { 0, 0, 2, 154 } ),
             make_invalid_test_case< tag< 666u > >(
-                { 0, 0, 2, 152 }, protocol_error_record{ PROTOCOL_NS, BADVAL_ERR, 0 } )
+                { 0, 0, 2, 152 }, protocol_error_record{ PROTOCOL_NS, BADVAL_ERR, 0 } ),
             // group is tested as part of command group
+            // endianess change
+            make_specific_valid_test_case<
+                PROTOCOL_LITTLE_ENDIAN,
+                protocol_endianess< PROTOCOL_BIG_ENDIAN, uint16_t > >( uint16_t{ 42 }, { 0, 42 } )
+
         };
 
         exec_protocol_test_fixture_test( tests );

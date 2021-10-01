@@ -15,11 +15,6 @@ namespace emlabcpp
 template < typename, protocol_endianess_enum >
 struct protocol_item;
 
-template < typename T, protocol_endianess_enum ParentEndianess >
-using protocol_subitem = protocol_item<
-    T,
-    ( protocol_endianess< T > == PROTOCOL_PARENT_ENDIAN ? ParentEndianess :
-                                                          protocol_endianess< T > ) >;
 template < typename T >
 concept protocol_item_check = requires()
 {
@@ -91,7 +86,7 @@ struct protocol_item< std::array< T, N >, Endianess > : protocol_item_decl< std:
         using protocol_item_decl< std::array< T, N > >::max_size;
         using typename protocol_item_decl< std::array< T, N > >::value_type;
 
-        using sub_item = protocol_subitem< T, Endianess >;
+        using sub_item = protocol_item< T, Endianess >;
 
         using size_type = bounded< std::size_t, sub_item::size_type::min_val * N, max_size >;
 
@@ -154,7 +149,7 @@ struct protocol_item< std::tuple< Ts... >, Endianess > : protocol_item_decl< std
         using typename protocol_item_decl< std::tuple< Ts... > >::value_type;
 
         static constexpr std::size_t min_size =
-            ( protocol_subitem< Ts, Endianess >::size_type::min_val + ... );
+            ( protocol_item< Ts, Endianess >::size_type::min_val + ... );
 
         using def_type  = std::tuple< Ts... >;
         using size_type = bounded< std::size_t, min_size, max_size >;
@@ -166,7 +161,7 @@ struct protocol_item< std::tuple< Ts... >, Endianess > : protocol_item_decl< std
 
                 for_each_index< sizeof...( Ts ) >( [&]< std::size_t i >() {
                         using sub_item =
-                            protocol_subitem< std::tuple_element_t< i, def_type >, Endianess >;
+                            protocol_item< std::tuple_element_t< i, def_type >, Endianess >;
 
                         std::span< uint8_t, sub_item::max_size > sub_view{
                             iter, sub_item::max_size };
@@ -193,7 +188,7 @@ struct protocol_item< std::tuple< Ts... >, Endianess > : protocol_item_decl< std
                         }
 
                         using T        = std::tuple_element_t< i, def_type >;
-                        using sub_item = protocol_subitem< T, Endianess >;
+                        using sub_item = protocol_item< T, Endianess >;
 
                         sub_item::deserialize( view{ iter, buffer.end() } )
                             .match(
@@ -228,7 +223,7 @@ struct protocol_item< std::variant< Ts... >, Endianess >
 
         using def_type = std::variant< Ts... >;
         using id_type  = uint8_t;
-        using id_item  = protocol_subitem< id_type, Endianess >;
+        using id_item  = protocol_item< id_type, Endianess >;
 
         static constexpr std::size_t id_size = id_item::max_size;
 
@@ -236,7 +231,7 @@ struct protocol_item< std::variant< Ts... >, Endianess >
 
         static constexpr std::size_t min_size =
             id_item::size_type::min_val +
-            std::min( { protocol_subitem< Ts, Endianess >::size_type::min_val... } );
+            std::min( { protocol_item< Ts, Endianess >::size_type::min_val... } );
 
         using size_type = bounded< std::size_t, min_size, max_size >;
 
@@ -251,9 +246,8 @@ struct protocol_item< std::variant< Ts... >, Endianess >
                         if ( i != item.index() ) {
                                 return false;
                         }
-                        using subitem = protocol_subitem<
-                            std::variant_alternative_t< i, def_type >,
-                            Endianess >;
+                        using subitem =
+                            protocol_item< std::variant_alternative_t< i, def_type >, Endianess >;
 
                         // this also asserts that id has static serialized size
                         opt_res =
@@ -288,7 +282,7 @@ struct protocol_item< std::variant< Ts... >, Endianess >
                                         return false;
                                 }
 
-                                protocol_subitem< T, Endianess >::deserialize( item_view )
+                                protocol_item< T, Endianess >::deserialize( item_view )
                                     .match(
                                         [&]( auto sub_res ) {
                                                 res = protocol_result< size_type, value_type >(
@@ -394,7 +388,7 @@ struct protocol_item< protocol_offset< T, Offset >, Endianess >
         using protocol_item_decl< protocol_offset< T, Offset > >::max_size;
         using typename protocol_item_decl< protocol_offset< T, Offset > >::value_type;
 
-        using sub_item  = protocol_subitem< T, Endianess >;
+        using sub_item  = protocol_item< T, Endianess >;
         using size_type = typename sub_item::size_type;
 
         static constexpr size_type
@@ -424,7 +418,7 @@ struct protocol_item< T, Endianess > : protocol_item_decl< T >
 
         static_assert( protocol_itemizable< inner_type > );
 
-        using sub_item  = protocol_subitem< inner_type, Endianess >;
+        using sub_item  = protocol_item< inner_type, Endianess >;
         using size_type = typename sub_item::size_type;
 
         static constexpr size_type
@@ -451,7 +445,7 @@ struct protocol_item< bounded< T, Min, Max >, Endianess >
         using protocol_item_decl< bounded< T, Min, Max > >::max_size;
         using typename protocol_item_decl< bounded< T, Min, Max > >::value_type;
 
-        using sub_item  = protocol_subitem< T, Endianess >;
+        using sub_item  = protocol_item< T, Endianess >;
         using size_type = typename sub_item::size_type;
 
         static constexpr size_type
@@ -487,9 +481,9 @@ struct protocol_item< protocol_sized_buffer< CounterDef, T >, Endianess >
         using protocol_item_decl< protocol_sized_buffer< CounterDef, T > >::max_size;
         using typename protocol_item_decl< protocol_sized_buffer< CounterDef, T > >::value_type;
 
-        using sub_item = protocol_subitem< T, Endianess >;
+        using sub_item = protocol_item< T, Endianess >;
 
-        using counter_item      = protocol_subitem< CounterDef, Endianess >;
+        using counter_item      = protocol_item< CounterDef, Endianess >;
         using counter_size_type = typename counter_item::size_type;
         using counter_type      = typename counter_item::value_type;
 
@@ -547,7 +541,7 @@ struct protocol_item< tag< V >, Endianess > : protocol_item_decl< tag< V > >
         using protocol_item_decl< tag< V > >::max_size;
         using typename protocol_item_decl< tag< V > >::value_type;
 
-        using sub_item = protocol_subitem< decltype( V ), Endianess >;
+        using sub_item = protocol_item< decltype( V ), Endianess >;
 
         using size_type = typename sub_item::size_type;
 
@@ -582,7 +576,7 @@ struct protocol_item< protocol_group< Ts... >, Endianess >
         using typename protocol_item_decl< protocol_group< Ts... > >::value_type;
 
         static constexpr std::size_t min_size =
-            std::min( { protocol_subitem< Ts, Endianess >::size_type::min_val... } );
+            std::min( { protocol_item< Ts, Endianess >::size_type::min_val... } );
 
         using def_variant = std::variant< Ts... >;
         using size_type   = bounded< std::size_t, min_size, max_size >;
@@ -595,7 +589,7 @@ struct protocol_item< protocol_group< Ts... >, Endianess >
                         if ( i != item.index() ) {
                                 return false;
                         }
-                        using subitem = protocol_subitem<
+                        using subitem = protocol_item<
                             std::variant_alternative_t< i, def_variant >,
                             Endianess >;
                         opt_res = subitem::serialize_at(
@@ -613,7 +607,7 @@ struct protocol_item< protocol_group< Ts... >, Endianess >
                 std::optional< protocol_result< size_type, value_type > > opt_res;
 
                 until_index< sizeof...( Ts ) >( [&]< std::size_t i >() {
-                        using sub_item = protocol_subitem<
+                        using sub_item = protocol_item<
                             std::variant_alternative_t< i, def_variant >,
                             Endianess >;
 
@@ -631,6 +625,12 @@ struct protocol_item< protocol_group< Ts... >, Endianess >
 
                 return protocol_error_record{ PROTOCOL_NS, GROUP_ERR, 0 };
         }
+};
+
+template < protocol_endianess_enum Endianess, typename T, protocol_endianess_enum ParentEndianess >
+struct protocol_item< protocol_endianess< Endianess, T >, ParentEndianess >
+  : protocol_item< T, Endianess >
+{
 };
 
 }  // namespace emlabcpp

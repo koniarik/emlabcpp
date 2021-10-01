@@ -25,8 +25,6 @@ inline std::ostream& operator<<( std::ostream& os, const protocol_endianess_enum
                         return os << "big endian";
                 case PROTOCOL_LITTLE_ENDIAN:
                         return os << "little endian";
-                case PROTOCOL_PARENT_ENDIAN:
-                        return os << "parent's endian";
         }
         return os;
 }

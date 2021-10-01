@@ -60,13 +60,16 @@ concept protocol_base_type = std::is_integral_v< T > || std::is_enum_v< T >;
 enum protocol_endianess_enum
 {
         PROTOCOL_BIG_ENDIAN,
-        PROTOCOL_LITTLE_ENDIAN,
-        PROTOCOL_PARENT_ENDIAN
+        PROTOCOL_LITTLE_ENDIAN
 };
 // when able to move to GCC11: using enum protocol_endianess_enum; and make it enum class
 
-template < typename >
-inline constexpr protocol_endianess_enum protocol_endianess = PROTOCOL_PARENT_ENDIAN;
+template < protocol_endianess_enum Endianess, typename T >
+struct protocol_endianess
+{
+        static constexpr protocol_endianess_enum value = Endianess;
+        using value_type                               = T;
+};
 
 template < typename... Ts >
 struct protocol_group
@@ -197,6 +200,11 @@ struct protocol_item_decl< protocol_group< Ts... > >
 
         static constexpr std::size_t max_size =
             std::max< std::size_t >( { protocol_item_decl< Ts >::max_size... } );
+};
+
+template < protocol_endianess_enum Endianess, typename T >
+struct protocol_item_decl< protocol_endianess< Endianess, T > > : protocol_item_decl< T >
+{
 };
 
 }  // namespace emlabcpp
