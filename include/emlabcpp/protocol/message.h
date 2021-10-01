@@ -131,4 +131,19 @@ public:
         }
 };
 
+namespace detail
+{
+        template < std::size_t N >
+        constexpr bool protocol_message_derived_test( const protocol_message< N >& )
+        {
+                return true;
+        }
+};  // namespace detail
+
+template < typename T >
+concept protocol_message_derived = requires( T val )
+{
+        detail::protocol_message_derived_test( val );
+};
+
 }  // namespace emlabcpp
