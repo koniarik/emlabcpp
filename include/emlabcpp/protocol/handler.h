@@ -12,7 +12,7 @@ struct protocol_handler
         using value_type   = typename T::value_type;
         using message_type = typename T::message_type;
 
-        using pitem = protocol_item< def_type, PROTOCOL_BIG_ENDIAN >;
+        using pitem = protocol_subitem< def_type, PROTOCOL_BIG_ENDIAN >;
 
         static message_type serialize( value_type val )
         {
