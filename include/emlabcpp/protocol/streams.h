@@ -6,6 +6,19 @@
 
 namespace emlabcpp
 {
+
+template < std::size_t N >
+inline std::ostream& operator<<( std::ostream& os, const protocol_message< N >& msg )
+{
+        std::ios_base::fmtflags f( os.flags() );
+        os << std::hex;
+        for ( uint8_t v : msg ) {
+                os << int( v );
+        }
+        os.flags( f );
+        return os;
+}
+
 inline std::ostream& operator<<( std::ostream& os, const protocol_error_record& rec )
 {
         for ( char c : rec.ns ) {
