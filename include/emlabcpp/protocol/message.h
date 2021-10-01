@@ -1,4 +1,5 @@
 #include "emlabcpp/concepts.h"
+#include "emlabcpp/view.h"
 
 #include <array>
 
