@@ -1,6 +1,7 @@
 #include "emlabcpp/concepts.h"
 #include "emlabcpp/view.h"
 
+#include <optional>
 #include <array>
 
 #pragma once
