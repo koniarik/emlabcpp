@@ -88,14 +88,14 @@ public:
                 reg.value            = val;
         }
 
-        static std::size_t register_size( register_index i )
+        static constexpr std::size_t register_size( register_index i )
         {
                 return select_index( i, [&]< std::size_t j >() {
                         return std::tuple_element_t< j, registers_tuple >::size;
                 } );
         }
 
-        static key_type register_key( register_index i )
+        static constexpr key_type register_key( register_index i )
         {
                 return select_index( i, [&]< std::size_t j >() {
                         return std::tuple_element_t< j, registers_tuple >::key;
