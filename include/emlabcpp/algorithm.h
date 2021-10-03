@@ -1,4 +1,5 @@
 #include "emlabcpp/algorithm/impl.h"
+#include "emlabcpp/bounded.h"
 #include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
 
@@ -457,16 +458,19 @@ constexpr bool until_index( NullFunction&& f )
         }
 }
 
-template < std::size_t MaxIndex, typename NullFunction >
-constexpr bool select_index( std::size_t i, NullFunction&& f )
+template < bounded_derived IndexType, typename NullFunction >
+constexpr auto select_index( IndexType i, NullFunction&& f )
 {
-        return until_index< MaxIndex >( [&]< std::size_t j >() {
-                if ( j == i ) {
-                        f.template operator()< j >();
+        using T = decltype( f.template operator()< 0 >() );
+        T res;
+        until_index< IndexType::max_val >( [&]< std::size_t j >() {
+                if ( *i == j ) {
+                        res = f.template operator()< j >();
                         return true;
                 }
                 return false;
         } );
+        return res;
 }
 
 struct uncurry_impl

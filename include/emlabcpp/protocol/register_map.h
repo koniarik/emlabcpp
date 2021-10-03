@@ -31,6 +31,7 @@ public:
         using key_type        = typename std::tuple_element_t< 0, registers_tuple >::key_type;
 
         static constexpr std::size_t registers_count = sizeof...( Regs );
+        using register_index                         = bounded< std::size_t, 0, registers_count >;
 
         static constexpr std::size_t max_value_size = std::max( { Regs::item_decl::max_size... } );
         using message_type                          = protocol_message< max_value_size >;
@@ -86,26 +87,20 @@ public:
                 reg_type< Key >& reg = std::get< key_index< Key > >( registers_ );
                 reg.value            = val;
         }
+
+        static std::size_t register_size( register_index i )
+        {
+                return select_index( i, [&]< std::size_t j >() {
+                        return std::tuple_element_t< j, registers_tuple >::size;
+                } );
+        }
+
+        static key_type register_key( register_index i )
+        {
+                return select_index( i, [&]< std::size_t j >() {
+                        return std::tuple_element_t< j, registers_tuple >::key;
+                } );
+        }
 };
-
-template < typename Map >
-std::size_t protocol_register_size( std::size_t i )
-{
-        std::size_t res = 0;
-        select_index< Map::registers_count >( i, [&]< std::size_t j >() {
-                res = std::tuple_element_t< j, typename Map::registers_tuple >::size;
-        } );
-        return res;
-}
-
-template < typename Map >
-typename Map::key_type protocol_register_key( std::size_t i )
-{
-        typename Map::key_type k;
-        select_index< Map::registers_count >( i, [&]< std::size_t j >() {
-                k = std::tuple_element_t< j, typename Map::registers_tuple >::key;
-        } );
-        return k;
-}
 
 }  // namespace emlabcpp

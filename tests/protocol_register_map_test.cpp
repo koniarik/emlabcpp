@@ -49,8 +49,7 @@ struct valid_test_case : protocol_test_fixture
                 test_map m;
 
                 std::array< uint8_t, max_size > buffer;
-
-                bounded used = pitem::serialize_at(
+                bounded                         used = pitem::serialize_at(
                     std::span< uint8_t, pitem::max_size >( buffer.begin(), pitem::max_size ), val );
                 auto source_msg = *message_type::make( view_n( buffer.begin(), *used ) );
                 test_handler::extract< Key >( source_msg )
@@ -89,12 +88,12 @@ TEST( protocol_map, runtime_access )
 {
         std::vector< test_keys > keys{ FOO, WOO, TOO, SOO, KOO };
         for ( auto [i, k] : enumerate( keys ) ) {
-                EXPECT_EQ( protocol_register_key< test_map >( i ), k );
+                EXPECT_EQ( test_map::register_key( *test_map::register_index::make( i ) ), k );
         }
 
         std::vector< std::size_t > sizes{ 4, 4, 1, 1, 4 };
         for ( auto [i, s] : enumerate( sizes ) ) {
-                EXPECT_EQ( protocol_register_size< test_map >( i ), s );
+                EXPECT_EQ( test_map::register_size( *test_map::register_index::make( i ) ), s );
         }
 }
 
