@@ -91,6 +91,10 @@ struct protocol_offset
         using value_type          = T;
 };
 
+struct protocol_def_type_base
+{
+};
+
 template < typename T >
 struct protocol_item_decl;
 
@@ -204,6 +208,11 @@ struct protocol_item_decl< protocol_group< Ts... > >
 
 template < protocol_endianess_enum Endianess, typename T >
 struct protocol_item_decl< protocol_endianess< Endianess, T > > : protocol_item_decl< T >
+{
+};
+
+template < std::derived_from< protocol_def_type_base > T >
+struct protocol_item_decl< T > : protocol_item_decl< typename T::def_type >
 {
 };
 

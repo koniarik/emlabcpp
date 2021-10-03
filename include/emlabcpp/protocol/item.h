@@ -3,6 +3,8 @@
 #include "emlabcpp/either.h"
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/protocol/base.h"
+#include "emlabcpp/protocol/command_group.h"
+#include "emlabcpp/protocol/tuple.h"
 #include "emlabcpp/view.h"
 
 #include <span>
@@ -630,6 +632,11 @@ struct protocol_item< protocol_group< Ts... >, Endianess >
 template < protocol_endianess_enum Endianess, typename T, protocol_endianess_enum ParentEndianess >
 struct protocol_item< protocol_endianess< Endianess, T >, ParentEndianess >
   : protocol_item< T, Endianess >
+{
+};
+
+template < std::derived_from< protocol_def_type_base > T, protocol_endianess_enum Endianess >
+struct protocol_item< T, Endianess > : protocol_item< typename T::def_type, Endianess >
 {
 };
 

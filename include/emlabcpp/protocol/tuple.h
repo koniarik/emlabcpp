@@ -4,7 +4,7 @@ namespace emlabcpp
 {
 
 template < typename... Ts >
-struct protocol_tuple
+struct protocol_tuple : protocol_def_type_base
 {
         using def_type  = std::tuple< Ts... >;
         using item_decl = protocol_item_decl< def_type >;

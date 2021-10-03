@@ -28,7 +28,7 @@ struct protocol_command
 };
 
 template < typename... Cmds >
-struct protocol_command_group
+struct protocol_command_group : protocol_def_type_base
 {
         static_assert(
             are_same_v< typename Cmds::id_type... >,
@@ -63,7 +63,7 @@ struct protocol_command_group
 };
 
 template <>
-struct protocol_command_group<>
+struct protocol_command_group<> : protocol_def_type_base
 {
         template < typename... NewCommands >
         using with_commands = protocol_command_group< NewCommands... >;

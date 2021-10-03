@@ -8,11 +8,9 @@ namespace emlabcpp
 template < typename T >
 struct protocol_handler
 {
-        using def_type     = typename T::def_type;
-        using value_type   = typename T::value_type;
-        using message_type = typename T::message_type;
-
-        using pitem = protocol_item< def_type, PROTOCOL_BIG_ENDIAN >;
+        using pitem        = protocol_item< T, PROTOCOL_BIG_ENDIAN >;
+        using value_type   = typename pitem::value_type;
+        using message_type = protocol_message< pitem::max_size >;
 
         static message_type serialize( value_type val )
         {
