@@ -3,8 +3,6 @@
 #include "emlabcpp/either.h"
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/protocol/base.h"
-#include "emlabcpp/protocol/command_group.h"
-#include "emlabcpp/protocol/tuple.h"
 #include "emlabcpp/view.h"
 
 #include <span>
