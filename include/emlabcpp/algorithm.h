@@ -457,6 +457,18 @@ constexpr bool until_index( NullFunction&& f )
         }
 }
 
+template < std::size_t MaxIndex, typename NullFunction >
+constexpr bool select_index( std::size_t i, NullFunction&& f )
+{
+        return until_index< MaxIndex >( [&]< std::size_t j >() {
+                if ( j == i ) {
+                        f.template operator()< j >();
+                        return true;
+                }
+                return false;
+        } );
+}
+
 struct uncurry_impl
 {
         template < typename Callable >

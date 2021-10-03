@@ -85,6 +85,19 @@ make_valid_test_case( typename test_map::reg_value_type< Key > val )
         };
 }
 
+TEST( protocol_map, runtime_access )
+{
+        std::vector< test_keys > keys{ FOO, WOO, TOO, SOO, KOO };
+        for ( auto [i, k] : enumerate( keys ) ) {
+                EXPECT_EQ( protocol_register_key< test_map >( i ), k );
+        }
+
+        std::vector< std::size_t > sizes{ 4, 4, 1, 1, 4 };
+        for ( auto [i, s] : enumerate( sizes ) ) {
+                EXPECT_EQ( protocol_register_size< test_map >( i ), s );
+        }
+}
+
 int main( int argc, char** argv )
 {
         testing::InitGoogleTest( &argc, argv );

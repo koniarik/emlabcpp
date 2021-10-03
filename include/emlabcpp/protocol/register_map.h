@@ -14,8 +14,9 @@ struct protocol_reg
 
         using def_type = DefType;
 
-        using item_decl  = protocol_item_decl< def_type >;
-        using value_type = typename item_decl::value_type;
+        using item_decl                   = protocol_item_decl< def_type >;
+        using value_type                  = typename item_decl::value_type;
+        static constexpr std::size_t size = item_decl::max_size;
 
         value_type value;
 };
@@ -26,20 +27,22 @@ class protocol_register_map
         static_assert( are_same_v< typename Regs::key_type... > );
 
 public:
-        using registers_tpl = std::tuple< Regs... >;
-        using key_type      = typename std::tuple_element_t< 0, registers_tpl >::key_type;
+        using registers_tuple = std::tuple< Regs... >;
+        using key_type        = typename std::tuple_element_t< 0, registers_tuple >::key_type;
+
+        static constexpr std::size_t registers_count = sizeof...( Regs );
 
         static constexpr std::size_t max_value_size = std::max( { Regs::item_decl::max_size... } );
         using message_type                          = protocol_message< max_value_size >;
 
 private:
-        registers_tpl registers_;
+        registers_tuple registers_;
 
         static constexpr std::size_t get_reg_index( key_type k )
         {
-                std::size_t res = std::tuple_size_v< registers_tpl >;
+                std::size_t res = std::tuple_size_v< registers_tuple >;
                 until_index< sizeof...( Regs ) >( [&]< std::size_t i >() {
-                        if ( std::tuple_element_t< i, registers_tpl >::key == k ) {
+                        if ( std::tuple_element_t< i, registers_tuple >::key == k ) {
                                 res = i;
                                 return true;
                         }
@@ -53,10 +56,11 @@ public:
         static constexpr std::size_t key_index = get_reg_index( Key );
 
         template < key_type Key >
-        static constexpr bool contains_key = key_index< Key > != std::tuple_size_v< registers_tpl >;
+        static constexpr bool contains_key =
+            key_index< Key > != std::tuple_size_v< registers_tuple >;
 
         template < key_type Key >
-        using reg_type = std::tuple_element_t< key_index< Key >, registers_tpl >;
+        using reg_type = std::tuple_element_t< key_index< Key >, registers_tuple >;
 
         template < key_type Key >
         using reg_value_type = typename reg_type< Key >::value_type;
@@ -83,5 +87,25 @@ public:
                 reg.value            = val;
         }
 };
+
+template < typename Map >
+std::size_t protocol_register_size( std::size_t i )
+{
+        std::size_t res = 0;
+        select_index< Map::registers_count >( i, [&]< std::size_t j >() {
+                res = std::tuple_element_t< j, typename Map::registers_tuple >::size;
+        } );
+        return res;
+}
+
+template < typename Map >
+typename Map::key_type protocol_register_key( std::size_t i )
+{
+        typename Map::key_type k;
+        select_index< Map::registers_count >( i, [&]< std::size_t j >() {
+                k = std::tuple_element_t< j, typename Map::registers_tuple >::key;
+        } );
+        return k;
+}
 
 }  // namespace emlabcpp
