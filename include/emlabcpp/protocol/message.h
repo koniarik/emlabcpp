@@ -31,7 +31,7 @@ public:
         protocol_message() = default;
 
         template < std::size_t M >
-        explicit protocol_message( protocol_message< M > other ) noexcept
+        explicit protocol_message( const protocol_message< M >& other ) noexcept
           : protocol_message( other.begin(), other.end() )
         {
                 static_assert( M <= N );
