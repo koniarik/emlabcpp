@@ -1,8 +1,8 @@
 #include "emlabcpp/concepts.h"
 #include "emlabcpp/view.h"
 
-#include <optional>
 #include <array>
+#include <optional>
 
 #pragma once
 
@@ -129,6 +129,13 @@ public:
                         return {};
                 }
                 return { protocol_sizeless_message( cont.begin(), cont.end() ) };
+        }
+
+        template < std::size_t M >
+        explicit protocol_sizeless_message( const protocol_message< M >& other )
+          : protocol_message< N >( other.begin(), other.end() )
+        {
+                static_assert( M <= N );
         }
 };
 
