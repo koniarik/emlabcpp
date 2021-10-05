@@ -33,21 +33,11 @@ struct protocol_register_handler
 
         static message_type serialize( const map_type& m, key_type key )
         {
-                message_type res;
-                bool fired = until_index< map_type::registers_count >( [&]< std::size_t i >() {
-                        using reg_type =
-                            std::tuple_element_t< i, typename map_type::registers_tuple >;
-
-                        if ( reg_type::key != key ) {
-                                return false;
-                        }
-
-                        res = serialize< reg_type::key >( m.template get_val< reg_type::key >() );
-
-                        return true;
-                } );
-                EMLABCPP_ASSERT( fired );
-                return res;
+                return map_type::with_register(
+                    key, [&]< typename reg_type >( const reg_type& reg ) {
+                            return serialize< reg_type::key >(
+                                m.template get_val< reg_type::key >() );
+                    } );
         }
 
         template < key_type Key >

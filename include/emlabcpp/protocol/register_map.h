@@ -101,6 +101,31 @@ public:
                         return std::tuple_element_t< j, registers_tuple >::key;
                 } );
         }
+
+        template < typename UnaryFunction >
+        static constexpr void setup_register( key_type key, UnaryFunction&& f )
+        {
+                with_register( key, [&]< typename reg_type >( const reg_type& ) {
+                        std::get< reg_type >( registers_ ).value =
+                            f.template operator()< reg_type >();
+                } );
+        }
+
+        template < typename UnaryFunction >
+        static constexpr auto with_register( key_type key, UnaryFunction&& f )
+        {
+                using ret_type = decltype( f( std::get< 0 >( registers_ ) ) );
+                ret_type res;
+                until_index< registers_count >( [&]< std::size_t j >() {
+                        using reg_type = std::tuple_element_t< j, registers_tuple >;
+                        if ( reg_type::key != key ) {
+                                return false;
+                        }
+                        res = f( std::get< j >( registers_ ) );
+                        return true;
+                } );
+                return res;
+        }
 };
 
 }  // namespace emlabcpp
