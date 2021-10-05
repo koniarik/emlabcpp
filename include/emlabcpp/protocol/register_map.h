@@ -103,7 +103,7 @@ public:
         }
 
         template < typename UnaryFunction >
-        static constexpr void setup_register( key_type key, UnaryFunction&& f )
+        constexpr void setup_register( key_type key, UnaryFunction&& f )
         {
                 with_register( key, [&]< typename reg_type >( const reg_type& ) {
                         std::get< reg_type >( registers_ ).value =
@@ -112,7 +112,7 @@ public:
         }
 
         template < typename UnaryFunction >
-        static constexpr auto with_register( key_type key, UnaryFunction&& f )
+        constexpr auto with_register( key_type key, UnaryFunction&& f )
         {
                 using ret_type = decltype( f( std::get< 0 >( registers_ ) ) );
                 ret_type res;
