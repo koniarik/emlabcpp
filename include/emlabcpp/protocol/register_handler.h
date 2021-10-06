@@ -42,7 +42,7 @@ struct protocol_register_handler
 
         template < key_type Key >
         static either< typename map_type::reg_value_type< Key >, protocol_error_record >
-        extract( const message_type& msg )
+        extract( const view< const uint8_t* >& msg )
         {
                 using pitem =
                     protocol_item< typename map_type::reg_def_type< Key >, PROTOCOL_BIG_ENDIAN >;
