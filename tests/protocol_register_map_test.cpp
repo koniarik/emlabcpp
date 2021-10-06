@@ -66,7 +66,7 @@ struct valid_test_case : protocol_test_fixture
                 EXPECT_EQ( val, stored );
 
                 auto msg = test_handler::serialize< Key >( stored );
-                EXPECT_EQ( source_msg, msg );
+                EXPECT_EQ( source_msg, msg ) << m;
         }
 
         void generate_name( std::ostream& os ) const final

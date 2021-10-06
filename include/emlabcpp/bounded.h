@@ -67,7 +67,7 @@ public:
         {
         }
 
-        T operator*() const
+        constexpr T operator*() const
         {
                 return val_;
         }
