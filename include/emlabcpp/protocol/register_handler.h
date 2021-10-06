@@ -33,11 +33,9 @@ struct protocol_register_handler
 
         static message_type serialize( const map_type& m, key_type key )
         {
-                return map_type::with_register(
-                    key, [&]< typename reg_type >( const reg_type& reg ) {
-                            return serialize< reg_type::key >(
-                                m.template get_val< reg_type::key >() );
-                    } );
+                return m.with_register( key, [&]< typename reg_type >( const reg_type& reg ) {
+                        return serialize< reg_type::key >( reg.value );
+                } );
         }
 
         template < key_type Key >
