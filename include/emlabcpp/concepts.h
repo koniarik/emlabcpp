@@ -85,4 +85,12 @@ concept container_invocable = requires( Container cont, UnaryFunction f )
         f( std::get< 0 >( cont ) );
 };
 
+template < typename UnaryFunction, typename ReturnValue, typename... Args >
+concept invocable_returning = requires( UnaryFunction f, Args... args )
+{
+        {
+                f( args... )
+                } -> std::same_as< ReturnValue >;
+};
+
 }  // namespace emlabcpp
