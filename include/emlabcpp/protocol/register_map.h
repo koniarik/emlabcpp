@@ -112,19 +112,38 @@ public:
         }
 
         template < typename UnaryFunction >
-        constexpr auto with_register( key_type key, UnaryFunction&& f )
+        requires(
+            !invocable_returning<
+                UnaryFunction,
+                void,
+                std::tuple_element_t<
+                    0,
+                    registers_tuple > > ) constexpr auto with_register( key_type key, UnaryFunction&& f )
+            const
         {
                 using ret_type = decltype( f( std::get< 0 >( registers_ ) ) );
                 ret_type res;
+                with_register( key, [&]( const auto& reg ) {
+                        res = f( reg );
+                } );
+                return res;
+        }
+
+        template < typename UnaryFunction >
+        requires invocable_returning<
+            UnaryFunction,
+            void,
+            std::tuple_element_t< 0, registers_tuple > >
+        constexpr void with_register( key_type key, UnaryFunction&& f ) const
+        {
                 until_index< registers_count >( [&]< std::size_t j >() {
                         using reg_type = std::tuple_element_t< j, registers_tuple >;
                         if ( reg_type::key != key ) {
                                 return false;
                         }
-                        res = f( std::get< j >( registers_ ) );
+                        f( std::get< j >( registers_ ) );
                         return true;
                 } );
-                return res;
         }
 };
 
