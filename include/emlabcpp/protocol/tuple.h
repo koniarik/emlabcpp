@@ -3,10 +3,11 @@
 namespace emlabcpp
 {
 
-template < typename... Ts >
+template < protocol_endianess_enum Endianess, typename... Ts >
 struct protocol_tuple : protocol_def_type_base
 {
-        using def_type  = std::tuple< Ts... >;
+
+        using def_type  = protocol_endianess< Endianess, std::tuple< Ts... > >;
         using item_decl = protocol_item_decl< def_type >;
 
         static constexpr std::size_t max_size = item_decl::max_size;

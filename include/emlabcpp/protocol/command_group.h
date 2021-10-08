@@ -27,15 +27,16 @@ struct protocol_command
         }
 };
 
-template < typename... Cmds >
+template < protocol_endianess_enum Endianess, typename... Cmds >
 struct protocol_command_group : protocol_def_type_base
 {
         static_assert(
             are_same_v< typename Cmds::id_type... >,
             "Each command of one group has to use same type of id" );
 
-        using cmds_type  = std::tuple< Cmds... >;
-        using def_type   = protocol_group< typename Cmds::def_type... >;
+        using cmds_type = std::tuple< Cmds... >;
+        using def_type =
+            protocol_endianess< Endianess, protocol_group< typename Cmds::def_type... > >;
         using pitem_decl = protocol_item_decl< def_type >;
         using value_type = typename pitem_decl::value_type;
         using id_type    = typename std::tuple_element_t< 0, cmds_type >::id_type;
@@ -60,13 +61,6 @@ struct protocol_command_group : protocol_def_type_base
                 EMLABCPP_ASSERT( res );
                 return *res;
         }
-};
-
-template <>
-struct protocol_command_group<> : protocol_def_type_base
-{
-        template < typename... NewCommands >
-        using with_commands = protocol_command_group< NewCommands... >;
 };
 
 }  // namespace emlabcpp
