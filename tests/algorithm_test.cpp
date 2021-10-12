@@ -191,6 +191,17 @@ TEST( Algorithm, avg )
         EXPECT_EQ( res, std::size_t( 2 ) );
 }
 
+TEST( Algorithm, variance )
+{
+        std::size_t res = variance( std::vector< std::size_t >{ 1, 2, 3, 4 } );
+        EXPECT_EQ( res, std::size_t( 1 ) );
+        res = variance(
+            std::tuple< std::size_t, std::size_t, std::size_t, std::size_t >{ 1, 2, 3, 4 } );
+        EXPECT_EQ( res, std::size_t( 1 ) );
+        float fres = variance( std::vector< float >{ 1.f, 2.f, 3.f, 4.f } );
+        EXPECT_EQ( fres, 1.25f );
+}
+
 TEST( Algorithm, for_cross_joint )
 {
         float res = 0;
@@ -283,15 +294,15 @@ TEST( Algorithm, map_f )
 {
         std::vector< int > idata{ 1, 2, 3, 4 };
 
-        bool is_expected = equal( map_f< std::vector< int > >( idata ), idata );
-        EXPECT_TRUE( is_expected );
+        bool is_equal = equal( map_f< std::vector< int > >( idata ), idata );
+        EXPECT_TRUE( is_equal );
 
-        is_expected = equal( map_f< std::list< int > >( idata ), idata );
-        EXPECT_TRUE( is_expected );
+        is_equal = equal( map_f< std::list< int > >( idata ), idata );
+        EXPECT_TRUE( is_equal );
 
-        is_expected = equal( map_f< std::array< int, 4 > >( idata ), idata );
-        auto res    = map_f< std::array< int, 4 > >( idata );
-        EXPECT_TRUE( is_expected ) << view{ res } << "," << view{ idata };
+        is_equal = equal( map_f< std::array< int, 4 > >( idata ), idata );
+        auto res = map_f< std::array< int, 4 > >( idata );
+        EXPECT_TRUE( is_equal ) << view{ res } << "," << view{ idata };
 
         float mapped_sum = sum( map_f< std::list< float > >( idata, [&]( int i ) {
                 return float( i ) * 1.5f;
@@ -299,6 +310,81 @@ TEST( Algorithm, map_f )
         EXPECT_EQ( mapped_sum, 15.f );
 
         std::tuple< int, int, int, int > tdata{ 1, 2, 3, 4 };
-        is_expected = equal( map_f< std::vector< int > >( tdata ), idata );
-        EXPECT_TRUE( is_expected );
+        is_equal = equal( map_f< std::vector< int > >( tdata ), idata );
+        EXPECT_TRUE( is_equal );
+}
+
+TEST( Algorithm, map_f_to_a )
+{
+        std::vector< int > idata{ 1, 2, 3, 4 };
+
+        bool is_equal = equal( map_f_to_a< 4 >( idata ), idata );
+        EXPECT_TRUE( is_equal );
+
+        std::array< int, 4 > idata2{ 1, 2, 3, 4 };
+
+        is_equal = equal( map_f_to_a( idata2 ), idata2 );
+        EXPECT_TRUE( is_equal );
+}
+
+struct convert_test
+{
+        int val;
+};
+
+TEST( Algorithm, convert_to )
+{
+        std::vector< int > idata{ 1, 2, 3, 4 };
+
+        auto mapped = map_f< std::vector< convert_test > >( idata, convert_to< convert_test >{} );
+        EXPECT_EQ( mapped[0].val, 1 );
+        EXPECT_EQ( mapped[3].val, 4 );
+}
+
+TEST( Algorithm, joined )
+{
+        std::vector< std::string > idata{ "ab", "cd", "ef" };
+        std::string                msg = joined( idata, std::string{ "|" } );
+
+        EXPECT_EQ( msg, "ab|cd|ef" );
+}
+
+TEST( Algorithm, for_each_index )
+{
+        std::vector< std::size_t > idata{ 1, 2, 3, 4 };
+        std::vector< std::size_t > odata{};
+
+        for_each_index< 4 >( [&]< std::size_t i >() {
+                odata.push_back( idata[i] );
+        } );
+
+        EXPECT_EQ( idata, odata );
+}
+
+TEST( Algorithm, until_index )
+{
+        std::vector< std::size_t > idata{ 1, 2, 3, 4 };
+        std::vector< std::size_t > odata{};
+
+        until_index< 8 >( [&]< std::size_t i >() {
+                if ( odata.size() == idata.size() ) {
+                        return true;
+                }
+                odata.push_back( idata[i] );
+                return false;
+        } );
+
+        EXPECT_EQ( idata, odata );
+}
+
+TEST( Algorithm, select_index )
+{
+        std::vector< std::size_t > idata{ 1, 2, 3, 4 };
+        for ( std::size_t i : idata ) {
+                bounded     b = *bounded< std::size_t, 0, 3 >::make( i - 1 );
+                std::size_t j = select_index( b, [&]< std::size_t i >() {
+                        return idata[i];
+                } );
+                EXPECT_EQ( i, j ) << "bounded val: " << b;
+        }
 }

@@ -272,6 +272,8 @@ template <
         }
 }
 
+/// Applies function 'f(x)' to each element of container 'cont' and returns the
+/// variance of values returned from the call. The `f` is applied twice to each element.
 template <
     container                        Container,
     container_invocable< Container > UnaryFunction = std::identity,
@@ -282,9 +284,10 @@ template <
 
         return sum( cont,
                     [&]( const auto& val ) {
-                            return std::pow( f( val ) - u, 2 );
+                            auto v = f( val ) - u;
+                            return v * v;
                     } ) /
-               cont.size();
+               static_cast< T >( cont_size( cont ) );
 }
 
 /// Applies binary function 'f(x,y)' to each combination of items x in lh_cont
@@ -381,7 +384,7 @@ template <
 /// appropiate size. The functions needs size 'N' as template parameter
 template <
     std::size_t                      N,
-    container                        Container,
+    range_container                  Container,
     container_invocable< Container > UnaryFunction = std::identity,
     typename T = std::decay_t< mapped_t< Container, UnaryFunction > > >
 [[nodiscard]] inline std::array< T, N > map_f_to_a(
@@ -397,8 +400,8 @@ template <
 /// Calls function f(cont[i]) for i = 0...N and stores the result in array of an
 /// appropiate size.
 template <
-    container                        Container,
-    std::size_t                      N             = static_size_v< Container >,
+    gettable_container               Container,
+    std::size_t                      N = std::tuple_size< std::decay_t< Container > >::value,
     container_invocable< Container > UnaryFunction = std::identity,
     typename T = std::decay_t< mapped_t< Container, UnaryFunction > > >
 [[nodiscard]] inline std::array< T, N > map_f_to_a(
@@ -439,6 +442,8 @@ template < range_container Container, typename T >
         return res;
 }
 
+// Executes unary function f() with template argument of type 'std::size_t', which ranges from 0 to
+// i.
 template < std::size_t i, typename NullFunction >
 constexpr void for_each_index( NullFunction&& f )
 {
@@ -448,8 +453,10 @@ constexpr void for_each_index( NullFunction&& f )
         }
 }
 
-template < std::size_t i, typename NullFunction >
-constexpr bool until_index( NullFunction&& f )
+// Executes unary predicate f() with template argument of type 'std::size_t', which ranges from 0 to
+// i until first call that returns true. Function returns whenever the f was called or not.
+template < std::size_t i, typename PredFunction >
+constexpr bool until_index( PredFunction&& f )
 {
         if constexpr ( i != 0 ) {
                 return until_index< i - 1 >( f ) || f.template operator()< i - 1 >();
@@ -458,12 +465,17 @@ constexpr bool until_index( NullFunction&& f )
         }
 }
 
+// Function expectes bounded value as index input and callable nullary function. Based on the value
+// of index, f() is called with template argument std::size_t with internal value of the provided
+// index.
+//
+// Expectes the bounded value to be valid (that is within the range)
 template < bounded_derived IndexType, typename NullFunction >
 constexpr auto select_index( IndexType i, NullFunction&& f )
 {
         using T = decltype( f.template operator()< 0 >() );
         T res;
-        until_index< IndexType::max_val >( [&]< std::size_t j >() {
+        until_index< IndexType::max_val + 1 >( [&]< std::size_t j >() {
                 if ( *i == j ) {
                         res = f.template operator()< j >();
                         return true;
