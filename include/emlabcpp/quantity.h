@@ -132,7 +132,6 @@ public:
         using quantity< tagged_quantity< Tag, ValueType >, ValueType >::quantity;
 };
 
-
 /// Sum of quantities with same Derived and value_type
 template < typename Derived, typename ValueType >
 constexpr Derived
