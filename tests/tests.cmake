@@ -23,6 +23,7 @@ add_compile_options(
   -Wconversion
   -Wdouble-promotion
   -fmax-errors=5
+  -fconcepts-diagnostics-depth=5
   -DEMLABCPP_USE_STREAMS
   -DEMLABCPP_ASSERT_NATIVE
   )
@@ -43,7 +44,7 @@ add_emlabcpp_test(physical_quantity_test)
 add_emlabcpp_test(zip_test)
 add_emlabcpp_test(static_vector_test)
 add_emlabcpp_test(pid_test)
-add_emlabcpp_test(protocol_item_test)
+add_emlabcpp_test(protocol_def_test)
 add_emlabcpp_test(protocol_sophisticated_test)
 add_emlabcpp_test(protocol_register_map_test)
 	

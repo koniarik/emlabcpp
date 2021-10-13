@@ -5,6 +5,8 @@
 using namespace emlabcpp;
 using test_either = either< std::string, int >;
 
+static_assert( std::regular< test_either > );
+
 TEST( Either, init )
 {
         test_either eth{ 0 };

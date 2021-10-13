@@ -1,5 +1,5 @@
 #include "emlabcpp/iterators/convert.h"
-#include "emlabcpp/protocol/item.h"
+#include "emlabcpp/protocol/def.h"
 #include "emlabcpp/protocol/streams.h"
 #include "util.h"
 
@@ -11,8 +11,8 @@ template < protocol_endianess_enum Endianess, typename T >
 struct valid_test_case : protocol_test_fixture
 {
         static constexpr protocol_endianess_enum endianess = Endianess;
-        using pitem                                        = protocol_item< T, endianess >;
-        static_assert( protocol_item_check< pitem > );
+        using pitem                                        = protocol_def< T, endianess >;
+        static_assert( protocol_def_check< pitem > );
         using value_type = typename pitem::value_type;
 
         value_type             val;
@@ -67,8 +67,8 @@ std::function< protocol_test_fixture*() > make_valid_test_case( T val, std::vect
 }
 template < protocol_endianess_enum Endianess, typename T >
 std::function< protocol_test_fixture*() > make_specific_valid_test_case(
-    typename protocol_item< T, Endianess >::value_type val,
-    std::vector< uint8_t >                             buff )
+    typename protocol_def< T, Endianess >::value_type val,
+    std::vector< uint8_t >                            buff )
 {
         return [=]() {
                 return new valid_test_case< Endianess, T >( val, buff );
@@ -79,7 +79,7 @@ template < typename T >
 struct invalid_test_case : protocol_test_fixture
 {
 
-        using pitem      = protocol_item< T, PROTOCOL_BIG_ENDIAN >;
+        using pitem      = protocol_def< T, PROTOCOL_BIG_ENDIAN >;
         using value_type = T;
 
         std::vector< uint8_t > inpt;
@@ -226,7 +226,7 @@ int main( int argc, char** argv )
             make_invalid_test_case< bounded< int16_t, -1, 1 > >(
                 { 128 }, protocol_error_record{ PROTOCOL_NS, LOWSIZE_ERR, 0 } ),
             make_invalid_test_case< bounded< int16_t, -1, 1 > >(
-                { 0, 128 }, protocol_error_record{ PROTOCOL_NS, BOUND_ERR, 0 } ),
+                { 0, 128 }, protocol_error_record{ PROTOCOL_NS, BOUNDS_ERR, 0 } ),
             // sized_buffer
             make_specific_valid_test_case<
                 PROTOCOL_LITTLE_ENDIAN,

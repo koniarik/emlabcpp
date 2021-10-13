@@ -15,6 +15,3 @@ exec_test: build_test
 	cd build && ctest
 
 test: exec_test
-
-
-

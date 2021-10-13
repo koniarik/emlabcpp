@@ -45,6 +45,10 @@ public:
         using left_item  = LH;
         using right_item = RH;
 
+        either() requires std::default_initializable< LH > : either( LH{} )
+        {
+        }
+
         either( left_item&& item ) noexcept
           : id_( item::LEFT )
         {
@@ -329,6 +333,18 @@ public:
         ~either()
         {
                 destruct();
+        }
+
+        friend constexpr bool operator==( const either& a, const either& b )
+        {
+                if ( a.is_left() != b.is_left() ) {
+                        return false;
+                }
+                if ( a.is_left() ) {
+                        return a.left_ == b.left_;
+                } else {
+                        return a.right_ == b.right_;
+                }
         }
 
 private:

@@ -14,8 +14,7 @@ enum ids : uint8_t
         WOO = 1,
 };
 
-struct simple_group : protocol_command_group<
-                          PROTOCOL_BIG_ENDIAN,
+struct simple_group : protocol_command_group< PROTOCOL_BIG_ENDIAN >::with_commands<
                           protocol_command< FOO >::with_args< uint32_t, uint32_t >,
                           protocol_command< WOO >::with_args< std::array< uint8_t, 8 > > >
 {
@@ -38,8 +37,7 @@ using test_quantity = tagged_quantity< struct vtag, uint32_t >;
 // TODO: test changed endinaess in one subitem
 // TODO: add subprotocol
 struct complex_group
-  : protocol_command_group<
-        PROTOCOL_BIG_ENDIAN,
+  : protocol_command_group< PROTOCOL_BIG_ENDIAN >::with_commands<
         protocol_command< CA >::with_args< int >,
         protocol_command< CB >,
         protocol_command< CC >::with_args< std::array< uint16_t, 3 > >,
@@ -56,7 +54,8 @@ struct complex_group
 };
 
 struct test_tuple
-  : protocol_tuple< PROTOCOL_BIG_ENDIAN, uint32_t, uint16_t, std::bitset< 13 >, uint32_t >
+  : protocol_tuple<
+        PROTOCOL_BIG_ENDIAN >::with_items< uint32_t, uint16_t, std::bitset< 13 >, uint32_t >
 {
 };
 

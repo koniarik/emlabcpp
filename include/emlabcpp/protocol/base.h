@@ -1,7 +1,5 @@
 #include "emlabcpp/bounded.h"
-#include "emlabcpp/protocol/message.h"
-#include "emlabcpp/quantity.h"
-#include "emlabcpp/types.h"
+#include "emlabcpp/protocol/error.h"
 
 #include <bitset>
 #include <cstring>
@@ -13,38 +11,8 @@
 namespace emlabcpp
 {
 
-using protocol_mark = std::array< char, 8 >;
-
-struct protocol_error_record
-{
-        // Static sized string: namespace of the error type, focus on choosing unique namespace for
-        // each project using this library, to distinguish the errors between libraries
-        protocol_mark ns;
-        // Static sized string: name of the error that happend
-        protocol_mark err;
-        // Index position of the error
-        std::size_t byte_index;
-
-        friend constexpr bool
-        operator==( const protocol_error_record&, const protocol_error_record& ) = default;
-};
-
-inline constexpr protocol_mark make_protocol_mark( const char ( &msg )[9] )
-{
-        protocol_mark res;
-        std::copy_n( msg, res.size(), res.begin() );
-        return res;
-}
-
-static constexpr auto PROTOCOL_NS = make_protocol_mark( "PROTO   " );
-
-static constexpr auto LOWSIZE_ERR  = make_protocol_mark( "LOWSIZE " );
-static constexpr auto BIGSIZE_ERR  = make_protocol_mark( "BIGSIZE " );
-static constexpr auto BOUND_ERR    = make_protocol_mark( "BOUND   " );
-static constexpr auto UNDEFVAR_ERR = make_protocol_mark( "UNDEFVAR" );
-static constexpr auto BADVAL_ERR   = make_protocol_mark( "BADVAL  " );
-static constexpr auto GROUP_ERR    = make_protocol_mark( "GRPMATCH" );
-
+// Strucutre used as result of deserialization in the internal mechanisms of protocol handling.
+// Contains parsed value and bounded value of how much bytes were used.
 template < bounded_derived size_type, typename T >
 struct protocol_result
 {
@@ -52,165 +20,61 @@ struct protocol_result
         T         val;
 };
 
+// Concept that matches types considered base - serialized directly by using byte shifting.
 template < typename T >
 concept protocol_base_type = std::is_integral_v< T > || std::is_enum_v< T >;
 
+// Enum specifies what endianess should be used.
 enum protocol_endianess_enum
 {
         PROTOCOL_BIG_ENDIAN,
         PROTOCOL_LITTLE_ENDIAN
 };
-// when able to move to GCC11: using enum protocol_endianess_enum; and make it enum class
+// TODO: when able to move to GCC11: using enum protocol_endianess_enum; and make it enum class
 
-template < protocol_endianess_enum Endianess, typename T >
+// Follows a set of special data types used for definition of protocol. These either represent
+// special types or affect the serialization/deserialization process of normal types.
+// -----------------------------------------------------------------------------------------------
+
+// Changes the endianess of definition D.
+template < protocol_endianess_enum Endianess, typename D >
 struct protocol_endianess
 {
         static constexpr protocol_endianess_enum value = Endianess;
-        using value_type                               = T;
+        using value_type                               = D;
 };
 
-template < typename... Ts >
+// Serializes values from definitions Ds to std::variant. The byte message does not contain
+// identificator of variant used, rather the first definition that manages to deserialize the
+// message is used.
+template < typename... Ds >
 struct protocol_group
 {
-        using options_type = std::variant< Ts... >;
+        using options_type = std::variant< Ds... >;
 };
 
-template < typename CounterType, typename T >
+// Creates a segment starting with counter defined by CounterDef, this counter limits how many bytes
+// are passed to deserialization process, bytes after the limit ale not considered by this segment.
+template < typename CounterDef, typename D >
 struct protocol_sized_buffer
 {
-        using counter_type = CounterType;
-        using value_type   = T;
+        using counter_type = CounterDef;
+        using value_type   = D;
 };
 
-template < typename T, T Offset >
+// The value defined by `D` present in the message is offseted by `Offset`. If the offset for
+// example `2`, value `4` in the message is parsed as `2` and value `1` is serialized as `3`.
+template < typename D, auto Offset >
 struct protocol_offset
 {
-        static constexpr T offset = Offset;
-        using value_type          = T;
+        static constexpr auto offset = Offset;
+        using def_type               = D;
 };
 
+// More complex constructs have custom mechanics that internally produces `def_type` alias used by
+// the library to serialize/deserialize it. Type inheriting htis class are handled as their
+// `def_type`.
 struct protocol_def_type_base
-{
-};
-
-template < typename T >
-struct protocol_item_decl;
-
-template < typename T >
-concept protocol_itemizable = std::default_initializable< T > && requires( T val )
-{
-        protocol_item_decl< T >{};
-};
-
-template < protocol_base_type T >
-struct protocol_item_decl< T >
-{
-        using value_type                      = T;
-        static constexpr std::size_t max_size = sizeof( T );
-};
-
-template < protocol_itemizable T, std::size_t N >
-struct protocol_item_decl< std::array< T, N > >
-{
-        using value_type                      = std::array< T, N >;
-        static constexpr std::size_t max_size = protocol_item_decl< T >::max_size * N;
-};
-
-template < protocol_itemizable... Ts >
-struct protocol_item_decl< std::tuple< Ts... > >
-{
-        using value_type = std::tuple< typename protocol_item_decl< Ts >::value_type... >;
-        static constexpr std::size_t max_size = ( protocol_item_decl< Ts >::max_size + ... + 0 );
-};
-
-template < protocol_itemizable... Ts >
-struct protocol_item_decl< std::variant< Ts... > >
-{
-        using id_item    = uint8_t;
-        using id_decl    = protocol_item_decl< id_item >;
-        using value_type = std::variant< typename protocol_item_decl< Ts >::value_type... >;
-
-        static constexpr std::size_t max_size =
-            id_decl::max_size +
-            std::max< std::size_t >( { protocol_item_decl< Ts >::max_size... } );
-};
-
-template < std::size_t N >
-struct protocol_item_decl< std::bitset< N > >
-{
-        using value_type = std::bitset< N >;
-
-        static constexpr std::size_t max_size = ( N + 7 ) / 8;
-};
-
-template < std::size_t N >
-struct protocol_item_decl< protocol_sizeless_message< N > >
-{
-        using value_type = protocol_sizeless_message< N >;
-
-        static constexpr std::size_t max_size = N;
-};
-
-template < protocol_itemizable T, T Offset >
-struct protocol_item_decl< protocol_offset< T, Offset > >
-{
-        using value_type = T;
-
-        static constexpr std::size_t max_size = protocol_item_decl< T >::max_size;
-};
-
-template < quantity_derived T >
-struct protocol_item_decl< T >
-{
-        using value_type = T;
-
-        static constexpr std::size_t max_size =
-            protocol_item_decl< typename T::value_type >::max_size;
-};
-
-template < protocol_itemizable T, T Min, T Max >
-struct protocol_item_decl< bounded< T, Min, Max > >
-{
-        using value_type = bounded< T, Min, Max >;
-
-        static constexpr std::size_t max_size = protocol_item_decl< T >::max_size;
-};
-
-template < typename CounterType, typename T >
-struct protocol_item_decl< protocol_sized_buffer< CounterType, T > >
-{
-        using counter_item = protocol_item_decl< CounterType >;
-        using sub_item     = protocol_item_decl< T >;
-        using value_type   = sub_item::value_type;
-
-        static constexpr std::size_t max_size = counter_item::max_size + sub_item::max_size;
-};
-
-template < auto V >
-struct protocol_item_decl< tag< V > >
-{
-        using sub_item   = protocol_item_decl< decltype( V ) >;
-        using value_type = tag< V >;
-
-        static constexpr std::size_t max_size = sub_item::max_size;
-};
-
-template < typename... Ts >
-struct protocol_item_decl< protocol_group< Ts... > >
-{
-        using value_type = std::variant< typename protocol_item_decl< Ts >::value_type... >;
-
-        static constexpr std::size_t max_size =
-            std::max< std::size_t >( { protocol_item_decl< Ts >::max_size... } );
-};
-
-template < protocol_endianess_enum Endianess, typename T >
-struct protocol_item_decl< protocol_endianess< Endianess, T > > : protocol_item_decl< T >
-{
-};
-
-template < std::derived_from< protocol_def_type_base > T >
-struct protocol_item_decl< T > : protocol_item_decl< typename T::def_type >
 {
 };
 
