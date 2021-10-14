@@ -1,3 +1,4 @@
+#include <array>
 
 #pragma once
 
