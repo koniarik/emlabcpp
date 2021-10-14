@@ -8,7 +8,7 @@ clean:
 	rm -rf ./build
 
 build_test:
-	cmake -Bbuild $(EXTRAARGS)
+	cmake -Bbuild $(EXTRAARGS) -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 	make -Cbuild -j
 
 exec_test: build_test

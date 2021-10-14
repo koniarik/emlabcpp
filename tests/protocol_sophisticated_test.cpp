@@ -100,10 +100,10 @@ struct valid_test_case : protocol_test_fixture
 
 template < typename Group >
 std::function< protocol_test_fixture*() >
-make_valid_test_case( typename Group::value_type val, std::vector< uint8_t > buff )
+make_valid_test_case( typename Group::value_type val, const std::vector< uint8_t >& buff )
 {
         return [=]() {
-                return new valid_test_case< Group >( val, std::move( buff ) );
+                return new valid_test_case< Group >( val, buff );
         };
 }
 

@@ -59,7 +59,8 @@ struct valid_test_case : protocol_test_fixture
 };
 
 template < protocol_endianess_enum Endianess, typename T >
-std::function< protocol_test_fixture*() > make_valid_test_case( T val, std::vector< uint8_t > buff )
+std::function< protocol_test_fixture*() >
+make_valid_test_case( T val, const std::vector< uint8_t >& buff )
 {
         return [=]() {
                 return new valid_test_case< Endianess, T >( val, buff );
@@ -68,7 +69,7 @@ std::function< protocol_test_fixture*() > make_valid_test_case( T val, std::vect
 template < protocol_endianess_enum Endianess, typename T >
 std::function< protocol_test_fixture*() > make_specific_valid_test_case(
     typename protocol_def< T, Endianess >::value_type val,
-    std::vector< uint8_t >                            buff )
+    const std::vector< uint8_t >&                     buff )
 {
         return [=]() {
                 return new valid_test_case< Endianess, T >( val, buff );
@@ -117,7 +118,7 @@ struct invalid_test_case : protocol_test_fixture
 
 template < typename T >
 std::function< protocol_test_fixture*() >
-make_invalid_test_case( std::vector< uint8_t > buff, protocol_error_record rec )
+make_invalid_test_case( const std::vector< uint8_t >& buff, const protocol_error_record& rec )
 {
         return [=]() {
                 return new invalid_test_case< T >( buff, rec );

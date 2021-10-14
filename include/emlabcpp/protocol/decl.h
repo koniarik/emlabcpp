@@ -79,7 +79,7 @@ struct protocol_decl< protocol_sizeless_message< N > >
 template < protocol_declarable D, auto Offset >
 struct protocol_decl< protocol_offset< D, Offset > >
 {
-        using def_type   = protocol_offset< D, Offset >::def_type;
+        using def_type   = typename protocol_offset< D, Offset >::def_type;
         using def_decl   = protocol_decl< def_type >;
         using value_type = typename def_decl::value_type;
 
@@ -107,7 +107,7 @@ struct protocol_decl< protocol_sized_buffer< CounterDecl, D > >
 {
         using counter_decl = protocol_decl< CounterDecl >;
         using sub_decl     = protocol_decl< D >;
-        using value_type   = sub_decl::value_type;
+        using value_type   = typename sub_decl::value_type;
 
         static constexpr std::size_t max_size = counter_decl::max_size + sub_decl::max_size;
 };

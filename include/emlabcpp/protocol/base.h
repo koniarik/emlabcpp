@@ -20,6 +20,9 @@ struct protocol_result
         T         val;
 };
 
+template < bounded_derived size_type, typename T >
+protocol_result( size_type, T ) -> protocol_result< size_type, T >;
+
 // Concept that matches types considered base - serialized directly by using byte shifting.
 template < typename T >
 concept protocol_base_type = std::is_integral_v< T > || std::is_enum_v< T >;

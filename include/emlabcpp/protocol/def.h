@@ -12,9 +12,14 @@
 namespace emlabcpp
 {
 
+// protocol_def<T,E> structure defines how type T should be serialized and deserialized. Each type
+// or kind of types should overlead this structure and use same attributes as protocol_decl<T,E>. E
+// is edianess of the serialization used.
 template < typename, protocol_endianess_enum >
 struct protocol_def;
 
+// protocol_def_check<T> concept verifies that 'T' is valid overload of protocol_def. Use this in
+// tests of custom protocol_def overloads.
 template < typename T >
 concept protocol_def_check = requires()
 {
@@ -608,7 +613,8 @@ struct protocol_def< protocol_group< Ds... >, Endianess >
 
                         sub_def::deserialize( buffer ).match(
                             [&]( auto sub_res ) {
-                                    opt_res.emplace( sub_res.used, value_type{ sub_res.val } );
+                                    opt_res = protocol_result< size_type, value_type >{
+                                        sub_res.used, value_type{ sub_res.val } };
                             },
                             [&]( protocol_error_record ) {} );
                         return bool( opt_res );

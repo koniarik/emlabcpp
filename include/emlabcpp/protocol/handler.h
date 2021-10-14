@@ -5,6 +5,11 @@
 namespace emlabcpp
 {
 
+// protocol_handler< T > should be used to execute actual serialization and deserealization of
+// protocol definition. It provides serialize/extract methods that should be used by the user.
+//
+// You may want to have this class (With the include) to be present in separate .cpp file, as the
+// compile time can be quite heavy.
 template < typename T >
 struct protocol_handler
 {
@@ -14,7 +19,7 @@ struct protocol_handler
 
         static message_type serialize( value_type val )
         {
-                std::array< uint8_t, decl::max_size > buffer;
+                std::array< uint8_t, decl::max_size > buffer{};
 
                 bounded used = decl::serialize_at( buffer, val );
                 EMLABCPP_ASSERT( *used <= decl::max_size );

@@ -6,6 +6,10 @@
 namespace emlabcpp
 {
 
+// Handler for serialization and extraction of datatypes used by the register_map. This provides
+// interface for handling conversion of bytes to types used in the map. `serialize` and `extract`
+// works directly with the types used by the map, based on compile time key. `select` and `insert`
+// works with the map itself based on runtime information.
 template < typename Map >
 struct protocol_register_handler
 {
@@ -31,7 +35,7 @@ struct protocol_register_handler
                 return *message_type::make( view_n( buffer.begin(), *used ) );
         }
 
-        static message_type serialize( const map_type& m, key_type key )
+        static message_type select( const map_type& m, key_type key )
         {
                 return m.with_register( key, [&]< typename reg_type >( const reg_type& reg ) {
                         return serialize< reg_type::key >( reg.value );
@@ -48,6 +52,22 @@ struct protocol_register_handler
                 return def::deserialize( msg ).convert_left( [&]( auto sub_res ) {
                         return sub_res.val;
                 } );
+        }
+
+        template < typename Buffer >
+        static std::optional< protocol_error_record >
+        insert( map_type& m, key_type key, Buffer&& buff )
+        {
+                std::optional< protocol_error_record > res;
+                m.setup_register( key, [&]< typename reg_type >() {
+                        return extract< reg_type::key >( buff )
+                            .convert_right( [&]( auto err ) {
+                                    res = err;
+                                    return m.template get_val< reg_type::key >();
+                            } )
+                            .join();
+                } );
+                return res;
         }
 };
 

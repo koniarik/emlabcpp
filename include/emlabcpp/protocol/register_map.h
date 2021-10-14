@@ -6,14 +6,14 @@
 namespace emlabcpp
 {
 
-template < auto Key, typename DefType >
+// Structure that represents definition of one register in the map. It also contains the value
+// itself.
+template < auto Key, protocol_declarable D >
 struct protocol_reg
 {
-        using key_type                = decltype( Key );
-        static constexpr key_type key = Key;
-
-        using def_type = DefType;
-
+        using def_type                    = D;
+        using key_type                    = decltype( Key );
+        static constexpr key_type key     = Key;
         using decl                        = protocol_decl< def_type >;
         using value_type                  = typename decl::value_type;
         static constexpr std::size_t size = decl::max_size;
@@ -21,6 +21,13 @@ struct protocol_reg
         value_type value;
 };
 
+// Register map is abstraction to work with registers of external devices. It stores values of
+// serializable types that can be accessed based on key (usually enum representing address of
+// register in the device).You can access the value based on the key itself, both at compile time
+// and at runtime. You can also iterate over the values and there is handler that allows
+// serialization and deserialization of bytes into the values defined in the map. This includes
+// additional information that can be accessed about the map. This can also be used as simple table
+// of configuration values.
 template < typename... Regs >
 class protocol_register_map
 {

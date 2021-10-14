@@ -53,11 +53,10 @@ public:
         }
         static_vector& operator=( const static_vector& other )
         {
-                if ( this == &other ) {
-                        return *this;
+                if ( this != &other ) {
+                        this->~static_vector();
+                        ::new ( this ) static_vector( other );
                 }
-                this->~static_vector();
-                ::new ( this ) static_vector( other );
                 return *this;
         }
         static_vector& operator=( static_vector&& other ) noexcept
@@ -187,8 +186,7 @@ private:
                 ::new ( gen_ptr ) T( std::forward< Args >( args )... );
         }
 
-        // Reference to the item in data_storage. std::launder is necessary here per the paper
-        // linked above.
+        // Reference to the item in data_storage.
         [[nodiscard]] reference ref_item( size_type i )
         {
                 return *std::launder( reinterpret_cast< T* >( &data_[i] ) );

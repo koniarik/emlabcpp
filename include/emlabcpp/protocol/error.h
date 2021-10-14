@@ -9,7 +9,9 @@ namespace emlabcpp
 // unique in that namespace, part of the error is also index of byte that caused the problem. These
 // can be easily sent with the protocol lib itself.
 
-using protocol_mark = std::array< char, 8 >;
+struct protocol_mark : std::array< char, 8 >
+{
+};
 
 struct protocol_error_record
 {

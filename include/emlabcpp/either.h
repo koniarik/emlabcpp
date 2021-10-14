@@ -103,6 +103,9 @@ public:
 
         either& operator=( either&& other ) noexcept
         {
+                if ( this == &other ) {
+                        return *this;
+                }
                 if ( other.id_ == item::LEFT ) {
                         *this = std::move( other.left_ );
                 } else {
@@ -134,11 +137,12 @@ public:
                 return *this;
         }
 
-        either& operator=( either_unique_right< LH, RH > auto&& other )
+        template < either_unique_right< LH, RH > T >
+        either& operator=( T&& other )
         {
                 destruct();
                 id_ = item::RIGHT;
-                new ( &right_ ) right_item( std::move( other ) );
+                new ( &right_ ) right_item( std::forward< T >( other ) );
                 return *this;
         }
 
@@ -401,8 +405,8 @@ inline auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) r
         auto convert = [&]< typename Either >( Either&& either ) {
                 using left_type = typename std::remove_reference_t< Either >::left_item;
 
-                return std::move( either )
-                    .convert_left( [&]( auto item ) {  //
+                return std::forward< Either >( either )
+                    .convert_left( [&]( auto item ) {
                             return std::make_optional( std::move( item ) );
                     } )
                     .convert_right( [&]( auto item ) {
@@ -415,7 +419,7 @@ inline auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) r
         return assemble_optionals(
                    convert( std::forward< FirstE >( first ) ),
                    convert( std::forward< Eithers >( others ) )... )
-            .convert_right( [&]( empty_assembly_tag ) {  //
+            .convert_right( [&]( empty_assembly_tag ) {
                     return collection;
             } );
 }
