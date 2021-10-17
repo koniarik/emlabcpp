@@ -79,6 +79,12 @@ public:
         template < key_type Key >
         using reg_def_type = typename reg_type< Key >::def_type;
 
+        protocol_register_map() = default;
+        protocol_register_map( Regs::value_type... args )
+          : registers_( Regs{ args }... )
+        {
+        }
+
         template < key_type Key >
         reg_value_type< Key > get_val() const
         {
@@ -153,5 +159,14 @@ public:
                 } );
         }
 };
+
+template < typename Map, typename UnaryFunction >
+inline void protocol_for_each_register( const Map& m, UnaryFunction&& f )
+{
+        em::for_each_index< Map::registers_count >( [&]< std::size_t i >() {
+                static constexpr auto key = Map::register_key( bounded_constant< i > );
+                f.template            operator()< key >( m.template get_val< key >() );
+        } );
+}
 
 }  // namespace emlabcpp
