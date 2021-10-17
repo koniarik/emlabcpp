@@ -7,6 +7,10 @@
 #include <string>
 #include <type_traits>
 
+#ifdef EMLABCPP_USE_STREAMS
+#include <ostream>
+#endif
+
 #pragma once
 
 namespace emlabcpp
@@ -232,6 +236,14 @@ constexpr ValueType operator/( const ValueType val, const quantity< Derived, Val
 {
         return val / *q;
 }
+
+#ifdef EMLABCPP_USE_STREAMS
+template < typename T, typename ValueType >
+inline std::ostream& operator<<( std::ostream& os, quantity< T, ValueType > q )
+{
+        return os << *q << T::get_unit();
+}
+#endif
 
 }  // namespace emlabcpp
 
