@@ -13,13 +13,14 @@ namespace emlabcpp
 
 struct protocol_mark : std::array< char, 8 >
 {
+        using base_type = std::array< char, 8 >;
 };
 
 struct protocol_error_record
 {
         protocol_mark ns;
         protocol_mark err;
-        std::size_t   byte_index;
+        uint16_t      byte_index;
 
         friend constexpr bool
         operator==( const protocol_error_record&, const protocol_error_record& ) = default;

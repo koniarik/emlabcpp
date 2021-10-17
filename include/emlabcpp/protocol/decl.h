@@ -1,4 +1,5 @@
 #include "emlabcpp/protocol/base.h"
+#include "emlabcpp/protocol/error.h"
 #include "emlabcpp/protocol/message.h"
 #include "emlabcpp/quantity.h"
 #include "emlabcpp/types.h"
@@ -138,6 +139,21 @@ struct protocol_decl< protocol_endianess< Endianess, D > > : protocol_decl< D >
 template < std::derived_from< protocol_def_type_base > D >
 struct protocol_decl< D > : protocol_decl< typename D::def_type >
 {
+};
+
+template <>
+struct protocol_decl< protocol_mark >
+{
+        using value_type                      = protocol_mark;
+        static constexpr std::size_t max_size = protocol_mark{}.max_size();
+};
+
+template <>
+struct protocol_decl< protocol_error_record >
+{
+        using value_type = protocol_error_record;
+
+        static constexpr std::size_t max_size = 18;
 };
 
 }  // namespace emlabcpp
