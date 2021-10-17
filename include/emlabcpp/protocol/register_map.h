@@ -163,7 +163,7 @@ public:
 template < typename Map, typename UnaryFunction >
 inline void protocol_for_each_register( const Map& m, UnaryFunction&& f )
 {
-        em::for_each_index< Map::registers_count >( [&]< std::size_t i >() {
+        for_each_index< Map::registers_count >( [&]< std::size_t i >() {
                 static constexpr auto key = Map::register_key( bounded_constant< i > );
                 f.template            operator()< key >( m.template get_val< key >() );
         } );
