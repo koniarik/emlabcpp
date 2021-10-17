@@ -69,10 +69,10 @@ struct protocol_def< D, Endianess >
         }
 
         static constexpr auto deserialize( const view< const uint8_t* >& buffer )
-            -> either< protocol_result< size_type, value_type >, protocol_error_record > 
+            -> either< protocol_result< size_type, value_type >, protocol_error_record >
         {
                 if ( buffer.size() < max_size ) {
-                        return protocol_error_record{ PROTOCOL_NS, LOWSIZE_ERR, 0 };
+                        return protocol_error_record{ &LOWSIZE_ERR, 0 };
                 }
 
                 value_type res{};
@@ -136,7 +136,7 @@ struct protocol_def< std::array< D, N >, Endianess >
                                 [&]( protocol_error_record rec ) {
                                         rec.byte_index +=
                                             static_cast< uint16_t >( iter - buffer.begin() );
-                                        opt_err = rec;
+                                        opt_err.emplace( rec );
                                 } );
 
                         if ( opt_err ) {
@@ -205,7 +205,7 @@ struct protocol_def< std::tuple< Ds... >, Endianess >
                                 [&]( protocol_error_record rec ) {
                                         rec.byte_index +=
                                             static_cast< uint16_t >( iter - buffer.begin() );
-                                        opt_err = rec;
+                                        opt_err.emplace( rec );
                                 } );
 
                         return opt_err.has_value();
@@ -281,7 +281,7 @@ struct protocol_def< std::variant< Ds... >, Endianess >
                         id_type id   = sub_res.val;
                         bounded used = sub_res.used;
 
-                        result_either res = protocol_error_record{ PROTOCOL_NS, UNDEFVAR_ERR, 0 };
+                        result_either res = protocol_error_record{ &UNDEFVAR_ERR, 0 };
 
                         view item_view{ buffer.begin() + *used, buffer.end() };
 
@@ -342,7 +342,7 @@ struct protocol_def< std::bitset< N >, Endianess >
             -> either< protocol_result< size_type, value_type >, protocol_error_record >
         {
                 if ( buffer.size() < max_size ) {
-                        return protocol_error_record{ PROTOCOL_NS, LOWSIZE_ERR, 0 };
+                        return protocol_error_record{ &LOWSIZE_ERR, 0 };
                 }
                 std::bitset< N > res;
                 for ( std::size_t i : range( max_size ) ) {
@@ -381,7 +381,7 @@ struct protocol_def< protocol_sizeless_message< N >, Endianess >
                 auto opt_msg = value_type::make( buffer );
 
                 if ( !opt_msg ) {
-                        return protocol_error_record{ PROTOCOL_NS, BIGSIZE_ERR, 0 };
+                        return protocol_error_record{ &BIGSIZE_ERR, 0 };
                 }
 
                 auto opt_bused = size_type::make( opt_msg->size() );
@@ -468,7 +468,7 @@ struct protocol_def< bounded< D, Min, Max >, Endianess >
                     [&]( auto sub_res ) -> result_either {
                             auto opt_val = value_type::make( sub_res.val );
                             if ( !opt_val ) {
-                                    return protocol_error_record{ PROTOCOL_NS, BOUNDS_ERR, 0 };
+                                    return protocol_error_record{ &BOUNDS_ERR, 0 };
                             }
                             return protocol_result{ sub_res.used, *opt_val };
                     } );
@@ -521,7 +521,7 @@ struct protocol_def< protocol_sized_buffer< CounterDef, D >, Endianess >
                             auto         start_iter = buffer.begin() + counter_def::max_size;
 
                             if ( std::distance( start_iter, buffer.end() ) < used ) {
-                                    return protocol_error_record{ PROTOCOL_NS, LOWSIZE_ERR, 0 };
+                                    return protocol_error_record{ &LOWSIZE_ERR, 0 };
                             }
 
                             return sub_def::deserialize( view_n( start_iter, used ) )
@@ -563,7 +563,7 @@ struct protocol_def< tag< V >, Endianess >
                 return sub_def::deserialize( buffer ).bind_left(
                     [&]( auto sub_res ) -> return_either {
                             if ( sub_res.val != V ) {
-                                    return protocol_error_record{ PROTOCOL_NS, BADVAL_ERR, 0 };
+                                    return protocol_error_record{ &BADVAL_ERR, 0 };
                             }
 
                             return protocol_result{ sub_res.used, tag< V >{} };
@@ -632,7 +632,7 @@ struct protocol_def< protocol_group< Ds... >, Endianess >
                         return *opt_res;
                 }
 
-                return protocol_error_record{ PROTOCOL_NS, GROUP_ERR, 0 };
+                return protocol_error_record{ &GROUP_ERR, 0 };
         }
 };
 
@@ -665,7 +665,7 @@ struct protocol_def< protocol_mark, Endianess >
             -> either< protocol_result< size_type, value_type >, protocol_error_record >
         {
                 if ( buffer.size() < max_size ) {
-                        return protocol_error_record{ PROTOCOL_NS, LOWSIZE_ERR, 0 };
+                        return protocol_error_record{ &LOWSIZE_ERR, 0 };
                 }
                 value_type res{};
                 std::copy( buffer.begin(), buffer.begin() + max_size, res.begin() );
@@ -688,8 +688,7 @@ struct protocol_def< protocol_error_record, Endianess >
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, value_type item )
         {
-                mark_def::serialize_at( buffer.subspan< 0, 8 >(), item.ns );
-                mark_def::serialize_at( buffer.subspan< 8, 8 >(), item.err );
+                mark_def::serialize_at( buffer.subspan< 0, 16 >(), *item.err );
                 bi_def::serialize_at( buffer.subspan< 16, 2 >(), item.byte_index );
 
                 return size_type{};
@@ -698,23 +697,18 @@ struct protocol_def< protocol_error_record, Endianess >
         static constexpr auto deserialize( const view< const uint8_t* >& buffer )
             -> either< protocol_result< size_type, value_type >, protocol_error_record >
         {
-                if ( buffer.size() < max_size ) {
-                        return protocol_error_record{ PROTOCOL_NS, LOWSIZE_ERR, 0 };
-                }
-                protocol_error_record res;
+                return protocol_error_record{ &LOWSIZE_ERR, 0 };
+                // TODO: fix this
+                /*protocol_error_record res;
                 return mark_def::deserialize( view_n( buffer.begin(), 8 ) )
-                    .bind_left( [&]( auto ns_res ) {
-                            res.ns = ns_res.val;
-                            return mark_def::deserialize( view_n( buffer.begin() + 8, 8 ) );
-                    } )
                     .bind_left( [&]( auto err_res ) {
                             res.err = err_res.val;
-                            return bi_def::deserialize( view_n( buffer.begin() + 16, 2 ) );
+                            return mark_def::deserialize( view_n( buffer.begin() + 16, 8 ) );
                     } )
                     .convert_left( [&]( auto bi_res ) {
                             res.byte_index = bi_res.val;
                             return protocol_result{ size_type{}, res };
-                    } );
+                    } );*/
         }
 };
 
