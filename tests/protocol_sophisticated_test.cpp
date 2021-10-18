@@ -1,6 +1,7 @@
 #include "emlabcpp/iterators/convert.h"
 #include "emlabcpp/protocol/command_group.h"
 #include "emlabcpp/protocol/handler.h"
+#include "emlabcpp/protocol/streams.h"
 #include "emlabcpp/protocol/tuple.h"
 #include "util.h"
 
@@ -86,8 +87,8 @@ struct valid_test_case : protocol_test_fixture
                     [&]( auto var ) {
                             EXPECT_EQ( var, val );
                     },
-                    [&]( auto ) {
-                            FAIL();
+                    [&]( auto rec ) {
+                            FAIL() << rec;
                     } );
         }
 

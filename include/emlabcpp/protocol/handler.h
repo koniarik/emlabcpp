@@ -13,24 +13,31 @@ namespace emlabcpp
 template < typename T >
 struct protocol_handler
 {
-        using decl         = protocol_def< T, PROTOCOL_BIG_ENDIAN >;
-        using value_type   = typename decl::value_type;
-        using message_type = protocol_message< decl::max_size >;
+        using def          = protocol_def< T, PROTOCOL_BIG_ENDIAN >;
+        using value_type   = typename def::value_type;
+        using message_type = protocol_message< def::max_size >;
 
         static message_type serialize( value_type val )
         {
-                std::array< uint8_t, decl::max_size > buffer{};
+                std::array< uint8_t, def::max_size > buffer{};
 
-                bounded used = decl::serialize_at( buffer, val );
-                EMLABCPP_ASSERT( *used <= decl::max_size );
+                bounded used = def::serialize_at( buffer, val );
+                EMLABCPP_ASSERT( *used <= def::max_size );
                 return *message_type::make( view_n( buffer.begin(), *used ) );
         };
 
         static either< value_type, protocol_error_record > extract( const message_type& msg )
         {
-                return decl::deserialize( msg ).convert_left( [&]( auto sub_res ) {
-                        return sub_res.val;
-                } );
+                auto opt_view = bounded_view< const uint8_t*, typename def::size_type >::make(
+                    view_n( msg.begin(), min( def::max_size, msg.size() ) ) );
+                if ( !opt_view ) {
+                        return protocol_error_record{ SIZE_ERR, 0 };
+                }
+                auto [used, res] = def::deserialize( *opt_view );
+                if ( std::holds_alternative< const protocol_mark* >( res ) ) {
+                        return protocol_error_record{ *std::get< 1 >( res ), used };
+                }
+                return std::get< 0 >( res );
         }
 };
 

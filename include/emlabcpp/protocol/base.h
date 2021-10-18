@@ -13,15 +13,29 @@ namespace emlabcpp
 
 // Strucutre used as result of deserialization in the internal mechanisms of protocol handling.
 // Contains parsed value and bounded value of how much bytes were used.
-template < bounded_derived size_type, typename T >
+template < typename T >
 struct protocol_result
 {
-        size_type used;
-        T         val;
-};
+        std::size_t                             used = 0;
+        std::variant< T, const protocol_mark* > res;
 
-template < bounded_derived size_type, typename T >
-protocol_result( size_type, T ) -> protocol_result< size_type, T >;
+        protocol_result() = default;
+        protocol_result( std::size_t u, std::variant< T, const protocol_mark* > v )
+          : used( u )
+          , res( v )
+        {
+        }
+        protocol_result( std::size_t u, T v )
+          : used( u )
+          , res( v )
+        {
+        }
+        protocol_result( std::size_t u, const protocol_mark* m )
+          : used( u )
+          , res( m )
+        {
+        }
+};
 
 // Concept that matches types considered base - serialized directly by using byte shifting.
 template < typename T >

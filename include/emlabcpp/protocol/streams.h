@@ -36,7 +36,7 @@ inline std::ostream& operator<<( std::ostream& os, const protocol_mark& m )
 
 inline std::ostream& operator<<( std::ostream& os, const protocol_error_record& rec )
 {
-        return os << rec.err << " (" << rec.byte_index << ")";
+        return os << rec.mark << "(" << rec.offset << ")";
 }
 
 inline std::ostream& operator<<( std::ostream& os, const protocol_endianess_enum& val )

@@ -49,9 +49,16 @@ struct protocol_register_handler
                 using def =
                     protocol_def< typename map_type::reg_def_type< Key >, PROTOCOL_BIG_ENDIAN >;
 
-                return def::deserialize( msg ).convert_left( [&]( auto sub_res ) {
-                        return sub_res.val;
-                } );
+                auto opt_view = bounded_view< const uint8_t*, typename def::size_type >::make(
+                    view_n( msg.begin(), min( def::max_size, msg.size() ) ) );
+                if ( !opt_view ) {
+                        return protocol_error_record{ SIZE_ERR, 0 };
+                }
+                auto [used, res] = def::deserialize( *opt_view );
+                if ( std::holds_alternative< const protocol_mark* >( res ) ) {
+                        return protocol_error_record{ *std::get< 1 >( res ), used };
+                }
+                return std::get< 0 >( res );
         }
 
         template < typename Buffer >

@@ -152,8 +152,8 @@ template <>
 struct protocol_decl< protocol_error_record >
 {
         using value_type = protocol_error_record;
-
-        static constexpr std::size_t max_size = 18;
+        static constexpr std::size_t max_size =
+            protocol_decl< protocol_mark >::max_size + protocol_decl< std::size_t >::max_size;
 };
 
 }  // namespace emlabcpp

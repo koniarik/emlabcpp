@@ -18,14 +18,8 @@ struct protocol_mark : std::array< char, 16 >
 
 struct protocol_error_record
 {
-        const protocol_mark* err;
-        uint16_t             byte_index;
-
-        friend constexpr bool
-        operator==( const protocol_error_record& lh, const protocol_error_record& rh )
-        {
-                return lh.byte_index == rh.byte_index && lh.err == rh.err;
-        }
+        protocol_mark mark;
+        std::size_t   offset;
 };
 
 // Creates protocol_mark from simple string literal.
@@ -37,6 +31,7 @@ inline constexpr protocol_mark make_protocol_mark( const char ( &msg )[17] )
         return res;
 }
 
+static constexpr auto SIZE_ERR = make_protocol_mark( "EMLABCPPSIZE    " );
 // not enough bytes left in the message for the item
 static constexpr auto LOWSIZE_ERR = make_protocol_mark( "EMLABCPPLOWSIZE " );
 // too much bytes left in the message for the item
