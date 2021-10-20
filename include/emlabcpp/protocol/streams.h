@@ -1,7 +1,10 @@
 #ifdef EMLABCPP_USE_STREAMS
 
+#include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/protocol/base.h"
 #include "emlabcpp/protocol/register_map.h"
+
+#include <iomanip>
 
 #ifdef EMLABCPP_USE_MAGIC_ENUM
 
@@ -18,9 +21,11 @@ template < std::size_t N >
 inline std::ostream& operator<<( std::ostream& os, const protocol_message< N >& msg )
 {
         std::ios_base::fmtflags f( os.flags() );
-        os << std::hex;
+        os << std::hex << std::setfill( '0' ) << std::setw( 2 );
+        std::string l = "";
         for ( uint8_t v : msg ) {
-                os << int( v );
+                os << l << int( v );
+                l = " ";
         }
         os.flags( f );
         return os;
