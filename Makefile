@@ -12,6 +12,6 @@ build_test:
 	make -Cbuild -j
 
 exec_test: build_test
-	cd build && ctest -T Test
+	cd build && ctest -T Test --output-on-failure
 
 test: exec_test
