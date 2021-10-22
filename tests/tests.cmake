@@ -51,7 +51,7 @@ add_emlabcpp_test(protocol_register_map_test)
 file(GLOB_RECURSE HEADER_FILES
 		"${PROJECT_SOURCE_DIR}/include/*.h"
 )
-add_format_test(
-		TARGET emlabcpp_format
-		WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-		FILES ${HEADER_FILES})
+#add_format_test(
+#		TARGET emlabcpp_format
+#		WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+#		FILES ${HEADER_FILES})
