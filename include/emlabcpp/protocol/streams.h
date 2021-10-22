@@ -21,11 +21,14 @@ template < std::size_t N >
 inline std::ostream& operator<<( std::ostream& os, const protocol_message< N >& msg )
 {
         std::ios_base::fmtflags f( os.flags() );
-        os << std::hex << std::setfill( '0' ) << std::setw( 2 );
-        std::string l = "";
-        for ( uint8_t v : msg ) {
-                os << l << int( v );
-                l = " ";
+        os << std::hex;
+        char l = '|';
+        for ( std::size_t i : range( msg.size() ) ) {
+                if ( i % 4 == 0 ) {
+                        l = '|';
+                }
+                os << l << std::setfill( '0' ) << std::setw( 2 ) << int( msg[i] );
+                l = ':';
         }
         os.flags( f );
         return os;
@@ -55,20 +58,33 @@ inline std::ostream& operator<<( std::ostream& os, const protocol_endianess_enum
         return os;
 }
 
-template < typename... Regs >
-inline std::ostream& operator<<( std::ostream& os, const protocol_register_map< Regs... >& m )
+template < protocol_endianess_enum Endianess, typename... Regs >
+inline std::ostream&
+operator<<( std::ostream& os, const protocol_register_map< Endianess, Regs... >& m )
 {
-        using map = protocol_register_map< Regs... >;
+        using map = protocol_register_map< Endianess, Regs... >;
+
+        auto key_to_str = []( auto key ) {
+#ifdef EMLABCPP_USE_MAGIC_ENUM
+                return magic_enum::enum_name( key );
+#else
+                return std::to_string( key );
+#endif
+        };
+
+        std::size_t max_key_size = 0;
+
+        for_each_index< sizeof...( Regs ) >( [&]< std::size_t i >() {
+                static constexpr auto key = map::register_key( bounded_constant< i > );
+                max_key_size              = key_to_str( key ).size();
+        } );
+
         for_each_index< sizeof...( Regs ) >( [&]< std::size_t i >() {
                 static constexpr auto key = map::register_key( bounded_constant< i > );
                 const auto&           val = m.template get_val< key >();
 
-#ifdef EMLABCPP_USE_MAGIC_ENUM
-                os << magic_enum::enum_name( key );
-#else
-                os << key;
-#endif
-                os << "\t" << val << "\n";
+                os << std::left << std::setw( static_cast< int >( max_key_size ) )
+                   << key_to_str( key ) << "\t" << val << "\n";
         } );
         return os;
 }

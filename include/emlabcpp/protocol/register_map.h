@@ -28,14 +28,15 @@ struct protocol_reg
 // serialization and deserialization of bytes into the values defined in the map. This includes
 // additional information that can be accessed about the map. This can also be used as simple table
 // of configuration values.
-template < typename... Regs >
+template < protocol_endianess_enum Endianess, typename... Regs >
 class protocol_register_map
 {
         static_assert( are_same_v< typename Regs::key_type... > );
 
 public:
-        using registers_tuple = std::tuple< Regs... >;
-        using key_type        = typename std::tuple_element_t< 0, registers_tuple >::key_type;
+        static constexpr protocol_endianess_enum endianess = Endianess;
+        using registers_tuple                              = std::tuple< Regs... >;
+        using key_type = typename std::tuple_element_t< 0, registers_tuple >::key_type;
 
         static constexpr std::size_t registers_count = sizeof...( Regs );
         using register_index = bounded< std::size_t, 0, registers_count - 1 >;

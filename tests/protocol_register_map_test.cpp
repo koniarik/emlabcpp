@@ -17,6 +17,7 @@ enum test_keys
 };
 
 struct test_map : protocol_register_map<
+                      PROTOCOL_BIG_ENDIAN,
                       protocol_reg< FOO, uint32_t >,
                       protocol_reg< WOO, uint32_t >,
                       protocol_reg< TOO, uint8_t >,
