@@ -471,18 +471,36 @@ constexpr bool until_index( PredFunction&& f )
 //
 // Expectes the bounded value to be valid (that is within the range)
 template < bounded_derived IndexType, typename NullFunction >
-constexpr auto select_index( IndexType i, NullFunction&& f )
+requires( !requires( NullFunction f ) {
+        {
+                f.template operator()< 0 >()
+                } -> std::same_as< void >;
+} ) constexpr auto select_index( IndexType i, NullFunction&& f )
 {
         using T = decltype( f.template operator()< 0 >() );
         T res;
+        select_index( i, [&]< std::size_t i >() {
+                res = f.template operator()< i >();
+        } );
+        return res;
+}
+
+template < bounded_derived IndexType, typename NullFunction >
+requires requires( NullFunction f )
+{
+        {
+                f.template operator()< 0 >()
+                } -> std::same_as< void >;
+}
+constexpr void select_index( IndexType i, NullFunction&& f )
+{
         until_index< IndexType::max_val + 1 >( [&]< std::size_t j >() {
                 if ( *i == j ) {
-                        res = f.template operator()< j >();
+                        f.template operator()< j >();
                         return true;
                 }
                 return false;
         } );
-        return res;
 }
 
 struct uncurry_impl
