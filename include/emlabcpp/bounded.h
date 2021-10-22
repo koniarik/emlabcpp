@@ -77,6 +77,16 @@ public:
                 return val_;
         }
 
+        void rotate_right( T step )
+        {
+                val_ = min_val + ( val_ + step - min_val ) % ( max_val - min_val );
+        }
+
+        void rotate_left( T step )
+        {
+                val_ = min_val + ( val_ - step - min_val ) % ( max_val - min_val );
+        }
+
         friend constexpr auto operator<=>( const bounded&, const bounded& ) = default;
 
         // template < std::totally_ordered_with< T > U >
