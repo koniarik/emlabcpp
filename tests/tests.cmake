@@ -6,7 +6,12 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_compile_options(
+function(emlabcpp_setup_test target)
+  target_include_directories(${target} PRIVATE tests/include/)
+  target_link_libraries(${target} emlabcpp)
+  add_test(NAME ${target} COMMAND ${target})
+
+  target_compile_options( ${target} PRIVATE
   -gdwarf
   -Werror
   -Wextra
@@ -28,11 +33,12 @@ add_compile_options(
   -DEMLABCPP_ASSERT_NATIVE
   )
 
+endfunction()
+
 function(add_emlabcpp_test name)
   add_executable(${name} tests/${name}.cpp)
-  target_link_libraries(${name} GTest::GTest GTest::Main emlabcpp)
-  target_include_directories(${name} PRIVATE tests/include/)
-  add_test(NAME ${name} COMMAND ${name})
+  target_link_libraries(${name} GTest::GTest GTest::Main)
+  emlabcpp_setup_test(${name})
 endfunction()
 
 add_emlabcpp_test(static_circular_buffer_test)
@@ -48,9 +54,11 @@ add_emlabcpp_test(protocol_def_test)
 add_emlabcpp_test(protocol_sophisticated_test)
 add_emlabcpp_test(protocol_register_map_test)
 	
-file(GLOB_RECURSE HEADER_FILES
-		"${PROJECT_SOURCE_DIR}/include/*.h"
-)
+include(examples/examples.cmake)
+
+#file(GLOB_RECURSE HEADER_FILES
+#		"${PROJECT_SOURCE_DIR}/include/*.h"
+#)
 #add_format_test(
 #		TARGET emlabcpp_format
 #		WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
