@@ -1,3 +1,4 @@
+#include "emlabcpp/either.h"
 #include "emlabcpp/protocol/def.h"
 
 #pragma once
