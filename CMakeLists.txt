@@ -2,13 +2,15 @@ cmake_minimum_required(VERSION 3.16)
 
 project(emlabcpp)
 
-include(CTest)
 
 add_library(emlabcpp INTERFACE)
 target_include_directories(emlabcpp INTERFACE include/)
 
-if(BUILD_TESTING)
-	include(tests/tests.cmake)
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+	include(CTest)
+	if(BUILD_TESTING)
+		include(tests/tests.cmake)
+	endif()
 endif()
 
 install(TARGETS emlabcpp)
