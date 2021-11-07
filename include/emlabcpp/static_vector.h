@@ -189,11 +189,11 @@ private:
         // Reference to the item in data_storage.
         [[nodiscard]] reference ref_item( size_type i )
         {
-                return *std::launder( reinterpret_cast< T* >( &data_[i] ) );
+                return *reinterpret_cast< T* >( &data_[i] );
         }
         [[nodiscard]] const_reference ref_item( size_type i ) const
         {
-                return *std::launder( reinterpret_cast< const T* >( &data_[i] ) );
+                return *reinterpret_cast< const T* >( &data_[i] );
         }
 
         // Cleans entire buffer from items.
@@ -274,11 +274,11 @@ class static_vector_iterator : public generic_iterator< static_vector_iterator< 
 public:
         T& operator*()
         {
-                return *std::launder( reinterpret_cast< T* >( raw_ptr_ ) );
+                return *reinterpret_cast< T* >( raw_ptr_ );
         }
         const T& operator*() const
         {
-                return *std::launder( reinterpret_cast< const T* >( raw_ptr_ ) );
+                return *reinterpret_cast< const T* >( raw_ptr_ );
         }
 
         static_vector_iterator& operator+=( std::ptrdiff_t offset )
@@ -326,11 +326,11 @@ class const_static_vector_iterator : public generic_iterator< const_static_vecto
 public:
         const T& operator*()
         {
-                return *std::launder( reinterpret_cast< const T* >( raw_ptr_ ) );
+                return *reinterpret_cast< const T* >( raw_ptr_ );
         }
         const T& operator*() const
         {
-                return *std::launder( reinterpret_cast< const T* >( raw_ptr_ ) );
+                return *reinterpret_cast< const T* >( raw_ptr_ );
         }
 
         const_static_vector_iterator& operator+=( std::ptrdiff_t offset )

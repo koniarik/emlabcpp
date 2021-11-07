@@ -207,8 +207,6 @@ private:
 
         // private methods
         // --------------------------------------------------------------------------------
-        // To understand std::launder:
-        // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0532r0.pdf
         //
         // Set of [delete,init,emplace]_item methods is necessary as data_ is not array of T, but
         // array of byte-like-type that can store T -> T does not have to be initialized there. We
@@ -232,15 +230,14 @@ private:
                 ::new ( gen_ptr ) T( std::forward< Args >( args )... );
         }
 
-        // Reference to the item in data_storage. std::launder is necessary here per the paper
-        // linked above.
+        // Reference to the item in data_storage.
         [[nodiscard]] reference ref_item( size_type i )
         {
-                return *std::launder( reinterpret_cast< T* >( &data_[i] ) );
+                return *reinterpret_cast< T* >( &data_[i] );
         }
         [[nodiscard]] const_reference ref_item( size_type i ) const
         {
-                return *std::launder( reinterpret_cast< const T* >( &data_[i] ) );
+                return *reinterpret_cast< const T* >( &data_[i] );
         }
 
         // Cleans entire buffer from items.
