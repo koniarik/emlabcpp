@@ -77,12 +77,12 @@ public:
         /// Algorithm changes it's internal value output_ to the value that should be set to a
         /// 'thing' that controls input_ value. It tries to control the 'thing' so the input
         /// eventually converges to 'desired' value
-        void update( time_type now, float input, float desired )
+        float update( time_type now, float input, float desired )
         {
                 float t_diff = static_cast< float >( now - last_time_ );
 
                 if ( t_diff == 0.f ) {
-                        return;
+                        return output_;
                 }
 
                 float error = desired - input;
@@ -97,6 +97,8 @@ public:
 
                 last_input_ = input;
                 last_time_  = now;
+
+                return output_;
         }
 
         float get_output()
