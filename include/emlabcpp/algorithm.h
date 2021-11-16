@@ -503,27 +503,4 @@ constexpr void select_index( IndexType i, NullFunction&& f )
         } );
 }
 
-struct uncurry_impl
-{
-        template < typename Callable >
-        [[nodiscard]] constexpr auto operator()( Callable&& f ) const
-        {
-                return ( *this ) | std::forward< Callable >( f );
-        }
-        template < typename Callable >
-        [[nodiscard]] constexpr auto operator|( Callable&& f ) const
-        {
-                return [ff = std::forward< Callable >( f )]< typename Tuple >( Tuple&& i_tuple ) {
-                        return std::apply( ff, std::forward< Tuple >( i_tuple ) );
-                };
-        }
-};
-
-/// Takes Callable object 'f', which takes multiple arguments and returns
-/// function that calls 'f', but accepts tuple of arguments, rather than the
-/// arguments directly
-///
-/// Note: returned function has copy of callable object 'f'
-static constexpr uncurry_impl uncurry;  // NOLINT(readability-identifier-naming)
-
 }  // namespace emlabcpp
