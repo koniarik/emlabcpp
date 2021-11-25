@@ -39,7 +39,7 @@ constexpr int sign( T&& val )
 }
 
 /// maps input value 'input' from input range to equivalent value in output range
-template < arithmetic_base U, arithmetic_base T >
+template < arithmetic_base T, arithmetic_base U >
 [[nodiscard]] constexpr U map_range( T input, T from_min, T from_max, U to_min, U to_max )
 {
         return to_min + ( to_max - to_min ) * static_cast< U >( input - from_min ) /
