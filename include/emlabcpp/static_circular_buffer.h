@@ -1,4 +1,4 @@
-#include "emlabcpp/iterators/subscript.h"
+#include "emlabcpp/iterator.h"
 
 #include <cstdint>
 #include <limits>
@@ -10,6 +10,9 @@
 
 namespace emlabcpp
 {
+
+template < typename Container >
+class static_circular_buffer_iterator;
 
 /// Class implementing circular buffer of any type for up to N elements. This should work for
 /// generic type T, not just simple types.
@@ -37,8 +40,9 @@ public:
         using size_type       = std::size_t;
         using reference       = T&;
         using const_reference = const T&;
-        using iterator        = subscript_iterator< static_circular_buffer< T, N > >;
-        using const_iterator  = subscript_iterator< const static_circular_buffer< T, N > >;
+        using iterator        = static_circular_buffer_iterator< static_circular_buffer< T, N > >;
+        using const_iterator =
+            static_circular_buffer_iterator< const static_circular_buffer< T, N > >;
 
         // public methods
         // --------------------------------------------------------------------------------
@@ -76,11 +80,11 @@ public:
 
         [[nodiscard]] iterator begin()
         {
-                return iterator{ *this, 0 };
+                return iterator{ *this, from_ };
         }
         [[nodiscard]] const_iterator begin() const
         {
-                return const_iterator{ *this, 0 };
+                return const_iterator{ *this, from_ };
         }
 
         [[nodiscard]] std::reverse_iterator< iterator > rbegin()
@@ -113,11 +117,11 @@ public:
 
         [[nodiscard]] iterator end()
         {
-                return iterator{ *this, size() };
+                return iterator{ *this, to_ };
         }
         [[nodiscard]] const_iterator end() const
         {
-                return const_iterator{ *this, size() };
+                return const_iterator{ *this, to_ };
         }
 
         [[nodiscard]] std::reverse_iterator< iterator > rend()
@@ -257,6 +261,9 @@ private:
         {
                 return i == 0 ? real_size - 1 : i - 1;
         }
+
+        template < typename Container >
+        friend class static_circular_buffer_iterator;
 };
 
 template < typename T, std::size_t N >
@@ -282,5 +289,89 @@ operator!=( const static_circular_buffer< T, N >& lh, const static_circular_buff
 {
         return !( lh == rh );
 }
+
+}  // namespace emlabcpp
+
+template < typename Container >
+struct std::iterator_traits< emlabcpp::static_circular_buffer_iterator< Container > >
+{
+        using value_type        = typename Container::value_type;
+        using difference_type   = std::make_signed_t< std::size_t >;
+        using pointer           = value_type*;
+        using const_pointer     = const value_type*;
+        using reference         = value_type&;
+        using iterator_category = std::random_access_iterator_tag;
+};
+
+namespace emlabcpp
+{
+
+template < typename Container >
+class static_circular_buffer_iterator
+  : public generic_iterator< static_circular_buffer_iterator< Container > >
+{
+public:
+        static constexpr bool        is_const  = std::is_const_v< Container >;
+        static constexpr std::size_t real_size = Container::real_size;
+        using value_type                       = typename Container::value_type;
+        using reference       = std::conditional_t< is_const, const value_type&, value_type& >;
+        using difference_type = typename std::iterator_traits<
+            static_circular_buffer_iterator< Container > >::difference_type;
+
+        static_circular_buffer_iterator( Container& cont, std::size_t i )
+          : cont_( cont )
+          , i_( i )
+        {
+        }
+
+        reference operator*()
+        {
+                return cont_.ref_item( i_ );
+        }
+
+        const reference operator*() const
+        {
+                return cont_.ref_item( i_ );
+        }
+
+        static_circular_buffer_iterator& operator+=( std::size_t j )
+        {
+                i_ = ( i_ + j ) % real_size;
+                return *this;
+        }
+
+        static_circular_buffer_iterator& operator-=( std::size_t j )
+        {
+                i_ = ( i_ + real_size - j ) % real_size;
+                return *this;
+        }
+
+        auto operator<=>( const static_circular_buffer_iterator& other ) const
+        {
+                return i_ <=> other.i_;
+        }
+
+        auto operator==( const static_circular_buffer_iterator& other ) const
+        {
+                return i_ == other.i_;
+        }
+
+        difference_type operator-( const static_circular_buffer_iterator& other ) const
+        {
+                std::size_t i = i_;
+                if ( i < cont_.from_ ) {
+                        i += real_size;
+                }
+                std::size_t j = other.i_;
+                if ( j < cont_.from_ ) {
+                        j += real_size;
+                }
+                return static_cast< difference_type >( i - j );
+        }
+
+private:
+        Container&  cont_;
+        std::size_t i_;
+};
 
 }  // namespace emlabcpp

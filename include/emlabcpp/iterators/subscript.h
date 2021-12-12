@@ -76,7 +76,7 @@ public:
                 return i_ == other.i_ && &cont_ == &other.cont_;
         }
 
-        difference_type operator-( const subscript_iterator& other )
+        difference_type operator-( const subscript_iterator& other ) const
         {
                 return static_cast< difference_type >( i_ - other.i_ );
         }
