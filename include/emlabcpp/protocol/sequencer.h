@@ -27,9 +27,10 @@ public:
         {
                 std::copy( dview.begin(), dview.end(), std::back_inserter( buffer_ ) );
 
+                auto bend = buffer_.end();
                 while ( !buffer_.empty() ) {
-                        auto [piter, biter] = std::mismatch(
-                            prefix.begin(), prefix.end(), buffer_.begin(), buffer_.end() );
+                        auto [piter, biter] =
+                            std::mismatch( prefix.begin(), prefix.end(), buffer_.begin(), bend );
 
                         // not match, remove one byte from buffer
                         if ( biter == buffer_.begin() ) {
@@ -38,7 +39,7 @@ public:
                         }
 
                         // partial match - more bytes could be matched
-                        if ( piter != prefix.end() && biter != buffer_.end() ) {
+                        if ( piter != prefix.end() && biter != bend ) {
                                 buffer_.pop_front();
                                 continue;
                         }
@@ -55,16 +56,18 @@ public:
                         return fixed_size;
                 }
 
-                // This is implied by the fact that we should have full match at the start of buffer
-                EMLABCPP_ASSERT( buffer_.size() >= prefix.size() );
+                std::size_t bsize = buffer_.size();
 
-                if ( buffer_.size() < fixed_size ) {
-                        return fixed_size - buffer_.size();
+                // This is implied by the fact that we should have full match at the start of buffer
+                EMLABCPP_ASSERT( bsize >= prefix.size() );
+
+                if ( bsize < fixed_size ) {
+                        return fixed_size - bsize;
                 }
 
                 std::size_t desired_size = Def::get_size( buffer_ );
-                if ( buffer_.size() < desired_size ) {
-                        return desired_size - buffer_.size();
+                if ( bsize < desired_size ) {
+                        return desired_size - bsize;
                 }
 
                 auto opt_msg = message_type::make( view_n( buffer_.begin(), desired_size ) );
