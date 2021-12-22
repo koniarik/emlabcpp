@@ -176,14 +176,14 @@ private:
         // --------------------------------------------------------------------------------
         void delete_item( size_type i )
         {
-                ref_item( i ).~T();
+                std::destroy_at( std::addressof( ref_item( i ) ) );
         }
 
         template < typename... Args >
         void emplace_item( size_type i, Args&&... args )
         {
-                void* gen_ptr = reinterpret_cast< void* >( &data_[i] );
-                ::new ( gen_ptr ) T( std::forward< Args >( args )... );
+                std::construct_at(
+                    reinterpret_cast< T* >( &data_[i] ), std::forward< Args >( args )... );
         }
 
         // Reference to the item in data_storage.

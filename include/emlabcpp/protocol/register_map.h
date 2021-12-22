@@ -81,7 +81,7 @@ public:
         using reg_def_type = typename reg_type< Key >::def_type;
 
         protocol_register_map() = default;
-        protocol_register_map( Regs::value_type... args )
+        protocol_register_map( typename Regs::value_type... args )
           : registers_( Regs{ args }... )
         {
         }

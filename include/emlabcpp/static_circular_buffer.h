@@ -351,7 +351,7 @@ public:
                 return i_ <=> other.i_;
         }
 
-        auto operator==( const static_circular_buffer_iterator& other ) const
+        bool operator==( const static_circular_buffer_iterator& other ) const
         {
                 return i_ == other.i_;
         }
