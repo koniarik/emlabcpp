@@ -49,33 +49,28 @@ public:
         static_circular_buffer() = default;
         static_circular_buffer( const static_circular_buffer& other )
         {
-                for ( size_type i = 0; i < other.size(); ++i ) {
-                        push_back( other[i] );
-                }
+                copy_from( other );
         }
         static_circular_buffer( static_circular_buffer&& other ) noexcept
         {
-                while ( !other.empty() ) {
-                        push_back( other.pop_front() );
-                }
+                move_from( std::move( other ) );
         }
         static_circular_buffer& operator=( const static_circular_buffer& other )
         {
                 if ( this != &other ) {
-                        this->~static_circular_buffer();
-                        ::new ( this ) static_circular_buffer( other );
+                        clear();
+                        copy_from( other );
                 }
                 return *this;
         }
         static_circular_buffer& operator=( static_circular_buffer&& other ) noexcept
         {
                 if ( this != &other ) {
-                        this->~static_circular_buffer();
-                        ::new ( this ) static_circular_buffer( std::move( other ) );
+                        clear();
+                        move_from( std::move( other ) );
                 }
                 return *this;
         }
-
         // methods for handling the front side of the circular buffer
 
         [[nodiscard]] iterator begin()
@@ -249,6 +244,20 @@ private:
         {
                 while ( !empty() ) {
                         pop_front();
+                }
+        }
+
+        void copy_from( const static_circular_buffer& other )
+        {
+                for ( size_type i = 0; i < other.size(); ++i ) {
+                        emplace_back( other[i] );
+                }
+        }
+
+        void move_from( const static_circular_buffer& other )
+        {
+                for ( size_type i = 0; i < other.size(); ++i ) {
+                        emplace_back( std::move( other[i] ) );
                 }
         }
 
