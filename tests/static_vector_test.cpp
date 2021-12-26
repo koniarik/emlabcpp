@@ -5,11 +5,17 @@
 #include <gtest/gtest.h>
 
 using namespace emlabcpp;
+using namespace std::literals;
 
 static constexpr std::size_t buffer_size = 10;
 
 using trivial_buffer = static_vector< int, buffer_size >;
 using obj_buffer     = static_vector< std::string, buffer_size >;
+
+static_assert( std::regular< trivial_buffer > );
+static_assert( std::swappable< trivial_buffer > );
+static_assert( std::regular< obj_buffer > );
+static_assert( std::swappable< obj_buffer > );
 
 TEST( static_vector_test, pop_back )
 {
@@ -177,4 +183,23 @@ TEST( static_vector_test, iterators )
 
         bool are_equal = equal( data, res );
         EXPECT_TRUE( are_equal );
+}
+
+TEST( static_vector_test, swap )
+{
+        obj_buffer vec1{ std::array{ "1"s, "2"s, "3"s, "4"s } };
+        obj_buffer vec2{ std::array{ "a"s, "b"s, "c"s } };
+
+        obj_buffer vec1c = vec1;
+        obj_buffer vec2c = vec2;
+
+        swap( vec1, vec2 );
+
+        EXPECT_EQ( vec1c, vec2 );
+        EXPECT_EQ( vec2c, vec1 );
+
+        swap( vec1, vec2 );
+
+        EXPECT_EQ( vec1c, vec1 );
+        EXPECT_EQ( vec2c, vec2 );
 }

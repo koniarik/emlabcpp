@@ -9,13 +9,10 @@
 namespace emlabcpp
 {
 
-template < typename T, std::size_t N >
+template < typename StorageType, typename T, std::size_t N >
 class static_vector_iterator;
 
-template < typename T, std::size_t N >
-class const_static_vector_iterator;
-
-/// Data container for up to N elements, mirroring std::vector behavior.
+/// Data container for up to N elements
 template < typename T, std::size_t N >
 class static_vector
 {
@@ -23,8 +20,8 @@ class static_vector
         /// type for storage of one item
         using storage_type = std::aligned_storage_t< sizeof( T ), alignof( T ) >;
 
-        friend class static_vector_iterator< T, N >;
-        friend class const_static_vector_iterator< T, N >;
+        friend class static_vector_iterator< storage_type, T, N >;
+        friend class static_vector_iterator< const storage_type, T, N >;
 
 public:
         // public types
@@ -33,39 +30,55 @@ public:
         using size_type       = std::size_t;
         using reference       = T&;
         using const_reference = const T&;
-        using iterator        = static_vector_iterator< T, N >;
-        using const_iterator  = const_static_vector_iterator< T, N >;
+        using iterator        = static_vector_iterator< storage_type, T, N >;
+        using const_iterator  = static_vector_iterator< const storage_type, T, N >;
 
         // public methods
         // --------------------------------------------------------------------------------
         static_vector() = default;
         static_vector( const static_vector& other )
         {
-                for ( size_type i = 0; i < other.size(); ++i ) {
-                        push_back( other[i] );
-                }
+                copy_from( other );
         }
         static_vector( static_vector&& other ) noexcept
         {
-                for ( size_type i = 0; i < other.size(); ++i ) {
-                        push_back( std::move( other[i] ) );
-                }
+                move_from( other );
+        }
+        template < std::size_t M >
+        requires( M <= N ) static_vector( std::array< T, M > data )
+        {
+                move_from( data );
         }
         static_vector& operator=( const static_vector& other )
         {
                 if ( this != &other ) {
-                        this->~static_vector();
-                        ::new ( this ) static_vector( other );
+                        clear();
+                        copy_from( other );
                 }
                 return *this;
         }
         static_vector& operator=( static_vector&& other ) noexcept
         {
                 if ( this != &other ) {
-                        this->~static_vector();
-                        ::new ( this ) static_vector( std::move( other ) );
+                        clear();
+                        move_from( other );
                 }
                 return *this;
+        }
+
+        void swap( static_vector& other )
+        {
+                using std::swap;
+                size_type shared_n = std::min( size(), other.size() );
+                for ( size_type i = 0; i < shared_n; ++i ) {
+                        swap( ref_item( i ), other.ref_item( i ) );
+                }
+                for ( size_type i = shared_n; i < size(); ++i ) {
+                        other.emplace_item( i, std::move( ref_item( i ) ) );
+                }
+                for ( size_type i = shared_n; i < other.size(); ++i ) {
+                        emplace_item( i, std::move( other.ref_item( i ) ) );
+                }
         }
 
         iterator begin()
@@ -169,8 +182,8 @@ private:
         // private attributes
         // --------------------------------------------------------------------------------
 
-        storage_type data_[N] = { { 0 } };  /// storage of the entire dataset
-        size_type    size_    = 0;          /// count of items
+        storage_type data_[N];   /// storage of the entire dataset
+        size_type    size_ = 0;  /// count of items
 
         // private methods
         // --------------------------------------------------------------------------------
@@ -184,6 +197,22 @@ private:
         {
                 std::construct_at(
                     reinterpret_cast< T* >( &data_[i] ), std::forward< Args >( args )... );
+        }
+
+        template < typename Container >
+        void copy_from( const Container& cont )
+        {
+                for ( const T& item : cont ) {
+                        emplace_back( item );
+                }
+        }
+
+        template < typename Container >
+        void move_from( Container&& cont )
+        {
+                for ( T& item : cont ) {
+                        emplace_back( std::move( item ) );
+                }
         }
 
         // Reference to the item in data_storage.
@@ -229,41 +258,38 @@ operator!=( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
         return !( lh == rh );
 }
 
+template < typename T, std::size_t N >
+inline void swap( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
+{
+        lh.swap( rh );
+}
+
 }  // namespace emlabcpp
 
-template < typename T, std::size_t N >
-struct std::iterator_traits< emlabcpp::static_vector_iterator< T, N > >
+template < typename StorageType, typename T, std::size_t N >
+struct std::iterator_traits< emlabcpp::static_vector_iterator< StorageType, T, N > >
 {
-        using value_type        = T;
-        using difference_type   = std::ptrdiff_t;
-        using pointer           = T*;
-        using const_pointer     = const T*;
-        using reference         = T&;
-        using iterator_category = std::random_access_iterator_tag;
-};
+        static constexpr bool is_const = std::is_const_v< StorageType >;
 
-template < typename T, std::size_t N >
-struct std::iterator_traits< emlabcpp::const_static_vector_iterator< T, N > >
-{
         using value_type        = T;
         using difference_type   = std::ptrdiff_t;
-        using pointer           = const T*;
-        using const_pointer     = const T*;
-        using reference         = const T&;
+        using pointer           = std::conditional_t< is_const, const T*, T* >;
+        using const_pointer     = const pointer;
+        using reference         = std::conditional_t< is_const, const T&, T& >;
         using iterator_category = std::random_access_iterator_tag;
 };
 
 namespace emlabcpp
 {
 
-// TODO: merge the iterators into one impl :/
-
-/// Iterator for static vecotr - nonconst
-template < typename T, std::size_t N >
-class static_vector_iterator : public generic_iterator< static_vector_iterator< T, N > >
+template < typename StorageType, typename T, std::size_t N >
+class static_vector_iterator
+  : public generic_iterator< static_vector_iterator< StorageType, T, N > >
 {
-        using storage_type = typename static_vector< T, N >::storage_type;
-
+        static constexpr bool is_const = std::is_const_v< StorageType >;
+        using storage_type             = StorageType;
+        using reference = typename std::iterator_traits< static_vector_iterator >::reference;
+        using pointer   = typename std::iterator_traits< static_vector_iterator >::pointer;
         static_vector_iterator( storage_type* ptr )
           : raw_ptr_( ptr )
         {
@@ -272,13 +298,13 @@ class static_vector_iterator : public generic_iterator< static_vector_iterator< 
         friend class static_vector< T, N >;
 
 public:
-        T& operator*()
+        reference operator*()
         {
-                return *reinterpret_cast< T* >( raw_ptr_ );
+                return *reinterpret_cast< pointer >( raw_ptr_ );
         }
-        const T& operator*() const
+        const reference operator*() const
         {
-                return *reinterpret_cast< const T* >( raw_ptr_ );
+                return *reinterpret_cast< const pointer >( raw_ptr_ );
         }
 
         static_vector_iterator& operator+=( std::ptrdiff_t offset )
@@ -308,58 +334,6 @@ public:
 
 private:
         storage_type* raw_ptr_;
-};
-
-/// Iterator for static vecotr - const
-template < typename T, std::size_t N >
-class const_static_vector_iterator : public generic_iterator< const_static_vector_iterator< T, N > >
-{
-        using storage_type = typename static_vector< T, N >::storage_type;
-
-        const_static_vector_iterator( const storage_type* ptr )
-          : raw_ptr_( ptr )
-        {
-        }
-
-        friend class static_vector< T, N >;
-
-public:
-        const T& operator*()
-        {
-                return *reinterpret_cast< const T* >( raw_ptr_ );
-        }
-        const T& operator*() const
-        {
-                return *reinterpret_cast< const T* >( raw_ptr_ );
-        }
-
-        const_static_vector_iterator& operator+=( std::ptrdiff_t offset )
-        {
-                raw_ptr_ += offset;
-                return *this;
-        }
-        const_static_vector_iterator& operator-=( std::ptrdiff_t offset )
-        {
-                raw_ptr_ -= offset;
-                return *this;
-        }
-
-        auto operator<=>( const const_static_vector_iterator& other ) const
-        {
-                return raw_ptr_ <=> other.raw_ptr_;
-        }
-        bool operator==( const const_static_vector_iterator& other ) const
-        {
-                return raw_ptr_ == other.raw_ptr_;
-        }
-
-        constexpr std::ptrdiff_t operator-( const const_static_vector_iterator& other ) const
-        {
-                return raw_ptr_ - other.raw_ptr_;
-        }
-
-private:
-        const storage_type* raw_ptr_;
 };
 
 }  // namespace emlabcpp
