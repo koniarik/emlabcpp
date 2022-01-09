@@ -13,12 +13,12 @@ int main( int, char*[] )
         // ---------------------------------------------------------------------------------------
         // protocol library allows serialization and deserialization of C++ native types into binary
         // messages. The protocol is defined with types from the library and the library provides
-        // handler that does the conversion based on the definition. The definition is done using
+        // handler that does the conversion based on that definition. The definition is done using
         // types and templates and is separated from the actuall serialization and deserialization.
         //
         // There are two top level types that shall be used: protocol_tuple and
-        // protocol_command_group. The user should use these as top level type and define the
-        // protocol in these. They can be nested.
+        // protocol_command_group (variant-like). The user should use these as top level type and 
+        // define the protocol in these. They can be nested.
         //
         // For the examples we define the protocol by definining structures that inherit from the
         // protocol definition, this is not necessary and simple aliases to types can be used, these
@@ -28,9 +28,9 @@ int main( int, char*[] )
         // 'with_items' that make the definition more readable.
 
         // ---------------------------------------------------------------------------------------
-        // The protocol tuple is defined by endianess of subsequent types and with items that are
-        // stored in the tuple. The protocol_tuple works with std::tuple as the type that actually
-        // holds the value. The example definition below defines protocol for converting
+        // The protocol tuple is defined by endianess and items that are stored in the tuple. 
+        // protocol_tuple uses std::tuple as the type that actually holds the value. The example 
+        // definition below defines protocol for converting
         // `std::tuple<uint32_t, in16_t, int16_t>` into binary message `protocol_message<8>` of
         // size 8.
         //
@@ -41,7 +41,9 @@ int main( int, char*[] )
         };
 
         // Once protocol is defined, it can be used with protocol_handler to do the serialization
-        // and deserialization.
+        // and deserialization. The materialization of code for handling the protocol happens in the
+        // handler itself. The compile time is costly for the handler, it is preferable to use it
+        // in standalone compilation unit.
         using example_tuple_handler = em::protocol_handler< example_tuple >;
 
         std::tuple< uint32_t, int16_t, int16_t > tuple_val = { 666, -2, 2 };
@@ -50,6 +52,7 @@ int main( int, char*[] )
         // The library has support for streams, these however are stored in separate included file
         // and has to be enable by defining EMLABCPP_USE_STREAMS
         std::cout << "Message from example_tuple looks like: " << tuple_msg << "\n";
+        // The message output is: |00:00:02:9a|ff:fe:00:02
 
         // Deserialization produces either the value on successfull serialization or
         // protocol_error_record with information about what failed and on which byte. Note: the
@@ -114,6 +117,7 @@ int main( int, char*[] )
         em::protocol_message< 22 > group_msg = example_group_handler::serialize( group_val );
 
         std::cout << "Message from example group looks like: " << group_msg << "\n";
+        // this produces: |00:01:00:00|00:2a
 
         example_group_handler::extract( group_msg )
             .match(
