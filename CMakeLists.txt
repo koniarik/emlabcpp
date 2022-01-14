@@ -1,17 +1,13 @@
 cmake_minimum_required(VERSION 3.16)
 
-if(NOT DEFINED PROJECT_NAME) # detection for disabling test inspired by Catch2
-  set(NOT_SUBPROJECT ON)
-else()
-  set(NOT_SUBPROJECT OFF)
-endif()
+option(EMLABCPP_TESTS_ENABLED "Decides whenever tests should be enabled" OFF)
 
 project(emlabcpp)
 
 add_library(emlabcpp INTERFACE)
 target_include_directories(emlabcpp INTERFACE include/)
 
-if(NOT_SUBPROJECT)
+if(EMLABCPP_TESTS_ENABLED)
     include(CTest)
     if(BUILD_TESTING)
         add_subdirectory(tests)

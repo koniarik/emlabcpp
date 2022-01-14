@@ -8,7 +8,7 @@ clean:
 	rm -rf ./build
 
 build_test:
-	cmake -Bbuild $(EXTRAARGS) -DCMAKE_EXPORT_COMPILE_COMMANDS=1
+	cmake -Bbuild $(EXTRAARGS) -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 	make -Cbuild -j
 
 exec_test: build_test
