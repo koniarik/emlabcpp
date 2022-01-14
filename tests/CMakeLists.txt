@@ -1,13 +1,13 @@
-include(cmake/util.cmake)
+include(../cmake/util.cmake)
 
-add_subdirectory(tests/3rd_party/google-test)
+add_subdirectory(3rd_party/google-test)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 function(emlabcpp_setup_test target)
-  target_include_directories(${target} PRIVATE tests/include/)
+  target_include_directories(${target} PRIVATE include/)
   target_link_libraries(${target} emlabcpp)
   add_test(NAME ${target} COMMAND ${target})
 
@@ -36,7 +36,7 @@ function(emlabcpp_setup_test target)
 endfunction()
 
 function(add_emlabcpp_test name)
-  add_executable(${name} tests/${name}.cpp)
+  add_executable(${name} ${name}.cpp)
   target_link_libraries(${name} GTest::GTest GTest::Main)
   emlabcpp_setup_test(${name})
 endfunction()
@@ -53,8 +53,6 @@ add_emlabcpp_test(pid_test)
 add_emlabcpp_test(protocol_def_test)
 add_emlabcpp_test(protocol_sophisticated_test)
 add_emlabcpp_test(protocol_register_map_test)
-	
-include(examples/examples.cmake)
 
 #file(GLOB_RECURSE HEADER_FILES
 #		"${PROJECT_SOURCE_DIR}/include/*.h"
