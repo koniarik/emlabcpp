@@ -1,18 +1,47 @@
 
 # emlabcpp
 
-This library is a collection of small tools used by our laboratory in C++ code.
-The tools are primary designed for embedded environment - we avoid dynamic allocation of memory.
+A C++20 header-only library that focuses on embedded development. 
+It is by product of your development of robotics hardware.
 
-Repository is at https://gitlab.fi.muni.cz/xkoniar/emlabcpp and mirrored to github repository https://github.com/emlab-fi/emlabcpp 
-NOTE: examples were not tested. may contain typos
+It provides a wide set of tools, from complex mechanisms (protocol library) to simple utilites (view).
+The library is heavily used our core project and spread itself into other smaller projects.
 
-## algorithm.h
-Contains a subset of algorithms from \<algorith\> standard library, with a two major changes:
- 1. All functions expects container with begin/end iterators as an input, not the iterators themselves
- 2. Functions are able to iterate over `std::tuple`
- 
-This is expanded with other short functions representing simple algorithms and necessary stuff.
+- [Installation](#Installation)
+- [Components](#Components)
+    - [algorithm.h](#algorithm.h)
+    - [either.h](#either.h)
+    - [view.h](#view.h)
+    - [iterator.h](#iterator.h)
+    - [quantity.h](#quantity.h)
+    - [pid.h](#pid.h)
+    - [static_circular_buffer.h](#static_circular_buffer.h)
+    - [static_vector.h](#static_vector.h)
+    - [types.h](#types.h)
+
+## Installation
+Repository is at https://gitlab.fi.muni.cz/xkoniar/emlabcpp and mirrored to github repository https://github.com/emlab-fi/emlabcpp.
+The prefered of getting the library for now is via fetchcontent:
+
+```cmake
+FetchContent_Declare(
+  emlabcpp
+  GIT_REPOSITORY https://gitlab.fi.muni.cz/xkoniar/emlabcpp/
+  GIT_TAG v1.0
+)
+FetchContent_MakeAvailable(emlabcpp)
+```
+
+## Components
+The library can be view as a set of components.
+These are organized based on the root header file for the said component.
+
+### algorithm.h
+Contains a set of algorithms similar to \<algorithm\> standard library, with a major change. 
+Functions take as an argument a container itself, rather than iterators.
+Most of the functions are also able to work with `std::tuple`.
+This is expanded with other short functions representing simple algorithms.
+
 The two core functions are `find_if` and `for_each`, both are implemented with variant over containers and tuples.
 
 ```cpp
@@ -34,8 +63,7 @@ auto iter = find_if(vec_data, [&]( int i ){
 
 ```
 
-
-## either.h
+### either.h
 
 `either<A,B>` is `std::variant` alternative able to hold only two types.
 Either however contains multiple methods to transform it's state and type.
@@ -49,7 +77,7 @@ either<U, error> fuu();
 either<T, error> foo(int i)
 {
     return fuu()
-        .convert_left([&](U val){
+        .convert_left([&](U val) -> T{
             T res{val};
             T.do_magic(i);
             return res;
@@ -67,162 +95,11 @@ foo(42).match(
     })
 ```
 
-## iterator.h
+### view.h
 
-contains generic_iterator\<Derived\> CRTP baseclass. 
-This simplifies implementation of custom iterators, as most of the methods/operators we expect of iterators can be implemented based on a small set of functions. (operator+, operator++(int), operator++ can be implemetned with operator+=)
-
-For implementing iterator, you only provide the basic subset for this class and it takes care of the rest.
-Keep in mind that this is for "general" use case, and for optimallity you may be better served with fully custom iterator.
-
-### iterators/access.h
-
-Iterators overlays the data stored in input container, and provides access only to 'reference' provided by function out of item in the container.
-
-```cpp
-
-struct foo{
-    std::string attr;
-}
-
-std::vector<foo> vec_data;
-
-auto acview = access_view(vec_data, [](const foo& item){ return item.attr; });
-
-for(const std::string & item : acview)
-{
-    std::cout << item << '\n';
-}
-```
-
-### iterators/numeric.h
-
-Iterator that mimics real data container of sequence of numbers. The number is stored inside the iterator and when iterator is advanced, so is the internal value changed. Contains also functions like `range(from,to)` that creates a range from this iterators.
-
-```cpp
-std::vector<int> vec_data;
-
-for(std::size_t i : range(vec_data.size()-1))
-{
-    std::cout << vec_data[i] << '-' << vec_data[i+1] << '\n';
-}
-```
-
-### iterators/subscript.h
-
-Iterator over datatype that implemented operator[] but does not have iterators.
-
-```cpp
-std::bitset<32> bit_data;
-
-for(bool b : subscript_view(bit_data))
-{
-    std::cout << (b ? 'a' : 'b');
-}
-```
-
-## physical_quantity.h
-
-System of physical quantities based on quantity.hs
-These represent physical quantity that remembers it's unit in it's own type (templated).
-
-This makes it possible to have velocity/length/time represented with this template, where each quantity is different type.
-Also, the result type of operations like  length divided by time is of type velocity.
-
-This increases safety of physical computations, as it enforces correct units in the math.
-The `operator<<` is overloaded to output units for the type, such as: `0.25m`
-
-```cpp
-position uniform_accel(position s0, velocity v0, acceleration a, timeq t)
-{
-    return s0 + v0*t + 0.5*a*t*t;
-}
-
-std::cout << position{0.25};
-```
-
-## pid.h
-
-Basic PID regulator implementation using floats, templated based on the time type;
-
-```cpp
-using time_t = uint32_t;
-pid<time_t>::config conf = {
-    .p = 0.5f, 
-    .i = 0.005f, 
-    .d = 0.2f, 
-    .min = 0.0f, 
-    .max = 256.0f
-    };
-pid<time_t> regulator{time{0}, conf};
-
-time_t time = 0;
-float state = 0.0f;
-while(true)
-{
-    regulator.update(time, state, std::cos(time*0.05f));
-    state = regulator.output();
-
-    time += 1;
-}
-```
-
-## quantity.h
-
-Simple thin overlay over numeric types, that gives abillity to implement strongly typed numeric types.
-This is handy in case you want to enforce correctness on type level. See implementation of physical_quantity as an example.
-
-## static_circular_buffer.h
-
-Basic implementation of circular buffer with static maximal size, that can store non-default constructible elements.
-No dynamic allocation is used.
-
-```cpp
-static_circular_buffer<std::byte, 256> buffr;
-
-for(int i : {0,1,2,3,4,5,6})
-{
-    buffr.push_back(i);
-}
-
-for(int i : buffr)
-{
-    std::cout << i << ",";
-}
-
-while(!buffr.empty())
-{
-    buffr.pop_front();
-}
-```
-
-## static_vector.h
-
-Basic implementation of vector with static maximal size, that can store non-default constructible elements.
-No dynamic allocation is used.
-
-## types.h
-
-A library of helpers for type inspection, this contains types similar to type_traits of standard library.
-This follows the pattern of std:: library - type check is structure with `::value`/`::type` attributes and using for \_v/\_t suffixed aliases exists.
-
-```cpp
-using data = std::vector<int>;
-
-auto fun = [](int i) -> std::string
-{
-    return std::to_string(i)
-};
-using fun = decltype(fun);
-
-static_assert(std::is_same_v<mapped_t<data, fun>, std::string>);
-```
-
-## view.h
-
-Simple container storing a pair of iterators to different container - non-owning container of data.
-This makes it possible to use API that expects data container as input, rather then pair of iterators.
-You can also use this to return as a iterator range instead of just `std::pair` of iterators.
+Simple container storing a pair of iterators - non-owning container of data.
+This make it possible to pass a subset of container to API expecting a container itself.
+It is also more sensible for functions that would return `std::pair` of iterators.
 
 ```cpp
 
@@ -253,7 +130,162 @@ for(int i : reversed(vec_data))
 std::cout << '\n';
 ```
 
-## zip.h
+### iterator.h
+
+Contains `generic_iterator\<Derived\>` CRTP baseclass. 
+This simplifies implementation of custom iterators, as most of the methods/operators we expect of iterators can be implemented based on a small set of functions. (operator+, operator++(int), operator++ can be implemetned with operator+=)
+
+For implementing iterator, you only provide the basic subset for this class and it takes care of the rest.
+Keep in mind that this is for "general" use case, and for optimallity you may be better served with fully custom iterator.
+
+#### iterators/numeric.h
+
+Iterator that mimics real data container of sequence of numbers. The number is stored inside the iterator and when iterator is advanced, so is the internal value changed. Contains also functions like `range(from,to)` that creates a range from this iterators.
+
+```cpp
+std::vector<int> vec_data;
+
+for(std::size_t i : range(vec_data.size()-1))
+{
+    std::cout << vec_data[i] << '-' << vec_data[i+1] << '\n';
+}
+```
+
+#### iterators/subscript.h
+
+Iterator over datatype that implemented operator[] but does not have iterators.
+
+```cpp
+std::bitset<32> bit_data;
+
+for(bool b : subscript_view(bit_data))
+{
+    std::cout << (b ? 'a' : 'b');
+}
+```
+
+#### iterators/access.h
+
+Iterators overlays the data stored in input container, and provides access only to 'reference' provided by function out of item in the container.
+
+```cpp
+
+struct foo{
+    std::string attr;
+}
+
+std::vector<foo> vec_data;
+
+auto acview = access_view(vec_data,
+                          [](const foo& item) -> const std::string& { 
+                            return item.attr;
+                          });
+
+for(const std::string & item : acview)
+{
+    std::cout << item << '\n';
+}
+```
+
+### quantity.h
+
+Simple thin overlay over numeric types, that gives abillity to implement strongly typed numeric types.
+This is handy in case you want to enforce correctness on type level.
+See implementation of `physical_quantity` as an example.
+
+### physical_quantity.h
+
+System of physical quantities based on `quantity.h`.
+These represent physical quantity that stores it's unit in it's own type (templated).
+
+This makes it possible to have velocity/length/time represented as distinct types.
+Also, the result type of operations like  length divided by time is of type velocity.
+
+This increases safety of physical computations, as it enforces correct units in the math.
+The `operator<<` is overloaded to output units for the type, such as: `0.25m`
+
+```cpp
+position uniform_accel(position s0, velocity v0, acceleration a, timeq t)
+{
+    return s0 + v0*t + 0.5*a*t*t;
+}
+
+std::cout << position{0.25};
+```
+
+### pid.h
+
+Basic PID regulator implementation using floats, templated based on the time type;
+
+```cpp
+using time_t = uint32_t;
+pid<time_t>::config conf = {
+    .p = 0.5f, 
+    .i = 0.005f, 
+    .d = 0.2f, 
+    .min = 0.0f, 
+    .max = 256.0f
+    };
+pid<time_t> regulator{time{0}, conf};
+
+time_t time = 0;
+float state = 0.0f;
+while(true)
+{
+    regulator.update(time, state, std::cos(time*0.05f));
+    state = regulator.output();
+
+    time += 1;
+}
+```
+
+### static_circular_buffer.h
+
+Basic implementation of circular buffer with static maximal size, that can store non-default constructible elements.
+No dynamic allocation is used.
+
+```cpp
+static_circular_buffer<std::byte, 256> buffr;
+
+for(int i : {0,1,2,3,4,5,6})
+{
+    buffr.push_back(i);
+}
+
+for(int i : buffr)
+{
+    std::cout << i << ",";
+}
+
+while(!buffr.empty())
+{
+    buffr.pop_front();
+}
+```
+
+### static_vector.h
+
+Basic implementation of vector with static maximal size, that can store non-default constructible elements.
+No dynamic allocation is used.
+
+### types.h
+
+A library of helpers for type inspection, this contains types similar to `type_traits` of standard library.
+This follows the pattern of `std::` library - type check is structure with `::value`/`::type` attributes and using for `\_v`/`\_t` suffixed aliases exists.
+
+```cpp
+using data = std::vector<int>;
+
+auto fun = [](int i) -> std::string
+{
+    return std::to_string(i)
+};
+using fun = decltype(fun);
+
+static_assert(std::is_same_v<mapped_t<data, fun>, std::string>);
+```
+
+### zip.h
 
 zip iterator over multiple data containers, which dereference value is tuple of references to provided containers.
 
