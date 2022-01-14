@@ -9,15 +9,17 @@ The library is heavily used our core project and spread itself into other smalle
 
 - [Installation](#Installation)
 - [Components](#Components)
-    - [algorithm.h](#algorithm.h)
-    - [either.h](#either.h)
-    - [view.h](#view.h)
-    - [iterator.h](#iterator.h)
-    - [quantity.h](#quantity.h)
-    - [pid.h](#pid.h)
-    - [static_circular_buffer.h](#static_circular_buffer.h)
-    - [static_vector.h](#static_vector.h)
-    - [types.h](#types.h)
+    - [algorithm.h](#algorithmh)
+    - [either.h](#eitherh)
+    - [view.h](#viewh)
+    - [bounded.h](#boundedh)
+    - [protocol.h](#protocolh)
+    - [iterator.h](#iteratorh)
+    - [quantity.h](#quantityh)
+    - [pid.h](#pidh)
+    - [static_circular_buffer.h](#static_circular_bufferh)
+    - [static_vector.h](#static_vectorh)
+    - [types.h](#typesh)
 
 ## Installation
 Repository is at https://gitlab.fi.muni.cz/xkoniar/emlabcpp and mirrored to github repository https://github.com/emlab-fi/emlabcpp.
@@ -62,6 +64,8 @@ auto iter = find_if(vec_data, [&]( int i ){
 });
 
 ```
+
+See examples for an overview of algorithms.
 
 ### either.h
 
@@ -129,6 +133,46 @@ for(int i : reversed(vec_data))
 }
 std::cout << '\n';
 ```
+
+### bounded.h
+
+Simple overlay type for constraing value within specified range.
+Makes it possible to create clear API that does not have to check the sanity of values.
+`bounded<int,0,42>` means that the `bounded` class contains `int` type that is constrained within `0` and `42`.
+
+The API with `bounded` has more clear intent:
+```cpp
+void foo(bounded<int,0,42>);
+```
+
+### protocol.h
+
+The protocol library serializes and deserialize C++ data structures into binary messages.
+The principle is that the protocol is defined with library types.
+Based on the definition, `protocol_handler<Def>` provides routines for serialization and deserialization of data structures corresponding to said definition.
+
+In case of work with simple robot, we can create simple protocol:
+```cpp
+using distance = unsigned;
+using angle = int;
+
+enum robot_cmds : uint8_t
+{
+    FORWARD = 0,
+    LEFT = 1,
+    RIGHT = 2
+}
+
+struct robot_cmd_group
+  : protocol_command_group< PROTOCOL_LITTLE_ENDIAN >::with_commands<
+      protocol_command< FORWARD >::with_args< distance >,
+      protocol_command< LEFT >::with_args< angle >,
+      protocol_command< RIGHT >::with_args< angle >
+    >
+{};
+```
+
+See examples for more detailed explanation.
 
 ### iterator.h
 
