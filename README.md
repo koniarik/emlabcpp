@@ -176,7 +176,7 @@ See examples for more detailed explanation.
 
 ### iterator.h
 
-Contains `generic_iterator\<Derived\>` CRTP baseclass. 
+Contains `generic_iterator<Derived>` CRTP baseclass. 
 This simplifies implementation of custom iterators, as most of the methods/operators we expect of iterators can be implemented based on a small set of functions. (operator+, operator++(int), operator++ can be implemetned with operator+=)
 
 For implementing iterator, you only provide the basic subset for this class and it takes care of the rest.
@@ -315,7 +315,7 @@ No dynamic allocation is used.
 ### types.h
 
 A library of helpers for type inspection, this contains types similar to `type_traits` of standard library.
-This follows the pattern of `std::` library - type check is structure with `::value`/`::type` attributes and using for `\_v`/`\_t` suffixed aliases exists.
+This follows the pattern of `std::` library - type check is structure with `::value`/`::type` attributes and using for `_v`/`_t` suffixed aliases exists.
 
 ```cpp
 using data = std::vector<int>;
