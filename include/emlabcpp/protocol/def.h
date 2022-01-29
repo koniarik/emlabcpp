@@ -12,6 +12,7 @@
 namespace emlabcpp
 {
 
+// TODO: removes this and move it
 template < typename Iterator, bounded_derived SizeType >
 class bounded_view
 {
@@ -90,6 +91,20 @@ public:
         const
         {
                 return { beg_ + n, end_ };
+        }
+
+        template < typename OffsetSizeType >
+        std::optional< bounded_view< iterator, OffsetSizeType > > opt_offset( std::size_t offset )
+        {
+                auto new_beg = beg_ + offset;
+                if ( new_beg + OffsetSizeType::min_val > end_ ) {
+                        return {};
+                }
+                auto new_end = new_beg + OffsetSizeType::max_val;
+                if ( new_end <= end_ ) {
+                        return { bounded_view< iterator, OffsetSizeType >{ new_beg, new_end } };
+                }
+                return { bounded_view< iterator, OffsetSizeType >{ new_beg, end_ } };
         }
 };
 
@@ -186,8 +201,9 @@ struct protocol_def< std::array< D, N >, Endianess >
         using value_type = typename protocol_decl< std::array< D, N > >::value_type;
         static constexpr std::size_t max_size = protocol_decl< std::array< D, N > >::max_size;
 
-        using sub_def   = protocol_def< D, Endianess >;
-        using size_type = bounded< std::size_t, sub_def::size_type::min_val * N, max_size >;
+        using sub_def       = protocol_def< D, Endianess >;
+        using sub_size_type = typename sub_def::size_type;
+        using size_type     = bounded< std::size_t, sub_def::size_type::min_val * N, max_size >;
 
         // In both methods, we create the bounded size without properly checking that it the bounded
         // type was made properly (that is, that the provided std::size_t value is in the range).
@@ -213,19 +229,14 @@ struct protocol_def< std::array< D, N >, Endianess >
                 return *opt_bused;
         }
 
-        static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
+        static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
             -> protocol_result< value_type >
         {
                 value_type  res{};
                 std::size_t offset = 0;
-                std::size_t size   = buffer.size();
 
                 for ( std::size_t i : range( N ) ) {
-                        auto opt_view =
-                            bounded_view< const uint8_t*, typename sub_def::size_type >::make(
-                                view_n(
-                                    buffer.begin() + offset,
-                                    min( sub_def::max_size, size - offset ) ) );
+                        auto opt_view = buffer.template opt_offset< sub_size_type >( offset );
 
                         if ( !opt_view ) {
                                 return { offset, &SIZE_ERR };
@@ -278,13 +289,12 @@ struct protocol_def< std::tuple< Ds... >, Endianess >
                 return *opt_bused;
         }
 
-        static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
+        static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
             -> protocol_result< value_type >
         {
                 value_type res;
 
                 std::size_t                           offset = 0;
-                std::size_t                           size   = buffer.size();
                 std::optional< const protocol_mark* > opt_err;
 
                 until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
@@ -292,10 +302,7 @@ struct protocol_def< std::tuple< Ds... >, Endianess >
                         using sub_def = protocol_def< D, Endianess >;
 
                         auto opt_view =
-                            bounded_view< const uint8_t*, typename sub_def::size_type >::make(
-                                view_n(
-                                    buffer.begin() + offset,
-                                    min( sub_def::max_size, size - offset ) ) );
+                            buffer.template opt_offset< typename sub_def::size_type >( offset );
 
                         if ( !opt_view ) {
                                 opt_err = &SIZE_ERR;
@@ -374,7 +381,6 @@ struct protocol_def< std::variant< Ds... >, Endianess >
             -> protocol_result< value_type >
         {
                 protocol_result< value_type > res{ 0, &UNDEFVAR_ERR };
-                std::size_t                   size = buffer.size();
 
                 auto [used, idres] = id_def::deserialize( buffer.template first< id_size >() );
                 if ( std::holds_alternative< const protocol_mark* >( idres ) ) {
@@ -394,9 +400,7 @@ struct protocol_def< std::variant< Ds... >, Endianess >
                         }
 
                         auto opt_view =
-                            bounded_view< const uint8_t*, typename sub_def::size_type >::make(
-                                view_n(
-                                    item_view.begin(), min( sub_def::max_size, size - used ) ) );
+                            item_view.template opt_offset< typename sub_def::size_type >( 0 );
 
                         if ( !opt_view ) {
                                 res.res = &SIZE_ERR;
@@ -821,6 +825,87 @@ struct protocol_def< protocol_error_record, Endianess >
                     mused + oused,
                     protocol_error_record{
                         *std::get_if< 0 >( &mres ), *std::get_if< 0 >( &ores ) } };
+        }
+};
+
+template < typename T, std::size_t N, protocol_endianess_enum Endianess >
+struct protocol_def< static_vector< T, N >, Endianess >
+{
+        using value_type = typename protocol_decl< static_vector< T, N > >::value_type;
+
+        static_assert( N <= std::numeric_limits< uint16_t >::max() );
+
+        using counter_type = typename protocol_decl< static_vector< T, N > >::counter_type;
+        using counter_def  = protocol_def< counter_type, Endianess >;
+        using sub_def      = protocol_def< T, Endianess >;
+
+        static constexpr std::size_t counter_size = counter_def::max_size;
+
+        static_assert( counter_def::size_type::has_single_element );
+
+        static constexpr std::size_t max_size = protocol_decl< static_vector< T, N > >::max_size;
+        static constexpr std::size_t min_size = counter_size;
+        using size_type                       = bounded< std::size_t, min_size, max_size >;
+
+        static constexpr size_type
+        serialize_at( std::span< uint8_t, max_size > buffer, value_type item )
+        {
+
+                counter_def::serialize_at(
+                    buffer.template first< counter_size >(),
+                    static_cast< counter_type >( item.size() ) );
+
+                // TODO: this duplicates std::array, generalize?
+                auto iter = buffer.begin() + counter_size;
+                for ( std::size_t i : range( item.size() ) ) {
+                        std::span< uint8_t, sub_def::max_size > sub_view{ iter, sub_def::max_size };
+
+                        bounded sub_bused = sub_def::serialize_at( sub_view, item[i] );
+
+                        std::advance( iter, *sub_bused );
+                }
+
+                auto used = static_cast< std::size_t >( std::distance( buffer.begin(), iter ) );
+                auto opt_bused = size_type::make( used );
+                EMLABCPP_ASSERT( opt_bused );
+
+                return *opt_bused;
+        }
+
+        static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
+            -> protocol_result< value_type >
+        {
+                auto [cused, cres] =
+                    counter_def::deserialize( buffer.template first< counter_size >() );
+
+                if ( std::holds_alternative< const protocol_mark* >( cres ) ) {
+                        return { cused, *std::get_if< const protocol_mark* >( &cres ) };
+                }
+                std::size_t cnt    = *std::get_if< 0 >( &cres );
+                std::size_t offset = counter_size;
+                value_type  res{};
+
+                for ( std::size_t i : range( cnt ) ) {
+                        ignore( i );
+
+                        auto opt_view =
+                            buffer.template opt_offset< typename sub_def::size_type >( offset );
+                        if ( !opt_view ) {
+                                return { offset, &SIZE_ERR };
+                        }
+
+                        auto [used, subres] = sub_def::deserialize( *opt_view );
+
+                        offset += used;
+
+                        if ( std::holds_alternative< const protocol_mark* >( subres ) ) {
+                                return { offset, *std::get_if< const protocol_mark* >( &subres ) };
+                        } else {
+                                res.push_back( *std::get_if< 0 >( &subres ) );
+                        }
+                }
+
+                return { offset, res };
         }
 };
 

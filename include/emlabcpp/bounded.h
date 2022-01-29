@@ -25,6 +25,7 @@ namespace emlabcpp
 template < typename T, T MinVal, T MaxVal >
 class bounded
 {
+        static_assert( MinVal <= MaxVal );
         T val_;
 
         constexpr explicit bounded( T val )

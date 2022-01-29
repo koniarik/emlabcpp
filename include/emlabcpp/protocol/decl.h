@@ -2,6 +2,7 @@
 #include "emlabcpp/protocol/error.h"
 #include "emlabcpp/protocol/message.h"
 #include "emlabcpp/quantity.h"
+#include "emlabcpp/static_vector.h"
 #include "emlabcpp/types.h"
 
 #include <variant>
@@ -154,6 +155,15 @@ struct protocol_decl< protocol_error_record >
         using value_type = protocol_error_record;
         static constexpr std::size_t max_size =
             protocol_decl< protocol_mark >::max_size + protocol_decl< std::size_t >::max_size;
+};
+
+template < typename T, std::size_t N >
+struct protocol_decl< static_vector< T, N > >
+{
+        using value_type   = static_vector< T, N >;
+        using counter_type = uint16_t;
+        static constexpr std::size_t max_size =
+            protocol_decl< counter_type >::max_size + protocol_decl< T >::max_size * N;
 };
 
 }  // namespace emlabcpp

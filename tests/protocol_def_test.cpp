@@ -42,13 +42,13 @@ struct valid_test_case : protocol_test_fixture
                 auto [pused, res] = pitem::deserialize(
                     *bounded_view< const uint8_t*, typename pitem::size_type >::make(
                         view_n( buffer.begin(), *used ) ) );
-                EXPECT_EQ( pused, expected_buffer.size() );
                 if ( std::holds_alternative< const protocol_mark* >( res ) ) {
-                        FAIL() << std::get< 1 >( res );
+                        FAIL() << *std::get< 1 >( res );
                 } else {
                         auto rval = std::get< 0 >( res );
                         EXPECT_EQ( rval, val );
                 }
+                EXPECT_EQ( pused, expected_buffer.size() );
         }
 
         void generate_name( std::ostream& os ) const final
@@ -128,6 +128,11 @@ make_invalid_test_case( const std::vector< uint8_t >& buff, const protocol_error
                 return new invalid_test_case< T >( buff, rec );
         };
 }
+
+using variable_size_type = static_vector< uint8_t, 7 >;
+variable_size_type VARIABLE_VAL_1{ std::array< uint8_t, 3 >{ 1, 2, 3 } };
+variable_size_type VARIABLE_VAL_2{ std::array< uint8_t, 7 >{ 1, 2, 3, 4, 5, 6, 7 } };
+variable_size_type VARIABLE_VAL_3{ std::array< uint8_t, 0 >{} };
 
 int main( int argc, char** argv )
 {
@@ -236,7 +241,31 @@ int main( int argc, char** argv )
             // endianess change
             make_specific_valid_test_case<
                 PROTOCOL_LITTLE_ENDIAN,
-                protocol_endianess< PROTOCOL_BIG_ENDIAN, uint16_t > >( uint16_t{ 42 }, { 0, 42 } )
+                protocol_endianess< PROTOCOL_BIG_ENDIAN, uint16_t > >( uint16_t{ 42 }, { 0, 42 } ),
+            // static_vector
+            make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >(
+                static_vector< int8_t, 9 >( std::array< int8_t, 3 >{ -1, 0, 42 } ),
+                { 3, 0, 255, 0, 42 } ),
+            make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >(
+                static_vector< int16_t, 9 >( std::array< int16_t, 4 >{ -1, 0, 666, 42 } ),
+                { 4, 0, 255, 255, 0, 0, 154, 2, 42, 0 } ),
+            make_valid_test_case< PROTOCOL_BIG_ENDIAN >(
+                static_vector< int16_t, 9 >( std::array< int16_t, 4 >{ -1, 0, 666, 42 } ),
+                { 0, 4, 255, 255, 0, 0, 2, 154, 0, 42 } ),
+            make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >(
+                static_vector< int16_t, 9 >(
+                    std::array< int16_t, 9 >{ 1, 2, 3, 4, 5, 6, 7, 8, 9 } ),
+                { 9, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0 } ),
+            make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >(
+                static_vector< int16_t, 9 >(), { 0, 0 } ),
+            make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >(
+                static_vector< variable_size_type, 4 >( std::array< variable_size_type, 3 >{
+                    VARIABLE_VAL_1, VARIABLE_VAL_2, VARIABLE_VAL_3 } ),
+                { 3, 0, 3, 0, 1, 2, 3, 7, 0, 1, 2, 3, 4, 5, 6, 7, 0, 0 } ),
+            make_invalid_test_case< static_vector< int16_t, 9 > >(
+                { 1, 0 }, protocol_error_record{ SIZE_ERR, 2 } ),
+            make_invalid_test_case< static_vector< int16_t, 9 > >(
+                { 4, 0, 0, 0, 0, 0, 0 }, protocol_error_record{ SIZE_ERR, 6 } )
 
         };
 
