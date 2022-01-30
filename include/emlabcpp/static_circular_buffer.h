@@ -333,6 +333,13 @@ public:
         {
         }
 
+        static_circular_buffer_iterator( const static_circular_buffer_iterator& )     = default;
+        static_circular_buffer_iterator( static_circular_buffer_iterator&& ) noexcept = default;
+
+        static_circular_buffer_iterator&
+        operator=( const static_circular_buffer_iterator& ) = default;
+        static_circular_buffer_iterator& operator=( static_circular_buffer_iterator&& ) = default;
+
         reference operator*()
         {
                 return cont_.ref_item( i_ );

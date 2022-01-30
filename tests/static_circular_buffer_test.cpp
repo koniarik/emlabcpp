@@ -1,13 +1,16 @@
 #include "emlabcpp/static_circular_buffer.h"
 
+#include "emlabcpp/algorithm.h"
+
 #include <gtest/gtest.h>
 
 using namespace emlabcpp;
 
 static constexpr std::size_t buffer_size = 5;
 
-using trivial_buffer = static_circular_buffer< int, buffer_size >;
-using obj_buffer     = static_circular_buffer< std::string, buffer_size >;
+using trivial_buffer   = static_circular_buffer< int, buffer_size >;
+using trivial_iterator = typename trivial_buffer::iterator;
+using obj_buffer       = static_circular_buffer< std::string, buffer_size >;
 
 TEST( static_circular_buffer_test, pop_front )
 {
@@ -210,4 +213,25 @@ TEST( static_circular_buffer_test, move_object )
         moved2 = std::move( moved );
 
         EXPECT_EQ( cpy, moved2 );
+}
+
+TEST( static_vector_test, iterators )
+{
+        trivial_buffer     tbuff;
+        std::vector< int > data = { 1, 2, 3, 4, 5 };
+        for ( int i : data ) {
+                tbuff.push_back( i );
+        }
+
+        std::vector< int > res;
+        for ( int i : tbuff ) {
+                res.push_back( i );
+        }
+
+        bool are_equal = equal( data, res );
+        EXPECT_TRUE( are_equal );
+
+        trivial_iterator beg = tbuff.begin();
+        trivial_iterator cpy{ beg };
+        EXPECT_EQ( beg, cpy );
 }

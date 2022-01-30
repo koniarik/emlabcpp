@@ -9,8 +9,9 @@ using namespace std::literals;
 
 static constexpr std::size_t buffer_size = 10;
 
-using trivial_buffer = static_vector< int, buffer_size >;
-using obj_buffer     = static_vector< std::string, buffer_size >;
+using trivial_buffer   = static_vector< int, buffer_size >;
+using trivial_iterator = typename trivial_buffer::iterator;
+using obj_buffer       = static_vector< std::string, buffer_size >;
 
 static_assert( std::regular< trivial_buffer > );
 static_assert( std::swappable< trivial_buffer > );
@@ -183,6 +184,10 @@ TEST( static_vector_test, iterators )
 
         bool are_equal = equal( data, res );
         EXPECT_TRUE( are_equal );
+
+        trivial_iterator beg = tbuff.begin();
+        trivial_iterator cpy{ beg };
+        EXPECT_EQ( beg, cpy );
 }
 
 TEST( static_vector_test, swap )

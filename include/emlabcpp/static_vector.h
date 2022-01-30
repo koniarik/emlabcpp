@@ -298,6 +298,12 @@ class static_vector_iterator
         friend class static_vector< T, N >;
 
 public:
+        static_vector_iterator( const static_vector_iterator& )     = default;
+        static_vector_iterator( static_vector_iterator&& ) noexcept = default;
+
+        static_vector_iterator& operator=( const static_vector_iterator& ) = default;
+        static_vector_iterator& operator=( static_vector_iterator&& ) = default;
+
         reference operator*()
         {
                 return *reinterpret_cast< pointer >( raw_ptr_ );
