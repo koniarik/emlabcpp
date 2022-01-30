@@ -7,7 +7,7 @@
 using namespace emlabcpp;
 using namespace std::literals;
 
-static constexpr std::size_t buffer_size = 5;
+static constexpr std::size_t buffer_size = 7;
 
 using trivial_buffer   = static_circular_buffer< int, buffer_size >;
 using trivial_iterator = typename trivial_buffer::iterator;
@@ -216,7 +216,7 @@ TEST( static_circular_buffer_test, move_object )
         EXPECT_EQ( cpy, moved2 );
 }
 
-TEST( static_vector_test, iterators )
+TEST( static_circular_buffer_test, iterators )
 {
         trivial_buffer     tbuff;
         std::vector< int > data = { 1, 2, 3, 4, 5 };
@@ -237,7 +237,7 @@ TEST( static_vector_test, iterators )
         EXPECT_EQ( beg, cpy );
 }
 
-TEST( static_vector_test, view )
+TEST( static_circular_buffer_test, view )
 {
         obj_buffer obuff;
         for ( std::string s : { "1"s, "2"s, "3"s, "4"s } ) {
@@ -248,4 +248,22 @@ TEST( static_vector_test, view )
         ss << view{ obuff };
 
         EXPECT_EQ( ss.str(), "1,2,3,4" );
+}
+
+TEST( static_circular_buffer_test, back_inserter )
+{
+        trivial_buffer       buff;
+        std::array< int, 3 > data = { 1, 2, 3 };
+
+        std::copy( data.begin(), data.end(), std::back_inserter( buff ) );
+
+        data = { 4, 5, 6 };
+
+        std::copy( data.begin(), data.end(), std::back_inserter( buff ) );
+
+        std::array< int, 6 > expected = { 1, 2, 3, 4, 5, 6 };
+
+        bool are_equal = equal( buff, expected );
+        EXPECT_TRUE( are_equal ) << "buff: " << view{ buff } << "\n"
+                                 << "expected: " << view{ expected } << "\n";
 }

@@ -46,7 +46,8 @@ public:
 
                         // partial match - matched maximum bytes available
                         if ( piter != prefix.end() ) {
-                                return fixed_size - std::distance( prefix.begin(), piter );
+                                return fixed_size - static_cast< std::size_t >(
+                                                        std::distance( prefix.begin(), piter ) );
                         }
 
                         break;

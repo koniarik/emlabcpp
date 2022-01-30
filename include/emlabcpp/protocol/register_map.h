@@ -1,5 +1,6 @@
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/protocol/base.h"
+#include "emlabcpp/protocol/decl.h"
 
 #pragma once
 
