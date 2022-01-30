@@ -29,14 +29,16 @@ template < typename Variant, typename... Callables >
 auto match( Variant&& var, Callables&&... cals )
 {
         return visit(
-            matcher< std::decay_t< Callables >... >( std::forward< Callables >( cals )... ), var );
+            matcher< std::decay_t< Callables >... >( std::forward< Callables >( cals )... ),
+            std::forward< Variant >( var ) );
 }
 
 template < typename Variant, typename... Callables >
 auto apply_on_match( Variant&& var, Callables&&... cals )
 {
         return apply_on_visit(
-            matcher< std::decay_t< Callables >... >( std::forward< Callables >( cals )... ), var );
+            matcher< std::decay_t< Callables >... >( std::forward< Callables >( cals )... ),
+            std::forward< Variant >( var ) );
 }
 
 }  // namespace emlabcpp
