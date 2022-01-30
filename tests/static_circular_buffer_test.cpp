@@ -5,6 +5,7 @@
 #include <gtest/gtest.h>
 
 using namespace emlabcpp;
+using namespace std::literals;
 
 static constexpr std::size_t buffer_size = 5;
 
@@ -234,4 +235,17 @@ TEST( static_vector_test, iterators )
         trivial_iterator beg = tbuff.begin();
         trivial_iterator cpy{ beg };
         EXPECT_EQ( beg, cpy );
+}
+
+TEST( static_vector_test, view )
+{
+        obj_buffer obuff;
+        for ( std::string s : { "1"s, "2"s, "3"s, "4"s } ) {
+                obuff.push_back( s );
+        }
+        std::stringstream ss;
+
+        ss << view{ obuff };
+
+        EXPECT_EQ( ss.str(), "1,2,3,4" );
 }

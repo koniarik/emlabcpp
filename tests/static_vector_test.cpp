@@ -208,3 +208,13 @@ TEST( static_vector_test, swap )
         EXPECT_EQ( vec1c, vec1 );
         EXPECT_EQ( vec2c, vec2 );
 }
+
+TEST( static_vector_test, view )
+{
+        obj_buffer        vec1{ std::array{ "1"s, "2"s, "3"s, "4"s } };
+        std::stringstream ss;
+
+        ss << view{ vec1 };
+
+        EXPECT_EQ( ss.str(), "1,2,3,4" );
+}

@@ -176,10 +176,13 @@ template < typename Iterator >
 inline std::ostream& operator<<( std::ostream& os, const view< Iterator >& output )
 {
         using value_type = decltype( *std::declval< Iterator >() );
-        char delim       = ' ';
+        bool first       = true;
         for ( const value_type& item : output ) {
-                os << delim << item;
-                delim = ',';
+                if ( !first ) {
+                        os << ',';
+                }
+                os << item;
+                first = false;
         }
         return os;
 }

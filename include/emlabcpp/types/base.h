@@ -15,7 +15,7 @@ template < typename Container >
 struct iterator_of
 {
         using type =
-            decltype( std::begin( std::declval< std::remove_reference_t< Container > >() ) );
+            decltype( std::begin( std::declval< std::add_lvalue_reference_t< Container > >() ) );
 };
 
 template < typename Container >
