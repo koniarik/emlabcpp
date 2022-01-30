@@ -53,6 +53,8 @@ add_emlabcpp_test(pid_test)
 add_emlabcpp_test(protocol_def_test)
 add_emlabcpp_test(protocol_sophisticated_test)
 add_emlabcpp_test(protocol_register_map_test)
+add_emlabcpp_test(visit_test)
+add_emlabcpp_test(match_test)
 
 #file(GLOB_RECURSE HEADER_FILES
 #		"${PROJECT_SOURCE_DIR}/include/*.h"
