@@ -25,6 +25,9 @@ struct matcher : Callables...
         ~matcher() = default;
 };
 
+template < typename... Callables >
+matcher( Callables&&... ) -> matcher< std::decay_t< Callables >... >;
+
 template < typename Variant, typename... Callables >
 auto match( Variant&& var, Callables&&... cals )
 {
