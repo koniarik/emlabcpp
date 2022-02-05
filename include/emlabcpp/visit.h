@@ -35,9 +35,9 @@ auto apply_on_visit( Visitor&& vis, Variant&& var )
 {
         return visit(
             [&]< typename Item >( Item&& item ) {
-                    std::apply(
+                    return std::apply(
                         [&]< typename... Vals >( Vals && ... vals ) {
-                                vis( std::forward< Vals >( vals )... );
+                                return vis( std::forward< Vals >( vals )... );
                         },
                         std::forward< Item >( item ) );
             },
