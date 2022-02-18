@@ -205,22 +205,3 @@ constexpr auto pow( physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, 
 
 }  // namespace emlabcpp
 
-/// std::numeric_limits<physical_quantity> follows same logic  as std::numeric_limits<float>;
-template < int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte >
-struct std::numeric_limits<
-    emlabcpp::physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte > >
-  : std::numeric_limits< emlabcpp::quantity<
-        emlabcpp::physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte >,
-        float > >
-{
-};
-
-/// std::hash<physical_quantity> follows same logic  as std::hash<float>;
-template < int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte >
-struct std::hash<
-    emlabcpp::physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte > >
-  : std::hash< emlabcpp::quantity<
-        emlabcpp::physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte >,
-        float > >
-{
-};

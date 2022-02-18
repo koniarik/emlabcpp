@@ -11,6 +11,10 @@
 #include <ostream>
 #endif
 
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+#include <nlohmann/json.hpp>
+#endif
+
 #pragma once
 
 namespace emlabcpp
@@ -249,39 +253,62 @@ inline std::ostream& operator<<( std::ostream& os, quantity< T, ValueType > q )
 
 /// The quantity has defined partital specialization of std::numeric_limits,
 /// works as std::numeric_limits<ValueType>;
-template < typename Derived, typename ValueType >
-struct std::numeric_limits< emlabcpp::quantity< Derived, ValueType > >
+template < emlabcpp::quantity_derived T >
+struct std::numeric_limits< T >
 {
-        constexpr static Derived lowest()
-        {
-                return Derived{ std::numeric_limits< ValueType >::lowest() };
-        }
-        constexpr static Derived min()
-        {
-                return Derived{ std::numeric_limits< ValueType >::min() };
-        }
-        constexpr static Derived max()
-        {
-                return Derived{ std::numeric_limits< ValueType >::max() };
-        }
-};
+        using value_type = typename T::value_type;
 
-template < typename Tag, typename ValueType >
-struct std::numeric_limits< emlabcpp::tagged_quantity< Tag, ValueType > >
-  : std::numeric_limits<
-        emlabcpp::quantity< emlabcpp::tagged_quantity< Tag, ValueType >, ValueType > >
-{
+        constexpr static T lowest()
+        {
+                return T{ std::numeric_limits< value_type >::lowest() };
+        }
+        constexpr static T min()
+        {
+                return T{ std::numeric_limits< value_type >::min() };
+        }
+        constexpr static T max()
+        {
+                return T{ std::numeric_limits< value_type >::max() };
+        }
 };
 
 /// Hash of quantity is hash of it's value and Derived::get_unit() xored.
-template < typename Derived, typename ValueType >
-struct std::hash< emlabcpp::quantity< Derived, ValueType > >
+template < emlabcpp::quantity_derived T >
+struct std::hash< T >
 {
-        std::size_t operator()( const emlabcpp::quantity< Derived, ValueType > q )
+        std::size_t operator()( T q )
         {
                 // TODO: this should be rewritten
                 // 'reverse' the prefix+unit info in bits and than xor it with number
-                std::string unit = Derived::get_unit();
-                return std::hash< ValueType >()( *q ) ^ std::hash< std::string >()( unit );
+                std::string unit = T::get_unit();
+                return std::hash< typename T::value_type >()( *q ) ^
+                       std::hash< std::string >()( unit );
         }
 };
+
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+
+template < emlabcpp::quantity_derived T >
+struct nlohmann::adl_serializer< T >
+{
+        static void to_json( nlohmann::json& j, const T q )
+        {
+                if ( T::get_unit().empty() ) {
+                        j = *q;
+                } else {
+                        j[T::get_unit()] = *q;
+                }
+        }
+
+        static T from_json( const nlohmann::json& j )
+        {
+                using value_type = typename T::value_type;
+
+                if ( T::get_unit().empty() ) {
+                        return T{ j.get< value_type >() };
+                }
+                return T{ j[T::get_unit()].template get< value_type >() };
+        }
+};
+
+#endif
