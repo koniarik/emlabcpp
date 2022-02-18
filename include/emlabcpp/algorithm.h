@@ -189,7 +189,7 @@ template <
     typename T = std::decay_t< mapped_t< Container, UnaryFunction > > >
 [[nodiscard]] constexpr T max_elem( const Container& cont, UnaryFunction&& f = std::identity() )
 {
-        auto val = std::numeric_limits< T >::lowest();
+        T val = std::numeric_limits< T >::lowest();
         for_each( cont, [&]( const auto& item ) {  //
                 val = max( f( item ), val );
         } );
@@ -205,7 +205,7 @@ template <
     typename T = std::remove_reference_t< mapped_t< Container, UnaryFunction > > >
 [[nodiscard]] constexpr T min_elem( const Container& cont, UnaryFunction&& f = std::identity() )
 {
-        auto val = std::numeric_limits< T >::max();
+        T val = std::numeric_limits< T >::max();
         for_each( cont, [&]( const auto& item ) {  //
                 val = min( f( item ), val );
         } );
