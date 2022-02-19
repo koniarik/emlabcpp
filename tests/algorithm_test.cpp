@@ -315,6 +315,15 @@ TEST( Algorithm, map_f_to_a )
 
         is_equal = equal( map_f_to_a( idata2 ), idata2 );
         EXPECT_TRUE( is_equal );
+
+        std::tuple< int, float, int > tup1     = { -1, 0.f, 1 };
+        std::array< std::string, 3 >  tup1_res = map_f_to_a( tup1, []( auto v ) {
+                return std::to_string( v );
+        } );
+
+        EXPECT_EQ( tup1_res[0], "-1" );
+        EXPECT_EQ( tup1_res[1], "0.000000" );
+        EXPECT_EQ( tup1_res[2], "1" );
 }
 
 struct convert_test
