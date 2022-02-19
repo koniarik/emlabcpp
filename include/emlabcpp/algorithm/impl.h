@@ -25,7 +25,12 @@ find_if_impl( const std::tuple< Args... >& t, UnaryFunction&& f, std::index_sequ
         return res;
 }
 
-template < typename T, std::size_t N, typename Container, typename UnaryFunction, std::size_t... Is >
+template <
+    typename T,
+    std::size_t     N,
+    range_container Container,
+    typename UnaryFunction,
+    std::size_t... Is >
 [[nodiscard]] inline std::array< T, N >
 map_f_to_a_impl( Container&& cont, UnaryFunction&& f, std::integer_sequence< std::size_t, Is... > )
 {
@@ -43,6 +48,29 @@ map_f_to_a_impl( Container&& cont, UnaryFunction&& f, std::integer_sequence< std
         // based on standard the order of process(i) calls is defined only in case we are using
         // constructor initializer with {} brackets. Otherwise it can be any order ...
         return std::array< T, N >{ process( Is )... };
+}
+
+template <
+    typename T,
+    std::size_t        N,
+    gettable_container Container,
+    typename UnaryFunction,
+    std::size_t... Is >
+requires( !range_container< Container > ) [[nodiscard]] inline std::array< T, N > map_f_to_a_impl(
+    Container&&     cont,
+    UnaryFunction&& f,
+    std::integer_sequence< std::size_t, Is... > )
+{
+        auto process = [&]< std::size_t i >() {
+                if constexpr ( std::is_reference_v< Container > ) {
+                        return f( std::get< i >( cont ) );
+                } else {
+                        return f( std::move( std::get< i >( cont ) ) );
+                }
+        };
+
+        // viz. second map_f_to_a_impl
+        return std::array< T, N >{ process.template operator()< Is >()... };
 }
 
 template < typename >

@@ -31,6 +31,7 @@ function(emlabcpp_setup_test target)
   -fconcepts-diagnostics-depth=5
   -DEMLABCPP_USE_STREAMS
   -DEMLABCPP_ASSERT_NATIVE
+  -DEMLABCPP_USE_NLOHMANN_JSON
   )
 
 endfunction()
