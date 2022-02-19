@@ -11,7 +11,7 @@ namespace emlabcpp
 //
 // You may want to have this class (With the include) to be present in separate .cpp file, as the
 // compile time can be quite heavy.
-template < typename T >
+template < protocol_declarable T >
 struct protocol_handler
 {
         using def          = protocol_def< T, PROTOCOL_BIG_ENDIAN >;

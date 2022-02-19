@@ -791,12 +791,12 @@ struct protocol_def< protocol_mark, Endianess >
 template < protocol_endianess_enum Endianess >
 struct protocol_def< protocol_error_record, Endianess >
 {
-        using value_type = typename protocol_decl< protocol_error_record >::value_type;
-        static constexpr std::size_t max_size = protocol_decl< protocol_error_record >::max_size;
+        using decl                            = protocol_decl< protocol_error_record >;
+        using value_type                      = typename decl::value_type;
+        using mark_def                        = protocol_def< protocol_mark, Endianess >;
+        using offset_def                      = protocol_def< std::size_t, Endianess >;
+        static constexpr std::size_t max_size = decl::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
-
-        using mark_def   = protocol_def< protocol_mark, Endianess >;
-        using offset_def = protocol_def< std::size_t, Endianess >;
 
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, value_type item )

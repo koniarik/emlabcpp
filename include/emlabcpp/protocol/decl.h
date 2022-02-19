@@ -104,10 +104,10 @@ struct protocol_decl< bounded< D, Min, Max > >
         static constexpr std::size_t max_size = protocol_decl< D >::max_size;
 };
 
-template < protocol_declarable CounterDecl, protocol_declarable D >
-struct protocol_decl< protocol_sized_buffer< CounterDecl, D > >
+template < protocol_declarable CounterType, protocol_declarable D >
+struct protocol_decl< protocol_sized_buffer< CounterType, D > >
 {
-        using counter_decl = protocol_decl< CounterDecl >;
+        using counter_decl = protocol_decl< CounterType >;
         using sub_decl     = protocol_decl< D >;
         using value_type   = typename sub_decl::value_type;
 
@@ -153,8 +153,11 @@ template <>
 struct protocol_decl< protocol_error_record >
 {
         using value_type = protocol_error_record;
-        static constexpr std::size_t max_size =
-            protocol_decl< protocol_mark >::max_size + protocol_decl< std::size_t >::max_size;
+
+        using mark_decl   = protocol_decl< protocol_mark >;
+        using offset_decl = protocol_decl< std::size_t >;
+
+        static constexpr std::size_t max_size = mark_decl::max_size + offset_decl::max_size;
 };
 
 template < typename T, std::size_t N >
