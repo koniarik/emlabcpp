@@ -60,4 +60,22 @@ inline std::ostream& operator<<( std::ostream& os, tag< ID > )
 }
 #endif
 
+// ------------------------------------------------------------------------------------------------
+//// central function for returning name of type that can demangle if necessary
+
+template < typename T >
+inline std::string pretty_type_name()
+{
+        std::string res;
+#ifdef EMLABCPP_USE_DEMANGLING
+        int   tmp   = 0;
+        char* dname = abi::__cxa_demangle( typeid( T ).name(), nullptr, nullptr, &tmp );
+        res         = dname;
+        free( dname );
+#else
+        res = typeid( T ).name();
+#endif
+        return res;
+}
+
 }  // namespace emlabcpp
