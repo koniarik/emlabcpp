@@ -147,6 +147,8 @@ constexpr void for_each( Container&& cont, UnaryFunction&& f )
 template < typename T >
 struct min_max
 {
+        using value_type = T;
+
         T min{};
         T max{};
 
