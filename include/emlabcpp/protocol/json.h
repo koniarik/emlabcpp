@@ -6,6 +6,7 @@
 #include <magic_enum.hpp>
 #endif
 
+#include "emlabcpp/algorithm.h"
 #include "emlabcpp/protocol/decl.h"
 
 #pragma once
