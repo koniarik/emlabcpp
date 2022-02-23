@@ -5,8 +5,6 @@ stages:
 
 test_bare:
   stage: test
-  tags:
-    - shared-fi
   script:
     - make test
   artifacts:
@@ -18,8 +16,6 @@ test_bare:
 
 test_address:
   stage: test
-  tags:
-    - shared-fi
   script:
     - make test SANITIZER=address
   artifacts:
@@ -31,8 +27,6 @@ test_address:
 
 test_undefined:
   stage: test
-  tags:
-    - shared-fi
   script:
     - make test SANITIZER=undefined
   artifacts:
