@@ -418,8 +418,9 @@ struct protocol_json_serializer< static_vector< T, N > > : protocol_json_seriali
 
         static void add_extra( nlohmann::json& j )
         {
-                j["counter_type"] = protocol_decl< typename static_vector< T, N >::counter_type >{};
-                j["sub_type"]     = protocol_decl< T >{};
+                j["counter_type"] = protocol_decl<
+                    typename protocol_decl< static_vector< T, N > >::counter_type >{};
+                j["sub_type"] = protocol_decl< T >{};
         }
 };
 
