@@ -1,38 +1,43 @@
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
 image: cxx
-
 stages:
-  - test
-
+- test
 test_bare:
   stage: test
   script:
-    - make test
+  - make test
   artifacts:
     paths:
-      - build/Testing/*/*.xml
+    - build/Testing/*/*.xml
     reports:
       junit:
-        - build/Testing/*/*.xml
-
+      - build/Testing/*/*.xml
 test_address:
   stage: test
   script:
-    - make test SANITIZER=address
+  - make test SANITIZER=address
   artifacts:
     paths:
-      - build/Testing/*/*.xml
+    - build/Testing/*/*.xml
     reports:
       junit:
-        - build/Testing/*/*.xml
-
+      - build/Testing/*/*.xml
 test_undefined:
   stage: test
   script:
-    - make test SANITIZER=undefined
+  - make test SANITIZER=undefined
   artifacts:
     paths:
-      - build/Testing/*/*.xml
+    - build/Testing/*/*.xml
     reports:
       junit:
-        - build/Testing/*/*.xml
-
+      - build/Testing/*/*.xml
+sast:
+  stage: test
+include:
+- template: Security/SAST.gitlab-ci.yml
