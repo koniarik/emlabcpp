@@ -5,6 +5,10 @@
 #include <ostream>
 #endif
 
+#if defined( EMLABCPP_USE_DEMANGLING ) || defined( EMLABCPP_USE_TYPEID )
+#include <string>
+#endif
+
 #pragma once
 
 namespace emlabcpp
@@ -72,7 +76,7 @@ inline std::string pretty_type_name()
         char* dname = abi::__cxa_demangle( typeid( T ).name(), nullptr, nullptr, &tmp );
         res         = dname;
         free( dname );
-#else
+#elseif EMLABCPP_USE_TYPEID
         res = typeid( T ).name();
 #endif
         return res;
