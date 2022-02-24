@@ -5,9 +5,7 @@
 #include <ostream>
 #endif
 
-#if defined( EMLABCPP_USE_DEMANGLING ) || defined( EMLABCPP_USE_TYPEID )
 #include <string>
-#endif
 
 #pragma once
 
