@@ -97,7 +97,7 @@ public:
         float update( time_type now, float input, float desired )
         {
                 if ( !enabled_ ) {
-                        return;
+                        return output_;
                 }
 
                 float t_diff = static_cast< float >( now - last_time_ );
