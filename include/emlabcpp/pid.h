@@ -122,7 +122,7 @@ public:
                 return output_;
         }
 
-        float get_output()
+        float get_output() const
         {
                 return output_;
         }
