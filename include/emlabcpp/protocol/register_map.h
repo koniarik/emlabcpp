@@ -22,6 +22,10 @@ struct protocol_reg
         value_type value;
 };
 
+template < typename UnaryFunction, typename Registers >
+concept protocol_register_map_void_returning =
+    invocable_returning< UnaryFunction, void, std::tuple_element_t< 0, Registers > >;
+
 // Register map is abstraction to work with registers of external devices. It stores values of
 // serializable types that can be accessed based on key (usually enum representing address of
 // register in the device).You can access the value based on the key itself, both at compile time
@@ -87,6 +91,11 @@ public:
         {
         }
 
+        constexpr bool contains( key_type key ) const
+        {
+                return get_reg_index( key ) != std::tuple_size_v< registers_tuple >;
+        }
+
         template < key_type Key >
         reg_value_type< Key > get_val() const
         {
@@ -128,12 +137,9 @@ public:
 
         template < typename UnaryFunction >
         requires(
-            !invocable_returning<
+            !protocol_register_map_void_returning<
                 UnaryFunction,
-                void,
-                std::tuple_element_t<
-                    0,
-                    registers_tuple > > ) constexpr auto with_register( key_type key, UnaryFunction&& f )
+                registers_tuple > ) constexpr auto with_register( key_type key, UnaryFunction&& f )
             const
         {
                 using ret_type = decltype( f( std::get< 0 >( registers_ ) ) );
@@ -145,11 +151,11 @@ public:
         }
 
         template < typename UnaryFunction >
-        requires invocable_returning<
-            UnaryFunction,
-            void,
-            std::tuple_element_t< 0, registers_tuple > >
-        constexpr void with_register( key_type key, UnaryFunction&& f ) const
+        requires(
+            protocol_register_map_void_returning<
+                UnaryFunction,
+                registers_tuple > ) constexpr void with_register( key_type key, UnaryFunction&& f )
+            const
         {
                 until_index< registers_count >( [&]< std::size_t j >() {
                         using reg_type = std::tuple_element_t< j, registers_tuple >;
