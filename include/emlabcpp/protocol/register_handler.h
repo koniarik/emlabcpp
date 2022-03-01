@@ -59,9 +59,8 @@ struct protocol_register_handler
                 return std::get< 0 >( res );
         }
 
-        template < typename Buffer >
         static std::optional< protocol_error_record >
-        insert( map_type& m, key_type key, Buffer&& buff )
+        insert( map_type& m, key_type key, const view< const uint8_t* >& buff )
         {
                 std::optional< protocol_error_record > res;
                 m.setup_register( key, [&]< typename reg_type >() {
