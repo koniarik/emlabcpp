@@ -101,6 +101,16 @@ public:
                 return data_[i];
         }
 
+        template < std::size_t M >
+        explicit operator std::array< uint8_t, M >() const
+        {
+                static_assert( M >= N );
+                std::array< uint8_t, M > res{};
+                std::copy( data_.begin(), data_.end(), res.begin() );
+                std::fill( res.begin() + N, res.end(), 0 );
+                return res;
+        }
+
         friend auto operator==( const protocol_message& lh, const protocol_message& rh )
         {
                 return view_n( lh.data_.begin(), lh.used_ ) == view_n( rh.data_.begin(), rh.used_ );
