@@ -37,7 +37,3 @@ test_undefined:
     reports:
       junit:
       - build/Testing/*/*.xml
-sast:
-  stage: test
-include:
-- template: Security/SAST.gitlab-ci.yml
