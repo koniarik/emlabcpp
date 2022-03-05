@@ -1,112 +1,15 @@
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/assert.h"
+#include "emlabcpp/bounded_view.h"
 #include "emlabcpp/either.h"
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/protocol/decl.h"
-#include "emlabcpp/view.h"
-
-#include <span>
+#include "emlabcpp/protocol/serializer.h"
 
 #pragma once
 
 namespace emlabcpp
 {
-
-// TODO: removes this and move it
-template < typename Iterator, bounded_derived SizeType >
-class bounded_view
-{
-public:
-        using iterator  = Iterator;
-        using size_type = SizeType;
-
-        static constexpr std::size_t min = size_type::min_val;
-        static constexpr std::size_t max = size_type::max_val;
-
-private:
-        iterator beg_;
-        iterator end_;
-
-        bounded_view( iterator beg, iterator end )
-          : beg_( beg )
-          , end_( end )
-        {
-        }
-
-public:
-        template < typename, bounded_derived >
-        friend class bounded_view;
-
-        template < bounded_derived OtherSize >
-        requires( OtherSize::min_val >= min && OtherSize::max_val <= max )
-            bounded_view( const bounded_view< Iterator, OtherSize >& other )
-          : bounded_view( other.begin(), other.end() )
-        {
-        }
-
-        constexpr std::size_t size() const
-        {
-                return static_cast< std::size_t >( std::distance( beg_, end_ ) );
-        }
-
-        static std::optional< bounded_view > make( view< Iterator > v )
-        {
-                if ( v.size() < min ) {
-                        return {};
-                }
-                if ( v.size() > max ) {
-                        return {};
-                }
-                return { bounded_view( v.begin(), v.end() ) };
-        }
-        iterator begin() const
-        {
-                return beg_;
-        }
-        iterator end() const
-        {
-                return end_;
-        }
-
-        const auto& operator[]( std::size_t i ) const
-        {
-                return *( beg_ + i );
-        }
-
-        auto& operator[]( std::size_t i )
-        {
-                return *( beg_ + i );
-        }
-
-        template < std::size_t n >
-        requires( n <= min ) bounded_view< iterator, bounded< std::size_t, n, n > > first()
-        const
-        {
-                return { beg_, beg_ + n };
-        }
-
-        template < std::size_t n >
-        requires( n <= min )
-            bounded_view< iterator, bounded< std::size_t, min - n, max - n > > offset()
-        const
-        {
-                return { beg_ + n, end_ };
-        }
-
-        template < typename OffsetSizeType >
-        std::optional< bounded_view< iterator, OffsetSizeType > > opt_offset( std::size_t offset )
-        {
-                auto new_beg = beg_ + offset;
-                if ( new_beg + OffsetSizeType::min_val > end_ ) {
-                        return {};
-                }
-                auto new_end = new_beg + OffsetSizeType::max_val;
-                if ( new_end <= end_ ) {
-                        return { bounded_view< iterator, OffsetSizeType >{ new_beg, new_end } };
-                }
-                return { bounded_view< iterator, OffsetSizeType >{ new_beg, end_ } };
-        }
-};
 
 // protocol_def<T,E> structure defines how type T should be serialized and deserialized. Each type
 // or kind of types should overlead this structure and use same attributes as protocol_decl<T,E>. E
@@ -138,35 +41,6 @@ concept protocol_def_check = requires()
                 } -> std::same_as< protocol_result< typename T::value_type > >;
 };
 
-template < protocol_base_type T, protocol_endianess_enum Endianess >
-struct protocol_ser
-{
-        static constexpr std::size_t max_size = sizeof( T );
-        using size_type                       = bounded< std::size_t, max_size, max_size >;
-        static constexpr bool is_big_endian   = Endianess == PROTOCOL_BIG_ENDIAN;
-
-        static constexpr auto& bget( auto& buffer, std::size_t i )
-        {
-                return buffer[is_big_endian ? i : max_size - 1 - i];
-        }
-        static constexpr void serialize_at( std::span< uint8_t, max_size > buffer, T item )
-        {
-                for ( std::size_t i : range( max_size ) ) {
-                        bget( buffer, max_size - i - 1 ) = static_cast< uint8_t >( item & 0xFF );
-                        item                             = static_cast< T >( item >> 8 );
-                }
-        }
-        static constexpr T deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-        {
-                T res{};
-                for ( std::size_t i : range( max_size ) ) {
-                        res = static_cast< T >( res << 8 );
-                        res = static_cast< T >( res | bget( buffer, i ) );
-                }
-                return { res };
-        }
-};
-
 template < protocol_base_type D, protocol_endianess_enum Endianess >
 struct protocol_def< D, Endianess >
 {
@@ -184,14 +58,15 @@ struct protocol_def< D, Endianess >
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, value_type item )
         {
-                protocol_ser< value_type, Endianess >::serialize_at( buffer, item );
+                protocol_serializer< value_type, Endianess >::serialize_at( buffer, item );
                 return size_type{};
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> protocol_result< value_type >
         {
-                return { max_size, protocol_ser< value_type, Endianess >::deserialize( buffer ) };
+                return {
+                    max_size, protocol_serializer< value_type, Endianess >::deserialize( buffer ) };
         }
 };
 
@@ -341,7 +216,7 @@ struct protocol_def< std::variant< Ds... >, Endianess >
         static_assert(
             sizeof...( Ds ) < std::numeric_limits< id_type >::max(),
             "Number of items for variant is limited by the size of one byte - 256 items" );
-        static_assert( id_def::size_type::has_single_element );
+        static_assert( protocol_fixedly_sized< id_type > );
 
         static constexpr std::size_t min_size =
             id_def::size_type::min_val +
@@ -602,7 +477,7 @@ struct protocol_def< protocol_sized_buffer< CounterDef, D >, Endianess >
         static constexpr std::size_t counter_size = counter_def::max_size;
 
         // we expect that counter item does not have dynamic size
-        static_assert( counter_size_type::has_single_element );
+        static_assert( protocol_fixedly_sized< CounterDef > );
 
         static constexpr std::size_t min_size = counter_size + sub_def::size_type::min_val;
 
@@ -841,7 +716,7 @@ struct protocol_def< static_vector< T, N >, Endianess >
 
         static constexpr std::size_t counter_size = counter_def::max_size;
 
-        static_assert( counter_def::size_type::has_single_element );
+        static_assert( protocol_fixedly_sized< counter_type > );
 
         static constexpr std::size_t max_size = protocol_decl< static_vector< T, N > >::max_size;
         static constexpr std::size_t min_size = counter_size;

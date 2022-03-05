@@ -33,6 +33,9 @@ concept protocol_declarable = requires( D val )
         std::default_initializable< typename protocol_decl< D >::value_type >;
 };
 
+template < typename T >
+concept protocol_fixedly_sized = protocol_decl< T >::min_size == protocol_decl< T >::max_size;
+
 template < protocol_base_type D >
 struct protocol_decl< D >
 {

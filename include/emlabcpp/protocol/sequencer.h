@@ -17,7 +17,7 @@ public:
         static constexpr std::size_t fixed_size = Def::fixed_size;
 
 private:
-        static_circular_buffer< uint8_t, Def::buffer_size > buffer_;
+        static_circular_buffer< uint8_t, Def::message_type::max_size * 2 > buffer_;
 
 public:
         using message_type = typename Def::message_type;
