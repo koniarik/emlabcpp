@@ -46,6 +46,13 @@ public:
                 static_assert( M <= N );
         }
 
+        template < std::convertible_to< uint8_t >... Ts >
+        explicit protocol_message( Ts... inpt ) noexcept
+          : data_{ static_cast< uint8_t >( inpt )... }
+          , used_( sizeof...( Ts ) )
+        {
+        }
+
         [[nodiscard]] std::size_t size() const
         {
                 return used_;

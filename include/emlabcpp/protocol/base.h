@@ -49,6 +49,7 @@ enum protocol_endianess_enum
 };
 // TODO: when able to move to GCC11: using enum protocol_endianess_enum; and make it enum class
 
+
 // Follows a set of special data types used for definition of protocol. These either represent
 // special types or affect the serialization/deserialization process of normal types.
 // -----------------------------------------------------------------------------------------------
