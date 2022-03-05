@@ -44,5 +44,7 @@ static constexpr auto UNDEFVAR_ERR = make_protocol_mark( "EMLABCPPUNDEFVAR" );
 static constexpr auto BADVAL_ERR = make_protocol_mark( "EMLABCPPBADVAL  " );
 // no item of group matched the content of message
 static constexpr auto GROUP_ERR = make_protocol_mark( "EMLABCPPGRPMATCH" );
+// wrong checksum in the protocol
+static constexpr auto CHECKSUM_ERR = make_protocol_mark( "EMLABCPPCHECKSUM" );
 
 }  // namespace emlabcpp

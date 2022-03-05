@@ -46,8 +46,15 @@ struct protocol_packet_handler
 
         static either< value_type, protocol_error_record > extract( const message_type& msg )
         {
-                return sub_handler::extract( msg ).convert_left(
-                    [&]( std::tuple< prefix_type, size_type, value_type, checksum_type > pack ) {
+                return sub_handler::extract( msg ).bind_left(
+                    [&]( std::tuple< prefix_type, size_type, value_type, checksum_type > pack )
+                        -> either< value_type, protocol_error_record > {
+                            checksum_type present_checksum    = std::get< 3 >( pack );
+                            checksum_type calculated_checksum = Packet::get_checksum(
+                                view_n( msg.begin(), msg.size() - checksum_size ) );
+                            if ( present_checksum != calculated_checksum ) {
+                                    return protocol_error_record{};
+                            }
                             return std::get< 2 >( pack );
                     } );
         }
