@@ -42,3 +42,22 @@ TEST( Packet, simple )
                     FAIL() << e;
             } );
 }
+
+TEST( Packet, seq )
+{
+        message_type msg{
+            0x91, 0x19, 0x91, 0x19, 0x00, 0x08, 0x43, 0x43, 0x43, 0x43, 0x08, 0x16, 0x00, 0x00 };
+
+        using seq = typename packet::sequencer;
+
+        seq test_seq{};
+
+        test_seq.load_data( view{ msg } )
+            .match(
+                [&]( std::size_t ) {
+                        FAIL();
+                },
+                [&]( message_type newmsg ) {
+                        EXPECT_EQ( newmsg, msg );
+                } );
+}

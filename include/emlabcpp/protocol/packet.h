@@ -35,11 +35,13 @@ struct protocol_packet : protocol_packet_base< Def, Payload >
         static constexpr auto prefix    = Def::prefix;
         static constexpr auto endianess = Def::endianess;
 
-        using prefix_type = std::decay_t< decltype( prefix ) >;
-        using prefix_decl = protocol_decl< prefix_type >;
+        using prefix_type                        = std::decay_t< decltype( prefix ) >;
+        using prefix_decl                        = protocol_decl< prefix_type >;
+        static constexpr std::size_t prefix_size = prefix_decl::max_size;
 
-        using size_type = typename Def::size_type;
-        using size_decl = protocol_decl< size_type >;
+        using size_type                        = typename Def::size_type;
+        using size_decl                        = protocol_decl< size_type >;
+        static constexpr std::size_t size_size = size_decl::max_size;
 
         using payload_decl = protocol_decl< Payload >;
         using value_type   = typename payload_decl::value_type;
@@ -52,13 +54,17 @@ struct protocol_packet : protocol_packet_base< Def, Payload >
 
         struct sequencer_def
         {
+                using message_type = typename base::message_type;
+                using serializer   = protocol_serializer< size_type, endianess >;
+
                 static constexpr std::array< uint8_t, prefix_decl::max_size > prefix = Def::prefix;
-                static constexpr std::size_t                                  fixed_size =
-                    prefix_decl::max_size + size_decl::max_size;
+                static constexpr std::size_t fixed_size = prefix_size + size_decl::max_size;
 
                 static constexpr std::size_t get_size( const auto& buffer )
                 {
-                        return protocol_serializer< size_type, endianess >::deserialize( buffer );
+                        std::array< uint8_t, size_size > tmp;
+                        std::copy_n( buffer.begin() + prefix_size, size_size, tmp.begin() );
+                        return serializer::deserialize( tmp ) + prefix_size + size_size;
                 }
         };
 

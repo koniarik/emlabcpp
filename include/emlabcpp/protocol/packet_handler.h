@@ -29,7 +29,7 @@ struct protocol_packet_handler
                     std::make_tuple( Packet::prefix, size_type{}, val, checksum_type{} ) );
 
                 auto size = static_cast< size_type >(
-                    msg.size() - Packet::prefix_decl::max_size - Packet::size_decl::max_size );
+                    msg.size() - Packet::prefix_decl::max_size - size_size );
 
                 protocol_serializer< size_type, endianess >::serialize_at(
                     std::span< uint8_t, size_size >{ msg.begin() + size_offset, size_size }, size );

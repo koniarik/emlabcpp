@@ -1,6 +1,6 @@
 #include "emlabcpp/bounded_view.h"
-#include "emlabcpp/protocol/base.h"
 #include "emlabcpp/iterators/numeric.h"
+#include "emlabcpp/protocol/base.h"
 
 #include <span>
 
@@ -14,6 +14,7 @@ struct protocol_serializer
 {
         static constexpr std::size_t max_size = sizeof( T );
         using size_type                       = bounded< std::size_t, max_size, max_size >;
+        using view_type                       = bounded_view< const uint8_t*, size_type >;
         static constexpr bool is_big_endian   = Endianess == PROTOCOL_BIG_ENDIAN;
 
         static constexpr auto& bget( auto& buffer, std::size_t i )
@@ -27,7 +28,7 @@ struct protocol_serializer
                         item                             = static_cast< T >( item >> 8 );
                 }
         }
-        static constexpr T deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
+        static constexpr T deserialize( const view_type& buffer )
         {
                 T res{};
                 for ( std::size_t i : range( max_size ) ) {

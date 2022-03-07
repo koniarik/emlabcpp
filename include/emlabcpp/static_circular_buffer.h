@@ -350,15 +350,17 @@ public:
                 return cont_.ref_item( i_ );
         }
 
-        static_circular_buffer_iterator& operator+=( std::size_t j )
+        static_circular_buffer_iterator& operator+=( difference_type j )
         {
-                i_ = ( i_ + j ) % real_size;
+                auto uj = static_cast< std::size_t >( j );
+                i_      = ( i_ + uj ) % real_size;
                 return *this;
         }
 
-        static_circular_buffer_iterator& operator-=( std::size_t j )
+        static_circular_buffer_iterator& operator-=( difference_type j )
         {
-                i_ = ( i_ + real_size - j ) % real_size;
+                auto uj = static_cast< std::size_t >( j );
+                i_      = ( i_ + real_size - uj ) % real_size;
                 return *this;
         }
 

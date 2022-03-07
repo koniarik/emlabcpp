@@ -39,6 +39,13 @@ public:
         {
         }
 
+        /// constructor from Container, uses begin/end of the container
+        constexpr view( const range_container auto& cont )
+          : begin_( std::begin( cont ) )
+          , end_( std::end( cont ) )
+        {
+        }
+
         /// constructor from the iterators that should internally be stored
         constexpr view( Iterator begin, Iterator end )
           : begin_( std::move( begin ) )
