@@ -257,7 +257,7 @@ int main( int argc, char** argv )
         finished_ = true;
         t1.join();
 
-        em::ignore(res)
+        em::ignore(res);
         // TODO: temporary solution 
         return 0;
 }
