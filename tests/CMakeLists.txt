@@ -29,6 +29,7 @@ function(emlabcpp_setup_test target)
   -Wdouble-promotion
   -fmax-errors=5
   -fconcepts-diagnostics-depth=5
+  -ftemplate-backtrace-limit=0
   -DEMLABCPP_USE_STREAMS
   -DEMLABCPP_ASSERT_NATIVE
   -DEMLABCPP_USE_NLOHMANN_JSON

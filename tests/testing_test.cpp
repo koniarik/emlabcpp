@@ -1,5 +1,4 @@
 #include "emlabcpp/protocol/streams.h"
-#include "emlabcpp/ubjson.h"
 
 #include <iostream>
 //
