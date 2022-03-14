@@ -2,8 +2,8 @@
 #include "emlabcpp/defer.h"
 #include "emlabcpp/memory/bucket_resource.h"
 #include "emlabcpp/protocol/packet_handler.h"
-#include "emlabcpp/testing/interface.h"
-#include "emlabcpp/testing/protocol.h"
+#include "emlabcpp/experimental/testing/interface.h"
+#include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/view.h"
 #include "emlabcpp/visit.h"
 
