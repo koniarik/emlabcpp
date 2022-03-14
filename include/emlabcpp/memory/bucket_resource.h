@@ -1,9 +1,14 @@
+#include "emlabcpp/algorithm.h"
+#include "emlabcpp/iterators/numeric.h"
+
+#include <bitset>
+#include <memory_resource>
 
 #pragma once
 
 namespace emlabcpp
 {
-template < std::size_t BucketCount, std::size_t BUcketSize >
+template < std::size_t BucketCount, std::size_t BucketSize >
 class bucket_memory_resource : public std::pmr::memory_resource
 {
 public:
@@ -18,13 +23,14 @@ public:
 protected:
         void* do_allocate( std::size_t bytes, std::size_t alignment ) final
         {
+                if ( taken_.all() || bytes + alignment > BucketSize ) {
 #ifdef __EXCEPTIONS
-                if ( taken_.all() ) {
                         throw std::bad_alloc{};
-                }
 #else
-                EMLABCPP_ASSERT( !taken_.all() );
+                        EMLABCPP_ASSERT( false );
+                        return nullptr;
 #endif
+                }
 
                 std::size_t spot_i = *find_if( range( taken_.size() ), [&]( std::size_t i ) {
                         return !taken_[i];
@@ -38,22 +44,19 @@ protected:
 
         void do_deallocate( void* p, std::size_t, std::size_t ) final
         {
-                std::size_t spot_i = buffer_count;
-                for ( std::size_t i : em::range( bucket_count ) ) {
-                        std::size_t reverse_i = bucket_count - 1 - i;
-                        if ( buckets_[reverse_i] <= p ) {
-                                spot_i = reverse_i;
-                                break;
-                        }
-                }
+                auto pval = reinterpret_cast< std::size_t >( p );
+                auto bval = reinterpret_cast< std::size_t >( &buckets_ );
 
+                std::size_t spot_i = ( pval - bval ) / bucket_size;
+
+                if ( spot_i >= bucket_count ) {
 #ifdef __EXCEPTIONS
-                if ( spot_i == bucket_count ) {
                         throw std::bad_alloc{};
-                }
 #else
-                EMLABCPP_ASSERT( spot_i != bucket_count );
+                        EMLABCPP_ASSERT( false );
+                        return;
 #endif
+                }
                 taken_[spot_i] = 0;
         }
 
@@ -64,7 +67,7 @@ protected:
 
 private:
         using bucket = std::byte[bucket_size];
-        bucket       = buckets_[bucket_count];
-        std::bitset< bucket_count > taken _;
+        std::bitset< bucket_count > taken_;
+        bucket                      buckets_[bucket_count];
 };
 }  // namespace emlabcpp
