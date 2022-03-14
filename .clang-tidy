@@ -1,7 +1,7 @@
 ---
 Checks: >          
   -*,
-  bugprone-*,
+  bugprone-*,-bugprone-easily-swappable-parameters,
   cppcore*, -cppcoreguidelines-owning-memory,-cppcoreguidelines-special-member-functions,-cppcoreguidelines-pro-bounds-constant-array-index,-cppcoreguidelines-avoid-magic-numbers,-cppcoreguidelines-pro-bounds-array-to-pointer-decay,-cppcoreguidelines-macro-usage,-cppcoreguidelines-avoid-c-arrays,-cppcoreguidelines-pro-type-union-access,-cppcoreguidelines-pro-type-reinterpret-cast,
   performance*,
   modernize*, -modernize-use-trailing-return-type,-modernize-avoid-c-arrays
