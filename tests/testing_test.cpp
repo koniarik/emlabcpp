@@ -169,6 +169,9 @@ struct controller_iface : em::testing_controller_interface
                 EXPECT_PRED_FORMAT1( em::testing_gtest_predicate, res );
         }
 
+        // if the test requires an argument, the request
+        // is propagate to the interface and should be solved
+        // on this level
         em::testing_arg_variant on_arg( std::string_view key ) final
         {
                 if ( key == "arg1" ) {
