@@ -44,7 +44,8 @@ struct protocol_packet_handler
                 return msg;
         }
 
-        static either< value_type, protocol_error_record > extract( const message_type& msg )
+        static either< value_type, protocol_error_record >
+        extract( const view< const uint8_t* >& msg )
         {
                 return sub_handler::extract( msg ).bind_left(
                     [&]( std::tuple< prefix_type, size_type, value_type, checksum_type > pack )
