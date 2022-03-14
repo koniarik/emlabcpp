@@ -11,7 +11,7 @@ namespace detail
         auto linear_visit_impl( Variant&& var, auto& cb )
         {
                 if constexpr ( N == 0 ) {
-                        return cb( std::get< 0 >( var ) );
+                        return cb( std::get< 0 >( std::forward< Variant >( var ) ) );
                 } else {
                         if ( var.index() == N ) {
                                 return cb( std::get< N >( std::forward< Variant >( var ) ) );
