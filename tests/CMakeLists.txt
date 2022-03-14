@@ -33,6 +33,7 @@ function(emlabcpp_setup_test target)
   -DEMLABCPP_USE_STREAMS
   -DEMLABCPP_ASSERT_NATIVE
   -DEMLABCPP_USE_NLOHMANN_JSON
+  -DEMLABCPP_USE_GTEST
   )
 
 endfunction()

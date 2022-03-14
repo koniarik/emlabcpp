@@ -1,9 +1,9 @@
 #include "emlabcpp/assert.h"
 #include "emlabcpp/defer.h"
-#include "emlabcpp/memory/bucket_resource.h"
-#include "emlabcpp/protocol/packet_handler.h"
 #include "emlabcpp/experimental/testing/interface.h"
 #include "emlabcpp/experimental/testing/protocol.h"
+#include "emlabcpp/memory/bucket_resource.h"
+#include "emlabcpp/protocol/packet_handler.h"
 #include "emlabcpp/view.h"
 #include "emlabcpp/visit.h"
 
@@ -66,52 +66,48 @@ public:
                 store_test( name, testing_callable_overlay{ std::move( cb ) } );
         }
 
-        void spin( view< const uint8_t* > data, testing_reactor_comm_interface& comm )
+        void spin( testing_reactor_interface& comm )
         {
-                using handler = protocol_packet_handler< testing_controller_reactor_packet >;
+                auto opt_var = comm.read_variant();
 
-                handler::extract( data ).match(
-                    [&]( testing_controller_reactor_variant var ) {
-                            apply_on_visit(
-                                [&]( auto... args ) {
-                                        handle_message( args..., comm );
-                                },
-                                var );
+                if ( !opt_var ) {
+                        return;
+                }
+
+                apply_on_visit(
+                    [&]( auto... args ) {
+                            handle_message( args..., comm );
                     },
-                    [&]( protocol_error_record rec ) {
-                            comm.reply< TESTING_PROTOCOL_ERROR >( rec );
-                    } );
+                    *opt_var );
         }
 
 private:
-        void handle_message( tag< TESTING_SUITE_NAME >, testing_reactor_comm_interface& comm )
+        void handle_message( tag< TESTING_SUITE_NAME >, testing_reactor_interface& comm )
         {
-                comm.reply< TESTING_SUITE_NAME >( testing_make_name_buffer( suite_name_ ) );
+                comm.reply< TESTING_SUITE_NAME >( testing_name_to_buffer( suite_name_ ) );
         }
-        void handle_message( tag< TESTING_SUITE_DATE >, testing_reactor_comm_interface& comm )
+        void handle_message( tag< TESTING_SUITE_DATE >, testing_reactor_interface& comm )
         {
-                comm.reply< TESTING_SUITE_DATE >( testing_make_name_buffer( suite_date_ ) );
+                comm.reply< TESTING_SUITE_DATE >( testing_name_to_buffer( suite_date_ ) );
         }
-        void handle_message( tag< TESTING_COUNT >, testing_reactor_comm_interface& comm )
+        void handle_message( tag< TESTING_COUNT >, testing_reactor_interface& comm )
         {
                 comm.reply< TESTING_COUNT >( static_cast< testing_test_id >( handles_.size() ) );
         }
-        void handle_message(
-            tag< TESTING_NAME >,
-            testing_test_id                 tid,
-            testing_reactor_comm_interface& comm )
+        void
+        handle_message( tag< TESTING_NAME >, testing_test_id tid, testing_reactor_interface& comm )
         {
                 if ( tid >= handles_.size() ) {
                         comm.report_failure( TESTING_BAD_TEST_ID_E );
                         return;
                 }
-                comm.reply< TESTING_NAME >( testing_make_name_buffer( handles_[tid].name ) );
+                comm.reply< TESTING_NAME >( testing_name_to_buffer( handles_[tid].name ) );
         }
         void handle_message(
             tag< TESTING_LOAD >,
-            testing_test_id                 tid,
-            testing_run_id                  rid,
-            testing_reactor_comm_interface& comm )
+            testing_test_id            tid,
+            testing_run_id             rid,
+            testing_reactor_interface& comm )
         {
                 if ( active_exec_ ) {
                         comm.report_failure( TESTING_TEST_ALREADY_LOADED_E );
@@ -130,12 +126,11 @@ private:
             testing_run_id,
             testing_key,
             testing_arg_variant,
-            testing_reactor_comm_interface& comm )
+            testing_reactor_interface& comm )
         {
                 comm.report_failure( TESTING_UNDESIRED_MSG_E );
         }
-        void
-        handle_message( tag< TESTING_EXEC >, testing_run_id, testing_reactor_comm_interface& comm )
+        void handle_message( tag< TESTING_EXEC >, testing_run_id, testing_reactor_interface& comm )
         {
                 if ( !active_exec_ ) {
                         comm.report_failure( TESTING_TEST_NOT_LOADED_E );
@@ -162,7 +157,7 @@ private:
                 mem.deallocate( p, sizeof( T ), alignof( T ) );
         }
 
-        void exec_test( testing_reactor_comm_interface& comm )
+        void exec_test( testing_reactor_interface& comm )
         {
                 defer d = [&] {
                         comm.reply< TESTING_FINISHED >( active_exec_->rid );

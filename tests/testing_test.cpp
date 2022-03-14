@@ -1,26 +1,84 @@
-#include "emlabcpp/protocol/streams.h"
-
-#include <iostream>
-//
 #include "emlabcpp/experimental/testing/controller.h"
+#include "emlabcpp/experimental/testing/gtest.h"
 #include "emlabcpp/experimental/testing/reactor.h"
+#include "emlabcpp/protocol/streams.h"
+#include "util.h"
 
-#include <deque>
 #include <gtest/gtest.h>
-#include <thread>
 
 namespace em = emlabcpp;
+
+// ----------------------------------------------------------------------------
+// design:
+//
+//  reactor: object that exists on device with tests
+//    - tests are registered into reactor
+//    - reactor executes them based on communication with controller
+//
+//  controller: object that exists on orchestrating device
+//    - asks reactor for list of tests
+//    - can initiate execution of test
+//
+//  record: interface in tests
+//    - an API passed for each test that serves as an interface into
+//      the framework
+//
+//  reactor/controller_interface: base classes
+//    - these interfaces are used by the objects to communicate between
+//      each other
+//    - in case of controller also reporting errors/test data
 
 // ----------------------------------------------------------------------------
 // tests definitions
 
 void simple_test_case( em::testing_record& rec )
 {
+        // showcase for the record API
+
+        // request an argument from controller
+        em::testing_arg_variant var        = rec.get_arg( "arg1" );
+        uint64_t                config_val = std::get< uint64_t >( var );
+
+        for ( uint32_t i = 0; i < config_val; i++ ) {
+                auto var2 = rec.get_arg( i );
+                em::ignore( var2 );
+        }
+
+        // collecting records data in the controller
+        // this is stored for later review
+        rec.collect( "col1", "some_data" );
+        rec.collect( "col2", 42 );
+        rec.collect( 33, "foooo" );
+
+        // of course, we can decide whenever the test
+        // failed or succeeded
         rec.fail();
+        // rec.success()
+
+        // just fail/success would pollute tests with
+        // if(2 > 3){ fail(); }
+        //
+        // there is a shortand for that:
+        rec.expect( 2 < 3 );
 }
 
 struct my_test_fixture : em::testing_interface
 {
+        // The basic test unit is actually "em::testing_interface"
+        // and it's run() method.
+        //
+        // `simple_test_case` is just called in run() method of
+        // lambda handler for the testing_interface
+        //
+        // Apart from run, the test can also implement
+        // setup/teardown methods for preparation of the tests.
+        // If this methods fail (via rec.fail()) that is taken
+        // as critical failure and run() is not executed.
+        //
+        // This can lead to preparing one test "fixture"
+        // that executes preparation common in other tests
+        // which just implement the run() method.
+
         my_test_fixture() = default;
         // disabling copy should be allowed
         my_test_fixture( const my_test_fixture& ) = delete;
@@ -31,15 +89,20 @@ struct my_test_fixture : em::testing_interface
 
         void setup( em::testing_record& )
         {
+                // setup i2c
         }
 
         void teardown( em::testing_record& )
         {
+                // teardown i2c
         }
 };
 
 struct my_test_case : my_test_fixture
 {
+        // testing class using basic fixture for preparation
+        // tadaaaaah!
+
         void run( em::testing_record& rec )
         {
                 rec.collect( "some key for collector", 42 );
@@ -49,45 +112,14 @@ struct my_test_case : my_test_fixture
 };
 
 // ----------------------------------------------------------------------------
-// virtual communication line via buffers between threads
+// interfaces that has to be implemented for the framework objects
 
-struct msg_buffer
+struct reactor_iface : em::testing_reactor_interface
 {
-        std::deque< std::vector< uint8_t > > buff_;
-        std::mutex                           lock_;
+        em::thread_safe_queue& con_reac_buff;
+        em::thread_safe_queue& reac_con_buff;
 
-public:
-        void insert( std::span< uint8_t > inpt )
-        {
-                std::lock_guard g{ lock_ };
-                buff_.emplace_back( inpt.begin(), inpt.end() );
-        }
-
-        bool empty()
-        {
-                std::lock_guard g{ lock_ };
-                return buff_.empty();
-        }
-
-        em::static_vector< uint8_t, 64 > pop()
-        {
-                std::lock_guard g{ lock_ };
-                if ( buff_.empty() ) {
-                        return {};
-                }
-                em::static_vector< uint8_t, 64 > res;
-                std::copy( buff_.front().begin(), buff_.front().end(), std::back_inserter( res ) );
-                buff_.pop_front();
-                return res;
-        }
-};
-
-struct comm : em::testing_reactor_comm_interface
-{
-        msg_buffer& con_reac_buff;
-        msg_buffer& reac_con_buff;
-
-        comm( msg_buffer& cr, msg_buffer& rc )
+        reactor_iface( em::thread_safe_queue& cr, em::thread_safe_queue& rc )
           : con_reac_buff( cr )
           , reac_con_buff( rc )
         {
@@ -98,18 +130,20 @@ struct comm : em::testing_reactor_comm_interface
                 reac_con_buff.insert( inpt );
         }
 
+        // Argument specifies ideal number of bytes that should be read
+        // More is not allowed, less is aallowed
         em::static_vector< uint8_t, 64 > read( std::size_t ) final
         {
                 return con_reac_buff.pop();
         }
 };
 
-struct con_iface : em::testing_controller_interface
+struct controller_iface : em::testing_controller_interface
 {
-        msg_buffer& con_reac_buff;
-        msg_buffer& reac_con_buff;
+        em::thread_safe_queue& con_reac_buff;
+        em::thread_safe_queue& reac_con_buff;
 
-        con_iface( msg_buffer& cr, msg_buffer& rc )
+        controller_iface( em::thread_safe_queue& cr, em::thread_safe_queue& rc )
           : con_reac_buff( cr )
           , reac_con_buff( rc )
         {
@@ -125,75 +159,42 @@ struct con_iface : em::testing_controller_interface
                 return reac_con_buff.pop();
         }
 
-        static ::testing::AssertionResult pred( const char*, const em::testing_result& tres )
-        {
-                ::testing::AssertionResult res = ::testing::AssertionSuccess();
-                if ( tres.failed ) {
-                        res = ::testing::AssertionFailure() << "Tests produce a failure, stopping";
-                } else if ( tres.errored ) {
-                        res = ::testing::AssertionFailure() << "Test errored";
-                }
-                if ( tres.failed || tres.errored ) {
-                        for ( auto [key, arg] : tres.collected_data ) {
-                                res << "\n";
-                                match( key, [&]( auto val ) {
-                                        res << val;
-                                } );
-                                res << ":";
-                                match( arg, [&]( auto val ) {
-                                        res << val;
-                                } );
-                        }
-                }
-                return res;
-        }
-
+        // Once test is finished, the controller will
+        // call this method with test result.
+        //
+        // There is support for integration into gtests,
+        // that prints all collected data in failure
         void on_result( em::testing_result res ) final
         {
-                EXPECT_PRED_FORMAT1( pred, res );
-        }
-};
-
-// ----------------------------------------------------------------------------
-// register tests and exec virtual setup
-
-class gtest_testing : public ::testing::Test
-{
-        std::optional< em::testing_controller > opt_con_;
-        em::testing_test_id                     tid_;
-        em::testing_controller_interface&       ci_;
-
-public:
-        gtest_testing( em::testing_controller_interface& ci, em::testing_test_id tid )
-          : opt_con_()
-          , tid_( tid )
-          , ci_( ci )
-        {
+                EXPECT_PRED_FORMAT1( em::testing_gtest_predicate, res );
         }
 
-        void SetUp() final
+        em::testing_arg_variant on_arg( std::string_view key ) final
         {
-                opt_con_ = em::testing_controller::make( ci_ );
-                EMLABCPP_ASSERT( opt_con_ );
-        }
-
-        void TestBody() final
-        {
-                opt_con_->start_test( tid_, ci_ );
-                while ( opt_con_->has_active_test() ) {
-                        opt_con_->tick( ci_ );
+                if ( key == "arg1" ) {
+                        return 2lu;
                 }
+
+                return {};
         }
 
-        void TearDown() final
+        em::testing_arg_variant on_arg( uint32_t key ) final
         {
-                opt_con_.reset();
+                if ( key < 2u ) {
+                        return {};
+                }
+
+                return {};
         }
 };
 
 int main( int argc, char** argv )
 {
         testing::InitGoogleTest( &argc, argv );
+
+        // ----------------------------------------------------------------------------
+        // register tests and examples of lambda tests
+
         em::testing_default_reactor rec{ "testing test suite" };
 
         rec.register_callable( "simple test", simple_test_case );
@@ -218,46 +219,73 @@ int main( int argc, char** argv )
                     rec.expect( 1 > 0 );
             } ) );
 
-        msg_buffer con_reac_buff;
-        msg_buffer reac_con_buff;
+        // ----------------------------------------------------------------------------
+        // build the virtual example and run it
+
+        em::thread_safe_queue con_reac_buff;
+        em::thread_safe_queue reac_con_buff;
 
         std::atomic< bool > finished_ = false;
 
         std::thread t1{ [&] {
+                reactor_iface             iface{ con_reac_buff, reac_con_buff };
+                std::chrono::milliseconds t{ 10 };
+
                 while ( !finished_ ) {
-                        if ( !con_reac_buff.empty() ) {
-                                auto msg = con_reac_buff.pop();
-                                comm c{ con_reac_buff, reac_con_buff };
-                                rec.spin( em::view{ msg }, c );
-                        }
-                        std::chrono::milliseconds t{ 10 };
+                        rec.spin( iface );
                         std::this_thread::sleep_for( t );
                 }
         } };
 
-        con_iface ci{ con_reac_buff, reac_con_buff };
-        auto      opt_con = em::testing_controller::make( ci );
-        for ( auto [tid, tinfo] : opt_con->get_tests() ) {
-                std::string name{ tinfo.name.begin(), tinfo.name.end() };
-                ::testing::RegisterTest(
-                    "emlabcpp_testing",
-                    name.c_str(),
-                    nullptr,
-                    nullptr,
-                    __FILE__,
-                    __LINE__,
-                    [&ci, tid] {
-                            return new gtest_testing( ci, tid );
-                    } );
-        }
+        controller_iface ci{ con_reac_buff, reac_con_buff };
+
+        em::testing_register_gtests( "emlabcpp::testing", ci );
 
         auto res = RUN_ALL_TESTS();
 
         finished_ = true;
         t1.join();
 
-        em::ignore(res);
-        // TODO: temporary solution 
+        em::ignore( res );
+        // TODO: temporary solution
         return 0;
 }
 
+// and all this produces something like this, notice the collected data:
+// ➜ ./build/tests/testing_test --gtest_color=yes
+// [==========] Running 5 tests from 1 test suite.
+// [----------] Global test environment set-up.
+// [----------] 5 tests from emlabcpp::testing
+// [ RUN      ] emlabcpp::testing.simple test
+// /home/veverak/Projects/emlabcpp/test/tests/testing_test.cpp:169: Failure
+// Test produced a failure, stopping
+// collected:
+//  33 :	foooo
+//  col1 :	some_data
+//  col2 :	42
+// [  FAILED  ] emlabcpp::testing.simple test (101 ms)
+// [ RUN      ] emlabcpp::testing.simple lambda test
+// [       OK ] emlabcpp::testing.simple lambda test (102 ms)
+// [ RUN      ] emlabcpp::testing.simple struct test
+// /home/veverak/Projects/emlabcpp/test/tests/testing_test.cpp:169: Failure
+// Test produced a failure, stopping
+// collected:
+//  some key for col :	42
+// [  FAILED  ] emlabcpp::testing.simple struct test (102 ms)
+// [ RUN      ] emlabcpp::testing.complex lambda test
+// /home/veverak/Projects/emlabcpp/test/tests/testing_test.cpp:169: Failure
+// Test produced a failure, stopping
+// [  FAILED  ] emlabcpp::testing.complex lambda test (101 ms)
+// [ RUN      ] emlabcpp::testing.lambda amd fixture
+// [       OK ] emlabcpp::testing.lambda amd fixture (102 ms)
+// [----------] 5 tests from emlabcpp::testing (508 ms total)
+// 
+// [----------] Global test environment tear-down
+// [==========] 5 tests from 1 test suite ran. (508 ms total)
+// [  PASSED  ] 2 tests.
+// [  FAILED  ] 3 tests, listed below:
+// [  FAILED  ] emlabcpp::testing.simple test
+// [  FAILED  ] emlabcpp::testing.simple struct test
+// [  FAILED  ] emlabcpp::testing.complex lambda test
+// 
+//  3 FAILED TESTS

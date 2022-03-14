@@ -14,25 +14,28 @@ using testing_arg_variant   = std::variant< uint64_t, int64_t, bool, testing_str
 using testing_run_id        = uint32_t;
 using testing_test_id       = uint16_t;
 
-inline testing_name_buffer testing_make_name_buffer( std::string_view sview )
+// TODO: maybe make a function in static_vector namespace?
+template < typename T >
+inline T testing_string_to_buffer( std::string_view sview )
 {
-        // TODO: not thrilled about this, maybe design this better? so that the assert is not needed
-        // and hence this can't fail?
-        EMLABCPP_ASSERT( sview.size() <= testing_name_buffer::capacity );
+        T tmp;
+        std::copy_n( sview.begin(), min( sview.size(), T::capacity ), std::back_inserter( tmp ) );
+        return tmp;
+}
 
-        testing_name_buffer res{};
-        std::copy( sview.begin(), sview.end(), std::back_inserter( res ) );
-        return res;
+inline testing_name_buffer testing_name_to_buffer( std::string_view sview )
+{
+        return testing_string_to_buffer< testing_name_buffer >( sview );
 }
 
 inline testing_key_buffer testing_key_to_buffer( std::string_view key )
 {
-        testing_key_buffer tmp;
-        std::copy_n(
-            key.begin(),
-            min( key.size(), testing_key_buffer::capacity ),
-            std::back_inserter( tmp ) );
-        return tmp;
+        return testing_string_to_buffer< testing_key_buffer >( key );
+}
+
+inline testing_string_buffer testing_string_to_buffer( std::string_view st )
+{
+        return testing_string_to_buffer< testing_string_buffer >( st );
 }
 
 }  // namespace emlabcpp

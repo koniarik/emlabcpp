@@ -5,7 +5,7 @@
 namespace emlabcpp
 {
 
-class testing_reactor_comm_interface
+class testing_reactor_interface
 {
 public:
         virtual void                         transmit( std::span< uint8_t > ) = 0;
@@ -34,8 +34,8 @@ public:
                         [&]( auto var ) {
                                 res = var;
                         },
-                        [&]( protocol_error_record ) {
-                                // TODO: add error handling
+                        [&]( protocol_error_record rec ) {
+                                reply< TESTING_PROTOCOL_ERROR >( rec );
                         } );
                 return res;
         }
@@ -54,6 +54,6 @@ public:
                 reply< TESTING_INTERNAL_ERROR >( fenum );
         }
 
-        virtual ~testing_reactor_comm_interface() = default;
+        virtual ~testing_reactor_interface() = default;
 };
 }  // namespace emlabcpp

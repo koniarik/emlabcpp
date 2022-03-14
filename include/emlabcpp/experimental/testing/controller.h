@@ -1,7 +1,7 @@
+#include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/iterators/convert.h"
 #include "emlabcpp/match.h"
 #include "emlabcpp/protocol/packet_handler.h"
-#include "emlabcpp/experimental/testing/protocol.h"
 
 #include <memory_resource>
 
@@ -27,6 +27,8 @@ public:
         virtual void                         transmit( std::span< uint8_t > ) = 0;
         virtual static_vector< uint8_t, 64 > read( std::size_t )              = 0;
         virtual void                         on_result( testing_result )      = 0;
+        virtual testing_arg_variant          on_arg( uint32_t )               = 0;
+        virtual testing_arg_variant          on_arg( std::string_view )       = 0;
         virtual void                         on_error( const protocol_error_record& ){};
         virtual void                         on_error( testing_error_enum ){};
         virtual void                         on_wrong_message( testing_messages_enum ){};
@@ -178,7 +180,14 @@ private:
             testing_controller_interface& iface )
         {
                 EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
-                testing_arg_variant val;
+                auto val = match(
+                    k,
+                    [&]( uint32_t v ) -> testing_arg_variant {
+                            return iface.on_arg( v );
+                    },
+                    [&]( testing_key_buffer v ) -> testing_arg_variant {
+                            return iface.on_arg( std::string_view{ v.begin(), v.size() } );
+                    } );
                 iface.send< TESTING_ARG >( rid, k, val );
         }
 

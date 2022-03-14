@@ -1,6 +1,6 @@
-#include "emlabcpp/static_vector.h"
 #include "emlabcpp/experimental/testing/base.h"
-#include "emlabcpp/experimental/testing/comm_interface.h"
+#include "emlabcpp/experimental/testing/reactor_interface.h"
+#include "emlabcpp/static_vector.h"
 
 #pragma once
 
@@ -8,16 +8,13 @@ namespace emlabcpp
 {
 class testing_record
 {
-        testing_test_id                 tid_;
-        testing_run_id                  rid_;
-        testing_reactor_comm_interface& comm_;
-        bool                            errored_ = false;
+        testing_test_id            tid_;
+        testing_run_id             rid_;
+        testing_reactor_interface& comm_;
+        bool                       errored_ = false;
 
 public:
-        testing_record(
-            testing_test_id                 tid,
-            testing_run_id                  rid,
-            testing_reactor_comm_interface& comm )
+        testing_record( testing_test_id tid, testing_run_id rid, testing_reactor_interface& comm )
           : tid_( tid )
           , rid_( rid )
           , comm_( comm )
@@ -27,6 +24,11 @@ public:
         testing_arg_variant get_arg( std::string_view key )
         {
                 return get_arg( testing_key_to_buffer( key ) );
+        }
+
+        testing_arg_variant get_arg( uint32_t v )
+        {
+                return get_arg( testing_key{ v } );
         }
 
         testing_arg_variant get_arg( testing_key key )
@@ -55,6 +57,7 @@ public:
                 return errored_;
         }
 
+        // TODO: dddduplication
         void collect( testing_key key, testing_arg_variant arg )
         {
                 comm_.reply< TESTING_COLLECT >( rid_, key, arg );
@@ -63,6 +66,21 @@ public:
         void collect( std::string_view key, testing_arg_variant arg )
         {
                 collect( testing_key_to_buffer( key ), arg );
+        }
+
+        void collect( testing_key key, std::string_view arg )
+        {
+                collect( key, testing_string_to_buffer( arg ) );
+        }
+
+        void collect( uint32_t key, std::string_view arg )
+        {
+                collect( testing_key{ key }, testing_string_to_buffer( arg ) );
+        }
+
+        void collect( std::string_view key, std::string_view arg )
+        {
+                collect( testing_key_to_buffer( key ), testing_string_to_buffer( arg ) );
         }
 
         void fail()
