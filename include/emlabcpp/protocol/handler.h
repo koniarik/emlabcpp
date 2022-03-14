@@ -27,7 +27,8 @@ struct protocol_handler
                 return *message_type::make( view_n( buffer.begin(), *used ) );
         };
 
-        static either< value_type, protocol_error_record > extract( const message_type& msg )
+        static either< value_type, protocol_error_record >
+        extract( const view< const uint8_t* >& msg )
         {
                 auto opt_view = bounded_view< const uint8_t*, typename def::size_type >::make(
                     view_n( msg.begin(), min( def::max_size, msg.size() ) ) );

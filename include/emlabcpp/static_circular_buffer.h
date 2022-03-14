@@ -6,6 +6,10 @@
 #include <type_traits>
 #include <utility>
 
+#ifdef EMLABCPP_USE_STREAMS
+#include <ostream>
+#endif
+
 #pragma once
 
 namespace emlabcpp
@@ -34,6 +38,8 @@ class static_circular_buffer
         using storage_type = std::aligned_storage_t< sizeof( T ), alignof( T ) >;
 
 public:
+        static constexpr std::size_t capacity = N;
+
         // public types
         // --------------------------------------------------------------------------------
         using value_type      = T;
@@ -276,6 +282,13 @@ private:
 };
 
 template < typename T, std::size_t N >
+[[nodiscard]] inline auto
+operator<=>( const static_circular_buffer< T, N >& lh, const static_circular_buffer< T, N >& rh )
+{
+        return std::lexicographical_compare_three_way( lh.begin(), lh.end(), rh.begin(), rh.end() );
+}
+
+template < typename T, std::size_t N >
 [[nodiscard]] inline bool
 operator==( const static_circular_buffer< T, N >& lh, const static_circular_buffer< T, N >& rh )
 {
@@ -298,6 +311,15 @@ operator!=( const static_circular_buffer< T, N >& lh, const static_circular_buff
 {
         return !( lh == rh );
 }
+
+#ifdef EMLABCPP_USE_STREAMS
+// Output operator for the view, uses comma to separate the items in the view.
+template < typename T, std::size_t N >
+inline std::ostream& operator<<( std::ostream& os, const static_circular_buffer< T, N >& cb )
+{
+        return os << view{ cb };
+}
+#endif
 
 }  // namespace emlabcpp
 

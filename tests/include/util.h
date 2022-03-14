@@ -1,6 +1,10 @@
+#include "emlabcpp/static_vector.h"
 #include "emlabcpp/zip.h"
 
+#include <deque>
 #include <gtest/gtest.h>
+#include <mutex>
+#include <thread>
 
 namespace emlabcpp
 {
@@ -41,5 +45,36 @@ inline void exec_protocol_test_fixture_test(
                     factory );
         }
 }
+
+struct thread_safe_queue
+{
+        std::deque< std::vector< uint8_t > > buff_;
+        std::mutex                           lock_;
+
+public:
+        void insert( std::span< uint8_t > inpt )
+        {
+                std::lock_guard g{ lock_ };
+                buff_.emplace_back( inpt.begin(), inpt.end() );
+        }
+
+        bool empty()
+        {
+                std::lock_guard g{ lock_ };
+                return buff_.empty();
+        }
+
+        static_vector< uint8_t, 64 > pop()
+        {
+                std::lock_guard g{ lock_ };
+                if ( buff_.empty() ) {
+                        return {};
+                }
+                static_vector< uint8_t, 64 > res;
+                std::copy( buff_.front().begin(), buff_.front().end(), std::back_inserter( res ) );
+                buff_.pop_front();
+                return res;
+        }
+};
 
 }  // namespace emlabcpp

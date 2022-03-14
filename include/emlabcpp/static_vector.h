@@ -6,11 +6,12 @@
 
 #pragma once
 
+#ifdef EMLABCPP_USE_STREAMS
+#include <ostream>
+#endif
+
 namespace emlabcpp
 {
-
-template < typename StorageType, typename T, std::size_t N >
-class static_vector_iterator;
 
 /// Data container for up to N elements
 template < typename T, std::size_t N >
@@ -18,20 +19,19 @@ class static_vector
 {
 
         /// type for storage of one item
-        using storage_type = std::aligned_storage_t< sizeof( T ), alignof( T ) >;
-
-        friend class static_vector_iterator< storage_type, T, N >;
-        friend class static_vector_iterator< const storage_type, T, N >;
+        using storage_type = std::aligned_storage_t< sizeof( T ) * N, alignof( T ) >;
 
 public:
+        static constexpr std::size_t capacity = N;
+
         // public types
         // --------------------------------------------------------------------------------
         using value_type      = T;
         using size_type       = std::size_t;
         using reference       = T&;
         using const_reference = const T&;
-        using iterator        = static_vector_iterator< storage_type, T, N >;
-        using const_iterator  = static_vector_iterator< const storage_type, T, N >;
+        using iterator        = T*;
+        using const_iterator  = const T*;
 
         // public methods
         // --------------------------------------------------------------------------------
@@ -83,20 +83,20 @@ public:
 
         iterator begin()
         {
-                return iterator{ &data_[0] };
+                return reinterpret_cast< T* >( &data_ );
         }
         iterator end()
         {
-                return iterator{ &data_[size_] };
+                return begin() + size_;
         }
 
         const_iterator begin() const
         {
-                return const_iterator{ &data_[0] };
+                return reinterpret_cast< const T* >( &data_ );
         }
         const_iterator end() const
         {
-                return const_iterator{ &data_[size_] };
+                return begin() + size_;
         }
 
         [[nodiscard]] reference front()
@@ -182,7 +182,7 @@ private:
         // private attributes
         // --------------------------------------------------------------------------------
 
-        storage_type data_[N];   /// storage of the entire dataset
+        storage_type data_;      /// storage of the entire dataset
         size_type    size_ = 0;  /// count of items
 
         // private methods
@@ -196,7 +196,7 @@ private:
         void emplace_item( size_type i, Args&&... args )
         {
                 std::construct_at(
-                    reinterpret_cast< T* >( &data_[i] ), std::forward< Args >( args )... );
+                    reinterpret_cast< T* >( &data_ ) + i, std::forward< Args >( args )... );
         }
 
         template < typename Container >
@@ -218,11 +218,11 @@ private:
         // Reference to the item in data_storage.
         [[nodiscard]] reference ref_item( size_type i )
         {
-                return *reinterpret_cast< T* >( &data_[i] );
+                return *( begin() + i );
         }
         [[nodiscard]] const_reference ref_item( size_type i ) const
         {
-                return *reinterpret_cast< const T* >( &data_[i] );
+                return *( begin() + i );
         }
 
         // Cleans entire buffer from items.
@@ -233,6 +233,13 @@ private:
                 }
         }
 };
+
+template < typename T, std::size_t N >
+[[nodiscard]] inline auto
+operator<=>( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
+{
+        return std::lexicographical_compare_three_way( lh.begin(), lh.end(), rh.begin(), rh.end() );
+}
 
 template < typename T, std::size_t N >
 [[nodiscard]] inline bool
@@ -264,82 +271,13 @@ inline void swap( const static_vector< T, N >& lh, const static_vector< T, N >& 
         lh.swap( rh );
 }
 
-}  // namespace emlabcpp
-
-template < typename StorageType, typename T, std::size_t N >
-struct std::iterator_traits< emlabcpp::static_vector_iterator< StorageType, T, N > >
+#ifdef EMLABCPP_USE_STREAMS
+// Output operator for the view, uses comma to separate the items in the view.
+template < typename T, std::size_t N >
+inline std::ostream& operator<<( std::ostream& os, const static_vector< T, N >& vec )
 {
-        static constexpr bool is_const = std::is_const_v< StorageType >;
-
-        using value_type        = T;
-        using difference_type   = std::ptrdiff_t;
-        using pointer           = std::conditional_t< is_const, const T*, T* >;
-        using const_pointer     = const pointer;
-        using reference         = std::conditional_t< is_const, const T&, T& >;
-        using iterator_category = std::random_access_iterator_tag;
-};
-
-namespace emlabcpp
-{
-
-template < typename StorageType, typename T, std::size_t N >
-class static_vector_iterator
-  : public generic_iterator< static_vector_iterator< StorageType, T, N > >
-{
-        static constexpr bool is_const = std::is_const_v< StorageType >;
-        using storage_type             = StorageType;
-        using reference = typename std::iterator_traits< static_vector_iterator >::reference;
-        using pointer   = typename std::iterator_traits< static_vector_iterator >::pointer;
-        static_vector_iterator( storage_type* ptr )
-          : raw_ptr_( ptr )
-        {
-        }
-
-        friend class static_vector< T, N >;
-
-public:
-        static_vector_iterator( const static_vector_iterator& )     = default;
-        static_vector_iterator( static_vector_iterator&& ) noexcept = default;
-
-        static_vector_iterator& operator=( const static_vector_iterator& ) = default;
-        static_vector_iterator& operator=( static_vector_iterator&& ) = default;
-
-        reference operator*()
-        {
-                return *reinterpret_cast< pointer >( raw_ptr_ );
-        }
-        const reference operator*() const
-        {
-                return *reinterpret_cast< const pointer >( raw_ptr_ );
-        }
-
-        static_vector_iterator& operator+=( std::ptrdiff_t offset )
-        {
-                raw_ptr_ += offset;
-                return *this;
-        }
-        static_vector_iterator& operator-=( std::ptrdiff_t offset )
-        {
-                raw_ptr_ -= offset;
-                return *this;
-        }
-
-        auto operator<=>( const static_vector_iterator& other ) const
-        {
-                return raw_ptr_ <=> other.raw_ptr_;
-        }
-        bool operator==( const static_vector_iterator& other ) const
-        {
-                return raw_ptr_ == other.raw_ptr_;
-        }
-
-        constexpr std::ptrdiff_t operator-( const static_vector_iterator& other ) const
-        {
-                return raw_ptr_ - other.raw_ptr_;
-        }
-
-private:
-        storage_type* raw_ptr_;
-};
+        return os << view{ vec };
+}
+#endif
 
 }  // namespace emlabcpp

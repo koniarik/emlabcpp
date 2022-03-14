@@ -29,9 +29,11 @@ function(emlabcpp_setup_test target)
   -Wdouble-promotion
   -fmax-errors=5
   -fconcepts-diagnostics-depth=5
+  -ftemplate-backtrace-limit=0
   -DEMLABCPP_USE_STREAMS
   -DEMLABCPP_ASSERT_NATIVE
   -DEMLABCPP_USE_NLOHMANN_JSON
+  -DEMLABCPP_USE_GTEST
   )
 
 endfunction()
@@ -59,6 +61,7 @@ add_emlabcpp_test(visit_test)
 add_emlabcpp_test(match_test)
 add_emlabcpp_test(protocol_base_test)
 add_emlabcpp_test(protocol_packet_test)
+add_emlabcpp_test(testing_test)
 
 #file(GLOB_RECURSE HEADER_FILES
 #		"${PROJECT_SOURCE_DIR}/include/*.h"

@@ -80,4 +80,33 @@ inline std::string pretty_type_name()
         return res;
 }
 
+// ------------------------------------------------------------------------------------------------
+
+template < std::size_t >
+struct select_utype;
+
+template < std::size_t N >
+requires( sizeof( uint8_t ) == N ) struct select_utype< N >
+{
+        using type = uint8_t;
+};
+template < std::size_t N >
+requires( sizeof( uint16_t ) == N ) struct select_utype< N >
+{
+        using type = uint16_t;
+};
+template < std::size_t N >
+requires( sizeof( uint32_t ) == N ) struct select_utype< N >
+{
+        using type = uint32_t;
+};
+template < std::size_t N >
+requires( sizeof( uint64_t ) == N ) struct select_utype< N >
+{
+        using type = uint64_t;
+};
+
+template < std::size_t N >
+using select_utype_t = select_utype< N >::type;
+
 }  // namespace emlabcpp
