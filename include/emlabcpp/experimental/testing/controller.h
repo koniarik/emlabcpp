@@ -1,3 +1,4 @@
+#include "emlabcpp/experimental/testing/error.h"
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/iterators/convert.h"
 #include "emlabcpp/match.h"
@@ -24,14 +25,12 @@ class testing_controller_interface
 public:
         using sequencer = testing_reactor_controller_packet::sequencer;
 
-        virtual void                                 transmit( std::span< uint8_t > ) = 0;
-        virtual static_vector< uint8_t, 64 >         read( std::size_t )              = 0;
-        virtual void                                 on_result( testing_result )      = 0;
-        virtual std::optional< testing_arg_variant > on_arg( uint32_t )               = 0;
-        virtual std::optional< testing_arg_variant > on_arg( std::string_view )       = 0;
-        virtual void                                 on_error( const protocol_error_record& ){};
-        virtual void                                 on_error( testing_error_enum ){};
-        virtual void                                 on_wrong_message( testing_messages_enum ){};
+        virtual void                                 transmit( std::span< uint8_t > )  = 0;
+        virtual static_vector< uint8_t, 64 >         read( std::size_t )               = 0;
+        virtual void                                 on_result( testing_result )       = 0;
+        virtual std::optional< testing_arg_variant > on_arg( uint32_t )                = 0;
+        virtual std::optional< testing_arg_variant > on_arg( std::string_view )        = 0;
+        virtual void                                 on_error( testing_error_variant ) = 0;
 
         static constexpr std::size_t read_limit_ = 10;
 
@@ -144,7 +143,7 @@ public:
                                     var );
                         },
                         [&]( protocol_error_record e ) {
-                                iface.on_error( e );
+                                iface.on_error( testing_controller_protocol_error{ e } );
                         } );
         }
 
@@ -167,11 +166,11 @@ private:
 
         void handle_message( tag< TESTING_COUNT >, auto, testing_controller_interface& iface )
         {
-                iface.on_wrong_message( TESTING_COUNT );
+                iface.on_error( testing_controller_message_error{ TESTING_COUNT } );
         }
         void handle_message( tag< TESTING_NAME >, auto, testing_controller_interface& iface )
         {
-                iface.on_wrong_message( TESTING_NAME );
+                iface.on_error( testing_controller_message_error{ TESTING_NAME } );
         }
         void handle_message(
             tag< TESTING_ARG >,
@@ -222,26 +221,25 @@ private:
         }
         void handle_message( tag< TESTING_SUITE_NAME >, auto, testing_controller_interface& iface )
         {
-                iface.on_wrong_message( TESTING_SUITE_NAME );
+                iface.on_error( testing_controller_message_error{ TESTING_SUITE_NAME } );
         }
         void handle_message( tag< TESTING_SUITE_DATE >, auto, testing_controller_interface& iface )
         {
-                iface.on_wrong_message( TESTING_SUITE_DATE );
+                iface.on_error( testing_controller_message_error{ TESTING_SUITE_DATE } );
         }
         void handle_message(
             tag< TESTING_INTERNAL_ERROR >,
             testing_error_enum            err,
             testing_controller_interface& iface )
         {
-                iface.on_error( err );
+                iface.on_error( testing_internal_reactor_error{ err } );
         }
         void handle_message(
             tag< TESTING_PROTOCOL_ERROR >,
             protocol_error_record         rec,
             testing_controller_interface& iface )
         {
-                // TODO: mark that this comes from reactor
-                iface.on_error( rec );
+                iface.on_error( testing_reactor_protocol_error{ rec } );
         }
 
         template < typename T, testing_messages_enum ID, typename... Args >
@@ -262,7 +260,9 @@ private:
                     [&]( tag< ID >, auto item ) {
                             res = item;
                     },
-                    []< auto WID >( tag< WID >, auto... ){ EMLABCPP_ASSERT( false );
+                    [&]< auto WID >( tag< WID >, auto... ){
+
+                        EMLABCPP_ASSERT( false );
         }
 };
 
@@ -272,8 +272,7 @@ handler::extract( *opt_msg )
                 apply_on_visit( handle, pack );
         },
         [&]( protocol_error_record rec ) {
-                // TODO: error handling - improve :/
-                iface.on_error( rec );
+                iface.on_error( testing_controller_protocol_error{ rec } );
         } );
 return res;
 }  // namespace emlabcpp

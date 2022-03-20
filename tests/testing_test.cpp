@@ -178,7 +178,7 @@ struct controller_iface : em::testing_controller_interface
                         return 2lu;
                 }
 
-                if ( key == "arg_key") {
+                if ( key == "arg_key" ) {
                         return false;
                 }
 
@@ -192,6 +192,11 @@ struct controller_iface : em::testing_controller_interface
                 }
 
                 return {};
+        }
+
+        void on_error( em::testing_error_variant err ) final
+        {
+                FAIL() << err;
         }
 };
 
