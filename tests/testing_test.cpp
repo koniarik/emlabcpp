@@ -138,6 +138,11 @@ struct reactor_iface : em::testing_reactor_interface
         }
 };
 
+// TODO: an idea
+//  - split the controll interface into controller/controller_com interface
+//  - most of the API for controller can be implemented specifically for gtest
+//  - only thing that remains is the "comm" api
+//  - if separated, that abstraction is easily possible
 struct controller_iface : em::testing_controller_interface
 {
         em::thread_safe_queue& con_reac_buff;
@@ -207,7 +212,7 @@ int main( int argc, char** argv )
         // ----------------------------------------------------------------------------
         // register tests and examples of lambda tests
 
-        em::testing_default_reactor rec{ "testing test suite" };
+        em::testing_default_reactor rec{ "emlabcpp::testing" };
 
         rec.register_callable( "simple test", simple_test_case );
         rec.register_callable( "simple lambda test", [&]( em::testing_record& rec ) {
@@ -251,7 +256,7 @@ int main( int argc, char** argv )
 
         controller_iface ci{ con_reac_buff, reac_con_buff };
 
-        em::testing_register_gtests( "emlabcpp::testing", ci );
+        em::testing_register_gtests( ci );
 
         auto res = RUN_ALL_TESTS();
 

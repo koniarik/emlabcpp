@@ -19,7 +19,7 @@ inline ::testing::AssertionResult testing_gtest_predicate( const char*, testing_
                 res = ::testing::AssertionFailure() << "Test errored";
         }
 
-        if(!tres.collected_data.empty()){
+        if ( !tres.collected_data.empty() ) {
                 res << "\ncollected:";
         }
 
@@ -81,10 +81,11 @@ public:
         }
 };
 
-void testing_register_gtests( std::string suite_name, testing_controller_interface& ci )
+void testing_register_gtests( testing_controller_interface& ci )
 {
         auto opt_con = testing_controller::make( ci );
         EMLABCPP_ASSERT( opt_con );
+        std::string suite_name = std::string{ opt_con->suite_name() };
         for ( auto [tid, tinfo] : opt_con->get_tests() ) {
                 std::string name{ tinfo.name.begin(), tinfo.name.end() };
                 ::testing::RegisterTest(
