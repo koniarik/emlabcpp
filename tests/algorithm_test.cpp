@@ -5,18 +5,21 @@
 
 using namespace emlabcpp;
 
+// NOLINTNEXTLINE
 TEST( Algorithm, max )
 {
         EXPECT_EQ( max( 5, 10 ), 10 );
         EXPECT_EQ( max( -5, -10 ), -5 );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, min )
 {
         EXPECT_EQ( min( 5, 10 ), 5 );
         EXPECT_EQ( min( -5, -10 ), -10 );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, sign )
 {
         EXPECT_EQ( sign( -5 ), -1 );
@@ -29,6 +32,7 @@ TEST( Algorithm, sign )
         EXPECT_EQ( sign( i ), 1 );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, map_range )
 {
         EXPECT_EQ( map_range( 5, 0, 10, 0, 100 ), 50 );
@@ -38,6 +42,7 @@ TEST( Algorithm, map_range )
         EXPECT_EQ( map_range( 0, 0, 10, 10, 0 ), 10 );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, tail )
 {
         std::vector< int > test = { 1, 2, 3 };
@@ -48,6 +53,7 @@ TEST( Algorithm, tail )
         EXPECT_EQ( tail( test, 2 ).front(), 3 );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, init )
 {
         std::vector< int > test = { 1, 2, 3 };
@@ -58,6 +64,7 @@ TEST( Algorithm, init )
         EXPECT_EQ( init( test, 2 ).front(), 1 );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, find_if )
 {
         std::tuple< bool, bool, bool > tup = { false, true, false };
@@ -83,6 +90,7 @@ TEST( Algorithm, find_if )
         EXPECT_EQ( iter, --vec2.end() );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, for_each )
 {
         std::vector< int > data{ 1, 2, 3 };
@@ -99,6 +107,7 @@ TEST( Algorithm, for_each )
         } );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, min_max_elem )
 {
         min_max< int > res = min_max_elem( std::vector< int >{ 1, 2, 3 }, [&]( int i ) {
@@ -113,6 +122,7 @@ TEST( Algorithm, min_max_elem )
         EXPECT_EQ( res.max, 6 );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, max_elem )
 {
         int res = max_elem( std::vector< int >{ 1, 2, 3 }, [&]( int i ) {
@@ -125,6 +135,7 @@ TEST( Algorithm, max_elem )
         EXPECT_EQ( res, 6 );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, min_elem )
 {
         int res = min_elem( std::vector< int >{ 1, 2, 3 }, [&]( int i ) {
@@ -137,6 +148,7 @@ TEST( Algorithm, min_elem )
         EXPECT_EQ( res, 2 );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, count )
 {
         std::size_t res = count( std::vector< int >{ 1, 2, 3 }, [&]( int i ) {
@@ -149,6 +161,7 @@ TEST( Algorithm, count )
         EXPECT_EQ( res, std::size_t{ 2 } );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, sum )
 {
         int res = sum( std::vector< int >{ 1, 2, 3 }, [&]( int i ) {
@@ -161,6 +174,7 @@ TEST( Algorithm, sum )
         EXPECT_EQ( res, 12 );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, accumulate )
 {
         int res = accumulate( std::vector< int >{ 1, 2, 3 }, -6, [&]( int i, int j ) {
@@ -173,6 +187,7 @@ TEST( Algorithm, accumulate )
         EXPECT_EQ( res, 0 );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, avg )
 {
         std::size_t res = avg( std::vector< std::size_t >{ 1, 2, 3 } );
@@ -181,6 +196,7 @@ TEST( Algorithm, avg )
         EXPECT_EQ( res, std::size_t( 2 ) );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, variance )
 {
         std::size_t res = variance( std::vector< std::size_t >{ 1, 2, 3, 4 } );
@@ -192,6 +208,7 @@ TEST( Algorithm, variance )
         EXPECT_EQ( fres, 1.25f );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, for_cross_joint )
 {
         float res = 0;
@@ -204,6 +221,7 @@ TEST( Algorithm, for_cross_joint )
         EXPECT_EQ( res, 90.f );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, any_of )
 {
         bool res = any_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {
@@ -225,6 +243,7 @@ TEST( Algorithm, any_of )
         EXPECT_FALSE( res );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, none_of )
 {
         bool res = none_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {
@@ -246,6 +265,7 @@ TEST( Algorithm, none_of )
         EXPECT_TRUE( res );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, all_of )
 {
         bool res = all_of( std::tuple< int, int, int >{ 1, 2, 3 }, []( int i ) {
@@ -267,6 +287,7 @@ TEST( Algorithm, all_of )
         EXPECT_TRUE( res );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, equal )
 {
 
@@ -280,6 +301,7 @@ TEST( Algorithm, equal )
         EXPECT_FALSE( res );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, map_f )
 {
         std::vector< int > idata{ 1, 2, 3, 4 };
@@ -304,6 +326,7 @@ TEST( Algorithm, map_f )
         EXPECT_TRUE( is_equal );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, map_f_to_a )
 {
         std::vector< int > idata{ 1, 2, 3, 4 };
@@ -331,6 +354,7 @@ struct convert_test
         int val;
 };
 
+// NOLINTNEXTLINE
 TEST( Algorithm, convert_to )
 {
         std::vector< int > idata{ 1, 2, 3, 4 };
@@ -340,6 +364,7 @@ TEST( Algorithm, convert_to )
         EXPECT_EQ( mapped[3].val, 4 );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, joined )
 {
         std::vector< std::string > idata{ "ab", "cd", "ef" };
@@ -348,6 +373,7 @@ TEST( Algorithm, joined )
         EXPECT_EQ( msg, "ab|cd|ef" );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, for_each_index )
 {
         std::vector< std::size_t > idata{ 1, 2, 3, 4 };
@@ -360,6 +386,7 @@ TEST( Algorithm, for_each_index )
         EXPECT_EQ( idata, odata );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, until_index )
 {
         std::vector< std::size_t > idata{ 1, 2, 3, 4 };
@@ -376,12 +403,13 @@ TEST( Algorithm, until_index )
         EXPECT_EQ( idata, odata );
 }
 
+// NOLINTNEXTLINE
 TEST( Algorithm, select_index )
 {
         std::vector< std::size_t > idata{ 1, 2, 3, 4 };
         for ( std::size_t i : idata ) {
                 bounded     b = *bounded< std::size_t, 0, 3 >::make( i - 1 );
-                std::size_t j = select_index( b, [&]< std::size_t i >() {
+                std::size_t j = select_index( b, [&]< std::size_t i >() -> std::size_t {
                         return idata[i];
                 } );
                 EXPECT_EQ( i, j ) << "bounded val: " << b;

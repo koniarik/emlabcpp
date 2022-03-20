@@ -6,6 +6,7 @@
 
 using namespace emlabcpp;
 
+// NOLINTNEXTLINE
 TEST( match, vis )
 {
 
@@ -40,6 +41,7 @@ TEST( match, vis )
         EXPECT_TRUE( fired );
 }
 
+// NOLINTNEXTLINE
 TEST( match, vis_apply )
 {
         std::variant< std::tuple< int, int >, std::tuple< std::string > > var =

@@ -7,6 +7,7 @@ using test_either = either< std::string, int >;
 
 static_assert( std::regular< test_either > );
 
+// NOLINTNEXTLINE
 TEST( Either, init )
 {
         test_either eth{ 0 };
@@ -15,6 +16,7 @@ TEST( Either, init )
         either< int, int > val{ 42 };
 }
 
+// NOLINTNEXTLINE
 TEST( Either, assignment )
 {
         test_either eth{ 0 };
@@ -28,11 +30,12 @@ TEST( Either, assignment )
         symm = 22;
 }
 
+// NOLINTNEXTLINE
 TEST( Either, convert )
 {
         test_either eth{ 0 };
 
-        EXPECT_TRUE( eth.convert_left( [&]( std::string ) {
+        EXPECT_TRUE( eth.convert_left( [&]( const std::string& ) {
                                 return 0;
                         } )
                          .is_left() );
@@ -42,12 +45,13 @@ TEST( Either, convert )
                           .is_left() );
 }
 
+// NOLINTNEXTLINE
 TEST( Either, match )
 {
         test_either eth{ 0 };
 
         eth.match(
-            [&]( std::string ) {
+            [&]( const std::string& ) {
                     FAIL();
             },
             [&]( int val ) {
@@ -55,6 +59,7 @@ TEST( Either, match )
             } );
 }
 
+// NOLINTNEXTLINE
 TEST( Either, assemble_left_collect_right )
 {
         using test_either_2 = either< float, int >;

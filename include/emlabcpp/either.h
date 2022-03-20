@@ -230,7 +230,7 @@ public:
         }
 
         template < typename U = left_item, typename K = right_item >
-        std::enable_if_t< std::is_same_v< U, K >, left_item > join() &&
+        [[nodiscard]] std::enable_if_t< std::is_same_v< U, K >, left_item > join() &&
         {
                 if ( id_ == item::LEFT ) {
                         return std::move( left_ );
@@ -239,7 +239,7 @@ public:
                 return std::move( right_ );
         }
         template < typename U = left_item, typename K = right_item >
-        std::enable_if_t< std::is_same_v< U, K >, left_item > join() const&
+        [[nodiscard]] std::enable_if_t< std::is_same_v< U, K >, left_item > join() const&
         {
                 if ( id_ == item::LEFT ) {
                         return left_;
@@ -388,8 +388,6 @@ assemble_optionals( std::optional< Ts >&&... opt )
 /// >>. This is handy for uses cases when you have expected values of multiple functions on the
 /// left, / and their errors on the right. It either returns all values or the errors that happend.
 
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 template < typename FirstE, typename... Eithers >
 inline auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) requires(
     std::same_as<
@@ -423,5 +421,4 @@ inline auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) r
                     return collection;
             } );
 }
-#pragma GCC diagnostic pop
 }  // namespace emlabcpp

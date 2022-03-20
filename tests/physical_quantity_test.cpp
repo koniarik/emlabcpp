@@ -4,6 +4,7 @@
 
 using namespace emlabcpp;
 
+// NOLINTNEXTLINE
 TEST( physical_quantity_test, basic )
 {
         unitless u{ 0.5f };
@@ -31,6 +32,7 @@ TEST( physical_quantity_test, basic )
         EXPECT_EQ( pow< 2 >( unitless{ 2.f } ), unitless{ 4.f } );
 }
 
+// NOLINTNEXTLINE
 TEST( physical_quantity_test, specializations )
 {
         EXPECT_EQ(

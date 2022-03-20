@@ -53,16 +53,16 @@ public:
         }
 
         template < std::size_t n >
-        requires( n <= min ) bounded_view< iterator, bounded< std::size_t, n, n > > first()
-        const
+        requires( n <= min )
+            [[nodiscard]] bounded_view< iterator, bounded< std::size_t, n, n > > first() const
         {
                 return { this->begin(), this->begin() + n };
         }
 
         template < std::size_t n >
-        requires( n <= min )
-            bounded_view< iterator, bounded< std::size_t, min - n, max - n > > offset()
-        const
+        requires( n <= min ) [[nodiscard]] bounded_view<
+            iterator,
+            bounded< std::size_t, min - n, max - n > > offset() const
         {
                 return { this->begin() + n, this->end() };
         }

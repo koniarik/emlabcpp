@@ -5,6 +5,7 @@
 
 using namespace emlabcpp;
 
+// NOLINTNEXTLINE
 TEST( Protocol, message_conversion )
 {
         std::array< uint8_t, 4 > data   = { 53, 3, 64, 85 };

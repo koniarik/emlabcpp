@@ -6,6 +6,7 @@
 
 using namespace emlabcpp;
 
+// NOLINTNEXTLINE
 TEST( numeric_iterator, basic )
 {
         auto r = range( -5.f, 6.f );
@@ -16,6 +17,7 @@ TEST( numeric_iterator, basic )
         EXPECT_EQ( min_elem( r2 ), 0 );
 }
 
+// NOLINTNEXTLINE
 TEST( numeric_iterator, operators )
 {
         auto r = range( 10 );

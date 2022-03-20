@@ -81,20 +81,22 @@ public:
                 }
         }
 
-        iterator begin()
+        [[nodiscard]] iterator begin()
         {
                 return reinterpret_cast< T* >( &data_ );
         }
-        iterator end()
+
+        [[nodiscard]] iterator end()
         {
                 return begin() + size_;
         }
 
-        const_iterator begin() const
+        [[nodiscard]] const_iterator begin() const
         {
                 return reinterpret_cast< const T* >( &data_ );
         }
-        const_iterator end() const
+
+        [[nodiscard]] const_iterator end() const
         {
                 return begin() + size_;
         }
@@ -103,6 +105,7 @@ public:
         {
                 return ref_item( 0 );
         }
+
         [[nodiscard]] const_reference front() const
         {
                 return ref_item( 0 );

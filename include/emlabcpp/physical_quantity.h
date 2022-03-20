@@ -39,7 +39,7 @@ struct physical_quantity
         {
                 auto seg = []( std::string unit, int i ) -> std::string {
                         if ( i == 0 ) {
-                                return std::string();
+                                return "";
                         }
                         if ( i == 1 ) {
                                 return unit;

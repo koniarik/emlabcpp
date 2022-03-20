@@ -373,7 +373,7 @@ template <
             "This version of map_f does not work with std::tuple as "
             "_result_ container!" );
 
-        ResultContainer                          res;
+        ResultContainer                          res{};
         impl::map_f_collector< ResultContainer > collector;
 
         for_each( std::forward< Container >( cont ), [&]< typename Item >( Item&& item ) {
@@ -479,8 +479,8 @@ requires( !requires( NullFunction f ) {
                 } -> std::same_as< void >;
 } ) constexpr auto select_index( IndexType i, NullFunction&& f )
 {
-        using T = decltype( f.template operator()< 0 >() );
-        T res;
+        using T = std::decay_t< decltype( f.template operator()< 0 >() ) >;
+        T res{};
         select_index( i, [&]< std::size_t i >() {
                 res = f.template operator()< i >();
         } );

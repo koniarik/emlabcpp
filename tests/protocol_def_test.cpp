@@ -130,9 +130,9 @@ make_invalid_test_case( const std::vector< uint8_t >& buff, const protocol_error
 }
 
 using variable_size_type = static_vector< uint8_t, 7 >;
-variable_size_type VARIABLE_VAL_1{ std::array< uint8_t, 3 >{ 1, 2, 3 } };
-variable_size_type VARIABLE_VAL_2{ std::array< uint8_t, 7 >{ 1, 2, 3, 4, 5, 6, 7 } };
-variable_size_type VARIABLE_VAL_3{ std::array< uint8_t, 0 >{} };
+const variable_size_type VARIABLE_VAL_1{ std::array< uint8_t, 3 >{ 1, 2, 3 } };
+const variable_size_type VARIABLE_VAL_2{ std::array< uint8_t, 7 >{ 1, 2, 3, 4, 5, 6, 7 } };
+const variable_size_type VARIABLE_VAL_3{ std::array< uint8_t, 0 >{} };
 
 int main( int argc, char** argv )
 {
