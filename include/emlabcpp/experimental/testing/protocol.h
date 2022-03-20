@@ -1,7 +1,7 @@
 #include "emlabcpp/algorithm.h"
+#include "emlabcpp/experimental/testing/base.h"
 #include "emlabcpp/protocol.h"
 #include "emlabcpp/protocol/packet.h"
-#include "emlabcpp/experimental/testing/base.h"
 
 #pragma once
 
@@ -22,7 +22,8 @@ enum testing_messages_enum : uint8_t
         TESTING_ERROR          = 10,
         TESTING_FAILURE        = 11,
         TESTING_INTERNAL_ERROR = 100,
-        TESTING_PROTOCOL_ERROR = 101
+        TESTING_PROTOCOL_ERROR = 101,
+        TESTING_ARG_MISSING    = 102
 };
 
 enum testing_error_enum : uint8_t
@@ -45,6 +46,7 @@ struct testing_controller_reactor_group
         protocol_command< TESTING_LOAD >::with_args< testing_test_id, testing_run_id >,
         protocol_command<
             TESTING_ARG >::with_args< testing_run_id, testing_key, testing_arg_variant >,
+        protocol_command< TESTING_ARG_MISSING >::with_args< testing_run_id, testing_key >,
         protocol_command< TESTING_EXEC >::with_args< testing_run_id > >
 {
 };

@@ -172,19 +172,23 @@ struct controller_iface : em::testing_controller_interface
         // if the test requires an argument, the request
         // is propagate to the interface and should be solved
         // on this level
-        em::testing_arg_variant on_arg( std::string_view key ) final
+        std::optional< em::testing_arg_variant > on_arg( std::string_view key ) final
         {
                 if ( key == "arg1" ) {
                         return 2lu;
                 }
 
+                if ( key == "arg_key") {
+                        return false;
+                }
+
                 return {};
         }
 
-        em::testing_arg_variant on_arg( uint32_t key ) final
+        std::optional< em::testing_arg_variant > on_arg( uint32_t key ) final
         {
                 if ( key < 2u ) {
-                        return {};
+                        return false;
                 }
 
                 return {};
@@ -282,7 +286,7 @@ int main( int argc, char** argv )
 // [ RUN      ] emlabcpp::testing.lambda amd fixture
 // [       OK ] emlabcpp::testing.lambda amd fixture (102 ms)
 // [----------] 5 tests from emlabcpp::testing (508 ms total)
-// 
+//
 // [----------] Global test environment tear-down
 // [==========] 5 tests from 1 test suite ran. (508 ms total)
 // [  PASSED  ] 2 tests.
@@ -290,5 +294,5 @@ int main( int argc, char** argv )
 // [  FAILED  ] emlabcpp::testing.simple test
 // [  FAILED  ] emlabcpp::testing.simple struct test
 // [  FAILED  ] emlabcpp::testing.complex lambda test
-// 
+//
 //  3 FAILED TESTS

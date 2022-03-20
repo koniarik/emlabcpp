@@ -1,4 +1,5 @@
 #include "emlabcpp/static_vector.h"
+#include <variant>
 
 #pragma once
 

@@ -130,6 +130,14 @@ private:
         {
                 comm.report_failure( TESTING_UNDESIRED_MSG_E );
         }
+        void handle_message(
+            tag< TESTING_ARG_MISSING >,
+            testing_run_id,
+            testing_key,
+            testing_reactor_interface& comm )
+        {
+                comm.report_failure( TESTING_UNDESIRED_MSG_E );
+        }
         void handle_message( tag< TESTING_EXEC >, testing_run_id, testing_reactor_interface& comm )
         {
                 if ( !active_exec_ ) {

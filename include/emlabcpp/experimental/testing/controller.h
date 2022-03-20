@@ -24,14 +24,14 @@ class testing_controller_interface
 public:
         using sequencer = testing_reactor_controller_packet::sequencer;
 
-        virtual void                         transmit( std::span< uint8_t > ) = 0;
-        virtual static_vector< uint8_t, 64 > read( std::size_t )              = 0;
-        virtual void                         on_result( testing_result )      = 0;
-        virtual testing_arg_variant          on_arg( uint32_t )               = 0;
-        virtual testing_arg_variant          on_arg( std::string_view )       = 0;
-        virtual void                         on_error( const protocol_error_record& ){};
-        virtual void                         on_error( testing_error_enum ){};
-        virtual void                         on_wrong_message( testing_messages_enum ){};
+        virtual void                                 transmit( std::span< uint8_t > ) = 0;
+        virtual static_vector< uint8_t, 64 >         read( std::size_t )              = 0;
+        virtual void                                 on_result( testing_result )      = 0;
+        virtual std::optional< testing_arg_variant > on_arg( uint32_t )               = 0;
+        virtual std::optional< testing_arg_variant > on_arg( std::string_view )       = 0;
+        virtual void                                 on_error( const protocol_error_record& ){};
+        virtual void                                 on_error( testing_error_enum ){};
+        virtual void                                 on_wrong_message( testing_messages_enum ){};
 
         static constexpr std::size_t read_limit_ = 10;
 
@@ -180,15 +180,19 @@ private:
             testing_controller_interface& iface )
         {
                 EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
-                auto val = match(
+                auto opt_val = match(
                     k,
-                    [&]( uint32_t v ) -> testing_arg_variant {
+                    [&]( uint32_t v ) -> std::optional< testing_arg_variant > {
                             return iface.on_arg( v );
                     },
-                    [&]( testing_key_buffer v ) -> testing_arg_variant {
+                    [&]( testing_key_buffer v ) -> std::optional< testing_arg_variant > {
                             return iface.on_arg( std::string_view{ v.begin(), v.size() } );
                     } );
-                iface.send< TESTING_ARG >( rid, k, val );
+                if ( opt_val ) {
+                        iface.send< TESTING_ARG >( rid, k, *opt_val );
+                } else {
+                        iface.send< TESTING_ARG_MISSING >( rid, k );
+                }
         }
 
         void handle_message(

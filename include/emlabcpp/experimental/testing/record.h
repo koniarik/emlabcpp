@@ -45,6 +45,9 @@ public:
                         tag< TESTING_ARG >, testing_run_id, testing_key, testing_arg_variant var ) {
                             res = var;
                     },
+                    [&]( tag< TESTING_ARG_MISSING >, testing_run_id, testing_key ) {
+                            // TODO: error handling
+                    },
                     [&]< auto ID >( tag< ID >, auto... ){
                         // TODO: add error handling
                     } );
