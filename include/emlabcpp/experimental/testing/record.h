@@ -1,6 +1,7 @@
 #include "emlabcpp/experimental/testing/base.h"
 #include "emlabcpp/experimental/testing/reactor_interface.h"
 #include "emlabcpp/static_vector.h"
+#include "emlabcpp/match.h"
 
 #pragma once
 
