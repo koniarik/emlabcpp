@@ -46,6 +46,7 @@ class testing_reactor
 public:
         testing_reactor( std::string_view suite_name, std::pmr::memory_resource* mem )
           : suite_name_( suite_name )
+          , handles_( mem )
           , mem_( mem )
         {
         }
