@@ -107,6 +107,7 @@ void testing_controller::handle_message(
     testing_arg_variant avar,
     testing_controller_interface& )
 {
+        ignore( rid );
         EMLABCPP_ASSERT( context_ );
         EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
 

@@ -39,4 +39,21 @@ struct protocol_serializer
         }
 };
 
+template < protocol_endianess_enum Endianess >
+struct protocol_serializer< bool, Endianess >
+{
+        static constexpr std::size_t max_size = sizeof( bool );
+        using size_type                       = bounded< std::size_t, max_size, max_size >;
+        using view_type                       = bounded_view< const uint8_t*, size_type >;
+
+        static constexpr void serialize_at( std::span< uint8_t, max_size > buffer, bool v )
+        {
+                buffer[0] = v ? 0x1 : 0x0;
+        }
+        static constexpr bool deserialize( const view_type& buffer )
+        {
+                return buffer[0] == 0x1;
+        }
+};
+
 }  // namespace emlabcpp
