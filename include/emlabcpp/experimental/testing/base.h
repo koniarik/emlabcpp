@@ -1,4 +1,7 @@
 #include "emlabcpp/static_vector.h"
+
+#include <map>
+#include <memory_resource>
 #include <variant>
 
 #pragma once
@@ -38,5 +41,14 @@ inline testing_string_buffer testing_string_to_buffer( std::string_view st )
 {
         return testing_string_to_buffer< testing_string_buffer >( st );
 }
+
+struct testing_result
+{
+        testing_test_id                                   tid;
+        testing_run_id                                    rid;
+        std::pmr::map< testing_key, testing_arg_variant > collected_data;
+        bool                                              failed  = false;
+        bool                                              errored = false;
+};
 
 }  // namespace emlabcpp
