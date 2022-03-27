@@ -3,6 +3,7 @@
 #include <tuple>
 #include <type_traits>
 #include <vector>
+#include <ranges>
 
 #pragma once
 

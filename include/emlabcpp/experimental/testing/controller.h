@@ -1,8 +1,6 @@
-#include "emlabcpp/experimental/testing/error.h"
-#include "emlabcpp/experimental/testing/protocol.h"
+#include "emlabcpp/experimental/testing/controller_interface.h"
 #include "emlabcpp/iterators/convert.h"
 #include "emlabcpp/match.h"
-#include "emlabcpp/protocol/packet_handler.h"
 
 #include <memory_resource>
 
@@ -10,48 +8,6 @@
 
 namespace emlabcpp
 {
-
-struct testing_result
-{
-        testing_test_id                                   tid;
-        testing_run_id                                    rid;
-        std::pmr::map< testing_key, testing_arg_variant > collected_data;
-        bool                                              failed  = false;
-        bool                                              errored = false;
-};
-
-class testing_controller_interface
-{
-public:
-        using sequencer = testing_reactor_controller_packet::sequencer;
-
-        virtual void                                 transmit( std::span< uint8_t > )  = 0;
-        virtual static_vector< uint8_t, 64 >         read( std::size_t )               = 0;
-        virtual void                                 on_result( testing_result )       = 0;
-        virtual std::optional< testing_arg_variant > on_arg( uint32_t )                = 0;
-        virtual std::optional< testing_arg_variant > on_arg( std::string_view )        = 0;
-        virtual void                                 on_error( testing_error_variant ) = 0;
-
-        static constexpr std::size_t read_limit_ = 10;
-
-        template < testing_messages_enum ID, typename... Args >
-        void send( const Args&... args )
-        {
-                using handler = protocol_packet_handler< testing_controller_reactor_packet >;
-                auto msg      = handler::serialize(
-                    testing_controller_reactor_group::make_val< ID >( args... ) );
-                transmit( msg );
-        }
-
-        std::optional< testing_reactor_controller_msg > read_message()
-        {
-                return protocol_simple_load< sequencer >( read_limit_, [&]( std::size_t c ) {
-                        return read( c );
-                } );
-        }
-
-        virtual ~testing_controller_interface() = default;
-};
 
 class testing_controller
 {
@@ -61,31 +17,7 @@ public:
                 testing_name_buffer name;
         };
 
-        static std::optional< testing_controller > make( testing_controller_interface& iface )
-        {
-
-                auto opt_name  = load_data< testing_name_buffer, TESTING_SUITE_NAME >( iface );
-                auto opt_date  = load_data< testing_name_buffer, TESTING_SUITE_DATE >( iface );
-                auto opt_count = load_data< testing_test_id, TESTING_COUNT >( iface );
-
-                if ( !opt_name || !opt_date || !opt_count ) {
-                        return {};
-                }
-
-                std::pmr::map< testing_test_id, test_info > info;
-
-                for ( testing_test_id i = 0; i < *opt_count; i++ ) {
-                        auto opt_name =
-                            load_data< testing_name_buffer, TESTING_NAME, testing_test_id >(
-                                i, iface );
-                        if ( !opt_name ) {
-                                return {};
-                        }
-                        info[i] = test_info{ .name = *opt_name };
-                }
-
-                return testing_controller{ *opt_name, *opt_date, std::move( info ) };
-        }
+        static std::optional< testing_controller > make( testing_controller_interface& iface );
 
         std::string_view suite_name() const
         {
@@ -107,45 +39,9 @@ public:
                 return tests_;
         }
 
-        void start_test( testing_test_id tid, testing_controller_interface& iface )
-        {
-                EMLABCPP_ASSERT( !context_ );
+        void start_test( testing_test_id tid, testing_controller_interface& iface );
 
-                rid_ += 1;
-
-                context_.emplace( tid, rid_ );
-
-                iface.send< TESTING_LOAD >( tid, rid_ );
-
-                iface.send< TESTING_EXEC >( rid_ );
-        }
-
-        void tick( testing_controller_interface& iface )
-        {
-                if ( !context_ ) {
-                        return;
-                }
-
-                auto opt_msg = iface.read_message();
-                if ( !opt_msg ) {
-                        return;
-                }
-
-                using handler = protocol_packet_handler< testing_reactor_controller_packet >;
-
-                handler::extract( *opt_msg )
-                    .match(
-                        [&]( auto var ) {
-                                apply_on_visit(
-                                    [&]( auto... args ) {
-                                            handle_message( args..., iface );
-                                    },
-                                    var );
-                        },
-                        [&]( protocol_error_record e ) {
-                                iface.on_error( testing_controller_protocol_error{ e } );
-                        } );
-        }
+        void tick( testing_controller_interface& iface );
 
 private:
         std::pmr::map< testing_test_id, test_info > tests_;
@@ -158,125 +54,39 @@ private:
             testing_name_buffer                         name,
             testing_name_buffer                         date,
             std::pmr::map< testing_test_id, test_info > tests )
-          : name_( name )
+          : tests_( std::move( tests ) )
+          , name_( name )
           , date_( date )
-          , tests_( std::move( tests ) )
         {
         }
 
-        void handle_message( tag< TESTING_COUNT >, auto, testing_controller_interface& iface )
-        {
-                iface.on_error( testing_controller_message_error{ TESTING_COUNT } );
-        }
-        void handle_message( tag< TESTING_NAME >, auto, testing_controller_interface& iface )
-        {
-                iface.on_error( testing_controller_message_error{ TESTING_NAME } );
-        }
+        void handle_message( tag< TESTING_COUNT >, auto, testing_controller_interface& iface );
+        void handle_message( tag< TESTING_NAME >, auto, testing_controller_interface& iface );
         void handle_message(
             tag< TESTING_ARG >,
             testing_run_id                rid,
             testing_key                   k,
-            testing_controller_interface& iface )
-        {
-                EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
-                auto opt_val = match(
-                    k,
-                    [&]( uint32_t v ) -> std::optional< testing_arg_variant > {
-                            return iface.on_arg( v );
-                    },
-                    [&]( testing_key_buffer v ) -> std::optional< testing_arg_variant > {
-                            return iface.on_arg( std::string_view{ v.begin(), v.size() } );
-                    } );
-                if ( opt_val ) {
-                        iface.send< TESTING_ARG >( rid, k, *opt_val );
-                } else {
-                        iface.send< TESTING_ARG_MISSING >( rid, k );
-                }
-        }
+            testing_controller_interface& iface );
 
         void handle_message(
             tag< TESTING_COLLECT >,
             testing_run_id      rid,
             testing_key         key,
             testing_arg_variant avar,
-            testing_controller_interface& )
-        {
-                EMLABCPP_ASSERT( context_ );
-                EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
-
-                context_->collected_data[key] = avar;
-        }
-        void handle_message( tag< TESTING_FINISHED >, auto, testing_controller_interface& iface )
-        {
-                iface.on_result( *context_ );
-                context_.reset();
-        }
-        void handle_message( tag< TESTING_ERROR >, auto, testing_controller_interface& )
-        {
-                context_->errored = true;
-        }
-        void handle_message( tag< TESTING_FAILURE >, auto, testing_controller_interface& )
-        {
-                context_->failed = true;
-        }
-        void handle_message( tag< TESTING_SUITE_NAME >, auto, testing_controller_interface& iface )
-        {
-                iface.on_error( testing_controller_message_error{ TESTING_SUITE_NAME } );
-        }
-        void handle_message( tag< TESTING_SUITE_DATE >, auto, testing_controller_interface& iface )
-        {
-                iface.on_error( testing_controller_message_error{ TESTING_SUITE_DATE } );
-        }
+            testing_controller_interface& );
+        void handle_message( tag< TESTING_FINISHED >, auto, testing_controller_interface& iface );
+        void handle_message( tag< TESTING_ERROR >, auto, testing_controller_interface& );
+        void handle_message( tag< TESTING_FAILURE >, auto, testing_controller_interface& );
+        void handle_message( tag< TESTING_SUITE_NAME >, auto, testing_controller_interface& iface );
+        void handle_message( tag< TESTING_SUITE_DATE >, auto, testing_controller_interface& iface );
         void handle_message(
             tag< TESTING_INTERNAL_ERROR >,
             testing_error_enum            err,
-            testing_controller_interface& iface )
-        {
-                iface.on_error( testing_internal_reactor_error{ err } );
-        }
+            testing_controller_interface& iface );
         void handle_message(
             tag< TESTING_PROTOCOL_ERROR >,
             protocol_error_record         rec,
-            testing_controller_interface& iface )
-        {
-                iface.on_error( testing_reactor_protocol_error{ rec } );
-        }
-
-        template < typename T, testing_messages_enum ID, typename... Args >
-        static std::optional< T >
-        load_data( const Args&... args, testing_controller_interface& iface )
-        {
-                using handler = protocol_packet_handler< testing_reactor_controller_packet >;
-                std::optional< T > res;
-
-                iface.send< ID >( args... );
-
-                auto opt_msg = iface.read_message();
-                if ( !opt_msg ) {
-                        return res;
-                }
-
-                auto handle = matcher{
-                    [&]( tag< ID >, auto item ) {
-                            res = item;
-                    },
-                    [&]< auto WID >( tag< WID >, auto... ){
-
-                        EMLABCPP_ASSERT( false );
-        }
+            testing_controller_interface& iface );
 };
-
-handler::extract( *opt_msg )
-    .match(
-        [&]( auto pack ) {
-                apply_on_visit( handle, pack );
-        },
-        [&]( protocol_error_record rec ) {
-                iface.on_error( testing_controller_protocol_error{ rec } );
-        } );
-return res;
-}  // namespace emlabcpp
-}
-;
 
 }  // namespace emlabcpp
