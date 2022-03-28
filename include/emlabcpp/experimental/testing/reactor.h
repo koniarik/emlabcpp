@@ -1,8 +1,8 @@
+#include "emlabcpp/allocator/pool.h"
 #include "emlabcpp/assert.h"
 #include "emlabcpp/defer.h"
 #include "emlabcpp/experimental/testing/interface.h"
 #include "emlabcpp/experimental/testing/protocol.h"
-#include "emlabcpp/memory/bucket_resource.h"
 #include "emlabcpp/protocol/packet_handler.h"
 #include "emlabcpp/view.h"
 #include "emlabcpp/visit.h"
@@ -17,22 +17,19 @@ namespace emlabcpp
 class testing_reactor
 {
 
-        using test_deleter_ptr = void ( * )( std::pmr::memory_resource&, void* );
-
         struct test_handle
         {
                 std::string_view   name;
                 testing_interface* ptr;
-                test_deleter_ptr   del_ptr;
         };
 
-        using handle_container = std::pmr::list< test_handle >;
+        using handle_container = pool_list< test_handle >;
         using handle_iterator  = typename handle_container::iterator;
 
-        std::string_view           suite_name_;
-        std::string_view           suite_date_ = __DATE__;
-        handle_container           handles_;
-        std::pmr::memory_resource* mem_;
+        std::string_view suite_name_;
+        std::string_view suite_date_ = __DATE__;
+        handle_container handles_;
+        pool_interface*  mem_;
 
         struct active_execution
         {
@@ -44,7 +41,7 @@ class testing_reactor
         std::optional< active_execution > active_exec_;
 
 public:
-        testing_reactor( std::string_view suite_name, std::pmr::memory_resource* mem )
+        testing_reactor( std::string_view suite_name, pool_interface* mem )
           : suite_name_( suite_name )
           , handles_( mem )
           , mem_( mem )
@@ -96,15 +93,14 @@ private:
         template < testing_test T >
         void store_test( std::string_view name, T t )
         {
-                void* target = mem_->allocate( sizeof( T ), alignof( T ) );
+                void* target = mem_->allocate( sizeof( T ) );
                 T*    obj = std::construct_at( reinterpret_cast< T* >( target ), std::move( t ) );
-                handles_.emplace_back( name, obj, test_deleter< T > );
+                handles_.emplace_back( name, obj );
         }
 
-        template < testing_test T >
-        static void test_deleter( std::pmr::memory_resource& mem, void* p )
+        static void test_deleter( pool_interface& mem, void* p )
         {
-                mem.deallocate( p, sizeof( T ), alignof( T ) );
+                mem.deallocate( p );
         }
 
         void exec_test( testing_reactor_interface& comm );
@@ -115,16 +111,13 @@ public:
         ~testing_reactor();
 };
 
-class testing_default_reactor : public testing_reactor
+class testing_default_reactor : private pool_base< 48, 32 >, public testing_reactor
 {
-        using mem_type = bucket_memory_resource< 32, 32 >;
-        mem_type bucket_mem_;
-
 public:
-        // TODO: this may not be the best idea, as bucket_mem will exist only _after_ constructor
+        // TODO: this may not be the best idea, as pool_mem will exist only _after_ constructor
         // for base class is called
         testing_default_reactor( std::string_view name )
-          : testing_reactor( name, &bucket_mem_ )
+          : testing_reactor( name, &this->pool_memory )
         {
         }
 };

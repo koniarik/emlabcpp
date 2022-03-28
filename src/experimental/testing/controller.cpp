@@ -40,7 +40,8 @@ return res;
 }
 }
 
-std::optional< testing_controller > testing_controller::make( testing_controller_interface& iface )
+std::optional< testing_controller >
+testing_controller::make( testing_controller_interface& iface, pool_interface* pool )
 {
 
         auto opt_name  = load_data< testing_name_buffer, TESTING_SUITE_NAME >( iface );
@@ -51,7 +52,7 @@ std::optional< testing_controller > testing_controller::make( testing_controller
                 return {};
         }
 
-        std::pmr::map< testing_test_id, test_info > info;
+        pool_map< testing_test_id, test_info > info{ pool };
 
         for ( testing_test_id i = 0; i < *opt_count; i++ ) {
                 auto opt_name =
