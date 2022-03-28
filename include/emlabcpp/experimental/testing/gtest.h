@@ -53,6 +53,9 @@ class testing_gtest : public ::testing::Test
         testing_test_id                     tid_;
         testing_controller_interface&       ci_;
 
+        using mem_type = pool_resource< 88, 32 >;
+        mem_type pool_mem_;
+
 public:
         testing_gtest( testing_controller_interface& ci, testing_test_id tid )
           : opt_con_()
@@ -63,7 +66,7 @@ public:
 
         void SetUp() final
         {
-                opt_con_ = testing_controller::make( ci_ );
+                opt_con_ = testing_controller::make( ci_, &pool_mem_ );
                 ASSERT_TRUE( opt_con_ );
         }
 
@@ -83,7 +86,9 @@ public:
 
 void testing_register_gtests( testing_controller_interface& ci )
 {
-        auto opt_con = testing_controller::make( ci );
+        using mem_type = pool_resource< 88, 32 >;
+        mem_type pool_mem_;
+        auto     opt_con = testing_controller::make( ci, &pool_mem_ );
         EMLABCPP_ASSERT( opt_con );
         std::string suite_name = std::string{ opt_con->suite_name() };
         for ( auto [tid, tinfo] : opt_con->get_tests() ) {

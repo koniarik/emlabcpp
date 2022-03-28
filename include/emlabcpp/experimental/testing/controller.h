@@ -1,3 +1,4 @@
+#include "emlabcpp/allocator/pool.h"
 #include "emlabcpp/experimental/testing/controller_interface.h"
 #include "emlabcpp/iterators/convert.h"
 #include "emlabcpp/match.h"
@@ -17,7 +18,8 @@ public:
                 testing_name_buffer name;
         };
 
-        static std::optional< testing_controller > make( testing_controller_interface& iface );
+        static std::optional< testing_controller >
+        make( testing_controller_interface& iface, pool_interface* );
 
         std::string_view suite_name() const
         {
@@ -34,7 +36,7 @@ public:
                 return context_.has_value();
         }
 
-        const std::pmr::map< testing_test_id, test_info >& get_tests() const
+        const pool_map< testing_test_id, test_info >& get_tests() const
         {
                 return tests_;
         }
@@ -44,16 +46,16 @@ public:
         void tick( testing_controller_interface& iface );
 
 private:
-        std::pmr::map< testing_test_id, test_info > tests_;
-        testing_name_buffer                         name_;
-        testing_name_buffer                         date_;
-        std::optional< testing_result >             context_;
-        testing_run_id                              rid_ = 0;
+        pool_map< testing_test_id, test_info > tests_;
+        testing_name_buffer                    name_;
+        testing_name_buffer                    date_;
+        std::optional< testing_result >        context_;
+        testing_run_id                         rid_ = 0;
 
         testing_controller(
-            testing_name_buffer                         name,
-            testing_name_buffer                         date,
-            std::pmr::map< testing_test_id, test_info > tests )
+            testing_name_buffer                    name,
+            testing_name_buffer                    date,
+            pool_map< testing_test_id, test_info > tests )
           : tests_( std::move( tests ) )
           , name_( name )
           , date_( date )
