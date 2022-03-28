@@ -1,5 +1,6 @@
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/static_vector.h"
+#include "emlabcpp/assert.h"
 
 #include <deque>
 #include <list>
