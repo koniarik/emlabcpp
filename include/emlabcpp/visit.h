@@ -33,7 +33,7 @@ auto visit( Visitor&& vis, Variant&& var )
 template < typename Visitor, typename Variant >
 auto apply_on_visit( Visitor&& vis, Variant&& var )
 {
-        return visit(
+        return emlabcpp::visit(
             [&]< typename Item >( Item&& item ) {
                     return std::apply(
                         [&]< typename... Vals >( Vals && ... vals ) {

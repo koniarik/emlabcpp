@@ -146,7 +146,7 @@ requires( std::is_enum_v< T > ) struct protocol_json_serializer< T > : protocol_
 #ifdef EMLABCPP_USE_MAGIC_ENUM
                 j["values"] = magic_enum::enum_names< T >();
 #else
-                ignore( j );
+                std::ignore = j;
 #endif
         }
 };

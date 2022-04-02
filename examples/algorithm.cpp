@@ -53,13 +53,6 @@ int main( int, char*[] )
                   << '\n';
 
         // ---------------------------------------------------------------------------------------
-        // `ignore(x)` does nothing to the value `x`. Use it to shut down the compiler warning for
-        // unused variable in situations that requires it.
-
-        int unused_variable = 0;
-        em::ignore( unused_variable );
-
-        // ---------------------------------------------------------------------------------------
         // `sign(x)` is used to indicate a sign of variables required for some algorithms. It can be
         // used to either explicitly control flow based on the sign or use it to propagate the sign
         // into a computation. Note that we consider 0 as a separate case.

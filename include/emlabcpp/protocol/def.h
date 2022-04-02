@@ -761,7 +761,7 @@ struct protocol_def< static_vector< T, N >, Endianess >
                 value_type  res{};
 
                 for ( std::size_t i : range( cnt ) ) {
-                        ignore( i );
+                        std::ignore = i;
 
                         auto opt_view =
                             buffer.template opt_offset< typename sub_def::size_type >( offset );

@@ -31,7 +31,7 @@ matcher( Callables&&... ) -> matcher< std::decay_t< Callables >... >;
 template < typename Variant, typename... Callables >
 auto match( Variant&& var, Callables&&... cals )
 {
-        return visit(
+        return emlabcpp::visit(
             matcher< std::decay_t< Callables >... >( std::forward< Callables >( cals )... ),
             std::forward< Variant >( var ) );
 }

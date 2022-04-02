@@ -77,7 +77,7 @@ inline std::ostream& operator<<( std::ostream& os, const testing_controller_mess
 
 inline std::ostream& operator<<( std::ostream& os, const testing_error_variant& var )
 {
-        visit(
+        emlabcpp::visit(
             [&]( const auto& item ) {
                     os << item;
             },

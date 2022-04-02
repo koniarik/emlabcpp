@@ -40,8 +40,8 @@ void simple_test_case( em::testing_record& rec )
         uint64_t                config_val = std::get< uint64_t >( var );
 
         for ( uint32_t i = 0; i < config_val; i++ ) {
-                auto var2 = rec.get_arg( i );
-                em::ignore( var2 );
+                auto var2   = rec.get_arg( i );
+                std::ignore = var2;
         }
 
         // collecting records data in the controller
@@ -263,7 +263,7 @@ int main( int argc, char** argv )
         finished_ = true;
         t1.join();
 
-        em::ignore( res );
+        std::ignore = res;
         // TODO: temporary solution
         return 0;
 }
