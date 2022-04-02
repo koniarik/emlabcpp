@@ -35,7 +35,7 @@ class static_circular_buffer
         /// We need real_size of the buffer to be +1 bigger than number of items
         static constexpr std::size_t real_size = N + 1;
         /// type for storage of one item
-        using storage_type = std::aligned_storage_t< sizeof( T ), alignof( T ) >;
+        using storage_type = std::aligned_storage_t< sizeof( T ) * real_size, alignof( T ) >;
 
 public:
         static constexpr std::size_t capacity = N;
@@ -203,9 +203,9 @@ private:
         // private attributes
         // --------------------------------------------------------------------------------
 
-        storage_type data_[real_size] = { 0 };  // storage of the entire dataset
-        size_type    from_            = 0;      // index of the first item
-        size_type    to_              = 0;      // index past the last item
+        storage_type data_ = { 0 };  // storage of the entire dataset
+        size_type    from_ = 0;      // index of the first item
+        size_type    to_   = 0;      // index past the last item
 
         // from_ == to_ means empty
         // to_ + 1 == from_ is full
@@ -225,24 +225,24 @@ private:
 
         void delete_item( size_type i )
         {
-                ref_item( i ).~T();
+                std::destroy_at( std::addressof( ref_item( i ) ) );
         }
 
         template < typename... Args >
         void emplace_item( size_type i, Args&&... args )
         {
-                void* gen_ptr = reinterpret_cast< void* >( &data_[i] );
-                ::new ( gen_ptr ) T( std::forward< Args >( args )... );
+                std::construct_at(
+                    reinterpret_cast< T* >( &data_ ) + i, std::forward< Args >( args )... );
         }
 
         // Reference to the item in data_storage.
         [[nodiscard]] reference ref_item( size_type i )
         {
-                return *reinterpret_cast< T* >( &data_[i] );
+                return *( reinterpret_cast< T* >( &data_ ) + i );
         }
         [[nodiscard]] const_reference ref_item( size_type i ) const
         {
-                return *reinterpret_cast< const T* >( &data_[i] );
+                return *( reinterpret_cast< const T* >( &data_ ) + i );
         }
 
         // Cleans entire buffer from items.
