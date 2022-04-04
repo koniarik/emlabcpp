@@ -36,8 +36,6 @@ private:
 
         float output_ = 0;
 
-        bool enabled_ = true;
-
         /// improvements from naive PID:
         /// - we work with derivation of input, not error (error jumps in case you change desired
         /// value a lot)
@@ -58,19 +56,9 @@ public:
                 last_time_ = t;
         }
 
-        void disable()
-        {
-                enabled_ = false;
-        }
-
         void set_output( float output = 0 )
         {
                 output_ = output;
-        }
-
-        void enable()
-        {
-                enabled_ = true;
         }
 
         /// To correctly reset the pid, tell it the actuall output_ value
@@ -96,10 +84,6 @@ public:
         /// eventually converges to 'desired' value
         float update( time_type now, float input, float desired )
         {
-                if ( !enabled_ ) {
-                        return output_;
-                }
-
                 float t_diff = static_cast< float >( now - last_time_ );
 
                 if ( t_diff == 0.f ) {
