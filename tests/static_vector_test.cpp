@@ -1,6 +1,7 @@
 #include "emlabcpp/static_vector.h"
 
 #include "emlabcpp/algorithm.h"
+#include "operations_counter.h"
 
 #include <gtest/gtest.h>
 
@@ -218,3 +219,16 @@ TEST( static_vector_test, view )
 
         EXPECT_EQ( ss.str(), "1,2,3,4" );
 }
+
+struct operations_counter_static_vector
+{
+        using container_type           = static_vector< operations_counter, 32 >;
+        static constexpr std::size_t n = 16;
+};
+
+using types = ::testing::Types< operations_counter_static_vector >;
+INSTANTIATE_TYPED_TEST_SUITE_P(
+    operations_counter_static_vector_fixture,
+    operations_counter_fixture,
+    types );
+

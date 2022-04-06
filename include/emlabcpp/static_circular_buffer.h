@@ -59,22 +59,26 @@ public:
         }
         static_circular_buffer( static_circular_buffer&& other ) noexcept
         {
-                move_from( std::move( other ) );
+                move_from( other );
+                other.clear();
         }
         static_circular_buffer& operator=( const static_circular_buffer& other )
         {
-                if ( this != &other ) {
-                        clear();
-                        copy_from( other );
+                if ( this == &other ) {
+                        return *this;
                 }
+                clear();
+                copy_from( other );
                 return *this;
         }
         static_circular_buffer& operator=( static_circular_buffer&& other ) noexcept
         {
-                if ( this != &other ) {
-                        clear();
-                        move_from( std::move( other ) );
+                if ( this == &other ) {
+                        return *this;
                 }
+                clear();
+                move_from( other );
+                other.clear();
                 return *this;
         }
         // methods for handling the front side of the circular buffer
@@ -255,16 +259,16 @@ private:
 
         void copy_from( const static_circular_buffer& other )
         {
-                for ( size_type i = 0; i < other.size(); ++i ) {
-                        emplace_back( other[i] );
-                }
+                to_ = other.size();
+                std::uninitialized_copy(
+                    other.begin(), other.end(), reinterpret_cast< T* >( &data_ ) );
         }
 
-        void move_from( const static_circular_buffer& other )
+        void move_from( static_circular_buffer& other )
         {
-                for ( size_type i = 0; i < other.size(); ++i ) {
-                        emplace_back( std::move( other[i] ) );
-                }
+                to_ = other.size();
+                std::uninitialized_move(
+                    other.begin(), other.end(), reinterpret_cast< T* >( &data_ ) );
         }
 
         // Use this only when moving the indexes in the circular buffer - bullet-proof.

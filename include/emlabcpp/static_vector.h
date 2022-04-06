@@ -43,6 +43,7 @@ public:
         static_vector( static_vector&& other ) noexcept
         {
                 move_from( other );
+                other.clear();
         }
         template < std::size_t M >
         requires( M <= N ) static_vector( std::array< T, M > data )
@@ -51,18 +52,21 @@ public:
         }
         static_vector& operator=( const static_vector& other )
         {
-                if ( this != &other ) {
-                        clear();
-                        copy_from( other );
+                if ( this == &other ) {
+                        return *this;
                 }
+                clear();
+                copy_from( other );
                 return *this;
         }
         static_vector& operator=( static_vector&& other ) noexcept
         {
-                if ( this != &other ) {
-                        clear();
-                        move_from( other );
+                if ( this == &other ) {
+                        return *this;
                 }
+                clear();
+                move_from( other );
+                other.clear();
                 return *this;
         }
 
@@ -205,17 +209,17 @@ private:
         template < typename Container >
         void copy_from( const Container& cont )
         {
-                for ( const T& item : cont ) {
-                        emplace_back( item );
-                }
+                size_ = cont.size();
+                std::uninitialized_copy(
+                    cont.begin(), cont.end(), reinterpret_cast< T* >( &data_ ) );
         }
 
         template < typename Container >
-        void move_from( Container&& cont )
+        void move_from( Container& cont )
         {
-                for ( T& item : cont ) {
-                        emplace_back( std::move( item ) );
-                }
+                size_ = cont.size();
+                std::uninitialized_move(
+                    cont.begin(), cont.end(), reinterpret_cast< T* >( &data_ ) );
         }
 
         // Reference to the item in data_storage.
@@ -231,8 +235,9 @@ private:
         // Cleans entire buffer from items.
         void purge()
         {
-                while ( !empty() ) {
-                        pop_back();
+                while ( size_ > 0 ) {
+                        delete_item( size_ - 1 );
+                        size_ -= 1;
                 }
         }
 };
