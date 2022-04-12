@@ -43,7 +43,7 @@ public:
                         return nullptr;
 #endif
                 }
-                std::size_t i = free_.pop_back();
+                std::size_t i = free_.take_back();
                 return &pools_[i];
         }
 

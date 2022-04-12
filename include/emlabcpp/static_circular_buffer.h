@@ -110,12 +110,17 @@ public:
                 return ref_item( from_ );
         }
 
-        T pop_front()
+        [[nodiscard]] T take_front()
         {
                 T item = std::move( front() );
+                pop_front();
+                return item;
+        }
+
+        void pop_front()
+        {
                 delete_item( from_ );
                 from_ = next( from_ );
-                return item;
         }
 
         // methods for handling the back side of the circular buffer
@@ -140,11 +145,11 @@ public:
 
         [[nodiscard]] reference back()
         {
-                return ref_item( to_ - 1 );
+                return ref_item( prev( to_ ) );
         }
         [[nodiscard]] const_reference back() const
         {
-                return ref_item( to_ - 1 );
+                return ref_item( prev( to_ ) );
         }
 
         void push_back( T item )
@@ -236,17 +241,18 @@ private:
         void emplace_item( size_type i, Args&&... args )
         {
                 std::construct_at(
-                    reinterpret_cast< T* >( &data_ ) + i, std::forward< Args >( args )... );
+                    reinterpret_cast< T* >( std::addressof( data_ ) ) + i,
+                    std::forward< Args >( args )... );
         }
 
         // Reference to the item in data_storage.
         [[nodiscard]] reference ref_item( size_type i )
         {
-                return *( reinterpret_cast< T* >( &data_ ) + i );
+                return *( reinterpret_cast< T* >( std::addressof( data_ ) ) + i );
         }
         [[nodiscard]] const_reference ref_item( size_type i ) const
         {
-                return *( reinterpret_cast< const T* >( &data_ ) + i );
+                return *( reinterpret_cast< const T* >( std::addressof( data_ ) ) + i );
         }
 
         // Cleans entire buffer from items.
@@ -261,14 +267,14 @@ private:
         {
                 to_ = other.size();
                 std::uninitialized_copy(
-                    other.begin(), other.end(), reinterpret_cast< T* >( &data_ ) );
+                    other.begin(), other.end(), reinterpret_cast< T* >( std::addressof( data_ ) ) );
         }
 
         void move_from( static_circular_buffer& other )
         {
                 to_ = other.size();
                 std::uninitialized_move(
-                    other.begin(), other.end(), reinterpret_cast< T* >( &data_ ) );
+                    other.begin(), other.end(), reinterpret_cast< T* >( std::addressof( data_ ) ) );
         }
 
         // Use this only when moving the indexes in the circular buffer - bullet-proof.

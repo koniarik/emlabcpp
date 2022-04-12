@@ -127,12 +127,17 @@ public:
                 size_ += 1;
         }
 
-        T pop_back()
+        [[nodiscard]] T take_back()
         {
                 T item = std::move( back() );
+                pop_back();
+                return item;
+        }
+
+        void pop_back()
+        {
                 delete_item( size_ - 1 );
                 size_ -= 1;
-                return item;
         }
 
         [[nodiscard]] reference back()

@@ -1,6 +1,7 @@
 #include "emlabcpp/static_circular_buffer.h"
 
 #include "emlabcpp/algorithm.h"
+#include "operations_counter.h"
 
 #include <gtest/gtest.h>
 
@@ -267,3 +268,31 @@ TEST( static_circular_buffer_test, back_inserter )
         EXPECT_TRUE( are_equal ) << "buff: " << view{ buff } << "\n"
                                  << "expected: " << view{ expected } << "\n";
 }
+
+TEST( static_circular_buffer_test, back )
+{
+        trivial_buffer tbuff;
+        for ( int i : { 1, 2, 3, 4, 5, 6, 7 } ) {
+                tbuff.push_back( i );
+        }
+
+        EXPECT_TRUE( tbuff.full() );
+
+        tbuff.pop_front();
+        tbuff.push_back( 8 );
+
+        EXPECT_TRUE( tbuff.full() );
+        EXPECT_EQ( tbuff.back(), 8 );
+}
+
+struct operations_counter_circular_buffer
+{
+        using container_type           = static_circular_buffer< operations_counter, 32 >;
+        static constexpr std::size_t n = 16;
+};
+
+using types = ::testing::Types< operations_counter_circular_buffer >;
+INSTANTIATE_TYPED_TEST_SUITE_P(
+    operations_counter_circular_buffer_fixture,
+    operations_counter_fixture,
+    types );
