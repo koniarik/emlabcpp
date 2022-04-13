@@ -22,14 +22,14 @@ The library is heavily used our core project and spread itself into other smalle
     - [types.h](#typesh)
 
 ## Installation
-Repository is at https://github.com/koniarik/emlabcpp and mirrored to original repository https://gitlab.fi.muni.cz/xkoniar/emlabcpp
+Repository is at https://github.com/koniarik/emlabcpp 
 The prefered of getting the library for now is via fetchcontent:
 
 ```cmake
 FetchContent_Declare(
   emlabcpp
-  GIT_REPOSITORY https://gitlab.fi.muni.cz/xkoniar/emlabcpp/
-  GIT_TAG v1.0
+  GIT_REPOSITORY https://github.com/koniarik/emlabcpp
+  GIT_TAG v1.1
 )
 FetchContent_MakeAvailable(emlabcpp)
 ```
