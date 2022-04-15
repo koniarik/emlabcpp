@@ -10,6 +10,8 @@
 namespace emlabcpp
 {
 
+class testing_controller_interface_adapter;
+
 class testing_controller
 {
 public:
@@ -62,33 +64,42 @@ private:
         {
         }
 
-        void handle_message( tag< TESTING_COUNT >, auto, testing_controller_interface& iface );
-        void handle_message( tag< TESTING_NAME >, auto, testing_controller_interface& iface );
+        void
+        handle_message( tag< TESTING_COUNT >, auto, testing_controller_interface_adapter iface );
+        void
+        handle_message( tag< TESTING_NAME >, auto, testing_controller_interface_adapter iface );
         void handle_message(
             tag< TESTING_ARG >,
-            testing_run_id                rid,
-            testing_key                   k,
-            testing_controller_interface& iface );
+            testing_run_id                       rid,
+            testing_key                          k,
+            testing_controller_interface_adapter iface );
 
         void handle_message(
             tag< TESTING_COLLECT >,
             testing_run_id      rid,
             testing_key         key,
             testing_arg_variant avar,
-            testing_controller_interface& );
-        void handle_message( tag< TESTING_FINISHED >, auto, testing_controller_interface& iface );
-        void handle_message( tag< TESTING_ERROR >, auto, testing_controller_interface& );
-        void handle_message( tag< TESTING_FAILURE >, auto, testing_controller_interface& );
-        void handle_message( tag< TESTING_SUITE_NAME >, auto, testing_controller_interface& iface );
-        void handle_message( tag< TESTING_SUITE_DATE >, auto, testing_controller_interface& iface );
+            testing_controller_interface_adapter );
+        void
+        handle_message( tag< TESTING_FINISHED >, auto, testing_controller_interface_adapter iface );
+        void handle_message( tag< TESTING_ERROR >, auto, testing_controller_interface_adapter );
+        void handle_message( tag< TESTING_FAILURE >, auto, testing_controller_interface_adapter );
+        void handle_message(
+            tag< TESTING_SUITE_NAME >,
+            auto,
+            testing_controller_interface_adapter iface );
+        void handle_message(
+            tag< TESTING_SUITE_DATE >,
+            auto,
+            testing_controller_interface_adapter iface );
         void handle_message(
             tag< TESTING_INTERNAL_ERROR >,
-            testing_error_enum            err,
-            testing_controller_interface& iface );
+            testing_error_enum                   err,
+            testing_controller_interface_adapter iface );
         void handle_message(
             tag< TESTING_PROTOCOL_ERROR >,
-            protocol_error_record         rec,
-            testing_controller_interface& iface );
+            protocol_error_record                rec,
+            testing_controller_interface_adapter iface );
 };
 
 }  // namespace emlabcpp

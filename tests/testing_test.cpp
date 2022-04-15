@@ -159,7 +159,7 @@ struct controller_iface : em::testing_controller_interface
                 con_reac_buff.insert( inpt );
         }
 
-        std::optional< em::static_vector< uint8_t, 64 > > read( std::size_t ) final
+        std::optional< em::static_vector< uint8_t, 64 > > receive( std::size_t ) final
         {
                 return { reac_con_buff.pop() };
         }
