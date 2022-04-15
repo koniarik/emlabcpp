@@ -92,8 +92,11 @@ protocol_simple_load( std::size_t read_limit, ReadCallback&& read )
         std::size_t                                       to_read = Sequencer::fixed_size;
         std::size_t                                       count   = 0;
         while ( !res && count < read_limit ) {
-                auto data = read( to_read );
-                seq.load_data( view{ data } )
+                std::optional data = read( to_read );
+                if ( !data ) {
+                        return res;
+                }
+                seq.load_data( view{ *data } )
                     .match(
                         [&]( std::size_t next_read ) {
                                 to_read = next_read;
