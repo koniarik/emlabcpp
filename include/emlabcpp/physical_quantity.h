@@ -204,4 +204,3 @@ constexpr auto pow( physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, 
 }
 
 }  // namespace emlabcpp
-

@@ -81,10 +81,10 @@ struct my_test_fixture : em::testing_interface
 
         my_test_fixture() = default;
         // disabling copy should be allowed
-        my_test_fixture( const my_test_fixture& ) = delete;
+        my_test_fixture( const my_test_fixture& )            = delete;
         my_test_fixture& operator=( const my_test_fixture& ) = delete;
 
-        my_test_fixture( my_test_fixture&& ) = default;
+        my_test_fixture( my_test_fixture&& )            = default;
         my_test_fixture& operator=( my_test_fixture&& ) = default;
 
         void setup( em::testing_record& ) override

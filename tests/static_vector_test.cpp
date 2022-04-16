@@ -231,4 +231,3 @@ INSTANTIATE_TYPED_TEST_SUITE_P(
     operations_counter_static_vector_fixture,
     operations_counter_fixture,
     types );
-

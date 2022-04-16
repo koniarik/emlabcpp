@@ -92,7 +92,7 @@ void testing_register_gtests( testing_controller_interface& ci )
         EMLABCPP_ASSERT( opt_con );
         std::string suite_name = std::string{ opt_con->suite_name() };
         for ( auto [tid, tinfo] : opt_con->get_tests() ) {
-                std::string name{ tinfo.name.begin(), tinfo.name.end() };
+                std::string     name{ tinfo.name.begin(), tinfo.name.end() };
                 testing_test_id test_id = tid;
                 ::testing::RegisterTest(
                     suite_name.c_str(),

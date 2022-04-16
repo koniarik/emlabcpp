@@ -427,4 +427,3 @@ struct protocol_json_serializer< static_vector< T, N > > : protocol_json_seriali
 }  // namespace emlabcpp
 
 #endif
-

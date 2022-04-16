@@ -251,7 +251,7 @@ template < container Container, typename T, typename BinaryFunction >
 [[nodiscard]] constexpr T accumulate( const Container& cont, T init, BinaryFunction&& f )
 {
         for_each( cont, [&]( const auto& item ) {
-                init = f( std::move( init ), item ); // NOLINT(bugprone-use-after-move)
+                init = f( std::move( init ), item );  // NOLINT(bugprone-use-after-move)
         } );
         return init;
 }

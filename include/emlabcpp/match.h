@@ -17,7 +17,7 @@ struct matcher : Callables...
         static constexpr bool is_nothrow_assignable =
             ( std::is_nothrow_move_assignable_v< Callables > && ... );
 
-        matcher& operator=( const matcher& ) = default;
+        matcher& operator=( const matcher& )                              = default;
         matcher& operator=( matcher&& ) noexcept( is_nothrow_assignable ) = default;
 
         template < typename... Ts >

@@ -139,7 +139,7 @@ public:
         }
 
         template < either_uniquely_right_item< LH, RH > T >
-        either& operator=( T&& other ) // NOLINT
+        either& operator=( T&& other )  // NOLINT
         {
                 destruct();
                 id_ = item::RIGHT;

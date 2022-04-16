@@ -258,7 +258,7 @@ struct protocol_def< std::variant< Ds... >, Endianess >
                 protocol_result< value_type > res{ 0, &UNDEFVAR_ERR };
 
                 auto [iused, idres] = id_def::deserialize( buffer.template first< id_size >() );
-                std::size_t used = iused;
+                std::size_t used    = iused;
 
                 if ( std::holds_alternative< const protocol_mark* >( idres ) ) {
                         res.res = *std::get_if< const protocol_mark* >( &idres );

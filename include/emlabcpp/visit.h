@@ -36,7 +36,7 @@ auto apply_on_visit( Visitor&& vis, Variant&& var )
         return emlabcpp::visit(
             [&]< typename Item >( Item&& item ) {
                     return std::apply(
-                        [&]< typename... Vals >( Vals && ... vals ) {
+                        [&]< typename... Vals >( Vals&&... vals ) {
                                 return vis( std::forward< Vals >( vals )... );
                         },
                         std::forward< Item >( item ) );

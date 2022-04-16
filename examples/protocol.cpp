@@ -17,7 +17,7 @@ int main( int, char*[] )
         // types and templates and is separated from the actuall serialization and deserialization.
         //
         // There are two top level types that shall be used: protocol_tuple and
-        // protocol_command_group (variant-like). The user should use these as top level type and 
+        // protocol_command_group (variant-like). The user should use these as top level type and
         // define the protocol in these. They can be nested.
         //
         // For the examples we define the protocol by definining structures that inherit from the
@@ -28,8 +28,8 @@ int main( int, char*[] )
         // 'with_items' that make the definition more readable.
 
         // ---------------------------------------------------------------------------------------
-        // The protocol tuple is defined by endianess and items that are stored in the tuple. 
-        // protocol_tuple uses std::tuple as the type that actually holds the value. The example 
+        // The protocol tuple is defined by endianess and items that are stored in the tuple.
+        // protocol_tuple uses std::tuple as the type that actually holds the value. The example
         // definition below defines protocol for converting
         // `std::tuple<uint32_t, in16_t, int16_t>` into binary message `protocol_message<8>` of
         // size 8.
