@@ -76,7 +76,7 @@ using testing_reactor_controller_variant = typename testing_reactor_controller_g
 struct testing_packet_def
 {
         static constexpr protocol_endianess_enum  endianess = PROTOCOL_BIG_ENDIAN;
-        static constexpr std::array< uint8_t, 4 > prefix    = { 0x04, 0x62, 0x72, 0x25 };
+        static constexpr std::array< uint8_t, 4 > prefix    = { 0x42, 0x42, 0x42, 0x42 };
         using size_type                                     = uint16_t;
         using checksum_type                                 = uint8_t;
 
