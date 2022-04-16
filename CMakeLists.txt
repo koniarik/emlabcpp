@@ -6,24 +6,22 @@ project(emlabcpp)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_library(emlabcpp STATIC
-    src/experimental/testing/reactor.cpp
-    src/experimental/testing/record.cpp
-    src/experimental/testing/reactor_interface_adapter.cpp
-    src/experimental/testing/controller.cpp
-    )
+add_library(
+  emlabcpp STATIC
+  src/experimental/testing/reactor.cpp src/experimental/testing/record.cpp
+  src/experimental/testing/reactor_interface_adapter.cpp
+  src/experimental/testing/controller.cpp)
 target_include_directories(emlabcpp PUBLIC include/)
 target_include_directories(emlabcpp PRIVATE src/)
-target_compile_options(emlabcpp PRIVATE
-        -Wall -Wextra -pedantic -Wconversion -Wnon-virtual-dtor
-    )
+target_compile_options(emlabcpp PRIVATE -Wall -Wextra -pedantic -Wconversion
+                                        -Wnon-virtual-dtor)
 
 if(EMLABCPP_TESTS_ENABLED)
-    include(CTest)
-    if(BUILD_TESTING)
-        add_subdirectory(tests)
-        add_subdirectory(examples)
-    endif()
+  include(CTest)
+  if(BUILD_TESTING)
+    add_subdirectory(tests)
+    add_subdirectory(examples)
+  endif()
 endif()
 
 install(TARGETS emlabcpp)

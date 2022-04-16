@@ -11,29 +11,29 @@ function(emlabcpp_setup_test target)
   target_link_libraries(${target} emlabcpp)
   add_test(NAME ${target} COMMAND ${target})
 
-  target_compile_options( ${target} PRIVATE
-  -gdwarf
-  -Wall
-  -Werror
-  -Wextra
-  -Wpedantic
-  -Wnon-virtual-dtor
-  -Wold-style-cast
-  -Wcast-align
-  -Wunused
-  -Woverloaded-virtual
-  -Wnull-dereference
-  -Wformat=2
-  -Wunreachable-code
-  -Wsign-conversion
-  -Wconversion
-  -Wdouble-promotion
-  -ftemplate-backtrace-limit=0
-  -DEMLABCPP_USE_STREAMS
-  -DEMLABCPP_ASSERT_NATIVE
-  -DEMLABCPP_USE_NLOHMANN_JSON
-  -DEMLABCPP_USE_GTEST
-  )
+  target_compile_options(
+    ${target}
+    PRIVATE -gdwarf
+            -Wall
+            -Werror
+            -Wextra
+            -Wpedantic
+            -Wnon-virtual-dtor
+            -Wold-style-cast
+            -Wcast-align
+            -Wunused
+            -Woverloaded-virtual
+            -Wnull-dereference
+            -Wformat=2
+            -Wunreachable-code
+            -Wsign-conversion
+            -Wconversion
+            -Wdouble-promotion
+            -ftemplate-backtrace-limit=0
+            -DEMLABCPP_USE_STREAMS
+            -DEMLABCPP_ASSERT_NATIVE
+            -DEMLABCPP_USE_NLOHMANN_JSON
+            -DEMLABCPP_USE_GTEST)
 
 endfunction()
 
@@ -62,10 +62,6 @@ add_emlabcpp_test(protocol_base_test)
 add_emlabcpp_test(protocol_packet_test)
 add_emlabcpp_test(testing_test)
 
-#file(GLOB_RECURSE HEADER_FILES
-#		"${PROJECT_SOURCE_DIR}/include/*.h"
-#)
-#add_format_test(
-#		TARGET emlabcpp_format
-#		WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-#		FILES ${HEADER_FILES})
+# file(GLOB_RECURSE HEADER_FILES "${PROJECT_SOURCE_DIR}/include/*.h" )
+# add_format_test( TARGET emlabcpp_format WORKING_DIRECTORY
+# ${PROJECT_SOURCE_DIR} FILES ${HEADER_FILES})
