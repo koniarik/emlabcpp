@@ -50,11 +50,12 @@ struct protocol_packet_handler
                 return sub_handler::extract( msg ).bind_left(
                     [&]( std::tuple< prefix_type, size_type, value_type, checksum_type > pack )
                         -> either< value_type, protocol_error_record > {
-                            checksum_type present_checksum    = std::get< 3 >( pack );
-                            checksum_type calculated_checksum = Packet::get_checksum(
-                                view_n( msg.begin(), msg.size() - checksum_size ) );
+                            checksum_type present_checksum = std::get< 3 >( pack );
+                            std::size_t   checksum_pos     = msg.size() - checksum_size;
+                            checksum_type calculated_checksum =
+                                Packet::get_checksum( view_n( msg.begin(), checksum_pos ) );
                             if ( present_checksum != calculated_checksum ) {
-                                    return protocol_error_record{};
+                                    return protocol_error_record{ CHECKSUM_ERR, checksum_pos };
                             }
                             return std::get< 2 >( pack );
                     } );
