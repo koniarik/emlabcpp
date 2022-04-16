@@ -23,22 +23,22 @@ public:
         static std::optional< testing_controller >
         make( testing_controller_interface& iface, pool_interface* );
 
-        std::string_view suite_name() const
+        [[nodiscard]] std::string_view suite_name() const
         {
                 return { name_.begin(), name_.end() };
         }
 
-        std::string_view suite_date() const
+        [[nodiscard]] std::string_view suite_date() const
         {
                 return { date_.begin(), date_.end() };
         }
 
-        bool has_active_test() const
+        [[nodiscard]] bool has_active_test() const
         {
                 return context_.has_value();
         }
 
-        const pool_map< testing_test_id, test_info >& get_tests() const
+        [[nodiscard]] const pool_map< testing_test_id, test_info >& get_tests() const
         {
                 return tests_;
         }
@@ -59,8 +59,8 @@ private:
             testing_name_buffer                    date,
             pool_map< testing_test_id, test_info > tests )
           : tests_( std::move( tests ) )
-          , name_( name )
-          , date_( date )
+          , name_( std::move( name ) )
+          , date_( std::move( date ) )
         {
         }
 
@@ -76,9 +76,9 @@ private:
 
         void handle_message(
             tag< TESTING_COLLECT >,
-            testing_run_id      rid,
-            testing_key         key,
-            testing_arg_variant avar,
+            testing_run_id             rid,
+            const testing_key&         key,
+            const testing_arg_variant& avar,
             testing_controller_interface_adapter );
         void
         handle_message( tag< TESTING_FINISHED >, auto, testing_controller_interface_adapter iface );

@@ -57,7 +57,8 @@ public:
         {
                 copy_from( other );
         }
-        static_circular_buffer( static_circular_buffer&& other ) noexcept
+        static_circular_buffer( static_circular_buffer&& other ) noexcept(
+            std::is_nothrow_move_constructible_v< T > )
         {
                 move_from( other );
                 other.clear();
@@ -71,7 +72,8 @@ public:
                 copy_from( other );
                 return *this;
         }
-        static_circular_buffer& operator=( static_circular_buffer&& other ) noexcept
+        static_circular_buffer& operator=( static_circular_buffer&& other ) noexcept(
+            std::is_nothrow_move_assignable_v< T > )
         {
                 if ( this == &other ) {
                         return *this;
@@ -212,9 +214,9 @@ private:
         // private attributes
         // --------------------------------------------------------------------------------
 
-        storage_type data_ = { 0 };  // storage of the entire dataset
-        size_type    from_ = 0;      // index of the first item
-        size_type    to_   = 0;      // index past the last item
+        storage_type data_ = { { 0 } };  // storage of the entire dataset
+        size_type    from_ = 0;          // index of the first item
+        size_type    to_   = 0;          // index past the last item
 
         // from_ == to_ means empty
         // to_ + 1 == from_ is full
@@ -359,54 +361,56 @@ public:
         using difference_type = typename std::iterator_traits<
             static_circular_buffer_iterator< Container > >::difference_type;
 
-        static_circular_buffer_iterator( Container& cont, std::size_t i )
+        static_circular_buffer_iterator( Container& cont, std::size_t i ) noexcept
           : cont_( cont )
           , i_( i )
         {
         }
 
-        static_circular_buffer_iterator( const static_circular_buffer_iterator& )     = default;
+        static_circular_buffer_iterator( const static_circular_buffer_iterator& ) noexcept =
+            default;
         static_circular_buffer_iterator( static_circular_buffer_iterator&& ) noexcept = default;
 
         static_circular_buffer_iterator&
-        operator=( const static_circular_buffer_iterator& ) = default;
-        static_circular_buffer_iterator& operator=( static_circular_buffer_iterator&& ) = default;
+        operator=( const static_circular_buffer_iterator& ) noexcept = default;
+        static_circular_buffer_iterator&
+        operator=( static_circular_buffer_iterator&& ) noexcept = default;
 
-        reference operator*()
+        reference operator*() noexcept
         {
                 return cont_.ref_item( i_ );
         }
 
-        const reference operator*() const
+        const reference operator*() const noexcept
         {
                 return cont_.ref_item( i_ );
         }
 
-        static_circular_buffer_iterator& operator+=( difference_type j )
+        static_circular_buffer_iterator& operator+=( difference_type j ) noexcept
         {
                 auto uj = static_cast< std::size_t >( j );
                 i_      = ( i_ + uj ) % real_size;
                 return *this;
         }
 
-        static_circular_buffer_iterator& operator-=( difference_type j )
+        static_circular_buffer_iterator& operator-=( difference_type j ) noexcept
         {
                 auto uj = static_cast< std::size_t >( j );
                 i_      = ( i_ + real_size - uj ) % real_size;
                 return *this;
         }
 
-        auto operator<=>( const static_circular_buffer_iterator& other ) const
+        auto operator<=>( const static_circular_buffer_iterator& other ) const noexcept
         {
                 return i_ <=> other.i_;
         }
 
-        bool operator==( const static_circular_buffer_iterator& other ) const
+        bool operator==( const static_circular_buffer_iterator& other ) const noexcept
         {
                 return i_ == other.i_;
         }
 
-        difference_type operator-( const static_circular_buffer_iterator& other ) const
+        difference_type operator-( const static_circular_buffer_iterator& other ) const noexcept
         {
                 std::size_t i = i_;
                 if ( i < cont_.from_ ) {

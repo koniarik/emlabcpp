@@ -4,7 +4,7 @@
 
 using namespace emlabcpp;
 
-testing_arg_variant testing_record::get_arg( testing_key key )
+testing_arg_variant testing_record::get_arg( const testing_key& key )
 {
         comm_.reply< TESTING_ARG >( rid_, key );
 
@@ -14,10 +14,13 @@ testing_arg_variant testing_record::get_arg( testing_key key )
         EMLABCPP_ASSERT( opt_var );
         apply_on_match(
             *opt_var,
-            [&]( tag< TESTING_ARG >, testing_run_id, testing_key, testing_arg_variant var ) {
+            [&]( tag< TESTING_ARG >,
+                 testing_run_id,
+                 const testing_key&,
+                 const testing_arg_variant& var ) {
                     res = var;
             },
-            [&]( tag< TESTING_ARG_MISSING >, testing_run_id, testing_key ) {
+            [&]( tag< TESTING_ARG_MISSING >, testing_run_id, const testing_key& ) {
                     // TODO: error handling
             },
             [&]< auto ID >( tag< ID >, auto... ){
@@ -27,7 +30,7 @@ testing_arg_variant testing_record::get_arg( testing_key key )
         return *res;
 }
 
-void testing_record::collect( testing_key key, testing_arg_variant arg )
+void testing_record::collect( const testing_key& key, const testing_arg_variant& arg )
 {
         comm_.reply< TESTING_COLLECT >( rid_, key, arg );
 }

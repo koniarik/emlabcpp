@@ -87,12 +87,12 @@ struct my_test_fixture : em::testing_interface
         my_test_fixture( my_test_fixture&& ) = default;
         my_test_fixture& operator=( my_test_fixture&& ) = default;
 
-        void setup( em::testing_record& )
+        void setup( em::testing_record& ) override
         {
                 // setup i2c
         }
 
-        void teardown( em::testing_record& )
+        void teardown( em::testing_record& ) override
         {
                 // teardown i2c
         }
@@ -103,7 +103,7 @@ struct my_test_case : my_test_fixture
         // testing class using basic fixture for preparation
         // tadaaaaah!
 
-        void run( em::testing_record& rec )
+        void run( em::testing_record& rec ) override
         {
                 rec.collect( "some key for collector", 42 );
 

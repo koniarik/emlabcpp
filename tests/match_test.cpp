@@ -19,7 +19,7 @@ TEST( match, vis )
                     SUCCEED();
                     fired = true;
             },
-            [&]( std::string ) {
+            [&]( const std::string& ) {
                     FAIL();
             } );
 
@@ -33,7 +33,7 @@ TEST( match, vis )
             [&]( int ) {
                     FAIL();
             },
-            [&]( std::string ) {
+            [&]( const std::string& ) {
                     SUCCEED();
                     fired = true;
             } );
@@ -54,7 +54,7 @@ TEST( match, vis_apply )
                     SUCCEED();
                     fired = true;
             },
-            [&]( std::string ) {
+            [&]( const std::string& ) {
                     FAIL();
             } );
 
@@ -68,7 +68,7 @@ TEST( match, vis_apply )
             [&]( int, int ) {
                     FAIL();
             },
-            [&]( std::string ) {
+            [&]( const std::string& ) {
                     SUCCEED();
                     fired = true;
             } );

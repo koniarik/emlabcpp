@@ -23,6 +23,7 @@ struct protocol_error_record
 };
 
 // Creates protocol_mark from simple string literal.
+// NOLINTNEXTLINE(modernize-avoid-c-arrays)
 inline constexpr protocol_mark make_protocol_mark( const char ( &msg )[17] )
 {
         // note: do not try to fix the argument type, this is correct approach.

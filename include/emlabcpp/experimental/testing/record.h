@@ -34,21 +34,21 @@ public:
                 return get_arg( testing_key{ v } );
         }
 
-        testing_arg_variant get_arg( testing_key key );
+        testing_arg_variant get_arg( const testing_key& key );
 
         bool errored()
         {
                 return errored_;
         }
 
-        void collect( testing_key key, testing_arg_variant arg );
+        void collect( const testing_key& key, const testing_arg_variant& arg );
 
-        void collect( std::string_view key, testing_arg_variant arg )
+        void collect( std::string_view key, const testing_arg_variant& arg )
         {
                 collect( testing_key_to_buffer( key ), arg );
         }
 
-        void collect( testing_key key, std::string_view arg )
+        void collect( const testing_key& key, std::string_view arg )
         {
                 collect( key, testing_string_to_buffer( arg ) );
         }

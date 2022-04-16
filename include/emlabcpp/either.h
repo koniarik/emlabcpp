@@ -12,7 +12,8 @@ namespace emlabcpp
 {
 
 template < typename T, typename LH, typename RH >
-concept either_unique_right = std::same_as< std::decay_t< T >, RH > && !std::same_as< LH, RH >;
+concept either_uniquely_right_item =
+    std::same_as< std::decay_t< T >, RH > && !std::same_as< LH, RH >;
 
 /// Either is heterogenous structure that holds one of the two types specified.
 /// This is stored as union, so the memory requirement of either is always the size of the bigger
@@ -61,8 +62,8 @@ public:
                 new ( &left_ ) left_item( item );
         }
 
-        template < either_unique_right< LH, RH > Item >
-        either( Item&& item ) noexcept
+        template < either_uniquely_right_item< LH, RH > Item >
+        either( Item&& item ) noexcept  // NOLINT
           : id_( item::RIGHT )
         {
                 new ( &right_ ) right_item( std::forward< Item >( item ) );
@@ -129,7 +130,7 @@ public:
                 return *this;
         }
 
-        either& operator=( const either_unique_right< LH, RH > auto& other )
+        either& operator=( const either_uniquely_right_item< LH, RH > auto& other )
         {
                 destruct();
                 id_ = item::RIGHT;
@@ -137,8 +138,8 @@ public:
                 return *this;
         }
 
-        template < either_unique_right< LH, RH > T >
-        either& operator=( T&& other )
+        template < either_uniquely_right_item< LH, RH > T >
+        either& operator=( T&& other ) // NOLINT
         {
                 destruct();
                 id_ = item::RIGHT;
@@ -249,7 +250,7 @@ public:
         }
 
         template < typename T >
-        either< left_item, T > construct_right() const&
+        [[nodiscard]] either< left_item, T > construct_right() const&
         {
                 if ( id_ == item::LEFT ) {
                         return { left_ };
@@ -258,7 +259,7 @@ public:
         }
 
         template < typename T >
-        either< left_item, T > construct_right() &&
+        [[nodiscard]] either< left_item, T > construct_right() &&
         {
                 if ( id_ == item::LEFT ) {
                         return { std::move( left_ ) };
@@ -266,7 +267,7 @@ public:
                 return { T{ std::move( right_ ) } };
         }
 
-        auto bind_left( std::invocable< const left_item& > auto&& left_f ) const&
+        [[nodiscard]] auto bind_left( std::invocable< const left_item& > auto&& left_f ) const&
         {
                 using return_either =
                     either< typename decltype( left_f( left_ ) )::left_item, right_item >;
@@ -277,7 +278,8 @@ public:
 
                 return return_either{ right_ };
         }
-        auto bind_left( std::invocable< left_item > auto&& left_f ) &&
+
+        [[nodiscard]] auto bind_left( std::invocable< left_item > auto&& left_f ) &&
         {
                 using return_either = either<
                     typename decltype( left_f( std::move( left_ ) ) )::left_item,
@@ -292,7 +294,7 @@ public:
         }
 
         template < typename T >
-        either< T, right_item > construct_left() const&
+        [[nodiscard]] either< T, right_item > construct_left() const&
         {
                 if ( id_ != item::LEFT ) {
                         return { right_ };
@@ -301,7 +303,7 @@ public:
         }
 
         template < typename T >
-        either< T, right_item > construct_left() &&
+        [[nodiscard]] either< T, right_item > construct_left() &&
         {
                 if ( id_ != item::LEFT ) {
                         return { std::move( right_ ) };
@@ -309,7 +311,7 @@ public:
                 return { T{ std::move( left_ ) } };
         }
 
-        auto bind_right( std::invocable< const right_item& > auto&& right_f ) const&
+        [[nodiscard]] auto bind_right( std::invocable< const right_item& > auto&& right_f ) const&
         {
                 using return_either =
                     either< left_item, typename decltype( right_f( right_ ) )::right_item >;
@@ -320,7 +322,8 @@ public:
 
                 return return_either{ left_ };
         }
-        auto bind_right( std::invocable< right_item > auto&& right_f ) &&
+
+        [[nodiscard]] auto bind_right( std::invocable< right_item > auto&& right_f ) &&
         {
                 using return_either = either<
                     left_item,

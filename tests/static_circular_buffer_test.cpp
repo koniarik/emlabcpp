@@ -241,7 +241,7 @@ TEST( static_circular_buffer_test, iterators )
 TEST( static_circular_buffer_test, view )
 {
         obj_buffer obuff;
-        for ( std::string s : { "1"s, "2"s, "3"s, "4"s } ) {
+        for ( const std::string& s : { "1"s, "2"s, "3"s, "4"s } ) {
                 obuff.push_back( s );
         }
         std::stringstream ss;

@@ -8,11 +8,17 @@ namespace emlabcpp
 template < typename... Callables >
 struct matcher : Callables...
 {
-        matcher( const matcher& )     = default;
-        matcher( matcher&& ) noexcept = default;
+        static constexpr bool is_nothrow_move_constructible =
+            ( std::is_nothrow_move_constructible_v< Callables > && ... );
+
+        matcher( const matcher& )                                      = default;
+        matcher( matcher&& ) noexcept( is_nothrow_move_constructible ) = default;
+
+        static constexpr bool is_nothrow_assignable =
+            ( std::is_nothrow_move_assignable_v< Callables > && ... );
 
         matcher& operator=( const matcher& ) = default;
-        matcher& operator=( matcher&& ) = default;
+        matcher& operator=( matcher&& ) noexcept( is_nothrow_assignable ) = default;
 
         template < typename... Ts >
         explicit matcher( Ts&&... ts )

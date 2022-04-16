@@ -22,6 +22,12 @@ class testing_reactor
         {
                 std::string_view   name;
                 testing_interface* ptr;
+
+                test_handle( std::string_view n, testing_interface* p )
+                  : name( n )
+                  , ptr( p )
+                {
+                }
         };
 
         using handle_container = pool_list< test_handle >;
@@ -36,7 +42,7 @@ class testing_reactor
         {
                 testing_test_id tid;
                 testing_run_id  rid;
-                test_handle&    handle;
+                test_handle*    handle_ptr;
         };
 
         std::optional< active_execution > active_exec_;
@@ -49,10 +55,10 @@ public:
         {
         }
 
-        testing_reactor( const testing_reactor& ) = delete;
-        testing_reactor( testing_reactor&& )      = delete;
+        testing_reactor( const testing_reactor& )            = delete;
+        testing_reactor( testing_reactor&& )                 = delete;
         testing_reactor& operator=( const testing_reactor& ) = delete;
-        testing_reactor& operator=( testing_reactor&& ) = delete;
+        testing_reactor& operator=( testing_reactor&& )      = delete;
 
         template < testing_test T >
         void register_test( std::string_view name, T t )
@@ -84,13 +90,13 @@ private:
         void handle_message(
             tag< TESTING_ARG >,
             testing_run_id,
-            testing_key,
-            testing_arg_variant,
+            const testing_key&,
+            const testing_arg_variant&,
             testing_reactor_interface_adapter& );
         void handle_message(
             tag< TESTING_ARG_MISSING >,
             testing_run_id,
-            testing_key,
+            const testing_key&,
             testing_reactor_interface_adapter& );
         void
         handle_message( tag< TESTING_EXEC >, testing_run_id, testing_reactor_interface_adapter& );

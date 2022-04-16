@@ -1,6 +1,6 @@
+#include "emlabcpp/assert.h"
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/static_vector.h"
-#include "emlabcpp/assert.h"
 
 #include <deque>
 #include <list>
@@ -23,7 +23,7 @@ struct pool_interface
 };
 
 template < std::size_t PoolSize, uint16_t PoolCount >
-class pool_resource : public pool_interface
+class pool_resource final : public pool_interface
 {
 public:
         pool_resource()
@@ -69,10 +69,10 @@ public:
         ~pool_resource() final = default;
 
 private:
-        using pool = std::byte[PoolSize];
+        using pool = std::array< std::byte, PoolSize >;
 
         static_vector< uint16_t, PoolCount > free_;
-        pool                                 pools_[PoolCount];
+        std::array< pool, PoolCount >        pools_;
 };
 
 template < typename T >

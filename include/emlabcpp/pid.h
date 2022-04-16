@@ -84,7 +84,7 @@ public:
         /// eventually converges to 'desired' value
         float update( time_type now, float input, float desired )
         {
-                float t_diff = static_cast< float >( now - last_time_ );
+                auto t_diff = static_cast< float >( now - last_time_ );
 
                 if ( t_diff == 0.f ) {
                         return output_;
@@ -106,7 +106,7 @@ public:
                 return output_;
         }
 
-        float get_output() const
+        [[nodiscard]] float get_output() const
         {
                 return output_;
         }

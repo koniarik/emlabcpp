@@ -91,13 +91,13 @@ public:
         {
         }
 
-        constexpr bool contains( key_type key ) const
+        [[nodiscard]] constexpr bool contains( key_type key ) const
         {
                 return get_reg_index( key ) != std::tuple_size_v< registers_tuple >;
         }
 
         template < key_type Key >
-        reg_value_type< Key > get_val() const
+        [[nodiscard]] reg_value_type< Key > get_val() const
         {
                 static_assert( contains_key< Key > );
                 const reg_type< Key >& reg = std::get< key_index< Key > >( registers_ );

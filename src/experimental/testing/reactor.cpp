@@ -66,13 +66,13 @@ void testing_reactor::handle_message(
                 return;
         }
 
-        active_exec_.emplace( tid, rid, access_test( tid ) );
+        active_exec_ = active_execution{ tid, rid, &access_test( tid ) };
 }
 void testing_reactor::handle_message(
     tag< TESTING_ARG >,
     testing_run_id,
-    testing_key,
-    testing_arg_variant,
+    const testing_key&,
+    const testing_arg_variant&,
     testing_reactor_interface_adapter& iface )
 {
         iface.report_failure( TESTING_UNDESIRED_MSG_E );
@@ -80,7 +80,7 @@ void testing_reactor::handle_message(
 void testing_reactor::handle_message(
     tag< TESTING_ARG_MISSING >,
     testing_run_id,
-    testing_key,
+    const testing_key&,
     testing_reactor_interface_adapter& iface )
 {
         iface.report_failure( TESTING_UNDESIRED_MSG_E );
@@ -105,7 +105,7 @@ void testing_reactor::exec_test( testing_reactor_interface_adapter& iface )
                 iface.reply< TESTING_FINISHED >( active_exec_->rid );
         };
 
-        test_handle& h = active_exec_->handle;
+        test_handle& h = *active_exec_->handle_ptr;
 
         testing_record rec{ active_exec_->tid, active_exec_->rid, iface };
 

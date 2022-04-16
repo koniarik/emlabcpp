@@ -128,7 +128,7 @@ requires(
     !range_container< Container > ) constexpr void for_each( Container&& cont, UnaryFunction&& f )
 {
         std::apply(
-            [&]< typename... Items >( Items && ... items ) {
+            [&]< typename... Items >( Items&&... items ) {
                     ( f( std::forward< Items >( items ) ), ... );
             },
             std::forward< Container >( cont ) );
@@ -193,7 +193,7 @@ template <
 [[nodiscard]] constexpr T max_elem( const Container& cont, UnaryFunction&& f = std::identity() )
 {
         T val = std::numeric_limits< T >::lowest();
-        for_each( cont, [&]( const auto& item ) {  //
+        for_each( cont, [&]( const auto& item ) {
                 val = max( f( item ), val );
         } );
         return val;
@@ -209,7 +209,7 @@ template <
 [[nodiscard]] constexpr T min_elem( const Container& cont, UnaryFunction&& f = std::identity() )
 {
         T val = std::numeric_limits< T >::max();
-        for_each( cont, [&]( const auto& item ) {  //
+        for_each( cont, [&]( const auto& item ) {
                 val = min( f( item ), val );
         } );
         return val;
@@ -239,7 +239,7 @@ template <
 [[nodiscard]] constexpr T
 sum( const Container& cont, UnaryFunction&& f = std::identity(), T init = {} )
 {
-        for_each( cont, [&]( const auto& item ) {  //
+        for_each( cont, [&]( const auto& item ) {
                 init += f( item );
         } );
         return init;
@@ -250,8 +250,8 @@ sum( const Container& cont, UnaryFunction&& f = std::identity(), T init = {} )
 template < container Container, typename T, typename BinaryFunction >
 [[nodiscard]] constexpr T accumulate( const Container& cont, T init, BinaryFunction&& f )
 {
-        for_each( cont, [&]( const auto& item ) {  //
-                init = f( std::move( init ), item );
+        for_each( cont, [&]( const auto& item ) {
+                init = f( std::move( init ), item ); // NOLINT(bugprone-use-after-move)
         } );
         return init;
 }
@@ -265,7 +265,7 @@ template <
 [[nodiscard]] constexpr T avg( const Container& cont, UnaryFunction&& f = std::identity() )
 {
         T res{};
-        for_each( cont, [&]( const auto& item ) {  //
+        for_each( cont, [&]( const auto& item ) {
                 res += f( item );
         } );
         if constexpr ( std::is_arithmetic_v< T > ) {
@@ -331,7 +331,7 @@ template < container Container, container_invocable< Container > UnaryFunction =
 template < container Container, container_invocable< Container > UnaryFunction = std::identity >
 [[nodiscard]] constexpr bool all_of( const Container& cont, UnaryFunction&& f = std::identity() )
 {
-        return !any_of( cont, [&]( const auto& item ) {  //
+        return !any_of( cont, [&]( const auto& item ) {
                 return !f( item );
         } );
 }

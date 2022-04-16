@@ -1,6 +1,6 @@
 include(../cmake/util.cmake)
 
-add_subdirectory(3rd_party/google-test)
+find_package(GTest REQUIRED)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -28,8 +28,6 @@ function(emlabcpp_setup_test target)
   -Wsign-conversion
   -Wconversion
   -Wdouble-promotion
-  -fmax-errors=5
-  -fconcepts-diagnostics-depth=5
   -ftemplate-backtrace-limit=0
   -DEMLABCPP_USE_STREAMS
   -DEMLABCPP_ASSERT_NATIVE

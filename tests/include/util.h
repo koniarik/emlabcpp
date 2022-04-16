@@ -23,11 +23,11 @@ inline std::ostream& operator<<( std::ostream& os, const protocol_test_fixture& 
 template < typename T >
 inline std::string pretty_name()
 {
-        int         tmp  = 0;
-        char*       name = abi::__cxa_demangle( typeid( T ).name(), nullptr, nullptr, &tmp );
-        std::string res{ name };
-        free( name );
-        return res;
+        std::unique_ptr< char, decltype( std::free )& > name{ nullptr, std::free };
+
+        int tmp = 0;
+        name.reset( abi::__cxa_demangle( typeid( T ).name(), nullptr, nullptr, &tmp ) );
+        return std::string{ name.get() };
 }
 
 inline void exec_protocol_test_fixture_test(

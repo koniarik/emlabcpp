@@ -148,9 +148,9 @@ void testing_controller::handle_message(
 
 void testing_controller::handle_message(
     tag< TESTING_COLLECT >,
-    testing_run_id      rid,
-    testing_key         key,
-    testing_arg_variant avar,
+    testing_run_id             rid,
+    const testing_key&         key,
+    const testing_arg_variant& avar,
     testing_controller_interface_adapter )
 {
         std::ignore = rid;
@@ -164,7 +164,7 @@ void testing_controller::handle_message(
     auto,
     testing_controller_interface_adapter iface )
 {
-        iface->on_result( *context_ );
+        iface->on_result( std::move( *context_ ) );
         context_.reset();
 }
 void testing_controller::handle_message(
