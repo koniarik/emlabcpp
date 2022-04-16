@@ -6,10 +6,10 @@ using namespace emlabcpp;
 
 std::optional< testing_controller_reactor_msg > testing_reactor_interface_adapter::read_message()
 {
-        using sequencer = testing_controller_reactor_packet::sequencer;
-        return protocol_simple_load< sequencer >( read_limit_, [&]( std::size_t c ) {
-                return iface_.receive( c );
-        } );
+        if ( input_buffer_.empty() ) {
+                return {};
+        }
+        return input_buffer_.take_front();
 }
 
 std::optional< testing_controller_reactor_variant >

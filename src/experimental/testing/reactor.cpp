@@ -6,7 +6,7 @@ using namespace emlabcpp;
 
 void testing_reactor::spin( testing_reactor_interface& top_iface )
 {
-        testing_reactor_interface_adapter iface{ top_iface };
+        testing_reactor_interface_adapter iface{ top_iface, input_buffer_ };
 
         auto opt_var = iface.read_variant();
 
@@ -19,6 +19,21 @@ void testing_reactor::spin( testing_reactor_interface& top_iface )
                     handle_message( args..., iface );
             },
             *opt_var );
+}
+
+std::size_t testing_reactor::on_receive_data_irq( std::span< uint8_t > data )
+{
+        std::size_t res = sequencer::fixed_size;
+        seq_.load_data( view{ data } )
+            .match(
+                [&]( std::size_t next_read ) {
+                        res = next_read;
+                },
+                [&]( testing_controller_reactor_msg msg ) {
+                        input_buffer_.push_back( msg );
+                } );
+
+        return res;
 }
 
 void testing_reactor::handle_message(

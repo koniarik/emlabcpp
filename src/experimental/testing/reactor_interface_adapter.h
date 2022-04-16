@@ -7,13 +7,17 @@ namespace emlabcpp
 {
 class testing_reactor_interface_adapter
 {
-        testing_reactor_interface& iface_;
+        testing_reactor_interface&    iface_;
+        testing_reactor_input_buffer& input_buffer_;
 
         static constexpr std::size_t read_limit_ = 10;
 
 public:
-        testing_reactor_interface_adapter( testing_reactor_interface& iface )
+        testing_reactor_interface_adapter(
+            testing_reactor_interface&    iface,
+            testing_reactor_input_buffer& input_buffer )
           : iface_( iface )
+          , input_buffer_( input_buffer )
         {
         }
 
