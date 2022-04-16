@@ -3,6 +3,7 @@
 #include "emlabcpp/defer.h"
 #include "emlabcpp/experimental/testing/interface.h"
 #include "emlabcpp/experimental/testing/protocol.h"
+#include "emlabcpp/experimental/testing/reactor_interface.h"
 #include "emlabcpp/protocol/packet_handler.h"
 #include "emlabcpp/view.h"
 #include "emlabcpp/visit.h"
@@ -68,27 +69,31 @@ public:
         void spin( testing_reactor_interface& comm );
 
 private:
-        void handle_message( tag< TESTING_SUITE_NAME >, testing_reactor_interface& );
-        void handle_message( tag< TESTING_SUITE_DATE >, testing_reactor_interface& );
-        void handle_message( tag< TESTING_COUNT >, testing_reactor_interface& );
-        void handle_message( tag< TESTING_NAME >, testing_test_id tid, testing_reactor_interface& );
+        void handle_message( tag< TESTING_SUITE_NAME >, testing_reactor_interface_adapter& );
+        void handle_message( tag< TESTING_SUITE_DATE >, testing_reactor_interface_adapter& );
+        void handle_message( tag< TESTING_COUNT >, testing_reactor_interface_adapter& );
+        void handle_message(
+            tag< TESTING_NAME >,
+            testing_test_id tid,
+            testing_reactor_interface_adapter& );
         void handle_message(
             tag< TESTING_LOAD >,
             testing_test_id tid,
             testing_run_id  rid,
-            testing_reactor_interface& );
+            testing_reactor_interface_adapter& );
         void handle_message(
             tag< TESTING_ARG >,
             testing_run_id,
             testing_key,
             testing_arg_variant,
-            testing_reactor_interface& );
+            testing_reactor_interface_adapter& );
         void handle_message(
             tag< TESTING_ARG_MISSING >,
             testing_run_id,
             testing_key,
-            testing_reactor_interface& );
-        void handle_message( tag< TESTING_EXEC >, testing_run_id, testing_reactor_interface& );
+            testing_reactor_interface_adapter& );
+        void
+        handle_message( tag< TESTING_EXEC >, testing_run_id, testing_reactor_interface_adapter& );
 
         template < testing_test T >
         void store_test( std::string_view name, T t )
@@ -103,7 +108,7 @@ private:
                 mem.deallocate( p );
         }
 
-        void exec_test( testing_reactor_interface& comm );
+        void exec_test( testing_reactor_interface_adapter& comm );
 
         test_handle& access_test( testing_test_id );
 

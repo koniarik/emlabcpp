@@ -8,10 +8,12 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_library(emlabcpp STATIC
     src/experimental/testing/reactor.cpp
-    src/experimental/testing/reactor_interface.cpp
+    src/experimental/testing/record.cpp
+    src/experimental/testing/reactor_interface_adapter.cpp
     src/experimental/testing/controller.cpp
     )
 target_include_directories(emlabcpp PUBLIC include/)
+target_include_directories(emlabcpp PRIVATE src/)
 target_compile_options(emlabcpp PRIVATE
         -Wall -Wextra -pedantic -Wconversion -Wnon-virtual-dtor
     )

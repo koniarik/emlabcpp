@@ -23,7 +23,7 @@ template < typename T >
 inline T testing_string_to_buffer( std::string_view sview )
 {
         T tmp;
-        std::copy_n( sview.begin(), min( sview.size(), T::capacity ), std::back_inserter( tmp ) );
+        std::copy_n( sview.begin(), std::min( sview.size(), T::capacity ), std::back_inserter( tmp ) );
         return tmp;
 }
 
@@ -50,5 +50,7 @@ struct testing_result
         bool                                              failed  = false;
         bool                                              errored = false;
 };
+
+class testing_reactor_interface_adapter;
 
 }  // namespace emlabcpp

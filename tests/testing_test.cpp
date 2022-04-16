@@ -132,7 +132,7 @@ struct reactor_iface : em::testing_reactor_interface
 
         // Argument specifies ideal number of bytes that should be read
         // More is not allowed, less is aallowed
-        em::static_vector< uint8_t, 64 > read( std::size_t ) final
+        std::optional< em::static_vector< uint8_t, 64 > > receive( std::size_t ) final
         {
                 return con_reac_buff.pop();
         }

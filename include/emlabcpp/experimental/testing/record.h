@@ -1,7 +1,6 @@
 #include "emlabcpp/experimental/testing/base.h"
-#include "emlabcpp/experimental/testing/reactor_interface.h"
-#include "emlabcpp/static_vector.h"
 #include "emlabcpp/match.h"
+#include "emlabcpp/static_vector.h"
 
 #pragma once
 
@@ -9,13 +8,16 @@ namespace emlabcpp
 {
 class testing_record
 {
-        testing_test_id            tid_;
-        testing_run_id             rid_;
-        testing_reactor_interface& comm_;
-        bool                       errored_ = false;
+        testing_test_id                    tid_;
+        testing_run_id                     rid_;
+        testing_reactor_interface_adapter& comm_;
+        bool                               errored_ = false;
 
 public:
-        testing_record( testing_test_id tid, testing_run_id rid, testing_reactor_interface& comm )
+        testing_record(
+            testing_test_id                    tid,
+            testing_run_id                     rid,
+            testing_reactor_interface_adapter& comm )
           : tid_( tid )
           , rid_( rid )
           , comm_( comm )
@@ -32,40 +34,14 @@ public:
                 return get_arg( testing_key{ v } );
         }
 
-        testing_arg_variant get_arg( testing_key key )
-        {
-                comm_.reply< TESTING_ARG >( rid_, key );
-
-                std::optional< testing_arg_variant > res;
-
-                std::optional< testing_controller_reactor_variant > opt_var = comm_.read_variant();
-                EMLABCPP_ASSERT( opt_var );
-                apply_on_match(
-                    *opt_var,
-                    [&](
-                        tag< TESTING_ARG >, testing_run_id, testing_key, testing_arg_variant var ) {
-                            res = var;
-                    },
-                    [&]( tag< TESTING_ARG_MISSING >, testing_run_id, testing_key ) {
-                            // TODO: error handling
-                    },
-                    [&]< auto ID >( tag< ID >, auto... ){
-                        // TODO: add error handling
-                    } );
-                EMLABCPP_ASSERT( res );
-                return *res;
-        }
+        testing_arg_variant get_arg( testing_key key );
 
         bool errored()
         {
                 return errored_;
         }
 
-        // TODO: dddduplication
-        void collect( testing_key key, testing_arg_variant arg )
-        {
-                comm_.reply< TESTING_COLLECT >( rid_, key, arg );
-        }
+        void collect( testing_key key, testing_arg_variant arg );
 
         void collect( std::string_view key, testing_arg_variant arg )
         {
