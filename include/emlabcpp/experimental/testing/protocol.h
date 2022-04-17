@@ -10,20 +10,20 @@ namespace emlabcpp
 
 enum testing_messages_enum : uint8_t
 {
-        TESTING_EXEC           = 1,
-        TESTING_COUNT          = 2,
-        TESTING_NAME           = 3,
-        TESTING_LOAD           = 4,
-        TESTING_ARG            = 5,
-        TESTING_SUITE_NAME     = 6,
-        TESTING_SUITE_DATE     = 7,
-        TESTING_COLLECT        = 8,
-        TESTING_FINISHED       = 9,
-        TESTING_ERROR          = 10,
-        TESTING_FAILURE        = 11,
-        TESTING_INTERNAL_ERROR = 100,
-        TESTING_PROTOCOL_ERROR = 101,
-        TESTING_ARG_MISSING    = 102
+        TESTING_EXEC           = 0x1,
+        TESTING_COUNT          = 0x2,
+        TESTING_NAME           = 0x3,
+        TESTING_LOAD           = 0x4,
+        TESTING_ARG            = 0x5,
+        TESTING_SUITE_NAME     = 0x6,
+        TESTING_SUITE_DATE     = 0x7,
+        TESTING_COLLECT        = 0x8,
+        TESTING_FINISHED       = 0x9,
+        TESTING_ERROR          = 0xa,
+        TESTING_FAILURE        = 0xb,
+        TESTING_INTERNAL_ERROR = 0xf0,
+        TESTING_PROTOCOL_ERROR = 0xf1,
+        TESTING_ARG_MISSING    = 0xf2
 };
 
 enum testing_error_enum : uint8_t

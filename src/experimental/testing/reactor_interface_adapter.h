@@ -31,8 +31,6 @@ public:
                 return &iface_;
         }
 
-        std::optional< testing_controller_reactor_msg > read_message();
-
         std::optional< testing_controller_reactor_variant > read_variant();
 
         void reply( const testing_reactor_controller_variant& );

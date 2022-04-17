@@ -68,7 +68,14 @@ std::optional< T > load_data( const Args&... args, testing_controller_interface_
             [&]( tag< ID >, auto item ) {
                     res = item;
             },
-            [&]< auto WID >( tag< WID >, auto... ){ EMLABCPP_ASSERT( false );
+            [&]( tag< TESTING_INTERNAL_ERROR >, testing_error_enum err ) {
+                    iface->on_error( testing_internal_reactor_error{ err } );
+            },
+            [&]( tag< TESTING_PROTOCOL_ERROR >, protocol_error_record rec ) {
+                    iface->on_error( testing_reactor_protocol_error{ rec } );
+            },
+            [&]< auto WID >( tag< WID >, auto... ){
+                iface->on_error( testing_controller_message_error{ WID } );
 }
 };  // namespace
 

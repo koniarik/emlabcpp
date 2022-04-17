@@ -4,24 +4,16 @@
 
 using namespace emlabcpp;
 
-std::optional< testing_controller_reactor_msg > testing_reactor_interface_adapter::read_message()
-{
-        if ( input_buffer_.empty() ) {
-                return {};
-        }
-        return input_buffer_.take_front();
-}
-
 std::optional< testing_controller_reactor_variant >
 testing_reactor_interface_adapter::read_variant()
 {
         using handler = protocol_packet_handler< testing_controller_reactor_packet >;
-        auto                                                opt_msg = read_message();
-        std::optional< testing_controller_reactor_variant > res;
-        if ( !opt_msg ) {
-                return res;
+        if ( input_buffer_.empty() ) {
+                return {};
         }
-        handler::extract( *opt_msg )
+
+        std::optional< testing_controller_reactor_variant > res;
+        handler::extract( input_buffer_.front() )
             .match(
                 [&]( auto var ) {
                         res = var;
@@ -29,6 +21,7 @@ testing_reactor_interface_adapter::read_variant()
                 [&]( protocol_error_record rec ) {
                         reply< TESTING_PROTOCOL_ERROR >( rec );
                 } );
+        input_buffer_.pop_front();
         return res;
 }
 void testing_reactor_interface_adapter::reply( const testing_reactor_controller_variant& var )
