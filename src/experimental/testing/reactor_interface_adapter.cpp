@@ -7,13 +7,33 @@ using namespace emlabcpp;
 std::optional< testing_controller_reactor_variant >
 testing_reactor_interface_adapter::read_variant()
 {
+        using sequencer = std::decay_t< decltype( seq_ ) >;
         using handler = protocol_packet_handler< testing_controller_reactor_packet >;
-        if ( input_buffer_.empty() ) {
+
+        std::size_t                                     to_read = sequencer::fixed_size;
+        std::optional< testing_controller_reactor_msg > opt_msg;
+        while ( !opt_msg ) {
+                std::optional opt_data = iface_.receive( to_read );
+                if ( !opt_data ) {
+                        return {};
+                }
+
+                seq_.load_data( view{ *opt_data } )
+                    .match(
+                        [&]( std::size_t next_read ) {
+                                to_read = next_read;
+                        },
+                        [&]( auto msg ) {
+                                opt_msg = msg;
+                        } );
+        }
+
+        if ( !opt_msg ) {
                 return {};
         }
 
         std::optional< testing_controller_reactor_variant > res;
-        handler::extract( input_buffer_.front() )
+        handler::extract( *opt_msg )
             .match(
                 [&]( auto var ) {
                         res = var;
@@ -21,7 +41,6 @@ testing_reactor_interface_adapter::read_variant()
                 [&]( protocol_error_record rec ) {
                         reply< TESTING_PROTOCOL_ERROR >( rec );
                 } );
-        input_buffer_.pop_front();
         return res;
 }
 void testing_reactor_interface_adapter::reply( const testing_reactor_controller_variant& var )

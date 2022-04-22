@@ -30,23 +30,22 @@ class testing_reactor
                 }
         };
 
-        using handle_container = pool_list< test_handle >;
-        using handle_iterator  = typename handle_container::iterator;
-        using sequencer        = testing_controller_reactor_packet::sequencer;
-
-        std::string_view             suite_name_;
-        std::string_view             suite_date_ = __DATE__;
-        handle_container             handles_;
-        pool_interface*              mem_;
-        sequencer                    seq_;
-        testing_reactor_input_buffer input_buffer_;
-
         struct active_execution
         {
                 testing_test_id tid;
                 testing_run_id  rid;
                 test_handle*    handle_ptr;
         };
+
+        using handle_container = pool_list< test_handle >;
+        using handle_iterator  = typename handle_container::iterator;
+        using sequencer        = testing_controller_reactor_packet::sequencer;
+
+        std::string_view suite_name_;
+        std::string_view suite_date_ = __DATE__;
+        handle_container handles_;
+        pool_interface*  mem_;
+        sequencer        seq_;
 
         std::optional< active_execution > active_exec_;
 
@@ -76,8 +75,6 @@ public:
         }
 
         void spin( testing_reactor_interface& comm );
-
-        std::size_t on_receive_data_irq( std::span< uint8_t > );
 
 private:
         void handle_message( tag< TESTING_SUITE_NAME >, testing_reactor_interface_adapter& );

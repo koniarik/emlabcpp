@@ -116,16 +116,23 @@ struct my_test_case : my_test_fixture
 
 struct reactor_iface : em::testing_reactor_interface
 {
+        em::thread_safe_queue& con_reac_buff;
         em::thread_safe_queue& reac_con_buff;
 
-        reactor_iface( em::thread_safe_queue& rc )
-          : reac_con_buff( rc )
+        reactor_iface( em::thread_safe_queue& cr, em::thread_safe_queue& rc )
+          : con_reac_buff( cr )
+          , reac_con_buff( rc )
         {
         }
 
         void transmit( std::span< uint8_t > inpt ) final
         {
                 reac_con_buff.insert( inpt );
+        }
+
+        std::optional< em::static_vector< uint8_t, 64 > > receive( uint8_t ) final
+        {
+                return con_reac_buff.pop();
         }
 };
 
@@ -236,15 +243,10 @@ int main( int argc, char** argv )
         std::atomic< bool > finished_ = false;
 
         std::thread t1{ [&] {
-                reactor_iface             iface{ reac_con_buff };
+                reactor_iface             iface{ con_reac_buff, reac_con_buff };
                 std::chrono::milliseconds t{ 10 };
 
                 while ( !finished_ ) {
-                        if ( !con_reac_buff.empty() ) {
-                                auto data = con_reac_buff.pop();
-
-                                rec.on_receive_data_irq( data );
-                        }
                         rec.spin( iface );
                         std::this_thread::sleep_for( t );
                 }

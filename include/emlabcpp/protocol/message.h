@@ -60,12 +60,12 @@ public:
 
         [[nodiscard]] uint8_t front() const
         {
-                return data_.front();
+                return data_[0];
         }
 
         [[nodiscard]] uint8_t& front()
         {
-                return data_.front();
+                return data_[0];
         }
 
         [[nodiscard]] uint8_t back() const
@@ -80,22 +80,22 @@ public:
 
         [[nodiscard]] const_iterator begin() const
         {
-                return data_.begin();
+                return &data_[0];
         }
 
         [[nodiscard]] iterator begin()
         {
-                return data_.begin();
+                return &data_[0];
         }
 
         [[nodiscard]] const_iterator end() const
         {
-                return data_.begin() + used_;
+                return &data_[0] + used_;
         }
 
         [[nodiscard]] iterator end()
         {
-                return data_.begin() + used_;
+                return &data_[0] + used_;
         }
 
         uint8_t operator[]( std::size_t i ) const
@@ -113,26 +113,26 @@ public:
         {
                 static_assert( M >= N );
                 std::array< uint8_t, M > res{};
-                std::copy( data_.begin(), data_.end(), res.begin() );
+                std::copy( begin(), end(), res.begin() );
                 std::fill( res.begin() + N, res.end(), 0 );
                 return res;
         }
 
         friend auto operator==( const protocol_message& lh, const protocol_message& rh )
         {
-                return view_n( lh.data_.begin(), lh.used_ ) == view_n( rh.data_.begin(), rh.used_ );
+                return view_n( lh.begin(), lh.used_ ) == view_n( rh.begin(), rh.used_ );
         }
 
 private:
-        std::array< uint8_t, N > data_ = { 0 };
-        std::size_t              used_ = { 0 };
+        uint8_t     data_[N];
+        std::size_t used_ = { 0 };
 
 protected:
         template < typename Iterator >
-        protocol_message( Iterator begin, Iterator end ) noexcept
-          : used_( static_cast< std::size_t >( std::distance( begin, end ) ) )
+        protocol_message( Iterator beg, Iterator end ) noexcept
+          : used_( static_cast< std::size_t >( std::distance( beg, end ) ) )
         {
-                std::copy( begin, end, data_.begin() );
+                std::copy( beg, end, begin() );
         }
 };
 
