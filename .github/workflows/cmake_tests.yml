@@ -21,7 +21,7 @@ jobs:
               run: make test COVERAGE=1
               env:
                   CC: gcc-10
-                  CXX: g++10
+                  CXX: g++-10
 
             - uses: actions/upload-artifact@v2
               if: failure()
