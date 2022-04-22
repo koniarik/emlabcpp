@@ -1,6 +1,10 @@
 
 # conditionally enables sanitizers
-EXTRAARGS=$(if $(SANITIZER), -DCMAKE_CXX_FLAGS="-fsanitize=$(SANITIZER)" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=$(SANITIZER)", )
+CXX_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) ) $(if $(COVERAGE), -fprofile-arcs -ftest-coverage)
+LINKER_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) )
+
+EXTRAARGS=-DCMAKE_CXX_FLAGS="$(CXX_FLAGS)" -DCMAKE_EXE_LINKER_FLAGS="$(LINKER_FLAGS)"
+
 
 .PHONY: clean build_test exec_test test
 

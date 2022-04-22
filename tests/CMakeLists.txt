@@ -13,7 +13,7 @@ function(emlabcpp_setup_test target)
 
   target_compile_options(
     ${target}
-    PRIVATE -gdwarf
+    PRIVATE -ggdb
             -Wall
             -Werror
             -Wextra

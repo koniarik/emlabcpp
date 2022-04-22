@@ -1,0 +1,24 @@
+name: CMake tests
+
+on: [push]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        defaults:
+            run:
+                shell:
+                    bash
+        
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Test
+              run: make test COVERAGE=1
+
+            - uses: actions/upload-artifact@v2
+              if: failure()
+              with:
+                  name: test_results_xml
+                  path: ${{runner.workspace}}/build/test-results/**/*.xml
