@@ -14,6 +14,9 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
+            - name: Install dependencies
+              run: sudo apt install libgtest-dev
+
             - name: Test
               run: make test COVERAGE=1
 
