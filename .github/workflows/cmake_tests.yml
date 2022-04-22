@@ -15,7 +15,7 @@ jobs:
             - uses: actions/checkout@v2
 
             - name: Install dependencies
-              run: sudo apt install libgtest-dev gcc-10 g++-10
+              run: sudo apt install libgtest-dev gcc-10 g++-10 nlohmann-json3-dev
 
             - name: Test
               run: make test COVERAGE=1
