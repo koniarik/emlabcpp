@@ -8,7 +8,7 @@ std::optional< testing_controller_reactor_variant >
 testing_reactor_interface_adapter::read_variant()
 {
         using sequencer = std::decay_t< decltype( seq_ ) >;
-        using handler = protocol_packet_handler< testing_controller_reactor_packet >;
+        using handler   = protocol_packet_handler< testing_controller_reactor_packet >;
 
         std::size_t                                     to_read = sequencer::fixed_size;
         std::optional< testing_controller_reactor_msg > opt_msg;
