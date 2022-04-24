@@ -1,10 +1,5 @@
-include(../cmake/util.cmake)
 
 find_package(GTest REQUIRED)
-
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
 function(emlabcpp_setup_test target)
   target_include_directories(${target} PRIVATE include/)
@@ -34,7 +29,9 @@ function(emlabcpp_setup_test target)
             -DEMLABCPP_ASSERT_NATIVE
             -DEMLABCPP_USE_NLOHMANN_JSON
             -DEMLABCPP_USE_GTEST)
-
+  if(EMLABCPP_COVERAGE_ENABLED)
+    emlabcpp_target_enable_coverage(${target})
+  endif()
 endfunction()
 
 function(add_emlabcpp_test name)
@@ -43,8 +40,10 @@ function(add_emlabcpp_test name)
   emlabcpp_setup_test(${name})
 endfunction()
 
+add_emlabcpp_test(concepts_test)
 add_emlabcpp_test(static_circular_buffer_test)
 add_emlabcpp_test(algorithm_test)
+add_emlabcpp_test(bounded_test)
 add_emlabcpp_test(numeric_iterator_test)
 add_emlabcpp_test(access_iterator_test)
 add_emlabcpp_test(either_test)

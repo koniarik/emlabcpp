@@ -1,21 +1,42 @@
 
 # conditionally enables sanitizers
-CXX_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) ) $(if $(COVERAGE), -fprofile-arcs -ftest-coverage)
-LINKER_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) )
+CXX_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) )  -O0 -fno-inline
+LINKER_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) ) -O0 -fno-inline
 
-EXTRAARGS=-DCMAKE_CXX_FLAGS="$(CXX_FLAGS)" -DCMAKE_EXE_LINKER_FLAGS="$(LINKER_FLAGS)"
+EXTRAARGS=-DCMAKE_CXX_FLAGS="$(CXX_FLAGS)" -DCMAKE_EXE_LINKER_FLAGS="$(LINKER_FLAGS)" -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DEMLABCPP_TESTS_ENABLED=ON
 
 
 .PHONY: clean build_test exec_test test
 
 clean:
+	rm -rf ./ctidy_build
 	rm -rf ./build
 
 build_test:
-	cmake -Bbuild $(EXTRAARGS) -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1
-	make -Cbuild -j
+	cmake -Bbuild $(EXTRAARGS)
+	cmake --build build
 
-exec_test: build_test
+test: build_test
 	cd build && ctest -T Test --output-on-failure
 
-test: exec_test
+build_coverage:
+	cmake -Bbuild $(EXTRAARGS) -DEMLABCPP_COVERAGE_ENABLED=ON
+	cmake --build build
+
+coverage: build_coverage
+	cd build && ctest -T Test
+	lcov -c -d build  --exclude "/usr/include/*" --exclude "*_test.cpp" -o build/emlabcpp.lcov.info
+	genhtml build/emlabcpp.lcov.info -s -o coverage/ -k --legend --demangle-cpp
+
+
+clang-tidy:
+	cmake -Bctidy_build -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy
+	make -Cctidy_build -j
+
+clang-format:
+	find ./ -iname "*.h" -o -iname "*.cpp" | xargs clang-format -i
+
+cmake-format:
+	find ./ -iname "*CMakeLists.txt" -o -iname "*.cmake" | xargs cmake-format -i
+
+

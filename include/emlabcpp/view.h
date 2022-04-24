@@ -1,9 +1,5 @@
 #include "emlabcpp/types.h"
 
-#ifdef EMLABCPP_USE_STREAMS
-#include <ostream>
-#endif
-
 #pragma once
 
 namespace emlabcpp
@@ -177,10 +173,9 @@ constexpr auto reversed( referenceable_container auto&& container )
         return { container.rbegin(), container.rend() };
 }
 
-#ifdef EMLABCPP_USE_STREAMS
 // Output operator for the view, uses comma to separate the items in the view.
-template < typename Iterator >
-inline std::ostream& operator<<( std::ostream& os, const view< Iterator >& output )
+template < ostreamlike Stream, typename Iterator >
+inline auto& operator<<( Stream& os, const view< Iterator >& output )
 {
         using value_type = decltype( *std::declval< Iterator >() );
         bool first       = true;
@@ -193,6 +188,5 @@ inline std::ostream& operator<<( std::ostream& os, const view< Iterator >& outpu
         }
         return os;
 }
-#endif
 
 }  // namespace emlabcpp

@@ -507,12 +507,7 @@ struct protocol_def< protocol_sized_buffer< CounterDef, D >, Endianess >
                         return { cused, *std::get_if< const protocol_mark* >( &cres ) };
                 }
                 std::size_t used       = *std::get_if< 0 >( &cres );
-                std::size_t size       = buffer.size() - counter_size;
                 auto        start_iter = buffer.begin() + counter_size;
-
-                if ( used > size ) {
-                        return { cused, &SIZE_ERR };
-                }
 
                 auto opt_view = bounded_view< const uint8_t*, typename sub_def::size_type >::make(
                     view_n( start_iter, used ) );

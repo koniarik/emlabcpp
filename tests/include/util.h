@@ -4,10 +4,19 @@
 #include <deque>
 #include <gtest/gtest.h>
 #include <mutex>
+#include <span>
 #include <thread>
 
 namespace emlabcpp
 {
+
+template < typename T >
+std::string to_string( const T& val )
+{
+        std::stringstream ss;
+        ss << val;
+        return ss.str();
+}
 
 struct protocol_test_fixture : public testing::Test
 {

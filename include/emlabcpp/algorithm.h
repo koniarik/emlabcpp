@@ -40,7 +40,7 @@ constexpr int sign( T&& val )
 }
 
 /// maps input value 'input' from input range to equivalent value in output range
-template < arithmetic_base T, arithmetic_base U >
+template < arithmetic_operators T, arithmetic_operators U >
 [[nodiscard]] constexpr U map_range( T input, T from_min, T from_max, U to_min, U to_max )
 {
         return to_min + ( to_max - to_min ) * static_cast< U >( input - from_min ) /
@@ -285,12 +285,15 @@ template <
 {
         T u = avg( cont, f );
 
-        return sum( cont,
-                    [&]( const auto& val ) {
-                            auto v = f( val ) - u;
-                            return v * v;
-                    } ) /
-               static_cast< T >( cont_size( cont ) );
+        T res = sum( cont, [&]( const auto& val ) {
+                auto v = f( val ) - u;
+                return v * v;
+        } );
+        if constexpr ( std::is_arithmetic_v< T > ) {
+                return res / static_cast< T >( cont_size( cont ) );
+        } else {
+                return res / cont_size( cont );
+        }
 }
 
 /// Applies binary function 'f(x,y)' to each combination of items x in lh_cont
@@ -369,11 +372,6 @@ template <
     container_invocable< Container > UnaryFunction = std::identity >
 [[nodiscard]] inline ResultContainer map_f( Container&& cont, UnaryFunction&& f = std::identity() )
 {
-        static_assert(
-            !is_std_tuple_v< ResultContainer >,
-            "This version of map_f does not work with std::tuple as "
-            "_result_ container!" );
-
         ResultContainer                          res{};
         impl::map_f_collector< ResultContainer > collector;
 

@@ -1,10 +1,6 @@
 #include "emlabcpp/concepts.h"
 #include "emlabcpp/types/base.h"
 
-#ifdef EMLABCPP_USE_STREAMS
-#include <ostream>
-#endif
-
 #include <string>
 
 #pragma once
@@ -54,13 +50,11 @@ struct tag
         friend constexpr auto operator<=>( const tag&, const tag& ) = default;
 };
 
-#ifdef EMLABCPP_USE_STREAMS
-template < auto ID >
-inline std::ostream& operator<<( std::ostream& os, tag< ID > )
+template < ostreamlike Stream, auto ID >
+inline auto& operator<<( Stream& os, tag< ID > )
 {
         return os << ID;
 }
-#endif
 
 // ------------------------------------------------------------------------------------------------
 //// central function for returning name of type that can demangle if necessary

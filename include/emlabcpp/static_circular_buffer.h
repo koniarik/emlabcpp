@@ -6,10 +6,6 @@
 #include <type_traits>
 #include <utility>
 
-#ifdef EMLABCPP_USE_STREAMS
-#include <ostream>
-#endif
-
 #pragma once
 
 namespace emlabcpp
@@ -324,14 +320,12 @@ operator!=( const static_circular_buffer< T, N >& lh, const static_circular_buff
         return !( lh == rh );
 }
 
-#ifdef EMLABCPP_USE_STREAMS
 // Output operator for the view, uses comma to separate the items in the view.
-template < typename T, std::size_t N >
-inline std::ostream& operator<<( std::ostream& os, const static_circular_buffer< T, N >& cb )
+template < ostreamlike Stream, typename T, std::size_t N >
+inline auto& operator<<( Stream& os, const static_circular_buffer< T, N >& cb )
 {
         return os << view{ cb };
 }
-#endif
 
 }  // namespace emlabcpp
 

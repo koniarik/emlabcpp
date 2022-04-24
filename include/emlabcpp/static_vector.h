@@ -1,3 +1,4 @@
+#include "emlabcpp/concepts.h"
 #include "emlabcpp/iterator.h"
 
 #include <new>
@@ -5,10 +6,6 @@
 #include <utility>
 
 #pragma once
-
-#ifdef EMLABCPP_USE_STREAMS
-#include <ostream>
-#endif
 
 namespace emlabcpp
 {
@@ -284,13 +281,11 @@ inline void swap( const static_vector< T, N >& lh, const static_vector< T, N >& 
         lh.swap( rh );
 }
 
-#ifdef EMLABCPP_USE_STREAMS
 // Output operator for the view, uses comma to separate the items in the view.
-template < typename T, std::size_t N >
-inline std::ostream& operator<<( std::ostream& os, const static_vector< T, N >& vec )
+template < ostreamlike Stream, typename T, std::size_t N >
+inline auto& operator<<( Stream& os, const static_vector< T, N >& vec )
 {
         return os << view{ vec };
 }
-#endif
 
 }  // namespace emlabcpp

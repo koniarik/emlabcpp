@@ -1,9 +1,7 @@
+#include "emlabcpp/concepts.h"
+
 #include <optional>
 #include <type_traits>
-
-#ifdef EMLABCPP_USE_STREAMS
-#include <ostream>
-#endif
 
 #pragma once
 
@@ -36,6 +34,7 @@ class bounded
 public:
         static constexpr T    min_val            = MinVal;
         static constexpr T    max_val            = MaxVal;
+        static constexpr T    interval_range     = static_cast< T >( 1 ) + max_val - min_val;
         static constexpr bool has_single_element = MinVal == MaxVal;
 
         template < typename U, U OtherMin, U OtherMax >
@@ -97,24 +96,22 @@ public:
         // Rotation to the right increases the internal value by step modulo the range it is in.
         void rotate_right( T step )
         {
-                val_ = min_val + ( val_ + step - min_val ) % ( max_val - min_val );
+                val_ = min_val + ( interval_range + ( val_ + step - min_val ) % interval_range ) %
+                                     interval_range;
         }
 
         // Rotation to the left decreases the internal value by step modulo the range it is in.
         void rotate_left( T step )
         {
-                val_ = min_val + ( val_ - step - min_val ) % ( max_val - min_val );
+                val_ = min_val + ( interval_range + ( val_ - step - min_val ) % interval_range ) %
+                                     interval_range;
         }
 
         friend constexpr auto operator<=>( const bounded&, const bounded& ) = default;
 
-        // template < std::totally_ordered_with< T > U >
         template < typename U >
         friend constexpr auto operator<=>( const bounded& b, const U& val )
         {
-                // so, we can't have nice things... ^^ if the type of U is constrained this way, the
-                // compiler will get into infinite recursion when trying to _test_ it in case we use
-                // <=> on identical bounded types
                 return *b <=> val;
         }
 };
@@ -147,12 +144,10 @@ concept bounded_derived = requires( T val )
         detail::bounded_derived_test( val );
 };
 
-#ifdef EMLABCPP_USE_STREAMS
-template < typename T, T MinVal, T MaxVal >
-std::ostream& operator<<( std::ostream& os, const bounded< T, MinVal, MaxVal >& b )
+template < ostreamlike Stream, typename T, T MinVal, T MaxVal >
+inline auto& operator<<( Stream& os, const bounded< T, MinVal, MaxVal >& b )
 {
         return os << *b;
 }
-#endif
 
 }  // namespace emlabcpp

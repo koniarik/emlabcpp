@@ -7,10 +7,6 @@
 #include <string>
 #include <type_traits>
 
-#ifdef EMLABCPP_USE_STREAMS
-#include <ostream>
-#endif
-
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 #include <nlohmann/json.hpp>
 #endif
@@ -89,14 +85,14 @@ public:
         }
 
         /// Divides quantity by it's value type
-        constexpr Derived& operator/=( const ValueType val ) noexcept
+        constexpr Derived& operator/=( const arithmetic auto val ) noexcept
         {
                 value_ /= val;
                 return impl();
         }
 
         /// Multiplies quantity by it's value type
-        constexpr Derived& operator*=( const ValueType val ) noexcept
+        constexpr Derived& operator*=( const arithmetic auto val ) noexcept
         {
                 value_ *= val;
                 return impl();
@@ -163,13 +159,13 @@ constexpr Derived operator-( const quantity< Derived, ValueType > val )
         return Derived{ -*val };
 }
 
-template < typename Derived, typename ValueType, arithmetic RhValueType >
+template < typename Derived, typename ValueType, arithmetic_like RhValueType >
 constexpr bool operator<( const quantity< Derived, ValueType > lhs, const RhValueType rhs )
 {
         return *lhs < rhs;
 }
 
-template < typename Derived, typename ValueType, arithmetic LhValueType >
+template < typename Derived, typename ValueType, arithmetic_like LhValueType >
 constexpr bool operator<( const LhValueType lhs, const quantity< Derived, ValueType > rhs )
 {
         return lhs < *rhs;
@@ -177,14 +173,14 @@ constexpr bool operator<( const LhValueType lhs, const quantity< Derived, ValueT
 
 /// Multiplication of quantity by it's value_type
 template < typename Derived, typename ValueType >
-constexpr Derived operator*( quantity< Derived, ValueType > q, const ValueType val )
+constexpr Derived operator*( quantity< Derived, ValueType > q, const arithmetic auto val )
 {
         return q *= val;
 }
 
 /// Division of quantity by it's value_type
 template < typename Derived, typename ValueType >
-constexpr Derived operator/( quantity< Derived, ValueType > q, const ValueType val )
+constexpr Derived operator/( quantity< Derived, ValueType > q, const arithmetic auto val )
 {
         return q /= val;
 }
@@ -241,13 +237,11 @@ constexpr ValueType operator/( const ValueType val, const quantity< Derived, Val
         return val / *q;
 }
 
-#ifdef EMLABCPP_USE_STREAMS
-template < typename T, typename ValueType >
-inline std::ostream& operator<<( std::ostream& os, quantity< T, ValueType > q )
+template < ostreamlike Stream, typename T, typename ValueType >
+inline auto& operator<<( Stream& os, quantity< T, ValueType > q )
 {
         return os << *q << T::get_unit();
 }
-#endif
 
 }  // namespace emlabcpp
 

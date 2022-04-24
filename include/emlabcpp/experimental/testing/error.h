@@ -4,15 +4,9 @@
 
 #include <variant>
 
-#ifdef EMLABCPP_USE_STREAMS
-
-#include <ostream>
-
 #ifdef EMLABCPP_USE_MAGIC_ENUM
 
 #include <magic_enum.hpp>
-
-#endif
 
 #endif
 
@@ -47,17 +41,17 @@ using testing_error_variant = std::variant<
     testing_internal_reactor_error,
     testing_controller_message_error >;
 
-#ifdef EMLABCPP_USE_STREAMS
+inline auto& operator<<( ostreamlike auto& os, const testing_reactor_protocol_error& e )
+{
+        return os << e.rec;
+}
 
-inline std::ostream& operator<<( std::ostream& os, const testing_reactor_protocol_error& e )
+inline auto& operator<<( ostreamlike auto& os, const testing_controller_protocol_error& e )
 {
         return os << e.rec;
 }
-inline std::ostream& operator<<( std::ostream& os, const testing_controller_protocol_error& e )
-{
-        return os << e.rec;
-}
-inline std::ostream& operator<<( std::ostream& os, const testing_internal_reactor_error& e )
+
+inline auto& operator<<( ostreamlike auto& os, const testing_internal_reactor_error& e )
 {
 #ifdef EMLABCPP_USE_MAGIC_ENUM
         return os << magic_enum::enum_name( e.val );
@@ -65,7 +59,8 @@ inline std::ostream& operator<<( std::ostream& os, const testing_internal_reacto
         return os << std::to_string( e.val );
 #endif
 }
-inline std::ostream& operator<<( std::ostream& os, const testing_controller_message_error& e )
+
+inline auto& operator<<( ostreamlike auto& os, const testing_controller_message_error& e )
 {
         // TODO: multiple cases of this, maybe abstract away?
 #ifdef EMLABCPP_USE_MAGIC_ENUM
@@ -75,7 +70,7 @@ inline std::ostream& operator<<( std::ostream& os, const testing_controller_mess
 #endif
 }
 
-inline std::ostream& operator<<( std::ostream& os, const testing_error_variant& var )
+inline auto& operator<<( ostreamlike auto& os, const testing_error_variant& var )
 {
         emlabcpp::visit(
             [&]( const auto& item ) {
@@ -84,7 +79,5 @@ inline std::ostream& operator<<( std::ostream& os, const testing_error_variant& 
             var );
         return os;
 }
-
-#endif
 
 }  // namespace emlabcpp

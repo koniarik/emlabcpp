@@ -232,6 +232,8 @@ int main( int argc, char** argv )
                 666u, { 0, 4, 2, 154 } ),
             make_invalid_test_case< protocol_sized_buffer< uint16_t, uint16_t > >(
                 { 0, 1, 2, 2 }, protocol_error_record{ SIZE_ERR, 2 } ),
+            make_invalid_test_case< protocol_sized_buffer< uint16_t, uint16_t > >(
+                { 0, 5, 2, 2 }, protocol_error_record{ SIZE_ERR, 2 } ),
             // tag
             make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >( tag< 666u >{}, { 154, 2, 0, 0 } ),
             make_valid_test_case< PROTOCOL_BIG_ENDIAN >( tag< 666u >{}, { 0, 0, 2, 154 } ),

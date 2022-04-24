@@ -1,5 +1,7 @@
 #include "emlabcpp/algorithm.h"
 
+#include "emlabcpp/quantity.h"
+
 #include <gtest/gtest.h>
 #include <list>
 
@@ -43,6 +45,14 @@ TEST( Algorithm, map_range )
 }
 
 // NOLINTNEXTLINE
+TEST( Algorithm, almost_equal )
+{
+        EXPECT_TRUE( almost_equal( 0, 0 ) );
+        EXPECT_FALSE( almost_equal( 0, 1 ) );
+        EXPECT_TRUE( almost_equal( 0, 1, 2 ) );
+}
+
+// NOLINTNEXTLINE
 TEST( Algorithm, tail )
 {
         std::vector< int > test = { 1, 2, 3 };
@@ -65,19 +75,40 @@ TEST( Algorithm, init )
 }
 
 // NOLINTNEXTLINE
-TEST( Algorithm, find_if )
+TEST( Algorithm, find_if_bool_tup )
 {
         std::tuple< bool, bool, bool > tup = { false, true, false };
         EXPECT_EQ( find_if( tup ), std::size_t{ 1 } );
+
         tup = { false, false, false };
         EXPECT_EQ( find_if( tup ), cont_size( tup ) );
 
+        tup = { false, false, false };
+        EXPECT_EQ(
+            find_if(
+                tup,
+                []( bool v ) {
+                        return !v;
+                } ),
+            0 );
+
+        tup = { false, true, false };
+        EXPECT_EQ( find_if( std::move( tup ) ), std::size_t{ 1 } );
+}
+
+// NOLINTNEXTLINE
+TEST( Algorithm, find_if_int_tup )
+{
         std::tuple< int, int, int > tup2 = { -1, 0, 1 };
         std::size_t                 i    = find_if( tup2, [&]( int i ) {
                 return i > 0;
         } );
         EXPECT_EQ( i, std::size_t{ 2 } );
+}
 
+// NOLINTNEXTLINE
+TEST( Algorithm, find_if_vector )
+{
         std::vector< bool > vec = { false, true, false };
         EXPECT_EQ( find_if( vec ), ++vec.begin() );
         vec = { false, false, false };
@@ -105,6 +136,14 @@ TEST( Algorithm, for_each )
                 EXPECT_EQ( data[j], i );
                 j++;
         } );
+}
+
+// NOLINTNEXTLINE
+TEST( Algorithm, min_max )
+{
+        min_max< int > mm{ 0, 1 };
+        EXPECT_EQ( mm.min, 0 );
+        EXPECT_EQ( mm.max, 1 );
 }
 
 // NOLINTNEXTLINE
@@ -192,8 +231,16 @@ TEST( Algorithm, avg )
 {
         std::size_t res = avg( std::vector< std::size_t >{ 1, 2, 3 } );
         EXPECT_EQ( res, std::size_t( 2 ) );
+        res = avg( std::vector< std::size_t >{ 1, 2, 3 }, [&]( std::size_t i ) {
+                return i * 2;
+        } );
+        EXPECT_EQ( res, std::size_t( 4 ) );
         res = avg( std::tuple< std::size_t, std::size_t, std::size_t >{ 1, 2, 3 } );
         EXPECT_EQ( res, std::size_t( 2 ) );
+
+        using test_type = tagged_quantity< struct avg_test_type_tag, std::size_t >;
+        test_type res2  = avg( std::vector< test_type >{ test_type{ 0 }, test_type{ 10 } } );
+        EXPECT_EQ( res2, test_type{ 5u } );
 }
 
 // NOLINTNEXTLINE
@@ -206,6 +253,13 @@ TEST( Algorithm, variance )
         EXPECT_EQ( res, std::size_t( 1 ) );
         float fres = variance( std::vector< float >{ 1.f, 2.f, 3.f, 4.f } );
         EXPECT_EQ( fres, 1.25f );
+
+        using test_type  = tagged_quantity< struct variance_test_type_tag, std::size_t >;
+        std::size_t res2 = variance(
+            std::vector< test_type >{ test_type{ 0 }, test_type{ 10 } }, [&]( test_type v ) {
+                    return *v;
+            } );
+        EXPECT_EQ( res2, 25u );
 }
 
 // NOLINTNEXTLINE
@@ -324,21 +378,54 @@ TEST( Algorithm, map_f )
         std::tuple< int, int, int, int > tdata{ 1, 2, 3, 4 };
         is_equal = equal( map_f< std::vector< int > >( tdata ), idata );
         EXPECT_TRUE( is_equal );
+
+        std::map< int, std::string > expected{ { 1, "1" }, { 2, "2" }, { 3, "3" }, { 4, "4" } };
+        auto converted = map_f< std::map< int, std::string > >( idata, []( int i ) {
+                return std::make_pair( i, std::to_string( i ) );
+        } );
+        EXPECT_EQ( converted, expected );
+
+        try {
+                converted = map_f< std::map< int, std::string > >( idata, []( int i ) {
+                        throw std::runtime_error{ "testing error" };
+
+                        return std::make_pair( i, std::to_string( i ) );
+                } );
+        }
+        catch ( std::runtime_error& e ) {
+                EXPECT_EQ( std::string{ e.what() }, std::string{ "testing error" } );
+        }
 }
 
 // NOLINTNEXTLINE
-TEST( Algorithm, map_f_to_a )
+TEST( Algorithm, map_f_to_a_vector )
 {
         std::vector< int > idata{ 1, 2, 3, 4 };
 
         bool is_equal = equal( map_f_to_a< 4 >( idata ), idata );
         EXPECT_TRUE( is_equal );
 
+        std::vector< int > goal_data{ 2, 4, 6, 8 };
+        is_equal = equal(
+            map_f_to_a< 4 >(
+                std::move( idata ),
+                []( int i ) {
+                        return i * 2;
+                } ),
+            goal_data );
+        EXPECT_TRUE( is_equal );
+}
+
+TEST( Algorithm, map_f_to_a_array )
+{
         std::array< int, 4 > idata2{ 1, 2, 3, 4 };
 
-        is_equal = equal( map_f_to_a( idata2 ), idata2 );
+        bool is_equal = equal( map_f_to_a( idata2 ), idata2 );
         EXPECT_TRUE( is_equal );
+}
 
+TEST( Algorithm, map_f_to_a_tuple )
+{
         std::tuple< int, float, int > tup1     = { -1, 0.f, 1 };
         std::array< std::string, 3 >  tup1_res = map_f_to_a( tup1, []( auto v ) {
                 return std::to_string( v );
@@ -347,6 +434,13 @@ TEST( Algorithm, map_f_to_a )
         EXPECT_EQ( tup1_res[0], "-1" );
         EXPECT_EQ( tup1_res[1], "0.000000" );
         EXPECT_EQ( tup1_res[2], "1" );
+
+        std::array< bool, 3 > arr1_res = map_f_to_a( std::move( tup1 ), []( auto v ) {
+                return v != 0;
+        } );
+
+        std::array< bool, 3 > expected = { true, false, true };
+        EXPECT_EQ( arr1_res, expected );
 }
 
 struct convert_test
@@ -371,6 +465,14 @@ TEST( Algorithm, joined )
         std::string                msg = joined( idata, std::string{ "|" } );
 
         EXPECT_EQ( msg, "ab|cd|ef" );
+
+        msg = joined( std::vector< std::string >{}, std::string{ "|" } );
+        EXPECT_EQ( msg, "" );
+
+        std::vector< int > iidata{ 1, 2, 3, 4 };
+        int                res = joined( iidata, 1 );
+
+        EXPECT_EQ( res, 13 );
 }
 
 // NOLINTNEXTLINE

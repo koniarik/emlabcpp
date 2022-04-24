@@ -1,4 +1,3 @@
-#ifdef EMLABCPP_USE_STREAMS
 
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/protocol/base.h"
@@ -17,8 +16,8 @@
 namespace emlabcpp
 {
 
-template < std::size_t N >
-inline std::ostream& operator<<( std::ostream& os, const protocol_message< N >& msg )
+template < ostreamlike Stream, std::size_t N >
+inline auto& operator<<( Stream& os, const protocol_message< N >& msg )
 {
         std::ios_base::fmtflags f( os.flags() );
         os << std::hex;
@@ -34,7 +33,7 @@ inline std::ostream& operator<<( std::ostream& os, const protocol_message< N >& 
         return os;
 }
 
-inline std::ostream& operator<<( std::ostream& os, const protocol_mark& m )
+inline auto& operator<<( ostreamlike auto& os, const protocol_mark& m )
 {
         for ( char c : m ) {
                 os << c;
@@ -42,12 +41,12 @@ inline std::ostream& operator<<( std::ostream& os, const protocol_mark& m )
         return os;
 }
 
-inline std::ostream& operator<<( std::ostream& os, const protocol_error_record& rec )
+inline auto& operator<<( ostreamlike auto& os, const protocol_error_record& rec )
 {
         return os << rec.mark << "(" << rec.offset << ")";
 }
 
-inline std::ostream& operator<<( std::ostream& os, const protocol_endianess_enum& val )
+inline auto& operator<<( ostreamlike auto& os, const protocol_endianess_enum& val )
 {
         switch ( val ) {
                 case PROTOCOL_BIG_ENDIAN:
@@ -58,9 +57,8 @@ inline std::ostream& operator<<( std::ostream& os, const protocol_endianess_enum
         return os;
 }
 
-template < protocol_endianess_enum Endianess, typename... Regs >
-inline std::ostream&
-operator<<( std::ostream& os, const protocol_register_map< Endianess, Regs... >& m )
+template < ostreamlike Stream, protocol_endianess_enum Endianess, typename... Regs >
+inline auto& operator<<( Stream& os, const protocol_register_map< Endianess, Regs... >& m )
 {
         using map = protocol_register_map< Endianess, Regs... >;
 
@@ -90,5 +88,3 @@ operator<<( std::ostream& os, const protocol_register_map< Endianess, Regs... >&
 }
 
 }  // namespace emlabcpp
-
-#endif
