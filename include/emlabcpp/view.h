@@ -19,8 +19,7 @@ class view
 
 public:
         /// standard public usings for container
-        using value_type =
-            typename std::remove_reference_t< decltype( *std::declval< Iterator >() ) >;
+        using value_type       = typename std::iterator_traits< Iterator >::value_type;
         using reverse_iterator = std::reverse_iterator< Iterator >;
         using iterator         = Iterator;
         using difference_type  = typename std::iterator_traits< Iterator >::difference_type;
