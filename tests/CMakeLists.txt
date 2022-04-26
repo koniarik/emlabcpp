@@ -25,7 +25,6 @@ function(emlabcpp_setup_test target)
             -Wconversion
             -Wdouble-promotion
             -ftemplate-backtrace-limit=0
-            -DEMLABCPP_USE_STREAMS
             -DEMLABCPP_ASSERT_NATIVE
             -DEMLABCPP_USE_NLOHMANN_JSON
             -DEMLABCPP_USE_GTEST)
