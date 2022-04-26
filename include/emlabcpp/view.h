@@ -176,7 +176,7 @@ constexpr auto reversed( referenceable_container auto&& container )
 template < ostreamlike Stream, typename Iterator >
 inline auto& operator<<( Stream& os, const view< Iterator >& output )
 {
-        using value_type = decltype( *std::declval< Iterator >() );
+        using value_type = typename std::iterator_traits< Iterator >::value_type;
         bool first       = true;
         for ( const value_type& item : output ) {
                 if ( !first ) {
