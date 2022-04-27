@@ -49,11 +49,11 @@ TEST( Bounded, rotate )
 
         val.rotate_right( 1 );
 
-        EXPECT_EQ( val, test_bounded::min() );
+        EXPECT_EQ( *val, *test_bounded::min() );
 
         val.rotate_left( 1 );
 
-        EXPECT_EQ( val, test_bounded::max() );
+        EXPECT_EQ( *val, *test_bounded::max() );
 }
 
 // NOLINTNEXTLINE
