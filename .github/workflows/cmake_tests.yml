@@ -28,5 +28,5 @@ jobs:
               if: success() || failure()  
               with:
                 name: JEST Tests            
-                path: ${{runner.workspace}}/build/test-results/**/*.xml
+                path: ${{runner.workspace}}/build/Testing/*/*.xml
                 reporter: jest-junit        
