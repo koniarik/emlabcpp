@@ -1,4 +1,4 @@
-name: CMake tests
+name: Tests
 
 on: [push]
 
@@ -23,8 +23,8 @@ jobs:
             - name: Test
               run: make test
             
-            - name: Test
+            - name: Test under address sanitizer
               run: make test SANITIZER=address
             
-            - name: Test
+            - name: Test under undefined sanitizer
               run: make test SANITIZER=undefined
