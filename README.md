@@ -1,6 +1,8 @@
 
 # emlabcpp
 
+[![Tests](https://github.com/koniarik/emlabcpp/actions/workflows/tests.yml/badge.svg)](https://github.com/koniarik/emlabcpp/actions/workflows/tests.yml)
+
 A C++20 header-only library that focuses on embedded development. 
 It is by product of your development of robotics hardware.
 
