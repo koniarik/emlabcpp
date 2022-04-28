@@ -10,6 +10,9 @@ jobs:
             run:
                 shell:
                     bash
+        env:
+            CC: gcc-10
+            CXX: g++-10
         
         steps:
             - uses: actions/checkout@v2
@@ -19,6 +22,9 @@ jobs:
 
             - name: Test
               run: make test
-              env:
-                  CC: gcc-10
-                  CXX: g++-10
+            
+            - name: Test
+              run: make test SANITIZER=address
+            
+            - name: Test
+              run: make test SANITIZER=undefined

@@ -36,7 +36,18 @@ public:
 
         void* allocate( std::size_t bytes, std::size_t alignment ) final
         {
-                if ( free_.empty() || bytes > PoolSize ) {
+                void*       p    = nullptr;
+                std::size_t used = bytes;
+                if ( !free_.empty() ) {
+                        std::size_t i      = free_.back();
+                        void*       pool_p = &pools_[i];
+                        p                  = align( pool_p, alignment );
+                        used += static_cast< std::size_t >(
+                            reinterpret_cast< std::byte* >( p ) -
+                            reinterpret_cast< std::byte* >( pool_p ) );
+                }
+
+                if ( !p || used > PoolSize ) {
 #ifdef __EXCEPTIONS
                         throw std::bad_alloc{};
 #else
@@ -44,8 +55,8 @@ public:
                         return nullptr;
 #endif
                 }
-                std::size_t i = free_.take_back();
-                return &pools_[i];
+                free_.pop_back();
+                return p;
         }
 
         void deallocate( void* ptr ) final
@@ -96,9 +107,7 @@ public:
         T* allocate( std::size_t n )
         {
 
-                std::size_t capacity = n + alignof( T );
-                void*       res      = resource_->allocate( n * sizeof( T ), alignof( T ) );
-                std::align( alignof( T ), sizeof( T ) * n, res, capacity );
+                void* res = resource_->allocate( n * sizeof( T ), alignof( T ) );
                 return reinterpret_cast< T* >( res );
         }
 

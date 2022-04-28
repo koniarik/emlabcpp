@@ -106,7 +106,7 @@ private:
         template < testing_test T >
         void store_test( std::string_view name, T t )
         {
-                void* target = mem_->allocate( sizeof( T ) );
+                void* target = mem_->allocate( sizeof( T ), alignof( T ) );
                 T*    obj = std::construct_at( reinterpret_cast< T* >( target ), std::move( t ) );
                 handles_.emplace_back( name, obj );
         }
