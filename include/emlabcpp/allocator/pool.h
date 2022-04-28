@@ -1,3 +1,4 @@
+#include "emlabcpp/allocator/util.h"
 #include "emlabcpp/assert.h"
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/static_vector.h"
@@ -16,8 +17,8 @@ namespace emlabcpp
 
 struct pool_interface
 {
-        virtual void* allocate( std::size_t ) = 0;
-        virtual void  deallocate( void* )     = 0;
+        virtual void* allocate( std::size_t bytes, std::size_t alignment ) = 0;
+        virtual void  deallocate( void* )                                  = 0;
 
         virtual ~pool_interface() = default;
 };
@@ -33,7 +34,7 @@ public:
                 }
         }
 
-        void* allocate( std::size_t bytes ) final
+        void* allocate( std::size_t bytes, std::size_t alignment ) final
         {
                 if ( free_.empty() || bytes > PoolSize ) {
 #ifdef __EXCEPTIONS
@@ -96,7 +97,7 @@ public:
         {
 
                 std::size_t capacity = n + alignof( T );
-                void*       res      = resource_->allocate( n * sizeof( T ) + alignof( T ) );
+                void*       res      = resource_->allocate( n * sizeof( T ), alignof( T ) );
                 std::align( alignof( T ), sizeof( T ) * n, res, capacity );
                 return reinterpret_cast< T* >( res );
         }
