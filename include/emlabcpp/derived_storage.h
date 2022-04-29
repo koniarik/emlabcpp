@@ -19,7 +19,10 @@ public:
 
         using base_type = T;
 
-        derived_storage() = delete;
+        derived_storage()
+          : ptr_( nullptr )
+        {
+        }
 
         template < std::derived_from< T > U >
         derived_storage( U&& item )
@@ -54,6 +57,12 @@ public:
         {
                 return &get_ref();
         }
+
+        operator bool() const
+        {
+                return ptr_ != nullptr;
+        }
+
         T& get()
         {
                 return get_ref();
