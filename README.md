@@ -3,11 +3,8 @@
 
 [![Tests](https://github.com/koniarik/emlabcpp/actions/workflows/tests.yml/badge.svg)](https://github.com/koniarik/emlabcpp/actions/workflows/tests.yml)
 
-A C++20 header-only library that focuses on embedded development. 
-It is by product of your development of robotics hardware.
-
+An opinionated C++20 header-only library that focuses on embedded development. 
 It provides a wide set of tools, from complex mechanisms (protocol library) to simple utilites (view).
-The library is heavily used our core project and spread itself into other smaller projects.
 
 - [Installation](#Installation)
 - [Components](#Components)
