@@ -23,26 +23,35 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "emlabcpp", "index.html", [
-    [ "emlabcpp", "md_README.html", [
-      [ "Installation", "md_README.html#autotoc_md1", null ],
-      [ "Components", "md_README.html#autotoc_md2", [
-        [ "algorithm.h", "md_README.html#autotoc_md3", null ],
-        [ "either.h", "md_README.html#autotoc_md4", null ],
-        [ "view.h", "md_README.html#autotoc_md5", null ],
-        [ "bounded.h", "md_README.html#autotoc_md6", null ],
-        [ "protocol.h", "md_README.html#autotoc_md7", null ],
-        [ "iterator.h", "md_README.html#autotoc_md8", [
-          [ "iterators/numeric.h", "md_README.html#autotoc_md9", null ],
-          [ "iterators/subscript.h", "md_README.html#autotoc_md10", null ],
-          [ "iterators/access.h", "md_README.html#autotoc_md11", null ]
-        ] ],
-        [ "quantity.h", "md_README.html#autotoc_md12", null ],
-        [ "physical_quantity.h", "md_README.html#autotoc_md13", null ],
-        [ "pid.h", "md_README.html#autotoc_md14", null ],
-        [ "static_circular_buffer.h", "md_README.html#autotoc_md15", null ],
-        [ "static_vector.h", "md_README.html#autotoc_md16", null ],
-        [ "types.h", "md_README.html#autotoc_md17", null ],
-        [ "zip.h", "md_README.html#autotoc_md18", null ]
+    [ "Modules", "modules.html", "modules" ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
+      ] ]
+    ] ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", "functions_type" ],
+        [ "Related Functions", "functions_rela.html", null ]
+      ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -50,7 +59,11 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"index.html"
+".html",
+"classemlabcpp_1_1protocol__sequencer.html",
+"either_8h_source.html",
+"physical__quantity_8h.html#gae48e239b7c22e51004fc26dd043d32b9",
+"structemlabcpp_1_1protocol__def_3_01static__vector_3_01T_00_01N_01_4_00_01Endianess_01_4.html#ae12af930a416b8f19a3c99af095c79a8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
