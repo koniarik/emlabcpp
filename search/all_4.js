@@ -17,5 +17,6 @@ var searchData=
   ['errored_117',['errored',['../structemlabcpp_1_1testing__result.html#a4b355c4ce2f4be5895ddf2ef688cc56f',1,'emlabcpp::testing_result::errored()'],['../classemlabcpp_1_1testing__record.html#ac658726aa08a343762a4e9483aae78c0',1,'emlabcpp::testing_record::errored()']]],
   ['expect_118',['expect',['../classemlabcpp_1_1testing__record.html#a3c7734ce07fcbb87bee06eb5630a4fa7',1,'emlabcpp::testing_record']]],
   ['extract_119',['extract',['../structemlabcpp_1_1protocol__handler.html#a4cae97efcee20dea8b31e15dbf8f29d7',1,'emlabcpp::protocol_handler::extract()'],['../structemlabcpp_1_1protocol__packet__handler.html#a31909a2f4e1c4633cbb9a07ec16d6dcd',1,'emlabcpp::protocol_packet_handler::extract()'],['../structemlabcpp_1_1protocol__register__handler.html#a0c820c6a1b01cbd1e40b1be6a104f631',1,'emlabcpp::protocol_register_handler::extract()']]],
-  ['impl_120',['impl',['../namespaceemlabcpp_1_1impl.html',1,'emlabcpp']]]
+  ['impl_120',['impl',['../namespaceemlabcpp_1_1impl.html',1,'emlabcpp']]],
+  ['emlabcpp_121',['emlabcpp',['../index.html',1,'']]]
 ];

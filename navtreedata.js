@@ -23,6 +23,26 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "emlabcpp", "index.html", [
+    [ "Installation", "index.html#autotoc_md1", null ],
+    [ "Components", "index.html#autotoc_md2", [
+      [ "algorithm.h", "index.html#autotoc_md3", null ],
+      [ "either.h", "index.html#autotoc_md4", null ],
+      [ "view.h", "index.html#autotoc_md5", null ],
+      [ "bounded.h", "index.html#autotoc_md6", null ],
+      [ "protocol.h", "index.html#autotoc_md7", null ],
+      [ "iterator.h", "index.html#autotoc_md8", [
+        [ "iterators/numeric.h", "index.html#autotoc_md9", null ],
+        [ "iterators/subscript.h", "index.html#autotoc_md10", null ],
+        [ "iterators/access.h", "index.html#autotoc_md11", null ]
+      ] ],
+      [ "quantity.h", "index.html#autotoc_md12", null ],
+      [ "physical_quantity.h", "index.html#autotoc_md13", null ],
+      [ "pid.h", "index.html#autotoc_md14", null ],
+      [ "static_circular_buffer.h", "index.html#autotoc_md15", null ],
+      [ "static_vector.h", "index.html#autotoc_md16", null ],
+      [ "types.h", "index.html#autotoc_md17", null ],
+      [ "zip.h", "index.html#autotoc_md18", null ]
+    ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -62,8 +82,8 @@ var NAVTREEINDEX =
 ".html",
 "classemlabcpp_1_1protocol__sequencer.html",
 "either_8h_source.html",
-"physical__quantity_8h.html#gae48e239b7c22e51004fc26dd043d32b9",
-"structemlabcpp_1_1protocol__def_3_01static__vector_3_01T_00_01N_01_4_00_01Endianess_01_4.html#ae12af930a416b8f19a3c99af095c79a8"
+"physical__quantity_8h.html#a9b9eb800885b61e8071ef11e69debdf6",
+"structemlabcpp_1_1protocol__def_3_01protocol__offset_3_01D_00_01Offset_01_4_00_01Endianess_01_4.html#a13560e2b76e856ffcb170cd64c8cad97"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
