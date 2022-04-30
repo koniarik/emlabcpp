@@ -94,7 +94,7 @@ private:
             testing_controller_interface_adapter iface );
         void handle_message(
             tag< TESTING_INTERNAL_ERROR >,
-            testing_error_enum                   err,
+            testing_reactor_error_variant        err,
             testing_controller_interface_adapter iface );
         void handle_message(
             tag< TESTING_PROTOCOL_ERROR >,

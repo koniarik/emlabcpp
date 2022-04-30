@@ -26,16 +26,6 @@ enum testing_messages_enum : uint8_t
         TESTING_ARG_MISSING    = 0xf2
 };
 
-enum testing_error_enum : uint8_t
-{
-        TESTING_TEST_NOT_LOADED_E     = 1,
-        TESTING_TEST_NOT_FOUND_E      = 2,
-        TESTING_WRONG_RUN_ID_E        = 3,
-        TESTING_TEST_ALREADY_LOADED_E = 4,
-        TESTING_BAD_TEST_ID_E         = 5,
-        TESTING_UNDESIRED_MSG_E       = 6,
-};
-
 struct testing_controller_reactor_group
   : protocol_command_group<
         PROTOCOL_BIG_ENDIAN,
@@ -53,6 +43,38 @@ struct testing_controller_reactor_group
 
 using testing_controller_reactor_variant = typename testing_controller_reactor_group::value_type;
 
+enum testing_error_enum : uint8_t
+{
+        TESTING_TEST_NOT_LOADED_E     = 1,
+        TESTING_TEST_NOT_FOUND_E      = 2,
+        TESTING_WRONG_RUN_ID_E        = 3,
+        TESTING_TEST_ALREADY_LOADED_E = 4,
+        TESTING_BAD_TEST_ID_E         = 5,
+        TESTING_UNDESIRED_MSG_E       = 6,
+        TESTING_NO_RESPONSE_E         = 7,
+        TESTING_ARG_MISSING_E         = 8,
+        TESTING_ARG_WRONG_MESSAGE_E   = 9,
+        TESTING_ARG_WRONG_TYPE_E      = 10
+};
+
+struct testing_reactor_error_group  //
+  : protocol_command_group<
+        PROTOCOL_BIG_ENDIAN,
+        protocol_command< TESTING_TEST_NOT_LOADED_E >,
+        protocol_command< TESTING_TEST_NOT_FOUND_E >,
+        protocol_command< TESTING_WRONG_RUN_ID_E >,
+        protocol_command< TESTING_TEST_ALREADY_LOADED_E >,
+        protocol_command< TESTING_BAD_TEST_ID_E >,
+        protocol_command< TESTING_UNDESIRED_MSG_E >,
+        protocol_command< TESTING_NO_RESPONSE_E >::with_args< testing_messages_enum >,
+        protocol_command< TESTING_ARG_MISSING_E >::with_args< testing_key >,
+        protocol_command< TESTING_ARG_WRONG_MESSAGE_E >::with_args< testing_messages_enum >,
+        protocol_command< TESTING_ARG_WRONG_TYPE_E >::with_args< testing_key > >
+{
+};
+
+using testing_reactor_error_variant = typename testing_reactor_error_group::value_type;
+
 struct testing_reactor_controller_group
   : protocol_command_group<
         PROTOCOL_BIG_ENDIAN,
@@ -66,7 +88,7 @@ struct testing_reactor_controller_group
         protocol_command< TESTING_FAILURE >::with_args< testing_run_id >,
         protocol_command< TESTING_SUITE_NAME >::with_args< testing_name_buffer >,
         protocol_command< TESTING_SUITE_DATE >::with_args< testing_name_buffer >,
-        protocol_command< TESTING_INTERNAL_ERROR >::with_args< testing_error_enum >,
+        protocol_command< TESTING_INTERNAL_ERROR >::with_args< testing_reactor_error_group >,
         protocol_command< TESTING_PROTOCOL_ERROR >::with_args< protocol_error_record > >
 {
 };

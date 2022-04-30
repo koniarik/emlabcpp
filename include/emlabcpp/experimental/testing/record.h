@@ -1,4 +1,5 @@
 #include "emlabcpp/experimental/testing/base.h"
+#include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/match.h"
 #include "emlabcpp/static_vector.h"
 
@@ -24,17 +25,28 @@ public:
         {
         }
 
-        testing_arg_variant get_arg( std::string_view key )
+        template < typename T >
+        std::optional< T > get_arg( std::string_view ikey )
         {
-                return get_arg( testing_key_to_buffer( key ) );
+                auto          key     = testing_key_to_buffer( ikey );
+                std::optional opt_var = get_arg_variant( key );
+                if ( !opt_var ) {
+                        return {};
+                }
+                return extract_arg< T >( *opt_var, key );
         }
 
-        testing_arg_variant get_arg( uint32_t v )
+        template < typename T >
+        std::optional< T > get_arg( uint32_t v )
         {
-                return get_arg( testing_key{ v } );
+                std::optional opt_var = get_arg_variant( testing_key{ v } );
+                if ( !opt_var ) {
+                        return {};
+                }
+                return extract_arg< T >( *opt_var, testing_key{ v } );
         }
 
-        testing_arg_variant get_arg( const testing_key& key );
+        std::optional< testing_arg_variant > get_arg_variant( const testing_key& key );
 
         bool errored()
         {
@@ -75,6 +87,19 @@ public:
         void expect( bool val )
         {
                 val ? success() : fail();
+        }
+
+private:
+        void report_wrong_type_error( const testing_key& );
+
+        template < typename T >
+        std::optional< T > extract_arg( const testing_arg_variant& var, const testing_key& key )
+        {
+                if ( !std::holds_alternative< T >( var ) ) {
+                        report_wrong_type_error( key );
+                        return {};
+                }
+                return std::get< T >( var );
         }
 };
 }  // namespace emlabcpp

@@ -45,7 +45,7 @@ void testing_reactor::handle_message(
     testing_reactor_interface_adapter& iface )
 {
         if ( tid >= handles_.size() ) {
-                iface.report_failure( TESTING_BAD_TEST_ID_E );
+                iface.report_failure< TESTING_BAD_TEST_ID_E >();
                 return;
         }
         iface.reply< TESTING_NAME >( testing_name_to_buffer( access_test( tid ).name ) );
@@ -57,12 +57,12 @@ void testing_reactor::handle_message(
     testing_reactor_interface_adapter& iface )
 {
         if ( active_exec_ ) {
-                iface.report_failure( TESTING_TEST_ALREADY_LOADED_E );
+                iface.report_failure< TESTING_TEST_ALREADY_LOADED_E >();
                 return;
         }
 
         if ( tid >= handles_.size() ) {
-                iface.report_failure( TESTING_BAD_TEST_ID_E );
+                iface.report_failure< TESTING_BAD_TEST_ID_E >();
                 return;
         }
 
@@ -75,7 +75,7 @@ void testing_reactor::handle_message(
     const testing_arg_variant&,
     testing_reactor_interface_adapter& iface )
 {
-        iface.report_failure( TESTING_UNDESIRED_MSG_E );
+        iface.report_failure< TESTING_UNDESIRED_MSG_E >();
 }
 void testing_reactor::handle_message(
     tag< TESTING_ARG_MISSING >,
@@ -83,7 +83,7 @@ void testing_reactor::handle_message(
     const testing_key&,
     testing_reactor_interface_adapter& iface )
 {
-        iface.report_failure( TESTING_UNDESIRED_MSG_E );
+        iface.report_failure< TESTING_UNDESIRED_MSG_E >();
 }
 void testing_reactor::handle_message(
     tag< TESTING_EXEC >,
@@ -91,7 +91,7 @@ void testing_reactor::handle_message(
     testing_reactor_interface_adapter& iface )
 {
         if ( !active_exec_ ) {
-                iface.report_failure( TESTING_TEST_NOT_LOADED_E );
+                iface.report_failure< TESTING_TEST_NOT_LOADED_E >();
                 return;
         }
 

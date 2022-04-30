@@ -8,7 +8,7 @@ namespace emlabcpp
 namespace detail
 {
         template < std::size_t N, typename Variant >
-        auto linear_visit_impl( Variant&& var, auto& cb )
+        decltype( auto ) linear_visit_impl( Variant&& var, auto& cb )
         {
                 if constexpr ( N == 0 ) {
                         return cb( std::get< 0 >( std::forward< Variant >( var ) ) );
@@ -24,19 +24,19 @@ namespace detail
 }  // namespace detail
 
 template < typename Visitor, typename Variant >
-auto visit( Visitor&& vis, Variant&& var )
+decltype( auto ) visit( Visitor&& vis, Variant&& var )
 {
         return detail::linear_visit_impl< std::variant_size_v< std::decay_t< Variant > > - 1 >(
             std::forward< Variant >( var ), vis );
 }
 
 template < typename Visitor, typename Variant >
-auto apply_on_visit( Visitor&& vis, Variant&& var )
+decltype( auto ) apply_on_visit( Visitor&& vis, Variant&& var )
 {
         return emlabcpp::visit(
-            [&]< typename Item >( Item&& item ) {
+            [&]< typename Item >( Item&& item ) -> decltype( auto ) {
                     return std::apply(
-                        [&]< typename... Vals >( Vals&&... vals ) {
+                        [&]< typename... Vals >( Vals&&... vals ) -> decltype( auto ) {
                                 return vis( std::forward< Vals >( vals )... );
                         },
                         std::forward< Item >( item ) );

@@ -35,7 +35,7 @@ template < typename... Callables >
 matcher( Callables&&... ) -> matcher< std::decay_t< Callables >... >;
 
 template < typename Variant, typename... Callables >
-auto match( Variant&& var, Callables&&... cals )
+decltype( auto ) match( Variant&& var, Callables&&... cals )
 {
         return emlabcpp::visit(
             matcher< std::decay_t< Callables >... >( std::forward< Callables >( cals )... ),
@@ -43,7 +43,7 @@ auto match( Variant&& var, Callables&&... cals )
 }
 
 template < typename Variant, typename... Callables >
-auto apply_on_match( Variant&& var, Callables&&... cals )
+decltype( auto ) apply_on_match( Variant&& var, Callables&&... cals )
 {
         return apply_on_visit(
             matcher< std::decay_t< Callables >... >( std::forward< Callables >( cals )... ),

@@ -36,11 +36,16 @@ void simple_test_case( em::testing_record& rec )
         // showcase for the record API
 
         // request an argument from controller
-        em::testing_arg_variant var        = rec.get_arg( "arg1" );
-        uint64_t                config_val = std::get< uint64_t >( var );
+        auto opt_arg = rec.get_arg< uint64_t >( "arg1" );
+        if ( !opt_arg ) {
+                rec.fail();
+                return;
+        }
+
+        uint64_t config_val = *opt_arg;
 
         for ( uint32_t i = 0; i < config_val; i++ ) {
-                auto var2   = rec.get_arg( i );
+                auto var2   = rec.get_arg_variant( i );
                 std::ignore = var2;
         }
 
@@ -219,9 +224,9 @@ int main( int argc, char** argv )
         rec.register_test( "simple struct test", my_test_case{} );
 
         rec.register_callable( "complex lambda test", [&]( em::testing_record& rec ) {
-                em::testing_arg_variant data = rec.get_arg( "arg_key" );
+                std::optional< uint64_t > opt_data = rec.get_arg< uint64_t >( "arg_key" );
 
-                if ( !std::holds_alternative< uint64_t >( data ) ) {
+                if ( opt_data ) {
                         rec.success();
                 } else {
                         rec.fail();

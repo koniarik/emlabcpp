@@ -50,7 +50,7 @@ void testing_reactor_interface_adapter::reply( const testing_reactor_controller_
         iface_.transmit( msg );
 }
 
-void testing_reactor_interface_adapter::report_failure( testing_error_enum fenum )
+void testing_reactor_interface_adapter::report_failure( testing_reactor_error_variant evar )
 {
-        reply< TESTING_INTERNAL_ERROR >( fenum );
+        reply< TESTING_INTERNAL_ERROR >( evar );
 }
