@@ -1,0 +1,15 @@
+name: publish
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: DenverCoder1/doxygen-github-pages-action@v1
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
