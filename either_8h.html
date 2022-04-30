@@ -29,6 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">emlabcpp
    </div>
+   <div id="projectbrief">modern opinionated embedded C++ library</div>
   </td>
  </tr>
  </tbody>
@@ -104,6 +105,7 @@ $(document).ready(function(){initNavTree('either_8h.html',''); initResizable(); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html">emlabcpp::either&lt; LH, RH &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Either is heterogenous structure that holds one of the two types specified.  <a href="classemlabcpp_1_1either.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1empty__assembly__tag.html">emlabcpp::empty_assembly_tag</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks empty assembly.  <a href="structemlabcpp_1_1empty__assembly__tag.html#details">More...</a><br /></td></tr>
@@ -118,9 +120,11 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ac30a98c58cf8a76fa9363a0d19c09486"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
 <tr class="memitem:ac30a98c58cf8a76fa9363a0d19c09486"><td class="memTemplItemLeft" align="right" valign="top">either&lt; std::tuple&lt; Ts... &gt;, empty_assembly_tag &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486">emlabcpp::assemble_optionals</a> (std::optional&lt; Ts &gt; &amp;&amp;... opt)</td></tr>
+<tr class="memdesc:ac30a98c58cf8a76fa9363a0d19c09486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function gets a set of various std::optionals and either returns all their values assembled as tuple or '<a class="el" href="structemlabcpp_1_1empty__assembly__tag.html" title="Marks empty assembly.">empty_assembly_tag</a>' implicating that some of the optionals was empty.  <a href="namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486">More...</a><br /></td></tr>
 <tr class="separator:ac30a98c58cf8a76fa9363a0d19c09486"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a306d3a03f11c2e95874c23956020a755"><td class="memTemplParams" colspan="2">template&lt;typename FirstE , typename... Eithers&gt; </td></tr>
 <tr class="memitem:a306d3a03f11c2e95874c23956020a755"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755">emlabcpp::assemble_left_collect_right</a> (FirstE &amp;&amp;first, Eithers &amp;&amp;... others) requires(std</td></tr>
+<tr class="memdesc:a306d3a03f11c2e95874c23956020a755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function expects eithers of any left type, but same right type.  <a href="namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755">More...</a><br /></td></tr>
 <tr class="separator:a306d3a03f11c2e95874c23956020a755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>

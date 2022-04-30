@@ -29,6 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">emlabcpp
    </div>
+   <div id="projectbrief">modern opinionated embedded C++ library</div>
   </td>
  </tr>
  </tbody>
@@ -98,6 +99,7 @@ $(document).ready(function(){initNavTree('view_8h.html',''); initResizable(); })
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html">emlabcpp::view&lt; Iterator &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic class to represent view of some container.  <a href="classemlabcpp_1_1view.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html">emlabcpp::impl::is_view&lt; view&lt; Iter &gt; &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Support for our deduction guide to types - is_view_v.  <a href="structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html#details">More...</a><br /></td></tr>
@@ -122,9 +124,11 @@ Functions</h2></td></tr>
 <tr class="separator:a4b726ddab4f550f3e186f177243cb09b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a172761451ef499ea1a316bf3b683fd16"><td class="memTemplParams" colspan="2">template&lt;typename Iter &gt; </td></tr>
 <tr class="memitem:a172761451ef499ea1a316bf3b683fd16"><td class="memTemplItemLeft" align="right" valign="top">constexpr view&lt; Iter &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">emlabcpp::view_n</a> (Iter begin, std::size_t n)</td></tr>
+<tr class="memdesc:a172761451ef499ea1a316bf3b683fd16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates view over 'n' items of dataset starting at 'begin' This does not check validity of the range!  <a href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">More...</a><br /></td></tr>
 <tr class="separator:a172761451ef499ea1a316bf3b683fd16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a793151b3dbb2a3d533314e5a55cf6f54"><td class="memTemplParams" colspan="2">template&lt;range_container Container&gt; </td></tr>
 <tr class="memitem:a793151b3dbb2a3d533314e5a55cf6f54"><td class="memTemplItemLeft" align="right" valign="top">constexpr view&lt; iterator_of_t&lt; Container &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a793151b3dbb2a3d533314e5a55cf6f54">emlabcpp::trim_view</a> (Container &amp;cont, float r)</td></tr>
+<tr class="memdesc:a793151b3dbb2a3d533314e5a55cf6f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the view over over Container, where we ignore first r*size/2 items and last r*size/2 items.  <a href="namespaceemlabcpp.html#a793151b3dbb2a3d533314e5a55cf6f54">More...</a><br /></td></tr>
 <tr class="separator:a793151b3dbb2a3d533314e5a55cf6f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3921b804e7ed8b1041ec50f786404c28"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3921b804e7ed8b1041ec50f786404c28">emlabcpp::reversed</a> (referenceable_container auto &amp;&amp;container) -&gt; view&lt; decltype(container.rbegin()) &gt;</td></tr>
 <tr class="memdesc:a3921b804e7ed8b1041ec50f786404c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns view to the Container in reverse order.  <a href="namespaceemlabcpp.html#a3921b804e7ed8b1041ec50f786404c28">More...</a><br /></td></tr>

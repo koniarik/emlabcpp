@@ -29,6 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">emlabcpp
    </div>
+   <div id="projectbrief">modern opinionated embedded C++ library</div>
   </td>
  </tr>
  </tbody>
@@ -92,6 +93,9 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1view.html',''); initR
 </div><!--header-->
 <div class="contents">
 
+<p>Generic class to represent view of some container.  
+ <a href="classemlabcpp_1_1view.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="view_8h_source.html">view.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for emlabcpp::view&lt; Iterator &gt;:</div>
@@ -143,6 +147,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a8fdd836a77a7b1218f8785739715eaef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns iterator to the last element that goes in reverse.  <a href="classemlabcpp_1_1view.html#a8fdd836a77a7b1218f8785739715eaef">More...</a><br /></td></tr>
 <tr class="separator:a8fdd836a77a7b1218f8785739715eaef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a549012c992a9582b6998578a69a042"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1view.html#ad9a74119748175bed728749d34e3f48d">reverse_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#a0a549012c992a9582b6998578a69a042">rend</a> () const</td></tr>
+<tr class="memdesc:a0a549012c992a9582b6998578a69a042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns iterator to the element before first element, that can go in reverse.  <a href="classemlabcpp_1_1view.html#a0a549012c992a9582b6998578a69a042">More...</a><br /></td></tr>
 <tr class="separator:a0a549012c992a9582b6998578a69a042"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa812fd178fc993e11fbbbc5894fb3c3"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1view.html#a30de9dd0825a5099a6e4e8021d4f1bbd">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#aaa812fd178fc993e11fbbbc5894fb3c3">size</a> () const</td></tr>
 <tr class="memdesc:aaa812fd178fc993e11fbbbc5894fb3c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the view over dataset uses <a class="el" href="group__physical__quantity__1.html#ga11ac05592b4c728910966af0c89b13a8">std::distance()</a> to tell the size.  <a href="classemlabcpp_1_1view.html#aaa812fd178fc993e11fbbbc5894fb3c3">More...</a><br /></td></tr>
@@ -161,7 +166,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename Iterator&gt;<br />
 class emlabcpp::view&lt; Iterator &gt;</h3>
 
-<p>Generic class to represent view of some container.</p>
+<p>Generic class to represent view of some container. </p>
 <p>The view stores iterators to the input container and acts as container.</p>
 <p>Note: is_view_v&lt;T&gt; can be used to detect if T is view<em> </em></p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
@@ -604,7 +609,8 @@ template&lt;typename Iterator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns iterator to the element before first element, that can go in reverse </p>
+
+<p>Returns iterator to the element before first element, that can go in reverse. </p>
 
 </div>
 </div>

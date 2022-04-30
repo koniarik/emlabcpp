@@ -29,6 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">emlabcpp
    </div>
+   <div id="projectbrief">modern opinionated embedded C++ library</div>
   </td>
  </tr>
  </tbody>
@@ -92,6 +93,9 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1generic__iterator.htm
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is a class using CRTP to ease implementation of custom iterators.  
+ <a href="classemlabcpp_1_1generic__iterator.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="iterator_8h_source.html">iterator.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -138,10 +142,11 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename Derived&gt;<br />
 class emlabcpp::generic_iterator&lt; Derived &gt;</h3>
 
-<p><a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a> is a class using CRTP to ease implementation of custom iterators. User of the class is required to inheric from <a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a> and pass the inheriting class as template argument Derived. The <a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a> expectes existence of properly setup std::iterator_traits&lt;Derived&gt; instance, which is used to decide types for various methods. Given that <a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a> is able to provide user with methods/functions that are based on the Derived methods.</p>
-<p>For example: It is necessary for Derived class to implement only operator==, given that <a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a> is able to provied !=</p>
+<p><a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is a class using CRTP to ease implementation of custom iterators. </p>
+<p>User of the class is required to inheric from <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> and pass the inheriting class as template argument Derived. The <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> expectes existence of properly setup std::iterator_traits&lt;Derived&gt; instance, which is used to decide types for various methods. Given that <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is able to provide user with methods/functions that are based on the Derived methods.</p>
+<p>For example: It is necessary for Derived class to implement only operator==, given that <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is able to provied !=</p>
 <p>The Derived class is expected to provide these methods:</p><ul>
-<li>reference <a class="el" href="namespaceemlabcpp.html#a384e4bb5a921ff231358ff63aeecbe77">operator*()</a>;</li>
+<li>reference <a class="el" href="namespaceemlabcpp.html#a384e4bb5a921ff231358ff63aeecbe77" title="Multiplication of physical_quantity multiplies the internal values and the result is a type,...">operator*()</a>;</li>
 <li>const_reference operator*() const;</li>
 <li>Deriver&amp; operator+=(difference_type);</li>
 <li>Deriver&amp; operator-=(difference_type);</li>

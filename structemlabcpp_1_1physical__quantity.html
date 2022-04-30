@@ -29,6 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">emlabcpp
    </div>
+   <div id="projectbrief">modern opinionated embedded C++ library</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +92,9 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1physical__quantity.h
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="structemlabcpp_1_1physical__quantity.html" title="physical_quantity represents all physical units defined using the International System of Units and m...">physical_quantity</a> represents all physical units defined using the International System of Units and more.  
+ <a href="structemlabcpp_1_1physical__quantity.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="physical__quantity_8h_source.html">physical_quantity.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for emlabcpp::physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt;:</div>
@@ -144,7 +148,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><h3>template&lt;int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte&gt;<br />
 struct emlabcpp::physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt;</h3>
 
-<p><a class="el" href="structemlabcpp_1_1physical__quantity.html">physical_quantity</a> represents all physical units defined using the International System of Units and more. The idea is that each used unit, is either one of the seven basic units, or defined as some combination of them. The combination is multiplication of exponents of basic units.</p>
+<p><a class="el" href="structemlabcpp_1_1physical__quantity.html" title="physical_quantity represents all physical units defined using the International System of Units and m...">physical_quantity</a> represents all physical units defined using the International System of Units and more. </p>
+<p>The idea is that each used unit, is either one of the seven basic units, or defined as some combination of them. The combination is multiplication of exponents of basic units.</p>
 <p>So, velocity is distance per time - m*s^-1.</p>
 <p>We defined each physical unit by using a template, that has exponent of each basic unit as exponent. This makes it possible to specify any unit using this class - as combination of basic units.</p>
 <p>We expand this by providing two additional 'basic' units - angle (which is handy for us) and byte.</p>

@@ -29,6 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">emlabcpp
    </div>
+   <div id="projectbrief">modern opinionated embedded C++ library</div>
   </td>
  </tr>
  </tbody>
@@ -98,7 +99,7 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1pid.html',''); initRe
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pid_1_1config.html">config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">use this structure to configure the pid reglator  <a href="structemlabcpp_1_1pid_1_1config.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">based on <a href="http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/">http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/</a>  <a href="structemlabcpp_1_1pid_1_1config.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -109,16 +110,19 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2e8ac73e4a93e33e6368af4ce0bbd369"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a2e8ac73e4a93e33e6368af4ce0bbd369">pid</a> (<a class="el" href="classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4">time_type</a> now, <a class="el" href="structemlabcpp_1_1pid_1_1config.html">config</a> conf=<a class="el" href="structemlabcpp_1_1pid_1_1config.html">config</a>{})</td></tr>
+<tr class="memdesc:a2e8ac73e4a93e33e6368af4ce0bbd369"><td class="mdescLeft">&#160;</td><td class="mdescRight">improvements from naive PID:  <a href="classemlabcpp_1_1pid.html#a2e8ac73e4a93e33e6368af4ce0bbd369">More...</a><br /></td></tr>
 <tr class="separator:a2e8ac73e4a93e33e6368af4ce0bbd369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae259ae962d4796fe8d05ff313246e52f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#ae259ae962d4796fe8d05ff313246e52f">set_time</a> (<a class="el" href="classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4">time_type</a> t)</td></tr>
 <tr class="separator:ae259ae962d4796fe8d05ff313246e52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29694fa46dc69d6cf0b14d35038259b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a29694fa46dc69d6cf0b14d35038259b8">set_output</a> (float output=0)</td></tr>
 <tr class="separator:a29694fa46dc69d6cf0b14d35038259b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb89b4775102d8952f25e02b4bacc4a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#aeb89b4775102d8952f25e02b4bacc4a8">reset</a> (float output=0)</td></tr>
+<tr class="memdesc:aeb89b4775102d8952f25e02b4bacc4a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">To correctly reset the pid, tell it the actuall output_ value That is required for cases when you set it up manually without pids knowledge.  <a href="classemlabcpp_1_1pid.html#aeb89b4775102d8952f25e02b4bacc4a8">More...</a><br /></td></tr>
 <tr class="separator:aeb89b4775102d8952f25e02b4bacc4a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc80653f5ab1e5b6912da8324df2bd3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#abc80653f5ab1e5b6912da8324df2bd3e">set_config</a> (<a class="el" href="structemlabcpp_1_1pid_1_1config.html">config</a> conf)</td></tr>
 <tr class="separator:abc80653f5ab1e5b6912da8324df2bd3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0550d6b6bd18100317d9ec6b4d939715"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a0550d6b6bd18100317d9ec6b4d939715">update</a> (<a class="el" href="classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4">time_type</a> now, float input, float desired)</td></tr>
+<tr class="memdesc:a0550d6b6bd18100317d9ec6b4d939715"><td class="mdescLeft">&#160;</td><td class="mdescRight">call this reularly, the meaning of time value 'now' is up to you, just be consistent  <a href="classemlabcpp_1_1pid.html#a0550d6b6bd18100317d9ec6b4d939715">More...</a><br /></td></tr>
 <tr class="separator:a0550d6b6bd18100317d9ec6b4d939715"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2859e71a7b6fdefbed26fda572795c4c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a2859e71a7b6fdefbed26fda572795c4c">get_output</a> () const</td></tr>
 <tr class="separator:a2859e71a7b6fdefbed26fda572795c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,7 +180,9 @@ template&lt;typename TimeType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>improvements from naive PID:</p><ul>
+
+<p>improvements from naive PID: </p>
+<ul>
 <li>we work with derivation of input, not error (error jumps in case you change desired value a lot)</li>
 <li>we store i_term_ entirely (i * sum_) instead of just the sum_, makes it easier to change the scale of i (imagine what happens when you store sum_, use i*sum_ in the formula nad change i from 1 to 100) </li>
 </ul>
@@ -236,7 +242,8 @@ template&lt;typename TimeType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>To correctly reset the pid, tell it the actuall output_ value That is required for cases when you set it up manually without pids knowledge </p>
+
+<p>To correctly reset the pid, tell it the actuall output_ value That is required for cases when you set it up manually without pids knowledge. </p>
 
 </div>
 </div>
@@ -365,7 +372,8 @@ template&lt;typename TimeType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>call this reularly, the meaning of time value 'now' is up to you, just be consistent</p>
+
+<p>call this reularly, the meaning of time value 'now' is up to you, just be consistent </p>
 <p>Algorithm changes it's internal value output_ to the value that should be set to a 'thing' that controls input_ value. It tries to control the 'thing' so the input eventually converges to 'desired' value </p>
 
 </div>

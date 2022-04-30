@@ -29,6 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">emlabcpp
    </div>
+   <div id="projectbrief">modern opinionated embedded C++ library</div>
   </td>
  </tr>
  </tbody>
@@ -94,6 +95,9 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1quantity.html',''); i
 </div><!--header-->
 <div class="contents">
 
+<p>Class representing generic quantity.  
+ <a href="classemlabcpp_1_1quantity.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="quantity_8h_source.html">quantity.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -143,7 +147,7 @@ Friends</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename Derived, typename ValueType = float&gt;<br />
 class emlabcpp::quantity&lt; Derived, ValueType &gt;</h3>
 
-<p>Class representing generic quantity.</p>
+<p>Class representing generic quantity. </p>
 <p>Quantities are types which simply overlay basic numeric type (ValueType) and give you abillity to create custom types via CRTP. The C++ type system prevents you from passing values of quantites of different implementation type.</p>
 <p>The overlay implements: +=,-= +,- ==, != &lt;,&gt;,&gt;=,&lt;= abs, max, min Quantity can be multiplied or divided by it's ValueType - /,*,/=,*= Additionally, we support these operations over quantity: cos, sin</p>
 <p>Credits should go to <a href="https://github.com/joboccara/NamedType">https://github.com/joboccara/NamedType</a> as I inspired by project by this blogger! </p>

@@ -29,6 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">emlabcpp
    </div>
+   <div id="projectbrief">modern opinionated embedded C++ library</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +92,9 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1zip__iterator.html','
 </div><!--header-->
 <div class="contents">
 
+<p>zip_ierator iterates over a group of iterators, where value is a tuple of references to value for each iterator.  
+ <a href="classemlabcpp_1_1zip__iterator.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="zip_8h_source.html">zip.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -108,6 +112,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aec2bc59dcef6fb312d48d8382e75549f"><td class="memItemLeft" align="right" valign="top">constexpr std::ptrdiff_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1zip__iterator.html#aec2bc59dcef6fb312d48d8382e75549f">operator-</a> (const <a class="el" href="classemlabcpp_1_1zip__iterator.html">zip_iterator</a>&lt; Iterators... &gt; &amp;other) const</td></tr>
 <tr class="separator:aec2bc59dcef6fb312d48d8382e75549f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c89eba116a5a23bf84e4fc753a601b1"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1zip__iterator.html#a1c89eba116a5a23bf84e4fc753a601b1">operator*</a> ()</td></tr>
+<tr class="memdesc:a1c89eba116a5a23bf84e4fc753a601b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dereference of each iterator, returns tuple of references to the operator* of iterators.  <a href="classemlabcpp_1_1zip__iterator.html#a1c89eba116a5a23bf84e4fc753a601b1">More...</a><br /></td></tr>
 <tr class="separator:a1c89eba116a5a23bf84e4fc753a601b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab65027546cb52872266a64c126bcc4bb"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1zip__iterator.html#ab65027546cb52872266a64c126bcc4bb">operator==</a> (const <a class="el" href="classemlabcpp_1_1zip__iterator.html">zip_iterator</a>&lt; Iterators... &gt; &amp;other) const</td></tr>
 <tr class="memdesc:ab65027546cb52872266a64c126bcc4bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Two zip iterators are equal if all of their iterators are equal.  <a href="classemlabcpp_1_1zip__iterator.html#ab65027546cb52872266a64c126bcc4bb">More...</a><br /></td></tr>
@@ -117,7 +122,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename... Iterators&gt;<br />
 class emlabcpp::zip_iterator&lt; Iterators &gt;</h3>
 
-<p>zip_ierator iterates over a group of iterators, where value is a tuple of references to value for each iterator.</p>
+<p>zip_ierator iterates over a group of iterators, where value is a tuple of references to value for each iterator. </p>
 <p>The design expects that all ranges of iterators are of same size. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7e0dc6458a07aadfde46318f50a40e51"></a>
@@ -173,6 +178,7 @@ template&lt;typename... Iterators&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Dereference of each iterator, returns tuple of references to the operator* of iterators. </p>
 
 </div>

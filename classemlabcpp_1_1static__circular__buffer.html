@@ -29,6 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">emlabcpp
    </div>
+   <div id="projectbrief">modern opinionated embedded C++ library</div>
   </td>
  </tr>
  </tbody>
@@ -93,6 +94,9 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1static__circular__buf
 <div class="title">emlabcpp::static_circular_buffer&lt; T, N &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class implementing circular buffer of any type for up to N elements.  
+ <a href="classemlabcpp_1_1static__circular__buffer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="static__circular__buffer_8h_source.html">static_circular_buffer.h</a>&gt;</code></p>
 <table class="memberdecls">
@@ -188,7 +192,8 @@ Friends</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename T, std::size_t N&gt;<br />
 class emlabcpp::static_circular_buffer&lt; T, N &gt;</h3>
 
-<p>Class implementing circular buffer of any type for up to N elements. This should work for generic type T, not just simple types.</p>
+<p>Class implementing circular buffer of any type for up to N elements. </p>
+<p>This should work for generic type T, not just simple types.</p>
 <p>It is safe in "single consumer single producer" scenario between main loop and interrupts. Because of that the behavior is as follows:</p><ul>
 <li>on insertion, item is inserted and than index is advanced</li>
 <li>on removal, item is removed and than index is advanced</li>
