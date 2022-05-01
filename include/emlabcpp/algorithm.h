@@ -454,8 +454,8 @@ constexpr void for_each_index( NullFunction&& f )
         }
 }
 
-/// Executes unary predicate f() with template argument of type 'std::size_t', which ranges from 0 to
-/// i until first call that returns true. Function returns whenever the f was called or not.
+/// Executes unary predicate f() with template argument of type 'std::size_t', which ranges from 0
+/// to i until first call that returns true. Function returns whenever the f was called or not.
 template < std::size_t i, typename PredFunction >
 constexpr bool until_index( PredFunction&& f )
 {
@@ -504,4 +504,4 @@ constexpr void select_index( IndexType i, NullFunction&& f )
         } );
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

@@ -90,4 +90,4 @@ view< subscript_iterator< Container > > subscript_view( Container& cont )
             subscript_iterator< Container >{ cont, cont.size() } };
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

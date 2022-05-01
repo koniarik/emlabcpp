@@ -177,4 +177,4 @@ inline void protocol_for_each_register( const Map& m, UnaryFunction&& f )
         } );
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

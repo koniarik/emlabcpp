@@ -72,4 +72,4 @@ testing_composer< T, C > testing_compose( T t, C c )
         return { std::move( t ), std::move( c ) };
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

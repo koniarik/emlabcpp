@@ -89,4 +89,4 @@ inline auto& operator<<( ostreamlike auto& os, const testing_error_variant& var 
         return os;
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

@@ -36,4 +36,4 @@ struct protocol_tuple : protocol_def_type_base
         }
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

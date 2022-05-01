@@ -93,4 +93,4 @@ private:
         }
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

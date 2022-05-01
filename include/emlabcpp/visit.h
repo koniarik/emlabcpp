@@ -21,7 +21,7 @@ namespace detail
                         }
                 }
         }
-}  /// namespace detail
+}  // namespace detail
 
 template < typename Visitor, typename Variant >
 decltype( auto ) visit( Visitor&& vis, Variant&& var )
@@ -44,4 +44,4 @@ decltype( auto ) apply_on_visit( Visitor&& vis, Variant&& var )
             std::forward< Variant >( var ) );
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

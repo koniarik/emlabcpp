@@ -123,4 +123,4 @@ public:
         }
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

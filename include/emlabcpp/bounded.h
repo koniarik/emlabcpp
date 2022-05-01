@@ -135,7 +135,7 @@ namespace detail
         {
                 return true;
         }
-}  /// namespace detail
+}  // namespace detail
 
 /// Concept that matchestype deriving from bounded
 template < typename T >
@@ -150,4 +150,4 @@ inline auto& operator<<( Stream& os, const bounded< T, MinVal, MaxVal >& b )
         return os << *b;
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

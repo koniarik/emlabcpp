@@ -288,4 +288,4 @@ inline auto& operator<<( Stream& os, const static_vector< T, N >& vec )
         return os << view{ vec };
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

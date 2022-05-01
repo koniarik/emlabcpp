@@ -202,4 +202,4 @@ constexpr auto pow( physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, 
             Byte * Power >{ static_cast< float >( std::pow( *val, Power ) ) };
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

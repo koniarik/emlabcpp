@@ -222,8 +222,8 @@ private:
         //
         /// Set of [delete,init,emplace]_item methods is necessary as data_ is not array of T, but
         /// array of byte-like-type that can store T -> T does not have to be initialized there. We
-        /// want to fully support T objects - their constructors/destructors are correctly called and
-        /// we do not require default constructor. This implies that data_ has some slots
+        /// want to fully support T objects - their constructors/destructors are correctly called
+        /// and we do not require default constructor. This implies that data_ has some slots
         /// un-initialized, some are initialized and we have to handle them correctly.
         //
         /// All three methods are used to handle this part of the objects in this scenario, that
@@ -327,7 +327,7 @@ inline auto& operator<<( Stream& os, const static_circular_buffer< T, N >& cb )
         return os << view{ cb };
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp
 
 template < typename Container >
 struct std::iterator_traits< emlabcpp::static_circular_buffer_iterator< Container > >
@@ -422,4 +422,4 @@ private:
         std::size_t i_;
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

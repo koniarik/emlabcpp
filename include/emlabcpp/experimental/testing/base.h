@@ -66,4 +66,4 @@ struct testing_result
 
 class testing_reactor_interface_adapter;
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

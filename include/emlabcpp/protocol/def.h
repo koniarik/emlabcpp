@@ -80,10 +80,10 @@ struct protocol_def< std::array< D, N >, Endianess >
         using sub_size_type = typename sub_def::size_type;
         using size_type     = bounded< std::size_t, sub_def::size_type::min_val * N, max_size >;
 
-        /// In both methods, we create the bounded size without properly checking that it the bounded
-        /// type was made properly (that is, that the provided std::size_t value is in the range).
-        /// Thas is ok as long as variant "we advanced the iter only by at max `sub_def::max_size`
-        /// `N` times".
+        /// In both methods, we create the bounded size without properly checking that it the
+        /// bounded type was made properly (that is, that the provided std::size_t value is in the
+        /// range). Thas is ok as long as variant "we advanced the iter only by at max
+        /// `sub_def::max_size` `N` times".
 
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
@@ -781,4 +781,4 @@ struct protocol_def< static_vector< T, N >, Endianess >
         }
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

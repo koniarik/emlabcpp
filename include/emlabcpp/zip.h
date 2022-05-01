@@ -171,4 +171,4 @@ inline auto zip( Tuple&& frst, Tuples&&... tpls )
             std::make_index_sequence< sizeof...( Tuples ) + 1 >{} );
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

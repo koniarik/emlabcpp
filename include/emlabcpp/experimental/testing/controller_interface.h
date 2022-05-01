@@ -19,4 +19,4 @@ public:
         virtual ~testing_controller_interface() = default;
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

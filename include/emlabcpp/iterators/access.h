@@ -90,4 +90,4 @@ access_view( Container&& cont, AccessFunction&& f )
             access_iterator< iterator_of_t< Container >, AccessFunction >{ cont.end(), f } };
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

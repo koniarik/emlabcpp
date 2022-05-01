@@ -92,8 +92,8 @@ public:
 
                 float error = desired - input;
                 i_term_ += conf_.i * ( error * t_diff );
-                /// we want to prevent the i_term_ to escallate out of proportion, to prevent it from
-                /// going to infinity and beyond
+                /// we want to prevent the i_term_ to escallate out of proportion, to prevent it
+                /// from going to infinity and beyond
                 i_term_ = std::clamp( i_term_, conf_.min, conf_.max );
 
                 float input_diff = ( input - last_input_ ) / t_diff;
@@ -112,4 +112,4 @@ public:
         }
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

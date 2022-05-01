@@ -424,4 +424,4 @@ inline auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) r
                     return collection;
             } );
 }
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

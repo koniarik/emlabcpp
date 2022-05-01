@@ -103,4 +103,4 @@ requires( sizeof( uint64_t ) == N ) struct select_utype< N >
 template < std::size_t N >
 using select_utype_t = typename select_utype< N >::type;
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

@@ -70,8 +70,9 @@ struct protocol_group
         using options_type = std::variant< Ds... >;
 };
 
-/// Creates a segment starting with counter defined by CounterDef, this counter limits how many bytes
-/// are passed to deserialization process, bytes after the limit ale not considered by this segment.
+/// Creates a segment starting with counter defined by CounterDef, this counter limits how many
+/// bytes are passed to deserialization process, bytes after the limit ale not considered by this
+/// segment.
 template < typename CounterDef, typename D >
 struct protocol_sized_buffer
 {
@@ -95,4 +96,4 @@ struct protocol_def_type_base
 {
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

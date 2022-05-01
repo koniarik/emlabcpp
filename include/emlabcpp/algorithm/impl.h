@@ -120,4 +120,4 @@ concept map_f_collectable = requires( T item, typename T::value_type val )
         map_f_collector< T >{}.collect( item, val );
 };
 
-}  /// namespace emlabcpp::impl
+}  // namespace emlabcpp::impl

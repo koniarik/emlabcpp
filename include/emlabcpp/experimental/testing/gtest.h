@@ -112,6 +112,6 @@ void testing_register_gtests( testing_controller_interface& ci )
         }
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp
 
 #endif

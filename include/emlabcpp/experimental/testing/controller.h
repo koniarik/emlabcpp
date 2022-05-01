@@ -102,4 +102,4 @@ private:
             testing_controller_interface_adapter iface );
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

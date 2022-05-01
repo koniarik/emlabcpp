@@ -188,4 +188,4 @@ inline auto& operator<<( Stream& os, const view< Iterator >& output )
         return os;
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

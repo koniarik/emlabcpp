@@ -94,4 +94,4 @@ struct protocol_command_group< Endianess >
         using with_commands = protocol_command_group< Endianess, Cmds... >;
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

@@ -59,7 +59,8 @@ public:
 
                 std::size_t bsize = buffer_.size();
 
-                /// This is implied by the fact that we should have full match at the start of buffer
+                /// This is implied by the fact that we should have full match at the start of
+                /// buffer
                 EMLABCPP_ASSERT( bsize >= prefix.size() );
 
                 if ( bsize < fixed_size ) {
@@ -111,4 +112,4 @@ protocol_simple_load( std::size_t read_limit, ReadCallback&& read )
         return res;
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

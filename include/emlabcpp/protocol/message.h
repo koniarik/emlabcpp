@@ -169,7 +169,7 @@ namespace detail
         {
                 return true;
         }
-}  /// namespace detail
+}  // namespace detail
 
 /// concept matches any type that is protocol_message or derives from it.
 template < typename T >
@@ -178,4 +178,4 @@ concept protocol_message_derived = requires( T val )
         detail::protocol_message_derived_test( val );
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

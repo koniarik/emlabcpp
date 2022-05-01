@@ -36,7 +36,7 @@ namespace impl
         {
         };
 
-}  /// namespace impl
+}  // namespace impl
 
 template < typename T >
 struct is_view : impl::is_view< std::decay_t< T > >
@@ -90,7 +90,7 @@ namespace impl
         struct is_std_tuple< std::tuple< T... > > : std::true_type
         {
         };
-}  /// namespace impl
+}  // namespace impl
 
 template < typename T >
 struct is_std_tuple : impl::is_std_tuple< std::decay_t< T > >
@@ -113,7 +113,7 @@ namespace impl
         struct is_std_array< std::array< T, N > > : std::true_type
         {
         };
-}  /// namespace impl
+}  // namespace impl
 
 template < typename T >
 struct is_std_array : impl::is_std_array< std::decay_t< T > >
@@ -136,7 +136,7 @@ namespace impl
         struct is_std_vector< std::vector< T > > : std::true_type
         {
         };
-}  /// namespace impl
+}  // namespace impl
 
 template < typename T >
 struct is_std_vector : impl::is_std_vector< std::decay_t< T > >
@@ -165,7 +165,7 @@ namespace impl
         {
                 static constexpr std::size_t value = std::tuple_size_v< std::tuple< Ts... > >;
         };
-}  /// namespace impl
+}  // namespace impl
 
 template < typename T >
 struct static_size : impl::static_size< std::decay_t< T > >
@@ -176,4 +176,4 @@ struct static_size : impl::static_size< std::decay_t< T > >
 template < typename T >
 [[deprecated]] constexpr std::size_t static_size_v = static_size< T >::value;
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

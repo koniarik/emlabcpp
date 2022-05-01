@@ -17,10 +17,11 @@ namespace emlabcpp
 template < typename D >
 struct protocol_decl;
 
-/// This concepts limits types to types that can be declared, that is the overload of 'protocol_decl'
-/// is fully defined: protocol_decl::value_type contains definition of value produced by the
-/// declaration, protocol_decl::max_size contains estimated maximal size in bytes taken by the
-/// serialized value in the message. protocol_decl::min_size should contain minimal size used.
+/// This concepts limits types to types that can be declared, that is the overload of
+/// 'protocol_decl' is fully defined: protocol_decl::value_type contains definition of value
+/// produced by the declaration, protocol_decl::max_size contains estimated maximal size in bytes
+/// taken by the serialized value in the message. protocol_decl::min_size should contain minimal
+/// size used.
 template < typename D >
 concept protocol_declarable = requires( D val )
 {
@@ -197,4 +198,4 @@ struct protocol_decl< static_vector< T, N > >
             protocol_decl< counter_type >::min_size + protocol_decl< T >::min_size * N;
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

@@ -90,4 +90,4 @@ constexpr view< numeric_iterator< Numeric > > range( Numeric to )
         return range< Numeric >( 0, to );
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

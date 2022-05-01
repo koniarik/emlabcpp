@@ -15,4 +15,4 @@ inline void* align( void* ptr, std::size_t alignment )
         return reinterpret_cast< void* >( ( intptr - 1u + alignment ) & -alignment );
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

@@ -43,4 +43,4 @@ struct protocol_handler
         }
 };
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp

@@ -120,7 +120,7 @@ namespace detail
         {
                 return true;
         }
-}  /// namespace detail
+}  // namespace detail
 
 template < typename T >
 concept quantity_derived = requires( T val )
@@ -243,7 +243,7 @@ inline auto& operator<<( Stream& os, quantity< T, ValueType > q )
         return os << *q << T::get_unit();
 }
 
-}  /// namespace emlabcpp
+}  // namespace emlabcpp
 
 /// The quantity has defined partital specialization of std::numeric_limits,
 /// works as std::numeric_limits<ValueType>;
