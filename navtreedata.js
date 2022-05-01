@@ -43,7 +43,6 @@ var NAVTREE =
       [ "types.h", "index.html#autotoc_md17", null ],
       [ "zip.h", "index.html#autotoc_md18", null ]
     ] ],
-    [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -82,8 +81,8 @@ var NAVTREEINDEX =
 ".html",
 "classemlabcpp_1_1protocol__sequencer.html",
 "either_8h_source.html",
-"physical__quantity_8h.html#a9b9eb800885b61e8071ef11e69debdf6",
-"structemlabcpp_1_1protocol__def_3_01protocol__offset_3_01D_00_01Offset_01_4_00_01Endianess_01_4.html#a13560e2b76e856ffcb170cd64c8cad97"
+"pid_8h.html",
+"structemlabcpp_1_1protocol__def_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

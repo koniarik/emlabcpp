@@ -189,6 +189,6 @@ var hierarchy =
       [ "emlabcpp::matcher< Callables >", "structemlabcpp_1_1matcher.html", null ]
     ] ],
     [ "T", null, [
-      [ "emlabcpp::testing_composer< C, T >", "classemlabcpp_1_1testing__composer.html", null ]
+      [ "emlabcpp::testing_composer< T, C >", "classemlabcpp_1_1testing__composer.html", null ]
     ] ]
 ];

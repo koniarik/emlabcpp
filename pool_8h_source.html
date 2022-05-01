@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -133,8 +132,8 @@ $(document).ready(function(){initNavTree('pool_8h_source.html',''); initResizabl
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        <span class="keywordtype">void</span>*       pool_p = &amp;pools_[i];</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                        p                  = <a class="code" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a>( pool_p, alignment );</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        used += <span class="keyword">static_cast&lt;</span> std::size_t <span class="keyword">&gt;</span>(</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                            <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="group__physical__quantity__1.html#gafde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( p ) -</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                            <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="group__physical__quantity__1.html#gafde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( pool_p ) );</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                            <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( p ) -</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                            <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( pool_p ) );</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">if</span> ( !p || used &gt; PoolSize ) {</div>
@@ -263,6 +262,7 @@ $(document).ready(function(){initNavTree('pool_8h_source.html',''); initResizabl
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html">emlabcpp::static_vector</a></div><div class="ttdoc">Data container for up to N elements.</div><div class="ttdef"><b>Definition:</b> static_vector.h:15</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a43daa0cfcf1b4444fef3c134b538c492"><div class="ttname"><a href="namespaceemlabcpp.html#a43daa0cfcf1b4444fef3c134b538c492">emlabcpp::pool_deque</a></div><div class="ttdeci">std::deque&lt; T, pool_allocator&lt; T &gt; &gt; pool_deque</div><div class="ttdef"><b>Definition:</b> pool.h:164</div></div>
 <div class="ttc" id="anumeric_8h_html"><div class="ttname"><a href="numeric_8h.html">numeric.h</a></div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:66</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:482</div></div>
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1pool__resource_html_ab05e6dab418553c5e4968f6ed4de1ee5"><div class="ttname"><a href="classemlabcpp_1_1pool__resource.html#ab05e6dab418553c5e4968f6ed4de1ee5">emlabcpp::pool_resource::~pool_resource</a></div><div class="ttdeci">~pool_resource() final=default</div></div>
@@ -272,7 +272,6 @@ $(document).ready(function(){initNavTree('pool_8h_source.html',''); initResizabl
 <div class="ttc" id="astructemlabcpp_1_1pool__base_html"><div class="ttname"><a href="structemlabcpp_1_1pool__base.html">emlabcpp::pool_base</a></div><div class="ttdef"><b>Definition:</b> pool.h:136</div></div>
 <div class="ttc" id="astructemlabcpp_1_1pool__interface_html_ae984c89b9c93e062b1dd8b1d970896a0"><div class="ttname"><a href="structemlabcpp_1_1pool__interface.html#ae984c89b9c93e062b1dd8b1d970896a0">emlabcpp::pool_interface::allocate</a></div><div class="ttdeci">virtual void * allocate(std::size_t bytes, std::size_t alignment)=0</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a1cb3115b37984ce71393fca1dc7b7717"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a1cb3115b37984ce71393fca1dc7b7717">emlabcpp::static_vector::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdef"><b>Definition:</b> static_vector.h:161</div></div>
-<div class="ttc" id="agroup__physical__quantity__1_html_gafde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="group__physical__quantity__1.html#gafde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:67</div></div>
 <div class="ttc" id="aassert_8h_html_a1be190c4e600e598cc284808298bde75"><div class="ttname"><a href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a></div><div class="ttdeci">#define EMLABCPP_ASSERT(cond)</div><div class="ttdef"><b>Definition:</b> assert.h:13</div></div>
 <div class="ttc" id="astructemlabcpp_1_1pool__deleter_html"><div class="ttname"><a href="structemlabcpp_1_1pool__deleter.html">emlabcpp::pool_deleter</a></div><div class="ttdef"><b>Definition:</b> pool.h:142</div></div>
 <div class="ttc" id="astructemlabcpp_1_1pool__base_html_aef6ae9b313cac8ad6e61e037506d94bd"><div class="ttname"><a href="structemlabcpp_1_1pool__base.html#aef6ae9b313cac8ad6e61e037506d94bd">emlabcpp::pool_base::pool_memory</a></div><div class="ttdeci">pool_resource&lt; PoolSize, PoolCount &gt; pool_memory</div><div class="ttdef"><b>Definition:</b> pool.h:139</div></div>

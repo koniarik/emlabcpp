@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['force_1166',['force',['../group__physical__quantity__1.html#gaabf27b9093d0831dd17c88bcce4f9330',1,'emlabcpp']]],
-  ['frequency_1167',['frequency',['../group__physical__quantity__1.html#ga0d67880c6a526098821b950d000c2d79',1,'emlabcpp']]]
+  ['force_1165',['force',['../namespaceemlabcpp.html#aabf27b9093d0831dd17c88bcce4f9330',1,'emlabcpp']]],
+  ['frequency_1166',['frequency',['../namespaceemlabcpp.html#a0d67880c6a526098821b950d000c2d79',1,'emlabcpp']]]
 ];
