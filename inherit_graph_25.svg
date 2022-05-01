@@ -12,7 +12,7 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="classemlabcpp_1_1numeric__iterator.html" target="_top" xlink:title="numeric iterator &#45; iterator over numbers (which are calculated on the fly) Value of type T is stored ...">
+<g id="a_node1"><a xlink:href="classemlabcpp_1_1numeric__iterator.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="0,-0.5 0,-19.5 180,-19.5 180,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="90" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::numeric_iterator&lt; T &gt;</text>
 </a>

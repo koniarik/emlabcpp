@@ -12,7 +12,7 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="structemlabcpp_1_1pid_1_1config.html" target="_top" xlink:title="based on http://brettbeauregard.com/blog/2011/04/improving&#45;the&#45;beginners&#45;pid&#45;introduction/">
+<g id="a_node1"><a xlink:href="structemlabcpp_1_1pid_1_1config.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="0,-0.5 0,-30.5 144,-30.5 144,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::pid&lt; TimeType</text>
 <text text-anchor="middle" x="72" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt;::config</text>

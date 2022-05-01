@@ -92,9 +92,6 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1generic__iterator.htm
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is a class using CRTP to ease implementation of custom iterators.  
- <a href="classemlabcpp_1_1generic__iterator.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="iterator_8h_source.html">iterator.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -137,38 +134,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2df9463217505f015062dd24c4f45513"><td class="memItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a2df9463217505f015062dd24c4f45513">operator-</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> v) const</td></tr>
 <tr class="separator:a2df9463217505f015062dd24c4f45513"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename Derived&gt;<br />
-class emlabcpp::generic_iterator&lt; Derived &gt;</h3>
-
-<p><a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is a class using CRTP to ease implementation of custom iterators. </p>
-<p>User of the class is required to inheric from <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> and pass the inheriting class as template argument Derived. The <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> expectes existence of properly setup std::iterator_traits&lt;Derived&gt; instance, which is used to decide types for various methods. Given that <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is able to provide user with methods/functions that are based on the Derived methods.</p>
-<p>For example: It is necessary for Derived class to implement only operator==, given that <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is able to provied !=</p>
-<p>The Derived class is expected to provide these methods:</p><ul>
-<li>reference <a class="el" href="namespaceemlabcpp.html#a384e4bb5a921ff231358ff63aeecbe77" title="Multiplication of physical_quantity multiplies the internal values and the result is a type,...">operator*()</a>;</li>
-<li>const_reference operator*() const;</li>
-<li>Deriver&amp; operator+=(difference_type);</li>
-<li>Deriver&amp; operator-=(difference_type);</li>
-<li>bool operator&lt;(const Derived &amp; other);</li>
-<li>bool operator==(const Derived &amp; other);</li>
-<li>difference_type operator-(const Derived&amp; other);</li>
-</ul>
-<p>Give nthese methods, the generic iterator provides additional methods thanks to CRTP mechanics:</p><ul>
-<li>pointer <a class="el" href="classemlabcpp_1_1generic__iterator.html#a95e1892dd926944107bee59661922c19">operator-&gt;()</a>;</li>
-<li>const_pointer opetrator-&gt;();</li>
-<li>Derived&amp; <a class="el" href="classemlabcpp_1_1generic__iterator.html#a065560a2202ed85cf4f45f132131f092">operator++()</a>;</li>
-<li>Derived&amp; <a class="el" href="classemlabcpp_1_1generic__iterator.html#a3123f3e99f340a55db233277dfdf8ef8">operator++(int)</a>;</li>
-<li>Derived&amp; <a class="el" href="classemlabcpp_1_1generic__iterator.html#aa2a4cae41edb6508ae6a674d9748d030">operator--()</a>;</li>
-<li>Derived&amp; <a class="el" href="classemlabcpp_1_1generic__iterator.html#ae2e534e2fd8035c00d5a043ca81a40c6">operator--(int)</a>;</li>
-<li>Derived operator+(difference_type);</li>
-<li>Derived operator-(difference_type);</li>
-</ul>
-<p>Additional to that, following free functions are usable:</p><ul>
-<li>bool operator&gt;(const generic_iterator&lt;Derived&gt; &amp;, const generic_iterator&lt;Derived&gt;&amp;)</li>
-<li>bool operator&lt;=(const generic_iterator&lt;Derived&gt; &amp;, const generic_iterator&lt;Derived&gt;&amp;)</li>
-<li>bool operator!=(const generic_iterator&lt;Derived&gt; &amp;, const generic_iterator&lt;Derived&gt;&amp;) </li>
-</ul>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a94f63521bb88de9902ade70a45e3cb7e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94f63521bb88de9902ade70a45e3cb7e">&#9670;&nbsp;</a></span>const_pointer</h2>
 

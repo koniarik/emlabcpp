@@ -103,7 +103,7 @@
 <!-- Node11 -->
 <g id="node7" class="node">
 <title>Node11</title>
-<g id="a_node7"><a xlink:href="structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html" target="_top" xlink:title="Support for our deduction guide to types &#45; is_view_v.">
+<g id="a_node7"><a xlink:href="structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="102,-0.5 102,-30.5 232,-30.5 232,-0.5 102,-0.5"/>
 <text text-anchor="start" x="110" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::impl::is</text>
 <text text-anchor="middle" x="167" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_view&lt; view&lt; Iter &gt; &gt;</text>

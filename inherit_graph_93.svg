@@ -12,7 +12,7 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="structemlabcpp_1_1tag.html" target="_top" xlink:title=" ">
+<g id="a_node1"><a xlink:href="structemlabcpp_1_1tag.html" target="_top" xlink:title="tag&lt;V&gt; type can be used for tagging f&#45;calls for function overloading">
 <polygon fill="white" stroke="black" points="0,-0.5 0,-19.5 116,-19.5 116,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="58" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::tag&lt; V &gt;</text>
 </a>

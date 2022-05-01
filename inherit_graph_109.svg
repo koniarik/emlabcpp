@@ -12,7 +12,7 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="structemlabcpp_1_1tuple__has__type.html" target="_top" xlink:title="tuple_has_type&lt;T, Tuple&gt;::value is true if Tuple s std::tuple and contains type T">
+<g id="a_node1"><a xlink:href="structemlabcpp_1_1tuple__has__type.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="0,-0.5 0,-30.5 118,-30.5 118,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::tuple_has</text>
 <text text-anchor="middle" x="59" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_type&lt; T, Tuple &gt;</text>

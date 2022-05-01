@@ -95,9 +95,6 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1bounded.html',''); in
 </div><!--header-->
 <div class="contents">
 
-<p>Bounded type represents a overlay over type T which is constrained between MinVal and MaxVal as compile time constants.  
- <a href="classemlabcpp_1_1bounded.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="bounded_8h_source.html">bounded.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -154,15 +151,7 @@ Friends</h2></td></tr>
 <tr class="memitem:a49c1cf51cd4bf4b78a08b695b41bf4b7"><td class="memTemplItemLeft" align="right" valign="top">constexpr friend auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#a49c1cf51cd4bf4b78a08b695b41bf4b7">operator</a> (const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a> &amp;b, const U &amp;val)</td></tr>
 <tr class="separator:a49c1cf51cd4bf4b78a08b695b41bf4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, T MinVal, T MaxVal&gt;<br />
-class emlabcpp::bounded&lt; T, MinVal, MaxVal &gt;</h3>
-
-<p>Bounded type represents a overlay over type T which is constrained between MinVal and MaxVal as compile time constants. </p>
-<p>/ The API is deisgned in a way that you can't create the type out of theb ounds.</p>
-<p>This is beneficial in design of an API. In case of using the T directly and asserting that it is withing corrent range, the API has to check at runtime whenever that is true and return error in case it is out of range. / With bounded type the API does not have to do that, as the type can't be passed unless it is within corret range.</p>
-<p>It does not remove the bounds check, it just moves it away from within API to the user, which has to deal with creating correct bounded type. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aad61c34b57cc60bec0621321519f6de6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad61c34b57cc60bec0621321519f6de6">&#9670;&nbsp;</a></span>bounded()</h2>
 

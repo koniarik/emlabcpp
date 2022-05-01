@@ -25,7 +25,7 @@
 <!-- Node1 -->
 <g id="node2" class="node">
 <title>Node1</title>
-<g id="a_node2"><a xlink:href="structemlabcpp_1_1physical__quantity.html" target="_top" xlink:title="physical_quantity represents all physical units defined using the International System of Units and m...">
+<g id="a_node2"><a xlink:href="structemlabcpp_1_1physical__quantity.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="188,-6 188,-58 313,-58 313,-6 188,-6"/>
 <text text-anchor="start" x="196" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::physical</text>
 <text text-anchor="start" x="196" y="-35" font-family="Helvetica,sans-Serif" font-size="10.00">_quantity&lt; Len, Mass,</text>

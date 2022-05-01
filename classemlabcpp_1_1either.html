@@ -93,9 +93,6 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1either.html',''); ini
 </div><!--header-->
 <div class="contents">
 
-<p>Either is heterogenous structure that holds one of the two types specified.  
- <a href="classemlabcpp_1_1either.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="either_8h_source.html">either.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -183,15 +180,7 @@ Friends</h2></td></tr>
 <tr class="memitem:a9ae0908c5c0e1eff758877b794d6fb43"><td class="memItemLeft" align="right" valign="top">constexpr friend bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#a9ae0908c5c0e1eff758877b794d6fb43">operator==</a> (const <a class="el" href="classemlabcpp_1_1either.html">either</a> &amp;a, const <a class="el" href="classemlabcpp_1_1either.html">either</a> &amp;b)</td></tr>
 <tr class="separator:a9ae0908c5c0e1eff758877b794d6fb43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename LH, typename RH&gt;<br />
-class emlabcpp::either&lt; LH, RH &gt;</h3>
-
-<p>Either is heterogenous structure that holds one of the two types specified. </p>
-<p>This is stored as union, so the memory requirement of either is always the size of the bigger element + constant for identifying which on is contained.</p>
-<p>The intervall value can't be directly accessed, unless both sides are same, in which case <a class="el" href="classemlabcpp_1_1either.html#a4e19f17b30addf99b9cf6d507da39bf4">join()</a> / returns the internal value. (Which is safe if both are same) In case they are different, you can / only access the value by either convert_left/right, bind_left/right or match, which calls / appropiate callable based on whenever left or right item is present.</p>
-<p>This prevents user of the code from errors in accessing proper side of the either. </p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="acdbfa3b0c267b283d1df22be04558b6a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acdbfa3b0c267b283d1df22be04558b6a">&#9670;&nbsp;</a></span>left_item</h2>
 

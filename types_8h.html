@@ -114,11 +114,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1mapped.html">emlabcpp::mapped&lt; Container, UnaryFunction &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">mapped&lt;T,F&gt;::type is type returned by instance of F::operator() when applied on items from instance of T.  <a href="structemlabcpp_1_1mapped.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1mapped_3_01Container_00_01UnaryFunction_01_4.html">emlabcpp::mapped&lt; Container, UnaryFunction &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1tag.html">emlabcpp::tag&lt; V &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">tag&lt;V&gt; type can be used for tagging f-calls for function overloading  <a href="structemlabcpp_1_1tag.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1select__utype.html">emlabcpp::select_utype&lt; size_t &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,13 +141,13 @@ Typedefs</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:aab6fd32a8b3335eec93b94331d4293b0"><td class="memTemplParams" colspan="2">template&lt;gettable_container Container, container_invocable&lt; Container &gt; UnaryFunction = std::identity&gt; </td></tr>
 <tr class="memitem:aab6fd32a8b3335eec93b94331d4293b0"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">emlabcpp::requires</a> (!range_container&lt; Container &gt;) const expr std</td></tr>
-<tr class="memdesc:aab6fd32a8b3335eec93b94331d4293b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns index of an element in tuple 't', for which call to f(x) holds true, otherwise returns index of 'past the end' item - size of the tuple.  <a href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">More...</a><br /></td></tr>
 <tr class="separator:aab6fd32a8b3335eec93b94331d4293b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a155a6828d776fbc298d37aabee6bc0d7"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, auto ID&gt; </td></tr>
 <tr class="memitem:a155a6828d776fbc298d37aabee6bc0d7"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a155a6828d776fbc298d37aabee6bc0d7">emlabcpp::operator&lt;&lt;</a> (Stream &amp;os, tag&lt; ID &gt;)</td></tr>
 <tr class="separator:a155a6828d776fbc298d37aabee6bc0d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46d4ea091d64444e17a8e74d672c3c6c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a46d4ea091d64444e17a8e74d672c3c6c"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a46d4ea091d64444e17a8e74d672c3c6c">emlabcpp::pretty_type_name</a> ()</td></tr>
+<tr class="memdesc:a46d4ea091d64444e17a8e74d672c3c6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">central function for returning name of type that can demangle if necessary  <a href="namespaceemlabcpp.html#a46d4ea091d64444e17a8e74d672c3c6c">More...</a><br /></td></tr>
 <tr class="separator:a46d4ea091d64444e17a8e74d672c3c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd74c7df9ccef5ce376d2c3fe2ef8908"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
 <tr class="memitem:acd74c7df9ccef5ce376d2c3fe2ef8908"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acd74c7df9ccef5ce376d2c3fe2ef8908">emlabcpp::requires</a> (sizeof(uint8_t)==N) struct select_utype&lt; N &gt;</td></tr>
@@ -166,7 +166,6 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:adaca063c7275419f3999bd854c88de3d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:adaca063c7275419f3999bd854c88de3d"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#adaca063c7275419f3999bd854c88de3d">emlabcpp::has_static_size_v</a> = static_sized&lt; T &gt;</td></tr>
-<tr class="memdesc:adaca063c7275419f3999bd854c88de3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">has_static_size&lt;T&gt;::value is true in case type T have size deduceable at compile time  <a href="namespaceemlabcpp.html#adaca063c7275419f3999bd854c88de3d">More...</a><br /></td></tr>
 <tr class="separator:adaca063c7275419f3999bd854c88de3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35890f89255716603146448591d91823"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a35890f89255716603146448591d91823">emlabcpp::UnaryFunction</a></td></tr>
 <tr class="separator:a35890f89255716603146448591d91823"><td class="memSeparator" colspan="2">&#160;</td></tr>

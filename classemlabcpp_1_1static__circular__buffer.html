@@ -94,9 +94,6 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1static__circular__buf
 </div><!--header-->
 <div class="contents">
 
-<p>Class implementing circular buffer of any type for up to N elements.  
- <a href="classemlabcpp_1_1static__circular__buffer.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="static__circular__buffer_8h_source.html">static_circular_buffer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -187,18 +184,7 @@ Friends</h2></td></tr>
 <tr class="memitem:a4be2068abf9d0bbaa7707434d0bc7f8a"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a4be2068abf9d0bbaa7707434d0bc7f8a">static_circular_buffer_iterator</a></td></tr>
 <tr class="separator:a4be2068abf9d0bbaa7707434d0bc7f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, std::size_t N&gt;<br />
-class emlabcpp::static_circular_buffer&lt; T, N &gt;</h3>
-
-<p>Class implementing circular buffer of any type for up to N elements. </p>
-<p>This should work for generic type T, not just simple types.</p>
-<p>It is safe in "single consumer single producer" scenario between main loop and interrupts. Because of that the behavior is as follows:</p><ul>
-<li>on insertion, item is inserted and than index is advanced</li>
-<li>on removal, item is removed and than index is advanced</li>
-</ul>
-<p>In case of copy or move operations, the buffer does not have to store the data internally in same manner, the data are equivavlent only from the perspective of push/pop operations. </p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a522ff8624c45c3b79b0af880eb0d15b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a522ff8624c45c3b79b0af880eb0d15b6">&#9670;&nbsp;</a></span>const_iterator</h2>
 

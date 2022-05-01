@@ -99,7 +99,9 @@ $(document).ready(function(){initNavTree('types_2base_8h_source.html',''); initR
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// ------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt; <span class="keyword">typename</span> Container &gt;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// iterator_of is structure where iterator_of&lt;Container&gt;::type returns type of iterator that is</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// returned by cont.begin();</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Container &gt;</div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1iterator__of.html">   16</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1iterator__of.html">iterator_of</a></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">using</span> <a class="code" href="structemlabcpp_1_1iterator__of.html#abb6468ad7836780268a9d6ed31b017bc">type</a> =</div>
@@ -110,7 +112,8 @@ $(document).ready(function(){initNavTree('types_2base_8h_source.html',''); initR
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a98ab53b012e339a9621604b203df856e">   23</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp.html#a98ab53b012e339a9621604b203df856e">iterator_of_t</a> = <span class="keyword">typename</span> <a class="code" href="structemlabcpp_1_1iterator__of.html#abb6468ad7836780268a9d6ed31b017bc">iterator_of&lt; Container &gt;::type</a>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// ------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span><span class="keyword">namespace </span>impl</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// is_view&lt;T&gt;::value marks whenever is some type of temporary view - not owning of the data</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>impl</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> &gt;</div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1is__view.html">   30</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1impl_1_1is__view.html">is_view</a> : std::false_type</div>
@@ -133,7 +136,8 @@ $(document).ready(function(){initNavTree('types_2base_8h_source.html',''); initR
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#aff43a196db9cecc357e6f4452638b32f">   47</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp.html#aff43a196db9cecc357e6f4452638b32f">is_view_v</a> = <a class="code" href="structemlabcpp_1_1is__view.html">is_view&lt; T &gt;::value</a>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">// ------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt; <span class="keyword">typename</span>... &gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">// are_same&lt;Ts..&gt;::value is true if all Ts... are equal types.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span>... &gt;</div>
 <div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1are__same.html">   52</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1are__same.html">are_same</a>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts &gt;</div>
@@ -150,7 +154,8 @@ $(document).ready(function(){initNavTree('types_2base_8h_source.html',''); initR
 <div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ae5e4923a149af384640fe5d3759dcc9a">   65</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp.html#ae5e4923a149af384640fe5d3759dcc9a">are_same_v</a> = <a class="code" href="structemlabcpp_1_1are__same.html">are_same</a>&lt; Ts... &gt;::value;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">// ------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, <span class="keyword">typename</span> Tuple &gt;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">// tuple_has_type&lt;T, Tuple&gt;::value is true if Tuple s std::tuple and contains type T</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, <span class="keyword">typename</span> Tuple &gt;</div>
 <div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1tuple__has__type.html">   70</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1tuple__has__type.html">tuple_has_type</a>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, <span class="keyword">typename</span>... Us &gt;</div>
@@ -162,7 +167,8 @@ $(document).ready(function(){initNavTree('types_2base_8h_source.html',''); initR
 <div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a8574533cb7c969125a6fde8f5063eff2">   78</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp.html#a8574533cb7c969125a6fde8f5063eff2">tuple_has_type_v</a> = <a class="code" href="structemlabcpp_1_1tuple__has__type.html">tuple_has_type</a>&lt; T, Us... &gt;::value;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">// ------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"></span><span class="keyword">namespace </span>impl</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">// is_std_tuple&lt;T&gt;::value is true if type T is std::tuple</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">namespace </span>impl</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> &gt;</div>
 <div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1is__std__tuple.html">   85</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1impl_1_1is__std__tuple.html">is_std_tuple</a> : std::false_type</div>
@@ -184,7 +190,8 @@ $(document).ready(function(){initNavTree('types_2base_8h_source.html',''); initR
 <div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a633f5fea14133c23b25a75cd57a8805d">  101</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp.html#a633f5fea14133c23b25a75cd57a8805d">is_std_tuple_v</a> = <a class="code" href="structemlabcpp_1_1is__std__tuple.html">is_std_tuple&lt; T &gt;::value</a>;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">// ------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"></span><span class="keyword">namespace </span>impl</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">// is_std_array&lt;T&gt;::value is true if type T is std::array</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">namespace </span>impl</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> &gt;</div>
 <div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1is__std__array.html">  108</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1impl_1_1is__std__array.html">is_std_array</a> : std::false_type</div>
@@ -206,7 +213,8 @@ $(document).ready(function(){initNavTree('types_2base_8h_source.html',''); initR
 <div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a1d463be90e36b5d5be447e407fca17bf">  124</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp.html#a1d463be90e36b5d5be447e407fca17bf">is_std_array_v</a> = <a class="code" href="structemlabcpp_1_1is__std__array.html">is_std_array&lt; T &gt;::value</a>;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">// ------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment"></span><span class="keyword">namespace </span>impl</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">// is_std_vector&lt;T&gt;::value is true if type T is std::vector</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">namespace </span>impl</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> &gt;</div>
 <div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1is__std__vector.html">  131</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1impl_1_1is__std__vector.html">is_std_vector</a> : std::false_type</div>
@@ -228,7 +236,8 @@ $(document).ready(function(){initNavTree('types_2base_8h_source.html',''); initR
 <div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#aa5277a3e558d32758ca0e4770ed5e1eb">  147</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp.html#aa5277a3e558d32758ca0e4770ed5e1eb">is_std_vector_v</a> = <a class="code" href="structemlabcpp_1_1is__std__vector.html">is_std_vector&lt; T &gt;::value</a>;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">// ------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">// static_size&lt;T&gt;::value is size of the type T, if it has any deducable at compile time</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keyword">namespace </span>impl</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;{</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> &gt;</div>
@@ -252,6 +261,7 @@ $(document).ready(function(){initNavTree('types_2base_8h_source.html',''); initR
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;{</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;};</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">// Marked deprecated on 19.4.2021</span></div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
 <div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a2e849ebc932caa63f7e1e6c67d0c2f7b">  177</a></span>&#160;[[deprecated]] constexpr std::size_t <a class="code" href="namespaceemlabcpp.html#a2e849ebc932caa63f7e1e6c67d0c2f7b">static_size_v</a> = <a class="code" href="structemlabcpp_1_1static__size.html">static_size&lt; T &gt;::value</a>;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
@@ -259,19 +269,19 @@ $(document).ready(function(){initNavTree('types_2base_8h_source.html',''); initR
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespaceemlabcpp_html_a8574533cb7c969125a6fde8f5063eff2"><div class="ttname"><a href="namespaceemlabcpp.html#a8574533cb7c969125a6fde8f5063eff2">emlabcpp::tuple_has_type_v</a></div><div class="ttdeci">constexpr bool tuple_has_type_v</div><div class="ttdef"><b>Definition:</b> base.h:78</div></div>
-<div class="ttc" id="astructemlabcpp_1_1are__same_html"><div class="ttname"><a href="structemlabcpp_1_1are__same.html">emlabcpp::are_same</a></div><div class="ttdoc">are_same&lt;Ts..&gt;::value is true if all Ts... are equal types.</div><div class="ttdef"><b>Definition:</b> base.h:52</div></div>
+<div class="ttc" id="astructemlabcpp_1_1are__same_html"><div class="ttname"><a href="structemlabcpp_1_1are__same.html">emlabcpp::are_same</a></div><div class="ttdef"><b>Definition:</b> base.h:52</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aff43a196db9cecc357e6f4452638b32f"><div class="ttname"><a href="namespaceemlabcpp.html#aff43a196db9cecc357e6f4452638b32f">emlabcpp::is_view_v</a></div><div class="ttdeci">constexpr bool is_view_v</div><div class="ttdef"><b>Definition:</b> base.h:47</div></div>
-<div class="ttc" id="astructemlabcpp_1_1tuple__has__type_html"><div class="ttname"><a href="structemlabcpp_1_1tuple__has__type.html">emlabcpp::tuple_has_type</a></div><div class="ttdoc">tuple_has_type&lt;T, Tuple&gt;::value is true if Tuple s std::tuple and contains type T</div><div class="ttdef"><b>Definition:</b> base.h:70</div></div>
+<div class="ttc" id="astructemlabcpp_1_1tuple__has__type_html"><div class="ttname"><a href="structemlabcpp_1_1tuple__has__type.html">emlabcpp::tuple_has_type</a></div><div class="ttdef"><b>Definition:</b> base.h:70</div></div>
 <div class="ttc" id="astructemlabcpp_1_1is__std__tuple_html"><div class="ttname"><a href="structemlabcpp_1_1is__std__tuple.html">emlabcpp::is_std_tuple</a></div><div class="ttdef"><b>Definition:</b> base.h:96</div></div>
 <div class="ttc" id="astructemlabcpp_1_1impl_1_1is__std__tuple_html"><div class="ttname"><a href="structemlabcpp_1_1impl_1_1is__std__tuple.html">emlabcpp::impl::is_std_tuple</a></div><div class="ttdef"><b>Definition:</b> base.h:85</div></div>
 <div class="ttc" id="astructemlabcpp_1_1impl_1_1is__std__vector_html"><div class="ttname"><a href="structemlabcpp_1_1impl_1_1is__std__vector.html">emlabcpp::impl::is_std_vector</a></div><div class="ttdef"><b>Definition:</b> base.h:131</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a633f5fea14133c23b25a75cd57a8805d"><div class="ttname"><a href="namespaceemlabcpp.html#a633f5fea14133c23b25a75cd57a8805d">emlabcpp::is_std_tuple_v</a></div><div class="ttdeci">constexpr bool is_std_tuple_v</div><div class="ttdef"><b>Definition:</b> base.h:101</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a2e849ebc932caa63f7e1e6c67d0c2f7b"><div class="ttname"><a href="namespaceemlabcpp.html#a2e849ebc932caa63f7e1e6c67d0c2f7b">emlabcpp::static_size_v</a></div><div class="ttdeci">constexpr std::size_t static_size_v</div><div class="ttdoc">Marked deprecated on 19.4.2021.</div><div class="ttdef"><b>Definition:</b> base.h:177</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a2e849ebc932caa63f7e1e6c67d0c2f7b"><div class="ttname"><a href="namespaceemlabcpp.html#a2e849ebc932caa63f7e1e6c67d0c2f7b">emlabcpp::static_size_v</a></div><div class="ttdeci">constexpr std::size_t static_size_v</div><div class="ttdef"><b>Definition:</b> base.h:177</div></div>
 <div class="ttc" id="astructemlabcpp_1_1is__std__vector_html"><div class="ttname"><a href="structemlabcpp_1_1is__std__vector.html">emlabcpp::is_std_vector</a></div><div class="ttdef"><b>Definition:</b> base.h:142</div></div>
 <div class="ttc" id="astructemlabcpp_1_1impl_1_1is__view_html"><div class="ttname"><a href="structemlabcpp_1_1impl_1_1is__view.html">emlabcpp::impl::is_view</a></div><div class="ttdef"><b>Definition:</b> base.h:30</div></div>
 <div class="ttc" id="astructemlabcpp_1_1is__view_html"><div class="ttname"><a href="structemlabcpp_1_1is__view.html">emlabcpp::is_view</a></div><div class="ttdef"><b>Definition:</b> base.h:42</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a98ab53b012e339a9621604b203df856e"><div class="ttname"><a href="namespaceemlabcpp.html#a98ab53b012e339a9621604b203df856e">emlabcpp::iterator_of_t</a></div><div class="ttdeci">typename iterator_of&lt; Container &gt;::type iterator_of_t</div><div class="ttdef"><b>Definition:</b> base.h:23</div></div>
-<div class="ttc" id="astructemlabcpp_1_1iterator__of_html"><div class="ttname"><a href="structemlabcpp_1_1iterator__of.html">emlabcpp::iterator_of</a></div><div class="ttdoc">iterator_of is structure where iterator_of&lt;Container&gt;::type returns type of iterator that is returned...</div><div class="ttdef"><b>Definition:</b> base.h:16</div></div>
+<div class="ttc" id="astructemlabcpp_1_1iterator__of_html"><div class="ttname"><a href="structemlabcpp_1_1iterator__of.html">emlabcpp::iterator_of</a></div><div class="ttdef"><b>Definition:</b> base.h:16</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a1d463be90e36b5d5be447e407fca17bf"><div class="ttname"><a href="namespaceemlabcpp.html#a1d463be90e36b5d5be447e407fca17bf">emlabcpp::is_std_array_v</a></div><div class="ttdeci">constexpr bool is_std_array_v</div><div class="ttdef"><b>Definition:</b> base.h:124</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aa5277a3e558d32758ca0e4770ed5e1eb"><div class="ttname"><a href="namespaceemlabcpp.html#aa5277a3e558d32758ca0e4770ed5e1eb">emlabcpp::is_std_vector_v</a></div><div class="ttdeci">constexpr bool is_std_vector_v</div><div class="ttdef"><b>Definition:</b> base.h:147</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ae5e4923a149af384640fe5d3759dcc9a"><div class="ttname"><a href="namespaceemlabcpp.html#ae5e4923a149af384640fe5d3759dcc9a">emlabcpp::are_same_v</a></div><div class="ttdeci">constexpr bool are_same_v</div><div class="ttdef"><b>Definition:</b> base.h:65</div></div>
