@@ -25,10 +25,10 @@ struct std::iterator_traits< emlabcpp::zip_iterator< Iterators... > >
 namespace emlabcpp
 {
 
-// zip_ierator iterates over a group of iterators, where value is a tuple of references to value
-// for each iterator.
+/// zip_ierator iterates over a group of iterators, where value is a tuple of references to value
+/// for each iterator.
 ///
-// The design expects that all ranges of iterators are of same size.
+/// The design expects that all ranges of iterators are of same size.
 ///
 template < typename... Iterators >
 class zip_iterator
@@ -41,7 +41,7 @@ public:
         {
         }
 
-        // Increases each iterator
+        /// Increases each iterator
         constexpr zip_iterator operator++()
         {
                 std::apply(
@@ -53,7 +53,7 @@ public:
                 return *this;
         }
 
-        // Decreases each iterator
+        /// Decreases each iterator
         constexpr zip_iterator operator--()
         {
                 std::apply(
@@ -78,8 +78,8 @@ public:
                 return std::get< 0 >( iters_ ) - std::get< 0 >( other.iters_ );
         }
 
-        // Dereference of each iterator, returns tuple of references to the
-        // operator* of iterators.
+        /// Dereference of each iterator, returns tuple of references to the
+        /// operator* of iterators.
         constexpr auto operator*()
         {
                 return std::apply(
@@ -89,7 +89,7 @@ public:
                     iters_ );
         }
 
-        // Two zip iterators are equal if all of their iterators are equal
+        /// Two zip iterators are equal if all of their iterators are equal
         constexpr bool operator==( const zip_iterator< Iterators... >& other ) const
         {
                 return equals( other, std::index_sequence_for< Iterators... >{} );
@@ -119,11 +119,11 @@ operator!=( const zip_iterator< Iterators... >& lh, const zip_iterator< Iterator
         return !( lh == rh );
 }
 
-// Creates a view of zip iterators for specified containers.
+/// Creates a view of zip iterators for specified containers.
 ///
-// Beware that the function does not check that containers have same size of
-// ranges. If the size differs, increments of begin iterator will never be same
-// as end iterator.
+/// Beware that the function does not check that containers have same size of
+/// ranges. If the size differs, increments of begin iterator will never be same
+/// as end iterator.
 //
 template < range_container... Ts >
 inline auto zip( Ts&&... cont )
@@ -151,9 +151,9 @@ inline auto tuple_zip_impl(
         return std::make_tuple( f( std::integral_constant< std::size_t, ItemIndexes >{} )... );
 }
 
-// Zips a set of tuples of same size into a new tuple.
+/// Zips a set of tuples of same size into a new tuple.
 ///
-// zip(tuple<A,B>(), tuple<C,D>()) -> tuple<tuple<A,C>, <tuple<B,d>>;
+/// zip(tuple<A,B>(), tuple<C,D>()) -> tuple<tuple<A,C>, <tuple<B,d>>;
 ///
 template <
     typename Tuple,
@@ -171,4 +171,4 @@ inline auto zip( Tuple&& frst, Tuples&&... tpls )
             std::make_index_sequence< sizeof...( Tuples ) + 1 >{} );
 }
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

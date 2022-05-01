@@ -56,4 +56,4 @@ struct protocol_serializer< bool, Endianess >
         }
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

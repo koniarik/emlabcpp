@@ -50,4 +50,4 @@ decltype( auto ) apply_on_match( Variant&& var, Callables&&... cals )
             std::forward< Variant >( var ) );
 }
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

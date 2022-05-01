@@ -6,39 +6,39 @@
 
 namespace emlabcpp
 {
-// generic_iterator is a class using CRTP to ease implementation of custom iterators.
-// User of the class is required to inheric from generic_iterator and pass the inheriting class as
-// template argument Derived. The generic_iterator expectes existence of properly setup
-// std::iterator_traits<Derived> instance, which is used to decide types for various methods.
-// Given that generic_iterator is able to provide user with methods/functions that are based on the
-// Derived methods.
+/// generic_iterator is a class using CRTP to ease implementation of custom iterators.
+/// User of the class is required to inheric from generic_iterator and pass the inheriting class as
+/// template argument Derived. The generic_iterator expectes existence of properly setup
+/// std::iterator_traits<Derived> instance, which is used to decide types for various methods.
+/// Given that generic_iterator is able to provide user with methods/functions that are based on the
+/// Derived methods.
 ///
-// For example: It is necessary for Derived class to implement only operator==, given that
-// generic_iterator is able to provied !=
+/// For example: It is necessary for Derived class to implement only operator==, given that
+/// generic_iterator is able to provied !=
 ///
-// The Derived class is expected to provide these methods:
-//  - reference operator*();
-//  - const_reference operator*() const;
-//  - Deriver& operator+=(difference_type);
-//  - Deriver& operator-=(difference_type);
-//  - bool operator<(const Derived & other);
-//  - bool operator==(const Derived & other);
-//  - difference_type operator-(const Derived& other);
+/// The Derived class is expected to provide these methods:
+///  - reference operator*();
+///  - const_reference operator*() const;
+///  - Deriver& operator+=(difference_type);
+///  - Deriver& operator-=(difference_type);
+///  - bool operator<(const Derived & other);
+///  - bool operator==(const Derived & other);
+///  - difference_type operator-(const Derived& other);
 ///
-// Give nthese methods, the generic iterator provides additional methods thanks to CRTP mechanics:
-//  - pointer operator->();
-//  - const_pointer opetrator->();
-//  - Derived& operator++();
-//  - Derived& operator++(int);
-//  - Derived& operator--();
-//  - Derived& operator--(int);
-//  - Derived operator+(difference_type);
-//  - Derived operator-(difference_type);
+/// Give nthese methods, the generic iterator provides additional methods thanks to CRTP mechanics:
+///  - pointer operator->();
+///  - const_pointer opetrator->();
+///  - Derived& operator++();
+///  - Derived& operator++(int);
+///  - Derived& operator--();
+///  - Derived& operator--(int);
+///  - Derived operator+(difference_type);
+///  - Derived operator-(difference_type);
 ///
-// Additional to that, following free functions are usable:
-//  - bool operator>(const generic_iterator<Derived> &, const generic_iterator<Derived>&)
-//  - bool operator<=(const generic_iterator<Derived> &, const generic_iterator<Derived>&)
-//  - bool operator!=(const generic_iterator<Derived> &, const generic_iterator<Derived>&)
+/// Additional to that, following free functions are usable:
+///  - bool operator>(const generic_iterator<Derived> &, const generic_iterator<Derived>&)
+///  - bool operator<=(const generic_iterator<Derived> &, const generic_iterator<Derived>&)
+///  - bool operator!=(const generic_iterator<Derived> &, const generic_iterator<Derived>&)
 ///
 ///
 template < typename Derived >
@@ -123,4 +123,4 @@ public:
         }
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

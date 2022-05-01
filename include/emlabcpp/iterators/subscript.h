@@ -22,10 +22,10 @@ struct std::iterator_traits< emlabcpp::subscript_iterator< Container > >
 namespace emlabcpp
 {
 
-// Subscript iterator stores reference to given container and index of item.
-// The item is referenced via the operator[] of said container.
-// Keep that in mind, as it can behave counter-inuitivelly in case you modify the container while
-// you iterate it
+/// Subscript iterator stores reference to given container and index of item.
+/// The item is referenced via the operator[] of said container.
+/// Keep that in mind, as it can behave counter-inuitivelly in case you modify the container while
+/// you iterate it
 template < typename Container >
 class subscript_iterator : public generic_iterator< subscript_iterator< Container > >
 {
@@ -90,4 +90,4 @@ view< subscript_iterator< Container > > subscript_view( Container& cont )
             subscript_iterator< Container >{ cont, cont.size() } };
 }
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

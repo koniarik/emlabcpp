@@ -23,10 +23,10 @@ struct std::iterator_traits< emlabcpp::access_iterator< Iterator, AccessFunction
 namespace emlabcpp
 {
 
-// access_iterator provides access to a reference of value stored in the Iterator.
-// The access is provided via the AccessFunction provided to the iterator.
+/// access_iterator provides access to a reference of value stored in the Iterator.
+/// The access is provided via the AccessFunction provided to the iterator.
 ///
-// Gives you abillity to iterate over dataset, while accessing only part of each item.
+/// Gives you abillity to iterate over dataset, while accessing only part of each item.
 ///
 template < typename Iterator, typename AccessFunction >
 class access_iterator : public generic_iterator< access_iterator< Iterator, AccessFunction > >
@@ -79,8 +79,8 @@ public:
         }
 };
 
-// Creates view ver container cont with AccessFunction f.
-// Beware that this produces two copies of f!
+/// Creates view ver container cont with AccessFunction f.
+/// Beware that this produces two copies of f!
 template < typename Container, typename AccessFunction >
 view< access_iterator< iterator_of_t< Container >, AccessFunction > >
 access_view( Container&& cont, AccessFunction&& f )
@@ -90,4 +90,4 @@ access_view( Container&& cont, AccessFunction&& f )
             access_iterator< iterator_of_t< Container >, AccessFunction >{ cont.end(), f } };
 }
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

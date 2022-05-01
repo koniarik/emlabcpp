@@ -32,19 +32,19 @@ public:
                         auto [piter, biter] =
                             std::mismatch( prefix.begin(), prefix.end(), buffer_.begin(), bend );
 
-                        // not match, remove one byte from buffer
+                        /// not match, remove one byte from buffer
                         if ( biter == buffer_.begin() ) {
                                 buffer_.pop_front();
                                 continue;
                         }
 
-                        // partial match - more bytes could be matched
+                        /// partial match - more bytes could be matched
                         if ( piter != prefix.end() && biter != bend ) {
                                 buffer_.pop_front();
                                 continue;
                         }
 
-                        // partial match - matched maximum bytes available
+                        /// partial match - matched maximum bytes available
                         if ( piter != prefix.end() ) {
                                 return fixed_size - static_cast< std::size_t >(
                                                         std::distance( prefix.begin(), piter ) );
@@ -59,7 +59,7 @@ public:
 
                 std::size_t bsize = buffer_.size();
 
-                // This is implied by the fact that we should have full match at the start of buffer
+                /// This is implied by the fact that we should have full match at the start of buffer
                 EMLABCPP_ASSERT( bsize >= prefix.size() );
 
                 if ( bsize < fixed_size ) {
@@ -74,7 +74,7 @@ public:
                 auto opt_msg = message_type::make( view_n( buffer_.begin(), desired_size ) );
                 EMLABCPP_ASSERT( opt_msg );
 
-                // clean up only the matched message
+                /// clean up only the matched message
                 for ( std::size_t i = desired_size; i > 0; i-- ) {
                         buffer_.pop_front();
                 }
@@ -111,4 +111,4 @@ protocol_simple_load( std::size_t read_limit, ReadCallback&& read )
         return res;
 }
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

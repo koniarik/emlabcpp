@@ -71,7 +71,7 @@ inline auto& operator<<( ostreamlike auto& os, const testing_internal_reactor_er
 
 inline auto& operator<<( ostreamlike auto& os, const testing_controller_message_error& e )
 {
-        // TODO: multiple cases of this, maybe abstract away?
+        /// TODO: multiple cases of this, maybe abstract away?
 #ifdef EMLABCPP_USE_MAGIC_ENUM
         return os << magic_enum::enum_name( e.msg_id );
 #else
@@ -89,4 +89,4 @@ inline auto& operator<<( ostreamlike auto& os, const testing_error_variant& var 
         return os;
 }
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

@@ -119,4 +119,4 @@ using testing_controller_reactor_packet =
 using testing_reactor_controller_msg = typename testing_reactor_controller_packet::message_type;
 using testing_controller_reactor_msg = typename testing_controller_reactor_packet::message_type;
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

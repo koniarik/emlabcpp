@@ -18,7 +18,7 @@ using testing_arg_variant   = std::variant< uint64_t, int64_t, bool, testing_str
 using testing_run_id        = uint32_t;
 using testing_test_id       = uint16_t;
 
-// TODO: maybe make a function in static_vector namespace?
+/// TODO: maybe make a function in static_vector namespace?
 template < typename T >
 inline T testing_string_to_buffer( std::string_view sview )
 {
@@ -66,4 +66,4 @@ struct testing_result
 
 class testing_reactor_interface_adapter;
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

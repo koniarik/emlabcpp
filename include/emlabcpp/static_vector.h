@@ -10,19 +10,19 @@
 namespace emlabcpp
 {
 
-// Data container for up to N elements
+/// Data container for up to N elements
 template < typename T, std::size_t N >
 class static_vector
 {
 
-        // type for storage of one item
+        /// type for storage of one item
         using storage_type = std::aligned_storage_t< sizeof( T ) * N, alignof( T ) >;
 
 public:
         static constexpr std::size_t capacity = N;
 
-        // public types
-        // --------------------------------------------------------------------------------
+        /// public types
+        /// --------------------------------------------------------------------------------
         using value_type      = T;
         using size_type       = std::size_t;
         using reference       = T&;
@@ -30,8 +30,8 @@ public:
         using iterator        = T*;
         using const_iterator  = const T*;
 
-        // public methods
-        // --------------------------------------------------------------------------------
+        /// public methods
+        /// --------------------------------------------------------------------------------
         static_vector() = default;
         static_vector( const static_vector& other )
         {
@@ -146,7 +146,7 @@ public:
                 return ref_item( size_ - 1 );
         }
 
-        // other methods
+        /// other methods
 
         [[nodiscard]] constexpr std::size_t max_size() const
         {
@@ -188,14 +188,14 @@ public:
         }
 
 private:
-        // private attributes
-        // --------------------------------------------------------------------------------
+        /// private attributes
+        /// --------------------------------------------------------------------------------
 
-        storage_type data_;      // storage of the entire dataset
-        size_type    size_ = 0;  // count of items
+        storage_type data_;      /// storage of the entire dataset
+        size_type    size_ = 0;  /// count of items
 
-        // private methods
-        // --------------------------------------------------------------------------------
+        /// private methods
+        /// --------------------------------------------------------------------------------
         void delete_item( size_type i )
         {
                 std::destroy_at( std::addressof( ref_item( i ) ) );
@@ -224,7 +224,7 @@ private:
                     cont.begin(), cont.end(), reinterpret_cast< T* >( &data_ ) );
         }
 
-        // Reference to the item in data_storage.
+        /// Reference to the item in data_storage.
         [[nodiscard]] reference ref_item( size_type i )
         {
                 return *( begin() + i );
@@ -234,7 +234,7 @@ private:
                 return *( begin() + i );
         }
 
-        // Cleans entire buffer from items.
+        /// Cleans entire buffer from items.
         void purge()
         {
                 while ( size_ > 0 ) {
@@ -281,11 +281,11 @@ inline void swap( const static_vector< T, N >& lh, const static_vector< T, N >& 
         lh.swap( rh );
 }
 
-// Output operator for the view, uses comma to separate the items in the view.
+/// Output operator for the view, uses comma to separate the items in the view.
 template < ostreamlike Stream, typename T, std::size_t N >
 inline auto& operator<<( Stream& os, const static_vector< T, N >& vec )
 {
         return os << view{ vec };
 }
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

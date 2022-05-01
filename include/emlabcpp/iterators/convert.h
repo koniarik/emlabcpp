@@ -83,4 +83,4 @@ constexpr view< convert_iterator< T, Iterator > > convert_view_n( Iterator begin
         return view_n( convert_iterator< T, Iterator >{ begin }, n );
 }
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

@@ -127,12 +127,12 @@ public:
 class testing_default_reactor : private pool_base< 48, 32 >, public testing_reactor
 {
 public:
-        // TODO: this may not be the best idea, as pool_mem will exist only _after_ constructor
-        // for base class is called
+        /// TODO: this may not be the best idea, as pool_mem will exist only _after_ constructor
+        /// for base class is called
         testing_default_reactor( std::string_view name )
           : testing_reactor( name, &this->pool_memory )
         {
         }
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

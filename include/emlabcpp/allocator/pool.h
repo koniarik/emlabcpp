@@ -165,4 +165,4 @@ using pool_deque = std::deque< T, pool_allocator< T > >;
 template < typename Key, typename T >
 using pool_map = std::map< Key, T, std::less< Key >, pool_allocator< std::pair< const Key, T > > >;
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

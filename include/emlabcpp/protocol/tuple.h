@@ -5,16 +5,16 @@
 namespace emlabcpp
 {
 
-// protocol_tuple is high levle alternative to use just 'std::tuple' that is more friendly for
-// standalone protocols. It is designed for message that are simply a set of serialized items. It
-// also provieds more readable syntax. The template arguments at first configurate the protocol and
-// later is follow by items present in the tuple, this can also be added with
-// protocol_tuple::with_items alias that appends the items. For example:
+/// protocol_tuple is high levle alternative to use just 'std::tuple' that is more friendly for
+/// standalone protocols. It is designed for message that are simply a set of serialized items. It
+/// also provieds more readable syntax. The template arguments at first configurate the protocol and
+/// later is follow by items present in the tuple, this can also be added with
+/// protocol_tuple::with_items alias that appends the items. For example:
 //
-// protocol_tuple< PROTOCOL_BIG_ENDIAN >::with_items< uint32_t, uint32_t >;
+/// protocol_tuple< PROTOCOL_BIG_ENDIAN >::with_items< uint32_t, uint32_t >;
 //
-// serializes/deserializes in same way as 'std::tuple<uint32_t,uint32_t>' configured for big
-// endianess.
+/// serializes/deserializes in same way as 'std::tuple<uint32_t,uint32_t>' configured for big
+/// endianess.
 template < protocol_endianess_enum Endianess, typename... Ds >
 struct protocol_tuple : protocol_def_type_base
 {
@@ -36,4 +36,4 @@ struct protocol_tuple : protocol_def_type_base
         }
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

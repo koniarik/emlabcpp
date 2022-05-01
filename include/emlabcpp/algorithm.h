@@ -18,14 +18,14 @@ using std::min;
 
 constexpr float default_epsilon = 1.19e-07f;
 
-// Sometimes necessary to disable warnings of unused arguments
-// Hint: use std::ignore
+/// Sometimes necessary to disable warnings of unused arguments
+/// Hint: use std::ignore
 template < typename T >
 [[deprecated]] constexpr void ignore( T&& )
 {
 }
 
-// returns sign of variable T: -1,0,1
+/// returns sign of variable T: -1,0,1
 template < typename T >
 constexpr int sign( T&& val )
 {
@@ -39,7 +39,7 @@ constexpr int sign( T&& val )
         return 0;
 }
 
-// maps input value 'input' from input range to equivalent value in output range
+/// maps input value 'input' from input range to equivalent value in output range
 template < arithmetic_operators T, arithmetic_operators U >
 [[nodiscard]] constexpr U map_range( T input, T from_min, T from_max, U to_min, U to_max )
 {
@@ -47,7 +47,7 @@ template < arithmetic_operators T, arithmetic_operators U >
                             static_cast< U >( from_max - from_min );
 }
 
-// Returns the size of the container, regardless of what it is
+/// Returns the size of the container, regardless of what it is
 template < container Container >
 [[nodiscard]] constexpr std::size_t cont_size( const Container& cont ) noexcept
 {
@@ -58,31 +58,31 @@ template < container Container >
         }
 }
 
-// two items 'lh' and 'rh' are almost equal if their difference is smaller than
-// value 'eps'
+/// two items 'lh' and 'rh' are almost equal if their difference is smaller than
+/// value 'eps'
 template < typename T >
 [[nodiscard]] constexpr bool almost_equal( const T& lh, const T& rh, float eps = default_epsilon )
 {
         return float( abs( lh - rh ) ) < eps;
 }
 
-// Returns range over Container, which skips first item of container
+/// Returns range over Container, which skips first item of container
 template < referenceable_container Container, typename Iterator = iterator_of_t< Container > >
 [[nodiscard]] constexpr view< Iterator > tail( Container&& cont, int step = 1 )
 {
         return view< Iterator >( std::begin( cont ) + step, std::end( cont ) );
 }
 
-// Returns range over Container, which skips last item of container
+/// Returns range over Container, which skips last item of container
 template < referenceable_container Container, typename Iterator = iterator_of_t< Container > >
 [[nodiscard]] constexpr view< Iterator > init( Container&& cont, int step = 1 )
 {
         return view< Iterator >( std::begin( cont ), std::end( cont ) - step );
 }
 
-// Returns iterator for first item, for which call to f(*iter) holds true. end()
-// iterator is returned otherwise. The end() iterator is taken once, before the
-// container is iterated.
+/// Returns iterator for first item, for which call to f(*iter) holds true. end()
+/// iterator is returned otherwise. The end() iterator is taken once, before the
+/// container is iterated.
 template <
     range_container                  Container,
     container_invocable< Container > UnaryFunction = std::identity >
@@ -98,8 +98,8 @@ template <
         return cont.end();
 }
 
-// Returns index of an element in tuple 't', for which call to f(x) holds true,
-// otherwise returns index of 'past the end' item - size of the tuple
+/// Returns index of an element in tuple 't', for which call to f(x) holds true,
+/// otherwise returns index of 'past the end' item - size of the tuple
 template <
     gettable_container               Container,
     container_invocable< Container > UnaryFunction = std::identity >
@@ -112,8 +112,8 @@ requires( !range_container< Container > ) [[nodiscard]] constexpr std::size_t
             std::make_index_sequence< std::tuple_size_v< std::decay_t< Container > > >{} );
 }
 
-// Finds first item in container 'cont' that is equal to 'item', returns
-// iterator for container and index for tuples
+/// Finds first item in container 'cont' that is equal to 'item', returns
+/// iterator for container and index for tuples
 template < container Container, typename T >
 [[nodiscard]] constexpr auto find( Container&& cont, const T& item )
 {
@@ -122,7 +122,7 @@ template < container Container, typename T >
         } );
 }
 
-// Applies unary function 'f' to each element of container 'cont'
+/// Applies unary function 'f' to each element of container 'cont'
 template < gettable_container Container, container_invocable< Container > UnaryFunction >
 requires(
     !range_container< Container > ) constexpr void for_each( Container&& cont, UnaryFunction&& f )
@@ -134,7 +134,7 @@ requires(
             std::forward< Container >( cont ) );
 }
 
-// Applies unary function 'f' to each element of container 'cont'
+/// Applies unary function 'f' to each element of container 'cont'
 template < range_container Container, container_invocable< Container > UnaryFunction >
 constexpr void for_each( Container&& cont, UnaryFunction&& f )
 {
@@ -143,8 +143,8 @@ constexpr void for_each( Container&& cont, UnaryFunction&& f )
         }
 }
 
-// Helper structure for finding the smallest and the largest item in some
-// container, contains min/max attributes representing such elements.
+/// Helper structure for finding the smallest and the largest item in some
+/// container, contains min/max attributes representing such elements.
 template < typename T >
 struct min_max
 {
@@ -161,9 +161,9 @@ struct min_max
         }
 };
 
-// Applies unary function 'f(x)' to each element of container 'cont', returns
-// the largest and the smallest return value. of 'f(x)' calls. Returns the
-// default value of the 'f(x)' return type if container is empty.
+/// Applies unary function 'f(x)' to each element of container 'cont', returns
+/// the largest and the smallest return value. of 'f(x)' calls. Returns the
+/// default value of the 'f(x)' return type if container is empty.
 template <
     container                        Container,
     container_invocable< Container > UnaryFunction = std::identity,
@@ -183,9 +183,9 @@ min_max_elem( const Container& cont, UnaryFunction&& f = std::identity() )
         return res;
 }
 
-// Applies unary function 'f(x)' to each element of container 'cont', returns
-// the largest return value of 'f(x)' calls. Returns lowest value of the return
-// type if container is empty.
+/// Applies unary function 'f(x)' to each element of container 'cont', returns
+/// the largest return value of 'f(x)' calls. Returns lowest value of the return
+/// type if container is empty.
 template <
     container                        Container,
     container_invocable< Container > UnaryFunction = std::identity,
@@ -199,9 +199,9 @@ template <
         return val;
 }
 
-// Applies unary function 'f(x) to each element of container 'cont, returns the
-// smallest return value of 'f(x)' calls. Returns maximum value of the return
-// type if container is empty.
+/// Applies unary function 'f(x) to each element of container 'cont, returns the
+/// smallest return value of 'f(x)' calls. Returns maximum value of the return
+/// type if container is empty.
 template <
     container                        Container,
     container_invocable< Container > UnaryFunction = std::identity,
@@ -215,8 +215,8 @@ template <
         return val;
 }
 
-// Applies the unary function 'f(x)' to each element of container 'cont' and
-// returns the count of items, for which f(x) returned 'true'
+/// Applies the unary function 'f(x)' to each element of container 'cont' and
+/// returns the count of items, for which f(x) returned 'true'
 template < container Container, container_invocable< Container > UnaryFunction = std::identity >
 [[nodiscard]] constexpr std::size_t
 count( const Container& cont, UnaryFunction&& f = std::identity() )
@@ -230,8 +230,8 @@ count( const Container& cont, UnaryFunction&& f = std::identity() )
         return res;
 }
 
-// Applies f(x) to each item of container 'cont', returns the sum of all the
-// return values of each call to 'f(x)' and 'init' item
+/// Applies f(x) to each item of container 'cont', returns the sum of all the
+/// return values of each call to 'f(x)' and 'init' item
 template <
     container                        Container,
     container_invocable< Container > UnaryFunction = std::identity,
@@ -245,19 +245,19 @@ sum( const Container& cont, UnaryFunction&& f = std::identity(), T init = {} )
         return init;
 }
 
-// Applies function 'f(init,x)' to each element of container 'x' and actual
-// value of 'init' in iteration, the return value is 'init' value for next round
+/// Applies function 'f(init,x)' to each element of container 'x' and actual
+/// value of 'init' in iteration, the return value is 'init' value for next round
 template < container Container, typename T, typename BinaryFunction >
 [[nodiscard]] constexpr T accumulate( const Container& cont, T init, BinaryFunction&& f )
 {
         for_each( cont, [&]( const auto& item ) {
-                init = f( std::move( init ), item );  // NOLINT(bugprone-use-after-move)
+                init = f( std::move( init ), item );  /// NOLINT(bugprone-use-after-move)
         } );
         return init;
 }
 
-// Applies function 'f(x)' to each element of container 'cont' and returns the
-// average value of each call
+/// Applies function 'f(x)' to each element of container 'cont' and returns the
+/// average value of each call
 template <
     container                        Container,
     container_invocable< Container > UnaryFunction = std::identity,
@@ -275,8 +275,8 @@ template <
         }
 }
 
-// Applies function 'f(x)' to each element of container 'cont' and returns the
-// variance of values returned from the call. The `f` is applied twice to each element.
+/// Applies function 'f(x)' to each element of container 'cont' and returns the
+/// variance of values returned from the call. The `f` is applied twice to each element.
 template <
     container                        Container,
     container_invocable< Container > UnaryFunction = std::identity,
@@ -296,8 +296,8 @@ template <
         }
 }
 
-// Applies binary function 'f(x,y)' to each combination of items x in lh_cont
-// and y in rh_cont
+/// Applies binary function 'f(x,y)' to each combination of items x in lh_cont
+/// and y in rh_cont
 template < container LhContainer, container RhContainer, typename BinaryFunction >
 constexpr void for_cross_joint( LhContainer&& lh_cont, RhContainer&& rh_cont, BinaryFunction&& f )
 {
@@ -308,8 +308,8 @@ constexpr void for_cross_joint( LhContainer&& lh_cont, RhContainer&& rh_cont, Bi
         } );
 }
 
-// Returns true if call to function 'f(x)' returns true for at least one item in
-// 'cont'
+/// Returns true if call to function 'f(x)' returns true for at least one item in
+/// 'cont'
 template < container Container, container_invocable< Container > UnaryFunction = std::identity >
 [[nodiscard]] constexpr bool any_of( const Container& cont, UnaryFunction&& f = std::identity() )
 {
@@ -322,15 +322,15 @@ template < container Container, container_invocable< Container > UnaryFunction =
         }
 }
 
-// Returns true if call to function 'f(x)' returns false for all items in
-// 'cont'.
+/// Returns true if call to function 'f(x)' returns false for all items in
+/// 'cont'.
 template < container Container, container_invocable< Container > UnaryFunction = std::identity >
 [[nodiscard]] constexpr bool none_of( const Container& cont, UnaryFunction&& f = std::identity() )
 {
         return !any_of( cont, std::forward< UnaryFunction >( f ) );
 }
 
-// Returns true if call to function 'f(x)' returns true for all items in 'cont'
+/// Returns true if call to function 'f(x)' returns true for all items in 'cont'
 template < container Container, container_invocable< Container > UnaryFunction = std::identity >
 [[nodiscard]] constexpr bool all_of( const Container& cont, UnaryFunction&& f = std::identity() )
 {
@@ -339,8 +339,8 @@ template < container Container, container_invocable< Container > UnaryFunction =
         } );
 }
 
-// Returns true of containers 'lh' and 'rh' has same size and lh[i] == rh[i] for
-// all 0 <= i < size()
+/// Returns true of containers 'lh' and 'rh' has same size and lh[i] == rh[i] for
+/// all 0 <= i < size()
 template < range_container LhContainer, range_container RhContainer >
 [[nodiscard]] constexpr bool equal( const LhContainer& lh, const RhContainer& rh )
 {
@@ -358,14 +358,14 @@ template < range_container LhContainer, range_container RhContainer >
         return true;
 }
 
-// Calls function f(x) for each item in container 'cont' (or tuple) and stores
-// result in 'ResultContainer', which is returned out of the function. The
-// behavior depends on what kind of 'ResultContainer' is used, rules are in this
-// order:
-//  1. std::array is constructed and res[i] = f(cont[i]) is used for i = 0...N
-//  2. if 'ResultContainer' has push_back(x) method, that is used to insert
-//  result of calls to f(x)
-//  3. insert(x) method is used to insert result of calls to f(x)
+/// Calls function f(x) for each item in container 'cont' (or tuple) and stores
+/// result in 'ResultContainer', which is returned out of the function. The
+/// behavior depends on what kind of 'ResultContainer' is used, rules are in this
+/// order:
+///  1. std::array is constructed and res[i] = f(cont[i]) is used for i = 0...N
+///  2. if 'ResultContainer' has push_back(x) method, that is used to insert
+///  result of calls to f(x)
+///  3. insert(x) method is used to insert result of calls to f(x)
 template <
     impl::map_f_collectable          ResultContainer,
     container                        Container,
@@ -381,8 +381,8 @@ template <
         return res;
 }
 
-// Calls function f(cont[i]) for i = 0...N and stores the result in array of an
-// appropiate size. The functions needs size 'N' as template parameter
+/// Calls function f(cont[i]) for i = 0...N and stores the result in array of an
+/// appropiate size. The functions needs size 'N' as template parameter
 template <
     std::size_t                      N,
     range_container                  Container,
@@ -398,8 +398,8 @@ template <
             std::make_index_sequence< N >() );
 }
 
-// Calls function f(cont[i]) for i = 0...N and stores the result in array of an
-// appropiate size.
+/// Calls function f(cont[i]) for i = 0...N and stores the result in array of an
+/// appropiate size.
 template <
     gettable_container               Container,
     std::size_t                      N = std::tuple_size< std::decay_t< Container > >::value,
@@ -415,8 +415,8 @@ template <
             std::make_index_sequence< N >() );
 }
 
-// object with operator() that constructs object of type T out of passed-in value. Usefull for
-// functions like `map_f`
+/// object with operator() that constructs object of type T out of passed-in value. Usefull for
+/// functions like `map_f`
 template < typename T >
 struct convert_to
 {
@@ -428,8 +428,8 @@ struct convert_to
         }
 };
 
-// Returns cont[0] + val + cont[1] + val + cont[2] + ... + cont[n-1] + val +
-// cont[n];
+/// Returns cont[0] + val + cont[1] + val + cont[2] + ... + cont[n-1] + val +
+/// cont[n];
 template < range_container Container, typename T >
 [[nodiscard]] constexpr T joined( const Container& cont, T&& val )
 {
@@ -443,8 +443,8 @@ template < range_container Container, typename T >
         return res;
 }
 
-// Executes unary function f() with template argument of type 'std::size_t', which ranges from 0 to
-// i.
+/// Executes unary function f() with template argument of type 'std::size_t', which ranges from 0 to
+/// i.
 template < std::size_t i, typename NullFunction >
 constexpr void for_each_index( NullFunction&& f )
 {
@@ -454,8 +454,8 @@ constexpr void for_each_index( NullFunction&& f )
         }
 }
 
-// Executes unary predicate f() with template argument of type 'std::size_t', which ranges from 0 to
-// i until first call that returns true. Function returns whenever the f was called or not.
+/// Executes unary predicate f() with template argument of type 'std::size_t', which ranges from 0 to
+/// i until first call that returns true. Function returns whenever the f was called or not.
 template < std::size_t i, typename PredFunction >
 constexpr bool until_index( PredFunction&& f )
 {
@@ -466,11 +466,11 @@ constexpr bool until_index( PredFunction&& f )
         }
 }
 
-// Function expectes bounded value as index input and callable nullary function. Based on the value
-// of index, f() is called with template argument std::size_t with internal value of the provided
-// index.
+/// Function expectes bounded value as index input and callable nullary function. Based on the value
+/// of index, f() is called with template argument std::size_t with internal value of the provided
+/// index.
 //
-// Expectes the bounded value to be valid (that is within the range)
+/// Expectes the bounded value to be valid (that is within the range)
 template < bounded_derived IndexType, typename NullFunction >
 requires( !requires( NullFunction f ) {
         {
@@ -504,4 +504,4 @@ constexpr void select_index( IndexType i, NullFunction&& f )
         } );
 }
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

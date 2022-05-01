@@ -23,7 +23,7 @@ public:
 };
 
 template < typename T >
-concept testing_test = std::derived_from< T, testing_interface >;  // && std::movable< T >;
+concept testing_test = std::derived_from< T, testing_interface >;  /// && std::movable< T >;
 
 template < typename T >
 concept testing_callable = requires( T t, testing_record& rec )
@@ -72,4 +72,4 @@ testing_composer< T, C > testing_compose( T t, C c )
         return { std::move( t ), std::move( c ) };
 }
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

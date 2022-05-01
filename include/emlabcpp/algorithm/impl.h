@@ -44,9 +44,9 @@ map_f_to_a_impl( Container&& cont, UnaryFunction&& f, std::integer_sequence< std
                 }
         };
 
-        // https://en.cppreference.com/w/cpp/language/eval_order
-        // based on standard the order of process(i) calls is defined only in case we are using
-        // constructor initializer with {} brackets. Otherwise it can be any order ...
+        /// https://en.cppreference.com/w/cpp/language/eval_order
+        /// based on standard the order of process(i) calls is defined only in case we are using
+        /// constructor initializer with {} brackets. Otherwise it can be any order ...
         return std::array< T, N >{ process( Is )... };
 }
 
@@ -69,7 +69,7 @@ requires( !range_container< Container > ) [[nodiscard]] inline std::array< T, N 
                 }
         };
 
-        // viz. second map_f_to_a_impl
+        /// viz. second map_f_to_a_impl
         return std::array< T, N >{ process.template operator()< Is >()... };
 }
 
@@ -120,4 +120,4 @@ concept map_f_collectable = requires( T item, typename T::value_type val )
         map_f_collector< T >{}.collect( item, val );
 };
 
-}  // namespace emlabcpp::impl
+}  /// namespace emlabcpp::impl

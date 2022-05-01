@@ -76,4 +76,4 @@ struct protocol_packet : protocol_packet_base< Def, Payload >
         }
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

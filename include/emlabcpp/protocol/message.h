@@ -9,8 +9,8 @@
 namespace emlabcpp
 {
 
-// Protocol library has custom type that represents message, however this is just simple overaly
-// over std::array that remembers how many bytes are used.
+/// Protocol library has custom type that represents message, however this is just simple overaly
+/// over std::array that remembers how many bytes are used.
 template < std::size_t N >
 class protocol_message
 {
@@ -136,10 +136,10 @@ protected:
         }
 };
 
-// Sizeless message is class that behaves in a same way as normal protocol_message, however it is
-// serialized differently. Protocol message stores how many bytes it's made of before the data
-// itself in the final message, sizless message does not and greedely tries to parse rest of the
-// buffer during the parsing process.
+/// Sizeless message is class that behaves in a same way as normal protocol_message, however it is
+/// serialized differently. Protocol message stores how many bytes it's made of before the data
+/// itself in the final message, sizless message does not and greedely tries to parse rest of the
+/// buffer during the parsing process.
 template < std::size_t N >
 class protocol_sizeless_message : public protocol_message< N >
 {
@@ -169,13 +169,13 @@ namespace detail
         {
                 return true;
         }
-}  // namespace detail
+}  /// namespace detail
 
-// concept matches any type that is protocol_message or derives from it.
+/// concept matches any type that is protocol_message or derives from it.
 template < typename T >
 concept protocol_message_derived = requires( T val )
 {
         detail::protocol_message_derived_test( val );
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

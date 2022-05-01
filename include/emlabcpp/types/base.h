@@ -9,9 +9,9 @@
 
 namespace emlabcpp
 {
-// ------------------------------------------------------------------------------------------------
-// iterator_of is structure where iterator_of<Container>::type returns type of iterator that is
-// returned by cont.begin();
+/// ------------------------------------------------------------------------------------------------
+/// iterator_of is structure where iterator_of<Container>::type returns type of iterator that is
+/// returned by cont.begin();
 template < typename Container >
 struct iterator_of
 {
@@ -22,8 +22,8 @@ struct iterator_of
 template < typename Container >
 using iterator_of_t = typename iterator_of< Container >::type;
 
-// ------------------------------------------------------------------------------------------------
-// is_view<T>::value marks whenever is some type of temporary view - not owning of the data
+/// ------------------------------------------------------------------------------------------------
+/// is_view<T>::value marks whenever is some type of temporary view - not owning of the data
 namespace impl
 {
         template < typename >
@@ -36,7 +36,7 @@ namespace impl
         {
         };
 
-}  // namespace impl
+}  /// namespace impl
 
 template < typename T >
 struct is_view : impl::is_view< std::decay_t< T > >
@@ -46,8 +46,8 @@ struct is_view : impl::is_view< std::decay_t< T > >
 template < typename T >
 constexpr bool is_view_v = is_view< T >::value;
 
-// ------------------------------------------------------------------------------------------------
-// are_same<Ts..>::value is true if all Ts... are equal types.
+/// ------------------------------------------------------------------------------------------------
+/// are_same<Ts..>::value is true if all Ts... are equal types.
 template < typename... >
 struct are_same;
 
@@ -64,8 +64,8 @@ struct are_same<> : std::true_type
 template < typename... Ts >
 constexpr bool are_same_v = are_same< Ts... >::value;
 
-// ------------------------------------------------------------------------------------------------
-// tuple_has_type<T, Tuple>::value is true if Tuple s std::tuple and contains type T
+/// ------------------------------------------------------------------------------------------------
+/// tuple_has_type<T, Tuple>::value is true if Tuple s std::tuple and contains type T
 template < typename T, typename Tuple >
 struct tuple_has_type;
 
@@ -77,8 +77,8 @@ struct tuple_has_type< T, std::tuple< Us... > > : std::disjunction< std::is_same
 template < typename T, typename... Us >
 constexpr bool tuple_has_type_v = tuple_has_type< T, Us... >::value;
 
-// ------------------------------------------------------------------------------------------------
-// is_std_tuple<T>::value is true if type T is std::tuple
+/// ------------------------------------------------------------------------------------------------
+/// is_std_tuple<T>::value is true if type T is std::tuple
 namespace impl
 {
         template < typename >
@@ -90,7 +90,7 @@ namespace impl
         struct is_std_tuple< std::tuple< T... > > : std::true_type
         {
         };
-}  // namespace impl
+}  /// namespace impl
 
 template < typename T >
 struct is_std_tuple : impl::is_std_tuple< std::decay_t< T > >
@@ -100,8 +100,8 @@ struct is_std_tuple : impl::is_std_tuple< std::decay_t< T > >
 template < typename T >
 constexpr bool is_std_tuple_v = is_std_tuple< T >::value;
 
-// ------------------------------------------------------------------------------------------------
-// is_std_array<T>::value is true if type T is std::array
+/// ------------------------------------------------------------------------------------------------
+/// is_std_array<T>::value is true if type T is std::array
 namespace impl
 {
         template < typename >
@@ -113,7 +113,7 @@ namespace impl
         struct is_std_array< std::array< T, N > > : std::true_type
         {
         };
-}  // namespace impl
+}  /// namespace impl
 
 template < typename T >
 struct is_std_array : impl::is_std_array< std::decay_t< T > >
@@ -123,8 +123,8 @@ struct is_std_array : impl::is_std_array< std::decay_t< T > >
 template < typename T >
 constexpr bool is_std_array_v = is_std_array< T >::value;
 
-// ------------------------------------------------------------------------------------------------
-// is_std_vector<T>::value is true if type T is std::vector
+/// ------------------------------------------------------------------------------------------------
+/// is_std_vector<T>::value is true if type T is std::vector
 namespace impl
 {
         template < typename >
@@ -136,7 +136,7 @@ namespace impl
         struct is_std_vector< std::vector< T > > : std::true_type
         {
         };
-}  // namespace impl
+}  /// namespace impl
 
 template < typename T >
 struct is_std_vector : impl::is_std_vector< std::decay_t< T > >
@@ -146,8 +146,8 @@ struct is_std_vector : impl::is_std_vector< std::decay_t< T > >
 template < typename T >
 constexpr bool is_std_vector_v = is_std_vector< T >::value;
 
-// ------------------------------------------------------------------------------------------------
-// static_size<T>::value is size of the type T, if it has any deducable at compile time
+/// ------------------------------------------------------------------------------------------------
+/// static_size<T>::value is size of the type T, if it has any deducable at compile time
 
 namespace impl
 {
@@ -165,15 +165,15 @@ namespace impl
         {
                 static constexpr std::size_t value = std::tuple_size_v< std::tuple< Ts... > >;
         };
-}  // namespace impl
+}  /// namespace impl
 
 template < typename T >
 struct static_size : impl::static_size< std::decay_t< T > >
 {
 };
 
-// Marked deprecated on 19.4.2021
+/// Marked deprecated on 19.4.2021
 template < typename T >
 [[deprecated]] constexpr std::size_t static_size_v = static_size< T >::value;
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

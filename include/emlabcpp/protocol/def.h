@@ -11,14 +11,14 @@
 namespace emlabcpp
 {
 
-// protocol_def<T,E> structure defines how type T should be serialized and deserialized. Each type
-// or kind of types should overlead this structure and use same attributes as protocol_decl<T,E>. E
-// is edianess of the serialization used.
+/// protocol_def<T,E> structure defines how type T should be serialized and deserialized. Each type
+/// or kind of types should overlead this structure and use same attributes as protocol_decl<T,E>. E
+/// is edianess of the serialization used.
 template < typename, protocol_endianess_enum >
 struct protocol_def;
 
-// protocol_def_check<T> concept verifies that 'T' is valid overload of protocol_def. Use this in
-// tests of custom protocol_def overloads.
+/// protocol_def_check<T> concept verifies that 'T' is valid overload of protocol_def. Use this in
+/// tests of custom protocol_def overloads.
 template < typename T >
 concept protocol_def_check = requires()
 {
@@ -80,10 +80,10 @@ struct protocol_def< std::array< D, N >, Endianess >
         using sub_size_type = typename sub_def::size_type;
         using size_type     = bounded< std::size_t, sub_def::size_type::min_val * N, max_size >;
 
-        // In both methods, we create the bounded size without properly checking that it the bounded
-        // type was made properly (that is, that the provided std::size_t value is in the range).
-        // Thas is ok as long as variant "we advanced the iter only by at max `sub_def::max_size`
-        // `N` times".
+        /// In both methods, we create the bounded size without properly checking that it the bounded
+        /// type was made properly (that is, that the provided std::size_t value is in the range).
+        /// Thas is ok as long as variant "we advanced the iter only by at max `sub_def::max_size`
+        /// `N` times".
 
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
@@ -237,7 +237,7 @@ struct protocol_def< std::variant< Ds... >, Endianess >
                         using sub_def =
                             protocol_def< std::variant_alternative_t< i, def_type >, Endianess >;
 
-                        // this also asserts that id has static serialized size
+                        /// this also asserts that id has static serialized size
                         opt_res =
                             bounded_constant< id_def::max_size > +
                             sub_def::serialize_at(
@@ -246,8 +246,8 @@ struct protocol_def< std::variant< Ds... >, Endianess >
 
                         return true;
                 } );
-                // The only case in which this can fire is that iteration 0...sizeof...(Ds) above
-                // did not mathced item.index(), which should not be possible
+                /// The only case in which this can fire is that iteration 0...sizeof...(Ds) above
+                /// did not mathced item.index(), which should not be possible
                 EMLABCPP_ASSERT( opt_res );
                 return *opt_res;
         }
@@ -353,7 +353,7 @@ struct protocol_def< protocol_sizeless_message< N >, Endianess >
                 for ( std::size_t i : range( item.size() ) ) {
                         buffer[i] = item[i];
                 }
-                // The size of protocol_size_message should always be within the 0...N range
+                /// The size of protocol_size_message should always be within the 0...N range
                 auto opt_bused = size_type::make( item.size() );
                 EMLABCPP_ASSERT( opt_bused );
                 return *opt_bused;
@@ -478,7 +478,7 @@ struct protocol_def< protocol_sized_buffer< CounterDef, D >, Endianess >
         using counter_type                        = typename counter_def::value_type;
         static constexpr std::size_t counter_size = counter_def::max_size;
 
-        // we expect that counter item does not have dynamic size
+        /// we expect that counter item does not have dynamic size
         static_assert( protocol_fixedly_sized< CounterDef > );
 
         static constexpr std::size_t min_size = counter_size + sub_def::size_type::min_val;
@@ -577,7 +577,7 @@ struct protocol_def< protocol_group< Ds... >, Endianess >
                             std::get< i >( item ) );
                         return true;
                 } );
-                // same check as for std::variant
+                /// same check as for std::variant
                 EMLABCPP_ASSERT( opt_res );
                 return *opt_res;
         }
@@ -593,7 +593,7 @@ struct protocol_def< protocol_group< Ds... >, Endianess >
                         using sub_def =
                             protocol_def< std::variant_alternative_t< i, def_variant >, Endianess >;
 
-                        // TODO: this pattern repeats mutliple times here
+                        /// TODO: this pattern repeats mutliple times here
                         auto opt_view =
                             bounded_view< const uint8_t*, typename sub_def::size_type >::make(
                                 view_n(
@@ -727,7 +727,7 @@ struct protocol_def< static_vector< T, N >, Endianess >
                     buffer.template first< counter_size >(),
                     static_cast< counter_type >( item.size() ) );
 
-                // TODO: this duplicates std::array, generalize?
+                /// TODO: this duplicates std::array, generalize?
                 auto iter = buffer.begin() + counter_size;
                 for ( std::size_t i : range( item.size() ) ) {
                         std::span< uint8_t, sub_def::max_size > sub_view{ iter, sub_def::max_size };
@@ -781,4 +781,4 @@ struct protocol_def< static_vector< T, N >, Endianess >
         }
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

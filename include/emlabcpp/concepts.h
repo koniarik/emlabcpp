@@ -47,8 +47,8 @@ concept gettable_container = requires( T a )
                 } -> std::convertible_to< std::size_t >;
 };
 
-// so, std::ranges::range is meh because it expects return of begin() being input_output_iterator,
-// which has to be def.constructible
+/// so, std::ranges::range is meh because it expects return of begin() being input_output_iterator,
+/// which has to be def.constructible
 template < typename T >
 concept range_container = (
                               requires( T a ) { begin( a ); } ||
@@ -82,9 +82,9 @@ concept container_invocable = requires( Container cont, UnaryFunction f )
 }
 || requires( Container cont, UnaryFunction f )
 {
-        // this has to come after the size check, as gcc 10.2 will faill to compile the code using
-        // this concept otherwise. If container is std::tuple<> and this check comes before the size
-        // one, it fails on std::get<0> being not compailable.
+        /// this has to come after the size check, as gcc 10.2 will faill to compile the code using
+        /// this concept otherwise. If container is std::tuple<> and this check comes before the size
+        /// one, it fails on std::get<0> being not compailable.
         f( std::get< 0 >( cont ) );
 };
 
@@ -105,7 +105,7 @@ namespace detail
                         os.operator<<( val )
                         } -> std::same_as< Stream& >;
         };
-}  // namespace detail
+}  /// namespace detail
 
 template < typename T >
 concept ostreamlike = requires( T val )
@@ -131,4 +131,4 @@ concept ostreamlike = requires( T val )
         detail::directly_streamable_for< T, std::nullptr_t >;
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

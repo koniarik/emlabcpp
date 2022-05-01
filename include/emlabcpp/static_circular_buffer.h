@@ -14,30 +14,30 @@ namespace emlabcpp
 template < typename Container >
 class static_circular_buffer_iterator;
 
-// Class implementing circular buffer of any type for up to N elements. This should work for
-// generic type T, not just simple types.
+/// Class implementing circular buffer of any type for up to N elements. This should work for
+/// generic type T, not just simple types.
 ///
-// It is safe in "single consumer single producer" scenario between main loop and interrupts.
-// Because of that the behavior is as follows:
-//  - on insertion, item is inserted and than index is advanced
-//  - on removal, item is removed and than index is advanced
+/// It is safe in "single consumer single producer" scenario between main loop and interrupts.
+/// Because of that the behavior is as follows:
+///  - on insertion, item is inserted and than index is advanced
+///  - on removal, item is removed and than index is advanced
 ///
-// In case of copy or move operations, the buffer does not have to store the data internally in
-// same manner, the data are equivavlent only from the perspective of push/pop operations.
+/// In case of copy or move operations, the buffer does not have to store the data internally in
+/// same manner, the data are equivavlent only from the perspective of push/pop operations.
 ///
 template < typename T, std::size_t N >
 class static_circular_buffer
 {
-        // We need real_size of the buffer to be +1 bigger than number of items
+        /// We need real_size of the buffer to be +1 bigger than number of items
         static constexpr std::size_t real_size = N + 1;
-        // type for storage of one item
+        /// type for storage of one item
         using storage_type = std::aligned_storage_t< sizeof( T ) * real_size, alignof( T ) >;
 
 public:
         static constexpr std::size_t capacity = N;
 
-        // public types
-        // --------------------------------------------------------------------------------
+        /// public types
+        /// --------------------------------------------------------------------------------
         using value_type      = T;
         using size_type       = std::size_t;
         using reference       = T&;
@@ -46,8 +46,8 @@ public:
         using const_iterator =
             static_circular_buffer_iterator< const static_circular_buffer< T, N > >;
 
-        // public methods
-        // --------------------------------------------------------------------------------
+        /// public methods
+        /// --------------------------------------------------------------------------------
         static_circular_buffer() = default;
         static_circular_buffer( const static_circular_buffer& other )
         {
@@ -79,7 +79,7 @@ public:
                 other.clear();
                 return *this;
         }
-        // methods for handling the front side of the circular buffer
+        /// methods for handling the front side of the circular buffer
 
         [[nodiscard]] iterator begin()
         {
@@ -121,7 +121,7 @@ public:
                 from_ = next( from_ );
         }
 
-        // methods for handling the back side of the circular buffer
+        /// methods for handling the back side of the circular buffer
 
         [[nodiscard]] iterator end()
         {
@@ -162,7 +162,7 @@ public:
                 to_ = next( to_ );
         }
 
-        // other methods
+        /// other methods
 
         [[nodiscard]] constexpr std::size_t max_size() const
         {
@@ -207,28 +207,28 @@ public:
         }
 
 private:
-        // private attributes
-        // --------------------------------------------------------------------------------
+        /// private attributes
+        /// --------------------------------------------------------------------------------
 
-        storage_type data_ = { { 0 } };  // storage of the entire dataset
-        size_type    from_ = 0;          // index of the first item
-        size_type    to_   = 0;          // index past the last item
+        storage_type data_ = { { 0 } };  /// storage of the entire dataset
+        size_type    from_ = 0;          /// index of the first item
+        size_type    to_   = 0;          /// index past the last item
 
-        // from_ == to_ means empty
-        // to_ + 1 == from_ is full
+        /// from_ == to_ means empty
+        /// to_ + 1 == from_ is full
 
-        // private methods
-        // --------------------------------------------------------------------------------
+        /// private methods
+        /// --------------------------------------------------------------------------------
         //
-        // Set of [delete,init,emplace]_item methods is necessary as data_ is not array of T, but
-        // array of byte-like-type that can store T -> T does not have to be initialized there. We
-        // want to fully support T objects - their constructors/destructors are correctly called and
-        // we do not require default constructor. This implies that data_ has some slots
-        // un-initialized, some are initialized and we have to handle them correctly.
+        /// Set of [delete,init,emplace]_item methods is necessary as data_ is not array of T, but
+        /// array of byte-like-type that can store T -> T does not have to be initialized there. We
+        /// want to fully support T objects - their constructors/destructors are correctly called and
+        /// we do not require default constructor. This implies that data_ has some slots
+        /// un-initialized, some are initialized and we have to handle them correctly.
         //
-        // All three methods are used to handle this part of the objects in this scenario, that
-        // requires features of C++ we do not want to replicate and it's bettter to hide them in
-        // methods.
+        /// All three methods are used to handle this part of the objects in this scenario, that
+        /// requires features of C++ we do not want to replicate and it's bettter to hide them in
+        /// methods.
 
         void delete_item( size_type i )
         {
@@ -243,7 +243,7 @@ private:
                     std::forward< Args >( args )... );
         }
 
-        // Reference to the item in data_storage.
+        /// Reference to the item in data_storage.
         [[nodiscard]] reference ref_item( size_type i )
         {
                 return *( reinterpret_cast< T* >( std::addressof( data_ ) ) + i );
@@ -253,7 +253,7 @@ private:
                 return *( reinterpret_cast< const T* >( std::addressof( data_ ) ) + i );
         }
 
-        // Cleans entire buffer from items.
+        /// Cleans entire buffer from items.
         void purge()
         {
                 while ( !empty() ) {
@@ -275,7 +275,7 @@ private:
                     other.begin(), other.end(), reinterpret_cast< T* >( std::addressof( data_ ) ) );
         }
 
-        // Use this only when moving the indexes in the circular buffer - bullet-proof.
+        /// Use this only when moving the indexes in the circular buffer - bullet-proof.
         [[nodiscard]] constexpr auto next( size_type i ) const
         {
                 return ( i + 1 ) % real_size;
@@ -320,14 +320,14 @@ operator!=( const static_circular_buffer< T, N >& lh, const static_circular_buff
         return !( lh == rh );
 }
 
-// Output operator for the view, uses comma to separate the items in the view.
+/// Output operator for the view, uses comma to separate the items in the view.
 template < ostreamlike Stream, typename T, std::size_t N >
 inline auto& operator<<( Stream& os, const static_circular_buffer< T, N >& cb )
 {
         return os << view{ cb };
 }
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp
 
 template < typename Container >
 struct std::iterator_traits< emlabcpp::static_circular_buffer_iterator< Container > >
@@ -422,4 +422,4 @@ private:
         std::size_t i_;
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

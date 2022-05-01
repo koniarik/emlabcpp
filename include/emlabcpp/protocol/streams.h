@@ -87,4 +87,4 @@ inline auto& operator<<( Stream& os, const protocol_register_map< Endianess, Reg
         return os;
 }
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

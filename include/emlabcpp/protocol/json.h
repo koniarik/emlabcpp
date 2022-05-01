@@ -30,7 +30,7 @@ struct protocol_json_serializer_base
         }
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp
 
 template < emlabcpp::protocol_declarable D >
 struct nlohmann::adl_serializer< emlabcpp::protocol_decl< D > >
@@ -424,6 +424,6 @@ struct protocol_json_serializer< static_vector< T, N > > : protocol_json_seriali
         }
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp
 
 #endif

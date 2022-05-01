@@ -6,11 +6,11 @@
 namespace emlabcpp
 {
 
-// protocol_handler< T > should be used to execute actual serialization and deserealization of
-// protocol definition. It provides serialize/extract methods that should be used by the user.
+/// protocol_handler< T > should be used to execute actual serialization and deserealization of
+/// protocol definition. It provides serialize/extract methods that should be used by the user.
 //
-// You may want to have this class (With the include) to be present in separate .cpp file, as the
-// compile time can be quite heavy.
+/// You may want to have this class (With the include) to be present in separate .cpp file, as the
+/// compile time can be quite heavy.
 template < protocol_declarable T >
 struct protocol_handler
 {
@@ -43,4 +43,4 @@ struct protocol_handler
         }
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

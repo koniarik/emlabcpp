@@ -6,10 +6,10 @@
 namespace emlabcpp
 {
 
-// Handler for serialization and extraction of datatypes used by the register_map. This provides
-// interface for handling conversion of bytes to types used in the map. `serialize` and `extract`
-// works directly with the types used by the map, based on compile time key. `select` and `insert`
-// works with the map itself based on runtime information.
+/// Handler for serialization and extraction of datatypes used by the register_map. This provides
+/// interface for handling conversion of bytes to types used in the map. `serialize` and `extract`
+/// works directly with the types used by the map, based on compile time key. `select` and `insert`
+/// works with the map itself based on runtime information.
 template < typename Map >
 struct protocol_register_handler
 {
@@ -81,4 +81,4 @@ struct protocol_register_handler
         }
 };
 
-}  // namespace emlabcpp
+}  /// namespace emlabcpp

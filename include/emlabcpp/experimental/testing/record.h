@@ -102,4 +102,4 @@ private:
                 return std::get< T >( var );
         }
 };
-}  // namespace emlabcpp
+}  /// namespace emlabcpp
