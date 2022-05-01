@@ -18,8 +18,8 @@ using std::min;
 
 constexpr float default_epsilon = 1.19e-07f;
 
-/// Sometimes necessary to disable warnings of unused arguments
-/// Hint: use std::ignore
+/// Sometimes necessary to disable warnings of unused arguments.
+/// Function is deprecated, use std::ignore instead
 template < typename T >
 [[deprecated]] constexpr void ignore( T&& )
 {
