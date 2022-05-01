@@ -1,46 +1,17 @@
 <map id="include/emlabcpp/protocol/register_handler.h" name="include/emlabcpp/protocol/register_handler.h">
-<area shape="rect" id="node1" title=" " alt="" coords="1205,5,1400,47"/>
-<area shape="rect" id="node2" href="$either_8h.html" title=" " alt="" coords="1608,169,1747,196"/>
-<area shape="rect" id="node21" href="$def_8h.html" title=" " alt="" coords="1151,95,1329,121"/>
-<area shape="rect" id="node3" href="$static__vector_8h.html" title=" " alt="" coords="1102,251,1287,278"/>
-<area shape="rect" id="node9" title=" " alt="" coords="1738,721,1793,748"/>
-<area shape="rect" id="node10" title=" " alt="" coords="878,721,970,748"/>
-<area shape="rect" id="node15" href="$types_8h.html" title=" " alt="" coords="1329,497,1468,524"/>
-<area shape="rect" id="node19" title=" " alt="" coords="1330,333,1390,360"/>
-<area shape="rect" id="node20" title=" " alt="" coords="1003,497,1077,524"/>
-<area shape="rect" id="node4" href="$concepts_8h.html" title=" " alt="" coords="1155,572,1315,599"/>
-<area shape="rect" id="node13" href="$iterator_8h.html" title=" " alt="" coords="981,333,1131,360"/>
-<area shape="rect" id="node18" title=" " alt="" coords="1257,333,1306,360"/>
-<area shape="rect" id="node5" href="$types_2base_8h.html" title=" " alt="" coords="1377,647,1551,673"/>
-<area shape="rect" id="node12" title=" " alt="" coords="1195,647,1275,673"/>
-<area shape="rect" id="node6" title=" " alt="" coords="416,721,472,748"/>
-<area shape="rect" id="node7" title=" " alt="" coords="1431,721,1497,748"/>
-<area shape="rect" id="node8" title=" " alt="" coords="1521,721,1588,748"/>
-<area shape="rect" id="node11" title=" " alt="" coords="1343,721,1406,748"/>
-<area shape="rect" id="node14" href="$view_8h.html" title=" " alt="" coords="1102,415,1234,442"/>
-<area shape="rect" id="node17" title=" " alt="" coords="1007,415,1078,442"/>
-<area shape="rect" id="node16" title=" " alt="" coords="803,572,861,599"/>
-<area shape="rect" id="node22" href="$algorithm_8h.html" title=" " alt="" coords="1516,333,1681,360"/>
-<area shape="rect" id="node27" href="$assert_8h.html" title=" " alt="" coords="1222,169,1365,196"/>
-<area shape="rect" id="node29" href="$bounded__view_8h.html" title=" " alt="" coords="883,251,1077,278"/>
-<area shape="rect" id="node30" href="$numeric_8h.html" title=" " alt="" coords="713,244,858,285"/>
-<area shape="rect" id="node31" href="$decl_8h.html" title=" " alt="" coords="581,169,768,196"/>
-<area shape="rect" id="node43" href="$serializer_8h.html" title=" " alt="" coords="339,169,557,196"/>
-<area shape="rect" id="node23" href="$impl_8h.html" title=" " alt="" coords="1553,408,1706,449"/>
-<area shape="rect" id="node24" href="$bounded_8h.html" title=" " alt="" coords="773,415,931,442"/>
-<area shape="rect" id="node25" title=" " alt="" coords="1738,572,1801,599"/>
-<area shape="rect" id="node26" title=" " alt="" coords="1411,415,1477,442"/>
-<area shape="rect" id="node28" title=" " alt="" coords="1363,251,1432,278"/>
-<area shape="rect" id="node32" href="$protocol_2base_8h.html" title=" " alt="" coords="321,251,511,278"/>
-<area shape="rect" id="node33" href="$protocol_2error_8h.html" title=" " alt="" coords="5,333,195,360"/>
-<area shape="rect" id="node37" title=" " alt="" coords="494,333,562,360"/>
-<area shape="rect" id="node38" href="$message_8h.html" title=" " alt="" coords="688,333,907,360"/>
-<area shape="rect" id="node39" href="$quantity_8h.html" title=" " alt="" coords="621,497,776,524"/>
-<area shape="rect" id="node35" title=" " alt="" coords="309,333,368,360"/>
-<area shape="rect" id="node36" title=" " alt="" coords="219,333,285,360"/>
-<area shape="rect" id="node34" title=" " alt="" coords="137,415,223,442"/>
-<area shape="rect" id="node40" title=" " alt="" coords="558,572,645,599"/>
-<area shape="rect" id="node41" title=" " alt="" coords="669,572,728,599"/>
-<area shape="rect" id="node42" title=" " alt="" coords="482,572,534,599"/>
-<area shape="rect" id="node44" title=" " alt="" coords="192,251,245,278"/>
+<area shape="rect" id="node1" title=" " alt="" coords="296,5,491,47"/>
+<area shape="rect" id="node2" href="$either_8h.html" title=" " alt="" coords="71,169,209,196"/>
+<area shape="rect" id="node9" href="$def_8h.html" title=" " alt="" coords="497,95,676,121"/>
+<area shape="rect" id="node3" href="$static__vector_8h.html" title=" " alt="" coords="174,251,359,278"/>
+<area shape="rect" id="node4" title=" " alt="" coords="155,333,247,360"/>
+<area shape="rect" id="node5" title=" " alt="" coords="47,333,107,360"/>
+<area shape="rect" id="node6" href="$types_8h.html" title=" " alt="" coords="463,251,601,278"/>
+<area shape="rect" id="node7" title=" " alt="" coords="24,251,99,278"/>
+<area shape="rect" id="node8" title=" " alt="" coords="383,251,438,278"/>
+<area shape="rect" id="node10" href="$algorithm_8h.html" title=" " alt="" coords="444,169,609,196"/>
+<area shape="rect" id="node11" href="$assert_8h.html" title=" " alt="" coords="978,169,1121,196"/>
+<area shape="rect" id="node12" href="$bounded__view_8h.html" title=" " alt="" coords="632,251,827,278"/>
+<area shape="rect" id="node13" href="$numeric_8h.html" title=" " alt="" coords="862,244,1007,285"/>
+<area shape="rect" id="node14" href="$decl_8h.html" title=" " alt="" coords="233,169,420,196"/>
+<area shape="rect" id="node15" href="$serializer_8h.html" title=" " alt="" coords="684,169,903,196"/>
 </map>

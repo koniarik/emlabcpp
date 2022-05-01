@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib...">
 <polygon fill="#bfbfbf" stroke="black" points="0,-511.5 0,-541.5 110,-541.5 110,-511.5 0,-511.5"/>
 <text text-anchor="start" x="8" y="-529.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::protocol</text>
 <text text-anchor="middle" x="55" y="-518.5" font-family="Helvetica,sans-Serif" font-size="10.00">_def_type_base</text>
@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structemlabcpp_1_1protocol__command__group.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="structemlabcpp_1_1protocol__command__group.html" target="_top" xlink:title="Command group should be used as a collection of commands that are selected based on the ID,...">
 <polygon fill="white" stroke="black" points="252,-715 252,-756 419,-756 419,-715 252,-715"/>
 <text text-anchor="start" x="260" y="-744" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::protocol</text>
 <text text-anchor="start" x="260" y="-733" font-family="Helvetica,sans-Serif" font-size="10.00">_command_group&lt; Endianess,</text>
@@ -39,7 +39,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structemlabcpp_1_1protocol__tuple.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="structemlabcpp_1_1protocol__tuple.html" target="_top" xlink:title="protocol_tuple is high levle alternative to use just &#39;std::tuple&#39; that is more friendly for standalon...">
 <polygon fill="white" stroke="black" points="267,-665.5 267,-695.5 404,-695.5 404,-665.5 267,-665.5"/>
 <text text-anchor="start" x="275" y="-683.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::protocol</text>
 <text text-anchor="middle" x="335.5" y="-672.5" font-family="Helvetica,sans-Serif" font-size="10.00">_tuple&lt; Endianess, Ds &gt;</text>

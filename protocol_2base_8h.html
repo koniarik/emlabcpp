@@ -98,16 +98,12 @@ $(document).ready(function(){initNavTree('protocol_2base_8h.html',''); initResiz
 <code>#include &lt;cstring&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 <code>#include &lt;variant&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for base.h:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="protocol_2base_8h__incl.svg" width="867" height="351"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for base.h:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="protocol_2base_8h__dep__incl.svg" width="1368" height="767"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="protocol_2base_8h__incl.svg" width="840" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -116,16 +112,22 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__result.html">emlabcpp::protocol_result&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strucutre used as result of deserialization in the internal mechanisms of protocol handling.  <a href="structemlabcpp_1_1protocol__result.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__endianess.html">emlabcpp::protocol_endianess&lt; Endianess, D &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: when able to move to GCC11: using enum protocol_endianess_enum; and make it enum class.  <a href="structemlabcpp_1_1protocol__endianess.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__group.html">emlabcpp::protocol_group&lt; Ds &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__sized__buffer.html">emlabcpp::protocol_sized_buffer&lt; CounterDef, D &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1protocol__group"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__group">emlabcpp::protocol_group&lt; Ds &gt;</a></td></tr>
+<tr class="memdesc:structemlabcpp_1_1protocol__group"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes values from definitions Ds to std::variant.  <a href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__group">More...</a><br /></td></tr>
+<tr class="separator:structemlabcpp_1_1protocol__group"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1protocol__sized__buffer"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__sized__buffer">emlabcpp::protocol_sized_buffer&lt; CounterDef, D &gt;</a></td></tr>
+<tr class="memdesc:structemlabcpp_1_1protocol__sized__buffer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a segment starting with counter defined by CounterDef, this counter limits how many bytes are passed to deserialization process, bytes after the limit ale not considered by this segment.  <a href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__sized__buffer">More...</a><br /></td></tr>
+<tr class="separator:structemlabcpp_1_1protocol__sized__buffer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__offset.html">emlabcpp::protocol_offset&lt; D, Offset &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The value defined by <code>D</code> present in the message is offseted by <code>Offset</code>.  <a href="structemlabcpp_1_1protocol__offset.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__def__type__base.html">emlabcpp::protocol_def_type_base</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">More complex constructs have custom mechanics that internally produces <code>def_type</code> alias used by the library to serialize/deserialize it.  <a href="structemlabcpp_1_1protocol__def__type__base.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -135,24 +137,91 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a7efd2ac8dd2ca532b893b1c26565c594"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594">emlabcpp::protocol_endianess_enum</a> { <a class="el" href="namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594a53be8bce457a43c78d5047cded7dca4a">emlabcpp::PROTOCOL_BIG_ENDIAN</a>, 
-<a class="el" href="namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594aa2f671a4536141c87fc72a132d46d839">emlabcpp::PROTOCOL_LITTLE_ENDIAN</a>
+<tr class="memitem:a7efd2ac8dd2ca532b893b1c26565c594"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594">emlabcpp::protocol_endianess_enum</a> { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594a53be8bce457a43c78d5047cded7dca4a">emlabcpp::PROTOCOL_BIG_ENDIAN</a>, 
+<br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594aa2f671a4536141c87fc72a132d46d839">emlabcpp::PROTOCOL_LITTLE_ENDIAN</a>
+<br />
  }</td></tr>
+<tr class="memdesc:a7efd2ac8dd2ca532b893b1c26565c594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum specifies what endianess should be used.  <a href="namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594">More...</a><br /></td></tr>
 <tr class="separator:a7efd2ac8dd2ca532b893b1c26565c594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:abab7e77781bf7b562c6fdf625db0b576"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:abab7e77781bf7b562c6fdf625db0b576"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abab7e77781bf7b562c6fdf625db0b576">emlabcpp::protocol_base_type</a> = std::is_integral_v&lt; T &gt; || std::is_enum_v&lt; T &gt;</td></tr>
+<tr class="memdesc:abab7e77781bf7b562c6fdf625db0b576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that matches types considered base - serialized directly by using byte shifting.  <a href="namespaceemlabcpp.html#abab7e77781bf7b562c6fdf625db0b576">More...</a><br /></td></tr>
 <tr class="separator:abab7e77781bf7b562c6fdf625db0b576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="structemlabcpp_1_1protocol__group" id="structemlabcpp_1_1protocol__group"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1protocol__group">&#9670;&nbsp;</a></span>emlabcpp::protocol_group</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::protocol_group</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;typename... Ds&gt;<br />
+struct emlabcpp::protocol_group&lt; Ds &gt;</h3>
+
+<p>Serializes values from definitions Ds to std::variant. </p>
+<p>The byte message does not contain identificator of variant used, rather the first definition that manages to deserialize the message is used. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a139d42724f35fa5519e859cad8d93c39"></a></td>
+<td class="fieldname">
+options_type</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structemlabcpp_1_1protocol__sized__buffer" id="structemlabcpp_1_1protocol__sized__buffer"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1protocol__sized__buffer">&#9670;&nbsp;</a></span>emlabcpp::protocol_sized_buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::protocol_sized_buffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;typename CounterDef, typename D&gt;<br />
+struct emlabcpp::protocol_sized_buffer&lt; CounterDef, D &gt;</h3>
+
+<p>Creates a segment starting with counter defined by CounterDef, this counter limits how many bytes are passed to deserialization process, bytes after the limit ale not considered by this segment. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="ae9c48fbdad00cd511b7ffdbf96c444e8"></a>typedef CounterDef</td>
+<td class="fieldname">
+counter_type</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a30b9d448ee094e2a9c6e5b40216e2754"></a>typedef D</td>
+<td class="fieldname">
+value_type</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="protocol_2base_8h.html">base.h</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

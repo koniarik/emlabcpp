@@ -92,10 +92,15 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1view.html',''); initR
 </div><!--header-->
 <div class="contents">
 
+<p>Generic class to represent view of some container.  
+ <a href="classemlabcpp_1_1view.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="view_8h_source.html">view.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for emlabcpp::view&lt; Iterator &gt;:</div>
-<div class="dyncontent">
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for emlabcpp::view&lt; Iterator &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classemlabcpp_1_1view__inherit__graph.svg" width="214" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -103,6 +108,7 @@ Inheritance diagram for emlabcpp::view&lt; Iterator &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a03230225a5fcf5bce32c1f131c846b42"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#a03230225a5fcf5bce32c1f131c846b42">value_type</a> = typename std::iterator_traits&lt; Iterator &gt;::<a class="el" href="classemlabcpp_1_1view.html#a03230225a5fcf5bce32c1f131c846b42">value_type</a></td></tr>
+<tr class="memdesc:a03230225a5fcf5bce32c1f131c846b42"><td class="mdescLeft">&#160;</td><td class="mdescRight">standard public usings for container  <a href="classemlabcpp_1_1view.html#a03230225a5fcf5bce32c1f131c846b42">More...</a><br /></td></tr>
 <tr class="separator:a03230225a5fcf5bce32c1f131c846b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9a74119748175bed728749d34e3f48d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#ad9a74119748175bed728749d34e3f48d">reverse_iterator</a> = std::reverse_iterator&lt; Iterator &gt;</td></tr>
 <tr class="separator:ad9a74119748175bed728749d34e3f48d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,32 +124,50 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae6f214e75f98b1eb44a019008f002d71"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#ae6f214e75f98b1eb44a019008f002d71">view</a> ()=default</td></tr>
 <tr class="separator:ae6f214e75f98b1eb44a019008f002d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98bdc9806297efad8cb2b3eb6db43806"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#a98bdc9806297efad8cb2b3eb6db43806">view</a> (<a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a> auto &amp;cont)</td></tr>
+<tr class="memdesc:a98bdc9806297efad8cb2b3eb6db43806"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor from Container, uses begin/end of the container  <a href="classemlabcpp_1_1view.html#a98bdc9806297efad8cb2b3eb6db43806">More...</a><br /></td></tr>
 <tr class="separator:a98bdc9806297efad8cb2b3eb6db43806"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ed40da3156b60fc29dcd7e1c61bf34b"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#a0ed40da3156b60fc29dcd7e1c61bf34b">view</a> (const <a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a> auto &amp;cont)</td></tr>
+<tr class="memdesc:a0ed40da3156b60fc29dcd7e1c61bf34b"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor from Container, uses begin/end of the container  <a href="classemlabcpp_1_1view.html#a0ed40da3156b60fc29dcd7e1c61bf34b">More...</a><br /></td></tr>
 <tr class="separator:a0ed40da3156b60fc29dcd7e1c61bf34b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa63d9ffdaf9fe2339df621324f632a2f"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#aa63d9ffdaf9fe2339df621324f632a2f">view</a> (Iterator <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">begin</a>, Iterator <a class="el" href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">end</a>)</td></tr>
+<tr class="memdesc:aa63d9ffdaf9fe2339df621324f632a2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor from the iterators that should internally be stored  <a href="classemlabcpp_1_1view.html#aa63d9ffdaf9fe2339df621324f632a2f">More...</a><br /></td></tr>
 <tr class="separator:aa63d9ffdaf9fe2339df621324f632a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bd9ed13e268b9164f268fb877c629c0"><td class="memTemplParams" colspan="2">template&lt;std::convertible_to&lt; Iterator &gt; OtherIterator&gt; </td></tr>
 <tr class="memitem:a3bd9ed13e268b9164f268fb877c629c0"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#a3bd9ed13e268b9164f268fb877c629c0">view</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; OtherIterator &gt; other)</td></tr>
 <tr class="separator:a3bd9ed13e268b9164f268fb877c629c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a465e78169e53ecff3e2377283787a2e9"><td class="memItemLeft" align="right" valign="top">constexpr Iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">begin</a> () const</td></tr>
+<tr class="memdesc:a465e78169e53ecff3e2377283787a2e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start of the dataset iterator.  <a href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">More...</a><br /></td></tr>
 <tr class="separator:a465e78169e53ecff3e2377283787a2e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30a11defa5a206b6355bee7a540ab795"><td class="memItemLeft" align="right" valign="top">constexpr Iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">end</a> () const</td></tr>
+<tr class="memdesc:a30a11defa5a206b6355bee7a540ab795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Past the end iterator.  <a href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">More...</a><br /></td></tr>
 <tr class="separator:a30a11defa5a206b6355bee7a540ab795"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fdd836a77a7b1218f8785739715eaef"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1view.html#ad9a74119748175bed728749d34e3f48d">reverse_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#a8fdd836a77a7b1218f8785739715eaef">rbegin</a> () const</td></tr>
+<tr class="memdesc:a8fdd836a77a7b1218f8785739715eaef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns iterator to the last element that goes in reverse.  <a href="classemlabcpp_1_1view.html#a8fdd836a77a7b1218f8785739715eaef">More...</a><br /></td></tr>
 <tr class="separator:a8fdd836a77a7b1218f8785739715eaef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a549012c992a9582b6998578a69a042"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1view.html#ad9a74119748175bed728749d34e3f48d">reverse_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#a0a549012c992a9582b6998578a69a042">rend</a> () const</td></tr>
+<tr class="memdesc:a0a549012c992a9582b6998578a69a042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns iterator to the element before first element, that can go in reverse.  <a href="classemlabcpp_1_1view.html#a0a549012c992a9582b6998578a69a042">More...</a><br /></td></tr>
 <tr class="separator:a0a549012c992a9582b6998578a69a042"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa812fd178fc993e11fbbbc5894fb3c3"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1view.html#a30de9dd0825a5099a6e4e8021d4f1bbd">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#aaa812fd178fc993e11fbbbc5894fb3c3">size</a> () const</td></tr>
+<tr class="memdesc:aaa812fd178fc993e11fbbbc5894fb3c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the view over dataset uses <a class="el" href="namespaceemlabcpp.html#a11ac05592b4c728910966af0c89b13a8">std::distance()</a> to tell the size.  <a href="classemlabcpp_1_1view.html#aaa812fd178fc993e11fbbbc5894fb3c3">More...</a><br /></td></tr>
 <tr class="separator:aaa812fd178fc993e11fbbbc5894fb3c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1df38d7a444c80a11321be7c6a2cc11"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#ae1df38d7a444c80a11321be7c6a2cc11">empty</a> () const</td></tr>
+<tr class="memdesc:ae1df38d7a444c80a11321be7c6a2cc11"><td class="mdescLeft">&#160;</td><td class="mdescRight">View is empty if both iterators are equal.  <a href="classemlabcpp_1_1view.html#ae1df38d7a444c80a11321be7c6a2cc11">More...</a><br /></td></tr>
 <tr class="separator:ae1df38d7a444c80a11321be7c6a2cc11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a617f51d3aa75acbb7ed6fce27af75bc2"><td class="memItemLeft" align="right" valign="top">constexpr const <a class="el" href="classemlabcpp_1_1view.html#a03230225a5fcf5bce32c1f131c846b42">value_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#a617f51d3aa75acbb7ed6fce27af75bc2">front</a> () const</td></tr>
+<tr class="memdesc:a617f51d3aa75acbb7ed6fce27af75bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns first value of the range.  <a href="classemlabcpp_1_1view.html#a617f51d3aa75acbb7ed6fce27af75bc2">More...</a><br /></td></tr>
 <tr class="separator:a617f51d3aa75acbb7ed6fce27af75bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8f2a05b6c99b132ac5f00ea870275d3"><td class="memItemLeft" align="right" valign="top">constexpr const <a class="el" href="classemlabcpp_1_1view.html#a03230225a5fcf5bce32c1f131c846b42">value_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html#ae8f2a05b6c99b132ac5f00ea870275d3">back</a> () const</td></tr>
+<tr class="memdesc:ae8f2a05b6c99b132ac5f00ea870275d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns last value of the range.  <a href="classemlabcpp_1_1view.html#ae8f2a05b6c99b132ac5f00ea870275d3">More...</a><br /></td></tr>
 <tr class="separator:ae8f2a05b6c99b132ac5f00ea870275d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename Iterator&gt;<br />
+class emlabcpp::view&lt; Iterator &gt;</h3>
+
+<p>Generic class to represent view of some container. </p>
+<p>The view stores iterators to the input container and acts as container.</p>
+<p>Note: is_view_v&lt;T&gt; can be used to detect if T is view<em> </em></p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a8eed87d83894e640d2c635df44be9e60"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8eed87d83894e640d2c635df44be9e60">&#9670;&nbsp;</a></span>difference_type</h2>
 
@@ -222,6 +246,8 @@ template&lt;typename Iterator &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>standard public usings for container </p>
+
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -278,6 +304,8 @@ template&lt;typename Iterator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>constructor from Container, uses begin/end of the container </p>
+
 </div>
 </div>
 <a id="a0ed40da3156b60fc29dcd7e1c61bf34b"></a>
@@ -305,6 +333,8 @@ template&lt;typename Iterator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>constructor from Container, uses begin/end of the container </p>
 
 </div>
 </div>
@@ -343,6 +373,8 @@ template&lt;typename Iterator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>constructor from the iterators that should internally be stored </p>
 
 </div>
 </div>
@@ -402,6 +434,8 @@ template&lt;typename Iterator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns last value of the range. </p>
+
 </div>
 </div>
 <a id="a465e78169e53ecff3e2377283787a2e9"></a>
@@ -428,6 +462,8 @@ template&lt;typename Iterator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Start of the dataset iterator. </p>
 
 </div>
 </div>
@@ -456,6 +492,10 @@ template&lt;typename Iterator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>View is empty if both iterators are equal. </p>
+
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, and <a class="el" href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">emlabcpp::view&lt; Iterator &gt;::end()</a>.</p>
+
 </div>
 </div>
 <a id="a30a11defa5a206b6355bee7a540ab795"></a>
@@ -482,6 +522,8 @@ template&lt;typename Iterator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Past the end iterator. </p>
 
 </div>
 </div>
@@ -510,6 +552,8 @@ template&lt;typename Iterator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns first value of the range. </p>
+
 </div>
 </div>
 <a id="a8fdd836a77a7b1218f8785739715eaef"></a>
@@ -536,6 +580,8 @@ template&lt;typename Iterator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns iterator to the last element that goes in reverse. </p>
 
 </div>
 </div>
@@ -564,6 +610,8 @@ template&lt;typename Iterator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns iterator to the element before first element, that can go in reverse. </p>
+
 </div>
 </div>
 <a id="aaa812fd178fc993e11fbbbc5894fb3c3"></a>
@@ -591,6 +639,10 @@ template&lt;typename Iterator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Size of the view over dataset uses <a class="el" href="namespaceemlabcpp.html#a11ac05592b4c728910966af0c89b13a8">std::distance()</a> to tell the size. </p>
+
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, and <a class="el" href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">emlabcpp::view&lt; Iterator &gt;::end()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -602,7 +654,7 @@ template&lt;typename Iterator &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1view.html">view</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

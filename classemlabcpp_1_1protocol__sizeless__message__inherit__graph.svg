@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Sizeless message is class that behaves in a same way as normal protocol_message, however it is serial...">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-30.5 140,-30.5 140,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::protocol</text>
 <text text-anchor="middle" x="70" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">_sizeless_message&lt; N &gt;</text>
@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classemlabcpp_1_1protocol__message.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classemlabcpp_1_1protocol__message.html" target="_top" xlink:title="Protocol library has custom type that represents message, however this is just simple overaly over st...">
 <polygon fill="white" stroke="black" points="15,-67.5 15,-97.5 125,-97.5 125,-67.5 15,-67.5"/>
 <text text-anchor="start" x="23" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::protocol</text>
 <text text-anchor="middle" x="70" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">_message&lt; N &gt;</text>

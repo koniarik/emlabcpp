@@ -1,21 +1,12 @@
 <map id="include/emlabcpp/either.h" name="include/emlabcpp/either.h">
-<area shape="rect" id="node1" title=" " alt="" coords="444,5,635,32"/>
-<area shape="rect" id="node2" href="$static__vector_8h.html" title=" " alt="" coords="376,80,561,107"/>
-<area shape="rect" id="node8" title=" " alt="" coords="5,528,60,555"/>
-<area shape="rect" id="node9" title=" " alt="" coords="435,528,527,555"/>
-<area shape="rect" id="node14" href="$types_8h.html" title=" " alt="" coords="146,304,285,331"/>
-<area shape="rect" id="node18" title=" " alt="" coords="577,155,637,181"/>
-<area shape="rect" id="node19" title=" " alt="" coords="713,80,787,107"/>
-<area shape="rect" id="node3" href="$concepts_8h.html" title=" " alt="" coords="269,379,429,405"/>
-<area shape="rect" id="node12" href="$iterator_8h.html" title=" " alt="" coords="229,155,378,181"/>
-<area shape="rect" id="node17" title=" " alt="" coords="504,155,553,181"/>
-<area shape="rect" id="node4" href="$types_2base_8h.html" title=" " alt="" coords="122,453,295,480"/>
-<area shape="rect" id="node11" title=" " alt="" coords="319,453,399,480"/>
-<area shape="rect" id="node5" title=" " alt="" coords="354,528,410,555"/>
-<area shape="rect" id="node6" title=" " alt="" coords="85,528,151,555"/>
-<area shape="rect" id="node7" title=" " alt="" coords="175,528,242,555"/>
-<area shape="rect" id="node10" title=" " alt="" coords="267,528,329,555"/>
-<area shape="rect" id="node13" href="$view_8h.html" title=" " alt="" coords="151,229,283,256"/>
-<area shape="rect" id="node16" title=" " alt="" coords="307,229,377,256"/>
-<area shape="rect" id="node15" title=" " alt="" coords="186,379,245,405"/>
+<area shape="rect" id="node1" title=" " alt="" coords="410,5,601,32"/>
+<area shape="rect" id="node2" href="$static__vector_8h.html" title=" " alt="" coords="250,80,435,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="438,155,530,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="554,155,614,181"/>
+<area shape="rect" id="node8" href="$types_8h.html" title=" " alt="" coords="53,80,192,107"/>
+<area shape="rect" id="node9" title=" " alt="" coords="568,80,643,107"/>
+<area shape="rect" id="node10" title=" " alt="" coords="667,80,722,107"/>
+<area shape="rect" id="node3" href="$concepts_8h.html" title=" " alt="" coords="5,155,165,181"/>
+<area shape="rect" id="node4" href="$iterator_8h.html" title=" " alt="" coords="264,155,413,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="190,155,239,181"/>
 </map>

@@ -23,25 +23,25 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "emlabcpp", "index.html", [
-    [ "Installation", "index.html#autotoc_md1", null ],
-    [ "Components", "index.html#autotoc_md2", [
-      [ "algorithm.h", "index.html#autotoc_md3", null ],
-      [ "either.h", "index.html#autotoc_md4", null ],
-      [ "view.h", "index.html#autotoc_md5", null ],
-      [ "bounded.h", "index.html#autotoc_md6", null ],
-      [ "protocol.h", "index.html#autotoc_md7", null ],
-      [ "iterator.h", "index.html#autotoc_md8", [
-        [ "iterators/numeric.h", "index.html#autotoc_md9", null ],
-        [ "iterators/subscript.h", "index.html#autotoc_md10", null ],
-        [ "iterators/access.h", "index.html#autotoc_md11", null ]
+    [ "Installation", "index.html#autotoc_md10", null ],
+    [ "Components", "index.html#autotoc_md11", [
+      [ "algorithm.h", "index.html#autotoc_md12", null ],
+      [ "either.h", "index.html#autotoc_md13", null ],
+      [ "view.h", "index.html#autotoc_md14", null ],
+      [ "bounded.h", "index.html#autotoc_md15", null ],
+      [ "protocol.h", "index.html#autotoc_md16", null ],
+      [ "iterator.h", "index.html#autotoc_md17", [
+        [ "iterators/numeric.h", "index.html#autotoc_md18", null ],
+        [ "iterators/subscript.h", "index.html#autotoc_md19", null ],
+        [ "iterators/access.h", "index.html#autotoc_md20", null ]
       ] ],
-      [ "quantity.h", "index.html#autotoc_md12", null ],
-      [ "physical_quantity.h", "index.html#autotoc_md13", null ],
-      [ "pid.h", "index.html#autotoc_md14", null ],
-      [ "static_circular_buffer.h", "index.html#autotoc_md15", null ],
-      [ "static_vector.h", "index.html#autotoc_md16", null ],
-      [ "types.h", "index.html#autotoc_md17", null ],
-      [ "zip.h", "index.html#autotoc_md18", null ]
+      [ "quantity.h", "index.html#autotoc_md21", null ],
+      [ "physical_quantity.h", "index.html#autotoc_md22", null ],
+      [ "pid.h", "index.html#autotoc_md23", null ],
+      [ "static_circular_buffer.h", "index.html#autotoc_md24", null ],
+      [ "static_vector.h", "index.html#autotoc_md25", null ],
+      [ "types.h", "index.html#autotoc_md26", null ],
+      [ "zip.h", "index.html#autotoc_md27", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -79,10 +79,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"classemlabcpp_1_1protocol__sequencer.html",
-"either_8h_source.html",
-"pid_8h.html",
-"structemlabcpp_1_1protocol__def_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html"
+"classemlabcpp_1_1protocol__message.html#afe216ae70a3877d635cf24b214e0bbf8",
+"concepts_8h.html#a61e7321a7721894fde42b2da9bf2cbd8",
+"namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector",
+"structemlabcpp_1_1protocol__decl_3_01protocol__mark_01_4.html#a83ad75dc9cabe03d3e8dea811d391438",
+"structemlabcpp_1_1protocol__serializer.html#a99f546a3796ccd934e3e303552ac7c5f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

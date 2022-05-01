@@ -17,7 +17,7 @@ var searchData=
   ['any_5fof_14',['any_of',['../namespaceemlabcpp.html#ae1eb7bfbbedea4be369b14c29286045a',1,'emlabcpp']]],
   ['apply_5fon_5fmatch_15',['apply_on_match',['../namespaceemlabcpp.html#a63a6aaa5fc338d3d342d90a14225fe82',1,'emlabcpp']]],
   ['apply_5fon_5fvisit_16',['apply_on_visit',['../namespaceemlabcpp.html#a75cf44a6df8173ea7a46979f57546332',1,'emlabcpp']]],
-  ['are_5fsame_17',['are_same',['../structemlabcpp_1_1are__same.html',1,'emlabcpp']]],
+  ['are_5fsame_17',['are_same',['../namespaceemlabcpp.html#structemlabcpp_1_1are__same',1,'emlabcpp']]],
   ['are_5fsame_3c_20t_2c_20ts_2e_2e_2e_20_3e_18',['are_same&lt; T, Ts... &gt;',['../structemlabcpp_1_1are__same_3_01T_00_01Ts_8_8_8_01_4.html',1,'emlabcpp']]],
   ['are_5fsame_3c_3e_19',['are_same&lt;&gt;',['../structemlabcpp_1_1are__same_3_4.html',1,'emlabcpp']]],
   ['are_5fsame_5fv_20',['are_same_v',['../namespaceemlabcpp.html#ae5e4923a149af384640fe5d3759dcc9a',1,'emlabcpp']]],

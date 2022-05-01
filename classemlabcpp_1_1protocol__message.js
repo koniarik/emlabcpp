@@ -16,9 +16,11 @@ var classemlabcpp_1_1protocol__message =
     [ "end", "classemlabcpp_1_1protocol__message.html#a1a25b8726e271c61f34590307a769073", null ],
     [ "front", "classemlabcpp_1_1protocol__message.html#a9142cacab30f36a3de5090f3376a56de", null ],
     [ "front", "classemlabcpp_1_1protocol__message.html#a740f1bf6775e71fe5b1d2a4187bf146b", null ],
+    [ "make", "classemlabcpp_1_1protocol__message.html#aaaa81c2ee44472b9bdf1777be2b47deb", null ],
     [ "operator std::array< uint8_t, M >", "classemlabcpp_1_1protocol__message.html#ae05e36d06aa1429a8927338ab7e24a35", null ],
     [ "operator[]", "classemlabcpp_1_1protocol__message.html#a5398db75e618af4eadb4a9cc016b8a6a", null ],
     [ "operator[]", "classemlabcpp_1_1protocol__message.html#a929d6d33e63f9d7eb9351718d4fa0763", null ],
     [ "size", "classemlabcpp_1_1protocol__message.html#ac87266cff140730fb8ab757e8054fcda", null ],
-    [ "operator==", "classemlabcpp_1_1protocol__message.html#a1a63e6c229a6f8b19a97f64619584db0", null ]
+    [ "operator==", "classemlabcpp_1_1protocol__message.html#a1a63e6c229a6f8b19a97f64619584db0", null ],
+    [ "max_size", "classemlabcpp_1_1protocol__message.html#a1f0c101f29b0432e18f9af51fdef996f", null ]
 ];

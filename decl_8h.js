@@ -1,6 +1,6 @@
 var decl_8h =
 [
-    [ "protocol_decl", "structemlabcpp_1_1protocol__decl.html", null ],
+    [ "protocol_decl", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__decl", null ],
     [ "protocol_decl< D >", "structemlabcpp_1_1protocol__decl_3_01D_01_4.html", "structemlabcpp_1_1protocol__decl_3_01D_01_4" ],
     [ "protocol_decl< std::array< D, N > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1array_3_01D_00_01N_01_4_01_4.html", "structemlabcpp_1_1protocol__decl_3_01std_1_1array_3_01D_00_01N_01_4_01_4" ],
     [ "protocol_decl< std::tuple< Ds... > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_01_4.html", "structemlabcpp_1_1protocol__decl_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_01_4" ],

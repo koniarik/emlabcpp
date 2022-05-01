@@ -93,13 +93,16 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1protocol__command.ht
 </div><!--header-->
 <div class="contents">
 
+<p>Command group represents a segment in the message, that may contain multiple different variants of value, that are identified by ID at the beginning of the segment.  
+ <a href="structemlabcpp_1_1protocol__command.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="command__group_8h_source.html">command_group.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a32e309409d04c361eb0a196353c329ed"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__command.html#a32e309409d04c361eb0a196353c329ed">id_type</a> = decltype(ID)</td></tr>
 <tr class="separator:a32e309409d04c361eb0a196353c329ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adce19542a4122b3d18723b01cbe91f8e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__command.html#adce19542a4122b3d18723b01cbe91f8e">value_type</a> = std::tuple&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; ID &gt;, typename <a class="el" href="structemlabcpp_1_1protocol__decl.html">protocol_decl</a>&lt; Defs &gt;::value_type... &gt;</td></tr>
+<tr class="memitem:adce19542a4122b3d18723b01cbe91f8e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__command.html#adce19542a4122b3d18723b01cbe91f8e">value_type</a> = std::tuple&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; ID &gt;, typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__decl">protocol_decl</a>&lt; Defs &gt;::value_type... &gt;</td></tr>
 <tr class="separator:adce19542a4122b3d18723b01cbe91f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f374c25232197fbacf573ce022a87e5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__command.html#a5f374c25232197fbacf573ce022a87e5">def_type</a> = std::tuple&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; ID &gt;, Defs... &gt;</td></tr>
 <tr class="separator:a5f374c25232197fbacf573ce022a87e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,7 +112,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:afc6ca362664c20bb00d394a851810f06"><td class="memItemLeft" align="right" valign="top">constexpr static <a class="el" href="structemlabcpp_1_1protocol__command.html#adce19542a4122b3d18723b01cbe91f8e">value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__command.html#afc6ca362664c20bb00d394a851810f06">make_val</a> (const typename <a class="el" href="structemlabcpp_1_1protocol__decl.html">protocol_decl</a>&lt; Defs &gt;::<a class="el" href="structemlabcpp_1_1protocol__command.html#adce19542a4122b3d18723b01cbe91f8e">value_type</a> &amp;... args)</td></tr>
+<tr class="memitem:afc6ca362664c20bb00d394a851810f06"><td class="memItemLeft" align="right" valign="top">constexpr static <a class="el" href="structemlabcpp_1_1protocol__command.html#adce19542a4122b3d18723b01cbe91f8e">value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__command.html#afc6ca362664c20bb00d394a851810f06">make_val</a> (const typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__decl">protocol_decl</a>&lt; Defs &gt;::<a class="el" href="structemlabcpp_1_1protocol__command.html#adce19542a4122b3d18723b01cbe91f8e">value_type</a> &amp;... args)</td></tr>
+<tr class="memdesc:afc6ca362664c20bb00d394a851810f06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates value of the command based on the args.  <a href="structemlabcpp_1_1protocol__command.html#afc6ca362664c20bb00d394a851810f06">More...</a><br /></td></tr>
 <tr class="separator:afc6ca362664c20bb00d394a851810f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -117,7 +121,13 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:ad05433a0b3c269e4ae1ef820f1cbdead"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1protocol__command.html#a32e309409d04c361eb0a196353c329ed">id_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__command.html#ad05433a0b3c269e4ae1ef820f1cbdead">id</a> = ID</td></tr>
 <tr class="separator:ad05433a0b3c269e4ae1ef820f1cbdead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;auto ID, protocol_declarable... Defs&gt;<br />
+struct emlabcpp::protocol_command&lt; ID, Defs &gt;</h3>
+
+<p>Command group represents a segment in the message, that may contain multiple different variants of value, that are identified by ID at the beginning of the segment. </p>
+<p>The ID is defined in the definition. This simulates abstraction of <code>set of commands that can be sent</code> that is frequently used by embedded devices. One command in a group defined by ID and definitions for items contained in this command. It is preferable to use the <code><a class="el" href="structemlabcpp_1_1protocol__command.html#acc5cfae8a5dd35f15d5afc612ff38e33">protocol_command::with_args</a>&lt;...&gt;</code> alias that just extens the list of defined items in the command. For example: protocol_command&lt;32&gt;::with_args&lt;uint32_t, uint32_t&gt; Internally, the example leads to definition <code>std::tuple&lt; tag&lt;32&gt;, uint32_t, uint32_t &gt;</code> </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a5f374c25232197fbacf573ce022a87e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f374c25232197fbacf573ce022a87e5">&#9670;&nbsp;</a></span>def_type</h2>
 
@@ -159,7 +169,7 @@ template&lt;auto ID, protocol_declarable... Defs&gt; </div>
 template&lt;auto ID, protocol_declarable... Defs&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol__command.html">emlabcpp::protocol_command</a>&lt; ID, Defs &gt;::<a class="el" href="structemlabcpp_1_1protocol__command.html#adce19542a4122b3d18723b01cbe91f8e">value_type</a> =  std::tuple&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; ID &gt;, typename <a class="el" href="structemlabcpp_1_1protocol__decl.html">protocol_decl</a>&lt; Defs &gt;::value_type... &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol__command.html">emlabcpp::protocol_command</a>&lt; ID, Defs &gt;::<a class="el" href="structemlabcpp_1_1protocol__command.html#adce19542a4122b3d18723b01cbe91f8e">value_type</a> =  std::tuple&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; ID &gt;, typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__decl">protocol_decl</a>&lt; Defs &gt;::value_type... &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -199,7 +209,7 @@ template&lt;auto ID, protocol_declarable... Defs&gt; </div>
         <tr>
           <td class="memname">constexpr static <a class="el" href="structemlabcpp_1_1protocol__command.html#adce19542a4122b3d18723b01cbe91f8e">value_type</a> <a class="el" href="structemlabcpp_1_1protocol__command.html">emlabcpp::protocol_command</a>&lt; ID, Defs &gt;::make_val </td>
           <td>(</td>
-          <td class="paramtype">const typename <a class="el" href="structemlabcpp_1_1protocol__decl.html">protocol_decl</a>&lt; Defs &gt;::<a class="el" href="structemlabcpp_1_1protocol__command.html#adce19542a4122b3d18723b01cbe91f8e">value_type</a> &amp;...&#160;</td>
+          <td class="paramtype">const typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__decl">protocol_decl</a>&lt; Defs &gt;::<a class="el" href="structemlabcpp_1_1protocol__command.html#adce19542a4122b3d18723b01cbe91f8e">value_type</a> &amp;...&#160;</td>
           <td class="paramname"><em>args</em></td><td>)</td>
           <td></td>
         </tr>
@@ -210,6 +220,8 @@ template&lt;auto ID, protocol_declarable... Defs&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates value of the command based on the args. </p>
 
 </div>
 </div>
@@ -247,7 +259,7 @@ template&lt;auto ID, protocol_declarable... Defs&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol__command.html">protocol_command</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

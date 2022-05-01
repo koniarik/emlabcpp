@@ -92,16 +92,23 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1protocol__sizeless__m
 </div><!--header-->
 <div class="contents">
 
+<p>Sizeless message is class that behaves in a same way as normal <a class="el" href="classemlabcpp_1_1protocol__message.html" title="Protocol library has custom type that represents message, however this is just simple overaly over st...">protocol_message</a>, however it is serialized differently.  
+ <a href="classemlabcpp_1_1protocol__sizeless__message.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="message_8h_source.html">message.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for emlabcpp::protocol_sizeless_message&lt; N &gt;:</div>
-<div class="dyncontent">
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for emlabcpp::protocol_sizeless_message&lt; N &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classemlabcpp_1_1protocol__sizeless__message__inherit__graph.svg" width="198" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for emlabcpp::protocol_sizeless_message&lt; N &gt;:</div>
-<div class="dyncontent">
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::protocol_sizeless_message&lt; N &gt;:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classemlabcpp_1_1protocol__sizeless__message__coll__graph.svg" width="198" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -174,7 +181,13 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:aada911ffb0f42bab41511f81ed013232 inherit pro_methods_classemlabcpp_1_1protocol__message"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol__message.html#aada911ffb0f42bab41511f81ed013232">protocol_message</a> (Iterator beg, Iterator <a class="el" href="classemlabcpp_1_1protocol__message.html#a1a25b8726e271c61f34590307a769073">end</a>) noexcept</td></tr>
 <tr class="separator:aada911ffb0f42bab41511f81ed013232 inherit pro_methods_classemlabcpp_1_1protocol__message"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;std::size_t N&gt;<br />
+class emlabcpp::protocol_sizeless_message&lt; N &gt;</h3>
+
+<p>Sizeless message is class that behaves in a same way as normal <a class="el" href="classemlabcpp_1_1protocol__message.html" title="Protocol library has custom type that represents message, however this is just simple overaly over st...">protocol_message</a>, however it is serialized differently. </p>
+<p>Protocol message stores how many bytes it's made of before the data itself in the final message, sizless message does not and greedely tries to parse rest of the buffer during the parsing process. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a95a361ef8afc89b4d8073db71fecbb4a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a95a361ef8afc89b4d8073db71fecbb4a">&#9670;&nbsp;</a></span>protocol_sizeless_message()</h2>
 
@@ -232,6 +245,8 @@ template&lt;std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="reference">References <a class="el" href="classemlabcpp_1_1protocol__sizeless__message.html#a95a361ef8afc89b4d8073db71fecbb4a">emlabcpp::protocol_sizeless_message&lt; N &gt;::protocol_sizeless_message()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -243,7 +258,7 @@ template&lt;std::size_t N&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1protocol__sizeless__message.html">protocol_sizeless_message</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

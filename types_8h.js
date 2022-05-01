@@ -1,9 +1,9 @@
 var types_8h =
 [
-    [ "mapped", "structemlabcpp_1_1mapped.html", null ],
+    [ "mapped", "namespaceemlabcpp.html#structemlabcpp_1_1mapped", null ],
     [ "mapped< Container, UnaryFunction >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryFunction_01_4.html", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryFunction_01_4" ],
     [ "tag", "structemlabcpp_1_1tag.html", "structemlabcpp_1_1tag" ],
-    [ "select_utype", "structemlabcpp_1_1select__utype.html", null ],
+    [ "select_utype", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
     [ "mapped_t", "types_8h.html#a2dffbbe090c31e17065033d3662e823e", null ],
     [ "select_utype_t", "types_8h.html#ac223240cfaa32fcb48f0daa06c78a9e2", null ],
     [ "operator<<", "types_8h.html#a155a6828d776fbc298d37aabee6bc0d7", null ],

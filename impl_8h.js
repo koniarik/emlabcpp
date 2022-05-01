@@ -1,6 +1,6 @@
 var impl_8h =
 [
-    [ "map_f_collector", "structemlabcpp_1_1impl_1_1map__f__collector.html", null ],
+    [ "map_f_collector", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector", null ],
     [ "map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4" ],
     [ "map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4" ],
     [ "map_f_collector< std::array< T, N > >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", "structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4" ],

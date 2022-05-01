@@ -33,7 +33,5 @@ var classemlabcpp_1_1either =
     [ "operator=", "classemlabcpp_1_1either.html#a15cd859c08060547cb7aea24724e81de", null ],
     [ "operator=", "classemlabcpp_1_1either.html#ac47518f24d7cfd29255b49dbd1324bd3", null ],
     [ "operator=", "classemlabcpp_1_1either.html#a9c658869710a61c5bcfcce86aee32a14", null ],
-    [ "operator==", "classemlabcpp_1_1either.html#a9ae0908c5c0e1eff758877b794d6fb43", null ],
-    [ "left_", "classemlabcpp_1_1either.html#a12affdb15a4c6ef93a6ae76982e1a4c6", null ],
-    [ "right_", "classemlabcpp_1_1either.html#a48f2b203384294bc1bda25188a367757", null ]
+    [ "operator==", "classemlabcpp_1_1either.html#a9ae0908c5c0e1eff758877b794d6fb43", null ]
 ];

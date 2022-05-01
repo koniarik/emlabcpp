@@ -1,6 +1,6 @@
 var def_8h =
 [
-    [ "protocol_def", "structemlabcpp_1_1protocol__def.html", null ],
+    [ "protocol_def", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__def", null ],
     [ "protocol_def< D, Endianess >", "structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4" ],
     [ "protocol_def< std::array< D, N >, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4" ],
     [ "protocol_def< std::tuple< Ds... >, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol__def_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_00_01Endianess_01_4" ],

@@ -95,10 +95,12 @@ $(document).ready(function(){initNavTree('zip_8h.html',''); initResizable(); });
 <code>#include &quot;<a class="el" href="types_8h_source.html">emlabcpp/types.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="view_8h_source.html">emlabcpp/view.h</a>&quot;</code><br />
 <code>#include &lt;tuple&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for zip.h:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="zip_8h__incl.svg" width="546" height="575"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for zip.h:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="zip_8h__incl.svg" width="342" height="351"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -107,10 +109,12 @@ Include dependency graph for zip.h:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1zip__iterator.html">emlabcpp::zip_iterator&lt; Iterators &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">zip_ierator iterates over a group of iterators, where value is a tuple of references to value for each iterator.  <a href="classemlabcpp_1_1zip__iterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4.html">std::iterator_traits&lt; emlabcpp::zip_iterator&lt; Iterators... &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1zip__iterator.html">emlabcpp::zip_iterator&lt; Iterators &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">zip_ierator iterates over a group of iterators, where value is a tuple of references to value for each iterator.  <a href="classemlabcpp_1_1zip__iterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -128,6 +132,7 @@ Functions</h2></td></tr>
 <tr class="separator:a163dd8154f05ef8a818183d0d44cbcdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41ab261a0f296f3c9862e59e12339885"><td class="memTemplParams" colspan="2">template&lt;range_container... Ts&gt; </td></tr>
 <tr class="memitem:a41ab261a0f296f3c9862e59e12339885"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885">emlabcpp::zip</a> (Ts &amp;&amp;... cont)</td></tr>
+<tr class="memdesc:a41ab261a0f296f3c9862e59e12339885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a view of zip iterators for specified containers.  <a href="namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885">More...</a><br /></td></tr>
 <tr class="separator:a41ab261a0f296f3c9862e59e12339885"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe935e56d6376df9f87d0d015a3baecc"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
 <tr class="memitem:afe935e56d6376df9f87d0d015a3baecc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc">emlabcpp::enumerate</a> (Container &amp;&amp;cont)</td></tr>
@@ -137,6 +142,7 @@ Functions</h2></td></tr>
 <tr class="separator:aa8b8f5742901528282a9da6b8317e7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c07efb3691ae81d8dbffdeed5ee54e7"><td class="memTemplParams" colspan="2">template&lt;typename Tuple , typename... Tuples, std::enable_if_t&lt; is_std_tuple_v&lt; Tuple &gt; &gt; *  = nullptr, std::enable_if_t&lt; std::conjunction_v&lt; is_std_tuple&lt; std::decay_t&lt; Tuples &gt; &gt;... &gt; &gt; *  = nullptr&gt; </td></tr>
 <tr class="memitem:a1c07efb3691ae81d8dbffdeed5ee54e7"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1c07efb3691ae81d8dbffdeed5ee54e7">emlabcpp::zip</a> (Tuple &amp;&amp;frst, Tuples &amp;&amp;... tpls)</td></tr>
+<tr class="memdesc:a1c07efb3691ae81d8dbffdeed5ee54e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zips a set of tuples of same size into a new tuple.  <a href="namespaceemlabcpp.html#a1c07efb3691ae81d8dbffdeed5ee54e7">More...</a><br /></td></tr>
 <tr class="separator:a1c07efb3691ae81d8dbffdeed5ee54e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -145,7 +151,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="zip_8h.html">zip.h</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

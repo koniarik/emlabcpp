@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1static__circular__buf
 </div><!--header-->
 <div class="contents">
 
+<p>Class implementing circular buffer of any type for up to N elements.  
+ <a href="classemlabcpp_1_1static__circular__buffer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="static__circular__buffer_8h_source.html">static_circular_buffer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -124,6 +127,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa67f2d3642b45b70306d6e9f40ed1f4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#aa67f2d3642b45b70306d6e9f40ed1f4e">operator=</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a> &amp;&amp;other) noexcept(std::is_nothrow_move_assignable_v&lt; T &gt;)</td></tr>
 <tr class="separator:aa67f2d3642b45b70306d6e9f40ed1f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6923c24f500869e457a4ca7f2fb9426"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a5575e3141c63352675521dd9f2460724">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426">begin</a> ()</td></tr>
+<tr class="memdesc:af6923c24f500869e457a4ca7f2fb9426"><td class="mdescLeft">&#160;</td><td class="mdescRight">methods for handling the front side of the circular buffer  <a href="classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426">More...</a><br /></td></tr>
 <tr class="separator:af6923c24f500869e457a4ca7f2fb9426"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c4ed6cc63bb1846f0c45eab4945547c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a522ff8624c45c3b79b0af880eb0d15b6">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a7c4ed6cc63bb1846f0c45eab4945547c">begin</a> () const</td></tr>
 <tr class="separator:a7c4ed6cc63bb1846f0c45eab4945547c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,6 +144,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aae5cd5d7d9d58ff118bf646e4fd26972"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#aae5cd5d7d9d58ff118bf646e4fd26972">pop_front</a> ()</td></tr>
 <tr class="separator:aae5cd5d7d9d58ff118bf646e4fd26972"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8165951ae18e5a305ee580be7c749d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a5575e3141c63352675521dd9f2460724">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#aa8165951ae18e5a305ee580be7c749d4">end</a> ()</td></tr>
+<tr class="memdesc:aa8165951ae18e5a305ee580be7c749d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">methods for handling the back side of the circular buffer  <a href="classemlabcpp_1_1static__circular__buffer.html#aa8165951ae18e5a305ee580be7c749d4">More...</a><br /></td></tr>
 <tr class="separator:aa8165951ae18e5a305ee580be7c749d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99021117509d248c5baeed803b7e2cfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a522ff8624c45c3b79b0af880eb0d15b6">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a99021117509d248c5baeed803b7e2cfc">end</a> () const</td></tr>
 <tr class="separator:a99021117509d248c5baeed803b7e2cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,6 +162,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5fc6be4492b57c91e62a1922ecd7c467"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a5fc6be4492b57c91e62a1922ecd7c467">emplace_back</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a5fc6be4492b57c91e62a1922ecd7c467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad79b32945aa2393af18e55ef2282cb58"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#ad79b32945aa2393af18e55ef2282cb58">max_size</a> () const</td></tr>
+<tr class="memdesc:ad79b32945aa2393af18e55ef2282cb58"><td class="mdescLeft">&#160;</td><td class="mdescRight">other methods  <a href="classemlabcpp_1_1static__circular__buffer.html#ad79b32945aa2393af18e55ef2282cb58">More...</a><br /></td></tr>
 <tr class="separator:ad79b32945aa2393af18e55ef2282cb58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a90f093a980231b0156e8ed33c6e1f1"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a4a90f093a980231b0156e8ed33c6e1f1">size</a> () const</td></tr>
 <tr class="separator:a4a90f093a980231b0156e8ed33c6e1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,7 +190,18 @@ Friends</h2></td></tr>
 <tr class="memitem:a4be2068abf9d0bbaa7707434d0bc7f8a"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a4be2068abf9d0bbaa7707434d0bc7f8a">static_circular_buffer_iterator</a></td></tr>
 <tr class="separator:a4be2068abf9d0bbaa7707434d0bc7f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T, std::size_t N&gt;<br />
+class emlabcpp::static_circular_buffer&lt; T, N &gt;</h3>
+
+<p>Class implementing circular buffer of any type for up to N elements. </p>
+<p>This should work for generic type T, not just simple types.</p>
+<p>It is safe in "single consumer single producer" scenario between main loop and interrupts. Because of that the behavior is as follows:</p><ul>
+<li>on insertion, item is inserted and than index is advanced</li>
+<li>on removal, item is removed and than index is advanced</li>
+</ul>
+<p>In case of copy or move operations, the buffer does not have to store the data internally in same manner, the data are equivavlent only from the perspective of push/pop operations. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a522ff8624c45c3b79b0af880eb0d15b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a522ff8624c45c3b79b0af880eb0d15b6">&#9670;&nbsp;</a></span>const_iterator</h2>
 
@@ -278,6 +295,8 @@ template&lt;typename T , std::size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<h2><a class="anchor" id="autotoc_md1"></a>
+public types</h2>
 
 </div>
 </div>
@@ -306,6 +325,8 @@ template&lt;typename T , std::size_t N&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<h2><a class="anchor" id="autotoc_md2"></a>
+public methods</h2>
 
 </div>
 </div>
@@ -472,6 +493,8 @@ template&lt;typename T , std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>methods for handling the front side of the circular buffer </p>
+
 </div>
 </div>
 <a id="a7c4ed6cc63bb1846f0c45eab4945547c"></a>
@@ -610,6 +633,8 @@ template&lt;typename T , std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>methods for handling the back side of the circular buffer </p>
+
 </div>
 </div>
 <a id="a99021117509d248c5baeed803b7e2cfc"></a>
@@ -744,6 +769,8 @@ template&lt;typename T , std::size_t N&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>other methods </p>
 
 </div>
 </div>
@@ -1137,7 +1164,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -1,6 +1,6 @@
 var physical__quantity_8h =
 [
-    [ "physical_quantity", "structemlabcpp_1_1physical__quantity.html", null ],
+    [ "physical_quantity", "structemlabcpp_1_1physical__quantity.html", "structemlabcpp_1_1physical__quantity" ],
     [ "acceleration", "physical__quantity_8h.html#a9f7b213031fa424abf6cc3d1d04ac1ca", null ],
     [ "amount_of_substance", "physical__quantity_8h.html#a034dcea22b6c4c252c6127ffd7078a7d", null ],
     [ "angle", "physical__quantity_8h.html#afa050c988b29285083320111dc7b90ca", null ],

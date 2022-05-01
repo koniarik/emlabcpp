@@ -111,15 +111,16 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1impl_1_1is__view_3_01T_01_4.html">is_view&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html">is_view&lt; view&lt; Iter &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Support for our deduction guide to types - is_view_v.  <a href="structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1impl_1_1map__f__collector.html">map_f_collector</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1impl_1_1map__f__collector"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector">map_f_collector</a></td></tr>
+<tr class="separator:structemlabcpp_1_1impl_1_1map__f__collector"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html">map_f_collector&lt; std::array&lt; T, N &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html">map_f_collector&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1impl_1_1static__size.html">static_size</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1impl_1_1static__size"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1static__size">static_size</a></td></tr>
+<tr class="separator:structemlabcpp_1_1impl_1_1static__size"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1impl_1_1static__size_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html">static_size&lt; std::array&lt; T, N &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html">static_size&lt; std::tuple&lt; Ts... &gt; &gt;</a></td></tr>
@@ -146,6 +147,52 @@ Variables</h2></td></tr>
 <tr class="memitem:aa4539ae7694e16e3a1749e3089a36e2f"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f">map_f_collectable</a></td></tr>
 <tr class="separator:aa4539ae7694e16e3a1749e3089a36e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><hr  />
+<p> is_view&lt;T&gt;::value marks whenever is some type of temporary view - not owning of the data</p>
+<hr  />
+<p> is_std_tuple&lt;T&gt;::value is true if type T is std::tuple</p>
+<hr  />
+<p> is_std_array&lt;T&gt;::value is true if type T is std::array</p>
+<hr  />
+<p> is_std_vector&lt;T&gt;::value is true if type T is std::vector</p>
+<hr  />
+<p> static_size&lt;T&gt;::value is size of the type T, if it has any deducable at compile time </p>
+</div><hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="structemlabcpp_1_1impl_1_1map__f__collector" id="structemlabcpp_1_1impl_1_1map__f__collector"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1impl_1_1map__f__collector">&#9670;&nbsp;</a></span>emlabcpp::impl::map_f_collector</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::impl::map_f_collector</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;typename&gt;<br />
+struct emlabcpp::impl::map_f_collector&lt; typename &gt;</h3>
+
+</div>
+</div>
+</div>
+<a name="structemlabcpp_1_1impl_1_1static__size" id="structemlabcpp_1_1impl_1_1static__size"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1impl_1_1static__size">&#9670;&nbsp;</a></span>emlabcpp::impl::static_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::impl::static_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;typename&gt;<br />
+struct emlabcpp::impl::static_size&lt; typename &gt;</h3>
+
+</div>
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="afdd163fc58b80f48ae4783294b6ebc8e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afdd163fc58b80f48ae4783294b6ebc8e">&#9670;&nbsp;</a></span>find_if_impl()</h2>
@@ -188,6 +235,8 @@ template&lt;typename... Args, typename UnaryFunction , std::size_t... Idx&gt; </
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">emlabcpp::f</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>.</p>
 
 </div>
 </div>
@@ -232,6 +281,9 @@ template&lt;typename T , std::size_t N, range_container Container, typename Unar
   </tr>
 </table>
 </div><div class="memdoc">
+<p><a href="https://en.cppreference.com/w/cpp/language/eval_order">https://en.cppreference.com/w/cpp/language/eval_order</a> based on standard the order of process(i) calls is defined only in case we are using constructor initializer with {} brackets. Otherwise it can be any order ...</p>
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">emlabcpp::f</a>.</p>
 
 </div>
 </div>
@@ -252,6 +304,9 @@ template&lt;typename T , std::size_t N, gettable_container Container, typename U
         </tr>
       </table>
 </div><div class="memdoc">
+<p>viz. second map_f_to_a_impl</p>
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">emlabcpp::f</a>.</p>
 
 </div>
 </div>
@@ -313,7 +368,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1impl.html">impl</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

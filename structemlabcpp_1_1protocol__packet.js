@@ -11,5 +11,10 @@ var structemlabcpp_1_1protocol__packet =
     [ "sequencer", "structemlabcpp_1_1protocol__packet.html#af88d91afd710c8cbe8d384ff22ce5fd4", null ],
     [ "size_decl", "structemlabcpp_1_1protocol__packet.html#a7c4e4c2f6f95458cf0957772d325d708", null ],
     [ "size_type", "structemlabcpp_1_1protocol__packet.html#a66c0fcf1f8eb97b68b6fc64627fd6a75", null ],
-    [ "value_type", "structemlabcpp_1_1protocol__packet.html#a9db66da57b18f2e8a3bf01ccfe10d32e", null ]
+    [ "value_type", "structemlabcpp_1_1protocol__packet.html#a9db66da57b18f2e8a3bf01ccfe10d32e", null ],
+    [ "get_checksum", "structemlabcpp_1_1protocol__packet.html#a5543062172dba40c23e8ed3e1f58d189", null ],
+    [ "endianess", "structemlabcpp_1_1protocol__packet.html#a6b72de8fbbc1aa2aaf2d52334d16967b", null ],
+    [ "prefix", "structemlabcpp_1_1protocol__packet.html#a9bb73ed834609d988d9a204cf77c684b", null ],
+    [ "prefix_size", "structemlabcpp_1_1protocol__packet.html#ac216c5b4550e8f7d55e75d4619ed2b1a", null ],
+    [ "size_size", "structemlabcpp_1_1protocol__packet.html#a18d6dabf5a4c08a12339d8e5f55d5656", null ]
 ];

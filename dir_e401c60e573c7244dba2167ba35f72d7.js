@@ -27,7 +27,13 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     [ "physical_quantity.h", "physical__quantity_8h.html", "physical__quantity_8h" ],
     [ "pid.h", "pid_8h.html", [
       [ "pid", "classemlabcpp_1_1pid.html", "classemlabcpp_1_1pid" ],
-      [ "config", "structemlabcpp_1_1pid_1_1config.html", "structemlabcpp_1_1pid_1_1config" ]
+      [ "config", "classemlabcpp_1_1pid.html#structemlabcpp_1_1pid_1_1config", [
+        [ "d", "classemlabcpp_1_1pid.html#aadd38645eb3d83816828452374f213b2", null ],
+        [ "i", "classemlabcpp_1_1pid.html#afe22bc364818bedcc5d60df9f95f78ab", null ],
+        [ "max", "classemlabcpp_1_1pid.html#a236b401541516049d6d4a57f032f26ec", null ],
+        [ "min", "classemlabcpp_1_1pid.html#aa525bfb8c39a2233dead00ed7864f0b6", null ],
+        [ "p", "classemlabcpp_1_1pid.html#a6123194a5bddd4514802a632ddec8f93", null ]
+      ] ]
     ] ],
     [ "protocol.h", "protocol_8h.html", null ],
     [ "quantity.h", "quantity_8h.html", "quantity_8h" ],

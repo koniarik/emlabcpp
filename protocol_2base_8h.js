@@ -2,8 +2,13 @@ var protocol_2base_8h =
 [
     [ "protocol_result", "structemlabcpp_1_1protocol__result.html", "structemlabcpp_1_1protocol__result" ],
     [ "protocol_endianess", "structemlabcpp_1_1protocol__endianess.html", "structemlabcpp_1_1protocol__endianess" ],
-    [ "protocol_group", "structemlabcpp_1_1protocol__group.html", "structemlabcpp_1_1protocol__group" ],
-    [ "protocol_sized_buffer", "structemlabcpp_1_1protocol__sized__buffer.html", "structemlabcpp_1_1protocol__sized__buffer" ],
+    [ "protocol_group", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__group", [
+      [ "options_type", "namespaceemlabcpp.html#a139d42724f35fa5519e859cad8d93c39", null ]
+    ] ],
+    [ "protocol_sized_buffer", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__sized__buffer", [
+      [ "counter_type", "namespaceemlabcpp.html#ae9c48fbdad00cd511b7ffdbf96c444e8", null ],
+      [ "value_type", "namespaceemlabcpp.html#a30b9d448ee094e2a9c6e5b40216e2754", null ]
+    ] ],
     [ "protocol_offset", "structemlabcpp_1_1protocol__offset.html", "structemlabcpp_1_1protocol__offset" ],
     [ "protocol_def_type_base", "structemlabcpp_1_1protocol__def__type__base.html", null ],
     [ "protocol_endianess_enum", "protocol_2base_8h.html#a7efd2ac8dd2ca532b893b1c26565c594", [

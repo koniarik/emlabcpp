@@ -3,7 +3,9 @@ var dir_539f3c5103b46bf50615f61463de2f53 =
     [ "base.h", "experimental_2testing_2base_8h.html", "experimental_2testing_2base_8h" ],
     [ "controller.h", "controller_8h.html", [
       [ "testing_controller", "classemlabcpp_1_1testing__controller.html", "classemlabcpp_1_1testing__controller" ],
-      [ "test_info", "structemlabcpp_1_1testing__controller_1_1test__info.html", "structemlabcpp_1_1testing__controller_1_1test__info" ]
+      [ "test_info", "classemlabcpp_1_1testing__controller.html#structemlabcpp_1_1testing__controller_1_1test__info", [
+        [ "name", "classemlabcpp_1_1testing__controller.html#a017345bce892858346fc896b309bfb24", null ]
+      ] ]
     ] ],
     [ "controller_interface.h", "controller__interface_8h.html", [
       [ "testing_controller_interface", "classemlabcpp_1_1testing__controller__interface.html", "classemlabcpp_1_1testing__controller__interface" ]

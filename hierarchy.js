@@ -1,12 +1,12 @@
 var hierarchy =
 [
     [ "emlabcpp::access_iterator< Iterator, AccessFunction >", "classemlabcpp_1_1access__iterator.html", null ],
-    [ "emlabcpp::are_same<... >", "structemlabcpp_1_1are__same.html", null ],
+    [ "emlabcpp::are_same<... >", "namespaceemlabcpp.html#structemlabcpp_1_1are__same", null ],
     [ "std::array< T >", null, [
       [ "emlabcpp::protocol_mark", "structemlabcpp_1_1protocol__mark.html", null ]
     ] ],
     [ "emlabcpp::bounded< T, MinVal, MaxVal >", "classemlabcpp_1_1bounded.html", null ],
-    [ "emlabcpp::pid< TimeType >::config", "structemlabcpp_1_1pid_1_1config.html", null ],
+    [ "emlabcpp::pid< TimeType >::config", "classemlabcpp_1_1pid.html#structemlabcpp_1_1pid_1_1config", null ],
     [ "conjunction", null, [
       [ "emlabcpp::are_same< T, Ts... >", "structemlabcpp_1_1are__same_3_01T_00_01Ts_8_8_8_01_4.html", null ]
     ] ],
@@ -18,7 +18,7 @@ var hierarchy =
       [ "emlabcpp::tuple_has_type< T, std::tuple< Us... > >", "structemlabcpp_1_1tuple__has__type_3_01T_00_01std_1_1tuple_3_01Us_8_8_8_01_4_01_4.html", null ]
     ] ],
     [ "emlabcpp::either< LH, RH >", "classemlabcpp_1_1either.html", null ],
-    [ "emlabcpp::empty_assembly_tag", "structemlabcpp_1_1empty__assembly__tag.html", null ],
+    [ "emlabcpp::empty_assembly_tag", "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag", null ],
     [ "false_type", null, [
       [ "emlabcpp::impl::is_std_array< typename >", "structemlabcpp_1_1impl_1_1is__std__array.html", null ],
       [ "emlabcpp::impl::is_std_tuple< typename >", "structemlabcpp_1_1impl_1_1is__std__tuple.html", null ],
@@ -39,17 +39,17 @@ var hierarchy =
     ] ],
     [ "emlabcpp::generic_iterator< Derived >", "classemlabcpp_1_1generic__iterator.html", null ],
     [ "std::hash< T >", "structstd_1_1hash_3_01T_01_4.html", null ],
-    [ "emlabcpp::iterator_of< Container >", "structemlabcpp_1_1iterator__of.html", null ],
+    [ "emlabcpp::iterator_of< Container >", "namespaceemlabcpp.html#structemlabcpp_1_1iterator__of", null ],
     [ "std::iterator_traits< emlabcpp::access_iterator< Iterator, AccessFunction > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1access__iterator_3_01Iterator_00_01AccessFunction_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1numeric__iterator_3_01T_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::static_circular_buffer_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01Container_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::subscript_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1subscript__iterator_3_01Container_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::zip_iterator< Iterators... > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4.html", null ],
-    [ "emlabcpp::impl::map_f_collector< typename >", "structemlabcpp_1_1impl_1_1map__f__collector.html", null ],
+    [ "emlabcpp::impl::map_f_collector< typename >", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector", null ],
     [ "emlabcpp::impl::map_f_collector< std::array< T, N > >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::impl::map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", null ],
-    [ "emlabcpp::mapped< Container, UnaryFunction >", "structemlabcpp_1_1mapped.html", null ],
+    [ "emlabcpp::mapped< Container, UnaryFunction >", "namespaceemlabcpp.html#structemlabcpp_1_1mapped", null ],
     [ "emlabcpp::mapped< Container, UnaryFunction >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryFunction_01_4.html", null ],
     [ "emlabcpp::min_max< T >", "structemlabcpp_1_1min__max.html", null ],
     [ "emlabcpp::numeric_iterator< T >", "classemlabcpp_1_1numeric__iterator.html", null ],
@@ -65,8 +65,8 @@ var hierarchy =
       [ "emlabcpp::pool_resource< PoolSize, PoolCount >", "classemlabcpp_1_1pool__resource.html", null ]
     ] ],
     [ "emlabcpp::protocol_command< ID, Defs >", "structemlabcpp_1_1protocol__command.html", null ],
-    [ "emlabcpp::protocol_command_group< Endianess >", "structemlabcpp_1_1protocol__command__group_3_01Endianess_01_4.html", null ],
-    [ "emlabcpp::protocol_decl< D >", "structemlabcpp_1_1protocol__decl.html", null ],
+    [ "emlabcpp::protocol_command_group< Endianess >", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__command__group_3_01Endianess_01_4", null ],
+    [ "emlabcpp::protocol_decl< D >", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__decl", null ],
     [ "emlabcpp::protocol_decl< bounded< D, Min, Max > >", "structemlabcpp_1_1protocol__decl_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html", null ],
     [ "emlabcpp::protocol_decl< D >", "structemlabcpp_1_1protocol__decl_3_01D_01_4.html", [
       [ "emlabcpp::protocol_decl< protocol_endianess< Endianess, D > >", "structemlabcpp_1_1protocol__decl_3_01protocol__endianess_3_01Endianess_00_01D_01_4_01_4.html", null ]
@@ -83,7 +83,7 @@ var hierarchy =
     [ "emlabcpp::protocol_decl< std::tuple< Ds... > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::protocol_decl< std::variant< Ds... > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1variant_3_01Ds_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::protocol_decl< tag< V > >", "structemlabcpp_1_1protocol__decl_3_01tag_3_01V_01_4_01_4.html", null ],
-    [ "emlabcpp::protocol_def< typename, protocol_endianess_enum >", "structemlabcpp_1_1protocol__def.html", null ],
+    [ "emlabcpp::protocol_def< typename, protocol_endianess_enum >", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__def", null ],
     [ "emlabcpp::protocol_def< bounded< D, Min, Max >, Endianess >", "structemlabcpp_1_1protocol__def_3_01bounded_3_01D_00_01Min_00_01Max_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol_def< D, Endianess >", "structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html", [
       [ "emlabcpp::protocol_def< protocol_endianess< Endianess, D >, ParentEndianess >", "structemlabcpp_1_1protocol__def_3_01protocol__endianess_3_01Endianess_00_01D_01_4_00_01ParentEndianess_01_4.html", null ]
@@ -116,8 +116,8 @@ var hierarchy =
       ] ]
     ] ],
     [ "emlabcpp::protocol_endianess< Endianess, D >", "structemlabcpp_1_1protocol__endianess.html", null ],
-    [ "emlabcpp::protocol_error_record", "structemlabcpp_1_1protocol__error__record.html", null ],
-    [ "emlabcpp::protocol_group< Ds >", "structemlabcpp_1_1protocol__group.html", null ],
+    [ "emlabcpp::protocol_error_record", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__error__record", null ],
+    [ "emlabcpp::protocol_group< Ds >", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__group", null ],
     [ "emlabcpp::protocol_handler< T >", "structemlabcpp_1_1protocol__handler.html", null ],
     [ "emlabcpp::protocol_message< N >", "classemlabcpp_1_1protocol__message.html", [
       [ "emlabcpp::protocol_sizeless_message< N >", "classemlabcpp_1_1protocol__sizeless__message.html", null ]
@@ -131,7 +131,7 @@ var hierarchy =
     [ "emlabcpp::protocol_sequencer< Def >", "classemlabcpp_1_1protocol__sequencer.html", null ],
     [ "emlabcpp::protocol_serializer< T, Endianess >", "structemlabcpp_1_1protocol__serializer.html", null ],
     [ "emlabcpp::protocol_serializer< bool, Endianess >", "structemlabcpp_1_1protocol__serializer_3_01bool_00_01Endianess_01_4.html", null ],
-    [ "emlabcpp::protocol_sized_buffer< CounterDef, D >", "structemlabcpp_1_1protocol__sized__buffer.html", null ],
+    [ "emlabcpp::protocol_sized_buffer< CounterDef, D >", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__sized__buffer", null ],
     [ "emlabcpp::quantity< Derived, ValueType >", "classemlabcpp_1_1quantity.html", null ],
     [ "emlabcpp::quantity< physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte >, float >", "classemlabcpp_1_1quantity.html", [
       [ "emlabcpp::physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte >", "structemlabcpp_1_1physical__quantity.html", null ]
@@ -139,14 +139,14 @@ var hierarchy =
     [ "emlabcpp::quantity< tagged_quantity< Tag, float >, float >", "classemlabcpp_1_1quantity.html", [
       [ "emlabcpp::tagged_quantity< Tag, ValueType >", "classemlabcpp_1_1tagged__quantity.html", null ]
     ] ],
-    [ "emlabcpp::select_utype< size_t >", "structemlabcpp_1_1select__utype.html", null ],
+    [ "emlabcpp::select_utype< size_t >", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
     [ "emlabcpp::protocol_packet< Def, Payload >::sequencer_def", "structemlabcpp_1_1protocol__packet_1_1sequencer__def.html", null ],
     [ "emlabcpp::static_circular_buffer< T, N >", "classemlabcpp_1_1static__circular__buffer.html", null ],
     [ "emlabcpp::static_circular_buffer< uint8_t, Def::message_type::max_size *2 >", "classemlabcpp_1_1static__circular__buffer.html", null ],
     [ "emlabcpp::static_circular_buffer_iterator< Container >", "classemlabcpp_1_1static__circular__buffer__iterator.html", null ],
-    [ "emlabcpp::impl::static_size< typename >", "structemlabcpp_1_1impl_1_1static__size.html", null ],
+    [ "emlabcpp::impl::static_size< typename >", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1static__size", null ],
     [ "emlabcpp::impl::static_size< std::array< T, N > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
-    [ "emlabcpp::impl::static_size< std::decay_t< T > >", "structemlabcpp_1_1impl_1_1static__size.html", [
+    [ "emlabcpp::impl::static_size< std::decay_t< T > >", "namespaceemlabcpp_1_1impl.html", [
       [ "emlabcpp::static_size< T >", "structemlabcpp_1_1static__size.html", null ]
     ] ],
     [ "emlabcpp::impl::static_size< std::tuple< Ts... > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html", null ],
@@ -155,21 +155,21 @@ var hierarchy =
     [ "emlabcpp::static_vector< uint16_t, PoolCount >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::subscript_iterator< Container >", "classemlabcpp_1_1subscript__iterator.html", null ],
     [ "emlabcpp::tag< V >", "structemlabcpp_1_1tag.html", null ],
-    [ "emlabcpp::testing_controller::test_info", "structemlabcpp_1_1testing__controller_1_1test__info.html", null ],
+    [ "emlabcpp::testing_controller::test_info", "classemlabcpp_1_1testing__controller.html#structemlabcpp_1_1testing__controller_1_1test__info", null ],
     [ "emlabcpp::testing_controller", "classemlabcpp_1_1testing__controller.html", null ],
     [ "emlabcpp::testing_controller_interface", "classemlabcpp_1_1testing__controller__interface.html", null ],
-    [ "emlabcpp::testing_controller_message_error", "structemlabcpp_1_1testing__controller__message__error.html", null ],
-    [ "emlabcpp::testing_controller_protocol_error", "structemlabcpp_1_1testing__controller__protocol__error.html", null ],
+    [ "emlabcpp::testing_controller_message_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__controller__message__error", null ],
+    [ "emlabcpp::testing_controller_protocol_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__controller__protocol__error", null ],
     [ "emlabcpp::testing_interface", "classemlabcpp_1_1testing__interface.html", [
       [ "emlabcpp::testing_callable_overlay< Callable >", "classemlabcpp_1_1testing__callable__overlay.html", null ]
     ] ],
-    [ "emlabcpp::testing_internal_reactor_error", "structemlabcpp_1_1testing__internal__reactor__error.html", null ],
+    [ "emlabcpp::testing_internal_reactor_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__internal__reactor__error", null ],
     [ "emlabcpp::testing_packet_def", "structemlabcpp_1_1testing__packet__def.html", null ],
     [ "emlabcpp::testing_reactor", "classemlabcpp_1_1testing__reactor.html", [
       [ "emlabcpp::testing_default_reactor", "classemlabcpp_1_1testing__default__reactor.html", null ]
     ] ],
     [ "emlabcpp::testing_reactor_interface", "classemlabcpp_1_1testing__reactor__interface.html", null ],
-    [ "emlabcpp::testing_reactor_protocol_error", "structemlabcpp_1_1testing__reactor__protocol__error.html", null ],
+    [ "emlabcpp::testing_reactor_protocol_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__reactor__protocol__error", null ],
     [ "emlabcpp::testing_record", "classemlabcpp_1_1testing__record.html", null ],
     [ "emlabcpp::testing_result", "structemlabcpp_1_1testing__result.html", null ],
     [ "true_type", null, [
@@ -180,7 +180,7 @@ var hierarchy =
       [ "emlabcpp::impl::is_view< T >", "structemlabcpp_1_1impl_1_1is__view_3_01T_01_4.html", null ],
       [ "emlabcpp::impl::is_view< view< Iter > >", "structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html", null ]
     ] ],
-    [ "emlabcpp::tuple_has_type< T, Tuple >", "structemlabcpp_1_1tuple__has__type.html", null ],
+    [ "emlabcpp::tuple_has_type< T, Tuple >", "namespaceemlabcpp.html#structemlabcpp_1_1tuple__has__type", null ],
     [ "emlabcpp::view< Iterator >", "classemlabcpp_1_1view.html", [
       [ "emlabcpp::bounded_view< Iterator, SizeType >", "classemlabcpp_1_1bounded__view.html", null ]
     ] ],

@@ -35,5 +35,6 @@ var classemlabcpp_1_1static__circular__buffer =
     [ "rend", "classemlabcpp_1_1static__circular__buffer.html#aed2d8dce3af78778c37e0605b35d4f13", null ],
     [ "size", "classemlabcpp_1_1static__circular__buffer.html#a4a90f093a980231b0156e8ed33c6e1f1", null ],
     [ "take_front", "classemlabcpp_1_1static__circular__buffer.html#a86c4ac6c27666d9a9ddfd310142da75b", null ],
-    [ "static_circular_buffer_iterator", "classemlabcpp_1_1static__circular__buffer.html#a4be2068abf9d0bbaa7707434d0bc7f8a", null ]
+    [ "static_circular_buffer_iterator", "classemlabcpp_1_1static__circular__buffer.html#a4be2068abf9d0bbaa7707434d0bc7f8a", null ],
+    [ "capacity", "classemlabcpp_1_1static__circular__buffer.html#a062b4be080a50784528f1c3a5f78ab41", null ]
 ];

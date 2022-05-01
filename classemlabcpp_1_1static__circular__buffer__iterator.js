@@ -14,5 +14,7 @@ var classemlabcpp_1_1static__circular__buffer__iterator =
     [ "operator-=", "classemlabcpp_1_1static__circular__buffer__iterator.html#a47baf35c528d26842f3d724ce6b5d44b", null ],
     [ "operator=", "classemlabcpp_1_1static__circular__buffer__iterator.html#a072a2ac47a3602ba2f2965383ae9f744", null ],
     [ "operator=", "classemlabcpp_1_1static__circular__buffer__iterator.html#a6710c9fe1b4b18e3057871e1350b8bcf", null ],
-    [ "operator==", "classemlabcpp_1_1static__circular__buffer__iterator.html#a2fad969144117345434b983a25d4a8a1", null ]
+    [ "operator==", "classemlabcpp_1_1static__circular__buffer__iterator.html#a2fad969144117345434b983a25d4a8a1", null ],
+    [ "is_const", "classemlabcpp_1_1static__circular__buffer__iterator.html#a1556b7e16e728bcd5f1bff73f74de0ad", null ],
+    [ "real_size", "classemlabcpp_1_1static__circular__buffer__iterator.html#a18cb2b7ed6b092d9060eb8036fc4d698", null ]
 ];

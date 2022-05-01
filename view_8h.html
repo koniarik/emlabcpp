@@ -92,16 +92,12 @@ $(document).ready(function(){initNavTree('view_8h.html',''); initResizable(); })
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="types_8h_source.html">emlabcpp/types.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for view.h:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="view_8h__incl.svg" width="538" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for view.h:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="view_8h__dep__incl.svg" width="2639" height="931"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="view_8h__incl.svg" width="304" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -110,8 +106,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1view.html">emlabcpp::view&lt; Iterator &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic class to represent view of some container.  <a href="classemlabcpp_1_1view.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html">emlabcpp::impl::is_view&lt; view&lt; Iter &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Support for our deduction guide to types - is_view_v.  <a href="structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -129,17 +127,22 @@ Functions</h2></td></tr>
 <tr class="separator:a8d7465ddd19bb5f2eaa845a6cc78b8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b726ddab4f550f3e186f177243cb09b"><td class="memTemplParams" colspan="2">template&lt;range_container Container&gt; </td></tr>
 <tr class="memitem:a4b726ddab4f550f3e186f177243cb09b"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a4b726ddab4f550f3e186f177243cb09b">emlabcpp::view</a> (Container &amp;cont) -&gt; view&lt; iterator_of_t&lt; Container &gt; &gt;</td></tr>
+<tr class="memdesc:a4b726ddab4f550f3e186f177243cb09b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The container deduction guide uses iterator_of_t.  <a href="namespaceemlabcpp.html#a4b726ddab4f550f3e186f177243cb09b">More...</a><br /></td></tr>
 <tr class="separator:a4b726ddab4f550f3e186f177243cb09b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a172761451ef499ea1a316bf3b683fd16"><td class="memTemplParams" colspan="2">template&lt;typename Iter &gt; </td></tr>
 <tr class="memitem:a172761451ef499ea1a316bf3b683fd16"><td class="memTemplItemLeft" align="right" valign="top">constexpr view&lt; Iter &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">emlabcpp::view_n</a> (Iter begin, std::size_t n)</td></tr>
+<tr class="memdesc:a172761451ef499ea1a316bf3b683fd16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates view over 'n' items of dataset starting at 'begin' This does not check validity of the range!  <a href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">More...</a><br /></td></tr>
 <tr class="separator:a172761451ef499ea1a316bf3b683fd16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a793151b3dbb2a3d533314e5a55cf6f54"><td class="memTemplParams" colspan="2">template&lt;range_container Container&gt; </td></tr>
 <tr class="memitem:a793151b3dbb2a3d533314e5a55cf6f54"><td class="memTemplItemLeft" align="right" valign="top">constexpr view&lt; iterator_of_t&lt; Container &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a793151b3dbb2a3d533314e5a55cf6f54">emlabcpp::trim_view</a> (Container &amp;cont, float r)</td></tr>
+<tr class="memdesc:a793151b3dbb2a3d533314e5a55cf6f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the view over over Container, where we ignore first r*size/2 items and last r*size/2 items.  <a href="namespaceemlabcpp.html#a793151b3dbb2a3d533314e5a55cf6f54">More...</a><br /></td></tr>
 <tr class="separator:a793151b3dbb2a3d533314e5a55cf6f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3921b804e7ed8b1041ec50f786404c28"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3921b804e7ed8b1041ec50f786404c28">emlabcpp::reversed</a> (referenceable_container auto &amp;&amp;container) -&gt; view&lt; decltype(container.rbegin()) &gt;</td></tr>
+<tr class="memdesc:a3921b804e7ed8b1041ec50f786404c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns view to the Container in reverse order.  <a href="namespaceemlabcpp.html#a3921b804e7ed8b1041ec50f786404c28">More...</a><br /></td></tr>
 <tr class="separator:a3921b804e7ed8b1041ec50f786404c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09ef973500b9ebc01d0f76f50c43aa38"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, typename Iterator &gt; </td></tr>
 <tr class="memitem:a09ef973500b9ebc01d0f76f50c43aa38"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a09ef973500b9ebc01d0f76f50c43aa38">emlabcpp::operator&lt;&lt;</a> (Stream &amp;os, const view&lt; Iterator &gt; &amp;output)</td></tr>
+<tr class="memdesc:a09ef973500b9ebc01d0f76f50c43aa38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output operator for the view, uses comma to separate the items in the view.  <a href="namespaceemlabcpp.html#a09ef973500b9ebc01d0f76f50c43aa38">More...</a><br /></td></tr>
 <tr class="separator:a09ef973500b9ebc01d0f76f50c43aa38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -148,7 +151,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="view_8h.html">view.h</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

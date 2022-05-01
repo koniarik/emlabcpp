@@ -95,36 +95,7 @@ $(document).ready(function(){initNavTree('iterator_8h_source.html',''); initResi
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// generic_iterator is a class using CRTP to ease implementation of custom iterators.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// User of the class is required to inheric from generic_iterator and pass the inheriting class as</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// template argument Derived. The generic_iterator expectes existence of properly setup</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// std::iterator_traits&lt;Derived&gt; instance, which is used to decide types for various methods.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// Given that generic_iterator is able to provide user with methods/functions that are based on the</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// Derived methods.</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span><span class="comment">// For example: It is necessary for Derived class to implement only operator==, given that</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// generic_iterator is able to provied !=</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span><span class="comment">// The Derived class is expected to provide these methods:</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//  - reference operator*();</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//  - const_reference operator*() const;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//  - Deriver&amp; operator+=(difference_type);</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//  - Deriver&amp; operator-=(difference_type);</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//  - bool operator&lt;(const Derived &amp; other);</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//  - bool operator==(const Derived &amp; other);</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">//  - difference_type operator-(const Derived&amp; other);</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span><span class="comment">// Give nthese methods, the generic iterator provides additional methods thanks to CRTP mechanics:</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//  - pointer operator-&gt;();</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//  - const_pointer opetrator-&gt;();</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//  - Derived&amp; operator++();</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">//  - Derived&amp; operator++(int);</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">//  - Derived&amp; operator--();</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//  - Derived&amp; operator--(int);</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">//  - Derived operator+(difference_type);</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//  - Derived operator-(difference_type);</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span><span class="comment">// Additional to that, following free functions are usable:</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">//  - bool operator&gt;(const generic_iterator&lt;Derived&gt; &amp;, const generic_iterator&lt;Derived&gt;&amp;)</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">//  - bool operator&lt;=(const generic_iterator&lt;Derived&gt; &amp;, const generic_iterator&lt;Derived&gt;&amp;)</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">//  - bool operator!=(const generic_iterator&lt;Derived&gt; &amp;, const generic_iterator&lt;Derived&gt;&amp;)</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt; <span class="keyword">typename</span> Derived &gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Derived &gt;</div>
 <div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1generic__iterator.html">   45</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
@@ -219,7 +190,7 @@ $(document).ready(function(){initNavTree('iterator_8h_source.html',''); initResi
 <div class="ttc" id="aclassemlabcpp_1_1generic__iterator_html_aca9e45a8e9202df3629aaffcfc335842"><div class="ttname"><a href="classemlabcpp_1_1generic__iterator.html#aca9e45a8e9202df3629aaffcfc335842">emlabcpp::generic_iterator::const_reference</a></div><div class="ttdeci">const reference const_reference</div><div class="ttdef"><b>Definition:</b> iterator.h:60</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1generic__iterator_html_a95e1892dd926944107bee59661922c19"><div class="ttname"><a href="classemlabcpp_1_1generic__iterator.html#a95e1892dd926944107bee59661922c19">emlabcpp::generic_iterator::operator-&gt;</a></div><div class="ttdeci">constexpr pointer operator-&gt;()</div><div class="ttdef"><b>Definition:</b> iterator.h:66</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1generic__iterator_html_aa2a4cae41edb6508ae6a674d9748d030"><div class="ttname"><a href="classemlabcpp_1_1generic__iterator.html#aa2a4cae41edb6508ae6a674d9748d030">emlabcpp::generic_iterator::operator--</a></div><div class="ttdeci">constexpr Derived &amp; operator--()</div><div class="ttdef"><b>Definition:</b> iterator.h:89</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1generic__iterator_html"><div class="ttname"><a href="classemlabcpp_1_1generic__iterator.html">emlabcpp::generic_iterator</a></div><div class="ttdef"><b>Definition:</b> iterator.h:45</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1generic__iterator_html"><div class="ttname"><a href="classemlabcpp_1_1generic__iterator.html">emlabcpp::generic_iterator</a></div><div class="ttdoc">generic_iterator is a class using CRTP to ease implementation of custom iterators.</div><div class="ttdef"><b>Definition:</b> iterator.h:45</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1generic__iterator_html_ad12b20563cf58540d83d4fefe782dad8"><div class="ttname"><a href="classemlabcpp_1_1generic__iterator.html#ad12b20563cf58540d83d4fefe782dad8">emlabcpp::generic_iterator::operator-&gt;</a></div><div class="ttdeci">constexpr const_pointer operator-&gt;() const</div><div class="ttdef"><b>Definition:</b> iterator.h:71</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1generic__iterator_html_aeabf51df48a675da9886636622e47980"><div class="ttname"><a href="classemlabcpp_1_1generic__iterator.html#aeabf51df48a675da9886636622e47980">emlabcpp::generic_iterator::iterator_category</a></div><div class="ttdeci">typename std::iterator_traits&lt; Derived &gt;::iterator_category iterator_category</div><div class="ttdef"><b>Definition:</b> iterator.h:64</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1generic__iterator_html_a1b29a6768655f601d4fd06dd1aa7d9dd"><div class="ttname"><a href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">emlabcpp::generic_iterator::difference_type</a></div><div class="ttdeci">typename std::iterator_traits&lt; Derived &gt;::difference_type difference_type</div><div class="ttdef"><b>Definition:</b> iterator.h:63</div></div>
@@ -233,7 +204,7 @@ $(document).ready(function(){initNavTree('iterator_8h_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="iterator_8h.html">iterator.h</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

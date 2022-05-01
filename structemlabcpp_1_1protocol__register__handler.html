@@ -93,6 +93,9 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1protocol__register__
 </div><!--header-->
 <div class="contents">
 
+<p>Handler for serialization and extraction of datatypes used by the register_map.  
+ <a href="structemlabcpp_1_1protocol__register__handler.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="register__handler_8h_source.html">register_handler.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -118,9 +121,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac8d1d83cfc39d28cc3f392abb037c6b9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structemlabcpp_1_1protocol__register__handler.html#a887d04e5fd27c342ec895e11933c8fbe">message_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__register__handler.html#ac8d1d83cfc39d28cc3f392abb037c6b9">select</a> (const <a class="el" href="structemlabcpp_1_1protocol__register__handler.html#adcdaf315a8fb2b571aa65ddd704c9312">map_type</a> &amp;m, <a class="el" href="structemlabcpp_1_1protocol__register__handler.html#aa44963570d9c838f7452bdb3393a70c8">key_type</a> key)</td></tr>
 <tr class="separator:ac8d1d83cfc39d28cc3f392abb037c6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c820c6a1b01cbd1e40b1be6a104f631"><td class="memTemplParams" colspan="2">template&lt;key_type Key&gt; </td></tr>
-<tr class="memitem:a0c820c6a1b01cbd1e40b1be6a104f631"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol__register__handler.html#a9a0e52ccaa54e002290a0fa9c845e6f1">reg_value_type</a>&lt; Key &gt;, <a class="el" href="structemlabcpp_1_1protocol__error__record.html">protocol_error_record</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__register__handler.html#a0c820c6a1b01cbd1e40b1be6a104f631">extract</a> (const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const uint8_t * &gt; &amp;msg)</td></tr>
+<tr class="memitem:a0c820c6a1b01cbd1e40b1be6a104f631"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol__register__handler.html#a9a0e52ccaa54e002290a0fa9c845e6f1">reg_value_type</a>&lt; Key &gt;, <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__error__record">protocol_error_record</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__register__handler.html#a0c820c6a1b01cbd1e40b1be6a104f631">extract</a> (const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const uint8_t * &gt; &amp;msg)</td></tr>
 <tr class="separator:a0c820c6a1b01cbd1e40b1be6a104f631"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0553976a34ac75e233343c94fe1fad4"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; <a class="el" href="structemlabcpp_1_1protocol__error__record.html">protocol_error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__register__handler.html#aa0553976a34ac75e233343c94fe1fad4">insert</a> (<a class="el" href="structemlabcpp_1_1protocol__register__handler.html#adcdaf315a8fb2b571aa65ddd704c9312">map_type</a> &amp;m, <a class="el" href="structemlabcpp_1_1protocol__register__handler.html#aa44963570d9c838f7452bdb3393a70c8">key_type</a> key, const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const uint8_t * &gt; &amp;buff)</td></tr>
+<tr class="memitem:aa0553976a34ac75e233343c94fe1fad4"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__error__record">protocol_error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__register__handler.html#aa0553976a34ac75e233343c94fe1fad4">insert</a> (<a class="el" href="structemlabcpp_1_1protocol__register__handler.html#adcdaf315a8fb2b571aa65ddd704c9312">map_type</a> &amp;m, <a class="el" href="structemlabcpp_1_1protocol__register__handler.html#aa44963570d9c838f7452bdb3393a70c8">key_type</a> key, const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const uint8_t * &gt; &amp;buff)</td></tr>
 <tr class="separator:aa0553976a34ac75e233343c94fe1fad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -128,7 +131,13 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:ad8c313123864063c023fb6c970dc07c0"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__register__handler.html#ad8c313123864063c023fb6c970dc07c0">max_size</a> = map_type::max_value_size</td></tr>
 <tr class="separator:ad8c313123864063c023fb6c970dc07c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename Map&gt;<br />
+struct emlabcpp::protocol_register_handler&lt; Map &gt;</h3>
+
+<p>Handler for serialization and extraction of datatypes used by the register_map. </p>
+<p>This provides interface for handling conversion of bytes to types used in the map. <code>serialize</code> and <code>extract</code> works directly with the types used by the map, based on compile time key. <code>select</code> and <code>insert</code> works with the map itself based on runtime information. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aa44963570d9c838f7452bdb3393a70c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa44963570d9c838f7452bdb3393a70c8">&#9670;&nbsp;</a></span>key_type</h2>
 
@@ -228,7 +237,7 @@ template&lt;key_type Key&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol__register__handler.html#a9a0e52ccaa54e002290a0fa9c845e6f1">reg_value_type</a>&lt; Key &gt;, <a class="el" href="structemlabcpp_1_1protocol__error__record.html">protocol_error_record</a> &gt; <a class="el" href="structemlabcpp_1_1protocol__register__handler.html">emlabcpp::protocol_register_handler</a>&lt; Map &gt;::extract </td>
+          <td class="memname">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol__register__handler.html#a9a0e52ccaa54e002290a0fa9c845e6f1">reg_value_type</a>&lt; Key &gt;, <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__error__record">protocol_error_record</a> &gt; <a class="el" href="structemlabcpp_1_1protocol__register__handler.html">emlabcpp::protocol_register_handler</a>&lt; Map &gt;::extract </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const uint8_t * &gt; &amp;&#160;</td>
           <td class="paramname"><em>msg</em></td><td>)</td>
@@ -241,6 +250,8 @@ template&lt;key_type Key&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="classemlabcpp_1_1bounded__view.html#a6b64890bc01240d6bb82c9cc96fc2abc">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::make()</a>, <a class="el" href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">emlabcpp::min()</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>, <a class="el" href="classemlabcpp_1_1view.html#aaa812fd178fc993e11fbbbc5894fb3c3">emlabcpp::view&lt; Iterator &gt;::size()</a>, <a class="el" href="namespaceemlabcpp.html#ab0600b5cf194accae7c5238c9972cad1">emlabcpp::SIZE_ERR</a>, and <a class="el" href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">emlabcpp::view_n()</a>.</p>
 
 </div>
 </div>
@@ -256,7 +267,7 @@ template&lt;typename Map &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::optional&lt; <a class="el" href="structemlabcpp_1_1protocol__error__record.html">protocol_error_record</a> &gt; <a class="el" href="structemlabcpp_1_1protocol__register__handler.html">emlabcpp::protocol_register_handler</a>&lt; Map &gt;::insert </td>
+          <td class="memname">static std::optional&lt; <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__error__record">protocol_error_record</a> &gt; <a class="el" href="structemlabcpp_1_1protocol__register__handler.html">emlabcpp::protocol_register_handler</a>&lt; Map &gt;::insert </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structemlabcpp_1_1protocol__register__handler.html#adcdaf315a8fb2b571aa65ddd704c9312">map_type</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em>, </td>
@@ -285,6 +296,8 @@ template&lt;typename Map &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>.</p>
 
 </div>
 </div>
@@ -354,6 +367,8 @@ template&lt;key_type Key&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="reference">References <a class="el" href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a>, <a class="el" href="structemlabcpp_1_1protocol__register__handler.html#ad8c313123864063c023fb6c970dc07c0">emlabcpp::protocol_register_handler&lt; Map &gt;::max_size</a>, and <a class="el" href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">emlabcpp::view_n()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -390,7 +405,7 @@ template&lt;typename Map &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol__register__handler.html">protocol_register_handler</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

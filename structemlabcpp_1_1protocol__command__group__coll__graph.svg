@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Command group should be used as a collection of commands that are selected based on the ID,...">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-41.5 167,-41.5 167,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::protocol</text>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">_command_group&lt; Endianess,</text>
@@ -23,7 +23,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structemlabcpp_1_1protocol__def__type__base.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="structemlabcpp_1_1protocol__def__type__base.html" target="_top" xlink:title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib...">
 <polygon fill="white" stroke="black" points="28.5,-78.5 28.5,-108.5 138.5,-108.5 138.5,-78.5 28.5,-78.5"/>
 <text text-anchor="start" x="36.5" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::protocol</text>
 <text text-anchor="middle" x="83.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">_def_type_base</text>

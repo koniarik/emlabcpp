@@ -99,19 +99,15 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// Data container for up to N elements</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1static__vector.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemlabcpp_1_1static__vector.html">static_vector</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="comment">// type for storage of one item</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">using</span> storage_type = std::aligned_storage_t&lt; <span class="keyword">sizeof</span>( T ) * N, <span class="keyword">alignof</span>( T ) &gt;;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1static__vector.html#ac14413ef1e2b9321a2f975065e49c300">   22</a></span>&#160;        <span class="keyword">static</span> constexpr std::size_t <a class="code" href="classemlabcpp_1_1static__vector.html#ac14413ef1e2b9321a2f975065e49c300">capacity</a> = N;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">// public types</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="comment">// --------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1static__vector.html#ad1f78fe788ab85252cef7740ab8c1900">   26</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1static__vector.html#ad1f78fe788ab85252cef7740ab8c1900">value_type</a>      = T;</div>
 <div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1static__vector.html#a72d653f3395cac7d7bb3bc4583871cc7">   27</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1static__vector.html#a72d653f3395cac7d7bb3bc4583871cc7">size_type</a>       = std::size_t;</div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1static__vector.html#afd91aab0a09749958a8874872b36b311">   28</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1static__vector.html#afd91aab0a09749958a8874872b36b311">reference</a>       = T&amp;;</div>
@@ -119,8 +115,6 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1static__vector.html#ab2d2fa1d5fd4306264ec6cc8efdd60d2">   30</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1static__vector.html#ab2d2fa1d5fd4306264ec6cc8efdd60d2">iterator</a>        = T*;</div>
 <div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1static__vector.html#a39ce12a1299db38ce04c60d817597cf4">   31</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1static__vector.html#a39ce12a1299db38ce04c60d817597cf4">const_iterator</a>  = <span class="keyword">const</span> T*;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">// public methods</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">// --------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classemlabcpp_1_1static__vector.html#ab4bea0a5acb4f9ec7d91041a0973c3a4">static_vector</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1static__vector.html#a7b58cbfb4128f3c65a5c5ea0e99e998b">   36</a></span>&#160;        <a class="code" href="classemlabcpp_1_1static__vector.html#a7b58cbfb4128f3c65a5c5ea0e99e998b">static_vector</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector</a>&amp; other )</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
@@ -235,7 +229,6 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                <span class="keywordflow">return</span> ref_item( size_ - 1 );</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        }</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="comment">// other methods</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
 <div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1static__vector.html#a83c2ae82cedc3e6d1fce8584132f9b04">  151</a></span>&#160;        [[nodiscard]] constexpr std::size_t <a class="code" href="classemlabcpp_1_1static__vector.html#a83c2ae82cedc3e6d1fce8584132f9b04">max_size</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keyword">        </span>{</div>
@@ -277,14 +270,10 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        }</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="comment">// private attributes</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="comment">// --------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        storage_type data_;      <span class="comment">// storage of the entire dataset</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <a class="code" href="classemlabcpp_1_1static__vector.html#a72d653f3395cac7d7bb3bc4583871cc7">size_type</a>    size_ = 0;  <span class="comment">// count of items</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        storage_type data_;      </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <a class="code" href="classemlabcpp_1_1static__vector.html#a72d653f3395cac7d7bb3bc4583871cc7">size_type</a>    size_ = 0;  </div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="comment">// private methods</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="comment">// --------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordtype">void</span> delete_item( <a class="code" href="classemlabcpp_1_1static__vector.html#a72d653f3395cac7d7bb3bc4583871cc7">size_type</a> i )</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        {</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                std::destroy_at( std::addressof( ref_item( i ) ) );</div>
@@ -313,7 +302,6 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                    cont.begin(), cont.end(), <span class="keyword">reinterpret_cast&lt;</span> T* <span class="keyword">&gt;</span>( &amp;data_ ) );</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        }</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="comment">// Reference to the item in data_storage.</span></div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        [[nodiscard]] <a class="code" href="classemlabcpp_1_1static__vector.html#afd91aab0a09749958a8874872b36b311">reference</a> ref_item( <a class="code" href="classemlabcpp_1_1static__vector.html#a72d653f3395cac7d7bb3bc4583871cc7">size_type</a> i )</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        {</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                <span class="keywordflow">return</span> *( <a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>() + i );</div>
@@ -323,7 +311,6 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                <span class="keywordflow">return</span> *( <a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>() + i );</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        }</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="comment">// Cleans entire buffer from items.</span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="keywordtype">void</span> purge()</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        {</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                <span class="keywordflow">while</span> ( size_ &gt; 0 ) {</div>
@@ -370,7 +357,6 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        lh.<a class="code" href="classemlabcpp_1_1static__vector.html#aa311b7e7e5ad50d9b413f58a3a7087ab">swap</a>( rh );</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;}</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment">// Output operator for the view, uses comma to separate the items in the view.</span></div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="keyword">template</span> &lt; ostreamlike Stream, <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
 <div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a7dff36c03e0407491a4acf6b85b3f86e">  286</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( Stream&amp; os, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; vec )</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;{</div>
@@ -382,8 +368,8 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 </div><!-- doc-content -->
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_aa7af39848a6b7538898fc738e1cce8f5"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#aa7af39848a6b7538898fc738e1cce8f5">emlabcpp::static_vector::operator=</a></div><div class="ttdeci">static_vector &amp; operator=(static_vector &amp;&amp;other) noexcept</div><div class="ttdef"><b>Definition:</b> static_vector.h:59</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aba54ad76836fd2a980ac4d6cf8d648af"><div class="ttname"><a href="namespaceemlabcpp.html#aba54ad76836fd2a980ac4d6cf8d648af">emlabcpp::swap</a></div><div class="ttdeci">void swap(const static_vector&lt; T, N &gt; &amp;lh, const static_vector&lt; T, N &gt; &amp;rh)</div><div class="ttdef"><b>Definition:</b> static_vector.h:279</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1view_html"><div class="ttname"><a href="classemlabcpp_1_1view.html">emlabcpp::view</a></div><div class="ttdef"><b>Definition:</b> view.h:15</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1static__vector_html"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html">emlabcpp::static_vector</a></div><div class="ttdef"><b>Definition:</b> static_vector.h:15</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1view_html"><div class="ttname"><a href="classemlabcpp_1_1view.html">emlabcpp::view</a></div><div class="ttdoc">Generic class to represent view of some container.</div><div class="ttdef"><b>Definition:</b> view.h:15</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1static__vector_html"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html">emlabcpp::static_vector</a></div><div class="ttdoc">Data container for up to N elements.</div><div class="ttdef"><b>Definition:</b> static_vector.h:15</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a1fd0294ef3ff5be71fd8c70de19f26fa"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a1fd0294ef3ff5be71fd8c70de19f26fa">emlabcpp::static_vector::back</a></div><div class="ttdeci">const_reference back() const</div><div class="ttdef"><b>Definition:</b> static_vector.h:144</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a3ac1be4a1a7ca604add992ca39ac0223"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a3ac1be4a1a7ca604add992ca39ac0223">emlabcpp::static_vector::front</a></div><div class="ttdeci">reference front()</div><div class="ttdef"><b>Definition:</b> static_vector.h:105</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a7b58cbfb4128f3c65a5c5ea0e99e998b"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a7b58cbfb4128f3c65a5c5ea0e99e998b">emlabcpp::static_vector::static_vector</a></div><div class="ttdeci">static_vector(const static_vector &amp;other)</div><div class="ttdef"><b>Definition:</b> static_vector.h:36</div></div>
@@ -395,13 +381,13 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_ad1f78fe788ab85252cef7740ab8c1900"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#ad1f78fe788ab85252cef7740ab8c1900">emlabcpp::static_vector&lt; char, 32 &gt;::value_type</a></div><div class="ttdeci">char value_type</div><div class="ttdef"><b>Definition:</b> static_vector.h:26</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a07a51eabf890bd03e872d12696064e9e"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a07a51eabf890bd03e872d12696064e9e">emlabcpp::static_vector::front</a></div><div class="ttdeci">const_reference front() const</div><div class="ttdef"><b>Definition:</b> static_vector.h:110</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a1cb3115b37984ce71393fca1dc7b7717"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a1cb3115b37984ce71393fca1dc7b7717">emlabcpp::static_vector::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdef"><b>Definition:</b> static_vector.h:161</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a83c2ae82cedc3e6d1fce8584132f9b04"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a83c2ae82cedc3e6d1fce8584132f9b04">emlabcpp::static_vector::max_size</a></div><div class="ttdeci">constexpr std::size_t max_size() const</div><div class="ttdef"><b>Definition:</b> static_vector.h:151</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a83c2ae82cedc3e6d1fce8584132f9b04"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a83c2ae82cedc3e6d1fce8584132f9b04">emlabcpp::static_vector::max_size</a></div><div class="ttdeci">constexpr std::size_t max_size() const</div><div class="ttdoc">other methods</div><div class="ttdef"><b>Definition:</b> static_vector.h:151</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_aa311b7e7e5ad50d9b413f58a3a7087ab"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#aa311b7e7e5ad50d9b413f58a3a7087ab">emlabcpp::static_vector::swap</a></div><div class="ttdeci">void swap(static_vector &amp;other)</div><div class="ttdef"><b>Definition:</b> static_vector.h:70</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a8a817096695c3a6b72f1f53f21b39a93"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a8a817096695c3a6b72f1f53f21b39a93">emlabcpp::static_vector::~static_vector</a></div><div class="ttdeci">~static_vector()</div><div class="ttdef"><b>Definition:</b> static_vector.h:185</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afaabfb4832972f3f9c7589a82ac8ac4f"><div class="ttname"><a href="namespaceemlabcpp.html#afaabfb4832972f3f9c7589a82ac8ac4f">emlabcpp::operator!=</a></div><div class="ttdeci">bool operator!=(const static_circular_buffer&lt; T, N &gt; &amp;lh, const static_circular_buffer&lt; T, N &gt; &amp;rh)</div><div class="ttdef"><b>Definition:</b> static_circular_buffer.h:318</div></div>
 <div class="ttc" id="aiterator_8h_html"><div class="ttname"><a href="iterator_8h.html">iterator.h</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a257c4860fbca99e142184e39bd71e73a"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a257c4860fbca99e142184e39bd71e73a">emlabcpp::static_vector&lt; char, 32 &gt;::const_reference</a></div><div class="ttdeci">const char &amp; const_reference</div><div class="ttdef"><b>Definition:</b> static_vector.h:29</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_ab4db09819cc4cc5a21ed238dd2e30d6a"><div class="ttname"><a href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">emlabcpp::min</a></div><div class="ttdeci">constexpr Derived min(const quantity&lt; Derived, ValueType &gt; lh, const quantity&lt; Derived, ValueType &gt; rh)</div><div class="ttdef"><b>Definition:</b> quantity.h:220</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ab4db09819cc4cc5a21ed238dd2e30d6a"><div class="ttname"><a href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">emlabcpp::min</a></div><div class="ttdeci">constexpr Derived min(const quantity&lt; Derived, ValueType &gt; lh, const quantity&lt; Derived, ValueType &gt; rh)</div><div class="ttdoc">Quantity with minimum value of one of the quantities.</div><div class="ttdef"><b>Definition:</b> quantity.h:220</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_ab2d2fa1d5fd4306264ec6cc8efdd60d2"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#ab2d2fa1d5fd4306264ec6cc8efdd60d2">emlabcpp::static_vector&lt; char, 32 &gt;::iterator</a></div><div class="ttdeci">char * iterator</div><div class="ttdef"><b>Definition:</b> static_vector.h:30</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a67b44845c4d2c5eb972006bb96adc3cf"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a67b44845c4d2c5eb972006bb96adc3cf">emlabcpp::static_vector::back</a></div><div class="ttdeci">reference back()</div><div class="ttdef"><b>Definition:</b> static_vector.h:140</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a0885b033cb8b4e6a4b4105ad75a97d7a"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a0885b033cb8b4e6a4b4105ad75a97d7a">emlabcpp::static_vector::begin</a></div><div class="ttdeci">const_iterator begin() const</div><div class="ttdef"><b>Definition:</b> static_vector.h:95</div></div>
@@ -429,7 +415,7 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="static__vector_8h.html">static_vector.h</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

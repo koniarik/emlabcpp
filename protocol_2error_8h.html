@@ -86,23 +86,20 @@ $(document).ready(function(){initNavTree('protocol_2error_8h.html',''); initResi
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">error.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;array&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for error.h:</div>
-<div class="dyncontent">
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for error.h:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="protocol_2error_8h__incl.svg" width="206" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="protocol_2error_8h__dep__incl.svg" width="1200" height="856"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -111,9 +108,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__mark.html">emlabcpp::protocol_mark</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error handling in protocol works with marks.  <a href="structemlabcpp_1_1protocol__mark.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__error__record.html">emlabcpp::protocol_error_record</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1protocol__error__record"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__error__record">emlabcpp::protocol_error_record</a></td></tr>
+<tr class="separator:structemlabcpp_1_1protocol__error__record"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -123,15 +121,80 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:acb44994cf1fc5a0a2bfc4896ee8332de"><td class="memItemLeft" align="right" valign="top">constexpr protocol_mark&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">emlabcpp::make_protocol_mark</a> (const char(&amp;msg)[17])</td></tr>
+<tr class="memdesc:acb44994cf1fc5a0a2bfc4896ee8332de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates <a class="el" href="structemlabcpp_1_1protocol__mark.html" title="Error handling in protocol works with marks.">protocol_mark</a> from simple string literal.  <a href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">More...</a><br /></td></tr>
 <tr class="separator:acb44994cf1fc5a0a2bfc4896ee8332de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ab0600b5cf194accae7c5238c9972cad1"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab0600b5cf194accae7c5238c9972cad1">emlabcpp::SIZE_ERR</a> = make_protocol_mark( &quot;EMLABCPPSIZE &quot; )</td></tr>
+<tr class="separator:ab0600b5cf194accae7c5238c9972cad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50429a6831c33bfc19692833c3a6b0c1"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a50429a6831c33bfc19692833c3a6b0c1">emlabcpp::LOWSIZE_ERR</a> = make_protocol_mark( &quot;EMLABCPPLOWSIZE &quot; )</td></tr>
+<tr class="memdesc:a50429a6831c33bfc19692833c3a6b0c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">not enough bytes left in the message for the item  <a href="namespaceemlabcpp.html#a50429a6831c33bfc19692833c3a6b0c1">More...</a><br /></td></tr>
+<tr class="separator:a50429a6831c33bfc19692833c3a6b0c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f3ea4ba31c3aac1ca5db845fbe67711"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0f3ea4ba31c3aac1ca5db845fbe67711">emlabcpp::BIGSIZE_ERR</a> = make_protocol_mark( &quot;EMLABCPPBIGSIZE &quot; )</td></tr>
+<tr class="memdesc:a0f3ea4ba31c3aac1ca5db845fbe67711"><td class="mdescLeft">&#160;</td><td class="mdescRight">too much bytes left in the message for the item  <a href="namespaceemlabcpp.html#a0f3ea4ba31c3aac1ca5db845fbe67711">More...</a><br /></td></tr>
+<tr class="separator:a0f3ea4ba31c3aac1ca5db845fbe67711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e05bb2d6769aee5b01021e927a54b65"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0e05bb2d6769aee5b01021e927a54b65">emlabcpp::BOUNDS_ERR</a> = make_protocol_mark( &quot;EMLABCPPBOUNDS &quot; )</td></tr>
+<tr class="memdesc:a0e05bb2d6769aee5b01021e927a54b65"><td class="mdescLeft">&#160;</td><td class="mdescRight">value in the message is outside of the range of bounded type  <a href="namespaceemlabcpp.html#a0e05bb2d6769aee5b01021e927a54b65">More...</a><br /></td></tr>
+<tr class="separator:a0e05bb2d6769aee5b01021e927a54b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a0d60b3b8af2bc89f3dc4f985a67aff"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2a0d60b3b8af2bc89f3dc4f985a67aff">emlabcpp::UNDEFVAR_ERR</a> = make_protocol_mark( &quot;EMLABCPPUNDEFVAR&quot; )</td></tr>
+<tr class="memdesc:a2a0d60b3b8af2bc89f3dc4f985a67aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">variant id is outside of the range for defined variant  <a href="namespaceemlabcpp.html#a2a0d60b3b8af2bc89f3dc4f985a67aff">More...</a><br /></td></tr>
+<tr class="separator:a2a0d60b3b8af2bc89f3dc4f985a67aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a145bebab87eba36baf2eeac66f12ded2"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a145bebab87eba36baf2eeac66f12ded2">emlabcpp::BADVAL_ERR</a> = make_protocol_mark( &quot;EMLABCPPBADVAL &quot; )</td></tr>
+<tr class="memdesc:a145bebab87eba36baf2eeac66f12ded2"><td class="mdescLeft">&#160;</td><td class="mdescRight">parsed value is not correct, such as constant  <a href="namespaceemlabcpp.html#a145bebab87eba36baf2eeac66f12ded2">More...</a><br /></td></tr>
+<tr class="separator:a145bebab87eba36baf2eeac66f12ded2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0086d26c146022436c25e55e690c79"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aca0086d26c146022436c25e55e690c79">emlabcpp::GROUP_ERR</a> = make_protocol_mark( &quot;EMLABCPPGRPMATCH&quot; )</td></tr>
+<tr class="memdesc:aca0086d26c146022436c25e55e690c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">no item of group matched the content of message  <a href="namespaceemlabcpp.html#aca0086d26c146022436c25e55e690c79">More...</a><br /></td></tr>
+<tr class="separator:aca0086d26c146022436c25e55e690c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1464a98bcd956131d445b317f4e8814f"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1464a98bcd956131d445b317f4e8814f">emlabcpp::CHECKSUM_ERR</a> = make_protocol_mark( &quot;EMLABCPPCHECKSUM&quot; )</td></tr>
+<tr class="memdesc:a1464a98bcd956131d445b317f4e8814f"><td class="mdescLeft">&#160;</td><td class="mdescRight">wrong checksum in the protocol  <a href="namespaceemlabcpp.html#a1464a98bcd956131d445b317f4e8814f">More...</a><br /></td></tr>
+<tr class="separator:a1464a98bcd956131d445b317f4e8814f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="structemlabcpp_1_1protocol__error__record" id="structemlabcpp_1_1protocol__error__record"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1protocol__error__record">&#9670;&nbsp;</a></span>emlabcpp::protocol_error_record</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::protocol_error_record</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::protocol_error_record:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1protocol__error__record__coll__graph.svg" width="199" height="218"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a05a3329bfcabf114135f90476bfbcc09"></a><a class="el" href="structemlabcpp_1_1protocol__mark.html">protocol_mark</a></td>
+<td class="fieldname">
+mark</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a8dcbb739bb8a0179b85adc8f351725bb"></a>size_t</td>
+<td class="fieldname">
+offset</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="protocol_2error_8h.html">error.h</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

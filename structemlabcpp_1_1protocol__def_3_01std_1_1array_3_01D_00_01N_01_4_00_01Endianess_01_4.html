@@ -97,9 +97,9 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1protocol__def_3_01st
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ab17d6fe8faba72659b35da8bb5603f65"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ab17d6fe8faba72659b35da8bb5603f65">value_type</a> = typename <a class="el" href="structemlabcpp_1_1protocol__decl.html">protocol_decl</a>&lt; std::array&lt; D, N &gt; &gt;::<a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ab17d6fe8faba72659b35da8bb5603f65">value_type</a></td></tr>
+<tr class="memitem:ab17d6fe8faba72659b35da8bb5603f65"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ab17d6fe8faba72659b35da8bb5603f65">value_type</a> = typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__decl">protocol_decl</a>&lt; std::array&lt; D, N &gt; &gt;::<a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ab17d6fe8faba72659b35da8bb5603f65">value_type</a></td></tr>
 <tr class="separator:ab17d6fe8faba72659b35da8bb5603f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade14e39ef7cae914f27b6bea2be224fb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ade14e39ef7cae914f27b6bea2be224fb">sub_def</a> = <a class="el" href="structemlabcpp_1_1protocol__def.html">protocol_def</a>&lt; D, Endianess &gt;</td></tr>
+<tr class="memitem:ade14e39ef7cae914f27b6bea2be224fb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ade14e39ef7cae914f27b6bea2be224fb">sub_def</a> = <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__def">protocol_def</a>&lt; D, Endianess &gt;</td></tr>
 <tr class="separator:ade14e39ef7cae914f27b6bea2be224fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf5d7b6600902d943c9d8af2eb863061"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#abf5d7b6600902d943c9d8af2eb863061">sub_size_type</a> = typename <a class="el" href="structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#a4afd8f92d17e31a717edce3c06ff8154">sub_def::size_type</a></td></tr>
 <tr class="separator:abf5d7b6600902d943c9d8af2eb863061"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,13 +109,14 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae59334ddc2e4a21aef7aedf6318ce576"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a813ced0d80bff1641c970e65c678b259">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ae59334ddc2e4a21aef7aedf6318ce576">serialize_at</a> (std::span&lt; uint8_t, <a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#af6c8c040d900c6c34645082f3f5afbe4">max_size</a> &gt; buffer, const <a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ab17d6fe8faba72659b35da8bb5603f65">value_type</a> &amp;item)</td></tr>
+<tr class="memdesc:ae59334ddc2e4a21aef7aedf6318ce576"><td class="mdescLeft">&#160;</td><td class="mdescRight">In both methods, we create the bounded size without properly checking that it the bounded type was made properly (that is, that the provided std::size_t value is in the range).  <a href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ae59334ddc2e4a21aef7aedf6318ce576">More...</a><br /></td></tr>
 <tr class="separator:ae59334ddc2e4a21aef7aedf6318ce576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d2f0ca979716219345e2d2f843cc8cd"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a1d2f0ca979716219345e2d2f843cc8cd">deserialize</a> (<a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>&lt; const uint8_t *, <a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a813ced0d80bff1641c970e65c678b259">size_type</a> &gt; buffer) -&gt; <a class="el" href="structemlabcpp_1_1protocol__result.html">protocol_result</a>&lt; <a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ab17d6fe8faba72659b35da8bb5603f65">value_type</a> &gt;</td></tr>
 <tr class="separator:a1d2f0ca979716219345e2d2f843cc8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:af6c8c040d900c6c34645082f3f5afbe4"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#af6c8c040d900c6c34645082f3f5afbe4">max_size</a> = <a class="el" href="structemlabcpp_1_1protocol__decl.html">protocol_decl</a>&lt; std::array&lt; D, N &gt; &gt;::max_size</td></tr>
+<tr class="memitem:af6c8c040d900c6c34645082f3f5afbe4"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#af6c8c040d900c6c34645082f3f5afbe4">max_size</a> = <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__decl">protocol_decl</a>&lt; std::array&lt; D, N &gt; &gt;::max_size</td></tr>
 <tr class="separator:af6c8c040d900c6c34645082f3f5afbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
@@ -128,7 +129,7 @@ Static Public Attributes</h2></td></tr>
 template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endianess&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol__def.html">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a813ced0d80bff1641c970e65c678b259">size_type</a> =  <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, sub_def::size_type::min_val * N, <a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#af6c8c040d900c6c34645082f3f5afbe4">max_size</a> &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__def">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a813ced0d80bff1641c970e65c678b259">size_type</a> =  <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, sub_def::size_type::min_val * N, <a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#af6c8c040d900c6c34645082f3f5afbe4">max_size</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -144,7 +145,7 @@ template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endian
 template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endianess&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol__def.html">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ade14e39ef7cae914f27b6bea2be224fb">sub_def</a> =  <a class="el" href="structemlabcpp_1_1protocol__def.html">protocol_def</a>&lt; D, Endianess &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__def">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ade14e39ef7cae914f27b6bea2be224fb">sub_def</a> =  <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__def">protocol_def</a>&lt; D, Endianess &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -160,7 +161,7 @@ template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endian
 template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endianess&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol__def.html">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#abf5d7b6600902d943c9d8af2eb863061">sub_size_type</a> =  typename <a class="el" href="structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#a4afd8f92d17e31a717edce3c06ff8154">sub_def::size_type</a></td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__def">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#abf5d7b6600902d943c9d8af2eb863061">sub_size_type</a> =  typename <a class="el" href="structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#a4afd8f92d17e31a717edce3c06ff8154">sub_def::size_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -176,7 +177,7 @@ template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endian
 template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endianess&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol__def.html">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ab17d6fe8faba72659b35da8bb5603f65">value_type</a> =  typename <a class="el" href="structemlabcpp_1_1protocol__decl.html">protocol_decl</a>&lt; std::array&lt; D, N &gt; &gt;::<a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ab17d6fe8faba72659b35da8bb5603f65">value_type</a></td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__def">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ab17d6fe8faba72659b35da8bb5603f65">value_type</a> =  typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__decl">protocol_decl</a>&lt; std::array&lt; D, N &gt; &gt;::<a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ab17d6fe8faba72659b35da8bb5603f65">value_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -196,7 +197,7 @@ template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endian
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr auto <a class="el" href="structemlabcpp_1_1protocol__def.html">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::deserialize </td>
+          <td class="memname">static constexpr auto <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__def">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::deserialize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>&lt; const uint8_t *, <a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a813ced0d80bff1641c970e65c678b259">size_type</a> &gt;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
@@ -210,6 +211,8 @@ template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endian
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ac4b40baac2662db6424a475292ef03b3">emlabcpp::range()</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>, and <a class="el" href="namespaceemlabcpp.html#ab0600b5cf194accae7c5238c9972cad1">emlabcpp::SIZE_ERR</a>.</p>
 
 </div>
 </div>
@@ -225,7 +228,7 @@ template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endian
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr <a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a813ced0d80bff1641c970e65c678b259">size_type</a> <a class="el" href="structemlabcpp_1_1protocol__def.html">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::serialize_at </td>
+          <td class="memname">static constexpr <a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a813ced0d80bff1641c970e65c678b259">size_type</a> <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__def">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::serialize_at </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; uint8_t, <a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#af6c8c040d900c6c34645082f3f5afbe4">max_size</a> &gt;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
@@ -249,6 +252,12 @@ template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endian
 </table>
 </div><div class="memdoc">
 
+<p>In both methods, we create the bounded size without properly checking that it the bounded type was made properly (that is, that the provided std::size_t value is in the range). </p>
+<p>Thas is ok as long as variant "we advanced the iter only by at max
+`sub_def::max_size` `N` times". </p>
+
+<p class="reference">References <a class="el" href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a>, and <a class="el" href="namespaceemlabcpp.html#ac4b40baac2662db6424a475292ef03b3">emlabcpp::range()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -264,7 +273,7 @@ template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endian
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="structemlabcpp_1_1protocol__def.html">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::max_size = <a class="el" href="structemlabcpp_1_1protocol__decl.html">protocol_decl</a>&lt; std::array&lt; D, N &gt; &gt;::max_size</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__def">emlabcpp::protocol_def</a>&lt; std::array&lt; D, N &gt;, Endianess &gt;::max_size = <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__decl">protocol_decl</a>&lt; std::array&lt; D, N &gt; &gt;::max_size</td>
         </tr>
       </table>
   </td>
@@ -285,7 +294,7 @@ template&lt;protocol_declarable D, std::size_t N, protocol_endianess_enum Endian
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html">protocol_def&lt; std::array&lt; D, N &gt;, Endianess &gt;</a></li>
-    <li class="footer">Generated by
+    <li class="footer">Generated on Sun May 1 2022 15:02:26 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
