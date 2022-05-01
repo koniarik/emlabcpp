@@ -9,14 +9,14 @@ namespace emlabcpp
 {
 
 // ------------------------------------------------------------------------------------------------
-/// has_static_size<T>::value is true in case type T have size deduceable at compile time
+// has_static_size<T>::value is true in case type T have size deduceable at compile time
 
 template < typename T >
 constexpr bool has_static_size_v = static_sized< T >;
 
 // ------------------------------------------------------------------------------------------------
-/// mapped<T,F>::type is type returned by instance of F::operator() when applied on items from
-/// instance of T. It can differentiate between tuples or containers
+// mapped<T,F>::type is type returned by instance of F::operator() when applied on items from
+// instance of T. It can differentiate between tuples or containers
 
 template < typename Container, typename UnaryFunction >
 struct mapped;
@@ -39,7 +39,7 @@ template < typename Container, typename UnaryFunction >
 using mapped_t = typename mapped< Container, UnaryFunction >::type;
 
 // ------------------------------------------------------------------------------------------------
-//// tag<V> type can be used for tagging f-calls for function overloading
+/// tag<V> type can be used for tagging f-calls for function overloading
 template < auto V >
 struct tag
 {
@@ -57,7 +57,7 @@ inline auto& operator<<( Stream& os, tag< ID > )
 }
 
 // ------------------------------------------------------------------------------------------------
-//// central function for returning name of type that can demangle if necessary
+/// central function for returning name of type that can demangle if necessary
 
 template < typename T >
 inline std::string pretty_type_name()

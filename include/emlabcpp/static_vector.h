@@ -10,12 +10,12 @@
 namespace emlabcpp
 {
 
-/// Data container for up to N elements
+// Data container for up to N elements
 template < typename T, std::size_t N >
 class static_vector
 {
 
-        /// type for storage of one item
+        // type for storage of one item
         using storage_type = std::aligned_storage_t< sizeof( T ) * N, alignof( T ) >;
 
 public:
@@ -191,8 +191,8 @@ private:
         // private attributes
         // --------------------------------------------------------------------------------
 
-        storage_type data_;      /// storage of the entire dataset
-        size_type    size_ = 0;  /// count of items
+        storage_type data_;      // storage of the entire dataset
+        size_type    size_ = 0;  // count of items
 
         // private methods
         // --------------------------------------------------------------------------------

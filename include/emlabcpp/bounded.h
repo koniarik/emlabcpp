@@ -8,18 +8,18 @@
 namespace emlabcpp
 {
 
-/// Bounded type represents a overlay over type T which is constrained between MinVal and MaxVal as
-/// compile time constants. / The API is deisgned in a way that you can't create the type out of
-/// theb ounds.
+// Bounded type represents a overlay over type T which is constrained between MinVal and MaxVal as
+// compile time constants. / The API is deisgned in a way that you can't create the type out of
+// theb ounds.
 ///
-/// This is beneficial in design of an API.
-/// In case of using the T directly and asserting that it is withing corrent range, the API has to
-/// check at runtime whenever that is true and return error in case it is out of range. / With
-/// bounded type the API does not have to do that, as the type can't be passed unless it is within
-/// corret range.
+// This is beneficial in design of an API.
+// In case of using the T directly and asserting that it is withing corrent range, the API has to
+// check at runtime whenever that is true and return error in case it is out of range. / With
+// bounded type the API does not have to do that, as the type can't be passed unless it is within
+// corret range.
 ///
-/// It does not remove the bounds check, it just moves it away from within API to the user, which
-/// has to deal with creating correct bounded type.
+// It does not remove the bounds check, it just moves it away from within API to the user, which
+// has to deal with creating correct bounded type.
 template < typename T, T MinVal, T MaxVal >
 class bounded
 {

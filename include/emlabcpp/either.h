@@ -15,16 +15,16 @@ template < typename T, typename LH, typename RH >
 concept either_uniquely_right_item =
     std::same_as< std::decay_t< T >, RH > && !std::same_as< LH, RH >;
 
-/// Either is heterogenous structure that holds one of the two types specified.
-/// This is stored as union, so the memory requirement of either is always the size of the bigger
-/// element + constant for identifying which on is contained.
+// Either is heterogenous structure that holds one of the two types specified.
+// This is stored as union, so the memory requirement of either is always the size of the bigger
+// element + constant for identifying which on is contained.
 ///
-/// The intervall value can't be directly accessed, unless both sides are same, in which case
-/// join() / returns the internal value. (Which is safe if both are same) In case they are
-/// different, you can / only access the value by either convert_left/right, bind_left/right or
-/// match, which calls / appropiate callable based on whenever left or right item is present.
+// The intervall value can't be directly accessed, unless both sides are same, in which case
+// join() / returns the internal value. (Which is safe if both are same) In case they are
+// different, you can / only access the value by either convert_left/right, bind_left/right or
+// match, which calls / appropiate callable based on whenever left or right item is present.
 ///
-/// This prevents user of the code from errors in accessing proper side of the either.
+// This prevents user of the code from errors in accessing proper side of the either.
 template < typename LH, typename RH >
 class either
 {
@@ -365,13 +365,13 @@ private:
         }
 };
 
-/// Marks empty assembly
+// Marks empty assembly
 struct empty_assembly_tag
 {
 };
 
-/// Function gets a set of various std::optionals and either returns all their values assembled as
-/// tuple or 'empty_assembly_tag' implicating that some of the optionals was empty.
+// Function gets a set of various std::optionals and either returns all their values assembled as
+// tuple or 'empty_assembly_tag' implicating that some of the optionals was empty.
 template < typename... Ts >
 inline either< std::tuple< Ts... >, empty_assembly_tag >
 assemble_optionals( std::optional< Ts >&&... opt )
@@ -383,13 +383,13 @@ assemble_optionals( std::optional< Ts >&&... opt )
         return empty_assembly_tag{};
 }
 
-/// Function expects eithers of any left type, but same right type.
-/// These are acceessed and either tuple of _all_ left items is returned or vector of any of right
-/// items.
+// Function expects eithers of any left type, but same right type.
+// These are acceessed and either tuple of _all_ left items is returned or vector of any of right
+// items.
 ///
-/// This returns appropiated either< std::tuple< LeftItems... >, static_vector< Righitems, N
-/// >>. This is handy for uses cases when you have expected values of multiple functions on the
-/// left, / and their errors on the right. It either returns all values or the errors that happend.
+// This returns appropiated either< std::tuple< LeftItems... >, static_vector< Righitems, N
+// >>. This is handy for uses cases when you have expected values of multiple functions on the
+// left, / and their errors on the right. It either returns all values or the errors that happend.
 
 template < typename FirstE, typename... Eithers >
 inline auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) requires(

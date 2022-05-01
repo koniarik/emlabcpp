@@ -14,23 +14,23 @@ namespace emlabcpp
 template < typename Container >
 class static_circular_buffer_iterator;
 
-/// Class implementing circular buffer of any type for up to N elements. This should work for
-/// generic type T, not just simple types.
+// Class implementing circular buffer of any type for up to N elements. This should work for
+// generic type T, not just simple types.
 ///
-/// It is safe in "single consumer single producer" scenario between main loop and interrupts.
-/// Because of that the behavior is as follows:
-///  - on insertion, item is inserted and than index is advanced
-///  - on removal, item is removed and than index is advanced
+// It is safe in "single consumer single producer" scenario between main loop and interrupts.
+// Because of that the behavior is as follows:
+//  - on insertion, item is inserted and than index is advanced
+//  - on removal, item is removed and than index is advanced
 ///
-/// In case of copy or move operations, the buffer does not have to store the data internally in
-/// same manner, the data are equivavlent only from the perspective of push/pop operations.
+// In case of copy or move operations, the buffer does not have to store the data internally in
+// same manner, the data are equivavlent only from the perspective of push/pop operations.
 ///
 template < typename T, std::size_t N >
 class static_circular_buffer
 {
-        /// We need real_size of the buffer to be +1 bigger than number of items
+        // We need real_size of the buffer to be +1 bigger than number of items
         static constexpr std::size_t real_size = N + 1;
-        /// type for storage of one item
+        // type for storage of one item
         using storage_type = std::aligned_storage_t< sizeof( T ) * real_size, alignof( T ) >;
 
 public:

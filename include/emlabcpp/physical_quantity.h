@@ -7,24 +7,24 @@
 namespace emlabcpp
 {
 
-/// physical_quantity represents all physical units defined using the International System of
-/// Units and more. The idea is that each used unit, is either one of the seven basic units, or
-/// defined as some combination of them.  The combination is multiplication of exponents of basic
-/// units.
+// physical_quantity represents all physical units defined using the International System of
+// Units and more. The idea is that each used unit, is either one of the seven basic units, or
+// defined as some combination of them.  The combination is multiplication of exponents of basic
+// units.
 ///
-/// So, velocity is distance per time - m*s^-1.
+// So, velocity is distance per time - m*s^-1.
 ///
-/// We defined each physical unit by using a template, that has exponent of each basic unit as
-/// exponent. This makes it possible to specify any unit using this class - as combination of basic
-/// units.
+// We defined each physical unit by using a template, that has exponent of each basic unit as
+// exponent. This makes it possible to specify any unit using this class - as combination of basic
+// units.
 ///
-/// We expand this by providing two additional 'basic' units - angle (which is handy for us) and
-/// byte.
+// We expand this by providing two additional 'basic' units - angle (which is handy for us) and
+// byte.
 ///
-/// Given that we have the exponents of basic units as integers in the type, we can write generic
-/// multiplication and division between all possible templates.
+// Given that we have the exponents of basic units as integers in the type, we can write generic
+// multiplication and division between all possible templates.
 ///
-/// This trick is inspired by the haskell's dimensional library which does the same.
+// This trick is inspired by the haskell's dimensional library which does the same.
 ///
 template < int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte >
 struct physical_quantity
@@ -53,7 +53,7 @@ struct physical_quantity
 };
 
 ///@{
-/// Type alieases of physical quantity for used quantities.
+// Type alieases of physical quantity for used quantities.
 using unitless            = physical_quantity< 0, 0, 0, 0, 0, 0, 0, 0, 0 >;
 using length              = physical_quantity< 1, 0, 0, 0, 0, 0, 0, 0, 0 >;
 using mass                = physical_quantity< 0, 1, 0, 0, 0, 0, 0, 0, 0 >;
@@ -78,12 +78,12 @@ using distance            = length;
 using radius              = length;
 ///@}
 
-/// Constants of units that are relevant for us
+// Constants of units that are relevant for us
 constexpr angle pi = angle{ 3.14159265358979323846f };
 
-/// Multiplication of physical_quantity multiplies the internal
-/// values and the result is a type, where the exponents of each side of the
-/// multiplication are added together.
+// Multiplication of physical_quantity multiplies the internal
+// values and the result is a type, where the exponents of each side of the
+// multiplication are added together.
 template <
     int Len0,
     int Mass0,
@@ -119,9 +119,9 @@ constexpr auto operator*(
             Byte0 + Byte1 >{ ( *lh ) * ( *rh ) };
 }
 
-/// Divison of physical_quantiy divides the internal values and
-/// the result is a type, where the exponents of each side of the multiplication
-/// are subtracted.
+// Divison of physical_quantiy divides the internal values and
+// the result is a type, where the exponents of each side of the multiplication
+// are subtracted.
 template <
     int Len0,
     int Mass0,
@@ -157,8 +157,8 @@ constexpr auto operator/(
             Byte0 - Byte1 >{ ( *lh ) / ( *rh ) };
 }
 
-/// Square root of physical quantity is square root of it's value and the
-/// exponents are divided in half.
+// Square root of physical quantity is square root of it's value and the
+// exponents are divided in half.
 template < int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte >
 constexpr auto sqrt( physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte > val )
 {
@@ -174,8 +174,8 @@ constexpr auto sqrt( physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li,
             Byte / 2 >{ float{ std::sqrt( *val ) } };
 }
 
-/// Power of physical quantity is power of root of it's value and the exponents are multiplied by
-/// the value.
+// Power of physical quantity is power of root of it's value and the exponents are multiplied by
+// the value.
 
 template <
     int Power,
