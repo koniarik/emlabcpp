@@ -97,6 +97,11 @@ struct my_test_fixture : em::testing_interface
                 // setup i2c
         }
 
+        void run( em::testing_record& ) override
+        {
+                // empty overload
+        }
+
         void teardown( em::testing_record& ) override
         {
                 // teardown i2c
@@ -235,7 +240,7 @@ int main( int argc, char** argv )
 
         rec.register_test(
             "lambda amd fixture",
-            em::testing_compose< my_test_fixture >( [&]( em::testing_record& rec ) {
+            em::testing_compose( my_test_fixture{}, [&]( em::testing_record& rec ) {
                     rec.expect( 1 > 0 );
             } ) );
 

@@ -48,14 +48,15 @@ public:
         }
 };
 
-template < testing_callable C, testing_test T >
+template < testing_test T, testing_callable C >
 class testing_composer : public T
 {
         C cb_;
 
 public:
-        testing_composer( C c )
-          : cb_( std::move( c ) )
+        testing_composer( T t, C c )
+          : T( std::move( t ) )
+          , cb_( std::move( c ) )
         {
         }
 
@@ -66,9 +67,9 @@ public:
 };
 
 template < testing_test T, testing_callable C >
-testing_composer< C, T > testing_compose( C c )
+testing_composer< T, C > testing_compose( T t, C c )
 {
-        return { std::move( c ) };
+        return { std::move( t ), std::move( c ) };
 }
 
 }  // namespace emlabcpp
