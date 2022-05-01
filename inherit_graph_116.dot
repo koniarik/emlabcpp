@@ -1,8 +1,0 @@
-digraph "Graphical Class Hierarchy"
-{
- // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  rankdir="LR";
-  Node0 [label="std::iterator_traits\l\< emlabcpp::static_circular\l_buffer_iterator\< Container \> \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01Container_01_4_01_4.html",tooltip=" "];
-}

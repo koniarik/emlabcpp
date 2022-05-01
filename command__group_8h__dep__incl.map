@@ -1,0 +1,13 @@
+<map id="include/emlabcpp/protocol/command_group.h" name="include/emlabcpp/protocol/command_group.h">
+<area shape="rect" id="node1" title=" " alt="" coords="250,5,445,47"/>
+<area shape="rect" id="node2" href="$protocol_8h.html" title=" " alt="" coords="244,95,451,121"/>
+<area shape="rect" id="node3" href="$experimental_2testing_2protocol_8h.html" title=" " alt="" coords="233,169,461,211"/>
+<area shape="rect" id="node4" href="$controller__interface_8h.html" title=" " alt="" coords="5,348,233,389"/>
+<area shape="rect" id="node7" href="$experimental_2testing_2error_8h.html" title=" " alt="" coords="81,259,309,300"/>
+<area shape="rect" id="node8" href="$reactor_8h.html" title=" " alt="" coords="385,437,613,479"/>
+<area shape="rect" id="node9" href="$reactor__interface_8h.html" title=" " alt="" coords="385,348,613,389"/>
+<area shape="rect" id="node10" href="$record_8h.html" title=" " alt="" coords="536,259,764,300"/>
+<area shape="rect" id="node5" href="$controller_8h.html" title=" " alt="" coords="5,437,233,479"/>
+<area shape="rect" id="node6" href="$gtest_8h.html" title=" " alt="" coords="5,527,233,568"/>
+<area shape="rect" id="node11" href="$interface_8h.html" title=" " alt="" coords="637,348,865,389"/>
+</map>

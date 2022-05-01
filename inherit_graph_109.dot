@@ -1,8 +1,0 @@
-digraph "Graphical Class Hierarchy"
-{
- // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  rankdir="LR";
-  Node0 [label="emlabcpp::tuple_has\l_type\< T, Tuple \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structemlabcpp_1_1tuple__has__type.html",tooltip="tuple_has_type<T, Tuple>::value is true if Tuple s std::tuple and contains type T"];
-}

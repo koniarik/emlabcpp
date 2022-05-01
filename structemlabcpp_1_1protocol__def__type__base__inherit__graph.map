@@ -1,0 +1,12 @@
+<map id="emlabcpp::protocol_def_type_base" name="emlabcpp::protocol_def_type_base">
+<area shape="rect" id="node1" title=" " alt="" coords="5,291,152,333"/>
+<area shape="rect" id="node2" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="341,5,564,61"/>
+<area shape="rect" id="node3" href="$structemlabcpp_1_1protocol__tuple.html" title=" " alt="" coords="361,86,544,127"/>
+<area shape="rect" id="node5" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="206,152,699,472"/>
+<area shape="rect" id="node7" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="200,497,705,714"/>
+<area shape="rect" id="node9" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="227,738,679,1014"/>
+<area shape="rect" id="node4" href="$structemlabcpp_1_1protocol__packet.html" title=" " alt="" coords="765,86,949,127"/>
+<area shape="rect" id="node6" href="$structemlabcpp_1_1testing__reactor__controller__group.html" title=" " alt="" coords="761,291,953,333"/>
+<area shape="rect" id="node8" href="$structemlabcpp_1_1testing__controller__reactor__group.html" title=" " alt="" coords="753,585,961,626"/>
+<area shape="rect" id="node10" href="$structemlabcpp_1_1testing__reactor__error__group.html" title=" " alt="" coords="761,855,953,897"/>
+</map>
