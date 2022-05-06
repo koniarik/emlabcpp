@@ -102,7 +102,7 @@ public:
         }
 
         template < typename Callable >
-        static_function( Callable&& c )
+        static_function( Callable c )
         {
                 // TODO: alignment
                 // TODO: check that class fits with alignment into storage
@@ -110,7 +110,7 @@ public:
                     reinterpret_cast<
                         detail::static_function_storage< Callable, ReturnType, ArgTypes... >* >(
                         &storage_ ),
-                    std::forward< Callable >( c ) );
+                    std::move( c ) );
         }
 
         static_function& operator=( const static_function& other )
@@ -150,14 +150,14 @@ public:
         }
 
         template < typename Callable >
-        static_function& operator=( Callable&& c )
+        static_function& operator=( Callable c )
         {
                 clear();
                 interface_ = std::construct_at(
                     reinterpret_cast<
                         detail::static_function_storage< Callable, ReturnType, ArgTypes... >* >(
                         &storage_ ),
-                    std::forward< Callable >( c ) );
+                    std::move( c ) );
         }
 
         operator bool() const noexcept
@@ -178,7 +178,7 @@ public:
 private:
         void clear()
         {
-                if ( *this ) {
+                if ( interface_ != nullptr ) {
                         std::destroy_at( interface_ );
                         interface_ = nullptr;
                 }
