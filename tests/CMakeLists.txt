@@ -68,6 +68,7 @@ add_emlabcpp_test(match_test)
 add_emlabcpp_test(protocol_base_test)
 add_emlabcpp_test(protocol_packet_test)
 add_emlabcpp_test(testing_test)
+add_emlabcpp_test(static_function_test)
 
 # file(GLOB_RECURSE HEADER_FILES "${PROJECT_SOURCE_DIR}/include/*.h" )
 # add_format_test( TARGET emlabcpp_format WORKING_DIRECTORY
