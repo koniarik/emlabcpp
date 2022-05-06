@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pool_5fallocator_1325',['pool_allocator',['../classemlabcpp_1_1pool__allocator.html#aee469609aef2056bfa457272420e85aa',1,'emlabcpp::pool_allocator']]]
+  ['pool_5fallocator_1327',['pool_allocator',['../classemlabcpp_1_1pool__allocator.html#aee469609aef2056bfa457272420e85aa',1,'emlabcpp::pool_allocator']]]
 ];
