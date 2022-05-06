@@ -18,6 +18,11 @@ namespace detail
                 virtual static_function_storage_interface* copy_to( void* )      = 0;
                 virtual ReturnType                         invoke( ArgTypes... ) = 0;
                 virtual ~static_function_storage_interface()                     = default;
+
+                void operator delete( static_function_storage_interface*, std::destroying_delete_t )
+                {
+                        std::abort();  // TODO: maybe do this differently
+                }
         };
 
         template < typename T, typename ReturnType, typename... ArgTypes >
