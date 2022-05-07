@@ -89,30 +89,34 @@ $(document).ready(function(){initNavTree('util_8h_source.html',''); initResizabl
 <div class="contents">
 <a href="util_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">   10</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span>* <a class="code" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a>( <span class="keywordtype">void</span>* ptr, std::size_t alignment )</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> intptr = <span class="keyword">reinterpret_cast&lt;</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keyword">&gt;</span>( ptr );</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span> <span class="keywordtype">void</span>* <span class="keyword">&gt;</span>( ( intptr - 1u + alignment ) &amp; -alignment );</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">   11</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span>* <a class="code" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a>( <span class="keywordtype">void</span>* ptr, std::size_t alignment )</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="comment">// note: based on tips from sarah@#include discord</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> iptr       = <span class="keyword">reinterpret_cast&lt;</span> std::uintptr_t <span class="keyword">&gt;</span>( ptr );</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> low_bit_mask = alignment - 1;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> aligned      = ( iptr + low_bit_mask ) &amp; ~low_bit_mask;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( ptr ) + ( aligned - iptr );</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespaceemlabcpp_html_a3c4b8276158ed7d743c68c7395ed0966"><div class="ttname"><a href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">emlabcpp::align</a></div><div class="ttdeci">void * align(void *ptr, std::size_t alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:10</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:66</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a3c4b8276158ed7d743c68c7395ed0966"><div class="ttname"><a href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">emlabcpp::align</a></div><div class="ttdeci">void * align(void *ptr, std::size_t alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:11</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:7</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_52a6b55dd004b46393f33e3ff3a56c73.html">allocator</a></li><li class="navelem"><a class="el" href="util_8h.html">util.h</a></li>
-    <li class="footer">Generated on Sat May 7 2022 11:11:59 for emlabcpp by
+    <li class="footer">Generated on Sat May 7 2022 12:46:59 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

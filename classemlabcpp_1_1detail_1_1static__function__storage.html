@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1detail_1_1static__fun
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classemlabcpp_1_1detail_1_1static__function__storage-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">emlabcpp::detail::static_function_storage&lt; T, ReturnType, ArgTypes &gt; Class Template Reference</div>  </div>
@@ -93,6 +94,14 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1detail_1_1static__fun
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="static__function_8h_source.html">static_function.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::detail::static_function_storage&lt; T, ReturnType, ArgTypes &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classemlabcpp_1_1detail_1_1static__function__storage__coll__graph.svg" width="258" height="186"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -109,6 +118,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a9cb942aa6f41009555b02217b0cc0aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53e9a9605685e24ffd17420b85506baa"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1detail_1_1static__function__storage.html#a53e9a9605685e24ffd17420b85506baa">handle</a> (void *source, void *target, <a class="el" href="namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79e">static_function_operations</a> op)</td></tr>
 <tr class="separator:a53e9a9605685e24ffd17420b85506baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a7c4d484f51daec707f887cff79772f5f"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1detail_1_1static__function__vtable.html">static_function_vtable</a>&lt; ReturnType, ArgTypes... &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1detail_1_1static__function__storage.html#a7c4d484f51daec707f887cff79772f5f">vtable</a></td></tr>
+<tr class="separator:a7c4d484f51daec707f887cff79772f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae42300f6ab762d1eb7fbc3261e5996b1"></a>
@@ -292,16 +306,46 @@ template&lt;typename T , typename ReturnType , typename... ArgTypes&gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7c4d484f51daec707f887cff79772f5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c4d484f51daec707f887cff79772f5f">&#9670;&nbsp;</a></span>vtable</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename ReturnType , typename... ArgTypes&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structemlabcpp_1_1detail_1_1static__function__vtable.html">static_function_vtable</a>&lt; ReturnType, ArgTypes... &gt; <a class="el" href="classemlabcpp_1_1detail_1_1static__function__storage.html">emlabcpp::detail::static_function_storage</a>&lt; T, ReturnType, ArgTypes &gt;::vtable</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">                    <a class="code" href="classemlabcpp_1_1detail_1_1static__function__storage.html#a9cb942aa6f41009555b02217b0cc0aeb">invoke</a>,</div>
+<div class="line">                    <a class="code" href="classemlabcpp_1_1detail_1_1static__function__storage.html#a53e9a9605685e24ffd17420b85506baa">handle</a> }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/emlabcpp/experimental/<a class="el" href="static__function_8h_source.html">static_function.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclassemlabcpp_1_1detail_1_1static__function__storage_html_a53e9a9605685e24ffd17420b85506baa"><div class="ttname"><a href="classemlabcpp_1_1detail_1_1static__function__storage.html#a53e9a9605685e24ffd17420b85506baa">emlabcpp::detail::static_function_storage::handle</a></div><div class="ttdeci">static void * handle(void *source, void *target, static_function_operations op)</div><div class="ttdef"><b>Definition:</b> static_function.h:58</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1detail_1_1static__function__storage_html_a9cb942aa6f41009555b02217b0cc0aeb"><div class="ttname"><a href="classemlabcpp_1_1detail_1_1static__function__storage.html#a9cb942aa6f41009555b02217b0cc0aeb">emlabcpp::detail::static_function_storage::invoke</a></div><div class="ttdeci">static ReturnType invoke(void *source, ArgTypes... args)</div><div class="ttdef"><b>Definition:</b> static_function.h:51</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1detail_1_1static__function__storage.html">static_function_storage</a></li>
-    <li class="footer">Generated on Sat May 7 2022 11:11:59 for emlabcpp by
+    <li class="footer">Generated on Sat May 7 2022 12:47:00 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

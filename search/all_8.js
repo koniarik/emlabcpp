@@ -14,7 +14,7 @@ var searchData=
   ['interface_2eh_173',['interface.h',['../interface_8h.html',1,'']]],
   ['interval_5frange_174',['interval_range',['../classemlabcpp_1_1bounded.html#ad083fc1bfdca3ffc2b99d7498c7822fe',1,'emlabcpp::bounded']]],
   ['invocable_5freturning_175',['invocable_returning',['../namespaceemlabcpp.html#a5219e24bd076b3c65f56c69b9025dd69',1,'emlabcpp']]],
-  ['invoke_176',['invoke',['../classemlabcpp_1_1detail_1_1static__function__storage.html#a9cb942aa6f41009555b02217b0cc0aeb',1,'emlabcpp::detail::static_function_storage']]],
+  ['invoke_176',['invoke',['../structemlabcpp_1_1detail_1_1static__function__vtable.html#a1bd35cfe10a5c2710f345e6ac9053bde',1,'emlabcpp::detail::static_function_vtable::invoke()'],['../classemlabcpp_1_1detail_1_1static__function__storage.html#a9cb942aa6f41009555b02217b0cc0aeb',1,'emlabcpp::detail::static_function_storage::invoke()']]],
   ['is_5fbig_5fendian_177',['is_big_endian',['../structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#af0320dbedb3cb5ba04d57a2ab94e5ab4',1,'emlabcpp::protocol_def&lt; D, Endianess &gt;::is_big_endian()'],['../structemlabcpp_1_1protocol__def_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html#a9b2b818ae8299bdf07fb88b78d13f643',1,'emlabcpp::protocol_def&lt; std::bitset&lt; N &gt;, Endianess &gt;::is_big_endian()'],['../structemlabcpp_1_1protocol__serializer.html#ac9185bf83664ec3ccc94c7fa4fc4d722',1,'emlabcpp::protocol_serializer::is_big_endian()']]],
   ['is_5fconst_178',['is_const',['../classemlabcpp_1_1static__circular__buffer__iterator.html#a1556b7e16e728bcd5f1bff73f74de0ad',1,'emlabcpp::static_circular_buffer_iterator']]],
   ['is_5fleft_179',['is_left',['../classemlabcpp_1_1either.html#a09209aa1fa5a927d0ac4a20846b93639',1,'emlabcpp::either']]],
