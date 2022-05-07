@@ -144,12 +144,9 @@ var hierarchy =
     [ "emlabcpp::static_circular_buffer< T, N >", "classemlabcpp_1_1static__circular__buffer.html", null ],
     [ "emlabcpp::static_circular_buffer< uint8_t, Def::message_type::max_size *2 >", "classemlabcpp_1_1static__circular__buffer.html", null ],
     [ "emlabcpp::static_circular_buffer_iterator< Container >", "classemlabcpp_1_1static__circular__buffer__iterator.html", null ],
-    [ "emlabcpp::static_function< CallableType, Capacity >", "namespaceemlabcpp.html#classemlabcpp_1_1static__function", null ],
-    [ "emlabcpp::static_function< ReturnType(ArgTypes...), Capacity >", "classemlabcpp_1_1static__function_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_01_4.html", null ],
-    [ "emlabcpp::detail::static_function_storage_interface< ReturnType, ArgTypes >", "classemlabcpp_1_1detail_1_1static__function__storage__interface.html", null ],
-    [ "emlabcpp::detail::static_function_storage_interface< ReturnType, ArgTypes... >", "classemlabcpp_1_1detail_1_1static__function__storage__interface.html", [
-      [ "emlabcpp::detail::static_function_storage< T, ReturnType, ArgTypes >", "classemlabcpp_1_1detail_1_1static__function__storage.html", null ]
-    ] ],
+    [ "emlabcpp::static_function_base< CallableType, Capacity, Align, NoexceptMove >", "namespaceemlabcpp.html#classemlabcpp_1_1static__function__base", null ],
+    [ "emlabcpp::static_function_base< ReturnType(ArgTypes...), Capacity, Align, NoexceptMove >", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4.html", null ],
+    [ "emlabcpp::detail::static_function_storage< T, ReturnType, ArgTypes >", "classemlabcpp_1_1detail_1_1static__function__storage.html", null ],
     [ "emlabcpp::impl::static_size< typename >", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1static__size", null ],
     [ "emlabcpp::impl::static_size< std::array< T, N > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::impl::static_size< std::decay_t< T > >", "namespaceemlabcpp_1_1impl.html", [

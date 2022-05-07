@@ -311,9 +311,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:classemlabcpp_1_1static__function"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function">static_function</a></td></tr>
-<tr class="separator:classemlabcpp_1_1static__function"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__function_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_01_4.html">static_function&lt; ReturnType(ArgTypes...), Capacity &gt;</a></td></tr>
+<tr class="memitem:classemlabcpp_1_1static__function__base"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">static_function_base</a></td></tr>
+<tr class="separator:classemlabcpp_1_1static__function__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4.html">static_function_base&lt; ReturnType(ArgTypes...), Capacity, Align, NoexceptMove &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__size.html">static_size</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -394,6 +394,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a3a26f08c5adb26bcc69ec7fc1bf42910"><td class="memTemplParams" colspan="2">template&lt;typename Key , typename T &gt; </td></tr>
 <tr class="memitem:a3a26f08c5adb26bcc69ec7fc1bf42910"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">pool_map</a> = std::map&lt; Key, T, std::less&lt; Key &gt;, <a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a>&lt; std::pair&lt; const Key, T &gt; &gt; &gt;</td></tr>
 <tr class="separator:a3a26f08c5adb26bcc69ec7fc1bf42910"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a391a57c506ebf6ce79239bbf4b7aaf89"><td class="memTemplParams" colspan="2">template&lt;typename Signature , std::size_t Capacity&gt; </td></tr>
+<tr class="memitem:a391a57c506ebf6ce79239bbf4b7aaf89"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a391a57c506ebf6ce79239bbf4b7aaf89">static_function</a> = <a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">static_function_base</a>&lt; Signature, Capacity, alignof(void *), false &gt;</td></tr>
+<tr class="separator:a391a57c506ebf6ce79239bbf4b7aaf89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfb5a005e75f7e4f58008d4ed698e9d1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abfb5a005e75f7e4f58008d4ed698e9d1">testing_key_buffer</a> = <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; char, 16 &gt;</td></tr>
 <tr class="separator:abfb5a005e75f7e4f58008d4ed698e9d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a289862982d90d50fae8def7c9491fac3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a289862982d90d50fae8def7c9491fac3">testing_name_buffer</a> = <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; char, 32 &gt;</td></tr>
@@ -1304,19 +1307,19 @@ struct emlabcpp::select_utype&lt; size_t &gt;</h3>
  </div>
 </div>
 </div>
-<a name="classemlabcpp_1_1static__function" id="classemlabcpp_1_1static__function"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#classemlabcpp_1_1static__function">&#9670;&nbsp;</a></span>emlabcpp::static_function</h2>
+<a name="classemlabcpp_1_1static__function__base" id="classemlabcpp_1_1static__function__base"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#classemlabcpp_1_1static__function__base">&#9670;&nbsp;</a></span>emlabcpp::static_function_base</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">class emlabcpp::static_function</td>
+          <td class="memname">class emlabcpp::static_function_base</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><h3>template&lt;typename CallableType, std::size_t Capacity&gt;<br />
-class emlabcpp::static_function&lt; CallableType, Capacity &gt;</h3>
+<div class="textblock"><h3>template&lt;typename CallableType, std::size_t Capacity, std::size_t Align, bool NoexceptMove&gt;<br />
+class emlabcpp::static_function_base&lt; CallableType, Capacity, Align, NoexceptMove &gt;</h3>
 
 </div>
 </div>
@@ -1827,6 +1830,22 @@ template&lt;std::size_t N&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp.html#ac223240cfaa32fcb48f0daa06c78a9e2">emlabcpp::select_utype_t</a> = typedef typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; N &gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a391a57c506ebf6ce79239bbf4b7aaf89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a391a57c506ebf6ce79239bbf4b7aaf89">&#9670;&nbsp;</a></span>static_function</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Signature , std::size_t Capacity&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a391a57c506ebf6ce79239bbf4b7aaf89">emlabcpp::static_function</a> = typedef <a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">static_function_base</a>&lt; Signature, Capacity, alignof( void* ), false &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -7401,7 +7420,7 @@ template&lt;typename T , typename... Us&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sat May 7 2022 07:48:29 for emlabcpp by
+    <li class="footer">Generated on Sat May 7 2022 11:08:04 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

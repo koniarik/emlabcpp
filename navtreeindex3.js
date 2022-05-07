@@ -1,15 +1,9 @@
 var NAVTREEINDEX3 =
 {
-"namespaceemlabcpp.html#a139d42724f35fa5519e859cad8d93c39":[4,0,0,0,4,0,2,0],
-"namespaceemlabcpp.html#a30b9d448ee094e2a9c6e5b40216e2754":[4,0,0,0,4,0,3,1],
-"namespaceemlabcpp.html#a555ffdabf7ef4cd54e8993dfa47f0164":[4,0,0,0,2,0,3,1,0],
-"namespaceemlabcpp.html#a8dcbb739bb8a0179b85adc8f351725bb":[4,0,0,0,4,4,1,1],
-"namespaceemlabcpp.html#a95580a4893efd63e4aa800d599eb2ad0":[4,0,0,0,2,0,3,3,0],
-"namespaceemlabcpp.html#aa071beaabe5ee1c0af87ce62efc9f87f":[4,0,0,0,2,0,3,2,0],
 "namespaceemlabcpp.html#aa508af544a02cf8d215173408efd76a5":[4,0,0,0,2,0,3,0,0],
 "namespaceemlabcpp.html#abb6468ad7836780268a9d6ed31b017bc":[4,0,0,0,5,0,0,0],
 "namespaceemlabcpp.html#ae9c48fbdad00cd511b7ffdbf96c444e8":[4,0,0,0,4,0,3,0],
-"namespaceemlabcpp.html#classemlabcpp_1_1static__function":[4,0,0,0,2,1,2],
+"namespaceemlabcpp.html#classemlabcpp_1_1static__function__base":[4,0,0,0,2,1,1],
 "namespaceemlabcpp.html#structemlabcpp_1_1are__same":[4,0,0,0,5,0,4],
 "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag":[4,0,0,0,13,1],
 "namespaceemlabcpp.html#structemlabcpp_1_1iterator__of":[4,0,0,0,5,0,0],
@@ -28,8 +22,8 @@ var NAVTREEINDEX3 =
 "namespaceemlabcpp.html#structemlabcpp_1_1tuple__has__type":[4,0,0,0,5,0,7],
 "namespaceemlabcpp_1_1detail.html":[2,0,0,0],
 "namespaceemlabcpp_1_1detail.html":[3,0,0,0],
-"namespaceemlabcpp_1_1impl.html":[3,0,0,1],
 "namespaceemlabcpp_1_1impl.html":[2,0,0,1],
+"namespaceemlabcpp_1_1impl.html":[3,0,0,1],
 "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector":[4,0,0,0,0,0,0],
 "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1static__size":[4,0,0,0,5,0,18],
 "namespacemembers.html":[2,1,0],
@@ -173,6 +167,11 @@ var NAVTREEINDEX3 =
 "static__circular__buffer_8h.html#afaabfb4832972f3f9c7589a82ac8ac4f":[4,0,0,0,20,4],
 "static__circular__buffer_8h_source.html":[4,0,0,0,20],
 "static__function_8h.html":[4,0,0,0,2,1],
+"static__function_8h.html#a309933793612db190739322f8030e79e":[4,0,0,0,2,1,4],
+"static__function_8h.html#a309933793612db190739322f8030e79eac39aa6dbe619bb8ef8187b00b686df6a":[4,0,0,0,2,1,4,2],
+"static__function_8h.html#a309933793612db190739322f8030e79eae8606d021da140a92c7eba8d9b8af84f":[4,0,0,0,2,1,4,0],
+"static__function_8h.html#a309933793612db190739322f8030e79eaf7f93635f8e193a924ae4a691bb66b8f":[4,0,0,0,2,1,4,1],
+"static__function_8h.html#a391a57c506ebf6ce79239bbf4b7aaf89":[4,0,0,0,2,1,3],
 "static__function_8h_source.html":[4,0,0,0,2,1],
 "static__vector_8h.html":[4,0,0,0,21],
 "static__vector_8h.html#a640640991a3cfee97b11ab4df8759583":[4,0,0,0,21,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX3 =
 "structemlabcpp_1_1protocol__command.html#acc5cfae8a5dd35f15d5afc612ff38e33":[3,0,0,32,3],
 "structemlabcpp_1_1protocol__command.html#ad05433a0b3c269e4ae1ef820f1cbdead":[3,0,0,32,5],
 "structemlabcpp_1_1protocol__command.html#adce19542a4122b3d18723b01cbe91f8e":[3,0,0,32,2],
-"structemlabcpp_1_1protocol__command.html#afc6ca362664c20bb00d394a851810f06":[3,0,0,32,4]
+"structemlabcpp_1_1protocol__command.html#afc6ca362664c20bb00d394a851810f06":[3,0,0,32,4],
+"structemlabcpp_1_1protocol__command__group.html":[3,0,0,33]
 };

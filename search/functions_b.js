@@ -15,6 +15,5 @@ var searchData=
   ['min_944',['min',['../classemlabcpp_1_1bounded.html#a084079ca127463fc18937bdd1436441c',1,'emlabcpp::bounded::min()'],['../structstd_1_1numeric__limits_3_01T_01_4.html#aaf3813d74473b315e623f3d3c29b5705',1,'std::numeric_limits&lt; T &gt;::min()'],['../namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a',1,'emlabcpp::min()']]],
   ['min_5felem_945',['min_elem',['../namespaceemlabcpp.html#ad61b1b453f873c2ecebd79d2c8796393',1,'emlabcpp']]],
   ['min_5fmax_946',['min_max',['../structemlabcpp_1_1min__max.html#a29ff465434eadb6dd1db7286ed98366e',1,'emlabcpp::min_max::min_max()=default'],['../structemlabcpp_1_1min__max.html#aec3e14c40995b881949ef12c89e64143',1,'emlabcpp::min_max::min_max(T min_i, T max_i)']]],
-  ['min_5fmax_5felem_947',['min_max_elem',['../namespaceemlabcpp.html#a664cee55fc768377c8588638004e9d98',1,'emlabcpp']]],
-  ['move_5fto_948',['move_to',['../classemlabcpp_1_1detail_1_1static__function__storage__interface.html#aca97573c6bccb6a225a31276235c51c3',1,'emlabcpp::detail::static_function_storage_interface::move_to()'],['../classemlabcpp_1_1detail_1_1static__function__storage.html#a144990cf57035bd0a2a33c8bbe179bc2',1,'emlabcpp::detail::static_function_storage::move_to()']]]
+  ['min_5fmax_5felem_947',['min_max_elem',['../namespaceemlabcpp.html#a664cee55fc768377c8588638004e9d98',1,'emlabcpp']]]
 ];
