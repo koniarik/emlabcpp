@@ -13,6 +13,5 @@ var classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_0
     [ "operator=", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4.html#a408ec39c57373064505b7c045706dad4", null ],
     [ "operator=", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4.html#a0b6112eed80fbca430f30755629dd719", null ],
     [ "operator=", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4.html#a766d77338395f79942f59a5ea45cec76", null ],
-    [ "operator=", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4.html#ac62e220e5d3798917955d364c9da4391", null ],
-    [ "required_space", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4.html#a2edc1c5020c1f7e3c23ccd1cc9aa016f", null ]
+    [ "operator=", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4.html#ac62e220e5d3798917955d364c9da4391", null ]
 ];
