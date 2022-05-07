@@ -10,24 +10,15 @@ namespace emlabcpp
 
 namespace detail
 {
-        template < typename ReturnType, typename... ArgTypes >
-        class static_function_storage_interface
+        enum class static_function_operations
         {
-        public:
-                virtual static_function_storage_interface* move_to( void* )      = 0;
-                virtual static_function_storage_interface* copy_to( void* )      = 0;
-                virtual ReturnType                         invoke( ArgTypes... ) = 0;
-                virtual ~static_function_storage_interface()                     = default;
-
-                void operator delete( static_function_storage_interface*, std::destroying_delete_t )
-                {
-                        std::abort();  // TODO: maybe do this differently
-                }
+                COPY,
+                MOVE,
+                DESTROY
         };
 
         template < typename T, typename ReturnType, typename... ArgTypes >
-        class static_function_storage final
-          : public static_function_storage_interface< ReturnType, ArgTypes... >
+        class static_function_storage
         {
                 T item_;
 
@@ -42,82 +33,92 @@ namespace detail
                 {
                 }
 
-                // TODO: function that tells size of T including alignment given ptr
-                static_function_storage_interface< ReturnType, ArgTypes... >* move_to( void* ptr )
+                static void* construct_at( void* ptr, T item )
                 {
                         ptr = align( ptr, alignof( static_function_storage ) );
-                        // TODO: alignment
                         return std::construct_at(
                             reinterpret_cast< static_function_storage* >( ptr ),
-                            std::move( item_ ) );
+                            std::move( item ) );
                 }
 
-                static_function_storage_interface< ReturnType, ArgTypes... >* copy_to( void* ptr )
+                static ReturnType invoke( void* source, ArgTypes... args )
                 {
-                        ptr = align( ptr, alignof( static_function_storage ) );
-                        // TODO: alignment
-                        return std::construct_at(
-                            reinterpret_cast< static_function_storage* >( ptr ), item_ );
+                        static_function_storage* ptr =
+                            reinterpret_cast< static_function_storage* >( source );
+                        return ptr->item_( std::forward< ArgTypes >( args )... );
                 }
 
-                ReturnType invoke( ArgTypes... args )
+                static void* handle( void* source, void* target, static_function_operations op )
                 {
-                        return std::invoke( item_, std::forward< ArgTypes >( args )... );
-                }
+                        static_function_storage* ptr =
+                            reinterpret_cast< static_function_storage* >( source );
 
-                ~static_function_storage() = default;
+                        if ( op == static_function_operations::DESTROY ) {
+                                std::destroy_at( ptr );
+                                return nullptr;
+                        }
+
+                        target = align( target, alignof( static_function_storage ) );
+
+                        if ( op == static_function_operations::COPY ) {
+                                return std::construct_at(
+                                    reinterpret_cast< static_function_storage* >( target ), *ptr );
+                        } else {  // static_function_operations::MOVE
+                                return std::construct_at(
+                                    reinterpret_cast< static_function_storage* >( target ),
+                                    std::move( *ptr ) );
+                        }
+                }
         };
 }  // namespace detail
 
-template < typename CallableType, std::size_t Capacity >
-class static_function;
+template < typename CallableType, std::size_t Capacity, std::size_t Align, bool NoexceptMove >
+class static_function_base;
 
-template < typename ReturnType, typename... ArgTypes, std::size_t Capacity >
-class static_function< ReturnType( ArgTypes... ), Capacity >
+template <
+    typename ReturnType,
+    typename... ArgTypes,
+    std::size_t Capacity,
+    std::size_t Align,
+    bool        NoexceptMove >
+class static_function_base< ReturnType( ArgTypes... ), Capacity, Align, NoexceptMove >
 {
+        using invoke_type  = ReturnType ( * )( void*, ArgTypes... args );
+        using handler_type = void* (*) ( void*, void*, detail::static_function_operations );
+
 public:
         // TODO: maybe storage should also count the size of 'static_function_storage' ?
         // that is: only sizeof(T) bytes from storage should be used for T, not
         // sizeof(static_function_storage<T>) bytes
-        using storage_type = std::byte[Capacity];
+        using storage_type = alignas( Align ) std::byte[Capacity];
         using result_type  = ReturnType;
 
-        static_function()
-          : static_function( nullptr )
+        static_function_base()
         {
         }
 
-        static_function( std::nullptr_t )
-          : interface_( nullptr )
+        static_function_base( std::nullptr_t )
+          : static_function_base()
         {
         }
 
-        static_function( const static_function& other )
+        static_function_base( const static_function_base& other )
         {
-                if ( other ) {
-                        interface_ = other.interface_->copy_to( &storage_ );
-                }
+                *this = other;
         }
 
-        static_function( static_function&& other )
+        static_function_base( static_function_base&& other ) noexcept( NoexceptMove )
         {
-                if ( other ) {
-                        interface_ = other.interface_->move_to( &storage_ );
-                }
+                *this = std::move( other );
         }
 
         template < typename Callable >
-        static_function( Callable c )
+        static_function_base( Callable c )
         {
-                using storage =
-                    detail::static_function_storage< Callable, ReturnType, ArgTypes... >;
-                // TODO: check that class fits with alignment into storage
-                void* ptr = align( &storage_, alignof( storage ) );
-                interface_ =
-                    std::construct_at( reinterpret_cast< storage* >( ptr ), std::move( c ) );
+                *this = std::move( c );
         }
 
-        static_function& operator=( const static_function& other )
+        static_function_base& operator=( const static_function_base& other )
         {
                 if ( this == &other ) {
                         return *this;
@@ -126,13 +127,16 @@ public:
                 clear();
 
                 if ( other ) {
-                        interface_ = other.interface_->copy_to( &storage_ );
+                        obj_ = other.handle_(
+                            other.obj_, &storage_, detail::static_function_operations::COPY );
+                        invoke_ = other.invoke_;
+                        handle_ = other.handle_;
                 }
 
                 return *this;
         }
 
-        static_function& operator=( static_function&& other )
+        static_function_base& operator=( static_function_base&& other ) noexcept( NoexceptMove )
         {
                 if ( this == &other ) {
                         return *this;
@@ -141,41 +145,69 @@ public:
                 clear();
 
                 if ( other ) {
-                        interface_ = other.interface_->move_to( &storage_ );  // TODO alignment
+                        obj_ = other.handle_(
+                            other.obj_, &storage_, detail::static_function_operations::MOVE );
+                        invoke_ = other.invoke_;
+                        handle_ = other.handle_;
                 }
 
                 return *this;
         }
 
-        static_function& operator=( std::nullptr_t )
+        static_function_base& operator=( std::nullptr_t )
         {
                 clear();
                 return *this;
         }
 
         template < typename Callable >
-        static_function& operator=( Callable c )
+        static_function_base& operator=( Callable c )
         {
                 clear();
+
                 using storage =
                     detail::static_function_storage< Callable, ReturnType, ArgTypes... >;
+
+                static constexpr std::size_t requires_space =
+                    required_space( sizeof( storage ), alignof( storage ) );
+
+                static_assert(
+                    requires_space <= Capacity, "Callable would not fit into the static_function" );
+
+                if constexpr ( NoexceptMove ) {
+                        static_assert(
+                            std::is_nothrow_move_constructible_v< Callable > &&
+                                std::is_nothrow_move_assignable_v< Callable >,
+                            "Callable has to use nothrow moves if NoexceptMove enabled for static_function" );
+                }
+
                 // TODO: check that class fits with alignment into storage
-                void* ptr = align( &storage_, alignof( storage ) );
-                interface_ =
-                    std::construct_at( reinterpret_cast< storage* >( ptr ), std::move( c ) );
+                obj_    = storage::construct_at( &storage_, std::move( c ) );
+                invoke_ = storage::invoke;
+                handle_ = storage::handle;
+
+                return *this;
+        }
+
+        static constexpr std::size_t required_space( std::size_t size, std::size_t align )
+        {
+                if ( align > Align ) {
+                        size += align - Align;
+                }
+                return size;
         }
 
         operator bool() const noexcept
         {
-                return interface_ != nullptr;
+                return obj_ != nullptr;
         }
 
         ReturnType operator()( ArgTypes... args )
         {
-                return interface_->invoke( std::forward< ArgTypes >( args )... );
+                return invoke_( obj_, std::forward< ArgTypes >( args )... );
         }
 
-        ~static_function()
+        ~static_function_base()
         {
                 clear();
         }
@@ -183,14 +215,21 @@ public:
 private:
         void clear()
         {
-                if ( interface_ != nullptr ) {
-                        std::destroy_at( interface_ );
-                        interface_ = nullptr;
+                if ( obj_ != nullptr ) {
+                        handle_( obj_, nullptr, detail::static_function_operations::DESTROY );
+                        obj_    = nullptr;
+                        invoke_ = nullptr;
+                        handle_ = nullptr;
                 }
         }
 
-        detail::static_function_storage_interface< ReturnType, ArgTypes... >* interface_;
-        storage_type                                                          storage_;
+        invoke_type  invoke_ = nullptr;
+        handler_type handle_ = nullptr;
+        void*        obj_    = nullptr;
+        storage_type storage_;
 };
+
+template < typename Signature, std::size_t Capacity >
+using static_function = static_function_base< Signature, Capacity, alignof( void* ), false >;
 
 }  // namespace emlabcpp
