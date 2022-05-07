@@ -17,6 +17,13 @@ namespace detail
                 DESTROY
         };
 
+        template < typename ReturnType, typename... ArgTypes >
+        struct static_function_vtable
+        {
+                ReturnType ( *invoke )( void*, ArgTypes... );
+                void* ( *handle )( void*, void*, static_function_operations );
+        };
+
         template < typename T, typename ReturnType, typename... ArgTypes >
         class static_function_storage
         {
@@ -69,6 +76,10 @@ namespace detail
                                     std::move( *ptr ) );
                         }
                 }
+
+                static constexpr static_function_vtable< ReturnType, ArgTypes... > vtable = {
+                    invoke,
+                    handle };
         };
 }  // namespace detail
 
@@ -83,14 +94,13 @@ template <
     bool        NoexceptMove >
 class static_function_base< ReturnType( ArgTypes... ), Capacity, Align, NoexceptMove >
 {
-        using invoke_type  = ReturnType ( * )( void*, ArgTypes... args );
-        using handler_type = void* (*) ( void*, void*, detail::static_function_operations );
+        using vtable = detail::static_function_vtable< ReturnType, ArgTypes... >;
 
 public:
         // TODO: maybe storage should also count the size of 'static_function_storage' ?
         // that is: only sizeof(T) bytes from storage should be used for T, not
         // sizeof(static_function_storage<T>) bytes
-        using storage_type = alignas( Align ) std::byte[Capacity];
+        using storage_type = std::byte[Capacity];
         using result_type  = ReturnType;
 
         static_function_base()
@@ -127,10 +137,9 @@ public:
                 clear();
 
                 if ( other ) {
-                        obj_ = other.handle_(
+                        obj_ = other.vtable_->handle(
                             other.obj_, &storage_, detail::static_function_operations::COPY );
-                        invoke_ = other.invoke_;
-                        handle_ = other.handle_;
+                        vtable_ = other.vtable_;
                 }
 
                 return *this;
@@ -145,10 +154,9 @@ public:
                 clear();
 
                 if ( other ) {
-                        obj_ = other.handle_(
+                        obj_ = other.vtable_->handle(
                             other.obj_, &storage_, detail::static_function_operations::MOVE );
-                        invoke_ = other.invoke_;
-                        handle_ = other.handle_;
+                        vtable_ = other.vtable_;
                 }
 
                 return *this;
@@ -183,8 +191,7 @@ public:
 
                 // TODO: check that class fits with alignment into storage
                 obj_    = storage::construct_at( &storage_, std::move( c ) );
-                invoke_ = storage::invoke;
-                handle_ = storage::handle;
+                vtable_ = &storage::vtable;
 
                 return *this;
         }
@@ -196,7 +203,7 @@ public:
 
         ReturnType operator()( ArgTypes... args )
         {
-                return invoke_( obj_, std::forward< ArgTypes >( args )... );
+                return vtable_->invoke( obj_, std::forward< ArgTypes >( args )... );
         }
 
         ~static_function_base()
@@ -205,7 +212,6 @@ public:
         }
 
 private:
-
         static constexpr std::size_t required_space( std::size_t size, std::size_t align )
         {
                 if ( align > Align ) {
@@ -217,17 +223,18 @@ private:
         void clear()
         {
                 if ( obj_ != nullptr ) {
-                        handle_( obj_, nullptr, detail::static_function_operations::DESTROY );
-                        obj_    = nullptr;
-                        invoke_ = nullptr;
-                        handle_ = nullptr;
+                        // temporary obj required for throwing destructors
+                        void*         obj  = obj_;
+                        const vtable* vtbl = vtable_;
+                        obj_               = nullptr;
+                        vtable_            = nullptr;
+                        vtbl->handle( obj, nullptr, detail::static_function_operations::DESTROY );
                 }
         }
 
-        invoke_type  invoke_ = nullptr;
-        handler_type handle_ = nullptr;
-        void*        obj_    = nullptr;
-        storage_type storage_;
+        const vtable* vtable_ = nullptr;
+        void*         obj_    = nullptr;
+        alignas( Align ) storage_type storage_;
 };
 
 template < typename Signature, std::size_t Capacity >
