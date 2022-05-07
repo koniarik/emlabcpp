@@ -3,10 +3,10 @@
 
 [![Tests](https://github.com/koniarik/emlabcpp/actions/workflows/tests.yml/badge.svg)](https://github.com/koniarik/emlabcpp/actions/workflows/tests.yml)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nlohmann/json/master/LICENSE.MIT)
-[![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://koniarik.github.io/emlabcpp/index.html)
 
 An opinionated C++20 library focusing on embedded development. 
 It provides a wide set of tools, from complex mechanisms (protocol library) to simple utilites (view).
+More details in [Documentation](https://koniarik.github.io/emlabcpp/index.html)
 
 - [Installation](#Installation)
 - [Components](#Components)
