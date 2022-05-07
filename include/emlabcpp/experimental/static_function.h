@@ -109,13 +109,12 @@ public:
         template < typename Callable >
         static_function( Callable c )
         {
-                // TODO: alignment
+                using storage =
+                    detail::static_function_storage< Callable, ReturnType, ArgTypes... >;
                 // TODO: check that class fits with alignment into storage
-                interface_ = std::construct_at(
-                    reinterpret_cast<
-                        detail::static_function_storage< Callable, ReturnType, ArgTypes... >* >(
-                        &storage_ ),
-                    std::move( c ) );
+                void* ptr = align( &storage_, alignof( storage ) );
+                interface_ =
+                    std::construct_at( reinterpret_cast< storage* >( ptr ), std::move( c ) );
         }
 
         static_function& operator=( const static_function& other )
@@ -158,11 +157,12 @@ public:
         static_function& operator=( Callable c )
         {
                 clear();
-                interface_ = std::construct_at(
-                    reinterpret_cast<
-                        detail::static_function_storage< Callable, ReturnType, ArgTypes... >* >(
-                        &storage_ ),
-                    std::move( c ) );
+                using storage =
+                    detail::static_function_storage< Callable, ReturnType, ArgTypes... >;
+                // TODO: check that class fits with alignment into storage
+                void* ptr = align( &storage_, alignof( storage ) );
+                interface_ =
+                    std::construct_at( reinterpret_cast< storage* >( ptr ), std::move( c ) );
         }
 
         operator bool() const noexcept
