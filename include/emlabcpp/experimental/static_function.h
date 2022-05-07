@@ -189,14 +189,6 @@ public:
                 return *this;
         }
 
-        static constexpr std::size_t required_space( std::size_t size, std::size_t align )
-        {
-                if ( align > Align ) {
-                        size += align - Align;
-                }
-                return size;
-        }
-
         operator bool() const noexcept
         {
                 return obj_ != nullptr;
@@ -213,6 +205,15 @@ public:
         }
 
 private:
+
+        static constexpr std::size_t required_space( std::size_t size, std::size_t align )
+        {
+                if ( align > Align ) {
+                        size += align - Align;
+                }
+                return size;
+        }
+
         void clear()
         {
                 if ( obj_ != nullptr ) {
