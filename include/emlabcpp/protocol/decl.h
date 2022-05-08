@@ -194,8 +194,7 @@ struct protocol_decl< static_vector< T, N > >
         using counter_type = uint16_t;
         static constexpr std::size_t max_size =
             protocol_decl< counter_type >::max_size + protocol_decl< T >::max_size * N;
-        static constexpr std::size_t min_size =
-            protocol_decl< counter_type >::min_size + protocol_decl< T >::min_size * N;
+        static constexpr std::size_t min_size = protocol_decl< counter_type >::min_size;
 };
 
 }  // namespace emlabcpp
