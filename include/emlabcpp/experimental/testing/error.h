@@ -63,8 +63,8 @@ inline auto& operator<<( ostreamlike auto& os, const testing_internal_reactor_er
 #endif
             },
             [&]( tag< TESTING_NO_RESPONSE_E >, testing_messages_enum ) {},
-            [&]( tag< TESTING_ARG_MISSING_E >, testing_key ) {},
-            [&]( tag< TESTING_ARG_WRONG_TYPE_E >, testing_key ) {},
+            [&]( tag< TESTING_ARG_MISSING_E >, const testing_key& ) {},
+            [&]( tag< TESTING_ARG_WRONG_TYPE_E >, const testing_key& ) {},
             [&]( tag< TESTING_ARG_WRONG_MESSAGE_E >, testing_messages_enum ) {} );
         return os;
 }

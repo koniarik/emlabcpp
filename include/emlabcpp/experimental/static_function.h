@@ -50,15 +50,13 @@ namespace detail
 
                 static ReturnType invoke( void* source, ArgTypes... args )
                 {
-                        static_function_storage* ptr =
-                            reinterpret_cast< static_function_storage* >( source );
+                        auto ptr = reinterpret_cast< static_function_storage* >( source );
                         return ptr->item_( std::forward< ArgTypes >( args )... );
                 }
 
                 static void* handle( void* source, void* target, static_function_operations op )
                 {
-                        static_function_storage* ptr =
-                            reinterpret_cast< static_function_storage* >( source );
+                        auto ptr = reinterpret_cast< static_function_storage* >( source );
 
                         if ( op == static_function_operations::DESTROY ) {
                                 std::destroy_at( ptr );
@@ -103,9 +101,7 @@ public:
         using storage_type = std::byte[Capacity];
         using result_type  = ReturnType;
 
-        static_function_base()
-        {
-        }
+        static_function_base() = default;
 
         static_function_base( std::nullptr_t )
           : static_function_base()
