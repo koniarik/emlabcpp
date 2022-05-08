@@ -16,9 +16,6 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     [ "defer.h", "defer_8h.html", [
       [ "defer", "classemlabcpp_1_1defer.html", "classemlabcpp_1_1defer" ]
     ] ],
-    [ "derived_storage.h", "derived__storage_8h.html", [
-      [ "derived_storage", "classemlabcpp_1_1derived__storage.html", "classemlabcpp_1_1derived__storage" ]
-    ] ],
     [ "either.h", "either_8h.html", "either_8h" ],
     [ "iterator.h", "iterator_8h.html", [
       [ "generic_iterator", "classemlabcpp_1_1generic__iterator.html", "classemlabcpp_1_1generic__iterator" ]
