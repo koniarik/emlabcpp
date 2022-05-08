@@ -9,6 +9,9 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 add_library(GTest::GTest INTERFACE IMPORTED)
 target_link_libraries(GTest::GTest INTERFACE gtest_main)
+set_target_properties(gtest_main
+    PROPERTIES
+         CXX_CLANG_TIDY "")
 
 function(emlabcpp_setup_test target)
   target_include_directories(${target} PRIVATE include/)

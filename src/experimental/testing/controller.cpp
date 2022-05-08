@@ -69,7 +69,7 @@ std::optional< T > load_data( const Args&... args, testing_controller_interface_
                     res = item;
             },
             [&]( tag< TESTING_INTERNAL_ERROR >, testing_reactor_error_variant err ) {
-                    iface->on_error( testing_internal_reactor_error{ err } );
+                    iface->on_error( testing_internal_reactor_error{ std::move( err ) } );
             },
             [&]( tag< TESTING_PROTOCOL_ERROR >, protocol_error_record rec ) {
                     iface->on_error( testing_reactor_protocol_error{ rec } );
@@ -207,7 +207,7 @@ void testing_controller::handle_message(
     testing_reactor_error_variant        err,
     testing_controller_interface_adapter iface )
 {
-        iface->on_error( testing_internal_reactor_error{ err } );
+        iface->on_error( testing_internal_reactor_error{ std::move( err ) } );
 }
 void testing_controller::handle_message(
     tag< TESTING_PROTOCOL_ERROR >,

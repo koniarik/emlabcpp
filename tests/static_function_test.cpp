@@ -36,7 +36,7 @@ TEST( StaticFunction, store_function_pointer )
         rf = nullptr;
         EXPECT_FALSE( rf );
 
-        complex_function cf = []( int, std::string ) -> float {
+        complex_function cf = []( int, const std::string& ) -> float {
                 return 0.f;
         };
         EXPECT_TRUE( cf );
@@ -58,7 +58,7 @@ TEST( StaticFunction, call_function_pointer )
         std::string sub_res = rf( 42 );
         EXPECT_EQ( sub_res, "42" );
 
-        complex_function cf = []( int val, std::string sval ) -> float {
+        complex_function cf = []( int val, const std::string& sval ) -> float {
                 return static_cast< float >( val * std::stoi( sval ) );
         };
         EXPECT_TRUE( cf );
@@ -93,7 +93,7 @@ TEST( StaticFunction, call_callable )
         EXPECT_EQ( test_sres, "666" );
 
         test_value          = 0;
-        complex_function cf = [&]( int val, std::string sval ) -> float {
+        complex_function cf = [&]( int val, const std::string& sval ) -> float {
                 test_value = val;
                 return static_cast< float >( std::stoi( sval ) );
         };
