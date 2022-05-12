@@ -39,4 +39,5 @@ clang-format:
 cmake-format:
 	find ./ -iname "*CMakeLists.txt" -o -iname "*.cmake" | xargs cmake-format -i
 
-
+doc:
+	doxygen
