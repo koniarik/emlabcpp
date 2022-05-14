@@ -22,5 +22,6 @@ var classemlabcpp_1_1protocol__message =
     [ "operator[]", "classemlabcpp_1_1protocol__message.html#a929d6d33e63f9d7eb9351718d4fa0763", null ],
     [ "size", "classemlabcpp_1_1protocol__message.html#ac87266cff140730fb8ab757e8054fcda", null ],
     [ "operator==", "classemlabcpp_1_1protocol__message.html#a1a63e6c229a6f8b19a97f64619584db0", null ],
+    [ "capacity", "classemlabcpp_1_1protocol__message.html#adeb7254d1156a9d7c0258722a93dc125", null ],
     [ "max_size", "classemlabcpp_1_1protocol__message.html#a1f0c101f29b0432e18f9af51fdef996f", null ]
 ];
