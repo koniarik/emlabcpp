@@ -42,7 +42,9 @@ public:
         using iterator       = uint8_t*;
         using const_iterator = const uint8_t*;
 
+        // TODO: mark this deprecated
         static constexpr std::size_t max_size = N;
+        static constexpr std::size_t capacity = N;
 
         static std::optional< protocol_message > make( const range_container auto& cont )
         {
