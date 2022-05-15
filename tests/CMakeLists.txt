@@ -1,4 +1,5 @@
 
+include(GoogleTest)
 include(FetchContent)
 
 FetchContent_Declare(
@@ -16,7 +17,7 @@ set_target_properties(gtest_main
 function(emlabcpp_setup_test target)
   target_include_directories(${target} PRIVATE include/)
   target_link_libraries(${target} emlabcpp)
-  add_test(NAME ${target} COMMAND ${target})
+  gtest_discover_tests(${target})
 
   target_compile_options(
     ${target}
@@ -72,6 +73,7 @@ add_emlabcpp_test(protocol_base_test)
 add_emlabcpp_test(protocol_packet_test)
 add_emlabcpp_test(testing_test)
 add_emlabcpp_test(static_function_test)
+add_emlabcpp_test(types_test)
 
 # file(GLOB_RECURSE HEADER_FILES "${PROJECT_SOURCE_DIR}/include/*.h" )
 # add_format_test( TARGET emlabcpp_format WORKING_DIRECTORY
