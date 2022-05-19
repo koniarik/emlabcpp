@@ -51,8 +51,9 @@ public:
 private:
         config conf_;
 
-        float i_term_     = 0;
-        float last_input_ = 0;
+        float i_term_       = 0;
+        float last_desired_ = 0;
+        float last_input_   = 0;
 
         time_type last_time_;
 
@@ -111,6 +112,7 @@ public:
                 if ( t_diff == 0.f ) {
                         return output_;
                 }
+                last_desired_ = desired;
 
                 float error = desired - input;
                 i_term_ += conf_.i * ( error * t_diff );
@@ -131,6 +133,14 @@ public:
         [[nodiscard]] float get_output() const
         {
                 return output_;
+        }
+        [[nodiscard]] float get_input() const
+        {
+                return last_input_;
+        }
+        [[nodiscard]] float get_desired() const
+        {
+                return last_desired_;
         }
 };
 
