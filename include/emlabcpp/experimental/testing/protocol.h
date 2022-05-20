@@ -103,8 +103,12 @@ struct testing_reactor_controller_group
         protocol_command< TESTING_COUNT >::with_args< testing_test_id >,
         protocol_command< TESTING_NAME >::with_args< testing_name_buffer >,
         protocol_command< TESTING_ARG >::with_args< testing_run_id, testing_key >,
-        protocol_command<
-            TESTING_COLLECT >::with_args< testing_run_id, testing_key, testing_arg_variant >,
+        protocol_command< TESTING_COLLECT >::with_args<
+            testing_run_id,
+            testing_node_id,
+            testing_node_id,
+            testing_key,
+            testing_arg_variant >,
         protocol_command< TESTING_FINISHED >::with_args< testing_run_id >,
         protocol_command< TESTING_ERROR >::with_args< testing_run_id >,
         protocol_command< TESTING_FAILURE >::with_args< testing_run_id >,

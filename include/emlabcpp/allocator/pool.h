@@ -147,6 +147,11 @@ public:
                 return !( lh == rh );
         }
 
+        pool_interface* get_resource()
+        {
+                return resource_;
+        }
+
         template < typename U >
         friend class pool_allocator;
 

@@ -96,6 +96,14 @@ struct protocol_decl< std::variant< Ds... > >
             id_decl::min_size + std::min< std::size_t >( { protocol_decl< Ds >::min_size... } );
 };
 
+template <>
+struct protocol_decl< std::monostate >
+{
+        using value_type                      = std::monostate;
+        static constexpr std::size_t max_size = 0;
+        static constexpr std::size_t min_size = 0;
+};
+
 template < std::size_t N >
 struct protocol_decl< std::bitset< N > >
 {

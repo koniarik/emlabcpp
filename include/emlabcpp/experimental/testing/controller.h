@@ -25,8 +25,6 @@
 #include "emlabcpp/iterators/convert.h"
 #include "emlabcpp/match.h"
 
-#include <memory_resource>
-
 #pragma once
 
 namespace emlabcpp
@@ -75,14 +73,17 @@ private:
         testing_name_buffer                    date_;
         std::optional< testing_result >        context_;
         testing_run_id                         rid_ = 0;
+        pool_interface*                        mem_pool_;
 
         testing_controller(
             testing_name_buffer                    name,
             testing_name_buffer                    date,
-            pool_map< testing_test_id, test_info > tests )
+            pool_map< testing_test_id, test_info > tests,
+            pool_interface*                        mem_pool )
           : tests_( std::move( tests ) )
           , name_( std::move( name ) )
           , date_( std::move( date ) )
+          , mem_pool_( mem_pool )
         {
         }
 
@@ -99,6 +100,8 @@ private:
         void handle_message(
             tag< TESTING_COLLECT >,
             testing_run_id             rid,
+            testing_node_id            parent,
+            testing_node_id            id,
             const testing_key&         key,
             const testing_arg_variant& avar,
             testing_controller_interface_adapter );

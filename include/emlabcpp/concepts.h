@@ -23,6 +23,7 @@
 #include "emlabcpp/types/base.h"
 
 #include <concepts>
+#include <variant>
 
 #pragma once
 
@@ -132,14 +133,7 @@ namespace detail
 template < typename T >
 concept ostreamlike = requires( T val )
 {
-        {
-                val.good()
-                } -> std::same_as< bool >;
-        {
-                val.bad()
-                } -> std::same_as< bool >;
         bool( val );
-        typename T::char_type;
         detail::directly_streamable_for< T, uint8_t >;
         detail::directly_streamable_for< T, uint16_t >;
         detail::directly_streamable_for< T, uint32_t >;
@@ -151,6 +145,13 @@ concept ostreamlike = requires( T val )
         detail::directly_streamable_for< T, bool >;
         detail::directly_streamable_for< T, const void* >;
         detail::directly_streamable_for< T, std::nullptr_t >;
+};
+
+template < typename T, typename Variant >
+concept alternative_of = requires( Variant var, T val )
+{
+        std::holds_alternative< T >( var );
+        Variant{ val };
 };
 
 }  // namespace emlabcpp

@@ -4,10 +4,10 @@
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -15,7 +15,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
-// 
+//
 //
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
@@ -56,9 +56,14 @@ std::optional< testing_arg_variant > testing_record::get_arg_variant( const test
         return res;
 }
 
-void testing_record::collect( const testing_key& key, const testing_arg_variant& arg )
+testing_node_id testing_record::collect(
+    testing_node_id            parent,
+    const testing_key&         key,
+    const testing_arg_variant& arg )
 {
-        comm_.reply< TESTING_COLLECT >( rid_, key, arg );
+        last_id_ += 1;
+        comm_.reply< TESTING_COLLECT >( rid_, parent, last_id_, key, arg );
+        return last_id_;
 }
 
 void testing_record::report_wrong_type_error( const testing_key& key )

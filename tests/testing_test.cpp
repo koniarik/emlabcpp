@@ -4,10 +4,10 @@
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -15,7 +15,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
-// 
+//
 //
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
@@ -75,7 +75,7 @@ void simple_test_case( em::testing_record& rec )
         // this is stored for later review
         rec.collect( "col1", "some_data" );
         rec.collect( "col2", 42 );
-        rec.collect( 33, "foooo" );
+        rec.collect( 33u, "foooo" );
 
         // of course, we can decide whenever the test
         // failed or succeeded
@@ -199,7 +199,7 @@ struct controller_iface : em::testing_controller_interface
         //
         // There is support for integration into gtests,
         // that prints all collected data in failure
-        void on_result( em::testing_result res ) final
+        void on_result( const em::testing_result& res ) final
         {
                 EXPECT_PRED_FORMAT1( em::testing_gtest_predicate, res );
         }

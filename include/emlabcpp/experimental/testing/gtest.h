@@ -31,7 +31,40 @@
 namespace emlabcpp
 {
 
-inline ::testing::AssertionResult testing_gtest_predicate( const char*, testing_result& tres )
+template < ostreamlike T >
+inline T& testing_recursive_print_node( T& os, const testing_data_node& node, std::size_t depth )
+{
+
+        match(
+            node.key,
+            [&]( uint32_t val ) {
+                    os << val;
+            },
+            [&]( testing_key_buffer val ) {
+                    os << std::string_view{ val.begin(), val.size() };
+            } );
+
+        if ( !std::holds_alternative< std::monostate >( node.var ) ) {
+                os << ":\t";
+                match(
+                    node.var,
+                    [&]( testing_string_buffer val ) {
+                            os << std::string_view{ val.begin(), val.size() };
+                    },
+                    []( std::monostate ) {},
+                    [&]( auto val ) {
+                            os << val;
+                    } );
+        }
+
+        for ( const testing_data_node& child : node.children ) {
+                testing_recursive_print_node( os, child, depth + 1 );
+        }
+
+        return os;
+}
+
+inline ::testing::AssertionResult testing_gtest_predicate( const char*, const testing_result& tres )
 {
 
         ::testing::AssertionResult res = ::testing::AssertionSuccess();
@@ -41,31 +74,11 @@ inline ::testing::AssertionResult testing_gtest_predicate( const char*, testing_
                 res = ::testing::AssertionFailure() << "Test errored";
         }
 
-        if ( !tres.collected_data.empty() ) {
+        if ( !tres.data_root.children.empty() ) {
                 res << "\ncollected:";
         }
 
-        for ( auto [key, arg] : tres.collected_data ) {
-                res << "\n ";
-                match(
-                    key,
-                    [&]( uint32_t val ) {
-                            res << val;
-                    },
-                    [&]( testing_key_buffer val ) {
-                            res << std::string_view{ val.begin(), val.size() };
-                    } );
-                res << " :\t";
-                match(
-                    arg,
-                    [&]( testing_string_buffer val ) {
-                            res << std::string_view{ val.begin(), val.size() };
-                    },
-                    [&]( auto val ) {
-                            res << val;
-                    } );
-        }
-
+        testing_recursive_print_node( res, tres.data_root, 0 );
         return res;
 }
 

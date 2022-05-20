@@ -35,6 +35,7 @@ class testing_record
         testing_run_id                     rid_;
         testing_reactor_interface_adapter& comm_;
         bool                               errored_ = false;
+        testing_node_id                    last_id_ = 0;
 
 public:
         testing_record(
@@ -75,26 +76,19 @@ public:
                 return errored_;
         }
 
-        void collect( const testing_key& key, const testing_arg_variant& arg );
+        testing_node_id
+        collect( testing_node_id parent, const testing_key& key, const testing_arg_variant& arg );
 
-        void collect( std::string_view key, const testing_arg_variant& arg )
+        template < typename Key, typename Arg >
+        testing_node_id collect( testing_node_id parent, const Key& k, const Arg& arg )
         {
-                collect( testing_key_to_buffer( key ), arg );
+                return collect( parent, convert_key( k ), convert_arg( arg ) );
         }
 
-        void collect( const testing_key& key, std::string_view arg )
+        template < typename Key, typename Arg >
+        testing_node_id collect( const Key& k, const Arg& arg )
         {
-                collect( key, testing_string_to_buffer( arg ) );
-        }
-
-        void collect( uint32_t key, std::string_view arg )
-        {
-                collect( testing_key{ key }, testing_string_to_buffer( arg ) );
-        }
-
-        void collect( std::string_view key, std::string_view arg )
-        {
-                collect( testing_key_to_buffer( key ), testing_string_to_buffer( arg ) );
+                return collect( 0, k, arg );
         }
 
         void fail()
@@ -122,6 +116,26 @@ private:
                         return {};
                 }
                 return std::get< T >( var );
+        }
+
+        testing_key convert_key( const alternative_of< testing_key > auto& k )
+        {
+                return testing_key{ k };
+        }
+
+        testing_key convert_key( std::string_view k )
+        {
+                return testing_key{ testing_key_to_buffer( k ) };
+        }
+
+        testing_arg_variant convert_arg( const alternative_of< testing_arg_variant > auto& arg )
+        {
+                return testing_arg_variant{ arg };
+        }
+
+        testing_arg_variant convert_arg( std::string_view arg )
+        {
+                return testing_string_to_buffer( arg );
         }
 };
 }  // namespace emlabcpp

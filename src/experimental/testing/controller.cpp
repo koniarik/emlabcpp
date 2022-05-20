@@ -4,10 +4,10 @@
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -15,7 +15,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
-// 
+//
 //
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
@@ -137,7 +137,7 @@ testing_controller::make( testing_controller_interface& top_iface, pool_interfac
                 info[i] = test_info{ .name = *opt_name };
         }
 
-        return testing_controller{ *opt_name, *opt_date, std::move( info ) };
+        return testing_controller{ *opt_name, *opt_date, std::move( info ), pool };
 }
 void testing_controller::handle_message(
     tag< TESTING_COUNT >,
@@ -178,6 +178,8 @@ void testing_controller::handle_message(
 void testing_controller::handle_message(
     tag< TESTING_COLLECT >,
     testing_run_id             rid,
+    testing_node_id            parent,
+    testing_node_id            id,
     const testing_key&         key,
     const testing_arg_variant& avar,
     testing_controller_interface_adapter )
@@ -186,14 +188,18 @@ void testing_controller::handle_message(
         EMLABCPP_ASSERT( context_ );
         EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
 
-        context_->collected_data[key] = avar;
+        testing_data_node* parent_ptr = context_->data_root.find_node( parent );
+
+        EMLABCPP_ASSERT( parent_ptr );
+
+        parent_ptr->add_child( id, key, avar );
 }
 void testing_controller::handle_message(
     tag< TESTING_FINISHED >,
     auto,
     testing_controller_interface_adapter iface )
 {
-        iface->on_result( std::move( *context_ ) );
+        iface->on_result( *context_ );
         context_.reset();
 }
 void testing_controller::handle_message(
@@ -246,7 +252,7 @@ void testing_controller::start_test( testing_test_id tid, testing_controller_int
 
         rid_ += 1;
 
-        context_.emplace( tid, rid_ );
+        context_.emplace( tid, rid_, mem_pool_ );
 
         iface.send< TESTING_LOAD >( tid, rid_ );
         iface.send< TESTING_EXEC >( rid_ );

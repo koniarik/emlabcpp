@@ -320,6 +320,25 @@ struct protocol_def< std::variant< Ds... >, Endianess >
         }
 };
 
+template < protocol_endianess_enum Endianess >
+struct protocol_def< std::monostate, Endianess >
+{
+        using value_type                      = std::monostate;
+        static constexpr std::size_t max_size = 0;
+        using size_type                       = bounded< std::size_t, 0, 0 >;
+
+        static constexpr size_type serialize_at( std::span< uint8_t, 0 >, const value_type& )
+        {
+                return size_type{};
+        }
+
+        static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& )
+            -> protocol_result< value_type >
+        {
+                return { 0, std::monostate{} };
+        }
+};
+
 template < std::size_t N, protocol_endianess_enum Endianess >
 struct protocol_def< std::bitset< N >, Endianess >
 {
