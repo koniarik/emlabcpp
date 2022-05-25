@@ -1,8 +1,8 @@
 <map id="include/emlabcpp/experimental/testing/reactor_interface.h" name="include/emlabcpp/experimental/testing/reactor_interface.h">
-<area shape="rect" id="node1" title=" " alt="" coords="265,5,493,47"/>
-<area shape="rect" id="node2" href="$experimental_2testing_2protocol_8h.html" title=" " alt="" coords="290,95,467,136"/>
-<area shape="rect" id="node3" href="$algorithm_8h.html" title=" " alt="" coords="5,191,171,218"/>
-<area shape="rect" id="node4" href="$experimental_2testing_2base_8h.html" title=" " alt="" coords="195,184,373,225"/>
-<area shape="rect" id="node5" href="$protocol_8h.html" title=" " alt="" coords="397,191,552,218"/>
-<area shape="rect" id="node6" href="$packet_8h.html" title=" " alt="" coords="576,191,779,218"/>
+<area shape="rect" id="node1" title=" " alt="" coords="133,5,361,47"/>
+<area shape="rect" id="node2" href="$experimental_2testing_2protocol_8h.html" title=" " alt="" coords="158,95,335,136"/>
+<area shape="rect" id="node3" href="$algorithm_8h.html" title=" " alt="" coords="5,273,171,300"/>
+<area shape="rect" id="node4" href="$experimental_2testing_2base_8h.html" title=" " alt="" coords="63,184,241,225"/>
+<area shape="rect" id="node5" href="$protocol_8h.html" title=" " alt="" coords="265,191,420,218"/>
+<area shape="rect" id="node6" href="$packet_8h.html" title=" " alt="" coords="444,191,647,218"/>
 </map>

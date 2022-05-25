@@ -1,10 +1,9 @@
 <map id="include/emlabcpp/experimental/testing/controller.h" name="include/emlabcpp/experimental/testing/controller.h">
-<area shape="rect" id="node1" title=" " alt="" coords="1244,5,1472,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1141,5,1369,47"/>
 <area shape="rect" id="node2" href="$pool_8h.html" title=" " alt="" coords="361,95,507,136"/>
 <area shape="rect" id="node14" href="$controller__interface_8h.html" title=" " alt="" coords="1251,95,1465,136"/>
 <area shape="rect" id="node18" href="$convert_8h.html" title=" " alt="" coords="1081,95,1227,136"/>
 <area shape="rect" id="node19" href="$match_8h.html" title=" " alt="" coords="1489,102,1632,129"/>
-<area shape="rect" id="node20" title=" " alt="" coords="1656,102,1796,129"/>
 <area shape="rect" id="node3" href="$util_8h.html" title=" " alt="" coords="490,184,637,225"/>
 <area shape="rect" id="node4" href="$assert_8h.html" title=" " alt="" coords="661,191,804,218"/>
 <area shape="rect" id="node5" href="$numeric_8h.html" title=" " alt="" coords="828,184,973,225"/>

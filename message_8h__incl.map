@@ -1,10 +1,11 @@
 <map id="include/emlabcpp/protocol/message.h" name="include/emlabcpp/protocol/message.h">
-<area shape="rect" id="node1" title=" " alt="" coords="200,5,395,47"/>
-<area shape="rect" id="node2" href="$concepts_8h.html" title=" " alt="" coords="125,244,285,271"/>
-<area shape="rect" id="node4" title=" " alt="" coords="177,393,233,420"/>
-<area shape="rect" id="node6" href="$view_8h.html" title=" " alt="" coords="101,95,233,121"/>
-<area shape="rect" id="node8" title=" " alt="" coords="360,95,435,121"/>
-<area shape="rect" id="node3" href="$types_2base_8h.html" title=" " alt="" coords="5,319,179,345"/>
-<area shape="rect" id="node5" title=" " alt="" coords="203,319,283,345"/>
-<area shape="rect" id="node7" href="$types_8h.html" title=" " alt="" coords="96,169,235,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="83,5,278,47"/>
+<area shape="rect" id="node2" href="$concepts_8h.html" title=" " alt="" coords="102,244,262,271"/>
+<area shape="rect" id="node4" title=" " alt="" coords="138,393,194,420"/>
+<area shape="rect" id="node7" href="$view_8h.html" title=" " alt="" coords="166,95,298,121"/>
+<area shape="rect" id="node9" title=" " alt="" coords="323,95,398,121"/>
+<area shape="rect" id="node3" href="$types_2base_8h.html" title=" " alt="" coords="240,319,414,345"/>
+<area shape="rect" id="node5" title=" " alt="" coords="43,319,123,345"/>
+<area shape="rect" id="node6" title=" " alt="" coords="148,319,216,345"/>
+<area shape="rect" id="node8" href="$types_8h.html" title=" " alt="" coords="166,169,304,196"/>
 </map>

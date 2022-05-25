@@ -80,6 +80,7 @@ var hierarchy =
     [ "emlabcpp::protocol_decl< static_vector< T, N > >", "structemlabcpp_1_1protocol__decl_3_01static__vector_3_01T_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::protocol_decl< std::array< D, N > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1array_3_01D_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::protocol_decl< std::bitset< N > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1bitset_3_01N_01_4_01_4.html", null ],
+    [ "emlabcpp::protocol_decl< std::monostate >", "structemlabcpp_1_1protocol__decl_3_01std_1_1monostate_01_4.html", null ],
     [ "emlabcpp::protocol_decl< std::tuple< Ds... > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::protocol_decl< std::variant< Ds... > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1variant_3_01Ds_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::protocol_decl< tag< V > >", "structemlabcpp_1_1protocol__decl_3_01tag_3_01V_01_4_01_4.html", null ],
@@ -97,6 +98,7 @@ var hierarchy =
     [ "emlabcpp::protocol_def< static_vector< T, N >, Endianess >", "structemlabcpp_1_1protocol__def_3_01static__vector_3_01T_00_01N_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol_def< std::array< D, N >, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol_def< std::bitset< N >, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html", null ],
+    [ "emlabcpp::protocol_def< std::monostate, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1monostate_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol_def< std::tuple< Ds... >, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol_def< std::variant< Ds... >, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1variant_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol_def< tag< V >, Endianess >", "structemlabcpp_1_1protocol__def_3_01tag_3_01V_01_4_00_01Endianess_01_4.html", null ],
@@ -105,7 +107,7 @@ var hierarchy =
       [ "emlabcpp::protocol_tuple< Endianess, Ds >", "structemlabcpp_1_1protocol__tuple.html", [
         [ "emlabcpp::protocol_packet< Def, Payload >", "structemlabcpp_1_1protocol__packet.html", null ]
       ] ],
-      [ "emlabcpp::protocol_command_group< PROTOCOL_BIG_ENDIAN, protocol_command< TESTING_COUNT >::with_args< testing_test_id >, protocol_command< TESTING_NAME >::with_args< testing_name_buffer >, protocol_command< TESTING_ARG >::with_args< testing_run_id, testing_key >, protocol_command< TESTING_COLLECT >::with_args< testing_run_id, testing_key, testing_arg_variant >, protocol_command< TESTING_FINISHED >::with_args< testing_run_id >, protocol_command< TESTING_ERROR >::with_args< testing_run_id >, protocol_command< TESTING_FAILURE >::with_args< testing_run_id >, protocol_command< TESTING_SUITE_NAME >::with_args< testing_name_buffer >, protocol_command< TESTING_SUITE_DATE >::with_args< testing_name_buffer >, protocol_command< TESTING_INTERNAL_ERROR >::with_args< testing_reactor_error_group >, protocol_command< TESTING_PROTOCOL_ERROR >::with_args< protocol_error_record > >", "structemlabcpp_1_1protocol__command__group.html", [
+      [ "emlabcpp::protocol_command_group< PROTOCOL_BIG_ENDIAN, protocol_command< TESTING_COUNT >::with_args< testing_test_id >, protocol_command< TESTING_NAME >::with_args< testing_name_buffer >, protocol_command< TESTING_ARG >::with_args< testing_run_id, testing_key >, protocol_command< TESTING_COLLECT >::with_args< testing_run_id, testing_node_id, testing_node_id, testing_key, testing_arg_variant >, protocol_command< TESTING_FINISHED >::with_args< testing_run_id >, protocol_command< TESTING_ERROR >::with_args< testing_run_id >, protocol_command< TESTING_FAILURE >::with_args< testing_run_id >, protocol_command< TESTING_SUITE_NAME >::with_args< testing_name_buffer >, protocol_command< TESTING_SUITE_DATE >::with_args< testing_name_buffer >, protocol_command< TESTING_INTERNAL_ERROR >::with_args< testing_reactor_error_group >, protocol_command< TESTING_PROTOCOL_ERROR >::with_args< protocol_error_record > >", "structemlabcpp_1_1protocol__command__group.html", [
         [ "emlabcpp::testing_reactor_controller_group", "structemlabcpp_1_1testing__reactor__controller__group.html", null ]
       ] ],
       [ "emlabcpp::protocol_command_group< PROTOCOL_BIG_ENDIAN, protocol_command< TESTING_SUITE_NAME >, protocol_command< TESTING_SUITE_DATE >, protocol_command< TESTING_COUNT >, protocol_command< TESTING_NAME >::with_args< testing_test_id >, protocol_command< TESTING_LOAD >::with_args< testing_test_id, testing_run_id >, protocol_command< TESTING_ARG >::with_args< testing_run_id, testing_key, testing_arg_variant >, protocol_command< TESTING_ARG_MISSING >::with_args< testing_run_id, testing_key >, protocol_command< TESTING_EXEC >::with_args< testing_run_id > >", "structemlabcpp_1_1protocol__command__group.html", [
@@ -165,6 +167,7 @@ var hierarchy =
     [ "emlabcpp::testing_controller_interface", "classemlabcpp_1_1testing__controller__interface.html", null ],
     [ "emlabcpp::testing_controller_message_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__controller__message__error", null ],
     [ "emlabcpp::testing_controller_protocol_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__controller__protocol__error", null ],
+    [ "emlabcpp::testing_data_node", "structemlabcpp_1_1testing__data__node.html", null ],
     [ "emlabcpp::testing_interface", "classemlabcpp_1_1testing__interface.html", [
       [ "emlabcpp::testing_callable_overlay< Callable >", "classemlabcpp_1_1testing__callable__overlay.html", null ]
     ] ],

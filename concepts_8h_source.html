@@ -112,158 +112,160 @@ $(document).ready(function(){initNavTree('concepts_8h_source.html',''); initResi
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="types_2base_8h.html">emlabcpp/types/base.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;concepts&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a94924279b38cf1803ee0f01cb4889b24">   33</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a94924279b38cf1803ee0f01cb4889b24">arithmetic_operators</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a, T b )</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                a + b</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                } -&gt; std::convertible_to&lt; T &gt;;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                a - b</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                } -&gt; std::convertible_to&lt; T &gt;;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                a / b</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                } -&gt; std::convertible_to&lt; T &gt;;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                a* b</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                } -&gt; std::convertible_to&lt; T &gt;;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#aa70c87fb6240fb7ebbfbb27d7b25b999">   50</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#aa70c87fb6240fb7ebbfbb27d7b25b999">arithmetic_assignment</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a, T b )</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        { a += b };</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        { a -= b };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        { a /= b };</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        { a *= b };</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a5494e6f6f24a2fd7e7ccfaecb31944b3">   59</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a5494e6f6f24a2fd7e7ccfaecb31944b3">arithmetic_like</a> = arithmetic_operators&lt; T &gt; &amp;&amp; arithmetic_assignment&lt; T &gt;;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a61e7321a7721894fde42b2da9bf2cbd8">   62</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a61e7321a7721894fde42b2da9bf2cbd8">arithmetic</a> = std::integral&lt; T &gt; || std::floating_point&lt; T &gt;;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">   65</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">gettable_container</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a )</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                std::tuple_size&lt; std::decay_t&lt; T &gt; &gt;::value</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">   75</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a> = (</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                              <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a ) { begin( a ); } ||</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                              <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a ) { std::begin( a ); } ) &amp;&amp;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                          (</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                              <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a ) { end( a ); } || <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a ) { std::end( a ); } );</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">   82</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a> = range_container&lt; T &gt; || gettable_container&lt; T &gt;;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">   85</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">referenceable_container</a> = <a class="code" href="structemlabcpp_1_1is__view.html">is_view&lt; T &gt;::value</a> ||</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    ( range_container&lt; T &gt; &amp;&amp; !std::is_rvalue_reference_v&lt; T &gt; );</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">   89</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">static_sized</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a )</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                std::tuple_size&lt; std::decay_t&lt; T &gt; &gt;::value</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> UnaryFunction, <span class="keyword">typename</span> Container &gt;</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#abeb742c691973ef2d34b0ace4d8eef15">   97</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#abeb742c691973ef2d34b0ace4d8eef15">container_invocable</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( Container cont, <a class="code" href="namespaceemlabcpp.html#a35890f89255716603146448591d91823">UnaryFunction</a> <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a> )</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a>( *cont.begin() );</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;|| <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( Container cont )</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        std::tuple_size&lt; std::decay_t&lt; Container &gt; &gt;::value == 0;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;|| <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( Container cont, <a class="code" href="namespaceemlabcpp.html#a35890f89255716603146448591d91823">UnaryFunction</a> <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a> )</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a>( std::get&lt; 0 &gt;( cont ) );</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp.html#a35890f89255716603146448591d91823">UnaryFunction</a>, <span class="keyword">typename</span> ReturnValue, <span class="keyword">typename</span>... Args &gt;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a5219e24bd076b3c65f56c69b9025dd69">  114</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a5219e24bd076b3c65f56c69b9025dd69">invocable_returning</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( <a class="code" href="namespaceemlabcpp.html#a35890f89255716603146448591d91823">UnaryFunction</a> <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a>, Args... args )</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a>( args... )</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                } -&gt; std::same_as&lt; ReturnValue &gt;;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;};</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">namespace </span>detail</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;{</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> Stream, <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a">  124</a></span>&#160;        concept <a class="code" href="namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a">directly_streamable_for</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( Stream os, T val )</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                        os.operator&lt;&lt;( val )</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                        } -&gt; std::same_as&lt; Stream&amp; &gt;;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        };</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}  <span class="comment">// namespace detail</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">  133</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T val )</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;{</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        {</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                val.good()</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                } -&gt; std::same_as&lt; bool &gt;;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        {</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                val.bad()</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                } -&gt; std::same_as&lt; bool &gt;;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        bool( val );</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keyword">typename</span> T::char_type;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        detail::directly_streamable_for&lt; T, uint8_t &gt;;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        detail::directly_streamable_for&lt; T, uint16_t &gt;;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        detail::directly_streamable_for&lt; T, uint32_t &gt;;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        detail::directly_streamable_for&lt; T, int8_t &gt;;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        detail::directly_streamable_for&lt; T, int16_t &gt;;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        detail::directly_streamable_for&lt; T, int32_t &gt;;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        detail::directly_streamable_for&lt; T, float &gt;;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        detail::directly_streamable_for&lt; T, double &gt;;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        detail::directly_streamable_for&lt; T, bool &gt;;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        detail::directly_streamable_for&lt; T, const void* &gt;;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        detail::directly_streamable_for&lt; T, std::nullptr_t &gt;;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;};</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;variant&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a94924279b38cf1803ee0f01cb4889b24">   34</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a94924279b38cf1803ee0f01cb4889b24">arithmetic_operators</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a, T b )</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                a + b</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                } -&gt; std::convertible_to&lt; T &gt;;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                a - b</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                } -&gt; std::convertible_to&lt; T &gt;;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                a / b</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                } -&gt; std::convertible_to&lt; T &gt;;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                a* b</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                } -&gt; std::convertible_to&lt; T &gt;;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#aa70c87fb6240fb7ebbfbb27d7b25b999">   51</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#aa70c87fb6240fb7ebbfbb27d7b25b999">arithmetic_assignment</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a, T b )</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        { a += b };</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        { a -= b };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        { a /= b };</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        { a *= b };</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a5494e6f6f24a2fd7e7ccfaecb31944b3">   60</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a5494e6f6f24a2fd7e7ccfaecb31944b3">arithmetic_like</a> = arithmetic_operators&lt; T &gt; &amp;&amp; arithmetic_assignment&lt; T &gt;;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a61e7321a7721894fde42b2da9bf2cbd8">   63</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a61e7321a7721894fde42b2da9bf2cbd8">arithmetic</a> = std::integral&lt; T &gt; || std::floating_point&lt; T &gt;;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">   66</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">gettable_container</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a )</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                std::tuple_size&lt; std::decay_t&lt; T &gt; &gt;::value</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">   76</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a> = (</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                              <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a ) { begin( a ); } ||</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                              <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a ) { std::begin( a ); } ) &amp;&amp;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                          (</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                              <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a ) { end( a ); } || <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a ) { std::end( a ); } );</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">   83</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a> = range_container&lt; T &gt; || gettable_container&lt; T &gt;;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">   86</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">referenceable_container</a> = <a class="code" href="structemlabcpp_1_1is__view.html">is_view&lt; T &gt;::value</a> ||</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    ( range_container&lt; T &gt; &amp;&amp; !std::is_rvalue_reference_v&lt; T &gt; );</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">   90</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">static_sized</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T a )</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                std::tuple_size&lt; std::decay_t&lt; T &gt; &gt;::value</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> UnaryFunction, <span class="keyword">typename</span> Container &gt;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#abeb742c691973ef2d34b0ace4d8eef15">   98</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#abeb742c691973ef2d34b0ace4d8eef15">container_invocable</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( Container cont, <a class="code" href="namespaceemlabcpp.html#a35890f89255716603146448591d91823">UnaryFunction</a> <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a> )</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a>( *cont.begin() );</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;|| <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( Container cont )</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        std::tuple_size&lt; std::decay_t&lt; Container &gt; &gt;::value == 0;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;|| <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( Container cont, <a class="code" href="namespaceemlabcpp.html#a35890f89255716603146448591d91823">UnaryFunction</a> <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a> )</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a>( std::get&lt; 0 &gt;( cont ) );</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp.html#a35890f89255716603146448591d91823">UnaryFunction</a>, <span class="keyword">typename</span> ReturnValue, <span class="keyword">typename</span>... Args &gt;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a5219e24bd076b3c65f56c69b9025dd69">  115</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a5219e24bd076b3c65f56c69b9025dd69">invocable_returning</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( <a class="code" href="namespaceemlabcpp.html#a35890f89255716603146448591d91823">UnaryFunction</a> <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a>, Args... args )</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;{</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a>( args... )</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                } -&gt; std::same_as&lt; ReturnValue &gt;;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">namespace </span>detail</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> Stream, <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a">  125</a></span>&#160;        concept <a class="code" href="namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a">directly_streamable_for</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( Stream os, T val )</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                        os.operator&lt;&lt;( val )</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                        } -&gt; std::same_as&lt; Stream&amp; &gt;;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        };</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}  <span class="comment">// namespace detail</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">  134</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T val )</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;{</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        bool( val );</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        detail::directly_streamable_for&lt; T, uint8_t &gt;;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        detail::directly_streamable_for&lt; T, uint16_t &gt;;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        detail::directly_streamable_for&lt; T, uint32_t &gt;;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        detail::directly_streamable_for&lt; T, int8_t &gt;;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        detail::directly_streamable_for&lt; T, int16_t &gt;;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        detail::directly_streamable_for&lt; T, int32_t &gt;;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        detail::directly_streamable_for&lt; T, float &gt;;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        detail::directly_streamable_for&lt; T, double &gt;;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        detail::directly_streamable_for&lt; T, bool &gt;;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        detail::directly_streamable_for&lt; T, const void* &gt;;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        detail::directly_streamable_for&lt; T, std::nullptr_t &gt;;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;};</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, <span class="keyword">typename</span> Variant &gt;</div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">  151</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( Variant var, T val )</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;{</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        std::holds_alternative&lt; T &gt;( var );</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        Variant{ val };</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;};</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespaceemlabcpp_1_1detail_html_a2f551e44c5e38047b5051df9803ab03a"><div class="ttname"><a href="namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a">emlabcpp::detail::directly_streamable_for</a></div><div class="ttdeci">concept directly_streamable_for</div><div class="ttdef"><b>Definition:</b> concepts.h:124</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_aa70c87fb6240fb7ebbfbb27d7b25b999"><div class="ttname"><a href="namespaceemlabcpp.html#aa70c87fb6240fb7ebbfbb27d7b25b999">emlabcpp::arithmetic_assignment</a></div><div class="ttdeci">concept arithmetic_assignment</div><div class="ttdef"><b>Definition:</b> concepts.h:50</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1detail_html_a2f551e44c5e38047b5051df9803ab03a"><div class="ttname"><a href="namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a">emlabcpp::detail::directly_streamable_for</a></div><div class="ttdeci">concept directly_streamable_for</div><div class="ttdef"><b>Definition:</b> concepts.h:125</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_aa70c87fb6240fb7ebbfbb27d7b25b999"><div class="ttname"><a href="namespaceemlabcpp.html#aa70c87fb6240fb7ebbfbb27d7b25b999">emlabcpp::arithmetic_assignment</a></div><div class="ttdeci">concept arithmetic_assignment</div><div class="ttdef"><b>Definition:</b> concepts.h:51</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a2351d7b7de1988dbb2979cadfd729d1f"><div class="ttname"><a href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">emlabcpp::f</a></div><div class="ttdeci">UnaryFunction &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:151</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a8114b1d4bc758992dd14a1d64bd454c5"><div class="ttname"><a href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">emlabcpp::static_sized</a></div><div class="ttdeci">concept static_sized</div><div class="ttdef"><b>Definition:</b> concepts.h:89</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a94924279b38cf1803ee0f01cb4889b24"><div class="ttname"><a href="namespaceemlabcpp.html#a94924279b38cf1803ee0f01cb4889b24">emlabcpp::arithmetic_operators</a></div><div class="ttdeci">concept arithmetic_operators</div><div class="ttdef"><b>Definition:</b> concepts.h:33</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a8114b1d4bc758992dd14a1d64bd454c5"><div class="ttname"><a href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">emlabcpp::static_sized</a></div><div class="ttdeci">concept static_sized</div><div class="ttdef"><b>Definition:</b> concepts.h:90</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a94924279b38cf1803ee0f01cb4889b24"><div class="ttname"><a href="namespaceemlabcpp.html#a94924279b38cf1803ee0f01cb4889b24">emlabcpp::arithmetic_operators</a></div><div class="ttdeci">concept arithmetic_operators</div><div class="ttdef"><b>Definition:</b> concepts.h:34</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a5a66cad0d4226d39ffd692e16bcfc076"><div class="ttname"><a href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">emlabcpp::alternative_of</a></div><div class="ttdeci">concept alternative_of</div><div class="ttdef"><b>Definition:</b> concepts.h:151</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aab6fd32a8b3335eec93b94331d4293b0"><div class="ttname"><a href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">emlabcpp::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) const expr std</div><div class="ttdoc">Returns index of an element in tuple 't', for which call to f(x) holds true, otherwise returns index ...</div><div class="ttdef"><b>Definition:</b> algorithm.h:128</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a35890f89255716603146448591d91823"><div class="ttname"><a href="namespaceemlabcpp.html#a35890f89255716603146448591d91823">emlabcpp::UnaryFunction</a></div><div class="ttdeci">UnaryFunction</div><div class="ttdef"><b>Definition:</b> types.h:48</div></div>
 <div class="ttc" id="astructemlabcpp_1_1is__view_html"><div class="ttname"><a href="structemlabcpp_1_1is__view.html">emlabcpp::is_view</a></div><div class="ttdef"><b>Definition:</b> base.h:64</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a5219e24bd076b3c65f56c69b9025dd69"><div class="ttname"><a href="namespaceemlabcpp.html#a5219e24bd076b3c65f56c69b9025dd69">emlabcpp::invocable_returning</a></div><div class="ttdeci">concept invocable_returning</div><div class="ttdef"><b>Definition:</b> concepts.h:114</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a27325f314502897567307b29b2b03776"><div class="ttname"><a href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">emlabcpp::ostreamlike</a></div><div class="ttdeci">concept ostreamlike</div><div class="ttdef"><b>Definition:</b> concepts.h:133</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a904e4439ee5b6a29ec1c9a5a6d404c55"><div class="ttname"><a href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">emlabcpp::range_container</a></div><div class="ttdeci">concept range_container</div><div class="ttdoc">so, std::ranges::range is meh because it expects return of begin() being input_output_iterator,...</div><div class="ttdef"><b>Definition:</b> concepts.h:75</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_adb54eee14fc87e50de7f6ed35ad1aba0"><div class="ttname"><a href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">emlabcpp::gettable_container</a></div><div class="ttdeci">concept gettable_container</div><div class="ttdef"><b>Definition:</b> concepts.h:65</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a5219e24bd076b3c65f56c69b9025dd69"><div class="ttname"><a href="namespaceemlabcpp.html#a5219e24bd076b3c65f56c69b9025dd69">emlabcpp::invocable_returning</a></div><div class="ttdeci">concept invocable_returning</div><div class="ttdef"><b>Definition:</b> concepts.h:115</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a27325f314502897567307b29b2b03776"><div class="ttname"><a href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">emlabcpp::ostreamlike</a></div><div class="ttdeci">concept ostreamlike</div><div class="ttdef"><b>Definition:</b> concepts.h:134</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a904e4439ee5b6a29ec1c9a5a6d404c55"><div class="ttname"><a href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">emlabcpp::range_container</a></div><div class="ttdeci">concept range_container</div><div class="ttdoc">so, std::ranges::range is meh because it expects return of begin() being input_output_iterator,...</div><div class="ttdef"><b>Definition:</b> concepts.h:76</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_adb54eee14fc87e50de7f6ed35ad1aba0"><div class="ttname"><a href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">emlabcpp::gettable_container</a></div><div class="ttdeci">concept gettable_container</div><div class="ttdef"><b>Definition:</b> concepts.h:66</div></div>
 <div class="ttc" id="atypes_2base_8h_html"><div class="ttname"><a href="types_2base_8h.html">base.h</a></div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_ac6a5e3253aa7ea8bcd6574b3274c74b6"><div class="ttname"><a href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">emlabcpp::container</a></div><div class="ttdeci">concept container</div><div class="ttdef"><b>Definition:</b> concepts.h:82</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_ad5b78b4d7a2e426170153951069c76cf"><div class="ttname"><a href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">emlabcpp::referenceable_container</a></div><div class="ttdeci">concept referenceable_container</div><div class="ttdef"><b>Definition:</b> concepts.h:85</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a5494e6f6f24a2fd7e7ccfaecb31944b3"><div class="ttname"><a href="namespaceemlabcpp.html#a5494e6f6f24a2fd7e7ccfaecb31944b3">emlabcpp::arithmetic_like</a></div><div class="ttdeci">concept arithmetic_like</div><div class="ttdef"><b>Definition:</b> concepts.h:59</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ac6a5e3253aa7ea8bcd6574b3274c74b6"><div class="ttname"><a href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">emlabcpp::container</a></div><div class="ttdeci">concept container</div><div class="ttdef"><b>Definition:</b> concepts.h:83</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ad5b78b4d7a2e426170153951069c76cf"><div class="ttname"><a href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">emlabcpp::referenceable_container</a></div><div class="ttdeci">concept referenceable_container</div><div class="ttdef"><b>Definition:</b> concepts.h:86</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a5494e6f6f24a2fd7e7ccfaecb31944b3"><div class="ttname"><a href="namespaceemlabcpp.html#a5494e6f6f24a2fd7e7ccfaecb31944b3">emlabcpp::arithmetic_like</a></div><div class="ttdeci">concept arithmetic_like</div><div class="ttdef"><b>Definition:</b> concepts.h:60</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:29</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_abeb742c691973ef2d34b0ace4d8eef15"><div class="ttname"><a href="namespaceemlabcpp.html#abeb742c691973ef2d34b0ace4d8eef15">emlabcpp::container_invocable</a></div><div class="ttdeci">concept container_invocable</div><div class="ttdef"><b>Definition:</b> concepts.h:97</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a61e7321a7721894fde42b2da9bf2cbd8"><div class="ttname"><a href="namespaceemlabcpp.html#a61e7321a7721894fde42b2da9bf2cbd8">emlabcpp::arithmetic</a></div><div class="ttdeci">concept arithmetic</div><div class="ttdef"><b>Definition:</b> concepts.h:62</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_abeb742c691973ef2d34b0ace4d8eef15"><div class="ttname"><a href="namespaceemlabcpp.html#abeb742c691973ef2d34b0ace4d8eef15">emlabcpp::container_invocable</a></div><div class="ttdeci">concept container_invocable</div><div class="ttdef"><b>Definition:</b> concepts.h:98</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a61e7321a7721894fde42b2da9bf2cbd8"><div class="ttname"><a href="namespaceemlabcpp.html#a61e7321a7721894fde42b2da9bf2cbd8">emlabcpp::arithmetic</a></div><div class="ttdeci">concept arithmetic</div><div class="ttdef"><b>Definition:</b> concepts.h:63</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="concepts_8h.html">concepts.h</a></li>
-    <li class="footer">Generated on Sun May 15 2022 07:30:42 for emlabcpp by
+    <li class="footer">Generated on Wed May 25 2022 09:22:37 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

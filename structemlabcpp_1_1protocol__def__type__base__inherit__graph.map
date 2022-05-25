@@ -1,12 +1,12 @@
 <map id="emlabcpp::protocol_def_type_base" name="emlabcpp::protocol_def_type_base">
 <area shape="rect" id="node1" title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib..." alt="" coords="5,291,152,333"/>
-<area shape="rect" id="node2" href="$structemlabcpp_1_1protocol__command__group.html" title="Command group should be used as a collection of commands that are selected based on the ID,..." alt="" coords="341,5,564,61"/>
-<area shape="rect" id="node3" href="$structemlabcpp_1_1protocol__tuple.html" title="protocol_tuple is high levle alternative to use just &#39;std::tuple&#39; that is more friendly for standalon..." alt="" coords="361,86,544,127"/>
-<area shape="rect" id="node5" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="206,152,699,472"/>
-<area shape="rect" id="node7" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="200,497,705,714"/>
-<area shape="rect" id="node9" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="227,738,679,1014"/>
-<area shape="rect" id="node4" href="$structemlabcpp_1_1protocol__packet.html" title=" " alt="" coords="765,86,949,127"/>
-<area shape="rect" id="node6" href="$structemlabcpp_1_1testing__reactor__controller__group.html" title=" " alt="" coords="761,291,953,333"/>
-<area shape="rect" id="node8" href="$structemlabcpp_1_1testing__controller__reactor__group.html" title=" " alt="" coords="753,585,961,626"/>
-<area shape="rect" id="node10" href="$structemlabcpp_1_1testing__reactor__error__group.html" title=" " alt="" coords="761,855,953,897"/>
+<area shape="rect" id="node2" href="$structemlabcpp_1_1protocol__command__group.html" title="Command group should be used as a collection of commands that are selected based on the ID,..." alt="" coords="363,5,586,61"/>
+<area shape="rect" id="node3" href="$structemlabcpp_1_1protocol__tuple.html" title="protocol_tuple is high levle alternative to use just &#39;std::tuple&#39; that is more friendly for standalon..." alt="" coords="383,86,566,127"/>
+<area shape="rect" id="node5" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="200,152,749,472"/>
+<area shape="rect" id="node7" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="222,497,727,714"/>
+<area shape="rect" id="node9" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="249,738,701,1014"/>
+<area shape="rect" id="node4" href="$structemlabcpp_1_1protocol__packet.html" title=" " alt="" coords="809,86,993,127"/>
+<area shape="rect" id="node6" href="$structemlabcpp_1_1testing__reactor__controller__group.html" title=" " alt="" coords="805,291,997,333"/>
+<area shape="rect" id="node8" href="$structemlabcpp_1_1testing__controller__reactor__group.html" title=" " alt="" coords="797,585,1005,626"/>
+<area shape="rect" id="node10" href="$structemlabcpp_1_1testing__reactor__error__group.html" title=" " alt="" coords="805,855,997,897"/>
 </map>

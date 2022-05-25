@@ -5,6 +5,7 @@ var decl_8h =
     [ "protocol_decl< std::array< D, N > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1array_3_01D_00_01N_01_4_01_4.html", "structemlabcpp_1_1protocol__decl_3_01std_1_1array_3_01D_00_01N_01_4_01_4" ],
     [ "protocol_decl< std::tuple< Ds... > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_01_4.html", "structemlabcpp_1_1protocol__decl_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_01_4" ],
     [ "protocol_decl< std::variant< Ds... > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1variant_3_01Ds_8_8_8_01_4_01_4.html", "structemlabcpp_1_1protocol__decl_3_01std_1_1variant_3_01Ds_8_8_8_01_4_01_4" ],
+    [ "protocol_decl< std::monostate >", "structemlabcpp_1_1protocol__decl_3_01std_1_1monostate_01_4.html", "structemlabcpp_1_1protocol__decl_3_01std_1_1monostate_01_4" ],
     [ "protocol_decl< std::bitset< N > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1bitset_3_01N_01_4_01_4.html", "structemlabcpp_1_1protocol__decl_3_01std_1_1bitset_3_01N_01_4_01_4" ],
     [ "protocol_decl< protocol_sizeless_message< N > >", "structemlabcpp_1_1protocol__decl_3_01protocol__sizeless__message_3_01N_01_4_01_4.html", "structemlabcpp_1_1protocol__decl_3_01protocol__sizeless__message_3_01N_01_4_01_4" ],
     [ "protocol_decl< protocol_offset< D, Offset > >", "structemlabcpp_1_1protocol__decl_3_01protocol__offset_3_01D_00_01Offset_01_4_01_4.html", "structemlabcpp_1_1protocol__decl_3_01protocol__offset_3_01D_00_01Offset_01_4_01_4" ],

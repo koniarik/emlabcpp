@@ -1,11 +1,9 @@
 var classemlabcpp_1_1testing__record =
 [
     [ "testing_record", "classemlabcpp_1_1testing__record.html#ad1348025a866b6e3b54a4cd245dc502c", null ],
-    [ "collect", "classemlabcpp_1_1testing__record.html#a788fa6852c67fd7458904cf0bd44cf50", null ],
-    [ "collect", "classemlabcpp_1_1testing__record.html#a015d38f518ec0960f56c03f018e4836e", null ],
-    [ "collect", "classemlabcpp_1_1testing__record.html#a190ad5d2150c7f8a9e253b0b466e7457", null ],
-    [ "collect", "classemlabcpp_1_1testing__record.html#a08fa86e4f0f58cef8e7f8e241ada1a25", null ],
-    [ "collect", "classemlabcpp_1_1testing__record.html#a29140f3cc90fa71a6f9c398177e92ccb", null ],
+    [ "collect", "classemlabcpp_1_1testing__record.html#ab71bbc107d8cc451f4ae4472b4f1aeba", null ],
+    [ "collect", "classemlabcpp_1_1testing__record.html#a4c581499060854ea9d11e8c3189a43f3", null ],
+    [ "collect", "classemlabcpp_1_1testing__record.html#a07d2cd0b11756ac4d037824b63485263", null ],
     [ "errored", "classemlabcpp_1_1testing__record.html#ac658726aa08a343762a4e9483aae78c0", null ],
     [ "expect", "classemlabcpp_1_1testing__record.html#a3c7734ce07fcbb87bee06eb5630a4fa7", null ],
     [ "fail", "classemlabcpp_1_1testing__record.html#aa49842b733094e9d3cd9f8efa1bfdfce", null ],

@@ -1,14 +1,14 @@
 <map id="include/emlabcpp/experimental/testing/record.h" name="include/emlabcpp/experimental/testing/record.h">
-<area shape="rect" id="node1" title=" " alt="" coords="255,5,483,47"/>
-<area shape="rect" id="node2" href="$experimental_2testing_2base_8h.html" title=" " alt="" coords="148,184,325,225"/>
-<area shape="rect" id="node3" href="$static__vector_8h.html" title=" " alt="" coords="5,273,191,300"/>
-<area shape="rect" id="node7" href="$experimental_2testing_2protocol_8h.html" title=" " alt="" coords="344,95,521,136"/>
-<area shape="rect" id="node11" href="$match_8h.html" title=" " alt="" coords="741,102,884,129"/>
-<area shape="rect" id="node4" title=" " alt="" coords="215,273,266,300"/>
-<area shape="rect" id="node5" title=" " alt="" coords="291,273,431,300"/>
-<area shape="rect" id="node6" title=" " alt="" coords="713,273,781,300"/>
-<area shape="rect" id="node8" href="$algorithm_8h.html" title=" " alt="" coords="350,191,515,218"/>
-<area shape="rect" id="node9" href="$protocol_8h.html" title=" " alt="" coords="539,191,694,218"/>
-<area shape="rect" id="node10" href="$packet_8h.html" title=" " alt="" coords="718,191,921,218"/>
-<area shape="rect" id="node12" href="$visit_8h.html" title=" " alt="" coords="945,191,1075,218"/>
+<area shape="rect" id="node1" title=" " alt="" coords="474,5,702,47"/>
+<area shape="rect" id="node2" href="$experimental_2testing_2base_8h.html" title=" " alt="" coords="65,184,242,225"/>
+<area shape="rect" id="node5" href="$static__vector_8h.html" title=" " alt="" coords="119,363,305,389"/>
+<area shape="rect" id="node8" href="$experimental_2testing_2protocol_8h.html" title=" " alt="" coords="306,95,483,136"/>
+<area shape="rect" id="node11" href="$match_8h.html" title=" " alt="" coords="614,102,757,129"/>
+<area shape="rect" id="node3" href="$algorithm_8h.html" title=" " alt="" coords="249,281,415,307"/>
+<area shape="rect" id="node4" href="$pool_8h.html" title=" " alt="" coords="28,273,175,315"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5,363,56,389"/>
+<area shape="rect" id="node7" title=" " alt="" coords="597,281,665,307"/>
+<area shape="rect" id="node9" href="$protocol_8h.html" title=" " alt="" coords="317,191,472,218"/>
+<area shape="rect" id="node10" href="$packet_8h.html" title=" " alt="" coords="496,191,699,218"/>
+<area shape="rect" id="node12" href="$visit_8h.html" title=" " alt="" coords="723,191,853,218"/>
 </map>

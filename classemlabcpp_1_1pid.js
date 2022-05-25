@@ -9,6 +9,8 @@ var classemlabcpp_1_1pid =
     ] ],
     [ "time_type", "classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4", null ],
     [ "pid", "classemlabcpp_1_1pid.html#a2e8ac73e4a93e33e6368af4ce0bbd369", null ],
+    [ "get_desired", "classemlabcpp_1_1pid.html#a276f67c11c02dccb9cb9f94179212f95", null ],
+    [ "get_input", "classemlabcpp_1_1pid.html#a8ea7d84937be8e79a6b22e58060d6093", null ],
     [ "get_output", "classemlabcpp_1_1pid.html#a2859e71a7b6fdefbed26fda572795c4c", null ],
     [ "reset", "classemlabcpp_1_1pid.html#aeb89b4775102d8952f25e02b4bacc4a8", null ],
     [ "set_config", "classemlabcpp_1_1pid.html#abc80653f5ab1e5b6912da8324df2bd3e", null ],

@@ -92,16 +92,17 @@ $(document).ready(function(){initNavTree('experimental_2testing_2base_8h.html','
 <div class="title">base.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="static__vector_8h_source.html">emlabcpp/static_vector.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="algorithm_8h_source.html">emlabcpp/algorithm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pool_8h_source.html">emlabcpp/allocator/pool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="static__vector_8h_source.html">emlabcpp/static_vector.h</a>&quot;</code><br />
 <code>#include &lt;map&gt;</code><br />
-<code>#include &lt;memory_resource&gt;</code><br />
 <code>#include &lt;variant&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for base.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="experimental_2testing_2base_8h__incl.svg" width="819" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="experimental_2testing_2base_8h__incl.svg" width="1984" height="306"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -109,6 +110,8 @@ $(document).ready(function(){initNavTree('experimental_2testing_2base_8h.html','
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing__data__node.html">emlabcpp::testing_data_node</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing__result.html">emlabcpp::testing_result</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -123,12 +126,14 @@ Typedefs</h2></td></tr>
 <tr class="separator:abfb5a005e75f7e4f58008d4ed698e9d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a289862982d90d50fae8def7c9491fac3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a289862982d90d50fae8def7c9491fac3">emlabcpp::testing_name_buffer</a> = static_vector&lt; char, 32 &gt;</td></tr>
 <tr class="separator:a289862982d90d50fae8def7c9491fac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bd4cad4ea7dc7e6ef932fe741dc19dc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1bd4cad4ea7dc7e6ef932fe741dc19dc">emlabcpp::testing_node_id</a> = uint32_t</td></tr>
+<tr class="separator:a1bd4cad4ea7dc7e6ef932fe741dc19dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab961228f0e95ce3f73f42aadfcaa54fd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab961228f0e95ce3f73f42aadfcaa54fd">emlabcpp::testing_key</a> = std::variant&lt; uint32_t, testing_key_buffer &gt;</td></tr>
 <tr class="separator:ab961228f0e95ce3f73f42aadfcaa54fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b065acd5c5329faf70e62bda58d26eb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a9b065acd5c5329faf70e62bda58d26eb">emlabcpp::testing_string_buffer</a> = static_vector&lt; char, 32 &gt;</td></tr>
 <tr class="separator:a9b065acd5c5329faf70e62bda58d26eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00d9348aa7043abf68885939947f3876"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a00d9348aa7043abf68885939947f3876">emlabcpp::testing_arg_variant</a> = std::variant&lt; uint64_t, int64_t, bool, testing_string_buffer &gt;</td></tr>
-<tr class="separator:a00d9348aa7043abf68885939947f3876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add2c6864fafb1b408398cc0bdb07e6c9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#add2c6864fafb1b408398cc0bdb07e6c9">emlabcpp::testing_arg_variant</a> = std::variant&lt; std::monostate, uint64_t, int64_t, bool, testing_string_buffer &gt;</td></tr>
+<tr class="separator:add2c6864fafb1b408398cc0bdb07e6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e45204d4f0548306443a2b41a3ce7ba"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5e45204d4f0548306443a2b41a3ce7ba">emlabcpp::testing_run_id</a> = uint32_t</td></tr>
 <tr class="separator:a5e45204d4f0548306443a2b41a3ce7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af66d37dcae87129c4eeba626a3b431d4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af66d37dcae87129c4eeba626a3b431d4">emlabcpp::testing_test_id</a> = uint16_t</td></tr>
@@ -151,7 +156,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="experimental_2testing_2base_8h.html">base.h</a></li>
-    <li class="footer">Generated on Sun May 15 2022 07:30:42 for emlabcpp by
+    <li class="footer">Generated on Wed May 25 2022 09:22:38 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

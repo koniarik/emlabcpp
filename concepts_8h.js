@@ -1,5 +1,6 @@
 var concepts_8h =
 [
+    [ "alternative_of", "concepts_8h.html#a5a66cad0d4226d39ffd692e16bcfc076", null ],
     [ "arithmetic", "concepts_8h.html#a61e7321a7721894fde42b2da9bf2cbd8", null ],
     [ "arithmetic_assignment", "concepts_8h.html#aa70c87fb6240fb7ebbfbb27d7b25b999", null ],
     [ "arithmetic_like", "concepts_8h.html#a5494e6f6f24a2fd7e7ccfaecb31944b3", null ],
