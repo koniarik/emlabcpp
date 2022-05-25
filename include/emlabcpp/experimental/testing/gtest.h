@@ -34,6 +34,9 @@ namespace emlabcpp
 template < ostreamlike T >
 inline T& testing_recursive_print_node( T& os, const testing_data_node& node, std::size_t depth )
 {
+        os << sum( range( depth ), [&]( std::size_t ) {
+                return std::string{ " " };
+        } );
 
         match(
             node.key,
@@ -57,6 +60,8 @@ inline T& testing_recursive_print_node( T& os, const testing_data_node& node, st
                     } );
         }
 
+        os << "\n";
+
         for ( const testing_data_node& child : node.children ) {
                 testing_recursive_print_node( os, child, depth + 1 );
         }
@@ -75,10 +80,12 @@ inline ::testing::AssertionResult testing_gtest_predicate( const char*, const te
         }
 
         if ( !tres.data_root.children.empty() ) {
-                res << "\ncollected:";
+                res << "\ncollected:\n";
         }
 
-        testing_recursive_print_node( res, tres.data_root, 0 );
+        for ( const auto& child : tres.data_root.children ) {
+                testing_recursive_print_node( res, child, 1 );
+        }
         return res;
 }
 
@@ -88,7 +95,7 @@ class testing_gtest : public ::testing::Test
         testing_test_id                     tid_;
         testing_controller_interface&       ci_;
 
-        using mem_type = pool_resource< 88, 32 >;
+        using mem_type = pool_resource< 256, 32 >;
         mem_type pool_mem_;
 
 public:
@@ -121,7 +128,7 @@ public:
 
 void testing_register_gtests( testing_controller_interface& ci )
 {
-        using mem_type = pool_resource< 88, 32 >;
+        using mem_type = pool_resource< 256, 64 >;
         mem_type pool_mem_;
         auto     opt_con = testing_controller::make( ci, &pool_mem_ );
 
