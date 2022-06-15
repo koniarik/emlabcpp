@@ -184,6 +184,10 @@ constexpr auto operator/(
 template < int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte >
 constexpr auto sqrt( physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte > val )
 {
+        static_assert(
+            Len % 2 == 0 && Mass % 2 == 0 && Time % 2 == 0 && Current % 2 == 0 && Temp % 2 == 0 &&
+                Mol % 2 == 0 && Li % 2 == 0 && Angle % 2 == 0 && Byte % 2 == 0,
+            "sqrt() over physical_quantity can be used only if all of the units are power of 2" );
         return physical_quantity<
             Len / 2,
             Mass / 2,
