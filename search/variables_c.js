@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_1165',['name',['../classemlabcpp_1_1testing__controller.html#a017345bce892858346fc896b309bfb24',1,'emlabcpp::testing_controller::test_info']]]
+  ['name_1165',['name',['../namespaceemlabcpp.html#a0773ae4bffb8709f39eb4a4e080cd907',1,'emlabcpp::test_info']]]
 ];

@@ -124,114 +124,108 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__controller.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemlabcpp_1_1testing__controller.html">testing_controller</a></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__controller.html">   38</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="classemlabcpp_1_1testing__controller.html#structemlabcpp_1_1testing__controller_1_1test__info">test_info</a></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__controller.html#a017345bce892858346fc896b309bfb24">   40</a></span>&#160;                <a class="code" href="classemlabcpp_1_1static__vector.html">testing_name_buffer</a> <a class="code" href="classemlabcpp_1_1testing__controller.html#a017345bce892858346fc896b309bfb24">name</a>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        };</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">static</span> std::optional&lt; testing_controller &gt;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="classemlabcpp_1_1testing__controller.html#a643646c3d1e4b906d9f5dfe95028df3a">make</a>( <a class="code" href="classemlabcpp_1_1testing__controller__interface.html">testing_controller_interface</a>&amp; iface, <a class="code" href="structemlabcpp_1_1pool__interface.html">pool_interface</a>* );</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__controller.html#ad24e5effd4a282113f12a7a723d6696c">   46</a></span>&#160;        [[nodiscard]] std::string_view <a class="code" href="classemlabcpp_1_1testing__controller.html#ad24e5effd4a282113f12a7a723d6696c">suite_name</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">return</span> { name_.<a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>(), name_.<a class="code" href="classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb">end</a>() };</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__controller.html#a1a9c11452dea4f4c3878b275dcf3fee2">   51</a></span>&#160;        [[nodiscard]] std::string_view <a class="code" href="classemlabcpp_1_1testing__controller.html#a1a9c11452dea4f4c3878b275dcf3fee2">suite_date</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keywordflow">return</span> { date_.<a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>(), date_.<a class="code" href="classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb">end</a>() };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__controller.html#a62fe5ab9c2e7b8171d0a65239f5ce102">   56</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1testing__controller.html#a62fe5ab9c2e7b8171d0a65239f5ce102">has_active_test</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordflow">return</span> context_.has_value();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__controller.html#a31f5f5ba1ecf86cbd30e24fe99ceb12d">   61</a></span>&#160;        [[nodiscard]] <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">pool_map&lt; testing_test_id, test_info &gt;</a>&amp; <a class="code" href="classemlabcpp_1_1testing__controller.html#a31f5f5ba1ecf86cbd30e24fe99ceb12d">get_tests</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">return</span> tests_;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">static</span> std::optional&lt; testing_controller &gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classemlabcpp_1_1testing__controller.html#a643646c3d1e4b906d9f5dfe95028df3a">make</a>( <a class="code" href="classemlabcpp_1_1testing__controller__interface.html">testing_controller_interface</a>&amp; iface, <a class="code" href="structemlabcpp_1_1pool__interface.html">pool_interface</a>* );</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__controller.html#ad24e5effd4a282113f12a7a723d6696c">   42</a></span>&#160;        [[nodiscard]] std::string_view <a class="code" href="classemlabcpp_1_1testing__controller.html#ad24e5effd4a282113f12a7a723d6696c">suite_name</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">return</span> { name_.<a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>(), name_.<a class="code" href="classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb">end</a>() };</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__controller.html#a1a9c11452dea4f4c3878b275dcf3fee2">   47</a></span>&#160;        [[nodiscard]] std::string_view <a class="code" href="classemlabcpp_1_1testing__controller.html#a1a9c11452dea4f4c3878b275dcf3fee2">suite_date</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">return</span> { date_.<a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>(), date_.<a class="code" href="classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb">end</a>() };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__controller.html#a62fe5ab9c2e7b8171d0a65239f5ce102">   52</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1testing__controller.html#a62fe5ab9c2e7b8171d0a65239f5ce102">has_active_test</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">return</span> context_.has_value();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__controller.html#a31f5f5ba1ecf86cbd30e24fe99ceb12d">   57</a></span>&#160;        [[nodiscard]] <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">pool_map&lt; testing_test_id, test_info &gt;</a>&amp; <a class="code" href="classemlabcpp_1_1testing__controller.html#a31f5f5ba1ecf86cbd30e24fe99ceb12d">get_tests</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">return</span> tests_;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing__controller.html#a7d9edc1155aa12849333d84da49aece8">start_test</a>( <a class="code" href="namespaceemlabcpp.html#af66d37dcae87129c4eeba626a3b431d4">testing_test_id</a> tid, <a class="code" href="classemlabcpp_1_1testing__controller__interface.html">testing_controller_interface</a>&amp; iface );</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing__controller.html#a923fad06ef41cfab825e74872d93e60c">tick</a>( <a class="code" href="classemlabcpp_1_1testing__controller__interface.html">testing_controller_interface</a>&amp; iface );</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing__controller.html#a7d9edc1155aa12849333d84da49aece8">start_test</a>( <a class="code" href="namespaceemlabcpp.html#af66d37dcae87129c4eeba626a3b431d4">testing_test_id</a> tid, <a class="code" href="classemlabcpp_1_1testing__controller__interface.html">testing_controller_interface</a>&amp; iface );</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing__controller.html#a923fad06ef41cfab825e74872d93e60c">tick</a>( <a class="code" href="classemlabcpp_1_1testing__controller__interface.html">testing_controller_interface</a>&amp; iface );</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">pool_map&lt; testing_test_id, test_info &gt;</a> tests_;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="classemlabcpp_1_1static__vector.html">testing_name_buffer</a>                    name_;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="classemlabcpp_1_1static__vector.html">testing_name_buffer</a>                    date_;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        std::optional&lt; testing_result &gt;        context_;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a5e45204d4f0548306443a2b41a3ce7ba">testing_run_id</a>                         rid_ = 0;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="structemlabcpp_1_1pool__interface.html">pool_interface</a>*                        mem_pool_;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="classemlabcpp_1_1testing__controller.html">testing_controller</a>(</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <a class="code" href="classemlabcpp_1_1static__vector.html">testing_name_buffer</a>                    name,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <a class="code" href="classemlabcpp_1_1static__vector.html">testing_name_buffer</a>                    date,</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <a class="code" href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">pool_map&lt; testing_test_id, test_info &gt;</a> tests,</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="structemlabcpp_1_1pool__interface.html">pool_interface</a>*                        mem_pool )</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;          : tests_( std::move( tests ) )</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;          , name_( std::move( name ) )</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;          , date_( std::move( date ) )</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;          , mem_pool_( mem_pool )</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        handle_message( tag&lt; TESTING_COUNT &gt;, <span class="keyword">auto</span>, testing_controller_interface_adapter iface );</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        handle_message( tag&lt; TESTING_NAME &gt;, <span class="keyword">auto</span>, testing_controller_interface_adapter iface );</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">void</span> handle_message(</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            tag&lt; TESTING_ARG &gt;,</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <a class="code" href="namespaceemlabcpp.html#a5e45204d4f0548306443a2b41a3ce7ba">testing_run_id</a>                       rid,</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <a class="code" href="namespaceemlabcpp.html#ab961228f0e95ce3f73f42aadfcaa54fd">testing_key</a>                          k,</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            testing_controller_interface_adapter iface );</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">void</span> handle_message(</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            tag&lt; TESTING_COLLECT &gt;,</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <a class="code" href="namespaceemlabcpp.html#a5e45204d4f0548306443a2b41a3ce7ba">testing_run_id</a>             rid,</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <a class="code" href="namespaceemlabcpp.html#a1bd4cad4ea7dc7e6ef932fe741dc19dc">testing_node_id</a>            parent,</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <a class="code" href="namespaceemlabcpp.html#a1bd4cad4ea7dc7e6ef932fe741dc19dc">testing_node_id</a>            <span class="keywordtype">id</span>,</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#ab961228f0e95ce3f73f42aadfcaa54fd">testing_key</a>&amp;         key,</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#add2c6864fafb1b408398cc0bdb07e6c9">testing_arg_variant</a>&amp; avar,</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            testing_controller_interface_adapter );</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        handle_message( tag&lt; TESTING_FINISHED &gt;, <span class="keyword">auto</span>, testing_controller_interface_adapter iface );</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordtype">void</span> handle_message( tag&lt; TESTING_ERROR &gt;, <span class="keyword">auto</span>, testing_controller_interface_adapter );</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordtype">void</span> handle_message( tag&lt; TESTING_FAILURE &gt;, <span class="keyword">auto</span>, testing_controller_interface_adapter );</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">pool_map&lt; testing_test_id, test_info &gt;</a> tests_;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="classemlabcpp_1_1static__vector.html">testing_name_buffer</a>                    name_;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="classemlabcpp_1_1static__vector.html">testing_name_buffer</a>                    date_;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        std::optional&lt; testing_result &gt;        context_;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a5e45204d4f0548306443a2b41a3ce7ba">testing_run_id</a>                         rid_ = 0;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="structemlabcpp_1_1pool__interface.html">pool_interface</a>*                        mem_pool_;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="classemlabcpp_1_1testing__controller.html">testing_controller</a>(</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <a class="code" href="classemlabcpp_1_1static__vector.html">testing_name_buffer</a>                    name,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="classemlabcpp_1_1static__vector.html">testing_name_buffer</a>                    date,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <a class="code" href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">pool_map&lt; testing_test_id, test_info &gt;</a> tests,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <a class="code" href="structemlabcpp_1_1pool__interface.html">pool_interface</a>*                        mem_pool )</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          : tests_( std::move( tests ) )</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;          , name_( std::move( name ) )</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;          , date_( std::move( date ) )</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;          , mem_pool_( mem_pool )</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        handle_message( tag&lt; TESTING_COUNT &gt;, <span class="keyword">auto</span>, testing_controller_interface_adapter iface );</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        handle_message( tag&lt; TESTING_NAME &gt;, <span class="keyword">auto</span>, testing_controller_interface_adapter iface );</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">void</span> handle_message(</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            tag&lt; TESTING_ARG &gt;,</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <a class="code" href="namespaceemlabcpp.html#a5e45204d4f0548306443a2b41a3ce7ba">testing_run_id</a>                       rid,</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="namespaceemlabcpp.html#ab961228f0e95ce3f73f42aadfcaa54fd">testing_key</a>                          k,</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            testing_controller_interface_adapter iface );</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">void</span> handle_message(</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            tag&lt; TESTING_COLLECT &gt;,</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <a class="code" href="namespaceemlabcpp.html#a5e45204d4f0548306443a2b41a3ce7ba">testing_run_id</a>             rid,</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <a class="code" href="namespaceemlabcpp.html#a1bd4cad4ea7dc7e6ef932fe741dc19dc">testing_node_id</a>            parent,</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <a class="code" href="namespaceemlabcpp.html#a1bd4cad4ea7dc7e6ef932fe741dc19dc">testing_node_id</a>            <span class="keywordtype">id</span>,</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#ab961228f0e95ce3f73f42aadfcaa54fd">testing_key</a>&amp;         key,</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#add2c6864fafb1b408398cc0bdb07e6c9">testing_arg_variant</a>&amp; avar,</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            testing_controller_interface_adapter );</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        handle_message( tag&lt; TESTING_FINISHED &gt;, <span class="keyword">auto</span>, testing_controller_interface_adapter iface );</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span> handle_message( tag&lt; TESTING_ERROR &gt;, <span class="keyword">auto</span>, testing_controller_interface_adapter );</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">void</span> handle_message( tag&lt; TESTING_FAILURE &gt;, <span class="keyword">auto</span>, testing_controller_interface_adapter );</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">void</span> handle_message(</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            tag&lt; TESTING_SUITE_NAME &gt;,</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keyword">auto</span>,</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            testing_controller_interface_adapter iface );</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">void</span> handle_message(</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            tag&lt; TESTING_SUITE_NAME &gt;,</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            tag&lt; TESTING_SUITE_DATE &gt;,</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keyword">auto</span>,</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            testing_controller_interface_adapter iface );</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordtype">void</span> handle_message(</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            tag&lt; TESTING_SUITE_DATE &gt;,</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keyword">auto</span>,</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            tag&lt; TESTING_INTERNAL_ERROR &gt;,</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <a class="code" href="namespaceemlabcpp.html#aec6e2a4fdbfa5c03cfededbdba72d4aa">testing_reactor_error_variant</a>        err,</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            testing_controller_interface_adapter iface );</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordtype">void</span> handle_message(</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            tag&lt; TESTING_INTERNAL_ERROR &gt;,</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <a class="code" href="namespaceemlabcpp.html#aec6e2a4fdbfa5c03cfededbdba72d4aa">testing_reactor_error_variant</a>        err,</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            tag&lt; TESTING_PROTOCOL_ERROR &gt;,</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            protocol_error_record                rec,</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            testing_controller_interface_adapter iface );</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordtype">void</span> handle_message(</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            tag&lt; TESTING_PROTOCOL_ERROR &gt;,</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            protocol_error_record                rec,</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            testing_controller_interface_adapter iface );</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;};</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;};</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_a017345bce892858346fc896b309bfb24"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#a017345bce892858346fc896b309bfb24">emlabcpp::testing_controller::test_info::name</a></div><div class="ttdeci">testing_name_buffer name</div><div class="ttdef"><b>Definition:</b> controller.h:40</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a1bd4cad4ea7dc7e6ef932fe741dc19dc"><div class="ttname"><a href="namespaceemlabcpp.html#a1bd4cad4ea7dc7e6ef932fe741dc19dc">emlabcpp::testing_node_id</a></div><div class="ttdeci">uint32_t testing_node_id</div><div class="ttdef"><b>Definition:</b> base.h:38</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html">emlabcpp::static_vector&lt; char, 32 &gt;</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_a7d9edc1155aa12849333d84da49aece8"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#a7d9edc1155aa12849333d84da49aece8">emlabcpp::testing_controller::start_test</a></div><div class="ttdeci">void start_test(testing_test_id tid, testing_controller_interface &amp;iface)</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_a31f5f5ba1ecf86cbd30e24fe99ceb12d"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#a31f5f5ba1ecf86cbd30e24fe99ceb12d">emlabcpp::testing_controller::get_tests</a></div><div class="ttdeci">const pool_map&lt; testing_test_id, test_info &gt; &amp; get_tests() const</div><div class="ttdef"><b>Definition:</b> controller.h:61</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_a31f5f5ba1ecf86cbd30e24fe99ceb12d"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#a31f5f5ba1ecf86cbd30e24fe99ceb12d">emlabcpp::testing_controller::get_tests</a></div><div class="ttdeci">const pool_map&lt; testing_test_id, test_info &gt; &amp; get_tests() const</div><div class="ttdef"><b>Definition:</b> controller.h:57</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_a923fad06ef41cfab825e74872d93e60c"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#a923fad06ef41cfab825e74872d93e60c">emlabcpp::testing_controller::tick</a></div><div class="ttdeci">void tick(testing_controller_interface &amp;iface)</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_structemlabcpp_1_1testing__controller_1_1test__info"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#structemlabcpp_1_1testing__controller_1_1test__info">emlabcpp::testing_controller::test_info</a></div><div class="ttdef"><b>Definition:</b> controller.h:38</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aec6e2a4fdbfa5c03cfededbdba72d4aa"><div class="ttname"><a href="namespaceemlabcpp.html#aec6e2a4fdbfa5c03cfededbdba72d4aa">emlabcpp::testing_reactor_error_variant</a></div><div class="ttdeci">typename testing_reactor_error_group::value_type testing_reactor_error_variant</div><div class="ttdef"><b>Definition:</b> protocol.h:98</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a3aa21b589fbecd34ed3f487ba81c4534"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">emlabcpp::static_vector::begin</a></div><div class="ttdeci">iterator begin()</div><div class="ttdef"><b>Definition:</b> static_vector.h:107</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ab961228f0e95ce3f73f42aadfcaa54fd"><div class="ttname"><a href="namespaceemlabcpp.html#ab961228f0e95ce3f73f42aadfcaa54fd">emlabcpp::testing_key</a></div><div class="ttdeci">std::variant&lt; uint32_t, testing_key_buffer &gt; testing_key</div><div class="ttdef"><b>Definition:</b> base.h:39</div></div>
 <div class="ttc" id="acontroller__interface_8h_html"><div class="ttname"><a href="controller__interface_8h.html">controller_interface.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a5e45204d4f0548306443a2b41a3ce7ba"><div class="ttname"><a href="namespaceemlabcpp.html#a5e45204d4f0548306443a2b41a3ce7ba">emlabcpp::testing_run_id</a></div><div class="ttdeci">uint32_t testing_run_id</div><div class="ttdef"><b>Definition:</b> base.h:43</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_ad24e5effd4a282113f12a7a723d6696c"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#ad24e5effd4a282113f12a7a723d6696c">emlabcpp::testing_controller::suite_name</a></div><div class="ttdeci">std::string_view suite_name() const</div><div class="ttdef"><b>Definition:</b> controller.h:46</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_ad24e5effd4a282113f12a7a723d6696c"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#ad24e5effd4a282113f12a7a723d6696c">emlabcpp::testing_controller::suite_name</a></div><div class="ttdeci">std::string_view suite_name() const</div><div class="ttdef"><b>Definition:</b> controller.h:42</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_a643646c3d1e4b906d9f5dfe95028df3a"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#a643646c3d1e4b906d9f5dfe95028df3a">emlabcpp::testing_controller::make</a></div><div class="ttdeci">static std::optional&lt; testing_controller &gt; make(testing_controller_interface &amp;iface, pool_interface *)</div></div>
 <div class="ttc" id="apool_8h_html"><div class="ttname"><a href="pool_8h.html">pool.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a3a26f08c5adb26bcc69ec7fc1bf42910"><div class="ttname"><a href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">emlabcpp::pool_map</a></div><div class="ttdeci">std::map&lt; Key, T, std::less&lt; Key &gt;, pool_allocator&lt; std::pair&lt; const Key, T &gt; &gt; &gt; pool_map</div><div class="ttdef"><b>Definition:</b> pool.h:193</div></div>
@@ -240,9 +234,9 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div class="ttc" id="anamespaceemlabcpp_html_af66d37dcae87129c4eeba626a3b431d4"><div class="ttname"><a href="namespaceemlabcpp.html#af66d37dcae87129c4eeba626a3b431d4">emlabcpp::testing_test_id</a></div><div class="ttdeci">uint16_t testing_test_id</div><div class="ttdef"><b>Definition:</b> base.h:44</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a5ff32c8ea013a8be31e716d472f84bbb"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb">emlabcpp::static_vector::end</a></div><div class="ttdeci">iterator end()</div><div class="ttdef"><b>Definition:</b> static_vector.h:112</div></div>
 <div class="ttc" id="amatch_8h_html"><div class="ttname"><a href="match_8h.html">match.h</a></div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_a62fe5ab9c2e7b8171d0a65239f5ce102"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#a62fe5ab9c2e7b8171d0a65239f5ce102">emlabcpp::testing_controller::has_active_test</a></div><div class="ttdeci">bool has_active_test() const</div><div class="ttdef"><b>Definition:</b> controller.h:56</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_a62fe5ab9c2e7b8171d0a65239f5ce102"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#a62fe5ab9c2e7b8171d0a65239f5ce102">emlabcpp::testing_controller::has_active_test</a></div><div class="ttdeci">bool has_active_test() const</div><div class="ttdef"><b>Definition:</b> controller.h:52</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing__controller_html"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html">emlabcpp::testing_controller</a></div><div class="ttdef"><b>Definition:</b> controller.h:35</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_a1a9c11452dea4f4c3878b275dcf3fee2"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#a1a9c11452dea4f4c3878b275dcf3fee2">emlabcpp::testing_controller::suite_date</a></div><div class="ttdeci">std::string_view suite_date() const</div><div class="ttdef"><b>Definition:</b> controller.h:51</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1testing__controller_html_a1a9c11452dea4f4c3878b275dcf3fee2"><div class="ttname"><a href="classemlabcpp_1_1testing__controller.html#a1a9c11452dea4f4c3878b275dcf3fee2">emlabcpp::testing_controller::suite_date</a></div><div class="ttdeci">std::string_view suite_date() const</div><div class="ttdef"><b>Definition:</b> controller.h:47</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_add2c6864fafb1b408398cc0bdb07e6c9"><div class="ttname"><a href="namespaceemlabcpp.html#add2c6864fafb1b408398cc0bdb07e6c9">emlabcpp::testing_arg_variant</a></div><div class="ttdeci">std::variant&lt; std::monostate, uint64_t, int64_t, bool, testing_string_buffer &gt; testing_arg_variant</div><div class="ttdef"><b>Definition:</b> base.h:42</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:29</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing__controller__interface_html"><div class="ttname"><a href="classemlabcpp_1_1testing__controller__interface.html">emlabcpp::testing_controller_interface</a></div><div class="ttdef"><b>Definition:</b> controller_interface.h:31</div></div>
@@ -250,7 +244,7 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="controller_8h.html">controller.h</a></li>
-    <li class="footer">Generated on Wed Jun 15 2022 14:39:09 for emlabcpp by
+    <li class="footer">Generated on Fri Jul 8 2022 21:39:12 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

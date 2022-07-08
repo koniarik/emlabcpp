@@ -100,6 +100,7 @@ var namespaceemlabcpp =
     [ "subscript_iterator", "classemlabcpp_1_1subscript__iterator.html", "classemlabcpp_1_1subscript__iterator" ],
     [ "tag", "structemlabcpp_1_1tag.html", "structemlabcpp_1_1tag" ],
     [ "tagged_quantity", "classemlabcpp_1_1tagged__quantity.html", "classemlabcpp_1_1tagged__quantity" ],
+    [ "test_info", "namespaceemlabcpp.html#structemlabcpp_1_1test__info", "namespaceemlabcpp_structemlabcpp_1_1test__info_dup" ],
     [ "testing_callable_overlay", "classemlabcpp_1_1testing__callable__overlay.html", "classemlabcpp_1_1testing__callable__overlay" ],
     [ "testing_composer", "classemlabcpp_1_1testing__composer.html", "classemlabcpp_1_1testing__composer" ],
     [ "testing_controller", "classemlabcpp_1_1testing__controller.html", "classemlabcpp_1_1testing__controller" ],

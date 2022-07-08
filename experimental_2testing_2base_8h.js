@@ -1,5 +1,8 @@
 var experimental_2testing_2base_8h =
 [
+    [ "test_info", "namespaceemlabcpp.html#structemlabcpp_1_1test__info", [
+      [ "name", "namespaceemlabcpp.html#a0773ae4bffb8709f39eb4a4e080cd907", null ]
+    ] ],
     [ "testing_data_node", "structemlabcpp_1_1testing__data__node.html", "structemlabcpp_1_1testing__data__node" ],
     [ "testing_result", "structemlabcpp_1_1testing__result.html", "structemlabcpp_1_1testing__result" ],
     [ "testing_arg_variant", "experimental_2testing_2base_8h.html#add2c6864fafb1b408398cc0bdb07e6c9", null ],

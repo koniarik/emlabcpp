@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_268',['name',['../classemlabcpp_1_1testing__controller.html#a017345bce892858346fc896b309bfb24',1,'emlabcpp::testing_controller::test_info']]],
+  ['name_268',['name',['../namespaceemlabcpp.html#a0773ae4bffb8709f39eb4a4e080cd907',1,'emlabcpp::test_info']]],
   ['none_5fof_269',['none_of',['../namespaceemlabcpp.html#a48a10ef3efe9c65ebacc0b32339f87a8',1,'emlabcpp']]],
   ['numeric_2eh_270',['numeric.h',['../numeric_8h.html',1,'']]],
   ['numeric_5fiterator_271',['numeric_iterator',['../classemlabcpp_1_1numeric__iterator.html',1,'emlabcpp::numeric_iterator&lt; T &gt;'],['../classemlabcpp_1_1numeric__iterator.html#a6e932910420a2e34fbddffbd5e5f4d02',1,'emlabcpp::numeric_iterator::numeric_iterator()']]],

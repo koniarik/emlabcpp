@@ -7,7 +7,7 @@ var searchData=
   ['take_5ffront_532',['take_front',['../classemlabcpp_1_1static__circular__buffer.html#a86c4ac6c27666d9a9ddfd310142da75b',1,'emlabcpp::static_circular_buffer']]],
   ['teardown_533',['teardown',['../classemlabcpp_1_1testing__interface.html#aa560f7c46574434f8295d50e4f2631d8',1,'emlabcpp::testing_interface']]],
   ['temp_534',['temp',['../namespaceemlabcpp.html#a845bc83f874f1d97f649fbe0137c913c',1,'emlabcpp']]],
-  ['test_5finfo_535',['test_info',['../classemlabcpp_1_1testing__controller.html#structemlabcpp_1_1testing__controller_1_1test__info',1,'emlabcpp::testing_controller']]],
+  ['test_5finfo_535',['test_info',['../namespaceemlabcpp.html#structemlabcpp_1_1test__info',1,'emlabcpp']]],
   ['testing_5farg_536',['TESTING_ARG',['../namespaceemlabcpp.html#a39c432c01b63c755cc8dd093c6c770d4a67cda21402e7f8d8e57db5061f23460b',1,'emlabcpp']]],
   ['testing_5farg_5fmissing_537',['TESTING_ARG_MISSING',['../namespaceemlabcpp.html#a39c432c01b63c755cc8dd093c6c770d4ae02f98d1bd046edd7cb9f5cb3c45e9df',1,'emlabcpp']]],
   ['testing_5farg_5fmissing_5fe_538',['TESTING_ARG_MISSING_E',['../namespaceemlabcpp.html#ab01b0d10071d3c9ba7c7b47555aa23f3a870a0ce413caecadb69b503aece3c8cf',1,'emlabcpp']]],

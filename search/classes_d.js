@@ -2,7 +2,7 @@ var searchData=
 [
   ['tag_791',['tag',['../structemlabcpp_1_1tag.html',1,'emlabcpp']]],
   ['tagged_5fquantity_792',['tagged_quantity',['../classemlabcpp_1_1tagged__quantity.html',1,'emlabcpp']]],
-  ['test_5finfo_793',['test_info',['../classemlabcpp_1_1testing__controller.html#structemlabcpp_1_1testing__controller_1_1test__info',1,'emlabcpp::testing_controller']]],
+  ['test_5finfo_793',['test_info',['../namespaceemlabcpp.html#structemlabcpp_1_1test__info',1,'emlabcpp']]],
   ['testing_5fcallable_5foverlay_794',['testing_callable_overlay',['../classemlabcpp_1_1testing__callable__overlay.html',1,'emlabcpp']]],
   ['testing_5fcomposer_795',['testing_composer',['../classemlabcpp_1_1testing__composer.html',1,'emlabcpp']]],
   ['testing_5fcontroller_796',['testing_controller',['../classemlabcpp_1_1testing__controller.html',1,'emlabcpp']]],

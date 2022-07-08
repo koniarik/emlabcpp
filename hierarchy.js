@@ -162,7 +162,7 @@ var hierarchy =
     [ "emlabcpp::static_vector< uint16_t, PoolCount >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::subscript_iterator< Container >", "classemlabcpp_1_1subscript__iterator.html", null ],
     [ "emlabcpp::tag< V >", "structemlabcpp_1_1tag.html", null ],
-    [ "emlabcpp::testing_controller::test_info", "classemlabcpp_1_1testing__controller.html#structemlabcpp_1_1testing__controller_1_1test__info", null ],
+    [ "emlabcpp::test_info", "namespaceemlabcpp.html#structemlabcpp_1_1test__info", null ],
     [ "emlabcpp::testing_controller", "classemlabcpp_1_1testing__controller.html", null ],
     [ "emlabcpp::testing_controller_interface", "classemlabcpp_1_1testing__controller__interface.html", null ],
     [ "emlabcpp::testing_controller_message_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__controller__message__error", null ],
