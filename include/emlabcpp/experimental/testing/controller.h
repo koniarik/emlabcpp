@@ -35,10 +35,6 @@ class testing_controller_interface_adapter;
 class testing_controller
 {
 public:
-        struct test_info
-        {
-                testing_name_buffer name;
-        };
 
         static std::optional< testing_controller >
         make( testing_controller_interface& iface, pool_interface* );

@@ -43,6 +43,11 @@ using testing_arg_variant =
 using testing_run_id  = uint32_t;
 using testing_test_id = uint16_t;
 
+struct test_info
+{
+        testing_name_buffer name;
+};
+
 /// TODO: maybe make a function in static_vector namespace?
 template < typename T >
 inline T testing_string_to_buffer( std::string_view sview )

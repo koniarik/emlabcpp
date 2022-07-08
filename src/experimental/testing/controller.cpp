@@ -160,14 +160,8 @@ void testing_controller::handle_message(
     testing_controller_interface_adapter iface )
 {
         EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
-        auto opt_val = match(
-            k,
-            [&]( uint32_t v ) -> std::optional< testing_arg_variant > {
-                    return iface->on_arg( v );
-            },
-            [&]( testing_key_buffer v ) -> std::optional< testing_arg_variant > {
-                    return iface->on_arg( std::string_view{ v.begin(), v.size() } );
-            } );
+        std::optional< testing_arg_variant > opt_val =
+            iface->on_arg( tests_[context_->tid], k );
         if ( opt_val ) {
                 iface.send< TESTING_ARG >( rid, k, *opt_val );
         } else {
