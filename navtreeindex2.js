@@ -230,6 +230,9 @@ var NAVTREEINDEX2 =
 "iterator_8h_source.html":[4,0,0,0,13],
 "json_8h.html":[4,0,0,0,4,6],
 "json_8h_source.html":[4,0,0,0,4,6],
+"logging_8h.html":[4,0,0,0,2,2],
+"logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d":[4,0,0,0,2,2,0],
+"logging_8h_source.html":[4,0,0,0,2,2],
 "match_8h.html":[4,0,0,0,14],
 "match_8h.html#a57181a407fd6f29a50664f8ba4cb44cd":[4,0,0,0,14,2],
 "match_8h.html#a63a6aaa5fc338d3d342d90a14225fe82":[4,0,0,0,14,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "namespaceemlabcpp.html#a1116f970afbac58563966b407530deaf":[4,0,0,0,4,1,2,0],
 "namespaceemlabcpp.html#a139d42724f35fa5519e859cad8d93c39":[4,0,0,0,4,0,2,0],
 "namespaceemlabcpp.html#a30b9d448ee094e2a9c6e5b40216e2754":[4,0,0,0,4,0,3,1],
-"namespaceemlabcpp.html#a555ffdabf7ef4cd54e8993dfa47f0164":[4,0,0,0,2,0,3,1,0],
-"namespaceemlabcpp.html#a8dcbb739bb8a0179b85adc8f351725bb":[4,0,0,0,4,4,1,1],
-"namespaceemlabcpp.html#a95580a4893efd63e4aa800d599eb2ad0":[4,0,0,0,2,0,3,3,0],
-"namespaceemlabcpp.html#aa071beaabe5ee1c0af87ce62efc9f87f":[4,0,0,0,2,0,3,2,0]
+"namespaceemlabcpp.html#a555ffdabf7ef4cd54e8993dfa47f0164":[4,0,0,0,2,0,3,1,0]
 };

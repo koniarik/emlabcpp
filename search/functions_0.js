@@ -1,18 +1,18 @@
 var searchData=
 [
-  ['abs_872',['abs',['../namespaceemlabcpp.html#ad94cfee3e6e80c1e90bc767e6ace9f7e',1,'emlabcpp']]],
-  ['access_5fiterator_873',['access_iterator',['../classemlabcpp_1_1access__iterator.html#a33406ea2ae26b6867d8f4640cb9436e1',1,'emlabcpp::access_iterator']]],
-  ['access_5fview_874',['access_view',['../namespaceemlabcpp.html#a1718357386396f122c78205b00bed08c',1,'emlabcpp']]],
-  ['accumulate_875',['accumulate',['../namespaceemlabcpp.html#a01d8a4c83393034954b54b0dd6191238',1,'emlabcpp']]],
-  ['add_5fchild_876',['add_child',['../structemlabcpp_1_1testing__data__node.html#a87d86dcec8da07284fa134b0140adba6',1,'emlabcpp::testing_data_node']]],
-  ['align_877',['align',['../namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966',1,'emlabcpp']]],
-  ['all_5fof_878',['all_of',['../namespaceemlabcpp.html#af23dacc40d13b4848a3af667493a8af9',1,'emlabcpp']]],
-  ['allocate_879',['allocate',['../structemlabcpp_1_1pool__interface.html#ae984c89b9c93e062b1dd8b1d970896a0',1,'emlabcpp::pool_interface::allocate()'],['../classemlabcpp_1_1pool__resource.html#a5cea1c2bf2fd49248abd1b0a2a87cb7c',1,'emlabcpp::pool_resource::allocate()'],['../classemlabcpp_1_1pool__allocator.html#ace5586d4b85037621c54d7057156afb5',1,'emlabcpp::pool_allocator::allocate()']]],
-  ['almost_5fequal_880',['almost_equal',['../namespaceemlabcpp.html#a4d436ac46a18d3b5aa2e2e8f253c656b',1,'emlabcpp']]],
-  ['any_5fof_881',['any_of',['../namespaceemlabcpp.html#ae1eb7bfbbedea4be369b14c29286045a',1,'emlabcpp']]],
-  ['apply_5fon_5fmatch_882',['apply_on_match',['../namespaceemlabcpp.html#a63a6aaa5fc338d3d342d90a14225fe82',1,'emlabcpp']]],
-  ['apply_5fon_5fvisit_883',['apply_on_visit',['../namespaceemlabcpp.html#a75cf44a6df8173ea7a46979f57546332',1,'emlabcpp']]],
-  ['assemble_5fleft_5fcollect_5fright_884',['assemble_left_collect_right',['../namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755',1,'emlabcpp']]],
-  ['assemble_5foptionals_885',['assemble_optionals',['../namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486',1,'emlabcpp']]],
-  ['avg_886',['avg',['../namespaceemlabcpp.html#a82edfd68c59439561d561afe519d68a1',1,'emlabcpp']]]
+  ['abs_875',['abs',['../namespaceemlabcpp.html#ad94cfee3e6e80c1e90bc767e6ace9f7e',1,'emlabcpp']]],
+  ['access_5fiterator_876',['access_iterator',['../classemlabcpp_1_1access__iterator.html#a33406ea2ae26b6867d8f4640cb9436e1',1,'emlabcpp::access_iterator']]],
+  ['access_5fview_877',['access_view',['../namespaceemlabcpp.html#a1718357386396f122c78205b00bed08c',1,'emlabcpp']]],
+  ['accumulate_878',['accumulate',['../namespaceemlabcpp.html#a01d8a4c83393034954b54b0dd6191238',1,'emlabcpp']]],
+  ['add_5fchild_879',['add_child',['../structemlabcpp_1_1testing__data__node.html#a87d86dcec8da07284fa134b0140adba6',1,'emlabcpp::testing_data_node']]],
+  ['align_880',['align',['../namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966',1,'emlabcpp']]],
+  ['all_5fof_881',['all_of',['../namespaceemlabcpp.html#af23dacc40d13b4848a3af667493a8af9',1,'emlabcpp']]],
+  ['allocate_882',['allocate',['../structemlabcpp_1_1pool__interface.html#ae984c89b9c93e062b1dd8b1d970896a0',1,'emlabcpp::pool_interface::allocate()'],['../classemlabcpp_1_1pool__resource.html#a5cea1c2bf2fd49248abd1b0a2a87cb7c',1,'emlabcpp::pool_resource::allocate()'],['../classemlabcpp_1_1pool__allocator.html#ace5586d4b85037621c54d7057156afb5',1,'emlabcpp::pool_allocator::allocate()']]],
+  ['almost_5fequal_883',['almost_equal',['../namespaceemlabcpp.html#a4d436ac46a18d3b5aa2e2e8f253c656b',1,'emlabcpp']]],
+  ['any_5fof_884',['any_of',['../namespaceemlabcpp.html#ae1eb7bfbbedea4be369b14c29286045a',1,'emlabcpp']]],
+  ['apply_5fon_5fmatch_885',['apply_on_match',['../namespaceemlabcpp.html#a63a6aaa5fc338d3d342d90a14225fe82',1,'emlabcpp']]],
+  ['apply_5fon_5fvisit_886',['apply_on_visit',['../namespaceemlabcpp.html#a75cf44a6df8173ea7a46979f57546332',1,'emlabcpp']]],
+  ['assemble_5fleft_5fcollect_5fright_887',['assemble_left_collect_right',['../namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755',1,'emlabcpp']]],
+  ['assemble_5foptionals_888',['assemble_optionals',['../namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486',1,'emlabcpp']]],
+  ['avg_889',['avg',['../namespaceemlabcpp.html#a82edfd68c59439561d561afe519d68a1',1,'emlabcpp']]]
 ];
