@@ -72,6 +72,33 @@ struct protocol_command
 template < protocol_endianess_enum Endianess, typename... Cmds >
 struct protocol_command_group : protocol_def_type_base
 {
+        using cmds_type = std::tuple< Cmds... >;
+
+private:
+        // TODO: duplication from register_map
+        static constexpr std::size_t get_id_index( auto id )
+        {
+                std::size_t res = sizeof...( Cmds );
+                until_index< sizeof...( Cmds ) >( [&]< std::size_t i >() {
+                        if ( std::tuple_element_t< i, cmds_type >::id == id ) {
+                                res = i;
+                                return true;
+                        }
+                        return false;
+                } );
+                return res;
+        }
+
+public:
+        template < auto ID >
+        static constexpr std::size_t id_index = get_id_index( ID );
+
+        template < auto ID >
+        using cmd_type = std::tuple_element_t< id_index< ID >, cmds_type >;
+
+        template < auto ID >
+        using cmd_value_type = typename cmd_type< ID >::value_type;
+
         template < typename... SubCmds >
         using with_commands = protocol_command_group< Endianess, Cmds..., SubCmds... >;
 
@@ -79,7 +106,6 @@ struct protocol_command_group : protocol_def_type_base
             are_same_v< typename Cmds::id_type... >,
             "Each command of one group has to use same type of id" );
 
-        using cmds_type = std::tuple< Cmds... >;
         using def_type =
             protocol_endianess< Endianess, protocol_group< typename Cmds::def_type... > >;
         using decl       = protocol_decl< def_type >;
