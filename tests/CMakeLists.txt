@@ -13,9 +13,13 @@ target_link_libraries(GTest::GTest INTERFACE gtest_main)
 set_target_properties(gtest_main
     PROPERTIES
          CXX_CLANG_TIDY "")
+set_target_properties(GTest::GTest
+    PROPERTIES
+         CXX_CLANG_TIDY "")
 
 function(emlabcpp_setup_test target)
-  target_include_directories(${target} PRIVATE include/ third-party/)
+  target_include_directories(${target} PRIVATE include/)
+  target_include_directories(${target} SYSTEM PRIVATE third-party/)
   target_link_libraries(${target} emlabcpp)
   #gtest_discover_tests(${target})
   add_test(NAME ${target}_test COMMAND ${target})
