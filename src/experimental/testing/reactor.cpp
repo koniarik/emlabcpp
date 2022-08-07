@@ -38,8 +38,8 @@ void testing_reactor::spin( testing_reactor_interface& top_iface )
 
         apply_on_match(
             *opt_var,
-            [&]( auto... args ) {
-                    handle_message( args..., iface );
+            [&]< auto ID >( tag< ID >, const auto&... args ) {
+                    handle_message( tag< ID >{}, args..., iface );
             },
             [&]( tag< TESTING_PARAM_VALUE >, const auto&... ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();

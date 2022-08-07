@@ -160,7 +160,7 @@ struct reactor_iface : em::testing_reactor_interface
                 em::testing_reactor_controller_extract(
                     *em::testing_reactor_controller_msg::make( inpt ) )
                     .match(
-                        [&]( auto val ) {
+                        [&]( const auto& val ) {
                                 EMLABCPP_LOG( "reactor:" << val );
                         },
                         []( auto ) {} );
@@ -208,7 +208,7 @@ struct controller_iface : em::testing_controller_interface
                 em::testing_controller_reactor_extract(
                     *em::testing_controller_reactor_msg::make( inpt ) )
                     .match(
-                        [&]( auto val ) {
+                        [&]( const auto& val ) {
                                 EMLABCPP_LOG( "control:" << val );
                         },
                         [&]( auto ) {} );

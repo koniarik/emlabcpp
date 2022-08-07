@@ -25,7 +25,7 @@ public:
           : obj_( obj )
         {
         }
-        std::optional< node_id > get_child( child_id chid ) const
+        [[nodiscard]] std::optional< node_id > get_child( child_id chid ) const
         {
                 if ( obj_->size() < chid ) {
                         return std::nullopt;
@@ -35,7 +35,7 @@ public:
                 return iter->second;
         }
 
-        std::optional< node_id > get_child( key_type k ) const
+        [[nodiscard]] std::optional< node_id > get_child( key_type k ) const
         {
                 auto iter = obj_->find( k );
                 if ( iter == obj_->end() ) {
@@ -44,12 +44,12 @@ public:
                 return iter->second;
         }
 
-        uint32_t size() const
+        [[nodiscard]] uint32_t size() const
         {
                 return static_cast< uint32_t >( obj_->size() );
         }
 
-        const key_type* get_key( child_id chid ) const
+        [[nodiscard]] const key_type* get_key( child_id chid ) const
         {
                 if ( chid >= obj_->size() ) {
                         return nullptr;
@@ -83,7 +83,8 @@ public:
           : arr_( arr )
         {
         }
-        std::optional< node_id > get_child( child_id chid ) const
+
+        [[nodiscard]] std::optional< node_id > get_child( child_id chid ) const
         {
                 auto iter = arr_->find( chid );
                 if ( iter == arr_->end() ) {
@@ -92,7 +93,7 @@ public:
                 return iter->second;
         }
 
-        uint32_t size() const
+        [[nodiscard]] uint32_t size() const
         {
                 return static_cast< uint32_t >( arr_->size() );
         }
@@ -127,7 +128,7 @@ public:
         {
         }
 
-        const Value* get_value() const
+        [[nodiscard]] const Value* get_value() const
         {
                 return std::get_if< Value >( &content_ );
         }
@@ -148,7 +149,7 @@ public:
                 return std::get_if< Value >( &content_ );
         }
 
-        std::variant< const Value*, const_object_handle, const_array_handle >
+        [[nodiscard]] std::variant< const Value*, const_object_handle, const_array_handle >
         get_container_handle() const
         {
                 if ( std::holds_alternative< array_type >( content_ ) ) {
@@ -160,7 +161,7 @@ public:
                 return std::get_if< Value >( &content_ );
         }
 
-        contiguous_tree_type_enum get_type() const
+        [[nodiscard]] contiguous_tree_type_enum get_type() const
         {
                 return match(
                     content_,
@@ -209,7 +210,7 @@ public:
         {
         }
 
-        const node_type* get_node( node_id nid ) const
+        [[nodiscard]] const node_type* get_node( node_id nid ) const
         {
                 auto iter = data_.find( nid );
                 if ( iter == data_.end() ) {
@@ -217,7 +218,7 @@ public:
                 }
                 return &iter->second;
         }
-        node_type* get_node( node_id nid )
+        [[nodiscard]] node_type* get_node( node_id nid )
         {
                 auto iter = data_.find( nid );
                 if ( iter == data_.end() ) {
@@ -226,7 +227,7 @@ public:
                 return &iter->second;
         }
 
-        bool empty() const
+        [[nodiscard]] bool empty() const
         {
                 return data_.empty();
         }
@@ -267,7 +268,7 @@ private:
         using iterator = typename container::iterator;
         std::optional< std::pair< node_id, iterator > > make_node( content_type cont )
         {
-                node_id nid = static_cast< node_id >( data_.size() );
+                auto nid = static_cast< node_id >( data_.size() );
                 try {
                         auto [iter, inserted] =
                             data_.emplace( nid, node_type{ std::move( cont ) } );

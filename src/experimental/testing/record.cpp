@@ -38,7 +38,7 @@ std::optional< testing_value > testing_record::get_param_value( testing_node_id 
         }
         apply_on_match(
             *opt_variant,
-            [&]( tag< TESTING_PARAM_VALUE >, testing_run_id, testing_value var ) {
+            [&]( tag< TESTING_PARAM_VALUE >, testing_run_id, const testing_value& var ) {
                     res = var;
             },
             [&]< auto ID >( tag< ID >, auto... ){} );

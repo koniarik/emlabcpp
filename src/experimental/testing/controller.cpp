@@ -189,10 +189,10 @@ void testing_controller::handle_message(
 }
 void testing_controller::handle_message(
     tag< TESTING_PARAM_CHILD >,
-    testing_run_id                                rid,
-    testing_node_id                               nid,
-    std::variant< testing_key, testing_child_id > chid,
-    testing_controller_interface_adapter&         iface )
+    testing_run_id                                       rid,
+    testing_node_id                                      nid,
+    const std::variant< testing_key, testing_child_id >& chid,
+    testing_controller_interface_adapter&                iface )
 {
         EMLABCPP_ASSERT( context_ );
         EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
@@ -241,7 +241,7 @@ void testing_controller::handle_message(
 
         harn.get_key( nid, chid )
             .match(
-                [&]( testing_key key ) {
+                [&]( const testing_key& key ) {
                         iface.send< TESTING_PARAM_KEY >( rid, key );
                 },
                 [&]( contiguous_request_adapter_errors_enum err ) {

@@ -93,10 +93,10 @@ private:
             testing_controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_PARAM_CHILD >,
-            testing_run_id                                rid,
-            testing_node_id                               nid,
-            std::variant< testing_key, testing_child_id > chid,
-            testing_controller_interface_adapter&         iface );
+            testing_run_id                                       rid,
+            testing_node_id                                      nid,
+            const std::variant< testing_key, testing_child_id >& chid,
+            testing_controller_interface_adapter&                iface );
         void handle_message(
             tag< TESTING_PARAM_CHILD_COUNT >,
             testing_run_id                        rid,
@@ -119,7 +119,7 @@ private:
             testing_run_id                      rid,
             testing_node_id                     parent,
             const std::optional< testing_key >& opt_key,
-            const testing_collect_arg&                val,
+            const testing_collect_arg&          val,
             testing_controller_interface_adapter& );
         void handle_message(
             tag< TESTING_FINISHED >,
