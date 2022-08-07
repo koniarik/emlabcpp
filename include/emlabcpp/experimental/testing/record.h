@@ -54,9 +54,28 @@ public:
         {
                 std::optional opt_var = get_param_value( node );
                 if ( !opt_var ) {
-                        return {};
+                        return std::nullopt;
                 }
                 return extract_arg< T >( *opt_var, node );
+        }
+
+        template < typename T, typename Key >
+        std::optional< T > get_param( testing_node_id node, const Key& k )
+        {
+                std::optional< testing_node_id > opt_nid = get_param_child( node, k );
+                if ( !opt_nid ) {
+                        return std::nullopt;
+                }
+                return get_param< T >( *opt_nid );
+        }
+
+        template < typename T, typename Key >
+        std::optional< T > get_param( std::optional< testing_node_id > node, const Key& k )
+        {
+                if ( !node ) {
+                        return std::nullopt;
+                }
+                return get_param< T >( *node, k );
         }
 
         std::optional< testing_value > get_param_value( testing_node_id param );
@@ -80,10 +99,7 @@ public:
             const testing_collect_arg&          arg );
 
         std::optional< testing_node_id >
-        collect( testing_node_id parent, const testing_collect_arg& arg )
-        {
-                return collect( parent, std::optional< testing_key >{}, arg );
-        }
+        collect( testing_node_id parent, const testing_collect_arg& arg );
 
         template < typename Key, typename Arg >
         std::optional< testing_node_id >
@@ -96,18 +112,6 @@ public:
         std::optional< testing_node_id > collect( testing_node_id parent, const Arg& arg )
         {
                 return collect( parent, convert_arg( arg ) );
-        }
-
-        template < typename Arg >
-        std::optional< testing_node_id > collect( const Arg& arg )
-        {
-                return collect( 0, arg );
-        }
-
-        template < typename Key, typename Arg >
-        std::optional< testing_node_id > collect( const Key& k, const Arg& arg )
-        {
-                return collect( 0, k, arg );
         }
 
         void fail()
@@ -137,9 +141,9 @@ private:
                 return std::get< T >( var );
         }
 
-        std::optional< testing_key > convert_key( std::string_view k )
+        std::optional< testing_key > convert_key( std::string_view sview )
         {
-                return testing_key{ testing_key_to_buffer( k ) };
+                return testing_key_to_buffer( sview );
         }
 
         testing_collect_arg convert_arg( const alternative_of< testing_value > auto& arg )
@@ -159,5 +163,8 @@ private:
 
         std::optional< testing_controller_reactor_variant >
             read_variant( testing_node_id, testing_messages_enum );
+
+        template < typename ResultType, auto ID, typename... Args >
+        std::optional< ResultType > exchange( testing_node_id nid, const Args&... args );
 };
 }  // namespace emlabcpp

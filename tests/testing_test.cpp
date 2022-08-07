@@ -71,9 +71,9 @@ void simple_test_case( em::testing_record& rec )
 
         // collecting records data in the controller
         // this is stored for later review
-        rec.collect( "col1", "some_data" );
-        rec.collect( "col2", 42 );
-        rec.collect( "33", "foooo" );
+        rec.collect( 0, "col1", "some_data" );
+        rec.collect( 0, "col2", 42 );
+        rec.collect( 0, "33", "foooo" );
 
         // of course, we can decide whenever the test
         // failed or succeeded
@@ -135,7 +135,7 @@ struct my_test_case : my_test_fixture
 
         void run( em::testing_record& rec ) override
         {
-                rec.collect( "some key for collector", 42 );
+                rec.collect( 0, "some key for collector", 42 );
 
                 rec.fail();
         }

@@ -26,6 +26,11 @@
 
 using namespace emlabcpp;
 
+std::optional< testing_node_type > testing_record::get_param_type( testing_node_id nid )
+{
+        return exchange< testing_node_type, TESTING_PARAM_TYPE >( nid );
+}
+
 std::optional< testing_value > testing_record::get_param_value( testing_node_id nid )
 {
         comm_.reply< TESTING_PARAM_VALUE >( rid_, nid );
@@ -44,6 +49,12 @@ std::optional< testing_value > testing_record::get_param_value( testing_node_id 
             [&]< auto ID >( tag< ID >, auto... ){} );
 
         return res;
+}
+
+std::optional< testing_node_id >
+testing_record::collect( testing_node_id parent, const testing_collect_arg& arg )
+{
+        return collect( parent, std::optional< testing_key >{}, arg );
 }
 
 std::optional< testing_node_id > testing_record::collect(
@@ -68,6 +79,13 @@ std::optional< testing_node_id > testing_record::collect(
 }
 
 std::optional< testing_node_id >
+testing_record::get_param_child( testing_node_id nid, testing_child_id chid )
+{
+        return exchange< testing_node_id, TESTING_PARAM_CHILD >(
+            nid, std::variant< testing_key, testing_child_id >{ chid } );
+}
+
+std::optional< testing_node_id >
 testing_record::get_param_child( testing_node_id nid, std::string_view key )
 {
         return get_param_child( nid, testing_key_to_buffer( key ) );
@@ -76,22 +94,19 @@ testing_record::get_param_child( testing_node_id nid, std::string_view key )
 std::optional< testing_node_id >
 testing_record::get_param_child( testing_node_id nid, const testing_key& key )
 {
-        comm_.reply< TESTING_PARAM_CHILD >( rid_, nid, key );
+        return exchange< testing_node_id, TESTING_PARAM_CHILD >(
+            nid, std::variant< testing_key, testing_child_id >{ key } );
+}
 
-        std::optional< testing_node_id >                    res;
-        std::optional< testing_controller_reactor_variant > opt_variant =
-            read_variant( nid, TESTING_PARAM_CHILD );
-        if ( !opt_variant ) {
-                return {};
-        }
-        apply_on_match(
-            *opt_variant,
-            [&]( tag< TESTING_PARAM_CHILD >, testing_run_id, testing_node_id nid ) {
-                    res = nid;
-            },
-            [&]< auto ID >( tag< ID >, auto... ){} );
+std::optional< testing_child_count > testing_record::get_param_child_count( testing_node_id nid )
+{
+        return exchange< testing_child_count, TESTING_PARAM_CHILD_COUNT >( nid );
+}
 
-        return res;
+std::optional< testing_key >
+testing_record::get_param_key( testing_node_id nid, testing_child_id chid )
+{
+        return exchange< testing_key, TESTING_PARAM_KEY >( nid, chid );
 }
 
 void testing_record::report_wrong_type_error( testing_node_id nid, const testing_value& )
@@ -123,4 +138,21 @@ testing_record::read_variant( testing_node_id, testing_messages_enum desired )
                     comm_.report_failure< TESTING_WRONG_MESSAGE_E >( ID );
             } );
         return opt_var;
+}
+
+template < typename ResultType, auto ID, typename... Args >
+std::optional< ResultType > testing_record::exchange( testing_node_id nid, const Args&... args )
+{
+        comm_.reply< ID >( rid_, nid, args... );
+
+        std::optional< testing_controller_reactor_variant > opt_variant = read_variant( nid, ID );
+        if ( !opt_variant ) {
+                return std::nullopt;
+        }
+        using proto_tuple = testing_controller_reactor_group::cmd_value_type< ID >;
+        if ( std::holds_alternative< proto_tuple >( *opt_variant ) ) {
+                auto* tpl = std::get_if< proto_tuple >( &*opt_variant );
+                return std::get< 2 >( *tpl );
+        }
+        return std::nullopt;
 }
