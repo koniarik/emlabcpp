@@ -56,6 +56,11 @@ public:
                 }
         }
 
+        pool_resource( const pool_resource& )            = delete;
+        pool_resource( pool_resource&& )                 = delete;
+        pool_resource& operator=( const pool_resource& ) = delete;
+        pool_resource& operator=( pool_resource&& )      = delete;
+
         void* allocate( std::size_t bytes, std::size_t alignment ) final
         {
                 void*       p    = nullptr;
