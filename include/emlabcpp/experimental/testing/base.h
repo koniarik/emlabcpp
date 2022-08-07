@@ -129,12 +129,6 @@ inline emlabcpp::testing_value json_to_testing_value( const nlohmann::json& j )
                         return j.get< uint64_t >();
                 case value_t::string:
                         return testing_string_to_buffer( j.get< std::string >() );
-                case value_t::number_float:
-                case value_t::object:
-                case value_t::null:
-                case value_t::array:
-                case value_t::binary:
-                case value_t::discarded:
                 default:
                         // TODO: might wanna improve this
                         throw std::exception{};

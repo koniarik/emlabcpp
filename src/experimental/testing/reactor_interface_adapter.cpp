@@ -40,7 +40,7 @@ testing_reactor_interface_adapter::read_variant()
                 seq_.load_data( view{ *opt_data } )
                     .match(
                         [&]( std::size_t next_read ) {
-                                to_read = next_read;
+                                to_read = static_cast< uint8_t >( next_read );
                         },
                         [&]( auto msg ) {
                                 opt_msg = msg;
