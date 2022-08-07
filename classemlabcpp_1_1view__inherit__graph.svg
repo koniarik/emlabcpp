@@ -24,7 +24,7 @@
 <g id="a_node2"><a xlink:href="classemlabcpp_1_1bounded__view.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="5.5,-0.5 5.5,-30.5 146.5,-30.5 146.5,-0.5 5.5,-0.5"/>
 <text text-anchor="start" x="13.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::bounded_view</text>
-<text text-anchor="middle" x="76" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; Iterator &gt;</text>
+<text text-anchor="middle" x="76" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; Iterator, SizeType &gt;</text>
 </a>
 </g>
 </g>

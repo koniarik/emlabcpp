@@ -1,6 +1,5 @@
 var zip_8h =
 [
-    [ "zip_iterator", "classemlabcpp_1_1zip__iterator.html", "classemlabcpp_1_1zip__iterator" ],
     [ "iterator_traits< emlabcpp::zip_iterator< Iterators... > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4" ],
     [ "zip_iterator", "classemlabcpp_1_1zip__iterator.html", "classemlabcpp_1_1zip__iterator" ],
     [ "enumerate", "zip_8h.html#afe935e56d6376df9f87d0d015a3baecc", null ],

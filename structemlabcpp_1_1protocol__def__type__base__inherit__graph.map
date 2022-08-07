@@ -1,12 +1,12 @@
 <map id="emlabcpp::protocol_def_type_base" name="emlabcpp::protocol_def_type_base">
-<area shape="rect" id="node1" title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib..." alt="" coords="5,335,152,377"/>
-<area shape="rect" id="node2" href="$structemlabcpp_1_1protocol__command__group.html" title="Command group should be used as a collection of commands that are selected based on the ID,..." alt="" coords="383,5,606,61"/>
-<area shape="rect" id="node3" href="$structemlabcpp_1_1protocol__tuple.html" title="protocol_tuple is high levle alternative to use just &#39;std::tuple&#39; that is more friendly for standalon..." alt="" coords="403,86,586,127"/>
-<area shape="rect" id="node5" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="200,152,789,560"/>
-<area shape="rect" id="node7" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="237,585,752,919"/>
-<area shape="rect" id="node9" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="292,944,697,1235"/>
-<area shape="rect" id="node4" href="$structemlabcpp_1_1protocol__packet.html" title=" " alt="" coords="849,86,1033,127"/>
-<area shape="rect" id="node6" href="$structemlabcpp_1_1testing__reactor__controller__group.html" title=" " alt="" coords="845,335,1037,377"/>
-<area shape="rect" id="node8" href="$structemlabcpp_1_1testing__controller__reactor__group.html" title=" " alt="" coords="837,731,1045,773"/>
-<area shape="rect" id="node10" href="$structemlabcpp_1_1testing__reactor__error__group.html" title=" " alt="" coords="845,1069,1037,1110"/>
+<area shape="rect" id="node1" title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib..." alt="" coords="5,921,152,963"/>
+<area shape="rect" id="node2" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="237,5,752,340"/>
+<area shape="rect" id="node4" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="200,365,789,773"/>
+<area shape="rect" id="node6" href="$structemlabcpp_1_1protocol__command__group.html" title=" " alt="" coords="292,797,697,1087"/>
+<area shape="rect" id="node8" href="$structemlabcpp_1_1protocol__command__group.html" title="Command group should be used as a collection of commands that are selected based on the ID,..." alt="" coords="383,1111,606,1167"/>
+<area shape="rect" id="node9" href="$structemlabcpp_1_1protocol__tuple.html" title="protocol_tuple is high levle alternative to use just &#39;std::tuple&#39; that is more friendly for standalon..." alt="" coords="403,1192,586,1233"/>
+<area shape="rect" id="node3" href="$structemlabcpp_1_1testing__controller__reactor__group.html" title=" " alt="" coords="837,152,1045,193"/>
+<area shape="rect" id="node5" href="$structemlabcpp_1_1testing__reactor__controller__group.html" title=" " alt="" coords="845,548,1037,589"/>
+<area shape="rect" id="node7" href="$structemlabcpp_1_1testing__reactor__error__group.html" title=" " alt="" coords="845,921,1037,963"/>
+<area shape="rect" id="node10" href="$structemlabcpp_1_1protocol__packet.html" title=" " alt="" coords="849,1192,1033,1233"/>
 </map>

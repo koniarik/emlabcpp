@@ -10,5 +10,5 @@ var classemlabcpp_1_1quantity =
     [ "operator+=", "classemlabcpp_1_1quantity.html#a1cc052ed264675573b50723edcdd48cf", null ],
     [ "operator-=", "classemlabcpp_1_1quantity.html#a4a8ab00140c59cad3cb41f004f031dfb", null ],
     [ "operator/=", "classemlabcpp_1_1quantity.html#a1b1015431c7b7bc367a59b18e6e2fe60", null ],
-    [ "operator", "classemlabcpp_1_1quantity.html#aa0869e7ecef36846febf11b4f92b9962", null ]
+    [ "operator<=>", "classemlabcpp_1_1quantity.html#af343e7706e09c9956acc680651e3b74c", null ]
 ];

@@ -1,6 +1,5 @@
 var convert_8h =
 [
-    [ "convert_iterator", "classemlabcpp_1_1convert__iterator.html", "classemlabcpp_1_1convert__iterator" ],
     [ "iterator_traits< emlabcpp::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4" ],
     [ "convert_iterator", "classemlabcpp_1_1convert__iterator.html", "classemlabcpp_1_1convert__iterator" ],
     [ "convert_view", "convert_8h.html#ab6938a08fc2b09d704fc4e6e8ea5b0b9", null ],
