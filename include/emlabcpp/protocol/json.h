@@ -24,15 +24,12 @@
 #include <nlohmann/json.hpp>
 #endif
 
-#ifdef EMLABCPP_USE_MAGIC_ENUM
-#include <magic_enum.hpp>
-#endif
-
 #ifdef EMLABCPP_USE_DEMANGLING
 #include <cxxabi.h>
 #endif
 
 #include "emlabcpp/algorithm.h"
+#include "emlabcpp/enum.h"
 #include "emlabcpp/protocol/decl.h"
 
 #pragma once
@@ -167,8 +164,6 @@ requires( std::is_enum_v< T > ) struct protocol_json_serializer< T > : protocol_
                 j["sub_type"] = protocol_decl< std::underlying_type_t< T > >{};
 #ifdef EMLABCPP_USE_MAGIC_ENUM
                 j["values"] = magic_enum::enum_names< T >();
-#else
-                std::ignore = j;
 #endif
         }
 };
@@ -177,7 +172,7 @@ template < protocol_declarable D, std::size_t N >
 struct protocol_json_serializer< std::array< D, N > > : protocol_json_serializer_base
 {
         static constexpr std::string_view type_name = "array";
-        using sub_ser                               = protocol_json_serializer< D >;
+        using sub_ser = protocol_json_serializer< D >;
 
         static std::string get_name()
         {
@@ -186,7 +181,7 @@ struct protocol_json_serializer< std::array< D, N > > : protocol_json_serializer
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"]   = protocol_decl< D >{};
+                j["sub_type"] = protocol_decl< D >{};
                 j["item_count"] = N;
         }
 };
@@ -271,7 +266,7 @@ struct protocol_json_serializer< protocol_offset< D, Offset > > : protocol_json_
         static void add_extra( nlohmann::json& j )
         {
                 j["sub_type"] = protocol_decl< D >{};
-                j["offset"]   = Offset;
+                j["offset"] = Offset;
         }
 };
 
@@ -308,8 +303,8 @@ struct protocol_json_serializer< bounded< D, Min, Max > > : protocol_json_serial
         static void add_extra( nlohmann::json& j )
         {
                 j["sub_type"] = protocol_decl< D >{};
-                j["min"]      = Min;
-                j["max"]      = Max;
+                j["min"] = Min;
+                j["max"] = Max;
         }
 };
 
@@ -327,7 +322,7 @@ struct protocol_json_serializer< protocol_sized_buffer< CounterType, D > >
         static void add_extra( nlohmann::json& j )
         {
                 j["counter_type"] = protocol_decl< CounterType >{};
-                j["sub_type"]     = protocol_decl< D >{};
+                j["sub_type"] = protocol_decl< D >{};
         }
 };
 
@@ -338,21 +333,17 @@ struct protocol_json_serializer< tag< V > > : protocol_json_serializer_base
 
         static std::string get_name()
         {
-#ifdef EMLABCPP_USE_MAGIC_ENUM
                 if constexpr ( std::is_enum_v< decltype( V ) > ) {
-                        return "tag<" + std::string{ magic_enum::enum_name( V ) } + ">";
+                        return "tag<" + convert_enum( V ) + ">";
                 } else {
                         return "tag<" + std::to_string( V ) + ">";
                 }
-#else
-                return "tag<" + std::to_string( V ) + ">";
-#endif
         }
 
         static void add_extra( nlohmann::json& j )
         {
                 j["sub_type"] = typename protocol_decl< tag< V > >::sub_decl{};
-                j["value"]    = V;
+                j["value"] = V;
 #ifdef EMLABCPP_USE_MAGIC_ENUM
                 if constexpr ( std::is_enum_v< decltype( V ) > ) {
                         j["enumerator"] = magic_enum::enum_name( V );
@@ -401,7 +392,7 @@ template <>
 struct protocol_json_serializer< protocol_mark > : protocol_json_serializer_base
 {
         static constexpr std::string_view type_name = "mark";
-        static std::string                get_name()
+        static std::string get_name()
         {
                 return std::string{ type_name };
         }
@@ -421,7 +412,7 @@ struct protocol_json_serializer< protocol_error_record > : protocol_json_seriali
 
         static void add_extra( nlohmann::json& j )
         {
-                j["mark_type"]   = protocol_decl< typename decl::mark_type >{};
+                j["mark_type"] = protocol_decl< typename decl::mark_type >{};
                 j["offset_type"] = protocol_decl< typename decl::offset_type >{};
         }
 };
@@ -430,7 +421,7 @@ template < typename T, std::size_t N >
 struct protocol_json_serializer< static_vector< T, N > > : protocol_json_serializer_base
 {
         static constexpr std::string_view type_name = "static_vector";
-        using sub_ser                               = protocol_json_serializer< T >;
+        using sub_ser = protocol_json_serializer< T >;
 
         static std::string get_name()
         {

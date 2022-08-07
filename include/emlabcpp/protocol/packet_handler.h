@@ -20,8 +20,10 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
+#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/protocol/handler.h"
 #include "emlabcpp/protocol/packet.h"
+#include "emlabcpp/protocol/streams.h"
 
 #pragma once
 
@@ -77,6 +79,12 @@ struct protocol_packet_handler
                             checksum_type calculated_checksum =
                                 Packet::get_checksum( view_n( msg.begin(), checksum_pos ) );
                             if ( present_checksum != calculated_checksum ) {
+                                    EMLABCPP_LOG(
+                                        "Problematic message: " << *message_type::make( msg ) );
+                                    EMLABCPP_LOG(
+                                        std::hex << "Checksum failed, calculated: "
+                                                 << int( calculated_checksum )
+                                                 << " present: " << int( present_checksum ) );
                                     return protocol_error_record{ CHECKSUM_ERR, checksum_pos };
                             }
                             return std::get< 2 >( pack );

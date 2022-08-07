@@ -27,6 +27,7 @@
 #include "emlabcpp/static_vector.h"
 #include "emlabcpp/types.h"
 
+#include <optional>
 #include <variant>
 
 #pragma once
@@ -217,7 +218,7 @@ struct protocol_decl< protocol_error_record >
         static constexpr std::size_t min_size = mark_decl::min_size + offset_decl::min_size;
 };
 
-template < typename T, std::size_t N >
+template < protocol_declarable T, std::size_t N >
 struct protocol_decl< static_vector< T, N > >
 {
         using value_type   = static_vector< T, N >;
@@ -225,6 +226,17 @@ struct protocol_decl< static_vector< T, N > >
         static constexpr std::size_t max_size =
             protocol_decl< counter_type >::max_size + protocol_decl< T >::max_size * N;
         static constexpr std::size_t min_size = protocol_decl< counter_type >::min_size;
+};
+
+template < protocol_declarable T >
+struct protocol_decl< std::optional< T > >
+{
+        using value_type    = std::optional< T >;
+        using presence_type = uint8_t;
+        using presence_decl = protocol_decl< presence_type >;
+        static constexpr std::size_t max_size =
+            presence_decl::max_size + protocol_decl< T >::max_size;
+        static constexpr std::size_t min_size = presence_decl::min_size;
 };
 
 }  // namespace emlabcpp

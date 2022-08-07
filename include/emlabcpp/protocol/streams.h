@@ -21,17 +21,12 @@
 //  This file is part of project: emlabcpp
 //
 
+#include "emlabcpp/enum.h"
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/protocol/base.h"
 #include "emlabcpp/protocol/register_map.h"
 
 #include <iomanip>
-
-#ifdef EMLABCPP_USE_MAGIC_ENUM
-
-#include <magic_enum.hpp>
-
-#endif
 
 #pragma once
 
@@ -42,16 +37,22 @@ template < ostreamlike Stream, std::size_t N >
 inline auto& operator<<( Stream& os, const protocol_message< N >& msg )
 {
         std::ios_base::fmtflags f( os.flags() );
+        char                    fill_ch = os.fill();
+        std::streamsize         width   = os.width();
+        os.fill( '0' );
+        os.width( 2 );
         os << std::hex;
         char l = '|';
         for ( std::size_t i : range( msg.size() ) ) {
                 if ( i % 4 == 0 ) {
                         l = '|';
                 }
-                os << l << std::setfill( '0' ) << std::setw( 2 ) << int( msg[i] );
+                os << l << int( msg[i] );
                 l = ':';
         }
+        os.fill( fill_ch );
         os.flags( f );
+        os.width( width );
         return os;
 }
 
@@ -85,11 +86,7 @@ inline auto& operator<<( Stream& os, const protocol_register_map< Endianess, Reg
         using map = protocol_register_map< Endianess, Regs... >;
 
         auto key_to_str = []( auto key ) {
-#ifdef EMLABCPP_USE_MAGIC_ENUM
-                return magic_enum::enum_name( key );
-#else
-                return std::to_string( key );
-#endif
+                return convert_enum( key );
         };
 
         std::size_t max_key_size = 0;

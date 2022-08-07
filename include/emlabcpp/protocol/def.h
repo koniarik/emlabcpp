@@ -25,6 +25,7 @@
 #include "emlabcpp/bounded_view.h"
 #include "emlabcpp/either.h"
 #include "emlabcpp/iterators/numeric.h"
+#include "emlabcpp/match.h"
 #include "emlabcpp/protocol/decl.h"
 #include "emlabcpp/protocol/serializer.h"
 
@@ -336,6 +337,82 @@ struct protocol_def< std::monostate, Endianess >
             -> protocol_result< value_type >
         {
                 return { 0, std::monostate{} };
+        }
+};
+
+template < protocol_declarable T, protocol_endianess_enum Endianess >
+struct protocol_def< std::optional< T >, Endianess >
+{
+        using decl                            = protocol_decl< std::optional< T > >;
+        using value_type                      = std::optional< T >;
+        static constexpr std::size_t max_size = decl::max_size;
+        static constexpr std::size_t min_size = decl::min_size;
+        using presence_type                   = typename decl::presence_type;
+
+        static_assert( protocol_fixedly_sized< presence_type > );
+
+        using presence_def                         = protocol_def< presence_type, Endianess >;
+        static constexpr std::size_t presence_size = presence_def::max_size;
+        using sub_def                              = protocol_def< T, Endianess >;
+        using size_type                            = bounded< std::size_t, min_size, max_size >;
+
+        static constexpr size_type
+        serialize_at( std::span< uint8_t, max_size > buffer, const value_type& opt_val )
+        {
+                if ( !opt_val ) {
+                        return presence_def::serialize_at(
+                            buffer.template first< presence_size >(), 0 );
+                }
+                auto psize =
+                    presence_def::serialize_at( buffer.template first< presence_size >(), 1 );
+
+                return psize + sub_def::serialize_at(
+                                   buffer.template subspan< presence_size, sub_def::max_size >(),
+                                   *opt_val );
+        }
+
+        static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
+            -> protocol_result< value_type >
+        {
+                protocol_result< value_type > res{ 0, &BADVAL_ERR };
+
+                auto [pused, pres] =
+                    presence_def::deserialize( buffer.template first< presence_size >() );
+                res.used = pused;
+
+                if ( std::holds_alternative< const protocol_mark* >( pres ) ) {
+                        const protocol_mark* m = *std::get_if< const protocol_mark* >( &pres );
+                        res.res                = m;
+                        return res;
+                }
+                auto is_present = *std::get_if< presence_type >( &pres );
+                if ( is_present == 0 ) {
+                        res.res = std::nullopt;
+                        return res;
+                }
+                if ( is_present != 1 ) {
+                        return res;
+                }
+
+                using sub_size = typename sub_def::size_type;
+                auto opt_view  = buffer.template opt_offset< sub_size >( presence_size );
+
+                if ( !opt_view ) {
+                        return res;
+                }
+
+                auto [sused, sres] = sub_def::deserialize( *opt_view );
+
+                res.used += sused;
+                match(
+                    sres,
+                    [&]( T val ) {
+                            res.res = std::make_optional( std::move( val ) );
+                    },
+                    [&]( const protocol_mark* m ) {
+                            res.res = m;
+                    } );
+                return res;
         }
 };
 
