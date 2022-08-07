@@ -12,6 +12,3 @@ static_assert( std::same_as< mapped_t< view< const int* >, std::identity >, cons
 // static_assert(
 //    std::same_as< mapped_t< view< const int ( * )[128] >, std::identity >, const int& > );
 //
-
-static_assert( !ostreamlike< const char[10] > );
-static_assert( ostreamlike< std::ostream > );
