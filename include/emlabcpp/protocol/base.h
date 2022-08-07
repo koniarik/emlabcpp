@@ -61,7 +61,8 @@ struct protocol_result
 
 /// Concept that matches types considered base - serialized directly by using byte shifting.
 template < typename T >
-concept protocol_base_type = std::is_integral_v< T > || std::is_enum_v< T >;
+concept protocol_base_type =
+    std::is_floating_point_v< T > || std::is_integral_v< T > || std::is_enum_v< T >;
 
 /// Enum specifies what endianess should be used.
 enum protocol_endianess_enum

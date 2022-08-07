@@ -24,6 +24,7 @@
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/protocol/base.h"
 
+#include <bit>
 #include <span>
 
 #pragma once
@@ -58,6 +59,32 @@ struct protocol_serializer
                         res = static_cast< T >( res | bget( buffer, i ) );
                 }
                 return { res };
+        }
+};
+
+template < protocol_endianess_enum Endianess >
+struct protocol_serializer< float, Endianess >
+{
+        using sub_serializer = protocol_serializer< uint32_t, Endianess >;
+        static_assert( sizeof( float ) == sizeof( uint32_t ) );
+
+        static constexpr std::size_t max_size = sizeof( float );
+        using size_type                       = bounded< std::size_t, max_size, max_size >;
+        using view_type                       = bounded_view< const uint8_t*, size_type >;
+
+        static constexpr void serialize_at( std::span< uint8_t, max_size > buffer, float item )
+        {
+                uint32_t v;
+                std::memcpy( &v, &item, sizeof( float ) );
+                sub_serializer::serialize_at( buffer, v );
+        }
+
+        static constexpr float deserialize( const view_type& buffer )
+        {
+                uint32_t v = sub_serializer::deserialize( buffer );
+                float    res;
+                std::memcpy( &res, &v, sizeof( float ) );
+                return res;
         }
 };
 
