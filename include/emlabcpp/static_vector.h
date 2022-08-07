@@ -21,6 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/concepts.h"
+#include "emlabcpp/experimental/pretty_printer.h"
 #include "emlabcpp/iterator.h"
 
 #include <new>
@@ -308,6 +309,19 @@ template < ostreamlike Stream, typename T, std::size_t N >
 inline auto& operator<<( Stream& os, const static_vector< T, N >& vec )
 {
         return os << view{ vec };
+}
+
+template < typename T, std::size_t N >
+inline pretty_printer& operator<<( pretty_printer& os, const static_vector< T, N >& vec )
+{
+        if constexpr ( std::same_as< T, char > ) {
+                for ( char c : vec ) {
+                        os << c;
+                }
+        } else {
+                os << view{ vec };
+        }
+        return os;
 }
 
 }  // namespace emlabcpp
