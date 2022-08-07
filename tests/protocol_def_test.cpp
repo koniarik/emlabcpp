@@ -4,10 +4,10 @@
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -15,7 +15,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
-// 
+//
 //
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
@@ -289,9 +289,15 @@ int main( int argc, char** argv )
             make_invalid_test_case< static_vector< int16_t, 9 > >(
                 { 1, 0 }, protocol_error_record{ SIZE_ERR, 2 } ),
             make_invalid_test_case< static_vector< int16_t, 9 > >(
-                { 4, 0, 0, 0, 0, 0, 0 }, protocol_error_record{ SIZE_ERR, 6 } )
-
-        };
+                { 4, 0, 0, 0, 0, 0, 0 }, protocol_error_record{ SIZE_ERR, 6 } ),
+            // optional
+            make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >( std::optional< int32_t >{}, { 0 } ),
+            make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >(
+                std::optional< int32_t >{ 42u }, { 1, 0x2a, 0, 0, 0 } ),
+            make_invalid_test_case< std::optional< tag< 666u > > >(
+                { 1, 0 }, protocol_error_record{ BADVAL_ERR, 1 } ),
+            make_invalid_test_case< std::optional< tag< 666u > > >(
+                { 1, 0, 0, 2, 152 }, protocol_error_record{ BADVAL_ERR, 1 } ) };
 
         exec_protocol_test_fixture_test( tests );
         return RUN_ALL_TESTS();
