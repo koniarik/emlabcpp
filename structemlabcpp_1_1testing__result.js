@@ -5,7 +5,7 @@ var structemlabcpp_1_1testing__result =
     [ "testing_result", "structemlabcpp_1_1testing__result.html#a260fe55e259865c90412cfc050a14b60", null ],
     [ "operator=", "structemlabcpp_1_1testing__result.html#a7c5b02c7d622e26f456d9c822f864e10", null ],
     [ "operator=", "structemlabcpp_1_1testing__result.html#a486574bc478c21df6275ae4664806cae", null ],
-    [ "data_root", "structemlabcpp_1_1testing__result.html#ac99c47a54f9e4d9f4fe4731793feaaea", null ],
+    [ "collected", "structemlabcpp_1_1testing__result.html#a6d4e491b04331b75ddd0e2e0c580ddf0", null ],
     [ "errored", "structemlabcpp_1_1testing__result.html#a4b355c4ce2f4be5895ddf2ef688cc56f", null ],
     [ "failed", "structemlabcpp_1_1testing__result.html#a1fa363427261b03c6e08f16177fb3751", null ],
     [ "rid", "structemlabcpp_1_1testing__result.html#af756a2a4672367f9c701fcc1ab736b70", null ],

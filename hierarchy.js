@@ -10,6 +10,12 @@ var hierarchy =
     [ "conjunction", null, [
       [ "emlabcpp::are_same< T, Ts... >", "structemlabcpp_1_1are__same_3_01T_00_01Ts_8_8_8_01_4.html", null ]
     ] ],
+    [ "emlabcpp::contiguous_array_handle< ArrayType >", "classemlabcpp_1_1contiguous__array__handle.html", null ],
+    [ "emlabcpp::contiguous_node< Key, Value >", "classemlabcpp_1_1contiguous__node.html", null ],
+    [ "emlabcpp::contiguous_object_handle< ObjectType >", "classemlabcpp_1_1contiguous__object__handle.html", null ],
+    [ "emlabcpp::contiguous_request_adapter< Tree >", "classemlabcpp_1_1contiguous__request__adapter.html", null ],
+    [ "emlabcpp::contiguous_tree< Key, Value >", "classemlabcpp_1_1contiguous__tree.html", null ],
+    [ "emlabcpp::contiguous_tree< testing_key, testing_value >", "classemlabcpp_1_1contiguous__tree.html", null ],
     [ "emlabcpp::convert_iterator< T, Iterator >", "classemlabcpp_1_1convert__iterator.html", null ],
     [ "emlabcpp::convert_to< T >", "structemlabcpp_1_1convert__to.html", null ],
     [ "emlabcpp::defer< Function >", "classemlabcpp_1_1defer.html", null ],
@@ -64,6 +70,7 @@ var hierarchy =
     [ "emlabcpp::pool_interface", "structemlabcpp_1_1pool__interface.html", [
       [ "emlabcpp::pool_resource< PoolSize, PoolCount >", "classemlabcpp_1_1pool__resource.html", null ]
     ] ],
+    [ "emlabcpp::pretty_printer", "classemlabcpp_1_1pretty__printer.html", null ],
     [ "emlabcpp::protocol_command< ID, Defs >", "structemlabcpp_1_1protocol__command.html", null ],
     [ "emlabcpp::protocol_command_group< Endianess >", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__command__group_3_01Endianess_01_4", null ],
     [ "emlabcpp::protocol_decl< D >", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__decl", null ],
@@ -81,6 +88,7 @@ var hierarchy =
     [ "emlabcpp::protocol_decl< std::array< D, N > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1array_3_01D_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::protocol_decl< std::bitset< N > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1bitset_3_01N_01_4_01_4.html", null ],
     [ "emlabcpp::protocol_decl< std::monostate >", "structemlabcpp_1_1protocol__decl_3_01std_1_1monostate_01_4.html", null ],
+    [ "emlabcpp::protocol_decl< std::optional< T > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1optional_3_01T_01_4_01_4.html", null ],
     [ "emlabcpp::protocol_decl< std::tuple< Ds... > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::protocol_decl< std::variant< Ds... > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1variant_3_01Ds_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::protocol_decl< tag< V > >", "structemlabcpp_1_1protocol__decl_3_01tag_3_01V_01_4_01_4.html", null ],
@@ -99,6 +107,7 @@ var hierarchy =
     [ "emlabcpp::protocol_def< std::array< D, N >, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol_def< std::bitset< N >, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol_def< std::monostate, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1monostate_00_01Endianess_01_4.html", null ],
+    [ "emlabcpp::protocol_def< std::optional< T >, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1optional_3_01T_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol_def< std::tuple< Ds... >, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol_def< std::variant< Ds... >, Endianess >", "structemlabcpp_1_1protocol__def_3_01std_1_1variant_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol_def< tag< V >, Endianess >", "structemlabcpp_1_1protocol__def_3_01tag_3_01V_01_4_00_01Endianess_01_4.html", null ],
@@ -107,13 +116,13 @@ var hierarchy =
       [ "emlabcpp::protocol_tuple< Endianess, Ds >", "structemlabcpp_1_1protocol__tuple.html", [
         [ "emlabcpp::protocol_packet< Def, Payload >", "structemlabcpp_1_1protocol__packet.html", null ]
       ] ],
-      [ "emlabcpp::protocol_command_group< PROTOCOL_BIG_ENDIAN, protocol_command< TESTING_COUNT >::with_args< testing_test_id >, protocol_command< TESTING_NAME >::with_args< testing_name_buffer >, protocol_command< TESTING_ARG >::with_args< testing_run_id, testing_key >, protocol_command< TESTING_COLLECT >::with_args< testing_run_id, testing_node_id, testing_node_id, testing_key, testing_arg_variant >, protocol_command< TESTING_FINISHED >::with_args< testing_run_id >, protocol_command< TESTING_ERROR >::with_args< testing_run_id >, protocol_command< TESTING_FAILURE >::with_args< testing_run_id >, protocol_command< TESTING_SUITE_NAME >::with_args< testing_name_buffer >, protocol_command< TESTING_SUITE_DATE >::with_args< testing_name_buffer >, protocol_command< TESTING_INTERNAL_ERROR >::with_args< testing_reactor_error_group >, protocol_command< TESTING_PROTOCOL_ERROR >::with_args< protocol_error_record > >", "structemlabcpp_1_1protocol__command__group.html", [
+      [ "emlabcpp::protocol_command_group< PROTOCOL_BIG_ENDIAN, protocol_command< TESTING_COUNT >::with_args< testing_test_id >, protocol_command< TESTING_NAME >::with_args< testing_name_buffer >, protocol_command< TESTING_PARAM_VALUE >::with_args< testing_run_id, testing_node_id >, protocol_command< TESTING_PARAM_CHILD >::with_args< testing_run_id, testing_node_id, std::variant< testing_key, testing_child_id > >, protocol_command< TESTING_PARAM_CHILD_COUNT >::with_args< testing_run_id, testing_node_id >, protocol_command< TESTING_PARAM_KEY >::with_args< testing_run_id, testing_node_id, testing_child_id >, protocol_command< TESTING_PARAM_TYPE >::with_args< testing_run_id, testing_node_id >, protocol_command< TESTING_COLLECT >::with_args< testing_run_id, testing_node_id, std::optional< testing_key >, testing_collect_arg >, protocol_command< TESTING_FINISHED >::with_args< testing_run_id >, protocol_command< TESTING_ERROR >::with_args< testing_run_id >, protocol_command< TESTING_FAILURE >::with_args< testing_run_id >, protocol_command< TESTING_SUITE_NAME >::with_args< testing_name_buffer >, protocol_command< TESTING_SUITE_DATE >::with_args< testing_name_buffer >, protocol_command< TESTING_INTERNAL_ERROR >::with_args< testing_reactor_error_group >, protocol_command< TESTING_PROTOCOL_ERROR >::with_args< protocol_error_record > >", "structemlabcpp_1_1protocol__command__group.html", [
         [ "emlabcpp::testing_reactor_controller_group", "structemlabcpp_1_1testing__reactor__controller__group.html", null ]
       ] ],
-      [ "emlabcpp::protocol_command_group< PROTOCOL_BIG_ENDIAN, protocol_command< TESTING_SUITE_NAME >, protocol_command< TESTING_SUITE_DATE >, protocol_command< TESTING_COUNT >, protocol_command< TESTING_NAME >::with_args< testing_test_id >, protocol_command< TESTING_LOAD >::with_args< testing_test_id, testing_run_id >, protocol_command< TESTING_ARG >::with_args< testing_run_id, testing_key, testing_arg_variant >, protocol_command< TESTING_ARG_MISSING >::with_args< testing_run_id, testing_key >, protocol_command< TESTING_EXEC >::with_args< testing_run_id > >", "structemlabcpp_1_1protocol__command__group.html", [
+      [ "emlabcpp::protocol_command_group< PROTOCOL_BIG_ENDIAN, protocol_command< TESTING_SUITE_NAME >, protocol_command< TESTING_SUITE_DATE >, protocol_command< TESTING_COUNT >, protocol_command< TESTING_NAME >::with_args< testing_test_id >, protocol_command< TESTING_LOAD >::with_args< testing_test_id, testing_run_id >, protocol_command< TESTING_COLLECT >::with_args< testing_run_id, testing_node_id >, protocol_command< TESTING_PARAM_VALUE >::with_args< testing_run_id, testing_value >, protocol_command< TESTING_PARAM_CHILD >::with_args< testing_run_id, testing_node_id >, protocol_command< TESTING_PARAM_CHILD_COUNT >::with_args< testing_run_id, testing_child_count >, protocol_command< TESTING_PARAM_KEY >::with_args< testing_run_id, testing_key >, protocol_command< TESTING_PARAM_TYPE >::with_args< testing_run_id, testing_node_type >, protocol_command< TESTING_TREE_ERROR >::with_args< testing_run_id, contiguous_request_adapter_errors_enum, testing_node_id >, protocol_command< TESTING_EXEC >::with_args< testing_run_id > >", "structemlabcpp_1_1protocol__command__group.html", [
         [ "emlabcpp::testing_controller_reactor_group", "structemlabcpp_1_1testing__controller__reactor__group.html", null ]
       ] ],
-      [ "emlabcpp::protocol_command_group< PROTOCOL_BIG_ENDIAN, protocol_command< TESTING_TEST_NOT_LOADED_E >, protocol_command< TESTING_TEST_NOT_FOUND_E >, protocol_command< TESTING_WRONG_RUN_ID_E >, protocol_command< TESTING_TEST_ALREADY_LOADED_E >, protocol_command< TESTING_BAD_TEST_ID_E >, protocol_command< TESTING_UNDESIRED_MSG_E >, protocol_command< TESTING_NO_RESPONSE_E >::with_args< testing_messages_enum >, protocol_command< TESTING_ARG_MISSING_E >::with_args< testing_key >, protocol_command< TESTING_ARG_WRONG_MESSAGE_E >::with_args< testing_messages_enum >, protocol_command< TESTING_ARG_WRONG_TYPE_E >::with_args< testing_key > >", "structemlabcpp_1_1protocol__command__group.html", [
+      [ "emlabcpp::protocol_command_group< PROTOCOL_BIG_ENDIAN, protocol_command< TESTING_TEST_NOT_LOADED_E >, protocol_command< TESTING_TEST_NOT_FOUND_E >, protocol_command< TESTING_WRONG_RUN_ID_E >, protocol_command< TESTING_TEST_ALREADY_LOADED_E >, protocol_command< TESTING_BAD_TEST_ID_E >, protocol_command< TESTING_UNDESIRED_MSG_E >, protocol_command< TESTING_NO_RESPONSE_E >::with_args< testing_messages_enum >, protocol_command< TESTING_TREE_E >::with_args< testing_node_id, contiguous_request_adapter_errors_enum >, protocol_command< TESTING_WRONG_TYPE_E >::with_args< testing_node_id >, protocol_command< TESTING_WRONG_MESSAGE_E >::with_args< testing_messages_enum > >", "structemlabcpp_1_1protocol__command__group.html", [
         [ "emlabcpp::testing_reactor_error_group", "structemlabcpp_1_1testing__reactor__error__group.html", null ]
       ] ]
     ] ],
@@ -167,7 +176,6 @@ var hierarchy =
     [ "emlabcpp::testing_controller_interface", "classemlabcpp_1_1testing__controller__interface.html", null ],
     [ "emlabcpp::testing_controller_message_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__controller__message__error", null ],
     [ "emlabcpp::testing_controller_protocol_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__controller__protocol__error", null ],
-    [ "emlabcpp::testing_data_node", "structemlabcpp_1_1testing__data__node.html", null ],
     [ "emlabcpp::testing_interface", "classemlabcpp_1_1testing__interface.html", [
       [ "emlabcpp::testing_callable_overlay< Callable >", "classemlabcpp_1_1testing__callable__overlay.html", null ]
     ] ],

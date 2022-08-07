@@ -19,6 +19,7 @@ var decl_8h =
     [ "protocol_decl< protocol_mark >", "structemlabcpp_1_1protocol__decl_3_01protocol__mark_01_4.html", "structemlabcpp_1_1protocol__decl_3_01protocol__mark_01_4" ],
     [ "protocol_decl< protocol_error_record >", "structemlabcpp_1_1protocol__decl_3_01protocol__error__record_01_4.html", "structemlabcpp_1_1protocol__decl_3_01protocol__error__record_01_4" ],
     [ "protocol_decl< static_vector< T, N > >", "structemlabcpp_1_1protocol__decl_3_01static__vector_3_01T_00_01N_01_4_01_4.html", "structemlabcpp_1_1protocol__decl_3_01static__vector_3_01T_00_01N_01_4_01_4" ],
+    [ "protocol_decl< std::optional< T > >", "structemlabcpp_1_1protocol__decl_3_01std_1_1optional_3_01T_01_4_01_4.html", "structemlabcpp_1_1protocol__decl_3_01std_1_1optional_3_01T_01_4_01_4" ],
     [ "protocol_declarable", "decl_8h.html#a602f297ea94780303fcf0369627f5e72", null ],
     [ "protocol_fixedly_sized", "decl_8h.html#a9647fb1b94d3992c20f0c5017049a67a", null ]
 ];

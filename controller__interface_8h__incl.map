@@ -1,8 +1,9 @@
 <map id="include/emlabcpp/experimental/testing/controller_interface.h" name="include/emlabcpp/experimental/testing/controller_interface.h">
-<area shape="rect" id="node1" title=" " alt="" coords="89,5,317,47"/>
-<area shape="rect" id="node2" href="$experimental_2testing_2error_8h.html" title=" " alt="" coords="224,95,401,136"/>
-<area shape="rect" id="node3" href="$experimental_2testing_2protocol_8h.html" title=" " alt="" coords="5,184,183,225"/>
-<area shape="rect" id="node4" href="$streams_8h.html" title=" " alt="" coords="207,191,419,218"/>
-<area shape="rect" id="node5" href="$visit_8h.html" title=" " alt="" coords="442,191,573,218"/>
-<area shape="rect" id="node6" title=" " alt="" coords="524,273,592,300"/>
+<area shape="rect" id="node1" title=" " alt="" coords="113,5,341,47"/>
+<area shape="rect" id="node2" href="$experimental_2testing_2error_8h.html" title=" " alt="" coords="203,95,380,136"/>
+<area shape="rect" id="node4" href="$experimental_2testing_2protocol_8h.html" title=" " alt="" coords="5,184,183,225"/>
+<area shape="rect" id="node3" href="$enum_8h.html" title=" " alt="" coords="223,273,362,300"/>
+<area shape="rect" id="node5" href="$streams_8h.html" title=" " alt="" coords="257,191,469,218"/>
+<area shape="rect" id="node6" href="$visit_8h.html" title=" " alt="" coords="493,191,623,218"/>
+<area shape="rect" id="node7" title=" " alt="" coords="575,273,643,300"/>
 </map>

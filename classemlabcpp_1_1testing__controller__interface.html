@@ -101,8 +101,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad6dd808c99e3a412eda3f61b2285f506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefda9a2210550909089e136cfb843b51"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing__controller__interface.html#aefda9a2210550909089e136cfb843b51">on_result</a> (const <a class="el" href="structemlabcpp_1_1testing__result.html">testing_result</a> &amp;)=0</td></tr>
 <tr class="separator:aefda9a2210550909089e136cfb843b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1e3e60d121b42924916bffc711a1d74"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="namespaceemlabcpp.html#add2c6864fafb1b408398cc0bdb07e6c9">testing_arg_variant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing__controller__interface.html#af1e3e60d121b42924916bffc711a1d74">on_arg</a> (const <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1test__info">test_info</a> &amp;info, const <a class="el" href="namespaceemlabcpp.html#ab961228f0e95ce3f73f42aadfcaa54fd">testing_key</a> &amp;)=0</td></tr>
-<tr class="separator:af1e3e60d121b42924916bffc711a1d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e1bc0220e7a8537be058c97756c75b9"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceemlabcpp.html#adfc5fd4bc1b474abb3a91fb9f0741cda">testing_tree</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing__controller__interface.html#a0e1bc0220e7a8537be058c97756c75b9">get_param_tree</a> ()=0</td></tr>
+<tr class="separator:a0e1bc0220e7a8537be058c97756c75b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab988ab91741f2293a98b3764e1a34184"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing__controller__interface.html#ab988ab91741f2293a98b3764e1a34184">on_error</a> (<a class="el" href="namespaceemlabcpp.html#a23f9646ab3c944247009330cf42fd46a">testing_error_variant</a>)=0</td></tr>
 <tr class="separator:ab988ab91741f2293a98b3764e1a34184"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8244cb692f6993e7edc6fb4e63ee85ee"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing__controller__interface.html#a8244cb692f6993e7edc6fb4e63ee85ee">~testing_controller_interface</a> ()=default</td></tr>
@@ -135,8 +135,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af1e3e60d121b42924916bffc711a1d74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1e3e60d121b42924916bffc711a1d74">&#9670;&nbsp;</a></span>on_arg()</h2>
+<a id="a0e1bc0220e7a8537be058c97756c75b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e1bc0220e7a8537be058c97756c75b9">&#9670;&nbsp;</a></span>get_param_tree()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,21 +145,10 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::optional&lt; <a class="el" href="namespaceemlabcpp.html#add2c6864fafb1b408398cc0bdb07e6c9">testing_arg_variant</a> &gt; emlabcpp::testing_controller_interface::on_arg </td>
+          <td class="memname">virtual <a class="el" href="namespaceemlabcpp.html#adfc5fd4bc1b474abb3a91fb9f0741cda">testing_tree</a>&amp; emlabcpp::testing_controller_interface::get_param_tree </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1test__info">test_info</a> &amp;&#160;</td>
-          <td class="paramname"><em>info</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespaceemlabcpp.html#ab961228f0e95ce3f73f42aadfcaa54fd">testing_key</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -284,7 +273,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1testing__controller__interface.html">testing_controller_interface</a></li>
-    <li class="footer">Generated on Sat Aug 6 2022 08:12:14 for emlabcpp by
+    <li class="footer">Generated on Sun Aug 7 2022 15:59:21 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

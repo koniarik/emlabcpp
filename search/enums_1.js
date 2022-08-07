@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['static_5ffunction_5foperations_1327',['static_function_operations',['../namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79e',1,'emlabcpp::detail']]]
+  ['protocol_5fendianess_5fenum_1472',['protocol_endianess_enum',['../namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594',1,'emlabcpp']]]
 ];

@@ -102,8 +102,10 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 , <a class="el" href="structemlabcpp_1_1protocol__packet__handler.html#aab2d8929605c841a49eaf70708c09e14">emlabcpp::protocol_packet_handler&lt; Packet &gt;</a>
 , <a class="el" href="structemlabcpp_1_1testing__packet__def.html#aaf1c982fbe2849d1f933116aa7406355">emlabcpp::testing_packet_def</a>
 </li>
-<li>children
-: <a class="el" href="structemlabcpp_1_1testing__data__node.html#aa1d2cc0fce3d777aa0a503e86f442717">emlabcpp::testing_data_node</a>
+<li>child_id
+: <a class="el" href="classemlabcpp_1_1contiguous__node.html#a486366a70745cff5f97efdd22a05ad03">emlabcpp::contiguous_node&lt; Key, Value &gt;</a>
+, <a class="el" href="classemlabcpp_1_1contiguous__request__adapter.html#a561a39bcc17acd6446da250ac16f8013">emlabcpp::contiguous_request_adapter&lt; Tree &gt;</a>
+, <a class="el" href="classemlabcpp_1_1contiguous__tree.html#a82b267892c8cfc7126cc52ca0daedf19">emlabcpp::contiguous_tree&lt; Key, Value &gt;</a>
 </li>
 <li>clear()
 : <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a4cd0366ca39afd85a5f057105b0b3b01">emlabcpp::static_circular_buffer&lt; T, N &gt;</a>
@@ -115,12 +117,25 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <li>collect()
 : <a class="el" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html#a2598d2f2f9a7631a0cb44384c4b0e463">emlabcpp::impl::map_f_collector&lt; std::array&lt; T, N &gt; &gt;</a>
 , <a class="el" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#abecd5b770145f5025e1b76925e413a1a">emlabcpp::impl::map_f_collector&lt; T &gt;</a>
-, <a class="el" href="classemlabcpp_1_1testing__record.html#a07d2cd0b11756ac4d037824b63485263">emlabcpp::testing_record</a>
+, <a class="el" href="classemlabcpp_1_1testing__record.html#a975c94d246d6ed798734ea9880817f4f">emlabcpp::testing_record</a>
+</li>
+<li>collected
+: <a class="el" href="structemlabcpp_1_1testing__result.html#a6d4e491b04331b75ddd0e2e0c580ddf0">emlabcpp::testing_result</a>
+</li>
+<li>const_array_handle
+: <a class="el" href="classemlabcpp_1_1contiguous__node.html#a14a2f4896ba28728d2595751be97a661">emlabcpp::contiguous_node&lt; Key, Value &gt;</a>
+, <a class="el" href="classemlabcpp_1_1contiguous__request__adapter.html#a2dd30a4fc04314a516d75a9203079859">emlabcpp::contiguous_request_adapter&lt; Tree &gt;</a>
+, <a class="el" href="classemlabcpp_1_1contiguous__tree.html#ad067aaffdf5f6cb34ea0aa2133146906">emlabcpp::contiguous_tree&lt; Key, Value &gt;</a>
 </li>
 <li>const_iterator
 : <a class="el" href="classemlabcpp_1_1protocol__message.html#a69c77c2e8db187a1f97e78cf5a6cb63d">emlabcpp::protocol_message&lt; N &gt;</a>
 , <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a522ff8624c45c3b79b0af880eb0d15b6">emlabcpp::static_circular_buffer&lt; T, N &gt;</a>
 , <a class="el" href="classemlabcpp_1_1static__vector.html#a39ce12a1299db38ce04c60d817597cf4">emlabcpp::static_vector&lt; T, N &gt;</a>
+</li>
+<li>const_object_handle
+: <a class="el" href="classemlabcpp_1_1contiguous__node.html#afa15007509cd3cb7ceb03cccb80db69f">emlabcpp::contiguous_node&lt; Key, Value &gt;</a>
+, <a class="el" href="classemlabcpp_1_1contiguous__request__adapter.html#ad781a211f374ebefd7f7d3e7f0d18f1d">emlabcpp::contiguous_request_adapter&lt; Tree &gt;</a>
+, <a class="el" href="classemlabcpp_1_1contiguous__tree.html#af0b884b7d89b8478f25a316c13da586d">emlabcpp::contiguous_tree&lt; Key, Value &gt;</a>
 </li>
 <li>const_pointer
 : <a class="el" href="classemlabcpp_1_1generic__iterator.html#a94f63521bb88de9902ade70a45e3cb7e">emlabcpp::generic_iterator&lt; Derived &gt;</a>
@@ -144,20 +159,42 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <li>construct_right()
 : <a class="el" href="classemlabcpp_1_1either.html#a0c03f2e46b702d9928cc942f915ad92c">emlabcpp::either&lt; LH, RH &gt;</a>
 </li>
+<li>container
+: <a class="el" href="classemlabcpp_1_1contiguous__tree.html#a8de16ebdb90f2056f896bcce455cf331">emlabcpp::contiguous_tree&lt; Key, Value &gt;</a>
+</li>
 <li>contains()
 : <a class="el" href="classemlabcpp_1_1protocol__register__map.html#af2d9640c9cc77581433de2af2277e075">emlabcpp::protocol_register_map&lt; Endianess, Regs &gt;</a>
 </li>
 <li>contains_key
 : <a class="el" href="classemlabcpp_1_1protocol__register__map.html#a5e98ff4503f4827ab2a249afc191c10d">emlabcpp::protocol_register_map&lt; Endianess, Regs &gt;</a>
 </li>
+<li>content_type
+: <a class="el" href="classemlabcpp_1_1contiguous__node.html#a8745c375b5857ff303cbc4f60e5c4612">emlabcpp::contiguous_node&lt; Key, Value &gt;</a>
+, <a class="el" href="classemlabcpp_1_1contiguous__tree.html#af5bff3b96d36cf41bbfe0b942cc9509d">emlabcpp::contiguous_tree&lt; Key, Value &gt;</a>
+</li>
+<li>contiguous_array_handle()
+: <a class="el" href="classemlabcpp_1_1contiguous__array__handle.html#a386001b876e2e83b60a537574bbeaa6b">emlabcpp::contiguous_array_handle&lt; ArrayType &gt;</a>
+</li>
+<li>contiguous_node()
+: <a class="el" href="classemlabcpp_1_1contiguous__node.html#a96db6798966b71d0068639f33b41c1d0">emlabcpp::contiguous_node&lt; Key, Value &gt;</a>
+</li>
+<li>contiguous_object_handle()
+: <a class="el" href="classemlabcpp_1_1contiguous__object__handle.html#ab478698a0a337910d307ef3e98e152a5">emlabcpp::contiguous_object_handle&lt; ObjectType &gt;</a>
+</li>
+<li>contiguous_request_adapter()
+: <a class="el" href="classemlabcpp_1_1contiguous__request__adapter.html#a244bc022c70bb92a2e5df9321f8e43b7">emlabcpp::contiguous_request_adapter&lt; Tree &gt;</a>
+</li>
+<li>contiguous_tree()
+: <a class="el" href="classemlabcpp_1_1contiguous__tree.html#a6b917cb2ad7c1922dc1ae91a8b860102">emlabcpp::contiguous_tree&lt; Key, Value &gt;</a>
+</li>
 <li>convert_iterator()
 : <a class="el" href="classemlabcpp_1_1convert__iterator.html#aac968957185a499673ce7d7311af0d2c">emlabcpp::convert_iterator&lt; T, Iterator &gt;</a>
 </li>
 <li>convert_left()
-: <a class="el" href="classemlabcpp_1_1either.html#ab8c748f81c10f3df0946e719f68e6d51">emlabcpp::either&lt; LH, RH &gt;</a>
+: <a class="el" href="classemlabcpp_1_1either.html#a817f0398ab22df5ad8cf52930926a4d2">emlabcpp::either&lt; LH, RH &gt;</a>
 </li>
 <li>convert_right()
-: <a class="el" href="classemlabcpp_1_1either.html#a3afbc8f2920b4bdb2345d17ec946206a">emlabcpp::either&lt; LH, RH &gt;</a>
+: <a class="el" href="classemlabcpp_1_1either.html#a9e51e35517b6d142f1b3202cb54416d0">emlabcpp::either&lt; LH, RH &gt;</a>
 </li>
 <li>counter_decl
 : <a class="el" href="structemlabcpp_1_1protocol__decl_3_01protocol__sized__buffer_3_01CounterType_00_01D_01_4_01_4.html#a8139f1ff7323974ca3dbe03f02fd4a65">emlabcpp::protocol_decl&lt; protocol_sized_buffer&lt; CounterType, D &gt; &gt;</a>
@@ -185,7 +222,7 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Aug 6 2022 08:12:14 for emlabcpp by
+    <li class="footer">Generated on Sun Aug 7 2022 15:59:21 for emlabcpp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
