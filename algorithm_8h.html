@@ -222,10 +222,10 @@ Functions</h2></td></tr>
 <tr class="memitem:af23dacc40d13b4848a3af667493a8af9"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af23dacc40d13b4848a3af667493a8af9">emlabcpp::all_of</a> (const Container &amp;cont, UnaryFunction &amp;&amp;f=std::identity())</td></tr>
 <tr class="memdesc:af23dacc40d13b4848a3af667493a8af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if call to function 'f(x)' returns true for all items in 'cont'.  <a href="namespaceemlabcpp.html#af23dacc40d13b4848a3af667493a8af9">More...</a><br /></td></tr>
 <tr class="separator:af23dacc40d13b4848a3af667493a8af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa67efeff1b8f5b0bb2beea241f352b7a"><td class="memTemplParams" colspan="2">template&lt;range_container LhContainer, range_container RhContainer&gt; </td></tr>
-<tr class="memitem:aa67efeff1b8f5b0bb2beea241f352b7a"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa67efeff1b8f5b0bb2beea241f352b7a">emlabcpp::equal</a> (const LhContainer &amp;lh, const RhContainer &amp;rh)</td></tr>
-<tr class="memdesc:aa67efeff1b8f5b0bb2beea241f352b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true of containers 'lh' and 'rh' has same size and lh[i] == rh[i] for all 0 &lt;= i &lt; size()  <a href="namespaceemlabcpp.html#aa67efeff1b8f5b0bb2beea241f352b7a">More...</a><br /></td></tr>
-<tr class="separator:aa67efeff1b8f5b0bb2beea241f352b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad45f3956bfcb5bea2cc9ba164a150a96"><td class="memTemplParams" colspan="2">template&lt;range_container LhContainer, range_container RhContainer, typename BinaryFunction  = std::equal_to&lt; void &gt;&gt; </td></tr>
+<tr class="memitem:ad45f3956bfcb5bea2cc9ba164a150a96"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad45f3956bfcb5bea2cc9ba164a150a96">emlabcpp::equal</a> (const LhContainer &amp;lh, const RhContainer &amp;rh, BinaryFunction &amp;&amp;f=std::equal_to&lt; void &gt;{})</td></tr>
+<tr class="memdesc:ad45f3956bfcb5bea2cc9ba164a150a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true of containers 'lh' and 'rh' has same size and lh[i] == rh[i] for all 0 &lt;= i &lt; size()  <a href="namespaceemlabcpp.html#ad45f3956bfcb5bea2cc9ba164a150a96">More...</a><br /></td></tr>
+<tr class="separator:ad45f3956bfcb5bea2cc9ba164a150a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5da5d4d444c6f27cbb7df3532ec601cc"><td class="memTemplParams" colspan="2">template&lt;impl::map_f_collectable ResultContainer, container Container, container_invocable&lt; Container &gt; UnaryFunction = std::identity&gt; </td></tr>
 <tr class="memitem:a5da5d4d444c6f27cbb7df3532ec601cc"><td class="memTemplItemLeft" align="right" valign="top">ResultContainer&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5da5d4d444c6f27cbb7df3532ec601cc">emlabcpp::map_f</a> (Container &amp;&amp;cont, UnaryFunction &amp;&amp;f=std::identity())</td></tr>
 <tr class="memdesc:a5da5d4d444c6f27cbb7df3532ec601cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls function f(x) for each item in container 'cont' (or tuple) and stores result in 'ResultContainer', which is returned out of the function.  <a href="namespaceemlabcpp.html#a5da5d4d444c6f27cbb7df3532ec601cc">More...</a><br /></td></tr>
@@ -273,7 +273,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="algorithm_8h.html">algorithm.h</a></li>
-    <li class="footer">Generated on Sun Aug 7 2022 17:28:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 7 2022 21:52:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

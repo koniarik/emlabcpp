@@ -358,21 +358,18 @@ $(document).ready(function(){initNavTree('tree_8h_source.html',''); initResizabl
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        std::optional&lt; std::pair&lt; node_id, iterator &gt; &gt; make_node( <a class="code" href="classemlabcpp_1_1contiguous__tree.html#af5bff3b96d36cf41bbfe0b942cc9509d">content_type</a> cont )</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        {</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                <span class="keyword">auto</span> nid = <span class="keyword">static_cast&lt;</span> <a class="code" href="classemlabcpp_1_1contiguous__tree.html#ad23b7372f05dafeb448809c9cbcc30f9">node_id</a> <span class="keyword">&gt;</span>( data_.size() );</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                        <span class="keyword">auto</span> [iter, inserted] =</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                            data_.emplace( nid, <a class="code" href="classemlabcpp_1_1contiguous__tree.html#a8fd98c0422ab348a552e04328adc7443">node_type</a>{ std::move( cont ) } );</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                        <span class="keywordflow">return</span> std::make_pair( nid, iter );</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                }</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                <span class="keywordflow">catch</span> ( std::bad_alloc&amp; ) {</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                        <span class="keywordflow">return</span> std::nullopt;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                }</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        }</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        <a class="code" href="classemlabcpp_1_1contiguous__tree.html#a8de16ebdb90f2056f896bcce455cf331">container</a>       data_;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        pool_interface* mem_pool_;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;};</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                <span class="keywordflow">if</span> ( mem_pool_-&gt;<a class="code" href="structemlabcpp_1_1pool__interface.html#a78601a3ffa8825b63d3b9b1ab2c4e7f1">full</a>() ) {</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                        <span class="keywordflow">return</span> std::nullopt;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                }</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                <span class="keyword">auto</span> [iter, inserted] = data_.emplace( nid, <a class="code" href="classemlabcpp_1_1contiguous__tree.html#a8fd98c0422ab348a552e04328adc7443">node_type</a>{ std::move( cont ) } );</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                <span class="keywordflow">return</span> std::make_pair( nid, iter );</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        }</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <a class="code" href="classemlabcpp_1_1contiguous__tree.html#a8de16ebdb90f2056f896bcce455cf331">container</a>       data_;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        pool_interface* mem_pool_;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;};</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1contiguous__array__handle_html"><div class="ttname"><a href="classemlabcpp_1_1contiguous__array__handle.html">emlabcpp::contiguous_array_handle</a></div><div class="ttdef"><b>Definition:</b> tree.h:74</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1contiguous__array__handle_html_a14ab1d6c33a027204a4397fc1a240820"><div class="ttname"><a href="classemlabcpp_1_1contiguous__array__handle.html#a14ab1d6c33a027204a4397fc1a240820">emlabcpp::contiguous_array_handle::get_child</a></div><div class="ttdeci">std::optional&lt; node_id &gt; get_child(child_id chid) const</div><div class="ttdef"><b>Definition:</b> tree.h:87</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1contiguous__array__handle_html_a386001b876e2e83b60a537574bbeaa6b"><div class="ttname"><a href="classemlabcpp_1_1contiguous__array__handle.html#a386001b876e2e83b60a537574bbeaa6b">emlabcpp::contiguous_array_handle::contiguous_array_handle</a></div><div class="ttdeci">contiguous_array_handle(array_type *arr)</div><div class="ttdef"><b>Definition:</b> tree.h:82</div></div>
@@ -427,11 +424,11 @@ $(document).ready(function(){initNavTree('tree_8h_source.html',''); initResizabl
 <div class="ttc" id="aclassemlabcpp_1_1contiguous__tree_html_add0026dbb0cc1af777cbd62778912466"><div class="ttname"><a href="classemlabcpp_1_1contiguous__tree.html#add0026dbb0cc1af777cbd62778912466">emlabcpp::contiguous_tree::make_value_node</a></div><div class="ttdeci">std::optional&lt; node_id &gt; make_value_node(value_type val)</div><div class="ttdef"><b>Definition:</b> tree.h:235</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1contiguous__tree_html_af0b884b7d89b8478f25a316c13da586d"><div class="ttname"><a href="classemlabcpp_1_1contiguous__tree.html#af0b884b7d89b8478f25a316c13da586d">emlabcpp::contiguous_tree::const_object_handle</a></div><div class="ttdeci">typename node_type::const_object_handle const_object_handle</div><div class="ttdef"><b>Definition:</b> tree.h:197</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1contiguous__tree_html_af5bff3b96d36cf41bbfe0b942cc9509d"><div class="ttname"><a href="classemlabcpp_1_1contiguous__tree.html#af5bff3b96d36cf41bbfe0b942cc9509d">emlabcpp::contiguous_tree::content_type</a></div><div class="ttdeci">typename node_type::content_type content_type</div><div class="ttdef"><b>Definition:</b> tree.h:195</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pool__resource_html"><div class="ttname"><a href="classemlabcpp_1_1pool__resource.html">emlabcpp::pool_resource</a></div><div class="ttdef"><b>Definition:</b> pool.h:50</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1pool__resource_html"><div class="ttname"><a href="classemlabcpp_1_1pool__resource.html">emlabcpp::pool_resource</a></div><div class="ttdef"><b>Definition:</b> pool.h:51</div></div>
 <div class="ttc" id="aexperimental_2contiguous__tree_2base_8h_html"><div class="ttname"><a href="experimental_2contiguous__tree_2base_8h.html">base.h</a></div></div>
 <div class="ttc" id="amatch_8h_html"><div class="ttname"><a href="match_8h.html">match.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a3a26f08c5adb26bcc69ec7fc1bf42910"><div class="ttname"><a href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">emlabcpp::pool_map</a></div><div class="ttdeci">std::map&lt; Key, T, std::less&lt; Key &gt;, pool_allocator&lt; std::pair&lt; const Key, T &gt; &gt; &gt; pool_map</div><div class="ttdef"><b>Definition:</b> pool.h:198</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a3a26f08c5adb26bcc69ec7fc1bf42910"><div class="ttname"><a href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">emlabcpp::pool_map</a></div><div class="ttdeci">std::map&lt; Key, T, std::less&lt; Key &gt;, pool_allocator&lt; std::pair&lt; const Key, T &gt; &gt; &gt; pool_map</div><div class="ttdef"><b>Definition:</b> pool.h:204</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a57181a407fd6f29a50664f8ba4cb44cd"><div class="ttname"><a href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match</a></div><div class="ttdeci">decltype(auto) match(Variant &amp;&amp;var, Callables &amp;&amp;... cals)</div><div class="ttdef"><b>Definition:</b> match.h:60</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ad94fea9137ca1f2bcd022107dcd271a0"><div class="ttname"><a href="namespaceemlabcpp.html#ad94fea9137ca1f2bcd022107dcd271a0">emlabcpp::contiguous_tree_type_enum</a></div><div class="ttdeci">contiguous_tree_type_enum</div><div class="ttdef"><b>Definition:</b> base.h:8</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ad94fea9137ca1f2bcd022107dcd271a0a00b519f4d947eb449e9d06ec03804256"><div class="ttname"><a href="namespaceemlabcpp.html#ad94fea9137ca1f2bcd022107dcd271a0a00b519f4d947eb449e9d06ec03804256">emlabcpp::CONTIGUOUS_TREE_OBJECT</a></div><div class="ttdeci">@ CONTIGUOUS_TREE_OBJECT</div><div class="ttdef"><b>Definition:</b> base.h:10</div></div>
@@ -441,13 +438,14 @@ $(document).ready(function(){initNavTree('tree_8h_source.html',''); initResizabl
 <div class="ttc" id="astatic__function_8h_html"><div class="ttname"><a href="static__function_8h.html">static_function.h</a></div></div>
 <div class="ttc" id="astatic__vector_8h_html"><div class="ttname"><a href="static__vector_8h.html">static_vector.h</a></div></div>
 <div class="ttc" id="astructemlabcpp_1_1pool__interface_html"><div class="ttname"><a href="structemlabcpp_1_1pool__interface.html">emlabcpp::pool_interface</a></div><div class="ttdef"><b>Definition:</b> pool.h:41</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pool__interface_html_a78601a3ffa8825b63d3b9b1ab2c4e7f1"><div class="ttname"><a href="structemlabcpp_1_1pool__interface.html#a78601a3ffa8825b63d3b9b1ab2c4e7f1">emlabcpp::pool_interface::full</a></div><div class="ttdeci">virtual bool full()=0</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_15f8cd90f3890d7a65699de4188dbb27.html">contiguous_tree</a></li><li class="navelem"><a class="el" href="tree_8h.html">tree.h</a></li>
-    <li class="footer">Generated on Sun Aug 7 2022 17:28:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 7 2022 21:52:34 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

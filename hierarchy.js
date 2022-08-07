@@ -158,6 +158,7 @@ var hierarchy =
     [ "emlabcpp::protocol_sequencer< Def >", "classemlabcpp_1_1protocol__sequencer.html", null ],
     [ "emlabcpp::protocol_serializer< T, Endianess >", "structemlabcpp_1_1protocol__serializer.html", null ],
     [ "emlabcpp::protocol_serializer< bool, Endianess >", "structemlabcpp_1_1protocol__serializer_3_01bool_00_01Endianess_01_4.html", null ],
+    [ "emlabcpp::protocol_serializer< float, Endianess >", "structemlabcpp_1_1protocol__serializer_3_01float_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol_sized_buffer< CounterDef, D >", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__sized__buffer", null ],
     [ "emlabcpp::quantity< Derived, ValueType >", "classemlabcpp_1_1quantity.html", null ],
     [ "emlabcpp::quantity< physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte >, float >", "classemlabcpp_1_1quantity.html", [

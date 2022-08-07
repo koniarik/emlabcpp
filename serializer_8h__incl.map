@@ -1,9 +1,10 @@
 <map id="include/emlabcpp/protocol/serializer.h" name="include/emlabcpp/protocol/serializer.h">
-<area shape="rect" id="node1" title=" " alt="" coords="320,5,515,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="435,5,629,47"/>
 <area shape="rect" id="node2" href="$bounded__view_8h.html" title=" " alt="" coords="212,102,407,129"/>
 <area shape="rect" id="node6" href="$numeric_8h.html" title=" " alt="" coords="25,95,170,136"/>
 <area shape="rect" id="node8" href="$protocol_2base_8h.html" title=" " alt="" coords="437,102,627,129"/>
-<area shape="rect" id="node13" title=" " alt="" coords="652,102,705,129"/>
+<area shape="rect" id="node13" title=" " alt="" coords="651,102,690,129"/>
+<area shape="rect" id="node14" title=" " alt="" coords="715,102,768,129"/>
 <area shape="rect" id="node3" href="$bounded_8h.html" title=" " alt="" coords="230,184,389,211"/>
 <area shape="rect" id="node5" href="$view_8h.html" title=" " alt="" coords="93,259,225,285"/>
 <area shape="rect" id="node4" title=" " alt="" coords="295,259,387,285"/>

@@ -27,6 +27,7 @@ var dir_d020062af5803c7b3279d0fbd1610b13 =
     [ "sequencer.h", "sequencer_8h.html", "sequencer_8h" ],
     [ "serializer.h", "serializer_8h.html", [
       [ "protocol_serializer", "structemlabcpp_1_1protocol__serializer.html", "structemlabcpp_1_1protocol__serializer" ],
+      [ "protocol_serializer< float, Endianess >", "structemlabcpp_1_1protocol__serializer_3_01float_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol__serializer_3_01float_00_01Endianess_01_4" ],
       [ "protocol_serializer< bool, Endianess >", "structemlabcpp_1_1protocol__serializer_3_01bool_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol__serializer_3_01bool_00_01Endianess_01_4" ]
     ] ],
     [ "streams.h", "streams_8h.html", "streams_8h" ],

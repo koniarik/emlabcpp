@@ -9,7 +9,7 @@ var algorithm_8h =
     [ "avg", "algorithm_8h.html#a82edfd68c59439561d561afe519d68a1", null ],
     [ "cont_size", "algorithm_8h.html#a631eb361805aa7459b944503f7538951", null ],
     [ "count", "algorithm_8h.html#a1f32e86c3dfcebce5092b96b5152e94e", null ],
-    [ "equal", "algorithm_8h.html#aa67efeff1b8f5b0bb2beea241f352b7a", null ],
+    [ "equal", "algorithm_8h.html#ad45f3956bfcb5bea2cc9ba164a150a96", null ],
     [ "find", "algorithm_8h.html#ae6a73bbed8b818abff4ab4e7c2b9af68", null ],
     [ "find_if", "algorithm_8h.html#aaf83e29aeab35a17d15504a6dd57dd20", null ],
     [ "for_cross_joint", "algorithm_8h.html#adea1d9aee5b35015e7e174fe87c2b6d8", null ],

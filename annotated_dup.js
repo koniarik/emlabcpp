@@ -127,6 +127,7 @@ var annotated_dup =
       [ "protocol_register_map", "classemlabcpp_1_1protocol__register__map.html", "classemlabcpp_1_1protocol__register__map" ],
       [ "protocol_sequencer", "classemlabcpp_1_1protocol__sequencer.html", "classemlabcpp_1_1protocol__sequencer" ],
       [ "protocol_serializer", "structemlabcpp_1_1protocol__serializer.html", "structemlabcpp_1_1protocol__serializer" ],
+      [ "protocol_serializer< float, Endianess >", "structemlabcpp_1_1protocol__serializer_3_01float_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol__serializer_3_01float_00_01Endianess_01_4" ],
       [ "protocol_serializer< bool, Endianess >", "structemlabcpp_1_1protocol__serializer_3_01bool_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol__serializer_3_01bool_00_01Endianess_01_4" ],
       [ "protocol_tuple", "structemlabcpp_1_1protocol__tuple.html", "structemlabcpp_1_1protocol__tuple" ],
       [ "quantity", "classemlabcpp_1_1quantity.html", "classemlabcpp_1_1quantity" ],
