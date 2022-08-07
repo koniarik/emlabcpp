@@ -1,21 +1,7 @@
 
 include(GoogleTest)
-include(FetchContent)
 
-FetchContent_Declare(
-  googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        release-1.11.0
-)
-FetchContent_MakeAvailable(googletest)
-add_library(GTest::GTest INTERFACE IMPORTED)
-target_link_libraries(GTest::GTest INTERFACE gtest_main)
-set_target_properties(gtest_main
-    PROPERTIES
-         CXX_CLANG_TIDY "")
-set_target_properties(GTest::GTest
-    PROPERTIES
-         CXX_CLANG_TIDY "")
+find_package(GTest REQUIRED)
 
 function(emlabcpp_setup_test target)
   target_include_directories(${target} PRIVATE include/)
@@ -54,7 +40,7 @@ endfunction()
 
 function(add_emlabcpp_test name)
   add_executable(${name} ${name}.cpp)
-  target_link_libraries(${name} GTest::GTest)
+  target_link_libraries(${name} GTest::GTest GTest::Main)
   emlabcpp_setup_test(${name})
 endfunction()
 
