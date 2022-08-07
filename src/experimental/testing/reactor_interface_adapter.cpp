@@ -29,7 +29,7 @@ testing_reactor_interface_adapter::read_variant()
 {
         using sequencer = std::decay_t< decltype( seq_ ) >;
 
-        std::size_t                                     to_read = sequencer::fixed_size;
+        uint8_t                                         to_read = sequencer::fixed_size;
         std::optional< testing_controller_reactor_msg > opt_msg;
         while ( !opt_msg ) {
                 std::optional opt_data = iface_.receive( to_read );

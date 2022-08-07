@@ -200,7 +200,7 @@ public:
         // TODO: find better way to decided this
         static constexpr std::size_t required_pool_size = 110;
 
-        template < std::size_t Count >
+        template < uint16_t Count >
         using pool_type = pool_resource< required_pool_size, Count >;
 
         contiguous_tree( pool_interface* mem_pool )

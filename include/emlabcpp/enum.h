@@ -19,4 +19,4 @@ auto convert_enum( Enum val )
 #endif
 }
 
-};  // namespace emlabcpp
+}  // namespace emlabcpp
