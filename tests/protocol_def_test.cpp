@@ -58,8 +58,12 @@ struct valid_test_case : protocol_test_fixture
                 auto serialized = convert_view_n< int >( buffer.begin(), *used );
                 EXPECT_EQ( serialized, view{ expected_buffer } )
                     << std::hex  //
-                    << "serialized : " << serialized << "\n"
-                    << "expected   : " << convert_view< int >( expected_buffer ) << "\n";
+                    << "serialized      : " << serialized << "\n"
+                    << "serialized (bin): "
+                    << convert_view_n< std::bitset< 8 > >( buffer.begin(), *used ) << "\n"
+                    << "expected        : " << convert_view< int >( expected_buffer ) << "\n"
+                    << "expected   (bin): " << convert_view< std::bitset< 8 > >( expected_buffer )
+                    << "\n";
 
                 auto [pused, res] = pitem::deserialize(
                     *bounded_view< const uint8_t*, typename pitem::size_type >::make(
@@ -169,6 +173,8 @@ int main( int argc, char** argv )
             make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >( uint16_t{ 666 }, { 154, 2 } ),
             make_valid_test_case< PROTOCOL_BIG_ENDIAN >( uint16_t{ 666 }, { 2, 154 } ),
             make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >( int32_t{ -1 }, { 255, 255, 255, 255 } ),
+            make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >( 1.f, { 0, 0, 128, 63 } ),
+            make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >( -1.f, { 0, 0, 128, 191 } ),
             // std::array
             make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >(
                 std::array< int16_t, 3 >{ -1, 1, 666 }, { 255, 255, 1, 0, 154, 2 } ),
