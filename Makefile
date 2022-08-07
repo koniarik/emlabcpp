@@ -1,7 +1,7 @@
 
 # conditionally enables sanitizers
-CXX_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) )  -O0 -fno-inline
-LINKER_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) ) -O0 -fno-inline
+CXX_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) )  -O0 -fno-inline -g  -DEMLABCPP_LOGGING_ENABLED=ON
+LINKER_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) ) -O0 -fno-inline -g
 
 EXTRAARGS=-DCMAKE_CXX_FLAGS="$(CXX_FLAGS)" -DCMAKE_EXE_LINKER_FLAGS="$(LINKER_FLAGS)" -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DEMLABCPP_TESTS_ENABLED=ON
 
