@@ -23,6 +23,7 @@
 #include "emlabcpp/types/base.h"
 
 #include <concepts>
+#include <iterator>
 #include <variant>
 
 #pragma once
@@ -73,11 +74,12 @@ concept gettable_container = requires( T a )
 /// so, std::ranges::range is meh because it expects return of begin() being input_output_iterator,
 /// which has to be def.constructible
 template < typename T >
-concept range_container = (
-                              requires( T a ) { begin( a ); } ||
-                              requires( T a ) { std::begin( a ); } ) &&
-                          (
-                              requires( T a ) { end( a ); } || requires( T a ) { std::end( a ); } );
+concept range_container =
+    ( (
+          requires( T a ) { begin( a ); } || requires( T a ) { std::begin( a ); } ) &&
+      (
+          requires( T a ) { end( a ); } || requires( T a ) { std::end( a ); } ) ) ||
+    std::is_bounded_array_v< T >;
 
 template < typename T >
 concept container = range_container< T > || gettable_container< T >;
