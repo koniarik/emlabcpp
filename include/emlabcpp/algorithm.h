@@ -75,6 +75,8 @@ template < container Container >
 {
         if constexpr ( static_sized< Container > ) {
                 return std::tuple_size_v< Container >;
+        } else if constexpr ( std::is_bounded_array_v< Container > ) {
+                return std::extent_v< Container >;
         } else {
                 return cont.size();
         }
@@ -370,7 +372,7 @@ template <
 [[nodiscard]] constexpr bool
 equal( const LhContainer& lh, const RhContainer& rh, BinaryFunction&& f = std::equal_to< void >{} )
 {
-        if ( lh.size() != rh.size() ) {
+        if ( cont_size( lh ) != cont_size( rh ) ) {
                 return false;
         }
         auto lbeg = std::begin( lh );
