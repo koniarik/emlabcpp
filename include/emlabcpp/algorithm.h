@@ -363,8 +363,12 @@ template < container Container, container_invocable< Container > UnaryFunction =
 
 /// Returns true of containers 'lh' and 'rh' has same size and lh[i] == rh[i] for
 /// all 0 <= i < size()
-template < range_container LhContainer, range_container RhContainer >
-[[nodiscard]] constexpr bool equal( const LhContainer& lh, const RhContainer& rh )
+template <
+    range_container LhContainer,
+    range_container RhContainer,
+    typename BinaryFunction = std::equal_to< void > >
+[[nodiscard]] constexpr bool
+equal( const LhContainer& lh, const RhContainer& rh, BinaryFunction&& f = std::equal_to< void >{} )
 {
         if ( lh.size() != rh.size() ) {
                 return false;
@@ -373,7 +377,7 @@ template < range_container LhContainer, range_container RhContainer >
         auto rbeg = std::begin( rh );
         auto lend = std::end( lh );
         for ( ; lbeg != lend; ++lbeg, ++rbeg ) {
-                if ( *lbeg != *rbeg ) {
+                if ( !f( *lbeg, *rbeg ) ) {
                         return false;
                 }
         }
