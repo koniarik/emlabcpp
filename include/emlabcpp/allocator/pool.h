@@ -41,6 +41,7 @@ struct pool_interface
 {
         virtual void* allocate( std::size_t bytes, std::size_t alignment ) = 0;
         virtual void  deallocate( void* )                                  = 0;
+        virtual bool  full()                                               = 0;
 
         virtual ~pool_interface() = default;
 };
@@ -103,6 +104,11 @@ public:
 #endif
                 }
                 free_.push_back( static_cast< uint16_t >( spot_i ) );
+        }
+
+        bool full() final
+        {
+                return free_.empty();
         }
 
         ~pool_resource() final = default;

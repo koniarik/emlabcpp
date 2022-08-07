@@ -164,17 +164,18 @@ private:
         either< std::reference_wrapper< const node_type >, error_enum >
         get_node( node_id nid ) const
         {
-                const node_type* node_ptr = tree_.get_node( nid );
-
-                if ( !node_ptr ) {
-                        return CONTIGUOUS_MISSING_NODE;
-                }
-
-                return std::ref( *node_ptr );
+                return get_node_impl< const node_type >( this, nid );
         }
         either< std::reference_wrapper< node_type >, error_enum > get_node( node_id nid )
         {
-                node_type* node_ptr = tree_.get_node( nid );
+                return get_node_impl< node_type >( this, nid );
+        }
+
+        template < typename Node, typename Self >
+        static either< std::reference_wrapper< Node >, error_enum >
+        get_node_impl( Self* self, node_id nid )
+        {
+                Node* node_ptr = self->tree_.get_node( nid );
 
                 if ( !node_ptr ) {
                         return CONTIGUOUS_MISSING_NODE;
@@ -182,6 +183,7 @@ private:
 
                 return std::ref( *node_ptr );
         }
+
         either< std::variant< const_object_handle, const_array_handle >, error_enum >
         get_containers( node_id nid ) const
         {
@@ -218,40 +220,33 @@ private:
 
         either< const_object_handle, error_enum > get_object_handle( node_id nid ) const
         {
-                return get_containers( nid ).bind_left(
-                    [&]( std::variant< const_object_handle, const_array_handle > var )
-                        -> either< const_object_handle, error_enum > {
-                            const_object_handle* oh_ptr = std::get_if< 0 >( &var );
-                            if ( oh_ptr ) {
-                                    return *oh_ptr;
-                            }
-                            return CONTIGUOUS_WRONG_TYPE;
-                    } );
+                return get_handle_impl< const_object_handle >( this, nid );
         };
         either< object_handle, error_enum > get_object_handle( node_id nid )
         {
-                return get_containers( nid ).bind_left(
-                    [&]( std::variant< object_handle, array_handle > var )
-                        -> either< object_handle, error_enum > {
-                            object_handle* oh_ptr = std::get_if< 0 >( &var );
-                            if ( oh_ptr ) {
-                                    return *oh_ptr;
-                            }
-                            return CONTIGUOUS_WRONG_TYPE;
-                    } );
+                return get_handle_impl< object_handle >( this, nid );
+        };
+        either< const_array_handle, error_enum > get_array_handle( node_id nid ) const
+        {
+                return get_handle_impl< const_array_handle >( this, nid );
         };
         either< array_handle, error_enum > get_array_handle( node_id nid )
         {
-                return get_containers( nid ).bind_left(
-                    [&]( std::variant< object_handle, array_handle > var )
-                        -> either< array_handle, error_enum > {
-                            array_handle* ah_ptr = std::get_if< 1 >( &var );
-                            if ( ah_ptr ) {
-                                    return *ah_ptr;
+                return get_handle_impl< array_handle >( this, nid );
+        };
+
+        template < typename Handle, typename Self >
+        static either< Handle, error_enum > get_handle_impl( Self* self, node_id nid )
+        {
+                return self->get_containers( nid ).bind_left(
+                    [&]( auto var ) -> either< Handle, error_enum > {
+                            auto* h_ptr = std::get_if< Handle >( &var );
+                            if ( h_ptr ) {
+                                    return *h_ptr;
                             }
                             return CONTIGUOUS_WRONG_TYPE;
                     } );
-        };
+        }
 
         Tree& tree_;
 };

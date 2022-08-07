@@ -269,14 +269,11 @@ private:
         std::optional< std::pair< node_id, iterator > > make_node( content_type cont )
         {
                 auto nid = static_cast< node_id >( data_.size() );
-                try {
-                        auto [iter, inserted] =
-                            data_.emplace( nid, node_type{ std::move( cont ) } );
-                        return std::make_pair( nid, iter );
-                }
-                catch ( std::bad_alloc& ) {
+                if ( mem_pool_->full() ) {
                         return std::nullopt;
                 }
+                auto [iter, inserted] = data_.emplace( nid, node_type{ std::move( cont ) } );
+                return std::make_pair( nid, iter );
         }
 
         container       data_;
