@@ -22,26 +22,43 @@
 //
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/allocator/pool.h"
+#include "emlabcpp/experimental/contiguous_tree/tree.h"
 #include "emlabcpp/static_vector.h"
 
 #include <map>
 #include <variant>
+
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+#include <nlohmann/json.hpp>
+#endif
 
 #pragma once
 
 namespace emlabcpp
 {
 
-using testing_key_buffer  = static_vector< char, 16 >;
 using testing_name_buffer = static_vector< char, 32 >;
+using testing_key_buffer  = static_vector< char, 16 >;
 
 using testing_node_id       = uint32_t;
-using testing_key           = std::variant< uint32_t, testing_key_buffer >;
+using testing_child_count   = uint32_t;
+using testing_child_id      = uint32_t;
+using testing_node_type     = contiguous_tree_type_enum;
+using testing_key           = testing_key_buffer;
 using testing_string_buffer = static_vector< char, 32 >;
-using testing_arg_variant =
-    std::variant< std::monostate, uint64_t, int64_t, bool, testing_string_buffer >;
-using testing_run_id  = uint32_t;
-using testing_test_id = uint16_t;
+
+// TODO: this breaks stuff as it has nlohmann::json serialization overload which is _not a good
+// idea_
+using testing_value               = std::variant< uint64_t, int64_t, bool, testing_string_buffer >;
+using testing_collect_arg         = std::variant< testing_value, contiguous_container_type >;
+using testing_run_id              = uint32_t;
+using testing_test_id             = uint16_t;
+using testing_tree                = contiguous_tree< testing_key, testing_value >;
+using testing_node                = typename testing_tree::node_type;
+using testing_array_handle        = typename testing_tree::array_handle;
+using testing_object_handle       = typename testing_tree::object_handle;
+using testing_const_array_handle  = typename testing_tree::const_array_handle;
+using testing_const_object_handle = typename testing_tree::const_object_handle;
 
 struct test_info
 {
@@ -73,63 +90,20 @@ inline testing_string_buffer testing_string_to_buffer( std::string_view st )
         return testing_string_to_buffer< testing_string_buffer >( st );
 }
 
-struct testing_data_node
-{
-        testing_node_id                id;
-        testing_key                    key;
-        testing_arg_variant            var;
-        pool_list< testing_data_node > children;
-
-        testing_data_node(
-            testing_node_id            id,
-            const testing_key&         k,
-            const testing_arg_variant& var,
-            pool_interface*            mem_pool )
-          : id( id )
-          , key( k )
-          , var( var )
-          , children( mem_pool )
-        {
-        }
-
-        testing_data_node( const testing_data_node& )            = delete;
-        testing_data_node& operator=( const testing_data_node& ) = delete;
-
-        testing_data_node( testing_data_node&& ) noexcept            = default;
-        testing_data_node& operator=( testing_data_node&& ) noexcept = default;
-
-        void add_child( testing_node_id id, const testing_key& k, const testing_arg_variant& var )
-        {
-                children.emplace_back( id, k, var, children.get_allocator().get_resource() );
-        }
-
-        testing_data_node* find_node( testing_node_id nid )
-        {
-                if ( id == nid ) {
-                        return this;
-                }
-                auto iter = find_if( children, [&]( testing_data_node& child ) {
-                        return child.find_node( nid );
-                } );
-                if ( iter == children.end() ) {
-                        return nullptr;
-                }
-                return &*iter;
-        }
-};
+class testing_reactor_interface_adapter;
 
 struct testing_result
 {
-        testing_test_id   tid;
-        testing_run_id    rid;
-        testing_data_node data_root;
-        bool              failed  = false;
-        bool              errored = false;
+        testing_test_id tid;
+        testing_run_id  rid;
+        testing_tree    collected;
+        bool            failed  = false;
+        bool            errored = false;
 
         testing_result( testing_test_id ttid, testing_run_id trid, pool_interface* mem_pool )
           : tid( ttid )
           , rid( trid )
-          , data_root( 0, testing_key_to_buffer( "root" ), std::monostate{}, mem_pool )
+          , collected( mem_pool )
         {
         }
 
@@ -140,6 +114,88 @@ struct testing_result
         testing_result& operator=( testing_result&& ) noexcept = default;
 };
 
-class testing_reactor_interface_adapter;
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+
+inline emlabcpp::testing_value json_to_testing_value( const nlohmann::json& j )
+{
+        using value_t = nlohmann::json::value_t;
+
+        switch ( j.type() ) {
+                case value_t::boolean:
+                        return j.get< bool >();
+                case value_t::number_integer:
+                        return j.get< int64_t >();
+                case value_t::number_unsigned:
+                        return j.get< uint64_t >();
+                case value_t::string:
+                        return testing_string_to_buffer( j.get< std::string >() );
+                case value_t::number_float:
+                case value_t::object:
+                case value_t::null:
+                case value_t::array:
+                case value_t::binary:
+                case value_t::discarded:
+                default:
+                        // TODO: might wanna improve this
+                        throw std::exception{};
+        }
+}
+
+inline emlabcpp::testing_key json_to_testing_key( const nlohmann::json& j )
+{
+        return testing_key_to_buffer( j.get< std::string_view >() );
+}
+
+inline std::optional< testing_tree >
+json_to_testing_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
+{
+        testing_tree tree{ mem_pool };
+
+        static_function< testing_node_id( const nlohmann::json& j ), 32 > f =
+            [&]( const nlohmann::json& j ) -> testing_node_id {
+                if ( j.is_object() ) {
+                        std::optional opt_res = tree.make_object_node();
+                        if ( !opt_res ) {
+                                // TODO: might wanna improve this
+                                throw std::exception{};
+                        }
+                        auto [nid, oh] = *opt_res;
+                        for ( const auto& [key, value] : j.items() ) {
+                                testing_node_id chid = f( value );
+                                oh.set( json_to_testing_key( key ), chid );
+                        }
+                        return nid;
+                }
+                if ( j.is_array() ) {
+                        std::optional opt_res = tree.make_array_node();
+                        if ( !opt_res ) {
+                                // TODO: might wanna improve this
+                                throw std::exception{};
+                        }
+                        auto [nid, ah] = *opt_res;
+                        for ( const nlohmann::json& jj : j ) {
+                                testing_node_id chid = f( jj );
+                                ah.append( chid );
+                        }
+                        return nid;
+                }
+                std::optional opt_id = tree.make_value_node( json_to_testing_value( j ) );
+                if ( !opt_id ) {
+                        throw std::exception{};
+                }
+                return *opt_id;
+        };
+
+        try {
+                f( inpt );
+                return tree;
+        }
+        catch ( std::exception& ) {
+                return std::nullopt;
+        }
+}
+
+#endif
 
 }  // namespace emlabcpp
+

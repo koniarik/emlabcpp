@@ -35,7 +35,6 @@ class testing_controller_interface_adapter;
 class testing_controller
 {
 public:
-
         static std::optional< testing_controller >
         make( testing_controller_interface& iface, pool_interface* );
 
@@ -84,43 +83,66 @@ private:
         }
 
         void
-        handle_message( tag< TESTING_COUNT >, auto, testing_controller_interface_adapter iface );
+        handle_message( tag< TESTING_COUNT >, auto, testing_controller_interface_adapter& iface );
         void
-        handle_message( tag< TESTING_NAME >, auto, testing_controller_interface_adapter iface );
+        handle_message( tag< TESTING_NAME >, auto, testing_controller_interface_adapter& iface );
         void handle_message(
-            tag< TESTING_ARG >,
-            testing_run_id                       rid,
-            testing_key                          k,
-            testing_controller_interface_adapter iface );
+            tag< TESTING_PARAM_VALUE >,
+            testing_run_id                        rid,
+            testing_node_id                       nid,
+            testing_controller_interface_adapter& iface );
+        void handle_message(
+            tag< TESTING_PARAM_CHILD >,
+            testing_run_id                                rid,
+            testing_node_id                               nid,
+            std::variant< testing_key, testing_child_id > chid,
+            testing_controller_interface_adapter&         iface );
+        void handle_message(
+            tag< TESTING_PARAM_CHILD_COUNT >,
+            testing_run_id                        rid,
+            testing_node_id                       nid,
+            testing_controller_interface_adapter& iface );
+        void handle_message(
+            tag< TESTING_PARAM_KEY >,
+            testing_run_id                        rid,
+            testing_node_id                       nid,
+            testing_child_id                      chid,
+            testing_controller_interface_adapter& iface );
+        void handle_message(
+            tag< TESTING_PARAM_TYPE >,
+            testing_run_id                        rid,
+            testing_node_id                       nid,
+            testing_controller_interface_adapter& iface );
 
         void handle_message(
             tag< TESTING_COLLECT >,
-            testing_run_id             rid,
-            testing_node_id            parent,
-            testing_node_id            id,
-            const testing_key&         key,
-            const testing_arg_variant& avar,
-            testing_controller_interface_adapter );
-        void
-        handle_message( tag< TESTING_FINISHED >, auto, testing_controller_interface_adapter iface );
-        void handle_message( tag< TESTING_ERROR >, auto, testing_controller_interface_adapter );
-        void handle_message( tag< TESTING_FAILURE >, auto, testing_controller_interface_adapter );
+            testing_run_id                      rid,
+            testing_node_id                     parent,
+            const std::optional< testing_key >& opt_key,
+            const testing_collect_arg&                val,
+            testing_controller_interface_adapter& );
+        void handle_message(
+            tag< TESTING_FINISHED >,
+            auto,
+            testing_controller_interface_adapter& iface );
+        void handle_message( tag< TESTING_ERROR >, auto, testing_controller_interface_adapter& );
+        void handle_message( tag< TESTING_FAILURE >, auto, testing_controller_interface_adapter& );
         void handle_message(
             tag< TESTING_SUITE_NAME >,
             auto,
-            testing_controller_interface_adapter iface );
+            testing_controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_SUITE_DATE >,
             auto,
-            testing_controller_interface_adapter iface );
+            testing_controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_INTERNAL_ERROR >,
-            testing_reactor_error_variant        err,
-            testing_controller_interface_adapter iface );
+            testing_reactor_error_variant         err,
+            testing_controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_PROTOCOL_ERROR >,
-            protocol_error_record                rec,
-            testing_controller_interface_adapter iface );
+            protocol_error_record                 rec,
+            testing_controller_interface_adapter& iface );
 };
 
 }  // namespace emlabcpp

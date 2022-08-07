@@ -23,7 +23,8 @@
 
 #include "emlabcpp/experimental/testing/controller.h"
 
-#include "emlabcpp/protocol/packet_handler.h"
+#include "emlabcpp/experimental/contiguous_tree/request_adapter.h"
+#include "emlabcpp/experimental/logging.h"
 
 using namespace emlabcpp;
 
@@ -41,8 +42,7 @@ public:
 
         void send( const testing_controller_reactor_variant& var )
         {
-                using handler = protocol_packet_handler< testing_controller_reactor_packet >;
-                auto msg      = handler::serialize( var );
+                auto msg = testing_controller_reactor_serialize( var );
                 iface_.transmit( msg );
         }
 
@@ -69,6 +69,22 @@ public:
                         return iface_.receive( c );
                 } );
         }
+        void reply_node_error(
+            testing_run_id                         rid,
+            contiguous_request_adapter_errors_enum err,
+            testing_node_id                        nid )
+        {
+                if ( err == CONTIGUOUS_WRONG_TYPE ) {
+                        EMLABCPP_LOG( "Failed to work with " << nid << ", wrong type of node" );
+                } else if ( err == CONTIGUOUS_FULL ) {
+                        EMLABCPP_LOG( "Failed to insert data, data storage is full" );
+                } else if ( err == CONTIGUOUS_MISSING_NODE ) {
+                        EMLABCPP_LOG( "Tree node " << nid << " is missing " );
+                } else if ( err == CONTIGUOUS_CHILD_MISSING ) {
+                        EMLABCPP_LOG( "Tree node child " << nid << " is missing " );
+                }
+                send< TESTING_TREE_ERROR >( rid, err, nid );
+        }
 };
 
 namespace
@@ -76,7 +92,6 @@ namespace
 template < typename T, testing_messages_enum ID, typename... Args >
 std::optional< T > load_data( const Args&... args, testing_controller_interface_adapter& iface )
 {
-        using handler = protocol_packet_handler< testing_reactor_controller_packet >;
         std::optional< T > res;
 
         iface.send< ID >( args... );
@@ -101,7 +116,7 @@ std::optional< T > load_data( const Args&... args, testing_controller_interface_
 }
 };  // namespace
 
-handler::extract( *opt_msg )
+testing_reactor_controller_extract( *opt_msg )
     .match(
         [&]( auto pack ) {
                 apply_on_visit( handle, pack );
@@ -142,56 +157,155 @@ testing_controller::make( testing_controller_interface& top_iface, pool_interfac
 void testing_controller::handle_message(
     tag< TESTING_COUNT >,
     auto,
-    testing_controller_interface_adapter iface )
+    testing_controller_interface_adapter& iface )
 {
         iface->on_error( testing_controller_message_error{ TESTING_COUNT } );
 }
 void testing_controller::handle_message(
     tag< TESTING_NAME >,
     auto,
-    testing_controller_interface_adapter iface )
+    testing_controller_interface_adapter& iface )
 {
         iface->on_error( testing_controller_message_error{ TESTING_NAME } );
 }
 void testing_controller::handle_message(
-    tag< TESTING_ARG >,
-    testing_run_id                       rid,
-    testing_key                          k,
-    testing_controller_interface_adapter iface )
+    tag< TESTING_PARAM_VALUE >,
+    testing_run_id                        rid,
+    testing_node_id                       nid,
+    testing_controller_interface_adapter& iface )
 {
+        EMLABCPP_ASSERT( context_ );
         EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
-        std::optional< testing_arg_variant > opt_val =
-            iface->on_arg( tests_[context_->tid], k );
-        if ( opt_val ) {
-                iface.send< TESTING_ARG >( rid, k, *opt_val );
-        } else {
-                iface.send< TESTING_ARG_MISSING >( rid, k );
-        }
+
+        contiguous_request_adapter harn{ iface->get_param_tree() };
+
+        harn.get_value( nid ).match(
+            [&]( const testing_value& val ) {
+                    iface.send< TESTING_PARAM_VALUE >( rid, val );
+            },
+            [&]( contiguous_request_adapter_errors_enum err ) {
+                    iface.reply_node_error( rid, err, nid );
+            } );
+}
+void testing_controller::handle_message(
+    tag< TESTING_PARAM_CHILD >,
+    testing_run_id                                rid,
+    testing_node_id                               nid,
+    std::variant< testing_key, testing_child_id > chid,
+    testing_controller_interface_adapter&         iface )
+{
+        EMLABCPP_ASSERT( context_ );
+        EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
+
+        contiguous_request_adapter harn{ iface->get_param_tree() };
+
+        harn.get_child( nid, chid )
+            .match(
+                [&]( testing_node_id child ) {
+                        iface.send< TESTING_PARAM_CHILD >( rid, child );
+                },
+                [&]( contiguous_request_adapter_errors_enum err ) {
+                        iface.reply_node_error( rid, err, nid );
+                } );
+}
+void testing_controller::handle_message(
+    tag< TESTING_PARAM_CHILD_COUNT >,
+    testing_run_id                        rid,
+    testing_node_id                       nid,
+    testing_controller_interface_adapter& iface )
+{
+        EMLABCPP_ASSERT( context_ );
+        EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
+
+        contiguous_request_adapter harn{ iface->get_param_tree() };
+
+        harn.get_child_count( nid ).match(
+            [&]( testing_child_id count ) {
+                    iface.send< TESTING_PARAM_CHILD_COUNT >( rid, count );
+            },
+            [&]( contiguous_request_adapter_errors_enum err ) {
+                    iface.reply_node_error( rid, err, nid );
+            } );
+}
+void testing_controller::handle_message(
+    tag< TESTING_PARAM_KEY >,
+    testing_run_id                        rid,
+    testing_node_id                       nid,
+    testing_child_id                      chid,
+    testing_controller_interface_adapter& iface )
+{
+        EMLABCPP_ASSERT( context_ );
+        EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
+
+        contiguous_request_adapter harn{ iface->get_param_tree() };
+
+        harn.get_key( nid, chid )
+            .match(
+                [&]( testing_key key ) {
+                        iface.send< TESTING_PARAM_KEY >( rid, key );
+                },
+                [&]( contiguous_request_adapter_errors_enum err ) {
+                        iface.reply_node_error( rid, err, nid );
+                } );
+}
+void testing_controller::handle_message(
+    tag< TESTING_PARAM_TYPE >,
+    testing_run_id                        rid,
+    testing_node_id                       nid,
+    testing_controller_interface_adapter& iface )
+{
+        EMLABCPP_ASSERT( context_ );
+        EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
+
+        contiguous_request_adapter harn{ iface->get_param_tree() };
+
+        harn.get_type( nid ).match(
+            [&]( contiguous_tree_type_enum type ) {
+                    iface.send< TESTING_PARAM_TYPE >( rid, type );
+            },
+            [&]( contiguous_request_adapter_errors_enum err ) {
+                    iface.reply_node_error( rid, err, nid );
+            } );
 }
 
 void testing_controller::handle_message(
     tag< TESTING_COLLECT >,
-    testing_run_id             rid,
-    testing_node_id            parent,
-    testing_node_id            id,
-    const testing_key&         key,
-    const testing_arg_variant& avar,
-    testing_controller_interface_adapter )
+    testing_run_id                        rid,
+    testing_node_id                       parent,
+    const std::optional< testing_key >&   opt_key,
+    const testing_collect_arg&            val,
+    testing_controller_interface_adapter& iface )
 {
-        std::ignore = rid;
         EMLABCPP_ASSERT( context_ );
         EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
 
-        testing_data_node* parent_ptr = context_->data_root.find_node( parent );
+        testing_tree& tree = context_->collected;
 
-        EMLABCPP_ASSERT( parent_ptr );
+        // TODO: this may be a bad idea ...
+        if ( tree.empty() ) {
+                if ( opt_key ) {
+                        tree.make_object_node();
+                } else {
+                        tree.make_array_node();
+                }
+        }
 
-        parent_ptr->add_child( id, key, avar );
+        contiguous_request_adapter harn{ tree };
+
+        either< testing_node_id, contiguous_request_adapter_errors_enum > res =
+            opt_key ? harn.insert( parent, *opt_key, val ) : harn.insert( parent, val );
+        res.match(
+            [&]( testing_node_id nid ) {
+                    iface.send< TESTING_COLLECT >( rid, nid );
+            },
+            [&]( contiguous_request_adapter_errors_enum err ) {
+                    iface.reply_node_error( rid, err, parent );
+            } );
 }
 void testing_controller::handle_message(
     tag< TESTING_FINISHED >,
     auto,
-    testing_controller_interface_adapter iface )
+    testing_controller_interface_adapter& iface )
 {
         iface->on_result( *context_ );
         context_.reset();
@@ -199,42 +313,42 @@ void testing_controller::handle_message(
 void testing_controller::handle_message(
     tag< TESTING_ERROR >,
     auto,
-    testing_controller_interface_adapter )
+    testing_controller_interface_adapter& )
 {
         context_->errored = true;
 }
 void testing_controller::handle_message(
     tag< TESTING_FAILURE >,
     auto,
-    testing_controller_interface_adapter )
+    testing_controller_interface_adapter& )
 {
         context_->failed = true;
 }
 void testing_controller::handle_message(
     tag< TESTING_SUITE_NAME >,
     auto,
-    testing_controller_interface_adapter iface )
+    testing_controller_interface_adapter& iface )
 {
         iface->on_error( testing_controller_message_error{ TESTING_SUITE_NAME } );
 }
 void testing_controller::handle_message(
     tag< TESTING_SUITE_DATE >,
     auto,
-    testing_controller_interface_adapter iface )
+    testing_controller_interface_adapter& iface )
 {
         iface->on_error( testing_controller_message_error{ TESTING_SUITE_DATE } );
 }
 void testing_controller::handle_message(
     tag< TESTING_INTERNAL_ERROR >,
-    testing_reactor_error_variant        err,
-    testing_controller_interface_adapter iface )
+    testing_reactor_error_variant         err,
+    testing_controller_interface_adapter& iface )
 {
         iface->on_error( testing_internal_reactor_error{ std::move( err ) } );
 }
 void testing_controller::handle_message(
     tag< TESTING_PROTOCOL_ERROR >,
-    protocol_error_record                rec,
-    testing_controller_interface_adapter iface )
+    protocol_error_record                 rec,
+    testing_controller_interface_adapter& iface )
 {
         iface->on_error( testing_reactor_protocol_error{ rec } );
 }
@@ -265,9 +379,7 @@ void testing_controller::tick( testing_controller_interface& top_iface )
                 return;
         }
 
-        using handler = protocol_packet_handler< testing_reactor_controller_packet >;
-
-        handler::extract( *opt_msg )
+        testing_reactor_controller_extract( *opt_msg )
             .match(
                 [&]( auto var ) {
                         apply_on_visit(

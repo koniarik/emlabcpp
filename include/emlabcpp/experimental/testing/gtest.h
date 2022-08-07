@@ -32,39 +32,52 @@ namespace emlabcpp
 {
 
 template < ostreamlike T >
-inline T& testing_recursive_print_node( T& os, const testing_data_node& node, std::size_t depth )
+inline T&
+testing_recursive_print_node( T& os, const testing_tree& t, testing_node_id nid, std::size_t depth )
 {
-        os << sum( range( depth ), [&]( std::size_t ) {
-                return std::string{ " " };
-        } );
+
+        std::string spacing( depth, ' ' );
+
+        const testing_node* node_ptr = t.get_node( nid );
+
+        if ( !node_ptr ) {
+                return os;
+        }
 
         match(
-            node.key,
-            [&]( uint32_t val ) {
-                    os << val;
+            node_ptr->get_container_handle(),
+            [&]( const testing_value* v ) {
+                    match(
+                        *v,
+                        [&]( testing_string_buffer val ) {
+                                os << std::string_view{ val.begin(), val.size() };
+                        },
+                        [&]( auto val ) {
+                                os << val;
+                        } );
             },
-            [&]( testing_key_buffer val ) {
-                    os << std::string_view{ val.begin(), val.size() };
-            } );
+            [&]( testing_const_object_handle oh ) {
+                    uint32_t ch_count = oh.size();
+                    for ( uint32_t i : range< uint32_t >( ch_count ) ) {
+                            const testing_key* key = oh.get_key( i );
+                            EMLABCPP_ASSERT( key );
+                            os << "\n" << spacing << std::string_view{key->begin(), key->size()} << ":";
+                            std::optional< testing_node_id > opt_j = oh.get_child( i );
+                            EMLABCPP_ASSERT( opt_j );
+                            testing_recursive_print_node( os, t, *opt_j, depth + 1 );
+                    }
+            },
+            [&]( testing_const_array_handle ah ) {
+                    uint32_t ch_count = ah.size();
+                    for ( uint32_t i : range< uint32_t >( ch_count ) ) {
+                            os << "\n" << spacing << " - ";
+                            std::optional< testing_node_id > opt_j = ah.get_child( i );
+                            EMLABCPP_ASSERT( opt_j );
+                            testing_recursive_print_node( os, t, *opt_j, depth + 1 );
+                    }
+            }
 
-        if ( !std::holds_alternative< std::monostate >( node.var ) ) {
-                os << ":\t";
-                match(
-                    node.var,
-                    [&]( testing_string_buffer val ) {
-                            os << std::string_view{ val.begin(), val.size() };
-                    },
-                    []( std::monostate ) {},
-                    [&]( auto val ) {
-                            os << val;
-                    } );
-        }
-
-        os << "\n";
-
-        for ( const testing_data_node& child : node.children ) {
-                testing_recursive_print_node( os, child, depth + 1 );
-        }
+        );
 
         return os;
 }
@@ -79,13 +92,7 @@ inline ::testing::AssertionResult testing_gtest_predicate( const char*, const te
                 res = ::testing::AssertionFailure() << "Test errored";
         }
 
-        if ( !tres.data_root.children.empty() ) {
-                res << "\ncollected:\n";
-        }
-
-        for ( const auto& child : tres.data_root.children ) {
-                testing_recursive_print_node( res, child, 1 );
-        }
+        testing_recursive_print_node( res, tres.collected, 0, 1 );
         return res;
 }
 

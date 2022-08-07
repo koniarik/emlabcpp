@@ -111,17 +111,6 @@ private:
             testing_test_id tid,
             testing_run_id  rid,
             testing_reactor_interface_adapter& );
-        void handle_message(
-            tag< TESTING_ARG >,
-            testing_run_id,
-            const testing_key&,
-            const testing_arg_variant&,
-            testing_reactor_interface_adapter& );
-        void handle_message(
-            tag< TESTING_ARG_MISSING >,
-            testing_run_id,
-            const testing_key&,
-            testing_reactor_interface_adapter& );
         void
         handle_message( tag< TESTING_EXEC >, testing_run_id, testing_reactor_interface_adapter& );
 

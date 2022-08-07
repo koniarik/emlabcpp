@@ -15,9 +15,10 @@ set_target_properties(gtest_main
          CXX_CLANG_TIDY "")
 
 function(emlabcpp_setup_test target)
-  target_include_directories(${target} PRIVATE include/)
+  target_include_directories(${target} PRIVATE include/ third-party/)
   target_link_libraries(${target} emlabcpp)
-  gtest_discover_tests(${target})
+  #gtest_discover_tests(${target})
+  add_test(NAME ${target}_test COMMAND ${target})
 
   target_compile_options(
     ${target}
@@ -40,6 +41,7 @@ function(emlabcpp_setup_test target)
             -ftemplate-backtrace-limit=0
             -DEMLABCPP_ASSERT_NATIVE
             -DEMLABCPP_USE_NLOHMANN_JSON
+            -DEMLABCPP_USE_MAGIC_ENUM
             -DEMLABCPP_USE_GTEST)
   if(EMLABCPP_COVERAGE_ENABLED)
     emlabcpp_target_enable_coverage(${target})

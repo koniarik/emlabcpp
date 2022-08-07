@@ -4,10 +4,10 @@
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -15,7 +15,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
-// 
+//
 //
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
@@ -36,11 +36,32 @@ void testing_reactor::spin( testing_reactor_interface& top_iface )
                 return;
         }
 
-        apply_on_visit(
+        apply_on_match(
+            *opt_var,
             [&]( auto... args ) {
                     handle_message( args..., iface );
             },
-            *opt_var );
+            [&]( tag< TESTING_PARAM_VALUE >, const auto&... ) {
+                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+            },
+            [&]( tag< TESTING_PARAM_CHILD >, const auto&... ) {
+                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+            },
+            [&]( tag< TESTING_PARAM_CHILD_COUNT >, const auto&... ) {
+                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+            },
+            [&]( tag< TESTING_PARAM_KEY >, const auto&... ) {
+                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+            },
+            [&]( tag< TESTING_PARAM_TYPE >, const auto&... ) {
+                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+            },
+            [&]( tag< TESTING_TREE_ERROR >, const auto&... ) {
+                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+            },
+            [&]( tag< TESTING_COLLECT >, const auto&... ) {
+                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+            } );
 }
 
 void testing_reactor::handle_message(
@@ -89,23 +110,6 @@ void testing_reactor::handle_message(
         }
 
         active_exec_ = active_execution{ tid, rid, &access_test( tid ) };
-}
-void testing_reactor::handle_message(
-    tag< TESTING_ARG >,
-    testing_run_id,
-    const testing_key&,
-    const testing_arg_variant&,
-    testing_reactor_interface_adapter& iface )
-{
-        iface.report_failure< TESTING_UNDESIRED_MSG_E >();
-}
-void testing_reactor::handle_message(
-    tag< TESTING_ARG_MISSING >,
-    testing_run_id,
-    const testing_key&,
-    testing_reactor_interface_adapter& iface )
-{
-        iface.report_failure< TESTING_UNDESIRED_MSG_E >();
 }
 void testing_reactor::handle_message(
     tag< TESTING_EXEC >,

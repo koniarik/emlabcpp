@@ -20,17 +20,12 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
+#include "emlabcpp/enum.h"
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/protocol/streams.h"
 #include "emlabcpp/visit.h"
 
 #include <variant>
-
-#ifdef EMLABCPP_USE_MAGIC_ENUM
-
-#include <magic_enum.hpp>
-
-#endif
 
 #pragma once
 
@@ -76,29 +71,16 @@ inline auto& operator<<( ostreamlike auto& os, const testing_controller_protocol
 inline auto& operator<<( ostreamlike auto& os, const testing_internal_reactor_error& e )
 {
         apply_on_match(
-            e.val,
-            [&]< auto ID >( tag< ID > ) {
-#ifdef EMLABCPP_USE_MAGIC_ENUM
-                    os << magic_enum::enum_name( ID );
-#else
-                    os << std::to_string( ID );
-#endif
-            },
-            [&]( tag< TESTING_NO_RESPONSE_E >, testing_messages_enum ) {},
-            [&]( tag< TESTING_ARG_MISSING_E >, const testing_key& ) {},
-            [&]( tag< TESTING_ARG_WRONG_TYPE_E >, const testing_key& ) {},
-            [&]( tag< TESTING_ARG_WRONG_MESSAGE_E >, testing_messages_enum ) {} );
+            e.val, [&]< auto ID >( tag< ID >, auto... args ) {
+                    os << convert_enum( ID );
+                    ( ( os << "," << args ), ... );
+            } );
         return os;
 }
 
 inline auto& operator<<( ostreamlike auto& os, const testing_controller_message_error& e )
 {
-        /// TODO: multiple cases of this, maybe abstract away?
-#ifdef EMLABCPP_USE_MAGIC_ENUM
-        return os << magic_enum::enum_name( e.msg_id );
-#else
-        return os << std::to_string( e.msg_id );
-#endif
+        return os << convert_enum( e.msg_id );
 }
 
 inline auto& operator<<( ostreamlike auto& os, const testing_error_variant& var )

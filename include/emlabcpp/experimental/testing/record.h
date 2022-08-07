@@ -35,7 +35,6 @@ class testing_record
         testing_run_id                     rid_;
         testing_reactor_interface_adapter& comm_;
         bool                               errored_ = false;
-        testing_node_id                    last_id_ = 0;
 
 public:
         testing_record(
@@ -48,45 +47,65 @@ public:
         {
         }
 
+        std::optional< testing_node_type > get_param_type( testing_node_id );
+
         template < typename T >
-        std::optional< T > get_arg( std::string_view ikey )
+        std::optional< T > get_param( testing_node_id node )
         {
-                auto          key     = testing_key_to_buffer( ikey );
-                std::optional opt_var = get_arg_variant( key );
+                std::optional opt_var = get_param_value( node );
                 if ( !opt_var ) {
                         return {};
                 }
-                return extract_arg< T >( *opt_var, key );
+                return extract_arg< T >( *opt_var, node );
         }
 
-        template < typename T >
-        std::optional< T > get_arg( uint32_t v )
-        {
-                std::optional opt_var = get_arg_variant( testing_key{ v } );
-                if ( !opt_var ) {
-                        return {};
-                }
-                return extract_arg< T >( *opt_var, testing_key{ v } );
-        }
+        std::optional< testing_value > get_param_value( testing_node_id param );
 
-        std::optional< testing_arg_variant > get_arg_variant( const testing_key& key );
+        std::optional< testing_node_id > get_param_child( testing_node_id, testing_child_id );
+        std::optional< testing_node_id > get_param_child( testing_node_id, const testing_key& key );
+        std::optional< testing_node_id > get_param_child( testing_node_id, std::string_view key );
+
+        std::optional< testing_child_count > get_param_child_count( testing_node_id );
+
+        std::optional< testing_key > get_param_key( testing_node_id, testing_child_id );
 
         bool errored()
         {
                 return errored_;
         }
 
-        testing_node_id
-        collect( testing_node_id parent, const testing_key& key, const testing_arg_variant& arg );
+        std::optional< testing_node_id > collect(
+            testing_node_id                     parent,
+            const std::optional< testing_key >& key,
+            const testing_collect_arg&          arg );
+
+        std::optional< testing_node_id >
+        collect( testing_node_id parent, const testing_collect_arg& arg )
+        {
+                return collect( parent, std::optional< testing_key >{}, arg );
+        }
 
         template < typename Key, typename Arg >
-        testing_node_id collect( testing_node_id parent, const Key& k, const Arg& arg )
+        std::optional< testing_node_id >
+        collect( testing_node_id parent, const Key& k, const Arg& arg )
         {
                 return collect( parent, convert_key( k ), convert_arg( arg ) );
         }
 
+        template < typename Arg >
+        std::optional< testing_node_id > collect( testing_node_id parent, const Arg& arg )
+        {
+                return collect( parent, convert_arg( arg ) );
+        }
+
+        template < typename Arg >
+        std::optional< testing_node_id > collect( const Arg& arg )
+        {
+                return collect( 0, arg );
+        }
+
         template < typename Key, typename Arg >
-        testing_node_id collect( const Key& k, const Arg& arg )
+        std::optional< testing_node_id > collect( const Key& k, const Arg& arg )
         {
                 return collect( 0, k, arg );
         }
@@ -106,36 +125,39 @@ public:
         }
 
 private:
-        void report_wrong_type_error( const testing_key& );
+        void report_wrong_type_error( testing_node_id, const testing_value& var );
 
         template < typename T >
-        std::optional< T > extract_arg( const testing_arg_variant& var, const testing_key& key )
+        std::optional< T > extract_arg( const testing_value& var, testing_node_id nid )
         {
                 if ( !std::holds_alternative< T >( var ) ) {
-                        report_wrong_type_error( key );
+                        report_wrong_type_error( nid, var );
                         return {};
                 }
                 return std::get< T >( var );
         }
 
-        testing_key convert_key( const alternative_of< testing_key > auto& k )
-        {
-                return testing_key{ k };
-        }
-
-        testing_key convert_key( std::string_view k )
+        std::optional< testing_key > convert_key( std::string_view k )
         {
                 return testing_key{ testing_key_to_buffer( k ) };
         }
 
-        testing_arg_variant convert_arg( const alternative_of< testing_arg_variant > auto& arg )
+        testing_collect_arg convert_arg( const alternative_of< testing_value > auto& arg )
         {
-                return testing_arg_variant{ arg };
+                return testing_value{ arg };
         }
 
-        testing_arg_variant convert_arg( std::string_view arg )
+        testing_collect_arg convert_arg( std::string_view arg )
         {
-                return testing_string_to_buffer( arg );
+                return testing_value{ testing_string_to_buffer( arg ) };
         }
+
+        testing_collect_arg convert_arg( contiguous_container_type arg )
+        {
+                return arg;
+        }
+
+        std::optional< testing_controller_reactor_variant >
+            read_variant( testing_node_id, testing_messages_enum );
 };
 }  // namespace emlabcpp

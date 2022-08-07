@@ -20,6 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
+#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/experimental/testing/controller.h"
 #include "emlabcpp/experimental/testing/gtest.h"
 #include "emlabcpp/experimental/testing/reactor.h"
@@ -58,24 +59,21 @@ void simple_test_case( em::testing_record& rec )
         // showcase for the record API
 
         // request an argument from controller
-        auto opt_arg = rec.get_arg< uint64_t >( "arg1" );
+        auto opt_arg_id = rec.get_param_child( 0, "simple_test" );
+        if ( !opt_arg_id ) {
+                return;
+        }
+        auto opt_arg = rec.get_param< int64_t >( *opt_arg_id );
         if ( !opt_arg ) {
                 rec.fail();
                 return;
-        }
-
-        uint64_t config_val = *opt_arg;
-
-        for ( uint32_t i = 0; i < config_val; i++ ) {
-                auto var2   = rec.get_arg_variant( i );
-                std::ignore = var2;
         }
 
         // collecting records data in the controller
         // this is stored for later review
         rec.collect( "col1", "some_data" );
         rec.collect( "col2", 42 );
-        rec.collect( 33u, "foooo" );
+        rec.collect( "33", "foooo" );
 
         // of course, we can decide whenever the test
         // failed or succeeded
@@ -159,6 +157,13 @@ struct reactor_iface : em::testing_reactor_interface
 
         void transmit( std::span< uint8_t > inpt ) final
         {
+                em::testing_reactor_controller_extract(
+                    *em::testing_reactor_controller_msg::make( inpt ) )
+                    .match(
+                        [&]( auto val ) {
+                                EMLABCPP_LOG( "reactor:" << val );
+                        },
+                        []( auto ) {} );
                 reac_con_buff.insert( inpt );
         }
 
@@ -178,14 +183,35 @@ struct controller_iface : em::testing_controller_interface
         em::thread_safe_queue& con_reac_buff;
         em::thread_safe_queue& reac_con_buff;
 
+        typename em::testing_tree::pool_type< 42 > pool;
+        em::testing_tree                           tree;
+
         controller_iface( em::thread_safe_queue& cr, em::thread_safe_queue& rc )
           : con_reac_buff( cr )
           , reac_con_buff( rc )
+          , pool()
+          , tree( &pool )
         {
+                // we need test that uses more compelx tree
+                nlohmann::json j = { { "simple_test", 32 }, { "complex_lambda", 42 } };
+
+                std::optional opt_tree = json_to_testing_tree( &pool, j );
+                if ( opt_tree ) {
+                        tree = std::move( *opt_tree );
+                } else {
+                        std::cout << "failed to build tree" << std::endl;
+                }
         }
 
         void transmit( std::span< uint8_t > inpt ) final
         {
+                em::testing_controller_reactor_extract(
+                    *em::testing_controller_reactor_msg::make( inpt ) )
+                    .match(
+                        [&]( auto val ) {
+                                EMLABCPP_LOG( "control:" << val );
+                        },
+                        [&]( auto ) {} );
                 con_reac_buff.insert( inpt );
         }
 
@@ -204,29 +230,9 @@ struct controller_iface : em::testing_controller_interface
                 EXPECT_PRED_FORMAT1( em::testing_gtest_predicate, res );
         }
 
-        // if the test requires an argument, the request
-        // is propagate to the interface and should be solved
-        // on this level
-        std::optional< em::testing_arg_variant > on_arg( std::string_view key ) final
+        em::testing_tree& get_param_tree() final
         {
-                if ( key == "arg1" ) {
-                        return 2lu;
-                }
-
-                if ( key == "arg_key" ) {
-                        return false;
-                }
-
-                return {};
-        }
-
-        std::optional< em::testing_arg_variant > on_arg( uint32_t key ) final
-        {
-                if ( key < 2u ) {
-                        return false;
-                }
-
-                return {};
+                return tree;
         }
 
         void on_error( em::testing_error_variant err ) final
@@ -251,7 +257,7 @@ int main( int argc, char** argv )
         rec.register_test( "simple struct test", my_test_case{} );
 
         rec.register_callable( "complex lambda test", [&]( em::testing_record& rec ) {
-                std::optional< uint64_t > opt_data = rec.get_arg< uint64_t >( "arg_key" );
+                std::optional< uint64_t > opt_data = rec.get_param< uint64_t >( 0 );
 
                 if ( opt_data ) {
                         rec.success();
@@ -261,7 +267,7 @@ int main( int argc, char** argv )
         } );
 
         rec.register_test(
-            "lambda amd fixture",
+            "lambda and fixture",
             em::testing_compose( my_test_fixture{}, [&]( em::testing_record& rec ) {
                     rec.expect( 1 > 0 );
             } ) );
