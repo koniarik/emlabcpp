@@ -146,6 +146,13 @@ template < container Container, typename T >
         } );
 }
 
+/// Checks if container `cont` contains at least one occurence of `item`, returns true/false
+template < container Container, typename T >
+[[nodiscard]] constexpr auto contains( Container&& cont, const T& item )
+{
+        return find( cont, item ) != cont.end();
+}
+
 /// Applies unary function 'f' to each element of container 'cont'
 template < gettable_container Container, container_invocable< Container > UnaryFunction >
 requires(
@@ -458,15 +465,19 @@ struct convert_to
 
 /// Returns cont[0] + val + cont[1] + val + cont[2] + ... + cont[n-1] + val +
 /// cont[n];
-template < range_container Container, typename T >
-[[nodiscard]] constexpr T joined( const Container& cont, T&& val )
+template <
+    range_container Container,
+    typename T,
+    container_invocable< Container > UnaryFunction = std::identity >
+[[nodiscard]] constexpr T
+joined( const Container& cont, T&& val, UnaryFunction&& f = std::identity() )
 {
         if ( cont.empty() ) {
                 return T{};
         }
         T res = *std::begin( cont );
         for ( const auto& item : tail( cont ) ) {
-                res += val + item;
+                res += val + f( item );
         }
         return res;
 }

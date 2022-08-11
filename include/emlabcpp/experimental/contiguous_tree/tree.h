@@ -1,5 +1,6 @@
 #include "emlabcpp/allocator/pool.h"
 #include "emlabcpp/experimental/contiguous_tree/base.h"
+#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/experimental/static_function.h"
 #include "emlabcpp/match.h"
 #include "emlabcpp/static_vector.h"
@@ -138,7 +139,8 @@ public:
                 return std::get_if< Value >( &content_ );
         }
 
-        std::variant< const Value*, object_handle, array_handle > get_container_handle()
+        std::variant< std::reference_wrapper< const Value >, object_handle, array_handle >
+        get_container_handle()
         {
                 if ( std::holds_alternative< array_type >( content_ ) ) {
                         return array_handle{ std::get_if< array_type >( &content_ ) };
@@ -146,10 +148,13 @@ public:
                 if ( std::holds_alternative< object_type >( content_ ) ) {
                         return object_handle{ std::get_if< object_type >( &content_ ) };
                 }
-                return std::get_if< Value >( &content_ );
+                return std::ref( *std::get_if< Value >( &content_ ) );
         }
 
-        [[nodiscard]] std::variant< const Value*, const_object_handle, const_array_handle >
+        [[nodiscard]] std::variant<
+            std::reference_wrapper< const Value >,
+            const_object_handle,
+            const_array_handle >
         get_container_handle() const
         {
                 if ( std::holds_alternative< array_type >( content_ ) ) {
@@ -158,7 +163,7 @@ public:
                 if ( std::holds_alternative< object_type >( content_ ) ) {
                         return const_object_handle{ std::get_if< object_type >( &content_ ) };
                 }
-                return std::get_if< Value >( &content_ );
+                return std::ref( *std::get_if< Value >( &content_ ) );
         }
 
         [[nodiscard]] contiguous_tree_type_enum get_type() const
@@ -236,6 +241,7 @@ public:
         {
                 std::optional opt_val = make_node( std::move( val ) );
                 if ( !opt_val ) {
+                        EMLABCPP_LOG( "Failed to make value node in tree" );
                         return std::nullopt;
                 }
                 auto [nid, iter] = *opt_val;
@@ -246,6 +252,7 @@ public:
         {
                 std::optional opt_val = make_node( array_type{ mem_pool_ } );
                 if ( !opt_val ) {
+                        EMLABCPP_LOG( "Failed to make array node in tree" );
                         return std::nullopt;
                 }
                 auto [nid, iter] = *opt_val;
@@ -257,6 +264,7 @@ public:
         {
                 std::optional opt_val = make_node( object_type{ mem_pool_ } );
                 if ( !opt_val ) {
+                        EMLABCPP_LOG( "Failed to make object node in tree" );
                         return std::nullopt;
                 }
                 auto [nid, iter] = *opt_val;

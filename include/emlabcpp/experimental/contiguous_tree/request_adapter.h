@@ -203,8 +203,11 @@ private:
                 return self->get_node( nid ).bind_left(
                     [&]( auto& node_wrapper ) -> either< var_type, error_enum > {
                             auto& node = node_wrapper.get();
-                            std::variant< const value_type*, OHandle, AHandle > cont =
-                                node.get_container_handle();
+                            std::variant<
+                                std::reference_wrapper< const value_type >,
+                                OHandle,
+                                AHandle >
+                                cont = node.get_container_handle();
 
                             OHandle* oh_ptr = std::get_if< OHandle >( &cont );
                             AHandle* ah_ptr = std::get_if< AHandle >( &cont );

@@ -46,9 +46,9 @@ testing_recursive_print_node( T& os, const testing_tree& t, testing_node_id nid,
 
         match(
             node_ptr->get_container_handle(),
-            [&]( const testing_value* v ) {
+            [&]( const testing_value& v ) {
                     match(
-                        *v,
+                        v,
                         [&]( testing_string_buffer val ) {
                                 os << std::string_view{ val.begin(), val.size() };
                         },
@@ -61,7 +61,8 @@ testing_recursive_print_node( T& os, const testing_tree& t, testing_node_id nid,
                     for ( uint32_t i : range< uint32_t >( ch_count ) ) {
                             const testing_key* key = oh.get_key( i );
                             EMLABCPP_ASSERT( key );
-                            os << "\n" << spacing << std::string_view{key->begin(), key->size()} << ":";
+                            os << "\n"
+                               << spacing << std::string_view{ key->begin(), key->size() } << ":";
                             std::optional< testing_node_id > opt_j = oh.get_child( i );
                             EMLABCPP_ASSERT( opt_j );
                             testing_recursive_print_node( os, t, *opt_j, depth + 1 );

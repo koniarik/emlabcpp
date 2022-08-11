@@ -128,12 +128,22 @@ inline emlabcpp::testing_value json_to_testing_value( const nlohmann::json& j )
                         return j.get< int64_t >();
                 case value_t::number_unsigned:
                         return j.get< uint64_t >();
+                case value_t::number_float:
+                        return j.get< float >();
                 case value_t::string:
                         return testing_string_to_buffer( j.get< std::string >() );
                 default:
                         // TODO: might wanna improve this
+                        EMLABCPP_LOG( "Got type of json we can't process: " << j.type() );
                         throw std::exception{};
         }
+}
+
+inline nlohmann::json testing_value_to_json( const testing_value& tv )
+{
+        return match( tv, [&]( const auto& item ) {
+                return nlohmann::json{ item };
+        } );
 }
 
 inline emlabcpp::testing_key json_to_testing_key( const nlohmann::json& j )
@@ -185,9 +195,48 @@ json_to_testing_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
                 f( inpt );
                 return tree;
         }
-        catch ( std::exception& ) {
+        catch ( const std::exception& e ) {
+                EMLABCPP_LOG( "Build of testing tree failed because " << e.what() );
                 return std::nullopt;
         }
+}
+
+inline nlohmann::json testing_tree_to_json( const testing_tree& tree )
+{
+        static_function< nlohmann::json( testing_node_id ), 32 > f =
+            [&]( testing_node_id nid ) -> nlohmann::json {
+                const testing_node* node_ptr = tree.get_node( nid );
+
+                if ( !node_ptr ) {
+                        return {};
+                }
+
+                return match(
+                    node_ptr->get_container_handle(),
+                    [&]( const testing_value& val ) {
+                            return testing_value_to_json( val );
+                    },
+                    [&]( testing_const_object_handle oh ) {
+                            nlohmann::json j;
+                            // TODO: write iterators for handle
+                            for ( testing_child_id chid : range( oh.size() ) ) {
+                                    const testing_key* k = oh.get_key( chid );
+                                    std::string        key{ k->begin(), k->size() };
+                                    j[key] = f( *oh.get_child( chid ) );
+                            }
+                            return j;
+                    },
+                    [&]( testing_const_array_handle ah ) {
+                            nlohmann::json j;
+                            // TODO: write iterators for handle
+                            for ( testing_child_id chid : range( ah.size() ) ) {
+                                    j.push_back( f( *ah.get_child( chid ) ) );
+                            }
+                            return j;
+                    } );
+        };
+
+        return f( 0 );
 }
 
 #endif
