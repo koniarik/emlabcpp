@@ -1,6 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"namespaceemlabcpp.html#a50429a6831c33bfc19692833c3a6b0c1":[2,0,0,342],
 "namespaceemlabcpp.html#a5219e24bd076b3c65f56c69b9025dd69":[2,0,0,337],
 "namespaceemlabcpp.html#a52e523cb8311fab5a46220e960923639":[2,0,0,302],
 "namespaceemlabcpp.html#a53400461db610368cbe228ab40b5c63d":[2,0,0,152],
@@ -249,5 +248,6 @@ var NAVTREEINDEX4 =
 "physical__quantity_8h.html#a458a21111b267fd6b9727f821974f859":[4,0,0,0,16,11],
 "physical__quantity_8h.html#a4eca5b22a706c436b22c929c45b773ef":[4,0,0,0,16,5],
 "physical__quantity_8h.html#a5519896c5f0324265089711b6a020642":[4,0,0,0,16,26],
-"physical__quantity_8h.html#a5c5e1be68f8469a0ef8388b17b94406e":[4,0,0,0,16,12]
+"physical__quantity_8h.html#a5c5e1be68f8469a0ef8388b17b94406e":[4,0,0,0,16,12],
+"physical__quantity_8h.html#a5f05bc39f7d9b7332f437d5a7b19156c":[4,0,0,0,16,22]
 };

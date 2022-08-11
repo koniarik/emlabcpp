@@ -1,6 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structemlabcpp_1_1protocol__decl_3_01std_1_1optional_3_01T_01_4_01_4.html#a09e5ae05a949d353ba63ae20e6d6c463":[3,0,0,76,2],
 "structemlabcpp_1_1protocol__decl_3_01std_1_1optional_3_01T_01_4_01_4.html#a2c9f227259fe91774952b12b28b586b7":[3,0,0,76,1],
 "structemlabcpp_1_1protocol__decl_3_01std_1_1optional_3_01T_01_4_01_4.html#a6fd78ff7c0cf426f55a37753d724785b":[3,0,0,76,3],
 "structemlabcpp_1_1protocol__decl_3_01std_1_1optional_3_01T_01_4_01_4.html#a8e8d271eb3db37ff5a8238c8d682c526":[3,0,0,76,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX6 =
 "structemlabcpp_1_1protocol__serializer.html#ac9185bf83664ec3ccc94c7fa4fc4d722":[3,0,0,106,5],
 "structemlabcpp_1_1protocol__serializer.html#ae4972bb8420c0fc9d083ce4d8304f1be":[3,0,0,106,2],
 "structemlabcpp_1_1protocol__serializer_3_01bool_00_01Endianess_01_4.html":[3,0,0,108],
-"structemlabcpp_1_1protocol__serializer_3_01bool_00_01Endianess_01_4.html#a557d278e3aebc764a9631c19d06ef2da":[3,0,0,108,2]
+"structemlabcpp_1_1protocol__serializer_3_01bool_00_01Endianess_01_4.html#a557d278e3aebc764a9631c19d06ef2da":[3,0,0,108,2],
+"structemlabcpp_1_1protocol__serializer_3_01bool_00_01Endianess_01_4.html#a84d8627a106abde820d11ade72d7cb62":[3,0,0,108,0]
 };
