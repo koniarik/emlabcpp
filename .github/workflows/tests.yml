@@ -3,7 +3,7 @@ name: Tests
 on: [push]
 
 jobs:
-    build:
+    test:
         runs-on: ubuntu-22.04	
 
         defaults:
