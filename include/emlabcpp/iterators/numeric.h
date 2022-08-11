@@ -57,8 +57,8 @@ class numeric_iterator : public generic_iterator< numeric_iterator< T > >
 
 public:
         /// Initializes iterator to value val
-        constexpr numeric_iterator( T val )
-          : val_( std::forward< T >( val ) )
+        explicit constexpr numeric_iterator( T val )
+          : val_( std::move( val ) )
         {
         }
 

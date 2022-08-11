@@ -49,7 +49,7 @@ namespace detail
         template < typename T, typename ReturnType, typename... ArgTypes >
         class static_function_storage
         {
-                T item_;
+                [[no_unique_address]] T item_;
 
         public:
                 static_function_storage( T&& item )

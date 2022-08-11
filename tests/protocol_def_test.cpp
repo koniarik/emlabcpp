@@ -182,9 +182,9 @@ int main( int argc, char** argv )
                 std::array< int16_t, 3 >{ -1, 1, 666 }, { 255, 255, 0, 1, 2, 154 } ),
             // std::tuple
             make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >(
-                std::tuple< uint8_t, int16_t, int8_t >{ 1u, 666u, -3u }, { 1, 154, 2, 253 } ),
+                std::tuple< uint8_t, int16_t, int8_t >{ 1u, 666u, -3 }, { 1, 154, 2, 253 } ),
             make_valid_test_case< PROTOCOL_BIG_ENDIAN >(
-                std::tuple< uint8_t, int16_t, int8_t >{ 1u, 666u, -3u }, { 1, 2, 154, 253 } ),
+                std::tuple< uint8_t, int16_t, int8_t >{ 1u, 666u, -3 }, { 1, 2, 154, 253 } ),
             // std::variant
             make_valid_test_case< PROTOCOL_LITTLE_ENDIAN >(
                 std::variant< uint8_t, int16_t, uint16_t >{ int16_t{ -3 } }, { 1, 253, 255 } ),
