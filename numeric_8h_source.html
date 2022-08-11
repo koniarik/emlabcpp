@@ -141,8 +141,8 @@ $(document).ready(function(){initNavTree('numeric_8h_source.html',''); initResiz
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        T val_;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1numeric__iterator.html#a6e932910420a2e34fbddffbd5e5f4d02">   60</a></span>&#160;        constexpr <a class="code" href="classemlabcpp_1_1numeric__iterator.html#a6e932910420a2e34fbddffbd5e5f4d02">numeric_iterator</a>( T val )</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;          : val_( std::forward&lt; T &gt;( val ) )</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1numeric__iterator.html#a6e932910420a2e34fbddffbd5e5f4d02">   60</a></span>&#160;        <span class="keyword">explicit</span> constexpr <a class="code" href="classemlabcpp_1_1numeric__iterator.html#a6e932910420a2e34fbddffbd5e5f4d02">numeric_iterator</a>( T val )</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;          : val_( std::move( val ) )</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
@@ -221,7 +221,7 @@ $(document).ready(function(){initNavTree('numeric_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d23cc4b283f7681fa42a07595366cfa6.html">iterators</a></li><li class="navelem"><a class="el" href="numeric_8h.html">numeric.h</a></li>
-    <li class="footer">Generated on Thu Aug 11 2022 12:25:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Aug 11 2022 12:42:30 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
