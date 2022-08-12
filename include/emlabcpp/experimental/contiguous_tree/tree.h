@@ -29,20 +29,20 @@ public:
         {
         }
 
-        iterator begin()
+        [[nodiscard]] iterator begin()
         {
                 return obj_->begin();
         }
-        iterator end()
+        [[nodiscard]] iterator end()
         {
                 return obj_->end();
         }
 
-        const_iterator begin() const
+        [[nodiscard]] const_iterator begin() const
         {
                 return obj_->begin();
         }
-        const_iterator end() const
+        [[nodiscard]] const_iterator end() const
         {
                 return obj_->end();
         }
@@ -116,20 +116,20 @@ public:
           : arr_( arr )
         {
         }
-        iterator begin()
+        [[nodiscard]] iterator begin()
         {
                 return arr_->begin();
         }
-        iterator end()
+        [[nodiscard]] iterator end()
         {
                 return arr_->end();
         }
 
-        const_iterator begin() const
+        [[nodiscard]] const_iterator begin() const
         {
                 return arr_->begin();
         }
-        const_iterator end() const
+        [[nodiscard]] const_iterator end() const
         {
                 return arr_->end();
         }
@@ -191,13 +191,14 @@ public:
                 return std::get_if< Value >( &content_ );
         }
 
-        Value* get_value()
+        [[nodiscard]] Value* get_value()
         {
                 return std::get_if< Value >( &content_ );
         }
 
-        std::variant< std::reference_wrapper< const Value >, object_handle, array_handle >
-        get_container_handle()
+        [[nodiscard]] std::
+            variant< std::reference_wrapper< const Value >, object_handle, array_handle >
+            get_container_handle()
         {
                 if ( std::holds_alternative< array_type >( content_ ) ) {
                         return array_handle{ std::get_if< array_type >( &content_ ) };
@@ -303,25 +304,25 @@ public:
                 return &iter->second;
         }
 
-        iterator begin()
+        [[nodiscard]] iterator begin()
         {
                 return data_.begin();
         }
-        iterator end()
+        [[nodiscard]] iterator end()
         {
                 return data_.end();
         }
 
-        const_iterator begin() const
+        [[nodiscard]] const_iterator begin() const
         {
                 return data_.begin();
         }
-        const_iterator end() const
+        [[nodiscard]] const_iterator end() const
         {
                 return data_.end();
         }
 
-        std::size_t size() const
+        [[nodiscard]] std::size_t size() const
         {
                 return data_.size();
         }
@@ -386,8 +387,6 @@ auto& operator<<( Stream& os, const contiguous_tree< Key, Value >& tree )
 {
         for ( const auto& [nid, node] : tree ) {
                 os << nid << ":" << node << "\n";
-        }
-        for ( std::size_t i : range( tree.size() ) ) {
         }
         return os;
 }
