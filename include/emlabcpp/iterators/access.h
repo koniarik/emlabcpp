@@ -30,10 +30,10 @@ template < typename, typename >
 class access_iterator;
 }
 
-template < typename Iterator, typename AccessFunction >
-struct std::iterator_traits< emlabcpp::access_iterator< Iterator, AccessFunction > >
+template < typename Iterator, typename AccessCallable >
+struct std::iterator_traits< emlabcpp::access_iterator< Iterator, AccessCallable > >
 {
-        using value_type      = std::remove_reference_t< decltype( std::declval< AccessFunction >()(
+        using value_type      = std::remove_reference_t< decltype( std::declval< AccessCallable >()(
             *std::declval< Iterator >() ) ) >;
         using difference_type = std::ptrdiff_t;
         using pointer         = value_type*;
@@ -46,21 +46,21 @@ namespace emlabcpp
 {
 
 /// access_iterator provides access to a reference of value stored in the Iterator.
-/// The access is provided via the AccessFunction provided to the iterator.
+/// The access is provided via the AccessCallable provided to the iterator.
 ///
 /// Gives you abillity to iterate over dataset, while accessing only part of each item.
 ///
-template < typename Iterator, typename AccessFunction >
-class access_iterator : public generic_iterator< access_iterator< Iterator, AccessFunction > >
+template < typename Iterator, typename AccessCallable >
+class access_iterator : public generic_iterator< access_iterator< Iterator, AccessCallable > >
 {
         Iterator       current_;
-        AccessFunction fun_;
+        AccessCallable fun_;
 
 public:
         using value_type = typename std::iterator_traits<
-            access_iterator< Iterator, AccessFunction > >::value_type;
+            access_iterator< Iterator, AccessCallable > >::value_type;
 
-        constexpr access_iterator( Iterator current, AccessFunction f )
+        constexpr access_iterator( Iterator current, AccessCallable f )
           : current_( std::move( current ) )
           , fun_( std::move( f ) )
         {
@@ -101,15 +101,15 @@ public:
         }
 };
 
-/// Creates view ver container cont with AccessFunction f.
+/// Creates view ver container cont with AccessCallable f.
 /// Beware that this produces two copies of f!
-template < typename Container, typename AccessFunction >
-view< access_iterator< iterator_of_t< Container >, AccessFunction > >
-access_view( Container&& cont, AccessFunction&& f )
+template < typename Container, typename AccessCallable >
+view< access_iterator< iterator_of_t< Container >, AccessCallable > >
+access_view( Container&& cont, AccessCallable&& f )
 {
         return view{
-            access_iterator< iterator_of_t< Container >, AccessFunction >{ cont.begin(), f },
-            access_iterator< iterator_of_t< Container >, AccessFunction >{ cont.end(), f } };
+            access_iterator< iterator_of_t< Container >, AccessCallable >{ cont.begin(), f },
+            access_iterator< iterator_of_t< Container >, AccessCallable >{ cont.end(), f } };
 }
 
 }  // namespace emlabcpp

@@ -44,9 +44,9 @@ struct protocol_reg
         value_type value;
 };
 
-template < typename UnaryFunction, typename Registers >
+template < typename UnaryCallable, typename Registers >
 concept protocol_register_map_void_returning =
-    invocable_returning< UnaryFunction, void, std::tuple_element_t< 0, Registers > >;
+    invocable_returning< UnaryCallable, void, std::tuple_element_t< 0, Registers > >;
 
 /// Register map is abstraction to work with registers of external devices. It stores values of
 /// serializable types that can be accessed based on key (usually enum representing address of
@@ -148,8 +148,8 @@ public:
                 } );
         }
 
-        template < typename UnaryFunction >
-        constexpr void setup_register( key_type key, UnaryFunction&& f )
+        template < typename UnaryCallable >
+        constexpr void setup_register( key_type key, UnaryCallable&& f )
         {
                 with_register( key, [&]< typename reg_type >( const reg_type& ) {
                         std::get< reg_type >( registers_ ).value =
@@ -157,11 +157,11 @@ public:
                 } );
         }
 
-        template < typename UnaryFunction >
+        template < typename UnaryCallable >
         requires(
             !protocol_register_map_void_returning<
-                UnaryFunction,
-                registers_tuple > ) constexpr auto with_register( key_type key, UnaryFunction&& f )
+                UnaryCallable,
+                registers_tuple > ) constexpr auto with_register( key_type key, UnaryCallable&& f )
             const
         {
                 using ret_type = decltype( f( std::get< 0 >( registers_ ) ) );
@@ -172,11 +172,11 @@ public:
                 return res;
         }
 
-        template < typename UnaryFunction >
+        template < typename UnaryCallable >
         requires(
             protocol_register_map_void_returning<
-                UnaryFunction,
-                registers_tuple > ) constexpr void with_register( key_type key, UnaryFunction&& f )
+                UnaryCallable,
+                registers_tuple > ) constexpr void with_register( key_type key, UnaryCallable&& f )
             const
         {
                 until_index< registers_count >( [&]< std::size_t j >() {
@@ -190,8 +190,8 @@ public:
         }
 };
 
-template < typename Map, typename UnaryFunction >
-inline void protocol_for_each_register( const Map& m, UnaryFunction&& f )
+template < typename Map, typename UnaryCallable >
+inline void protocol_for_each_register( const Map& m, UnaryCallable&& f )
 {
         for_each_index< Map::registers_count >( [&]< std::size_t i >() {
                 static constexpr auto key = Map::register_key( bounded_constant< i > );

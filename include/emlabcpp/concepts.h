@@ -96,8 +96,8 @@ concept static_sized = requires( T a )
                 } -> std::convertible_to< std::size_t >;
 };
 
-template < typename UnaryFunction, typename Container >
-concept container_invocable = requires( Container cont, UnaryFunction f )
+template < typename UnaryCallable, typename Container >
+concept container_invocable = requires( Container cont, UnaryCallable f )
 {
         f( *cont.begin() );
 }
@@ -105,7 +105,7 @@ concept container_invocable = requires( Container cont, UnaryFunction f )
 {
         std::tuple_size< std::decay_t< Container > >::value == 0;
 }
-|| requires( Container cont, UnaryFunction f )
+|| requires( Container cont, UnaryCallable f )
 {
         /// this has to come after the size check, as gcc 10.2 will faill to compile the code using
         /// this concept otherwise. If container is std::tuple<> and this check comes before the
@@ -113,8 +113,8 @@ concept container_invocable = requires( Container cont, UnaryFunction f )
         f( std::get< 0 >( cont ) );
 };
 
-template < typename UnaryFunction, typename ReturnValue, typename... Args >
-concept invocable_returning = requires( UnaryFunction f, Args... args )
+template < typename UnaryCallable, typename ReturnValue, typename... Args >
+concept invocable_returning = requires( UnaryCallable f, Args... args )
 {
         {
                 f( args... )

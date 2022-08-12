@@ -27,13 +27,25 @@
 namespace emlabcpp
 {
 
-template < typename Function >
+/// Defer is an object that receives and stores callable, which is called on it's destruction. The
+/// mechanism should be used to setup callbacks executed on end of scope.
+///
+/// For example:
+///
+/// void foo(){
+///     defer d = []{
+///             std::cout << "tree" << std::endl;
+///     };
+/// }
+///
+/// Prints "tree" once foo() finishes it's execution
+template < typename Callable >
 class defer
 {
-        Function fun_;
+        Callable fun_;
 
 public:
-        defer( Function f )
+        defer( Callable f )
           : fun_( std::move( f ) )
         {
         }

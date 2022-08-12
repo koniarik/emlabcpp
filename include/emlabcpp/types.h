@@ -40,25 +40,25 @@ constexpr bool has_static_size_v = static_sized< T >;
 /// mapped<T,F>::type is type returned by instance of F::operator() when applied on items from
 /// instance of T. It can differentiate between tuples or containers
 
-template < typename Container, typename UnaryFunction >
+template < typename Container, typename UnaryCallable >
 struct mapped;
 
-template < gettable_container Container, typename UnaryFunction >
-requires( !range_container< Container > ) struct mapped< Container, UnaryFunction >
+template < gettable_container Container, typename UnaryCallable >
+requires( !range_container< Container > ) struct mapped< Container, UnaryCallable >
 {
-        using type = decltype( std::declval< UnaryFunction >()(
+        using type = decltype( std::declval< UnaryCallable >()(
             std::get< 0 >( std::declval< Container >() ) ) );
 };
 
-template < range_container Container, typename UnaryFunction >
-struct mapped< Container, UnaryFunction >
+template < range_container Container, typename UnaryCallable >
+struct mapped< Container, UnaryCallable >
 {
-        using type = decltype( std::declval< UnaryFunction >()(
+        using type = decltype( std::declval< UnaryCallable >()(
             *std::begin( std::declval< Container >() ) ) );
 };
 
-template < typename Container, typename UnaryFunction >
-using mapped_t = typename mapped< Container, UnaryFunction >::type;
+template < typename Container, typename UnaryCallable >
+using mapped_t = typename mapped< Container, UnaryCallable >::type;
 
 /// ------------------------------------------------------------------------------------------------
 //// tag<V> type can be used for tagging f-calls for function overloading

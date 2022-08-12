@@ -144,12 +144,19 @@ namespace detail
         }
 }  // namespace detail
 
+/// Concept satisfies any type `T` that inherits from any form of `quantity<U>`.
 template < typename T >
 concept quantity_derived = requires( T val )
 {
         detail::quantity_derived_test( val );
 };
 
+/// Class represents a quantity that uses `tags` to distinguish quantities instead of inheritance.
+///
+/// Usefull because it is simpler to write template alias such as this:
+/// `using apple_count = tagget_quantity< struct apple_count_tag, uint32_t >;`
+///
+/// Writing full class would take more effort, but class has the benefit of better error messages.
 template < typename Tag, typename ValueType = float >
 class tagged_quantity : public quantity< tagged_quantity< Tag, ValueType >, ValueType >
 {
@@ -181,12 +188,14 @@ constexpr Derived operator-( const quantity< Derived, ValueType > val )
         return Derived{ -*val };
 }
 
+/// Provides abillity to compare quantity with non-quantity arithmetic value.
 template < typename Derived, typename ValueType, arithmetic_like RhValueType >
 constexpr bool operator<( const quantity< Derived, ValueType > lhs, const RhValueType rhs )
 {
         return *lhs < rhs;
 }
 
+/// Provides abillity to compare quantity with non-quantity arithmetic value.
 template < typename Derived, typename ValueType, arithmetic_like LhValueType >
 constexpr bool operator<( const LhValueType lhs, const quantity< Derived, ValueType > rhs )
 {

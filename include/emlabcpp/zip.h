@@ -143,9 +143,8 @@ operator!=( const zip_iterator< Iterators... >& lh, const zip_iterator< Iterator
 
 /// Creates a view of zip iterators for specified containers.
 ///
-/// Beware that the function does not check that containers have same size of
-/// ranges. If the size differs, increments of begin iterator will never be same
-/// as end iterator.
+/// Beware that the function does not check that containers have same size of ranges. If the size
+/// differs, increments of begin iterator will never equal to the end iterator.
 //
 template < range_container... Ts >
 inline auto zip( Ts&&... cont )
@@ -173,15 +172,11 @@ inline auto tuple_zip_impl(
         return std::make_tuple( f( std::integral_constant< std::size_t, ItemIndexes >{} )... );
 }
 
-/// Zips a set of tuples of same size into a new tuple.
+/// Zips a set of gettable containers of same size into a tuples.
 ///
 /// zip(tuple<A,B>(), tuple<C,D>()) -> tuple<tuple<A,C>, <tuple<B,d>>;
 ///
-template <
-    typename Tuple,
-    typename... Tuples,
-    std::enable_if_t< is_std_tuple_v< Tuple > >*                                         = nullptr,
-    std::enable_if_t< std::conjunction_v< is_std_tuple< std::decay_t< Tuples > >... > >* = nullptr >
+template < gettable_container Tuple, gettable_container... Tuples >
 inline auto zip( Tuple&& frst, Tuples&&... tpls )
 {
         static_assert(

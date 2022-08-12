@@ -9,8 +9,9 @@
 namespace emlabcpp
 {
 
+/// Returns a string-like name of the enum value `val`
 template < typename Enum >
-auto convert_enum( Enum val )
+requires( std::is_enum_v< Enum > ) auto convert_enum( Enum val )
 {
 #ifdef EMLABCPP_USE_MAGIC_ENUM
         return magic_enum::enum_name( val );

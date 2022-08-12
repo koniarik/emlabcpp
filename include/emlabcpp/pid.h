@@ -27,6 +27,9 @@
 namespace emlabcpp
 {
 
+/// Implementation of PID regulator, the object should be constructed and populated with
+/// pid<T>::conf structure with configuration values (p,i,d coeficients, min/max output vals). The
+/// object contains all relevantstate data and should be called regularly.
 template < typename TimeType >
 class pid
 {

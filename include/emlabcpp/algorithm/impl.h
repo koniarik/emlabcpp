@@ -29,9 +29,9 @@
 namespace emlabcpp::impl
 {
 
-template < typename... Args, typename UnaryFunction, std::size_t... Idx >
+template < typename... Args, typename UnaryPredicate, std::size_t... Idx >
 [[nodiscard]] constexpr std::size_t
-find_if_impl( const std::tuple< Args... >& t, UnaryFunction&& f, std::index_sequence< Idx... > )
+find_if_impl( const std::tuple< Args... >& t, UnaryPredicate&& f, std::index_sequence< Idx... > )
 {
         std::size_t res = sizeof...( Args );
         auto        ff  = [&]( const auto& item, std::size_t i ) {
@@ -51,10 +51,10 @@ template <
     typename T,
     std::size_t     N,
     range_container Container,
-    typename UnaryFunction,
+    typename UnaryCallable,
     std::size_t... Is >
 [[nodiscard]] inline std::array< T, N >
-map_f_to_a_impl( Container&& cont, UnaryFunction&& f, std::integer_sequence< std::size_t, Is... > )
+map_f_to_a_impl( Container&& cont, UnaryCallable&& f, std::integer_sequence< std::size_t, Is... > )
 {
 
         auto iter    = cont.begin();
@@ -76,11 +76,11 @@ template <
     typename T,
     std::size_t        N,
     gettable_container Container,
-    typename UnaryFunction,
+    typename UnaryCallable,
     std::size_t... Is >
 requires( !range_container< Container > ) [[nodiscard]] inline std::array< T, N > map_f_to_a_impl(
     Container&&     cont,
-    UnaryFunction&& f,
+    UnaryCallable&& f,
     std::integer_sequence< std::size_t, Is... > )
 {
         auto process = [&]< std::size_t i >() {

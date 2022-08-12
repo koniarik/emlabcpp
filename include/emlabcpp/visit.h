@@ -30,6 +30,37 @@ namespace emlabcpp
 namespace detail
 {
         template < std::size_t N, typename Variant >
+        decltype( auto ) linear_visit_impl( Variant&& var, auto& cb );
+}  // namespace detail
+
+/// Reimplementation of `std::visit`. This one trades worse complexity (linear) in favor of less
+/// assembly generated.
+template < typename Visitor, typename Variant >
+decltype( auto ) visit( Visitor&& vis, Variant&& var )
+{
+        return detail::linear_visit_impl< std::variant_size_v< std::decay_t< Variant > > - 1 >(
+            std::forward< Variant >( var ), vis );
+}
+
+/// Combines `visit` and `std::apply` into one step - provided variant is expanded with `visit` and
+/// `apply` is called on the present alternative, items from `apply` are passed to calle to visitor
+/// `vis`.
+template < typename Visitor, typename Variant >
+decltype( auto ) apply_on_visit( Visitor&& vis, Variant&& var )
+{
+        return emlabcpp::visit(
+            [&]< typename Item >( Item&& item ) -> decltype( auto ) {
+                    return std::apply(
+                        [&]< typename... Vals >( Vals&&... vals ) -> decltype( auto ) {
+                                return vis( std::forward< Vals >( vals )... );
+                        },
+                        std::forward< Item >( item ) );
+            },
+            std::forward< Variant >( var ) );
+}
+namespace detail
+{
+        template < std::size_t N, typename Variant >
         decltype( auto ) linear_visit_impl( Variant&& var, auto& cb )
         {
                 if constexpr ( N == 0 ) {
@@ -44,26 +75,5 @@ namespace detail
                 }
         }
 }  // namespace detail
-
-template < typename Visitor, typename Variant >
-decltype( auto ) visit( Visitor&& vis, Variant&& var )
-{
-        return detail::linear_visit_impl< std::variant_size_v< std::decay_t< Variant > > - 1 >(
-            std::forward< Variant >( var ), vis );
-}
-
-template < typename Visitor, typename Variant >
-decltype( auto ) apply_on_visit( Visitor&& vis, Variant&& var )
-{
-        return emlabcpp::visit(
-            [&]< typename Item >( Item&& item ) -> decltype( auto ) {
-                    return std::apply(
-                        [&]< typename... Vals >( Vals&&... vals ) -> decltype( auto ) {
-                                return vis( std::forward< Vals >( vals )... );
-                        },
-                        std::forward< Item >( item ) );
-            },
-            std::forward< Variant >( var ) );
-}
 
 }  // namespace emlabcpp
