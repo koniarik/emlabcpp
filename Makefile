@@ -30,7 +30,7 @@ coverage: build_coverage
 
 
 clang-tidy:
-	cmake -Bctidy_build -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy -DEMLABCPP_TESTS_ENABLED=ON
+	cmake -Bctidy_build -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy 
 	make -Cctidy_build -j
 
 clang-format:
