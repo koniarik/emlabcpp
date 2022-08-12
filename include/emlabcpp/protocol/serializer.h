@@ -74,15 +74,15 @@ struct protocol_serializer< float, Endianess >
 
         static constexpr void serialize_at( std::span< uint8_t, max_size > buffer, float item )
         {
-                uint32_t v;
+                uint32_t v = 0;
                 std::memcpy( &v, &item, sizeof( float ) );
                 sub_serializer::serialize_at( buffer, v );
         }
 
         static constexpr float deserialize( const view_type& buffer )
         {
-                uint32_t v = sub_serializer::deserialize( buffer );
-                float    res;
+                uint32_t v   = sub_serializer::deserialize( buffer );
+                float    res = 0;
                 std::memcpy( &res, &v, sizeof( float ) );
                 return res;
         }
