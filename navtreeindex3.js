@@ -147,7 +147,8 @@ var NAVTREEINDEX3 =
 "iterator_8h.html":[4,0,0,0,13],
 "iterator_8h_source.html":[4,0,0,0,13],
 "logging_8h.html":[4,0,0,0,2,4],
-"logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d":[4,0,0,0,2,4,0],
+"logging_8h.html#a2e472a2310df100a970b108b685428f5":[4,0,0,0,2,4,0],
+"logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d":[4,0,0,0,2,4,1],
 "logging_8h_source.html":[4,0,0,0,2,4],
 "match_8h.html":[4,0,0,0,14],
 "match_8h.html#a57181a407fd6f29a50664f8ba4cb44cd":[4,0,0,0,14,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "namespaceemlabcpp.html#a3af23c0681903c11c3eebbf8043eaf2c":[2,0,0,150],
 "namespaceemlabcpp.html#a3d2cc6723ddd36a82e4ed013601e7725":[2,0,0,311],
 "namespaceemlabcpp.html#a3dcd56ce6fdffb4ebcf8a4c079335d8e":[2,0,0,289],
-"namespaceemlabcpp.html#a3e63d288d959cd3f240411608b0966de":[2,0,0,200],
-"namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885":[2,0,0,319]
+"namespaceemlabcpp.html#a3e63d288d959cd3f240411608b0966de":[2,0,0,200]
 };

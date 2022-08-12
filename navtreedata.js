@@ -90,10 +90,10 @@ var NAVTREEINDEX =
 "classemlabcpp_1_1either.html#abb8d56a5914674fbe4f2b1bfb635bae7",
 "classemlabcpp_1_1static__vector.html#a39ce12a1299db38ce04c60d817597cf4",
 "experimental_2testing_2protocol_8h.html#a39c432c01b63c755cc8dd093c6c770d4a6922eaa8737dea23f704750296c38ab2",
-"namespaceemlabcpp.html#a42d44176ade07900af35d92980bea96d",
-"namespacemembers_vars.html",
-"structemlabcpp_1_1protocol__decl_3_01protocol__offset_3_01D_00_01Offset_01_4_01_4.html#aaebec55a19db760cccbaa83ebf7418fa",
-"structemlabcpp_1_1protocol__reg.html#ab3c50424314973e154a07bf4a82e902c"
+"namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885",
+"namespacemembers_v.html",
+"structemlabcpp_1_1protocol__decl_3_01protocol__offset_3_01D_00_01Offset_01_4_01_4.html#a3137f04ca99ce5044d381cb5ac9c732e",
+"structemlabcpp_1_1protocol__reg.html#a902c4713ea15c182d9c0a74d7347d41c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
