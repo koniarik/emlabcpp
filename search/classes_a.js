@@ -4,7 +4,7 @@ var searchData=
   ['pid_804',['pid',['../classemlabcpp_1_1pid.html',1,'emlabcpp']]],
   ['pool_5fallocator_805',['pool_allocator',['../classemlabcpp_1_1pool__allocator.html',1,'emlabcpp']]],
   ['pool_5fbase_806',['pool_base',['../structemlabcpp_1_1pool__base.html',1,'emlabcpp']]],
-  ['pool_5fbase_3c_2048_2c_2032_20_3e_807',['pool_base&lt; 48, 32 &gt;',['../structemlabcpp_1_1pool__base.html',1,'emlabcpp']]],
+  ['pool_5fbase_3c_20128_2c_2032_20_3e_807',['pool_base&lt; 128, 32 &gt;',['../structemlabcpp_1_1pool__base.html',1,'emlabcpp']]],
   ['pool_5fdeleter_808',['pool_deleter',['../structemlabcpp_1_1pool__deleter.html',1,'emlabcpp']]],
   ['pool_5finterface_809',['pool_interface',['../structemlabcpp_1_1pool__interface.html',1,'emlabcpp']]],
   ['pool_5fresource_810',['pool_resource',['../classemlabcpp_1_1pool__resource.html',1,'emlabcpp']]],
