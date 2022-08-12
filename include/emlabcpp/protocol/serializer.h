@@ -20,7 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
-#include "emlabcpp/bounded_view.h"
+#include "emlabcpp/experimental/bounded_view.h"
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/protocol/base.h"
 
