@@ -406,7 +406,7 @@ template <
     impl::map_f_collectable          ResultContainer,
     container                        Container,
     container_invocable< Container > UnaryCallable = std::identity >
-[[nodiscard]] inline ResultContainer map_f( Container&& cont, UnaryCallable&& f = std::identity() )
+[[nodiscard]] ResultContainer map_f( Container&& cont, UnaryCallable&& f = std::identity() )
 {
         ResultContainer                          res{};
         impl::map_f_collector< ResultContainer > collector;
@@ -424,7 +424,7 @@ template <
     range_container                  Container,
     container_invocable< Container > UnaryCallable = std::identity,
     typename T = std::decay_t< mapped_t< Container, UnaryCallable > > >
-[[nodiscard]] inline std::array< T, N > map_f_to_a(
+[[nodiscard]] std::array< T, N > map_f_to_a(
     Container&&     cont,
     UnaryCallable&& f = std::identity() ) requires( !static_sized< Container > )
 {
@@ -441,7 +441,7 @@ template <
     std::size_t                      N = std::tuple_size< std::decay_t< Container > >::value,
     container_invocable< Container > UnaryCallable = std::identity,
     typename T = std::decay_t< mapped_t< Container, UnaryCallable > > >
-[[nodiscard]] inline std::array< T, N > map_f_to_a(
+[[nodiscard]] std::array< T, N > map_f_to_a(
     Container&&     cont,
     UnaryCallable&& f = std::identity() ) requires static_sized< Container >
 {

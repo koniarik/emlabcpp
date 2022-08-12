@@ -16,6 +16,8 @@ add_library(
   src/experimental/testing/reactor.cpp src/experimental/testing/record.cpp
   src/experimental/testing/reactor_interface_adapter.cpp
   src/experimental/testing/protocol.cpp
+  src/experimental/logging.cpp
+  src/experimental/testing/json.cpp
   src/experimental/testing/controller.cpp)
 target_include_directories(emlabcpp PUBLIC include/)
 target_include_directories(emlabcpp PRIVATE src/)

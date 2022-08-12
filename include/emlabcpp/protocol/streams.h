@@ -34,7 +34,7 @@ namespace emlabcpp
 {
 
 template < ostreamlike Stream, std::size_t N >
-inline auto& operator<<( Stream& os, const protocol_message< N >& msg )
+auto& operator<<( Stream& os, const protocol_message< N >& msg )
 {
         std::ios_base::fmtflags f( os.flags() );
         char                    fill_ch = os.fill();
@@ -56,7 +56,7 @@ inline auto& operator<<( Stream& os, const protocol_message< N >& msg )
         return os;
 }
 
-inline auto& operator<<( ostreamlike auto& os, const protocol_mark& m )
+auto& operator<<( ostreamlike auto& os, const protocol_mark& m )
 {
         for ( char c : m ) {
                 os << c;
@@ -64,12 +64,12 @@ inline auto& operator<<( ostreamlike auto& os, const protocol_mark& m )
         return os;
 }
 
-inline auto& operator<<( ostreamlike auto& os, const protocol_error_record& rec )
+auto& operator<<( ostreamlike auto& os, const protocol_error_record& rec )
 {
         return os << rec.mark << "(" << rec.offset << ")";
 }
 
-inline auto& operator<<( ostreamlike auto& os, const protocol_endianess_enum& val )
+auto& operator<<( ostreamlike auto& os, const protocol_endianess_enum& val )
 {
         switch ( val ) {
                 case PROTOCOL_BIG_ENDIAN:
@@ -81,7 +81,7 @@ inline auto& operator<<( ostreamlike auto& os, const protocol_endianess_enum& va
 }
 
 template < ostreamlike Stream, protocol_endianess_enum Endianess, typename... Regs >
-inline auto& operator<<( Stream& os, const protocol_register_map< Endianess, Regs... >& m )
+auto& operator<<( Stream& os, const protocol_register_map< Endianess, Regs... >& m )
 {
         using map = protocol_register_map< Endianess, Regs... >;
 

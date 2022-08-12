@@ -196,7 +196,7 @@ constexpr auto reversed( referenceable_container auto&& container )
 
 /// Output operator for the view, uses comma to separate the items in the view.
 template < ostreamlike Stream, typename Iterator >
-inline auto& operator<<( Stream& os, const view< Iterator >& output )
+auto& operator<<( Stream& os, const view< Iterator >& output )
 {
         using value_type = typename std::iterator_traits< Iterator >::value_type;
         bool first       = true;

@@ -147,19 +147,19 @@ operator!=( const zip_iterator< Iterators... >& lh, const zip_iterator< Iterator
 /// differs, increments of begin iterator will never equal to the end iterator.
 //
 template < range_container... Ts >
-inline auto zip( Ts&&... cont )
+auto zip( Ts&&... cont )
 {
         return view( zip_iterator( std::begin( cont )... ), zip_iterator( std::end( cont )... ) );
 }
 
 template < typename Container >
-inline auto enumerate( Container&& cont )
+auto enumerate( Container&& cont )
 {
         return zip( range( cont.size() ), cont );
 }
 
 template < typename TuplesTuple, std::size_t... ItemIndexes, std::size_t... TupleIndexes >
-inline auto tuple_zip_impl(
+auto tuple_zip_impl(
     TuplesTuple&& tpls,
     std::index_sequence< ItemIndexes... >,
     std::index_sequence< TupleIndexes... > )
@@ -177,7 +177,7 @@ inline auto tuple_zip_impl(
 /// zip(tuple<A,B>(), tuple<C,D>()) -> tuple<tuple<A,C>, <tuple<B,d>>;
 ///
 template < gettable_container Tuple, gettable_container... Tuples >
-inline auto zip( Tuple&& frst, Tuples&&... tpls )
+auto zip( Tuple&& frst, Tuples&&... tpls )
 {
         static_assert(
             ( (static_size_v< Tuple > == static_size_v< Tuples >) &&... ),

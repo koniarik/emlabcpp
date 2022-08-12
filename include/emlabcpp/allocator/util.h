@@ -30,7 +30,7 @@ namespace emlabcpp
 {
 
 /// TODO: this needs tests
-inline void* align( void* ptr, std::size_t alignment )
+constexpr void* align( void* ptr, std::size_t alignment )
 {
         // note: based on tips from sarah@#include discord
         const auto iptr         = reinterpret_cast< std::uintptr_t >( ptr );

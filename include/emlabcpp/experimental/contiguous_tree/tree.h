@@ -92,7 +92,7 @@ private:
 };
 
 template < ostreamlike Stream, typename ObjectType >
-inline auto& operator<<( Stream& os, const contiguous_object_handle< ObjectType >& oh )
+auto& operator<<( Stream& os, const contiguous_object_handle< ObjectType >& oh )
 {
         for ( const auto& [key, nid] : oh ) {
                 os << key << ":" << nid << ",";
@@ -157,7 +157,7 @@ private:
         array_type* arr_;
 };
 template < ostreamlike Stream, typename ArrayType >
-inline auto& operator<<( Stream& os, const contiguous_array_handle< ArrayType >& ah )
+auto& operator<<( Stream& os, const contiguous_array_handle< ArrayType >& ah )
 {
         for ( const auto& [chid, nid] : ah ) {
                 os << chid << ":" << nid << ",";
@@ -243,7 +243,7 @@ private:
 };
 
 template < ostreamlike Stream, typename Key, typename Value >
-inline auto& operator<<( Stream& os, const contiguous_node< Key, Value >& node )
+auto& operator<<( Stream& os, const contiguous_node< Key, Value >& node )
 {
         visit(
             [&]( const auto& val ) {
@@ -382,7 +382,7 @@ private:
 };
 
 template < ostreamlike Stream, typename Key, typename Value >
-inline auto& operator<<( Stream& os, const contiguous_tree< Key, Value >& tree )
+auto& operator<<( Stream& os, const contiguous_tree< Key, Value >& tree )
 {
         for ( const auto& [nid, node] : tree ) {
                 os << nid << ":" << node << "\n";

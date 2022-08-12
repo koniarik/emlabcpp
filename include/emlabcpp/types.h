@@ -73,7 +73,7 @@ struct tag
 };
 
 template < ostreamlike Stream, auto ID >
-inline auto& operator<<( Stream& os, tag< ID > )
+auto& operator<<( Stream& os, tag< ID > )
 {
         return os << ID;
 }
@@ -82,7 +82,7 @@ inline auto& operator<<( Stream& os, tag< ID > )
 //// central function for returning name of type that can demangle if necessary
 
 template < typename T >
-inline std::string pretty_type_name()
+std::string pretty_type_name()
 {
         std::string res;
 #ifdef EMLABCPP_USE_DEMANGLING

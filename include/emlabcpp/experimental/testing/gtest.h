@@ -32,8 +32,11 @@ namespace emlabcpp
 {
 
 template < ostreamlike T >
-inline T&
-testing_recursive_print_node( T& os, const testing_tree& t, testing_node_id nid, std::size_t depth )
+T& testing_recursive_print_node(
+    T&                  os,
+    const testing_tree& t,
+    testing_node_id     nid,
+    std::size_t         depth )
 {
 
         std::string spacing( depth, ' ' );

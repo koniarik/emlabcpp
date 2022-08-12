@@ -23,6 +23,7 @@
 #include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/experimental/testing/controller.h"
 #include "emlabcpp/experimental/testing/gtest.h"
+#include "emlabcpp/experimental/testing/json.h"
 #include "emlabcpp/experimental/testing/reactor.h"
 #include "emlabcpp/protocol/streams.h"
 #include "util.h"

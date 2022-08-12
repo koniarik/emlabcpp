@@ -268,15 +268,13 @@ private:
 };
 
 template < typename T, std::size_t N >
-[[nodiscard]] inline auto
-operator<=>( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
+[[nodiscard]] auto operator<=>( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
 {
         return std::lexicographical_compare_three_way( lh.begin(), lh.end(), rh.begin(), rh.end() );
 }
 
 template < typename T, std::size_t N >
-[[nodiscard]] inline bool
-operator==( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
+[[nodiscard]] bool operator==( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
 {
         auto size = lh.size();
         if ( size != rh.size() ) {
@@ -292,27 +290,26 @@ operator==( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
 }
 
 template < typename T, std::size_t N >
-[[nodiscard]] inline bool
-operator!=( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
+[[nodiscard]] bool operator!=( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
 {
         return !( lh == rh );
 }
 
 template < typename T, std::size_t N >
-inline void swap( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
+void swap( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
 {
         lh.swap( rh );
 }
 
 /// Output operator for the view, uses comma to separate the items in the view.
 template < ostreamlike Stream, typename T, std::size_t N >
-inline auto& operator<<( Stream& os, const static_vector< T, N >& vec )
+auto& operator<<( Stream& os, const static_vector< T, N >& vec )
 {
         return os << view{ vec };
 }
 
 template < typename T, std::size_t N >
-inline pretty_printer& operator<<( pretty_printer& os, const static_vector< T, N >& vec )
+pretty_printer& operator<<( pretty_printer& os, const static_vector< T, N >& vec )
 {
         if constexpr ( std::same_as< T, char > ) {
                 for ( char c : vec ) {

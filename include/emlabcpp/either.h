@@ -395,8 +395,7 @@ struct empty_assembly_tag
 /// Function gets a set of various std::optionals and either returns all their values assembled as
 /// tuple or 'empty_assembly_tag' implicating that some of the optionals was empty.
 template < typename... Ts >
-inline either< std::tuple< Ts... >, empty_assembly_tag >
-assemble_optionals( std::optional< Ts >&&... opt )
+either< std::tuple< Ts... >, empty_assembly_tag > assemble_optionals( std::optional< Ts >&&... opt )
 {
         if ( ( ... && opt ) ) {
                 return std::make_tuple< Ts... >( std::forward< Ts >( *opt )... );
@@ -414,7 +413,7 @@ assemble_optionals( std::optional< Ts >&&... opt )
 /// left, / and their errors on the right. It either returns all values or the errors that happend.
 
 template < typename FirstE, typename... Eithers >
-inline auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) requires(
+auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) requires(
     std::same_as<
         typename std::decay_t< FirstE >::right_item,
         typename std::decay_t< Eithers >::right_item >&&... )

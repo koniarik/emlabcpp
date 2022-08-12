@@ -53,7 +53,7 @@ template <
     range_container Container,
     typename UnaryCallable,
     std::size_t... Is >
-[[nodiscard]] inline std::array< T, N >
+[[nodiscard]] std::array< T, N >
 map_f_to_a_impl( Container&& cont, UnaryCallable&& f, std::integer_sequence< std::size_t, Is... > )
 {
 
@@ -78,7 +78,7 @@ template <
     gettable_container Container,
     typename UnaryCallable,
     std::size_t... Is >
-requires( !range_container< Container > ) [[nodiscard]] inline std::array< T, N > map_f_to_a_impl(
+requires( !range_container< Container > ) [[nodiscard]] std::array< T, N > map_f_to_a_impl(
     Container&&     cont,
     UnaryCallable&& f,
     std::integer_sequence< std::size_t, Is... > )

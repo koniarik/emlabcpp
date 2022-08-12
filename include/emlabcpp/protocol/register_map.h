@@ -191,7 +191,7 @@ public:
 };
 
 template < typename Map, typename UnaryCallable >
-inline void protocol_for_each_register( const Map& m, UnaryCallable&& f )
+void protocol_for_each_register( const Map& m, UnaryCallable&& f )
 {
         for_each_index< Map::registers_count >( [&]< std::size_t i >() {
                 static constexpr auto key = Map::register_key( bounded_constant< i > );

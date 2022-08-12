@@ -33,9 +33,11 @@ namespace emlabcpp
 /// unique in that namespace, part of the error is also index of byte that caused the problem. These
 /// can be easily sent with the protocol lib itself.
 
-struct protocol_mark : std::array< char, 16 >
+static constexpr std::size_t protocol_mark_size = 16;
+
+struct protocol_mark : std::array< char, protocol_mark_size >
 {
-        using base_type = std::array< char, 16 >;
+        using base_type = std::array< char, protocol_mark_size >;
 };
 
 struct protocol_error_record
@@ -46,7 +48,7 @@ struct protocol_error_record
 
 /// Creates protocol_mark from simple string literal.
 /// NOLINTNEXTLINE(modernize-avoid-c-arrays)
-inline constexpr protocol_mark make_protocol_mark( const char ( &msg )[17] )
+constexpr protocol_mark make_protocol_mark( const char ( &msg )[protocol_mark_size + 1] )
 {
         /// note: do not try to fix the argument type, this is correct approach.
         protocol_mark res;

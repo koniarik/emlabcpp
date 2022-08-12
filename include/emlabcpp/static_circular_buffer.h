@@ -312,14 +312,14 @@ private:
 };
 
 template < typename T, std::size_t N >
-[[nodiscard]] inline auto
+[[nodiscard]] auto
 operator<=>( const static_circular_buffer< T, N >& lh, const static_circular_buffer< T, N >& rh )
 {
         return std::lexicographical_compare_three_way( lh.begin(), lh.end(), rh.begin(), rh.end() );
 }
 
 template < typename T, std::size_t N >
-[[nodiscard]] inline bool
+[[nodiscard]] bool
 operator==( const static_circular_buffer< T, N >& lh, const static_circular_buffer< T, N >& rh )
 {
         auto size = lh.size();
@@ -336,7 +336,7 @@ operator==( const static_circular_buffer< T, N >& lh, const static_circular_buff
 }
 
 template < typename T, std::size_t N >
-[[nodiscard]] inline bool
+[[nodiscard]] bool
 operator!=( const static_circular_buffer< T, N >& lh, const static_circular_buffer< T, N >& rh )
 {
         return !( lh == rh );
@@ -344,7 +344,7 @@ operator!=( const static_circular_buffer< T, N >& lh, const static_circular_buff
 
 /// Output operator for the view, uses comma to separate the items in the view.
 template < ostreamlike Stream, typename T, std::size_t N >
-inline auto& operator<<( Stream& os, const static_circular_buffer< T, N >& cb )
+auto& operator<<( Stream& os, const static_circular_buffer< T, N >& cb )
 {
         return os << view{ cb };
 }

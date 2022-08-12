@@ -58,17 +58,17 @@ using testing_error_variant = std::variant<
     testing_internal_reactor_error,
     testing_controller_message_error >;
 
-inline auto& operator<<( ostreamlike auto& os, const testing_reactor_protocol_error& e )
+auto& operator<<( ostreamlike auto& os, const testing_reactor_protocol_error& e )
 {
         return os << e.rec;
 }
 
-inline auto& operator<<( ostreamlike auto& os, const testing_controller_protocol_error& e )
+auto& operator<<( ostreamlike auto& os, const testing_controller_protocol_error& e )
 {
         return os << e.rec;
 }
 
-inline auto& operator<<( ostreamlike auto& os, const testing_internal_reactor_error& e )
+auto& operator<<( ostreamlike auto& os, const testing_internal_reactor_error& e )
 {
         apply_on_match(
             e.val, [&]< auto ID >( tag< ID >, auto... args ) {
@@ -78,12 +78,12 @@ inline auto& operator<<( ostreamlike auto& os, const testing_internal_reactor_er
         return os;
 }
 
-inline auto& operator<<( ostreamlike auto& os, const testing_controller_message_error& e )
+auto& operator<<( ostreamlike auto& os, const testing_controller_message_error& e )
 {
         return os << convert_enum( e.msg_id );
 }
 
-inline auto& operator<<( ostreamlike auto& os, const testing_error_variant& var )
+auto& operator<<( ostreamlike auto& os, const testing_error_variant& var )
 {
         emlabcpp::visit(
             [&]( const auto& item ) {

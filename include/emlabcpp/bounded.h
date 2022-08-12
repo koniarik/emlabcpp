@@ -167,7 +167,7 @@ concept bounded_derived = requires( T val )
 };
 
 template < ostreamlike Stream, typename T, T MinVal, T MaxVal >
-inline auto& operator<<( Stream& os, const bounded< T, MinVal, MaxVal >& b )
+auto& operator<<( Stream& os, const bounded< T, MinVal, MaxVal >& b )
 {
         return os << *b;
 }
