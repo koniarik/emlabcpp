@@ -1,6 +1,6 @@
 
 # conditionally enables sanitizers
-CXX_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) )  -O0 -fno-inline -g  -DEMLABCPP_LOGGING_ENABLED=ON
+CXX_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) )  -O0 -fno-inline -g -fconcepts-diagnostics-depth=6
 LINKER_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) ) -O0 -fno-inline -g
 
 EXTRAARGS=-DCMAKE_CXX_FLAGS="$(CXX_FLAGS)" -DCMAKE_EXE_LINKER_FLAGS="$(LINKER_FLAGS)" -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DEMLABCPP_TESTS_ENABLED=ON
@@ -30,7 +30,7 @@ coverage: build_coverage
 
 
 clang-tidy:
-	cmake -Bctidy_build -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy -DCMAKE_CXX_FLAGS="-DEMLABCPP_LOGGING_ENABLED=ON" -DEMLABCPP_TESTS_ENABLED=ON
+	cmake -Bctidy_build -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy -DEMLABCPP_TESTS_ENABLED=ON
 	make -Cctidy_build -j
 
 clang-format:
