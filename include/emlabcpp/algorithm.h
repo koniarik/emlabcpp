@@ -150,7 +150,11 @@ template < container Container, typename T >
 template < container Container, typename T >
 [[nodiscard]] constexpr auto contains( Container&& cont, const T& item )
 {
-        return find( cont, item ) != cont.end();
+        if constexpr ( range_container< Container > ) {
+                return find( cont, item ) != cont.end();
+        } else {
+                return find( cont, item ) != cont_size( cont );
+        };
 }
 
 /// Applies unary function 'f' to each element of container 'cont'
