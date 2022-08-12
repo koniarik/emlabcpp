@@ -245,7 +245,7 @@ var namespaceemlabcpp =
     [ "abs", "namespaceemlabcpp.html#ad94cfee3e6e80c1e90bc767e6ace9f7e", null ],
     [ "access_view", "namespaceemlabcpp.html#aeed89855f25c3cc3885b6ff97926cf4c", null ],
     [ "accumulate", "namespaceemlabcpp.html#a234414158becfed39f1b4958c694a8d9", null ],
-    [ "align", "namespaceemlabcpp.html#a3e63d288d959cd3f240411608b0966de", null ],
+    [ "align", "namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966", null ],
     [ "all_of", "namespaceemlabcpp.html#aab724dd793953a308bea8dba2118aade", null ],
     [ "almost_equal", "namespaceemlabcpp.html#a4d436ac46a18d3b5aa2e2e8f253c656b", null ],
     [ "any_of", "namespaceemlabcpp.html#a2d80507cffdd192a333f6bd9c272e97a", null ],

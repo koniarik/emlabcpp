@@ -766,9 +766,9 @@ Functions</h2></td></tr>
 <tr class="separator:a8d77f50ca9dd31e43365e38debbd42fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a505109612442935cc682cf92a9d2296c"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a505109612442935cc682cf92a9d2296c">select_index</a> (IndexType i, Callable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>)</td></tr>
 <tr class="separator:a505109612442935cc682cf92a9d2296c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e63d288d959cd3f240411608b0966de"><td class="memItemLeft" align="right" valign="top">constexpr void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3e63d288d959cd3f240411608b0966de">align</a> (void *ptr, std::size_t alignment)</td></tr>
-<tr class="memdesc:a3e63d288d959cd3f240411608b0966de"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: this needs tests.  <a href="namespaceemlabcpp.html#a3e63d288d959cd3f240411608b0966de">More...</a><br /></td></tr>
-<tr class="separator:a3e63d288d959cd3f240411608b0966de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c4b8276158ed7d743c68c7395ed0966"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a> (void *ptr, std::size_t alignment)</td></tr>
+<tr class="memdesc:a3c4b8276158ed7d743c68c7395ed0966"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: this needs tests.  <a href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">More...</a><br /></td></tr>
+<tr class="separator:a3c4b8276158ed7d743c68c7395ed0966"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb7076d68b2c2f2c0114502a2c7b0ce5"><td class="memTemplParams" colspan="2">template&lt;typename T , T FromLh, T ToLh, T FromRh, T ToRh&gt; </td></tr>
 <tr class="memitem:aeb7076d68b2c2f2c0114502a2c7b0ce5"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromLh+FromRh, ToLh+ToRh &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aeb7076d68b2c2f2c0114502a2c7b0ce5">operator+</a> (const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromLh, ToLh &gt; &amp;lh, const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromRh, ToRh &gt; &amp;rh)</td></tr>
 <tr class="memdesc:aeb7076d68b2c2f2c0114502a2c7b0ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of two bounded types of same base type is bounded within appropiate ranges.  <a href="namespaceemlabcpp.html#aeb7076d68b2c2f2c0114502a2c7b0ce5">More...</a><br /></td></tr>
@@ -2751,8 +2751,8 @@ template&lt;container Container, typename T , typename BinaryCallable &gt; </div
 
 </div>
 </div>
-<a id="a3e63d288d959cd3f240411608b0966de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e63d288d959cd3f240411608b0966de">&#9670;&nbsp;</a></span>align()</h2>
+<a id="a3c4b8276158ed7d743c68c7395ed0966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c4b8276158ed7d743c68c7395ed0966">&#9670;&nbsp;</a></span>align()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2761,7 +2761,7 @@ template&lt;container Container, typename T , typename BinaryCallable &gt; </div
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr void* emlabcpp::align </td>
+          <td class="memname">void* emlabcpp::align </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ptr</em>, </td>
@@ -2780,7 +2780,7 @@ template&lt;container Container, typename T , typename BinaryCallable &gt; </div
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -5127,7 +5127,7 @@ template&lt;ostreamlike Stream, typename Key , typename Value &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1contiguous__node.html#a324542d551b3a9f71811927ff7bf485d">emlabcpp::contiguous_node&lt; Key, Value &gt;::get_container_handle()</a>, and <a class="el" href="namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c">visit()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1contiguous__node.html#ab2bdd4e3438bf46e4a178dc66dedd333">emlabcpp::contiguous_node&lt; Key, Value &gt;::get_container_handle()</a>, and <a class="el" href="namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c">visit()</a>.</p>
 
 </div>
 </div>
@@ -5188,8 +5188,6 @@ template&lt;ostreamlike Stream, typename Key , typename Value &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ac4b40baac2662db6424a475292ef03b3">range()</a>, and <a class="el" href="classemlabcpp_1_1contiguous__tree.html#add1ae49790009b6008fd50f250e0db99">emlabcpp::contiguous_tree&lt; Key, Value &gt;::size()</a>.</p>
 
 </div>
 </div>
@@ -7894,7 +7892,7 @@ template&lt;typename T , typename... Us&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 18:26:33 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 19:28:04 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
