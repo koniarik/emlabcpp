@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"structemlabcpp_1_1protocol__decl_3_01protocol__sized__buffer_3_01CounterType_00_01D_01_4_01_4.html#afb7a41df08c4f8dabe98065ace7be349":[3,0,0,69,2],
 "structemlabcpp_1_1protocol__decl_3_01protocol__sizeless__message_3_01N_01_4_01_4.html":[3,0,0,66],
 "structemlabcpp_1_1protocol__decl_3_01protocol__sizeless__message_3_01N_01_4_01_4.html#a31989e0f45633f8c9e5673abc99db6d3":[3,0,0,66,0],
 "structemlabcpp_1_1protocol__decl_3_01protocol__sizeless__message_3_01N_01_4_01_4.html#a5b464deb33c3da9bb5fc12d6aa6da0bf":[3,0,0,66,2],
@@ -48,8 +49,8 @@ var NAVTREEINDEX6 =
 "structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#a7bc5360446870a1e8cb0bef29cc14199":[3,0,0,78,9],
 "structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#a880dff7c1e5fe19221123d2ab4fb13bb":[3,0,0,78,4],
 "structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#a880dff7c1e5fe19221123d2ab4fb13bb":[3,0,0,78,5],
-"structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#aa281bbbc1fa4133f8e8a187adf5c146a":[3,0,0,78,7],
 "structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#aa281bbbc1fa4133f8e8a187adf5c146a":[3,0,0,78,8],
+"structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#aa281bbbc1fa4133f8e8a187adf5c146a":[3,0,0,78,7],
 "structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#aafe55b2d98f30ffd1419ea44fc0f218f":[3,0,0,78,6],
 "structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#ab0bdcd9918382cbc1d6aaca0927b964e":[3,0,0,78,10],
 "structemlabcpp_1_1protocol__def_3_01D_00_01Endianess_01_4.html#ab4c581cfd398b99e72f526f10bf0e981":[3,0,0,78,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "structemlabcpp_1_1protocol__register__handler.html#a0c820c6a1b01cbd1e40b1be6a104f631":[3,0,0,102,5],
 "structemlabcpp_1_1protocol__register__handler.html#a887d04e5fd27c342ec895e11933c8fbe":[3,0,0,102,2],
 "structemlabcpp_1_1protocol__register__handler.html#a9315707492fabb6717eebf138873ebc7":[3,0,0,102,3],
-"structemlabcpp_1_1protocol__register__handler.html#a9a0e52ccaa54e002290a0fa9c845e6f1":[3,0,0,102,4],
-"structemlabcpp_1_1protocol__register__handler.html#aa0553976a34ac75e233343c94fe1fad4":[3,0,0,102,6]
+"structemlabcpp_1_1protocol__register__handler.html#a9a0e52ccaa54e002290a0fa9c845e6f1":[3,0,0,102,4]
 };
