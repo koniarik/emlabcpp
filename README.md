@@ -11,16 +11,24 @@ More details in [Documentation](https://koniarik.github.io/emlabcpp/index.html)
 - [Installation](#Installation)
 - [Components](#Components)
     - [algorithm.h](#algorithmh)
-    - [either.h](#eitherh)
-    - [view.h](#viewh)
+    - [assert.h](#asserth)
     - [bounded.h](#boundedh)
-    - [protocol.h](#protocolh)
+    - [concepts.h](#conceptsh)
+    - [defer.h](#deferh)
+    - [either.h](#eitherh)
+    - [enum.h](#enumh)
     - [iterator.h](#iteratorh)
-    - [quantity.h](#quantityh)
+    - [match.h](#matchh)
+    - [physical_quantity.h](#physical_quantityh)
     - [pid.h](#pidh)
+    - [protocol.h](#protocolh)
+    - [quantity.h](#quantityh)
     - [static_circular_buffer.h](#static_circular_bufferh)
     - [static_vector.h](#static_vectorh)
     - [types.h](#typesh)
+    - [view.h](#viewh)
+    - [visit.h](#visith)
+    - [zip.h](#ziph)
 
 ## Installation
 Repository is at https://github.com/koniarik/emlabcpp 
@@ -68,6 +76,49 @@ auto iter = find_if(vec_data, [&]( int i ){
 
 See examples for an overview of algorithms.
 
+### assert.h
+
+Provides `EMLABCPP_ASSERT(c)` macro that has three states:
+ 1. Does nothing - node instructions are emitted.
+ 2. Calls `assert(c)` if `EMLABCPP_ASSERT_NATIVE` is defined.
+ 3. Calls `EMLABCPP_ASSERT_FUNC(c)` if `EMLABCPP_ASSERT_FUNC` is defined.
+
+By default, none of the macros are defined.
+
+### bounded.h
+
+Provides `bounded<T,Min,Max>` class that envelops type `T` and provides interface that enforces `T` to remain within bounds `Min` and `Max`. Can be used to relay value constrains in type information.
+
+For example:
+
+```cpp
+void T::set_power(bounded<float, -1.f, 1.f>)
+```
+
+### concepts.h
+
+A set of C concepts designed for implementing a checks inside the library.
+
+For example `ostreamlike` can be implement to write more generic ostream operators:
+
+```cpp
+auto& operator<<(emlabcpp::ostreamlike auto & os, const static_vector<T,N>&vec);
+```
+
+### defer.h
+
+Simple utility class to setup code segments executed after the end of scope:
+
+```cpp
+void exec_job(){
+    defer d = []{
+        send_finished_message();
+    };
+    // ...
+}
+```
+This enforces that "finished" message is send after the `exec_job` call finishes.
+
 ### either.h
 
 `either<A,B>` is `std::variant` alternative able to hold only two types.
@@ -100,80 +151,20 @@ foo(42).match(
     })
 ```
 
-### view.h
+### enum.h
 
-Simple container storing a pair of iterators - non-owning container of data.
-This make it possible to pass a subset of container to API expecting a container itself.
-It is also more sensible for functions that would return `std::pair` of iterators.
+Provides a function that converts enum value into string representative, this either does simple `int->string` conversion or uses `magic_enum` library if it is enabled with `EMLABCPP_USE_MAGIC_ENUM` define.
 
+For example:
 ```cpp
+enum e_type {
+    FOO = 0;
+};
 
-std::vector<int> vec_data{1,2,3,4,5,6};
-
-for(int i : view{vec_data})
-{
-    std::cout << i << ',';
-}
-std::cout << '\n';
-
-for(int i : view{vec_data.begin() + 2, vec_data.end()})
-{
-    std::cout << i << ',';
-}
-std::cout << '\n';
-
-for(int i : view_n(vec_data, 4))
-{
-    std::cout << i << ',';
-}
-std::cout << '\n';
-
-for(int i : reversed(vec_data))
-{
-    std::cout << i << ',';
-}
-std::cout << '\n';
+std::cout << convert_enum(FOO) << std::endl;
 ```
 
-### bounded.h
-
-Simple overlay type for constraing value within specified range.
-Makes it possible to create clear API that does not have to check the sanity of values.
-`bounded<int,0,42>` means that the `bounded` class contains `int` type that is constrained within `0` and `42`.
-
-The API with `bounded` has more clear intent:
-```cpp
-void foo(bounded<int,0,42>);
-```
-
-### protocol.h
-
-The protocol library serializes and deserialize C++ data structures into binary messages.
-The principle is that the protocol is defined with library types.
-Based on the definition, `protocol_handler<Def>` provides routines for serialization and deserialization of data structures corresponding to said definition.
-
-In case of work with simple robot, we can create simple protocol:
-```cpp
-using distance = unsigned;
-using angle = int;
-
-enum robot_cmds : uint8_t
-{
-    FORWARD = 0,
-    LEFT = 1,
-    RIGHT = 2
-}
-
-struct robot_cmd_group
-  : protocol_command_group< PROTOCOL_LITTLE_ENDIAN >::with_commands<
-      protocol_command< FORWARD >::with_args< distance >,
-      protocol_command< LEFT >::with_args< angle >,
-      protocol_command< RIGHT >::with_args< angle >
-    >
-{};
-```
-
-See examples for more detailed explanation.
+Outputs `FOO` if `magic_enum` is enabled and `0` otherwise.
 
 ### iterator.h
 
@@ -230,13 +221,28 @@ for(const std::string & item : acview)
 {
     std::cout << item << '\n';
 }
+
 ```
 
-### quantity.h
+### match.h
 
-Simple thin overlay over numeric types, that gives abillity to implement strongly typed numeric types.
-This is handy in case you want to enforce correctness on type level.
-See implementation of `physical_quantity` as an example.
+Match is mechanism similar to `std::visit(Callable,Variant)`, but one that changes the order of arguments and allows mutliple callables. The signature is along the lines of: `match(Variant,Callable...)`. The implementation composes callables together and let's method resolution pick the appropaite callable for alternative present in the variant.
+
+This makes it possible to write constructs such as these:
+```cpp
+std::variant<StateA, StateB, StateC> states;
+match(states,
+    [&](StateA sa){
+        // ...
+    },
+    [&](StateB sb){
+        // ...
+    },
+    [&](StateC sc){
+        // ...
+    });
+```
+Here, the function executions a lambda for the state that is present in the variant, you can think about it like a `switch` but for variant.
 
 ### physical_quantity.h
 
@@ -283,6 +289,41 @@ while(true)
     time += 1;
 }
 ```
+### protocol.h
+
+The protocol library serializes and deserialize C++ data structures into binary messages.
+The principle is that the protocol is defined with library types.
+Based on the definition, `protocol_handler<Def>` provides routines for serialization and deserialization of data structures corresponding to said definition.
+
+In case of work with simple robot, we can create simple protocol:
+```cpp
+using distance = unsigned;
+using angle = int;
+
+enum robot_cmds : uint8_t
+{
+    FORWARD = 0,
+    LEFT = 1,
+    RIGHT = 2
+}
+
+struct robot_cmd_group
+  : protocol_command_group< PROTOCOL_LITTLE_ENDIAN >::with_commands<
+      protocol_command< FORWARD >::with_args< distance >,
+      protocol_command< LEFT >::with_args< angle >,
+      protocol_command< RIGHT >::with_args< angle >
+    >
+{};
+```
+
+See examples for more detailed explanation.
+
+### quantity.h
+
+Simple thin overlay over numeric types, that gives abillity to implement strongly typed numeric types.
+This is handy in case you want to enforce correctness on type level.
+See implementation of `physical_quantity` as an example.
+
 
 ### static_circular_buffer.h
 
@@ -328,7 +369,47 @@ auto fun = [](int i) -> std::string
 using fun = decltype(fun);
 
 static_assert(std::is_same_v<mapped_t<data, fun>, std::string>);
+
 ```
+
+### view.h
+
+Simple container storing a pair of iterators - non-owning container of data.
+This make it possible to pass a subset of container to API expecting a container itself.
+It is also more sensible for functions that would return `std::pair` of iterators.
+
+```cpp
+
+std::vector<int> vec_data{1,2,3,4,5,6};
+
+for(int i : view{vec_data})
+{
+    std::cout << i << ',';
+}
+std::cout << '\n';
+
+for(int i : view{vec_data.begin() + 2, vec_data.end()})
+{
+    std::cout << i << ',';
+}
+std::cout << '\n';
+
+for(int i : view_n(vec_data, 4))
+{
+    std::cout << i << ',';
+}
+std::cout << '\n';
+
+for(int i : reversed(vec_data))
+{
+    std::cout << i << ',';
+}
+std::cout << '\n';
+```
+
+### visit.h
+
+`visit` is reimplementation of `std::visit` that has worse time complexity in exchange of less code being generate for the mechanism. It also drop support for multiple variants.
 
 ### zip.h
 
