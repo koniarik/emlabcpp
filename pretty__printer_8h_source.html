@@ -131,7 +131,7 @@ $(document).ready(function(){initNavTree('pretty__printer_8h_source.html',''); i
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#ad08fd80b496c6197fae749be445052da">   43</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pretty__printer.html#ad08fd80b496c6197fae749be445052da">requires</a>( std::is_enum_v&lt; T &gt; ) <a class="code" href="classemlabcpp_1_1pretty__printer.html">pretty_printer</a>&amp; <a class="code" href="classemlabcpp_1_1pretty__printer.html#a461587315dc54fa7f62ef05bdce8a82b">operator&lt;&lt;</a>( <span class="keyword">const</span> T&amp; val )</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span> &lt;&lt; <a class="code" href="namespaceemlabcpp.html#ad5cb647becc59b8a13089db7324848f1">convert_enum</a>( val );</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span> &lt;&lt; convert_enum( val );</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#ade1e4d4ff50dc319116828a56397ad4e">   48</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pretty__printer.html">pretty_printer</a>&amp; <a class="code" href="classemlabcpp_1_1pretty__printer.html#ade1e4d4ff50dc319116828a56397ad4e">operator&lt;&lt;</a>( <span class="keyword">const</span> std::string_view&amp; sview )</div>
@@ -159,7 +159,7 @@ $(document).ready(function(){initNavTree('pretty__printer_8h_source.html',''); i
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordtype">char</span> delim = <span class="charliteral">&#39;(&#39;</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a836376ebd63413e70abd97e0c49cca90">for_each</a>( tpl, [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; item ) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">for_each</a>( tpl, [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; item ) {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        *<span class="keyword">this</span> &lt;&lt; delim &lt;&lt; item;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                        delim = <span class="charliteral">&#39;,&#39;</span>;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                } );</div>
@@ -205,9 +205,9 @@ $(document).ready(function(){initNavTree('pretty__printer_8h_source.html',''); i
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        {</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">return</span> os_.flags();</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a3e4335919e542f59bbc65ae28e34e2be">  119</a></span>&#160;        std::ios_base::fmtflags <a class="code" href="classemlabcpp_1_1pretty__printer.html#a3e4335919e542f59bbc65ae28e34e2be">flags</a>( std::ios_base::fmtflags <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a> )</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a3e4335919e542f59bbc65ae28e34e2be">  119</a></span>&#160;        std::ios_base::fmtflags <a class="code" href="classemlabcpp_1_1pretty__printer.html#a3e4335919e542f59bbc65ae28e34e2be">flags</a>( std::ios_base::fmtflags <a class="code" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a> )</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordflow">return</span> os_.flags( <a class="code" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a> );</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordflow">return</span> os_.flags( <a class="code" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a> );</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        }</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword">private</span>:</div>
@@ -235,17 +235,16 @@ $(document).ready(function(){initNavTree('pretty__printer_8h_source.html',''); i
 <div class="ttc" id="aenum_8h_html"><div class="ttname"><a href="enum_8h.html">enum.h</a></div></div>
 <div class="ttc" id="amatch_8h_html"><div class="ttname"><a href="match_8h.html">match.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a2351d7b7de1988dbb2979cadfd729d1f"><div class="ttname"><a href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">emlabcpp::f</a></div><div class="ttdeci">UnaryFunction &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:164</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a6e4b7b6dd8a3a27f7f7bcea52f265b2c"><div class="ttname"><a href="namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c">emlabcpp::visit</a></div><div class="ttdeci">decltype(auto) visit(Visitor &amp;&amp;vis, Variant &amp;&amp;var)</div><div class="ttdef"><b>Definition:</b> visit.h:49</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a836376ebd63413e70abd97e0c49cca90"><div class="ttname"><a href="namespaceemlabcpp.html#a836376ebd63413e70abd97e0c49cca90">emlabcpp::for_each</a></div><div class="ttdeci">constexpr void for_each(Container &amp;&amp;cont, UnaryFunction &amp;&amp;f)</div><div class="ttdoc">Applies unary function 'f' to each element of container 'cont'.</div><div class="ttdef"><b>Definition:</b> algorithm.h:174</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_ad5cb647becc59b8a13089db7324848f1"><div class="ttname"><a href="namespaceemlabcpp.html#ad5cb647becc59b8a13089db7324848f1">emlabcpp::convert_enum</a></div><div class="ttdeci">auto convert_enum(Enum val)</div><div class="ttdef"><b>Definition:</b> enum.h:13</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a2ea25e91faa24821022d110beba7bfe4"><div class="ttname"><a href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:157</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a685395cc470dfed697a40d2c718af4e9"><div class="ttname"><a href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">emlabcpp::for_each</a></div><div class="ttdeci">constexpr void for_each(Container &amp;&amp;cont, UnaryCallable &amp;&amp;f)</div><div class="ttdoc">Applies unary callable 'f' to each element of container 'cont'.</div><div class="ttdef"><b>Definition:</b> algorithm.h:167</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a6e4b7b6dd8a3a27f7f7bcea52f265b2c"><div class="ttname"><a href="namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c">emlabcpp::visit</a></div><div class="ttdeci">decltype(auto) visit(Visitor &amp;&amp;vis, Variant &amp;&amp;var)</div><div class="ttdoc">Reimplementation of std::visit.</div><div class="ttdef"><b>Definition:</b> visit.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="pretty__printer_8h.html">pretty_printer.h</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 13:58:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

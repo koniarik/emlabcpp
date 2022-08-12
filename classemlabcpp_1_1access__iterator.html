@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>emlabcpp: emlabcpp::access_iterator&lt; Iterator, AccessFunction &gt; Class Template Reference</title>
+<title>emlabcpp: emlabcpp::access_iterator&lt; Iterator, AccessCallable &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1access__iterator.html
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classemlabcpp_1_1access__iterator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">emlabcpp::access_iterator&lt; Iterator, AccessFunction &gt; Class Template Reference</div>  </div>
+<div class="title">emlabcpp::access_iterator&lt; Iterator, AccessCallable &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -97,100 +97,100 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1access__iterator.html
 
 <p><code>#include &lt;<a class="el" href="access_8h_source.html">access.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for emlabcpp::access_iterator&lt; Iterator, AccessFunction &gt;:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for emlabcpp::access_iterator&lt; Iterator, AccessCallable &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classemlabcpp_1_1access__iterator__inherit__graph.svg" width="219" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classemlabcpp_1_1access__iterator__inherit__graph.svg" width="218" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::access_iterator&lt; Iterator, AccessFunction &gt;:</div>
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::access_iterator&lt; Iterator, AccessCallable &gt;:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classemlabcpp_1_1access__iterator__coll__graph.svg" width="219" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classemlabcpp_1_1access__iterator__coll__graph.svg" width="218" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a3ed66a7f1e83db79520b10c69b3eaadc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a3ed66a7f1e83db79520b10c69b3eaadc">value_type</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &gt;::<a class="el" href="classemlabcpp_1_1access__iterator.html#a3ed66a7f1e83db79520b10c69b3eaadc">value_type</a></td></tr>
-<tr class="separator:a3ed66a7f1e83db79520b10c69b3eaadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_types_classemlabcpp_1_1generic__iterator"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classemlabcpp_1_1generic__iterator')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classemlabcpp_1_1generic__iterator.html">emlabcpp::generic_iterator&lt; access_iterator&lt; Iterator, AccessFunction &gt; &gt;</a></td></tr>
-<tr class="memitem:a045454491c2aa862c6658e85a1660deb inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a045454491c2aa862c6658e85a1660deb">value_type</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#a045454491c2aa862c6658e85a1660deb">value_type</a></td></tr>
+<tr class="memitem:a963e78737387350dc4f4ac6005a91b62"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a963e78737387350dc4f4ac6005a91b62">value_type</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &gt;::<a class="el" href="classemlabcpp_1_1access__iterator.html#a963e78737387350dc4f4ac6005a91b62">value_type</a></td></tr>
+<tr class="separator:a963e78737387350dc4f4ac6005a91b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_classemlabcpp_1_1generic__iterator"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classemlabcpp_1_1generic__iterator')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classemlabcpp_1_1generic__iterator.html">emlabcpp::generic_iterator&lt; access_iterator&lt; Iterator, AccessCallable &gt; &gt;</a></td></tr>
+<tr class="memitem:a045454491c2aa862c6658e85a1660deb inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a045454491c2aa862c6658e85a1660deb">value_type</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#a045454491c2aa862c6658e85a1660deb">value_type</a></td></tr>
 <tr class="separator:a045454491c2aa862c6658e85a1660deb inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58da75ec0f7d0fe6e90eb5e95667627d inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a58da75ec0f7d0fe6e90eb5e95667627d">reference</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#a58da75ec0f7d0fe6e90eb5e95667627d">reference</a></td></tr>
+<tr class="memitem:a58da75ec0f7d0fe6e90eb5e95667627d inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a58da75ec0f7d0fe6e90eb5e95667627d">reference</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#a58da75ec0f7d0fe6e90eb5e95667627d">reference</a></td></tr>
 <tr class="separator:a58da75ec0f7d0fe6e90eb5e95667627d inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca9e45a8e9202df3629aaffcfc335842 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aca9e45a8e9202df3629aaffcfc335842">const_reference</a> = const <a class="el" href="classemlabcpp_1_1generic__iterator.html#a58da75ec0f7d0fe6e90eb5e95667627d">reference</a></td></tr>
 <tr class="separator:aca9e45a8e9202df3629aaffcfc335842 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6dd3f181353509f981be8cf51c46842 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842">pointer</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842">pointer</a></td></tr>
+<tr class="memitem:ae6dd3f181353509f981be8cf51c46842 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842">pointer</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842">pointer</a></td></tr>
 <tr class="separator:ae6dd3f181353509f981be8cf51c46842 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94f63521bb88de9902ade70a45e3cb7e inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a94f63521bb88de9902ade70a45e3cb7e">const_pointer</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#a94f63521bb88de9902ade70a45e3cb7e">const_pointer</a></td></tr>
+<tr class="memitem:a94f63521bb88de9902ade70a45e3cb7e inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a94f63521bb88de9902ade70a45e3cb7e">const_pointer</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#a94f63521bb88de9902ade70a45e3cb7e">const_pointer</a></td></tr>
 <tr class="separator:a94f63521bb88de9902ade70a45e3cb7e inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b29a6768655f601d4fd06dd1aa7d9dd inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a></td></tr>
+<tr class="memitem:a1b29a6768655f601d4fd06dd1aa7d9dd inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a></td></tr>
 <tr class="separator:a1b29a6768655f601d4fd06dd1aa7d9dd inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeabf51df48a675da9886636622e47980 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aeabf51df48a675da9886636622e47980">iterator_category</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#aeabf51df48a675da9886636622e47980">iterator_category</a></td></tr>
+<tr class="memitem:aeabf51df48a675da9886636622e47980 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aeabf51df48a675da9886636622e47980">iterator_category</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#aeabf51df48a675da9886636622e47980">iterator_category</a></td></tr>
 <tr class="separator:aeabf51df48a675da9886636622e47980 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a33406ea2ae26b6867d8f4640cb9436e1"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a33406ea2ae26b6867d8f4640cb9436e1">access_iterator</a> (Iterator <a class="el" href="namespaceemlabcpp.html#ae2eceaa8b0d9ceb67162be01c8a803f7">current</a>, AccessFunction <a class="el" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a>)</td></tr>
-<tr class="separator:a33406ea2ae26b6867d8f4640cb9436e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a363d4ba80d229c66aead339d4e622576"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html#a3ed66a7f1e83db79520b10c69b3eaadc">value_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a363d4ba80d229c66aead339d4e622576">operator*</a> ()</td></tr>
-<tr class="separator:a363d4ba80d229c66aead339d4e622576"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6104620388cc744fdc06f1ee58e14d59"><td class="memItemLeft" align="right" valign="top">constexpr const <a class="el" href="classemlabcpp_1_1access__iterator.html#a3ed66a7f1e83db79520b10c69b3eaadc">value_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a6104620388cc744fdc06f1ee58e14d59">operator*</a> () const</td></tr>
-<tr class="separator:a6104620388cc744fdc06f1ee58e14d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef9dcaca13701007889f5c4246932987"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#aef9dcaca13701007889f5c4246932987">operator+=</a> (std::ptrdiff_t offset)</td></tr>
-<tr class="separator:aef9dcaca13701007889f5c4246932987"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d86526aadf29d70c8f5aa5a3e773e6e"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a5d86526aadf29d70c8f5aa5a3e773e6e">operator-=</a> (std::ptrdiff_t offset)</td></tr>
-<tr class="separator:a5d86526aadf29d70c8f5aa5a3e773e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40f12f809f004224d0419151a0202eb7"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a40f12f809f004224d0419151a0202eb7">operator&lt;=&gt;</a> (const <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a> &amp;other) const</td></tr>
-<tr class="separator:a40f12f809f004224d0419151a0202eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a0d3095c6a8d8d6b67b5d9f8006d370"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a1a0d3095c6a8d8d6b67b5d9f8006d370">operator==</a> (const <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a> &amp;other) const</td></tr>
-<tr class="separator:a1a0d3095c6a8d8d6b67b5d9f8006d370"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80520ef3015939ed9ddf850202b04625"><td class="memItemLeft" align="right" valign="top">constexpr std::ptrdiff_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a80520ef3015939ed9ddf850202b04625">operator-</a> (const <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a> &amp;other)</td></tr>
-<tr class="separator:a80520ef3015939ed9ddf850202b04625"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classemlabcpp_1_1generic__iterator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classemlabcpp_1_1generic__iterator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classemlabcpp_1_1generic__iterator.html">emlabcpp::generic_iterator&lt; access_iterator&lt; Iterator, AccessFunction &gt; &gt;</a></td></tr>
+<tr class="memitem:a0ee36b5010fe09ee28a297326b6cd6c8"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a0ee36b5010fe09ee28a297326b6cd6c8">access_iterator</a> (Iterator <a class="el" href="namespaceemlabcpp.html#ae2eceaa8b0d9ceb67162be01c8a803f7">current</a>, AccessCallable <a class="el" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>)</td></tr>
+<tr class="separator:a0ee36b5010fe09ee28a297326b6cd6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fb75b30edf197ff8d728df7c7c469e5"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html#a963e78737387350dc4f4ac6005a91b62">value_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a1fb75b30edf197ff8d728df7c7c469e5">operator*</a> ()</td></tr>
+<tr class="separator:a1fb75b30edf197ff8d728df7c7c469e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12239e6fc4ced81b221f7036f132c170"><td class="memItemLeft" align="right" valign="top">constexpr const <a class="el" href="classemlabcpp_1_1access__iterator.html#a963e78737387350dc4f4ac6005a91b62">value_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a12239e6fc4ced81b221f7036f132c170">operator*</a> () const</td></tr>
+<tr class="separator:a12239e6fc4ced81b221f7036f132c170"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a712c9c34d6c853b9e75bddf77b19a460"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a712c9c34d6c853b9e75bddf77b19a460">operator+=</a> (std::ptrdiff_t offset)</td></tr>
+<tr class="separator:a712c9c34d6c853b9e75bddf77b19a460"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a5869dc9fb0da928f7eeda2a68753b8"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a8a5869dc9fb0da928f7eeda2a68753b8">operator-=</a> (std::ptrdiff_t offset)</td></tr>
+<tr class="separator:a8a5869dc9fb0da928f7eeda2a68753b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf52b9c0b9d558f3eea052ff594a220f"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#acf52b9c0b9d558f3eea052ff594a220f">operator&lt;=&gt;</a> (const <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a> &amp;other) const</td></tr>
+<tr class="separator:acf52b9c0b9d558f3eea052ff594a220f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7177321ccf04770f65598fd339121ca7"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#a7177321ccf04770f65598fd339121ca7">operator==</a> (const <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a> &amp;other) const</td></tr>
+<tr class="separator:a7177321ccf04770f65598fd339121ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad063f6e6f1de2c650b5685b0a73d72f"><td class="memItemLeft" align="right" valign="top">constexpr std::ptrdiff_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1access__iterator.html#aad063f6e6f1de2c650b5685b0a73d72f">operator-</a> (const <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a> &amp;other)</td></tr>
+<tr class="separator:aad063f6e6f1de2c650b5685b0a73d72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classemlabcpp_1_1generic__iterator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classemlabcpp_1_1generic__iterator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classemlabcpp_1_1generic__iterator.html">emlabcpp::generic_iterator&lt; access_iterator&lt; Iterator, AccessCallable &gt; &gt;</a></td></tr>
 <tr class="memitem:a95e1892dd926944107bee59661922c19 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842">pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a95e1892dd926944107bee59661922c19">operator-&gt;</a> ()</td></tr>
 <tr class="separator:a95e1892dd926944107bee59661922c19 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad12b20563cf58540d83d4fefe782dad8 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1generic__iterator.html#a94f63521bb88de9902ade70a45e3cb7e">const_pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#ad12b20563cf58540d83d4fefe782dad8">operator-&gt;</a> () const</td></tr>
 <tr class="separator:ad12b20563cf58540d83d4fefe782dad8 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a065560a2202ed85cf4f45f132131f092 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a065560a2202ed85cf4f45f132131f092">operator++</a> ()</td></tr>
+<tr class="memitem:a065560a2202ed85cf4f45f132131f092 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a065560a2202ed85cf4f45f132131f092">operator++</a> ()</td></tr>
 <tr class="separator:a065560a2202ed85cf4f45f132131f092 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3123f3e99f340a55db233277dfdf8ef8 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a3123f3e99f340a55db233277dfdf8ef8">operator++</a> (int)</td></tr>
+<tr class="memitem:a3123f3e99f340a55db233277dfdf8ef8 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a3123f3e99f340a55db233277dfdf8ef8">operator++</a> (int)</td></tr>
 <tr class="separator:a3123f3e99f340a55db233277dfdf8ef8 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2a4cae41edb6508ae6a674d9748d030 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aa2a4cae41edb6508ae6a674d9748d030">operator--</a> ()</td></tr>
+<tr class="memitem:aa2a4cae41edb6508ae6a674d9748d030 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aa2a4cae41edb6508ae6a674d9748d030">operator--</a> ()</td></tr>
 <tr class="separator:aa2a4cae41edb6508ae6a674d9748d030 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2e534e2fd8035c00d5a043ca81a40c6 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#ae2e534e2fd8035c00d5a043ca81a40c6">operator--</a> (int)</td></tr>
+<tr class="memitem:ae2e534e2fd8035c00d5a043ca81a40c6 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#ae2e534e2fd8035c00d5a043ca81a40c6">operator--</a> (int)</td></tr>
 <tr class="separator:ae2e534e2fd8035c00d5a043ca81a40c6 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaca1bcedff019f4ebda1acbf3d32436a inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aaca1bcedff019f4ebda1acbf3d32436a">operator&lt;=&gt;</a> (const <a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a>&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &gt; &amp;other) const</td></tr>
+<tr class="memitem:aaca1bcedff019f4ebda1acbf3d32436a inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aaca1bcedff019f4ebda1acbf3d32436a">operator&lt;=&gt;</a> (const <a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a>&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &gt; &amp;other) const</td></tr>
 <tr class="separator:aaca1bcedff019f4ebda1acbf3d32436a inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a366c85f2ad355d308091b7d500b90e22 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a366c85f2ad355d308091b7d500b90e22">operator==</a> (const <a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a>&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &gt; &amp;other) const</td></tr>
+<tr class="memitem:a366c85f2ad355d308091b7d500b90e22 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a366c85f2ad355d308091b7d500b90e22">operator==</a> (const <a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a>&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &gt; &amp;other) const</td></tr>
 <tr class="separator:a366c85f2ad355d308091b7d500b90e22 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a933e3dd5fcca0a49f503200ad3985053 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a933e3dd5fcca0a49f503200ad3985053">operator+</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> v) const</td></tr>
+<tr class="memitem:a933e3dd5fcca0a49f503200ad3985053 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a933e3dd5fcca0a49f503200ad3985053">operator+</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> v) const</td></tr>
 <tr class="separator:a933e3dd5fcca0a49f503200ad3985053 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2df9463217505f015062dd24c4f45513 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a2df9463217505f015062dd24c4f45513">operator-</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> v) const</td></tr>
+<tr class="memitem:a2df9463217505f015062dd24c4f45513 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a2df9463217505f015062dd24c4f45513">operator-</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> v) const</td></tr>
 <tr class="separator:a2df9463217505f015062dd24c4f45513 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename Iterator, typename AccessFunction&gt;<br />
-class emlabcpp::access_iterator&lt; Iterator, AccessFunction &gt;</h3>
+<div class="textblock"><h3>template&lt;typename Iterator, typename AccessCallable&gt;<br />
+class emlabcpp::access_iterator&lt; Iterator, AccessCallable &gt;</h3>
 
 <p><a class="el" href="classemlabcpp_1_1access__iterator.html" title="access_iterator provides access to a reference of value stored in the Iterator.">access_iterator</a> provides access to a reference of value stored in the Iterator. </p>
-<p>The access is provided via the AccessFunction provided to the iterator.</p>
+<p>The access is provided via the AccessCallable provided to the iterator.</p>
 <p>Gives you abillity to iterate over dataset, while accessing only part of each item. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a3ed66a7f1e83db79520b10c69b3eaadc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ed66a7f1e83db79520b10c69b3eaadc">&#9670;&nbsp;</a></span>value_type</h2>
+<a id="a963e78737387350dc4f4ac6005a91b62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963e78737387350dc4f4ac6005a91b62">&#9670;&nbsp;</a></span>value_type</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Iterator , typename AccessFunction &gt; </div>
+template&lt;typename Iterator , typename AccessCallable &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessFunction &gt;::<a class="el" href="classemlabcpp_1_1access__iterator.html#a3ed66a7f1e83db79520b10c69b3eaadc">value_type</a> =  typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &gt;::<a class="el" href="classemlabcpp_1_1access__iterator.html#a3ed66a7f1e83db79520b10c69b3eaadc">value_type</a></td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessCallable &gt;::<a class="el" href="classemlabcpp_1_1access__iterator.html#a963e78737387350dc4f4ac6005a91b62">value_type</a> =  typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &gt;::<a class="el" href="classemlabcpp_1_1access__iterator.html#a963e78737387350dc4f4ac6005a91b62">value_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -198,19 +198,19 @@ template&lt;typename Iterator , typename AccessFunction &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a33406ea2ae26b6867d8f4640cb9436e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33406ea2ae26b6867d8f4640cb9436e1">&#9670;&nbsp;</a></span>access_iterator()</h2>
+<a id="a0ee36b5010fe09ee28a297326b6cd6c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ee36b5010fe09ee28a297326b6cd6c8">&#9670;&nbsp;</a></span>access_iterator()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Iterator , typename AccessFunction &gt; </div>
+template&lt;typename Iterator , typename AccessCallable &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessFunction &gt;::<a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a> </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessCallable &gt;::<a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a> </td>
           <td>(</td>
           <td class="paramtype">Iterator&#160;</td>
           <td class="paramname"><em>current</em>, </td>
@@ -218,7 +218,7 @@ template&lt;typename Iterator , typename AccessFunction &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">AccessFunction&#160;</td>
+          <td class="paramtype">AccessCallable&#160;</td>
           <td class="paramname"><em>f</em>&#160;</td>
         </tr>
         <tr>
@@ -237,19 +237,19 @@ template&lt;typename Iterator , typename AccessFunction &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a363d4ba80d229c66aead339d4e622576"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a363d4ba80d229c66aead339d4e622576">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+<a id="a1fb75b30edf197ff8d728df7c7c469e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fb75b30edf197ff8d728df7c7c469e5">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Iterator , typename AccessFunction &gt; </div>
+template&lt;typename Iterator , typename AccessCallable &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html#a3ed66a7f1e83db79520b10c69b3eaadc">value_type</a>&amp; <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessFunction &gt;::operator* </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html#a963e78737387350dc4f4ac6005a91b62">value_type</a>&amp; <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessCallable &gt;::operator* </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -264,19 +264,19 @@ template&lt;typename Iterator , typename AccessFunction &gt; </div>
 
 </div>
 </div>
-<a id="a6104620388cc744fdc06f1ee58e14d59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6104620388cc744fdc06f1ee58e14d59">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+<a id="a12239e6fc4ced81b221f7036f132c170"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12239e6fc4ced81b221f7036f132c170">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Iterator , typename AccessFunction &gt; </div>
+template&lt;typename Iterator , typename AccessCallable &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr const <a class="el" href="classemlabcpp_1_1access__iterator.html#a3ed66a7f1e83db79520b10c69b3eaadc">value_type</a>&amp; <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessFunction &gt;::operator* </td>
+          <td class="memname">constexpr const <a class="el" href="classemlabcpp_1_1access__iterator.html#a963e78737387350dc4f4ac6005a91b62">value_type</a>&amp; <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessCallable &gt;::operator* </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -291,19 +291,19 @@ template&lt;typename Iterator , typename AccessFunction &gt; </div>
 
 </div>
 </div>
-<a id="aef9dcaca13701007889f5c4246932987"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef9dcaca13701007889f5c4246932987">&#9670;&nbsp;</a></span>operator+=()</h2>
+<a id="a712c9c34d6c853b9e75bddf77b19a460"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712c9c34d6c853b9e75bddf77b19a460">&#9670;&nbsp;</a></span>operator+=()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Iterator , typename AccessFunction &gt; </div>
+template&lt;typename Iterator , typename AccessCallable &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&amp; <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessFunction &gt;::operator+= </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&amp; <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessCallable &gt;::operator+= </td>
           <td>(</td>
           <td class="paramtype">std::ptrdiff_t&#160;</td>
           <td class="paramname"><em>offset</em></td><td>)</td>
@@ -319,21 +319,21 @@ template&lt;typename Iterator , typename AccessFunction &gt; </div>
 
 </div>
 </div>
-<a id="a80520ef3015939ed9ddf850202b04625"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80520ef3015939ed9ddf850202b04625">&#9670;&nbsp;</a></span>operator-()</h2>
+<a id="aad063f6e6f1de2c650b5685b0a73d72f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad063f6e6f1de2c650b5685b0a73d72f">&#9670;&nbsp;</a></span>operator-()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Iterator , typename AccessFunction &gt; </div>
+template&lt;typename Iterator , typename AccessCallable &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::ptrdiff_t <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessFunction &gt;::operator- </td>
+          <td class="memname">constexpr std::ptrdiff_t <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessCallable &gt;::operator- </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -347,19 +347,19 @@ template&lt;typename Iterator , typename AccessFunction &gt; </div>
 
 </div>
 </div>
-<a id="a5d86526aadf29d70c8f5aa5a3e773e6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d86526aadf29d70c8f5aa5a3e773e6e">&#9670;&nbsp;</a></span>operator-=()</h2>
+<a id="a8a5869dc9fb0da928f7eeda2a68753b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a5869dc9fb0da928f7eeda2a68753b8">&#9670;&nbsp;</a></span>operator-=()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Iterator , typename AccessFunction &gt; </div>
+template&lt;typename Iterator , typename AccessCallable &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&amp; <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessFunction &gt;::operator-= </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&amp; <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessCallable &gt;::operator-= </td>
           <td>(</td>
           <td class="paramtype">std::ptrdiff_t&#160;</td>
           <td class="paramname"><em>offset</em></td><td>)</td>
@@ -375,21 +375,21 @@ template&lt;typename Iterator , typename AccessFunction &gt; </div>
 
 </div>
 </div>
-<a id="a40f12f809f004224d0419151a0202eb7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40f12f809f004224d0419151a0202eb7">&#9670;&nbsp;</a></span>operator&lt;=&gt;()</h2>
+<a id="acf52b9c0b9d558f3eea052ff594a220f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf52b9c0b9d558f3eea052ff594a220f">&#9670;&nbsp;</a></span>operator&lt;=&gt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Iterator , typename AccessFunction &gt; </div>
+template&lt;typename Iterator , typename AccessCallable &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessFunction &gt;::operator&lt;=&gt; </td>
+          <td class="memname">constexpr auto <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessCallable &gt;::operator&lt;=&gt; </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -403,21 +403,21 @@ template&lt;typename Iterator , typename AccessFunction &gt; </div>
 
 </div>
 </div>
-<a id="a1a0d3095c6a8d8d6b67b5d9f8006d370"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a0d3095c6a8d8d6b67b5d9f8006d370">&#9670;&nbsp;</a></span>operator==()</h2>
+<a id="a7177321ccf04770f65598fd339121ca7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7177321ccf04770f65598fd339121ca7">&#9670;&nbsp;</a></span>operator==()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Iterator , typename AccessFunction &gt; </div>
+template&lt;typename Iterator , typename AccessCallable &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessFunction &gt;::operator== </td>
+          <td class="memname">constexpr bool <a class="el" href="classemlabcpp_1_1access__iterator.html">emlabcpp::access_iterator</a>&lt; Iterator, AccessCallable &gt;::operator== </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessFunction &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a>&lt; Iterator, AccessCallable &gt; &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -440,7 +440,7 @@ template&lt;typename Iterator , typename AccessFunction &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1access__iterator.html">access_iterator</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 13:58:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

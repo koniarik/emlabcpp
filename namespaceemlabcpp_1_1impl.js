@@ -15,8 +15,8 @@ var namespaceemlabcpp_1_1impl =
     [ "static_size< std::array< T, N > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1array_3_01T_00_01N_01_4_01_4" ],
     [ "static_size< std::tuple< Ts... > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4" ],
     [ "is_view< view< Iter > >", "structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html", null ],
-    [ "find_if_impl", "namespaceemlabcpp_1_1impl.html#afdd163fc58b80f48ae4783294b6ebc8e", null ],
-    [ "map_f_to_a_impl", "namespaceemlabcpp_1_1impl.html#a28293eb7d0ef0bbe7c5f52b0e2bc8c5b", null ],
+    [ "find_if_impl", "namespaceemlabcpp_1_1impl.html#a502794f0cc63c9d3399dfcedd60bd48e", null ],
+    [ "map_f_to_a_impl", "namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a", null ],
     [ "requires", "namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0", null ],
     [ "requires", "namespaceemlabcpp_1_1impl.html#a6bbd605bf9a833a4c88a3862dbf50d5f", null ],
     [ "map_f_collectable", "namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f", null ]

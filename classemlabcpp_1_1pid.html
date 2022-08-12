@@ -93,6 +93,9 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1pid.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
+<p>Implementation of PID regulator, the object should be constructed and populated with pid&lt;T&gt;::conf structure with configuration values (p,i,d coeficients, min/max output vals).  
+ <a href="classemlabcpp_1_1pid.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="pid_8h_source.html">pid.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -130,7 +133,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a276f67c11c02dccb9cb9f94179212f95"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a276f67c11c02dccb9cb9f94179212f95">get_desired</a> () const</td></tr>
 <tr class="separator:a276f67c11c02dccb9cb9f94179212f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename TimeType&gt;<br />
+class emlabcpp::pid&lt; TimeType &gt;</h3>
+
+<p>Implementation of PID regulator, the object should be constructed and populated with pid&lt;T&gt;::conf structure with configuration values (p,i,d coeficients, min/max output vals). </p>
+<p>The object contains all relevantstate data and should be called regularly. </p>
+</div><hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="structemlabcpp_1_1pid_1_1config" id="structemlabcpp_1_1pid_1_1config"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1pid_1_1config">&#9670;&nbsp;</a></span>emlabcpp::pid::config</h2>
 
@@ -504,7 +513,7 @@ template&lt;typename TimeType &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1pid.html">pid</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 13:58:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

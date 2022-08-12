@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1tagged__quantity.html
 </div><!--header-->
 <div class="contents">
 
+<p>Class represents a quantity that uses <code>tags</code> to distinguish quantities instead of inheritance.  
+ <a href="classemlabcpp_1_1tagged__quantity.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="quantity_8h_source.html">quantity.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for emlabcpp::tagged_quantity&lt; Tag, ValueType &gt;:</div>
@@ -147,7 +150,14 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ae1c10800f20823776a302a96776d4e07 inherit pub_static_methods_classemlabcpp_1_1quantity"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1quantity.html#ae1c10800f20823776a302a96776d4e07">get_unit</a> ()</td></tr>
 <tr class="separator:ae1c10800f20823776a302a96776d4e07 inherit pub_static_methods_classemlabcpp_1_1quantity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename Tag, typename ValueType = float&gt;<br />
+class emlabcpp::tagged_quantity&lt; Tag, ValueType &gt;</h3>
+
+<p>Class represents a quantity that uses <code>tags</code> to distinguish quantities instead of inheritance. </p>
+<p>Usefull because it is simpler to write template alias such as this: <code>using apple_count = tagget_quantity&lt; struct apple_count_tag, uint32_t &gt;;</code></p>
+<p>Writing full class would take more effort, but class has the benefit of better error messages. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a9a120960136067ec36c419f6ff7a2b73"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a120960136067ec36c419f6ff7a2b73">&#9670;&nbsp;</a></span>tag</h2>
 
@@ -173,7 +183,7 @@ template&lt;typename Tag , typename ValueType  = float&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1tagged__quantity.html">tagged_quantity</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 13:58:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

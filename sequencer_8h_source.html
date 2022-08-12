@@ -196,8 +196,8 @@ $(document).ready(function(){initNavTree('sequencer_8h_source.html',''); initRes
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        Sequencer                                         seq;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        std::optional&lt; typename Sequencer::message_type &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        std::size_t                                       to_read = Sequencer::fixed_size;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        std::size_t                                       <a class="code" href="namespaceemlabcpp.html#a1f32e86c3dfcebce5092b96b5152e94e">count</a>   = 0;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">while</span> ( !<a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> &amp;&amp; <a class="code" href="namespaceemlabcpp.html#a1f32e86c3dfcebce5092b96b5152e94e">count</a> &lt; read_limit ) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        std::size_t                                       <a class="code" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">count</a>   = 0;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">while</span> ( !<a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> &amp;&amp; <a class="code" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">count</a> &lt; read_limit ) {</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                std::optional data = read( to_read );</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                <span class="keywordflow">if</span> ( !data ) {</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
@@ -206,13 +206,13 @@ $(document).ready(function(){initNavTree('sequencer_8h_source.html',''); initRes
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                    .<a class="code" href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">match</a>(</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                        [&amp;]( std::size_t next_read ) {</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                                to_read = next_read;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                                <a class="code" href="namespaceemlabcpp.html#a1f32e86c3dfcebce5092b96b5152e94e">count</a>   = 0;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                                <a class="code" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">count</a>   = 0;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                        },</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                        [&amp;]( <span class="keyword">auto</span> msg ) {</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                                <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = msg;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                        } );</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a1f32e86c3dfcebce5092b96b5152e94e">count</a> += 1;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">count</a> += 1;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        }</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
@@ -238,11 +238,11 @@ $(document).ready(function(){initNavTree('sequencer_8h_source.html',''); initRes
 <div class="ttc" id="aeither_8h_html"><div class="ttname"><a href="either_8h.html">either.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a11ac05592b4c728910966af0c89b13a8"><div class="ttname"><a href="namespaceemlabcpp.html#a11ac05592b4c728910966af0c89b13a8">emlabcpp::distance</a></div><div class="ttdeci">length distance</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:99</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a1377f84042c48380be9118421fb97e6f"><div class="ttname"><a href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">emlabcpp::count</a></div><div class="ttdeci">constexpr std::size_t count(const Container &amp;cont, UnaryCallable &amp;&amp;f=std::identity())</div><div class="ttdoc">Applies the predicate 'f(x)' to each element of container 'cont' and returns the count of items,...</div><div class="ttdef"><b>Definition:</b> algorithm.h:250</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a172761451ef499ea1a316bf3b683fd16"><div class="ttname"><a href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">emlabcpp::view_n</a></div><div class="ttdeci">constexpr view&lt; Iter &gt; view_n(Iter begin, std::size_t n)</div><div class="ttdoc">Creates view over 'n' items of dataset starting at 'begin' This does not check validity of the range!</div><div class="ttdef"><b>Definition:</b> view.h:173</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a1f32e86c3dfcebce5092b96b5152e94e"><div class="ttname"><a href="namespaceemlabcpp.html#a1f32e86c3dfcebce5092b96b5152e94e">emlabcpp::count</a></div><div class="ttdeci">constexpr std::size_t count(const Container &amp;cont, UnaryFunction &amp;&amp;f=std::identity())</div><div class="ttdoc">Applies the unary function 'f(x)' to each element of container 'cont' and returns the count of items,...</div><div class="ttdef"><b>Definition:</b> algorithm.h:257</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a2af5aa50c92bf95bb01b6eb333b32dcd"><div class="ttname"><a href="namespaceemlabcpp.html#a2af5aa50c92bf95bb01b6eb333b32dcd">emlabcpp::protocol_simple_load</a></div><div class="ttdeci">std::optional&lt; typename Sequencer::message_type &gt; protocol_simple_load(std::size_t read_limit, ReadCallback &amp;&amp;read)</div><div class="ttdef"><b>Definition:</b> sequencer.h:111</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a57181a407fd6f29a50664f8ba4cb44cd"><div class="ttname"><a href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match</a></div><div class="ttdeci">decltype(auto) match(Variant &amp;&amp;var, Callables &amp;&amp;... cals)</div><div class="ttdef"><b>Definition:</b> match.h:60</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:525</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:523</div></div>
 <div class="ttc" id="astatic__circular__buffer_8h_html"><div class="ttname"><a href="static__circular__buffer_8h.html">static_circular_buffer.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -250,7 +250,7 @@ $(document).ready(function(){initNavTree('sequencer_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="sequencer_8h.html">sequencer.h</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 13:58:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

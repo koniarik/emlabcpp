@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>emlabcpp: emlabcpp::defer&lt; Function &gt; Class Template Reference</title>
+<title>emlabcpp: emlabcpp::defer&lt; Callable &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,35 +87,47 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1defer.html',''); init
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classemlabcpp_1_1defer-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">emlabcpp::defer&lt; Function &gt; Class Template Reference</div>  </div>
+<div class="title">emlabcpp::defer&lt; Callable &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defer is an object that receives and stores callable, which is called on it's destruction.  
+ <a href="classemlabcpp_1_1defer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="defer_8h_source.html">defer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae654184e2d9aba3b4f2a86af4dc95597"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1defer.html#ae654184e2d9aba3b4f2a86af4dc95597">defer</a> (Function <a class="el" href="namespaceemlabcpp.html#a2351d7b7de1988dbb2979cadfd729d1f">f</a>)</td></tr>
-<tr class="separator:ae654184e2d9aba3b4f2a86af4dc95597"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a001669624ce75f55d5b89d5a81ccb70d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1defer.html#a001669624ce75f55d5b89d5a81ccb70d">~defer</a> ()</td></tr>
-<tr class="separator:a001669624ce75f55d5b89d5a81ccb70d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b2ff0449b46f547c54c7b5ba8621156"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1defer.html#a6b2ff0449b46f547c54c7b5ba8621156">defer</a> (Callable <a class="el" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>)</td></tr>
+<tr class="separator:a6b2ff0449b46f547c54c7b5ba8621156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a78f8a5ed6a126b19c55de32b2860e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1defer.html#a3a78f8a5ed6a126b19c55de32b2860e3">~defer</a> ()</td></tr>
+<tr class="separator:a3a78f8a5ed6a126b19c55de32b2860e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae654184e2d9aba3b4f2a86af4dc95597"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae654184e2d9aba3b4f2a86af4dc95597">&#9670;&nbsp;</a></span>defer()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename Callable&gt;<br />
+class emlabcpp::defer&lt; Callable &gt;</h3>
+
+<p>Defer is an object that receives and stores callable, which is called on it's destruction. </p>
+<p>The mechanism should be used to setup callbacks executed on end of scope.</p>
+<p>For example:</p>
+<p>void foo(){ defer d = []{ std::cout &lt;&lt; "tree" &lt;&lt; std::endl; }; }</p>
+<p>Prints "tree" once foo() finishes it's execution </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a6b2ff0449b46f547c54c7b5ba8621156"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b2ff0449b46f547c54c7b5ba8621156">&#9670;&nbsp;</a></span>defer()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Function &gt; </div>
+template&lt;typename Callable &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1defer.html">emlabcpp::defer</a>&lt; Function &gt;::<a class="el" href="classemlabcpp_1_1defer.html">defer</a> </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1defer.html">emlabcpp::defer</a>&lt; Callable &gt;::<a class="el" href="classemlabcpp_1_1defer.html">defer</a> </td>
           <td>(</td>
-          <td class="paramtype">Function&#160;</td>
+          <td class="paramtype">Callable&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -129,19 +141,19 @@ template&lt;typename Function &gt; </div>
 
 </div>
 </div>
-<a id="a001669624ce75f55d5b89d5a81ccb70d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a001669624ce75f55d5b89d5a81ccb70d">&#9670;&nbsp;</a></span>~defer()</h2>
+<a id="a3a78f8a5ed6a126b19c55de32b2860e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a78f8a5ed6a126b19c55de32b2860e3">&#9670;&nbsp;</a></span>~defer()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Function &gt; </div>
+template&lt;typename Callable &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1defer.html">emlabcpp::defer</a>&lt; Function &gt;::~<a class="el" href="classemlabcpp_1_1defer.html">defer</a> </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1defer.html">emlabcpp::defer</a>&lt; Callable &gt;::~<a class="el" href="classemlabcpp_1_1defer.html">defer</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -165,7 +177,7 @@ template&lt;typename Function &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1defer.html">defer</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 13:58:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

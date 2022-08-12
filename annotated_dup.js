@@ -147,14 +147,14 @@ var annotated_dup =
       [ "is_std_vector", "structemlabcpp_1_1is__std__vector.html", null ],
       [ "static_size", "structemlabcpp_1_1static__size.html", null ],
       [ "mapped", "namespaceemlabcpp.html#structemlabcpp_1_1mapped", null ],
-      [ "mapped< Container, UnaryFunction >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryFunction_01_4.html", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryFunction_01_4" ],
+      [ "mapped< Container, UnaryCallable >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4.html", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4" ],
       [ "tag", "structemlabcpp_1_1tag.html", "structemlabcpp_1_1tag" ],
       [ "select_utype", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
       [ "view", "classemlabcpp_1_1view.html", "classemlabcpp_1_1view" ],
       [ "zip_iterator", "classemlabcpp_1_1zip__iterator.html", "classemlabcpp_1_1zip__iterator" ]
     ] ],
     [ "std", null, [
-      [ "iterator_traits< emlabcpp::access_iterator< Iterator, AccessFunction > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1access__iterator_3_01Iterator_00_01AccessFunction_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1access__iterator_3_01Iterator_00_01AccessFunction_01_4_01_4" ],
+      [ "iterator_traits< emlabcpp::access_iterator< Iterator, AccessCallable > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1access__iterator_3_01Iterator_00_01AccessCallable_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1access__iterator_3_01Iterator_00_01AccessCallable_01_4_01_4" ],
       [ "iterator_traits< emlabcpp::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4" ],
       [ "iterator_traits< emlabcpp::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1numeric__iterator_3_01T_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1numeric__iterator_3_01T_01_4_01_4" ],
       [ "iterator_traits< emlabcpp::subscript_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1subscript__iterator_3_01Container_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1subscript__iterator_3_01Container_01_4_01_4" ],

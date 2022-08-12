@@ -137,10 +137,10 @@ Functions</h2></td></tr>
 <tr class="memitem:aa8b8f5742901528282a9da6b8317e7b5"><td class="memTemplParams" colspan="2">template&lt;typename TuplesTuple , std::size_t... ItemIndexes, std::size_t... TupleIndexes&gt; </td></tr>
 <tr class="memitem:aa8b8f5742901528282a9da6b8317e7b5"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa8b8f5742901528282a9da6b8317e7b5">emlabcpp::tuple_zip_impl</a> (TuplesTuple &amp;&amp;tpls, std::index_sequence&lt; ItemIndexes... &gt;, std::index_sequence&lt; TupleIndexes... &gt;)</td></tr>
 <tr class="separator:aa8b8f5742901528282a9da6b8317e7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c07efb3691ae81d8dbffdeed5ee54e7"><td class="memTemplParams" colspan="2">template&lt;typename Tuple , typename... Tuples, std::enable_if_t&lt; is_std_tuple_v&lt; Tuple &gt; &gt; *  = nullptr, std::enable_if_t&lt; std::conjunction_v&lt; is_std_tuple&lt; std::decay_t&lt; Tuples &gt; &gt;... &gt; &gt; *  = nullptr&gt; </td></tr>
-<tr class="memitem:a1c07efb3691ae81d8dbffdeed5ee54e7"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1c07efb3691ae81d8dbffdeed5ee54e7">emlabcpp::zip</a> (Tuple &amp;&amp;frst, Tuples &amp;&amp;... tpls)</td></tr>
-<tr class="memdesc:a1c07efb3691ae81d8dbffdeed5ee54e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zips a set of tuples of same size into a new tuple.  <a href="namespaceemlabcpp.html#a1c07efb3691ae81d8dbffdeed5ee54e7">More...</a><br /></td></tr>
-<tr class="separator:a1c07efb3691ae81d8dbffdeed5ee54e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81d4ae07c2d875b52377456faf19fe92"><td class="memTemplParams" colspan="2">template&lt;gettable_container Tuple, gettable_container... Tuples&gt; </td></tr>
+<tr class="memitem:a81d4ae07c2d875b52377456faf19fe92"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a81d4ae07c2d875b52377456faf19fe92">emlabcpp::zip</a> (Tuple &amp;&amp;frst, Tuples &amp;&amp;... tpls)</td></tr>
+<tr class="memdesc:a81d4ae07c2d875b52377456faf19fe92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zips a set of gettable containers of same size into a tuples.  <a href="namespaceemlabcpp.html#a81d4ae07c2d875b52377456faf19fe92">More...</a><br /></td></tr>
+<tr class="separator:a81d4ae07c2d875b52377456faf19fe92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -148,7 +148,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="zip_8h.html">zip.h</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 13:58:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -124,21 +124,21 @@ algorithm.h</h2>
 <p>The two core functions are <code>find_if</code> and <code>for_each</code>, both are implemented with variant over containers and tuples.</p>
 <div class="fragment"><div class="line">std::tuple&lt; int, std::string &gt; tpl_data;</div>
 <div class="line">std::vector&lt; int &gt; vec_data;</div>
-<div class="line"><a class="code" href="namespaceemlabcpp.html#a836376ebd63413e70abd97e0c49cca90">for_each</a>(tpl_data, [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span> &amp; item ){</div>
+<div class="line"><a class="code" href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">for_each</a>(tpl_data, [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span> &amp; item ){</div>
 <div class="line">    std::cout &lt;&lt; item &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">});</div>
-<div class="line"><a class="code" href="namespaceemlabcpp.html#a836376ebd63413e70abd97e0c49cca90">for_each</a>(vec_data, [&amp;]( <span class="keywordtype">int</span> item ){</div>
+<div class="line"><a class="code" href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">for_each</a>(vec_data, [&amp;]( <span class="keywordtype">int</span> item ){</div>
 <div class="line">    std::cout &lt;&lt; item &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">});</div>
 <div class="line"> </div>
-<div class="line">std::size_t index = <a class="code" href="namespaceemlabcpp.html#aaf83e29aeab35a17d15504a6dd57dd20">find_if</a>(tpl_data, [&amp;]( <span class="keyword">auto</span> item ){</div>
+<div class="line">std::size_t index = <a class="code" href="namespaceemlabcpp.html#adad2aaee725330a629c1fa9af8cf7e37">find_if</a>(tpl_data, [&amp;]( <span class="keyword">auto</span> item ){</div>
 <div class="line">    <span class="keywordflow">return</span> std::is_same_v&lt; decltype(item), std::string &gt;(item);</div>
 <div class="line">});</div>
-<div class="line"><span class="keyword">auto</span> iter = <a class="code" href="namespaceemlabcpp.html#aaf83e29aeab35a17d15504a6dd57dd20">find_if</a>(vec_data, [&amp;]( <span class="keywordtype">int</span> i ){</div>
+<div class="line"><span class="keyword">auto</span> iter = <a class="code" href="namespaceemlabcpp.html#adad2aaee725330a629c1fa9af8cf7e37">find_if</a>(vec_data, [&amp;]( <span class="keywordtype">int</span> i ){</div>
 <div class="line">    <span class="keywordflow">return</span> i != 0;</div>
 <div class="line">});</div>
-<div class="ttc" id="anamespaceemlabcpp_html_a836376ebd63413e70abd97e0c49cca90"><div class="ttname"><a href="namespaceemlabcpp.html#a836376ebd63413e70abd97e0c49cca90">emlabcpp::for_each</a></div><div class="ttdeci">constexpr void for_each(Container &amp;&amp;cont, UnaryFunction &amp;&amp;f)</div><div class="ttdoc">Applies unary function 'f' to each element of container 'cont'.</div><div class="ttdef"><b>Definition:</b> algorithm.h:174</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_aaf83e29aeab35a17d15504a6dd57dd20"><div class="ttname"><a href="namespaceemlabcpp.html#aaf83e29aeab35a17d15504a6dd57dd20">emlabcpp::find_if</a></div><div class="ttdeci">constexpr auto find_if(Container &amp;&amp;cont, UnaryFunction &amp;&amp;f=std::identity())</div><div class="ttdoc">Returns iterator for first item, for which call to f(*iter) holds true.</div><div class="ttdef"><b>Definition:</b> algorithm.h:113</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a685395cc470dfed697a40d2c718af4e9"><div class="ttname"><a href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">emlabcpp::for_each</a></div><div class="ttdeci">constexpr void for_each(Container &amp;&amp;cont, UnaryCallable &amp;&amp;f)</div><div class="ttdoc">Applies unary callable 'f' to each element of container 'cont'.</div><div class="ttdef"><b>Definition:</b> algorithm.h:167</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_adad2aaee725330a629c1fa9af8cf7e37"><div class="ttname"><a href="namespaceemlabcpp.html#adad2aaee725330a629c1fa9af8cf7e37">emlabcpp::find_if</a></div><div class="ttdeci">constexpr auto find_if(Container &amp;&amp;cont, PredicateCallable &amp;&amp;f=std::identity())</div><div class="ttdoc">Returns iterator for first item, for which call to predicate f(*iter) holds true.</div><div class="ttdef"><b>Definition:</b> algorithm.h:106</div></div>
 </div><!-- fragment --><p>See examples for an overview of algorithms.</p>
 <h2><a class="anchor" id="autotoc_md13"></a>
 either.h</h2>
@@ -166,7 +166,7 @@ either.h</h2>
 <div class="line">    },[&amp;](error e){</div>
 <div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;error happend :(: &quot;</span> &lt;&lt; e &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">    })</div>
-<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:525</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:523</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
 view.h</h2>
 <p>Simple container storing a pair of iterators - non-owning container of data. This make it possible to pass a subset of container to API expecting a container itself. It is also more sensible for functions that would return <code>std::pair</code> of iterators.</p>
@@ -258,7 +258,7 @@ iterators/access.h</h3>
 <div class="line"> </div>
 <div class="line">std::vector&lt;foo&gt; vec_data;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">auto</span> acview = <a class="code" href="namespaceemlabcpp.html#a1718357386396f122c78205b00bed08c">access_view</a>(vec_data,</div>
+<div class="line"><span class="keyword">auto</span> acview = <a class="code" href="namespaceemlabcpp.html#aeed89855f25c3cc3885b6ff97926cf4c">access_view</a>(vec_data,</div>
 <div class="line">                          [](<span class="keyword">const</span> foo&amp; item) -&gt; <span class="keyword">const</span> std::string&amp; { </div>
 <div class="line">                            <span class="keywordflow">return</span> item.attr;</div>
 <div class="line">                          });</div>
@@ -267,7 +267,7 @@ iterators/access.h</h3>
 <div class="line">{</div>
 <div class="line">    std::cout &lt;&lt; item &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_html_a1718357386396f122c78205b00bed08c"><div class="ttname"><a href="namespaceemlabcpp.html#a1718357386396f122c78205b00bed08c">emlabcpp::access_view</a></div><div class="ttdeci">view&lt; access_iterator&lt; iterator_of_t&lt; Container &gt;, AccessFunction &gt; &gt; access_view(Container &amp;&amp;cont, AccessFunction &amp;&amp;f)</div><div class="ttdoc">Creates view ver container cont with AccessFunction f.</div><div class="ttdef"><b>Definition:</b> access.h:108</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_aeed89855f25c3cc3885b6ff97926cf4c"><div class="ttname"><a href="namespaceemlabcpp.html#aeed89855f25c3cc3885b6ff97926cf4c">emlabcpp::access_view</a></div><div class="ttdeci">view&lt; access_iterator&lt; iterator_of_t&lt; Container &gt;, AccessCallable &gt; &gt; access_view(Container &amp;&amp;cont, AccessCallable &amp;&amp;f)</div><div class="ttdoc">Creates view ver container cont with AccessCallable f.</div><div class="ttdef"><b>Definition:</b> access.h:108</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md21"></a>
 quantity.h</h2>
 <p>Simple thin overlay over numeric types, that gives abillity to implement strongly typed numeric types. This is handy in case you want to enforce correctness on type level. See implementation of <code>physical_quantity</code> as an example.</p>
@@ -307,7 +307,7 @@ pid.h</h2>
 <div class="line"> </div>
 <div class="line">    time += 1;</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_html_a364f72aef7b46ed76b90e1f7a054fc32"><div class="ttname"><a href="namespaceemlabcpp.html#a364f72aef7b46ed76b90e1f7a054fc32">emlabcpp::cos</a></div><div class="ttdeci">constexpr auto cos(const quantity&lt; Derived, ValueType &gt; u)</div><div class="ttdoc">Returns cosinus of the quantity as scalar.</div><div class="ttdef"><b>Definition:</b> quantity.h:219</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a364f72aef7b46ed76b90e1f7a054fc32"><div class="ttname"><a href="namespaceemlabcpp.html#a364f72aef7b46ed76b90e1f7a054fc32">emlabcpp::cos</a></div><div class="ttdeci">constexpr auto cos(const quantity&lt; Derived, ValueType &gt; u)</div><div class="ttdoc">Returns cosinus of the quantity as scalar.</div><div class="ttdef"><b>Definition:</b> quantity.h:228</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md24"></a>
 static_circular_buffer.h</h2>
 <p>Basic implementation of circular buffer with static maximal size, that can store non-default constructible elements. No dynamic allocation is used.</p>
@@ -360,15 +360,15 @@ zip.h</h2>
 <div class="line">{</div>
 <div class="line">    std::cout &lt;&lt; name &lt;&lt; <span class="charliteral">&#39;\t&#39;</span> &lt;&lt; surname &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_html_a41ab261a0f296f3c9862e59e12339885"><div class="ttname"><a href="namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885">emlabcpp::zip</a></div><div class="ttdeci">auto zip(Ts &amp;&amp;... cont)</div><div class="ttdoc">Creates a view of zip iterators for specified containers.</div><div class="ttdef"><b>Definition:</b> zip.h:151</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_afe935e56d6376df9f87d0d015a3baecc"><div class="ttname"><a href="namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc">emlabcpp::enumerate</a></div><div class="ttdeci">auto enumerate(Container &amp;&amp;cont)</div><div class="ttdef"><b>Definition:</b> zip.h:157</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a41ab261a0f296f3c9862e59e12339885"><div class="ttname"><a href="namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885">emlabcpp::zip</a></div><div class="ttdeci">auto zip(Ts &amp;&amp;... cont)</div><div class="ttdoc">Creates a view of zip iterators for specified containers.</div><div class="ttdef"><b>Definition:</b> zip.h:150</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_afe935e56d6376df9f87d0d015a3baecc"><div class="ttname"><a href="namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc">emlabcpp::enumerate</a></div><div class="ttdeci">auto enumerate(Container &amp;&amp;cont)</div><div class="ttdef"><b>Definition:</b> zip.h:156</div></div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Aug 12 2022 13:58:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

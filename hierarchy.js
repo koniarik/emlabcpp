@@ -16,7 +16,7 @@ var hierarchy =
     [ "emlabcpp::contiguous_tree< Key, Value >", "classemlabcpp_1_1contiguous__tree.html", null ],
     [ "emlabcpp::contiguous_tree< testing_key, testing_value >", "classemlabcpp_1_1contiguous__tree.html", null ],
     [ "emlabcpp::convert_to< T >", "structemlabcpp_1_1convert__to.html", null ],
-    [ "emlabcpp::defer< Function >", "classemlabcpp_1_1defer.html", null ],
+    [ "emlabcpp::defer< Callable >", "classemlabcpp_1_1defer.html", null ],
     [ "emlabcpp::derived_storage< T, N >", "classemlabcpp_1_1derived__storage.html", null ],
     [ "std::disjunction", null, [
       [ "emlabcpp::tuple_has_type< T, std::tuple< Us... > >", "structemlabcpp_1_1tuple__has__type_3_01T_00_01std_1_1tuple_3_01Us_8_8_8_01_4_01_4.html", null ]
@@ -42,8 +42,8 @@ var hierarchy =
       [ "emlabcpp::impl::is_view< typename >", "structemlabcpp_1_1impl_1_1is__view.html", null ]
     ] ],
     [ "emlabcpp::generic_iterator< Derived >", "classemlabcpp_1_1generic__iterator.html", null ],
-    [ "emlabcpp::generic_iterator< access_iterator< Iterator, AccessFunction > >", "classemlabcpp_1_1generic__iterator.html", [
-      [ "emlabcpp::access_iterator< Iterator, AccessFunction >", "classemlabcpp_1_1access__iterator.html", null ]
+    [ "emlabcpp::generic_iterator< access_iterator< Iterator, AccessCallable > >", "classemlabcpp_1_1generic__iterator.html", [
+      [ "emlabcpp::access_iterator< Iterator, AccessCallable >", "classemlabcpp_1_1access__iterator.html", null ]
     ] ],
     [ "emlabcpp::generic_iterator< convert_iterator< T, Iterator > >", "classemlabcpp_1_1generic__iterator.html", [
       [ "emlabcpp::convert_iterator< T, Iterator >", "classemlabcpp_1_1convert__iterator.html", null ]
@@ -59,7 +59,7 @@ var hierarchy =
     ] ],
     [ "std::hash< T >", "structstd_1_1hash_3_01T_01_4.html", null ],
     [ "emlabcpp::iterator_of< Container >", "namespaceemlabcpp.html#structemlabcpp_1_1iterator__of", null ],
-    [ "std::iterator_traits< emlabcpp::access_iterator< Iterator, AccessFunction > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1access__iterator_3_01Iterator_00_01AccessFunction_01_4_01_4.html", null ],
+    [ "std::iterator_traits< emlabcpp::access_iterator< Iterator, AccessCallable > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1access__iterator_3_01Iterator_00_01AccessCallable_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1numeric__iterator_3_01T_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::static_circular_buffer_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01Container_01_4_01_4.html", null ],
@@ -68,8 +68,8 @@ var hierarchy =
     [ "emlabcpp::impl::map_f_collector< typename >", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector", null ],
     [ "emlabcpp::impl::map_f_collector< std::array< T, N > >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::impl::map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", null ],
-    [ "emlabcpp::mapped< Container, UnaryFunction >", "namespaceemlabcpp.html#structemlabcpp_1_1mapped", null ],
-    [ "emlabcpp::mapped< Container, UnaryFunction >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryFunction_01_4.html", null ],
+    [ "emlabcpp::mapped< Container, UnaryCallable >", "namespaceemlabcpp.html#structemlabcpp_1_1mapped", null ],
+    [ "emlabcpp::mapped< Container, UnaryCallable >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4.html", null ],
     [ "emlabcpp::min_max< T >", "structemlabcpp_1_1min__max.html", null ],
     [ "std::numeric_limits< T >", "structstd_1_1numeric__limits_3_01T_01_4.html", null ],
     [ "emlabcpp::pid< TimeType >", "classemlabcpp_1_1pid.html", null ],
