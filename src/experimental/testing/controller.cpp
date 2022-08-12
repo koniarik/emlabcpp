@@ -42,6 +42,7 @@ public:
 
         void send( const testing_controller_reactor_variant& var )
         {
+                EMLABCPP_DEBUG_LOG( "con->rec: " << var );
                 auto msg = testing_controller_reactor_serialize( var );
                 iface_.transmit( msg );
         }
@@ -119,6 +120,7 @@ std::optional< T > load_data( const Args&... args, testing_controller_interface_
 testing_reactor_controller_extract( *opt_msg )
     .match(
         [&]( auto pack ) {
+                EMLABCPP_DEBUG_LOG( "con<-rec: " << pack );
                 apply_on_visit( handle, pack );
         },
         [&]( protocol_error_record rec ) {
@@ -146,7 +148,7 @@ testing_controller::make( testing_controller_interface& top_iface, pool_interfac
                 return {};
         }
         if ( !opt_count ) {
-                EMLABCPP_LOG( "Failed to build controller - did not get a test count" )
+                EMLABCPP_LOG( "Failed to build controller - did not get a test count" );
                 return {};
         }
 
@@ -158,7 +160,7 @@ testing_controller::make( testing_controller_interface& top_iface, pool_interfac
                 if ( !opt_name ) {
                         EMLABCPP_LOG(
                             "Failed to build controller - did not get a test name for index: "
-                            << i )
+                            << i );
                         return {};
                 }
                 info[i] = test_info{ .name = *opt_name };
@@ -394,7 +396,7 @@ void testing_controller::tick( testing_controller_interface& top_iface )
         testing_reactor_controller_extract( *opt_msg )
             .match(
                 [&]( auto var ) {
-                        EMLABCPP_LOG( var );
+                        EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
                         apply_on_visit(
                             [&]( auto... args ) {
                                     handle_message( args..., iface );

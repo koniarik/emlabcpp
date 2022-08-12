@@ -158,13 +158,6 @@ struct reactor_iface : em::testing_reactor_interface
 
         void transmit( std::span< uint8_t > inpt ) final
         {
-                em::testing_reactor_controller_extract(
-                    *em::testing_reactor_controller_msg::make( inpt ) )
-                    .match(
-                        [&]( const auto& val ) {
-                                EMLABCPP_LOG( "reactor:" << val );
-                        },
-                        []( auto ) {} );
                 reac_con_buff.insert( inpt );
         }
 
@@ -206,13 +199,6 @@ struct controller_iface : em::testing_controller_interface
 
         void transmit( std::span< uint8_t > inpt ) final
         {
-                em::testing_controller_reactor_extract(
-                    *em::testing_controller_reactor_msg::make( inpt ) )
-                    .match(
-                        [&]( const auto& val ) {
-                                EMLABCPP_LOG( "control:" << val );
-                        },
-                        [&]( auto ) {} );
                 con_reac_buff.insert( inpt );
         }
 
