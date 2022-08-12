@@ -467,51 +467,50 @@ $(document).ready(function(){initNavTree('either_8h_source.html',''); initResiza
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;};</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span>... Ts &gt;</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="keyword">inline</span> <a class="code" href="classemlabcpp_1_1either.html">either</a>&lt; std::tuple&lt; Ts... &gt;, <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag">empty_assembly_tag</a> &gt;</div>
-<div class="line"><a name="l00399"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486">  399</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486">assemble_optionals</a>( std::optional&lt; Ts &gt;&amp;&amp;... opt )</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;{</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="keywordflow">if</span> ( ( ... &amp;&amp; opt ) ) {</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                <span class="keywordflow">return</span> std::make_tuple&lt; Ts... &gt;( std::forward&lt; Ts &gt;( *opt )... );</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        }</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag">empty_assembly_tag</a>{};</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;}</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> FirstE, <span class="keyword">typename</span>... Eithers &gt;</div>
-<div class="line"><a name="l00417"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755">  417</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755">assemble_left_collect_right</a>( FirstE&amp;&amp; first, Eithers&amp;&amp;... others ) <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>(</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    std::same_as&lt;</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        <span class="keyword">typename</span> std::decay_t&lt; FirstE &gt;::right_item,</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        <span class="keyword">typename</span> std::decay_t&lt; Eithers &gt;::right_item &gt;&amp;&amp;... )</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;{</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160; </div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        <span class="keyword">using</span> right_type               = <span class="keyword">typename</span> std::decay_t&lt; FirstE &gt;::right_item;</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        constexpr std::size_t either_n = 1 + <span class="keyword">sizeof</span>...( Eithers );</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160; </div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; right_type, either_n &gt;</a> collection{};</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160; </div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <span class="keyword">auto</span> convert = [&amp;]&lt; <span class="keyword">typename</span> Either &gt;( Either&amp;&amp; <a class="code" href="classemlabcpp_1_1either.html">either</a> ) {</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;                <span class="keyword">using</span> left_type = <span class="keyword">typename</span> std::remove_reference_t&lt; Either &gt;::left_item;</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                <span class="keywordflow">return</span> std::forward&lt; Either &gt;( <a class="code" href="classemlabcpp_1_1either.html">either</a> )</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                    .convert_left( [&amp;]( <span class="keyword">auto</span> item ) {</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                            <span class="keywordflow">return</span> std::make_optional( std::move( item ) );</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                    } )</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                    .convert_right( [&amp;]( <span class="keyword">auto</span> item ) {</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                            collection.emplace_back( std::move( item ) );</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                            <span class="keywordflow">return</span> std::optional&lt; left_type &gt;();</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                    } )</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                    .join();</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        };</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486">assemble_optionals</a>(</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                   convert( std::forward&lt; FirstE &gt;( first ) ),</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;                   convert( std::forward&lt; Eithers &gt;( others ) )... )</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            .convert_right( [&amp;]( <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag">empty_assembly_tag</a> ) {</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                    <span class="keywordflow">return</span> collection;</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;            } );</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;}</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486">  398</a></span>&#160;<a class="code" href="classemlabcpp_1_1either.html">either</a>&lt; std::tuple&lt; Ts... &gt;, <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag">empty_assembly_tag</a> &gt; <a class="code" href="namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486">assemble_optionals</a>( std::optional&lt; Ts &gt;&amp;&amp;... opt )</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;{</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <span class="keywordflow">if</span> ( ( ... &amp;&amp; opt ) ) {</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                <span class="keywordflow">return</span> std::make_tuple&lt; Ts... &gt;( std::forward&lt; Ts &gt;( *opt )... );</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        }</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag">empty_assembly_tag</a>{};</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;}</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> FirstE, <span class="keyword">typename</span>... Eithers &gt;</div>
+<div class="line"><a name="l00416"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755">  416</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755">assemble_left_collect_right</a>( FirstE&amp;&amp; first, Eithers&amp;&amp;... others ) <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>(</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    std::same_as&lt;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        <span class="keyword">typename</span> std::decay_t&lt; FirstE &gt;::right_item,</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        <span class="keyword">typename</span> std::decay_t&lt; Eithers &gt;::right_item &gt;&amp;&amp;... )</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;{</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="keyword">using</span> right_type               = <span class="keyword">typename</span> std::decay_t&lt; FirstE &gt;::right_item;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        constexpr std::size_t either_n = 1 + <span class="keyword">sizeof</span>...( Eithers );</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; right_type, either_n &gt;</a> collection{};</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keyword">auto</span> convert = [&amp;]&lt; <span class="keyword">typename</span> Either &gt;( Either&amp;&amp; <a class="code" href="classemlabcpp_1_1either.html">either</a> ) {</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;                <span class="keyword">using</span> left_type = <span class="keyword">typename</span> std::remove_reference_t&lt; Either &gt;::left_item;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                <span class="keywordflow">return</span> std::forward&lt; Either &gt;( <a class="code" href="classemlabcpp_1_1either.html">either</a> )</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                    .convert_left( [&amp;]( <span class="keyword">auto</span> item ) {</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                            <span class="keywordflow">return</span> std::make_optional( std::move( item ) );</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                    } )</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                    .convert_right( [&amp;]( <span class="keyword">auto</span> item ) {</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                            collection.emplace_back( std::move( item ) );</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                            <span class="keywordflow">return</span> std::optional&lt; left_type &gt;();</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                    } )</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                    .join();</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        };</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486">assemble_optionals</a>(</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;                   convert( std::forward&lt; FirstE &gt;( first ) ),</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                   convert( std::forward&lt; Eithers &gt;( others ) )... )</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            .convert_right( [&amp;]( <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag">empty_assembly_tag</a> ) {</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                    <span class="keywordflow">return</span> collection;</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;            } );</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;}</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1either_html"><div class="ttname"><a href="classemlabcpp_1_1either.html">emlabcpp::either</a></div><div class="ttdoc">Either is heterogenous structure that holds one of the two types specified.</div><div class="ttdef"><b>Definition:</b> either.h:52</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1either_html_a09209aa1fa5a927d0ac4a20846b93639"><div class="ttname"><a href="classemlabcpp_1_1either.html#a09209aa1fa5a927d0ac4a20846b93639">emlabcpp::either::is_left</a></div><div class="ttdeci">constexpr bool is_left() const</div><div class="ttdef"><b>Definition:</b> either.h:172</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1either_html_a0c03f2e46b702d9928cc942f915ad92c"><div class="ttname"><a href="classemlabcpp_1_1either.html#a0c03f2e46b702d9928cc942f915ad92c">emlabcpp::either::construct_right</a></div><div class="ttdeci">either&lt; left_item, T &gt; construct_right() const &amp;</div><div class="ttdef"><b>Definition:</b> either.h:275</div></div>
@@ -549,10 +548,10 @@ $(document).ready(function(){initNavTree('either_8h_source.html',''); initResiza
 <div class="ttc" id="aclassemlabcpp_1_1either_html_af013ade2238bc860a5d9922d157c64bf"><div class="ttname"><a href="classemlabcpp_1_1either.html#af013ade2238bc860a5d9922d157c64bf">emlabcpp::either::either</a></div><div class="ttdeci">either(either &amp;&amp;other) noexcept</div><div class="ttdef"><b>Definition:</b> either.h:104</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html">emlabcpp::static_vector</a></div><div class="ttdoc">Data container for up to N elements.</div><div class="ttdef"><b>Definition:</b> static_vector.h:39</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a306d3a03f11c2e95874c23956020a755"><div class="ttname"><a href="namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755">emlabcpp::assemble_left_collect_right</a></div><div class="ttdeci">auto assemble_left_collect_right(FirstE &amp;&amp;first, Eithers &amp;&amp;... others) requires(std</div><div class="ttdoc">Function expects eithers of any left type, but same right type.</div><div class="ttdef"><b>Definition:</b> either.h:417</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a306d3a03f11c2e95874c23956020a755"><div class="ttname"><a href="namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755">emlabcpp::assemble_left_collect_right</a></div><div class="ttdeci">auto assemble_left_collect_right(FirstE &amp;&amp;first, Eithers &amp;&amp;... others) requires(std</div><div class="ttdoc">Function expects eithers of any left type, but same right type.</div><div class="ttdef"><b>Definition:</b> either.h:416</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a459242c17dfd40402115fe8a63d21622"><div class="ttname"><a href="namespaceemlabcpp.html#a459242c17dfd40402115fe8a63d21622">emlabcpp::either_uniquely_right_item</a></div><div class="ttdeci">concept either_uniquely_right_item</div><div class="ttdef"><b>Definition:</b> either.h:37</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aab6fd32a8b3335eec93b94331d4293b0"><div class="ttname"><a href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">emlabcpp::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) const expr std</div><div class="ttdoc">Returns index of an element in tuple 't', for which call to predicate f(x) holds true,...</div><div class="ttdef"><b>Definition:</b> algorithm.h:123</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_ac30a98c58cf8a76fa9363a0d19c09486"><div class="ttname"><a href="namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486">emlabcpp::assemble_optionals</a></div><div class="ttdeci">either&lt; std::tuple&lt; Ts... &gt;, empty_assembly_tag &gt; assemble_optionals(std::optional&lt; Ts &gt; &amp;&amp;... opt)</div><div class="ttdoc">Function gets a set of various std::optionals and either returns all their values assembled as tuple ...</div><div class="ttdef"><b>Definition:</b> either.h:399</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ac30a98c58cf8a76fa9363a0d19c09486"><div class="ttname"><a href="namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486">emlabcpp::assemble_optionals</a></div><div class="ttdeci">either&lt; std::tuple&lt; Ts... &gt;, empty_assembly_tag &gt; assemble_optionals(std::optional&lt; Ts &gt; &amp;&amp;... opt)</div><div class="ttdoc">Function gets a set of various std::optionals and either returns all their values assembled as tuple ...</div><div class="ttdef"><b>Definition:</b> either.h:398</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1empty__assembly__tag"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag">emlabcpp::empty_assembly_tag</a></div><div class="ttdoc">Marks empty assembly.</div><div class="ttdef"><b>Definition:</b> either.h:392</div></div>
 <div class="ttc" id="astatic__vector_8h_html"><div class="ttname"><a href="static__vector_8h.html">static_vector.h</a></div></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
@@ -562,7 +561,7 @@ $(document).ready(function(){initNavTree('either_8h_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="either_8h.html">either.h</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 18:07:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -108,7 +108,6 @@ $(document).ready(function(){initNavTree('protocol_2error_8h.html',''); initResi
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__mark.html">emlabcpp::protocol_mark</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error handling in protocol works with marks.  <a href="structemlabcpp_1_1protocol__mark.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1protocol__error__record"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__error__record">emlabcpp::protocol_error_record</a></td></tr>
 <tr class="separator:structemlabcpp_1_1protocol__error__record"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,12 +119,15 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acb44994cf1fc5a0a2bfc4896ee8332de"><td class="memItemLeft" align="right" valign="top">constexpr protocol_mark&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">emlabcpp::make_protocol_mark</a> (const char(&amp;msg)[17])</td></tr>
-<tr class="memdesc:acb44994cf1fc5a0a2bfc4896ee8332de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates <a class="el" href="structemlabcpp_1_1protocol__mark.html" title="Error handling in protocol works with marks.">protocol_mark</a> from simple string literal.  <a href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">More...</a><br /></td></tr>
-<tr class="separator:acb44994cf1fc5a0a2bfc4896ee8332de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646c7a3629c79a55ab904410d94f8cb5"><td class="memItemLeft" align="right" valign="top">constexpr protocol_mark&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">emlabcpp::make_protocol_mark</a> (const char(&amp;msg)[protocol_mark_size+1])</td></tr>
+<tr class="memdesc:a646c7a3629c79a55ab904410d94f8cb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates <a class="el" href="structemlabcpp_1_1protocol__mark.html">protocol_mark</a> from simple string literal.  <a href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">More...</a><br /></td></tr>
+<tr class="separator:a646c7a3629c79a55ab904410d94f8cb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ac177bfc75677ebfea65b82aab752e7ca"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac177bfc75677ebfea65b82aab752e7ca">emlabcpp::protocol_mark_size</a> = 16</td></tr>
+<tr class="memdesc:ac177bfc75677ebfea65b82aab752e7ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error handling in protocol works with marks.  <a href="namespaceemlabcpp.html#ac177bfc75677ebfea65b82aab752e7ca">More...</a><br /></td></tr>
+<tr class="separator:ac177bfc75677ebfea65b82aab752e7ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0600b5cf194accae7c5238c9972cad1"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab0600b5cf194accae7c5238c9972cad1">emlabcpp::SIZE_ERR</a> = make_protocol_mark( &quot;EMLABCPPSIZE &quot; )</td></tr>
 <tr class="separator:ab0600b5cf194accae7c5238c9972cad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50429a6831c33bfc19692833c3a6b0c1"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a50429a6831c33bfc19692833c3a6b0c1">emlabcpp::LOWSIZE_ERR</a> = make_protocol_mark( &quot;EMLABCPPLOWSIZE &quot; )</td></tr>
@@ -194,7 +196,7 @@ offset</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="protocol_2error_8h.html">error.h</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 18:07:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

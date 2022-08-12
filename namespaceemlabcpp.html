@@ -123,8 +123,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html">bounded</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bounded type represents a overlay over type T which is constrained between MinVal and MaxVal as compile time constants.  <a href="classemlabcpp_1_1bounded.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1defer.html">defer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defer is an object that receives and stores callable, which is called on it's destruction.  <a href="classemlabcpp_1_1defer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,6 +132,8 @@ Classes</h2></td></tr>
 <tr class="memitem:structemlabcpp_1_1empty__assembly__tag"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag">empty_assembly_tag</a></td></tr>
 <tr class="memdesc:structemlabcpp_1_1empty__assembly__tag"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks empty assembly.  <a href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag">More...</a><br /></td></tr>
 <tr class="separator:structemlabcpp_1_1empty__assembly__tag"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1contiguous__request__adapter.html">contiguous_request_adapter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1contiguous__object__handle.html">contiguous_object_handle</a></td></tr>
@@ -313,7 +313,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__def_3_01static__vector_3_01T_00_01N_01_4_00_01Endianess_01_4.html">protocol_def&lt; static_vector&lt; T, N &gt;, Endianess &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol__mark.html">protocol_mark</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error handling in protocol works with marks.  <a href="structemlabcpp_1_1protocol__mark.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1protocol__error__record"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__error__record">protocol_error_record</a></td></tr>
 <tr class="separator:structemlabcpp_1_1protocol__error__record"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -767,9 +766,9 @@ Functions</h2></td></tr>
 <tr class="separator:a8d77f50ca9dd31e43365e38debbd42fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a505109612442935cc682cf92a9d2296c"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a505109612442935cc682cf92a9d2296c">select_index</a> (IndexType i, Callable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>)</td></tr>
 <tr class="separator:a505109612442935cc682cf92a9d2296c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c4b8276158ed7d743c68c7395ed0966"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a> (void *ptr, std::size_t alignment)</td></tr>
-<tr class="memdesc:a3c4b8276158ed7d743c68c7395ed0966"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: this needs tests.  <a href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">More...</a><br /></td></tr>
-<tr class="separator:a3c4b8276158ed7d743c68c7395ed0966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e63d288d959cd3f240411608b0966de"><td class="memItemLeft" align="right" valign="top">constexpr void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3e63d288d959cd3f240411608b0966de">align</a> (void *ptr, std::size_t alignment)</td></tr>
+<tr class="memdesc:a3e63d288d959cd3f240411608b0966de"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: this needs tests.  <a href="namespaceemlabcpp.html#a3e63d288d959cd3f240411608b0966de">More...</a><br /></td></tr>
+<tr class="separator:a3e63d288d959cd3f240411608b0966de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb7076d68b2c2f2c0114502a2c7b0ce5"><td class="memTemplParams" colspan="2">template&lt;typename T , T FromLh, T ToLh, T FromRh, T ToRh&gt; </td></tr>
 <tr class="memitem:aeb7076d68b2c2f2c0114502a2c7b0ce5"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromLh+FromRh, ToLh+ToRh &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aeb7076d68b2c2f2c0114502a2c7b0ce5">operator+</a> (const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromLh, ToLh &gt; &amp;lh, const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromRh, ToRh &gt; &amp;rh)</td></tr>
 <tr class="memdesc:aeb7076d68b2c2f2c0114502a2c7b0ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of two bounded types of same base type is bounded within appropiate ranges.  <a href="namespaceemlabcpp.html#aeb7076d68b2c2f2c0114502a2c7b0ce5">More...</a><br /></td></tr>
@@ -876,9 +875,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a9b9eb800885b61e8071ef11e69debdf6"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">pow</a> (<a class="el" href="structemlabcpp_1_1physical__quantity.html">physical_quantity</a>&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt; val)</td></tr>
 <tr class="memdesc:a9b9eb800885b61e8071ef11e69debdf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power of physical quantity is power of root of it's value and the exponents are multiplied by the value.  <a href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">More...</a><br /></td></tr>
 <tr class="separator:a9b9eb800885b61e8071ef11e69debdf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb44994cf1fc5a0a2bfc4896ee8332de"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1protocol__mark.html">protocol_mark</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a> (const char(&amp;msg)[17])</td></tr>
-<tr class="memdesc:acb44994cf1fc5a0a2bfc4896ee8332de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates <a class="el" href="structemlabcpp_1_1protocol__mark.html" title="Error handling in protocol works with marks.">protocol_mark</a> from simple string literal.  <a href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">More...</a><br /></td></tr>
-<tr class="separator:acb44994cf1fc5a0a2bfc4896ee8332de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646c7a3629c79a55ab904410d94f8cb5"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1protocol__mark.html">protocol_mark</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a> (const char(&amp;msg)[<a class="el" href="namespaceemlabcpp.html#ac177bfc75677ebfea65b82aab752e7ca">protocol_mark_size</a>+1])</td></tr>
+<tr class="memdesc:a646c7a3629c79a55ab904410d94f8cb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates <a class="el" href="structemlabcpp_1_1protocol__mark.html">protocol_mark</a> from simple string literal.  <a href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">More...</a><br /></td></tr>
+<tr class="separator:a646c7a3629c79a55ab904410d94f8cb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a8d5cba6bcbef5741380d6fb8914791"><td class="memTemplParams" colspan="2">template&lt;typename Map , typename UnaryCallable &gt; </td></tr>
 <tr class="memitem:a2a8d5cba6bcbef5741380d6fb8914791"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2a8d5cba6bcbef5741380d6fb8914791">protocol_for_each_register</a> (const Map &amp;m, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>)</td></tr>
 <tr class="separator:a2a8d5cba6bcbef5741380d6fb8914791"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1144,27 +1143,30 @@ Variables</h2></td></tr>
 <tr class="memitem:acf01e75bfbd6924b7d262036e65a0881"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acf01e75bfbd6924b7d262036e65a0881">protocol_def_check</a></td></tr>
 <tr class="memdesc:acf01e75bfbd6924b7d262036e65a0881"><td class="mdescLeft">&#160;</td><td class="mdescRight">protocol_def_check&lt;T&gt; concept verifies that 'T' is valid overload of <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1protocol__def" title="protocol_def&lt;T,E&gt; structure defines how type T should be serialized and deserialized.">protocol_def</a>.  <a href="namespaceemlabcpp.html#acf01e75bfbd6924b7d262036e65a0881">More...</a><br /></td></tr>
 <tr class="separator:acf01e75bfbd6924b7d262036e65a0881"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0600b5cf194accae7c5238c9972cad1"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab0600b5cf194accae7c5238c9972cad1">SIZE_ERR</a> = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPSIZE &quot; )</td></tr>
+<tr class="memitem:ac177bfc75677ebfea65b82aab752e7ca"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac177bfc75677ebfea65b82aab752e7ca">protocol_mark_size</a> = 16</td></tr>
+<tr class="memdesc:ac177bfc75677ebfea65b82aab752e7ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error handling in protocol works with marks.  <a href="namespaceemlabcpp.html#ac177bfc75677ebfea65b82aab752e7ca">More...</a><br /></td></tr>
+<tr class="separator:ac177bfc75677ebfea65b82aab752e7ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0600b5cf194accae7c5238c9972cad1"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab0600b5cf194accae7c5238c9972cad1">SIZE_ERR</a> = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPSIZE &quot; )</td></tr>
 <tr class="separator:ab0600b5cf194accae7c5238c9972cad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50429a6831c33bfc19692833c3a6b0c1"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a50429a6831c33bfc19692833c3a6b0c1">LOWSIZE_ERR</a> = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPLOWSIZE &quot; )</td></tr>
+<tr class="memitem:a50429a6831c33bfc19692833c3a6b0c1"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a50429a6831c33bfc19692833c3a6b0c1">LOWSIZE_ERR</a> = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPLOWSIZE &quot; )</td></tr>
 <tr class="memdesc:a50429a6831c33bfc19692833c3a6b0c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">not enough bytes left in the message for the item  <a href="namespaceemlabcpp.html#a50429a6831c33bfc19692833c3a6b0c1">More...</a><br /></td></tr>
 <tr class="separator:a50429a6831c33bfc19692833c3a6b0c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f3ea4ba31c3aac1ca5db845fbe67711"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0f3ea4ba31c3aac1ca5db845fbe67711">BIGSIZE_ERR</a> = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPBIGSIZE &quot; )</td></tr>
+<tr class="memitem:a0f3ea4ba31c3aac1ca5db845fbe67711"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0f3ea4ba31c3aac1ca5db845fbe67711">BIGSIZE_ERR</a> = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPBIGSIZE &quot; )</td></tr>
 <tr class="memdesc:a0f3ea4ba31c3aac1ca5db845fbe67711"><td class="mdescLeft">&#160;</td><td class="mdescRight">too much bytes left in the message for the item  <a href="namespaceemlabcpp.html#a0f3ea4ba31c3aac1ca5db845fbe67711">More...</a><br /></td></tr>
 <tr class="separator:a0f3ea4ba31c3aac1ca5db845fbe67711"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e05bb2d6769aee5b01021e927a54b65"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0e05bb2d6769aee5b01021e927a54b65">BOUNDS_ERR</a> = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPBOUNDS &quot; )</td></tr>
+<tr class="memitem:a0e05bb2d6769aee5b01021e927a54b65"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0e05bb2d6769aee5b01021e927a54b65">BOUNDS_ERR</a> = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPBOUNDS &quot; )</td></tr>
 <tr class="memdesc:a0e05bb2d6769aee5b01021e927a54b65"><td class="mdescLeft">&#160;</td><td class="mdescRight">value in the message is outside of the range of bounded type  <a href="namespaceemlabcpp.html#a0e05bb2d6769aee5b01021e927a54b65">More...</a><br /></td></tr>
 <tr class="separator:a0e05bb2d6769aee5b01021e927a54b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a0d60b3b8af2bc89f3dc4f985a67aff"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2a0d60b3b8af2bc89f3dc4f985a67aff">UNDEFVAR_ERR</a> = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPUNDEFVAR&quot; )</td></tr>
+<tr class="memitem:a2a0d60b3b8af2bc89f3dc4f985a67aff"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2a0d60b3b8af2bc89f3dc4f985a67aff">UNDEFVAR_ERR</a> = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPUNDEFVAR&quot; )</td></tr>
 <tr class="memdesc:a2a0d60b3b8af2bc89f3dc4f985a67aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">variant id is outside of the range for defined variant  <a href="namespaceemlabcpp.html#a2a0d60b3b8af2bc89f3dc4f985a67aff">More...</a><br /></td></tr>
 <tr class="separator:a2a0d60b3b8af2bc89f3dc4f985a67aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a145bebab87eba36baf2eeac66f12ded2"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a145bebab87eba36baf2eeac66f12ded2">BADVAL_ERR</a> = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPBADVAL &quot; )</td></tr>
+<tr class="memitem:a145bebab87eba36baf2eeac66f12ded2"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a145bebab87eba36baf2eeac66f12ded2">BADVAL_ERR</a> = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPBADVAL &quot; )</td></tr>
 <tr class="memdesc:a145bebab87eba36baf2eeac66f12ded2"><td class="mdescLeft">&#160;</td><td class="mdescRight">parsed value is not correct, such as constant  <a href="namespaceemlabcpp.html#a145bebab87eba36baf2eeac66f12ded2">More...</a><br /></td></tr>
 <tr class="separator:a145bebab87eba36baf2eeac66f12ded2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca0086d26c146022436c25e55e690c79"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aca0086d26c146022436c25e55e690c79">GROUP_ERR</a> = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPGRPMATCH&quot; )</td></tr>
+<tr class="memitem:aca0086d26c146022436c25e55e690c79"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aca0086d26c146022436c25e55e690c79">GROUP_ERR</a> = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPGRPMATCH&quot; )</td></tr>
 <tr class="memdesc:aca0086d26c146022436c25e55e690c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">no item of group matched the content of message  <a href="namespaceemlabcpp.html#aca0086d26c146022436c25e55e690c79">More...</a><br /></td></tr>
 <tr class="separator:aca0086d26c146022436c25e55e690c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1464a98bcd956131d445b317f4e8814f"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1464a98bcd956131d445b317f4e8814f">CHECKSUM_ERR</a> = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPCHECKSUM&quot; )</td></tr>
+<tr class="memitem:a1464a98bcd956131d445b317f4e8814f"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1464a98bcd956131d445b317f4e8814f">CHECKSUM_ERR</a> = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPCHECKSUM&quot; )</td></tr>
 <tr class="memdesc:a1464a98bcd956131d445b317f4e8814f"><td class="mdescLeft">&#160;</td><td class="mdescRight">wrong checksum in the protocol  <a href="namespaceemlabcpp.html#a1464a98bcd956131d445b317f4e8814f">More...</a><br /></td></tr>
 <tr class="separator:a1464a98bcd956131d445b317f4e8814f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc59d4efcbda0164962a9720e2c1e8f6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -2749,8 +2751,8 @@ template&lt;container Container, typename T , typename BinaryCallable &gt; </div
 
 </div>
 </div>
-<a id="a3c4b8276158ed7d743c68c7395ed0966"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c4b8276158ed7d743c68c7395ed0966">&#9670;&nbsp;</a></span>align()</h2>
+<a id="a3e63d288d959cd3f240411608b0966de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e63d288d959cd3f240411608b0966de">&#9670;&nbsp;</a></span>align()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2759,7 +2761,7 @@ template&lt;container Container, typename T , typename BinaryCallable &gt; </div
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void* emlabcpp::align </td>
+          <td class="memname">constexpr void* emlabcpp::align </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ptr</em>, </td>
@@ -2778,7 +2780,7 @@ template&lt;container Container, typename T , typename BinaryCallable &gt; </div
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -2992,9 +2994,6 @@ template&lt;typename Visitor , typename Variant &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename FirstE , typename... Eithers&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto emlabcpp::assemble_left_collect_right </td>
@@ -3014,11 +3013,6 @@ template&lt;typename FirstE , typename... Eithers&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Function expects eithers of any left type, but same right type. </p>
@@ -3036,9 +3030,6 @@ template&lt;typename FirstE , typename... Eithers&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename... Ts&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; std::tuple&lt; Ts... &gt;, <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag">empty_assembly_tag</a> &gt; emlabcpp::assemble_optionals </td>
@@ -3048,11 +3039,6 @@ template&lt;typename... Ts&gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Function gets a set of various std::optionals and either returns all their values assembled as tuple or '<a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag" title="Marks empty assembly.">empty_assembly_tag</a>' implicating that some of the optionals was empty. </p>
@@ -3312,9 +3298,6 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Container &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto emlabcpp::enumerate </td>
@@ -3324,11 +3307,6 @@ template&lt;typename Container &gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#ac4b40baac2662db6424a475292ef03b3">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885">zip()</a>.</p>
@@ -3678,8 +3656,8 @@ template&lt;range_container Container, typename T , container_invocable&lt; Cont
 
 </div>
 </div>
-<a id="acb44994cf1fc5a0a2bfc4896ee8332de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb44994cf1fc5a0a2bfc4896ee8332de">&#9670;&nbsp;</a></span>make_protocol_mark()</h2>
+<a id="a646c7a3629c79a55ab904410d94f8cb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a646c7a3629c79a55ab904410d94f8cb5">&#9670;&nbsp;</a></span>make_protocol_mark()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3691,18 +3669,18 @@ template&lt;range_container Container, typename T , container_invocable&lt; Cont
           <td class="memname">constexpr <a class="el" href="structemlabcpp_1_1protocol__mark.html">protocol_mark</a> emlabcpp::make_protocol_mark </td>
           <td>(</td>
           <td class="paramtype">const char(&amp;)&#160;</td>
-          <td class="paramname"><em>msg</em>[17]</td><td>)</td>
+          <td class="paramname"><em>msg</em>[protocol_mark_size+1]</td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates <a class="el" href="structemlabcpp_1_1protocol__mark.html" title="Error handling in protocol works with marks.">protocol_mark</a> from simple string literal. </p>
+<p>Creates <a class="el" href="structemlabcpp_1_1protocol__mark.html">protocol_mark</a> from simple string literal. </p>
 <p>NOLINTNEXTLINE(modernize-avoid-c-arrays) </p>
 <p>note: do not try to fix the argument type, this is correct approach.</p>
 
@@ -3717,9 +3695,6 @@ template&lt;range_container Container, typename T , container_invocable&lt; Cont
 <div class="memproto">
 <div class="memtemplate">
 template&lt;impl::map_f_collectable ResultContainer, container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">ResultContainer emlabcpp::map_f </td>
@@ -3739,11 +3714,6 @@ template&lt;impl::map_f_collectable ResultContainer, container Container, contai
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Calls callable <code>f(x)</code> for each item in container 'cont' (or tuple) and stores result in 'ResultContainer', which is returned. </p>
@@ -3764,9 +3734,6 @@ template&lt;impl::map_f_collectable ResultContainer, container Container, contai
 <div class="memproto">
 <div class="memtemplate">
 template&lt;std::size_t N, range_container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::array&lt; T, N &gt; emlabcpp::map_f_to_a </td>
@@ -3786,11 +3753,6 @@ template&lt;std::size_t N, range_container Container, container_invocable&lt; Co
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Calls callable <code>f(cont[i])</code> for i = 0...N and stores the result in array of an size N. </p>
@@ -4170,9 +4132,6 @@ template&lt;container Container, container_invocable&lt; Container &gt; Predicat
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T , std::size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool emlabcpp::operator!= </td>
@@ -4192,11 +4151,6 @@ template&lt;typename T , std::size_t N&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -4208,9 +4162,6 @@ template&lt;typename T , std::size_t N&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T , std::size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool emlabcpp::operator!= </td>
@@ -4230,11 +4181,6 @@ template&lt;typename T , std::size_t N&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -4830,9 +4776,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -4852,11 +4795,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594a53be8bce457a43c78d5047cded7dca4a">PROTOCOL_BIG_ENDIAN</a>, and <a class="el" href="namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594aa2f671a4536141c87fc72a132d46d839">PROTOCOL_LITTLE_ENDIAN</a>.</p>
@@ -4868,9 +4806,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -4890,11 +4825,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a05a3329bfcabf114135f90476bfbcc09">emlabcpp::protocol_error_record::mark</a>, and <a class="el" href="namespaceemlabcpp.html#a8dcbb739bb8a0179b85adc8f351725bb">emlabcpp::protocol_error_record::offset</a>.</p>
@@ -4906,9 +4836,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -4928,11 +4855,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -4942,9 +4864,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -4964,11 +4883,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a95580a4893efd63e4aa800d599eb2ad0">emlabcpp::testing_controller_message_error::msg_id</a>.</p>
@@ -4980,9 +4894,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5002,11 +4913,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a555ffdabf7ef4cd54e8993dfa47f0164">emlabcpp::testing_controller_protocol_error::rec</a>.</p>
@@ -5018,9 +4924,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5040,11 +4943,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c">visit()</a>.</p>
@@ -5056,9 +4954,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5078,11 +4973,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a63a6aaa5fc338d3d342d90a14225fe82">apply_on_match()</a>, and <a class="el" href="namespaceemlabcpp.html#aa071beaabe5ee1c0af87ce62efc9f87f">emlabcpp::testing_internal_reactor_error::val</a>.</p>
@@ -5094,9 +4984,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5116,11 +5003,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#aa508af544a02cf8d215173408efd76a5">emlabcpp::testing_reactor_protocol_error::rec</a>.</p>
@@ -5134,9 +5016,6 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T , std::size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classemlabcpp_1_1pretty__printer.html">pretty_printer</a>&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5156,11 +5035,6 @@ template&lt;typename T , std::size_t N&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -5172,9 +5046,6 @@ template&lt;typename T , std::size_t N&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;ostreamlike Stream, typename T , T MinVal, T MaxVal&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5194,11 +5065,6 @@ template&lt;ostreamlike Stream, typename T , T MinVal, T MaxVal&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -5210,9 +5076,6 @@ template&lt;ostreamlike Stream, typename T , T MinVal, T MaxVal&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;ostreamlike Stream, typename ArrayType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5232,11 +5095,6 @@ template&lt;ostreamlike Stream, typename ArrayType &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -5248,9 +5106,6 @@ template&lt;ostreamlike Stream, typename ArrayType &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;ostreamlike Stream, typename Key , typename Value &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5270,11 +5125,6 @@ template&lt;ostreamlike Stream, typename Key , typename Value &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classemlabcpp_1_1contiguous__node.html#a324542d551b3a9f71811927ff7bf485d">emlabcpp::contiguous_node&lt; Key, Value &gt;::get_container_handle()</a>, and <a class="el" href="namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c">visit()</a>.</p>
@@ -5288,9 +5138,6 @@ template&lt;ostreamlike Stream, typename Key , typename Value &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;ostreamlike Stream, typename ObjectType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5310,11 +5157,6 @@ template&lt;ostreamlike Stream, typename ObjectType &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -5326,9 +5168,6 @@ template&lt;ostreamlike Stream, typename ObjectType &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;ostreamlike Stream, typename Key , typename Value &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5348,11 +5187,6 @@ template&lt;ostreamlike Stream, typename Key , typename Value &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#ac4b40baac2662db6424a475292ef03b3">range()</a>, and <a class="el" href="classemlabcpp_1_1contiguous__tree.html#add1ae49790009b6008fd50f250e0db99">emlabcpp::contiguous_tree&lt; Key, Value &gt;::size()</a>.</p>
@@ -5366,9 +5200,6 @@ template&lt;ostreamlike Stream, typename Key , typename Value &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;ostreamlike Stream, std::size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5388,11 +5219,6 @@ template&lt;ostreamlike Stream, std::size_t N&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>, <a class="el" href="namespaceemlabcpp.html#ac4b40baac2662db6424a475292ef03b3">range()</a>, and <a class="el" href="classemlabcpp_1_1protocol__message.html#ac87266cff140730fb8ab757e8054fcda">emlabcpp::protocol_message&lt; N &gt;::size()</a>.</p>
@@ -5406,9 +5232,6 @@ template&lt;ostreamlike Stream, std::size_t N&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;ostreamlike Stream, protocol_endianess_enum Endianess, typename... Regs&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5428,11 +5251,6 @@ template&lt;ostreamlike Stream, protocol_endianess_enum Endianess, typename... R
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a5214a69e44441c91729255e5934ce985">for_each_index()</a>.</p>
@@ -5446,9 +5264,6 @@ template&lt;ostreamlike Stream, protocol_endianess_enum Endianess, typename... R
 <div class="memproto">
 <div class="memtemplate">
 template&lt;ostreamlike Stream, typename T , std::size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5468,11 +5283,6 @@ template&lt;ostreamlike Stream, typename T , std::size_t N&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Output operator for the view, uses comma to separate the items in the view. </p>
@@ -5486,9 +5296,6 @@ template&lt;ostreamlike Stream, typename T , std::size_t N&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;ostreamlike Stream, typename T , std::size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5508,11 +5315,6 @@ template&lt;ostreamlike Stream, typename T , std::size_t N&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Output operator for the view, uses comma to separate the items in the view. </p>
@@ -5526,9 +5328,6 @@ template&lt;ostreamlike Stream, typename T , std::size_t N&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;ostreamlike Stream, typename Iterator &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5548,11 +5347,6 @@ template&lt;ostreamlike Stream, typename Iterator &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Output operator for the view, uses comma to separate the items in the view. </p>
@@ -5566,9 +5360,6 @@ template&lt;ostreamlike Stream, typename Iterator &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;ostreamlike Stream, typename T , typename ValueType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5588,11 +5379,6 @@ template&lt;ostreamlike Stream, typename T , typename ValueType &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -5604,9 +5390,6 @@ template&lt;ostreamlike Stream, typename T , typename ValueType &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;ostreamlike Stream, auto ID&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
@@ -5626,11 +5409,6 @@ template&lt;ostreamlike Stream, auto ID&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -5642,9 +5420,6 @@ template&lt;ostreamlike Stream, auto ID&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T , std::size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto emlabcpp::operator&lt;=&gt; </td>
@@ -5664,11 +5439,6 @@ template&lt;typename T , std::size_t N&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426">emlabcpp::static_circular_buffer&lt; T, N &gt;::begin()</a>, and <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#aa8165951ae18e5a305ee580be7c749d4">emlabcpp::static_circular_buffer&lt; T, N &gt;::end()</a>.</p>
@@ -5682,9 +5452,6 @@ template&lt;typename T , std::size_t N&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T , std::size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto emlabcpp::operator&lt;=&gt; </td>
@@ -5704,11 +5471,6 @@ template&lt;typename T , std::size_t N&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">emlabcpp::static_vector&lt; T, N &gt;::begin()</a>, and <a class="el" href="classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb">emlabcpp::static_vector&lt; T, N &gt;::end()</a>.</p>
@@ -5722,9 +5484,6 @@ template&lt;typename T , std::size_t N&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T , std::size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool emlabcpp::operator== </td>
@@ -5744,11 +5503,6 @@ template&lt;typename T , std::size_t N&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a4a90f093a980231b0156e8ed33c6e1f1">emlabcpp::static_circular_buffer&lt; T, N &gt;::size()</a>.</p>
@@ -5762,9 +5516,6 @@ template&lt;typename T , std::size_t N&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T , std::size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool emlabcpp::operator== </td>
@@ -5784,11 +5535,6 @@ template&lt;typename T , std::size_t N&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classemlabcpp_1_1static__vector.html#a69dc10d4fa55b6747ef48967e8ee9805">emlabcpp::static_vector&lt; T, N &gt;::size()</a>.</p>
@@ -5872,9 +5618,6 @@ template&lt;int Power, int Len, int Mass, int Time, int Current, int Temp, int M
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string emlabcpp::pretty_type_name </td>
@@ -5883,11 +5626,6 @@ template&lt;typename T &gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <hr  />
 <p> / central function for returning name of type that can demangle if necessary </p>
@@ -5903,9 +5641,6 @@ template&lt;typename T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Map , typename UnaryCallable &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void emlabcpp::protocol_for_each_register </td>
@@ -5925,11 +5660,6 @@ template&lt;typename Map , typename UnaryCallable &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>.</p>
@@ -6495,9 +6225,6 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T , std::size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void emlabcpp::swap </td>
@@ -6517,11 +6244,6 @@ template&lt;typename T , std::size_t N&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classemlabcpp_1_1static__vector.html#aa311b7e7e5ad50d9b413f58a3a7087ab">emlabcpp::static_vector&lt; T, N &gt;::swap()</a>.</p>
@@ -6802,9 +6524,6 @@ template&lt;range_container Container&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename TuplesTuple , std::size_t... ItemIndexes, std::size_t... TupleIndexes&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto emlabcpp::tuple_zip_impl </td>
@@ -6830,11 +6549,6 @@ template&lt;typename TuplesTuple , std::size_t... ItemIndexes, std::size_t... Tu
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>.</p>
@@ -7019,9 +6733,6 @@ template&lt;typename Visitor , typename Variant &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;range_container... Ts&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto emlabcpp::zip </td>
@@ -7031,11 +6742,6 @@ template&lt;range_container... Ts&gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Creates a view of zip iterators for specified containers. </p>
@@ -7052,9 +6758,6 @@ template&lt;range_container... Ts&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;gettable_container Tuple, gettable_container... Tuples&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto emlabcpp::zip </td>
@@ -7074,11 +6777,6 @@ template&lt;gettable_container Tuple, gettable_container... Tuples&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Zips a set of gettable containers of same size into a tuples. </p>
@@ -7102,12 +6800,12 @@ template&lt;typename T , typename Variant &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( Variant var, T val )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( Variant var, T val )</div>
 <div class="line">{</div>
 <div class="line">        std::holds_alternative&lt; T &gt;( var );</div>
 <div class="line">        Variant{ val };</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a973ded016662ca00739321b5d00113e0"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) inline std</div><div class="ttdef"><b>Definition:</b> impl.h:81</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:81</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -7164,7 +6862,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T a, T b )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, T b )</div>
 <div class="line">{</div>
 <div class="line">        { a += b };</div>
 <div class="line">        { a -= b };</div>
@@ -7203,7 +6901,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T a, T b )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, T b )</div>
 <div class="line">{</div>
 <div class="line">        {</div>
 <div class="line">                a + b</div>
@@ -7231,7 +6929,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::BADVAL_ERR = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPBADVAL &quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::BADVAL_ERR = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPBADVAL &quot; )</td>
         </tr>
       </table>
   </td>
@@ -7255,7 +6953,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::BIGSIZE_ERR = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPBIGSIZE &quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::BIGSIZE_ERR = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPBIGSIZE &quot; )</td>
         </tr>
       </table>
   </td>
@@ -7308,7 +7006,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T val )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T val )</div>
 <div class="line">{</div>
 <div class="line">        <a class="code" href="namespaceemlabcpp_1_1detail.html#aa15d5c022409d351cd45334d7501dc72">detail::bounded_derived_test</a>( val );</div>
 <div class="line">}</div>
@@ -7328,7 +7026,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::BOUNDS_ERR = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPBOUNDS &quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::BOUNDS_ERR = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPBOUNDS &quot; )</td>
         </tr>
       </table>
   </td>
@@ -7352,7 +7050,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::CHECKSUM_ERR = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPCHECKSUM&quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::CHECKSUM_ERR = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPCHECKSUM&quot; )</td>
         </tr>
       </table>
   </td>
@@ -7395,15 +7093,15 @@ template&lt;typename UnaryCallable , typename Container &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( Container cont, <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> <a class="code" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a> )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( Container cont, <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> <a class="code" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a> )</div>
 <div class="line">{</div>
 <div class="line">        <a class="code" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>( *cont.begin() );</div>
 <div class="line">}</div>
-<div class="line">|| <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( Container cont )</div>
+<div class="line">|| <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( Container cont )</div>
 <div class="line">{</div>
 <div class="line">        std::tuple_size&lt; std::decay_t&lt; Container &gt; &gt;::value == 0;</div>
 <div class="line">}</div>
-<div class="line">|| <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( Container cont, <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> <a class="code" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a> )</div>
+<div class="line">|| <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( Container cont, <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> <a class="code" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a> )</div>
 <div class="line">{</div>
 <div class="line">        </div>
 <div class="line">        <a class="code" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>( std::get&lt; 0 &gt;( cont ) );</div>
@@ -7486,7 +7184,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T a )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a )</div>
 <div class="line">{</div>
 <div class="line">        {</div>
 <div class="line">                std::tuple_size&lt; std::decay_t&lt; T &gt; &gt;::value</div>
@@ -7505,7 +7203,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::GROUP_ERR = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPGRPMATCH&quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::GROUP_ERR = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPGRPMATCH&quot; )</td>
         </tr>
       </table>
   </td>
@@ -7558,7 +7256,7 @@ template&lt;typename UnaryCallable , typename ReturnValue , typename... Args&gt;
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> <a class="code" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>, Args... args )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> <a class="code" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>, Args... args )</div>
 <div class="line">{</div>
 <div class="line">        {</div>
 <div class="line">                <a class="code" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>( args... )</div>
@@ -7673,7 +7371,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::LOWSIZE_ERR = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPLOWSIZE &quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::LOWSIZE_ERR = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPLOWSIZE &quot; )</td>
         </tr>
       </table>
   </td>
@@ -7700,7 +7398,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= !std::is_array_v&lt; T &gt; &amp;&amp; <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T val )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= !std::is_array_v&lt; T &gt; &amp;&amp; <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T val )</div>
 <div class="line">{</div>
 <div class="line">        bool( val );</div>
 <div class="line">        detail::directly_streamable_for&lt; T, uint8_t &gt;;</div>
@@ -7775,7 +7473,7 @@ template&lt;typename D &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( D val )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( D val )</div>
 <div class="line">{</div>
 <div class="line">        {</div>
 <div class="line">                protocol_decl&lt; D &gt;::max_size</div>
@@ -7804,7 +7502,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>()</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>()</div>
 <div class="line">{</div>
 <div class="line">        {</div>
 <div class="line">                T::max_size</div>
@@ -7812,13 +7510,13 @@ template&lt;typename T &gt; </div>
 <div class="line">        <span class="keyword">typename</span> T::value_type;</div>
 <div class="line">        bounded_derived&lt; typename T::size_type &gt;;</div>
 <div class="line">}</div>
-<div class="line">&amp;&amp;<a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( std::span&lt; uint8_t, T::max_size &gt; buff, <span class="keyword">typename</span> T::value_type item )</div>
+<div class="line">&amp;&amp;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( std::span&lt; uint8_t, T::max_size &gt; buff, <span class="keyword">typename</span> T::value_type item )</div>
 <div class="line">{</div>
 <div class="line">        {</div>
 <div class="line">                T::serialize_at( buff, item )</div>
 <div class="line">                } -&gt; std::same_as&lt; typename T::size_type &gt;;</div>
 <div class="line">}</div>
-<div class="line">&amp;&amp;<a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( bounded_view&lt; const uint8_t*, typename T::size_type &gt; buff )</div>
+<div class="line">&amp;&amp;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( bounded_view&lt; const uint8_t*, typename T::size_type &gt; buff )</div>
 <div class="line">{</div>
 <div class="line">        {</div>
 <div class="line">                T::deserialize( buff )</div>
@@ -7846,6 +7544,31 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="ac177bfc75677ebfea65b82aab752e7ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac177bfc75677ebfea65b82aab752e7ca">&#9670;&nbsp;</a></span>protocol_mark_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::size_t emlabcpp::protocol_mark_size = 16</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Error handling in protocol works with marks. </p>
+<p>Mark is a string made of eight characters that represents label. Each error is labeled by namespace specific for the source project and by name unique in that namespace, part of the error is also index of byte that caused the problem. These can be easily sent with the protocol lib itself. </p>
+
+</div>
+</div>
 <a id="abc59d4efcbda0164962a9720e2c1e8f6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc59d4efcbda0164962a9720e2c1e8f6">&#9670;&nbsp;</a></span>protocol_message_derived</h2>
 
@@ -7859,7 +7582,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T val )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T val )</div>
 <div class="line">{</div>
 <div class="line">        <a class="code" href="namespaceemlabcpp_1_1detail.html#a70e6b942ad12ffa5b8b9c5080ced861e">detail::protocol_message_derived_test</a>( val );</div>
 <div class="line">}</div>
@@ -7882,7 +7605,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T t )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T t )</div>
 <div class="line">{</div>
 <div class="line">        {</div>
 <div class="line">                T::endianess</div>
@@ -7926,7 +7649,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T val )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T val )</div>
 <div class="line">{</div>
 <div class="line">        <a class="code" href="namespaceemlabcpp_1_1detail.html#a8be65555da61958326df0b50c6ee2bd8">detail::quantity_derived_test</a>( val );</div>
 <div class="line">}</div>
@@ -7951,9 +7674,9 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">    ( (</div>
-<div class="line">          <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T a ) { begin( a ); } || <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T a ) { std::begin( a ); } ) &amp;&amp;</div>
+<div class="line">          <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { begin( a ); } || <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { std::begin( a ); } ) &amp;&amp;</div>
 <div class="line">      (</div>
-<div class="line">          <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T a ) { end( a ); } || <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T a ) { std::end( a ); } ) ) ||</div>
+<div class="line">          <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { end( a ); } || <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { std::end( a ); } ) ) ||</div>
 <div class="line">    std::is_bounded_array_v&lt; T &gt;</div>
 </div><!-- fragment -->
 <p>so, std::ranges::range is meh because it expects return of begin() being input_output_iterator, which has to be def.constructible </p>
@@ -8002,7 +7725,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::SIZE_ERR = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPSIZE &quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::SIZE_ERR = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPSIZE &quot; )</td>
         </tr>
       </table>
   </td>
@@ -8053,7 +7776,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T a )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a )</div>
 <div class="line">{</div>
 <div class="line">        {</div>
 <div class="line">                std::tuple_size&lt; std::decay_t&lt; T &gt; &gt;::value</div>
@@ -8075,7 +7798,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a>( T t, testing_record&amp; rec )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T t, testing_record&amp; rec )</div>
 <div class="line">{</div>
 <div class="line">        t( rec );</div>
 <div class="line">}</div>
@@ -8151,7 +7874,7 @@ template&lt;typename T , typename... Us&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::UNDEFVAR_ERR = <a class="el" href="namespaceemlabcpp.html#acb44994cf1fc5a0a2bfc4896ee8332de">make_protocol_mark</a>( &quot;EMLABCPPUNDEFVAR&quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::UNDEFVAR_ERR = <a class="el" href="namespaceemlabcpp.html#a646c7a3629c79a55ab904410d94f8cb5">make_protocol_mark</a>( &quot;EMLABCPPUNDEFVAR&quot; )</td>
         </tr>
       </table>
   </td>
@@ -8171,7 +7894,7 @@ template&lt;typename T , typename... Us&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 18:07:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

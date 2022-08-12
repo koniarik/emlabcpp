@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structemlabcpp_1_1protocol__mark.html" target="_top" xlink:title="Error handling in protocol works with marks.">
+<g id="a_node2"><a xlink:href="structemlabcpp_1_1protocol__mark.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="0,-78.5 0,-97.5 141,-97.5 141,-78.5 0,-78.5"/>
 <text text-anchor="middle" x="70.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::protocol_mark</text>
 </a>

@@ -139,7 +139,7 @@ $(document).ready(function(){initNavTree('derived__storage_8h_source.html',''); 
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#ae08919b3a4de3ca69486efd68d082578">   50</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#ae08919b3a4de3ca69486efd68d082578">derived_storage</a>( U&amp;&amp; item )</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          : ptr_( &amp;storage_ )</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                ptr_ = <a class="code" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a>( ptr_, <span class="keyword">alignof</span>( U ) );</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                ptr_ = <a class="code" href="namespaceemlabcpp.html#a3e63d288d959cd3f240411608b0966de">align</a>( ptr_, <span class="keyword">alignof</span>( U ) );</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                ::new ( ptr_ ) U( std::forward&lt; U &gt;( item ) );</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
@@ -222,7 +222,7 @@ $(document).ready(function(){initNavTree('derived__storage_8h_source.html',''); 
 <div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_ad92cb33b920170156532bda3ae94810a"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#ad92cb33b920170156532bda3ae94810a">emlabcpp::derived_storage::get</a></div><div class="ttdeci">T &amp; get()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:88</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_ae08919b3a4de3ca69486efd68d082578"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#ae08919b3a4de3ca69486efd68d082578">emlabcpp::derived_storage::derived_storage</a></div><div class="ttdeci">derived_storage(U &amp;&amp;item)</div><div class="ttdef"><b>Definition:</b> derived_storage.h:50</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a3c4b8276158ed7d743c68c7395ed0966"><div class="ttname"><a href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">emlabcpp::align</a></div><div class="ttdeci">void * align(void *ptr, std::size_t alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:33</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a3e63d288d959cd3f240411608b0966de"><div class="ttname"><a href="namespaceemlabcpp.html#a3e63d288d959cd3f240411608b0966de">emlabcpp::align</a></div><div class="ttdeci">constexpr void * align(void *ptr, std::size_t alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:33</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:88</div></div>
 <div class="ttc" id="autil_8h_html"><div class="ttname"><a href="util_8h.html">util.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -231,7 +231,7 @@ $(document).ready(function(){initNavTree('derived__storage_8h_source.html',''); 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="derived__storage_8h.html">derived_storage.h</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 18:07:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

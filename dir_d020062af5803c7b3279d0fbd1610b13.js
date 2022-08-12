@@ -14,7 +14,7 @@ var dir_d020062af5803c7b3279d0fbd1610b13 =
     [ "handler.h", "handler_8h.html", [
       [ "protocol_handler", "structemlabcpp_1_1protocol__handler.html", "structemlabcpp_1_1protocol__handler" ]
     ] ],
-    [ "json.h", "json_8h.html", null ],
+    [ "json.h", "protocol_2json_8h.html", null ],
     [ "message.h", "message_8h.html", "message_8h" ],
     [ "packet.h", "packet_8h.html", "packet_8h" ],
     [ "packet_handler.h", "packet__handler_8h.html", [

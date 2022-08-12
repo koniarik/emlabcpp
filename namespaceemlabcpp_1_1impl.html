@@ -134,9 +134,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a9282cb9e137c842eef92467c1a0a504a"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N, range_container Container, typename UnaryCallable , std::size_t... Is&gt; </td></tr>
 <tr class="memitem:a9282cb9e137c842eef92467c1a0a504a"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a">map_f_to_a_impl</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>, std::integer_sequence&lt; std::size_t, Is... &gt;)</td></tr>
 <tr class="separator:a9282cb9e137c842eef92467c1a0a504a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a973ded016662ca00739321b5d00113e0"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N, gettable_container Container, typename UnaryCallable , std::size_t... Is&gt; </td></tr>
-<tr class="memitem:a973ded016662ca00739321b5d00113e0"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a973ded016662ca00739321b5d00113e0">requires</a> (!<a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a>&lt; Container &gt;) inline std</td></tr>
-<tr class="separator:a973ded016662ca00739321b5d00113e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa391ac6fa79be363f91ee9cbe2e4c578"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N, gettable_container Container, typename UnaryCallable , std::size_t... Is&gt; </td></tr>
+<tr class="memitem:aa391ac6fa79be363f91ee9cbe2e4c578"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> (!<a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a>&lt; Container &gt;) std</td></tr>
+<tr class="separator:aa391ac6fa79be363f91ee9cbe2e4c578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bbd605bf9a833a4c88a3862dbf50d5f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a6bbd605bf9a833a4c88a3862dbf50d5f"><td class="memTemplItemLeft" align="right" valign="top">requires&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a6bbd605bf9a833a4c88a3862dbf50d5f">requires</a> (T a, typename T::value_type b)</td></tr>
 <tr class="separator:a6bbd605bf9a833a4c88a3862dbf50d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -247,9 +247,6 @@ template&lt;typename... Args, typename UnaryPredicate , std::size_t... Idx&gt; <
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T , std::size_t N, range_container Container, typename UnaryCallable , std::size_t... Is&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::array&lt; T, N &gt; emlabcpp::impl::map_f_to_a_impl </td>
@@ -275,11 +272,6 @@ template&lt;typename T , std::size_t N, range_container Container, typename Unar
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p><a href="https://en.cppreference.com/w/cpp/language/eval_order">https://en.cppreference.com/w/cpp/language/eval_order</a> based on standard the order of process(i) calls is defined only in case we are using constructor initializer with {} brackets. Otherwise it can be any order ...</p>
 
@@ -287,8 +279,8 @@ template&lt;typename T , std::size_t N, range_container Container, typename Unar
 
 </div>
 </div>
-<a id="a973ded016662ca00739321b5d00113e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a973ded016662ca00739321b5d00113e0">&#9670;&nbsp;</a></span>requires() <span class="overload">[1/2]</span></h2>
+<a id="aa391ac6fa79be363f91ee9cbe2e4c578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa391ac6fa79be363f91ee9cbe2e4c578">&#9670;&nbsp;</a></span>requires() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -368,7 +360,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1impl.html">impl</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 18:07:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

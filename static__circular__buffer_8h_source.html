@@ -364,14 +364,14 @@ $(document).ready(function(){initNavTree('static__circular__buffer_8h_source.htm
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;};</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a2254b75f92599473cee7451ded051a0e">  315</a></span>&#160;[[nodiscard]] <span class="keyword">inline</span> <span class="keyword">auto</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a2254b75f92599473cee7451ded051a0e">  315</a></span>&#160;[[nodiscard]] <span class="keyword">auto</span></div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<a class="code" href="namespaceemlabcpp.html#a2254b75f92599473cee7451ded051a0e">operator&lt;=&gt;</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer&lt; T, N &gt;</a>&amp; lh, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer&lt; T, N &gt;</a>&amp; rh )</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;{</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        <span class="keywordflow">return</span> std::lexicographical_compare_three_way( lh.<a class="code" href="classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426">begin</a>(), lh.<a class="code" href="classemlabcpp_1_1static__circular__buffer.html#aa8165951ae18e5a305ee580be7c749d4">end</a>(), rh.<a class="code" href="classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426">begin</a>(), rh.<a class="code" href="classemlabcpp_1_1static__circular__buffer.html#aa8165951ae18e5a305ee580be7c749d4">end</a>() );</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;}</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;[[nodiscard]] <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;[[nodiscard]] <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00323"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#abe4e80e0e361283130d83856b68f4e6d">  323</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#abe4e80e0e361283130d83856b68f4e6d">operator==</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer&lt; T, N &gt;</a>&amp; lh, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer&lt; T, N &gt;</a>&amp; rh )</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;{</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keyword">auto</span> size = lh.<a class="code" href="classemlabcpp_1_1static__circular__buffer.html#a4a90f093a980231b0156e8ed33c6e1f1">size</a>();</div>
@@ -388,14 +388,14 @@ $(document).ready(function(){initNavTree('static__circular__buffer_8h_source.htm
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;}</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;[[nodiscard]] <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;[[nodiscard]] <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00340"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#afaabfb4832972f3f9c7589a82ac8ac4f">  340</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#afaabfb4832972f3f9c7589a82ac8ac4f">operator!=</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer&lt; T, N &gt;</a>&amp; lh, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer&lt; T, N &gt;</a>&amp; rh )</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;{</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keywordflow">return</span> !( lh == rh );</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;}</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="keyword">template</span> &lt; ostreamlike Stream, <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00347"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#abf1d2eb2cc5c084a4173867a48032517">  347</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( Stream&amp; os, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer&lt; T, N &gt;</a>&amp; cb )</div>
+<div class="line"><a name="l00347"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#abf1d2eb2cc5c084a4173867a48032517">  347</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( Stream&amp; os, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer&lt; T, N &gt;</a>&amp; cb )</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;{</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; <a class="code" href="classemlabcpp_1_1view.html">view</a>{ cb };</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;}</div>
@@ -566,7 +566,7 @@ $(document).ready(function(){initNavTree('static__circular__buffer_8h_source.htm
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="static__circular__buffer_8h.html">static_circular_buffer.h</a></li>
-    <li class="footer">Generated on Fri Aug 12 2022 15:53:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 12 2022 18:07:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -9,9 +9,6 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     [ "algorithm.h", "algorithm_8h.html", "algorithm_8h" ],
     [ "assert.h", "assert_8h.html", "assert_8h" ],
     [ "bounded.h", "bounded_8h.html", "bounded_8h" ],
-    [ "bounded_view.h", "bounded__view_8h.html", [
-      [ "bounded_view", "classemlabcpp_1_1bounded__view.html", "classemlabcpp_1_1bounded__view" ]
-    ] ],
     [ "concepts.h", "concepts_8h.html", "concepts_8h" ],
     [ "defer.h", "defer_8h.html", [
       [ "defer", "classemlabcpp_1_1defer.html", "classemlabcpp_1_1defer" ]
