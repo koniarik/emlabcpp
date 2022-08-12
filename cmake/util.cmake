@@ -20,6 +20,6 @@ function(emlabcpp_add_format_test)
 endfunction()
 
 function(emlabcpp_target_enable_coverage target)
-  target_compile_options(${target} PRIVATE --coverage )
+  target_compile_options(${target} PRIVATE --coverage)
   target_link_libraries(${target} gcov)
 endfunction()

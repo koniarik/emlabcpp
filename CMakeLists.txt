@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
 
 option(EMLABCPP_TESTS_ENABLED "Decides whenever tests should be enabled" OFF)
-option(EMLABCPP_COVERAGE_ENABLED "Decides whenever the corevage should be builded" OFF)
+option(EMLABCPP_COVERAGE_ENABLED
+       "Decides whenever the corevage should be builded" OFF)
 
 project(emlabcpp)
 
@@ -13,7 +14,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(
   emlabcpp STATIC
-  src/experimental/testing/reactor.cpp src/experimental/testing/record.cpp
+  src/experimental/testing/reactor.cpp
+  src/experimental/testing/record.cpp
   src/experimental/testing/reactor_interface_adapter.cpp
   src/experimental/testing/protocol.cpp
   src/experimental/logging.cpp
@@ -21,8 +23,19 @@ add_library(
   src/experimental/testing/controller.cpp)
 target_include_directories(emlabcpp PUBLIC include/)
 target_include_directories(emlabcpp PRIVATE src/)
-target_compile_options(emlabcpp PRIVATE -Wall -Wextra -pedantic -Wconversion
-  -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -Wunreachable-code -Wdouble-promotion)
+target_compile_options(
+  emlabcpp
+  PRIVATE -Wall
+          -Wextra
+          -pedantic
+          -Wconversion
+          -Wnon-virtual-dtor
+          -Wold-style-cast
+          -Wcast-align
+          -Wunused
+          -Woverloaded-virtual
+          -Wunreachable-code
+          -Wdouble-promotion)
 
 if(EMLABCPP_COVERAGE_ENABLED)
   emlabcpp_target_enable_coverage(emlabcpp)

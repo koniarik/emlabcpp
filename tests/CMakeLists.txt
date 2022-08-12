@@ -1,17 +1,19 @@
-
 include(GoogleTest)
 
 find_package(GTest REQUIRED)
 
-target_compile_options(emlabcpp PRIVATE -DEMLABCPP_USE_NLOHMANN_JSON
-  -DEMLABCPP_ASSERT_NATIVE -DEMLABCPP_USE_MAGIC_ENUM -DEMLABCPP_USE_GTEST -DEMLABCPP_LOGGING_ENABLED)
+target_compile_options(
+  emlabcpp
+  PRIVATE -DEMLABCPP_USE_NLOHMANN_JSON -DEMLABCPP_ASSERT_NATIVE
+          -DEMLABCPP_USE_MAGIC_ENUM -DEMLABCPP_USE_GTEST
+          -DEMLABCPP_LOGGING_ENABLED)
 target_include_directories(emlabcpp SYSTEM PRIVATE third-party/)
 
 function(emlabcpp_setup_test target)
   target_include_directories(${target} PRIVATE include/)
   target_include_directories(${target} SYSTEM PRIVATE third-party/)
   target_link_libraries(${target} emlabcpp)
-  #gtest_discover_tests(${target})
+  # gtest_discover_tests(${target})
   add_test(NAME ${target}_test COMMAND ${target})
 
   target_compile_options(
@@ -33,7 +35,7 @@ function(emlabcpp_setup_test target)
             -Wconversion
             -Wdouble-promotion
             -ftemplate-backtrace-limit=0
-             -DEMLABCPP_LOGGING_ENABLED
+            -DEMLABCPP_LOGGING_ENABLED
             -DEMLABCPP_ASSERT_NATIVE
             -DEMLABCPP_USE_NLOHMANN_JSON
             -DEMLABCPP_USE_MAGIC_ENUM
