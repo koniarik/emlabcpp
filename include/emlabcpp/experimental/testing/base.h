@@ -64,7 +64,7 @@ struct test_info
 
 /// TODO: maybe make a function in static_vector namespace?
 template < typename T >
- T testing_string_to_buffer( std::string_view sview )
+T testing_string_to_buffer( std::string_view sview )
 {
         T tmp;
         std::copy_n(
@@ -112,4 +112,3 @@ struct testing_result
 };
 
 }  // namespace emlabcpp
-

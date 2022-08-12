@@ -29,4 +29,3 @@ void log( const char* file, int line, const std::string& msg, log_severity );
 #define EMLABCPP_DEBUG_LOG( msg )
 
 #endif
-

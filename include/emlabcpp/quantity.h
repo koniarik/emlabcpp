@@ -269,7 +269,7 @@ constexpr ValueType operator/( const ValueType val, const quantity< Derived, Val
 }
 
 template < ostreamlike Stream, typename T, typename ValueType >
- auto& operator<<( Stream& os, quantity< T, ValueType > q )
+auto& operator<<( Stream& os, quantity< T, ValueType > q )
 {
         return os << *q << T::get_unit();
 }
