@@ -14,10 +14,12 @@ namespace emlabcpp
 template < typename ObjectType >
 class contiguous_object_handle
 {
-        using object_type = ObjectType;
-        using child_id    = uint32_t;
-        using node_id     = std::tuple_element_t< 1, typename object_type::value_type >;
-        using key_type    = typename object_type::key_type;
+        using object_type    = ObjectType;
+        using child_id       = uint32_t;
+        using node_id        = std::tuple_element_t< 1, typename object_type::value_type >;
+        using key_type       = typename object_type::key_type;
+        using iterator       = typename object_type::iterator;
+        using const_iterator = typename object_type::const_iterator;
 
 public:
         using node_type = typename object_type::node_type;
@@ -26,6 +28,25 @@ public:
           : obj_( obj )
         {
         }
+
+        iterator begin()
+        {
+                return obj_->begin();
+        }
+        iterator end()
+        {
+                return obj_->end();
+        }
+
+        const_iterator begin() const
+        {
+                return obj_->begin();
+        }
+        const_iterator end() const
+        {
+                return obj_->end();
+        }
+
         [[nodiscard]] std::optional< node_id > get_child( child_id chid ) const
         {
                 if ( obj_->size() < chid ) {
@@ -70,12 +91,23 @@ private:
         object_type* obj_;
 };
 
+template < ostreamlike Stream, typename ObjectType >
+inline auto& operator<<( Stream& os, const contiguous_object_handle< ObjectType >& oh )
+{
+        for ( const auto& [key, nid] : oh ) {
+                os << key << ":" << nid << ",";
+        }
+        return os;
+}
+
 template < typename ArrayType >
 class contiguous_array_handle
 {
-        using array_type = ArrayType;
-        using child_id   = uint32_t;
-        using node_id    = std::tuple_element_t< 1, typename array_type::value_type >;
+        using array_type     = ArrayType;
+        using child_id       = uint32_t;
+        using node_id        = std::tuple_element_t< 1, typename array_type::value_type >;
+        using iterator       = typename array_type::iterator;
+        using const_iterator = typename array_type::const_iterator;
 
 public:
         using node_type = typename array_type::node_type;
@@ -83,6 +115,23 @@ public:
         contiguous_array_handle( array_type* arr )
           : arr_( arr )
         {
+        }
+        iterator begin()
+        {
+                return arr_->begin();
+        }
+        iterator end()
+        {
+                return arr_->end();
+        }
+
+        const_iterator begin() const
+        {
+                return arr_->begin();
+        }
+        const_iterator end() const
+        {
+                return arr_->end();
         }
 
         [[nodiscard]] std::optional< node_id > get_child( child_id chid ) const
@@ -107,6 +156,14 @@ public:
 private:
         array_type* arr_;
 };
+template < ostreamlike Stream, typename ArrayType >
+inline auto& operator<<( Stream& os, const contiguous_array_handle< ArrayType >& ah )
+{
+        for ( const auto& [chid, nid] : ah ) {
+                os << chid << ":" << nid << ",";
+        }
+        return os;
+}
 
 template < typename Key, typename Value >
 class contiguous_node
@@ -185,6 +242,17 @@ private:
         content_type content_;
 };
 
+template < ostreamlike Stream, typename Key, typename Value >
+inline auto& operator<<( Stream& os, const contiguous_node< Key, Value >& node )
+{
+        visit(
+            [&]( const auto& val ) {
+                    os << val;
+            },
+            node.get_container_handle() );
+        return os;
+}
+
 template < typename Key, typename Value >
 class contiguous_tree
 {
@@ -202,6 +270,9 @@ public:
         using const_object_handle = typename node_type::const_object_handle;
         using array_handle        = typename node_type::array_handle;
         using const_array_handle  = typename node_type::const_array_handle;
+
+        using iterator       = typename container::iterator;
+        using const_iterator = typename container::const_iterator;
 
         // TODO: find better way to decided this
         static constexpr std::size_t required_pool_size = 110;
@@ -230,6 +301,29 @@ public:
                         return nullptr;
                 }
                 return &iter->second;
+        }
+
+        iterator begin()
+        {
+                return data_.begin();
+        }
+        iterator end()
+        {
+                return data_.end();
+        }
+
+        const_iterator begin() const
+        {
+                return data_.begin();
+        }
+        const_iterator end() const
+        {
+                return data_.end();
+        }
+
+        std::size_t size() const
+        {
+                return data_.size();
         }
 
         [[nodiscard]] bool empty() const
@@ -273,7 +367,6 @@ public:
         }
 
 private:
-        using iterator = typename container::iterator;
         std::optional< std::pair< node_id, iterator > > make_node( content_type cont )
         {
                 auto nid = static_cast< node_id >( data_.size() );
@@ -287,5 +380,16 @@ private:
         container       data_;
         pool_interface* mem_pool_;
 };
+
+template < ostreamlike Stream, typename Key, typename Value >
+inline auto& operator<<( Stream& os, const contiguous_tree< Key, Value >& tree )
+{
+        for ( const auto& [nid, node] : tree ) {
+                os << nid << ":" << node << "\n";
+        }
+        for ( std::size_t i : range( tree.size() ) ) {
+        }
+        return os;
+}
 
 }  // namespace emlabcpp

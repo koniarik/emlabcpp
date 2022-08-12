@@ -137,7 +137,16 @@ testing_controller::make( testing_controller_interface& top_iface, pool_interfac
         auto opt_date  = load_data< testing_name_buffer, TESTING_SUITE_DATE >( iface );
         auto opt_count = load_data< testing_test_id, TESTING_COUNT >( iface );
 
-        if ( !opt_name || !opt_date || !opt_count ) {
+        if ( !opt_name ) {
+                EMLABCPP_LOG( "Failed to build controller - did not get a name" );
+                return {};
+        }
+        if ( !opt_date ) {
+                EMLABCPP_LOG( "Failed to build controller - did not get a date" );
+                return {};
+        }
+        if ( !opt_count ) {
+                EMLABCPP_LOG( "Failed to build controller - did not get a test count" )
                 return {};
         }
 
@@ -147,6 +156,9 @@ testing_controller::make( testing_controller_interface& top_iface, pool_interfac
                 auto opt_name =
                     load_data< testing_name_buffer, TESTING_NAME, testing_test_id >( i, iface );
                 if ( !opt_name ) {
+                        EMLABCPP_LOG(
+                            "Failed to build controller - did not get a test name for index: "
+                            << i )
                         return {};
                 }
                 info[i] = test_info{ .name = *opt_name };
@@ -382,6 +394,7 @@ void testing_controller::tick( testing_controller_interface& top_iface )
         testing_reactor_controller_extract( *opt_msg )
             .match(
                 [&]( auto var ) {
+                        EMLABCPP_LOG( var );
                         apply_on_visit(
                             [&]( auto... args ) {
                                     handle_message( args..., iface );

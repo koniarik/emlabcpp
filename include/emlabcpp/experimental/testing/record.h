@@ -84,7 +84,12 @@ public:
         std::optional< testing_node_id > get_param_child( testing_node_id, const testing_key& key );
         std::optional< testing_node_id > get_param_child( testing_node_id, std::string_view key );
 
-        std::optional< testing_child_count > get_param_child_count( testing_node_id );
+        std::optional< testing_child_count >
+            get_param_child_count( std::optional< testing_node_id > );
+        std::optional< testing_child_count > get_param_child_count( testing_node_id nid )
+        {
+                return get_param_child_count( std::optional{ nid } );
+        }
 
         std::optional< testing_key > get_param_key( testing_node_id, testing_child_id );
 
@@ -165,6 +170,7 @@ private:
             read_variant( testing_node_id, testing_messages_enum );
 
         template < typename ResultType, auto ID, typename... Args >
-        std::optional< ResultType > exchange( testing_node_id nid, const Args&... args );
+        std::optional< ResultType >
+        exchange( std::optional< testing_node_id > nid, const Args&... args );
 };
 }  // namespace emlabcpp

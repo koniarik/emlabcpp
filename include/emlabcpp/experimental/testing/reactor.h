@@ -85,15 +85,15 @@ public:
         testing_reactor& operator=( testing_reactor&& )      = delete;
 
         template < testing_test T >
-        void register_test( std::string_view name, T t )
+        bool register_test( std::string_view name, T t )
         {
-                store_test( name, std::move( t ) );
+                return store_test( name, std::move( t ) );
         }
 
         template < testing_callable T >
-        void register_callable( std::string_view name, T cb )
+        bool register_callable( std::string_view name, T cb )
         {
-                store_test( name, testing_callable_overlay{ std::move( cb ) } );
+                return store_test( name, testing_callable_overlay{ std::move( cb ) } );
         }
 
         void spin( testing_reactor_interface& comm );
@@ -115,11 +115,18 @@ private:
         handle_message( tag< TESTING_EXEC >, testing_run_id, testing_reactor_interface_adapter& );
 
         template < testing_test T >
-        void store_test( std::string_view name, T t )
+        bool store_test( std::string_view name, T t )
         {
                 void* target = mem_->allocate( sizeof( T ), alignof( T ) );
-                T*    obj = std::construct_at( reinterpret_cast< T* >( target ), std::move( t ) );
+                if ( target == nullptr ) {
+                        return false;
+                }
+                T* obj = std::construct_at( reinterpret_cast< T* >( target ), std::move( t ) );
+                if ( obj == nullptr ) {
+                        return false;
+                }
                 handles_.emplace_back( name, obj );
+                return true;
         }
 
         static void test_deleter( pool_interface& mem, void* p )
@@ -135,7 +142,7 @@ public:
         ~testing_reactor();
 };
 
-class testing_default_reactor : private pool_base< 48, 32 >, public testing_reactor
+class testing_default_reactor : private pool_base< 128, 32 >, public testing_reactor
 {
 public:
         /// TODO: this may not be the best idea, as pool_mem will exist only _after_ constructor

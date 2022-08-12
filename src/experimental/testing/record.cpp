@@ -98,7 +98,8 @@ testing_record::get_param_child( testing_node_id nid, const testing_key& key )
             nid, std::variant< testing_key, testing_child_id >{ key } );
 }
 
-std::optional< testing_child_count > testing_record::get_param_child_count( testing_node_id nid )
+std::optional< testing_child_count >
+testing_record::get_param_child_count( std::optional< testing_node_id > nid )
 {
         return exchange< testing_child_count, TESTING_PARAM_CHILD_COUNT >( nid );
 }
@@ -141,8 +142,15 @@ testing_record::read_variant( testing_node_id, testing_messages_enum desired )
 }
 
 template < typename ResultType, auto ID, typename... Args >
-std::optional< ResultType > testing_record::exchange( testing_node_id nid, const Args&... args )
+std::optional< ResultType >
+testing_record::exchange( std::optional< testing_node_id > opt_nid, const Args&... args )
 {
+        if ( !opt_nid ) {
+                return std::nullopt;
+        }
+
+        testing_node_id nid = *opt_nid;
+
         comm_.reply< ID >( rid_, nid, args... );
 
         std::optional< testing_controller_reactor_variant > opt_variant = read_variant( nid, ID );

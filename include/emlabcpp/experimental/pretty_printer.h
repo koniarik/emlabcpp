@@ -15,6 +15,13 @@ namespace emlabcpp
 class pretty_printer
 {
 public:
+        template < typename T >
+        pretty_printer& operator<<( const std::reference_wrapper< T >& val )
+        {
+                *this << val.get();
+                return *this;
+        }
+
         template < std::same_as< uint8_t > T >
         pretty_printer& operator<<( const T& val )
         {
@@ -31,7 +38,7 @@ public:
                 os_ << val;
                 return *this;
         }
- 
+
         template < typename T >
         requires( std::is_enum_v< T > ) pretty_printer& operator<<( const T& val )
         {
