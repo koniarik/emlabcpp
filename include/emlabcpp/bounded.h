@@ -21,6 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/concepts.h"
+#include "emlabcpp/experimental/logging.h"
 
 #include <optional>
 #include <type_traits>
@@ -82,9 +83,15 @@ public:
         static std::optional< bounded< T, min_val, max_val > > make( U val )
         {
                 if ( static_cast< T >( val ) < min_val ) {
+                        EMLABCPP_LOG(
+                            "Failed to build bounded, value "
+                            << val << " is smaller than min value " << min_val );
                         return {};
                 }
                 if ( static_cast< T >( val ) > max_val ) {
+                        EMLABCPP_LOG(
+                            "Failed to build bounded, value " << val << " is bigger than max value "
+                                                              << max_val );
                         return {};
                 }
                 return bounded{ static_cast< T >( val ) };

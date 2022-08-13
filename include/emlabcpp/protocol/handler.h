@@ -22,6 +22,7 @@
 //
 #include "emlabcpp/either.h"
 #include "emlabcpp/protocol/def.h"
+#include "emlabcpp/types.h"
 
 #pragma once
 
@@ -55,11 +56,20 @@ struct protocol_handler
                 auto opt_view = bounded_view< const uint8_t*, typename def::size_type >::make(
                     view_n( msg.begin(), min( def::max_size, msg.size() ) ) );
                 if ( !opt_view ) {
+                        EMLABCPP_LOG(
+                            "Failed to build view over provided message - wrong size: "
+                            << msg.size() << " vs size type"
+                            << pretty_type_name< typename def::size_type >() );
                         return protocol_error_record{ SIZE_ERR, 0 };
                 }
                 auto [used, res] = def::deserialize( *opt_view );
                 if ( std::holds_alternative< const protocol_mark* >( res ) ) {
-                        return protocol_error_record{ *std::get< 1 >( res ), used };
+                        const protocol_mark* mark = *std::get_if< 1 >( &res );
+                        EMLABCPP_LOG(
+                            "Failed to extract protocol def "
+                            << pretty_type_name< T >() << " from message " << *opt_view
+                            << ", error is: " << *mark << " with " << used << " bytes" );
+                        return protocol_error_record{ *mark, used };
                 }
                 return std::get< 0 >( res );
         }
