@@ -60,24 +60,17 @@ T& testing_recursive_print_node(
                         } );
             },
             [&]( testing_const_object_handle oh ) {
-                    uint32_t ch_count = oh.size();
-                    for ( uint32_t i : range< uint32_t >( ch_count ) ) {
-                            const testing_key* key = oh.get_key( i );
-                            EMLABCPP_ASSERT( key );
+                    for ( const auto& [key, chid] : oh ) {
                             os << "\n"
-                               << spacing << std::string_view{ key->begin(), key->size() } << ":";
-                            std::optional< testing_node_id > opt_j = oh.get_child( i );
-                            EMLABCPP_ASSERT( opt_j );
-                            testing_recursive_print_node( os, t, *opt_j, depth + 1 );
+                               << spacing << std::string_view{ key.begin(), key.size() } << ":";
+                            testing_recursive_print_node( os, t, chid, depth + 1 );
                     }
             },
             [&]( testing_const_array_handle ah ) {
-                    uint32_t ch_count = ah.size();
-                    for ( uint32_t i : range< uint32_t >( ch_count ) ) {
+                    for ( const auto& [j, chid] : ah ) {
+                            std::ignore = j;
                             os << "\n" << spacing << " - ";
-                            std::optional< testing_node_id > opt_j = ah.get_child( i );
-                            EMLABCPP_ASSERT( opt_j );
-                            testing_recursive_print_node( os, t, *opt_j, depth + 1 );
+                            testing_recursive_print_node( os, t, chid, depth + 1 );
                     }
             }
 
@@ -120,6 +113,9 @@ public:
         void SetUp() final
         {
                 opt_con_ = testing_controller::make( ci_, &pool_mem_ );
+                if ( !opt_con_ ) {
+                        EMLABCPP_LOG( "Failed to build testing controller for gtest" );
+                }
                 ASSERT_TRUE( opt_con_ );
         }
 
@@ -144,7 +140,7 @@ void testing_register_gtests( testing_controller_interface& ci )
         auto     opt_con = testing_controller::make( ci, &pool_mem_ );
 
         if ( !opt_con ) {
-                std::cout << "Failed to initialize the controller" << std::endl;
+                EMLABCPP_LOG( "Failed to build testing controller for gtest registration" );
                 return;
         }
 

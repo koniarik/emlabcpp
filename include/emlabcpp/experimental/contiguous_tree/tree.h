@@ -14,12 +14,15 @@ namespace emlabcpp
 template < typename ObjectType >
 class contiguous_object_handle
 {
+        static constexpr bool is_const = std::is_const_v< ObjectType >;
+
         using object_type    = ObjectType;
         using child_id       = uint32_t;
         using node_id        = std::tuple_element_t< 1, typename object_type::value_type >;
         using key_type       = typename object_type::key_type;
-        using iterator       = typename object_type::iterator;
         using const_iterator = typename object_type::const_iterator;
+        using iterator =
+            std::conditional_t< is_const, const_iterator, typename object_type::iterator >;
 
 public:
         using node_type = typename object_type::node_type;
@@ -103,11 +106,14 @@ auto& operator<<( Stream& os, const contiguous_object_handle< ObjectType >& oh )
 template < typename ArrayType >
 class contiguous_array_handle
 {
+        static constexpr bool is_const = std::is_const_v< ArrayType >;
+
         using array_type     = ArrayType;
         using child_id       = uint32_t;
         using node_id        = std::tuple_element_t< 1, typename array_type::value_type >;
-        using iterator       = typename array_type::iterator;
         using const_iterator = typename array_type::const_iterator;
+        using iterator =
+            std::conditional_t< is_const, const_iterator, typename array_type::iterator >;
 
 public:
         using node_type = typename array_type::node_type;

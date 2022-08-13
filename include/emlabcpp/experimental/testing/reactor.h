@@ -119,12 +119,10 @@ private:
         {
                 void* target = mem_->allocate( sizeof( T ), alignof( T ) );
                 if ( target == nullptr ) {
+                        EMLABCPP_LOG( "Failed to allocate memory for storing test " << name );
                         return false;
                 }
                 T* obj = std::construct_at( reinterpret_cast< T* >( target ), std::move( t ) );
-                if ( obj == nullptr ) {
-                        return false;
-                }
                 handles_.emplace_back( name, obj );
                 return true;
         }

@@ -54,6 +54,9 @@ public:
         {
                 std::optional opt_var = get_param_value( node );
                 if ( !opt_var ) {
+                        EMLABCPP_LOG(
+                            "Failed to get param " << node << " with type "
+                                                   << pretty_type_name< T >() );
                         return std::nullopt;
                 }
                 return extract_arg< T >( *opt_var, node );
@@ -64,6 +67,9 @@ public:
         {
                 std::optional< testing_node_id > opt_nid = get_param_child( node, k );
                 if ( !opt_nid ) {
+                        EMLABCPP_LOG(
+                            "Failed to get param " << k << " of node " << node << " with type "
+                                                   << pretty_type_name< T >() );
                         return std::nullopt;
                 }
                 return get_param< T >( *opt_nid );
@@ -73,6 +79,7 @@ public:
         std::optional< T > get_param( std::optional< testing_node_id > node, const Key& k )
         {
                 if ( !node ) {
+                        EMLABCPP_LOG( "Nodeid is empty, skipping getting param" );
                         return std::nullopt;
                 }
                 return get_param< T >( *node, k );
@@ -140,6 +147,9 @@ private:
         std::optional< T > extract_arg( const testing_value& var, testing_node_id nid )
         {
                 if ( !std::holds_alternative< T >( var ) ) {
+                        EMLABCPP_LOG(
+                            "Can't extract arg " << pretty_type_name< T >() << " from node " << nid
+                                                 << " it has type index: " << var.index() );
                         report_wrong_type_error( nid, var );
                         return {};
                 }
