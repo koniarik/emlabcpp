@@ -86,6 +86,50 @@ public:
                 }
                 send< TESTING_TREE_ERROR >( rid, err, nid );
         }
+
+        void report_error( testing_error_variant var )
+        {
+                log_error( var );
+                iface_.on_error( std::move( var ) );
+        }
+#ifdef EMLABCPP_USE_LOGGING
+        void log_error( const testing_error_variant& var )
+        {
+                match(
+                    var,
+                    []( const testing_reactor_protocol_error& e ) {
+                            EMLABCPP_LOG( "Protocol error reported from reactor: " << e );
+                    },
+                    []( const testing_controller_protocol_error& e ) {
+                            EMLABCPP_LOG( "Protocol error reported from controller: " << e );
+                    },
+                    []( const testing_internal_reactor_error& e ) {
+                            EMLABCPP_LOG( "Internal error from reactor: " << e );
+                    },
+                    []( const testing_controller_message_error& e ) {
+                            EMLABCPP_LOG( "Wrong message arrived to controller: " << e );
+                    } );
+                const auto* internal_ptr = std::get_if< testing_internal_reactor_error >( &var );
+
+                if ( internal_ptr ) {
+                        apply_on_match(
+                            internal_ptr->val,
+                            [&]( tag< TESTING_WRONG_TYPE_E >, auto nid ) {
+                                    const testing_node* node_ptr =
+                                        iface_.get_param_tree().get_node( nid );
+                                    EMLABCPP_LOG(
+                                        "Error due a wrong type of node "
+                                        << nid << " asserted in reactors test: " << *node_ptr
+                                        << " type: " << node_ptr->get_type() );
+                            },
+                            [&]< auto EID >( tag< EID >, const auto&... ){} );
+                }
+        }
+#else
+        void log_error( const testing_error_variant& )
+        {
+        }
+#endif
 };
 
 namespace
@@ -107,13 +151,13 @@ std::optional< T > load_data( const Args&... args, testing_controller_interface_
                     res = item;
             },
             [&]( tag< TESTING_INTERNAL_ERROR >, testing_reactor_error_variant err ) {
-                    iface->on_error( testing_internal_reactor_error{ std::move( err ) } );
+                    iface.report_error( testing_internal_reactor_error{ std::move( err ) } );
             },
             [&]( tag< TESTING_PROTOCOL_ERROR >, protocol_error_record rec ) {
-                    iface->on_error( testing_reactor_protocol_error{ rec } );
+                    iface.report_error( testing_reactor_protocol_error{ rec } );
             },
             [&]< auto WID >( tag< WID >, auto... ){
-                iface->on_error( testing_controller_message_error{ WID } );
+                iface.report_error( testing_controller_message_error{ WID } );
 }
 };  // namespace
 
@@ -124,7 +168,8 @@ testing_reactor_controller_extract( *opt_msg )
                 apply_on_visit( handle, pack );
         },
         [&]( protocol_error_record rec ) {
-                iface->on_error( testing_controller_protocol_error{ rec } );
+                EMLABCPP_LOG( "Protocol error from reactor: " << rec );
+                iface.report_error( testing_controller_protocol_error{ rec } );
         } );
 return res;
 }
@@ -173,14 +218,14 @@ void testing_controller::handle_message(
     auto,
     testing_controller_interface_adapter& iface )
 {
-        iface->on_error( testing_controller_message_error{ TESTING_COUNT } );
+        iface.report_error( testing_controller_message_error{ TESTING_COUNT } );
 }
 void testing_controller::handle_message(
     tag< TESTING_NAME >,
     auto,
     testing_controller_interface_adapter& iface )
 {
-        iface->on_error( testing_controller_message_error{ TESTING_NAME } );
+        iface.report_error( testing_controller_message_error{ TESTING_NAME } );
 }
 void testing_controller::handle_message(
     tag< TESTING_PARAM_VALUE >,
@@ -343,28 +388,28 @@ void testing_controller::handle_message(
     auto,
     testing_controller_interface_adapter& iface )
 {
-        iface->on_error( testing_controller_message_error{ TESTING_SUITE_NAME } );
+        iface.report_error( testing_controller_message_error{ TESTING_SUITE_NAME } );
 }
 void testing_controller::handle_message(
     tag< TESTING_SUITE_DATE >,
     auto,
     testing_controller_interface_adapter& iface )
 {
-        iface->on_error( testing_controller_message_error{ TESTING_SUITE_DATE } );
+        iface.report_error( testing_controller_message_error{ TESTING_SUITE_DATE } );
 }
 void testing_controller::handle_message(
     tag< TESTING_INTERNAL_ERROR >,
     testing_reactor_error_variant         err,
     testing_controller_interface_adapter& iface )
 {
-        iface->on_error( testing_internal_reactor_error{ std::move( err ) } );
+        iface.report_error( testing_internal_reactor_error{ std::move( err ) } );
 }
 void testing_controller::handle_message(
     tag< TESTING_PROTOCOL_ERROR >,
     protocol_error_record                 rec,
     testing_controller_interface_adapter& iface )
 {
-        iface->on_error( testing_reactor_protocol_error{ rec } );
+        iface.report_error( testing_reactor_protocol_error{ rec } );
 }
 
 void testing_controller::start_test( testing_test_id tid, testing_controller_interface& top_iface )
@@ -404,6 +449,6 @@ void testing_controller::tick( testing_controller_interface& top_iface )
                             var );
                 },
                 [&]( protocol_error_record e ) {
-                        iface->on_error( testing_controller_protocol_error{ e } );
+                        iface.report_error( testing_controller_protocol_error{ e } );
                 } );
 }
