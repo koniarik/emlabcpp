@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"namespaceemlabcpp.html#a3dcd56ce6fdffb4ebcf8a4c079335d8e":[2,0,0,289],
 "namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885":[2,0,0,319],
 "namespaceemlabcpp.html#a42d44176ade07900af35d92980bea96d":[2,0,0,310],
 "namespaceemlabcpp.html#a43daa0cfcf1b4444fef3c134b538c492":[2,0,0,147],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "namespacemembers_r.html":[2,1,0,16],
 "namespacemembers_s.html":[2,1,0,17],
 "namespacemembers_t.html":[2,1,0,18],
-"namespacemembers_type.html":[2,1,3],
-"namespacemembers_u.html":[2,1,0,19]
+"namespacemembers_type.html":[2,1,3]
 };
