@@ -29,9 +29,16 @@ emlabcpp::testing_value json_to_testing_value( const nlohmann::json& j )
 
 nlohmann::json testing_value_to_json( const testing_value& tv )
 {
-        return match( tv, [&]( const auto& item ) {
-                return nlohmann::json{ item };
-        } );
+        nlohmann::json res = match(
+            tv,
+            [&]( const testing_string_buffer& buff ) {
+                    return nlohmann::json{ std::string_view{ buff.begin(), buff.size() } };
+            },
+            [&]( const auto& item ) {
+                    return nlohmann::json{ item };
+            } )[0];
+
+        return res;
 }
 
 emlabcpp::testing_key json_to_testing_key( const nlohmann::json& j )
@@ -106,19 +113,16 @@ nlohmann::json testing_tree_to_json( const testing_tree& tree )
                     },
                     [&]( testing_const_object_handle oh ) {
                             nlohmann::json j;
-                            // TODO: write iterators for handle
-                            for ( testing_child_id chid : range( oh.size() ) ) {
-                                    const testing_key* k = oh.get_key( chid );
-                                    std::string        key{ k->begin(), k->size() };
-                                    j[key] = f( *oh.get_child( chid ) );
+                            for ( const auto& [key, chid] : oh ) {
+                                    std::string k{ key.begin(), key.size() };
+                                    j[k] = f( chid );
                             }
                             return j;
                     },
                     [&]( testing_const_array_handle ah ) {
                             nlohmann::json j;
-                            // TODO: write iterators for handle
-                            for ( testing_child_id chid : range( ah.size() ) ) {
-                                    j.push_back( f( *ah.get_child( chid ) ) );
+                            for ( const auto& [i, chid] : ah ) {
+                                    j.push_back( f( chid ) );
                             }
                             return j;
                     } );
