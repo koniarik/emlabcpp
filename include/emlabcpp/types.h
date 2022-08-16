@@ -25,6 +25,10 @@
 
 #include <string>
 
+#ifdef EMLABCPP_USE_DEMANGLING
+#include <cxxabi.h>
+#endif
+
 #pragma once
 
 namespace emlabcpp
@@ -90,7 +94,7 @@ std::string pretty_type_name()
         char* dname = abi::__cxa_demangle( typeid( T ).name(), nullptr, nullptr, &tmp );
         res         = dname;
         free( dname );
-#elseif EMLABCPP_USE_TYPEID
+#elif EMLABCPP_USE_TYPEID
         res = typeid( T ).name();
 #endif
         return res;
