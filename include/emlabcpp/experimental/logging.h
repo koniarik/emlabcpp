@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef EMLABCPP_LOGGING_ENABLED
+#ifdef EMLABCPP_USE_LOGGING
 #include "emlabcpp/experimental/pretty_printer.h"
 
 namespace emlabcpp

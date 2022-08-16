@@ -2,7 +2,7 @@
 
 #include "emlabcpp/static_circular_buffer.h"
 
-#ifdef EMLABCPP_LOGGING_ENABLED
+#ifdef EMLABCPP_USE_LOGGING
 
 #include <filesystem>
 #include <iostream>
