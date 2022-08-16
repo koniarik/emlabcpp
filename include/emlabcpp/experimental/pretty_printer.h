@@ -7,6 +7,10 @@
 #include <tuple>
 #include <variant>
 
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+#include <nlohmann/json.hpp>
+#endif
+
 #pragma once
 
 namespace emlabcpp
@@ -15,6 +19,14 @@ namespace emlabcpp
 class pretty_printer
 {
 public:
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+        pretty_printer& operator<<( const nlohmann::json& j )
+        {
+                os_ << j;
+                return *this;
+        }
+#endif
+
         template < typename T >
         pretty_printer& operator<<( const std::reference_wrapper< T >& val )
         {
@@ -48,6 +60,12 @@ public:
         pretty_printer& operator<<( const std::string_view& sview )
         {
                 os_ << sview;
+                return *this;
+        }
+
+        pretty_printer& operator<<( const std::string& str )
+        {
+                os_ << str;
                 return *this;
         }
 
