@@ -477,7 +477,7 @@ joined( const Container& cont, T&& val, UnaryCallable&& f = std::identity() )
         if ( cont.empty() ) {
                 return T{};
         }
-        T res = *std::begin( cont );
+        T res = f( *std::begin( cont ) );
         for ( const auto& item : tail( cont ) ) {
                 res += val + f( item );
         }

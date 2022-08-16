@@ -507,6 +507,12 @@ TEST( Algorithm, joined )
         int                res = joined( iidata, 1 );
 
         EXPECT_EQ( res, 13 );
+
+        iidata = { 1 };
+        res    = joined( iidata, 0, []( int j ) {
+                return j + 1;
+        } );
+        EXPECT_EQ( res, 2 );
 }
 
 // NOLINTNEXTLINE
