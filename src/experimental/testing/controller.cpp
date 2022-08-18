@@ -119,8 +119,7 @@ public:
                                         iface_.get_param_tree().get_node( nid );
                                     EMLABCPP_LOG(
                                         "Error due a wrong type of node "
-                                        << nid << " asserted in reactors test: " << *node_ptr
-                                        << " type: " << node_ptr->get_type() );
+                                        << nid << " asserted in reactors test: " << *node_ptr );
                             },
                             [&]< auto EID >( tag< EID >, const auto&... ){} );
                 }

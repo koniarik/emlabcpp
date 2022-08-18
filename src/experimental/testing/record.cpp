@@ -120,7 +120,7 @@ testing_record::read_variant( testing_node_id, testing_messages_enum desired )
 {
         std::optional< testing_controller_reactor_variant > opt_var = comm_.read_variant();
         if ( !opt_var ) {
-                comm_.report_failure< TESTING_NO_RESPONSE_E >( TESTING_PARAM_VALUE );
+                comm_.report_failure< TESTING_NO_RESPONSE_E >( desired );
                 return {};
         }
 

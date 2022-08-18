@@ -13,9 +13,8 @@ emlabcpp::testing_value json_to_testing_value( const nlohmann::json& j )
                 case value_t::boolean:
                         return j.get< bool >();
                 case value_t::number_integer:
-                        return j.get< int64_t >();
                 case value_t::number_unsigned:
-                        return j.get< uint64_t >();
+                        return j.get< int64_t >();
                 case value_t::number_float:
                         return j.get< float >();
                 case value_t::string:

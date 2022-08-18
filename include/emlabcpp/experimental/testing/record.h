@@ -21,6 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/experimental/testing/base.h"
+#include "emlabcpp/experimental/testing/convert.h"
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/match.h"
 #include "emlabcpp/static_vector.h"
@@ -59,7 +60,7 @@ public:
                                                    << pretty_type_name< T >() );
                         return std::nullopt;
                 }
-                return extract_arg< T >( *opt_var, node );
+                return extract_param< T >( *opt_var, node );
         }
 
         template < typename T, typename Key >
@@ -79,7 +80,6 @@ public:
         std::optional< T > get_param( std::optional< testing_node_id > node, const Key& k )
         {
                 if ( !node ) {
-                        EMLABCPP_LOG( "Nodeid is empty, skipping getting param" );
                         return std::nullopt;
                 }
                 return get_param< T >( *node, k );
@@ -113,17 +113,29 @@ public:
         std::optional< testing_node_id >
         collect( testing_node_id parent, const testing_collect_arg& arg );
 
-        template < typename Key, typename Arg >
         std::optional< testing_node_id >
-        collect( testing_node_id parent, const Key& k, const Arg& arg )
+        collect( testing_node_id parent, std::string_view k, contiguous_container_type t )
         {
-                return collect( parent, convert_key( k ), convert_arg( arg ) );
+                return collect( parent, convert_key( k ), testing_collect_arg{ t } );
+        }
+        std::optional< testing_node_id >
+        collect( testing_node_id parent, contiguous_container_type t )
+        {
+                return collect( parent, testing_collect_arg{ t } );
+        }
+
+        template < typename Arg >
+        std::optional< testing_node_id >
+        collect( testing_node_id parent, std::string_view k, const Arg& arg )
+        {
+                return collect(
+                    parent, convert_key( k ), testing_value_converter< Arg >::to_value( arg ) );
         }
 
         template < typename Arg >
         std::optional< testing_node_id > collect( testing_node_id parent, const Arg& arg )
         {
-                return collect( parent, convert_arg( arg ) );
+                return collect( parent, testing_value_converter< Arg >::to_value( arg ) );
         }
 
         void fail()
@@ -144,36 +156,22 @@ private:
         void report_wrong_type_error( testing_node_id, const testing_value& var );
 
         template < typename T >
-        std::optional< T > extract_arg( const testing_value& var, testing_node_id nid )
+        std::optional< T > extract_param( const testing_value& var, testing_node_id nid )
         {
-                if ( !std::holds_alternative< T >( var ) ) {
+                std::optional< T > res = testing_value_converter< T >::from_value( var );
+                if ( !res ) {
                         EMLABCPP_LOG(
                             "Can't extract arg " << pretty_type_name< T >() << " from node " << nid
                                                  << " it has type index: " << var.index() );
                         report_wrong_type_error( nid, var );
-                        return {};
+                        return std::nullopt;
                 }
-                return std::get< T >( var );
+                return res;
         }
 
         std::optional< testing_key > convert_key( std::string_view sview )
         {
                 return testing_key_to_buffer( sview );
-        }
-
-        testing_collect_arg convert_arg( const alternative_of< testing_value > auto& arg )
-        {
-                return testing_value{ arg };
-        }
-
-        testing_collect_arg convert_arg( std::string_view arg )
-        {
-                return testing_value{ testing_string_to_buffer( arg ) };
-        }
-
-        testing_collect_arg convert_arg( contiguous_container_type arg )
-        {
-                return arg;
         }
 
         std::optional< testing_controller_reactor_variant >
@@ -183,4 +181,5 @@ private:
         std::optional< ResultType >
         exchange( std::optional< testing_node_id > nid, const Args&... args );
 };
+
 }  // namespace emlabcpp

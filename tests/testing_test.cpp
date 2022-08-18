@@ -31,6 +31,7 @@
 #include <gtest/gtest.h>
 
 namespace em = emlabcpp;
+using namespace std::literals;  // TODO: << get rid of this
 
 // ----------------------------------------------------------------------------
 // design:
@@ -72,9 +73,9 @@ void simple_test_case( em::testing_record& rec )
 
         // collecting records data in the controller
         // this is stored for later review
-        rec.collect( 0, "col1", "some_data" );
+        rec.collect( 0, "col1", "some_data"sv );
         rec.collect( 0, "col2", 42 );
-        rec.collect( 0, "33", "foooo" );
+        rec.collect( 0, "33", "foooo"sv );
 
         // of course, we can decide whenever the test
         // failed or succeeded

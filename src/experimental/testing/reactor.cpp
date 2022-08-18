@@ -142,12 +142,13 @@ void testing_reactor::exec_test( testing_reactor_interface_adapter& iface )
         }
 
         h.ptr->run( rec );
-        if ( rec.errored() ) {
-                iface.reply< TESTING_ERROR >( active_exec_->rid );
-        }
+        bool run_errored = rec.errored();
 
         h.ptr->teardown( rec );
-        if ( rec.errored() ) {
+
+        if ( run_errored ) {
+                iface.reply< TESTING_ERROR >( active_exec_->rid );
+        } else if ( rec.errored() ) {
                 iface.reply< TESTING_FAILURE >( active_exec_->rid );
         }
 }
