@@ -138,7 +138,7 @@ $(document).ready(function(){initNavTree('gtest_8h_source.html',''); initResizab
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">match</a>(</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            node_ptr-&gt;get_container_handle(),</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            [&amp;]( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#a367627f95fbed1ba2839fed57b05065e">testing_value</a>&amp; v ) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            [&amp;]( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#a28171eac9ceb675a2230f442ba22b6f4">testing_value</a>&amp; v ) {</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    match(</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                        v,</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                        [&amp;]( testing_string_buffer val ) {</div>
@@ -257,7 +257,7 @@ $(document).ready(function(){initNavTree('gtest_8h_source.html',''); initResizab
 <div class="ttc" id="alogging_8h_html_aaf5aed2bc0aba2c3fe8e02f112589f6d"><div class="ttname"><a href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a></div><div class="ttdeci">#define EMLABCPP_LOG(msg)</div><div class="ttdef"><b>Definition:</b> logging.h:28</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a1bd4cad4ea7dc7e6ef932fe741dc19dc"><div class="ttname"><a href="namespaceemlabcpp.html#a1bd4cad4ea7dc7e6ef932fe741dc19dc">emlabcpp::testing_node_id</a></div><div class="ttdeci">uint32_t testing_node_id</div><div class="ttdef"><b>Definition:</b> base.h:39</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a367627f95fbed1ba2839fed57b05065e"><div class="ttname"><a href="namespaceemlabcpp.html#a367627f95fbed1ba2839fed57b05065e">emlabcpp::testing_value</a></div><div class="ttdeci">std::variant&lt; uint64_t, int64_t, uint32_t, int32_t, float, bool, testing_string_buffer &gt; testing_value</div><div class="ttdef"><b>Definition:</b> base.h:49</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a28171eac9ceb675a2230f442ba22b6f4"><div class="ttname"><a href="namespaceemlabcpp.html#a28171eac9ceb675a2230f442ba22b6f4">emlabcpp::testing_value</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, testing_string_buffer &gt; testing_value</div><div class="ttdef"><b>Definition:</b> base.h:48</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a57181a407fd6f29a50664f8ba4cb44cd"><div class="ttname"><a href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match</a></div><div class="ttdeci">decltype(auto) match(Variant &amp;&amp;var, Callables &amp;&amp;... cals)</div><div class="ttdef"><b>Definition:</b> match.h:60</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a7715dfee7c0de0bf8ef3fb3df46706ef"><div class="ttname"><a href="namespaceemlabcpp.html#a7715dfee7c0de0bf8ef3fb3df46706ef">emlabcpp::testing_const_object_handle</a></div><div class="ttdeci">typename testing_tree::const_object_handle testing_const_object_handle</div><div class="ttdef"><b>Definition:</b> base.h:58</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a81e30d14b0761ae2fe4d4d697a0b8358"><div class="ttname"><a href="namespaceemlabcpp.html#a81e30d14b0761ae2fe4d4d697a0b8358">emlabcpp::testing_const_array_handle</a></div><div class="ttdeci">typename testing_tree::const_array_handle testing_const_array_handle</div><div class="ttdef"><b>Definition:</b> base.h:57</div></div>
@@ -271,7 +271,7 @@ $(document).ready(function(){initNavTree('gtest_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="gtest_8h.html">gtest.h</a></li>
-    <li class="footer">Generated on Thu Aug 18 2022 07:16:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Aug 18 2022 22:24:30 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

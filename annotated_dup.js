@@ -48,6 +48,8 @@ var annotated_dup =
       [ "testing_result", "structemlabcpp_1_1testing__result.html", "structemlabcpp_1_1testing__result" ],
       [ "testing_controller", "classemlabcpp_1_1testing__controller.html", "classemlabcpp_1_1testing__controller" ],
       [ "testing_controller_interface", "classemlabcpp_1_1testing__controller__interface.html", "classemlabcpp_1_1testing__controller__interface" ],
+      [ "testing_value_converter", "namespaceemlabcpp.html#structemlabcpp_1_1testing__value__converter", null ],
+      [ "testing_value_converter< std::string_view >", "structemlabcpp_1_1testing__value__converter_3_01std_1_1string__view_01_4.html", "structemlabcpp_1_1testing__value__converter_3_01std_1_1string__view_01_4" ],
       [ "testing_reactor_protocol_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__reactor__protocol__error", "namespaceemlabcpp_structemlabcpp_1_1testing__reactor__protocol__error_dup" ],
       [ "testing_controller_protocol_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__controller__protocol__error", "namespaceemlabcpp_structemlabcpp_1_1testing__controller__protocol__error_dup" ],
       [ "testing_internal_reactor_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__internal__reactor__error", "namespaceemlabcpp_structemlabcpp_1_1testing__internal__reactor__error_dup" ],

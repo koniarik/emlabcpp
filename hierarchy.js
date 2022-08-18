@@ -204,6 +204,8 @@ var hierarchy =
     [ "emlabcpp::testing_reactor_protocol_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__reactor__protocol__error", null ],
     [ "emlabcpp::testing_record", "classemlabcpp_1_1testing__record.html", null ],
     [ "emlabcpp::testing_result", "structemlabcpp_1_1testing__result.html", null ],
+    [ "emlabcpp::testing_value_converter< T >", "namespaceemlabcpp.html#structemlabcpp_1_1testing__value__converter", null ],
+    [ "emlabcpp::testing_value_converter< std::string_view >", "structemlabcpp_1_1testing__value__converter_3_01std_1_1string__view_01_4.html", null ],
     [ "std::true_type", null, [
       [ "emlabcpp::are_same<>", "structemlabcpp_1_1are__same_3_4.html", null ],
       [ "emlabcpp::impl::is_std_array< std::array< T, N > >", "structemlabcpp_1_1impl_1_1is__std__array_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
