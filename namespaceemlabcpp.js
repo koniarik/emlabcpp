@@ -254,6 +254,7 @@ var namespaceemlabcpp =
     [ "assemble_left_collect_right", "namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755", null ],
     [ "assemble_optionals", "namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486", null ],
     [ "avg", "namespaceemlabcpp.html#aeb03fae2e4aecd67b1f163e1ab523e89", null ],
+    [ "compose", "namespaceemlabcpp.html#a5e72f5ad9fec2b8f70d4f8e0e5ec0d23", null ],
     [ "cont_size", "namespaceemlabcpp.html#a631eb361805aa7459b944503f7538951", null ],
     [ "contains", "namespaceemlabcpp.html#a7b0e7551e0a56b4b0dada6225cee7406", null ],
     [ "convert_view", "namespaceemlabcpp.html#ab6938a08fc2b09d704fc4e6e8ea5b0b9", null ],

@@ -95,6 +95,8 @@ $(document).ready(function(){initNavTree('namespaceemlabcpp_1_1detail.html','');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1detail_1_1decompose__anything.html">decompose_anything</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1detail_1_1static__function__vtable.html">static_function_vtable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1detail_1_1static__function__storage.html">static_function_storage</a></td></tr>
@@ -117,6 +119,15 @@ Functions</h2></td></tr>
 <tr class="memitem:aa15d5c022409d351cd45334d7501dc72"><td class="memTemplParams" colspan="2">template&lt;typename T , T MinVal, T MaxVal&gt; </td></tr>
 <tr class="memitem:aa15d5c022409d351cd45334d7501dc72"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#aa15d5c022409d351cd45334d7501dc72">bounded_derived_test</a> (const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, MinVal, MaxVal &gt; &amp;)</td></tr>
 <tr class="separator:aa15d5c022409d351cd45334d7501dc72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a734202e80b7e009711bcaac98a221f3c"><td class="memTemplParams" colspan="2">template&lt;class T , std::size_t I0, std::size_t... I&gt; </td></tr>
+<tr class="memitem:a734202e80b7e009711bcaac98a221f3c"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#a734202e80b7e009711bcaac98a221f3c">decompose_count</a> (int &amp;out, std::index_sequence&lt; I0, I... &gt;) -&gt; std::add_pointer_t&lt; decltype(T{ <a class="el" href="structemlabcpp_1_1detail_1_1decompose__anything.html">decompose_anything</a>&lt; I0 &gt;{}, <a class="el" href="structemlabcpp_1_1detail_1_1decompose__anything.html">decompose_anything</a>&lt; I &gt;{}... }) &gt;</td></tr>
+<tr class="separator:a734202e80b7e009711bcaac98a221f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb9dd8ffd0780ebcf3b5155a9b14957d"><td class="memTemplParams" colspan="2">template&lt;class T , std::size_t... I&gt; </td></tr>
+<tr class="memitem:abb9dd8ffd0780ebcf3b5155a9b14957d"><td class="memTemplItemLeft" align="right" valign="top">constexpr void *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#abb9dd8ffd0780ebcf3b5155a9b14957d">decompose_count</a> (int &amp;out, std::index_sequence&lt; I... &gt;)</td></tr>
+<tr class="separator:abb9dd8ffd0780ebcf3b5155a9b14957d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af01f23ed794ba9552c3f3fe9a9a2a206"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:af01f23ed794ba9552c3f3fe9a9a2a206"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#af01f23ed794ba9552c3f3fe9a9a2a206">decompose_has_size</a> ()</td></tr>
+<tr class="separator:af01f23ed794ba9552c3f3fe9a9a2a206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70e6b942ad12ffa5b8b9c5080ced861e"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
 <tr class="memitem:a70e6b942ad12ffa5b8b9c5080ced861e"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#a70e6b942ad12ffa5b8b9c5080ced861e">protocol_message_derived_test</a> (const <a class="el" href="classemlabcpp_1_1protocol__message.html">protocol_message</a>&lt; N &gt; &amp;)</td></tr>
 <tr class="separator:a70e6b942ad12ffa5b8b9c5080ced861e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,6 +188,111 @@ template&lt;typename T , T MinVal, T MaxVal&gt; </div>
           <td class="memname">constexpr bool emlabcpp::detail::bounded_derived_test </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, MinVal, MaxVal &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb9dd8ffd0780ebcf3b5155a9b14957d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb9dd8ffd0780ebcf3b5155a9b14957d">&#9670;&nbsp;</a></span>decompose_count() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , std::size_t... I&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void* emlabcpp::detail::decompose_count </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::index_sequence&lt; I... &gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a734202e80b7e009711bcaac98a221f3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a734202e80b7e009711bcaac98a221f3c">&#9670;&nbsp;</a></span>decompose_count() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , std::size_t I0, std::size_t... I&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto emlabcpp::detail::decompose_count </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::index_sequence&lt; I0, I... &gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> -&gt; std::add_pointer_t&lt;
+                decltype( T{ <a class="el" href="structemlabcpp_1_1detail_1_1decompose__anything.html">decompose_anything</a>&lt; I0 &gt;{}, <a class="el" href="structemlabcpp_1_1detail_1_1decompose__anything.html">decompose_anything</a>&lt; I &gt;{}... } ) &gt;
+        </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af01f23ed794ba9552c3f3fe9a9a2a206"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af01f23ed794ba9552c3f3fe9a9a2a206">&#9670;&nbsp;</a></span>decompose_has_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool emlabcpp::detail::decompose_has_size </td>
+          <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -306,7 +422,7 @@ template&lt;typename Stream , typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1detail.html">detail</a></li>
-    <li class="footer">Generated on Wed Aug 17 2022 05:20:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Aug 18 2022 07:16:46 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

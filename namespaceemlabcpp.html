@@ -800,6 +800,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a102fe4d18339d80a3534e5def0c17fb9"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, typename Key , typename Value &gt; </td></tr>
 <tr class="memitem:a102fe4d18339d80a3534e5def0c17fb9"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a102fe4d18339d80a3534e5def0c17fb9">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="classemlabcpp_1_1contiguous__tree.html">contiguous_tree</a>&lt; Key, Value &gt; &amp;tree)</td></tr>
 <tr class="separator:a102fe4d18339d80a3534e5def0c17fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e72f5ad9fec2b8f70d4f8e0e5ec0d23"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Tuple &gt; </td></tr>
+<tr class="memitem:a5e72f5ad9fec2b8f70d4f8e0e5ec0d23"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5e72f5ad9fec2b8f70d4f8e0e5ec0d23">compose</a> (Tuple tpl)</td></tr>
+<tr class="separator:a5e72f5ad9fec2b8f70d4f8e0e5ec0d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d2cc6723ddd36a82e4ed013601e7725"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a3d2cc6723ddd36a82e4ed013601e7725"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3d2cc6723ddd36a82e4ed013601e7725">testing_string_to_buffer</a> (std::string_view sview)</td></tr>
 <tr class="memdesc:a3d2cc6723ddd36a82e4ed013601e7725"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: maybe make a function in <a class="el" href="classemlabcpp_1_1static__vector.html" title="Data container for up to N elements.">static_vector</a> namespace?  <a href="namespaceemlabcpp.html#a3d2cc6723ddd36a82e4ed013601e7725">More...</a><br /></td></tr>
@@ -3084,6 +3087,34 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
 <p>Applies callable 'f(x)' to each element of container 'cont' and returns the average value of each call. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a631eb361805aa7459b944503f7538951">cont_size()</a>, <a class="el" href="namespaceemlabcpp.html#a2ea25e91faa24821022d110beba7bfe4">f</a>, <a class="el" href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">for_each()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+
+</div>
+</div>
+<a id="a5e72f5ad9fec2b8f70d4f8e0e5ec0d23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e72f5ad9fec2b8f70d4f8e0e5ec0d23">&#9670;&nbsp;</a></span>compose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Tuple &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T emlabcpp::compose </td>
+          <td>(</td>
+          <td class="paramtype">Tuple&#160;</td>
+          <td class="paramname"><em>tpl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -7892,7 +7923,7 @@ template&lt;typename T , typename... Us&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Wed Aug 17 2022 05:20:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Aug 18 2022 07:16:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

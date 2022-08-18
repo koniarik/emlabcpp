@@ -16,6 +16,7 @@ var hierarchy =
     [ "emlabcpp::contiguous_tree< Key, Value >", "classemlabcpp_1_1contiguous__tree.html", null ],
     [ "emlabcpp::contiguous_tree< testing_key, testing_value >", "classemlabcpp_1_1contiguous__tree.html", null ],
     [ "emlabcpp::convert_to< T >", "structemlabcpp_1_1convert__to.html", null ],
+    [ "emlabcpp::detail::decompose_anything< size_t >", "structemlabcpp_1_1detail_1_1decompose__anything.html", null ],
     [ "emlabcpp::defer< Callable >", "classemlabcpp_1_1defer.html", null ],
     [ "emlabcpp::derived_storage< T, N >", "classemlabcpp_1_1derived__storage.html", null ],
     [ "std::disjunction", null, [

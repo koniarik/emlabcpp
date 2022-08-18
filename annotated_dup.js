@@ -2,6 +2,7 @@ var annotated_dup =
 [
     [ "emlabcpp", "namespaceemlabcpp.html", [
       [ "detail", "namespaceemlabcpp_1_1detail.html", [
+        [ "decompose_anything", "structemlabcpp_1_1detail_1_1decompose__anything.html", "structemlabcpp_1_1detail_1_1decompose__anything" ],
         [ "static_function_vtable", "structemlabcpp_1_1detail_1_1static__function__vtable.html", "structemlabcpp_1_1detail_1_1static__function__vtable" ],
         [ "static_function_storage", "classemlabcpp_1_1detail_1_1static__function__storage.html", "classemlabcpp_1_1detail_1_1static__function__storage" ]
       ] ],
