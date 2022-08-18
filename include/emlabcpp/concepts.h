@@ -149,11 +149,10 @@ concept ostreamlike = !std::is_array_v< T > && requires( T val )
         detail::directly_streamable_for< T, std::nullptr_t >;
 };
 
+/// Thanks for the solution goes to PJBoy@libera
 template < typename T, typename Variant >
-concept alternative_of = requires( Variant var, T val )
-{
-        std::holds_alternative< T >( var );
-        Variant{ val };
-};
+concept alternative_of = []< typename... Ts >( std::variant< Ts... >* ) {
+        return ( std::same_as< T, Ts > || ... );
+}( static_cast< Variant* >( nullptr ) );
 
 }  // namespace emlabcpp

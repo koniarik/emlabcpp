@@ -46,3 +46,6 @@ static_assert( !static_sized< std::vector< int > > );
 
 static_assert( ostreamlike< std::ostream > );
 static_assert( !ostreamlike< const char[10] > );
+
+static_assert( alternative_of< int, std::variant< int, float > > );
+static_assert( !alternative_of< std::string, std::variant< int, float > > );
