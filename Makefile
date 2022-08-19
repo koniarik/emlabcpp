@@ -26,8 +26,7 @@ build_coverage:
 
 coverage: build_coverage
 	cd build && ctest -T Test
-	lcov -c -d build  --exclude "/usr/include/*" --exclude "*_test.cpp" -o build/emlabcpp.lcov.info
-	genhtml build/emlabcpp.lcov.info -s -o coverage/ -k --legend --demangle-cpp
+	gcovr -r . --html -o index.html
 
 
 clang-tidy:
