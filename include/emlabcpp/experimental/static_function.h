@@ -70,7 +70,7 @@ namespace detail
                             std::move( item ) );
                 }
 
-                static ReturnType invoke( void* source, ArgTypes&&... args )
+                static ReturnType invoke( void* source, ArgTypes... args )
                 {
                         auto ptr = reinterpret_cast< static_function_storage* >( source );
                         return ptr->item_( std::forward< ArgTypes >( args )... );
