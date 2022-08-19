@@ -716,7 +716,7 @@ struct protocol_def< protocol_group< Ds... >, Endianess >
                             bounded_view< const uint8_t*, typename sub_def::size_type >::make(
                                 view_n(
                                     buffer.begin() + offset,
-                                    min( sub_def::max_size, size - offset ) ) );
+                                    std::min( sub_def::max_size, size - offset ) ) );
 
                         if ( !opt_view ) {
                                 return false;

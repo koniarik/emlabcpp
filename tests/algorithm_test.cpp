@@ -30,20 +30,6 @@
 using namespace emlabcpp;
 
 // NOLINTNEXTLINE
-TEST( Algorithm, max )
-{
-        EXPECT_EQ( max( 5, 10 ), 10 );
-        EXPECT_EQ( max( -5, -10 ), -5 );
-}
-
-// NOLINTNEXTLINE
-TEST( Algorithm, min )
-{
-        EXPECT_EQ( min( 5, 10 ), 5 );
-        EXPECT_EQ( min( -5, -10 ), -10 );
-}
-
-// NOLINTNEXTLINE
 TEST( Algorithm, sign )
 {
         EXPECT_EQ( sign( -5 ), -1 );

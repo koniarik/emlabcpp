@@ -111,7 +111,7 @@ int main( int, char*[] )
         // There also exists `min_elem` and `max_elem`.
 
         em::min_max< int > mm_res = em::min_max_elem( vec_data, []( int val ) {
-                return em::abs( val );
+                return std::abs( val );
         } );
         std::cout << "Minimal absolute value of vec_data is " << mm_res.min << " and maximum is "
                   << mm_res.max << '\n';

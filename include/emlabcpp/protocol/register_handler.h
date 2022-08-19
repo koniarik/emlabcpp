@@ -76,7 +76,7 @@ struct protocol_register_handler
                 using def = protocol_def< reg_def_type< Key >, Map::endianess >;
 
                 auto opt_view = bounded_view< const uint8_t*, typename def::size_type >::make(
-                    view_n( msg.begin(), min( def::max_size, msg.size() ) ) );
+                    view_n( msg.begin(), std::min( def::max_size, msg.size() ) ) );
                 if ( !opt_view ) {
                         return protocol_error_record{ SIZE_ERR, 0 };
                 }

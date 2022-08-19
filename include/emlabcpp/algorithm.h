@@ -34,10 +34,6 @@
 namespace emlabcpp
 {
 
-using std::abs;
-using std::max;
-using std::min;
-
 constexpr float default_epsilon = 1.19e-07f;
 
 /// returns sign of variable T: -1,0,1
@@ -205,8 +201,8 @@ min_max_elem( const Container& cont, UnaryCallable&& f = std::identity() )
 
         for_each( cont, [&]( const auto& item ) {
                 auto val = f( item );
-                res.max  = max( res.max, val );
-                res.min  = min( res.min, val );
+                res.max  = std::max( res.max, val );
+                res.min  = std::min( res.min, val );
         } );
         return res;
 }
@@ -222,7 +218,7 @@ template <
 {
         T val = std::numeric_limits< T >::lowest();
         for_each( cont, [&]( const auto& item ) {
-                val = max( f( item ), val );
+                val = std::max( f( item ), val );
         } );
         return val;
 }
@@ -238,7 +234,7 @@ template <
 {
         T val = std::numeric_limits< T >::max();
         for_each( cont, [&]( const auto& item ) {
-                val = min( f( item ), val );
+                val = std::min( f( item ), val );
         } );
         return val;
 }
