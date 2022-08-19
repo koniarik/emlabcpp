@@ -101,7 +101,7 @@ nlohmann::json testing_tree_to_json( const testing_tree& tree )
             [&]( testing_node_id nid ) -> nlohmann::json {
                 const testing_node* node_ptr = tree.get_node( nid );
 
-                if ( !node_ptr ) {
+                if ( node_ptr == nullptr ) {
                         return {};
                 }
 
