@@ -111,7 +111,7 @@ TEST( Algorithm, find_if_int_tup )
         std::size_t                 i    = find_if( tup2, [&]( int i ) {
                 return i > 0;
         } );
-        EXPECT_EQ( i, std::size_t{ 2 } );
+        EXPECT_EQ( i, 2u );
 }
 
 // NOLINTNEXTLINE
@@ -127,6 +127,19 @@ TEST( Algorithm, find_if_vector )
                 return i > 0;
         } );
         EXPECT_EQ( iter, --vec2.end() );
+}
+
+// NOLINTNEXTLINE
+TEST( Algorithm, find )
+{
+        std::tuple< int, int, int > tup2 = { -1, 0, 1 };
+        std::size_t                 i    = find( tup2, 1 );
+        EXPECT_EQ( i, 2u );
+
+        std::vector< int > vec1 = { -1, 0, 1 };
+
+        auto iter = find( vec1, 1 );
+        EXPECT_EQ( std::distance( vec1.begin(), iter ), 2u );
 }
 
 // NOLINTNEXTLINE
