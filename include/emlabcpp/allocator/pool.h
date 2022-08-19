@@ -75,7 +75,7 @@ public:
                             reinterpret_cast< std::byte* >( pool_p ) );
                 }
 
-                if ( !p || used > PoolSize ) {
+                if ( p == nullptr || used > PoolSize ) {
 #ifdef __EXCEPTIONS
                         throw std::bad_alloc{};
 #else

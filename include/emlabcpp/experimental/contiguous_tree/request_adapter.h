@@ -33,7 +33,7 @@ public:
                     [&]( const node_type& node )
                         -> either< std::reference_wrapper< const value_type >, error_enum > {
                             const value_type* val_ptr = node.get_value();
-                            if ( !val_ptr ) {
+                            if ( val_ptr == nullptr ) {
                                     EMLABCPP_LOG( "Node " << id << " is not value type" );
                                     return CONTIGUOUS_WRONG_TYPE;
                             }
@@ -60,12 +60,15 @@ public:
                                         [&]( child_id chid ) {
                                                 res = oh_ptr->get_child( chid );
                                         } );
-                            } else if ( ah_ptr && std::holds_alternative< child_id >( id_var ) ) {
+                            } else if (
+                                ah_ptr != nullptr &&
+                                std::holds_alternative< child_id >( id_var ) ) {
                                     auto id = *std::get_if< child_id >( &id_var );
                                     res     = ah_ptr->get_child( id );
                             } else {
                                     EMLABCPP_LOG(
-                                        "Node " << nid << " does not have children, is value type" );
+                                        "Node " << nid
+                                                << " does not have children, is value type" );
                                     return CONTIGUOUS_WRONG_TYPE;
                             }
 
@@ -97,9 +100,10 @@ public:
                     [&]( const_object_handle oh ) -> either< key_type, error_enum > {
                             const key_type* key_ptr = oh.get_key( chid );
 
-                            if ( !key_ptr ) {
+                            if ( key_ptr == nullptr ) {
                                     EMLABCPP_LOG(
-                                        "Node " << nid << " does not have child with id: " << chid );
+                                        "Node " << nid
+                                                << " does not have child with id: " << chid );
                                     return CONTIGUOUS_CHILD_MISSING;
                             }
                             return *key_ptr;
@@ -189,7 +193,7 @@ private:
         {
                 Node* node_ptr = self->tree_.get_node( nid );
 
-                if ( !node_ptr ) {
+                if ( node_ptr == nullptr ) {
                         EMLABCPP_LOG( "Node " << nid << " is not in the tree" );
                         return CONTIGUOUS_MISSING_NODE;
                 }

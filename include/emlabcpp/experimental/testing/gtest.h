@@ -43,7 +43,7 @@ T& testing_recursive_print_node(
 
         const testing_node* node_ptr = t.get_node( nid );
 
-        if ( !node_ptr ) {
+        if ( node_ptr == nullptr ) {
                 return os;
         }
 
