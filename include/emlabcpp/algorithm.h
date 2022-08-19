@@ -38,7 +38,7 @@ constexpr float default_epsilon = 1.19e-07f;
 
 /// returns sign of variable T: -1,0,1
 template < typename T >
-constexpr int sign( T&& val )
+constexpr int sign( const T& val )
 {
         using value_type = std::decay_t< T >;
         if ( value_type{ 0 } > val ) {
@@ -74,14 +74,15 @@ template < container Container >
 /// Two items 'lh' and 'rh' are almost equal if their difference is smaller than
 /// value 'eps'
 template < typename T >
-[[nodiscard]] constexpr bool almost_equal( const T& lh, const T& rh, float eps = default_epsilon )
+[[nodiscard]] constexpr bool
+almost_equal( const T& lh, const T& rh, const float eps = default_epsilon )
 {
         return float( abs( lh - rh ) ) < eps;
 }
 
 /// Returns range over Container, which skips first item of container
 template < referenceable_container Container, typename Iterator = iterator_of_t< Container > >
-[[nodiscard]] constexpr view< Iterator > tail( Container&& cont, int step = 1 )
+[[nodiscard]] constexpr view< Iterator > tail( Container&& cont, const int step = 1 )
 {
         return view< Iterator >( std::begin( cont ) + step, std::end( cont ) );
 }
@@ -143,7 +144,7 @@ template < container Container, typename T >
                 return find( cont, item ) != cont.end();
         } else {
                 return find( cont, item ) != cont_size( cont );
-        };
+        }
 }
 
 /// Applies unary callable 'f' to each element of container 'cont'
@@ -152,7 +153,7 @@ requires(
     !range_container< Container > ) constexpr void for_each( Container&& cont, UnaryCallable&& f )
 {
         std::apply(
-            [&]< typename... Items >( Items&&... items ) {
+            [&f]< typename... Items >( Items&&... items ) {
                     ( f( std::forward< Items >( items ) ), ... );
             },
             std::forward< Container >( cont ) );
@@ -309,7 +310,7 @@ template <
 {
         T u = avg( cont, f );
 
-        T res = sum( cont, [&]( const auto& val ) {
+        T res = sum( cont, [&f, &u]( const auto& val ) {
                 auto v = f( val ) - u;
                 return v * v;
         } );
@@ -380,13 +381,12 @@ template <
         if ( cont_size( lh ) != cont_size( rh ) ) {
                 return false;
         }
-        auto lbeg = std::begin( lh );
         auto rbeg = std::begin( rh );
-        auto lend = std::end( lh );
-        for ( ; lbeg != lend; ++lbeg, ++rbeg ) {
-                if ( !f( *lbeg, *rbeg ) ) {
+        for ( const auto& item : lh ) {
+                if ( !f( item, *rbeg ) ) {
                         return false;
                 }
+                rbeg++;
         }
         return true;
 }
@@ -468,7 +468,7 @@ template <
     typename T,
     container_invocable< Container > UnaryCallable = std::identity >
 [[nodiscard]] constexpr T
-joined( const Container& cont, T&& val, UnaryCallable&& f = std::identity() )
+joined( const Container& cont, const T& val, UnaryCallable&& f = std::identity() )
 {
         if ( cont.empty() ) {
                 return T{};
@@ -483,7 +483,7 @@ joined( const Container& cont, T&& val, UnaryCallable&& f = std::identity() )
 /// Executes unary callable `f()` with template argument of type 'std::size_t', which ranges from 0
 /// to N.
 template < std::size_t N, typename NullCallable >
-constexpr void for_each_index( NullCallable&& f )
+constexpr void for_each_index( const NullCallable& f )
 {
         if constexpr ( N != 0 ) {
                 for_each_index< N - 1 >( f );
@@ -494,7 +494,7 @@ constexpr void for_each_index( NullCallable&& f )
 /// Executes predicate `f()` with template argument of type 'std::size_t', which ranges from 0
 /// to i until first call that returns true. Function returns whenever the `f` was called or not.
 template < std::size_t i, typename PredicateCallable >
-constexpr bool until_index( PredicateCallable&& f )
+constexpr bool until_index( const PredicateCallable& f )
 {
         if constexpr ( i != 0 ) {
                 return until_index< i - 1 >( f ) || f.template operator()< i - 1 >();
