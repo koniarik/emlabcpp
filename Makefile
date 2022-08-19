@@ -24,8 +24,10 @@ build_coverage:
 	cmake -Bbuild $(EXTRAARGS) -DEMLABCPP_COVERAGE_ENABLED=ON
 	cmake --build build
 
-coverage: build_coverage
+run_coverage: build_coverage
 	cd build && ctest -T Test
+
+coverage: run_coverage
 	gcovr -r . --html -o index.html
 
 
