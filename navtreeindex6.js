@@ -1,6 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structemlabcpp_1_1protocol__decl_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html#a45338ad46142bd0cfa5d2768b7b941f9":[3,0,0,70,0],
 "structemlabcpp_1_1protocol__decl_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html#a49304c6d7c081df4b81518c9d5ca8d95":[3,0,0,70,2],
 "structemlabcpp_1_1protocol__decl_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html#ab00d7185c64fc3c09bd0d3426a31b0e0":[3,0,0,70,1],
 "structemlabcpp_1_1protocol__decl_3_01protocol__endianess_3_01Endianess_00_01D_01_4_01_4.html":[3,0,0,74],
@@ -249,5 +248,6 @@ var NAVTREEINDEX6 =
 "structemlabcpp_1_1protocol__packet.html#ae6c9ea8e3e5b4d96f4b6ab390bbb09f1":[3,0,0,102,1],
 "structemlabcpp_1_1protocol__packet.html#af88d91afd710c8cbe8d384ff22ce5fd4":[3,0,0,102,8],
 "structemlabcpp_1_1protocol__packet_1_1sequencer__def.html":[3,0,0,102,0],
-"structemlabcpp_1_1protocol__packet_1_1sequencer__def.html#a01cc363c3c9a60c8b85111eff641c99a":[3,0,0,102,0,0]
+"structemlabcpp_1_1protocol__packet_1_1sequencer__def.html#a01cc363c3c9a60c8b85111eff641c99a":[3,0,0,102,0,0],
+"structemlabcpp_1_1protocol__packet_1_1sequencer__def.html#a2411e508d5821f8597c863a8df3219a2":[3,0,0,102,0,2]
 };
