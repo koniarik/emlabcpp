@@ -89,7 +89,7 @@ template < referenceable_container Container, typename Iterator = iterator_of_t<
 
 /// Returns range over Container, which skips last item of container
 template < referenceable_container Container, typename Iterator = iterator_of_t< Container > >
-[[nodiscard]] constexpr view< Iterator > init( Container&& cont, int step = 1 )
+[[nodiscard]] constexpr view< Iterator > init( Container&& cont, const int step = 1 )
 {
         return view< Iterator >( std::begin( cont ), std::end( cont ) - step );
 }
@@ -513,11 +513,11 @@ requires( !requires( Callable f ) {
         {
                 f.template operator()< 0 >()
                 } -> std::same_as< void >;
-} ) constexpr auto select_index( IndexType i, Callable&& f )
+} ) constexpr auto select_index( IndexType i, const Callable& f )
 {
         using T = std::decay_t< decltype( f.template operator()< 0 >() ) >;
         T res{};
-        select_index( i, [&]< std::size_t i >() {
+        select_index( i, [&res, &f]< std::size_t i >() {
                 res = f.template operator()< i >();
         } );
         return res;
@@ -530,9 +530,9 @@ requires requires( Callable f )
                 f.template operator()< 0 >()
                 } -> std::same_as< void >;
 }
-constexpr void select_index( IndexType i, Callable&& f )
+constexpr void select_index( IndexType i, const Callable& f )
 {
-        until_index< IndexType::max_val + 1 >( [&]< std::size_t j >() {
+        until_index< IndexType::max_val + 1 >( [&i, &f]< std::size_t j >() {
                 if ( *i == j ) {
                         f.template operator()< j >();
                         return true;
