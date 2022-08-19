@@ -34,7 +34,7 @@ template < typename... Args, typename UnaryPredicate, std::size_t... Idx >
 find_if_impl( const std::tuple< Args... >& t, UnaryPredicate&& f, std::index_sequence< Idx... > )
 {
         std::size_t res = sizeof...( Args );
-        auto        ff  = [&]( const auto& item, std::size_t i ) {
+        auto        ff  = [&]( const auto& item, const std::size_t i ) {
                 if ( f( item ) ) {
                         res = i;
                         return true;
@@ -79,16 +79,12 @@ template <
     typename UnaryCallable,
     std::size_t... Is >
 requires( !range_container< Container > ) [[nodiscard]] std::array< T, N > map_f_to_a_impl(
-    Container&&     cont,
-    UnaryCallable&& f,
+    Container&&          cont,
+    const UnaryCallable& f,
     std::integer_sequence< std::size_t, Is... > )
 {
-        auto process = [&]< std::size_t i >() {
-                if constexpr ( std::is_reference_v< Container > ) {
-                        return f( std::get< i >( cont ) );
-                } else {
-                        return f( std::move( std::get< i >( cont ) ) );
-                }
+        auto process = [&cont, &f]< std::size_t i >() {
+                return f( std::get< i >( std::forward< Container >( cont ) ) );
         };
 
         /// viz. second map_f_to_a_impl
@@ -105,7 +101,7 @@ requires requires( T a, typename T::value_type b )
 }
 struct map_f_collector< T >
 {
-        void collect( T& res, typename T::value_type val )
+        void collect( T& res, typename T::value_type val ) const
         {
                 res.push_back( std::move( val ) );
         }
@@ -118,7 +114,7 @@ requires requires( T a, typename T::value_type b )
 }
 struct map_f_collector< T >
 {
-        void collect( T& res, typename T::value_type val )
+        void collect( T& res, typename T::value_type val ) const
         {
                 res.insert( std::move( val ) );
         }
