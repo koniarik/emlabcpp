@@ -1,7 +1,7 @@
 var searchData=
 [
   ['select_538',['select',['../structemlabcpp_1_1protocol__register__handler.html#ac8d1d83cfc39d28cc3f392abb037c6b9',1,'emlabcpp::protocol_register_handler']]],
-  ['select_5findex_539',['select_index',['../namespaceemlabcpp.html#a505109612442935cc682cf92a9d2296c',1,'emlabcpp::select_index(IndexType i, Callable &amp;&amp;f)'],['../namespaceemlabcpp.html#a682d97f0829a04051ce4240be4312a9a',1,'emlabcpp::select_index(i, [&amp;]&lt; std::size_t i &gt;() { res=f.template operator()&lt; i &gt;();})']]],
+  ['select_5findex_539',['select_index',['../namespaceemlabcpp.html#ab1e2e3e15b0c77fff6674ed7e6e1f67e',1,'emlabcpp::select_index(IndexType i, const Callable &amp;f)'],['../namespaceemlabcpp.html#a22bdba517ae1cfa5e6b4f2e54e407bb1',1,'emlabcpp::select_index(i, [&amp;res, &amp;f]&lt; std::size_t i &gt;() { res=f.template operator()&lt; i &gt;();})']]],
   ['select_5futype_540',['select_utype',['../namespaceemlabcpp.html#structemlabcpp_1_1select__utype',1,'emlabcpp']]],
   ['select_5futype_5ft_541',['select_utype_t',['../namespaceemlabcpp.html#ac223240cfaa32fcb48f0daa06c78a9e2',1,'emlabcpp']]],
   ['sequencer_542',['sequencer',['../structemlabcpp_1_1protocol__packet.html#af88d91afd710c8cbe8d384ff22ce5fd4',1,'emlabcpp::protocol_packet']]],
