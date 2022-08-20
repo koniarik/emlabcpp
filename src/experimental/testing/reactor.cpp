@@ -26,6 +26,8 @@
 
 using namespace emlabcpp;
 
+// TODO maybe generalize?
+
 void testing_reactor::spin( testing_reactor_interface& top_iface )
 {
         testing_reactor_interface_adapter iface{ top_iface, seq_ };
@@ -36,67 +38,65 @@ void testing_reactor::spin( testing_reactor_interface& top_iface )
                 return;
         }
 
-        apply_on_match(
+        // TODO: this does not work, split the CR group into multiple groups...
+        match(
             *opt_var,
-            [&]< auto ID >( tag< ID >, const auto&... args ) {
-                    handle_message( tag< ID >{}, args..., iface );
+            [&]( const auto& item ) {
+                    handle_message( item, iface );
             },
-            [&]( tag< TESTING_PARAM_VALUE >, const auto&... ) {
+            [&]( const testing_param_value_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
-            [&]( tag< TESTING_PARAM_CHILD >, const auto&... ) {
+            [&]( const testing_param_child_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
-            [&]( tag< TESTING_PARAM_CHILD_COUNT >, const auto&... ) {
+            [&]( const testing_param_child_count_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
-            [&]( tag< TESTING_PARAM_KEY >, const auto&... ) {
+            [&]( const testing_param_key_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
-            [&]( tag< TESTING_PARAM_TYPE >, const auto&... ) {
+            [&]( const testing_param_type_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
-            [&]( tag< TESTING_TREE_ERROR >, const auto&... ) {
+            [&]( const testing_tree_error_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
-            [&]( tag< TESTING_COLLECT >, const auto&... ) {
+            [&]( const testing_collect_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             } );
 }
 
 void testing_reactor::handle_message(
-    tag< TESTING_SUITE_NAME >,
+    testing_get_property< TESTING_SUITE_NAME >,
     testing_reactor_interface_adapter& iface )
 {
         iface.reply< TESTING_SUITE_NAME >( testing_name_to_buffer( suite_name_ ) );
 }
 void testing_reactor::handle_message(
-    tag< TESTING_SUITE_DATE >,
+    testing_get_property< TESTING_SUITE_DATE >,
     testing_reactor_interface_adapter& iface )
 {
         iface.reply< TESTING_SUITE_DATE >( testing_name_to_buffer( suite_date_ ) );
 }
 void testing_reactor::handle_message(
-    tag< TESTING_COUNT >,
+    testing_get_property< TESTING_COUNT >,
     testing_reactor_interface_adapter& iface )
 {
         iface.reply< TESTING_COUNT >( static_cast< testing_test_id >( handles_.size() ) );
 }
 void testing_reactor::handle_message(
-    tag< TESTING_NAME >,
-    testing_test_id                    tid,
+    testing_get_test_name              req,
     testing_reactor_interface_adapter& iface )
 {
-        if ( tid >= handles_.size() ) {
+        if ( req.tid >= handles_.size() ) {
                 iface.report_failure< TESTING_BAD_TEST_ID_E >();
                 return;
         }
-        iface.reply< TESTING_NAME >( testing_name_to_buffer( access_test( tid ).name ) );
+        iface.reply< TESTING_NAME >( testing_name_to_buffer( access_test( req.tid ).name ) );
 }
 void testing_reactor::handle_message(
-    tag< TESTING_LOAD >,
-    testing_test_id                    tid,
-    testing_run_id                     rid,
+    testing_load_test                  req,
     testing_reactor_interface_adapter& iface )
 {
         if ( active_exec_ ) {
@@ -104,17 +104,14 @@ void testing_reactor::handle_message(
                 return;
         }
 
-        if ( tid >= handles_.size() ) {
+        if ( req.tid >= handles_.size() ) {
                 iface.report_failure< TESTING_BAD_TEST_ID_E >();
                 return;
         }
 
-        active_exec_ = active_execution{ tid, rid, &access_test( tid ) };
+        active_exec_ = active_execution{ req.tid, req.rid, &access_test( req.tid ) };
 }
-void testing_reactor::handle_message(
-    tag< TESTING_EXEC >,
-    testing_run_id,
-    testing_reactor_interface_adapter& iface )
+void testing_reactor::handle_message( testing_exec, testing_reactor_interface_adapter& iface )
 {
         if ( !active_exec_ ) {
                 iface.report_failure< TESTING_TEST_NOT_LOADED_E >();

@@ -57,12 +57,6 @@ public:
                 return iface_;
         }
 
-        template < testing_messages_enum ID, typename... Args >
-        void send( const Args&... args )
-        {
-                send( testing_controller_reactor_group::make_val< ID >( args... ) );
-        }
-
         std::optional< testing_reactor_controller_msg > read_message()
         {
                 using sequencer = testing_reactor_controller_packet::sequencer;
@@ -84,7 +78,7 @@ public:
                 } else if ( err == CONTIGUOUS_CHILD_MISSING ) {
                         EMLABCPP_LOG( "Tree node child " << nid << " is missing " );
                 }
-                send< TESTING_TREE_ERROR >( rid, err, nid );
+                send( testing_tree_error_reply{ .rid = rid, .err = err, .nid = nid } );
         }
 
         void report_error( testing_error_variant var )
@@ -133,12 +127,12 @@ public:
 
 namespace
 {
-template < typename T, testing_messages_enum ID, typename... Args >
-std::optional< T > load_data( const Args&... args, testing_controller_interface_adapter& iface )
+template < typename T, typename Req >
+std::optional< T > load_data( const Req& req, testing_controller_interface_adapter& iface )
 {
         std::optional< T > res;
 
-        iface.send< ID >( args... );
+        iface.send( req );
 
         auto opt_msg = iface.read_message();
         if ( !opt_msg ) {
@@ -146,7 +140,7 @@ std::optional< T > load_data( const Args&... args, testing_controller_interface_
         }
 
         auto handle = matcher{
-            [&]( tag< ID >, auto item ) {
+            [&]( tag< Req::tag >, auto item ) {
                     res = item;
             },
             [&]( tag< TESTING_INTERNAL_ERROR >, testing_reactor_error_variant err ) {
@@ -179,9 +173,12 @@ testing_controller::make( testing_controller_interface& top_iface, pool_interfac
 {
         testing_controller_interface_adapter iface{ top_iface };
 
-        auto opt_name  = load_data< testing_name_buffer, TESTING_SUITE_NAME >( iface );
-        auto opt_date  = load_data< testing_name_buffer, TESTING_SUITE_DATE >( iface );
-        auto opt_count = load_data< testing_test_id, TESTING_COUNT >( iface );
+        auto opt_name =
+            load_data< testing_name_buffer >( testing_get_property< TESTING_SUITE_NAME >{}, iface );
+        auto opt_date =
+            load_data< testing_name_buffer >( testing_get_property< TESTING_SUITE_DATE >{}, iface );
+        auto opt_count =
+            load_data< testing_test_id >( testing_get_property< TESTING_COUNT >{}, iface );
 
         if ( !opt_name ) {
                 EMLABCPP_LOG( "Failed to build controller - did not get a name" );
@@ -200,7 +197,7 @@ testing_controller::make( testing_controller_interface& top_iface, pool_interfac
 
         for ( testing_test_id i = 0; i < *opt_count; i++ ) {
                 auto opt_name =
-                    load_data< testing_name_buffer, TESTING_NAME, testing_test_id >( i, iface );
+                    load_data< testing_name_buffer >( testing_get_test_name{ .tid = i }, iface );
                 if ( !opt_name ) {
                         EMLABCPP_LOG(
                             "Failed to build controller - did not get a test name for index: "
@@ -239,7 +236,7 @@ void testing_controller::handle_message(
 
         harn.get_value( nid ).match(
             [&]( const testing_value& val ) {
-                    iface.send< TESTING_PARAM_VALUE >( rid, val );
+                    iface.send( testing_param_value_reply{ rid, val } );
             },
             [&]( contiguous_request_adapter_errors_enum err ) {
                     iface.reply_node_error( rid, err, nid );
@@ -260,7 +257,7 @@ void testing_controller::handle_message(
         harn.get_child( nid, chid )
             .match(
                 [&]( testing_node_id child ) {
-                        iface.send< TESTING_PARAM_CHILD >( rid, child );
+                        iface.send( testing_param_child_reply{ rid, child } );
                 },
                 [&]( contiguous_request_adapter_errors_enum err ) {
                         iface.reply_node_error( rid, err, nid );
@@ -279,7 +276,7 @@ void testing_controller::handle_message(
 
         harn.get_child_count( nid ).match(
             [&]( testing_child_id count ) {
-                    iface.send< TESTING_PARAM_CHILD_COUNT >( rid, count );
+                    iface.send( testing_param_child_count_reply{ rid, count } );
             },
             [&]( contiguous_request_adapter_errors_enum err ) {
                     iface.reply_node_error( rid, err, nid );
@@ -300,7 +297,7 @@ void testing_controller::handle_message(
         harn.get_key( nid, chid )
             .match(
                 [&]( const testing_key& key ) {
-                        iface.send< TESTING_PARAM_KEY >( rid, key );
+                        iface.send( testing_param_key_reply{ rid, key } );
                 },
                 [&]( contiguous_request_adapter_errors_enum err ) {
                         iface.reply_node_error( rid, err, nid );
@@ -319,7 +316,7 @@ void testing_controller::handle_message(
 
         harn.get_type( nid ).match(
             [&]( contiguous_tree_type_enum type ) {
-                    iface.send< TESTING_PARAM_TYPE >( rid, type );
+                    iface.send( testing_param_type_reply{ rid, type } );
             },
             [&]( contiguous_request_adapter_errors_enum err ) {
                     iface.reply_node_error( rid, err, nid );
@@ -354,7 +351,7 @@ void testing_controller::handle_message(
             opt_key ? harn.insert( parent, *opt_key, val ) : harn.insert( parent, val );
         res.match(
             [&]( testing_node_id nid ) {
-                    iface.send< TESTING_COLLECT >( rid, nid );
+                    iface.send( testing_collect_reply{ rid, nid } );
             },
             [&]( contiguous_request_adapter_errors_enum err ) {
                     iface.reply_node_error( rid, err, parent );
@@ -420,8 +417,8 @@ void testing_controller::start_test( testing_test_id tid, testing_controller_int
 
         context_.emplace( tid, rid_, mem_pool_ );
 
-        iface.send< TESTING_LOAD >( tid, rid_ );
-        iface.send< TESTING_EXEC >( rid_ );
+        iface.send( testing_load_test{ tid, rid_ } );
+        iface.send( testing_exec{ rid_ } );
 }
 
 void testing_controller::tick( testing_controller_interface& top_iface )
