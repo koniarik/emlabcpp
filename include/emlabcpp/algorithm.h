@@ -77,7 +77,7 @@ template < typename T >
 [[nodiscard]] constexpr bool
 almost_equal( const T& lh, const T& rh, const float eps = default_epsilon )
 {
-        return float( abs( lh - rh ) ) < eps;
+        return float( std::abs( lh - rh ) ) < eps;
 }
 
 /// Returns range over Container, which skips first item of container
