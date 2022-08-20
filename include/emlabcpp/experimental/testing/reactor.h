@@ -127,11 +127,6 @@ private:
                 return true;
         }
 
-        static void test_deleter( pool_interface& mem, void* p )
-        {
-                mem.deallocate( p );
-        }
-
         void exec_test( testing_reactor_interface_adapter& comm );
 
         test_handle& access_test( testing_test_id );

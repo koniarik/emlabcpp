@@ -120,6 +120,24 @@ private:
         std::array< pool, PoolCount >        pools_;
 };
 
+class pool_dynamic_resource final : public pool_interface
+{
+        void* allocate( std::size_t bytes, std::size_t alignment ) final
+        {
+                return ::operator new ( bytes, std::align_val_t{ alignment } );
+        }
+
+        void deallocate( void* ptr ) final
+        {
+                ::operator delete( ptr );
+        }
+
+        bool full() final
+        {
+                return false;
+        }
+};
+
 template < typename T >
 class pool_allocator
 {
