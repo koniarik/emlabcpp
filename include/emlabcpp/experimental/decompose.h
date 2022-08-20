@@ -1,3 +1,5 @@
+#include "emlabcpp/concepts.h"
+
 #include <tuple>
 
 #pragma once
@@ -8,6 +10,9 @@ namespace emlabcpp
 // thanks to the great presentation: https://www.youtube.com/watch?v=abdeAew3gmQ (Antony Polukhin)
 namespace detail
 {
+
+        static constexpr std::size_t max_decompose_count = 16;
+
         template < std::size_t >
         struct decompose_anything
         {
@@ -16,7 +21,7 @@ namespace detail
         };
 
         template < class T, std::size_t I0, std::size_t... I >
-        constexpr auto decompose_count( int& out, std::index_sequence< I0, I... > )
+        constexpr auto decompose_count_impl( int& out, std::index_sequence< I0, I... > )
             -> std::add_pointer_t<
                 decltype( T{ decompose_anything< I0 >{}, decompose_anything< I >{}... } ) >
         {
@@ -24,41 +29,58 @@ namespace detail
                 return nullptr;
         }
         template < class T, std::size_t... I >
-        constexpr void* decompose_count( int& out, std::index_sequence< I... > )
+        constexpr void* decompose_count_impl( int& out, std::index_sequence< I... > )
         {
                 if constexpr ( sizeof...( I ) > 0 ) {
-                        decompose_count< T >(
+                        decompose_count_impl< T >(
                             out, std::make_index_sequence< sizeof...( I ) - 1 >{} );
+                } else if constexpr ( std::is_default_constructible_v< T > ) {
+                        out = 0;
                 } else {
                         out = -1;
                 }
                 return nullptr;
         }
 
-        template < typename T, std::size_t N >
-        constexpr bool decompose_has_size()
+        template < typename T >
+        constexpr int decompose_count()
         {
                 int c = -2;
-                decompose_count< std::decay_t< T > >( c, std::make_index_sequence< 16 >{} );
-                return c == N;
+                decompose_count_impl< std::decay_t< T > >(
+                    c, std::make_index_sequence< max_decompose_count >{} );
+                return c;
         }
+
 }  // namespace detail
 
-#define EMLABCPP_GENERATE_DECOMPOSE( ID, ... )                                 \
-        template < typename T >                                                \
-        concept decomposable_##ID = detail::decompose_has_size< T, ( ID ) >(); \
-                                                                               \
-        template < decomposable_##ID T >                                       \
-        constexpr auto decompose( T&& item )                                   \
-        {                                                                      \
-                if constexpr ( std::is_rvalue_reference_v< T > ) {             \
-                        auto&& [__VA_ARGS__] = std::move( item );              \
-                        return std::make_tuple( __VA_ARGS__ );                 \
-                } else {                                                       \
-                        auto& [__VA_ARGS__] = item;                            \
-                        return std::tie( __VA_ARGS__ );                        \
-                }                                                              \
+template < typename T >
+concept decomposable = std::is_class_v< std::decay_t< T > > && !gettable_container< T > &&
+                       ( detail::decompose_count< T >() >= 0 );
+
+#define EMLABCPP_GENERATE_DECOMPOSE( ID, ... )                                                    \
+        template < typename T >                                                                   \
+        concept decomposable_##ID = decomposable< T >&& detail::decompose_count< T >() == ( ID ); \
+                                                                                                  \
+        template < decomposable_##ID T >                                                          \
+        constexpr auto decompose( T&& item )                                                      \
+        {                                                                                         \
+                if constexpr ( !std::is_lvalue_reference_v< T > ) {                               \
+                        auto&& [__VA_ARGS__] = std::move( item );                                 \
+                        return std::make_tuple( __VA_ARGS__ );                                    \
+                } else {                                                                          \
+                        auto& [__VA_ARGS__] = item;                                               \
+                        return std::tie( __VA_ARGS__ );                                           \
+                }                                                                                 \
         }
+
+template < typename T >
+concept decomposable_0 = decomposable< T > &&( detail::decompose_count< T >() == 0 );
+
+template < decomposable_0 T >
+constexpr std::tuple<> decompose( T&& )
+{
+        return {};
+}
 
 template < typename T, typename Tuple >
 constexpr T compose( Tuple tpl )
@@ -99,5 +121,8 @@ EMLABCPP_GENERATE_DECOMPOSE(
     a13,
     a14,
     a15 )
+
+template < typename T >
+using decomposed_type = decltype( decompose( std::declval< T >() ) );
 
 }  // namespace emlabcpp
