@@ -150,6 +150,15 @@ struct protocol_json_serializer< int64_t > : protocol_json_serializer_base
                 return std::string{ type_name };
         }
 };
+template <>
+struct protocol_json_serializer< float > : protocol_json_serializer_base
+{
+        static constexpr std::string_view type_name = "float";
+        static std::string                get_name()
+        {
+                return std::string{ type_name };
+        }
+};
 template < protocol_declarable T >
 requires( std::is_enum_v< T > ) struct protocol_json_serializer< T > : protocol_json_serializer_base
 {
@@ -199,10 +208,12 @@ struct protocol_json_serializer< std::tuple< Ds... > > : protocol_json_serialize
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_types"] =
-                    map_f_to_a( std::tuple< Ds... >{}, [&]< typename D >( D ) -> nlohmann::json {
-                            return protocol_decl< D >{};
-                    } );
+                if constexpr ( sizeof...( Ds ) != 0 ) {
+                        j["sub_types"] = map_f_to_a(
+                            std::tuple< Ds... >{}, [&]< typename D >( D ) -> nlohmann::json {
+                                    return protocol_decl< D >{};
+                            } );
+                }
         }
 };
 
@@ -372,6 +383,13 @@ struct protocol_json_serializer< protocol_group< Ds... > > : protocol_json_seria
         }
 };
 
+template < protocol_declarable... Ds >
+struct protocol_json_serializer< protocol_tag_group< Ds... > >
+  : protocol_json_serializer< typename protocol_decl< protocol_tag_group< Ds... > >::sub_type >
+{
+        static constexpr std::string_view type_name = "group";
+};
+
 template < protocol_endianess_enum Endianess, protocol_declarable D >
 struct protocol_json_serializer< protocol_endianess< Endianess, D > >
   : protocol_json_serializer< D >
@@ -434,6 +452,19 @@ struct protocol_json_serializer< static_vector< T, N > > : protocol_json_seriali
                 j["counter_type"] = protocol_decl<
                     typename protocol_decl< static_vector< T, N > >::counter_type >{};
                 j["sub_type"] = protocol_decl< T >{};
+        }
+};
+
+template < decomposable D >
+requires(
+    protocol_declarable< D > && !quantity_derived< D > &&
+    !std::derived_from< D, protocol_def_type_base > ) struct protocol_json_serializer< D >
+  : protocol_json_serializer< typename protocol_decl< D >::tuple_type >
+{
+
+        static std::string get_name()
+        {
+                return pretty_type_name< D >();
         }
 };
 

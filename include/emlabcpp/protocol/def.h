@@ -49,7 +49,7 @@ concept protocol_def_check = requires()
                 T::max_size
                 } -> std::convertible_to< std::size_t >;
         typename T::value_type;
-        bounded_derived< typename T::size_type >;
+        requires bounded_derived< typename T::size_type >;
 }
 &&requires( std::span< uint8_t, T::max_size > buff, typename T::value_type item )
 {
@@ -98,10 +98,11 @@ struct protocol_def< std::array< D, N >, Endianess >
 {
         using value_type = typename protocol_decl< std::array< D, N > >::value_type;
         static constexpr std::size_t max_size = protocol_decl< std::array< D, N > >::max_size;
+        static constexpr std::size_t min_size = protocol_decl< std::array< D, N > >::min_size;
 
         using sub_def       = protocol_def< D, Endianess >;
         using sub_size_type = typename sub_def::size_type;
-        using size_type     = bounded< std::size_t, sub_def::size_type::min_val * N, max_size >;
+        using size_type     = bounded< std::size_t, min_size, max_size >;
 
         /// In both methods, we create the bounded size without properly checking that it the
         /// bounded type was made properly (that is, that the provided std::size_t value is in the
@@ -670,12 +671,65 @@ struct protocol_def< tag< V >, Endianess >
 };
 
 template < typename... Ds, protocol_endianess_enum Endianess >
+struct protocol_def< protocol_tag_group< Ds... >, Endianess >
+{
+        using decl                            = protocol_decl< protocol_tag_group< Ds... > >;
+        using value_type                      = typename decl::value_type;
+        static constexpr std::size_t max_size = decl::max_size;
+        static constexpr std::size_t min_size = decl::min_size;
+
+        using def_variant = std::variant< Ds... >;
+        using size_type   = bounded< std::size_t, min_size, max_size >;
+        using sub_type    = typename decl::sub_type;
+        using sub_def     = protocol_def< sub_type, Endianess >;
+
+        using sub_value = typename sub_def::value_type;
+
+        static constexpr size_type
+        serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
+        {
+                std::optional< size_type > opt_res;
+                until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
+                        if ( i != item.index() ) {
+                                return false;
+                        }
+                        using D = std::variant_alternative_t< i, def_variant >;
+
+                        opt_res = sub_def::serialize_at(
+                            buffer.template subspan< 0, sub_def::max_size >(),
+                            std::make_tuple( tag< D::tag >{}, std::get< i >( item ) ) );
+                        return true;
+                } );
+                /// same check as for std::variant
+                EMLABCPP_ASSERT( opt_res );
+                return *opt_res;
+        }
+
+        static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
+            -> protocol_result< value_type >
+        {
+                auto [used, sres] = sub_def::deserialize( buffer );
+                if ( std::holds_alternative< const protocol_mark* >( sres ) ) {
+                        return { used, *std::get_if< const protocol_mark* >( &sres ) };
+                }
+
+                return {
+                    used,
+                    visit(
+                        [&]< typename Tag, typename T >(
+                            const std::tuple< Tag, T >& pack ) -> value_type {
+                                return std::get< 1 >( pack );
+                        },
+                        *std::get_if< 0 >( &sres ) ) };
+        }
+};
+
+template < typename... Ds, protocol_endianess_enum Endianess >
 struct protocol_def< protocol_group< Ds... >, Endianess >
 {
         using value_type = typename protocol_decl< protocol_group< Ds... > >::value_type;
         static constexpr std::size_t max_size = protocol_decl< protocol_group< Ds... > >::max_size;
-        static constexpr std::size_t min_size =
-            std::min( { protocol_def< Ds, Endianess >::size_type::min_val... } );
+        static constexpr std::size_t min_size = protocol_decl< protocol_group< Ds... > >::min_size;
 
         using def_variant = std::variant< Ds... >;
         using size_type   = bounded< std::size_t, min_size, max_size >;
@@ -896,6 +950,42 @@ struct protocol_def< static_vector< T, N >, Endianess >
                 }
 
                 return { offset, res };
+        }
+};
+
+template < decomposable T, protocol_endianess_enum Endianess >
+requires(
+    !std::derived_from< T, protocol_def_type_base > &&
+    !quantity_derived< T > ) struct protocol_def< T, Endianess >
+{
+        using decl                            = protocol_decl< T >;
+        using value_type                      = typename decl::value_type;
+        static constexpr std::size_t max_size = decl::max_size;
+        static constexpr std::size_t min_size = decl::min_size;
+
+        using size_type = bounded< std::size_t, min_size, max_size >;
+
+        using tuple_type = typename decl::tuple_type;
+        using sub_def    = protocol_def< tuple_type, Endianess >;
+
+        static constexpr size_type
+        serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
+        {
+                tuple_type tpl = decompose( item );
+                return sub_def::serialize_at( buffer, tpl );
+        }
+
+        static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
+            -> protocol_result< value_type >
+        {
+
+                auto [used, subres] = sub_def::deserialize( buffer );
+
+                if ( std::holds_alternative< const protocol_mark* >( subres ) ) {
+                        return { used, *std::get_if< const protocol_mark* >( &subres ) };
+                } else {
+                        return { used, compose< T >( *std::get_if< 0 >( &subres ) ) };
+                }
         }
 };
 

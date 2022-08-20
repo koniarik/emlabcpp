@@ -36,8 +36,8 @@ concept protocol_packet_def = requires( T t )
                 T::endianess
                 } -> std::convertible_to< protocol_endianess_enum >;
         is_std_array_v< std::decay_t< decltype( T::prefix ) > >;
-        protocol_declarable< typename T::size_type >;
-        protocol_declarable< typename T::checksum_type >;
+        requires protocol_declarable< typename T::size_type >;
+        requires protocol_declarable< typename T::checksum_type >;
 };
 
 template < typename Def, typename Payload >

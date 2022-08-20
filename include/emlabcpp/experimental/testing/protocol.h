@@ -53,26 +53,110 @@ enum testing_messages_enum : uint8_t
         TESTING_TREE_ERROR        = 0xf2,
 };
 
-struct testing_controller_reactor_group
-  : protocol_command_group<
-        PROTOCOL_BIG_ENDIAN,
-        protocol_command< TESTING_SUITE_NAME >,
-        protocol_command< TESTING_SUITE_DATE >,
-        protocol_command< TESTING_COUNT >,
-        protocol_command< TESTING_NAME >::with_args< testing_test_id >,
-        protocol_command< TESTING_LOAD >::with_args< testing_test_id, testing_run_id >,
-        protocol_command< TESTING_COLLECT >::with_args< testing_run_id, testing_node_id >,
-        protocol_command< TESTING_PARAM_VALUE >::with_args< testing_run_id, testing_value >,
-        protocol_command< TESTING_PARAM_CHILD >::with_args< testing_run_id, testing_node_id >,
-        protocol_command<
-            TESTING_PARAM_CHILD_COUNT >::with_args< testing_run_id, testing_child_count >,
-        protocol_command< TESTING_PARAM_KEY >::with_args< testing_run_id, testing_key >,
-        protocol_command< TESTING_PARAM_TYPE >::with_args< testing_run_id, testing_node_type >,
-        protocol_command< TESTING_TREE_ERROR >::
-            with_args< testing_run_id, contiguous_request_adapter_errors_enum, testing_node_id >,
-        protocol_command< TESTING_EXEC >::with_args< testing_run_id > >
+template < testing_messages_enum ID >
+struct testing_get_property
 {
+        static constexpr auto tag = ID;
 };
+
+struct testing_get_test_name
+{
+        static constexpr auto tag = TESTING_NAME;
+        testing_test_id       tid;
+};
+
+struct testing_load_test
+{
+        static constexpr auto tag = TESTING_LOAD;
+        testing_test_id       tid;
+        testing_run_id        rid;
+};
+
+struct testing_collect_reply
+{
+        static constexpr auto tag = TESTING_COLLECT;
+        testing_run_id        rid;
+        testing_node_id       nid;
+};
+
+struct testing_param_value_reply
+{
+        static constexpr auto tag = TESTING_PARAM_VALUE;
+        testing_run_id        rid;
+        testing_value         value;
+};
+
+struct testing_param_type_reply
+{
+        static constexpr auto tag = TESTING_PARAM_TYPE;
+        testing_run_id        rid;
+        testing_node_type     type;
+};
+
+struct testing_param_child_reply
+{
+        static constexpr auto tag = TESTING_PARAM_CHILD;
+        testing_run_id        rid;
+        testing_node_id       chid;
+};
+
+struct testing_param_child_count_reply
+{
+        static constexpr auto tag = TESTING_PARAM_CHILD_COUNT;
+        testing_run_id        rid;
+        testing_child_count   count;
+};
+
+struct testing_param_key_reply
+{
+        static constexpr auto tag = TESTING_PARAM_KEY;
+        testing_run_id        rid;
+        testing_key           key;
+};
+
+struct testing_tree_error_reply
+{
+        static constexpr auto                  tag = TESTING_TREE_ERROR;
+        testing_run_id                         rid;
+        contiguous_request_adapter_errors_enum err;
+        testing_node_id                        nid;
+};
+
+struct testing_exec
+{
+        static constexpr auto tag = TESTING_EXEC;
+        testing_run_id        rid;
+};
+
+using testing_controller_reactor_group = protocol_tag_group<
+    testing_get_property< TESTING_SUITE_NAME >,
+    testing_get_property< TESTING_SUITE_DATE >,
+    testing_get_property< TESTING_COUNT >,
+    testing_get_test_name,
+    testing_load_test,
+    testing_collect_reply,
+    testing_param_value_reply,
+    testing_param_child_reply,
+    testing_param_child_count_reply,
+    testing_param_key_reply,
+    testing_param_type_reply,
+    testing_tree_error_reply,
+    testing_exec >;
+
+static_assert( decomposable< testing_get_property< TESTING_SUITE_NAME > > );
+static_assert( protocol_declarable< testing_get_property< TESTING_SUITE_NAME > > );
+static_assert( protocol_declarable< testing_get_property< TESTING_SUITE_DATE > > );
+static_assert( protocol_declarable< testing_get_property< TESTING_COUNT > > );
+static_assert( protocol_declarable< testing_get_test_name > );
+static_assert( protocol_declarable< testing_load_test > );
+static_assert( protocol_declarable< testing_collect_reply > );
+static_assert( protocol_declarable< testing_param_value_reply > );
+static_assert( protocol_declarable< testing_param_child_reply > );
+static_assert( protocol_declarable< testing_param_child_count_reply > );
+static_assert( protocol_declarable< testing_param_key_reply > );
+static_assert( protocol_declarable< testing_param_type_reply > );
+static_assert( protocol_declarable< testing_tree_error_reply > );
+static_assert( protocol_declarable< testing_exec > );
 
 using testing_controller_reactor_variant = typename testing_controller_reactor_group::value_type;
 
@@ -103,7 +187,7 @@ struct testing_reactor_error_group  //
         protocol_command<
             TESTING_TREE_E >::with_args< testing_node_id, contiguous_request_adapter_errors_enum >,
         protocol_command< TESTING_WRONG_TYPE_E >::with_args< testing_node_id >,
-        protocol_command< TESTING_WRONG_MESSAGE_E >::with_args< testing_messages_enum >
+        protocol_command< TESTING_WRONG_MESSAGE_E >
 
         >
 {

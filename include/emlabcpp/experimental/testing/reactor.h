@@ -101,20 +101,17 @@ public:
         void spin( testing_reactor_interface& comm );
 
 private:
-        void handle_message( tag< TESTING_SUITE_NAME >, testing_reactor_interface_adapter& );
-        void handle_message( tag< TESTING_SUITE_DATE >, testing_reactor_interface_adapter& );
-        void handle_message( tag< TESTING_COUNT >, testing_reactor_interface_adapter& );
         void handle_message(
-            tag< TESTING_NAME >,
-            testing_test_id tid,
+            testing_get_property< TESTING_SUITE_NAME >,
             testing_reactor_interface_adapter& );
         void handle_message(
-            tag< TESTING_LOAD >,
-            testing_test_id tid,
-            testing_run_id  rid,
+            testing_get_property< TESTING_SUITE_DATE >,
             testing_reactor_interface_adapter& );
         void
-        handle_message( tag< TESTING_EXEC >, testing_run_id, testing_reactor_interface_adapter& );
+        handle_message( testing_get_property< TESTING_COUNT >, testing_reactor_interface_adapter& );
+        void handle_message( testing_get_test_name, testing_reactor_interface_adapter& );
+        void handle_message( testing_load_test, testing_reactor_interface_adapter& );
+        void handle_message( testing_exec, testing_reactor_interface_adapter& );
 
         template < testing_test T >
         bool store_test( std::string_view name, T t )

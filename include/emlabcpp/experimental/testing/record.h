@@ -174,8 +174,8 @@ private:
                 return testing_key_to_buffer( sview );
         }
 
-        std::optional< testing_controller_reactor_variant >
-            read_variant( testing_node_id, testing_messages_enum );
+        template < typename T >
+        std::optional< T > read_variant_alternative( testing_node_id );
 
         template < typename ResultType, auto ID, typename... Args >
         std::optional< ResultType >

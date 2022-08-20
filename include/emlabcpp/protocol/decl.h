@@ -20,6 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
+#include "emlabcpp/experimental/decompose.h"
 #include "emlabcpp/protocol/base.h"
 #include "emlabcpp/protocol/error.h"
 #include "emlabcpp/protocol/message.h"
@@ -54,7 +55,7 @@ concept protocol_declarable = requires( D val )
         {
                 protocol_decl< D >::min_size
                 } -> std::convertible_to< std::size_t >;
-        std::default_initializable< typename protocol_decl< D >::value_type >;
+        requires std::default_initializable< typename protocol_decl< D >::value_type >;
 };
 
 template < typename T >
@@ -185,6 +186,21 @@ struct protocol_decl< protocol_group< Ds... > >
               sizeof...( Ds ) == 0 ? 0 : std::numeric_limits< std::size_t >::max() } );
 };
 
+template < protocol_declarable... Ds >
+struct protocol_decl< protocol_tag_group< Ds... > >
+{
+        using value_type = std::variant< typename protocol_decl< Ds >::value_type... >;
+
+        template < typename D >
+        using to_tuple = std::tuple< tag< D::tag >, D >;
+
+        using sub_type = protocol_group< to_tuple< Ds >... >;
+        using sub_decl = protocol_decl< sub_type >;
+
+        static constexpr std::size_t max_size = sub_decl::max_size;
+        static constexpr std::size_t min_size = sub_decl::min_size;
+};
+
 template < protocol_endianess_enum Endianess, protocol_declarable D >
 struct protocol_decl< protocol_endianess< Endianess, D > > : protocol_decl< D >
 {
@@ -237,6 +253,18 @@ struct protocol_decl< std::optional< T > >
         static constexpr std::size_t max_size =
             presence_decl::max_size + protocol_decl< T >::max_size;
         static constexpr std::size_t min_size = presence_decl::min_size;
+};
+
+template < decomposable T >
+requires(
+    !std::derived_from< T, protocol_def_type_base > &&
+    !quantity_derived< T > ) struct protocol_decl< T >
+{
+        using value_type                      = T;
+        using tuple_type                      = decomposed_type< T >;
+        using tuple_decl                      = protocol_decl< tuple_type >;
+        static constexpr std::size_t max_size = tuple_decl::max_size;
+        static constexpr std::size_t min_size = tuple_decl::min_size;
 };
 
 }  // namespace emlabcpp

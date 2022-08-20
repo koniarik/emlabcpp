@@ -90,7 +90,13 @@ struct protocol_endianess
 template < typename... Ds >
 struct protocol_group
 {
-        using options_type = std::variant< Ds... >;
+        using value_type = std::variant< Ds... >;
+};
+
+template < typename... Ds >
+struct protocol_tag_group
+{
+        using value_type = std::variant< Ds... >;
 };
 
 /// Creates a segment starting with counter defined by CounterDef, this counter limits how many
