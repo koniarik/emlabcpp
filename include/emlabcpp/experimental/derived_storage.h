@@ -50,6 +50,7 @@ public:
         derived_storage( U&& item )
           : ptr_( &storage_ )
         {
+                static_assert( is_storable_with_align< U >( N ) );
                 ptr_ = align( ptr_, alignof( U ) );
                 ::new ( ptr_ ) U( std::forward< U >( item ) );
         }
