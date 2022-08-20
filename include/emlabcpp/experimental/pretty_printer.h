@@ -1,5 +1,6 @@
 #include "emlabcpp/concepts.h"
 #include "emlabcpp/enum.h"
+#include "emlabcpp/experimental/decompose.h"
 #include "emlabcpp/match.h"
 
 #include <optional>
@@ -16,92 +17,24 @@
 namespace emlabcpp
 {
 
+template < typename T, typename PrettyPrinter >
+concept pretty_printer_main_printable = requires( const T& item, PrettyPrinter& pp )
+{
+        pp.main_print( item );
+};
+
 class pretty_printer
 {
 public:
-#ifdef EMLABCPP_USE_NLOHMANN_JSON
-        pretty_printer& operator<<( const nlohmann::json& j )
-        {
-                os_ << j;
-                return *this;
-        }
-#endif
-
         template < typename T >
-        pretty_printer& operator<<( const std::reference_wrapper< T >& val )
+        pretty_printer& operator<<( const T& item )
         {
-                *this << val.get();
-                return *this;
-        }
-
-        template < std::same_as< uint8_t > T >
-        pretty_printer& operator<<( const T& val )
-        {
-                os_ << int( val );
-                return *this;
-        }
-
-        template < typename T >
-        requires(
-            detail::directly_streamable_for< std::ostream, T > && !std::same_as< T, uint8_t > &&
-            !std::is_enum_v< T > ) pretty_printer&
-        operator<<( const T& val )
-        {
-                os_ << val;
-                return *this;
-        }
-
-        template < typename T >
-        requires( std::is_enum_v< T > ) pretty_printer& operator<<( const T& val )
-        {
-                return *this << convert_enum( val );
-        }
-
-        pretty_printer& operator<<( const std::string_view& sview )
-        {
-                os_ << sview;
-                return *this;
-        }
-
-        pretty_printer& operator<<( const std::string& str )
-        {
-                os_ << str;
-                return *this;
-        }
-
-        template < typename... Ts >
-        pretty_printer& operator<<( const std::variant< Ts... >& var )
-        {
-                visit(
-                    [&]( const auto& val ) {
-                            *this << val;
-                    },
-                    var );
-                return *this;
-        }
-
-        template < typename... Ts >
-        pretty_printer& operator<<( const std::tuple< Ts... >& tpl )
-        {
-                if ( sizeof...( Ts ) == 0 ) {
-                        *this << "()";
-                        return *this;
+                if constexpr ( pretty_printer_main_printable< T, pretty_printer > ) {
+                        main_print( item );
+                } else {
+                        backup_print( item );
                 }
-                char delim = '(';
-                for_each( tpl, [&]( const auto& item ) {
-                        *this << delim << item;
-                        delim = ',';
-                } );
-                return *this << ')';
-        }
-
-        template < typename T >
-        pretty_printer& operator<<( const std::optional< T >& val )
-        {
-                if ( val ) {
-                        return *this << *val;
-                }
-                return *this << "nothing";
+                return *this;
         }
 
         operator bool()
@@ -137,6 +70,89 @@ public:
         std::ios_base::fmtflags flags( std::ios_base::fmtflags f )
         {
                 return os_.flags( f );
+        }
+
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+        void main_print( const nlohmann::json& j )
+        {
+                os_ << j;
+        }
+#endif
+
+        template < typename T >
+        void main_print( const std::reference_wrapper< T >& val )
+        {
+                *this << val.get();
+        }
+
+        template < std::same_as< uint8_t > T >
+        void main_print( const T& val )
+        {
+                os_ << int( val );
+        }
+
+        template < typename T >
+        requires(
+            detail::directly_streamable_for< std::ostream, T > && !std::same_as< T, uint8_t > &&
+            !std::is_enum_v< T > ) void main_print( const T& val )
+        {
+                os_ << val;
+        }
+
+        template < typename T >
+        requires( std::is_enum_v< T > ) void main_print( const T& val )
+        {
+                *this << convert_enum( val );
+        }
+
+        void main_print( const std::string_view& sview )
+        {
+                os_ << sview;
+        }
+
+        void main_print( const std::string& str )
+        {
+                os_ << str;
+        }
+
+        template < typename... Ts >
+        void main_print( const std::variant< Ts... >& var )
+        {
+                visit(
+                    [&]( const auto& val ) {
+                            *this << val;
+                    },
+                    var );
+        }
+
+        template < typename... Ts >
+        void main_print( const std::tuple< Ts... >& tpl )
+        {
+                if ( sizeof...( Ts ) == 0 ) {
+                        *this << "()";
+                        return;
+                }
+                char delim = '(';
+                for_each( tpl, [&]( const auto& item ) {
+                        *this << delim << item;
+                        delim = ',';
+                } );
+                *this << ')';
+        }
+
+        template < typename T >
+        void main_print( const std::optional< T >& val )
+        {
+                if ( val ) {
+                        *this << *val;
+                }
+                *this << "nothing";
+        }
+
+        template < decomposable T >
+        void backup_print( const T& item )
+        {
+                *this << decompose( item );
         }
 
 private:
