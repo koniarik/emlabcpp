@@ -164,6 +164,6 @@ testing_reactor::~testing_reactor()
 {
         for ( test_handle& h : handles_ ) {
                 std::destroy_at( h.ptr );
-                mem_->deallocate( h.ptr );
+                mem_->deallocate( h.ptr, h.alignment );
         }
 }

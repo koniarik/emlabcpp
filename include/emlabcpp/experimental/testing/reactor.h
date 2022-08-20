@@ -44,10 +44,12 @@ class testing_reactor
         {
                 std::string_view   name;
                 testing_interface* ptr;
+                std::size_t        alignment;
 
-                test_handle( std::string_view n, testing_interface* p )
+                test_handle( std::string_view n, testing_interface* p, std::size_t a )
                   : name( n )
                   , ptr( p )
+                  , alignment( a )
                 {
                 }
         };
@@ -123,7 +125,7 @@ private:
                         return false;
                 }
                 T* obj = std::construct_at( reinterpret_cast< T* >( target ), std::move( t ) );
-                handles_.emplace_back( name, obj );
+                handles_.emplace_back( name, obj, alignof( T ) );
                 return true;
         }
 
