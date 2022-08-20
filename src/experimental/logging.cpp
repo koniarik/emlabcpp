@@ -39,9 +39,13 @@ namespace
                         return "\033[0m";
                 };
 
+                auto dur = tp.time_since_epoch();
+                auto ms  = std::chrono::duration_cast< std::chrono::milliseconds >( dur ) %
+                          std::chrono::seconds{ 1 };
+
                 std::time_t t = std::chrono::system_clock::to_time_t( tp );
-                os << colorize( tcolor, std::put_time( std::localtime( &t ), "%T" ) )
-                   << " "                                           // time
+                os << colorize( tcolor, std::put_time( std::localtime( &t ), "%T." ) )
+                   << colorize( tcolor, ms.count() ) << " "         // time
                    << colorize( fcolor, p.stem().native() ) << " "  // filename
                    << colorize( lcolor, line ) << " "               // line
                    << msg << "\n";
