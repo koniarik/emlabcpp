@@ -216,34 +216,29 @@ $(document).ready(function(){initNavTree('reactor_8h_source.html',''); initResiz
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> test_deleter( pool_interface&amp; mem, <span class="keywordtype">void</span>* p )</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                mem.deallocate( p );</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        }</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordtype">void</span> exec_test( testing_reactor_interface_adapter&amp; comm );</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        test_handle&amp; access_test( <a class="code" href="namespaceemlabcpp.html#af66d37dcae87129c4eeba626a3b431d4">testing_test_id</a> );</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__reactor.html#afb5821633b9a148f8f244d6e5b641384">  140</a></span>&#160;        <a class="code" href="classemlabcpp_1_1testing__reactor.html#afb5821633b9a148f8f244d6e5b641384">~testing_reactor</a>();</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;};</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__default__reactor.html">  143</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemlabcpp_1_1testing__default__reactor.html">testing_default_reactor</a> : <span class="keyword">private</span> <a class="code" href="structemlabcpp_1_1pool__base.html">pool_base</a>&lt; 128, 32 &gt;, <span class="keyword">public</span> <a class="code" href="classemlabcpp_1_1testing__reactor.html">testing_reactor</a></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__default__reactor.html#a227d023182b2c5cbc1e240a916eb927c">  148</a></span>&#160;        <a class="code" href="classemlabcpp_1_1testing__default__reactor.html#a227d023182b2c5cbc1e240a916eb927c">testing_default_reactor</a>( std::string_view name )</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;          : <a class="code" href="classemlabcpp_1_1testing__reactor.html">testing_reactor</a>( name, &amp;this-&gt;<a class="code" href="structemlabcpp_1_1pool__base.html#aef6ae9b313cac8ad6e61e037506d94bd">pool_memory</a> )</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        }</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;};</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordtype">void</span> exec_test( testing_reactor_interface_adapter&amp; comm );</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        test_handle&amp; access_test( <a class="code" href="namespaceemlabcpp.html#af66d37dcae87129c4eeba626a3b431d4">testing_test_id</a> );</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__reactor.html#afb5821633b9a148f8f244d6e5b641384">  135</a></span>&#160;        <a class="code" href="classemlabcpp_1_1testing__reactor.html#afb5821633b9a148f8f244d6e5b641384">~testing_reactor</a>();</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;};</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__default__reactor.html">  138</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemlabcpp_1_1testing__default__reactor.html">testing_default_reactor</a> : <span class="keyword">private</span> <a class="code" href="structemlabcpp_1_1pool__base.html">pool_base</a>&lt; 128, 32 &gt;, <span class="keyword">public</span> <a class="code" href="classemlabcpp_1_1testing__reactor.html">testing_reactor</a></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;{</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing__default__reactor.html#a227d023182b2c5cbc1e240a916eb927c">  143</a></span>&#160;        <a class="code" href="classemlabcpp_1_1testing__default__reactor.html#a227d023182b2c5cbc1e240a916eb927c">testing_default_reactor</a>( std::string_view name )</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;          : <a class="code" href="classemlabcpp_1_1testing__reactor.html">testing_reactor</a>( name, &amp;this-&gt;<a class="code" href="structemlabcpp_1_1pool__base.html#aef6ae9b313cac8ad6e61e037506d94bd">pool_memory</a> )</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;};</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1protocol__sequencer_html"><div class="ttname"><a href="classemlabcpp_1_1protocol__sequencer.html">emlabcpp::protocol_sequencer</a></div><div class="ttdef"><b>Definition:</b> sequencer.h:36</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing__callable__overlay_html"><div class="ttname"><a href="classemlabcpp_1_1testing__callable__overlay.html">emlabcpp::testing_callable_overlay</a></div><div class="ttdef"><b>Definition:</b> interface.h:58</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing__default__reactor_html"><div class="ttname"><a href="classemlabcpp_1_1testing__default__reactor.html">emlabcpp::testing_default_reactor</a></div><div class="ttdef"><b>Definition:</b> reactor.h:144</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing__default__reactor_html_a227d023182b2c5cbc1e240a916eb927c"><div class="ttname"><a href="classemlabcpp_1_1testing__default__reactor.html#a227d023182b2c5cbc1e240a916eb927c">emlabcpp::testing_default_reactor::testing_default_reactor</a></div><div class="ttdeci">testing_default_reactor(std::string_view name)</div><div class="ttdoc">TODO: this may not be the best idea, as pool_mem will exist only after constructor for base class is ...</div><div class="ttdef"><b>Definition:</b> reactor.h:148</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1testing__default__reactor_html"><div class="ttname"><a href="classemlabcpp_1_1testing__default__reactor.html">emlabcpp::testing_default_reactor</a></div><div class="ttdef"><b>Definition:</b> reactor.h:139</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1testing__default__reactor_html_a227d023182b2c5cbc1e240a916eb927c"><div class="ttname"><a href="classemlabcpp_1_1testing__default__reactor.html#a227d023182b2c5cbc1e240a916eb927c">emlabcpp::testing_default_reactor::testing_default_reactor</a></div><div class="ttdeci">testing_default_reactor(std::string_view name)</div><div class="ttdoc">TODO: this may not be the best idea, as pool_mem will exist only after constructor for base class is ...</div><div class="ttdef"><b>Definition:</b> reactor.h:143</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing__interface_html"><div class="ttname"><a href="classemlabcpp_1_1testing__interface.html">emlabcpp::testing_interface</a></div><div class="ttdef"><b>Definition:</b> interface.h:34</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing__reactor__interface_html"><div class="ttname"><a href="classemlabcpp_1_1testing__reactor__interface.html">emlabcpp::testing_reactor_interface</a></div><div class="ttdef"><b>Definition:</b> reactor_interface.h:31</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing__reactor_html"><div class="ttname"><a href="classemlabcpp_1_1testing__reactor.html">emlabcpp::testing_reactor</a></div><div class="ttdef"><b>Definition:</b> reactor.h:41</div></div>
@@ -261,14 +256,14 @@ $(document).ready(function(){initNavTree('reactor_8h_source.html',''); initResiz
 <div class="ttc" id="ainterface_8h_html"><div class="ttname"><a href="interface_8h.html">interface.h</a></div></div>
 <div class="ttc" id="alogging_8h_html_aaf5aed2bc0aba2c3fe8e02f112589f6d"><div class="ttname"><a href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a></div><div class="ttdeci">#define EMLABCPP_LOG(msg)</div><div class="ttdef"><b>Definition:</b> logging.h:28</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a3002b266e75831a1f53acc6309e9a772"><div class="ttname"><a href="namespaceemlabcpp.html#a3002b266e75831a1f53acc6309e9a772">emlabcpp::pool_list</a></div><div class="ttdeci">std::list&lt; T, pool_allocator&lt; T &gt; &gt; pool_list</div><div class="ttdef"><b>Definition:</b> pool.h:198</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a3002b266e75831a1f53acc6309e9a772"><div class="ttname"><a href="namespaceemlabcpp.html#a3002b266e75831a1f53acc6309e9a772">emlabcpp::pool_list</a></div><div class="ttdeci">std::list&lt; T, pool_allocator&lt; T &gt; &gt; pool_list</div><div class="ttdef"><b>Definition:</b> pool.h:216</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a5e45204d4f0548306443a2b41a3ce7ba"><div class="ttname"><a href="namespaceemlabcpp.html#a5e45204d4f0548306443a2b41a3ce7ba">emlabcpp::testing_run_id</a></div><div class="ttdeci">uint32_t testing_run_id</div><div class="ttdef"><b>Definition:</b> base.h:51</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_af66d37dcae87129c4eeba626a3b431d4"><div class="ttname"><a href="namespaceemlabcpp.html#af66d37dcae87129c4eeba626a3b431d4">emlabcpp::testing_test_id</a></div><div class="ttdeci">uint16_t testing_test_id</div><div class="ttdef"><b>Definition:</b> base.h:52</div></div>
 <div class="ttc" id="apacket__handler_8h_html"><div class="ttname"><a href="packet__handler_8h.html">packet_handler.h</a></div></div>
 <div class="ttc" id="apool_8h_html"><div class="ttname"><a href="pool_8h.html">pool.h</a></div></div>
 <div class="ttc" id="areactor__interface_8h_html"><div class="ttname"><a href="reactor__interface_8h.html">reactor_interface.h</a></div></div>
-<div class="ttc" id="astructemlabcpp_1_1pool__base_html"><div class="ttname"><a href="structemlabcpp_1_1pool__base.html">emlabcpp::pool_base</a></div><div class="ttdef"><b>Definition:</b> pool.h:175</div></div>
-<div class="ttc" id="astructemlabcpp_1_1pool__base_html_aef6ae9b313cac8ad6e61e037506d94bd"><div class="ttname"><a href="structemlabcpp_1_1pool__base.html#aef6ae9b313cac8ad6e61e037506d94bd">emlabcpp::pool_base&lt; 128, 32 &gt;::pool_memory</a></div><div class="ttdeci">pool_resource&lt; PoolSize, PoolCount &gt; pool_memory</div><div class="ttdef"><b>Definition:</b> pool.h:177</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pool__base_html"><div class="ttname"><a href="structemlabcpp_1_1pool__base.html">emlabcpp::pool_base</a></div><div class="ttdef"><b>Definition:</b> pool.h:193</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pool__base_html_aef6ae9b313cac8ad6e61e037506d94bd"><div class="ttname"><a href="structemlabcpp_1_1pool__base.html#aef6ae9b313cac8ad6e61e037506d94bd">emlabcpp::pool_base&lt; 128, 32 &gt;::pool_memory</a></div><div class="ttdeci">pool_resource&lt; PoolSize, PoolCount &gt; pool_memory</div><div class="ttdef"><b>Definition:</b> pool.h:195</div></div>
 <div class="ttc" id="astructemlabcpp_1_1pool__interface_html"><div class="ttname"><a href="structemlabcpp_1_1pool__interface.html">emlabcpp::pool_interface</a></div><div class="ttdef"><b>Definition:</b> pool.h:41</div></div>
 <div class="ttc" id="astructemlabcpp_1_1pool__interface_html_ae984c89b9c93e062b1dd8b1d970896a0"><div class="ttname"><a href="structemlabcpp_1_1pool__interface.html#ae984c89b9c93e062b1dd8b1d970896a0">emlabcpp::pool_interface::allocate</a></div><div class="ttdeci">virtual void * allocate(std::size_t bytes, std::size_t alignment)=0</div></div>
 <div class="ttc" id="astructemlabcpp_1_1protocol__packet_html_af88d91afd710c8cbe8d384ff22ce5fd4"><div class="ttname"><a href="structemlabcpp_1_1protocol__packet.html#af88d91afd710c8cbe8d384ff22ce5fd4">emlabcpp::protocol_packet::sequencer</a></div><div class="ttdeci">protocol_sequencer&lt; sequencer_def &gt; sequencer</div><div class="ttdef"><b>Definition:</b> packet.h:93</div></div>
@@ -281,7 +276,7 @@ $(document).ready(function(){initNavTree('reactor_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="reactor_8h.html">reactor.h</a></li>
-    <li class="footer">Generated on Fri Aug 19 2022 14:59:58 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 20 2022 06:26:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

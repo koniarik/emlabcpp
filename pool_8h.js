@@ -2,6 +2,7 @@ var pool_8h =
 [
     [ "pool_interface", "structemlabcpp_1_1pool__interface.html", "structemlabcpp_1_1pool__interface" ],
     [ "pool_resource", "classemlabcpp_1_1pool__resource.html", "classemlabcpp_1_1pool__resource" ],
+    [ "pool_dynamic_resource", "classemlabcpp_1_1pool__dynamic__resource.html", null ],
     [ "pool_allocator", "classemlabcpp_1_1pool__allocator.html", "classemlabcpp_1_1pool__allocator" ],
     [ "pool_base", "structemlabcpp_1_1pool__base.html", "structemlabcpp_1_1pool__base" ],
     [ "pool_deleter", "structemlabcpp_1_1pool__deleter.html", "structemlabcpp_1_1pool__deleter" ],

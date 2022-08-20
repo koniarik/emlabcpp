@@ -81,6 +81,7 @@ var hierarchy =
     ] ],
     [ "emlabcpp::pool_deleter", "structemlabcpp_1_1pool__deleter.html", null ],
     [ "emlabcpp::pool_interface", "structemlabcpp_1_1pool__interface.html", [
+      [ "emlabcpp::pool_dynamic_resource", "classemlabcpp_1_1pool__dynamic__resource.html", null ],
       [ "emlabcpp::pool_resource< PoolSize, PoolCount >", "classemlabcpp_1_1pool__resource.html", null ]
     ] ],
     [ "emlabcpp::pretty_printer", "classemlabcpp_1_1pretty__printer.html", null ],
