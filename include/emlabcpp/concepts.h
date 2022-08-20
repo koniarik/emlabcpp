@@ -126,9 +126,7 @@ namespace detail
         template < typename Stream, typename T >
         concept directly_streamable_for = requires( Stream os, T val )
         {
-                {
-                        os.operator<<( val )
-                        } -> std::same_as< Stream& >;
+                os.operator<<( val );
         };
 }  // namespace detail
 
@@ -136,17 +134,17 @@ template < typename T >
 concept ostreamlike = !std::is_array_v< T > && requires( T val )
 {
         bool( val );
-        detail::directly_streamable_for< T, uint8_t >;
-        detail::directly_streamable_for< T, uint16_t >;
-        detail::directly_streamable_for< T, uint32_t >;
-        detail::directly_streamable_for< T, int8_t >;
-        detail::directly_streamable_for< T, int16_t >;
-        detail::directly_streamable_for< T, int32_t >;
-        detail::directly_streamable_for< T, float >;
-        detail::directly_streamable_for< T, double >;
-        detail::directly_streamable_for< T, bool >;
-        detail::directly_streamable_for< T, const void* >;
-        detail::directly_streamable_for< T, std::nullptr_t >;
+        requires detail::directly_streamable_for< T, uint8_t >;
+        requires detail::directly_streamable_for< T, uint16_t >;
+        requires detail::directly_streamable_for< T, uint32_t >;
+        requires detail::directly_streamable_for< T, int8_t >;
+        requires detail::directly_streamable_for< T, int16_t >;
+        requires detail::directly_streamable_for< T, int32_t >;
+        requires detail::directly_streamable_for< T, float >;
+        requires detail::directly_streamable_for< T, double >;
+        requires detail::directly_streamable_for< T, bool >;
+        requires detail::directly_streamable_for< T, const void* >;
+        requires detail::directly_streamable_for< T, std::nullptr_t >;
 };
 
 /// Thanks for the solution goes to PJBoy@libera
