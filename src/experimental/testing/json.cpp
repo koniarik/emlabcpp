@@ -40,9 +40,9 @@ nlohmann::json value_type_to_json( const value_type& tv )
         return res;
 }
 
-testing_key json_to_testing_key( const nlohmann::json& j )
+key_type json_to_key_type( const nlohmann::json& j )
 {
-        return testing_key_to_buffer( j.get< std::string_view >() );
+        return key_type_to_buffer( j.get< std::string_view >() );
 }
 
 std::optional< testing_tree >
@@ -61,7 +61,7 @@ json_to_testing_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
                         auto [nid, oh] = *opt_res;
                         for ( const auto& [key, value] : j.items() ) {
                                 node_id chid = f( value );
-                                oh.set( json_to_testing_key( key ), chid );
+                                oh.set( json_to_key_type( key ), chid );
                         }
                         return nid;
                 }

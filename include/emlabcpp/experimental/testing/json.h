@@ -10,7 +10,7 @@ value_type json_to_value_type( const nlohmann::json& j );
 
 nlohmann::json value_type_to_json( const value_type& tv );
 
-testing_key json_to_testing_key( const nlohmann::json& j );
+key_type json_to_key_type( const nlohmann::json& j );
 
 std::optional< testing_tree >
 json_to_testing_tree( pool_interface* mem_pool, const nlohmann::json& inpt );

@@ -37,7 +37,7 @@ namespace emlabcpp::protocol
 template < convertible T >
 struct handler
 {
-        using def          = converter< T, PROTOCOL_BIG_ENDIAN >;
+        using def          = converter< T, std::endian::big >;
         using value_type   = typename def::value_type;
         using message_type = message< def::max_size >;
 

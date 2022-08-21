@@ -39,7 +39,7 @@ enum test_keys
 };
 
 struct test_map : protocol::register_map<
-                      protocol::PROTOCOL_BIG_ENDIAN,
+                      std::endian::big,
                       protocol::register_pair< FOO, uint32_t >,
                       protocol::register_pair< WOO, uint32_t >,
                       protocol::register_pair< TOO, uint8_t >,
@@ -57,7 +57,7 @@ struct valid_test_case : protocol_test_fixture
 {
         using value_type = typename test_map::reg_value_type< Key >;
         using pitem      = protocol::
-            converter< typename test_map::reg_def_type< Key >, protocol::PROTOCOL_BIG_ENDIAN >;
+            converter< typename test_map::reg_def_type< Key >, std::endian::big >;
         using message_type                    = test_map::message_type;
         static constexpr std::size_t max_size = test_handler::max_size;
 

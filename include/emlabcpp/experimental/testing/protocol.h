@@ -69,63 +69,63 @@ struct load_test
 {
         static constexpr auto tag = TESTING_LOAD;
         testing_test_id       tid;
-        run_id        rid;
+        run_id                rid;
 };
 
 struct collect_reply
 {
         static constexpr auto tag = TESTING_COLLECT;
-        run_id        rid;
-        node_id       nid;
+        run_id                rid;
+        node_id               nid;
 };
 
 struct testing_param_value_reply
 {
         static constexpr auto tag = TESTING_PARAM_VALUE;
-        run_id        rid;
-        value_type         value;
+        run_id                rid;
+        value_type            value;
 };
 
 struct testing_param_type_reply
 {
         static constexpr auto tag = TESTING_PARAM_TYPE;
-        run_id        rid;
+        run_id                rid;
         testing_node_type     type;
 };
 
 struct testing_param_child_reply
 {
         static constexpr auto tag = TESTING_PARAM_CHILD;
-        run_id        rid;
-        node_id       chid;
+        run_id                rid;
+        node_id               chid;
 };
 
 struct testing_param_child_count_reply
 {
         static constexpr auto tag = TESTING_PARAM_CHILD_COUNT;
-        run_id        rid;
+        run_id                rid;
         testing_child_count   count;
 };
 
 struct testing_param_key_reply
 {
         static constexpr auto tag = TESTING_PARAM_KEY;
-        run_id        rid;
-        testing_key           key;
+        run_id                rid;
+        key_type           key;
 };
 
 struct testing_tree_error_reply
 {
         static constexpr auto                  tag = TESTING_TREE_ERROR;
-        run_id                         rid;
+        run_id                                 rid;
         contiguous_request_adapter_errors_enum err;
-        node_id                        nid;
+        node_id                                nid;
 };
 
 struct testing_exec
 {
         static constexpr auto tag = TESTING_EXEC;
-        run_id        rid;
+        run_id                rid;
 };
 
 using testing_controller_reactor_group = protocol::tag_group<
@@ -161,7 +161,7 @@ enum testing_error_enum : uint8_t
 
 struct testing_reactor_error_group  //
   : protocol::command_group<
-        protocol::PROTOCOL_BIG_ENDIAN,
+        std::endian::big,
         protocol::command< TESTING_TEST_NOT_LOADED_E >,
         protocol::command< TESTING_TEST_NOT_FOUND_E >,
         protocol::command< TESTING_WRONG_RUN_ID_E >,
@@ -172,9 +172,7 @@ struct testing_reactor_error_group  //
         protocol::command<
             TESTING_TREE_E >::with_args< node_id, contiguous_request_adapter_errors_enum >,
         protocol::command< TESTING_WRONG_TYPE_E >::with_args< node_id >,
-        protocol::command< TESTING_WRONG_MESSAGE_E >
-
-        >
+        protocol::command< TESTING_WRONG_MESSAGE_E > >
 {
 };
 
@@ -182,26 +180,20 @@ using testing_reactor_error_variant = typename testing_reactor_error_group::valu
 
 struct testing_reactor_controller_group
   : protocol::command_group<
-        protocol::PROTOCOL_BIG_ENDIAN,
+        std::endian::big,
         protocol::command< TESTING_COUNT >::with_args< testing_test_id >,
         protocol::command< TESTING_NAME >::with_args< testing_name_buffer >,
         protocol::command< TESTING_PARAM_VALUE >::with_args< run_id, node_id >,
-        protocol::command< TESTING_PARAM_CHILD >::with_args<
-            run_id,
-            node_id,
-            std::variant< testing_key, testing_child_id > >,
-        protocol::command<
-            TESTING_PARAM_CHILD_COUNT >::with_args< run_id, node_id >,
+        protocol::command< TESTING_PARAM_CHILD >::
+            with_args< run_id, node_id, std::variant< key_type, testing_child_id > >,
+        protocol::command< TESTING_PARAM_CHILD_COUNT >::with_args< run_id, node_id >,
         protocol::command< TESTING_PARAM_KEY >::with_args<  //
             run_id,
             node_id,
             testing_child_id >,
         protocol::command< TESTING_PARAM_TYPE >::with_args< run_id, node_id >,
-        protocol::command< TESTING_COLLECT >::with_args<
-            run_id,
-            node_id,
-            std::optional< testing_key >,
-            testing_collect_arg >,
+        protocol::command< TESTING_COLLECT >::
+            with_args< run_id, node_id, std::optional< key_type >, testing_collect_arg >,
         protocol::command< TESTING_FINISHED >::with_args< run_id >,
         protocol::command< TESTING_ERROR >::with_args< run_id >,
         protocol::command< TESTING_FAILURE >::with_args< run_id >,
@@ -216,7 +208,7 @@ using testing_reactor_controller_variant = typename testing_reactor_controller_g
 
 struct testing_packet_def
 {
-        static constexpr protocol::endianess_enum endianess = protocol::PROTOCOL_BIG_ENDIAN;
+        static constexpr std::endian              endianess = std::endian::big;
         static constexpr std::array< uint8_t, 4 > prefix    = { 0x42, 0x42, 0x42, 0x42 };
         using size_type                                     = uint16_t;
         using checksum_type                                 = uint8_t;

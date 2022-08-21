@@ -55,13 +55,13 @@ concept register_map_void_returning =
 /// serialization and deserialization of bytes into the values defined in the map. This includes
 /// additional information that can be accessed about the map. This can also be used as simple table
 /// of configuration values.
-template < endianess_enum Endianess, typename... Regs >
+template < std::endian Endianess, typename... Regs >
 class register_map
 {
         static_assert( are_same_v< typename Regs::key_type... > );
 
 public:
-        static constexpr endianess_enum endianess = Endianess;
+        static constexpr std::endian endianess = Endianess;
         using registers_tuple                     = std::tuple< Regs... >;
         using key_type = typename std::tuple_element_t< 0, registers_tuple >::key_type;
 

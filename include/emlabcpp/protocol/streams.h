@@ -69,18 +69,18 @@ auto& operator<<( ostreamlike auto& os, const error_record& rec )
         return os << rec.error_mark << "(" << rec.offset << ")";
 }
 
-auto& operator<<( ostreamlike auto& os, const endianess_enum& val )
+auto& operator<<( ostreamlike auto& os, const std::endian& val )
 {
         switch ( val ) {
-                case PROTOCOL_BIG_ENDIAN:
+                case BIG_ENDIAN:
                         return os << "big endian";
-                case PROTOCOL_LITTLE_ENDIAN:
+                case LITTLE_ENDIAN:
                         return os << "little endian";
         }
         return os;
 }
 
-template < ostreamlike Stream, endianess_enum Endianess, typename... Regs >
+template < ostreamlike Stream, std::endian Endianess, typename... Regs >
 auto& operator<<( Stream& os, const register_map< Endianess, Regs... >& m )
 {
         using map = register_map< Endianess, Regs... >;

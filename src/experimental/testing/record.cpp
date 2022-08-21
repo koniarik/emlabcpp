@@ -50,12 +50,12 @@ std::optional< value_type > testing_record::get_param_value( node_id nid )
 std::optional< node_id >
 testing_record::collect( node_id parent, const testing_collect_arg& arg )
 {
-        return collect( parent, std::optional< testing_key >{}, arg );
+        return collect( parent, std::optional< key_type >{}, arg );
 }
 
 std::optional< node_id > testing_record::collect(
     node_id                     parent,
-    const std::optional< testing_key >& key,
+    const std::optional< key_type >& key,
     const testing_collect_arg&          arg )
 {
         std::optional reply =
@@ -70,7 +70,7 @@ std::optional< node_id >
 testing_record::get_param_child( node_id nid, testing_child_id chid )
 {
         std::optional reply = exchange< testing_param_child_reply, TESTING_PARAM_CHILD >(
-            nid, std::variant< testing_key, testing_child_id >{ chid } );
+            nid, std::variant< key_type, testing_child_id >{ chid } );
         if ( reply ) {
                 return reply->chid;
         }
@@ -80,15 +80,15 @@ testing_record::get_param_child( node_id nid, testing_child_id chid )
 std::optional< node_id >
 testing_record::get_param_child( node_id nid, std::string_view key )
 {
-        return get_param_child( nid, testing_key_to_buffer( key ) );
+        return get_param_child( nid, key_type_to_buffer( key ) );
 }
 
 std::optional< node_id >
-testing_record::get_param_child( node_id nid, const testing_key& key )
+testing_record::get_param_child( node_id nid, const key_type& key )
 {
         // TODO duplication of other overload /o\...
         std::optional reply = exchange< testing_param_child_reply, TESTING_PARAM_CHILD >(
-            nid, std::variant< testing_key, testing_child_id >{ key } );
+            nid, std::variant< key_type, testing_child_id >{ key } );
         if ( reply ) {
                 return reply->chid;
         }
@@ -106,7 +106,7 @@ testing_record::get_param_child_count( std::optional< node_id > nid )
         return std::nullopt;
 }
 
-std::optional< testing_key >
+std::optional< key_type >
 testing_record::get_param_key( node_id nid, testing_child_id chid )
 {
         std::optional reply = exchange< testing_param_key_reply, TESTING_PARAM_KEY >( nid, chid );

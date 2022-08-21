@@ -88,7 +88,7 @@ public:
         std::optional< value_type > get_param_value( node_id param );
 
         std::optional< node_id > get_param_child( node_id, testing_child_id );
-        std::optional< node_id > get_param_child( node_id, const testing_key& key );
+        std::optional< node_id > get_param_child( node_id, const key_type& key );
         std::optional< node_id > get_param_child( node_id, std::string_view key );
 
         std::optional< testing_child_count >
@@ -98,7 +98,7 @@ public:
                 return get_param_child_count( std::optional{ nid } );
         }
 
-        std::optional< testing_key > get_param_key( node_id, testing_child_id );
+        std::optional< key_type > get_param_key( node_id, testing_child_id );
 
         bool errored()
         {
@@ -107,7 +107,7 @@ public:
 
         std::optional< node_id > collect(
             node_id                     parent,
-            const std::optional< testing_key >& key,
+            const std::optional< key_type >& key,
             const testing_collect_arg&          arg );
 
         std::optional< node_id >
@@ -169,9 +169,9 @@ private:
                 return res;
         }
 
-        std::optional< testing_key > convert_key( std::string_view sview )
+        std::optional< key_type > convert_key( std::string_view sview )
         {
-                return testing_key_to_buffer( sview );
+                return key_type_to_buffer( sview );
         }
 
         template < typename T >

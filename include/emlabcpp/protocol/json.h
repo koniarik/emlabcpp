@@ -387,7 +387,7 @@ struct traits_json_serializer< tag_group< Ds... > >
         static constexpr std::string_view type_name = "group";
 };
 
-template < endianess_enum Endianess, convertible D >
+template < std::endian Endianess, convertible D >
 struct traits_json_serializer< endianess_wrapper< Endianess, D > > : traits_json_serializer< D >
 {
 };

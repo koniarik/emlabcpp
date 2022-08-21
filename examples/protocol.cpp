@@ -35,8 +35,7 @@ int main( int, char*[] )
         //
         // The structure contains ::value_type and ::message_type aliases.
         struct example_tuple
-          : em::protocol::tuple<
-                em::protocol::PROTOCOL_BIG_ENDIAN >::with_items< uint32_t, int16_t, int16_t >
+          : em::protocol::tuple< std::endian::big >::with_items< uint32_t, int16_t, int16_t >
         {
         };
 
@@ -86,7 +85,7 @@ int main( int, char*[] )
         };
 
         struct example_group
-          : em::protocol::command_group< em::protocol::PROTOCOL_BIG_ENDIAN >::with_commands<
+          : em::protocol::command_group< std::endian::big >::with_commands<
                 em::protocol::command< EXAMPLE_CMD_A >::with_args< uint32_t >,
                 em::protocol::command< EXAMPLE_CMD_B >,
                 em::protocol::command< EXAMPLE_CMD_C >::with_args<

@@ -34,7 +34,7 @@ concept packet_def = requires( T t )
 {
         {
                 T::endianess
-                } -> std::convertible_to< endianess_enum >;
+                } -> std::convertible_to< std::endian >;
         is_std_array_v< std::decay_t< decltype( T::prefix ) > >;
         requires convertible< typename T::size_type >;
         requires convertible< typename T::checksum_type >;

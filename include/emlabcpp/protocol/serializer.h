@@ -32,13 +32,13 @@
 namespace emlabcpp::protocol
 {
 
-template < base_type T, endianess_enum Endianess >
+template < base_type T, std::endian Endianess >
 struct serializer
 {
         static constexpr std::size_t max_size = sizeof( T );
         using size_type                       = bounded< std::size_t, max_size, max_size >;
         using view_type                       = bounded_view< const uint8_t*, size_type >;
-        static constexpr bool is_big_endian   = Endianess == PROTOCOL_BIG_ENDIAN;
+        static constexpr bool is_big_endian   = Endianess == std::endian::big;
 
         static constexpr auto& bget( auto& buffer, std::size_t i )
         {
@@ -62,7 +62,7 @@ struct serializer
         }
 };
 
-template < endianess_enum Endianess >
+template < std::endian Endianess >
 struct serializer< float, Endianess >
 {
         using sub_serializer = serializer< uint32_t, Endianess >;
@@ -88,7 +88,7 @@ struct serializer< float, Endianess >
         }
 };
 
-template < endianess_enum Endianess >
+template < std::endian Endianess >
 struct serializer< bool, Endianess >
 {
         static constexpr std::size_t max_size = sizeof( bool );

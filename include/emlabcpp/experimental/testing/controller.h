@@ -95,7 +95,7 @@ private:
             tag< TESTING_PARAM_CHILD >,
             run_id                                       rid,
             node_id                                      nid,
-            const std::variant< testing_key, testing_child_id >& chid,
+            const std::variant< key_type, testing_child_id >& chid,
             testing_controller_interface_adapter&                iface );
         void handle_message(
             tag< TESTING_PARAM_CHILD_COUNT >,
@@ -118,7 +118,7 @@ private:
             tag< TESTING_COLLECT >,
             run_id                      rid,
             node_id                     parent,
-            const std::optional< testing_key >& opt_key,
+            const std::optional< key_type >& opt_key,
             const testing_collect_arg&          val,
             testing_controller_interface_adapter& );
         void handle_message(

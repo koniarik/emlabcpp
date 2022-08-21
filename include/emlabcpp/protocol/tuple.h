@@ -33,11 +33,11 @@ namespace emlabcpp::protocol
 /// later is follow by items present in the tuple, this can also be added with
 /// tuple::with_items alias that appends the items. For example:
 //
-/// tuple< PROTOCOL_BIG_ENDIAN >::with_items< uint32_t, uint32_t >;
+/// tuple< BIG_ENDIAN >::with_items< uint32_t, uint32_t >;
 //
 /// serializes/deserializes in same way as 'std::tuple<uint32_t,uint32_t>' configured for big
 /// endianess.
-template < endianess_enum Endianess, typename... Ds >
+template < std::endian Endianess, typename... Ds >
 struct tuple : converter_def_type_base
 {
         template < typename... SubDs >

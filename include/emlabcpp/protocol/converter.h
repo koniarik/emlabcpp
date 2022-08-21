@@ -37,7 +37,7 @@ namespace emlabcpp::protocol
 /// converter<T,E> structure defines how type T should be serialized and deserialized. Each type
 /// or kind of types should overlead this structure and use same attributes as proto_traits<T,E>. E
 /// is edianess of the serialization used.
-template < typename, endianess_enum >
+template < typename, std::endian >
 struct converter;
 
 /// converter_check<T> concept verifies that 'T' is valid overload of converter. Use this in
@@ -64,14 +64,14 @@ concept converter_check = requires()
                 } -> std::same_as< conversion_result< typename T::value_type > >;
 };
 
-template < base_type D, endianess_enum Endianess >
+template < base_type D, std::endian Endianess >
 struct converter< D, Endianess >
 {
         using value_type                      = typename proto_traits< D >::value_type;
         static constexpr std::size_t max_size = proto_traits< D >::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
-        static constexpr bool is_big_endian = Endianess == PROTOCOL_BIG_ENDIAN;
+        static constexpr bool is_big_endian = Endianess == std::endian::big;
 
         static constexpr auto& bget( auto& buffer, std::size_t i )
         {
@@ -92,7 +92,7 @@ struct converter< D, Endianess >
         }
 };
 
-template < convertible D, std::size_t N, endianess_enum Endianess >
+template < convertible D, std::size_t N, std::endian Endianess >
 struct converter< std::array< D, N >, Endianess >
 {
         using value_type = typename proto_traits< std::array< D, N > >::value_type;
@@ -154,7 +154,7 @@ struct converter< std::array< D, N >, Endianess >
         }
 };
 
-template < convertible... Ds, endianess_enum Endianess >
+template < convertible... Ds, std::endian Endianess >
 struct converter< std::tuple< Ds... >, Endianess >
 {
         using def_type = std::tuple< Ds... >;
@@ -224,7 +224,7 @@ struct converter< std::tuple< Ds... >, Endianess >
         }
 };
 
-template < convertible... Ds, endianess_enum Endianess >
+template < convertible... Ds, std::endian Endianess >
 struct converter< std::variant< Ds... >, Endianess >
 {
         using def_type                        = std::variant< Ds... >;
@@ -320,7 +320,7 @@ struct converter< std::variant< Ds... >, Endianess >
         }
 };
 
-template < endianess_enum Endianess >
+template < std::endian Endianess >
 struct converter< std::monostate, Endianess >
 {
         using value_type                      = std::monostate;
@@ -339,7 +339,7 @@ struct converter< std::monostate, Endianess >
         }
 };
 
-template < convertible T, endianess_enum Endianess >
+template < convertible T, std::endian Endianess >
 struct converter< std::optional< T >, Endianess >
 {
         using decl                            = proto_traits< std::optional< T > >;
@@ -415,14 +415,14 @@ struct converter< std::optional< T >, Endianess >
         }
 };
 
-template < std::size_t N, endianess_enum Endianess >
+template < std::size_t N, std::endian Endianess >
 struct converter< std::bitset< N >, Endianess >
 {
         using value_type = typename proto_traits< std::bitset< N > >::value_type;
         static constexpr std::size_t max_size = proto_traits< std::bitset< N > >::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
-        static constexpr bool is_big_endian = Endianess == PROTOCOL_BIG_ENDIAN;
+        static constexpr bool is_big_endian = Endianess == std::endian::big;
 
         static constexpr auto& bget( auto& buffer, std::size_t i )
         {
@@ -456,7 +456,7 @@ struct converter< std::bitset< N >, Endianess >
         }
 };
 
-template < std::size_t N, endianess_enum Endianess >
+template < std::size_t N, std::endian Endianess >
 struct converter< sizeless_message< N >, Endianess >
 {
         using value_type = typename proto_traits< sizeless_message< N > >::value_type;
@@ -487,7 +487,7 @@ struct converter< sizeless_message< N >, Endianess >
         }
 };
 
-template < convertible D, auto Offset, endianess_enum Endianess >
+template < convertible D, auto Offset, std::endian Endianess >
 struct converter< value_offset< D, Offset >, Endianess >
 {
         using value_type = typename proto_traits< value_offset< D, Offset > >::value_type;
@@ -513,7 +513,7 @@ struct converter< value_offset< D, Offset >, Endianess >
         }
 };
 
-template < quantity_derived D, endianess_enum Endianess >
+template < quantity_derived D, std::endian Endianess >
 struct converter< D, Endianess >
 {
         using value_type                      = typename proto_traits< D >::value_type;
@@ -543,7 +543,7 @@ struct converter< D, Endianess >
         }
 };
 
-template < convertible D, D Min, D Max, endianess_enum Endianess >
+template < convertible D, D Min, D Max, std::endian Endianess >
 struct converter< bounded< D, Min, Max >, Endianess >
 {
         using value_type = typename proto_traits< bounded< D, Min, Max > >::value_type;
@@ -575,7 +575,7 @@ struct converter< bounded< D, Min, Max >, Endianess >
         }
 };
 
-template < convertible CounterDef, convertible D, endianess_enum Endianess >
+template < convertible CounterDef, convertible D, std::endian Endianess >
 struct converter< sized_buffer< CounterDef, D >, Endianess >
 {
         using value_type = typename proto_traits< sized_buffer< CounterDef, D > >::value_type;
@@ -631,7 +631,7 @@ struct converter< sized_buffer< CounterDef, D >, Endianess >
         }
 };
 
-template < auto V, endianess_enum Endianess >
+template < auto V, std::endian Endianess >
 struct converter< tag< V >, Endianess >
 {
         using value_type                      = typename proto_traits< tag< V > >::value_type;
@@ -662,7 +662,7 @@ struct converter< tag< V >, Endianess >
         }
 };
 
-template < typename... Ds, endianess_enum Endianess >
+template < typename... Ds, std::endian Endianess >
 struct converter< tag_group< Ds... >, Endianess >
 {
         using decl                            = proto_traits< tag_group< Ds... > >;
@@ -716,7 +716,7 @@ struct converter< tag_group< Ds... >, Endianess >
         }
 };
 
-template < typename... Ds, endianess_enum Endianess >
+template < typename... Ds, std::endian Endianess >
 struct converter< group< Ds... >, Endianess >
 {
         using value_type                      = typename proto_traits< group< Ds... > >::value_type;
@@ -789,17 +789,17 @@ struct converter< group< Ds... >, Endianess >
         }
 };
 
-template < endianess_enum Endianess, typename D, endianess_enum ParentEndianess >
+template < std::endian Endianess, typename D, std::endian ParentEndianess >
 struct converter< endianess_wrapper< Endianess, D >, ParentEndianess > : converter< D, Endianess >
 {
 };
 
-template < std::derived_from< converter_def_type_base > D, endianess_enum Endianess >
+template < std::derived_from< converter_def_type_base > D, std::endian Endianess >
 struct converter< D, Endianess > : converter< typename D::def_type, Endianess >
 {
 };
 
-template < endianess_enum Endianess >
+template < std::endian Endianess >
 struct converter< mark, Endianess >
 {
         using value_type                      = typename proto_traits< mark >::value_type;
@@ -822,7 +822,7 @@ struct converter< mark, Endianess >
         }
 };
 
-template < endianess_enum Endianess >
+template < std::endian Endianess >
 struct converter< error_record, Endianess >
 {
         using decl                            = proto_traits< error_record >;
@@ -861,7 +861,7 @@ struct converter< error_record, Endianess >
         }
 };
 
-template < typename T, std::size_t N, endianess_enum Endianess >
+template < typename T, std::size_t N, std::endian Endianess >
 struct converter< static_vector< T, N >, Endianess >
 {
         using value_type = typename proto_traits< static_vector< T, N > >::value_type;
@@ -942,7 +942,7 @@ struct converter< static_vector< T, N >, Endianess >
         }
 };
 
-template < decomposable T, endianess_enum Endianess >
+template < decomposable T, std::endian Endianess >
 requires(
     !std::derived_from< T, converter_def_type_base > &&
     !quantity_derived< T > ) struct converter< T, Endianess >

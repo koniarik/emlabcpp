@@ -23,6 +23,7 @@
 #include "emlabcpp/bounded.h"
 #include "emlabcpp/protocol/error.h"
 
+#include <bit>
 #include <bitset>
 #include <cstring>
 #include <type_traits>
@@ -63,24 +64,16 @@ struct conversion_result
 template < typename T >
 concept base_type = std::is_floating_point_v< T > || std::is_integral_v< T > || std::is_enum_v< T >;
 
-/// Enum specifies what endianess should be used.
-enum endianess_enum
-{
-        PROTOCOL_BIG_ENDIAN,
-        PROTOCOL_LITTLE_ENDIAN
-};
-/// TODO: when able to move to GCC11: using enum endianess_enum; and make it enum class
-
 /// Follows a set of special data types used for definition of protocol. These either represent
 /// special types or affect the serialization/deserialization process of normal types.
 /// -----------------------------------------------------------------------------------------------
 
 /// Changes the endianess of definition D.
-template < endianess_enum Endianess, typename D >
+template < std::endian Endianess, typename D >
 struct endianess_wrapper
 {
-        static constexpr endianess_enum value = Endianess;
-        using value_type                      = D;
+        static constexpr std::endian value = Endianess;
+        using value_type                   = D;
 };
 
 /// Serializes values from definitions Ds to std::variant. The byte message does not contain

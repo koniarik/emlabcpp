@@ -201,7 +201,7 @@ struct proto_traits< tag_group< Ds... > >
         static constexpr std::size_t min_size = sub_decl::min_size;
 };
 
-template < endianess_enum Endianess, convertible D >
+template < std::endian Endianess, convertible D >
 struct proto_traits< endianess_wrapper< Endianess, D > > : proto_traits< D >
 {
 };
