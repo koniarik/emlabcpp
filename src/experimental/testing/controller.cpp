@@ -142,8 +142,7 @@ namespace
                             res = item;
                     },
                     [&]( tag< INTERNAL_ERROR >, reactor_error_variant err ) {
-                            iface.report_error(
-                                internal_reactor_error{ std::move( err ) } );
+                            iface.report_error( internal_reactor_error{ std::move( err ) } );
                     },
                     [&]( tag< PROTOCOL_ERROR >, protocol::error_record rec ) {
                             iface.report_error( reactor_protocol_error{ rec } );
@@ -346,10 +345,7 @@ void controller::handle_message(
                     iface.reply_node_error( rid, err, parent );
             } );
 }
-void controller::handle_message(
-    tag< FINISHED >,
-    auto,
-    controller_interface_adapter& iface )
+void controller::handle_message( tag< FINISHED >, auto, controller_interface_adapter& iface )
 {
         iface->on_result( *context_ );
         context_.reset();
@@ -362,17 +358,11 @@ void controller::handle_message( tag< FAILURE >, auto, controller_interface_adap
 {
         context_->failed = true;
 }
-void controller::handle_message(
-    tag< SUITE_NAME >,
-    auto,
-    controller_interface_adapter& iface )
+void controller::handle_message( tag< SUITE_NAME >, auto, controller_interface_adapter& iface )
 {
         iface.report_error( controller_internal_error{ SUITE_NAME } );
 }
-void controller::handle_message(
-    tag< SUITE_DATE >,
-    auto,
-    controller_interface_adapter& iface )
+void controller::handle_message( tag< SUITE_DATE >, auto, controller_interface_adapter& iface )
 {
         iface.report_error( controller_internal_error{ SUITE_DATE } );
 }

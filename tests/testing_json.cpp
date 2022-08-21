@@ -18,8 +18,7 @@ TEST( TestingJson, json )
 
         pool_dynamic_resource mem_pool;
 
-        std::optional< testing::data_tree > opt_tree =
-            testing::json_to_data_tree( &mem_pool, j );
+        std::optional< testing::data_tree > opt_tree = testing::json_to_data_tree( &mem_pool, j );
 
         EXPECT_TRUE( opt_tree );
 

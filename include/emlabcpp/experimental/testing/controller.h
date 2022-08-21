@@ -62,12 +62,12 @@ public:
         void tick( controller_interface& iface );
 
 private:
-        pool_map< test_id, test_info >  tests_;
-        name_buffer                     name_;
-        name_buffer                     date_;
-        std::optional< test_result > context_;
-        run_id                          rid_ = 0;
-        pool_interface*                 mem_pool_;
+        pool_map< test_id, test_info > tests_;
+        name_buffer                    name_;
+        name_buffer                    date_;
+        std::optional< test_result >   context_;
+        run_id                         rid_ = 0;
+        pool_interface*                mem_pool_;
 
         controller(
             name_buffer                    name,
@@ -116,7 +116,7 @@ private:
             run_id                           rid,
             node_id                          parent,
             const std::optional< key_type >& opt_key,
-            const collect_value_type&       val,
+            const collect_value_type&        val,
             controller_interface_adapter& );
         void handle_message( tag< FINISHED >, auto, controller_interface_adapter& iface );
         void handle_message( tag< ERROR >, auto, controller_interface_adapter& );

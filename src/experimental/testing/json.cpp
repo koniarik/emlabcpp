@@ -45,8 +45,7 @@ key_type json_to_key_type( const nlohmann::json& j )
         return key_type_to_buffer( j.get< std::string_view >() );
 }
 
-std::optional< data_tree >
-json_to_data_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
+std::optional< data_tree > json_to_data_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
 {
         data_tree tree{ mem_pool };
 

@@ -90,7 +90,7 @@ struct param_type_reply
 {
         static constexpr auto tag = PARAM_TYPE;
         run_id                rid;
-        node_type_enum     type;
+        node_type_enum        type;
 };
 
 struct param_child_reply
@@ -169,8 +169,7 @@ struct reactor_error_group  //
         protocol::command< BAD_TEST_ID_E >,
         protocol::command< UNDESIRED_MSG_E >,
         protocol::command< NO_RESPONSE_E >::with_args< messages_enum >,
-        protocol::command<
-            TREE_E >::with_args< node_id, contiguous_request_adapter_errors_enum >,
+        protocol::command< TREE_E >::with_args< node_id, contiguous_request_adapter_errors_enum >,
         protocol::command< WRONG_TYPE_E >::with_args< node_id >,
         protocol::command< WRONG_MESSAGE_E > >
 {
@@ -192,8 +191,8 @@ struct reactor_controller_group
             node_id,
             child_id >,
         protocol::command< PARAM_TYPE >::with_args< run_id, node_id >,
-        protocol::command< COLLECT >::
-            with_args< run_id, node_id, std::optional< key_type >, collect_value_type >,
+        protocol::command<
+            COLLECT >::with_args< run_id, node_id, std::optional< key_type >, collect_value_type >,
         protocol::command< FINISHED >::with_args< run_id >,
         protocol::command< ERROR >::with_args< run_id >,
         protocol::command< FAILURE >::with_args< run_id >,

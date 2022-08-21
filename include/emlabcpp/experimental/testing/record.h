@@ -104,7 +104,7 @@ public:
         std::optional< node_id > collect(
             node_id                          parent,
             const std::optional< key_type >& key,
-            const collect_value_type&       arg );
+            const collect_value_type&        arg );
 
         std::optional< node_id > collect( node_id parent, const collect_value_type& arg );
 

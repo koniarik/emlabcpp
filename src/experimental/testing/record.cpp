@@ -55,7 +55,7 @@ std::optional< node_id > record::collect( node_id parent, const collect_value_ty
 std::optional< node_id > record::collect(
     node_id                          parent,
     const std::optional< key_type >& key,
-    const collect_value_type&       arg )
+    const collect_value_type&        arg )
 {
         std::optional reply = exchange< collect_reply, COLLECT >( parent, key, arg );
         if ( reply ) {
