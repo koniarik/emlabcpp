@@ -65,7 +65,7 @@ private:
         pool_map< test_id, test_info >  tests_;
         name_buffer                     name_;
         name_buffer                     date_;
-        std::optional< testing_result > context_;
+        std::optional< test_result > context_;
         run_id                          rid_ = 0;
         pool_interface*                 mem_pool_;
 
@@ -81,54 +81,54 @@ private:
         {
         }
 
-        void handle_message( tag< TESTING_COUNT >, auto, controller_interface_adapter& iface );
-        void handle_message( tag< TESTING_NAME >, auto, controller_interface_adapter& iface );
+        void handle_message( tag< COUNT >, auto, controller_interface_adapter& iface );
+        void handle_message( tag< NAME >, auto, controller_interface_adapter& iface );
         void handle_message(
-            tag< TESTING_PARAM_VALUE >,
+            tag< PARAM_VALUE >,
             run_id                        rid,
             node_id                       nid,
             controller_interface_adapter& iface );
         void handle_message(
-            tag< TESTING_PARAM_CHILD >,
+            tag< PARAM_CHILD >,
             run_id                                    rid,
             node_id                                   nid,
             const std::variant< key_type, child_id >& chid,
             controller_interface_adapter&             iface );
         void handle_message(
-            tag< TESTING_PARAM_CHILD_COUNT >,
+            tag< PARAM_CHILD_COUNT >,
             run_id                        rid,
             node_id                       nid,
             controller_interface_adapter& iface );
         void handle_message(
-            tag< TESTING_PARAM_KEY >,
+            tag< PARAM_KEY >,
             run_id                        rid,
             node_id                       nid,
             child_id                      chid,
             controller_interface_adapter& iface );
         void handle_message(
-            tag< TESTING_PARAM_TYPE >,
+            tag< PARAM_TYPE >,
             run_id                        rid,
             node_id                       nid,
             controller_interface_adapter& iface );
 
         void handle_message(
-            tag< TESTING_COLLECT >,
+            tag< COLLECT >,
             run_id                           rid,
             node_id                          parent,
             const std::optional< key_type >& opt_key,
-            const testing_collect_arg&       val,
+            const collect_value_type&       val,
             controller_interface_adapter& );
-        void handle_message( tag< TESTING_FINISHED >, auto, controller_interface_adapter& iface );
-        void handle_message( tag< TESTING_ERROR >, auto, controller_interface_adapter& );
-        void handle_message( tag< TESTING_FAILURE >, auto, controller_interface_adapter& );
-        void handle_message( tag< TESTING_SUITE_NAME >, auto, controller_interface_adapter& iface );
-        void handle_message( tag< TESTING_SUITE_DATE >, auto, controller_interface_adapter& iface );
+        void handle_message( tag< FINISHED >, auto, controller_interface_adapter& iface );
+        void handle_message( tag< ERROR >, auto, controller_interface_adapter& );
+        void handle_message( tag< FAILURE >, auto, controller_interface_adapter& );
+        void handle_message( tag< SUITE_NAME >, auto, controller_interface_adapter& iface );
+        void handle_message( tag< SUITE_DATE >, auto, controller_interface_adapter& iface );
         void handle_message(
-            tag< TESTING_INTERNAL_ERROR >,
+            tag< INTERNAL_ERROR >,
             reactor_error_variant         err,
             controller_interface_adapter& iface );
         void handle_message(
-            tag< TESTING_PROTOCOL_ERROR >,
+            tag< PROTOCOL_ERROR >,
             protocol::error_record        rec,
             controller_interface_adapter& iface );
 };

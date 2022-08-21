@@ -46,57 +46,57 @@ void reactor::spin( reactor_interface& top_iface )
                     handle_message( item, iface );
             },
             [&]( const param_value_reply& ) {
-                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+                    iface.report_failure< UNDESIRED_MSG_E >();
             },
             [&]( const param_child_reply& ) {
-                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+                    iface.report_failure< UNDESIRED_MSG_E >();
             },
             [&]( const param_child_count_reply& ) {
-                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+                    iface.report_failure< UNDESIRED_MSG_E >();
             },
             [&]( const param_key_reply& ) {
-                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+                    iface.report_failure< UNDESIRED_MSG_E >();
             },
             [&]( const param_type_reply& ) {
-                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+                    iface.report_failure< UNDESIRED_MSG_E >();
             },
             [&]( const tree_error_reply& ) {
-                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+                    iface.report_failure< UNDESIRED_MSG_E >();
             },
             [&]( const collect_reply& ) {
-                    iface.report_failure< TESTING_UNDESIRED_MSG_E >();
+                    iface.report_failure< UNDESIRED_MSG_E >();
             } );
 }
 
-void reactor::handle_message( get_property< TESTING_SUITE_NAME >, reactor_interface_adapter& iface )
+void reactor::handle_message( get_property< SUITE_NAME >, reactor_interface_adapter& iface )
 {
-        iface.reply< TESTING_SUITE_NAME >( name_to_buffer( suite_name_ ) );
+        iface.reply< SUITE_NAME >( name_to_buffer( suite_name_ ) );
 }
-void reactor::handle_message( get_property< TESTING_SUITE_DATE >, reactor_interface_adapter& iface )
+void reactor::handle_message( get_property< SUITE_DATE >, reactor_interface_adapter& iface )
 {
-        iface.reply< TESTING_SUITE_DATE >( name_to_buffer( suite_date_ ) );
+        iface.reply< SUITE_DATE >( name_to_buffer( suite_date_ ) );
 }
-void reactor::handle_message( get_property< TESTING_COUNT >, reactor_interface_adapter& iface )
+void reactor::handle_message( get_property< COUNT >, reactor_interface_adapter& iface )
 {
-        iface.reply< TESTING_COUNT >( static_cast< test_id >( handles_.size() ) );
+        iface.reply< COUNT >( static_cast< test_id >( handles_.size() ) );
 }
 void reactor::handle_message( get_test_name req, reactor_interface_adapter& iface )
 {
         if ( req.tid >= handles_.size() ) {
-                iface.report_failure< TESTING_BAD_TEST_ID_E >();
+                iface.report_failure< BAD_TEST_ID_E >();
                 return;
         }
-        iface.reply< TESTING_NAME >( name_to_buffer( access_test( req.tid ).name ) );
+        iface.reply< NAME >( name_to_buffer( access_test( req.tid ).name ) );
 }
 void reactor::handle_message( load_test req, reactor_interface_adapter& iface )
 {
         if ( active_exec_ ) {
-                iface.report_failure< TESTING_TEST_ALREADY_LOADED_E >();
+                iface.report_failure< TEST_ALREADY_LOADED_E >();
                 return;
         }
 
         if ( req.tid >= handles_.size() ) {
-                iface.report_failure< TESTING_BAD_TEST_ID_E >();
+                iface.report_failure< BAD_TEST_ID_E >();
                 return;
         }
 
@@ -105,7 +105,7 @@ void reactor::handle_message( load_test req, reactor_interface_adapter& iface )
 void reactor::handle_message( exec_request, reactor_interface_adapter& iface )
 {
         if ( !active_exec_ ) {
-                iface.report_failure< TESTING_TEST_NOT_LOADED_E >();
+                iface.report_failure< TEST_NOT_LOADED_E >();
                 return;
         }
 
@@ -116,7 +116,7 @@ void reactor::handle_message( exec_request, reactor_interface_adapter& iface )
 void reactor::exec_test( reactor_interface_adapter& iface )
 {
         defer d = [&] {
-                iface.reply< TESTING_FINISHED >( active_exec_->rid );
+                iface.reply< FINISHED >( active_exec_->rid );
         };
 
         test_handle& h = *active_exec_->handle_ptr;
@@ -125,7 +125,7 @@ void reactor::exec_test( reactor_interface_adapter& iface )
 
         h.ptr->setup( rec );
         if ( rec.errored() ) {
-                iface.reply< TESTING_FAILURE >( active_exec_->rid );
+                iface.reply< FAILURE >( active_exec_->rid );
                 return;
         }
 
@@ -135,9 +135,9 @@ void reactor::exec_test( reactor_interface_adapter& iface )
         h.ptr->teardown( rec );
 
         if ( run_errored ) {
-                iface.reply< TESTING_ERROR >( active_exec_->rid );
+                iface.reply< ERROR >( active_exec_->rid );
         } else if ( rec.errored() ) {
-                iface.reply< TESTING_FAILURE >( active_exec_->rid );
+                iface.reply< FAILURE >( active_exec_->rid );
         }
 }
 

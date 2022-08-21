@@ -45,7 +45,7 @@ public:
         {
         }
 
-        std::optional< testing_node_type > get_param_type( node_id );
+        std::optional< node_type_enum > get_param_type( node_id );
 
         template < typename T >
         std::optional< T > get_param( node_id node )
@@ -104,18 +104,18 @@ public:
         std::optional< node_id > collect(
             node_id                          parent,
             const std::optional< key_type >& key,
-            const testing_collect_arg&       arg );
+            const collect_value_type&       arg );
 
-        std::optional< node_id > collect( node_id parent, const testing_collect_arg& arg );
+        std::optional< node_id > collect( node_id parent, const collect_value_type& arg );
 
         std::optional< node_id >
         collect( node_id parent, std::string_view k, contiguous_container_type t )
         {
-                return collect( parent, convert_key( k ), testing_collect_arg{ t } );
+                return collect( parent, convert_key( k ), collect_value_type{ t } );
         }
         std::optional< node_id > collect( node_id parent, contiguous_container_type t )
         {
-                return collect( parent, testing_collect_arg{ t } );
+                return collect( parent, collect_value_type{ t } );
         }
 
         template < typename Arg >

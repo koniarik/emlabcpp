@@ -32,12 +32,12 @@ namespace emlabcpp::testing
 {
 
 template < ostreamlike T >
-T& recursive_print_node( T& os, const testing_tree& t, node_id nid, std::size_t depth )
+T& recursive_print_node( T& os, const data_tree& t, node_id nid, std::size_t depth )
 {
 
         std::string spacing( depth, ' ' );
 
-        const testing_node* node_ptr = t.get_node( nid );
+        const auto* node_ptr = t.get_node( nid );
 
         if ( node_ptr == nullptr ) {
                 return os;
@@ -55,14 +55,14 @@ T& recursive_print_node( T& os, const testing_tree& t, node_id nid, std::size_t 
                                 os << val;
                         } );
             },
-            [&]( testing_const_object_handle oh ) {
+            [&]( data_const_object_handle oh ) {
                     for ( const auto& [key, chid] : oh ) {
                             os << "\n"
                                << spacing << std::string_view{ key.begin(), key.size() } << ":";
                             recursive_print_node( os, t, chid, depth + 1 );
                     }
             },
-            [&]( testing_const_array_handle ah ) {
+            [&]( data_const_array_handle ah ) {
                     for ( const auto& [j, chid] : ah ) {
                             std::ignore = j;
                             os << "\n" << spacing << " - ";
@@ -75,7 +75,7 @@ T& recursive_print_node( T& os, const testing_tree& t, node_id nid, std::size_t 
         return os;
 }
 
-inline ::testing::AssertionResult gtest_predicate( const char*, const testing_result& tres )
+inline ::testing::AssertionResult gtest_predicate( const char*, const test_result& tres )
 {
 
         ::testing::AssertionResult res = ::testing::AssertionSuccess();
@@ -89,7 +89,7 @@ inline ::testing::AssertionResult gtest_predicate( const char*, const testing_re
         return res;
 }
 
-class testing_gtest : public ::testing::Test
+class gtest : public ::testing::Test
 {
         std::optional< controller > opt_con_;
         test_id                     tid_;
@@ -99,7 +99,7 @@ class testing_gtest : public ::testing::Test
         mem_type pool_mem_;
 
 public:
-        testing_gtest( controller_interface& ci, test_id tid )
+        gtest( controller_interface& ci, test_id tid )
           : opt_con_()
           , tid_( tid )
           , ci_( ci )
@@ -129,7 +129,7 @@ public:
         }
 };
 
-void testing_register_gtests( controller_interface& ci )
+void register_gtests( controller_interface& ci )
 {
         using mem_type = pool_resource< 256, 64 >;
         mem_type pool_mem_;
@@ -152,7 +152,7 @@ void testing_register_gtests( controller_interface& ci )
                     __FILE__,
                     __LINE__,
                     [&ci, test_id] {
-                            return new testing_gtest( ci, test_id );
+                            return new gtest( ci, test_id );
                     } );
         }
 }

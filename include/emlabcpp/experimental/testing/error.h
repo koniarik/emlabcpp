@@ -42,12 +42,12 @@ struct controller_protocol_error
         protocol::error_record rec;
 };
 
-struct testing_internal_reactor_error
+struct internal_reactor_error
 {
         reactor_error_variant val;
 };
 
-struct controller_message_error
+struct controller_internal_error
 {
         messages_enum msg_id;
 };
@@ -55,8 +55,8 @@ struct controller_message_error
 using testing_error_variant = std::variant<
     reactor_protocol_error,
     controller_protocol_error,
-    testing_internal_reactor_error,
-    controller_message_error >;
+    internal_reactor_error,
+    controller_internal_error >;
 
 auto& operator<<( ostreamlike auto& os, const reactor_protocol_error& e )
 {
@@ -68,7 +68,7 @@ auto& operator<<( ostreamlike auto& os, const controller_protocol_error& e )
         return os << e.rec;
 }
 
-auto& operator<<( ostreamlike auto& os, const testing_internal_reactor_error& e )
+auto& operator<<( ostreamlike auto& os, const internal_reactor_error& e )
 {
         apply_on_match(
             e.val, [&]< auto ID >( tag< ID >, auto... args ) {
@@ -78,7 +78,7 @@ auto& operator<<( ostreamlike auto& os, const testing_internal_reactor_error& e 
         return os;
 }
 
-auto& operator<<( ostreamlike auto& os, const controller_message_error& e )
+auto& operator<<( ostreamlike auto& os, const controller_internal_error& e )
 {
         return os << convert_enum( e.msg_id );
 }

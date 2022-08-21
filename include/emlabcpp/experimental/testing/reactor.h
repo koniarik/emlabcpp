@@ -86,29 +86,29 @@ public:
         reactor& operator=( const reactor& ) = delete;
         reactor& operator=( reactor&& )      = delete;
 
-        template < testing_test T >
+        template < std::derived_from< test_interface > T >
         bool register_test( std::string_view name, T t )
         {
                 return store_test( name, std::move( t ) );
         }
 
-        template < testing_callable T >
+        template < test_callable T >
         bool register_callable( std::string_view name, T cb )
         {
-                return store_test( name, testing_callable_overlay{ std::move( cb ) } );
+                return store_test( name, test_callable_overlay{ std::move( cb ) } );
         }
 
         void spin( reactor_interface& comm );
 
 private:
-        void handle_message( get_property< TESTING_SUITE_NAME >, reactor_interface_adapter& );
-        void handle_message( get_property< TESTING_SUITE_DATE >, reactor_interface_adapter& );
-        void handle_message( get_property< TESTING_COUNT >, reactor_interface_adapter& );
+        void handle_message( get_property< SUITE_NAME >, reactor_interface_adapter& );
+        void handle_message( get_property< SUITE_DATE >, reactor_interface_adapter& );
+        void handle_message( get_property< COUNT >, reactor_interface_adapter& );
         void handle_message( get_test_name, reactor_interface_adapter& );
         void handle_message( load_test, reactor_interface_adapter& );
         void handle_message( exec_request, reactor_interface_adapter& );
 
-        template < testing_test T >
+        template < std::derived_from< test_interface > T >
         bool store_test( std::string_view name, T t )
         {
                 void* target = mem_->allocate( sizeof( T ), alignof( T ) );

@@ -45,10 +45,10 @@ key_type json_to_key_type( const nlohmann::json& j )
         return key_type_to_buffer( j.get< std::string_view >() );
 }
 
-std::optional< testing_tree >
-json_to_testing_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
+std::optional< data_tree >
+json_to_data_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
 {
-        testing_tree tree{ mem_pool };
+        data_tree tree{ mem_pool };
 
         static_function< node_id( const nlohmann::json& j ), 32 > f =
             [&]( const nlohmann::json& j ) -> node_id {
@@ -95,10 +95,10 @@ json_to_testing_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
         }
 }
 
-nlohmann::json testing_tree_to_json( const testing_tree& tree )
+nlohmann::json data_tree_to_json( const data_tree& tree )
 {
         static_function< nlohmann::json( node_id ), 32 > f = [&]( node_id nid ) -> nlohmann::json {
-                const testing_node* node_ptr = tree.get_node( nid );
+                const auto* node_ptr = tree.get_node( nid );
 
                 if ( node_ptr == nullptr ) {
                         return {};
@@ -109,7 +109,7 @@ nlohmann::json testing_tree_to_json( const testing_tree& tree )
                     [&]( const value_type& val ) {
                             return value_type_to_json( val );
                     },
-                    [&]( testing_const_object_handle oh ) {
+                    [&]( data_const_object_handle oh ) {
                             nlohmann::json j;
                             for ( const auto& [key, chid] : oh ) {
                                     std::string k{ key.begin(), key.size() };
@@ -117,7 +117,7 @@ nlohmann::json testing_tree_to_json( const testing_tree& tree )
                             }
                             return j;
                     },
-                    [&]( testing_const_array_handle ah ) {
+                    [&]( data_const_array_handle ah ) {
                             nlohmann::json j;
                             for ( const auto& [i, chid] : ah ) {
                                     j.push_back( f( chid ) );

@@ -178,8 +178,8 @@ struct controller_iface : em::testing::controller_interface
         em::thread_safe_queue& con_reac_buff;
         em::thread_safe_queue& reac_con_buff;
 
-        typename em::testing::testing_tree::pool_type< 42 > pool;
-        em::testing::testing_tree                           tree;
+        typename em::testing::data_tree::pool_type< 42 > pool;
+        em::testing::data_tree                           tree;
 
         controller_iface( em::thread_safe_queue& cr, em::thread_safe_queue& rc )
           : con_reac_buff( cr )
@@ -190,7 +190,7 @@ struct controller_iface : em::testing::controller_interface
                 // we need test that uses more compelx tree
                 nlohmann::json j = { { "simple_test", 32 }, { "complex_lambda", 42 } };
 
-                std::optional opt_tree = em::testing::json_to_testing_tree( &pool, j );
+                std::optional opt_tree = em::testing::json_to_data_tree( &pool, j );
                 if ( opt_tree ) {
                         tree = std::move( *opt_tree );
                 } else {
@@ -213,12 +213,12 @@ struct controller_iface : em::testing::controller_interface
         //
         // There is support for integration into gtests,
         // that prints all collected data in failure
-        void on_result( const em::testing::testing_result& res ) final
+        void on_result( const em::testing::test_result& res ) final
         {
                 EXPECT_PRED_FORMAT1( em::testing::gtest_predicate, res );
         }
 
-        em::testing::testing_tree& get_param_tree() final
+        em::testing::data_tree& get_param_tree() final
         {
                 return tree;
         }
@@ -256,7 +256,7 @@ int main( int argc, char** argv )
 
         rec.register_test(
             "lambda and fixture",
-            em::testing::testing_compose( my_test_fixture{}, [&]( em::testing::record& rec ) {
+            em::testing::test_compose( my_test_fixture{}, [&]( em::testing::record& rec ) {
                     rec.expect( 1 > 0 );
             } ) );
 
@@ -280,7 +280,7 @@ int main( int argc, char** argv )
 
         controller_iface ci{ con_reac_buff, reac_con_buff };
 
-        em::testing::testing_register_gtests( ci );
+        em::testing::register_gtests( ci );
 
         auto res = RUN_ALL_TESTS();
 

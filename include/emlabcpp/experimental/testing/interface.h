@@ -45,21 +45,18 @@ public:
 };
 
 template < typename T >
-concept testing_test = std::derived_from< T, test_interface >;  /// && std::movable< T >;
-
-template < typename T >
-concept testing_callable = requires( T t, record& rec )
+concept test_callable = requires( T t, record& rec )
 {
         t( rec );
 };
 
-template < testing_callable Callable >
-class testing_callable_overlay : public test_interface
+template < test_callable Callable >
+class test_callable_overlay : public test_interface
 {
         Callable cb_;
 
 public:
-        testing_callable_overlay( Callable cb )
+        test_callable_overlay( Callable cb )
           : cb_( std::move( cb ) )
         {
         }
@@ -70,13 +67,13 @@ public:
         }
 };
 
-template < testing_test T, testing_callable C >
-class testing_composer : public T
+template < std::derived_from< test_interface > T, test_callable C >
+class test_composer : public T
 {
         C cb_;
 
 public:
-        testing_composer( T t, C c )
+        test_composer( T t, C c )
           : T( std::move( t ) )
           , cb_( std::move( c ) )
         {
@@ -88,8 +85,8 @@ public:
         }
 };
 
-template < testing_test T, testing_callable C >
-testing_composer< T, C > testing_compose( T t, C c )
+template < std::derived_from< test_interface > T, test_callable C >
+test_composer< T, C > test_compose( T t, C c )
 {
         return { std::move( t ), std::move( c ) };
 }

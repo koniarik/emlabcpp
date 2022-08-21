@@ -18,12 +18,12 @@ TEST( TestingJson, json )
 
         pool_dynamic_resource mem_pool;
 
-        std::optional< testing::testing_tree > opt_tree =
-            testing::json_to_testing_tree( &mem_pool, j );
+        std::optional< testing::data_tree > opt_tree =
+            testing::json_to_data_tree( &mem_pool, j );
 
         EXPECT_TRUE( opt_tree );
 
-        nlohmann::json result = testing::testing_tree_to_json( *opt_tree );
+        nlohmann::json result = testing::data_tree_to_json( *opt_tree );
 
         EXPECT_EQ( j, result );
 }

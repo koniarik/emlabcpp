@@ -65,7 +65,7 @@ public:
 
         void report_failure( const reactor_error_variant& );
 
-        template < testing_error_enum ID, typename... Args >
+        template < error_enum ID, typename... Args >
         void report_failure( const Args&... args )
         {
                 report_failure( reactor_error_group::make_val< ID >( args... ) );

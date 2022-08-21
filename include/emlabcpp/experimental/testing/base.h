@@ -36,26 +36,25 @@ namespace emlabcpp::testing
 using name_buffer     = static_vector< char, 32 >;
 using key_type_buffer = static_vector< char, 16 >;
 
-using node_id           = uint32_t;
-using child_count       = uint32_t;
-using child_id          = uint32_t;
-using testing_node_type = contiguous_tree_type_enum;
-using key_type          = key_type_buffer;
-using string_buffer     = static_vector< char, 32 >;
+using node_id        = uint32_t;
+using child_count    = uint32_t;
+using child_id       = uint32_t;
+using node_type_enum = contiguous_tree_type_enum;
+using key_type       = key_type_buffer;
+using string_buffer  = static_vector< char, 32 >;
 
 // TODO: this breaks stuff as it has nlohmann::json serialization overload which is _not a good
 // idea_
 using value_type = std::variant< int64_t, float, bool, string_buffer >;
 static_assert( !alternative_of< uint32_t, value_type > );
-using testing_collect_arg         = std::variant< value_type, contiguous_container_type >;
-using run_id                      = uint32_t;
-using test_id                     = uint16_t;
-using testing_tree                = contiguous_tree< key_type, value_type >;
-using testing_node                = typename testing_tree::node_type;
-using testing_array_handle        = typename testing_tree::array_handle;
-using testing_object_handle       = typename testing_tree::object_handle;
-using testing_const_array_handle  = typename testing_tree::const_array_handle;
-using testing_const_object_handle = typename testing_tree::const_object_handle;
+using collect_value_type       = std::variant< value_type, contiguous_container_type >;
+using run_id                   = uint32_t;
+using test_id                  = uint16_t;
+using data_tree                = contiguous_tree< key_type, value_type >;
+using data_array_handle        = typename data_tree::array_handle;
+using data_object_handle       = typename data_tree::object_handle;
+using data_const_array_handle  = typename data_tree::const_array_handle;
+using data_const_object_handle = typename data_tree::const_object_handle;
 
 struct test_info
 {
@@ -89,26 +88,26 @@ inline string_buffer string_to_buffer( std::string_view st )
 
 class reactor_interface_adapter;
 
-struct testing_result
+struct test_result
 {
-        test_id      tid;
-        run_id       rid;
-        testing_tree collected;
-        bool         failed  = false;
-        bool         errored = false;
+        test_id   tid;
+        run_id    rid;
+        data_tree collected;
+        bool      failed  = false;
+        bool      errored = false;
 
-        testing_result( test_id ttid, run_id trid, pool_interface* mem_pool )
+        test_result( test_id ttid, run_id trid, pool_interface* mem_pool )
           : tid( ttid )
           , rid( trid )
           , collected( mem_pool )
         {
         }
 
-        testing_result( const testing_result& )            = delete;
-        testing_result& operator=( const testing_result& ) = delete;
+        test_result( const test_result& )            = delete;
+        test_result& operator=( const test_result& ) = delete;
 
-        testing_result( testing_result&& ) noexcept            = default;
-        testing_result& operator=( testing_result&& ) noexcept = default;
+        test_result( test_result&& ) noexcept            = default;
+        test_result& operator=( test_result&& ) noexcept = default;
 };
 
 }  // namespace emlabcpp::testing

@@ -96,20 +96,19 @@ public:
                     []( const controller_protocol_error& e ) {
                             EMLABCPP_LOG( "Protocol error reported from controller: " << e );
                     },
-                    []( const testing_internal_reactor_error& e ) {
+                    []( const internal_reactor_error& e ) {
                             EMLABCPP_LOG( "Internal error from reactor: " << e );
                     },
-                    []( const controller_message_error& e ) {
+                    []( const controller_internal_error& e ) {
                             EMLABCPP_LOG( "Wrong message arrived to controller: " << e );
                     } );
-                const auto* internal_ptr = std::get_if< testing_internal_reactor_error >( &var );
+                const auto* internal_ptr = std::get_if< internal_reactor_error >( &var );
 
                 if ( internal_ptr ) {
                         apply_on_match(
                             internal_ptr->val,
-                            [&]( tag< TESTING_WRONG_TYPE_E >, auto nid ) {
-                                    const testing_node* node_ptr =
-                                        iface_.get_param_tree().get_node( nid );
+                            [&]( tag< WRONG_TYPE_E >, auto nid ) {
+                                    const auto* node_ptr = iface_.get_param_tree().get_node( nid );
                                     EMLABCPP_LOG(
                                         "Error due a wrong type of node "
                                         << nid << " asserted in reactors test: " << *node_ptr );
@@ -142,15 +141,15 @@ namespace
                     [&]( tag< Req::tag >, auto item ) {
                             res = item;
                     },
-                    [&]( tag< TESTING_INTERNAL_ERROR >, reactor_error_variant err ) {
+                    [&]( tag< INTERNAL_ERROR >, reactor_error_variant err ) {
                             iface.report_error(
-                                testing_internal_reactor_error{ std::move( err ) } );
+                                internal_reactor_error{ std::move( err ) } );
                     },
-                    [&]( tag< TESTING_PROTOCOL_ERROR >, protocol::error_record rec ) {
+                    [&]( tag< PROTOCOL_ERROR >, protocol::error_record rec ) {
                             iface.report_error( reactor_protocol_error{ rec } );
                     },
                     [&]< auto WID >( tag< WID >, auto... ){
-                        iface.report_error( controller_message_error{ WID } );
+                        iface.report_error( controller_internal_error{ WID } );
         }
 };  // namespace
 
@@ -173,9 +172,9 @@ controller::make( controller_interface& top_iface, pool_interface* pool )
 {
         controller_interface_adapter iface{ top_iface };
 
-        auto opt_name  = load_data< name_buffer >( get_property< TESTING_SUITE_NAME >{}, iface );
-        auto opt_date  = load_data< name_buffer >( get_property< TESTING_SUITE_DATE >{}, iface );
-        auto opt_count = load_data< test_id >( get_property< TESTING_COUNT >{}, iface );
+        auto opt_name  = load_data< name_buffer >( get_property< SUITE_NAME >{}, iface );
+        auto opt_date  = load_data< name_buffer >( get_property< SUITE_DATE >{}, iface );
+        auto opt_count = load_data< test_id >( get_property< COUNT >{}, iface );
 
         if ( !opt_name ) {
                 EMLABCPP_LOG( "Failed to build controller - did not get a name" );
@@ -205,16 +204,16 @@ controller::make( controller_interface& top_iface, pool_interface* pool )
 
         return controller{ *opt_name, *opt_date, std::move( info ), pool };
 }
-void controller::handle_message( tag< TESTING_COUNT >, auto, controller_interface_adapter& iface )
+void controller::handle_message( tag< COUNT >, auto, controller_interface_adapter& iface )
 {
-        iface.report_error( controller_message_error{ TESTING_COUNT } );
+        iface.report_error( controller_internal_error{ COUNT } );
 }
-void controller::handle_message( tag< TESTING_NAME >, auto, controller_interface_adapter& iface )
+void controller::handle_message( tag< NAME >, auto, controller_interface_adapter& iface )
 {
-        iface.report_error( controller_message_error{ TESTING_NAME } );
+        iface.report_error( controller_internal_error{ NAME } );
 }
 void controller::handle_message(
-    tag< TESTING_PARAM_VALUE >,
+    tag< PARAM_VALUE >,
     run_id                        rid,
     node_id                       nid,
     controller_interface_adapter& iface )
@@ -233,7 +232,7 @@ void controller::handle_message(
             } );
 }
 void controller::handle_message(
-    tag< TESTING_PARAM_CHILD >,
+    tag< PARAM_CHILD >,
     run_id                                    rid,
     node_id                                   nid,
     const std::variant< key_type, child_id >& chid,
@@ -254,7 +253,7 @@ void controller::handle_message(
                 } );
 }
 void controller::handle_message(
-    tag< TESTING_PARAM_CHILD_COUNT >,
+    tag< PARAM_CHILD_COUNT >,
     run_id                        rid,
     node_id                       nid,
     controller_interface_adapter& iface )
@@ -273,7 +272,7 @@ void controller::handle_message(
             } );
 }
 void controller::handle_message(
-    tag< TESTING_PARAM_KEY >,
+    tag< PARAM_KEY >,
     run_id                        rid,
     node_id                       nid,
     child_id                      chid,
@@ -294,7 +293,7 @@ void controller::handle_message(
                 } );
 }
 void controller::handle_message(
-    tag< TESTING_PARAM_TYPE >,
+    tag< PARAM_TYPE >,
     run_id                        rid,
     node_id                       nid,
     controller_interface_adapter& iface )
@@ -314,17 +313,17 @@ void controller::handle_message(
 }
 
 void controller::handle_message(
-    tag< TESTING_COLLECT >,
+    tag< COLLECT >,
     run_id                           rid,
     node_id                          parent,
     const std::optional< key_type >& opt_key,
-    const testing_collect_arg&       val,
+    const collect_value_type&        val,
     controller_interface_adapter&    iface )
 {
         EMLABCPP_ASSERT( context_ );
         EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
 
-        testing_tree& tree = context_->collected;
+        data_tree& tree = context_->collected;
 
         // TODO: this may be a bad idea ...
         if ( tree.empty() ) {
@@ -348,44 +347,44 @@ void controller::handle_message(
             } );
 }
 void controller::handle_message(
-    tag< TESTING_FINISHED >,
+    tag< FINISHED >,
     auto,
     controller_interface_adapter& iface )
 {
         iface->on_result( *context_ );
         context_.reset();
 }
-void controller::handle_message( tag< TESTING_ERROR >, auto, controller_interface_adapter& )
+void controller::handle_message( tag< ERROR >, auto, controller_interface_adapter& )
 {
         context_->errored = true;
 }
-void controller::handle_message( tag< TESTING_FAILURE >, auto, controller_interface_adapter& )
+void controller::handle_message( tag< FAILURE >, auto, controller_interface_adapter& )
 {
         context_->failed = true;
 }
 void controller::handle_message(
-    tag< TESTING_SUITE_NAME >,
+    tag< SUITE_NAME >,
     auto,
     controller_interface_adapter& iface )
 {
-        iface.report_error( controller_message_error{ TESTING_SUITE_NAME } );
+        iface.report_error( controller_internal_error{ SUITE_NAME } );
 }
 void controller::handle_message(
-    tag< TESTING_SUITE_DATE >,
+    tag< SUITE_DATE >,
     auto,
     controller_interface_adapter& iface )
 {
-        iface.report_error( controller_message_error{ TESTING_SUITE_DATE } );
+        iface.report_error( controller_internal_error{ SUITE_DATE } );
 }
 void controller::handle_message(
-    tag< TESTING_INTERNAL_ERROR >,
+    tag< INTERNAL_ERROR >,
     reactor_error_variant         err,
     controller_interface_adapter& iface )
 {
-        iface.report_error( testing_internal_reactor_error{ std::move( err ) } );
+        iface.report_error( internal_reactor_error{ std::move( err ) } );
 }
 void controller::handle_message(
-    tag< TESTING_PROTOCOL_ERROR >,
+    tag< PROTOCOL_ERROR >,
     protocol::error_record        rec,
     controller_interface_adapter& iface )
 {
