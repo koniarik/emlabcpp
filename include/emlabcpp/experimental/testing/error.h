@@ -32,38 +32,38 @@
 namespace emlabcpp::testing
 {
 
-struct testing_reactor_protocol_error
+struct reactor_protocol_error
 {
         protocol::error_record rec;
 };
 
-struct testing_controller_protocol_error
+struct controller_protocol_error
 {
         protocol::error_record rec;
 };
 
 struct testing_internal_reactor_error
 {
-        testing_reactor_error_variant val;
+        reactor_error_variant val;
 };
 
-struct testing_controller_message_error
+struct controller_message_error
 {
         messages_enum msg_id;
 };
 
 using testing_error_variant = std::variant<
-    testing_reactor_protocol_error,
-    testing_controller_protocol_error,
+    reactor_protocol_error,
+    controller_protocol_error,
     testing_internal_reactor_error,
-    testing_controller_message_error >;
+    controller_message_error >;
 
-auto& operator<<( ostreamlike auto& os, const testing_reactor_protocol_error& e )
+auto& operator<<( ostreamlike auto& os, const reactor_protocol_error& e )
 {
         return os << e.rec;
 }
 
-auto& operator<<( ostreamlike auto& os, const testing_controller_protocol_error& e )
+auto& operator<<( ostreamlike auto& os, const controller_protocol_error& e )
 {
         return os << e.rec;
 }
@@ -78,7 +78,7 @@ auto& operator<<( ostreamlike auto& os, const testing_internal_reactor_error& e 
         return os;
 }
 
-auto& operator<<( ostreamlike auto& os, const testing_controller_message_error& e )
+auto& operator<<( ostreamlike auto& os, const controller_message_error& e )
 {
         return os << convert_enum( e.msg_id );
 }

@@ -33,23 +33,23 @@
 namespace emlabcpp::testing
 {
 
-using testing_name_buffer = static_vector< char, 32 >;
+using name_buffer = static_vector< char, 32 >;
 using key_type_buffer  = static_vector< char, 16 >;
 
 using node_id       = uint32_t;
-using testing_child_count   = uint32_t;
-using testing_child_id      = uint32_t;
+using child_count   = uint32_t;
+using child_id      = uint32_t;
 using testing_node_type     = contiguous_tree_type_enum;
 using key_type           = key_type_buffer;
-using testing_string_buffer = static_vector< char, 32 >;
+using string_buffer = static_vector< char, 32 >;
 
 // TODO: this breaks stuff as it has nlohmann::json serialization overload which is _not a good
 // idea_
-using value_type = std::variant< int64_t, float, bool, testing_string_buffer >;
+using value_type = std::variant< int64_t, float, bool, string_buffer >;
 static_assert( !alternative_of< uint32_t, value_type > );
 using testing_collect_arg         = std::variant< value_type, contiguous_container_type >;
 using run_id              = uint32_t;
-using testing_test_id             = uint16_t;
+using test_id             = uint16_t;
 using testing_tree                = contiguous_tree< key_type, value_type >;
 using testing_node                = typename testing_tree::node_type;
 using testing_array_handle        = typename testing_tree::array_handle;
@@ -59,12 +59,12 @@ using testing_const_object_handle = typename testing_tree::const_object_handle;
 
 struct test_info
 {
-        testing_name_buffer name;
+        name_buffer name;
 };
 
 /// TODO: maybe make a function in static_vector namespace?
 template < typename T >
-T testing_string_to_buffer( std::string_view sview )
+T string_to_buffer( std::string_view sview )
 {
         T tmp;
         std::copy_n(
@@ -72,32 +72,32 @@ T testing_string_to_buffer( std::string_view sview )
         return tmp;
 }
 
-inline testing_name_buffer testing_name_to_buffer( std::string_view sview )
+inline name_buffer name_to_buffer( std::string_view sview )
 {
-        return testing_string_to_buffer< testing_name_buffer >( sview );
+        return string_to_buffer< name_buffer >( sview );
 }
 
 inline key_type_buffer key_type_to_buffer( std::string_view key )
 {
-        return testing_string_to_buffer< key_type_buffer >( key );
+        return string_to_buffer< key_type_buffer >( key );
 }
 
-inline testing_string_buffer testing_string_to_buffer( std::string_view st )
+inline string_buffer string_to_buffer( std::string_view st )
 {
-        return testing_string_to_buffer< testing_string_buffer >( st );
+        return string_to_buffer< string_buffer >( st );
 }
 
-class testing_reactor_interface_adapter;
+class reactor_interface_adapter;
 
 struct testing_result
 {
-        testing_test_id tid;
+        test_id tid;
         run_id  rid;
         testing_tree    collected;
         bool            failed  = false;
         bool            errored = false;
 
-        testing_result( testing_test_id ttid, run_id trid, pool_interface* mem_pool )
+        testing_result( test_id ttid, run_id trid, pool_interface* mem_pool )
           : tid( ttid )
           , rid( trid )
           , collected( mem_pool )

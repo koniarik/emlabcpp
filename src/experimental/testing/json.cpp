@@ -18,7 +18,7 @@ value_type json_to_value_type( const nlohmann::json& j )
                 case value_t::number_float:
                         return j.get< float >();
                 case value_t::string:
-                        return testing_string_to_buffer( j.get< std::string >() );
+                        return string_to_buffer( j.get< std::string >() );
                 default:
                         // TODO: might wanna improve this
                         EMLABCPP_LOG( "Got type of json we can't process: " << j.type() );
@@ -30,7 +30,7 @@ nlohmann::json value_type_to_json( const value_type& tv )
 {
         nlohmann::json res = match(
             tv,
-            [&]( const testing_string_buffer& buff ) {
+            [&]( const string_buffer& buff ) {
                     return nlohmann::json{ std::string_view{ buff.begin(), buff.size() } };
             },
             [&]( const auto& item ) {

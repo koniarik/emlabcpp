@@ -32,7 +32,7 @@ namespace emlabcpp::testing
 {
 
 template < ostreamlike T >
-T& testing_recursive_print_node(
+T& recursive_print_node(
     T&                  os,
     const testing_tree& t,
     node_id     nid,
@@ -52,7 +52,7 @@ T& testing_recursive_print_node(
             [&]( const value_type& v ) {
                     match(
                         v,
-                        [&]( testing_string_buffer val ) {
+                        [&]( string_buffer val ) {
                                 os << std::string_view{ val.begin(), val.size() };
                         },
                         [&]( auto val ) {
@@ -63,14 +63,14 @@ T& testing_recursive_print_node(
                     for ( const auto& [key, chid] : oh ) {
                             os << "\n"
                                << spacing << std::string_view{ key.begin(), key.size() } << ":";
-                            testing_recursive_print_node( os, t, chid, depth + 1 );
+                            recursive_print_node( os, t, chid, depth + 1 );
                     }
             },
             [&]( testing_const_array_handle ah ) {
                     for ( const auto& [j, chid] : ah ) {
                             std::ignore = j;
                             os << "\n" << spacing << " - ";
-                            testing_recursive_print_node( os, t, chid, depth + 1 );
+                            recursive_print_node( os, t, chid, depth + 1 );
                     }
             }
 
@@ -79,7 +79,7 @@ T& testing_recursive_print_node(
         return os;
 }
 
-inline ::testing::AssertionResult testing_gtest_predicate( const char*, const testing_result& tres )
+inline ::testing::AssertionResult gtest_predicate( const char*, const testing_result& tres )
 {
 
         ::testing::AssertionResult res = ::testing::AssertionSuccess();
@@ -89,21 +89,21 @@ inline ::testing::AssertionResult testing_gtest_predicate( const char*, const te
                 res = ::testing::AssertionFailure() << "Test errored";
         }
 
-        testing_recursive_print_node( res, tres.collected, 0, 1 );
+        recursive_print_node( res, tres.collected, 0, 1 );
         return res;
 }
 
 class testing_gtest : public ::testing::Test
 {
-        std::optional< testing_controller > opt_con_;
-        testing_test_id                     tid_;
-        testing_controller_interface&       ci_;
+        std::optional< controller > opt_con_;
+        test_id                     tid_;
+        controller_interface&       ci_;
 
         using mem_type = pool_resource< 256, 32 >;
         mem_type pool_mem_;
 
 public:
-        testing_gtest( testing_controller_interface& ci, testing_test_id tid )
+        testing_gtest( controller_interface& ci, test_id tid )
           : opt_con_()
           , tid_( tid )
           , ci_( ci )
@@ -112,7 +112,7 @@ public:
 
         void SetUp() final
         {
-                opt_con_ = testing_controller::make( ci_, &pool_mem_ );
+                opt_con_ = controller::make( ci_, &pool_mem_ );
                 if ( !opt_con_ ) {
                         EMLABCPP_LOG( "Failed to build testing controller for gtest" );
                 }
@@ -133,11 +133,11 @@ public:
         }
 };
 
-void testing_register_gtests( testing_controller_interface& ci )
+void testing_register_gtests( controller_interface& ci )
 {
         using mem_type = pool_resource< 256, 64 >;
         mem_type pool_mem_;
-        auto     opt_con = testing_controller::make( ci, &pool_mem_ );
+        auto     opt_con = controller::make( ci, &pool_mem_ );
 
         if ( !opt_con ) {
                 EMLABCPP_LOG( "Failed to build testing controller for gtest registration" );
@@ -147,7 +147,7 @@ void testing_register_gtests( testing_controller_interface& ci )
         std::string suite_name = std::string{ opt_con->suite_name() };
         for ( auto [tid, tinfo] : opt_con->get_tests() ) {
                 std::string     name{ tinfo.name.begin(), tinfo.name.end() };
-                testing_test_id test_id = tid;
+                test_id test_id = tid;
                 ::testing::RegisterTest(
                     suite_name.c_str(),
                     name.c_str(),

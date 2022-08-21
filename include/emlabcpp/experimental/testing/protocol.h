@@ -62,13 +62,13 @@ struct get_property
 struct get_test_name
 {
         static constexpr auto tag = TESTING_NAME;
-        testing_test_id       tid;
+        test_id       tid;
 };
 
 struct load_test
 {
         static constexpr auto tag = TESTING_LOAD;
-        testing_test_id       tid;
+        test_id       tid;
         run_id                rid;
 };
 
@@ -104,7 +104,7 @@ struct param_child_count_reply
 {
         static constexpr auto tag = TESTING_PARAM_CHILD_COUNT;
         run_id                rid;
-        testing_child_count   count;
+        child_count   count;
 };
 
 struct param_key_reply
@@ -176,29 +176,29 @@ struct reactor_error_group  //
 {
 };
 
-using testing_reactor_error_variant = typename reactor_error_group::value_type;
+using reactor_error_variant = typename reactor_error_group::value_type;
 
 struct reactor_controller_group
   : protocol::command_group<
         std::endian::big,
-        protocol::command< TESTING_COUNT >::with_args< testing_test_id >,
-        protocol::command< TESTING_NAME >::with_args< testing_name_buffer >,
+        protocol::command< TESTING_COUNT >::with_args< test_id >,
+        protocol::command< TESTING_NAME >::with_args< name_buffer >,
         protocol::command< TESTING_PARAM_VALUE >::with_args< run_id, node_id >,
         protocol::command< TESTING_PARAM_CHILD >::
-            with_args< run_id, node_id, std::variant< key_type, testing_child_id > >,
+            with_args< run_id, node_id, std::variant< key_type, child_id > >,
         protocol::command< TESTING_PARAM_CHILD_COUNT >::with_args< run_id, node_id >,
         protocol::command< TESTING_PARAM_KEY >::with_args<  //
             run_id,
             node_id,
-            testing_child_id >,
+            child_id >,
         protocol::command< TESTING_PARAM_TYPE >::with_args< run_id, node_id >,
         protocol::command< TESTING_COLLECT >::
             with_args< run_id, node_id, std::optional< key_type >, testing_collect_arg >,
         protocol::command< TESTING_FINISHED >::with_args< run_id >,
         protocol::command< TESTING_ERROR >::with_args< run_id >,
         protocol::command< TESTING_FAILURE >::with_args< run_id >,
-        protocol::command< TESTING_SUITE_NAME >::with_args< testing_name_buffer >,
-        protocol::command< TESTING_SUITE_DATE >::with_args< testing_name_buffer >,
+        protocol::command< TESTING_SUITE_NAME >::with_args< name_buffer >,
+        protocol::command< TESTING_SUITE_DATE >::with_args< name_buffer >,
         protocol::command< TESTING_INTERNAL_ERROR >::with_args< reactor_error_group >,
         protocol::command< TESTING_PROTOCOL_ERROR >::with_args< protocol::error_record > >
 {

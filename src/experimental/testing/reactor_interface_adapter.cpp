@@ -26,7 +26,7 @@ namespace emlabcpp::testing
 {
 
 std::optional< controller_reactor_variant >
-testing_reactor_interface_adapter::read_variant()
+reactor_interface_adapter::read_variant()
 {
         using sequencer = std::decay_t< decltype( seq_ ) >;
 
@@ -63,13 +63,13 @@ testing_reactor_interface_adapter::read_variant()
                 } );
         return res;
 }
-void testing_reactor_interface_adapter::reply( const reactor_controller_variant& var )
+void reactor_interface_adapter::reply( const reactor_controller_variant& var )
 {
         auto msg = reactor_controller_serialize( var );
         iface_.transmit( msg );
 }
 
-void testing_reactor_interface_adapter::report_failure( const testing_reactor_error_variant& evar )
+void reactor_interface_adapter::report_failure( const reactor_error_variant& evar )
 {
         reply< TESTING_INTERNAL_ERROR >( evar );
 }

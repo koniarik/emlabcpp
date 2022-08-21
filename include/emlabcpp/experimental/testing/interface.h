@@ -30,31 +30,31 @@
 namespace emlabcpp::testing
 {
 
-class testing_interface
+class test_interface
 {
 public:
-        virtual void setup( testing_record& )
+        virtual void setup( record& )
         {
         }
-        virtual void run( testing_record& ) = 0;
-        virtual void teardown( testing_record& )
+        virtual void run( record& ) = 0;
+        virtual void teardown( record& )
         {
         }
 
-        virtual ~testing_interface() = default;
+        virtual ~test_interface() = default;
 };
 
 template < typename T >
-concept testing_test = std::derived_from< T, testing_interface >;  /// && std::movable< T >;
+concept testing_test = std::derived_from< T, test_interface >;  /// && std::movable< T >;
 
 template < typename T >
-concept testing_callable = requires( T t, testing_record& rec )
+concept testing_callable = requires( T t, record& rec )
 {
         t( rec );
 };
 
 template < testing_callable Callable >
-class testing_callable_overlay : public testing_interface
+class testing_callable_overlay : public test_interface
 {
         Callable cb_;
 
@@ -64,7 +64,7 @@ public:
         {
         }
 
-        void run( testing_record& rec ) final
+        void run( record& rec ) final
         {
                 cb_( rec );
         }
@@ -82,7 +82,7 @@ public:
         {
         }
 
-        void run( testing_record& rec ) final
+        void run( record& rec ) final
         {
                 cb_( rec );
         }

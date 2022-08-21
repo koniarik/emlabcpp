@@ -27,7 +27,7 @@
 namespace emlabcpp::testing
 {
 
-std::optional< testing_node_type > testing_record::get_param_type( node_id nid )
+std::optional< testing_node_type > record::get_param_type( node_id nid )
 {
         std::optional reply = exchange< param_type_reply, TESTING_PARAM_TYPE >( nid );
         if ( reply ) {
@@ -36,7 +36,7 @@ std::optional< testing_node_type > testing_record::get_param_type( node_id nid )
         return std::nullopt;
 }
 
-std::optional< value_type > testing_record::get_param_value( node_id nid )
+std::optional< value_type > record::get_param_value( node_id nid )
 {
         std::optional reply = exchange< param_value_reply, TESTING_PARAM_VALUE >( nid );
 
@@ -48,12 +48,12 @@ std::optional< value_type > testing_record::get_param_value( node_id nid )
 }
 
 std::optional< node_id >
-testing_record::collect( node_id parent, const testing_collect_arg& arg )
+record::collect( node_id parent, const testing_collect_arg& arg )
 {
         return collect( parent, std::optional< key_type >{}, arg );
 }
 
-std::optional< node_id > testing_record::collect(
+std::optional< node_id > record::collect(
     node_id                     parent,
     const std::optional< key_type >& key,
     const testing_collect_arg&          arg )
@@ -67,10 +67,10 @@ std::optional< node_id > testing_record::collect(
 }
 
 std::optional< node_id >
-testing_record::get_param_child( node_id nid, testing_child_id chid )
+record::get_param_child( node_id nid, child_id chid )
 {
         std::optional reply = exchange< param_child_reply, TESTING_PARAM_CHILD >(
-            nid, std::variant< key_type, testing_child_id >{ chid } );
+            nid, std::variant< key_type, child_id >{ chid } );
         if ( reply ) {
                 return reply->chid;
         }
@@ -78,25 +78,25 @@ testing_record::get_param_child( node_id nid, testing_child_id chid )
 }
 
 std::optional< node_id >
-testing_record::get_param_child( node_id nid, std::string_view key )
+record::get_param_child( node_id nid, std::string_view key )
 {
         return get_param_child( nid, key_type_to_buffer( key ) );
 }
 
 std::optional< node_id >
-testing_record::get_param_child( node_id nid, const key_type& key )
+record::get_param_child( node_id nid, const key_type& key )
 {
         // TODO duplication of other overload /o\...
         std::optional reply = exchange< param_child_reply, TESTING_PARAM_CHILD >(
-            nid, std::variant< key_type, testing_child_id >{ key } );
+            nid, std::variant< key_type, child_id >{ key } );
         if ( reply ) {
                 return reply->chid;
         }
         return std::nullopt;
 }
 
-std::optional< testing_child_count >
-testing_record::get_param_child_count( std::optional< node_id > nid )
+std::optional< child_count >
+record::get_param_child_count( std::optional< node_id > nid )
 {
         std::optional reply =
             exchange< param_child_count_reply, TESTING_PARAM_CHILD_COUNT >( nid );
@@ -107,7 +107,7 @@ testing_record::get_param_child_count( std::optional< node_id > nid )
 }
 
 std::optional< key_type >
-testing_record::get_param_key( node_id nid, testing_child_id chid )
+record::get_param_key( node_id nid, child_id chid )
 {
         std::optional reply = exchange< param_key_reply, TESTING_PARAM_KEY >( nid, chid );
         if ( reply ) {
@@ -116,13 +116,13 @@ testing_record::get_param_key( node_id nid, testing_child_id chid )
         return std::nullopt;
 }
 
-void testing_record::report_wrong_type_error( node_id nid, const value_type& )
+void record::report_wrong_type_error( node_id nid, const value_type& )
 {
         comm_.report_failure< TESTING_WRONG_TYPE_E >( nid );
 }
 
 template < typename T >
-std::optional< T > testing_record::read_variant_alternative( node_id )
+std::optional< T > record::read_variant_alternative( node_id )
 {
         std::optional< controller_reactor_variant > opt_var = comm_.read_variant();
         if ( !opt_var ) {
@@ -147,7 +147,7 @@ std::optional< T > testing_record::read_variant_alternative( node_id )
 
 template < typename ResultType, auto ID, typename... Args >
 std::optional< ResultType >
-testing_record::exchange( std::optional< node_id > opt_nid, const Args&... args )
+record::exchange( std::optional< node_id > opt_nid, const Args&... args )
 {
         if ( !opt_nid ) {
                 return std::nullopt;

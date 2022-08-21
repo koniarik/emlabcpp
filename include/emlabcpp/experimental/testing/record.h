@@ -30,18 +30,18 @@
 
 namespace emlabcpp::testing
 {
-class testing_record
+class record
 {
-        testing_test_id                    tid_;
+        test_id                    tid_;
         run_id                     rid_;
-        testing_reactor_interface_adapter& comm_;
+        reactor_interface_adapter& comm_;
         bool                               errored_ = false;
 
 public:
-        testing_record(
-            testing_test_id                    tid,
+        record(
+            test_id                    tid,
             run_id                     rid,
-            testing_reactor_interface_adapter& comm )
+            reactor_interface_adapter& comm )
           : tid_( tid )
           , rid_( rid )
           , comm_( comm )
@@ -87,18 +87,18 @@ public:
 
         std::optional< value_type > get_param_value( node_id param );
 
-        std::optional< node_id > get_param_child( node_id, testing_child_id );
+        std::optional< node_id > get_param_child( node_id, child_id );
         std::optional< node_id > get_param_child( node_id, const key_type& key );
         std::optional< node_id > get_param_child( node_id, std::string_view key );
 
-        std::optional< testing_child_count >
+        std::optional< child_count >
             get_param_child_count( std::optional< node_id > );
-        std::optional< testing_child_count > get_param_child_count( node_id nid )
+        std::optional< child_count > get_param_child_count( node_id nid )
         {
                 return get_param_child_count( std::optional{ nid } );
         }
 
-        std::optional< key_type > get_param_key( node_id, testing_child_id );
+        std::optional< key_type > get_param_key( node_id, child_id );
 
         bool errored()
         {

@@ -27,28 +27,28 @@
 
 namespace emlabcpp::testing
 {
-class testing_reactor_interface_adapter
+class reactor_interface_adapter
 {
-        testing_reactor_interface&                         iface_;
+        reactor_interface&                         iface_;
         controller_reactor_packet::sequencer_type& seq_;
 
         static constexpr std::size_t read_limit_ = 10;
 
 public:
-        testing_reactor_interface_adapter(
-            testing_reactor_interface&                         iface,
+        reactor_interface_adapter(
+            reactor_interface&                         iface,
             controller_reactor_packet::sequencer_type& seq )
           : iface_( iface )
           , seq_( seq )
         {
         }
 
-        testing_reactor_interface& operator*()
+        reactor_interface& operator*()
         {
                 return iface_;
         }
 
-        testing_reactor_interface* operator->()
+        reactor_interface* operator->()
         {
                 return &iface_;
         }
@@ -63,7 +63,7 @@ public:
                 reply( reactor_controller_group::make_val< ID >( args... ) );
         }
 
-        void report_failure( const testing_reactor_error_variant& );
+        void report_failure( const reactor_error_variant& );
 
         template < testing_error_enum ID, typename... Args >
         void report_failure( const Args&... args )

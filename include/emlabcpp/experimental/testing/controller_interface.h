@@ -28,7 +28,7 @@
 namespace emlabcpp::testing
 {
 
-class testing_controller_interface
+class controller_interface
 {
 public:
         virtual void                                          transmit( std::span< uint8_t > ) = 0;
@@ -37,7 +37,7 @@ public:
         virtual testing_tree& get_param_tree()                                                 = 0;
         virtual void          on_error( testing_error_variant )                                = 0;
 
-        virtual ~testing_controller_interface() = default;
+        virtual ~controller_interface() = default;
 };
 
 }  // namespace emlabcpp::testing

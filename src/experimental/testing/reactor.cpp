@@ -29,9 +29,9 @@ namespace emlabcpp::testing
 
 // TODO maybe generalize?
 
-void testing_reactor::spin( testing_reactor_interface& top_iface )
+void reactor::spin( reactor_interface& top_iface )
 {
-        testing_reactor_interface_adapter iface{ top_iface, seq_ };
+        reactor_interface_adapter iface{ top_iface, seq_ };
 
         auto opt_var = iface.read_variant();
 
@@ -68,37 +68,37 @@ void testing_reactor::spin( testing_reactor_interface& top_iface )
             } );
 }
 
-void testing_reactor::handle_message(
+void reactor::handle_message(
     get_property< TESTING_SUITE_NAME >,
-    testing_reactor_interface_adapter& iface )
+    reactor_interface_adapter& iface )
 {
-        iface.reply< TESTING_SUITE_NAME >( testing_name_to_buffer( suite_name_ ) );
+        iface.reply< TESTING_SUITE_NAME >( name_to_buffer( suite_name_ ) );
 }
-void testing_reactor::handle_message(
+void reactor::handle_message(
     get_property< TESTING_SUITE_DATE >,
-    testing_reactor_interface_adapter& iface )
+    reactor_interface_adapter& iface )
 {
-        iface.reply< TESTING_SUITE_DATE >( testing_name_to_buffer( suite_date_ ) );
+        iface.reply< TESTING_SUITE_DATE >( name_to_buffer( suite_date_ ) );
 }
-void testing_reactor::handle_message(
+void reactor::handle_message(
     get_property< TESTING_COUNT >,
-    testing_reactor_interface_adapter& iface )
+    reactor_interface_adapter& iface )
 {
-        iface.reply< TESTING_COUNT >( static_cast< testing_test_id >( handles_.size() ) );
+        iface.reply< TESTING_COUNT >( static_cast< test_id >( handles_.size() ) );
 }
-void testing_reactor::handle_message(
+void reactor::handle_message(
     get_test_name              req,
-    testing_reactor_interface_adapter& iface )
+    reactor_interface_adapter& iface )
 {
         if ( req.tid >= handles_.size() ) {
                 iface.report_failure< TESTING_BAD_TEST_ID_E >();
                 return;
         }
-        iface.reply< TESTING_NAME >( testing_name_to_buffer( access_test( req.tid ).name ) );
+        iface.reply< TESTING_NAME >( name_to_buffer( access_test( req.tid ).name ) );
 }
-void testing_reactor::handle_message(
+void reactor::handle_message(
     load_test                  req,
-    testing_reactor_interface_adapter& iface )
+    reactor_interface_adapter& iface )
 {
         if ( active_exec_ ) {
                 iface.report_failure< TESTING_TEST_ALREADY_LOADED_E >();
@@ -112,7 +112,7 @@ void testing_reactor::handle_message(
 
         active_exec_ = active_execution{ req.tid, req.rid, &access_test( req.tid ) };
 }
-void testing_reactor::handle_message( exec_request, testing_reactor_interface_adapter& iface )
+void reactor::handle_message( exec_request, reactor_interface_adapter& iface )
 {
         if ( !active_exec_ ) {
                 iface.report_failure< TESTING_TEST_NOT_LOADED_E >();
@@ -123,7 +123,7 @@ void testing_reactor::handle_message( exec_request, testing_reactor_interface_ad
         active_exec_.reset();
 }
 
-void testing_reactor::exec_test( testing_reactor_interface_adapter& iface )
+void reactor::exec_test( reactor_interface_adapter& iface )
 {
         defer d = [&] {
                 iface.reply< TESTING_FINISHED >( active_exec_->rid );
@@ -131,7 +131,7 @@ void testing_reactor::exec_test( testing_reactor_interface_adapter& iface )
 
         test_handle& h = *active_exec_->handle_ptr;
 
-        testing_record rec{ active_exec_->tid, active_exec_->rid, iface };
+        record rec{ active_exec_->tid, active_exec_->rid, iface };
 
         h.ptr->setup( rec );
         if ( rec.errored() ) {
@@ -151,14 +151,14 @@ void testing_reactor::exec_test( testing_reactor_interface_adapter& iface )
         }
 }
 
-testing_reactor::test_handle& testing_reactor::access_test( testing_test_id tid )
+reactor::test_handle& reactor::access_test( test_id tid )
 {
         auto iter = handles_.begin();
         std::advance( iter, tid );
         return *iter;
 }
 
-testing_reactor::~testing_reactor()
+reactor::~reactor()
 {
         for ( test_handle& h : handles_ ) {
                 std::destroy_at( h.ptr );

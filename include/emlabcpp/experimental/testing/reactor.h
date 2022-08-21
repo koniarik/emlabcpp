@@ -37,16 +37,16 @@
 namespace emlabcpp::testing
 {
 
-class testing_reactor
+class reactor
 {
 
         struct test_handle
         {
                 std::string_view   name;
-                testing_interface* ptr;
+                test_interface* ptr;
                 std::size_t        alignment;
 
-                test_handle( std::string_view n, testing_interface* p, std::size_t a )
+                test_handle( std::string_view n, test_interface* p, std::size_t a )
                   : name( n )
                   , ptr( p )
                   , alignment( a )
@@ -56,7 +56,7 @@ class testing_reactor
 
         struct active_execution
         {
-                testing_test_id tid;
+                test_id tid;
                 run_id  rid;
                 test_handle*    handle_ptr;
         };
@@ -74,17 +74,17 @@ class testing_reactor
         std::optional< active_execution > active_exec_;
 
 public:
-        testing_reactor( std::string_view suite_name, pool_interface* mem )
+        reactor( std::string_view suite_name, pool_interface* mem )
           : suite_name_( suite_name )
           , handles_( mem )
           , mem_( mem )
         {
         }
 
-        testing_reactor( const testing_reactor& )            = delete;
-        testing_reactor( testing_reactor&& )                 = delete;
-        testing_reactor& operator=( const testing_reactor& ) = delete;
-        testing_reactor& operator=( testing_reactor&& )      = delete;
+        reactor( const reactor& )            = delete;
+        reactor( reactor&& )                 = delete;
+        reactor& operator=( const reactor& ) = delete;
+        reactor& operator=( reactor&& )      = delete;
 
         template < testing_test T >
         bool register_test( std::string_view name, T t )
@@ -98,20 +98,20 @@ public:
                 return store_test( name, testing_callable_overlay{ std::move( cb ) } );
         }
 
-        void spin( testing_reactor_interface& comm );
+        void spin( reactor_interface& comm );
 
 private:
         void handle_message(
             get_property< TESTING_SUITE_NAME >,
-            testing_reactor_interface_adapter& );
+            reactor_interface_adapter& );
         void handle_message(
             get_property< TESTING_SUITE_DATE >,
-            testing_reactor_interface_adapter& );
+            reactor_interface_adapter& );
         void
-        handle_message( get_property< TESTING_COUNT >, testing_reactor_interface_adapter& );
-        void handle_message( get_test_name, testing_reactor_interface_adapter& );
-        void handle_message( load_test, testing_reactor_interface_adapter& );
-        void handle_message( exec_request, testing_reactor_interface_adapter& );
+        handle_message( get_property< TESTING_COUNT >, reactor_interface_adapter& );
+        void handle_message( get_test_name, reactor_interface_adapter& );
+        void handle_message( load_test, reactor_interface_adapter& );
+        void handle_message( exec_request, reactor_interface_adapter& );
 
         template < testing_test T >
         bool store_test( std::string_view name, T t )
@@ -126,21 +126,21 @@ private:
                 return true;
         }
 
-        void exec_test( testing_reactor_interface_adapter& comm );
+        void exec_test( reactor_interface_adapter& comm );
 
-        test_handle& access_test( testing_test_id );
+        test_handle& access_test( test_id );
 
 public:
-        ~testing_reactor();
+        ~reactor();
 };
 
-class testing_default_reactor : private pool_base< 128, 32 >, public testing_reactor
+class default_reactor : private pool_base< 128, 32 >, public reactor
 {
 public:
         /// TODO: this may not be the best idea, as pool_mem will exist only _after_ constructor
         /// for base class is called
-        testing_default_reactor( std::string_view name )
-          : testing_reactor( name, &this->pool_memory )
+        default_reactor( std::string_view name )
+          : reactor( name, &this->pool_memory )
         {
         }
 };
