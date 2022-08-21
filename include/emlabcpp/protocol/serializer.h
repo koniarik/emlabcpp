@@ -29,7 +29,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 template < protocol_base_type T, protocol_endianess_enum Endianess >
@@ -105,4 +105,4 @@ struct protocol_serializer< bool, Endianess >
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

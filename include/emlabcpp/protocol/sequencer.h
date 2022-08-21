@@ -28,7 +28,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 template < typename Def >
@@ -134,4 +134,4 @@ protocol_simple_load( std::size_t read_limit, ReadCallback&& read )
         return res;
 }
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

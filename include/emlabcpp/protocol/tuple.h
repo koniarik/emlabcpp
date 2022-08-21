@@ -24,7 +24,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 /// protocol_tuple is high levle alternative to use just 'std::tuple' that is more friendly for
@@ -58,4 +58,4 @@ struct protocol_tuple : protocol_def_type_base
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

@@ -38,17 +38,17 @@ enum test_keys
         KOO = 10
 };
 
-struct test_map : protocol_register_map<
-                      PROTOCOL_BIG_ENDIAN,
-                      protocol_reg< FOO, uint32_t >,
-                      protocol_reg< WOO, uint32_t >,
-                      protocol_reg< TOO, uint8_t >,
-                      protocol_reg< SOO, bounded< uint8_t, 2, 4 > >,
-                      protocol_reg< KOO, protocol_offset< uint32_t, 42 > > >
+struct test_map : protocol::protocol_register_map<
+                      protocol::PROTOCOL_BIG_ENDIAN,
+                      protocol::protocol_reg< FOO, uint32_t >,
+                      protocol::protocol_reg< WOO, uint32_t >,
+                      protocol::protocol_reg< TOO, uint8_t >,
+                      protocol::protocol_reg< SOO, bounded< uint8_t, 2, 4 > >,
+                      protocol::protocol_reg< KOO, protocol::protocol_offset< uint32_t, 42 > > >
 {
 };
 
-struct test_handler : protocol_register_handler< test_map >
+struct test_handler : protocol::protocol_register_handler< test_map >
 {
 };
 
@@ -56,7 +56,8 @@ template < test_keys Key >
 struct valid_test_case : protocol_test_fixture
 {
         using value_type = typename test_map::reg_value_type< Key >;
-        using pitem = protocol_def< typename test_map::reg_def_type< Key >, PROTOCOL_BIG_ENDIAN >;
+        using pitem      = protocol::
+            protocol_def< typename test_map::reg_def_type< Key >, protocol::PROTOCOL_BIG_ENDIAN >;
         using message_type                    = test_map::message_type;
         static constexpr std::size_t max_size = test_handler::max_size;
 

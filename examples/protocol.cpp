@@ -16,9 +16,9 @@ int main( int, char*[] )
         // handler that does the conversion based on that definition. The definition is done using
         // types and templates and is separated from the actuall serialization and deserialization.
         //
-        // There are two top level types that shall be used: protocol_tuple and
-        // protocol_command_group (variant-like). The user should use these as top level type and
-        // define the protocol in these. They can be nested.
+        // There are two top level types that shall be used: protocol::protocol_tuple and
+        // protocol::protocol_command_group (variant-like). The user should use these as top level
+        // type and define the protocol in these. They can be nested.
         //
         // For the examples we define the protocol by definining structures that inherit from the
         // protocol definition, this is not necessary and simple aliases to types can be used, these
@@ -29,25 +29,26 @@ int main( int, char*[] )
 
         // ---------------------------------------------------------------------------------------
         // The protocol tuple is defined by endianess and items that are stored in the tuple.
-        // protocol_tuple uses std::tuple as the type that actually holds the value. The example
-        // definition below defines protocol for converting
-        // `std::tuple<uint32_t, in16_t, int16_t>` into binary message `protocol_message<8>` of
-        // size 8.
+        // protocol::protocol_tuple uses std::tuple as the type that actually holds the value. The
+        // example definition below defines protocol for converting `std::tuple<uint32_t, in16_t,
+        // int16_t>` into binary message `protocol::protocol_message<8>` of size 8.
         //
         // The structure contains ::value_type and ::message_type aliases.
         struct example_tuple
-          : em::protocol_tuple< em::PROTOCOL_BIG_ENDIAN >::with_items< uint32_t, int16_t, int16_t >
+          : em::protocol::protocol_tuple<
+                em::protocol::PROTOCOL_BIG_ENDIAN >::with_items< uint32_t, int16_t, int16_t >
         {
         };
 
-        // Once protocol is defined, it can be used with protocol_handler to do the serialization
-        // and deserialization. The materialization of code for handling the protocol happens in the
-        // handler itself. The compile time is costly for the handler, it is preferable to use it
-        // in standalone compilation unit.
-        using example_tuple_handler = em::protocol_handler< example_tuple >;
+        // Once protocol is defined, it can be used with protocol::protocol_handler to do the
+        // serialization and deserialization. The materialization of code for handling the protocol
+        // happens in the handler itself. The compile time is costly for the handler, it is
+        // preferable to use it in standalone compilation unit.
+        using example_tuple_handler = em::protocol::protocol_handler< example_tuple >;
 
         std::tuple< uint32_t, int16_t, int16_t > tuple_val = { 666, -2, 2 };
-        em::protocol_message< 8 > tuple_msg = example_tuple_handler::serialize( tuple_val );
+        em::protocol::protocol_message< 8 >      tuple_msg =
+            example_tuple_handler::serialize( tuple_val );
 
         // The library has support for streams, these however are stored in separate included file
         // and has to be enable by defining EMLABCPP_USE_STREAMS
@@ -55,18 +56,18 @@ int main( int, char*[] )
         // The message output is: |00:00:02:9a|ff:fe:00:02
 
         // Deserialization produces either the value on successfull serialization or
-        // protocol_error_record with information about what failed and on which byte. Note: the
-        // protocol_error_record is serializable by the library, so you can simply send it in
-        // report.
+        // protocol::protocol_error_record with information about what failed and on which byte.
+        // Note: the protocol::protocol_error_record is serializable by the library, so you can
+        // simply send it in report.
 
-        em::either< std::tuple< uint32_t, int16_t, int16_t >, em::protocol_error_record >
+        em::either< std::tuple< uint32_t, int16_t, int16_t >, em::protocol::protocol_error_record >
             tuple_either = example_tuple_handler::extract( tuple_msg );
 
         tuple_either.match(
             []( std::tuple< uint32_t, int16_t, int16_t > ) {
                     std::cout << "Yaaay, protocol deserialized what it serialized \\o/\n";
             },
-            []( em::protocol_error_record rec ) {
+            []( em::protocol::protocol_error_record rec ) {
                     std::cout << "Hupsie, error happend in deserialization: " << rec << "\n";
             } );
 
@@ -86,12 +87,13 @@ int main( int, char*[] )
         };
 
         struct example_group
-          : em::protocol_command_group< em::PROTOCOL_BIG_ENDIAN >::with_commands<
-                em::protocol_command< EXAMPLE_CMD_A >::with_args< uint32_t >,
-                em::protocol_command< EXAMPLE_CMD_B >,
-                em::protocol_command< EXAMPLE_CMD_C >::with_args<
-                    std::array< uint32_t, 4 >,
-                    std::tuple< uint8_t, uint8_t, em::bounded< int16_t, -666, 666 > > > >
+          : em::protocol::protocol_command_group< em::protocol::PROTOCOL_BIG_ENDIAN >::
+                with_commands<
+                    em::protocol::protocol_command< EXAMPLE_CMD_A >::with_args< uint32_t >,
+                    em::protocol::protocol_command< EXAMPLE_CMD_B >,
+                    em::protocol::protocol_command< EXAMPLE_CMD_C >::with_args<
+                        std::array< uint32_t, 4 >,
+                        std::tuple< uint8_t, uint8_t, em::bounded< int16_t, -666, 666 > > > >
         {
         };
 
@@ -112,9 +114,10 @@ int main( int, char*[] )
 
         // serialization and deserialization works same way as in case of tuple
 
-        using example_group_handler = em::protocol_handler< example_group >;
+        using example_group_handler = em::protocol::protocol_handler< example_group >;
 
-        em::protocol_message< 22 > group_msg = example_group_handler::serialize( group_val );
+        em::protocol::protocol_message< 22 > group_msg =
+            example_group_handler::serialize( group_val );
 
         std::cout << "Message from example group looks like: " << group_msg << "\n";
         // this produces: |00:01:00:00|00:2a
@@ -124,7 +127,7 @@ int main( int, char*[] )
                 [&]( example_group_value ) {
                         std::cout << "yayyy, group deserialize :) \n";
                 },
-                [&]( em::protocol_error_record rec ) {
+                [&]( em::protocol::protocol_error_record rec ) {
                         std::cout << "something went wrong with the group: " << rec << "\n";
                 } );
 }

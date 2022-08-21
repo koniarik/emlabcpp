@@ -30,7 +30,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 template < ostreamlike Stream, std::size_t N >
@@ -106,4 +106,4 @@ auto& operator<<( Stream& os, const protocol_register_map< Endianess, Regs... >&
         return os;
 }
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

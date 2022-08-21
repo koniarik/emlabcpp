@@ -26,7 +26,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 template < typename T >
@@ -98,4 +98,4 @@ struct protocol_packet : protocol_packet_base< Def, Payload >
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

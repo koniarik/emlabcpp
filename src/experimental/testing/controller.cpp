@@ -60,9 +60,10 @@ public:
         std::optional< testing_reactor_controller_msg > read_message()
         {
                 using sequencer = testing_reactor_controller_packet::sequencer;
-                return protocol_simple_load< sequencer >( read_limit_, [&]( std::size_t c ) {
-                        return iface_.receive( c );
-                } );
+                return protocol::protocol_simple_load< sequencer >(
+                    read_limit_, [&]( std::size_t c ) {
+                            return iface_.receive( c );
+                    } );
         }
         void reply_node_error(
             testing_run_id                         rid,
@@ -146,7 +147,7 @@ std::optional< T > load_data( const Req& req, testing_controller_interface_adapt
             [&]( tag< TESTING_INTERNAL_ERROR >, testing_reactor_error_variant err ) {
                     iface.report_error( testing_internal_reactor_error{ std::move( err ) } );
             },
-            [&]( tag< TESTING_PROTOCOL_ERROR >, protocol_error_record rec ) {
+            [&]( tag< TESTING_PROTOCOL_ERROR >, protocol::protocol_error_record rec ) {
                     iface.report_error( testing_reactor_protocol_error{ rec } );
             },
             [&]< auto WID >( tag< WID >, auto... ){
@@ -160,7 +161,7 @@ testing_reactor_controller_extract( *opt_msg )
                 EMLABCPP_DEBUG_LOG( "con<-rec: " << pack );
                 apply_on_visit( handle, pack );
         },
-        [&]( protocol_error_record rec ) {
+        [&]( protocol::protocol_error_record rec ) {
                 EMLABCPP_LOG( "Protocol error from reactor: " << rec );
                 iface.report_error( testing_controller_protocol_error{ rec } );
         } );
@@ -402,7 +403,7 @@ void testing_controller::handle_message(
 }
 void testing_controller::handle_message(
     tag< TESTING_PROTOCOL_ERROR >,
-    protocol_error_record                 rec,
+    protocol::protocol_error_record       rec,
     testing_controller_interface_adapter& iface )
 {
         iface.report_error( testing_reactor_protocol_error{ rec } );
@@ -444,7 +445,7 @@ void testing_controller::tick( testing_controller_interface& top_iface )
                             },
                             var );
                 },
-                [&]( protocol_error_record e ) {
+                [&]( protocol::protocol_error_record e ) {
                         iface.report_error( testing_controller_protocol_error{ e } );
                 } );
 }

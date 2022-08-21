@@ -36,7 +36,7 @@
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 template < protocol_declarable >
@@ -49,13 +49,13 @@ struct protocol_json_serializer_base
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol
 
-template < emlabcpp::protocol_declarable D >
-struct nlohmann::adl_serializer< emlabcpp::protocol_decl< D > >
+template < emlabcpp::protocol::protocol_declarable D >
+struct nlohmann::adl_serializer< emlabcpp::protocol::protocol_decl< D > >
 {
-        using decl     = emlabcpp::protocol_decl< D >;
-        using prot_ser = emlabcpp::protocol_json_serializer< D >;
+        using decl     = emlabcpp::protocol::protocol_decl< D >;
+        using prot_ser = emlabcpp::protocol::protocol_json_serializer< D >;
 
         static void to_json( nlohmann::json& j, const decl& )
         {
@@ -75,7 +75,7 @@ struct nlohmann::adl_serializer< emlabcpp::protocol_decl< D > >
         }
 };
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 template <>
@@ -468,6 +468,6 @@ requires(
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol
 
 #endif

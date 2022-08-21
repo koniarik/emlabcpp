@@ -27,7 +27,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 template < typename Packet >
@@ -92,4 +92,4 @@ struct protocol_packet_handler
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

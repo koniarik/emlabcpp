@@ -28,7 +28,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 /// Protocol library has custom type that represents message, however this is just simple overaly
@@ -208,4 +208,4 @@ concept protocol_message_derived = requires( T val )
         detail::protocol_message_derived_test( val );
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

@@ -26,7 +26,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 /// protocol_handler< T > should be used to execute actual serialization and deserealization of
@@ -75,4 +75,4 @@ struct protocol_handler
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

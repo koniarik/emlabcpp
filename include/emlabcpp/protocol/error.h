@@ -25,7 +25,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 /// Error handling in protocol works with marks. Mark is a string made of eight characters that
@@ -72,4 +72,4 @@ static constexpr auto GROUP_ERR = make_protocol_mark( "EMLABCPPGRPMATCH" );
 /// wrong checksum in the protocol
 static constexpr auto CHECKSUM_ERR = make_protocol_mark( "EMLABCPPCHECKSUM" );
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

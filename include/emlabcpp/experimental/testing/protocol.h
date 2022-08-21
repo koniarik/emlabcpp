@@ -128,7 +128,7 @@ struct testing_exec
         testing_run_id        rid;
 };
 
-using testing_controller_reactor_group = protocol_tag_group<
+using testing_controller_reactor_group = protocol::protocol_tag_group<
     testing_get_property< TESTING_SUITE_NAME >,
     testing_get_property< TESTING_SUITE_DATE >,
     testing_get_property< TESTING_COUNT >,
@@ -142,21 +142,6 @@ using testing_controller_reactor_group = protocol_tag_group<
     testing_param_type_reply,
     testing_tree_error_reply,
     testing_exec >;
-
-static_assert( decomposable< testing_get_property< TESTING_SUITE_NAME > > );
-static_assert( protocol_declarable< testing_get_property< TESTING_SUITE_NAME > > );
-static_assert( protocol_declarable< testing_get_property< TESTING_SUITE_DATE > > );
-static_assert( protocol_declarable< testing_get_property< TESTING_COUNT > > );
-static_assert( protocol_declarable< testing_get_test_name > );
-static_assert( protocol_declarable< testing_load_test > );
-static_assert( protocol_declarable< testing_collect_reply > );
-static_assert( protocol_declarable< testing_param_value_reply > );
-static_assert( protocol_declarable< testing_param_child_reply > );
-static_assert( protocol_declarable< testing_param_child_count_reply > );
-static_assert( protocol_declarable< testing_param_key_reply > );
-static_assert( protocol_declarable< testing_param_type_reply > );
-static_assert( protocol_declarable< testing_tree_error_reply > );
-static_assert( protocol_declarable< testing_exec > );
 
 using testing_controller_reactor_variant = typename testing_controller_reactor_group::value_type;
 
@@ -175,19 +160,19 @@ enum testing_error_enum : uint8_t
 };
 
 struct testing_reactor_error_group  //
-  : protocol_command_group<
-        PROTOCOL_BIG_ENDIAN,
-        protocol_command< TESTING_TEST_NOT_LOADED_E >,
-        protocol_command< TESTING_TEST_NOT_FOUND_E >,
-        protocol_command< TESTING_WRONG_RUN_ID_E >,
-        protocol_command< TESTING_TEST_ALREADY_LOADED_E >,
-        protocol_command< TESTING_BAD_TEST_ID_E >,
-        protocol_command< TESTING_UNDESIRED_MSG_E >,
-        protocol_command< TESTING_NO_RESPONSE_E >::with_args< testing_messages_enum >,
-        protocol_command<
+  : protocol::protocol_command_group<
+        protocol::PROTOCOL_BIG_ENDIAN,
+        protocol::protocol_command< TESTING_TEST_NOT_LOADED_E >,
+        protocol::protocol_command< TESTING_TEST_NOT_FOUND_E >,
+        protocol::protocol_command< TESTING_WRONG_RUN_ID_E >,
+        protocol::protocol_command< TESTING_TEST_ALREADY_LOADED_E >,
+        protocol::protocol_command< TESTING_BAD_TEST_ID_E >,
+        protocol::protocol_command< TESTING_UNDESIRED_MSG_E >,
+        protocol::protocol_command< TESTING_NO_RESPONSE_E >::with_args< testing_messages_enum >,
+        protocol::protocol_command<
             TESTING_TREE_E >::with_args< testing_node_id, contiguous_request_adapter_errors_enum >,
-        protocol_command< TESTING_WRONG_TYPE_E >::with_args< testing_node_id >,
-        protocol_command< TESTING_WRONG_MESSAGE_E >
+        protocol::protocol_command< TESTING_WRONG_TYPE_E >::with_args< testing_node_id >,
+        protocol::protocol_command< TESTING_WRONG_MESSAGE_E >
 
         >
 {
@@ -196,33 +181,38 @@ struct testing_reactor_error_group  //
 using testing_reactor_error_variant = typename testing_reactor_error_group::value_type;
 
 struct testing_reactor_controller_group
-  : protocol_command_group<
-        PROTOCOL_BIG_ENDIAN,
-        protocol_command< TESTING_COUNT >::with_args< testing_test_id >,
-        protocol_command< TESTING_NAME >::with_args< testing_name_buffer >,
-        protocol_command< TESTING_PARAM_VALUE >::with_args< testing_run_id, testing_node_id >,
-        protocol_command< TESTING_PARAM_CHILD >::with_args<
+  : protocol::protocol_command_group<
+        protocol::PROTOCOL_BIG_ENDIAN,
+        protocol::protocol_command< TESTING_COUNT >::with_args< testing_test_id >,
+        protocol::protocol_command< TESTING_NAME >::with_args< testing_name_buffer >,
+        protocol::protocol_command<
+            TESTING_PARAM_VALUE >::with_args< testing_run_id, testing_node_id >,
+        protocol::protocol_command< TESTING_PARAM_CHILD >::with_args<
             testing_run_id,
             testing_node_id,
             std::variant< testing_key, testing_child_id > >,
-        protocol_command< TESTING_PARAM_CHILD_COUNT >::with_args< testing_run_id, testing_node_id >,
-        protocol_command< TESTING_PARAM_KEY >::with_args<  //
+        protocol::protocol_command<
+            TESTING_PARAM_CHILD_COUNT >::with_args< testing_run_id, testing_node_id >,
+        protocol::protocol_command< TESTING_PARAM_KEY >::with_args<  //
             testing_run_id,
             testing_node_id,
             testing_child_id >,
-        protocol_command< TESTING_PARAM_TYPE >::with_args< testing_run_id, testing_node_id >,
-        protocol_command< TESTING_COLLECT >::with_args<
+        protocol::protocol_command<
+            TESTING_PARAM_TYPE >::with_args< testing_run_id, testing_node_id >,
+        protocol::protocol_command< TESTING_COLLECT >::with_args<
             testing_run_id,
             testing_node_id,
             std::optional< testing_key >,
             testing_collect_arg >,
-        protocol_command< TESTING_FINISHED >::with_args< testing_run_id >,
-        protocol_command< TESTING_ERROR >::with_args< testing_run_id >,
-        protocol_command< TESTING_FAILURE >::with_args< testing_run_id >,
-        protocol_command< TESTING_SUITE_NAME >::with_args< testing_name_buffer >,
-        protocol_command< TESTING_SUITE_DATE >::with_args< testing_name_buffer >,
-        protocol_command< TESTING_INTERNAL_ERROR >::with_args< testing_reactor_error_group >,
-        protocol_command< TESTING_PROTOCOL_ERROR >::with_args< protocol_error_record > >
+        protocol::protocol_command< TESTING_FINISHED >::with_args< testing_run_id >,
+        protocol::protocol_command< TESTING_ERROR >::with_args< testing_run_id >,
+        protocol::protocol_command< TESTING_FAILURE >::with_args< testing_run_id >,
+        protocol::protocol_command< TESTING_SUITE_NAME >::with_args< testing_name_buffer >,
+        protocol::protocol_command< TESTING_SUITE_DATE >::with_args< testing_name_buffer >,
+        protocol::protocol_command< TESTING_INTERNAL_ERROR >::with_args<
+            testing_reactor_error_group >,
+        protocol::protocol_command< TESTING_PROTOCOL_ERROR >::with_args<
+            protocol::protocol_error_record > >
 {
 };
 
@@ -230,10 +220,11 @@ using testing_reactor_controller_variant = typename testing_reactor_controller_g
 
 struct testing_packet_def
 {
-        static constexpr protocol_endianess_enum  endianess = PROTOCOL_BIG_ENDIAN;
-        static constexpr std::array< uint8_t, 4 > prefix    = { 0x42, 0x42, 0x42, 0x42 };
-        using size_type                                     = uint16_t;
-        using checksum_type                                 = uint8_t;
+        static constexpr protocol::protocol_endianess_enum endianess =
+            protocol::PROTOCOL_BIG_ENDIAN;
+        static constexpr std::array< uint8_t, 4 > prefix = { 0x42, 0x42, 0x42, 0x42 };
+        using size_type                                  = uint16_t;
+        using checksum_type                              = uint8_t;
 
         static constexpr checksum_type get_checksum( const view< const uint8_t* > msg )
         {
@@ -245,21 +236,21 @@ struct testing_packet_def
 };
 
 using testing_reactor_controller_packet =
-    protocol_packet< testing_packet_def, testing_reactor_controller_group >;
+    protocol::protocol_packet< testing_packet_def, testing_reactor_controller_group >;
 using testing_controller_reactor_packet =
-    protocol_packet< testing_packet_def, testing_controller_reactor_group >;
+    protocol::protocol_packet< testing_packet_def, testing_controller_reactor_group >;
 
 using testing_reactor_controller_msg = typename testing_reactor_controller_packet::message_type;
 using testing_controller_reactor_msg = typename testing_controller_reactor_packet::message_type;
 
 testing_reactor_controller_msg
 testing_reactor_controller_serialize( const testing_reactor_controller_variant& );
-either< testing_reactor_controller_variant, protocol_error_record >
+either< testing_reactor_controller_variant, protocol::protocol_error_record >
 testing_reactor_controller_extract( const testing_reactor_controller_msg& );
 
 testing_controller_reactor_msg
 testing_controller_reactor_serialize( const testing_controller_reactor_variant& );
-either< testing_controller_reactor_variant, protocol_error_record >
+either< testing_controller_reactor_variant, protocol::protocol_error_record >
 testing_controller_reactor_extract( const testing_controller_reactor_msg& );
 
 }  // namespace emlabcpp

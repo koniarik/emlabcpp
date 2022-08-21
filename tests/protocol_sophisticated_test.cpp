@@ -39,9 +39,10 @@ enum ids : uint8_t
         WOO = 1,
 };
 
-struct simple_group : protocol_command_group< PROTOCOL_BIG_ENDIAN >::with_commands<
-                          protocol_command< FOO >::with_args< uint32_t, uint32_t >,
-                          protocol_command< WOO >::with_args< std::array< uint8_t, 8 > > >
+struct simple_group
+  : protocol::protocol_command_group< protocol::PROTOCOL_BIG_ENDIAN >::with_commands<
+        protocol::protocol_command< FOO >::with_args< uint32_t, uint32_t >,
+        protocol::protocol_command< WOO >::with_args< std::array< uint8_t, 8 > > >
 {
 };
 
@@ -62,32 +63,35 @@ using test_quantity = tagged_quantity< struct vtag, uint32_t >;
 // TODO: test changed endinaess in one subitem
 // TODO: add subprotocol
 struct complex_group
-  : protocol_command_group< PROTOCOL_BIG_ENDIAN >::with_commands<
-        protocol_command< CA >::with_args< int >,
-        protocol_command< CB >,
-        protocol_command< CC >::with_args< std::array< uint16_t, 3 > >,
-        protocol_command<
+  : protocol::protocol_command_group< protocol::PROTOCOL_BIG_ENDIAN >::with_commands<
+        protocol::protocol_command< CA >::with_args< int >,
+        protocol::protocol_command< CB >,
+        protocol::protocol_command< CC >::with_args< std::array< uint16_t, 3 > >,
+        protocol::protocol_command<
             CD >::with_args< std::tuple< uint32_t, uint8_t >, int16_t, uint32_t, uint8_t, uint8_t >,
-        protocol_command< CE >::with_args< std::variant< uint32_t, std::bitset< 13 > > >,
-        protocol_command< CF >::with_args< uint32_t, protocol_sizeless_message< 16 > >,
-        protocol_command< CG >::with_args< uint32_t, protocol_offset< uint8_t, 2 > >,
-        protocol_command< CH >::with_args< test_quantity, uint16_t >,
-        protocol_command< CI >::
-            with_args< protocol_sized_buffer< uint8_t, protocol_sizeless_message< 8 > >, uint32_t >,
-        protocol_command< CJ >::with_args< protocol_group< uint32_t, uint8_t > > >
+        protocol::protocol_command< CE >::with_args< std::variant< uint32_t, std::bitset< 13 > > >,
+        protocol::protocol_command<
+            CF >::with_args< uint32_t, protocol::protocol_sizeless_message< 16 > >,
+        protocol::protocol_command<
+            CG >::with_args< uint32_t, protocol::protocol_offset< uint8_t, 2 > >,
+        protocol::protocol_command< CH >::with_args< test_quantity, uint16_t >,
+        protocol::protocol_command< CI >::with_args<
+            protocol::protocol_sized_buffer< uint8_t, protocol::protocol_sizeless_message< 8 > >,
+            uint32_t >,
+        protocol::protocol_command< CJ >::with_args<
+            protocol::protocol_group< uint32_t, uint8_t > > >
 {
 };
 
-struct test_tuple
-  : protocol_tuple<
-        PROTOCOL_BIG_ENDIAN >::with_items< uint32_t, uint16_t, std::bitset< 13 >, uint32_t >
+struct test_tuple : protocol::protocol_tuple< protocol::PROTOCOL_BIG_ENDIAN >::
+                        with_items< uint32_t, uint16_t, std::bitset< 13 >, uint32_t >
 {
 };
 
 template < typename Group >
 struct valid_test_case : protocol_test_fixture
 {
-        using handler    = protocol_handler< Group >;
+        using handler    = protocol::protocol_handler< Group >;
         using value_type = typename handler::value_type;
 
         value_type             val;
@@ -163,7 +167,8 @@ int main( int argc, char** argv )
             make_valid_test_case< complex_group >(
                 complex_group::make_val< CF >(
                     666u,
-                    *protocol_sizeless_message< 16 >::make( std::vector{ 1, 2, 3, 4, 5, 6 } ) ),
+                    *protocol::protocol_sizeless_message< 16 >::make(
+                        std::vector{ 1, 2, 3, 4, 5, 6 } ) ),
                 { 0, 15, 0, 0, 2, 154, 1, 2, 3, 4, 5, 6 } ),
             make_valid_test_case< complex_group >(
                 complex_group::make_val< CG >( 23456u, static_cast< uint8_t >( 8 ) ),
@@ -174,7 +179,7 @@ int main( int argc, char** argv )
                 { 0, 22, 140, 2, 129, 246, 2, 154 } ),
             make_valid_test_case< complex_group >(
                 complex_group::make_val< CI >(
-                    *protocol_sizeless_message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
+                    *protocol::protocol_sizeless_message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
                     39439483u ),
                 { 0, 23, 5, 1, 2, 3, 4, 5, 2, 89, 204, 123 } ),
             make_valid_test_case< complex_group >(

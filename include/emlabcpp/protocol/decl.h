@@ -33,7 +33,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 /// Each definition of item provided to protocol library should have specialization of
@@ -267,4 +267,4 @@ requires(
         static constexpr std::size_t min_size = tuple_decl::min_size;
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

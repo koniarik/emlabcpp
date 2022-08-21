@@ -31,7 +31,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 /// protocol_def<T,E> structure defines how type T should be serialized and deserialized. Each type
@@ -989,4 +989,4 @@ requires(
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

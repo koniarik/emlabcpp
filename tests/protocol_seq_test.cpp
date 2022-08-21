@@ -31,7 +31,7 @@ using namespace emlabcpp;
 
 struct sequencer_def
 {
-        using message_type = protocol_message< 16 >;
+        using message_type = protocol::protocol_message< 16 >;
 
         static constexpr std::array< uint8_t, 2 > prefix      = { 0x44, 0x44 };
         static constexpr std::size_t              fixed_size  = 3;
@@ -43,7 +43,7 @@ struct sequencer_def
         }
 };
 
-using sequencer = protocol_sequencer< sequencer_def >;
+using sequencer = protocol::protocol_sequencer< sequencer_def >;
 
 TEST( protocol_seq, basic )
 {

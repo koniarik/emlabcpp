@@ -26,7 +26,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 /// Structure that represents definition of one register in the map. It also contains the value
@@ -199,4 +199,4 @@ void protocol_for_each_register( const Map& m, UnaryCallable&& f )
         } );
 }
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

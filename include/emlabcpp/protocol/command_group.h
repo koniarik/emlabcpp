@@ -26,7 +26,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 /// Command group represents a segment in the message, that may contain multiple different variants
@@ -142,4 +142,4 @@ struct protocol_command_group< Endianess >
         using with_commands = protocol_command_group< Endianess, Cmds... >;
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

@@ -30,7 +30,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 /// Strucutre used as result of deserialization in the internal mechanisms of protocol handling.
@@ -125,4 +125,4 @@ struct protocol_def_type_base
 {
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

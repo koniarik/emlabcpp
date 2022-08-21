@@ -25,7 +25,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
 
 /// Handler for serialization and extraction of datatypes used by the register_map. This provides
@@ -103,4 +103,4 @@ struct protocol_register_handler
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol
