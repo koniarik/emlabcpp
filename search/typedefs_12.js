@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['with_5fargs_1507',['with_args',['../structemlabcpp_1_1protocol__command.html#acc5cfae8a5dd35f15d5afc612ff38e33',1,'emlabcpp::protocol_command']]],
-  ['with_5fcommands_1508',['with_commands',['../structemlabcpp_1_1protocol__command__group.html#af56e817f5b2309c4ce7d5cd63e158c15',1,'emlabcpp::protocol_command_group::with_commands()'],['../namespaceemlabcpp.html#a1116f970afbac58563966b407530deaf',1,'emlabcpp::protocol_command_group&lt; Endianess &gt;::with_commands()']]],
-  ['with_5fitems_1509',['with_items',['../structemlabcpp_1_1protocol__tuple.html#a484454dc77334d9e8a6d467a6861693a',1,'emlabcpp::protocol_tuple']]]
+  ['with_5fargs_1568',['with_args',['../structemlabcpp_1_1protocol_1_1command.html#a18e9f5992aaa3164ab3516f90c9fd1ad',1,'emlabcpp::protocol::command']]],
+  ['with_5fcommands_1569',['with_commands',['../structemlabcpp_1_1protocol_1_1command__group.html#ad45b67c848cbde4f1d784923fb67c3c6',1,'emlabcpp::protocol::command_group::with_commands()'],['../namespaceemlabcpp_1_1protocol.html#ab95953fe0453056470854dc34b27f0e2',1,'emlabcpp::protocol::command_group&lt; Endianess &gt;::with_commands()']]],
+  ['with_5fitems_1570',['with_items',['../structemlabcpp_1_1protocol_1_1protocol__tuple.html#a7e9cf0be36bc610a77afdadfea9a2a89',1,'emlabcpp::protocol::protocol_tuple']]]
 ];

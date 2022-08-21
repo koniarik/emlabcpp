@@ -9,11 +9,11 @@ var namespaceemlabcpp_1_1detail =
       [ "DESTROY", "namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eac39aa6dbe619bb8ef8187b00b686df6a", null ]
     ] ],
     [ "bounded_derived_test", "namespaceemlabcpp_1_1detail.html#aa15d5c022409d351cd45334d7501dc72", null ],
-    [ "decompose_count", "namespaceemlabcpp_1_1detail.html#abb9dd8ffd0780ebcf3b5155a9b14957d", null ],
-    [ "decompose_count", "namespaceemlabcpp_1_1detail.html#a734202e80b7e009711bcaac98a221f3c", null ],
-    [ "decompose_has_size", "namespaceemlabcpp_1_1detail.html#af01f23ed794ba9552c3f3fe9a9a2a206", null ],
+    [ "decompose_count", "namespaceemlabcpp_1_1detail.html#a10e61621464f2e4cc1316387d1b70b19", null ],
+    [ "decompose_count_impl", "namespaceemlabcpp_1_1detail.html#afac237c2d59a7ecc344d8c7176a6eb10", null ],
+    [ "decompose_count_impl", "namespaceemlabcpp_1_1detail.html#a250124b6fbc599bf8e1df28d585353fe", null ],
     [ "linear_visit_impl", "namespaceemlabcpp_1_1detail.html#abaa7cebd5983a8eeeb6588e9f0cb35f0", null ],
-    [ "protocol_message_derived_test", "namespaceemlabcpp_1_1detail.html#a70e6b942ad12ffa5b8b9c5080ced861e", null ],
     [ "quantity_derived_test", "namespaceemlabcpp_1_1detail.html#a8be65555da61958326df0b50c6ee2bd8", null ],
-    [ "directly_streamable_for", "namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a", null ]
+    [ "directly_streamable_for", "namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a", null ],
+    [ "max_decompose_count", "namespaceemlabcpp_1_1detail.html#a5e4034afb24c305fe50b620f99e7491b", null ]
 ];

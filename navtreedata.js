@@ -88,12 +88,13 @@ var NAVTREEINDEX =
 [
 "",
 "classemlabcpp_1_1either.html#abb8d56a5914674fbe4f2b1bfb635bae7",
-"classemlabcpp_1_1static__vector.html#a257c4860fbca99e142184e39bd71e73a",
-"experimental_2testing_2protocol_8h.html#a39c432c01b63c755cc8dd093c6c770d4",
-"namespaceemlabcpp.html#a39c432c01b63c755cc8dd093c6c770d4a4790daa6f3f53eef479401fd60851447",
-"namespacemembers_d.html",
-"structemlabcpp_1_1protocol__decl_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html",
-"structemlabcpp_1_1protocol__packet_1_1sequencer__def.html#a01cc363c3c9a60c8b85111eff641c99a"
+"classemlabcpp_1_1static__vector.html#a1cb3115b37984ce71393fca1dc7b7717",
+"experimental_2testing_2error_8h.html#a0a04e29c11b2fc9f9973df1f901d77d2",
+"namespaceemlabcpp.html#a39c432c01b63c755cc8dd093c6c770d4a25ef2e7f385bfdb67f15f8d062b76ba8",
+"namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0",
+"structemlabcpp_1_1min__max.html#aec3e14c40995b881949ef12c89e64143",
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1monostate_01_4.html",
+"traits_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

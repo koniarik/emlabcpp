@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lowsize_5ferr_1309',['LOWSIZE_ERR',['../namespaceemlabcpp.html#a50429a6831c33bfc19692833c3a6b0c1',1,'emlabcpp']]]
+  ['lowsize_5ferr_1363',['LOWSIZE_ERR',['../namespaceemlabcpp_1_1protocol.html#a0cc152a369eaf93310e8db07084d7c1b',1,'emlabcpp::protocol']]]
 ];

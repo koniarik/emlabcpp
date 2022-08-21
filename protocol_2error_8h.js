@@ -1,18 +1,18 @@
 var protocol_2error_8h =
 [
-    [ "protocol_mark", "structemlabcpp_1_1protocol__mark.html", "structemlabcpp_1_1protocol__mark" ],
-    [ "protocol_error_record", "namespaceemlabcpp.html#structemlabcpp_1_1protocol__error__record", [
-      [ "mark", "namespaceemlabcpp.html#a05a3329bfcabf114135f90476bfbcc09", null ],
-      [ "offset", "namespaceemlabcpp.html#a8dcbb739bb8a0179b85adc8f351725bb", null ]
+    [ "protocol_mark", "structemlabcpp_1_1protocol_1_1protocol__mark.html", "structemlabcpp_1_1protocol_1_1protocol__mark" ],
+    [ "error_record", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record", [
+      [ "mark", "namespaceemlabcpp_1_1protocol.html#a51e13fd5f757cd88be715bbf2d1e1816", null ],
+      [ "offset", "namespaceemlabcpp_1_1protocol.html#a7996dad74892867782224e252a6e8d53", null ]
     ] ],
-    [ "make_protocol_mark", "protocol_2error_8h.html#a646c7a3629c79a55ab904410d94f8cb5", null ],
-    [ "BADVAL_ERR", "protocol_2error_8h.html#a145bebab87eba36baf2eeac66f12ded2", null ],
-    [ "BIGSIZE_ERR", "protocol_2error_8h.html#a0f3ea4ba31c3aac1ca5db845fbe67711", null ],
-    [ "BOUNDS_ERR", "protocol_2error_8h.html#a0e05bb2d6769aee5b01021e927a54b65", null ],
-    [ "CHECKSUM_ERR", "protocol_2error_8h.html#a1464a98bcd956131d445b317f4e8814f", null ],
-    [ "GROUP_ERR", "protocol_2error_8h.html#aca0086d26c146022436c25e55e690c79", null ],
-    [ "LOWSIZE_ERR", "protocol_2error_8h.html#a50429a6831c33bfc19692833c3a6b0c1", null ],
-    [ "protocol_mark_size", "protocol_2error_8h.html#ac177bfc75677ebfea65b82aab752e7ca", null ],
-    [ "SIZE_ERR", "protocol_2error_8h.html#ab0600b5cf194accae7c5238c9972cad1", null ],
-    [ "UNDEFVAR_ERR", "protocol_2error_8h.html#a2a0d60b3b8af2bc89f3dc4f985a67aff", null ]
+    [ "make_protocol_mark", "protocol_2error_8h.html#a98c0c6a9bc742adbfa58a9f1e16af8b8", null ],
+    [ "BADVAL_ERR", "protocol_2error_8h.html#ae7f63810880ec41008ee91a908c63148", null ],
+    [ "BIGSIZE_ERR", "protocol_2error_8h.html#a0e98558caf268e368b4544533cb43055", null ],
+    [ "BOUNDS_ERR", "protocol_2error_8h.html#a925029d9c13ebc476b462499b5fae534", null ],
+    [ "CHECKSUM_ERR", "protocol_2error_8h.html#a0eb2445c490b6ad98bd006097c7b4296", null ],
+    [ "GROUP_ERR", "protocol_2error_8h.html#a0d666fa48e88a04569954408cc678126", null ],
+    [ "LOWSIZE_ERR", "protocol_2error_8h.html#a0cc152a369eaf93310e8db07084d7c1b", null ],
+    [ "protocol_mark_size", "protocol_2error_8h.html#aafd1bdbd18888055c50a8567610e918a", null ],
+    [ "SIZE_ERR", "protocol_2error_8h.html#a75075a1ed102c600dfd1f1894c1fc93b", null ],
+    [ "UNDEFVAR_ERR", "protocol_2error_8h.html#ac9952af57257a4c508414c5724c85458", null ]
 ];

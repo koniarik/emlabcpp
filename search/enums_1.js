@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['protocol_5fendianess_5fenum_1513',['protocol_endianess_enum',['../namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594',1,'emlabcpp']]]
+  ['endianess_5fenum_1574',['endianess_enum',['../namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0',1,'emlabcpp::protocol']]]
 ];

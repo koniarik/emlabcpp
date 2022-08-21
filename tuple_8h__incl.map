@@ -1,12 +1,13 @@
 <map id="include/emlabcpp/protocol/tuple.h" name="include/emlabcpp/protocol/tuple.h">
-<area shape="rect" id="node1" title=" " alt="" coords="460,5,655,47"/>
-<area shape="rect" id="node2" href="$decl_8h.html" title=" " alt="" coords="464,95,651,121"/>
-<area shape="rect" id="node3" href="$protocol_2base_8h.html" title=" " alt="" coords="109,169,299,196"/>
-<area shape="rect" id="node4" href="$protocol_2error_8h.html" title=" " alt="" coords="5,244,195,271"/>
-<area shape="rect" id="node5" title=" " alt="" coords="247,244,315,271"/>
-<area shape="rect" id="node6" href="$message_8h.html" title=" " alt="" coords="375,169,593,196"/>
-<area shape="rect" id="node7" title=" " alt="" coords="520,244,595,271"/>
-<area shape="rect" id="node8" href="$quantity_8h.html" title=" " alt="" coords="668,169,823,196"/>
-<area shape="rect" id="node9" href="$static__vector_8h.html" title=" " alt="" coords="847,169,1033,196"/>
-<area shape="rect" id="node10" href="$types_8h.html" title=" " alt="" coords="1057,169,1196,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="537,5,731,47"/>
+<area shape="rect" id="node2" href="$traits_8h.html" title=" " alt="" coords="537,95,731,121"/>
+<area shape="rect" id="node3" href="$decompose_8h.html" title=" " alt="" coords="5,169,183,211"/>
+<area shape="rect" id="node4" href="$protocol_2base_8h.html" title=" " alt="" coords="259,177,449,203"/>
+<area shape="rect" id="node5" href="$protocol_2error_8h.html" title=" " alt="" coords="155,259,345,285"/>
+<area shape="rect" id="node6" title=" " alt="" coords="397,259,465,285"/>
+<area shape="rect" id="node7" href="$message_8h.html" title=" " alt="" coords="525,177,743,203"/>
+<area shape="rect" id="node8" title=" " alt="" coords="670,259,745,285"/>
+<area shape="rect" id="node9" href="$quantity_8h.html" title=" " alt="" coords="818,177,973,203"/>
+<area shape="rect" id="node10" href="$static__vector_8h.html" title=" " alt="" coords="997,177,1183,203"/>
+<area shape="rect" id="node11" href="$types_8h.html" title=" " alt="" coords="1207,177,1346,203"/>
 </map>

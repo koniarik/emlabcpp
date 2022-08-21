@@ -263,8 +263,8 @@ $(document).ready(function(){initNavTree('record_8h_source.html',''); initResiza
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a5db275e21ec862a7a5eb6a6cb576280b">testing_key_to_buffer</a>( sview );</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        }</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        std::optional&lt; testing_controller_reactor_variant &gt;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            read_variant( <a class="code" href="namespaceemlabcpp.html#a1bd4cad4ea7dc7e6ef932fe741dc19dc">testing_node_id</a>, <a class="code" href="namespaceemlabcpp.html#a39c432c01b63c755cc8dd093c6c770d4">testing_messages_enum</a> );</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        std::optional&lt; T &gt; read_variant_alternative( <a class="code" href="namespaceemlabcpp.html#a1bd4cad4ea7dc7e6ef932fe741dc19dc">testing_node_id</a> );</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> ResultType, <span class="keyword">auto</span> ID, <span class="keyword">typename</span>... Args &gt;</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        std::optional&lt; ResultType &gt;</div>
@@ -304,7 +304,6 @@ $(document).ready(function(){initNavTree('record_8h_source.html',''); initResiza
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a1bd4cad4ea7dc7e6ef932fe741dc19dc"><div class="ttname"><a href="namespaceemlabcpp.html#a1bd4cad4ea7dc7e6ef932fe741dc19dc">emlabcpp::testing_node_id</a></div><div class="ttdeci">uint32_t testing_node_id</div><div class="ttdef"><b>Definition:</b> base.h:39</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a28171eac9ceb675a2230f442ba22b6f4"><div class="ttname"><a href="namespaceemlabcpp.html#a28171eac9ceb675a2230f442ba22b6f4">emlabcpp::testing_value</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, testing_string_buffer &gt; testing_value</div><div class="ttdef"><b>Definition:</b> base.h:48</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a39c432c01b63c755cc8dd093c6c770d4"><div class="ttname"><a href="namespaceemlabcpp.html#a39c432c01b63c755cc8dd093c6c770d4">emlabcpp::testing_messages_enum</a></div><div class="ttdeci">testing_messages_enum</div><div class="ttdef"><b>Definition:</b> protocol.h:35</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a5db275e21ec862a7a5eb6a6cb576280b"><div class="ttname"><a href="namespaceemlabcpp.html#a5db275e21ec862a7a5eb6a6cb576280b">emlabcpp::testing_key_to_buffer</a></div><div class="ttdeci">testing_key_buffer testing_key_to_buffer(std::string_view key)</div><div class="ttdef"><b>Definition:</b> base.h:80</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a5e45204d4f0548306443a2b41a3ce7ba"><div class="ttname"><a href="namespaceemlabcpp.html#a5e45204d4f0548306443a2b41a3ce7ba">emlabcpp::testing_run_id</a></div><div class="ttdeci">uint32_t testing_run_id</div><div class="ttdef"><b>Definition:</b> base.h:51</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a7f9ee76b133e656f939746c5fc130078"><div class="ttname"><a href="namespaceemlabcpp.html#a7f9ee76b133e656f939746c5fc130078">emlabcpp::testing_child_id</a></div><div class="ttdeci">uint32_t testing_child_id</div><div class="ttdef"><b>Definition:</b> base.h:41</div></div>
@@ -320,7 +319,7 @@ $(document).ready(function(){initNavTree('record_8h_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="record_8h.html">record.h</a></li>
-    <li class="footer">Generated on Sat Aug 20 2022 21:55:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 09:33:22 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

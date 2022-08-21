@@ -1,4 +1,0 @@
-<map id="emlabcpp::protocol_command_group&lt; Endianess, Cmds &gt;" name="emlabcpp::protocol_command_group&lt; Endianess, Cmds &gt;">
-<area shape="rect" id="node1" title="Command group should be used as a collection of commands that are selected based on the ID,..." alt="" coords="5,95,228,151"/>
-<area shape="rect" id="node2" href="$structemlabcpp_1_1protocol__def__type__base.html" title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib..." alt="" coords="43,5,190,47"/>
-</map>

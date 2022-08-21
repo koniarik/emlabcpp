@@ -1,5 +1,0 @@
-<map id="emlabcpp::protocol_tuple&lt; Endianess, Ds &gt;" name="emlabcpp::protocol_tuple&lt; Endianess, Ds &gt;">
-<area shape="rect" id="node1" title="protocol_tuple is high levle alternative to use just &#39;std::tuple&#39; that is more friendly for standalon..." alt="" coords="6,95,189,136"/>
-<area shape="rect" id="node3" href="$structemlabcpp_1_1protocol__packet.html" title=" " alt="" coords="5,184,189,225"/>
-<area shape="rect" id="node2" href="$structemlabcpp_1_1protocol__def__type__base.html" title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib..." alt="" coords="24,5,171,47"/>
-</map>

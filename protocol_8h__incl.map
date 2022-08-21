@@ -1,8 +1,8 @@
 <map id="include/emlabcpp/protocol.h" name="include/emlabcpp/protocol.h">
-<area shape="rect" id="node1" title=" " alt="" coords="213,5,420,32"/>
-<area shape="rect" id="node2" href="$command__group_8h.html" title=" " alt="" coords="68,80,280,121"/>
-<area shape="rect" id="node4" href="$decl_8h.html" title=" " alt="" coords="223,169,410,196"/>
-<area shape="rect" id="node6" href="$tuple_8h.html" title=" " alt="" coords="354,87,546,114"/>
+<area shape="rect" id="node1" title=" " alt="" coords="217,5,424,32"/>
+<area shape="rect" id="node2" href="$command__group_8h.html" title=" " alt="" coords="72,80,284,121"/>
+<area shape="rect" id="node4" href="$traits_8h.html" title=" " alt="" coords="224,169,417,196"/>
+<area shape="rect" id="node6" href="$tuple_8h.html" title=" " alt="" coords="358,87,550,114"/>
 <area shape="rect" id="node3" href="$assert_8h.html" title=" " alt="" coords="5,169,148,196"/>
-<area shape="rect" id="node5" href="$types_8h.html" title=" " alt="" coords="182,244,321,271"/>
+<area shape="rect" id="node5" href="$types_8h.html" title=" " alt="" coords="183,244,322,271"/>
 </map>

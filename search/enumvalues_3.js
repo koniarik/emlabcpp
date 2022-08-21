@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['protocol_5fbig_5fendian_1529',['PROTOCOL_BIG_ENDIAN',['../namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594a53be8bce457a43c78d5047cded7dca4a',1,'emlabcpp']]],
-  ['protocol_5flittle_5fendian_1530',['PROTOCOL_LITTLE_ENDIAN',['../namespaceemlabcpp.html#a7efd2ac8dd2ca532b893b1c26565c594aa2f671a4536141c87fc72a132d46d839',1,'emlabcpp']]]
+  ['protocol_5fbig_5fendian_1590',['PROTOCOL_BIG_ENDIAN',['../namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0ac74868ff7271adacdd127d693b30f302',1,'emlabcpp::protocol']]],
+  ['protocol_5flittle_5fendian_1591',['PROTOCOL_LITTLE_ENDIAN',['../namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0ae64d148f15976e490832a1792c7d7285',1,'emlabcpp::protocol']]]
 ];

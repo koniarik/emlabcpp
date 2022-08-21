@@ -321,7 +321,7 @@ $(document).ready(function(){initNavTree('quantity_8h_source.html',''); initResi
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="keyword">template</span> &lt; emlabcpp::quantity_derived T &gt;</div>
 <div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html">  282</a></span>&#160;<span class="keyword">struct </span>std::numeric_limits&lt; T &gt;</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;{</div>
-<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html#ac12f5340dbb260e6cb9486a7a00f3a4c">  284</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="structstd_1_1numeric__limits_3_01T_01_4.html#ac12f5340dbb260e6cb9486a7a00f3a4c">value_type</a> = <span class="keyword">typename</span> T::value_type;</div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html#ac12f5340dbb260e6cb9486a7a00f3a4c">  284</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="structstd_1_1numeric__limits_3_01T_01_4.html#ac12f5340dbb260e6cb9486a7a00f3a4c">value_type</a> = <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#abe233a151a6ac879f09a4f0aa7426a09">T::value_type</a>;</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
 <div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html#ab2251fa06cfdeeb61d213db89ad08554">  286</a></span>&#160;        constexpr <span class="keyword">static</span> T <a class="code" href="structstd_1_1numeric__limits_3_01T_01_4.html#ab2251fa06cfdeeb61d213db89ad08554">lowest</a>()</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        {</div>
@@ -364,10 +364,10 @@ $(document).ready(function(){initNavTree('quantity_8h_source.html',''); initResi
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <span class="keyword">static</span> T from_json( <span class="keyword">const</span> nlohmann::json&amp; j )</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        {</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                <span class="keyword">using</span> value_type = <span class="keyword">typename</span> T::value_type;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                <span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#abe233a151a6ac879f09a4f0aa7426a09">value_type</a> = <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#abe233a151a6ac879f09a4f0aa7426a09">T::value_type</a>;</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                <span class="keywordflow">if</span> ( T::get_unit().empty() ) {</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                        <span class="keywordflow">return</span> T{ j.get&lt; value_type &gt;() };</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                        <span class="keywordflow">return</span> T{ j.get&lt; <a class="code" href="namespaceemlabcpp_1_1protocol.html#abe233a151a6ac879f09a4f0aa7426a09">value_type</a> &gt;() };</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                }</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                <span class="keywordflow">return</span> T{ j[T::get_unit()].template get&lt; value_type &gt;() };</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        }</div>
@@ -389,6 +389,7 @@ $(document).ready(function(){initNavTree('quantity_8h_source.html',''); initResi
 <div class="ttc" id="aclassemlabcpp_1_1tagged__quantity_html_a9a120960136067ec36c419f6ff7a2b73"><div class="ttname"><a href="classemlabcpp_1_1tagged__quantity.html#a9a120960136067ec36c419f6ff7a2b73">emlabcpp::tagged_quantity::tag</a></div><div class="ttdeci">Tag tag</div><div class="ttdef"><b>Definition:</b> quantity.h:164</div></div>
 <div class="ttc" id="aconcepts_8h_html"><div class="ttname"><a href="concepts_8h.html">concepts.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1detail_html_a8be65555da61958326df0b50c6ee2bd8"><div class="ttname"><a href="namespaceemlabcpp_1_1detail.html#a8be65555da61958326df0b50c6ee2bd8">emlabcpp::detail::quantity_derived_test</a></div><div class="ttdeci">constexpr bool quantity_derived_test(const quantity&lt; Derived, ValueType &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> quantity.h:141</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_abe233a151a6ac879f09a4f0aa7426a09"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#abe233a151a6ac879f09a4f0aa7426a09">emlabcpp::protocol::value_type</a></div><div class="ttdeci">typename decl::value_type value_type</div><div class="ttdef"><b>Definition:</b> converter.h:959</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a1fdcd2bf6efc13dd21e3298c777d4982"><div class="ttname"><a href="namespaceemlabcpp.html#a1fdcd2bf6efc13dd21e3298c777d4982">emlabcpp::operator/</a></div><div class="ttdeci">constexpr auto operator/(physical_quantity&lt; Len0, Mass0, Time0, Current0, Temp0, Mol0, Li0, Angle0, Byte0 &gt; lh, physical_quantity&lt; Len1, Mass1, Time1, Current1, Temp1, Mol1, Li1, Angle1, Byte1 &gt; rh)</div><div class="ttdoc">Divison of physical_quantiy divides the internal values and the result is a type, where the exponents...</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:166</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a2f10b2ff6c20f2e8057487e521275521"><div class="ttname"><a href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">auto &amp; operator&lt;&lt;(Stream &amp;os, const bounded&lt; T, MinVal, MaxVal &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> bounded.h:177</div></div>
@@ -415,7 +416,7 @@ $(document).ready(function(){initNavTree('quantity_8h_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="quantity_8h.html">quantity.h</a></li>
-    <li class="footer">Generated on Sat Aug 20 2022 21:55:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 09:33:22 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

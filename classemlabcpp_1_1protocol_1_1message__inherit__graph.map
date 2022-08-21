@@ -1,0 +1,4 @@
+<map id="emlabcpp::protocol::message&lt; N &gt;" name="emlabcpp::protocol::message&lt; N &gt;">
+<area shape="rect" id="node1" title="Protocol library has custom type that represents message, however this is just simple overaly over st..." alt="" coords="26,5,173,47"/>
+<area shape="rect" id="node2" href="$classemlabcpp_1_1protocol_1_1sizeless__message.html" title="Sizeless message is class that behaves in a same way as normal message, however it is serialized diff..." alt="" coords="5,95,193,136"/>
+</map>

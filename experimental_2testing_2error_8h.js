@@ -1,10 +1,10 @@
 var experimental_2testing_2error_8h =
 [
     [ "testing_reactor_protocol_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__reactor__protocol__error", [
-      [ "rec", "namespaceemlabcpp.html#aa508af544a02cf8d215173408efd76a5", null ]
+      [ "rec", "namespaceemlabcpp.html#a95a7d06317379832803579ad933f7d3d", null ]
     ] ],
     [ "testing_controller_protocol_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__controller__protocol__error", [
-      [ "rec", "namespaceemlabcpp.html#a555ffdabf7ef4cd54e8993dfa47f0164", null ]
+      [ "rec", "namespaceemlabcpp.html#a263e147a509b37086941e9714cfde554", null ]
     ] ],
     [ "testing_internal_reactor_error", "namespaceemlabcpp.html#structemlabcpp_1_1testing__internal__reactor__error", [
       [ "val", "namespaceemlabcpp.html#aa071beaabe5ee1c0af87ce62efc9f87f", null ]
