@@ -1,9 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structemlabcpp_1_1pool__base.html#aef6ae9b313cac8ad6e61e037506d94bd":[3,0,0,10,0],
-"structemlabcpp_1_1pool__deleter.html":[3,0,0,11],
-"structemlabcpp_1_1pool__deleter.html#a76f85c6091e45af8dcccfe44fdd0e09f":[3,0,0,11,0],
-"structemlabcpp_1_1pool__deleter.html#a8fdabc223354417310c9789c3353a163":[3,0,0,11,1],
 "structemlabcpp_1_1pool__interface.html":[3,0,0,6],
 "structemlabcpp_1_1pool__interface.html#a78601a3ffa8825b63d3b9b1ab2c4e7f1":[3,0,0,6,3],
 "structemlabcpp_1_1pool__interface.html#abf6cda8e56e400df9258a24b5ff02dab":[3,0,0,6,0],
@@ -249,5 +245,9 @@ var NAVTREEINDEX6 =
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html#a24d97a00da57a72c3019966093bef518":[3,0,0,2,52,0],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html#a5e3bdd3df1fd25f89bcf67b33deedb65":[3,0,0,2,52,1],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_01_4.html":[3,0,0,2,57],
-"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html":[3,0,0,2,59]
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html":[3,0,0,2,59],
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#a33ff014880d9ec462b467f86130ab01b":[3,0,0,2,59,3],
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#a3bfe1a873a3238ac0d53c0235976f6ce":[3,0,0,2,59,6],
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#a3fc645e483d68a6a52a33a4a8d3ee2cf":[3,0,0,2,59,2],
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#a9b6bfbe5173ad707ed9bc05645063109":[3,0,0,2,59,4]
 };

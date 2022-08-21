@@ -1,5 +1,5 @@
 <map id="emlabcpp::testing::reactor_error_group" name="emlabcpp::testing::reactor_error_group">
-<area shape="rect" id="node1" title=" " alt="" coords="815,115,965,157"/>
-<area shape="rect" id="node2" href="$structemlabcpp_1_1protocol_1_1command__group.html" title=" " alt="" coords="248,5,767,267"/>
-<area shape="rect" id="node3" href="$structemlabcpp_1_1protocol_1_1converter__def__type__base.html" title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib..." alt="" coords="5,115,200,157"/>
+<area shape="rect" id="node1" title=" " alt="" coords="680,108,831,149"/>
+<area shape="rect" id="node2" href="$structemlabcpp_1_1protocol_1_1command__group.html" title=" " alt="" coords="248,5,632,252"/>
+<area shape="rect" id="node3" href="$structemlabcpp_1_1protocol_1_1converter__def__type__base.html" title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib..." alt="" coords="5,108,200,149"/>
 </map>

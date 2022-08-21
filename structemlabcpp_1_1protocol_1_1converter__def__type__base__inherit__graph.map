@@ -1,10 +1,10 @@
 <map id="emlabcpp::protocol::converter_def_type_base" name="emlabcpp::protocol::converter_def_type_base">
-<area shape="rect" id="node1" title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib..." alt="" coords="5,602,200,643"/>
-<area shape="rect" id="node2" href="$structemlabcpp_1_1protocol_1_1command__group.html" title=" " alt="" coords="248,5,767,267"/>
-<area shape="rect" id="node4" href="$structemlabcpp_1_1protocol_1_1command__group.html" title=" " alt="" coords="256,291,759,699"/>
-<area shape="rect" id="node6" href="$structemlabcpp_1_1protocol_1_1command__group.html" title="Command group should be used as a collection of commands that are selected based on the ID,..." alt="" coords="395,723,619,779"/>
-<area shape="rect" id="node7" href="$structemlabcpp_1_1protocol_1_1tuple.html" title="tuple is high levle alternative to use just &#39;std::tuple&#39; that is more friendly for standalone protoco..." alt="" coords="415,803,599,845"/>
-<area shape="rect" id="node3" href="$structemlabcpp_1_1testing_1_1reactor__error__group.html" title=" " alt="" coords="832,115,983,157"/>
-<area shape="rect" id="node5" href="$structemlabcpp_1_1testing_1_1reactor__controller__group.html" title=" " alt="" coords="817,474,998,515"/>
-<area shape="rect" id="node8" href="$structemlabcpp_1_1protocol_1_1packet.html" title=" " alt="" coords="815,803,1000,845"/>
+<area shape="rect" id="node1" title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib..." alt="" coords="5,613,200,655"/>
+<area shape="rect" id="node2" href="$structemlabcpp_1_1protocol_1_1command__group.html" title=" " alt="" coords="248,5,725,399"/>
+<area shape="rect" id="node4" href="$structemlabcpp_1_1protocol_1_1command__group.html" title=" " alt="" coords="295,423,679,669"/>
+<area shape="rect" id="node6" href="$structemlabcpp_1_1protocol_1_1command__group.html" title="Command group should be used as a collection of commands that are selected based on the ID,..." alt="" coords="375,694,599,750"/>
+<area shape="rect" id="node7" href="$structemlabcpp_1_1protocol_1_1tuple.html" title="tuple is high levle alternative to use just &#39;std::tuple&#39; that is more friendly for standalone protoco..." alt="" coords="395,775,579,816"/>
+<area shape="rect" id="node3" href="$structemlabcpp_1_1testing_1_1reactor__controller__group.html" title=" " alt="" coords="775,181,957,223"/>
+<area shape="rect" id="node5" href="$structemlabcpp_1_1testing_1_1reactor__error__group.html" title=" " alt="" coords="791,525,941,567"/>
+<area shape="rect" id="node8" href="$structemlabcpp_1_1protocol_1_1packet.html" title=" " alt="" coords="773,775,959,816"/>
 </map>
