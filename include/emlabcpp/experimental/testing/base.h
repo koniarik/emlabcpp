@@ -33,23 +33,23 @@
 namespace emlabcpp::testing
 {
 
-using name_buffer = static_vector< char, 32 >;
-using key_type_buffer  = static_vector< char, 16 >;
+using name_buffer     = static_vector< char, 32 >;
+using key_type_buffer = static_vector< char, 16 >;
 
-using node_id       = uint32_t;
-using child_count   = uint32_t;
-using child_id      = uint32_t;
-using testing_node_type     = contiguous_tree_type_enum;
-using key_type           = key_type_buffer;
-using string_buffer = static_vector< char, 32 >;
+using node_id           = uint32_t;
+using child_count       = uint32_t;
+using child_id          = uint32_t;
+using testing_node_type = contiguous_tree_type_enum;
+using key_type          = key_type_buffer;
+using string_buffer     = static_vector< char, 32 >;
 
 // TODO: this breaks stuff as it has nlohmann::json serialization overload which is _not a good
 // idea_
 using value_type = std::variant< int64_t, float, bool, string_buffer >;
 static_assert( !alternative_of< uint32_t, value_type > );
 using testing_collect_arg         = std::variant< value_type, contiguous_container_type >;
-using run_id              = uint32_t;
-using test_id             = uint16_t;
+using run_id                      = uint32_t;
+using test_id                     = uint16_t;
 using testing_tree                = contiguous_tree< key_type, value_type >;
 using testing_node                = typename testing_tree::node_type;
 using testing_array_handle        = typename testing_tree::array_handle;
@@ -91,11 +91,11 @@ class reactor_interface_adapter;
 
 struct testing_result
 {
-        test_id tid;
-        run_id  rid;
-        testing_tree    collected;
-        bool            failed  = false;
-        bool            errored = false;
+        test_id      tid;
+        run_id       rid;
+        testing_tree collected;
+        bool         failed  = false;
+        bool         errored = false;
 
         testing_result( test_id ttid, run_id trid, pool_interface* mem_pool )
           : tid( ttid )

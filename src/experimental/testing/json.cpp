@@ -97,8 +97,7 @@ json_to_testing_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
 
 nlohmann::json testing_tree_to_json( const testing_tree& tree )
 {
-        static_function< nlohmann::json( node_id ), 32 > f =
-            [&]( node_id nid ) -> nlohmann::json {
+        static_function< nlohmann::json( node_id ), 32 > f = [&]( node_id nid ) -> nlohmann::json {
                 const testing_node* node_ptr = tree.get_node( nid );
 
                 if ( node_ptr == nullptr ) {

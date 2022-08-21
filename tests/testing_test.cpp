@@ -256,10 +256,9 @@ int main( int argc, char** argv )
 
         rec.register_test(
             "lambda and fixture",
-            em::testing::testing_compose(
-                my_test_fixture{}, [&]( em::testing::record& rec ) {
-                        rec.expect( 1 > 0 );
-                } ) );
+            em::testing::testing_compose( my_test_fixture{}, [&]( em::testing::record& rec ) {
+                    rec.expect( 1 > 0 );
+            } ) );
 
         // ----------------------------------------------------------------------------
         // build the virtual example and run it

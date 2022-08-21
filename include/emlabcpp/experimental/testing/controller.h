@@ -62,18 +62,18 @@ public:
         void tick( controller_interface& iface );
 
 private:
-        pool_map< test_id, test_info > tests_;
-        name_buffer                    name_;
-        name_buffer                    date_;
-        std::optional< testing_result >        context_;
-        run_id                                 rid_ = 0;
-        pool_interface*                        mem_pool_;
+        pool_map< test_id, test_info >  tests_;
+        name_buffer                     name_;
+        name_buffer                     date_;
+        std::optional< testing_result > context_;
+        run_id                          rid_ = 0;
+        pool_interface*                 mem_pool_;
 
         controller(
             name_buffer                    name,
             name_buffer                    date,
             pool_map< test_id, test_info > tests,
-            pool_interface*                        mem_pool )
+            pool_interface*                mem_pool )
           : tests_( std::move( tests ) )
           , name_( std::move( name ) )
           , date_( std::move( date ) )
@@ -90,10 +90,10 @@ private:
             controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_PARAM_CHILD >,
-            run_id                                            rid,
-            node_id                                           nid,
+            run_id                                    rid,
+            node_id                                   nid,
             const std::variant< key_type, child_id >& chid,
-            controller_interface_adapter&                     iface );
+            controller_interface_adapter&             iface );
         void handle_message(
             tag< TESTING_PARAM_CHILD_COUNT >,
             run_id                        rid,
@@ -103,7 +103,7 @@ private:
             tag< TESTING_PARAM_KEY >,
             run_id                        rid,
             node_id                       nid,
-            child_id              chid,
+            child_id                      chid,
             controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_PARAM_TYPE >,

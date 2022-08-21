@@ -25,12 +25,11 @@
 namespace emlabcpp::testing
 {
 
-std::optional< controller_reactor_variant >
-reactor_interface_adapter::read_variant()
+std::optional< controller_reactor_variant > reactor_interface_adapter::read_variant()
 {
         using sequencer = std::decay_t< decltype( seq_ ) >;
 
-        uint8_t                                         to_read = sequencer::fixed_size;
+        uint8_t                                 to_read = sequencer::fixed_size;
         std::optional< controller_reactor_msg > opt_msg;
         while ( !opt_msg ) {
                 std::optional opt_data = iface_.receive( to_read );

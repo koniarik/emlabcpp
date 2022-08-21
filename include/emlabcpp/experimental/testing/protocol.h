@@ -62,13 +62,13 @@ struct get_property
 struct get_test_name
 {
         static constexpr auto tag = TESTING_NAME;
-        test_id       tid;
+        test_id               tid;
 };
 
 struct load_test
 {
         static constexpr auto tag = TESTING_LOAD;
-        test_id       tid;
+        test_id               tid;
         run_id                rid;
 };
 
@@ -104,7 +104,7 @@ struct param_child_count_reply
 {
         static constexpr auto tag = TESTING_PARAM_CHILD_COUNT;
         run_id                rid;
-        child_count   count;
+        child_count           count;
 };
 
 struct param_key_reply
@@ -184,8 +184,8 @@ struct reactor_controller_group
         protocol::command< TESTING_COUNT >::with_args< test_id >,
         protocol::command< TESTING_NAME >::with_args< name_buffer >,
         protocol::command< TESTING_PARAM_VALUE >::with_args< run_id, node_id >,
-        protocol::command< TESTING_PARAM_CHILD >::
-            with_args< run_id, node_id, std::variant< key_type, child_id > >,
+        protocol::command<
+            TESTING_PARAM_CHILD >::with_args< run_id, node_id, std::variant< key_type, child_id > >,
         protocol::command< TESTING_PARAM_CHILD_COUNT >::with_args< run_id, node_id >,
         protocol::command< TESTING_PARAM_KEY >::with_args<  //
             run_id,

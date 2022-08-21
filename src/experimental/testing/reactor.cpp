@@ -68,27 +68,19 @@ void reactor::spin( reactor_interface& top_iface )
             } );
 }
 
-void reactor::handle_message(
-    get_property< TESTING_SUITE_NAME >,
-    reactor_interface_adapter& iface )
+void reactor::handle_message( get_property< TESTING_SUITE_NAME >, reactor_interface_adapter& iface )
 {
         iface.reply< TESTING_SUITE_NAME >( name_to_buffer( suite_name_ ) );
 }
-void reactor::handle_message(
-    get_property< TESTING_SUITE_DATE >,
-    reactor_interface_adapter& iface )
+void reactor::handle_message( get_property< TESTING_SUITE_DATE >, reactor_interface_adapter& iface )
 {
         iface.reply< TESTING_SUITE_DATE >( name_to_buffer( suite_date_ ) );
 }
-void reactor::handle_message(
-    get_property< TESTING_COUNT >,
-    reactor_interface_adapter& iface )
+void reactor::handle_message( get_property< TESTING_COUNT >, reactor_interface_adapter& iface )
 {
         iface.reply< TESTING_COUNT >( static_cast< test_id >( handles_.size() ) );
 }
-void reactor::handle_message(
-    get_test_name              req,
-    reactor_interface_adapter& iface )
+void reactor::handle_message( get_test_name req, reactor_interface_adapter& iface )
 {
         if ( req.tid >= handles_.size() ) {
                 iface.report_failure< TESTING_BAD_TEST_ID_E >();
@@ -96,9 +88,7 @@ void reactor::handle_message(
         }
         iface.reply< TESTING_NAME >( name_to_buffer( access_test( req.tid ).name ) );
 }
-void reactor::handle_message(
-    load_test                  req,
-    reactor_interface_adapter& iface )
+void reactor::handle_message( load_test req, reactor_interface_adapter& iface )
 {
         if ( active_exec_ ) {
                 iface.report_failure< TESTING_TEST_ALREADY_LOADED_E >();

@@ -42,9 +42,9 @@ class reactor
 
         struct test_handle
         {
-                std::string_view   name;
-                test_interface* ptr;
-                std::size_t        alignment;
+                std::string_view name;
+                test_interface*  ptr;
+                std::size_t      alignment;
 
                 test_handle( std::string_view n, test_interface* p, std::size_t a )
                   : name( n )
@@ -56,9 +56,9 @@ class reactor
 
         struct active_execution
         {
-                test_id tid;
-                run_id  rid;
-                test_handle*    handle_ptr;
+                test_id      tid;
+                run_id       rid;
+                test_handle* handle_ptr;
         };
 
         using handle_container = pool_list< test_handle >;
@@ -101,14 +101,9 @@ public:
         void spin( reactor_interface& comm );
 
 private:
-        void handle_message(
-            get_property< TESTING_SUITE_NAME >,
-            reactor_interface_adapter& );
-        void handle_message(
-            get_property< TESTING_SUITE_DATE >,
-            reactor_interface_adapter& );
-        void
-        handle_message( get_property< TESTING_COUNT >, reactor_interface_adapter& );
+        void handle_message( get_property< TESTING_SUITE_NAME >, reactor_interface_adapter& );
+        void handle_message( get_property< TESTING_SUITE_DATE >, reactor_interface_adapter& );
+        void handle_message( get_property< TESTING_COUNT >, reactor_interface_adapter& );
         void handle_message( get_test_name, reactor_interface_adapter& );
         void handle_message( load_test, reactor_interface_adapter& );
         void handle_message( exec_request, reactor_interface_adapter& );

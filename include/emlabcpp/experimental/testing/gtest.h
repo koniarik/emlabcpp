@@ -32,11 +32,7 @@ namespace emlabcpp::testing
 {
 
 template < ostreamlike T >
-T& recursive_print_node(
-    T&                  os,
-    const testing_tree& t,
-    node_id     nid,
-    std::size_t         depth )
+T& recursive_print_node( T& os, const testing_tree& t, node_id nid, std::size_t depth )
 {
 
         std::string spacing( depth, ' ' );
@@ -146,8 +142,8 @@ void testing_register_gtests( controller_interface& ci )
 
         std::string suite_name = std::string{ opt_con->suite_name() };
         for ( auto [tid, tinfo] : opt_con->get_tests() ) {
-                std::string     name{ tinfo.name.begin(), tinfo.name.end() };
-                test_id test_id = tid;
+                std::string name{ tinfo.name.begin(), tinfo.name.end() };
+                test_id     test_id = tid;
                 ::testing::RegisterTest(
                     suite_name.c_str(),
                     name.c_str(),

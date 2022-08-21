@@ -66,10 +66,7 @@ public:
                             return iface_.receive( c );
                     } );
         }
-        void reply_node_error(
-            run_id                         rid,
-            contiguous_request_adapter_errors_enum err,
-            node_id                        nid )
+        void reply_node_error( run_id rid, contiguous_request_adapter_errors_enum err, node_id nid )
         {
                 if ( err == CONTIGUOUS_WRONG_TYPE ) {
                         EMLABCPP_LOG( "Failed to work with " << nid << ", wrong type of node" );
@@ -176,12 +173,9 @@ controller::make( controller_interface& top_iface, pool_interface* pool )
 {
         controller_interface_adapter iface{ top_iface };
 
-        auto opt_name =
-            load_data< name_buffer >( get_property< TESTING_SUITE_NAME >{}, iface );
-        auto opt_date =
-            load_data< name_buffer >( get_property< TESTING_SUITE_DATE >{}, iface );
-        auto opt_count =
-            load_data< test_id >( get_property< TESTING_COUNT >{}, iface );
+        auto opt_name  = load_data< name_buffer >( get_property< TESTING_SUITE_NAME >{}, iface );
+        auto opt_date  = load_data< name_buffer >( get_property< TESTING_SUITE_DATE >{}, iface );
+        auto opt_count = load_data< test_id >( get_property< TESTING_COUNT >{}, iface );
 
         if ( !opt_name ) {
                 EMLABCPP_LOG( "Failed to build controller - did not get a name" );
@@ -199,8 +193,7 @@ controller::make( controller_interface& top_iface, pool_interface* pool )
         pool_map< test_id, test_info > info{ pool };
 
         for ( test_id i = 0; i < *opt_count; i++ ) {
-                auto opt_name =
-                    load_data< name_buffer >( get_test_name{ .tid = i }, iface );
+                auto opt_name = load_data< name_buffer >( get_test_name{ .tid = i }, iface );
                 if ( !opt_name ) {
                         EMLABCPP_LOG(
                             "Failed to build controller - did not get a test name for index: "
@@ -212,17 +205,11 @@ controller::make( controller_interface& top_iface, pool_interface* pool )
 
         return controller{ *opt_name, *opt_date, std::move( info ), pool };
 }
-void controller::handle_message(
-    tag< TESTING_COUNT >,
-    auto,
-    controller_interface_adapter& iface )
+void controller::handle_message( tag< TESTING_COUNT >, auto, controller_interface_adapter& iface )
 {
         iface.report_error( controller_message_error{ TESTING_COUNT } );
 }
-void controller::handle_message(
-    tag< TESTING_NAME >,
-    auto,
-    controller_interface_adapter& iface )
+void controller::handle_message( tag< TESTING_NAME >, auto, controller_interface_adapter& iface )
 {
         iface.report_error( controller_message_error{ TESTING_NAME } );
 }
@@ -247,10 +234,10 @@ void controller::handle_message(
 }
 void controller::handle_message(
     tag< TESTING_PARAM_CHILD >,
-    run_id                                       rid,
-    node_id                                      nid,
+    run_id                                    rid,
+    node_id                                   nid,
     const std::variant< key_type, child_id >& chid,
-    controller_interface_adapter&                iface )
+    controller_interface_adapter&             iface )
 {
         EMLABCPP_ASSERT( context_ );
         EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
@@ -328,11 +315,11 @@ void controller::handle_message(
 
 void controller::handle_message(
     tag< TESTING_COLLECT >,
-    run_id                        rid,
-    node_id                       parent,
-    const std::optional< key_type >&   opt_key,
-    const testing_collect_arg&            val,
-    controller_interface_adapter& iface )
+    run_id                           rid,
+    node_id                          parent,
+    const std::optional< key_type >& opt_key,
+    const testing_collect_arg&       val,
+    controller_interface_adapter&    iface )
 {
         EMLABCPP_ASSERT( context_ );
         EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
@@ -368,17 +355,11 @@ void controller::handle_message(
         iface->on_result( *context_ );
         context_.reset();
 }
-void controller::handle_message(
-    tag< TESTING_ERROR >,
-    auto,
-    controller_interface_adapter& )
+void controller::handle_message( tag< TESTING_ERROR >, auto, controller_interface_adapter& )
 {
         context_->errored = true;
 }
-void controller::handle_message(
-    tag< TESTING_FAILURE >,
-    auto,
-    controller_interface_adapter& )
+void controller::handle_message( tag< TESTING_FAILURE >, auto, controller_interface_adapter& )
 {
         context_->failed = true;
 }
@@ -405,7 +386,7 @@ void controller::handle_message(
 }
 void controller::handle_message(
     tag< TESTING_PROTOCOL_ERROR >,
-    protocol::error_record                rec,
+    protocol::error_record        rec,
     controller_interface_adapter& iface )
 {
         iface.report_error( reactor_protocol_error{ rec } );

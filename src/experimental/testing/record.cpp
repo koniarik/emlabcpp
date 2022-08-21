@@ -47,27 +47,24 @@ std::optional< value_type > record::get_param_value( node_id nid )
         return std::nullopt;
 }
 
-std::optional< node_id >
-record::collect( node_id parent, const testing_collect_arg& arg )
+std::optional< node_id > record::collect( node_id parent, const testing_collect_arg& arg )
 {
         return collect( parent, std::optional< key_type >{}, arg );
 }
 
 std::optional< node_id > record::collect(
-    node_id                     parent,
+    node_id                          parent,
     const std::optional< key_type >& key,
-    const testing_collect_arg&          arg )
+    const testing_collect_arg&       arg )
 {
-        std::optional reply =
-            exchange< collect_reply, TESTING_COLLECT >( parent, key, arg );
+        std::optional reply = exchange< collect_reply, TESTING_COLLECT >( parent, key, arg );
         if ( reply ) {
                 return reply->nid;
         }
         return std::nullopt;
 }
 
-std::optional< node_id >
-record::get_param_child( node_id nid, child_id chid )
+std::optional< node_id > record::get_param_child( node_id nid, child_id chid )
 {
         std::optional reply = exchange< param_child_reply, TESTING_PARAM_CHILD >(
             nid, std::variant< key_type, child_id >{ chid } );
@@ -77,14 +74,12 @@ record::get_param_child( node_id nid, child_id chid )
         return std::nullopt;
 }
 
-std::optional< node_id >
-record::get_param_child( node_id nid, std::string_view key )
+std::optional< node_id > record::get_param_child( node_id nid, std::string_view key )
 {
         return get_param_child( nid, key_type_to_buffer( key ) );
 }
 
-std::optional< node_id >
-record::get_param_child( node_id nid, const key_type& key )
+std::optional< node_id > record::get_param_child( node_id nid, const key_type& key )
 {
         // TODO duplication of other overload /o\...
         std::optional reply = exchange< param_child_reply, TESTING_PARAM_CHILD >(
@@ -95,19 +90,16 @@ record::get_param_child( node_id nid, const key_type& key )
         return std::nullopt;
 }
 
-std::optional< child_count >
-record::get_param_child_count( std::optional< node_id > nid )
+std::optional< child_count > record::get_param_child_count( std::optional< node_id > nid )
 {
-        std::optional reply =
-            exchange< param_child_count_reply, TESTING_PARAM_CHILD_COUNT >( nid );
+        std::optional reply = exchange< param_child_count_reply, TESTING_PARAM_CHILD_COUNT >( nid );
         if ( reply ) {
                 return reply->count;
         }
         return std::nullopt;
 }
 
-std::optional< key_type >
-record::get_param_key( node_id nid, child_id chid )
+std::optional< key_type > record::get_param_key( node_id nid, child_id chid )
 {
         std::optional reply = exchange< param_key_reply, TESTING_PARAM_KEY >( nid, chid );
         if ( reply ) {

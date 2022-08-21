@@ -35,13 +35,10 @@ class record
         test_id                    tid_;
         run_id                     rid_;
         reactor_interface_adapter& comm_;
-        bool                               errored_ = false;
+        bool                       errored_ = false;
 
 public:
-        record(
-            test_id                    tid,
-            run_id                     rid,
-            reactor_interface_adapter& comm )
+        record( test_id tid, run_id rid, reactor_interface_adapter& comm )
           : tid_( tid )
           , rid_( rid )
           , comm_( comm )
@@ -91,8 +88,7 @@ public:
         std::optional< node_id > get_param_child( node_id, const key_type& key );
         std::optional< node_id > get_param_child( node_id, std::string_view key );
 
-        std::optional< child_count >
-            get_param_child_count( std::optional< node_id > );
+        std::optional< child_count > get_param_child_count( std::optional< node_id > );
         std::optional< child_count > get_param_child_count( node_id nid )
         {
                 return get_param_child_count( std::optional{ nid } );
@@ -106,27 +102,24 @@ public:
         }
 
         std::optional< node_id > collect(
-            node_id                     parent,
+            node_id                          parent,
             const std::optional< key_type >& key,
-            const testing_collect_arg&          arg );
+            const testing_collect_arg&       arg );
 
-        std::optional< node_id >
-        collect( node_id parent, const testing_collect_arg& arg );
+        std::optional< node_id > collect( node_id parent, const testing_collect_arg& arg );
 
         std::optional< node_id >
         collect( node_id parent, std::string_view k, contiguous_container_type t )
         {
                 return collect( parent, convert_key( k ), testing_collect_arg{ t } );
         }
-        std::optional< node_id >
-        collect( node_id parent, contiguous_container_type t )
+        std::optional< node_id > collect( node_id parent, contiguous_container_type t )
         {
                 return collect( parent, testing_collect_arg{ t } );
         }
 
         template < typename Arg >
-        std::optional< node_id >
-        collect( node_id parent, std::string_view k, const Arg& arg )
+        std::optional< node_id > collect( node_id parent, std::string_view k, const Arg& arg )
         {
                 return collect(
                     parent, convert_key( k ), value_type_converter< Arg >::to_value( arg ) );
@@ -178,8 +171,7 @@ private:
         std::optional< T > read_variant_alternative( node_id );
 
         template < typename ResultType, auto ID, typename... Args >
-        std::optional< ResultType >
-        exchange( std::optional< node_id > nid, const Args&... args );
+        std::optional< ResultType > exchange( std::optional< node_id > nid, const Args&... args );
 };
 
 }  // namespace emlabcpp::testing

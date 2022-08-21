@@ -62,7 +62,7 @@ class register_map
 
 public:
         static constexpr std::endian endianess = Endianess;
-        using registers_tuple                     = std::tuple< Regs... >;
+        using registers_tuple                  = std::tuple< Regs... >;
         using key_type = typename std::tuple_element_t< 0, registers_tuple >::key_type;
 
         static constexpr std::size_t registers_count = sizeof...( Regs );
