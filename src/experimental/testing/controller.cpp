@@ -80,13 +80,13 @@ public:
                 send( tree_error_reply{ .rid = rid, .err = err, .nid = nid } );
         }
 
-        void report_error( testing_error_variant var )
+        void report_error( error_variant var )
         {
                 log_error( var );
                 iface_.on_error( std::move( var ) );
         }
 #ifdef EMLABCPP_USE_LOGGING
-        void log_error( const testing_error_variant& var )
+        void log_error( const error_variant& var )
         {
                 match(
                     var,
@@ -117,7 +117,7 @@ public:
                 }
         }
 #else
-        void log_error( const testing_error_variant& )
+        void log_error( const error_variant& )
         {
         }
 #endif

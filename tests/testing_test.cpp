@@ -223,7 +223,7 @@ struct controller_iface : em::testing::controller_interface
                 return tree;
         }
 
-        void on_error( em::testing::testing_error_variant err ) final
+        void on_error( em::testing::error_variant err ) final
         {
                 FAIL() << err;
         }

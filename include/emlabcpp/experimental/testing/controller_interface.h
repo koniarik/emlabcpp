@@ -35,7 +35,7 @@ public:
         virtual std::optional< static_vector< uint8_t, 64 > > receive( std::size_t )            = 0;
         virtual void                                          on_result( const test_result& )   = 0;
         virtual data_tree&                                    get_param_tree()                  = 0;
-        virtual void                                          on_error( testing_error_variant ) = 0;
+        virtual void                                          on_error( error_variant ) = 0;
 
         virtual ~controller_interface() = default;
 };

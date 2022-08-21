@@ -52,7 +52,7 @@ struct controller_internal_error
         messages_enum msg_id;
 };
 
-using testing_error_variant = std::variant<
+using error_variant = std::variant<
     reactor_protocol_error,
     controller_protocol_error,
     internal_reactor_error,
@@ -83,7 +83,7 @@ auto& operator<<( ostreamlike auto& os, const controller_internal_error& e )
         return os << convert_enum( e.msg_id );
 }
 
-auto& operator<<( ostreamlike auto& os, const testing_error_variant& var )
+auto& operator<<( ostreamlike auto& os, const error_variant& var )
 {
         emlabcpp::visit(
             [&]( const auto& item ) {
