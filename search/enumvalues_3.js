@@ -1,5 +1,31 @@
 var searchData=
 [
-  ['protocol_5fbig_5fendian_1588',['PROTOCOL_BIG_ENDIAN',['../namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0ac74868ff7271adacdd127d693b30f302',1,'emlabcpp::protocol']]],
-  ['protocol_5flittle_5fendian_1589',['PROTOCOL_LITTLE_ENDIAN',['../namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0ae64d148f15976e490832a1792c7d7285',1,'emlabcpp::protocol']]]
+  ['testing_5fbad_5ftest_5fid_5fe_1577',['TESTING_BAD_TEST_ID_E',['../namespaceemlabcpp_1_1testing.html#ab29206490649fe69a7bed3b27953ec9da4b385730189fec86c4d7dbcb099e67fc',1,'emlabcpp::testing']]],
+  ['testing_5fcollect_1578',['TESTING_COLLECT',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cab40cbaf9b94f2899d824c3b9b7597706',1,'emlabcpp::testing']]],
+  ['testing_5fcount_1579',['TESTING_COUNT',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cabaf5de38e1a157cd581b79b91d1f6058',1,'emlabcpp::testing']]],
+  ['testing_5ferror_1580',['TESTING_ERROR',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca57a03a4fe53d939ae8f183c650fdf50d',1,'emlabcpp::testing']]],
+  ['testing_5fexec_1581',['TESTING_EXEC',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca43bf76ccc942413e8eb92891fdeeb7e2',1,'emlabcpp::testing']]],
+  ['testing_5ffailure_1582',['TESTING_FAILURE',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca3e270ee8dbb87d250e28e70963ae03fe',1,'emlabcpp::testing']]],
+  ['testing_5ffinished_1583',['TESTING_FINISHED',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cabe980207f03f8db4141481b273f566e0',1,'emlabcpp::testing']]],
+  ['testing_5finternal_5ferror_1584',['TESTING_INTERNAL_ERROR',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca164b7df8b36da25a6adb300a6de4141e',1,'emlabcpp::testing']]],
+  ['testing_5fload_1585',['TESTING_LOAD',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca179304580b7ecd108e4347991cc6c0c0',1,'emlabcpp::testing']]],
+  ['testing_5fname_1586',['TESTING_NAME',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca83cb5f992ce4d211551f945bbd3d2633',1,'emlabcpp::testing']]],
+  ['testing_5fno_5fresponse_5fe_1587',['TESTING_NO_RESPONSE_E',['../namespaceemlabcpp_1_1testing.html#ab29206490649fe69a7bed3b27953ec9dad6bd98713f01cebd193989d314e152ca',1,'emlabcpp::testing']]],
+  ['testing_5fparam_5fchild_1588',['TESTING_PARAM_CHILD',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca04012bd7175a6975009b873e1f9214d5',1,'emlabcpp::testing']]],
+  ['testing_5fparam_5fchild_5fcount_1589',['TESTING_PARAM_CHILD_COUNT',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cacf9bf0f68ed523931ced0ca53e4a5ea7',1,'emlabcpp::testing']]],
+  ['testing_5fparam_5fkey_1590',['TESTING_PARAM_KEY',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cafbfdc6066f657634386fa6b09794f4f4',1,'emlabcpp::testing']]],
+  ['testing_5fparam_5ftype_1591',['TESTING_PARAM_TYPE',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca7f85262bd7edf04f9fe80ab3006f351e',1,'emlabcpp::testing']]],
+  ['testing_5fparam_5fvalue_1592',['TESTING_PARAM_VALUE',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca1c5b452dda98dcee04a6369d1e671657',1,'emlabcpp::testing']]],
+  ['testing_5fprotocol_5ferror_1593',['TESTING_PROTOCOL_ERROR',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cae9e7d485492273ad0554d697037e9952',1,'emlabcpp::testing']]],
+  ['testing_5fsuite_5fdate_1594',['TESTING_SUITE_DATE',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca85e5fc00a5ad3c5f7934b252260eb9e4',1,'emlabcpp::testing']]],
+  ['testing_5fsuite_5fname_1595',['TESTING_SUITE_NAME',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca1bcfdd7564905f5c6fba17fe9a4e05d5',1,'emlabcpp::testing']]],
+  ['testing_5ftest_5falready_5floaded_5fe_1596',['TESTING_TEST_ALREADY_LOADED_E',['../namespaceemlabcpp_1_1testing.html#ab29206490649fe69a7bed3b27953ec9da743c57cb31d270ec1f2cd2f0cd8da8d2',1,'emlabcpp::testing']]],
+  ['testing_5ftest_5fnot_5ffound_5fe_1597',['TESTING_TEST_NOT_FOUND_E',['../namespaceemlabcpp_1_1testing.html#ab29206490649fe69a7bed3b27953ec9da22c14eff5d9a6d266761c2c0593c4059',1,'emlabcpp::testing']]],
+  ['testing_5ftest_5fnot_5floaded_5fe_1598',['TESTING_TEST_NOT_LOADED_E',['../namespaceemlabcpp_1_1testing.html#ab29206490649fe69a7bed3b27953ec9da21c099b8696aa3d51fd9d3a31c5c8b90',1,'emlabcpp::testing']]],
+  ['testing_5ftree_5fe_1599',['TESTING_TREE_E',['../namespaceemlabcpp_1_1testing.html#ab29206490649fe69a7bed3b27953ec9da45375f58b197abf01452498331b8bcc1',1,'emlabcpp::testing']]],
+  ['testing_5ftree_5ferror_1600',['TESTING_TREE_ERROR',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cafc4ca802770774b48b3000378d1321b4',1,'emlabcpp::testing']]],
+  ['testing_5fundesired_5fmsg_5fe_1601',['TESTING_UNDESIRED_MSG_E',['../namespaceemlabcpp_1_1testing.html#ab29206490649fe69a7bed3b27953ec9dafd58deadb4ca8a90ceb46c75f6c6cd1d',1,'emlabcpp::testing']]],
+  ['testing_5fwrong_5fmessage_5fe_1602',['TESTING_WRONG_MESSAGE_E',['../namespaceemlabcpp_1_1testing.html#ab29206490649fe69a7bed3b27953ec9da6acc50152f98de26e94893de1d3e81e2',1,'emlabcpp::testing']]],
+  ['testing_5fwrong_5frun_5fid_5fe_1603',['TESTING_WRONG_RUN_ID_E',['../namespaceemlabcpp_1_1testing.html#ab29206490649fe69a7bed3b27953ec9da21d265555c723cfcb6bf0bf5a9e7076b',1,'emlabcpp::testing']]],
+  ['testing_5fwrong_5ftype_5fe_1604',['TESTING_WRONG_TYPE_E',['../namespaceemlabcpp_1_1testing.html#ab29206490649fe69a7bed3b27953ec9da950bbe1b1b1f46618d80d6df5f47ad10',1,'emlabcpp::testing']]]
 ];

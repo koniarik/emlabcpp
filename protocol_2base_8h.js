@@ -14,9 +14,5 @@ var protocol_2base_8h =
     ] ],
     [ "value_offset", "structemlabcpp_1_1protocol_1_1value__offset.html", "structemlabcpp_1_1protocol_1_1value__offset" ],
     [ "converter_def_type_base", "structemlabcpp_1_1protocol_1_1converter__def__type__base.html", null ],
-    [ "endianess_enum", "protocol_2base_8h.html#a90a401e45178aeb83cdab6ec95e14cd0", [
-      [ "PROTOCOL_BIG_ENDIAN", "protocol_2base_8h.html#a90a401e45178aeb83cdab6ec95e14cd0ac74868ff7271adacdd127d693b30f302", null ],
-      [ "PROTOCOL_LITTLE_ENDIAN", "protocol_2base_8h.html#a90a401e45178aeb83cdab6ec95e14cd0ae64d148f15976e490832a1792c7d7285", null ]
-    ] ],
     [ "base_type", "protocol_2base_8h.html#aa86d1c4c148d71e70716484056a293c0", null ]
 ];

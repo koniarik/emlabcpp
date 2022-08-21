@@ -71,16 +71,12 @@ var namespaceemlabcpp_1_1protocol =
     [ "sub_def", "namespaceemlabcpp_1_1protocol.html#a2ab1626468056aa444c2fa110bf4c350", null ],
     [ "tuple_type", "namespaceemlabcpp_1_1protocol.html#a44c0ab0566a435c350971a246635c2f9", null ],
     [ "value_type", "namespaceemlabcpp_1_1protocol.html#abe233a151a6ac879f09a4f0aa7426a09", null ],
-    [ "endianess_enum", "namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0", [
-      [ "PROTOCOL_BIG_ENDIAN", "namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0ac74868ff7271adacdd127d693b30f302", null ],
-      [ "PROTOCOL_LITTLE_ENDIAN", "namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0ae64d148f15976e490832a1792c7d7285", null ]
-    ] ],
     [ "deserialize", "namespaceemlabcpp_1_1protocol.html#a06d45062b7fd0e863ee76d1af4a21d89", null ],
     [ "for_each_register", "namespaceemlabcpp_1_1protocol.html#a25417e5baf4dcb0a348bb0e6e5ea83a2", null ],
     [ "make_mark", "namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be", null ],
-    [ "operator<<", "namespaceemlabcpp_1_1protocol.html#aa7cb0655e30323b4c103b589a87f865e", null ],
     [ "operator<<", "namespaceemlabcpp_1_1protocol.html#a16e17e9ab911b5545219ad5745d5ef2b", null ],
     [ "operator<<", "namespaceemlabcpp_1_1protocol.html#af249a28fd2e4a8061fae1a3efa82a658", null ],
+    [ "operator<<", "namespaceemlabcpp_1_1protocol.html#a78012bf92df942bfb241c7e097c87846", null ],
     [ "operator<<", "namespaceemlabcpp_1_1protocol.html#ad52649bb28ff1f5ffcd952a86b5ede82", null ],
     [ "operator<<", "namespaceemlabcpp_1_1protocol.html#a86af295c29486a2e771b64dafe6e100b", null ],
     [ "requires", "namespaceemlabcpp_1_1protocol.html#a919b5b19b105271c651067cd4c116b44", null ],

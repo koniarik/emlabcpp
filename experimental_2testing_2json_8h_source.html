@@ -92,35 +92,35 @@ $(document).ready(function(){initNavTree('experimental_2testing_2json_8h_source.
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_NLOHMANN_JSON</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1testing.html">emlabcpp::testing</a></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<a class="code" href="namespaceemlabcpp.html#a28171eac9ceb675a2230f442ba22b6f4">emlabcpp::testing_value</a> json_to_testing_value( <span class="keyword">const</span> nlohmann::json&amp; j );</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> json_to_value_type( <span class="keyword">const</span> nlohmann::json&amp; j );</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;nlohmann::json testing_value_to_json( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#a28171eac9ceb675a2230f442ba22b6f4">testing_value</a>&amp; tv );</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;nlohmann::json value_type_to_json( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a>&amp; tv );</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<a class="code" href="classemlabcpp_1_1static__vector.html">emlabcpp::testing_key</a> json_to_testing_key( <span class="keyword">const</span> nlohmann::json&amp; j );</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<a class="code" href="namespaceemlabcpp_1_1testing.html#a55dce13b513939f69f3700556ffee4f1">key_type</a> json_to_key_type( <span class="keyword">const</span> nlohmann::json&amp; j );</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;std::optional&lt; testing_tree &gt;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;json_to_testing_tree( pool_interface* mem_pool, <span class="keyword">const</span> nlohmann::json&amp; inpt );</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;nlohmann::json testing_tree_to_json( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#adfc5fd4bc1b474abb3a91fb9f0741cda">testing_tree</a>&amp; tree );</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;nlohmann::json testing_tree_to_json( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a1df5d280d8d65909ec839b6e7e1fc194">testing_tree</a>&amp; tree );</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}  <span class="comment">// namespace emlabcpp::testing</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassemlabcpp_1_1static__vector_html"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html">emlabcpp::static_vector</a></div><div class="ttdoc">Data container for up to N elements.</div><div class="ttdef"><b>Definition:</b> static_vector.h:39</div></div>
 <div class="ttc" id="aexperimental_2testing_2base_8h_html"><div class="ttname"><a href="experimental_2testing_2base_8h.html">base.h</a></div></div>
-<div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a28171eac9ceb675a2230f442ba22b6f4"><div class="ttname"><a href="namespaceemlabcpp.html#a28171eac9ceb675a2230f442ba22b6f4">emlabcpp::testing_value</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, testing_string_buffer &gt; testing_value</div><div class="ttdef"><b>Definition:</b> base.h:48</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_adfc5fd4bc1b474abb3a91fb9f0741cda"><div class="ttname"><a href="namespaceemlabcpp.html#adfc5fd4bc1b474abb3a91fb9f0741cda">emlabcpp::testing_tree</a></div><div class="ttdeci">contiguous_tree&lt; testing_key, testing_value &gt; testing_tree</div><div class="ttdef"><b>Definition:</b> base.h:53</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html">emlabcpp::testing</a></div><div class="ttdef"><b>Definition:</b> base.h:34</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a1df5d280d8d65909ec839b6e7e1fc194"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a1df5d280d8d65909ec839b6e7e1fc194">emlabcpp::testing::testing_tree</a></div><div class="ttdeci">contiguous_tree&lt; key_type, value_type &gt; testing_tree</div><div class="ttdef"><b>Definition:</b> base.h:53</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a55dce13b513939f69f3700556ffee4f1"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a55dce13b513939f69f3700556ffee4f1">emlabcpp::testing::key_type</a></div><div class="ttdeci">key_type_buffer key_type</div><div class="ttdef"><b>Definition:</b> base.h:43</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:48</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="experimental_2testing_2json_8h.html">json.h</a></li>
-    <li class="footer">Generated on Sun Aug 21 2022 11:25:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 13:59:29 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -167,8 +167,8 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a0ee53a2263002b2e779e44df6a17edb9"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0">endianess_enum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a0ee53a2263002b2e779e44df6a17edb9">endianess</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a></td></tr>
-<tr class="separator:a0ee53a2263002b2e779e44df6a17edb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a186d6906563c747f46ff7b429532f5c4"><td class="memItemLeft" align="right" valign="top">static constexpr std::endian&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a186d6906563c747f46ff7b429532f5c4">endianess</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a></td></tr>
+<tr class="separator:a186d6906563c747f46ff7b429532f5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6df959b196db8242aea28d3fc0e41e38"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a6df959b196db8242aea28d3fc0e41e38">registers_count</a> = sizeof...( Regs )</td></tr>
 <tr class="separator:a6df959b196db8242aea28d3fc0e41e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33f5097792f99d104f47fd808132b3b9"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a33f5097792f99d104f47fd808132b3b9">max_value_size</a> = std::max( { Regs::decl::max_size... } )</td></tr>
@@ -181,7 +181,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:ad94eab5cd02340f4e09d15e08d7ee91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;endianess_enum Endianess, typename... Regs&gt;<br />
+<div class="textblock"><h3>template&lt;std::endian Endianess, typename... Regs&gt;<br />
 class emlabcpp::protocol::register_map&lt; Endianess, Regs &gt;</h3>
 
 <p>Register map is abstraction to work with registers of external devices. </p>
@@ -193,7 +193,7 @@ class emlabcpp::protocol::register_map&lt; Endianess, Regs &gt;</h3>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div class="memtemplate">
 template&lt;key_type Key&gt; </div>
       <table class="memname">
@@ -211,7 +211,7 @@ template&lt;key_type Key&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a> =  typename std::tuple_element_t&lt; 0, <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a123ef0007c53a0241f548d9e1b559de3">registers_tuple</a> &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a></td>
@@ -227,7 +227,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a839a1044031392b0aad65f6c100e884c">message_type</a> =  <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a33f5097792f99d104f47fd808132b3b9">max_value_size</a> &gt;</td>
@@ -243,7 +243,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div class="memtemplate">
 template&lt;key_type Key&gt; </div>
       <table class="memname">
@@ -261,7 +261,7 @@ template&lt;key_type Key&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div class="memtemplate">
 template&lt;key_type Key&gt; </div>
       <table class="memname">
@@ -279,7 +279,7 @@ template&lt;key_type Key&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div class="memtemplate">
 template&lt;key_type Key&gt; </div>
       <table class="memname">
@@ -297,7 +297,7 @@ template&lt;key_type Key&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ad9c9d7232471e21e3b8ffc20082074b9">register_index</a> =  <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, 0, <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a6df959b196db8242aea28d3fc0e41e38">registers_count</a> - 1 &gt;</td>
@@ -313,7 +313,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a123ef0007c53a0241f548d9e1b559de3">registers_tuple</a> =  std::tuple&lt; Regs... &gt;</td>
@@ -330,7 +330,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -357,7 +357,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -386,7 +386,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -414,7 +414,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div class="memtemplate">
 template&lt;key_type Key&gt; </div>
 <table class="mlabels">
@@ -443,7 +443,7 @@ template&lt;key_type Key&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -473,7 +473,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -503,7 +503,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div class="memtemplate">
 template&lt;typename UnaryCallable &gt; </div>
       <table class="memname">
@@ -525,7 +525,7 @@ template&lt;typename UnaryCallable &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div class="memtemplate">
 template&lt;typename UnaryCallable &gt; </div>
       <table class="memname">
@@ -549,7 +549,7 @@ template&lt;typename UnaryCallable &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div class="memtemplate">
 template&lt;key_type Key&gt; </div>
 <table class="mlabels">
@@ -579,7 +579,7 @@ template&lt;key_type Key&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div class="memtemplate">
 template&lt;typename UnaryCallable &gt; </div>
 <table class="mlabels">
@@ -621,7 +621,7 @@ template&lt;typename UnaryCallable &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::with_register </td>
@@ -654,7 +654,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::const</td>
@@ -673,7 +673,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div class="memtemplate">
 template&lt;key_type Key&gt; </div>
 <table class="mlabels">
@@ -695,19 +695,19 @@ template&lt;key_type Key&gt; </div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a0ee53a2263002b2e779e44df6a17edb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ee53a2263002b2e779e44df6a17edb9">&#9670;&nbsp;</a></span>endianess</h2>
+<a id="a186d6906563c747f46ff7b429532f5c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a186d6906563c747f46ff7b429532f5c4">&#9670;&nbsp;</a></span>endianess</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0">endianess_enum</a> <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::endianess = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a></td>
+          <td class="memname">constexpr std::endian <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::endianess = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a></td>
         </tr>
       </table>
   </td>
@@ -725,7 +725,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div class="memtemplate">
 template&lt;key_type Key&gt; </div>
 <table class="mlabels">
@@ -751,7 +751,7 @@ template&lt;key_type Key&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -775,7 +775,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -799,7 +799,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">ret_type <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::res</td>
@@ -815,7 +815,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">return <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::res</td>
@@ -834,7 +834,7 @@ template&lt;endianess_enum Endianess, typename... Regs&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a></li>
-    <li class="footer">Generated on Sun Aug 21 2022 11:25:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 13:59:30 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

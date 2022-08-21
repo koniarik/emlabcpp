@@ -139,11 +139,11 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a452b4011833670e05508850c94a6409a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;endianess_enum Endianess, typename... Ds&gt;<br />
+<div class="textblock"><h3>template&lt;std::endian Endianess, typename... Ds&gt;<br />
 struct emlabcpp::protocol::tuple&lt; Endianess, Ds &gt;</h3>
 
 <p>tuple is high levle alternative to use just 'std::tuple' that is more friendly for standalone protocols. </p>
-<p>It is designed for message that are simply a set of serialized items. It also provieds more readable syntax. The template arguments at first configurate the protocol and later is follow by items present in the tuple, this can also be added with <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a01e6334b599bb584f01ba9ec76b7f77d">tuple::with_items</a> alias that appends the items. For example: tuple&lt; PROTOCOL_BIG_ENDIAN &gt;::with_items&lt; uint32_t, uint32_t &gt;; serializes/deserializes in same way as 'std::tuple&lt;uint32_t,uint32_t&gt;' configured for big endianess. </p>
+<p>It is designed for message that are simply a set of serialized items. It also provieds more readable syntax. The template arguments at first configurate the protocol and later is follow by items present in the tuple, this can also be added with <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a01e6334b599bb584f01ba9ec76b7f77d">tuple::with_items</a> alias that appends the items. For example: tuple&lt; BIG_ENDIAN &gt;::with_items&lt; uint32_t, uint32_t &gt;; serializes/deserializes in same way as 'std::tuple&lt;uint32_t,uint32_t&gt;' configured for big endianess. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a274b142c5c4f8527cdebebf4c9bfb35a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a274b142c5c4f8527cdebebf4c9bfb35a">&#9670;&nbsp;</a></span>decl</h2>
@@ -151,7 +151,7 @@ struct emlabcpp::protocol::tuple&lt; Endianess, Ds &gt;</h3>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
+template&lt;std::endian Endianess, typename... Ds&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">emlabcpp::protocol::tuple</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Ds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a274b142c5c4f8527cdebebf4c9bfb35a">decl</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a6671ccd92a1c25582f1d5bf38794c05a">def_type</a> &gt;</td>
@@ -167,7 +167,7 @@ template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
+template&lt;std::endian Endianess, typename... Ds&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">emlabcpp::protocol::tuple</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Ds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a6671ccd92a1c25582f1d5bf38794c05a">def_type</a> =  <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">endianess_wrapper</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, std::tuple&lt; Ds... &gt; &gt;</td>
@@ -183,7 +183,7 @@ template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
+template&lt;std::endian Endianess, typename... Ds&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">emlabcpp::protocol::tuple</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Ds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#afc1f0656d18a2b898649c23bf96e38d6">message_type</a> =  <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a452b4011833670e05508850c94a6409a">max_size</a> &gt;</td>
@@ -199,7 +199,7 @@ template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
+template&lt;std::endian Endianess, typename... Ds&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">emlabcpp::protocol::tuple</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Ds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a5fe447743d4ce1801a55d9cdeaed3da2">value_type</a> =  typename decl::value_type</td>
@@ -215,7 +215,7 @@ template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
+template&lt;std::endian Endianess, typename... Ds&gt; </div>
 <div class="memtemplate">
 template&lt;typename... SubDs&gt; </div>
       <table class="memname">
@@ -234,7 +234,7 @@ template&lt;typename... SubDs&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
+template&lt;std::endian Endianess, typename... Ds&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -263,7 +263,7 @@ template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
+template&lt;std::endian Endianess, typename... Ds&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -290,7 +290,7 @@ template&lt;endianess_enum Endianess, typename... Ds&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">tuple</a></li>
-    <li class="footer">Generated on Sun Aug 21 2022 11:25:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 13:59:30 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

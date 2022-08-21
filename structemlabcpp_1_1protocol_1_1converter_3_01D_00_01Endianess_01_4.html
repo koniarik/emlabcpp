@@ -143,7 +143,7 @@ Static Public Member Functions</h2></td></tr>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a1d054f4f05805200120105e02368d5ff"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a1d054f4f05805200120105e02368d5ff">max_size</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; D &gt;::max_size</td></tr>
 <tr class="separator:a1d054f4f05805200120105e02368d5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a818a80fa4dc8f1708574743ff9955f82"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a818a80fa4dc8f1708574743ff9955f82">is_big_endian</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> == <a class="el" href="namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0ac74868ff7271adacdd127d693b30f302">PROTOCOL_BIG_ENDIAN</a></td></tr>
+<tr class="memitem:a818a80fa4dc8f1708574743ff9955f82"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a818a80fa4dc8f1708574743ff9955f82">is_big_endian</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> == std::endian::big</td></tr>
 <tr class="separator:a818a80fa4dc8f1708574743ff9955f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
@@ -153,7 +153,7 @@ Static Public Attributes</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; D, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a6c5feac86d2f8c6feaa58f90d442012f">inner_type</a> =  typename D::value_type</td>
@@ -169,7 +169,7 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; D, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#aee0286227eb72ba73a3fdc002c54f97e">size_type</a> =  <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a1d054f4f05805200120105e02368d5ff">max_size</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a1d054f4f05805200120105e02368d5ff">max_size</a> &gt;</td>
@@ -185,7 +185,7 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; D, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#aee0286227eb72ba73a3fdc002c54f97e">size_type</a> =  typename sub_def::size_type</td>
@@ -201,7 +201,7 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; D, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#afad26420148e5780e84fbf80060ee1d2">sub_def</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">converter</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a6c5feac86d2f8c6feaa58f90d442012f">inner_type</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;</td>
@@ -217,7 +217,7 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; D, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a00c255f06165e4bd27328badb7473e6c">value_type</a> =  typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; D &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a00c255f06165e4bd27328badb7473e6c">value_type</a></td>
@@ -233,7 +233,7 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; D, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a00c255f06165e4bd27328badb7473e6c">value_type</a> =  typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; D &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a00c255f06165e4bd27328badb7473e6c">value_type</a></td>
@@ -250,7 +250,7 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -290,7 +290,7 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -321,7 +321,7 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -352,7 +352,7 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -392,7 +392,7 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -433,13 +433,13 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; D, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::is_big_endian = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> == <a class="el" href="namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0ac74868ff7271adacdd127d693b30f302">PROTOCOL_BIG_ENDIAN</a></td>
+          <td class="memname">constexpr bool <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; D, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::is_big_endian = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> == std::endian::big</td>
         </tr>
       </table>
   </td>
@@ -457,7 +457,7 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;base_type D, endianess_enum Endianess&gt; </div>
+template&lt;base_type D, std::endian Endianess&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -484,7 +484,7 @@ template&lt;base_type D, endianess_enum Endianess&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html">converter&lt; D, Endianess &gt;</a></li>
-    <li class="footer">Generated on Sun Aug 21 2022 11:25:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 13:59:30 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

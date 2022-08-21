@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1protocol_1_1endianes
 </div><!--header-->
 <div class="contents">
 
-<p>TODO: when able to move to GCC11: using enum endianess_enum; and make it enum class.  
+<p>Follows a set of special data types used for definition of protocol.  
  <a href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="protocol_2base_8h_source.html">base.h</a>&gt;</code></p>
@@ -104,15 +104,15 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:acc583351fef7fd5bfd4cec6372356ee3"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0">endianess_enum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html#acc583351fef7fd5bfd4cec6372356ee3">value</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a></td></tr>
-<tr class="separator:acc583351fef7fd5bfd4cec6372356ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad56cdb9e17759f8cc6380a720e5bbfb1"><td class="memItemLeft" align="right" valign="top">static constexpr std::endian&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html#ad56cdb9e17759f8cc6380a720e5bbfb1">value</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a></td></tr>
+<tr class="separator:ad56cdb9e17759f8cc6380a720e5bbfb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;endianess_enum Endianess, typename D&gt;<br />
+<div class="textblock"><h3>template&lt;std::endian Endianess, typename D&gt;<br />
 struct emlabcpp::protocol::endianess_wrapper&lt; Endianess, D &gt;</h3>
 
-<p>TODO: when able to move to GCC11: using enum endianess_enum; and make it enum class. </p>
-<p>Follows a set of special data types used for definition of protocol. These either represent </p>
+<p>Follows a set of special data types used for definition of protocol. </p>
+<p>These either represent </p>
 <h2><a class="anchor" id="autotoc_md0"></a>
 special types or affect the serialization/deserialization process of normal types.</h2>
 <p>Changes the endianess of definition D. </p>
@@ -123,7 +123,7 @@ special types or affect the serialization/deserialization process of normal type
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename D &gt; </div>
+template&lt;std::endian Endianess, typename D &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">emlabcpp::protocol::endianess_wrapper</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, D &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html#a5f75c476746e499a031e2de4ddaaa5cd">value_type</a> =  D</td>
@@ -134,19 +134,19 @@ template&lt;endianess_enum Endianess, typename D &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="acc583351fef7fd5bfd4cec6372356ee3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc583351fef7fd5bfd4cec6372356ee3">&#9670;&nbsp;</a></span>value</h2>
+<a id="ad56cdb9e17759f8cc6380a720e5bbfb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad56cdb9e17759f8cc6380a720e5bbfb1">&#9670;&nbsp;</a></span>value</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename D &gt; </div>
+template&lt;std::endian Endianess, typename D &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="namespaceemlabcpp_1_1protocol.html#a90a401e45178aeb83cdab6ec95e14cd0">endianess_enum</a> <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">emlabcpp::protocol::endianess_wrapper</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, D &gt;::value = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a></td>
+          <td class="memname">constexpr std::endian <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">emlabcpp::protocol::endianess_wrapper</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, D &gt;::value = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a></td>
         </tr>
       </table>
   </td>
@@ -167,7 +167,7 @@ template&lt;endianess_enum Endianess, typename D &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">endianess_wrapper</a></li>
-    <li class="footer">Generated on Sun Aug 21 2022 11:25:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 13:59:30 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

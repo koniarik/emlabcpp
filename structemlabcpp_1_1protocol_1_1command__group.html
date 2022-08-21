@@ -152,7 +152,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a2cb6f27394161030509cff2485c1b7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;endianess_enum Endianess, typename... Cmds&gt;<br />
+<div class="textblock"><h3>template&lt;std::endian Endianess, typename... Cmds&gt;<br />
 struct emlabcpp::protocol::command_group&lt; Endianess, Cmds &gt;</h3>
 
 <p>Command group should be used as a collection of commands that are selected based on the ID, during the deserialization first command that matches is selected. </p>
@@ -164,7 +164,7 @@ struct emlabcpp::protocol::command_group&lt; Endianess, Cmds &gt;</h3>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
+template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 <div class="memtemplate">
 template&lt;auto ID&gt; </div>
       <table class="memname">
@@ -182,7 +182,7 @@ template&lt;auto ID&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
+template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 <div class="memtemplate">
 template&lt;auto ID&gt; </div>
       <table class="memname">
@@ -200,7 +200,7 @@ template&lt;auto ID&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
+template&lt;std::endian Endianess, typename... Cmds&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#aee70b3ca4c17585253944194322f7bee">cmds_type</a> =  std::tuple&lt; Cmds... &gt;</td>
@@ -216,7 +216,7 @@ template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
+template&lt;std::endian Endianess, typename... Cmds&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a3a3cfbe12d703364fc5ef3dfc9dc9bca">decl</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ab8a5bbe436a5bcf3e7c387a506bd24f1">def_type</a> &gt;</td>
@@ -232,7 +232,7 @@ template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
+template&lt;std::endian Endianess, typename... Cmds&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ab8a5bbe436a5bcf3e7c387a506bd24f1">def_type</a> =  <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">endianess_wrapper</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group">group</a>&lt; typename Cmds::def_type... &gt; &gt;</td>
@@ -248,7 +248,7 @@ template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
+template&lt;std::endian Endianess, typename... Cmds&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ae75595015ba7fe1622a8de8eb4e195b0">message_type</a> =  <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a2cb6f27394161030509cff2485c1b7b3">max_size</a> &gt;</td>
@@ -264,7 +264,7 @@ template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
+template&lt;std::endian Endianess, typename... Cmds&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a6c1cab9d6ad9da179385450b969dac77">value_type</a> =  typename decl::value_type</td>
@@ -280,7 +280,7 @@ template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
+template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 <div class="memtemplate">
 template&lt;typename... SubCmds&gt; </div>
       <table class="memname">
@@ -299,7 +299,7 @@ template&lt;typename... SubCmds&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
+template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 <div class="memtemplate">
 template&lt;auto id, typename... Args&gt; </div>
 <table class="mlabels">
@@ -334,7 +334,7 @@ template&lt;auto id, typename... Args&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
+template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 <div class="memtemplate">
 template&lt;auto ID&gt; </div>
 <table class="mlabels">
@@ -360,7 +360,7 @@ template&lt;auto ID&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
+template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -387,7 +387,7 @@ template&lt;endianess_enum Endianess, typename... Cmds&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">command_group</a></li>
-    <li class="footer">Generated on Sun Aug 21 2022 11:25:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 13:59:30 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

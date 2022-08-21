@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['register_5fhandler_909',['register_handler',['../structemlabcpp_1_1protocol_1_1register__handler.html',1,'emlabcpp::protocol']]],
-  ['register_5fmap_910',['register_map',['../classemlabcpp_1_1protocol_1_1register__map.html',1,'emlabcpp::protocol']]],
-  ['register_5fpair_911',['register_pair',['../structemlabcpp_1_1protocol_1_1register__pair.html',1,'emlabcpp::protocol']]]
+  ['quantity_915',['quantity',['../classemlabcpp_1_1quantity.html',1,'emlabcpp']]],
+  ['quantity_3c_20physical_5fquantity_3c_20len_2c_20mass_2c_20time_2c_20current_2c_20temp_2c_20mol_2c_20li_2c_20angle_2c_20byte_20_3e_2c_20float_20_3e_916',['quantity&lt; physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt;, float &gt;',['../classemlabcpp_1_1quantity.html',1,'emlabcpp']]],
+  ['quantity_3c_20tagged_5fquantity_3c_20tag_2c_20float_20_3e_2c_20float_20_3e_917',['quantity&lt; tagged_quantity&lt; Tag, float &gt;, float &gt;',['../classemlabcpp_1_1quantity.html',1,'emlabcpp']]]
 ];

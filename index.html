@@ -324,10 +324,10 @@ protocol.h</h2>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>robot_cmd_group</div>
-<div class="line">  : protocol_command_group&lt; PROTOCOL_LITTLE_ENDIAN &gt;::with_commands&lt;</div>
-<div class="line">      protocol_command&lt; FORWARD &gt;::with_args&lt; distance &gt;,</div>
-<div class="line">      protocol_command&lt; LEFT &gt;::with_args&lt; angle &gt;,</div>
-<div class="line">      protocol_command&lt; RIGHT &gt;::with_args&lt; angle &gt;</div>
+<div class="line">  : protocol::command_group&lt; std::endian::little &gt;::with_commands&lt;</div>
+<div class="line">      protocol::command&lt; FORWARD &gt;::with_args&lt; distance &gt;,</div>
+<div class="line">      protocol::command&lt; LEFT &gt;::with_args&lt; angle &gt;,</div>
+<div class="line">      protocol::command&lt; RIGHT &gt;::with_args&lt; angle &gt;</div>
 <div class="line">    &gt;</div>
 <div class="line">{};</div>
 <div class="ttc" id="anamespaceemlabcpp_html_a11ac05592b4c728910966af0c89b13a8"><div class="ttname"><a href="namespaceemlabcpp.html#a11ac05592b4c728910966af0c89b13a8">emlabcpp::distance</a></div><div class="ttdeci">length distance</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:99</div></div>
@@ -430,7 +430,7 @@ zip.h</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Aug 21 2022 11:25:18 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 13:59:30 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
