@@ -414,7 +414,7 @@ struct traits_json_serializer< protocol_mark > : traits_json_serializer_base
 };
 
 template <>
-struct traits_json_serializer< protocol_error_record > : traits_json_serializer_base
+struct traits_json_serializer< error_record > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "error_record";
 
@@ -423,7 +423,7 @@ struct traits_json_serializer< protocol_error_record > : traits_json_serializer_
                 return std::string{ type_name };
         }
 
-        using decl = proto_traits< protocol_error_record >;
+        using decl = proto_traits< error_record >;
 
         static void add_extra( nlohmann::json& j )
         {

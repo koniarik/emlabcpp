@@ -76,8 +76,8 @@ struct protocol_packet : protocol_packet_base< Def, Payload >
 
         struct sequencer_def
         {
-                using message_type = typename base::message_type;
-                using serializer   = protocol_serializer< size_type, endianess >;
+                using message_type    = typename base::message_type;
+                using serializer_type = serializer< size_type, endianess >;
 
                 static constexpr std::array< uint8_t, prefix_decl::max_size > prefix = Def::prefix;
                 static constexpr std::size_t fixed_size = prefix_size + size_decl::max_size;
@@ -86,7 +86,7 @@ struct protocol_packet : protocol_packet_base< Def, Payload >
                 {
                         std::array< uint8_t, size_size > tmp;
                         std::copy_n( buffer.begin() + prefix_size, size_size, tmp.begin() );
-                        return serializer::deserialize( tmp ) + prefix_size + size_size;
+                        return serializer_type::deserialize( tmp ) + prefix_size + size_size;
                 }
         };
 

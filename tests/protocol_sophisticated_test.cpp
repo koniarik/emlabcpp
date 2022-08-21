@@ -40,9 +40,9 @@ enum ids : uint8_t
 };
 
 struct simple_group
-  : protocol::protocol_command_group< protocol::PROTOCOL_BIG_ENDIAN >::with_commands<
-        protocol::protocol_command< FOO >::with_args< uint32_t, uint32_t >,
-        protocol::protocol_command< WOO >::with_args< std::array< uint8_t, 8 > > >
+  : protocol::command_group< protocol::PROTOCOL_BIG_ENDIAN >::with_commands<
+        protocol::command< FOO >::with_args< uint32_t, uint32_t >,
+        protocol::command< WOO >::with_args< std::array< uint8_t, 8 > > >
 {
 };
 
@@ -63,22 +63,22 @@ using test_quantity = tagged_quantity< struct vtag, uint32_t >;
 // TODO: test changed endinaess in one subitem
 // TODO: add subprotocol
 struct complex_group
-  : protocol::protocol_command_group< protocol::PROTOCOL_BIG_ENDIAN >::with_commands<
-        protocol::protocol_command< CA >::with_args< int >,
-        protocol::protocol_command< CB >,
-        protocol::protocol_command< CC >::with_args< std::array< uint16_t, 3 > >,
-        protocol::protocol_command<
+  : protocol::command_group< protocol::PROTOCOL_BIG_ENDIAN >::with_commands<
+        protocol::command< CA >::with_args< int >,
+        protocol::command< CB >,
+        protocol::command< CC >::with_args< std::array< uint16_t, 3 > >,
+        protocol::command<
             CD >::with_args< std::tuple< uint32_t, uint8_t >, int16_t, uint32_t, uint8_t, uint8_t >,
-        protocol::protocol_command< CE >::with_args< std::variant< uint32_t, std::bitset< 13 > > >,
-        protocol::protocol_command<
+        protocol::command< CE >::with_args< std::variant< uint32_t, std::bitset< 13 > > >,
+        protocol::command<
             CF >::with_args< uint32_t, protocol::sizeless_message< 16 > >,
-        protocol::protocol_command<
+        protocol::command<
             CG >::with_args< uint32_t, protocol::protocol_offset< uint8_t, 2 > >,
-        protocol::protocol_command< CH >::with_args< test_quantity, uint16_t >,
-        protocol::protocol_command< CI >::with_args<
+        protocol::command< CH >::with_args< test_quantity, uint16_t >,
+        protocol::command< CI >::with_args<
             protocol::protocol_sized_buffer< uint8_t, protocol::sizeless_message< 8 > >,
             uint32_t >,
-        protocol::protocol_command< CJ >::with_args<
+        protocol::command< CJ >::with_args<
             protocol::protocol_group< uint32_t, uint8_t > > >
 {
 };

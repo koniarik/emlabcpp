@@ -14,7 +14,7 @@ testing_reactor_controller_serialize( const testing_reactor_controller_variant& 
 {
         return reactor_controller_handler::serialize( var );
 }
-either< testing_reactor_controller_variant, protocol::protocol_error_record >
+either< testing_reactor_controller_variant, protocol::error_record >
 testing_reactor_controller_extract( const testing_reactor_controller_msg& msg )
 {
         return reactor_controller_handler::extract( msg );
@@ -25,7 +25,7 @@ testing_controller_reactor_serialize( const testing_controller_reactor_variant& 
 {
         return controller_reactor_handler::serialize( var );
 }
-either< testing_controller_reactor_variant, protocol::protocol_error_record >
+either< testing_controller_reactor_variant, protocol::error_record >
 testing_controller_reactor_extract( const testing_controller_reactor_msg& msg )
 {
         return controller_reactor_handler::extract( msg );

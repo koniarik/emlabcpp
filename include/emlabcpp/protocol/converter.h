@@ -81,7 +81,7 @@ struct converter< D, Endianess >
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, value_type item )
         {
-                protocol_serializer< value_type, Endianess >::serialize_at( buffer, item );
+                serializer< value_type, Endianess >::serialize_at( buffer, item );
                 return size_type{};
         }
 
@@ -89,7 +89,7 @@ struct converter< D, Endianess >
             -> protocol_result< value_type >
         {
                 return {
-                    max_size, protocol_serializer< value_type, Endianess >::deserialize( buffer ) };
+                    max_size, serializer< value_type, Endianess >::deserialize( buffer ) };
         }
 };
 
@@ -830,9 +830,9 @@ struct converter< protocol_mark, Endianess >
 };
 
 template < endianess_enum Endianess >
-struct converter< protocol_error_record, Endianess >
+struct converter< error_record, Endianess >
 {
-        using decl                            = proto_traits< protocol_error_record >;
+        using decl                            = proto_traits< error_record >;
         using value_type                      = typename decl::value_type;
         using mark_def                        = converter< protocol_mark, Endianess >;
         using offset_def                      = converter< std::size_t, Endianess >;
@@ -864,7 +864,7 @@ struct converter< protocol_error_record, Endianess >
                 }
                 return {
                     mused + oused,
-                    protocol_error_record{
+                    error_record{
                         *std::get_if< 0 >( &mres ), *std::get_if< 0 >( &ores ) } };
         }
 };

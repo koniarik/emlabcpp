@@ -111,9 +111,9 @@ struct invalid_test_case : protocol_test_fixture
         using value_type = T;
 
         std::vector< uint8_t >          inpt;
-        protocol::protocol_error_record expected_rec;
+        protocol::error_record expected_rec;
 
-        invalid_test_case( std::vector< uint8_t > buff, protocol::protocol_error_record rec )
+        invalid_test_case( std::vector< uint8_t > buff, protocol::error_record rec )
           : inpt( std::move( buff ) )
           , expected_rec( rec )
         {
@@ -149,7 +149,7 @@ struct invalid_test_case : protocol_test_fixture
 template < typename T >
 std::function< protocol_test_fixture*() > make_invalid_test_case(
     const std::vector< uint8_t >&          buff,
-    const protocol::protocol_error_record& rec )
+    const protocol::error_record& rec )
 {
         return [=]() {
                 return new invalid_test_case< T >( buff, rec );
@@ -195,9 +195,9 @@ int main( int argc, char** argv )
             make_valid_test_case< protocol::PROTOCOL_LITTLE_ENDIAN >(
                 std::variant< uint8_t, int16_t, uint16_t >{ uint8_t{ 42 } }, { 0, 42 } ),
             make_invalid_test_case< std::variant< uint8_t, int16_t, uint16_t > >(
-                { 3, 0, 0 }, protocol::protocol_error_record{ protocol::UNDEFVAR_ERR, 0 } ),
+                { 3, 0, 0 }, protocol::error_record{ protocol::UNDEFVAR_ERR, 0 } ),
             make_invalid_test_case< std::variant< uint8_t, int16_t, uint16_t > >(
-                { 1, 0 }, protocol::protocol_error_record{ protocol::SIZE_ERR, 0 } ),
+                { 1, 0 }, protocol::error_record{ protocol::SIZE_ERR, 0 } ),
             // std::bitset
             make_valid_test_case< protocol::PROTOCOL_LITTLE_ENDIAN >(
                 std::bitset< 3 >{ 0b00000111 }, { 0b00000111 } ),
@@ -242,7 +242,7 @@ int main( int argc, char** argv )
             make_valid_test_case< protocol::PROTOCOL_BIG_ENDIAN >(
                 bounded< int16_t, -1, 1 >::get< -1 >(), { 255, 255 } ),
             make_invalid_test_case< bounded< int16_t, -1, 1 > >(
-                { 0, 128 }, protocol::protocol_error_record{ protocol::BOUNDS_ERR, 0 } ),
+                { 0, 128 }, protocol::error_record{ protocol::BOUNDS_ERR, 0 } ),
             // sized_buffer
             make_specific_valid_test_case<
                 protocol::PROTOCOL_LITTLE_ENDIAN,
@@ -270,16 +270,16 @@ int main( int argc, char** argv )
                     protocol_sized_buffer< protocol::protocol_offset< uint16_t, 2 >, uint16_t > >(
                 666u, { 0, 4, 2, 154 } ),
             make_invalid_test_case< protocol::protocol_sized_buffer< uint16_t, uint16_t > >(
-                { 0, 1, 2, 2 }, protocol::protocol_error_record{ protocol::SIZE_ERR, 2 } ),
+                { 0, 1, 2, 2 }, protocol::error_record{ protocol::SIZE_ERR, 2 } ),
             make_invalid_test_case< protocol::protocol_sized_buffer< uint16_t, uint16_t > >(
-                { 0, 5, 2, 2 }, protocol::protocol_error_record{ protocol::SIZE_ERR, 2 } ),
+                { 0, 5, 2, 2 }, protocol::error_record{ protocol::SIZE_ERR, 2 } ),
             // tag
             make_valid_test_case< protocol::PROTOCOL_LITTLE_ENDIAN >(
                 tag< 666u >{}, { 154, 2, 0, 0 } ),
             make_valid_test_case< protocol::PROTOCOL_BIG_ENDIAN >(
                 tag< 666u >{}, { 0, 0, 2, 154 } ),
             make_invalid_test_case< tag< 666u > >(
-                { 0, 0, 2, 152 }, protocol::protocol_error_record{ protocol::BADVAL_ERR, 0 } ),
+                { 0, 0, 2, 152 }, protocol::error_record{ protocol::BADVAL_ERR, 0 } ),
             // group is tested as part of command group
             // endianess change
             make_specific_valid_test_case<
@@ -307,18 +307,18 @@ int main( int argc, char** argv )
                     VARIABLE_VAL_1, VARIABLE_VAL_2, VARIABLE_VAL_3 } ),
                 { 3, 0, 3, 0, 1, 2, 3, 7, 0, 1, 2, 3, 4, 5, 6, 7, 0, 0 } ),
             make_invalid_test_case< static_vector< int16_t, 9 > >(
-                { 1, 0 }, protocol::protocol_error_record{ protocol::SIZE_ERR, 2 } ),
+                { 1, 0 }, protocol::error_record{ protocol::SIZE_ERR, 2 } ),
             make_invalid_test_case< static_vector< int16_t, 9 > >(
-                { 4, 0, 0, 0, 0, 0, 0 }, protocol::protocol_error_record{ protocol::SIZE_ERR, 6 } ),
+                { 4, 0, 0, 0, 0, 0, 0 }, protocol::error_record{ protocol::SIZE_ERR, 6 } ),
             // optional
             make_valid_test_case< protocol::PROTOCOL_LITTLE_ENDIAN >(
                 std::optional< int32_t >{}, { 0 } ),
             make_valid_test_case< protocol::PROTOCOL_LITTLE_ENDIAN >(
                 std::optional< int32_t >{ 42u }, { 1, 0x2a, 0, 0, 0 } ),
             make_invalid_test_case< std::optional< tag< 666u > > >(
-                { 1, 0 }, protocol::protocol_error_record{ protocol::BADVAL_ERR, 1 } ),
+                { 1, 0 }, protocol::error_record{ protocol::BADVAL_ERR, 1 } ),
             make_invalid_test_case< std::optional< tag< 666u > > >(
-                { 1, 0, 0, 2, 152 }, protocol::protocol_error_record{ protocol::BADVAL_ERR, 1 } ) };
+                { 1, 0, 0, 2, 152 }, protocol::error_record{ protocol::BADVAL_ERR, 1 } ) };
 
         exec_protocol_test_fixture_test( tests );
         return RUN_ALL_TESTS();

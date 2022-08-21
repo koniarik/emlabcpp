@@ -40,7 +40,7 @@ struct protocol_mark : std::array< char, protocol_mark_size >
         using base_type = std::array< char, protocol_mark_size >;
 };
 
-struct protocol_error_record
+struct error_record
 {
         protocol_mark mark;
         std::size_t   offset;

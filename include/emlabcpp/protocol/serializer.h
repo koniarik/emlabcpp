@@ -33,7 +33,7 @@ namespace emlabcpp::protocol
 {
 
 template < protocol_base_type T, endianess_enum Endianess >
-struct protocol_serializer
+struct serializer
 {
         static constexpr std::size_t max_size = sizeof( T );
         using size_type                       = bounded< std::size_t, max_size, max_size >;
@@ -63,9 +63,9 @@ struct protocol_serializer
 };
 
 template < endianess_enum Endianess >
-struct protocol_serializer< float, Endianess >
+struct serializer< float, Endianess >
 {
-        using sub_serializer = protocol_serializer< uint32_t, Endianess >;
+        using sub_serializer = serializer< uint32_t, Endianess >;
         static_assert( sizeof( float ) == sizeof( uint32_t ) );
 
         static constexpr std::size_t max_size = sizeof( float );
@@ -89,7 +89,7 @@ struct protocol_serializer< float, Endianess >
 };
 
 template < endianess_enum Endianess >
-struct protocol_serializer< bool, Endianess >
+struct serializer< bool, Endianess >
 {
         static constexpr std::size_t max_size = sizeof( bool );
         using size_type                       = bounded< std::size_t, max_size, max_size >;

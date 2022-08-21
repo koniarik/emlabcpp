@@ -50,7 +50,7 @@ struct protocol_handler
                 return *message_type::make( view_n( buffer.begin(), *used ) );
         };
 
-        static either< value_type, protocol_error_record >
+        static either< value_type, error_record >
         extract( const view< const uint8_t* >& msg )
         {
                 auto opt_view = bounded_view< const uint8_t*, typename def::size_type >::make(
@@ -60,7 +60,7 @@ struct protocol_handler
                             "Failed to build view over provided message - wrong size: "
                             << msg.size() << " vs size type"
                             << pretty_type_name< typename def::size_type >() );
-                        return protocol_error_record{ SIZE_ERR, 0 };
+                        return error_record{ SIZE_ERR, 0 };
                 }
                 auto [used, res] = def::deserialize( *opt_view );
                 if ( std::holds_alternative< const protocol_mark* >( res ) ) {
@@ -69,7 +69,7 @@ struct protocol_handler
                             "Failed to extract protocol def "
                             << pretty_type_name< T >() << " from message " << *opt_view
                             << ", error is: " << *mark << " with " << used << " bytes" );
-                        return protocol_error_record{ *mark, used };
+                        return error_record{ *mark, used };
                 }
                 return std::get< 0 >( res );
         }

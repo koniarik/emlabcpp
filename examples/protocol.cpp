@@ -17,7 +17,7 @@ int main( int, char*[] )
         // types and templates and is separated from the actuall serialization and deserialization.
         //
         // There are two top level types that shall be used: protocol::protocol_tuple and
-        // protocol::protocol_command_group (variant-like). The user should use these as top level
+        // protocol::command_group (variant-like). The user should use these as top level
         // type and define the protocol in these. They can be nested.
         //
         // For the examples we define the protocol by definining structures that inherit from the
@@ -56,18 +56,18 @@ int main( int, char*[] )
         // The message output is: |00:00:02:9a|ff:fe:00:02
 
         // Deserialization produces either the value on successfull serialization or
-        // protocol::protocol_error_record with information about what failed and on which byte.
-        // Note: the protocol::protocol_error_record is serializable by the library, so you can
+        // protocol::error_record with information about what failed and on which byte.
+        // Note: the protocol::error_record is serializable by the library, so you can
         // simply send it in report.
 
-        em::either< std::tuple< uint32_t, int16_t, int16_t >, em::protocol::protocol_error_record >
+        em::either< std::tuple< uint32_t, int16_t, int16_t >, em::protocol::error_record >
             tuple_either = example_tuple_handler::extract( tuple_msg );
 
         tuple_either.match(
             []( std::tuple< uint32_t, int16_t, int16_t > ) {
                     std::cout << "Yaaay, protocol deserialized what it serialized \\o/\n";
             },
-            []( em::protocol::protocol_error_record rec ) {
+            []( em::protocol::error_record rec ) {
                     std::cout << "Hupsie, error happend in deserialization: " << rec << "\n";
             } );
 
@@ -87,11 +87,11 @@ int main( int, char*[] )
         };
 
         struct example_group
-          : em::protocol::protocol_command_group< em::protocol::PROTOCOL_BIG_ENDIAN >::
+          : em::protocol::command_group< em::protocol::PROTOCOL_BIG_ENDIAN >::
                 with_commands<
-                    em::protocol::protocol_command< EXAMPLE_CMD_A >::with_args< uint32_t >,
-                    em::protocol::protocol_command< EXAMPLE_CMD_B >,
-                    em::protocol::protocol_command< EXAMPLE_CMD_C >::with_args<
+                    em::protocol::command< EXAMPLE_CMD_A >::with_args< uint32_t >,
+                    em::protocol::command< EXAMPLE_CMD_B >,
+                    em::protocol::command< EXAMPLE_CMD_C >::with_args<
                         std::array< uint32_t, 4 >,
                         std::tuple< uint8_t, uint8_t, em::bounded< int16_t, -666, 666 > > > >
         {
@@ -127,7 +127,7 @@ int main( int, char*[] )
                 [&]( example_group_value ) {
                         std::cout << "yayyy, group deserialize :) \n";
                 },
-                [&]( em::protocol::protocol_error_record rec ) {
+                [&]( em::protocol::error_record rec ) {
                         std::cout << "something went wrong with the group: " << rec << "\n";
                 } );
 }

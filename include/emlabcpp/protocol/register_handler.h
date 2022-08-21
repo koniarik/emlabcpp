@@ -70,7 +70,7 @@ struct protocol_register_handler
         }
 
         template < key_type Key >
-        static either< reg_value_type< Key >, protocol_error_record >
+        static either< reg_value_type< Key >, error_record >
         extract( const view< const uint8_t* >& msg )
         {
                 using def = converter< reg_def_type< Key >, Map::endianess >;
@@ -78,19 +78,19 @@ struct protocol_register_handler
                 auto opt_view = bounded_view< const uint8_t*, typename def::size_type >::make(
                     view_n( msg.begin(), std::min( def::max_size, msg.size() ) ) );
                 if ( !opt_view ) {
-                        return protocol_error_record{ SIZE_ERR, 0 };
+                        return error_record{ SIZE_ERR, 0 };
                 }
                 auto [used, res] = def::deserialize( *opt_view );
                 if ( std::holds_alternative< const protocol_mark* >( res ) ) {
-                        return protocol_error_record{ *std::get< 1 >( res ), used };
+                        return error_record{ *std::get< 1 >( res ), used };
                 }
                 return std::get< 0 >( res );
         }
 
-        static std::optional< protocol_error_record >
+        static std::optional< error_record >
         insert( map_type& m, key_type key, const view< const uint8_t* >& buff )
         {
-                std::optional< protocol_error_record > res;
+                std::optional< error_record > res;
                 m.setup_register( key, [&]< typename reg_type >() {
                         return extract< reg_type::key >( buff )
                             .convert_right( [&]( auto err ) {

@@ -34,12 +34,12 @@ namespace emlabcpp
 
 struct testing_reactor_protocol_error
 {
-        protocol::protocol_error_record rec;
+        protocol::error_record rec;
 };
 
 struct testing_controller_protocol_error
 {
-        protocol::protocol_error_record rec;
+        protocol::error_record rec;
 };
 
 struct testing_internal_reactor_error

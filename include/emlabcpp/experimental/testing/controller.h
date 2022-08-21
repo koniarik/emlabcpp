@@ -141,7 +141,7 @@ private:
             testing_controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_PROTOCOL_ERROR >,
-            protocol::protocol_error_record       rec,
+            protocol::error_record       rec,
             testing_controller_interface_adapter& iface );
 };
 

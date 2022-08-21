@@ -37,12 +37,12 @@ namespace emlabcpp::protocol
 /// embedded devices.
 
 /// One command in a group defined by ID and definitions for items contained in this command. It is
-/// preferable to use the `protocol_command::with_args<...>` alias that just extens the list of
-/// defined items in the command. For example: protocol_command<32>::with_args<uint32_t, uint32_t>
+/// preferable to use the `command::with_args<...>` alias that just extens the list of
+/// defined items in the command. For example: command<32>::with_args<uint32_t, uint32_t>
 //
 /// Internally, the example leads to definition `std::tuple< tag<32>, uint32_t, uint32_t >`
 template < auto ID, convertible... Defs >
-struct protocol_command
+struct command
 {
         using id_type    = decltype( ID );
         using value_type = std::tuple< tag< ID >, typename proto_traits< Defs >::value_type... >;
@@ -51,7 +51,7 @@ struct protocol_command
         static constexpr id_type id = ID;
 
         template < typename... NewDefs >
-        using with_args = protocol_command< ID, Defs..., NewDefs... >;
+        using with_args = command< ID, Defs..., NewDefs... >;
 
         /// Creates value of the command based on the args.
         constexpr static value_type
@@ -70,7 +70,7 @@ struct protocol_command
 /// specialized and doesn ot contain any protocol definitions. This is required implementation
 /// detail.
 template < endianess_enum Endianess, typename... Cmds >
-struct protocol_command_group : converter_def_type_base
+struct command_group : converter_def_type_base
 {
         using cmds_type = std::tuple< Cmds... >;
 
@@ -100,7 +100,7 @@ public:
         using cmd_value_type = typename cmd_type< ID >::value_type;
 
         template < typename... SubCmds >
-        using with_commands = protocol_command_group< Endianess, Cmds..., SubCmds... >;
+        using with_commands = command_group< Endianess, Cmds..., SubCmds... >;
 
         static_assert(
             are_same_v< typename Cmds::id_type... >,
@@ -136,10 +136,10 @@ public:
 };
 
 template < endianess_enum Endianess >
-struct protocol_command_group< Endianess >
+struct command_group< Endianess >
 {
         template < typename... Cmds >
-        using with_commands = protocol_command_group< Endianess, Cmds... >;
+        using with_commands = command_group< Endianess, Cmds... >;
 };
 
 }  // namespace emlabcpp::protocol

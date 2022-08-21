@@ -61,7 +61,7 @@ TEST( Packet, simple )
             [&]( std::tuple< uint32_t, uint8_t, uint8_t > pack ) {
                     EXPECT_EQ( pack, val );
             },
-            [&]( protocol::protocol_error_record e ) {
+            [&]( protocol::error_record e ) {
                     FAIL() << e;
             } );
 }

@@ -64,7 +64,7 @@ auto& operator<<( ostreamlike auto& os, const protocol_mark& m )
         return os;
 }
 
-auto& operator<<( ostreamlike auto& os, const protocol_error_record& rec )
+auto& operator<<( ostreamlike auto& os, const error_record& rec )
 {
         return os << rec.mark << "(" << rec.offset << ")";
 }

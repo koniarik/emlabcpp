@@ -57,7 +57,7 @@ testing_reactor_interface_adapter::read_variant()
                 [&]( auto var ) {
                         res = var;
                 },
-                [&]( protocol::protocol_error_record rec ) {
+                [&]( protocol::error_record rec ) {
                         reply< TESTING_PROTOCOL_ERROR >( rec );
                 } );
         return res;

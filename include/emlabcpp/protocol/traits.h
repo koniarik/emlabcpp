@@ -220,9 +220,9 @@ struct proto_traits< protocol_mark >
 };
 
 template <>
-struct proto_traits< protocol_error_record >
+struct proto_traits< error_record >
 {
-        using value_type = protocol_error_record;
+        using value_type = error_record;
 
         using mark_type   = protocol_mark;
         using offset_type = std::size_t;

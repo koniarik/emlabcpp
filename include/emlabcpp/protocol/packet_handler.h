@@ -55,25 +55,25 @@ struct protocol_packet_handler
                 auto size = static_cast< size_type >(
                     msg.size() - Packet::prefix_decl::max_size - size_size );
 
-                protocol_serializer< size_type, endianess >::serialize_at(
+                serializer< size_type, endianess >::serialize_at(
                     std::span< uint8_t, size_size >{ msg.begin() + size_offset, size_size }, size );
 
                 checksum_type chcksm =
                     Packet::get_checksum( view_n( msg.begin(), msg.size() - checksum_size ) );
 
-                protocol_serializer< checksum_type, endianess >::serialize_at(
+                serializer< checksum_type, endianess >::serialize_at(
                     std::span< uint8_t, checksum_size >{ msg.end() - checksum_size, checksum_size },
                     chcksm );
 
                 return msg;
         }
 
-        static either< value_type, protocol_error_record >
+        static either< value_type, error_record >
         extract( const view< const uint8_t* >& msg )
         {
                 return sub_handler::extract( msg ).bind_left(
                     [&]( std::tuple< prefix_type, size_type, value_type, checksum_type > pack )
-                        -> either< value_type, protocol_error_record > {
+                        -> either< value_type, error_record > {
                             checksum_type present_checksum = std::get< 3 >( pack );
                             std::size_t   checksum_pos     = msg.size() - checksum_size;
                             checksum_type calculated_checksum =
@@ -85,7 +85,7 @@ struct protocol_packet_handler
                                         std::hex << "Checksum failed, calculated: "
                                                  << int( calculated_checksum )
                                                  << " present: " << int( present_checksum ) );
-                                    return protocol_error_record{ CHECKSUM_ERR, checksum_pos };
+                                    return error_record{ CHECKSUM_ERR, checksum_pos };
                             }
                             return std::get< 2 >( pack );
                     } );
