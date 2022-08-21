@@ -32,7 +32,7 @@ namespace emlabcpp::protocol
 {
 
 template < typename Def >
-class protocol_sequencer
+class sequencer
 {
 public:
         static constexpr auto        prefix     = Def::prefix;
@@ -108,7 +108,7 @@ public:
 
 template < typename Sequencer, typename ReadCallback >
 std::optional< typename Sequencer::message_type >
-protocol_simple_load( std::size_t read_limit, ReadCallback&& read )
+sequencer_simple_load( std::size_t read_limit, ReadCallback&& read )
 {
         Sequencer                                         seq;
         std::optional< typename Sequencer::message_type > res;

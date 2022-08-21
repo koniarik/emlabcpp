@@ -90,7 +90,7 @@ struct packet : packet_base< Def, Payload >
                 }
         };
 
-        using sequencer = protocol_sequencer< sequencer_def >;
+        using sequencer_type = sequencer< sequencer_def >;
 
         static constexpr checksum_type get_checksum( const view< const uint8_t* > mview )
         {

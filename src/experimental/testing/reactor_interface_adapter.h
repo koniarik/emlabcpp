@@ -29,15 +29,15 @@ namespace emlabcpp
 {
 class testing_reactor_interface_adapter
 {
-        testing_reactor_interface&                    iface_;
-        testing_controller_reactor_packet::sequencer& seq_;
+        testing_reactor_interface&                         iface_;
+        testing_controller_reactor_packet::sequencer_type& seq_;
 
         static constexpr std::size_t read_limit_ = 10;
 
 public:
         testing_reactor_interface_adapter(
-            testing_reactor_interface&                    iface,
-            testing_controller_reactor_packet::sequencer& seq )
+            testing_reactor_interface&                         iface,
+            testing_controller_reactor_packet::sequencer_type& seq )
           : iface_( iface )
           , seq_( seq )
         {

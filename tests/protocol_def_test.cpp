@@ -284,7 +284,7 @@ int main( int argc, char** argv )
             // endianess change
             make_specific_valid_test_case<
                 protocol::PROTOCOL_LITTLE_ENDIAN,
-                protocol::protocol_endianess< protocol::PROTOCOL_BIG_ENDIAN, uint16_t > >(
+                protocol::endianess_wrapper< protocol::PROTOCOL_BIG_ENDIAN, uint16_t > >(
                 uint16_t{ 42 }, { 0, 42 } ),
             // static_vector
             make_valid_test_case< protocol::PROTOCOL_LITTLE_ENDIAN >(

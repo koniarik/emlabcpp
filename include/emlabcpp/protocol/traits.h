@@ -202,7 +202,7 @@ struct proto_traits< tag_group< Ds... > >
 };
 
 template < endianess_enum Endianess, convertible D >
-struct proto_traits< protocol_endianess< Endianess, D > > : proto_traits< D >
+struct proto_traits< endianess_wrapper< Endianess, D > > : proto_traits< D >
 {
 };
 

@@ -43,7 +43,7 @@ struct sequencer_def
         }
 };
 
-using sequencer = protocol::protocol_sequencer< sequencer_def >;
+using sequencer = protocol::sequencer< sequencer_def >;
 
 TEST( protocol_seq, basic )
 {

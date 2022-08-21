@@ -71,7 +71,7 @@ TEST( Packet, seq )
         message_type msg{
             0x91, 0x19, 0x91, 0x19, 0x00, 0x08, 0x43, 0x43, 0x43, 0x43, 0x08, 0x16, 0x00, 0x00 };
 
-        using seq = typename packet::sequencer;
+        using seq = typename packet::sequencer_type;
 
         seq test_seq{};
 

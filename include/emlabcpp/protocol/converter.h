@@ -472,7 +472,7 @@ struct converter< sizeless_message< N >, Endianess >
                 for ( std::size_t i : range( item.size() ) ) {
                         buffer[i] = item[i];
                 }
-                /// The size of protocol_size_message should always be within the 0...N range
+                /// The size of protocol::message should always be within the 0...N range
                 auto opt_bused = size_type::make( item.size() );
                 EMLABCPP_ASSERT( opt_bused );
                 return *opt_bused;
@@ -796,7 +796,7 @@ struct converter< group< Ds... >, Endianess >
 };
 
 template < endianess_enum Endianess, typename D, endianess_enum ParentEndianess >
-struct converter< protocol_endianess< Endianess, D >, ParentEndianess >
+struct converter< endianess_wrapper< Endianess, D >, ParentEndianess >
   : converter< D, Endianess >
 {
 };

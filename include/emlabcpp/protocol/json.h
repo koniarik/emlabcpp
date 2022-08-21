@@ -389,7 +389,7 @@ struct traits_json_serializer< tag_group< Ds... > >
 };
 
 template < endianess_enum Endianess, convertible D >
-struct traits_json_serializer< protocol_endianess< Endianess, D > > : traits_json_serializer< D >
+struct traits_json_serializer< endianess_wrapper< Endianess, D > > : traits_json_serializer< D >
 {
 };
 

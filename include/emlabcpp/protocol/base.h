@@ -78,7 +78,7 @@ enum endianess_enum
 
 /// Changes the endianess of definition D.
 template < endianess_enum Endianess, typename D >
-struct protocol_endianess
+struct endianess_wrapper
 {
         static constexpr endianess_enum value = Endianess;
         using value_type                      = D;

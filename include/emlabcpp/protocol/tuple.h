@@ -43,7 +43,7 @@ struct tuple : converter_def_type_base
         template < typename... SubDs >
         using with_items = tuple< Endianess, Ds..., SubDs... >;
 
-        using def_type = protocol_endianess< Endianess, std::tuple< Ds... > >;
+        using def_type = endianess_wrapper< Endianess, std::tuple< Ds... > >;
         using decl     = proto_traits< def_type >;
 
         static constexpr std::size_t max_size = decl::max_size;

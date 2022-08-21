@@ -63,13 +63,13 @@ class testing_reactor
 
         using handle_container = pool_list< test_handle >;
         using handle_iterator  = typename handle_container::iterator;
-        using sequencer        = testing_controller_reactor_packet::sequencer;
+        using sequencer_type   = testing_controller_reactor_packet::sequencer_type;
 
         std::string_view suite_name_;
         std::string_view suite_date_ = __DATE__;
         handle_container handles_;
         pool_interface*  mem_;
-        sequencer        seq_;
+        sequencer_type   seq_;
 
         std::optional< active_execution > active_exec_;
 

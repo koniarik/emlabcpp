@@ -59,8 +59,8 @@ public:
 
         std::optional< testing_reactor_controller_msg > read_message()
         {
-                using sequencer = testing_reactor_controller_packet::sequencer;
-                return protocol::protocol_simple_load< sequencer >(
+                using sequencer = testing_reactor_controller_packet::sequencer_type;
+                return protocol::sequencer_simple_load< sequencer >(
                     read_limit_, [&]( std::size_t c ) {
                             return iface_.receive( c );
                     } );
@@ -403,7 +403,7 @@ void testing_controller::handle_message(
 }
 void testing_controller::handle_message(
     tag< TESTING_PROTOCOL_ERROR >,
-    protocol::error_record       rec,
+    protocol::error_record                rec,
     testing_controller_interface_adapter& iface )
 {
         iface.report_error( testing_reactor_protocol_error{ rec } );
