@@ -185,8 +185,7 @@ struct testing_reactor_controller_group
         protocol::PROTOCOL_BIG_ENDIAN,
         protocol::command< TESTING_COUNT >::with_args< testing_test_id >,
         protocol::command< TESTING_NAME >::with_args< testing_name_buffer >,
-        protocol::command<
-            TESTING_PARAM_VALUE >::with_args< testing_run_id, testing_node_id >,
+        protocol::command< TESTING_PARAM_VALUE >::with_args< testing_run_id, testing_node_id >,
         protocol::command< TESTING_PARAM_CHILD >::with_args<
             testing_run_id,
             testing_node_id,
@@ -197,8 +196,7 @@ struct testing_reactor_controller_group
             testing_run_id,
             testing_node_id,
             testing_child_id >,
-        protocol::command<
-            TESTING_PARAM_TYPE >::with_args< testing_run_id, testing_node_id >,
+        protocol::command< TESTING_PARAM_TYPE >::with_args< testing_run_id, testing_node_id >,
         protocol::command< TESTING_COLLECT >::with_args<
             testing_run_id,
             testing_node_id,
@@ -209,10 +207,8 @@ struct testing_reactor_controller_group
         protocol::command< TESTING_FAILURE >::with_args< testing_run_id >,
         protocol::command< TESTING_SUITE_NAME >::with_args< testing_name_buffer >,
         protocol::command< TESTING_SUITE_DATE >::with_args< testing_name_buffer >,
-        protocol::command< TESTING_INTERNAL_ERROR >::with_args<
-            testing_reactor_error_group >,
-        protocol::command< TESTING_PROTOCOL_ERROR >::with_args<
-            protocol::error_record > >
+        protocol::command< TESTING_INTERNAL_ERROR >::with_args< testing_reactor_error_group >,
+        protocol::command< TESTING_PROTOCOL_ERROR >::with_args< protocol::error_record > >
 {
 };
 

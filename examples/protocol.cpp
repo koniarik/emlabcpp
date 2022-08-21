@@ -47,8 +47,7 @@ int main( int, char*[] )
         using example_tuple_handler = em::protocol::handler< example_tuple >;
 
         std::tuple< uint32_t, int16_t, int16_t > tuple_val = { 666, -2, 2 };
-        em::protocol::message< 8 >      tuple_msg =
-            example_tuple_handler::serialize( tuple_val );
+        em::protocol::message< 8 > tuple_msg = example_tuple_handler::serialize( tuple_val );
 
         // The library has support for streams, these however are stored in separate included file
         // and has to be enable by defining EMLABCPP_USE_STREAMS
@@ -87,13 +86,12 @@ int main( int, char*[] )
         };
 
         struct example_group
-          : em::protocol::command_group< em::protocol::PROTOCOL_BIG_ENDIAN >::
-                with_commands<
-                    em::protocol::command< EXAMPLE_CMD_A >::with_args< uint32_t >,
-                    em::protocol::command< EXAMPLE_CMD_B >,
-                    em::protocol::command< EXAMPLE_CMD_C >::with_args<
-                        std::array< uint32_t, 4 >,
-                        std::tuple< uint8_t, uint8_t, em::bounded< int16_t, -666, 666 > > > >
+          : em::protocol::command_group< em::protocol::PROTOCOL_BIG_ENDIAN >::with_commands<
+                em::protocol::command< EXAMPLE_CMD_A >::with_args< uint32_t >,
+                em::protocol::command< EXAMPLE_CMD_B >,
+                em::protocol::command< EXAMPLE_CMD_C >::with_args<
+                    std::array< uint32_t, 4 >,
+                    std::tuple< uint8_t, uint8_t, em::bounded< int16_t, -666, 666 > > > >
         {
         };
 
@@ -116,8 +114,7 @@ int main( int, char*[] )
 
         using example_group_handler = em::protocol::handler< example_group >;
 
-        em::protocol::message< 22 > group_msg =
-            example_group_handler::serialize( group_val );
+        em::protocol::message< 22 > group_msg = example_group_handler::serialize( group_val );
 
         std::cout << "Message from example group looks like: " << group_msg << "\n";
         // this produces: |00:01:00:00|00:2a

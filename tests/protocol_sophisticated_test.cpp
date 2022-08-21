@@ -39,10 +39,9 @@ enum ids : uint8_t
         WOO = 1,
 };
 
-struct simple_group
-  : protocol::command_group< protocol::PROTOCOL_BIG_ENDIAN >::with_commands<
-        protocol::command< FOO >::with_args< uint32_t, uint32_t >,
-        protocol::command< WOO >::with_args< std::array< uint8_t, 8 > > >
+struct simple_group : protocol::command_group< protocol::PROTOCOL_BIG_ENDIAN >::with_commands<
+                          protocol::command< FOO >::with_args< uint32_t, uint32_t >,
+                          protocol::command< WOO >::with_args< std::array< uint8_t, 8 > > >
 {
 };
 
@@ -70,16 +69,13 @@ struct complex_group
         protocol::command<
             CD >::with_args< std::tuple< uint32_t, uint8_t >, int16_t, uint32_t, uint8_t, uint8_t >,
         protocol::command< CE >::with_args< std::variant< uint32_t, std::bitset< 13 > > >,
-        protocol::command<
-            CF >::with_args< uint32_t, protocol::sizeless_message< 16 > >,
-        protocol::command<
-            CG >::with_args< uint32_t, protocol::value_offset< uint8_t, 2 > >,
+        protocol::command< CF >::with_args< uint32_t, protocol::sizeless_message< 16 > >,
+        protocol::command< CG >::with_args< uint32_t, protocol::value_offset< uint8_t, 2 > >,
         protocol::command< CH >::with_args< test_quantity, uint16_t >,
         protocol::command< CI >::with_args<
             protocol::sized_buffer< uint8_t, protocol::sizeless_message< 8 > >,
             uint32_t >,
-        protocol::command< CJ >::with_args<
-            protocol::group< uint32_t, uint8_t > > >
+        protocol::command< CJ >::with_args< protocol::group< uint32_t, uint8_t > > >
 {
 };
 
@@ -167,8 +163,7 @@ int main( int argc, char** argv )
             make_valid_test_case< complex_group >(
                 complex_group::make_val< CF >(
                     666u,
-                    *protocol::sizeless_message< 16 >::make(
-                        std::vector{ 1, 2, 3, 4, 5, 6 } ) ),
+                    *protocol::sizeless_message< 16 >::make( std::vector{ 1, 2, 3, 4, 5, 6 } ) ),
                 { 0, 15, 0, 0, 2, 154, 1, 2, 3, 4, 5, 6 } ),
             make_valid_test_case< complex_group >(
                 complex_group::make_val< CG >( 23456u, static_cast< uint8_t >( 8 ) ),

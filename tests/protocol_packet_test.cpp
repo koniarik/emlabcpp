@@ -42,8 +42,7 @@ struct packet_test_def
         }
 };
 
-using payload =
-    protocol::tuple< protocol::PROTOCOL_BIG_ENDIAN, uint32_t, uint8_t, uint8_t >;
+using payload      = protocol::tuple< protocol::PROTOCOL_BIG_ENDIAN, uint32_t, uint8_t, uint8_t >;
 using packet       = protocol::packet< packet_test_def, payload >;
 using message_type = typename packet::message_type;
 using handler      = protocol::packet_handler< packet >;

@@ -26,8 +26,8 @@
 #include "emlabcpp/experimental/bounded_view.h"
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/match.h"
-#include "emlabcpp/protocol/traits.h"
 #include "emlabcpp/protocol/serializer.h"
+#include "emlabcpp/protocol/traits.h"
 
 #pragma once
 
@@ -88,8 +88,7 @@ struct converter< D, Endianess >
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
-                return {
-                    max_size, serializer< value_type, Endianess >::deserialize( buffer ) };
+                return { max_size, serializer< value_type, Endianess >::deserialize( buffer ) };
         }
 };
 
@@ -172,8 +171,7 @@ struct converter< std::tuple< Ds... >, Endianess >
                 auto iter = buffer.begin();
 
                 for_each_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
-                        using sub_def =
-                            converter< std::tuple_element_t< i, def_type >, Endianess >;
+                        using sub_def = converter< std::tuple_element_t< i, def_type >, Endianess >;
 
                         std::span< uint8_t, sub_def::max_size > sub_view{ iter, sub_def::max_size };
 
@@ -193,7 +191,7 @@ struct converter< std::tuple< Ds... >, Endianess >
         {
                 value_type res;
 
-                std::size_t                           offset = 0;
+                std::size_t                  offset = 0;
                 std::optional< const mark* > opt_err;
 
                 until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
@@ -383,7 +381,7 @@ struct converter< std::optional< T >, Endianess >
 
                 if ( std::holds_alternative< const mark* >( pres ) ) {
                         const mark* m = *std::get_if< const mark* >( &pres );
-                        res.res                = m;
+                        res.res       = m;
                         return res;
                 }
                 auto is_present = *std::get_if< presence_type >( &pres );
@@ -462,9 +460,8 @@ template < std::size_t N, endianess_enum Endianess >
 struct converter< sizeless_message< N >, Endianess >
 {
         using value_type = typename proto_traits< sizeless_message< N > >::value_type;
-        static constexpr std::size_t max_size =
-            proto_traits< sizeless_message< N > >::max_size;
-        using size_type = bounded< std::size_t, 0, max_size >;
+        static constexpr std::size_t max_size = proto_traits< sizeless_message< N > >::max_size;
+        using size_type                       = bounded< std::size_t, 0, max_size >;
 
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
@@ -494,8 +491,7 @@ template < convertible D, auto Offset, endianess_enum Endianess >
 struct converter< value_offset< D, Offset >, Endianess >
 {
         using value_type = typename proto_traits< value_offset< D, Offset > >::value_type;
-        static constexpr std::size_t max_size =
-            proto_traits< value_offset< D, Offset > >::max_size;
+        static constexpr std::size_t max_size = proto_traits< value_offset< D, Offset > >::max_size;
 
         using sub_def   = converter< D, Endianess >;
         using size_type = typename sub_def::size_type;
@@ -582,8 +578,7 @@ struct converter< bounded< D, Min, Max >, Endianess >
 template < convertible CounterDef, convertible D, endianess_enum Endianess >
 struct converter< sized_buffer< CounterDef, D >, Endianess >
 {
-        using value_type =
-            typename proto_traits< sized_buffer< CounterDef, D > >::value_type;
+        using value_type = typename proto_traits< sized_buffer< CounterDef, D > >::value_type;
         static constexpr std::size_t max_size =
             proto_traits< sized_buffer< CounterDef, D > >::max_size;
 
@@ -724,7 +719,7 @@ struct converter< tag_group< Ds... >, Endianess >
 template < typename... Ds, endianess_enum Endianess >
 struct converter< group< Ds... >, Endianess >
 {
-        using value_type = typename proto_traits< group< Ds... > >::value_type;
+        using value_type                      = typename proto_traits< group< Ds... > >::value_type;
         static constexpr std::size_t max_size = proto_traits< group< Ds... > >::max_size;
         static constexpr std::size_t min_size = proto_traits< group< Ds... > >::min_size;
 
@@ -754,8 +749,8 @@ struct converter< group< Ds... >, Endianess >
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
-                std::size_t                                    offset = 0;
-                std::size_t                                    size   = buffer.size();
+                std::size_t                                      offset = 0;
+                std::size_t                                      size   = buffer.size();
                 std::optional< conversion_result< value_type > > opt_res;
 
                 until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
@@ -779,8 +774,7 @@ struct converter< group< Ds... >, Endianess >
                         }
 
                         if ( std::holds_alternative< const mark* >( sres ) ) {
-                                opt_res.emplace(
-                                    used, *std::get_if< const mark* >( &sres ) );
+                                opt_res.emplace( used, *std::get_if< const mark* >( &sres ) );
                         } else {
                                 opt_res.emplace( used, value_type{ *std::get_if< 0 >( &sres ) } );
                         }
@@ -796,8 +790,7 @@ struct converter< group< Ds... >, Endianess >
 };
 
 template < endianess_enum Endianess, typename D, endianess_enum ParentEndianess >
-struct converter< endianess_wrapper< Endianess, D >, ParentEndianess >
-  : converter< D, Endianess >
+struct converter< endianess_wrapper< Endianess, D >, ParentEndianess > : converter< D, Endianess >
 {
 };
 
@@ -864,8 +857,7 @@ struct converter< error_record, Endianess >
                 }
                 return {
                     mused + oused,
-                    error_record{
-                        *std::get_if< 0 >( &mres ), *std::get_if< 0 >( &ores ) } };
+                    error_record{ *std::get_if< 0 >( &mres ), *std::get_if< 0 >( &ores ) } };
         }
 };
 

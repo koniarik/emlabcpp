@@ -106,8 +106,7 @@ public:
             are_same_v< typename Cmds::id_type... >,
             "Each command of one group has to use same type of id" );
 
-        using def_type =
-            endianess_wrapper< Endianess, group< typename Cmds::def_type... > >;
+        using def_type   = endianess_wrapper< Endianess, group< typename Cmds::def_type... > >;
         using decl       = proto_traits< def_type >;
         using value_type = typename decl::value_type;
 

@@ -38,7 +38,7 @@ namespace emlabcpp::protocol
 template < typename T >
 struct conversion_result
 {
-        std::size_t                             used = 0;
+        std::size_t                    used = 0;
         std::variant< T, const mark* > res;
 
         conversion_result() = default;
@@ -61,8 +61,7 @@ struct conversion_result
 
 /// Concept that matches types considered base - serialized directly by using byte shifting.
 template < typename T >
-concept base_type =
-    std::is_floating_point_v< T > || std::is_integral_v< T > || std::is_enum_v< T >;
+concept base_type = std::is_floating_point_v< T > || std::is_integral_v< T > || std::is_enum_v< T >;
 
 /// Enum specifies what endianess should be used.
 enum endianess_enum

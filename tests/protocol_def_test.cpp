@@ -33,7 +33,7 @@ template < protocol::endianess_enum Endianess, typename T >
 struct valid_test_case : protocol_test_fixture
 {
         static constexpr protocol::endianess_enum endianess = Endianess;
-        using pitem = protocol::converter< T, endianess >;
+        using pitem                                         = protocol::converter< T, endianess >;
         static_assert( protocol::converter_check< pitem > );
         using value_type = typename pitem::value_type;
 
@@ -96,7 +96,7 @@ make_valid_test_case( T val, const std::vector< uint8_t >& buff )
 template < protocol::endianess_enum Endianess, typename T >
 std::function< protocol_test_fixture*() > make_specific_valid_test_case(
     typename protocol::converter< T, Endianess >::value_type val,
-    const std::vector< uint8_t >&                               buff )
+    const std::vector< uint8_t >&                            buff )
 {
         return [=]() {
                 return new valid_test_case< Endianess, T >( val, buff );
@@ -110,7 +110,7 @@ struct invalid_test_case : protocol_test_fixture
         using pitem      = protocol::converter< T, protocol::PROTOCOL_BIG_ENDIAN >;
         using value_type = T;
 
-        std::vector< uint8_t >          inpt;
+        std::vector< uint8_t > inpt;
         protocol::error_record expected_rec;
 
         invalid_test_case( std::vector< uint8_t > buff, protocol::error_record rec )
@@ -147,9 +147,8 @@ struct invalid_test_case : protocol_test_fixture
 };
 
 template < typename T >
-std::function< protocol_test_fixture*() > make_invalid_test_case(
-    const std::vector< uint8_t >&          buff,
-    const protocol::error_record& rec )
+std::function< protocol_test_fixture*() >
+make_invalid_test_case( const std::vector< uint8_t >& buff, const protocol::error_record& rec )
 {
         return [=]() {
                 return new invalid_test_case< T >( buff, rec );
@@ -246,17 +245,13 @@ int main( int argc, char** argv )
             // sized_buffer
             make_specific_valid_test_case<
                 protocol::PROTOCOL_LITTLE_ENDIAN,
-                protocol::
-                    sized_buffer< uint16_t, protocol::sizeless_message< 12 > > >(
-                *protocol::sizeless_message< 12 >::make(
-                    std::vector{ 1, 2, 3, 4, 5, 6, 7 } ),
+                protocol::sized_buffer< uint16_t, protocol::sizeless_message< 12 > > >(
+                *protocol::sizeless_message< 12 >::make( std::vector{ 1, 2, 3, 4, 5, 6, 7 } ),
                 { 7, 0, 1, 2, 3, 4, 5, 6, 7 } ),
             make_specific_valid_test_case<
                 protocol::PROTOCOL_BIG_ENDIAN,
-                protocol::
-                    sized_buffer< uint16_t, protocol::sizeless_message< 12 > > >(
-                *protocol::sizeless_message< 12 >::make(
-                    std::vector{ 1, 2, 3, 4, 5, 6, 7 } ),
+                protocol::sized_buffer< uint16_t, protocol::sizeless_message< 12 > > >(
+                *protocol::sizeless_message< 12 >::make( std::vector{ 1, 2, 3, 4, 5, 6, 7 } ),
                 { 0, 7, 1, 2, 3, 4, 5, 6, 7 } ),
             make_specific_valid_test_case<
                 protocol::PROTOCOL_LITTLE_ENDIAN,
@@ -266,8 +261,7 @@ int main( int argc, char** argv )
                 protocol::sized_buffer< uint16_t, uint16_t > >( 666u, { 0, 2, 2, 154 } ),
             make_specific_valid_test_case<
                 protocol::PROTOCOL_BIG_ENDIAN,
-                protocol::
-                    sized_buffer< protocol::value_offset< uint16_t, 2 >, uint16_t > >(
+                protocol::sized_buffer< protocol::value_offset< uint16_t, 2 >, uint16_t > >(
                 666u, { 0, 4, 2, 154 } ),
             make_invalid_test_case< protocol::sized_buffer< uint16_t, uint16_t > >(
                 { 0, 1, 2, 2 }, protocol::error_record{ protocol::SIZE_ERR, 2 } ),

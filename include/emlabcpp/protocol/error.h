@@ -42,8 +42,8 @@ struct mark : std::array< char, mark_size >
 
 struct error_record
 {
-        mark error_mark;
-        std::size_t   offset;
+        mark        error_mark;
+        std::size_t offset;
 };
 
 /// Creates mark from simple string literal.

@@ -68,8 +68,7 @@ struct packet_handler
                 return msg;
         }
 
-        static either< value_type, error_record >
-        extract( const view< const uint8_t* >& msg )
+        static either< value_type, error_record > extract( const view< const uint8_t* >& msg )
         {
                 return sub_handler::extract( msg ).bind_left(
                     [&]( std::tuple< prefix_type, size_type, value_type, checksum_type > pack )

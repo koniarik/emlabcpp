@@ -4,10 +4,8 @@
 
 namespace emlabcpp
 {
-using controller_reactor_handler =
-    protocol::packet_handler< testing_controller_reactor_packet >;
-using reactor_controller_handler =
-    protocol::packet_handler< testing_reactor_controller_packet >;
+using controller_reactor_handler = protocol::packet_handler< testing_controller_reactor_packet >;
+using reactor_controller_handler = protocol::packet_handler< testing_reactor_controller_packet >;
 
 testing_reactor_controller_msg
 testing_reactor_controller_serialize( const testing_reactor_controller_variant& var )
