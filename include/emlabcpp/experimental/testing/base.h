@@ -45,8 +45,8 @@ using testing_string_buffer = static_vector< char, 32 >;
 
 // TODO: this breaks stuff as it has nlohmann::json serialization overload which is _not a good
 // idea_
-using testing_value               = std::variant< int64_t, float, bool, testing_string_buffer >;
-static_assert(!alternative_of<uint32_t, testing_value>);
+using testing_value = std::variant< int64_t, float, bool, testing_string_buffer >;
+static_assert( !alternative_of< uint32_t, testing_value > );
 using testing_collect_arg         = std::variant< testing_value, contiguous_container_type >;
 using testing_run_id              = uint32_t;
 using testing_test_id             = uint16_t;

@@ -69,7 +69,7 @@ auto& operator<<( ostreamlike auto& os, const protocol_error_record& rec )
         return os << rec.mark << "(" << rec.offset << ")";
 }
 
-auto& operator<<( ostreamlike auto& os, const protocol_endianess_enum& val )
+auto& operator<<( ostreamlike auto& os, const endianess_enum& val )
 {
         switch ( val ) {
                 case PROTOCOL_BIG_ENDIAN:
@@ -80,7 +80,7 @@ auto& operator<<( ostreamlike auto& os, const protocol_endianess_enum& val )
         return os;
 }
 
-template < ostreamlike Stream, protocol_endianess_enum Endianess, typename... Regs >
+template < ostreamlike Stream, endianess_enum Endianess, typename... Regs >
 auto& operator<<( Stream& os, const protocol_register_map< Endianess, Regs... >& m )
 {
         using map = protocol_register_map< Endianess, Regs... >;

@@ -44,4 +44,3 @@ TEST( Decompose, decompose )
         EXPECT_EQ( std::get< 1 >( t3 ), v3.s );
         EXPECT_EQ( std::get< 2 >( t3 ), v3.f );
 }
-

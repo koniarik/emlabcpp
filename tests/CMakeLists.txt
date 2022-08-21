@@ -5,8 +5,8 @@ find_package(GTest REQUIRED)
 target_compile_options(
   emlabcpp
   PRIVATE -DEMLABCPP_USE_NLOHMANN_JSON -DEMLABCPP_ASSERT_NATIVE
-          -DEMLABCPP_USE_MAGIC_ENUM -DEMLABCPP_USE_GTEST
-          -DEMLABCPP_USE_LOGGING -DEMLABCPP_USE_DEMANGLING)
+          -DEMLABCPP_USE_MAGIC_ENUM -DEMLABCPP_USE_GTEST -DEMLABCPP_USE_LOGGING
+          -DEMLABCPP_USE_DEMANGLING)
 target_include_directories(emlabcpp SYSTEM PRIVATE third-party/)
 
 function(emlabcpp_setup_test target)

@@ -29,10 +29,10 @@
 
 using namespace emlabcpp;
 
-template < protocol::protocol_endianess_enum Endianess, typename T >
+template < protocol::endianess_enum Endianess, typename T >
 struct valid_test_case : protocol_test_fixture
 {
-        static constexpr protocol::protocol_endianess_enum endianess = Endianess;
+        static constexpr protocol::endianess_enum endianess = Endianess;
         using pitem = protocol::protocol_def< T, endianess >;
         static_assert( protocol::protocol_def_check< pitem > );
         using value_type = typename pitem::value_type;
@@ -85,7 +85,7 @@ struct valid_test_case : protocol_test_fixture
         }
 };
 
-template < protocol::protocol_endianess_enum Endianess, typename T >
+template < protocol::endianess_enum Endianess, typename T >
 std::function< protocol_test_fixture*() >
 make_valid_test_case( T val, const std::vector< uint8_t >& buff )
 {
@@ -93,7 +93,7 @@ make_valid_test_case( T val, const std::vector< uint8_t >& buff )
                 return new valid_test_case< Endianess, T >( val, buff );
         };
 }
-template < protocol::protocol_endianess_enum Endianess, typename T >
+template < protocol::endianess_enum Endianess, typename T >
 std::function< protocol_test_fixture*() > make_specific_valid_test_case(
     typename protocol::protocol_def< T, Endianess >::value_type val,
     const std::vector< uint8_t >&                               buff )

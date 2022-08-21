@@ -41,7 +41,7 @@ namespace emlabcpp::protocol
 /// defined items in the command. For example: protocol_command<32>::with_args<uint32_t, uint32_t>
 //
 /// Internally, the example leads to definition `std::tuple< tag<32>, uint32_t, uint32_t >`
-template < auto ID, protocol_declarable... Defs >
+template < auto ID, convertible... Defs >
 struct protocol_command
 {
         using id_type    = decltype( ID );
@@ -69,7 +69,7 @@ struct protocol_command
 /// Note that group without commands is not usable by the protocol library as that case is
 /// specialized and doesn ot contain any protocol definitions. This is required implementation
 /// detail.
-template < protocol_endianess_enum Endianess, typename... Cmds >
+template < endianess_enum Endianess, typename... Cmds >
 struct protocol_command_group : protocol_def_type_base
 {
         using cmds_type = std::tuple< Cmds... >;
@@ -135,7 +135,7 @@ public:
         }
 };
 
-template < protocol_endianess_enum Endianess >
+template < endianess_enum Endianess >
 struct protocol_command_group< Endianess >
 {
         template < typename... Cmds >

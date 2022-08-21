@@ -31,11 +31,10 @@ using namespace emlabcpp;
 
 struct protocol_packet_test_def
 {
-        static constexpr protocol::protocol_endianess_enum endianess =
-            protocol::PROTOCOL_BIG_ENDIAN;
-        static constexpr std::array< uint8_t, 4 > prefix = { 0x91, 0x19, 0x91, 0x19 };
-        using size_type                                  = uint16_t;
-        using checksum_type                              = uint16_t;
+        static constexpr protocol::endianess_enum endianess = protocol::PROTOCOL_BIG_ENDIAN;
+        static constexpr std::array< uint8_t, 4 > prefix    = { 0x91, 0x19, 0x91, 0x19 };
+        using size_type                                     = uint16_t;
+        using checksum_type                                 = uint16_t;
 
         static constexpr checksum_type get_checksum( const view< const uint8_t* > )
         {

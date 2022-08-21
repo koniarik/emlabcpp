@@ -39,7 +39,7 @@
 namespace emlabcpp::protocol
 {
 
-template < protocol_declarable >
+template < convertible >
 struct protocol_json_serializer;
 
 struct protocol_json_serializer_base
@@ -51,7 +51,7 @@ struct protocol_json_serializer_base
 
 }  // namespace emlabcpp::protocol
 
-template < emlabcpp::protocol::protocol_declarable D >
+template < emlabcpp::protocol::convertible D >
 struct nlohmann::adl_serializer< emlabcpp::protocol::protocol_decl< D > >
 {
         using decl     = emlabcpp::protocol::protocol_decl< D >;
@@ -159,7 +159,7 @@ struct protocol_json_serializer< float > : protocol_json_serializer_base
                 return std::string{ type_name };
         }
 };
-template < protocol_declarable T >
+template < convertible T >
 requires( std::is_enum_v< T > ) struct protocol_json_serializer< T > : protocol_json_serializer_base
 {
         static constexpr std::string_view type_name = "enum";
@@ -177,7 +177,7 @@ requires( std::is_enum_v< T > ) struct protocol_json_serializer< T > : protocol_
         }
 };
 
-template < protocol_declarable D, std::size_t N >
+template < convertible D, std::size_t N >
 struct protocol_json_serializer< std::array< D, N > > : protocol_json_serializer_base
 {
         static constexpr std::string_view type_name = "array";
@@ -195,7 +195,7 @@ struct protocol_json_serializer< std::array< D, N > > : protocol_json_serializer
         }
 };
 
-template < protocol_declarable... Ds >
+template < convertible... Ds >
 struct protocol_json_serializer< std::tuple< Ds... > > : protocol_json_serializer_base
 {
         static constexpr std::string_view type_name = "tuple";
@@ -217,7 +217,7 @@ struct protocol_json_serializer< std::tuple< Ds... > > : protocol_json_serialize
         }
 };
 
-template < protocol_declarable... Ds >
+template < convertible... Ds >
 struct protocol_json_serializer< std::variant< Ds... > > : protocol_json_serializer_base
 {
         static constexpr std::string_view type_name = "variant";
@@ -263,7 +263,7 @@ struct protocol_json_serializer< protocol_sizeless_message< N > > : protocol_jso
         static constexpr std::string_view type_name = "sizeless_message";
 };
 
-template < protocol_declarable D, auto Offset >
+template < convertible D, auto Offset >
 struct protocol_json_serializer< protocol_offset< D, Offset > > : protocol_json_serializer_base
 {
         static constexpr std::string_view type_name = "offset";
@@ -282,8 +282,7 @@ struct protocol_json_serializer< protocol_offset< D, Offset > > : protocol_json_
 };
 
 template < quantity_derived D >
-requires( protocol_declarable< D > ) struct protocol_json_serializer< D >
-  : protocol_json_serializer_base
+requires( convertible< D > ) struct protocol_json_serializer< D > : protocol_json_serializer_base
 {
         static constexpr std::string_view type_name = "quantity";
 
@@ -301,7 +300,7 @@ requires( protocol_declarable< D > ) struct protocol_json_serializer< D >
         }
 };
 
-template < protocol_declarable D, D Min, D Max >
+template < convertible D, D Min, D Max >
 struct protocol_json_serializer< bounded< D, Min, Max > > : protocol_json_serializer_base
 {
         static constexpr std::string_view type_name = "bounded";
@@ -319,7 +318,7 @@ struct protocol_json_serializer< bounded< D, Min, Max > > : protocol_json_serial
         }
 };
 
-template < protocol_declarable CounterType, protocol_declarable D >
+template < convertible CounterType, convertible D >
 struct protocol_json_serializer< protocol_sized_buffer< CounterType, D > >
   : protocol_json_serializer_base
 {
@@ -363,7 +362,7 @@ struct protocol_json_serializer< tag< V > > : protocol_json_serializer_base
         }
 };
 
-template < protocol_declarable... Ds >
+template < convertible... Ds >
 struct protocol_json_serializer< protocol_group< Ds... > > : protocol_json_serializer_base
 {
         static constexpr std::string_view type_name = "group";
@@ -383,21 +382,21 @@ struct protocol_json_serializer< protocol_group< Ds... > > : protocol_json_seria
         }
 };
 
-template < protocol_declarable... Ds >
+template < convertible... Ds >
 struct protocol_json_serializer< protocol_tag_group< Ds... > >
   : protocol_json_serializer< typename protocol_decl< protocol_tag_group< Ds... > >::sub_type >
 {
         static constexpr std::string_view type_name = "group";
 };
 
-template < protocol_endianess_enum Endianess, protocol_declarable D >
+template < endianess_enum Endianess, convertible D >
 struct protocol_json_serializer< protocol_endianess< Endianess, D > >
   : protocol_json_serializer< D >
 {
 };
 
 template < std::derived_from< protocol_def_type_base > D >
-requires( protocol_declarable< D > ) struct protocol_json_serializer< D >
+requires( convertible< D > ) struct protocol_json_serializer< D >
   : protocol_json_serializer< typename D::def_type >
 {
         static std::string get_name()
@@ -457,7 +456,7 @@ struct protocol_json_serializer< static_vector< T, N > > : protocol_json_seriali
 
 template < decomposable D >
 requires(
-    protocol_declarable< D > && !quantity_derived< D > &&
+    convertible< D > && !quantity_derived< D > &&
     !std::derived_from< D, protocol_def_type_base > ) struct protocol_json_serializer< D >
   : protocol_json_serializer< typename protocol_decl< D >::tuple_type >
 {

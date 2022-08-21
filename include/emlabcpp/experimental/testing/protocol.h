@@ -220,11 +220,10 @@ using testing_reactor_controller_variant = typename testing_reactor_controller_g
 
 struct testing_packet_def
 {
-        static constexpr protocol::protocol_endianess_enum endianess =
-            protocol::PROTOCOL_BIG_ENDIAN;
-        static constexpr std::array< uint8_t, 4 > prefix = { 0x42, 0x42, 0x42, 0x42 };
-        using size_type                                  = uint16_t;
-        using checksum_type                              = uint8_t;
+        static constexpr protocol::endianess_enum endianess = protocol::PROTOCOL_BIG_ENDIAN;
+        static constexpr std::array< uint8_t, 4 > prefix    = { 0x42, 0x42, 0x42, 0x42 };
+        using size_type                                     = uint16_t;
+        using checksum_type                                 = uint8_t;
 
         static constexpr checksum_type get_checksum( const view< const uint8_t* > msg )
         {

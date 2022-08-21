@@ -37,7 +37,7 @@ namespace emlabcpp::protocol
 //
 /// serializes/deserializes in same way as 'std::tuple<uint32_t,uint32_t>' configured for big
 /// endianess.
-template < protocol_endianess_enum Endianess, typename... Ds >
+template < endianess_enum Endianess, typename... Ds >
 struct protocol_tuple : protocol_def_type_base
 {
         template < typename... SubDs >

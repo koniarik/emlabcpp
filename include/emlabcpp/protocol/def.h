@@ -37,7 +37,7 @@ namespace emlabcpp::protocol
 /// protocol_def<T,E> structure defines how type T should be serialized and deserialized. Each type
 /// or kind of types should overlead this structure and use same attributes as protocol_decl<T,E>. E
 /// is edianess of the serialization used.
-template < typename, protocol_endianess_enum >
+template < typename, endianess_enum >
 struct protocol_def;
 
 /// protocol_def_check<T> concept verifies that 'T' is valid overload of protocol_def. Use this in
@@ -64,7 +64,7 @@ concept protocol_def_check = requires()
                 } -> std::same_as< protocol_result< typename T::value_type > >;
 };
 
-template < protocol_base_type D, protocol_endianess_enum Endianess >
+template < protocol_base_type D, endianess_enum Endianess >
 struct protocol_def< D, Endianess >
 {
         using value_type                      = typename protocol_decl< D >::value_type;
@@ -93,7 +93,7 @@ struct protocol_def< D, Endianess >
         }
 };
 
-template < protocol_declarable D, std::size_t N, protocol_endianess_enum Endianess >
+template < convertible D, std::size_t N, endianess_enum Endianess >
 struct protocol_def< std::array< D, N >, Endianess >
 {
         using value_type = typename protocol_decl< std::array< D, N > >::value_type;
@@ -155,7 +155,7 @@ struct protocol_def< std::array< D, N >, Endianess >
         }
 };
 
-template < protocol_declarable... Ds, protocol_endianess_enum Endianess >
+template < convertible... Ds, endianess_enum Endianess >
 struct protocol_def< std::tuple< Ds... >, Endianess >
 {
         using def_type = std::tuple< Ds... >;
@@ -226,7 +226,7 @@ struct protocol_def< std::tuple< Ds... >, Endianess >
         }
 };
 
-template < protocol_declarable... Ds, protocol_endianess_enum Endianess >
+template < convertible... Ds, endianess_enum Endianess >
 struct protocol_def< std::variant< Ds... >, Endianess >
 {
         using def_type                        = std::variant< Ds... >;
@@ -322,7 +322,7 @@ struct protocol_def< std::variant< Ds... >, Endianess >
         }
 };
 
-template < protocol_endianess_enum Endianess >
+template < endianess_enum Endianess >
 struct protocol_def< std::monostate, Endianess >
 {
         using value_type                      = std::monostate;
@@ -341,7 +341,7 @@ struct protocol_def< std::monostate, Endianess >
         }
 };
 
-template < protocol_declarable T, protocol_endianess_enum Endianess >
+template < convertible T, endianess_enum Endianess >
 struct protocol_def< std::optional< T >, Endianess >
 {
         using decl                            = protocol_decl< std::optional< T > >;
@@ -417,7 +417,7 @@ struct protocol_def< std::optional< T >, Endianess >
         }
 };
 
-template < std::size_t N, protocol_endianess_enum Endianess >
+template < std::size_t N, endianess_enum Endianess >
 struct protocol_def< std::bitset< N >, Endianess >
 {
         using value_type = typename protocol_decl< std::bitset< N > >::value_type;
@@ -458,7 +458,7 @@ struct protocol_def< std::bitset< N >, Endianess >
         }
 };
 
-template < std::size_t N, protocol_endianess_enum Endianess >
+template < std::size_t N, endianess_enum Endianess >
 struct protocol_def< protocol_sizeless_message< N >, Endianess >
 {
         using value_type = typename protocol_decl< protocol_sizeless_message< N > >::value_type;
@@ -490,7 +490,7 @@ struct protocol_def< protocol_sizeless_message< N >, Endianess >
         }
 };
 
-template < protocol_declarable D, auto Offset, protocol_endianess_enum Endianess >
+template < convertible D, auto Offset, endianess_enum Endianess >
 struct protocol_def< protocol_offset< D, Offset >, Endianess >
 {
         using value_type = typename protocol_decl< protocol_offset< D, Offset > >::value_type;
@@ -517,7 +517,7 @@ struct protocol_def< protocol_offset< D, Offset >, Endianess >
         }
 };
 
-template < quantity_derived D, protocol_endianess_enum Endianess >
+template < quantity_derived D, endianess_enum Endianess >
 struct protocol_def< D, Endianess >
 {
         using value_type                      = typename protocol_decl< D >::value_type;
@@ -525,7 +525,7 @@ struct protocol_def< D, Endianess >
 
         using inner_type = typename D::value_type;
 
-        static_assert( protocol_declarable< inner_type > );
+        static_assert( convertible< inner_type > );
 
         using sub_def   = protocol_def< inner_type, Endianess >;
         using size_type = typename sub_def::size_type;
@@ -547,7 +547,7 @@ struct protocol_def< D, Endianess >
         }
 };
 
-template < protocol_declarable D, D Min, D Max, protocol_endianess_enum Endianess >
+template < convertible D, D Min, D Max, endianess_enum Endianess >
 struct protocol_def< bounded< D, Min, Max >, Endianess >
 {
         using value_type = typename protocol_decl< bounded< D, Min, Max > >::value_type;
@@ -579,10 +579,7 @@ struct protocol_def< bounded< D, Min, Max >, Endianess >
         }
 };
 
-template <
-    protocol_declarable     CounterDef,
-    protocol_declarable     D,
-    protocol_endianess_enum Endianess >
+template < convertible CounterDef, convertible D, endianess_enum Endianess >
 struct protocol_def< protocol_sized_buffer< CounterDef, D >, Endianess >
 {
         using value_type =
@@ -639,7 +636,7 @@ struct protocol_def< protocol_sized_buffer< CounterDef, D >, Endianess >
         }
 };
 
-template < auto V, protocol_endianess_enum Endianess >
+template < auto V, endianess_enum Endianess >
 struct protocol_def< tag< V >, Endianess >
 {
         using value_type                      = typename protocol_decl< tag< V > >::value_type;
@@ -670,7 +667,7 @@ struct protocol_def< tag< V >, Endianess >
         }
 };
 
-template < typename... Ds, protocol_endianess_enum Endianess >
+template < typename... Ds, endianess_enum Endianess >
 struct protocol_def< protocol_tag_group< Ds... >, Endianess >
 {
         using decl                            = protocol_decl< protocol_tag_group< Ds... > >;
@@ -724,7 +721,7 @@ struct protocol_def< protocol_tag_group< Ds... >, Endianess >
         }
 };
 
-template < typename... Ds, protocol_endianess_enum Endianess >
+template < typename... Ds, endianess_enum Endianess >
 struct protocol_def< protocol_group< Ds... >, Endianess >
 {
         using value_type = typename protocol_decl< protocol_group< Ds... > >::value_type;
@@ -798,18 +795,18 @@ struct protocol_def< protocol_group< Ds... >, Endianess >
         }
 };
 
-template < protocol_endianess_enum Endianess, typename D, protocol_endianess_enum ParentEndianess >
+template < endianess_enum Endianess, typename D, endianess_enum ParentEndianess >
 struct protocol_def< protocol_endianess< Endianess, D >, ParentEndianess >
   : protocol_def< D, Endianess >
 {
 };
 
-template < std::derived_from< protocol_def_type_base > D, protocol_endianess_enum Endianess >
+template < std::derived_from< protocol_def_type_base > D, endianess_enum Endianess >
 struct protocol_def< D, Endianess > : protocol_def< typename D::def_type, Endianess >
 {
 };
 
-template < protocol_endianess_enum Endianess >
+template < endianess_enum Endianess >
 struct protocol_def< protocol_mark, Endianess >
 {
         using value_type                      = typename protocol_decl< protocol_mark >::value_type;
@@ -832,7 +829,7 @@ struct protocol_def< protocol_mark, Endianess >
         }
 };
 
-template < protocol_endianess_enum Endianess >
+template < endianess_enum Endianess >
 struct protocol_def< protocol_error_record, Endianess >
 {
         using decl                            = protocol_decl< protocol_error_record >;
@@ -872,7 +869,7 @@ struct protocol_def< protocol_error_record, Endianess >
         }
 };
 
-template < typename T, std::size_t N, protocol_endianess_enum Endianess >
+template < typename T, std::size_t N, endianess_enum Endianess >
 struct protocol_def< static_vector< T, N >, Endianess >
 {
         using value_type = typename protocol_decl< static_vector< T, N > >::value_type;
@@ -953,7 +950,7 @@ struct protocol_def< static_vector< T, N >, Endianess >
         }
 };
 
-template < decomposable T, protocol_endianess_enum Endianess >
+template < decomposable T, endianess_enum Endianess >
 requires(
     !std::derived_from< T, protocol_def_type_base > &&
     !quantity_derived< T > ) struct protocol_def< T, Endianess >

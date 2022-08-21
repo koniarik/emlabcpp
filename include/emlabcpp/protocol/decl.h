@@ -47,7 +47,7 @@ struct protocol_decl;
 /// taken by the serialized value in the message. protocol_decl::min_size should contain minimal
 /// size used.
 template < typename D >
-concept protocol_declarable = requires( D val )
+concept convertible = requires( D val )
 {
         {
                 protocol_decl< D >::max_size
@@ -69,7 +69,7 @@ struct protocol_decl< D >
         static constexpr std::size_t min_size = max_size;
 };
 
-template < protocol_declarable D, std::size_t N >
+template < convertible D, std::size_t N >
 struct protocol_decl< std::array< D, N > >
 {
         using value_type                      = std::array< D, N >;
@@ -77,7 +77,7 @@ struct protocol_decl< std::array< D, N > >
         static constexpr std::size_t min_size = protocol_decl< D >::min_size * N;
 };
 
-template < protocol_declarable... Ds >
+template < convertible... Ds >
 struct protocol_decl< std::tuple< Ds... > >
 {
         using value_type = std::tuple< typename protocol_decl< Ds >::value_type... >;
@@ -85,7 +85,7 @@ struct protocol_decl< std::tuple< Ds... > >
         static constexpr std::size_t min_size = ( protocol_decl< Ds >::min_size + ... + 0 );
 };
 
-template < protocol_declarable... Ds >
+template < convertible... Ds >
 struct protocol_decl< std::variant< Ds... > >
 {
         using id_type    = uint8_t;
@@ -124,7 +124,7 @@ struct protocol_decl< protocol_sizeless_message< N > >
         static constexpr std::size_t min_size = max_size;
 };
 
-template < protocol_declarable D, auto Offset >
+template < convertible D, auto Offset >
 struct protocol_decl< protocol_offset< D, Offset > >
 {
         using def_type   = typename protocol_offset< D, Offset >::def_type;
@@ -144,7 +144,7 @@ struct protocol_decl< D >
         static constexpr std::size_t min_size = protocol_decl< typename D::value_type >::min_size;
 };
 
-template < protocol_declarable D, D Min, D Max >
+template < convertible D, D Min, D Max >
 struct protocol_decl< bounded< D, Min, Max > >
 {
         using value_type = bounded< D, Min, Max >;
@@ -153,7 +153,7 @@ struct protocol_decl< bounded< D, Min, Max > >
         static constexpr std::size_t min_size = protocol_decl< D >::min_size;
 };
 
-template < protocol_declarable CounterType, protocol_declarable D >
+template < convertible CounterType, convertible D >
 struct protocol_decl< protocol_sized_buffer< CounterType, D > >
 {
         using counter_decl = protocol_decl< CounterType >;
@@ -174,7 +174,7 @@ struct protocol_decl< tag< V > >
         static constexpr std::size_t min_size = sub_decl::min_size;
 };
 
-template < protocol_declarable... Ds >
+template < convertible... Ds >
 struct protocol_decl< protocol_group< Ds... > >
 {
         using value_type = std::variant< typename protocol_decl< Ds >::value_type... >;
@@ -186,7 +186,7 @@ struct protocol_decl< protocol_group< Ds... > >
               sizeof...( Ds ) == 0 ? 0 : std::numeric_limits< std::size_t >::max() } );
 };
 
-template < protocol_declarable... Ds >
+template < convertible... Ds >
 struct protocol_decl< protocol_tag_group< Ds... > >
 {
         using value_type = std::variant< typename protocol_decl< Ds >::value_type... >;
@@ -201,7 +201,7 @@ struct protocol_decl< protocol_tag_group< Ds... > >
         static constexpr std::size_t min_size = sub_decl::min_size;
 };
 
-template < protocol_endianess_enum Endianess, protocol_declarable D >
+template < endianess_enum Endianess, convertible D >
 struct protocol_decl< protocol_endianess< Endianess, D > > : protocol_decl< D >
 {
 };
@@ -234,7 +234,7 @@ struct protocol_decl< protocol_error_record >
         static constexpr std::size_t min_size = mark_decl::min_size + offset_decl::min_size;
 };
 
-template < protocol_declarable T, std::size_t N >
+template < convertible T, std::size_t N >
 struct protocol_decl< static_vector< T, N > >
 {
         using value_type   = static_vector< T, N >;
@@ -244,7 +244,7 @@ struct protocol_decl< static_vector< T, N > >
         static constexpr std::size_t min_size = protocol_decl< counter_type >::min_size;
 };
 
-template < protocol_declarable T >
+template < convertible T >
 struct protocol_decl< std::optional< T > >
 {
         using value_type    = std::optional< T >;
