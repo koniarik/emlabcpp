@@ -45,7 +45,7 @@ struct protocol_reg
 };
 
 template < typename UnaryCallable, typename Registers >
-concept protocol_register_map_void_returning =
+concept register_map_void_returning =
     invocable_returning< UnaryCallable, void, std::tuple_element_t< 0, Registers > >;
 
 /// Register map is abstraction to work with registers of external devices. It stores values of
@@ -56,7 +56,7 @@ concept protocol_register_map_void_returning =
 /// additional information that can be accessed about the map. This can also be used as simple table
 /// of configuration values.
 template < endianess_enum Endianess, typename... Regs >
-class protocol_register_map
+class register_map
 {
         static_assert( are_same_v< typename Regs::key_type... > );
 
@@ -107,8 +107,8 @@ public:
         template < key_type Key >
         using reg_def_type = typename reg_type< Key >::def_type;
 
-        protocol_register_map() = default;
-        protocol_register_map( typename Regs::value_type... args )
+        register_map() = default;
+        register_map( typename Regs::value_type... args )
           : registers_( Regs{ args }... )
         {
         }
@@ -159,7 +159,7 @@ public:
 
         template < typename UnaryCallable >
         requires(
-            !protocol_register_map_void_returning<
+            !register_map_void_returning<
                 UnaryCallable,
                 registers_tuple > ) constexpr auto with_register( key_type key, UnaryCallable&& f )
             const
@@ -174,7 +174,7 @@ public:
 
         template < typename UnaryCallable >
         requires(
-            protocol_register_map_void_returning<
+            register_map_void_returning<
                 UnaryCallable,
                 registers_tuple > ) constexpr void with_register( key_type key, UnaryCallable&& f )
             const

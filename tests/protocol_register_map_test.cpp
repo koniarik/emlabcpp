@@ -38,7 +38,7 @@ enum test_keys
         KOO = 10
 };
 
-struct test_map : protocol::protocol_register_map<
+struct test_map : protocol::register_map<
                       protocol::PROTOCOL_BIG_ENDIAN,
                       protocol::protocol_reg< FOO, uint32_t >,
                       protocol::protocol_reg< WOO, uint32_t >,

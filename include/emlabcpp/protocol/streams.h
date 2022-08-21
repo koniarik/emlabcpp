@@ -56,7 +56,7 @@ auto& operator<<( Stream& os, const message< N >& msg )
         return os;
 }
 
-auto& operator<<( ostreamlike auto& os, const protocol_mark& m )
+auto& operator<<( ostreamlike auto& os, const mark& m )
 {
         for ( char c : m ) {
                 os << c;
@@ -66,7 +66,7 @@ auto& operator<<( ostreamlike auto& os, const protocol_mark& m )
 
 auto& operator<<( ostreamlike auto& os, const error_record& rec )
 {
-        return os << rec.mark << "(" << rec.offset << ")";
+        return os << rec.error_mark << "(" << rec.offset << ")";
 }
 
 auto& operator<<( ostreamlike auto& os, const endianess_enum& val )
@@ -81,9 +81,9 @@ auto& operator<<( ostreamlike auto& os, const endianess_enum& val )
 }
 
 template < ostreamlike Stream, endianess_enum Endianess, typename... Regs >
-auto& operator<<( Stream& os, const protocol_register_map< Endianess, Regs... >& m )
+auto& operator<<( Stream& os, const register_map< Endianess, Regs... >& m )
 {
-        using map = protocol_register_map< Endianess, Regs... >;
+        using map = register_map< Endianess, Regs... >;
 
         auto key_to_str = []( auto key ) {
                 return convert_enum( key );

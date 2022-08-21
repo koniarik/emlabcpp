@@ -76,7 +76,7 @@ struct complex_group
             CG >::with_args< uint32_t, protocol::protocol_offset< uint8_t, 2 > >,
         protocol::command< CH >::with_args< test_quantity, uint16_t >,
         protocol::command< CI >::with_args<
-            protocol::protocol_sized_buffer< uint8_t, protocol::sizeless_message< 8 > >,
+            protocol::sized_buffer< uint8_t, protocol::sizeless_message< 8 > >,
             uint32_t >,
         protocol::command< CJ >::with_args<
             protocol::protocol_group< uint32_t, uint8_t > > >

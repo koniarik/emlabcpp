@@ -36,23 +36,23 @@ namespace emlabcpp::protocol
 /// Strucutre used as result of deserialization in the internal mechanisms of protocol handling.
 /// Contains parsed value and bounded value of how much bytes were used.
 template < typename T >
-struct protocol_result
+struct conversion_result
 {
         std::size_t                             used = 0;
-        std::variant< T, const protocol_mark* > res;
+        std::variant< T, const mark* > res;
 
-        protocol_result() = default;
-        protocol_result( std::size_t u, std::variant< T, const protocol_mark* > v )
+        conversion_result() = default;
+        conversion_result( std::size_t u, std::variant< T, const mark* > v )
           : used( u )
           , res( v )
         {
         }
-        protocol_result( std::size_t u, T v )
+        conversion_result( std::size_t u, T v )
           : used( u )
           , res( v )
         {
         }
-        protocol_result( std::size_t u, const protocol_mark* m )
+        conversion_result( std::size_t u, const mark* m )
           : used( u )
           , res( m )
         {
@@ -103,7 +103,7 @@ struct protocol_tag_group
 /// bytes are passed to deserialization process, bytes after the limit ale not considered by this
 /// segment.
 template < typename CounterDef, typename D >
-struct protocol_sized_buffer
+struct sized_buffer
 {
         using counter_type = CounterDef;
         using value_type   = D;

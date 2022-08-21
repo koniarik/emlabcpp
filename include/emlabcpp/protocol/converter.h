@@ -61,7 +61,7 @@ concept converter_check = requires()
 {
         {
                 T::deserialize( buff )
-                } -> std::same_as< protocol_result< typename T::value_type > >;
+                } -> std::same_as< conversion_result< typename T::value_type > >;
 };
 
 template < protocol_base_type D, endianess_enum Endianess >
@@ -86,7 +86,7 @@ struct converter< D, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 return {
                     max_size, serializer< value_type, Endianess >::deserialize( buffer ) };
@@ -129,7 +129,7 @@ struct converter< std::array< D, N >, Endianess >
         }
 
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 value_type  res{};
                 std::size_t offset = 0;
@@ -144,14 +144,14 @@ struct converter< std::array< D, N >, Endianess >
                         auto [used, subres] = sub_def::deserialize( *opt_view );
                         offset += used;
 
-                        if ( std::holds_alternative< const protocol_mark* >( subres ) ) {
-                                return { offset, *std::get_if< const protocol_mark* >( &subres ) };
+                        if ( std::holds_alternative< const mark* >( subres ) ) {
+                                return { offset, *std::get_if< const mark* >( &subres ) };
                         } else {
                                 res[i] = *std::get_if< 0 >( &subres );
                         }
                 }
 
-                return protocol_result{ offset, res };
+                return conversion_result{ offset, res };
         }
 };
 
@@ -189,12 +189,12 @@ struct converter< std::tuple< Ds... >, Endianess >
         }
 
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 value_type res;
 
                 std::size_t                           offset = 0;
-                std::optional< const protocol_mark* > opt_err;
+                std::optional< const mark* > opt_err;
 
                 until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
                         using D       = std::tuple_element_t< i, def_type >;
@@ -210,8 +210,8 @@ struct converter< std::tuple< Ds... >, Endianess >
 
                         auto [sused, sres] = sub_def::deserialize( *opt_view );
                         offset += sused;
-                        if ( std::holds_alternative< const protocol_mark* >( sres ) ) {
-                                opt_err = *std::get_if< const protocol_mark* >( &sres );
+                        if ( std::holds_alternative< const mark* >( sres ) ) {
+                                opt_err = *std::get_if< const mark* >( &sres );
                                 return true;
                         } else {
                                 std::get< i >( res ) = *std::get_if< 0 >( &sres );
@@ -277,15 +277,15 @@ struct converter< std::variant< Ds... >, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
-                protocol_result< value_type > res{ 0, &UNDEFVAR_ERR };
+                conversion_result< value_type > res{ 0, &UNDEFVAR_ERR };
 
                 auto [iused, idres] = id_def::deserialize( buffer.template first< id_size >() );
                 std::size_t used    = iused;
 
-                if ( std::holds_alternative< const protocol_mark* >( idres ) ) {
-                        res.res = *std::get_if< const protocol_mark* >( &idres );
+                if ( std::holds_alternative< const mark* >( idres ) ) {
+                        res.res = *std::get_if< const mark* >( &idres );
                         return res;
                 }
                 id_type id = std::get< 0 >( idres );
@@ -310,8 +310,8 @@ struct converter< std::variant< Ds... >, Endianess >
 
                         auto [sused, sres] = sub_def::deserialize( *opt_view );
                         res.used           = used + sused;
-                        if ( std::holds_alternative< const protocol_mark* >( sres ) ) {
-                                res.res = *std::get_if< const protocol_mark* >( &sres );
+                        if ( std::holds_alternative< const mark* >( sres ) ) {
+                                res.res = *std::get_if< const mark* >( &sres );
                         } else {
                                 res.res = value_type{ *std::get_if< 0 >( &sres ) };
                         }
@@ -335,7 +335,7 @@ struct converter< std::monostate, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 return { 0, std::monostate{} };
         }
@@ -373,16 +373,16 @@ struct converter< std::optional< T >, Endianess >
         }
 
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
-                protocol_result< value_type > res{ 0, &BADVAL_ERR };
+                conversion_result< value_type > res{ 0, &BADVAL_ERR };
 
                 auto [pused, pres] =
                     presence_def::deserialize( buffer.template first< presence_size >() );
                 res.used = pused;
 
-                if ( std::holds_alternative< const protocol_mark* >( pres ) ) {
-                        const protocol_mark* m = *std::get_if< const protocol_mark* >( &pres );
+                if ( std::holds_alternative< const mark* >( pres ) ) {
+                        const mark* m = *std::get_if< const mark* >( &pres );
                         res.res                = m;
                         return res;
                 }
@@ -410,7 +410,7 @@ struct converter< std::optional< T >, Endianess >
                     [&]( T val ) {
                             res.res = std::make_optional( std::move( val ) );
                     },
-                    [&]( const protocol_mark* m ) {
+                    [&]( const mark* m ) {
                             res.res = m;
                     } );
                 return res;
@@ -445,7 +445,7 @@ struct converter< std::bitset< N >, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 std::bitset< N > res;
                 for ( std::size_t i : range( max_size ) ) {
@@ -479,14 +479,14 @@ struct converter< sizeless_message< N >, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 auto opt_msg = value_type::make( buffer );
 
                 if ( !opt_msg ) {
                         return { 0, &BIGSIZE_ERR };
                 }
-                return protocol_result{ opt_msg->size(), *opt_msg };
+                return conversion_result{ opt_msg->size(), *opt_msg };
         }
 };
 
@@ -507,11 +507,11 @@ struct converter< protocol_offset< D, Offset >, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 auto [used, res] = sub_def::deserialize( buffer );
-                if ( std::holds_alternative< const protocol_mark* >( res ) ) {
-                        return { used, *std::get_if< const protocol_mark* >( &res ) };
+                if ( std::holds_alternative< const mark* >( res ) ) {
+                        return { used, *std::get_if< const mark* >( &res ) };
                 }
                 return { used, static_cast< value_type >( *std::get_if< 0 >( &res ) - Offset ) };
         }
@@ -537,11 +537,11 @@ struct converter< D, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 auto [used, res] = sub_def::deserialize( buffer );
-                if ( std::holds_alternative< const protocol_mark* >( res ) ) {
-                        return { used, *std::get_if< const protocol_mark* >( &res ) };
+                if ( std::holds_alternative< const mark* >( res ) ) {
+                        return { used, *std::get_if< const mark* >( &res ) };
                 }
                 return { used, value_type{ *std::get_if< 0 >( &res ) } };
         }
@@ -562,14 +562,14 @@ struct converter< bounded< D, Min, Max >, Endianess >
                 return sub_def::serialize_at( buffer, *item );
         }
 
-        using result_either = protocol_result< value_type >;
+        using result_either = conversion_result< value_type >;
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 auto [used, res] = sub_def::deserialize( buffer );
-                if ( std::holds_alternative< const protocol_mark* >( res ) ) {
-                        return { used, *std::get_if< const protocol_mark* >( &res ) };
+                if ( std::holds_alternative< const mark* >( res ) ) {
+                        return { used, *std::get_if< const mark* >( &res ) };
                 }
                 auto opt_val = value_type::make( *std::get_if< 0 >( &res ) );
                 if ( !opt_val ) {
@@ -580,12 +580,12 @@ struct converter< bounded< D, Min, Max >, Endianess >
 };
 
 template < convertible CounterDef, convertible D, endianess_enum Endianess >
-struct converter< protocol_sized_buffer< CounterDef, D >, Endianess >
+struct converter< sized_buffer< CounterDef, D >, Endianess >
 {
         using value_type =
-            typename proto_traits< protocol_sized_buffer< CounterDef, D > >::value_type;
+            typename proto_traits< sized_buffer< CounterDef, D > >::value_type;
         static constexpr std::size_t max_size =
-            proto_traits< protocol_sized_buffer< CounterDef, D > >::max_size;
+            proto_traits< sized_buffer< CounterDef, D > >::max_size;
 
         using sub_def = converter< D, Endianess >;
 
@@ -613,14 +613,14 @@ struct converter< protocol_sized_buffer< CounterDef, D >, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
 
                 auto [cused, cres] =
                     counter_def::deserialize( buffer.template first< counter_size >() );
 
-                if ( std::holds_alternative< const protocol_mark* >( cres ) ) {
-                        return { cused, *std::get_if< const protocol_mark* >( &cres ) };
+                if ( std::holds_alternative< const mark* >( cres ) ) {
+                        return { cused, *std::get_if< const mark* >( &cres ) };
                 }
                 std::size_t used       = *std::get_if< 0 >( &cres );
                 auto        start_iter = buffer.begin() + counter_size;
@@ -653,11 +653,11 @@ struct converter< tag< V >, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 auto [used, res] = sub_def::deserialize( buffer );
-                if ( std::holds_alternative< const protocol_mark* >( res ) ) {
-                        return { 0, *std::get_if< const protocol_mark* >( &res ) };
+                if ( std::holds_alternative< const mark* >( res ) ) {
+                        return { 0, *std::get_if< const mark* >( &res ) };
                 }
                 auto val = *std::get_if< 0 >( &res );
                 if ( val != V ) {
@@ -703,11 +703,11 @@ struct converter< protocol_tag_group< Ds... >, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 auto [used, sres] = sub_def::deserialize( buffer );
-                if ( std::holds_alternative< const protocol_mark* >( sres ) ) {
-                        return { used, *std::get_if< const protocol_mark* >( &sres ) };
+                if ( std::holds_alternative< const mark* >( sres ) ) {
+                        return { used, *std::get_if< const mark* >( &sres ) };
                 }
 
                 return {
@@ -752,11 +752,11 @@ struct converter< protocol_group< Ds... >, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 std::size_t                                    offset = 0;
                 std::size_t                                    size   = buffer.size();
-                std::optional< protocol_result< value_type > > opt_res;
+                std::optional< conversion_result< value_type > > opt_res;
 
                 until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
                         using sub_def =
@@ -778,9 +778,9 @@ struct converter< protocol_group< Ds... >, Endianess >
                                 return false;
                         }
 
-                        if ( std::holds_alternative< const protocol_mark* >( sres ) ) {
+                        if ( std::holds_alternative< const mark* >( sres ) ) {
                                 opt_res.emplace(
-                                    used, *std::get_if< const protocol_mark* >( &sres ) );
+                                    used, *std::get_if< const mark* >( &sres ) );
                         } else {
                                 opt_res.emplace( used, value_type{ *std::get_if< 0 >( &sres ) } );
                         }
@@ -807,10 +807,10 @@ struct converter< D, Endianess > : converter< typename D::def_type, Endianess >
 };
 
 template < endianess_enum Endianess >
-struct converter< protocol_mark, Endianess >
+struct converter< mark, Endianess >
 {
-        using value_type                      = typename proto_traits< protocol_mark >::value_type;
-        static constexpr std::size_t max_size = proto_traits< protocol_mark >::max_size;
+        using value_type                      = typename proto_traits< mark >::value_type;
+        static constexpr std::size_t max_size = proto_traits< mark >::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
         static constexpr size_type
@@ -821,7 +821,7 @@ struct converter< protocol_mark, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 value_type res{};
                 std::copy( buffer.begin(), buffer.begin() + max_size, res.begin() );
@@ -834,7 +834,7 @@ struct converter< error_record, Endianess >
 {
         using decl                            = proto_traits< error_record >;
         using value_type                      = typename decl::value_type;
-        using mark_def                        = converter< protocol_mark, Endianess >;
+        using mark_def                        = converter< mark, Endianess >;
         using offset_def                      = converter< std::size_t, Endianess >;
         static constexpr std::size_t max_size = decl::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
@@ -842,25 +842,25 @@ struct converter< error_record, Endianess >
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, value_type item )
         {
-                mark_def::serialize_at( buffer.first< mark_def::max_size >(), item.mark );
+                mark_def::serialize_at( buffer.first< mark_def::max_size >(), item.error_mark );
                 offset_def::serialize_at( buffer.last< offset_def::max_size >(), item.offset );
                 return size_type{};
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 auto [mused, mres] = mark_def::deserialize( buffer.first< mark_def::max_size >() );
 
-                if ( std::holds_alternative< const protocol_mark* >( mres ) ) {
-                        return { 0, *std::get_if< const protocol_mark* >( &mres ) };
+                if ( std::holds_alternative< const mark* >( mres ) ) {
+                        return { 0, *std::get_if< const mark* >( &mres ) };
                 }
 
                 auto [oused, ores] =
                     offset_def::deserialize( buffer.offset< mark_def::max_size >() );
 
-                if ( std::holds_alternative< const protocol_mark* >( ores ) ) {
-                        return { mused, *std::get_if< const protocol_mark* >( &ores ) };
+                if ( std::holds_alternative< const mark* >( ores ) ) {
+                        return { mused, *std::get_if< const mark* >( &ores ) };
                 }
                 return {
                     mused + oused,
@@ -914,13 +914,13 @@ struct converter< static_vector< T, N >, Endianess >
         }
 
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
                 auto [cused, cres] =
                     counter_def::deserialize( buffer.template first< counter_size >() );
 
-                if ( std::holds_alternative< const protocol_mark* >( cres ) ) {
-                        return { cused, *std::get_if< const protocol_mark* >( &cres ) };
+                if ( std::holds_alternative< const mark* >( cres ) ) {
+                        return { cused, *std::get_if< const mark* >( &cres ) };
                 }
                 std::size_t cnt    = *std::get_if< 0 >( &cres );
                 std::size_t offset = counter_size;
@@ -939,8 +939,8 @@ struct converter< static_vector< T, N >, Endianess >
 
                         offset += used;
 
-                        if ( std::holds_alternative< const protocol_mark* >( subres ) ) {
-                                return { offset, *std::get_if< const protocol_mark* >( &subres ) };
+                        if ( std::holds_alternative< const mark* >( subres ) ) {
+                                return { offset, *std::get_if< const mark* >( &subres ) };
                         } else {
                                 res.push_back( *std::get_if< 0 >( &subres ) );
                         }
@@ -973,13 +973,13 @@ requires(
         }
 
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
-            -> protocol_result< value_type >
+            -> conversion_result< value_type >
         {
 
                 auto [used, subres] = sub_def::deserialize( buffer );
 
-                if ( std::holds_alternative< const protocol_mark* >( subres ) ) {
-                        return { used, *std::get_if< const protocol_mark* >( &subres ) };
+                if ( std::holds_alternative< const mark* >( subres ) ) {
+                        return { used, *std::get_if< const mark* >( &subres ) };
                 } else {
                         return { used, compose< T >( *std::get_if< 0 >( &subres ) ) };
                 }

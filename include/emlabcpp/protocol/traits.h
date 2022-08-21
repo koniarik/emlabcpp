@@ -154,7 +154,7 @@ struct proto_traits< bounded< D, Min, Max > >
 };
 
 template < convertible CounterType, convertible D >
-struct proto_traits< protocol_sized_buffer< CounterType, D > >
+struct proto_traits< sized_buffer< CounterType, D > >
 {
         using counter_decl = proto_traits< CounterType >;
         using sub_decl     = proto_traits< D >;
@@ -212,10 +212,10 @@ struct proto_traits< D > : proto_traits< typename D::def_type >
 };
 
 template <>
-struct proto_traits< protocol_mark >
+struct proto_traits< mark >
 {
-        using value_type                      = protocol_mark;
-        static constexpr std::size_t max_size = protocol_mark{}.max_size();
+        using value_type                      = mark;
+        static constexpr std::size_t max_size = mark{}.max_size();
         static constexpr std::size_t min_size = max_size;
 };
 
@@ -224,7 +224,7 @@ struct proto_traits< error_record >
 {
         using value_type = error_record;
 
-        using mark_type   = protocol_mark;
+        using mark_type   = mark;
         using offset_type = std::size_t;
 
         using mark_decl   = proto_traits< mark_type >;

@@ -68,7 +68,7 @@ struct valid_test_case : protocol_test_fixture
                 auto [pused, res] = pitem::deserialize(
                     *bounded_view< const uint8_t*, typename pitem::size_type >::make(
                         view_n( buffer.begin(), *used ) ) );
-                if ( std::holds_alternative< const protocol::protocol_mark* >( res ) ) {
+                if ( std::holds_alternative< const protocol::mark* >( res ) ) {
                         FAIL() << *std::get< 1 >( res );
                 } else {
                         auto rval = std::get< 0 >( res );
@@ -130,8 +130,8 @@ struct invalid_test_case : protocol_test_fixture
                 EXPECT_TRUE( opt_view );
 
                 auto [used, res] = pitem::deserialize( *opt_view );
-                if ( std::holds_alternative< const protocol::protocol_mark* >( res ) ) {
-                        EXPECT_EQ( expected_rec.mark, *std::get< 1 >( res ) );
+                if ( std::holds_alternative< const protocol::mark* >( res ) ) {
+                        EXPECT_EQ( expected_rec.error_mark, *std::get< 1 >( res ) );
                         EXPECT_EQ( expected_rec.offset, used );
                 } else {
                         FAIL() << "deserialization passed";
@@ -247,31 +247,31 @@ int main( int argc, char** argv )
             make_specific_valid_test_case<
                 protocol::PROTOCOL_LITTLE_ENDIAN,
                 protocol::
-                    protocol_sized_buffer< uint16_t, protocol::sizeless_message< 12 > > >(
+                    sized_buffer< uint16_t, protocol::sizeless_message< 12 > > >(
                 *protocol::sizeless_message< 12 >::make(
                     std::vector{ 1, 2, 3, 4, 5, 6, 7 } ),
                 { 7, 0, 1, 2, 3, 4, 5, 6, 7 } ),
             make_specific_valid_test_case<
                 protocol::PROTOCOL_BIG_ENDIAN,
                 protocol::
-                    protocol_sized_buffer< uint16_t, protocol::sizeless_message< 12 > > >(
+                    sized_buffer< uint16_t, protocol::sizeless_message< 12 > > >(
                 *protocol::sizeless_message< 12 >::make(
                     std::vector{ 1, 2, 3, 4, 5, 6, 7 } ),
                 { 0, 7, 1, 2, 3, 4, 5, 6, 7 } ),
             make_specific_valid_test_case<
                 protocol::PROTOCOL_LITTLE_ENDIAN,
-                protocol::protocol_sized_buffer< uint16_t, uint16_t > >( 666u, { 2, 0, 154, 2 } ),
+                protocol::sized_buffer< uint16_t, uint16_t > >( 666u, { 2, 0, 154, 2 } ),
             make_specific_valid_test_case<
                 protocol::PROTOCOL_BIG_ENDIAN,
-                protocol::protocol_sized_buffer< uint16_t, uint16_t > >( 666u, { 0, 2, 2, 154 } ),
+                protocol::sized_buffer< uint16_t, uint16_t > >( 666u, { 0, 2, 2, 154 } ),
             make_specific_valid_test_case<
                 protocol::PROTOCOL_BIG_ENDIAN,
                 protocol::
-                    protocol_sized_buffer< protocol::protocol_offset< uint16_t, 2 >, uint16_t > >(
+                    sized_buffer< protocol::protocol_offset< uint16_t, 2 >, uint16_t > >(
                 666u, { 0, 4, 2, 154 } ),
-            make_invalid_test_case< protocol::protocol_sized_buffer< uint16_t, uint16_t > >(
+            make_invalid_test_case< protocol::sized_buffer< uint16_t, uint16_t > >(
                 { 0, 1, 2, 2 }, protocol::error_record{ protocol::SIZE_ERR, 2 } ),
-            make_invalid_test_case< protocol::protocol_sized_buffer< uint16_t, uint16_t > >(
+            make_invalid_test_case< protocol::sized_buffer< uint16_t, uint16_t > >(
                 { 0, 5, 2, 2 }, protocol::error_record{ protocol::SIZE_ERR, 2 } ),
             // tag
             make_valid_test_case< protocol::PROTOCOL_LITTLE_ENDIAN >(

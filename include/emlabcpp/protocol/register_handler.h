@@ -81,7 +81,7 @@ struct protocol_register_handler
                         return error_record{ SIZE_ERR, 0 };
                 }
                 auto [used, res] = def::deserialize( *opt_view );
-                if ( std::holds_alternative< const protocol_mark* >( res ) ) {
+                if ( std::holds_alternative< const mark* >( res ) ) {
                         return error_record{ *std::get< 1 >( res ), used };
                 }
                 return std::get< 0 >( res );

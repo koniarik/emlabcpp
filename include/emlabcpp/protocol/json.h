@@ -318,7 +318,7 @@ struct traits_json_serializer< bounded< D, Min, Max > > : traits_json_serializer
 };
 
 template < convertible CounterType, convertible D >
-struct traits_json_serializer< protocol_sized_buffer< CounterType, D > >
+struct traits_json_serializer< sized_buffer< CounterType, D > >
   : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "sized_buffer";
@@ -404,7 +404,7 @@ requires( convertible< D > ) struct traits_json_serializer< D >
 };
 
 template <>
-struct traits_json_serializer< protocol_mark > : traits_json_serializer_base
+struct traits_json_serializer< mark > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "mark";
         static std::string                get_name()

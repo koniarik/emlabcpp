@@ -63,8 +63,8 @@ struct protocol_handler
                         return error_record{ SIZE_ERR, 0 };
                 }
                 auto [used, res] = def::deserialize( *opt_view );
-                if ( std::holds_alternative< const protocol_mark* >( res ) ) {
-                        const protocol_mark* mark = *std::get_if< 1 >( &res );
+                if ( std::holds_alternative< const mark* >( res ) ) {
+                        const mark* mark = *std::get_if< 1 >( &res );
                         EMLABCPP_LOG(
                             "Failed to extract protocol def "
                             << pretty_type_name< T >() << " from message " << *opt_view
