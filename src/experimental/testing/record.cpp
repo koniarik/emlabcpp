@@ -27,7 +27,7 @@
 namespace emlabcpp::testing
 {
 
-std::optional< testing_node_type > testing_record::get_param_type( testing_node_id nid )
+std::optional< testing_node_type > testing_record::get_param_type( node_id nid )
 {
         std::optional reply = exchange< testing_param_type_reply, TESTING_PARAM_TYPE >( nid );
         if ( reply ) {
@@ -36,7 +36,7 @@ std::optional< testing_node_type > testing_record::get_param_type( testing_node_
         return std::nullopt;
 }
 
-std::optional< testing_value > testing_record::get_param_value( testing_node_id nid )
+std::optional< value_type > testing_record::get_param_value( node_id nid )
 {
         std::optional reply = exchange< testing_param_value_reply, TESTING_PARAM_VALUE >( nid );
 
@@ -47,27 +47,27 @@ std::optional< testing_value > testing_record::get_param_value( testing_node_id 
         return std::nullopt;
 }
 
-std::optional< testing_node_id >
-testing_record::collect( testing_node_id parent, const testing_collect_arg& arg )
+std::optional< node_id >
+testing_record::collect( node_id parent, const testing_collect_arg& arg )
 {
         return collect( parent, std::optional< testing_key >{}, arg );
 }
 
-std::optional< testing_node_id > testing_record::collect(
-    testing_node_id                     parent,
+std::optional< node_id > testing_record::collect(
+    node_id                     parent,
     const std::optional< testing_key >& key,
     const testing_collect_arg&          arg )
 {
         std::optional reply =
-            exchange< testing_collect_reply, TESTING_COLLECT >( parent, key, arg );
+            exchange< collect_reply, TESTING_COLLECT >( parent, key, arg );
         if ( reply ) {
                 return reply->nid;
         }
         return std::nullopt;
 }
 
-std::optional< testing_node_id >
-testing_record::get_param_child( testing_node_id nid, testing_child_id chid )
+std::optional< node_id >
+testing_record::get_param_child( node_id nid, testing_child_id chid )
 {
         std::optional reply = exchange< testing_param_child_reply, TESTING_PARAM_CHILD >(
             nid, std::variant< testing_key, testing_child_id >{ chid } );
@@ -77,14 +77,14 @@ testing_record::get_param_child( testing_node_id nid, testing_child_id chid )
         return std::nullopt;
 }
 
-std::optional< testing_node_id >
-testing_record::get_param_child( testing_node_id nid, std::string_view key )
+std::optional< node_id >
+testing_record::get_param_child( node_id nid, std::string_view key )
 {
         return get_param_child( nid, testing_key_to_buffer( key ) );
 }
 
-std::optional< testing_node_id >
-testing_record::get_param_child( testing_node_id nid, const testing_key& key )
+std::optional< node_id >
+testing_record::get_param_child( node_id nid, const testing_key& key )
 {
         // TODO duplication of other overload /o\...
         std::optional reply = exchange< testing_param_child_reply, TESTING_PARAM_CHILD >(
@@ -96,7 +96,7 @@ testing_record::get_param_child( testing_node_id nid, const testing_key& key )
 }
 
 std::optional< testing_child_count >
-testing_record::get_param_child_count( std::optional< testing_node_id > nid )
+testing_record::get_param_child_count( std::optional< node_id > nid )
 {
         std::optional reply =
             exchange< testing_param_child_count_reply, TESTING_PARAM_CHILD_COUNT >( nid );
@@ -107,7 +107,7 @@ testing_record::get_param_child_count( std::optional< testing_node_id > nid )
 }
 
 std::optional< testing_key >
-testing_record::get_param_key( testing_node_id nid, testing_child_id chid )
+testing_record::get_param_key( node_id nid, testing_child_id chid )
 {
         std::optional reply = exchange< testing_param_key_reply, TESTING_PARAM_KEY >( nid, chid );
         if ( reply ) {
@@ -116,13 +116,13 @@ testing_record::get_param_key( testing_node_id nid, testing_child_id chid )
         return std::nullopt;
 }
 
-void testing_record::report_wrong_type_error( testing_node_id nid, const testing_value& )
+void testing_record::report_wrong_type_error( node_id nid, const value_type& )
 {
         comm_.report_failure< TESTING_WRONG_TYPE_E >( nid );
 }
 
 template < typename T >
-std::optional< T > testing_record::read_variant_alternative( testing_node_id )
+std::optional< T > testing_record::read_variant_alternative( node_id )
 {
         std::optional< testing_controller_reactor_variant > opt_var = comm_.read_variant();
         if ( !opt_var ) {
@@ -147,13 +147,13 @@ std::optional< T > testing_record::read_variant_alternative( testing_node_id )
 
 template < typename ResultType, auto ID, typename... Args >
 std::optional< ResultType >
-testing_record::exchange( std::optional< testing_node_id > opt_nid, const Args&... args )
+testing_record::exchange( std::optional< node_id > opt_nid, const Args&... args )
 {
         if ( !opt_nid ) {
                 return std::nullopt;
         }
 
-        testing_node_id nid = *opt_nid;
+        node_id nid = *opt_nid;
 
         comm_.reply< ID >( rid_, nid, args... );
 

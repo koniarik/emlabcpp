@@ -63,31 +63,31 @@ void testing_reactor::spin( testing_reactor_interface& top_iface )
             [&]( const testing_tree_error_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
-            [&]( const testing_collect_reply& ) {
+            [&]( const collect_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             } );
 }
 
 void testing_reactor::handle_message(
-    testing_get_property< TESTING_SUITE_NAME >,
+    get_property< TESTING_SUITE_NAME >,
     testing_reactor_interface_adapter& iface )
 {
         iface.reply< TESTING_SUITE_NAME >( testing_name_to_buffer( suite_name_ ) );
 }
 void testing_reactor::handle_message(
-    testing_get_property< TESTING_SUITE_DATE >,
+    get_property< TESTING_SUITE_DATE >,
     testing_reactor_interface_adapter& iface )
 {
         iface.reply< TESTING_SUITE_DATE >( testing_name_to_buffer( suite_date_ ) );
 }
 void testing_reactor::handle_message(
-    testing_get_property< TESTING_COUNT >,
+    get_property< TESTING_COUNT >,
     testing_reactor_interface_adapter& iface )
 {
         iface.reply< TESTING_COUNT >( static_cast< testing_test_id >( handles_.size() ) );
 }
 void testing_reactor::handle_message(
-    testing_get_test_name              req,
+    get_test_name              req,
     testing_reactor_interface_adapter& iface )
 {
         if ( req.tid >= handles_.size() ) {
@@ -97,7 +97,7 @@ void testing_reactor::handle_message(
         iface.reply< TESTING_NAME >( testing_name_to_buffer( access_test( req.tid ).name ) );
 }
 void testing_reactor::handle_message(
-    testing_load_test                  req,
+    load_test                  req,
     testing_reactor_interface_adapter& iface )
 {
         if ( active_exec_ ) {

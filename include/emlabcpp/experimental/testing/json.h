@@ -6,9 +6,9 @@
 namespace emlabcpp::testing
 {
 
-testing_value json_to_testing_value( const nlohmann::json& j );
+value_type json_to_value_type( const nlohmann::json& j );
 
-nlohmann::json testing_value_to_json( const testing_value& tv );
+nlohmann::json value_type_to_json( const value_type& tv );
 
 testing_key json_to_testing_key( const nlohmann::json& j );
 

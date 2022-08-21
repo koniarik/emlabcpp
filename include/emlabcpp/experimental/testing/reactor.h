@@ -102,15 +102,15 @@ public:
 
 private:
         void handle_message(
-            testing_get_property< TESTING_SUITE_NAME >,
+            get_property< TESTING_SUITE_NAME >,
             testing_reactor_interface_adapter& );
         void handle_message(
-            testing_get_property< TESTING_SUITE_DATE >,
+            get_property< TESTING_SUITE_DATE >,
             testing_reactor_interface_adapter& );
         void
-        handle_message( testing_get_property< TESTING_COUNT >, testing_reactor_interface_adapter& );
-        void handle_message( testing_get_test_name, testing_reactor_interface_adapter& );
-        void handle_message( testing_load_test, testing_reactor_interface_adapter& );
+        handle_message( get_property< TESTING_COUNT >, testing_reactor_interface_adapter& );
+        void handle_message( get_test_name, testing_reactor_interface_adapter& );
+        void handle_message( load_test, testing_reactor_interface_adapter& );
         void handle_message( testing_exec, testing_reactor_interface_adapter& );
 
         template < testing_test T >

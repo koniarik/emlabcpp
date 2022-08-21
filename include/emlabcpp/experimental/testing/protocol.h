@@ -31,7 +31,7 @@
 namespace emlabcpp::testing
 {
 
-enum testing_messages_enum : uint8_t
+enum messages_enum : uint8_t
 {
         TESTING_EXEC              = 0x1,
         TESTING_COUNT             = 0x2,
@@ -53,37 +53,37 @@ enum testing_messages_enum : uint8_t
         TESTING_TREE_ERROR        = 0xf2,
 };
 
-template < testing_messages_enum ID >
-struct testing_get_property
+template < messages_enum ID >
+struct get_property
 {
         static constexpr auto tag = ID;
 };
 
-struct testing_get_test_name
+struct get_test_name
 {
         static constexpr auto tag = TESTING_NAME;
         testing_test_id       tid;
 };
 
-struct testing_load_test
+struct load_test
 {
         static constexpr auto tag = TESTING_LOAD;
         testing_test_id       tid;
         run_id        rid;
 };
 
-struct testing_collect_reply
+struct collect_reply
 {
         static constexpr auto tag = TESTING_COLLECT;
         run_id        rid;
-        testing_node_id       nid;
+        node_id       nid;
 };
 
 struct testing_param_value_reply
 {
         static constexpr auto tag = TESTING_PARAM_VALUE;
         run_id        rid;
-        testing_value         value;
+        value_type         value;
 };
 
 struct testing_param_type_reply
@@ -97,7 +97,7 @@ struct testing_param_child_reply
 {
         static constexpr auto tag = TESTING_PARAM_CHILD;
         run_id        rid;
-        testing_node_id       chid;
+        node_id       chid;
 };
 
 struct testing_param_child_count_reply
@@ -119,7 +119,7 @@ struct testing_tree_error_reply
         static constexpr auto                  tag = TESTING_TREE_ERROR;
         run_id                         rid;
         contiguous_request_adapter_errors_enum err;
-        testing_node_id                        nid;
+        node_id                        nid;
 };
 
 struct testing_exec
@@ -129,12 +129,12 @@ struct testing_exec
 };
 
 using testing_controller_reactor_group = protocol::tag_group<
-    testing_get_property< TESTING_SUITE_NAME >,
-    testing_get_property< TESTING_SUITE_DATE >,
-    testing_get_property< TESTING_COUNT >,
-    testing_get_test_name,
-    testing_load_test,
-    testing_collect_reply,
+    get_property< TESTING_SUITE_NAME >,
+    get_property< TESTING_SUITE_DATE >,
+    get_property< TESTING_COUNT >,
+    get_test_name,
+    load_test,
+    collect_reply,
     testing_param_value_reply,
     testing_param_child_reply,
     testing_param_child_count_reply,
@@ -168,10 +168,10 @@ struct testing_reactor_error_group  //
         protocol::command< TESTING_TEST_ALREADY_LOADED_E >,
         protocol::command< TESTING_BAD_TEST_ID_E >,
         protocol::command< TESTING_UNDESIRED_MSG_E >,
-        protocol::command< TESTING_NO_RESPONSE_E >::with_args< testing_messages_enum >,
+        protocol::command< TESTING_NO_RESPONSE_E >::with_args< messages_enum >,
         protocol::command<
-            TESTING_TREE_E >::with_args< testing_node_id, contiguous_request_adapter_errors_enum >,
-        protocol::command< TESTING_WRONG_TYPE_E >::with_args< testing_node_id >,
+            TESTING_TREE_E >::with_args< node_id, contiguous_request_adapter_errors_enum >,
+        protocol::command< TESTING_WRONG_TYPE_E >::with_args< node_id >,
         protocol::command< TESTING_WRONG_MESSAGE_E >
 
         >
@@ -185,21 +185,21 @@ struct testing_reactor_controller_group
         protocol::PROTOCOL_BIG_ENDIAN,
         protocol::command< TESTING_COUNT >::with_args< testing_test_id >,
         protocol::command< TESTING_NAME >::with_args< testing_name_buffer >,
-        protocol::command< TESTING_PARAM_VALUE >::with_args< run_id, testing_node_id >,
+        protocol::command< TESTING_PARAM_VALUE >::with_args< run_id, node_id >,
         protocol::command< TESTING_PARAM_CHILD >::with_args<
             run_id,
-            testing_node_id,
+            node_id,
             std::variant< testing_key, testing_child_id > >,
         protocol::command<
-            TESTING_PARAM_CHILD_COUNT >::with_args< run_id, testing_node_id >,
+            TESTING_PARAM_CHILD_COUNT >::with_args< run_id, node_id >,
         protocol::command< TESTING_PARAM_KEY >::with_args<  //
             run_id,
-            testing_node_id,
+            node_id,
             testing_child_id >,
-        protocol::command< TESTING_PARAM_TYPE >::with_args< run_id, testing_node_id >,
+        protocol::command< TESTING_PARAM_TYPE >::with_args< run_id, node_id >,
         protocol::command< TESTING_COLLECT >::with_args<
             run_id,
-            testing_node_id,
+            node_id,
             std::optional< testing_key >,
             testing_collect_arg >,
         protocol::command< TESTING_FINISHED >::with_args< run_id >,

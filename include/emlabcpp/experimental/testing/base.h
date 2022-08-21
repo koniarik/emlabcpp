@@ -36,7 +36,7 @@ namespace emlabcpp::testing
 using testing_name_buffer = static_vector< char, 32 >;
 using testing_key_buffer  = static_vector< char, 16 >;
 
-using testing_node_id       = uint32_t;
+using node_id       = uint32_t;
 using testing_child_count   = uint32_t;
 using testing_child_id      = uint32_t;
 using testing_node_type     = contiguous_tree_type_enum;
@@ -45,12 +45,12 @@ using testing_string_buffer = static_vector< char, 32 >;
 
 // TODO: this breaks stuff as it has nlohmann::json serialization overload which is _not a good
 // idea_
-using testing_value = std::variant< int64_t, float, bool, testing_string_buffer >;
-static_assert( !alternative_of< uint32_t, testing_value > );
-using testing_collect_arg         = std::variant< testing_value, contiguous_container_type >;
+using value_type = std::variant< int64_t, float, bool, testing_string_buffer >;
+static_assert( !alternative_of< uint32_t, value_type > );
+using testing_collect_arg         = std::variant< value_type, contiguous_container_type >;
 using run_id              = uint32_t;
 using testing_test_id             = uint16_t;
-using testing_tree                = contiguous_tree< testing_key, testing_value >;
+using testing_tree                = contiguous_tree< testing_key, value_type >;
 using testing_node                = typename testing_tree::node_type;
 using testing_array_handle        = typename testing_tree::array_handle;
 using testing_object_handle       = typename testing_tree::object_handle;

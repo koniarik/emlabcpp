@@ -48,10 +48,10 @@ public:
         {
         }
 
-        std::optional< testing_node_type > get_param_type( testing_node_id );
+        std::optional< testing_node_type > get_param_type( node_id );
 
         template < typename T >
-        std::optional< T > get_param( testing_node_id node )
+        std::optional< T > get_param( node_id node )
         {
                 std::optional opt_var = get_param_value( node );
                 if ( !opt_var ) {
@@ -64,9 +64,9 @@ public:
         }
 
         template < typename T, typename Key >
-        std::optional< T > get_param( testing_node_id node, const Key& k )
+        std::optional< T > get_param( node_id node, const Key& k )
         {
-                std::optional< testing_node_id > opt_nid = get_param_child( node, k );
+                std::optional< node_id > opt_nid = get_param_child( node, k );
                 if ( !opt_nid ) {
                         EMLABCPP_LOG(
                             "Failed to get param " << k << " of node " << node << " with type "
@@ -77,7 +77,7 @@ public:
         }
 
         template < typename T, typename Key >
-        std::optional< T > get_param( std::optional< testing_node_id > node, const Key& k )
+        std::optional< T > get_param( std::optional< node_id > node, const Key& k )
         {
                 if ( !node ) {
                         return std::nullopt;
@@ -85,57 +85,57 @@ public:
                 return get_param< T >( *node, k );
         }
 
-        std::optional< testing_value > get_param_value( testing_node_id param );
+        std::optional< value_type > get_param_value( node_id param );
 
-        std::optional< testing_node_id > get_param_child( testing_node_id, testing_child_id );
-        std::optional< testing_node_id > get_param_child( testing_node_id, const testing_key& key );
-        std::optional< testing_node_id > get_param_child( testing_node_id, std::string_view key );
+        std::optional< node_id > get_param_child( node_id, testing_child_id );
+        std::optional< node_id > get_param_child( node_id, const testing_key& key );
+        std::optional< node_id > get_param_child( node_id, std::string_view key );
 
         std::optional< testing_child_count >
-            get_param_child_count( std::optional< testing_node_id > );
-        std::optional< testing_child_count > get_param_child_count( testing_node_id nid )
+            get_param_child_count( std::optional< node_id > );
+        std::optional< testing_child_count > get_param_child_count( node_id nid )
         {
                 return get_param_child_count( std::optional{ nid } );
         }
 
-        std::optional< testing_key > get_param_key( testing_node_id, testing_child_id );
+        std::optional< testing_key > get_param_key( node_id, testing_child_id );
 
         bool errored()
         {
                 return errored_;
         }
 
-        std::optional< testing_node_id > collect(
-            testing_node_id                     parent,
+        std::optional< node_id > collect(
+            node_id                     parent,
             const std::optional< testing_key >& key,
             const testing_collect_arg&          arg );
 
-        std::optional< testing_node_id >
-        collect( testing_node_id parent, const testing_collect_arg& arg );
+        std::optional< node_id >
+        collect( node_id parent, const testing_collect_arg& arg );
 
-        std::optional< testing_node_id >
-        collect( testing_node_id parent, std::string_view k, contiguous_container_type t )
+        std::optional< node_id >
+        collect( node_id parent, std::string_view k, contiguous_container_type t )
         {
                 return collect( parent, convert_key( k ), testing_collect_arg{ t } );
         }
-        std::optional< testing_node_id >
-        collect( testing_node_id parent, contiguous_container_type t )
+        std::optional< node_id >
+        collect( node_id parent, contiguous_container_type t )
         {
                 return collect( parent, testing_collect_arg{ t } );
         }
 
         template < typename Arg >
-        std::optional< testing_node_id >
-        collect( testing_node_id parent, std::string_view k, const Arg& arg )
+        std::optional< node_id >
+        collect( node_id parent, std::string_view k, const Arg& arg )
         {
                 return collect(
-                    parent, convert_key( k ), testing_value_converter< Arg >::to_value( arg ) );
+                    parent, convert_key( k ), value_type_converter< Arg >::to_value( arg ) );
         }
 
         template < typename Arg >
-        std::optional< testing_node_id > collect( testing_node_id parent, const Arg& arg )
+        std::optional< node_id > collect( node_id parent, const Arg& arg )
         {
-                return collect( parent, testing_value_converter< Arg >::to_value( arg ) );
+                return collect( parent, value_type_converter< Arg >::to_value( arg ) );
         }
 
         void fail()
@@ -153,12 +153,12 @@ public:
         }
 
 private:
-        void report_wrong_type_error( testing_node_id, const testing_value& var );
+        void report_wrong_type_error( node_id, const value_type& var );
 
         template < typename T >
-        std::optional< T > extract_param( const testing_value& var, testing_node_id nid )
+        std::optional< T > extract_param( const value_type& var, node_id nid )
         {
-                std::optional< T > res = testing_value_converter< T >::from_value( var );
+                std::optional< T > res = value_type_converter< T >::from_value( var );
                 if ( !res ) {
                         EMLABCPP_LOG(
                             "Can't extract arg " << pretty_type_name< T >() << " from node " << nid
@@ -175,11 +175,11 @@ private:
         }
 
         template < typename T >
-        std::optional< T > read_variant_alternative( testing_node_id );
+        std::optional< T > read_variant_alternative( node_id );
 
         template < typename ResultType, auto ID, typename... Args >
         std::optional< ResultType >
-        exchange( std::optional< testing_node_id > nid, const Args&... args );
+        exchange( std::optional< node_id > nid, const Args&... args );
 };
 
 }  // namespace emlabcpp::testing

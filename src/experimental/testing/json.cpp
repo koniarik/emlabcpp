@@ -5,7 +5,7 @@
 namespace emlabcpp::testing
 {
 
-testing_value json_to_testing_value( const nlohmann::json& j )
+value_type json_to_value_type( const nlohmann::json& j )
 {
         using value_t = nlohmann::json::value_t;
 
@@ -26,7 +26,7 @@ testing_value json_to_testing_value( const nlohmann::json& j )
         }
 }
 
-nlohmann::json testing_value_to_json( const testing_value& tv )
+nlohmann::json value_type_to_json( const value_type& tv )
 {
         nlohmann::json res = match(
             tv,
@@ -50,8 +50,8 @@ json_to_testing_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
 {
         testing_tree tree{ mem_pool };
 
-        static_function< testing_node_id( const nlohmann::json& j ), 32 > f =
-            [&]( const nlohmann::json& j ) -> testing_node_id {
+        static_function< node_id( const nlohmann::json& j ), 32 > f =
+            [&]( const nlohmann::json& j ) -> node_id {
                 if ( j.is_object() ) {
                         std::optional opt_res = tree.make_object_node();
                         if ( !opt_res ) {
@@ -60,7 +60,7 @@ json_to_testing_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
                         }
                         auto [nid, oh] = *opt_res;
                         for ( const auto& [key, value] : j.items() ) {
-                                testing_node_id chid = f( value );
+                                node_id chid = f( value );
                                 oh.set( json_to_testing_key( key ), chid );
                         }
                         return nid;
@@ -73,12 +73,12 @@ json_to_testing_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
                         }
                         auto [nid, ah] = *opt_res;
                         for ( const nlohmann::json& jj : j ) {
-                                testing_node_id chid = f( jj );
+                                node_id chid = f( jj );
                                 ah.append( chid );
                         }
                         return nid;
                 }
-                std::optional opt_id = tree.make_value_node( json_to_testing_value( j ) );
+                std::optional opt_id = tree.make_value_node( json_to_value_type( j ) );
                 if ( !opt_id ) {
                         throw std::exception{};
                 }
@@ -97,8 +97,8 @@ json_to_testing_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
 
 nlohmann::json testing_tree_to_json( const testing_tree& tree )
 {
-        static_function< nlohmann::json( testing_node_id ), 32 > f =
-            [&]( testing_node_id nid ) -> nlohmann::json {
+        static_function< nlohmann::json( node_id ), 32 > f =
+            [&]( node_id nid ) -> nlohmann::json {
                 const testing_node* node_ptr = tree.get_node( nid );
 
                 if ( node_ptr == nullptr ) {
@@ -107,8 +107,8 @@ nlohmann::json testing_tree_to_json( const testing_tree& tree )
 
                 return match(
                     node_ptr->get_container_handle(),
-                    [&]( const testing_value& val ) {
-                            return testing_value_to_json( val );
+                    [&]( const value_type& val ) {
+                            return value_type_to_json( val );
                     },
                     [&]( testing_const_object_handle oh ) {
                             nlohmann::json j;

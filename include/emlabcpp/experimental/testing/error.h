@@ -49,7 +49,7 @@ struct testing_internal_reactor_error
 
 struct testing_controller_message_error
 {
-        testing_messages_enum msg_id;
+        messages_enum msg_id;
 };
 
 using testing_error_variant = std::variant<

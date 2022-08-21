@@ -69,7 +69,7 @@ public:
         void reply_node_error(
             run_id                         rid,
             contiguous_request_adapter_errors_enum err,
-            testing_node_id                        nid )
+            node_id                        nid )
         {
                 if ( err == CONTIGUOUS_WRONG_TYPE ) {
                         EMLABCPP_LOG( "Failed to work with " << nid << ", wrong type of node" );
@@ -177,11 +177,11 @@ testing_controller::make( testing_controller_interface& top_iface, pool_interfac
         testing_controller_interface_adapter iface{ top_iface };
 
         auto opt_name =
-            load_data< testing_name_buffer >( testing_get_property< TESTING_SUITE_NAME >{}, iface );
+            load_data< testing_name_buffer >( get_property< TESTING_SUITE_NAME >{}, iface );
         auto opt_date =
-            load_data< testing_name_buffer >( testing_get_property< TESTING_SUITE_DATE >{}, iface );
+            load_data< testing_name_buffer >( get_property< TESTING_SUITE_DATE >{}, iface );
         auto opt_count =
-            load_data< testing_test_id >( testing_get_property< TESTING_COUNT >{}, iface );
+            load_data< testing_test_id >( get_property< TESTING_COUNT >{}, iface );
 
         if ( !opt_name ) {
                 EMLABCPP_LOG( "Failed to build controller - did not get a name" );
@@ -200,7 +200,7 @@ testing_controller::make( testing_controller_interface& top_iface, pool_interfac
 
         for ( testing_test_id i = 0; i < *opt_count; i++ ) {
                 auto opt_name =
-                    load_data< testing_name_buffer >( testing_get_test_name{ .tid = i }, iface );
+                    load_data< testing_name_buffer >( get_test_name{ .tid = i }, iface );
                 if ( !opt_name ) {
                         EMLABCPP_LOG(
                             "Failed to build controller - did not get a test name for index: "
@@ -229,7 +229,7 @@ void testing_controller::handle_message(
 void testing_controller::handle_message(
     tag< TESTING_PARAM_VALUE >,
     run_id                        rid,
-    testing_node_id                       nid,
+    node_id                       nid,
     testing_controller_interface_adapter& iface )
 {
         EMLABCPP_ASSERT( context_ );
@@ -238,7 +238,7 @@ void testing_controller::handle_message(
         contiguous_request_adapter harn{ iface->get_param_tree() };
 
         harn.get_value( nid ).match(
-            [&]( const testing_value& val ) {
+            [&]( const value_type& val ) {
                     iface.send( testing_param_value_reply{ rid, val } );
             },
             [&]( contiguous_request_adapter_errors_enum err ) {
@@ -248,7 +248,7 @@ void testing_controller::handle_message(
 void testing_controller::handle_message(
     tag< TESTING_PARAM_CHILD >,
     run_id                                       rid,
-    testing_node_id                                      nid,
+    node_id                                      nid,
     const std::variant< testing_key, testing_child_id >& chid,
     testing_controller_interface_adapter&                iface )
 {
@@ -259,7 +259,7 @@ void testing_controller::handle_message(
 
         harn.get_child( nid, chid )
             .match(
-                [&]( testing_node_id child ) {
+                [&]( node_id child ) {
                         iface.send( testing_param_child_reply{ rid, child } );
                 },
                 [&]( contiguous_request_adapter_errors_enum err ) {
@@ -269,7 +269,7 @@ void testing_controller::handle_message(
 void testing_controller::handle_message(
     tag< TESTING_PARAM_CHILD_COUNT >,
     run_id                        rid,
-    testing_node_id                       nid,
+    node_id                       nid,
     testing_controller_interface_adapter& iface )
 {
         EMLABCPP_ASSERT( context_ );
@@ -288,7 +288,7 @@ void testing_controller::handle_message(
 void testing_controller::handle_message(
     tag< TESTING_PARAM_KEY >,
     run_id                        rid,
-    testing_node_id                       nid,
+    node_id                       nid,
     testing_child_id                      chid,
     testing_controller_interface_adapter& iface )
 {
@@ -309,7 +309,7 @@ void testing_controller::handle_message(
 void testing_controller::handle_message(
     tag< TESTING_PARAM_TYPE >,
     run_id                        rid,
-    testing_node_id                       nid,
+    node_id                       nid,
     testing_controller_interface_adapter& iface )
 {
         EMLABCPP_ASSERT( context_ );
@@ -329,7 +329,7 @@ void testing_controller::handle_message(
 void testing_controller::handle_message(
     tag< TESTING_COLLECT >,
     run_id                        rid,
-    testing_node_id                       parent,
+    node_id                       parent,
     const std::optional< testing_key >&   opt_key,
     const testing_collect_arg&            val,
     testing_controller_interface_adapter& iface )
@@ -350,11 +350,11 @@ void testing_controller::handle_message(
 
         contiguous_request_adapter harn{ tree };
 
-        either< testing_node_id, contiguous_request_adapter_errors_enum > res =
+        either< node_id, contiguous_request_adapter_errors_enum > res =
             opt_key ? harn.insert( parent, *opt_key, val ) : harn.insert( parent, val );
         res.match(
-            [&]( testing_node_id nid ) {
-                    iface.send( testing_collect_reply{ rid, nid } );
+            [&]( node_id nid ) {
+                    iface.send( collect_reply{ rid, nid } );
             },
             [&]( contiguous_request_adapter_errors_enum err ) {
                     iface.reply_node_error( rid, err, parent );
@@ -420,7 +420,7 @@ void testing_controller::start_test( testing_test_id tid, testing_controller_int
 
         context_.emplace( tid, rid_, mem_pool_ );
 
-        iface.send( testing_load_test{ tid, rid_ } );
+        iface.send( load_test{ tid, rid_ } );
         iface.send( testing_exec{ rid_ } );
 }
 

@@ -57,7 +57,7 @@ public:
 
         void reply( const testing_reactor_controller_variant& );
 
-        template < testing_messages_enum ID, typename... Args >
+        template < messages_enum ID, typename... Args >
         void reply( const Args&... args )
         {
                 reply( testing_reactor_controller_group::make_val< ID >( args... ) );

@@ -35,7 +35,7 @@ template < ostreamlike T >
 T& testing_recursive_print_node(
     T&                  os,
     const testing_tree& t,
-    testing_node_id     nid,
+    node_id     nid,
     std::size_t         depth )
 {
 
@@ -49,7 +49,7 @@ T& testing_recursive_print_node(
 
         match(
             node_ptr->get_container_handle(),
-            [&]( const testing_value& v ) {
+            [&]( const value_type& v ) {
                     match(
                         v,
                         [&]( testing_string_buffer val ) {

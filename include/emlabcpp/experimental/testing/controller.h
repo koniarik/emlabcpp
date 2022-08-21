@@ -89,35 +89,35 @@ private:
         void handle_message(
             tag< TESTING_PARAM_VALUE >,
             run_id                        rid,
-            testing_node_id                       nid,
+            node_id                       nid,
             testing_controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_PARAM_CHILD >,
             run_id                                       rid,
-            testing_node_id                                      nid,
+            node_id                                      nid,
             const std::variant< testing_key, testing_child_id >& chid,
             testing_controller_interface_adapter&                iface );
         void handle_message(
             tag< TESTING_PARAM_CHILD_COUNT >,
             run_id                        rid,
-            testing_node_id                       nid,
+            node_id                       nid,
             testing_controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_PARAM_KEY >,
             run_id                        rid,
-            testing_node_id                       nid,
+            node_id                       nid,
             testing_child_id                      chid,
             testing_controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_PARAM_TYPE >,
             run_id                        rid,
-            testing_node_id                       nid,
+            node_id                       nid,
             testing_controller_interface_adapter& iface );
 
         void handle_message(
             tag< TESTING_COLLECT >,
             run_id                      rid,
-            testing_node_id                     parent,
+            node_id                     parent,
             const std::optional< testing_key >& opt_key,
             const testing_collect_arg&          val,
             testing_controller_interface_adapter& );
