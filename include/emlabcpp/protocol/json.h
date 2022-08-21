@@ -395,7 +395,7 @@ struct protocol_json_serializer< protocol_endianess< Endianess, D > >
 {
 };
 
-template < std::derived_from< protocol_def_type_base > D >
+template < std::derived_from< converter_def_type_base > D >
 requires( convertible< D > ) struct protocol_json_serializer< D >
   : protocol_json_serializer< typename D::def_type >
 {
@@ -457,7 +457,7 @@ struct protocol_json_serializer< static_vector< T, N > > : protocol_json_seriali
 template < decomposable D >
 requires(
     convertible< D > && !quantity_derived< D > &&
-    !std::derived_from< D, protocol_def_type_base > ) struct protocol_json_serializer< D >
+    !std::derived_from< D, converter_def_type_base > ) struct protocol_json_serializer< D >
   : protocol_json_serializer< typename proto_traits< D >::tuple_type >
 {
 

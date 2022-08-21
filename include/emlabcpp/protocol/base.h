@@ -121,7 +121,7 @@ struct protocol_offset
 /// More complex constructs have custom mechanics that internally produces `def_type` alias used by
 /// the library to serialize/deserialize it. Type inheriting htis class are handled as their
 /// `def_type`.
-struct protocol_def_type_base
+struct converter_def_type_base
 {
 };
 

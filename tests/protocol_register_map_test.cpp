@@ -57,7 +57,7 @@ struct valid_test_case : protocol_test_fixture
 {
         using value_type = typename test_map::reg_value_type< Key >;
         using pitem      = protocol::
-            protocol_def< typename test_map::reg_def_type< Key >, protocol::PROTOCOL_BIG_ENDIAN >;
+            converter< typename test_map::reg_def_type< Key >, protocol::PROTOCOL_BIG_ENDIAN >;
         using message_type                    = test_map::message_type;
         static constexpr std::size_t max_size = test_handler::max_size;
 

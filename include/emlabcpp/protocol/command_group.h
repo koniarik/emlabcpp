@@ -70,7 +70,7 @@ struct protocol_command
 /// specialized and doesn ot contain any protocol definitions. This is required implementation
 /// detail.
 template < endianess_enum Endianess, typename... Cmds >
-struct protocol_command_group : protocol_def_type_base
+struct protocol_command_group : converter_def_type_base
 {
         using cmds_type = std::tuple< Cmds... >;
 

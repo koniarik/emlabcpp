@@ -206,7 +206,7 @@ struct proto_traits< protocol_endianess< Endianess, D > > : proto_traits< D >
 {
 };
 
-template < std::derived_from< protocol_def_type_base > D >
+template < std::derived_from< converter_def_type_base > D >
 struct proto_traits< D > : proto_traits< typename D::def_type >
 {
 };
@@ -257,7 +257,7 @@ struct proto_traits< std::optional< T > >
 
 template < decomposable T >
 requires(
-    !std::derived_from< T, protocol_def_type_base > &&
+    !std::derived_from< T, converter_def_type_base > &&
     !quantity_derived< T > ) struct proto_traits< T >
 {
         using value_type                      = T;

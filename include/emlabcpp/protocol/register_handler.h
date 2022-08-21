@@ -51,7 +51,7 @@ struct protocol_register_handler
         template < key_type Key >
         static message_type serialize( reg_value_type< Key > val )
         {
-                using def = protocol_def< reg_def_type< Key >, Map::endianess >;
+                using def = converter< reg_def_type< Key >, Map::endianess >;
 
                 std::array< uint8_t, max_size > buffer;
                 static_assert( def::max_size <= max_size );
@@ -73,7 +73,7 @@ struct protocol_register_handler
         static either< reg_value_type< Key >, protocol_error_record >
         extract( const view< const uint8_t* >& msg )
         {
-                using def = protocol_def< reg_def_type< Key >, Map::endianess >;
+                using def = converter< reg_def_type< Key >, Map::endianess >;
 
                 auto opt_view = bounded_view< const uint8_t*, typename def::size_type >::make(
                     view_n( msg.begin(), std::min( def::max_size, msg.size() ) ) );
