@@ -37,32 +37,32 @@ namespace emlabcpp::protocol
 {
 
 /// Each definition of item provided to protocol library should have specialization of
-/// 'protocol_decl' structure. This contains basic information of how it should be serialized.
+/// 'proto_traits' structure. This contains basic information of how it should be serialized.
 template < typename D >
-struct protocol_decl;
+struct proto_traits;
 
 /// This concepts limits types to types that can be declared, that is the overload of
-/// 'protocol_decl' is fully defined: protocol_decl::value_type contains definition of value
-/// produced by the declaration, protocol_decl::max_size contains estimated maximal size in bytes
-/// taken by the serialized value in the message. protocol_decl::min_size should contain minimal
+/// 'proto_traits' is fully defined: proto_traits::value_type contains definition of value
+/// produced by the declaration, proto_traits::max_size contains estimated maximal size in bytes
+/// taken by the serialized value in the message. proto_traits::min_size should contain minimal
 /// size used.
 template < typename D >
 concept convertible = requires( D val )
 {
         {
-                protocol_decl< D >::max_size
+                proto_traits< D >::max_size
                 } -> std::convertible_to< std::size_t >;
         {
-                protocol_decl< D >::min_size
+                proto_traits< D >::min_size
                 } -> std::convertible_to< std::size_t >;
-        requires std::default_initializable< typename protocol_decl< D >::value_type >;
+        requires std::default_initializable< typename proto_traits< D >::value_type >;
 };
 
 template < typename T >
-concept protocol_fixedly_sized = protocol_decl< T >::min_size == protocol_decl< T >::max_size;
+concept protocol_fixedly_sized = proto_traits< T >::min_size == proto_traits< T >::max_size;
 
 template < protocol_base_type D >
-struct protocol_decl< D >
+struct proto_traits< D >
 {
         using value_type                      = D;
         static constexpr std::size_t max_size = sizeof( D );
@@ -70,36 +70,36 @@ struct protocol_decl< D >
 };
 
 template < convertible D, std::size_t N >
-struct protocol_decl< std::array< D, N > >
+struct proto_traits< std::array< D, N > >
 {
         using value_type                      = std::array< D, N >;
-        static constexpr std::size_t max_size = protocol_decl< D >::max_size * N;
-        static constexpr std::size_t min_size = protocol_decl< D >::min_size * N;
+        static constexpr std::size_t max_size = proto_traits< D >::max_size * N;
+        static constexpr std::size_t min_size = proto_traits< D >::min_size * N;
 };
 
 template < convertible... Ds >
-struct protocol_decl< std::tuple< Ds... > >
+struct proto_traits< std::tuple< Ds... > >
 {
-        using value_type = std::tuple< typename protocol_decl< Ds >::value_type... >;
-        static constexpr std::size_t max_size = ( protocol_decl< Ds >::max_size + ... + 0 );
-        static constexpr std::size_t min_size = ( protocol_decl< Ds >::min_size + ... + 0 );
+        using value_type = std::tuple< typename proto_traits< Ds >::value_type... >;
+        static constexpr std::size_t max_size = ( proto_traits< Ds >::max_size + ... + 0 );
+        static constexpr std::size_t min_size = ( proto_traits< Ds >::min_size + ... + 0 );
 };
 
 template < convertible... Ds >
-struct protocol_decl< std::variant< Ds... > >
+struct proto_traits< std::variant< Ds... > >
 {
         using id_type    = uint8_t;
-        using id_decl    = protocol_decl< id_type >;
-        using value_type = std::variant< typename protocol_decl< Ds >::value_type... >;
+        using id_decl    = proto_traits< id_type >;
+        using value_type = std::variant< typename proto_traits< Ds >::value_type... >;
 
         static constexpr std::size_t max_size =
-            id_decl::max_size + std::max< std::size_t >( { protocol_decl< Ds >::max_size... } );
+            id_decl::max_size + std::max< std::size_t >( { proto_traits< Ds >::max_size... } );
         static constexpr std::size_t min_size =
-            id_decl::min_size + std::min< std::size_t >( { protocol_decl< Ds >::min_size... } );
+            id_decl::min_size + std::min< std::size_t >( { proto_traits< Ds >::min_size... } );
 };
 
 template <>
-struct protocol_decl< std::monostate >
+struct proto_traits< std::monostate >
 {
         using value_type                      = std::monostate;
         static constexpr std::size_t max_size = 0;
@@ -107,7 +107,7 @@ struct protocol_decl< std::monostate >
 };
 
 template < std::size_t N >
-struct protocol_decl< std::bitset< N > >
+struct proto_traits< std::bitset< N > >
 {
         using value_type = std::bitset< N >;
 
@@ -116,7 +116,7 @@ struct protocol_decl< std::bitset< N > >
 };
 
 template < std::size_t N >
-struct protocol_decl< protocol_sizeless_message< N > >
+struct proto_traits< protocol_sizeless_message< N > >
 {
         using value_type = protocol_sizeless_message< N >;
 
@@ -125,10 +125,10 @@ struct protocol_decl< protocol_sizeless_message< N > >
 };
 
 template < convertible D, auto Offset >
-struct protocol_decl< protocol_offset< D, Offset > >
+struct proto_traits< protocol_offset< D, Offset > >
 {
         using def_type   = typename protocol_offset< D, Offset >::def_type;
-        using def_decl   = protocol_decl< def_type >;
+        using def_decl   = proto_traits< def_type >;
         using value_type = typename def_decl::value_type;
 
         static constexpr std::size_t max_size = def_decl::max_size;
@@ -136,28 +136,28 @@ struct protocol_decl< protocol_offset< D, Offset > >
 };
 
 template < quantity_derived D >
-struct protocol_decl< D >
+struct proto_traits< D >
 {
         using value_type = D;
 
-        static constexpr std::size_t max_size = protocol_decl< typename D::value_type >::max_size;
-        static constexpr std::size_t min_size = protocol_decl< typename D::value_type >::min_size;
+        static constexpr std::size_t max_size = proto_traits< typename D::value_type >::max_size;
+        static constexpr std::size_t min_size = proto_traits< typename D::value_type >::min_size;
 };
 
 template < convertible D, D Min, D Max >
-struct protocol_decl< bounded< D, Min, Max > >
+struct proto_traits< bounded< D, Min, Max > >
 {
         using value_type = bounded< D, Min, Max >;
 
-        static constexpr std::size_t max_size = protocol_decl< D >::max_size;
-        static constexpr std::size_t min_size = protocol_decl< D >::min_size;
+        static constexpr std::size_t max_size = proto_traits< D >::max_size;
+        static constexpr std::size_t min_size = proto_traits< D >::min_size;
 };
 
 template < convertible CounterType, convertible D >
-struct protocol_decl< protocol_sized_buffer< CounterType, D > >
+struct proto_traits< protocol_sized_buffer< CounterType, D > >
 {
-        using counter_decl = protocol_decl< CounterType >;
-        using sub_decl     = protocol_decl< D >;
+        using counter_decl = proto_traits< CounterType >;
+        using sub_decl     = proto_traits< D >;
         using value_type   = typename sub_decl::value_type;
 
         static constexpr std::size_t max_size = counter_decl::max_size + sub_decl::max_size;
@@ -165,9 +165,9 @@ struct protocol_decl< protocol_sized_buffer< CounterType, D > >
 };
 
 template < auto V >
-struct protocol_decl< tag< V > >
+struct proto_traits< tag< V > >
 {
-        using sub_decl   = protocol_decl< decltype( V ) >;
+        using sub_decl   = proto_traits< decltype( V ) >;
         using value_type = tag< V >;
 
         static constexpr std::size_t max_size = sub_decl::max_size;
@@ -175,44 +175,44 @@ struct protocol_decl< tag< V > >
 };
 
 template < convertible... Ds >
-struct protocol_decl< protocol_group< Ds... > >
+struct proto_traits< protocol_group< Ds... > >
 {
-        using value_type = std::variant< typename protocol_decl< Ds >::value_type... >;
+        using value_type = std::variant< typename proto_traits< Ds >::value_type... >;
 
         static constexpr std::size_t max_size =
-            std::max< std::size_t >( { protocol_decl< Ds >::max_size..., 0 } );
+            std::max< std::size_t >( { proto_traits< Ds >::max_size..., 0 } );
         static constexpr std::size_t min_size = std::min< std::size_t >(
-            { protocol_decl< Ds >::min_size...,
+            { proto_traits< Ds >::min_size...,
               sizeof...( Ds ) == 0 ? 0 : std::numeric_limits< std::size_t >::max() } );
 };
 
 template < convertible... Ds >
-struct protocol_decl< protocol_tag_group< Ds... > >
+struct proto_traits< protocol_tag_group< Ds... > >
 {
-        using value_type = std::variant< typename protocol_decl< Ds >::value_type... >;
+        using value_type = std::variant< typename proto_traits< Ds >::value_type... >;
 
         template < typename D >
         using to_tuple = std::tuple< tag< D::tag >, D >;
 
         using sub_type = protocol_group< to_tuple< Ds >... >;
-        using sub_decl = protocol_decl< sub_type >;
+        using sub_decl = proto_traits< sub_type >;
 
         static constexpr std::size_t max_size = sub_decl::max_size;
         static constexpr std::size_t min_size = sub_decl::min_size;
 };
 
 template < endianess_enum Endianess, convertible D >
-struct protocol_decl< protocol_endianess< Endianess, D > > : protocol_decl< D >
+struct proto_traits< protocol_endianess< Endianess, D > > : proto_traits< D >
 {
 };
 
 template < std::derived_from< protocol_def_type_base > D >
-struct protocol_decl< D > : protocol_decl< typename D::def_type >
+struct proto_traits< D > : proto_traits< typename D::def_type >
 {
 };
 
 template <>
-struct protocol_decl< protocol_mark >
+struct proto_traits< protocol_mark >
 {
         using value_type                      = protocol_mark;
         static constexpr std::size_t max_size = protocol_mark{}.max_size();
@@ -220,49 +220,49 @@ struct protocol_decl< protocol_mark >
 };
 
 template <>
-struct protocol_decl< protocol_error_record >
+struct proto_traits< protocol_error_record >
 {
         using value_type = protocol_error_record;
 
         using mark_type   = protocol_mark;
         using offset_type = std::size_t;
 
-        using mark_decl   = protocol_decl< mark_type >;
-        using offset_decl = protocol_decl< offset_type >;
+        using mark_decl   = proto_traits< mark_type >;
+        using offset_decl = proto_traits< offset_type >;
 
         static constexpr std::size_t max_size = mark_decl::max_size + offset_decl::max_size;
         static constexpr std::size_t min_size = mark_decl::min_size + offset_decl::min_size;
 };
 
 template < convertible T, std::size_t N >
-struct protocol_decl< static_vector< T, N > >
+struct proto_traits< static_vector< T, N > >
 {
         using value_type   = static_vector< T, N >;
         using counter_type = uint16_t;
         static constexpr std::size_t max_size =
-            protocol_decl< counter_type >::max_size + protocol_decl< T >::max_size * N;
-        static constexpr std::size_t min_size = protocol_decl< counter_type >::min_size;
+            proto_traits< counter_type >::max_size + proto_traits< T >::max_size * N;
+        static constexpr std::size_t min_size = proto_traits< counter_type >::min_size;
 };
 
 template < convertible T >
-struct protocol_decl< std::optional< T > >
+struct proto_traits< std::optional< T > >
 {
         using value_type    = std::optional< T >;
         using presence_type = uint8_t;
-        using presence_decl = protocol_decl< presence_type >;
+        using presence_decl = proto_traits< presence_type >;
         static constexpr std::size_t max_size =
-            presence_decl::max_size + protocol_decl< T >::max_size;
+            presence_decl::max_size + proto_traits< T >::max_size;
         static constexpr std::size_t min_size = presence_decl::min_size;
 };
 
 template < decomposable T >
 requires(
     !std::derived_from< T, protocol_def_type_base > &&
-    !quantity_derived< T > ) struct protocol_decl< T >
+    !quantity_derived< T > ) struct proto_traits< T >
 {
         using value_type                      = T;
         using tuple_type                      = decomposed_type< T >;
-        using tuple_decl                      = protocol_decl< tuple_type >;
+        using tuple_decl                      = proto_traits< tuple_type >;
         static constexpr std::size_t max_size = tuple_decl::max_size;
         static constexpr std::size_t min_size = tuple_decl::min_size;
 };

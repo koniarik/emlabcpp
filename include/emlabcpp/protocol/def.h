@@ -26,7 +26,7 @@
 #include "emlabcpp/experimental/bounded_view.h"
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/match.h"
-#include "emlabcpp/protocol/decl.h"
+#include "emlabcpp/protocol/traits.h"
 #include "emlabcpp/protocol/serializer.h"
 
 #pragma once
@@ -35,7 +35,7 @@ namespace emlabcpp::protocol
 {
 
 /// protocol_def<T,E> structure defines how type T should be serialized and deserialized. Each type
-/// or kind of types should overlead this structure and use same attributes as protocol_decl<T,E>. E
+/// or kind of types should overlead this structure and use same attributes as proto_traits<T,E>. E
 /// is edianess of the serialization used.
 template < typename, endianess_enum >
 struct protocol_def;
@@ -67,8 +67,8 @@ concept protocol_def_check = requires()
 template < protocol_base_type D, endianess_enum Endianess >
 struct protocol_def< D, Endianess >
 {
-        using value_type                      = typename protocol_decl< D >::value_type;
-        static constexpr std::size_t max_size = protocol_decl< D >::max_size;
+        using value_type                      = typename proto_traits< D >::value_type;
+        static constexpr std::size_t max_size = proto_traits< D >::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
         static constexpr bool is_big_endian = Endianess == PROTOCOL_BIG_ENDIAN;
@@ -96,9 +96,9 @@ struct protocol_def< D, Endianess >
 template < convertible D, std::size_t N, endianess_enum Endianess >
 struct protocol_def< std::array< D, N >, Endianess >
 {
-        using value_type = typename protocol_decl< std::array< D, N > >::value_type;
-        static constexpr std::size_t max_size = protocol_decl< std::array< D, N > >::max_size;
-        static constexpr std::size_t min_size = protocol_decl< std::array< D, N > >::min_size;
+        using value_type = typename proto_traits< std::array< D, N > >::value_type;
+        static constexpr std::size_t max_size = proto_traits< std::array< D, N > >::max_size;
+        static constexpr std::size_t min_size = proto_traits< std::array< D, N > >::min_size;
 
         using sub_def       = protocol_def< D, Endianess >;
         using sub_size_type = typename sub_def::size_type;
@@ -160,8 +160,8 @@ struct protocol_def< std::tuple< Ds... >, Endianess >
 {
         using def_type = std::tuple< Ds... >;
 
-        using value_type                      = typename protocol_decl< def_type >::value_type;
-        static constexpr std::size_t max_size = protocol_decl< def_type >::max_size;
+        using value_type                      = typename proto_traits< def_type >::value_type;
+        static constexpr std::size_t max_size = proto_traits< def_type >::max_size;
         static constexpr std::size_t min_size =
             ( protocol_def< Ds, Endianess >::size_type::min_val + ... + 0 );
         using size_type = bounded< std::size_t, min_size, max_size >;
@@ -230,8 +230,8 @@ template < convertible... Ds, endianess_enum Endianess >
 struct protocol_def< std::variant< Ds... >, Endianess >
 {
         using def_type                        = std::variant< Ds... >;
-        using value_type                      = typename protocol_decl< def_type >::value_type;
-        static constexpr std::size_t max_size = protocol_decl< def_type >::max_size;
+        using value_type                      = typename proto_traits< def_type >::value_type;
+        static constexpr std::size_t max_size = proto_traits< def_type >::max_size;
 
         using id_type                        = uint8_t;
         using id_def                         = protocol_def< id_type, Endianess >;
@@ -344,7 +344,7 @@ struct protocol_def< std::monostate, Endianess >
 template < convertible T, endianess_enum Endianess >
 struct protocol_def< std::optional< T >, Endianess >
 {
-        using decl                            = protocol_decl< std::optional< T > >;
+        using decl                            = proto_traits< std::optional< T > >;
         using value_type                      = std::optional< T >;
         static constexpr std::size_t max_size = decl::max_size;
         static constexpr std::size_t min_size = decl::min_size;
@@ -420,8 +420,8 @@ struct protocol_def< std::optional< T >, Endianess >
 template < std::size_t N, endianess_enum Endianess >
 struct protocol_def< std::bitset< N >, Endianess >
 {
-        using value_type = typename protocol_decl< std::bitset< N > >::value_type;
-        static constexpr std::size_t max_size = protocol_decl< std::bitset< N > >::max_size;
+        using value_type = typename proto_traits< std::bitset< N > >::value_type;
+        static constexpr std::size_t max_size = proto_traits< std::bitset< N > >::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
         static constexpr bool is_big_endian = Endianess == PROTOCOL_BIG_ENDIAN;
@@ -461,9 +461,9 @@ struct protocol_def< std::bitset< N >, Endianess >
 template < std::size_t N, endianess_enum Endianess >
 struct protocol_def< protocol_sizeless_message< N >, Endianess >
 {
-        using value_type = typename protocol_decl< protocol_sizeless_message< N > >::value_type;
+        using value_type = typename proto_traits< protocol_sizeless_message< N > >::value_type;
         static constexpr std::size_t max_size =
-            protocol_decl< protocol_sizeless_message< N > >::max_size;
+            proto_traits< protocol_sizeless_message< N > >::max_size;
         using size_type = bounded< std::size_t, 0, max_size >;
 
         static constexpr size_type
@@ -493,9 +493,9 @@ struct protocol_def< protocol_sizeless_message< N >, Endianess >
 template < convertible D, auto Offset, endianess_enum Endianess >
 struct protocol_def< protocol_offset< D, Offset >, Endianess >
 {
-        using value_type = typename protocol_decl< protocol_offset< D, Offset > >::value_type;
+        using value_type = typename proto_traits< protocol_offset< D, Offset > >::value_type;
         static constexpr std::size_t max_size =
-            protocol_decl< protocol_offset< D, Offset > >::max_size;
+            proto_traits< protocol_offset< D, Offset > >::max_size;
 
         using sub_def   = protocol_def< D, Endianess >;
         using size_type = typename sub_def::size_type;
@@ -520,8 +520,8 @@ struct protocol_def< protocol_offset< D, Offset >, Endianess >
 template < quantity_derived D, endianess_enum Endianess >
 struct protocol_def< D, Endianess >
 {
-        using value_type                      = typename protocol_decl< D >::value_type;
-        static constexpr std::size_t max_size = protocol_decl< D >::max_size;
+        using value_type                      = typename proto_traits< D >::value_type;
+        static constexpr std::size_t max_size = proto_traits< D >::max_size;
 
         using inner_type = typename D::value_type;
 
@@ -550,8 +550,8 @@ struct protocol_def< D, Endianess >
 template < convertible D, D Min, D Max, endianess_enum Endianess >
 struct protocol_def< bounded< D, Min, Max >, Endianess >
 {
-        using value_type = typename protocol_decl< bounded< D, Min, Max > >::value_type;
-        static constexpr std::size_t max_size = protocol_decl< bounded< D, Min, Max > >::max_size;
+        using value_type = typename proto_traits< bounded< D, Min, Max > >::value_type;
+        static constexpr std::size_t max_size = proto_traits< bounded< D, Min, Max > >::max_size;
 
         using sub_def   = protocol_def< D, Endianess >;
         using size_type = typename sub_def::size_type;
@@ -583,9 +583,9 @@ template < convertible CounterDef, convertible D, endianess_enum Endianess >
 struct protocol_def< protocol_sized_buffer< CounterDef, D >, Endianess >
 {
         using value_type =
-            typename protocol_decl< protocol_sized_buffer< CounterDef, D > >::value_type;
+            typename proto_traits< protocol_sized_buffer< CounterDef, D > >::value_type;
         static constexpr std::size_t max_size =
-            protocol_decl< protocol_sized_buffer< CounterDef, D > >::max_size;
+            proto_traits< protocol_sized_buffer< CounterDef, D > >::max_size;
 
         using sub_def = protocol_def< D, Endianess >;
 
@@ -639,8 +639,8 @@ struct protocol_def< protocol_sized_buffer< CounterDef, D >, Endianess >
 template < auto V, endianess_enum Endianess >
 struct protocol_def< tag< V >, Endianess >
 {
-        using value_type                      = typename protocol_decl< tag< V > >::value_type;
-        static constexpr std::size_t max_size = protocol_decl< tag< V > >::max_size;
+        using value_type                      = typename proto_traits< tag< V > >::value_type;
+        static constexpr std::size_t max_size = proto_traits< tag< V > >::max_size;
 
         using sub_def = protocol_def< decltype( V ), Endianess >;
 
@@ -670,7 +670,7 @@ struct protocol_def< tag< V >, Endianess >
 template < typename... Ds, endianess_enum Endianess >
 struct protocol_def< protocol_tag_group< Ds... >, Endianess >
 {
-        using decl                            = protocol_decl< protocol_tag_group< Ds... > >;
+        using decl                            = proto_traits< protocol_tag_group< Ds... > >;
         using value_type                      = typename decl::value_type;
         static constexpr std::size_t max_size = decl::max_size;
         static constexpr std::size_t min_size = decl::min_size;
@@ -724,9 +724,9 @@ struct protocol_def< protocol_tag_group< Ds... >, Endianess >
 template < typename... Ds, endianess_enum Endianess >
 struct protocol_def< protocol_group< Ds... >, Endianess >
 {
-        using value_type = typename protocol_decl< protocol_group< Ds... > >::value_type;
-        static constexpr std::size_t max_size = protocol_decl< protocol_group< Ds... > >::max_size;
-        static constexpr std::size_t min_size = protocol_decl< protocol_group< Ds... > >::min_size;
+        using value_type = typename proto_traits< protocol_group< Ds... > >::value_type;
+        static constexpr std::size_t max_size = proto_traits< protocol_group< Ds... > >::max_size;
+        static constexpr std::size_t min_size = proto_traits< protocol_group< Ds... > >::min_size;
 
         using def_variant = std::variant< Ds... >;
         using size_type   = bounded< std::size_t, min_size, max_size >;
@@ -809,8 +809,8 @@ struct protocol_def< D, Endianess > : protocol_def< typename D::def_type, Endian
 template < endianess_enum Endianess >
 struct protocol_def< protocol_mark, Endianess >
 {
-        using value_type                      = typename protocol_decl< protocol_mark >::value_type;
-        static constexpr std::size_t max_size = protocol_decl< protocol_mark >::max_size;
+        using value_type                      = typename proto_traits< protocol_mark >::value_type;
+        static constexpr std::size_t max_size = proto_traits< protocol_mark >::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
         static constexpr size_type
@@ -832,7 +832,7 @@ struct protocol_def< protocol_mark, Endianess >
 template < endianess_enum Endianess >
 struct protocol_def< protocol_error_record, Endianess >
 {
-        using decl                            = protocol_decl< protocol_error_record >;
+        using decl                            = proto_traits< protocol_error_record >;
         using value_type                      = typename decl::value_type;
         using mark_def                        = protocol_def< protocol_mark, Endianess >;
         using offset_def                      = protocol_def< std::size_t, Endianess >;
@@ -872,11 +872,11 @@ struct protocol_def< protocol_error_record, Endianess >
 template < typename T, std::size_t N, endianess_enum Endianess >
 struct protocol_def< static_vector< T, N >, Endianess >
 {
-        using value_type = typename protocol_decl< static_vector< T, N > >::value_type;
+        using value_type = typename proto_traits< static_vector< T, N > >::value_type;
 
         static_assert( N <= std::numeric_limits< uint16_t >::max() );
 
-        using counter_type = typename protocol_decl< static_vector< T, N > >::counter_type;
+        using counter_type = typename proto_traits< static_vector< T, N > >::counter_type;
         using counter_def  = protocol_def< counter_type, Endianess >;
         using sub_def      = protocol_def< T, Endianess >;
 
@@ -884,7 +884,7 @@ struct protocol_def< static_vector< T, N >, Endianess >
 
         static_assert( protocol_fixedly_sized< counter_type > );
 
-        static constexpr std::size_t max_size = protocol_decl< static_vector< T, N > >::max_size;
+        static constexpr std::size_t max_size = proto_traits< static_vector< T, N > >::max_size;
         static constexpr std::size_t min_size = counter_size;
         using size_type                       = bounded< std::size_t, min_size, max_size >;
 
@@ -955,7 +955,7 @@ requires(
     !std::derived_from< T, protocol_def_type_base > &&
     !quantity_derived< T > ) struct protocol_def< T, Endianess >
 {
-        using decl                            = protocol_decl< T >;
+        using decl                            = proto_traits< T >;
         using value_type                      = typename decl::value_type;
         static constexpr std::size_t max_size = decl::max_size;
         static constexpr std::size_t min_size = decl::min_size;

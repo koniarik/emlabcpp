@@ -58,18 +58,18 @@ struct protocol_packet : protocol_packet_base< Def, Payload >
         static constexpr auto endianess = Def::endianess;
 
         using prefix_type                        = std::decay_t< decltype( prefix ) >;
-        using prefix_decl                        = protocol_decl< prefix_type >;
+        using prefix_decl                        = proto_traits< prefix_type >;
         static constexpr std::size_t prefix_size = prefix_decl::max_size;
 
         using size_type                        = typename Def::size_type;
-        using size_decl                        = protocol_decl< size_type >;
+        using size_decl                        = proto_traits< size_type >;
         static constexpr std::size_t size_size = size_decl::max_size;
 
-        using payload_decl = protocol_decl< Payload >;
+        using payload_decl = proto_traits< Payload >;
         using value_type   = typename payload_decl::value_type;
 
         using checksum_type = typename Def::checksum_type;
-        using checksum_decl = protocol_decl< checksum_type >;
+        using checksum_decl = proto_traits< checksum_type >;
 
         static_assert( protocol_fixedly_sized< prefix_type > );
         static_assert( protocol_fixedly_sized< size_type > );

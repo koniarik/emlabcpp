@@ -30,7 +30,7 @@
 
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/enum.h"
-#include "emlabcpp/protocol/decl.h"
+#include "emlabcpp/protocol/traits.h"
 
 #pragma once
 
@@ -52,9 +52,9 @@ struct protocol_json_serializer_base
 }  // namespace emlabcpp::protocol
 
 template < emlabcpp::protocol::convertible D >
-struct nlohmann::adl_serializer< emlabcpp::protocol::protocol_decl< D > >
+struct nlohmann::adl_serializer< emlabcpp::protocol::proto_traits< D > >
 {
-        using decl     = emlabcpp::protocol::protocol_decl< D >;
+        using decl     = emlabcpp::protocol::proto_traits< D >;
         using prot_ser = emlabcpp::protocol::protocol_json_serializer< D >;
 
         static void to_json( nlohmann::json& j, const decl& )
@@ -170,7 +170,7 @@ requires( std::is_enum_v< T > ) struct protocol_json_serializer< T > : protocol_
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"] = protocol_decl< std::underlying_type_t< T > >{};
+                j["sub_type"] = proto_traits< std::underlying_type_t< T > >{};
 #ifdef EMLABCPP_USE_MAGIC_ENUM
                 j["values"] = magic_enum::enum_names< T >();
 #endif
@@ -190,7 +190,7 @@ struct protocol_json_serializer< std::array< D, N > > : protocol_json_serializer
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"]   = protocol_decl< D >{};
+                j["sub_type"]   = proto_traits< D >{};
                 j["item_count"] = N;
         }
 };
@@ -211,7 +211,7 @@ struct protocol_json_serializer< std::tuple< Ds... > > : protocol_json_serialize
                 if constexpr ( sizeof...( Ds ) != 0 ) {
                         j["sub_types"] = map_f_to_a(
                             std::tuple< Ds... >{}, [&]< typename D >( D ) -> nlohmann::json {
-                                    return protocol_decl< D >{};
+                                    return proto_traits< D >{};
                             } );
                 }
         }
@@ -222,7 +222,7 @@ struct protocol_json_serializer< std::variant< Ds... > > : protocol_json_seriali
 {
         static constexpr std::string_view type_name = "variant";
 
-        using decl = protocol_decl< std::variant< Ds... > >;
+        using decl = proto_traits< std::variant< Ds... > >;
 
         static std::string get_name()
         {
@@ -236,7 +236,7 @@ struct protocol_json_serializer< std::variant< Ds... > > : protocol_json_seriali
                 j["counter_type"] = typename decl::id_decl{};
                 j["sub_types"] =
                     map_f_to_a( std::tuple< Ds... >{}, [&]< typename D >( D ) -> nlohmann::json {
-                            return protocol_decl< D >{};
+                            return proto_traits< D >{};
                     } );
         }
 };
@@ -276,7 +276,7 @@ struct protocol_json_serializer< protocol_offset< D, Offset > > : protocol_json_
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"] = protocol_decl< D >{};
+                j["sub_type"] = proto_traits< D >{};
                 j["offset"]   = Offset;
         }
 };
@@ -293,7 +293,7 @@ requires( convertible< D > ) struct protocol_json_serializer< D > : protocol_jso
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"] = protocol_decl< typename D::value_type >{};
+                j["sub_type"] = proto_traits< typename D::value_type >{};
                 if ( D::get_unit() != "" ) {
                         j["unit"] = D::get_unit();
                 }
@@ -312,7 +312,7 @@ struct protocol_json_serializer< bounded< D, Min, Max > > : protocol_json_serial
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"] = protocol_decl< D >{};
+                j["sub_type"] = proto_traits< D >{};
                 j["min"]      = Min;
                 j["max"]      = Max;
         }
@@ -331,8 +331,8 @@ struct protocol_json_serializer< protocol_sized_buffer< CounterType, D > >
 
         static void add_extra( nlohmann::json& j )
         {
-                j["counter_type"] = protocol_decl< CounterType >{};
-                j["sub_type"]     = protocol_decl< D >{};
+                j["counter_type"] = proto_traits< CounterType >{};
+                j["sub_type"]     = proto_traits< D >{};
         }
 };
 
@@ -352,7 +352,7 @@ struct protocol_json_serializer< tag< V > > : protocol_json_serializer_base
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"] = typename protocol_decl< tag< V > >::sub_decl{};
+                j["sub_type"] = typename proto_traits< tag< V > >::sub_decl{};
                 j["value"]    = V;
 #ifdef EMLABCPP_USE_MAGIC_ENUM
                 if constexpr ( std::is_enum_v< decltype( V ) > ) {
@@ -377,14 +377,14 @@ struct protocol_json_serializer< protocol_group< Ds... > > : protocol_json_seria
         {
                 j["sub_types"] =
                     map_f_to_a( std::tuple< Ds... >{}, [&]< typename D >( D ) -> nlohmann::json {
-                            return protocol_decl< D >{};
+                            return proto_traits< D >{};
                     } );
         }
 };
 
 template < convertible... Ds >
 struct protocol_json_serializer< protocol_tag_group< Ds... > >
-  : protocol_json_serializer< typename protocol_decl< protocol_tag_group< Ds... > >::sub_type >
+  : protocol_json_serializer< typename proto_traits< protocol_tag_group< Ds... > >::sub_type >
 {
         static constexpr std::string_view type_name = "group";
 };
@@ -425,12 +425,12 @@ struct protocol_json_serializer< protocol_error_record > : protocol_json_seriali
                 return std::string{ type_name };
         }
 
-        using decl = protocol_decl< protocol_error_record >;
+        using decl = proto_traits< protocol_error_record >;
 
         static void add_extra( nlohmann::json& j )
         {
-                j["mark_type"]   = protocol_decl< typename decl::mark_type >{};
-                j["offset_type"] = protocol_decl< typename decl::offset_type >{};
+                j["mark_type"]   = proto_traits< typename decl::mark_type >{};
+                j["offset_type"] = proto_traits< typename decl::offset_type >{};
         }
 };
 
@@ -448,9 +448,9 @@ struct protocol_json_serializer< static_vector< T, N > > : protocol_json_seriali
 
         static void add_extra( nlohmann::json& j )
         {
-                j["counter_type"] = protocol_decl<
-                    typename protocol_decl< static_vector< T, N > >::counter_type >{};
-                j["sub_type"] = protocol_decl< T >{};
+                j["counter_type"] = proto_traits<
+                    typename proto_traits< static_vector< T, N > >::counter_type >{};
+                j["sub_type"] = proto_traits< T >{};
         }
 };
 
@@ -458,7 +458,7 @@ template < decomposable D >
 requires(
     convertible< D > && !quantity_derived< D > &&
     !std::derived_from< D, protocol_def_type_base > ) struct protocol_json_serializer< D >
-  : protocol_json_serializer< typename protocol_decl< D >::tuple_type >
+  : protocol_json_serializer< typename proto_traits< D >::tuple_type >
 {
 
         static std::string get_name()

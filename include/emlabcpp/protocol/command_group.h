@@ -21,7 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/assert.h"
-#include "emlabcpp/protocol/decl.h"
+#include "emlabcpp/protocol/traits.h"
 #include "emlabcpp/types.h"
 
 #pragma once
@@ -45,7 +45,7 @@ template < auto ID, convertible... Defs >
 struct protocol_command
 {
         using id_type    = decltype( ID );
-        using value_type = std::tuple< tag< ID >, typename protocol_decl< Defs >::value_type... >;
+        using value_type = std::tuple< tag< ID >, typename proto_traits< Defs >::value_type... >;
         using def_type   = std::tuple< tag< ID >, Defs... >;
 
         static constexpr id_type id = ID;
@@ -55,7 +55,7 @@ struct protocol_command
 
         /// Creates value of the command based on the args.
         constexpr static value_type
-        make_val( const typename protocol_decl< Defs >::value_type&... args )
+        make_val( const typename proto_traits< Defs >::value_type&... args )
         {
                 return { tag< ID >{}, args... };
         }
@@ -108,10 +108,10 @@ public:
 
         using def_type =
             protocol_endianess< Endianess, protocol_group< typename Cmds::def_type... > >;
-        using decl       = protocol_decl< def_type >;
+        using decl       = proto_traits< def_type >;
         using value_type = typename decl::value_type;
 
-        static constexpr std::size_t max_size = protocol_decl< def_type >::max_size;
+        static constexpr std::size_t max_size = proto_traits< def_type >::max_size;
 
         using message_type = protocol_message< max_size >;
 

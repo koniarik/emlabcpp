@@ -20,7 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
-#include "emlabcpp/protocol/decl.h"
+#include "emlabcpp/protocol/traits.h"
 
 #pragma once
 
@@ -44,7 +44,7 @@ struct protocol_tuple : protocol_def_type_base
         using with_items = protocol_tuple< Endianess, Ds..., SubDs... >;
 
         using def_type = protocol_endianess< Endianess, std::tuple< Ds... > >;
-        using decl     = protocol_decl< def_type >;
+        using decl     = proto_traits< def_type >;
 
         static constexpr std::size_t max_size = decl::max_size;
 
@@ -52,7 +52,7 @@ struct protocol_tuple : protocol_def_type_base
         using message_type = protocol_message< max_size >;
 
         constexpr static value_type
-        make_val( const typename protocol_decl< Ds >::value_type&... args )
+        make_val( const typename proto_traits< Ds >::value_type&... args )
         {
                 return value_type{ args... };
         }

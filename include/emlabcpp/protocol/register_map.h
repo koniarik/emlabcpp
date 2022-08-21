@@ -22,7 +22,7 @@
 //
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/protocol/base.h"
-#include "emlabcpp/protocol/decl.h"
+#include "emlabcpp/protocol/traits.h"
 
 #pragma once
 
@@ -37,7 +37,7 @@ struct protocol_reg
         using def_type                    = D;
         using key_type                    = decltype( Key );
         static constexpr key_type key     = Key;
-        using decl                        = protocol_decl< def_type >;
+        using decl                        = proto_traits< def_type >;
         using value_type                  = typename decl::value_type;
         static constexpr std::size_t size = decl::max_size;
 
