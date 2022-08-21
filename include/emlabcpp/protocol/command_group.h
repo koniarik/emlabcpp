@@ -113,7 +113,7 @@ public:
 
         static constexpr std::size_t max_size = proto_traits< def_type >::max_size;
 
-        using message_type = protocol_message< max_size >;
+        using message_type = message< max_size >;
 
         /// Creates value of the command group, that is variant with value of the command 'id' that
         /// will receive the appropiate 'args'.

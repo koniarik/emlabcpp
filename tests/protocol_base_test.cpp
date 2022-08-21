@@ -32,7 +32,7 @@ TEST( Protocol, message_conversion )
 {
         std::array< uint8_t, 4 >        data   = { 53, 3, 64, 85 };
         std::array< uint8_t, 4 >        suffix = { 0, 0, 0, 0 };
-        protocol::protocol_message< 4 > m{ data };
+        protocol::message< 4 > m{ data };
 
         auto buff = std::array< uint8_t, 8 >( m );
 

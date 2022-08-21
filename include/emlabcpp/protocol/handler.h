@@ -21,7 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/either.h"
-#include "emlabcpp/protocol/def.h"
+#include "emlabcpp/protocol/converter.h"
 #include "emlabcpp/types.h"
 
 #pragma once
@@ -39,7 +39,7 @@ struct protocol_handler
 {
         using def          = converter< T, PROTOCOL_BIG_ENDIAN >;
         using value_type   = typename def::value_type;
-        using message_type = protocol_message< def::max_size >;
+        using message_type = message< def::max_size >;
 
         static message_type serialize( value_type val )
         {

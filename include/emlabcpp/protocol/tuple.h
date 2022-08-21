@@ -49,7 +49,7 @@ struct protocol_tuple : converter_def_type_base
         static constexpr std::size_t max_size = decl::max_size;
 
         using value_type   = typename decl::value_type;
-        using message_type = protocol_message< max_size >;
+        using message_type = message< max_size >;
 
         constexpr static value_type
         make_val( const typename proto_traits< Ds >::value_type&... args )

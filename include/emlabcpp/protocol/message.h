@@ -34,7 +34,7 @@ namespace emlabcpp::protocol
 /// Protocol library has custom type that represents message, however this is just simple overaly
 /// over std::array that remembers how many bytes are used.
 template < std::size_t N >
-class protocol_message
+class message
 {
 
 public:
@@ -46,7 +46,7 @@ public:
         static constexpr std::size_t max_size = N;
         static constexpr std::size_t capacity = N;
 
-        static std::optional< protocol_message > make( const range_container auto& cont )
+        static std::optional< message > make( const range_container auto& cont )
         {
                 if ( cont.size() > N ) {
                         EMLABCPP_LOG(
@@ -54,27 +54,27 @@ public:
                             << cont.size() << " > " << N );
                         return {};
                 }
-                return { protocol_message( cont.begin(), cont.end() ) };
+                return { message( cont.begin(), cont.end() ) };
         }
 
-        protocol_message() = default;
+        message() = default;
 
         template < std::size_t M >
-        explicit protocol_message( const protocol_message< M >& other ) noexcept
-          : protocol_message( other.begin(), other.end() )
+        explicit message( const message< M >& other ) noexcept
+          : message( other.begin(), other.end() )
         {
                 static_assert( M <= N );
         }
 
         template < std::size_t M >
-        explicit protocol_message( const std::array< uint8_t, M >& inpt ) noexcept
-          : protocol_message( inpt.begin(), inpt.begin() + M )
+        explicit message( const std::array< uint8_t, M >& inpt ) noexcept
+          : message( inpt.begin(), inpt.begin() + M )
         {
                 static_assert( M <= N );
         }
 
         template < std::convertible_to< uint8_t >... Ts >
-        explicit protocol_message( Ts... inpt ) noexcept
+        explicit message( Ts... inpt ) noexcept
           : data_{ static_cast< uint8_t >( inpt )... }
           , used_( sizeof...( Ts ) )
         {
@@ -145,7 +145,7 @@ public:
                 return res;
         }
 
-        friend auto operator==( const protocol_message& lh, const protocol_message& rh )
+        friend auto operator==( const message& lh, const message& rh )
         {
                 return view_n( lh.begin(), lh.used_ ) == view_n( rh.begin(), rh.used_ );
         }
@@ -156,24 +156,24 @@ private:
 
 protected:
         template < typename Iterator >
-        protocol_message( Iterator beg, Iterator end ) noexcept
+        message( Iterator beg, Iterator end ) noexcept
           : used_( static_cast< std::size_t >( std::distance( beg, end ) ) )
         {
                 std::copy( beg, end, begin() );
         }
 };
 
-/// Sizeless message is class that behaves in a same way as normal protocol_message, however it is
+/// Sizeless message is class that behaves in a same way as normal message, however it is
 /// serialized differently. Protocol message stores how many bytes it's made of before the data
 /// itself in the final message, sizless message does not and greedely tries to parse rest of the
 /// buffer during the parsing process.
 template < std::size_t N >
-class protocol_sizeless_message : public protocol_message< N >
+class sizeless_message : public message< N >
 {
 public:
-        using protocol_message< N >::protocol_message;
+        using message< N >::message;
 
-        static std::optional< protocol_sizeless_message > make( const range_container auto& cont )
+        static std::optional< sizeless_message > make( const range_container auto& cont )
         {
                 if ( cont.size() > N ) {
                         EMLABCPP_LOG(
@@ -181,12 +181,12 @@ public:
                             << cont.size() << " > " << N );
                         return {};
                 }
-                return { protocol_sizeless_message( cont.begin(), cont.end() ) };
+                return { sizeless_message( cont.begin(), cont.end() ) };
         }
 
         template < std::size_t M >
-        explicit protocol_sizeless_message( const protocol_message< M >& other )
-          : protocol_message< N >( other.begin(), other.end() )
+        explicit sizeless_message( const message< M >& other )
+          : message< N >( other.begin(), other.end() )
         {
                 static_assert( M <= N );
         }
@@ -195,17 +195,17 @@ public:
 namespace detail
 {
         template < std::size_t N >
-        constexpr bool protocol_message_derived_test( const protocol_message< N >& )
+        constexpr bool message_derived_test( const message< N >& )
         {
                 return true;
         }
 }  // namespace detail
 
-/// concept matches any type that is protocol_message or derives from it.
+/// concept matches any type that is message or derives from it.
 template < typename T >
-concept protocol_message_derived = requires( T val )
+concept message_derived = requires( T val )
 {
-        detail::protocol_message_derived_test( val );
+        detail::message_derived_test( val );
 };
 
 }  // namespace emlabcpp::protocol

@@ -459,11 +459,11 @@ struct converter< std::bitset< N >, Endianess >
 };
 
 template < std::size_t N, endianess_enum Endianess >
-struct converter< protocol_sizeless_message< N >, Endianess >
+struct converter< sizeless_message< N >, Endianess >
 {
-        using value_type = typename proto_traits< protocol_sizeless_message< N > >::value_type;
+        using value_type = typename proto_traits< sizeless_message< N > >::value_type;
         static constexpr std::size_t max_size =
-            proto_traits< protocol_sizeless_message< N > >::max_size;
+            proto_traits< sizeless_message< N > >::max_size;
         using size_type = bounded< std::size_t, 0, max_size >;
 
         static constexpr size_type

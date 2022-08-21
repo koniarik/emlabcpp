@@ -21,7 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/either.h"
-#include "emlabcpp/protocol/def.h"
+#include "emlabcpp/protocol/converter.h"
 
 #pragma once
 

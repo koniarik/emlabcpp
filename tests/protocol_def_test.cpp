@@ -21,7 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/iterators/convert.h"
-#include "emlabcpp/protocol/def.h"
+#include "emlabcpp/protocol/converter.h"
 #include "emlabcpp/protocol/streams.h"
 #include "util.h"
 
@@ -209,12 +209,12 @@ int main( int argc, char** argv )
                 std::bitset< 15 >{ 0xFF55 }, { 0x55, 0b01111111 } ),
             make_valid_test_case< protocol::PROTOCOL_LITTLE_ENDIAN >(
                 std::bitset< 16 >{ 0xFFFF }, { 0xFF, 0xFF } ),
-            // protocol::protocol_sizeless_message
+            // protocol::sizeless_message
             make_valid_test_case< protocol::PROTOCOL_LITTLE_ENDIAN >(
-                *protocol::protocol_sizeless_message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
+                *protocol::sizeless_message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
                 { 1, 2, 3, 4, 5 } ),
             make_valid_test_case< protocol::PROTOCOL_BIG_ENDIAN >(
-                *protocol::protocol_sizeless_message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
+                *protocol::sizeless_message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
                 { 1, 2, 3, 4, 5 } ),
             // protocol::protocol_offset
             make_specific_valid_test_case<
@@ -247,15 +247,15 @@ int main( int argc, char** argv )
             make_specific_valid_test_case<
                 protocol::PROTOCOL_LITTLE_ENDIAN,
                 protocol::
-                    protocol_sized_buffer< uint16_t, protocol::protocol_sizeless_message< 12 > > >(
-                *protocol::protocol_sizeless_message< 12 >::make(
+                    protocol_sized_buffer< uint16_t, protocol::sizeless_message< 12 > > >(
+                *protocol::sizeless_message< 12 >::make(
                     std::vector{ 1, 2, 3, 4, 5, 6, 7 } ),
                 { 7, 0, 1, 2, 3, 4, 5, 6, 7 } ),
             make_specific_valid_test_case<
                 protocol::PROTOCOL_BIG_ENDIAN,
                 protocol::
-                    protocol_sized_buffer< uint16_t, protocol::protocol_sizeless_message< 12 > > >(
-                *protocol::protocol_sizeless_message< 12 >::make(
+                    protocol_sized_buffer< uint16_t, protocol::sizeless_message< 12 > > >(
+                *protocol::sizeless_message< 12 >::make(
                     std::vector{ 1, 2, 3, 4, 5, 6, 7 } ),
                 { 0, 7, 1, 2, 3, 4, 5, 6, 7 } ),
             make_specific_valid_test_case<

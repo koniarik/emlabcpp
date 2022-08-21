@@ -31,7 +31,7 @@ int main( int, char*[] )
         // The protocol tuple is defined by endianess and items that are stored in the tuple.
         // protocol::protocol_tuple uses std::tuple as the type that actually holds the value. The
         // example definition below defines protocol for converting `std::tuple<uint32_t, in16_t,
-        // int16_t>` into binary message `protocol::protocol_message<8>` of size 8.
+        // int16_t>` into binary message `protocol::message<8>` of size 8.
         //
         // The structure contains ::value_type and ::message_type aliases.
         struct example_tuple
@@ -47,7 +47,7 @@ int main( int, char*[] )
         using example_tuple_handler = em::protocol::protocol_handler< example_tuple >;
 
         std::tuple< uint32_t, int16_t, int16_t > tuple_val = { 666, -2, 2 };
-        em::protocol::protocol_message< 8 >      tuple_msg =
+        em::protocol::message< 8 >      tuple_msg =
             example_tuple_handler::serialize( tuple_val );
 
         // The library has support for streams, these however are stored in separate included file
@@ -116,7 +116,7 @@ int main( int, char*[] )
 
         using example_group_handler = em::protocol::protocol_handler< example_group >;
 
-        em::protocol::protocol_message< 22 > group_msg =
+        em::protocol::message< 22 > group_msg =
             example_group_handler::serialize( group_val );
 
         std::cout << "Message from example group looks like: " << group_msg << "\n";

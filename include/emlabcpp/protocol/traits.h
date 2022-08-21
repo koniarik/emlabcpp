@@ -116,9 +116,9 @@ struct proto_traits< std::bitset< N > >
 };
 
 template < std::size_t N >
-struct proto_traits< protocol_sizeless_message< N > >
+struct proto_traits< sizeless_message< N > >
 {
-        using value_type = protocol_sizeless_message< N >;
+        using value_type = sizeless_message< N >;
 
         static constexpr std::size_t max_size = N;
         static constexpr std::size_t min_size = max_size;

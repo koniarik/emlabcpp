@@ -69,7 +69,7 @@ public:
         using register_index = bounded< std::size_t, 0, registers_count - 1 >;
 
         static constexpr std::size_t max_value_size = std::max( { Regs::decl::max_size... } );
-        using message_type                          = protocol_message< max_value_size >;
+        using message_type                          = message< max_value_size >;
 
 private:
         registers_tuple registers_;

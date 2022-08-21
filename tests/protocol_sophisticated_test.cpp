@@ -71,12 +71,12 @@ struct complex_group
             CD >::with_args< std::tuple< uint32_t, uint8_t >, int16_t, uint32_t, uint8_t, uint8_t >,
         protocol::protocol_command< CE >::with_args< std::variant< uint32_t, std::bitset< 13 > > >,
         protocol::protocol_command<
-            CF >::with_args< uint32_t, protocol::protocol_sizeless_message< 16 > >,
+            CF >::with_args< uint32_t, protocol::sizeless_message< 16 > >,
         protocol::protocol_command<
             CG >::with_args< uint32_t, protocol::protocol_offset< uint8_t, 2 > >,
         protocol::protocol_command< CH >::with_args< test_quantity, uint16_t >,
         protocol::protocol_command< CI >::with_args<
-            protocol::protocol_sized_buffer< uint8_t, protocol::protocol_sizeless_message< 8 > >,
+            protocol::protocol_sized_buffer< uint8_t, protocol::sizeless_message< 8 > >,
             uint32_t >,
         protocol::protocol_command< CJ >::with_args<
             protocol::protocol_group< uint32_t, uint8_t > > >
@@ -167,7 +167,7 @@ int main( int argc, char** argv )
             make_valid_test_case< complex_group >(
                 complex_group::make_val< CF >(
                     666u,
-                    *protocol::protocol_sizeless_message< 16 >::make(
+                    *protocol::sizeless_message< 16 >::make(
                         std::vector{ 1, 2, 3, 4, 5, 6 } ) ),
                 { 0, 15, 0, 0, 2, 154, 1, 2, 3, 4, 5, 6 } ),
             make_valid_test_case< complex_group >(
@@ -179,7 +179,7 @@ int main( int argc, char** argv )
                 { 0, 22, 140, 2, 129, 246, 2, 154 } ),
             make_valid_test_case< complex_group >(
                 complex_group::make_val< CI >(
-                    *protocol::protocol_sizeless_message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
+                    *protocol::sizeless_message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
                     39439483u ),
                 { 0, 23, 5, 1, 2, 3, 4, 5, 2, 89, 204, 123 } ),
             make_valid_test_case< complex_group >(

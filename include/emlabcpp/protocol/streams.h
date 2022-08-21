@@ -34,7 +34,7 @@ namespace emlabcpp::protocol
 {
 
 template < ostreamlike Stream, std::size_t N >
-auto& operator<<( Stream& os, const protocol_message< N >& msg )
+auto& operator<<( Stream& os, const message< N >& msg )
 {
         std::ios_base::fmtflags f( os.flags() );
         char                    fill_ch = os.fill();
