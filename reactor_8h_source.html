@@ -152,13 +152,13 @@ $(document).ready(function(){initNavTree('reactor_8h_source.html',''); initResiz
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">using</span> handle_container = <a class="code" href="namespaceemlabcpp.html#a3002b266e75831a1f53acc6309e9a772">pool_list&lt; test_handle &gt;</a>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">using</span> handle_iterator  = <span class="keyword">typename</span> handle_container::iterator;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1protocol_1_1protocol__sequencer.html">sequencer</a>        = <a class="code" href="structemlabcpp_1_1protocol_1_1protocol__packet.html#ad1f00c5e2fe6812761712719966a1d21">testing_controller_reactor_packet::sequencer</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1protocol_1_1sequencer.html">sequencer_type</a>   = <a class="code" href="structemlabcpp_1_1protocol_1_1packet.html#a48c10ace40951322b6188bf195a1ab18">testing_controller_reactor_packet::sequencer_type</a>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        std::string_view suite_name_;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        std::string_view suite_date_ = __DATE__;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        handle_container handles_;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="structemlabcpp_1_1pool__interface.html">pool_interface</a>*  mem_;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="classemlabcpp_1_1protocol_1_1protocol__sequencer.html">sequencer</a>        seq_;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="classemlabcpp_1_1protocol_1_1sequencer.html">sequencer_type</a>   seq_;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        std::optional&lt; active_execution &gt; active_exec_;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
@@ -234,7 +234,7 @@ $(document).ready(function(){initNavTree('reactor_8h_source.html',''); initResiz
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
-<div class="ttc" id="aclassemlabcpp_1_1protocol_1_1protocol__sequencer_html"><div class="ttname"><a href="classemlabcpp_1_1protocol_1_1protocol__sequencer.html">emlabcpp::protocol::protocol_sequencer</a></div><div class="ttdef"><b>Definition:</b> sequencer.h:36</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1protocol_1_1sequencer_html"><div class="ttname"><a href="classemlabcpp_1_1protocol_1_1sequencer.html">emlabcpp::protocol::sequencer</a></div><div class="ttdef"><b>Definition:</b> sequencer.h:36</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing__callable__overlay_html"><div class="ttname"><a href="classemlabcpp_1_1testing__callable__overlay.html">emlabcpp::testing_callable_overlay</a></div><div class="ttdef"><b>Definition:</b> interface.h:58</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing__default__reactor_html"><div class="ttname"><a href="classemlabcpp_1_1testing__default__reactor.html">emlabcpp::testing_default_reactor</a></div><div class="ttdef"><b>Definition:</b> reactor.h:138</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing__default__reactor_html_a227d023182b2c5cbc1e240a916eb927c"><div class="ttname"><a href="classemlabcpp_1_1testing__default__reactor.html#a227d023182b2c5cbc1e240a916eb927c">emlabcpp::testing_default_reactor::testing_default_reactor</a></div><div class="ttdeci">testing_default_reactor(std::string_view name)</div><div class="ttdoc">TODO: this may not be the best idea, as pool_mem will exist only after constructor for base class is ...</div><div class="ttdef"><b>Definition:</b> reactor.h:142</div></div>
@@ -265,7 +265,7 @@ $(document).ready(function(){initNavTree('reactor_8h_source.html',''); initResiz
 <div class="ttc" id="astructemlabcpp_1_1pool__base_html_aef6ae9b313cac8ad6e61e037506d94bd"><div class="ttname"><a href="structemlabcpp_1_1pool__base.html#aef6ae9b313cac8ad6e61e037506d94bd">emlabcpp::pool_base&lt; 128, 32 &gt;::pool_memory</a></div><div class="ttdeci">pool_resource&lt; PoolSize, PoolCount &gt; pool_memory</div><div class="ttdef"><b>Definition:</b> pool.h:195</div></div>
 <div class="ttc" id="astructemlabcpp_1_1pool__interface_html"><div class="ttname"><a href="structemlabcpp_1_1pool__interface.html">emlabcpp::pool_interface</a></div><div class="ttdef"><b>Definition:</b> pool.h:41</div></div>
 <div class="ttc" id="astructemlabcpp_1_1pool__interface_html_ae984c89b9c93e062b1dd8b1d970896a0"><div class="ttname"><a href="structemlabcpp_1_1pool__interface.html#ae984c89b9c93e062b1dd8b1d970896a0">emlabcpp::pool_interface::allocate</a></div><div class="ttdeci">virtual void * allocate(std::size_t bytes, std::size_t alignment)=0</div></div>
-<div class="ttc" id="astructemlabcpp_1_1protocol_1_1protocol__packet_html_ad1f00c5e2fe6812761712719966a1d21"><div class="ttname"><a href="structemlabcpp_1_1protocol_1_1protocol__packet.html#ad1f00c5e2fe6812761712719966a1d21">emlabcpp::protocol::protocol_packet::sequencer</a></div><div class="ttdeci">protocol_sequencer&lt; sequencer_def &gt; sequencer</div><div class="ttdef"><b>Definition:</b> packet.h:93</div></div>
+<div class="ttc" id="astructemlabcpp_1_1protocol_1_1packet_html_a48c10ace40951322b6188bf195a1ab18"><div class="ttname"><a href="structemlabcpp_1_1protocol_1_1packet.html#a48c10ace40951322b6188bf195a1ab18">emlabcpp::protocol::packet::sequencer_type</a></div><div class="ttdeci">sequencer&lt; sequencer_def &gt; sequencer_type</div><div class="ttdef"><b>Definition:</b> packet.h:93</div></div>
 <div class="ttc" id="astructemlabcpp_1_1testing__exec_html"><div class="ttname"><a href="structemlabcpp_1_1testing__exec.html">emlabcpp::testing_exec</a></div><div class="ttdef"><b>Definition:</b> protocol.h:126</div></div>
 <div class="ttc" id="astructemlabcpp_1_1testing__get__property_html"><div class="ttname"><a href="structemlabcpp_1_1testing__get__property.html">emlabcpp::testing_get_property</a></div><div class="ttdef"><b>Definition:</b> protocol.h:58</div></div>
 <div class="ttc" id="astructemlabcpp_1_1testing__get__test__name_html"><div class="ttname"><a href="structemlabcpp_1_1testing__get__test__name.html">emlabcpp::testing_get_test_name</a></div><div class="ttdef"><b>Definition:</b> protocol.h:63</div></div>
@@ -278,7 +278,7 @@ $(document).ready(function(){initNavTree('reactor_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="reactor_8h.html">reactor.h</a></li>
-    <li class="footer">Generated on Sun Aug 21 2022 09:33:22 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 11:25:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

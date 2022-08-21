@@ -1,5 +1,0 @@
-<map id="emlabcpp::protocol::protocol_packet&lt; Def, Payload &gt;" name="emlabcpp::protocol::protocol_packet&lt; Def, Payload &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="15,184,190,240"/>
-<area shape="rect" id="node2" href="$structemlabcpp_1_1protocol_1_1protocol__tuple.html" title="protocol_tuple is high levle alternative to use just &#39;std::tuple&#39; that is more friendly for standalon..." alt="" coords="21,95,184,136"/>
-<area shape="rect" id="node3" href="$structemlabcpp_1_1protocol_1_1converter__def__type__base.html" title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib..." alt="" coords="5,5,200,47"/>
-</map>

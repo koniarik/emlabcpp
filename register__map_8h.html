@@ -108,11 +108,11 @@ $(document).ready(function(){initNavTree('register__map_8h.html',''); initResiza
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1protocol__reg.html">emlabcpp::protocol::protocol_reg&lt; Key, D &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that represents definition of one register in the map.  <a href="structemlabcpp_1_1protocol_1_1protocol__reg.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1register__pair.html">emlabcpp::protocol::register_pair&lt; Key, D &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that represents definition of one register in the map.  <a href="structemlabcpp_1_1protocol_1_1register__pair.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1protocol__register__map.html">emlabcpp::protocol::protocol_register_map&lt; Endianess, Regs &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register map is abstraction to work with registers of external devices.  <a href="classemlabcpp_1_1protocol_1_1protocol__register__map.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map&lt; Endianess, Regs &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register map is abstraction to work with registers of external devices.  <a href="classemlabcpp_1_1protocol_1_1register__map.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -124,15 +124,15 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0cacc27b5084937e6976dd50ea7db934"><td class="memTemplParams" colspan="2">template&lt;typename Map , typename UnaryCallable &gt; </td></tr>
-<tr class="memitem:a0cacc27b5084937e6976dd50ea7db934"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0cacc27b5084937e6976dd50ea7db934">emlabcpp::protocol::protocol_for_each_register</a> (const Map &amp;m, UnaryCallable &amp;&amp;f)</td></tr>
-<tr class="separator:a0cacc27b5084937e6976dd50ea7db934"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25417e5baf4dcb0a348bb0e6e5ea83a2"><td class="memTemplParams" colspan="2">template&lt;typename Map , typename UnaryCallable &gt; </td></tr>
+<tr class="memitem:a25417e5baf4dcb0a348bb0e6e5ea83a2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a25417e5baf4dcb0a348bb0e6e5ea83a2">emlabcpp::protocol::for_each_register</a> (const Map &amp;m, UnaryCallable &amp;&amp;f)</td></tr>
+<tr class="separator:a25417e5baf4dcb0a348bb0e6e5ea83a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a29637f6f2f78b3725427b1d72cd1d4ab"><td class="memTemplParams" colspan="2">template&lt;typename UnaryCallable , typename Registers &gt; </td></tr>
-<tr class="memitem:a29637f6f2f78b3725427b1d72cd1d4ab"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a29637f6f2f78b3725427b1d72cd1d4ab">emlabcpp::protocol::protocol_register_map_void_returning</a></td></tr>
-<tr class="separator:a29637f6f2f78b3725427b1d72cd1d4ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a2b6db86c30d95881fe0346b567f8b"><td class="memTemplParams" colspan="2">template&lt;typename UnaryCallable , typename Registers &gt; </td></tr>
+<tr class="memitem:af6a2b6db86c30d95881fe0346b567f8b"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#af6a2b6db86c30d95881fe0346b567f8b">emlabcpp::protocol::register_map_void_returning</a></td></tr>
+<tr class="separator:af6a2b6db86c30d95881fe0346b567f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -140,7 +140,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="register__map_8h.html">register_map.h</a></li>
-    <li class="footer">Generated on Sun Aug 21 2022 09:33:22 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 11:25:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

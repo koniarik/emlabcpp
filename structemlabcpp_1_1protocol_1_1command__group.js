@@ -4,7 +4,7 @@ var structemlabcpp_1_1protocol_1_1command__group =
     [ "cmd_value_type", "structemlabcpp_1_1protocol_1_1command__group.html#a593b01753fdf6997d7bdfb6814398c93", null ],
     [ "cmds_type", "structemlabcpp_1_1protocol_1_1command__group.html#aee70b3ca4c17585253944194322f7bee", null ],
     [ "decl", "structemlabcpp_1_1protocol_1_1command__group.html#a3a3cfbe12d703364fc5ef3dfc9dc9bca", null ],
-    [ "def_type", "structemlabcpp_1_1protocol_1_1command__group.html#a081302365eb9b93f88fa03bc34a90960", null ],
+    [ "def_type", "structemlabcpp_1_1protocol_1_1command__group.html#ab8a5bbe436a5bcf3e7c387a506bd24f1", null ],
     [ "message_type", "structemlabcpp_1_1protocol_1_1command__group.html#ae75595015ba7fe1622a8de8eb4e195b0", null ],
     [ "value_type", "structemlabcpp_1_1protocol_1_1command__group.html#a6c1cab9d6ad9da179385450b969dac77", null ],
     [ "with_commands", "structemlabcpp_1_1protocol_1_1command__group.html#ad45b67c848cbde4f1d784923fb67c3c6", null ],

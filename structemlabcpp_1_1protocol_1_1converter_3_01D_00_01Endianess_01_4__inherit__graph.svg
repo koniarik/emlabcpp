@@ -22,12 +22,12 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structemlabcpp_1_1protocol_1_1converter_3_01protocol__endianess_3_01Endianess_00_01D_01_4_00_01ParentEndianess_01_4.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="structemlabcpp_1_1protocol_1_1converter_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_00_01ParentEndianess_01_4.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="337,-0.5 337,-52.5 473,-52.5 473,-0.5 337,-0.5"/>
 <text text-anchor="start" x="345" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::protocol</text>
-<text text-anchor="start" x="345" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">::converter&lt; protocol</text>
-<text text-anchor="start" x="345" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">_endianess&lt; Endianess,</text>
-<text text-anchor="middle" x="405" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00"> D &gt;, ParentEndianess &gt;</text>
+<text text-anchor="start" x="345" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">::converter&lt; endianess</text>
+<text text-anchor="start" x="345" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">_wrapper&lt; Endianess, D</text>
+<text text-anchor="middle" x="405" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt;, ParentEndianess &gt;</text>
 </a>
 </g>
 </g>

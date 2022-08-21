@@ -106,12 +106,12 @@ Public Types</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aa0161cf6c9a6359f88dc801746a42f23"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#aac6b814c02228411f51bd3251d1bd456">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#aa0161cf6c9a6359f88dc801746a42f23">serialize_at</a> (std::span&lt; uint8_t, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#af0337e39597efdcdcb404ca16234c213">max_size</a> &gt; buffer, const <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#ae931feca5cd5c6edf65c586c0b3ffe2d">value_type</a> &amp;item)</td></tr>
 <tr class="separator:aa0161cf6c9a6359f88dc801746a42f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51f476aa68967e3ff36696991c0ad6fd"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#a51f476aa68967e3ff36696991c0ad6fd">deserialize</a> (const <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>&lt; const uint8_t *, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#aac6b814c02228411f51bd3251d1bd456">size_type</a> &gt; &amp;buffer) -&gt; <a class="el" href="structemlabcpp_1_1protocol_1_1protocol__result.html">protocol_result</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#ae931feca5cd5c6edf65c586c0b3ffe2d">value_type</a> &gt;</td></tr>
-<tr class="separator:a51f476aa68967e3ff36696991c0ad6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a105a2e3669cdecf2943f30fbd5e62f7e"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#a105a2e3669cdecf2943f30fbd5e62f7e">deserialize</a> (const <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>&lt; const uint8_t *, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#aac6b814c02228411f51bd3251d1bd456">size_type</a> &gt; &amp;buffer) -&gt; <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#ae931feca5cd5c6edf65c586c0b3ffe2d">value_type</a> &gt;</td></tr>
+<tr class="separator:a105a2e3669cdecf2943f30fbd5e62f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:af0337e39597efdcdcb404ca16234c213"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#af0337e39597efdcdcb404ca16234c213">max_size</a></td></tr>
+<tr class="memitem:af0337e39597efdcdcb404ca16234c213"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#af0337e39597efdcdcb404ca16234c213">max_size</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1sizeless__message.html">sizeless_message</a>&lt; N &gt; &gt;::max_size</td></tr>
 <tr class="separator:af0337e39597efdcdcb404ca16234c213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
@@ -148,8 +148,8 @@ template&lt;std::size_t N, endianess_enum Endianess&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a51f476aa68967e3ff36696991c0ad6fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51f476aa68967e3ff36696991c0ad6fd">&#9670;&nbsp;</a></span>deserialize()</h2>
+<a id="a105a2e3669cdecf2943f30fbd5e62f7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a105a2e3669cdecf2943f30fbd5e62f7e">&#9670;&nbsp;</a></span>deserialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,7 +164,7 @@ template&lt;std::size_t N, endianess_enum Endianess&gt; </div>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>&lt; const uint8_t *, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#aac6b814c02228411f51bd3251d1bd456">size_type</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td> -&gt; <a class="el" href="structemlabcpp_1_1protocol_1_1protocol__result.html">protocol_result</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#ae931feca5cd5c6edf65c586c0b3ffe2d">value_type</a> &gt;
+          <td> -&gt; <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#ae931feca5cd5c6edf65c586c0b3ffe2d">value_type</a> &gt;
         </td>
         </tr>
       </table>
@@ -214,7 +214,7 @@ template&lt;std::size_t N, endianess_enum Endianess&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The size of protocol_size_message should always be within the 0...N range</p>
+<p>The size of <a class="el" href="classemlabcpp_1_1protocol_1_1message.html" title="Protocol library has custom type that represents message, however this is just simple overaly over st...">protocol::message</a> should always be within the 0...N range</p>
 
 <p class="reference">References <a class="el" href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a>, <a class="el" href="classemlabcpp_1_1bounded.html#a4c03b3f83e73a36634b7c8a176a2ef50">emlabcpp::bounded&lt; T, MinVal, MaxVal &gt;::make()</a>, and <a class="el" href="namespaceemlabcpp.html#ac4b40baac2662db6424a475292ef03b3">emlabcpp::range()</a>.</p>
 
@@ -233,7 +233,7 @@ template&lt;std::size_t N, endianess_enum Endianess&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1sizeless__message.html">sizeless_message</a>&lt; N &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::max_size</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1sizeless__message.html">sizeless_message</a>&lt; N &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::max_size = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1sizeless__message.html">sizeless_message</a>&lt; N &gt; &gt;::max_size</td>
         </tr>
       </table>
   </td>
@@ -242,10 +242,7 @@ template&lt;std::size_t N, endianess_enum Endianess&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">            proto_traits&lt; sizeless_message&lt; N &gt; &gt;<a class="code" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#af0337e39597efdcdcb404ca16234c213">::max_size</a></div>
-<div class="ttc" id="astructemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4_html_af0337e39597efdcdcb404ca16234c213"><div class="ttname"><a href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#af0337e39597efdcdcb404ca16234c213">emlabcpp::protocol::converter&lt; sizeless_message&lt; N &gt;, Endianess &gt;::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> converter.h:465</div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -257,7 +254,7 @@ template&lt;std::size_t N, endianess_enum Endianess&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html">converter&lt; sizeless_message&lt; N &gt;, Endianess &gt;</a></li>
-    <li class="footer">Generated on Sun Aug 21 2022 09:33:23 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 11:25:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

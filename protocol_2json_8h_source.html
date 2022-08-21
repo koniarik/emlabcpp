@@ -353,7 +353,7 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;};</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="keyword">template</span> &lt; convertible D, auto Offset &gt;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; protocol_offset&lt; D, Offset &gt; &gt; : traits_json_serializer_base</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; value_offset&lt; D, Offset &gt; &gt; : traits_json_serializer_base</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;{</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;offset&quot;</span>;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
@@ -407,163 +407,162 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;};</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="keyword">template</span> &lt; convertible CounterType, convertible D &gt;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; protocol_sized_buffer&lt; CounterType, D &gt; &gt;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  : traits_json_serializer_base</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;{</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;sized_buffer&quot;</span>;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        {</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                <span class="keywordflow">return</span> std::string{ type_name };</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        }</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> add_extra( nlohmann::json&amp; j )</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        {</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                j[<span class="stringliteral">&quot;counter_type&quot;</span>] = proto_traits&lt; CounterType &gt;{};</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                j[<span class="stringliteral">&quot;sub_type&quot;</span>]     = proto_traits&lt; D &gt;{};</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        }</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;};</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="keyword">template</span> &lt; auto V &gt;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; tag&lt; V &gt; &gt; : traits_json_serializer_base</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;{</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;tag&quot;</span>;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        {</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                <span class="keywordflow">if</span> constexpr ( std::is_enum_v&lt; decltype( V ) &gt; ) {</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                        <span class="keywordflow">return</span> <span class="stringliteral">&quot;tag&lt;&quot;</span> + convert_enum( V ) + <span class="stringliteral">&quot;&gt;&quot;</span>;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                        <span class="keywordflow">return</span> <span class="stringliteral">&quot;tag&lt;&quot;</span> + std::to_string( V ) + <span class="stringliteral">&quot;&gt;&quot;</span>;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                }</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        }</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> add_extra( nlohmann::json&amp; j )</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        {</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                j[<span class="stringliteral">&quot;sub_type&quot;</span>] = <span class="keyword">typename</span> proto_traits&lt; tag&lt; V &gt; &gt;::sub_decl{};</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                j[<span class="stringliteral">&quot;value&quot;</span>]    = V;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_MAGIC_ENUM</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                <span class="keywordflow">if</span> constexpr ( std::is_enum_v&lt; decltype( V ) &gt; ) {</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                        j[<span class="stringliteral">&quot;enumerator&quot;</span>] = magic_enum::enum_name( V );</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                }</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        }</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;};</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="keyword">template</span> &lt; <a class="code" href="namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5">convertible</a>... Ds &gt;</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; protocol_group&lt; Ds... &gt; &gt; : traits_json_serializer_base</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;{</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;group&quot;</span>;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        {</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                std::vector&lt; std::string &gt; names{ traits_json_serializer&lt; Ds &gt;::get_name()... };</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&quot;{&quot;</span> + <a class="code" href="namespaceemlabcpp.html#a31c1cbc5b728494acb47daebb913fd96">joined</a>( names, std::string{ <span class="stringliteral">&quot;|&quot;</span> } ) + <span class="stringliteral">&quot;}&quot;</span>;</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        }</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> add_extra( nlohmann::json&amp; j )</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        {</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                j[<span class="stringliteral">&quot;sub_types&quot;</span>] =</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                    <a class="code" href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">map_f_to_a</a>( std::tuple&lt; Ds... &gt;{}, [&amp;]&lt; <span class="keyword">typename</span> D &gt;( D ) -&gt; nlohmann::json {</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                            <span class="keywordflow">return</span> proto_traits&lt; D &gt;{};</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                    } );</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        }</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;};</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="keyword">template</span> &lt; <a class="code" href="namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5">convertible</a>... Ds &gt;</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; protocol_tag_group&lt; Ds... &gt; &gt;</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;  : traits_json_serializer&lt; typename proto_traits&lt; protocol_tag_group&lt; Ds... &gt; &gt;::sub_type &gt;</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;{</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;group&quot;</span>;</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;};</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="keyword">template</span> &lt; endianess_enum Endianess, convertible D &gt;</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; protocol_endianess&lt; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, D &gt; &gt; : traits_json_serializer&lt; D &gt;</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;{</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;};</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="keyword">template</span> &lt; std::derived_from&lt; converter_def_type_base &gt; D &gt;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<a class="code" href="namespaceemlabcpp_1_1protocol.html#a919b5b19b105271c651067cd4c116b44">requires</a>( convertible&lt; D &gt; ) <span class="keyword">struct </span>traits_json_serializer&lt; D &gt;</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  : traits_json_serializer&lt; typename D::def_type &gt;</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;{</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        {</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                <span class="keywordflow">return</span> pretty_type_name&lt; D &gt;();</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        }</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;};</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160; </div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; protocol_mark &gt; : traits_json_serializer_base</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;{</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;mark&quot;</span>;</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="keyword">static</span> std::string                get_name()</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        {</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                <span class="keywordflow">return</span> std::string{ type_name };</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        }</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;};</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; error_record &gt; : traits_json_serializer_base</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;{</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;error_record&quot;</span>;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        {</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                <span class="keywordflow">return</span> std::string{ type_name };</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        }</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160; </div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="keyword">using</span> decl = proto_traits&lt; error_record &gt;;</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160; </div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> add_extra( nlohmann::json&amp; j )</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        {</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                j[<span class="stringliteral">&quot;mark_type&quot;</span>]   = proto_traits&lt; typename decl::mark_type &gt;{};</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                j[<span class="stringliteral">&quot;offset_type&quot;</span>] = proto_traits&lt; typename decl::offset_type &gt;{};</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        }</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;};</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; static_vector&lt; T, N &gt; &gt; : traits_json_serializer_base</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;{</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;static_vector&quot;</span>;</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        <span class="keyword">using</span> sub_ser                               = traits_json_serializer&lt; T &gt;;</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        {</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                <span class="keywordflow">return</span> sub_ser::get_name() + <span class="stringliteral">&quot;[&quot;</span> + std::to_string( N ) + <span class="stringliteral">&quot;]&quot;</span>;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;                ;</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;        }</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> add_extra( nlohmann::json&amp; j )</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;        {</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;                j[<span class="stringliteral">&quot;counter_type&quot;</span>] =</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;                    proto_traits&lt; typename proto_traits&lt; static_vector&lt; T, N &gt; &gt;::counter_type &gt;{};</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;                j[<span class="stringliteral">&quot;sub_type&quot;</span>] = proto_traits&lt; T &gt;{};</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        }</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;};</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160; </div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="keyword">template</span> &lt; decomposable D &gt;</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<a class="code" href="namespaceemlabcpp_1_1protocol.html#a919b5b19b105271c651067cd4c116b44">requires</a>(</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    convertible&lt; D &gt; &amp;&amp; !quantity_derived&lt; D &gt; &amp;&amp;</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    !std::derived_from&lt; D, converter_def_type_base &gt; ) <span class="keyword">struct </span>traits_json_serializer&lt; D &gt;</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;  : traits_json_serializer&lt; typename proto_traits&lt; D &gt;::tuple_type &gt;</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;{</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160; </div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        {</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;                <span class="keywordflow">return</span> pretty_type_name&lt; D &gt;();</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;        }</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;};</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160; </div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;}  <span class="comment">// namespace emlabcpp::protocol</span></div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160; </div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; sized_buffer&lt; CounterType, D &gt; &gt; : traits_json_serializer_base</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;{</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;sized_buffer&quot;</span>;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        {</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                <span class="keywordflow">return</span> std::string{ type_name };</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        }</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> add_extra( nlohmann::json&amp; j )</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        {</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                j[<span class="stringliteral">&quot;counter_type&quot;</span>] = proto_traits&lt; CounterType &gt;{};</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                j[<span class="stringliteral">&quot;sub_type&quot;</span>]     = proto_traits&lt; D &gt;{};</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        }</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;};</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="keyword">template</span> &lt; auto V &gt;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; tag&lt; V &gt; &gt; : traits_json_serializer_base</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;{</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;tag&quot;</span>;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                <span class="keywordflow">if</span> constexpr ( std::is_enum_v&lt; decltype( V ) &gt; ) {</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                        <span class="keywordflow">return</span> <span class="stringliteral">&quot;tag&lt;&quot;</span> + convert_enum( V ) + <span class="stringliteral">&quot;&gt;&quot;</span>;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                        <span class="keywordflow">return</span> <span class="stringliteral">&quot;tag&lt;&quot;</span> + std::to_string( V ) + <span class="stringliteral">&quot;&gt;&quot;</span>;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                }</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        }</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> add_extra( nlohmann::json&amp; j )</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        {</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                j[<span class="stringliteral">&quot;sub_type&quot;</span>] = <span class="keyword">typename</span> proto_traits&lt; tag&lt; V &gt; &gt;::sub_decl{};</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                j[<span class="stringliteral">&quot;value&quot;</span>]    = V;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_MAGIC_ENUM</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                <span class="keywordflow">if</span> constexpr ( std::is_enum_v&lt; decltype( V ) &gt; ) {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                        j[<span class="stringliteral">&quot;enumerator&quot;</span>] = magic_enum::enum_name( V );</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                }</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        }</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;};</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="keyword">template</span> &lt; <a class="code" href="namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5">convertible</a>... Ds &gt;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; group&lt; Ds... &gt; &gt; : traits_json_serializer_base</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;{</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;group&quot;</span>;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        {</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                std::vector&lt; std::string &gt; names{ traits_json_serializer&lt; Ds &gt;::get_name()... };</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&quot;{&quot;</span> + <a class="code" href="namespaceemlabcpp.html#a31c1cbc5b728494acb47daebb913fd96">joined</a>( names, std::string{ <span class="stringliteral">&quot;|&quot;</span> } ) + <span class="stringliteral">&quot;}&quot;</span>;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        }</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> add_extra( nlohmann::json&amp; j )</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        {</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                j[<span class="stringliteral">&quot;sub_types&quot;</span>] =</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                    <a class="code" href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">map_f_to_a</a>( std::tuple&lt; Ds... &gt;{}, [&amp;]&lt; <span class="keyword">typename</span> D &gt;( D ) -&gt; nlohmann::json {</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                            <span class="keywordflow">return</span> proto_traits&lt; D &gt;{};</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                    } );</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        }</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;};</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="keyword">template</span> &lt; <a class="code" href="namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5">convertible</a>... Ds &gt;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; tag_group&lt; Ds... &gt; &gt;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;  : traits_json_serializer&lt; typename proto_traits&lt; tag_group&lt; Ds... &gt; &gt;::sub_type &gt;</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;{</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;group&quot;</span>;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;};</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="keyword">template</span> &lt; endianess_enum Endianess, convertible D &gt;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; endianess_wrapper&lt; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, D &gt; &gt; : traits_json_serializer&lt; D &gt;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;{</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;};</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="keyword">template</span> &lt; std::derived_from&lt; converter_def_type_base &gt; D &gt;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<a class="code" href="namespaceemlabcpp_1_1protocol.html#a919b5b19b105271c651067cd4c116b44">requires</a>( convertible&lt; D &gt; ) <span class="keyword">struct </span>traits_json_serializer&lt; D &gt;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;  : traits_json_serializer&lt; typename D::def_type &gt;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;{</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        {</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                <span class="keywordflow">return</span> pretty_type_name&lt; D &gt;();</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        }</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;};</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; mark &gt; : traits_json_serializer_base</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;{</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;mark&quot;</span>;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keyword">static</span> std::string                get_name()</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        {</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;                <span class="keywordflow">return</span> std::string{ type_name };</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        }</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;};</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; error_record &gt; : traits_json_serializer_base</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;{</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;error_record&quot;</span>;</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160; </div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        {</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                <span class="keywordflow">return</span> std::string{ type_name };</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        }</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="keyword">using</span> decl = proto_traits&lt; error_record &gt;;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> add_extra( nlohmann::json&amp; j )</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        {</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;                j[<span class="stringliteral">&quot;mark_type&quot;</span>]   = proto_traits&lt; typename decl::mark_type &gt;{};</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                j[<span class="stringliteral">&quot;offset_type&quot;</span>] = proto_traits&lt; typename decl::offset_type &gt;{};</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        }</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;};</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160; </div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; static_vector&lt; T, N &gt; &gt; : traits_json_serializer_base</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;{</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;static_vector&quot;</span>;</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        <span class="keyword">using</span> sub_ser                               = traits_json_serializer&lt; T &gt;;</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160; </div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        {</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;                <span class="keywordflow">return</span> sub_ser::get_name() + <span class="stringliteral">&quot;[&quot;</span> + std::to_string( N ) + <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                ;</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        }</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> add_extra( nlohmann::json&amp; j )</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        {</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;                j[<span class="stringliteral">&quot;counter_type&quot;</span>] =</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;                    proto_traits&lt; typename proto_traits&lt; static_vector&lt; T, N &gt; &gt;::counter_type &gt;{};</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;                j[<span class="stringliteral">&quot;sub_type&quot;</span>] = proto_traits&lt; T &gt;{};</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        }</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;};</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160; </div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="keyword">template</span> &lt; decomposable D &gt;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<a class="code" href="namespaceemlabcpp_1_1protocol.html#a919b5b19b105271c651067cd4c116b44">requires</a>(</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    convertible&lt; D &gt; &amp;&amp; !quantity_derived&lt; D &gt; &amp;&amp;</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    !std::derived_from&lt; D, converter_def_type_base &gt; ) <span class="keyword">struct </span>traits_json_serializer&lt; D &gt;</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;  : traits_json_serializer&lt; typename proto_traits&lt; D &gt;::tuple_type &gt;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;{</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160; </div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        {</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;                <span class="keywordflow">return</span> pretty_type_name&lt; D &gt;();</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        }</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;};</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160; </div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;}  <span class="comment">// namespace emlabcpp::protocol</span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160; </div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aalgorithm_8h_html"><div class="ttname"><a href="algorithm_8h.html">algorithm.h</a></div></div>
 <div class="ttc" id="aenum_8h_html"><div class="ttname"><a href="enum_8h.html">enum.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html">emlabcpp::protocol</a></div><div class="ttdef"><b>Definition:</b> base.h:34</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a43423655ad145f4437a23bcad9e551d3"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">emlabcpp::protocol::Endianess</a></div><div class="ttdeci">Endianess</div><div class="ttdef"><b>Definition:</b> converter.h:957</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a4ec28242812c1aa8f1213c453bb17cab"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a4ec28242812c1aa8f1213c453bb17cab">emlabcpp::protocol::min_size</a></div><div class="ttdeci">static constexpr std::size_t min_size</div><div class="ttdef"><b>Definition:</b> converter.h:961</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a43423655ad145f4437a23bcad9e551d3"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">emlabcpp::protocol::Endianess</a></div><div class="ttdeci">Endianess</div><div class="ttdef"><b>Definition:</b> converter.h:949</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a4ec28242812c1aa8f1213c453bb17cab"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a4ec28242812c1aa8f1213c453bb17cab">emlabcpp::protocol::min_size</a></div><div class="ttdeci">static constexpr std::size_t min_size</div><div class="ttdef"><b>Definition:</b> converter.h:953</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a919b5b19b105271c651067cd4c116b44"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a919b5b19b105271c651067cd4c116b44">emlabcpp::protocol::requires</a></div><div class="ttdeci">requires(!std::derived_from&lt; T, converter_def_type_base &gt; &amp;&amp;!quantity_derived&lt; T &gt;) struct converter&lt; T</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a9dfeb95ba0e6684fbc02d537318ac8da"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> converter.h:960</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a9dfeb95ba0e6684fbc02d537318ac8da"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> converter.h:952</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_aabf37dc4e5c925a68b635522ef9567a5"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5">emlabcpp::protocol::convertible</a></div><div class="ttdeci">concept convertible</div><div class="ttdoc">This concepts limits types to types that can be declared, that is the overload of 'proto_traits' is f...</div><div class="ttdef"><b>Definition:</b> traits.h:50</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a1911a0fc83869772cacfc4d21772268f"><div class="ttname"><a href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">emlabcpp::map_f_to_a</a></div><div class="ttdeci">std::array&lt; T, N &gt; map_f_to_a(Container &amp;&amp;cont, UnaryCallable &amp;&amp;f=std::identity()) requires(!static_sized&lt; Container &gt;)</div><div class="ttdoc">Calls callable f(cont[i]) for i = 0...N and stores the result in array of an size N.</div><div class="ttdef"><b>Definition:</b> algorithm.h:423</div></div>
@@ -576,7 +575,7 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="protocol_2json_8h.html">json.h</a></li>
-    <li class="footer">Generated on Sun Aug 21 2022 09:33:22 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 11:25:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

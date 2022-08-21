@@ -108,9 +108,9 @@ $(document).ready(function(){initNavTree('packet_8h.html',''); initResizable(); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1protocol__packet.html">emlabcpp::protocol::protocol_packet&lt; Def, Payload &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet&lt; Def, Payload &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1protocol__packet_1_1sequencer__def.html">emlabcpp::protocol::protocol_packet&lt; Def, Payload &gt;::sequencer_def</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet_1_1sequencer__def.html">emlabcpp::protocol::packet&lt; Def, Payload &gt;::sequencer_def</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -122,15 +122,15 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:adcd590461f0def24351e711065784cfa"><td class="memTemplParams" colspan="2">template&lt;typename Def , typename Payload &gt; </td></tr>
-<tr class="memitem:adcd590461f0def24351e711065784cfa"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#adcd590461f0def24351e711065784cfa">emlabcpp::protocol::protocol_packet_base</a> = protocol_tuple&lt; Def::endianess, std::decay_t&lt; decltype(Def::prefix) &gt;, typename Def::size_type, Payload, typename Def::checksum_type &gt;</td></tr>
-<tr class="separator:adcd590461f0def24351e711065784cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a666cc0e4cd52e4691a45424fb1b8b8b1"><td class="memTemplParams" colspan="2">template&lt;typename Def , typename Payload &gt; </td></tr>
+<tr class="memitem:a666cc0e4cd52e4691a45424fb1b8b8b1"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a666cc0e4cd52e4691a45424fb1b8b8b1">emlabcpp::protocol::packet_base</a> = tuple&lt; Def::endianess, std::decay_t&lt; decltype(Def::prefix) &gt;, typename Def::size_type, Payload, typename Def::checksum_type &gt;</td></tr>
+<tr class="separator:a666cc0e4cd52e4691a45424fb1b8b8b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ac3ae8231661998000b1ead5baac095e8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac3ae8231661998000b1ead5baac095e8"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ac3ae8231661998000b1ead5baac095e8">emlabcpp::protocol::protocol_packet_def</a></td></tr>
-<tr class="separator:ac3ae8231661998000b1ead5baac095e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fe4054075187b3f230763da6fdd12d1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0fe4054075187b3f230763da6fdd12d1"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0fe4054075187b3f230763da6fdd12d1">emlabcpp::protocol::packet_def</a></td></tr>
+<tr class="separator:a0fe4054075187b3f230763da6fdd12d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -138,7 +138,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="packet_8h.html">packet.h</a></li>
-    <li class="footer">Generated on Sun Aug 21 2022 09:33:22 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 21 2022 11:25:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
