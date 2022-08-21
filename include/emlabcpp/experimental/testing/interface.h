@@ -27,7 +27,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 
 class testing_interface
@@ -94,4 +94,4 @@ testing_composer< T, C > testing_compose( T t, C c )
         return { std::move( t ), std::move( c ) };
 }
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing

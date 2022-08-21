@@ -34,7 +34,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 
 class testing_reactor
@@ -57,7 +57,7 @@ class testing_reactor
         struct active_execution
         {
                 testing_test_id tid;
-                testing_run_id  rid;
+                run_id  rid;
                 test_handle*    handle_ptr;
         };
 
@@ -145,4 +145,4 @@ public:
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing

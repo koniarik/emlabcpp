@@ -25,7 +25,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 class testing_reactor_interface_adapter
 {
@@ -71,4 +71,4 @@ public:
                 report_failure( testing_reactor_error_group::make_val< ID >( args... ) );
         }
 };
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing

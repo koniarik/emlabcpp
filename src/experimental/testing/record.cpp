@@ -24,7 +24,8 @@
 
 #include "experimental/testing/reactor_interface_adapter.h"
 
-using namespace emlabcpp;
+namespace emlabcpp::testing
+{
 
 std::optional< testing_node_type > testing_record::get_param_type( testing_node_id nid )
 {
@@ -158,3 +159,5 @@ testing_record::exchange( std::optional< testing_node_id > opt_nid, const Args&.
 
         return read_variant_alternative< ResultType >( nid );
 }
+
+}  // namespace emlabcpp::testing

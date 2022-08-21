@@ -2,10 +2,10 @@
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 
-emlabcpp::testing_value json_to_testing_value( const nlohmann::json& j )
+testing_value json_to_testing_value( const nlohmann::json& j )
 {
         using value_t = nlohmann::json::value_t;
 
@@ -40,7 +40,7 @@ nlohmann::json testing_value_to_json( const testing_value& tv )
         return res;
 }
 
-emlabcpp::testing_key json_to_testing_key( const nlohmann::json& j )
+testing_key json_to_testing_key( const nlohmann::json& j )
 {
         return testing_key_to_buffer( j.get< std::string_view >() );
 }
@@ -130,5 +130,5 @@ nlohmann::json testing_tree_to_json( const testing_tree& tree )
         return f( 0 );
 }
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing
 #endif

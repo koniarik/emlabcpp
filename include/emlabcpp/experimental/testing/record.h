@@ -28,19 +28,19 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 class testing_record
 {
         testing_test_id                    tid_;
-        testing_run_id                     rid_;
+        run_id                     rid_;
         testing_reactor_interface_adapter& comm_;
         bool                               errored_ = false;
 
 public:
         testing_record(
             testing_test_id                    tid,
-            testing_run_id                     rid,
+            run_id                     rid,
             testing_reactor_interface_adapter& comm )
           : tid_( tid )
           , rid_( rid )
@@ -182,4 +182,4 @@ private:
         exchange( std::optional< testing_node_id > nid, const Args&... args );
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing

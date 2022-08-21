@@ -24,7 +24,8 @@
 
 #include "experimental/testing/reactor_interface_adapter.h"
 
-using namespace emlabcpp;
+namespace emlabcpp::testing
+{
 
 // TODO maybe generalize?
 
@@ -164,3 +165,5 @@ testing_reactor::~testing_reactor()
                 mem_->deallocate( h.ptr, h.alignment );
         }
 }
+
+}  // namespace emlabcpp::testing

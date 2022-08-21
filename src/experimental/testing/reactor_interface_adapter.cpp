@@ -22,7 +22,8 @@
 //
 #include "experimental/testing/reactor_interface_adapter.h"
 
-using namespace emlabcpp;
+namespace emlabcpp::testing
+{
 
 std::optional< testing_controller_reactor_variant >
 testing_reactor_interface_adapter::read_variant()
@@ -72,3 +73,4 @@ void testing_reactor_interface_adapter::report_failure( const testing_reactor_er
 {
         reply< TESTING_INTERNAL_ERROR >( evar );
 }
+}  // namespace emlabcpp::testing

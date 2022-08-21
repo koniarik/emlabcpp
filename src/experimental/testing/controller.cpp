@@ -26,9 +26,10 @@
 #include "emlabcpp/experimental/contiguous_tree/request_adapter.h"
 #include "emlabcpp/experimental/logging.h"
 
-using namespace emlabcpp;
+namespace emlabcpp::testing
+{
 
-class emlabcpp::testing_controller_interface_adapter
+class testing_controller_interface_adapter
 {
         testing_controller_interface& iface_;
 
@@ -66,7 +67,7 @@ public:
                     } );
         }
         void reply_node_error(
-            testing_run_id                         rid,
+            run_id                         rid,
             contiguous_request_adapter_errors_enum err,
             testing_node_id                        nid )
         {
@@ -128,31 +129,32 @@ public:
 
 namespace
 {
-template < typename T, typename Req >
-std::optional< T > load_data( const Req& req, testing_controller_interface_adapter& iface )
-{
-        std::optional< T > res;
+        template < typename T, typename Req >
+        std::optional< T > load_data( const Req& req, testing_controller_interface_adapter& iface )
+        {
+                std::optional< T > res;
 
-        iface.send( req );
+                iface.send( req );
 
-        auto opt_msg = iface.read_message();
-        if ( !opt_msg ) {
-                return res;
+                auto opt_msg = iface.read_message();
+                if ( !opt_msg ) {
+                        return res;
+                }
+
+                auto handle = matcher{
+                    [&]( tag< Req::tag >, auto item ) {
+                            res = item;
+                    },
+                    [&]( tag< TESTING_INTERNAL_ERROR >, testing_reactor_error_variant err ) {
+                            iface.report_error(
+                                testing_internal_reactor_error{ std::move( err ) } );
+                    },
+                    [&]( tag< TESTING_PROTOCOL_ERROR >, protocol::error_record rec ) {
+                            iface.report_error( testing_reactor_protocol_error{ rec } );
+                    },
+                    [&]< auto WID >( tag< WID >, auto... ){
+                        iface.report_error( testing_controller_message_error{ WID } );
         }
-
-        auto handle = matcher{
-            [&]( tag< Req::tag >, auto item ) {
-                    res = item;
-            },
-            [&]( tag< TESTING_INTERNAL_ERROR >, testing_reactor_error_variant err ) {
-                    iface.report_error( testing_internal_reactor_error{ std::move( err ) } );
-            },
-            [&]( tag< TESTING_PROTOCOL_ERROR >, protocol::error_record rec ) {
-                    iface.report_error( testing_reactor_protocol_error{ rec } );
-            },
-            [&]< auto WID >( tag< WID >, auto... ){
-                iface.report_error( testing_controller_message_error{ WID } );
-}
 };  // namespace
 
 testing_reactor_controller_extract( *opt_msg )
@@ -166,7 +168,7 @@ testing_reactor_controller_extract( *opt_msg )
                 iface.report_error( testing_controller_protocol_error{ rec } );
         } );
 return res;
-}
+}  // namespace emlabcpp::testing
 }
 
 std::optional< testing_controller >
@@ -226,7 +228,7 @@ void testing_controller::handle_message(
 }
 void testing_controller::handle_message(
     tag< TESTING_PARAM_VALUE >,
-    testing_run_id                        rid,
+    run_id                        rid,
     testing_node_id                       nid,
     testing_controller_interface_adapter& iface )
 {
@@ -245,7 +247,7 @@ void testing_controller::handle_message(
 }
 void testing_controller::handle_message(
     tag< TESTING_PARAM_CHILD >,
-    testing_run_id                                       rid,
+    run_id                                       rid,
     testing_node_id                                      nid,
     const std::variant< testing_key, testing_child_id >& chid,
     testing_controller_interface_adapter&                iface )
@@ -266,7 +268,7 @@ void testing_controller::handle_message(
 }
 void testing_controller::handle_message(
     tag< TESTING_PARAM_CHILD_COUNT >,
-    testing_run_id                        rid,
+    run_id                        rid,
     testing_node_id                       nid,
     testing_controller_interface_adapter& iface )
 {
@@ -285,7 +287,7 @@ void testing_controller::handle_message(
 }
 void testing_controller::handle_message(
     tag< TESTING_PARAM_KEY >,
-    testing_run_id                        rid,
+    run_id                        rid,
     testing_node_id                       nid,
     testing_child_id                      chid,
     testing_controller_interface_adapter& iface )
@@ -306,7 +308,7 @@ void testing_controller::handle_message(
 }
 void testing_controller::handle_message(
     tag< TESTING_PARAM_TYPE >,
-    testing_run_id                        rid,
+    run_id                        rid,
     testing_node_id                       nid,
     testing_controller_interface_adapter& iface )
 {
@@ -326,7 +328,7 @@ void testing_controller::handle_message(
 
 void testing_controller::handle_message(
     tag< TESTING_COLLECT >,
-    testing_run_id                        rid,
+    run_id                        rid,
     testing_node_id                       parent,
     const std::optional< testing_key >&   opt_key,
     const testing_collect_arg&            val,
@@ -448,4 +450,5 @@ void testing_controller::tick( testing_controller_interface& top_iface )
                 [&]( protocol::error_record e ) {
                         iface.report_error( testing_controller_protocol_error{ e } );
                 } );
+}
 }

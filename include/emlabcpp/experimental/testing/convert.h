@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 
 template < typename T >
@@ -60,4 +60,4 @@ struct testing_value_converter< std::string_view >
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing

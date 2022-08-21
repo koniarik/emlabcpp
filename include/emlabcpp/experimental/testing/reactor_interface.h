@@ -24,7 +24,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 
 class testing_reactor_interface
@@ -35,4 +35,4 @@ public:
 
         virtual ~testing_reactor_interface() = default;
 };
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing

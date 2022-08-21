@@ -27,7 +27,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 
 class testing_controller_interface_adapter;
@@ -67,7 +67,7 @@ private:
         testing_name_buffer                    name_;
         testing_name_buffer                    date_;
         std::optional< testing_result >        context_;
-        testing_run_id                         rid_ = 0;
+        run_id                         rid_ = 0;
         pool_interface*                        mem_pool_;
 
         testing_controller(
@@ -88,35 +88,35 @@ private:
         handle_message( tag< TESTING_NAME >, auto, testing_controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_PARAM_VALUE >,
-            testing_run_id                        rid,
+            run_id                        rid,
             testing_node_id                       nid,
             testing_controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_PARAM_CHILD >,
-            testing_run_id                                       rid,
+            run_id                                       rid,
             testing_node_id                                      nid,
             const std::variant< testing_key, testing_child_id >& chid,
             testing_controller_interface_adapter&                iface );
         void handle_message(
             tag< TESTING_PARAM_CHILD_COUNT >,
-            testing_run_id                        rid,
+            run_id                        rid,
             testing_node_id                       nid,
             testing_controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_PARAM_KEY >,
-            testing_run_id                        rid,
+            run_id                        rid,
             testing_node_id                       nid,
             testing_child_id                      chid,
             testing_controller_interface_adapter& iface );
         void handle_message(
             tag< TESTING_PARAM_TYPE >,
-            testing_run_id                        rid,
+            run_id                        rid,
             testing_node_id                       nid,
             testing_controller_interface_adapter& iface );
 
         void handle_message(
             tag< TESTING_COLLECT >,
-            testing_run_id                      rid,
+            run_id                      rid,
             testing_node_id                     parent,
             const std::optional< testing_key >& opt_key,
             const testing_collect_arg&          val,
@@ -145,4 +145,4 @@ private:
             testing_controller_interface_adapter& iface );
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing

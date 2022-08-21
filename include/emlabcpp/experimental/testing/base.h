@@ -30,7 +30,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 
 using testing_name_buffer = static_vector< char, 32 >;
@@ -48,7 +48,7 @@ using testing_string_buffer = static_vector< char, 32 >;
 using testing_value = std::variant< int64_t, float, bool, testing_string_buffer >;
 static_assert( !alternative_of< uint32_t, testing_value > );
 using testing_collect_arg         = std::variant< testing_value, contiguous_container_type >;
-using testing_run_id              = uint32_t;
+using run_id              = uint32_t;
 using testing_test_id             = uint16_t;
 using testing_tree                = contiguous_tree< testing_key, testing_value >;
 using testing_node                = typename testing_tree::node_type;
@@ -92,12 +92,12 @@ class testing_reactor_interface_adapter;
 struct testing_result
 {
         testing_test_id tid;
-        testing_run_id  rid;
+        run_id  rid;
         testing_tree    collected;
         bool            failed  = false;
         bool            errored = false;
 
-        testing_result( testing_test_id ttid, testing_run_id trid, pool_interface* mem_pool )
+        testing_result( testing_test_id ttid, run_id trid, pool_interface* mem_pool )
           : tid( ttid )
           , rid( trid )
           , collected( mem_pool )
@@ -111,4 +111,4 @@ struct testing_result
         testing_result& operator=( testing_result&& ) noexcept = default;
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing

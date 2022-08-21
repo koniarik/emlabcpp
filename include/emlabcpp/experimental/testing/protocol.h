@@ -28,7 +28,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 
 enum testing_messages_enum : uint8_t
@@ -69,55 +69,55 @@ struct testing_load_test
 {
         static constexpr auto tag = TESTING_LOAD;
         testing_test_id       tid;
-        testing_run_id        rid;
+        run_id        rid;
 };
 
 struct testing_collect_reply
 {
         static constexpr auto tag = TESTING_COLLECT;
-        testing_run_id        rid;
+        run_id        rid;
         testing_node_id       nid;
 };
 
 struct testing_param_value_reply
 {
         static constexpr auto tag = TESTING_PARAM_VALUE;
-        testing_run_id        rid;
+        run_id        rid;
         testing_value         value;
 };
 
 struct testing_param_type_reply
 {
         static constexpr auto tag = TESTING_PARAM_TYPE;
-        testing_run_id        rid;
+        run_id        rid;
         testing_node_type     type;
 };
 
 struct testing_param_child_reply
 {
         static constexpr auto tag = TESTING_PARAM_CHILD;
-        testing_run_id        rid;
+        run_id        rid;
         testing_node_id       chid;
 };
 
 struct testing_param_child_count_reply
 {
         static constexpr auto tag = TESTING_PARAM_CHILD_COUNT;
-        testing_run_id        rid;
+        run_id        rid;
         testing_child_count   count;
 };
 
 struct testing_param_key_reply
 {
         static constexpr auto tag = TESTING_PARAM_KEY;
-        testing_run_id        rid;
+        run_id        rid;
         testing_key           key;
 };
 
 struct testing_tree_error_reply
 {
         static constexpr auto                  tag = TESTING_TREE_ERROR;
-        testing_run_id                         rid;
+        run_id                         rid;
         contiguous_request_adapter_errors_enum err;
         testing_node_id                        nid;
 };
@@ -125,7 +125,7 @@ struct testing_tree_error_reply
 struct testing_exec
 {
         static constexpr auto tag = TESTING_EXEC;
-        testing_run_id        rid;
+        run_id        rid;
 };
 
 using testing_controller_reactor_group = protocol::tag_group<
@@ -185,26 +185,26 @@ struct testing_reactor_controller_group
         protocol::PROTOCOL_BIG_ENDIAN,
         protocol::command< TESTING_COUNT >::with_args< testing_test_id >,
         protocol::command< TESTING_NAME >::with_args< testing_name_buffer >,
-        protocol::command< TESTING_PARAM_VALUE >::with_args< testing_run_id, testing_node_id >,
+        protocol::command< TESTING_PARAM_VALUE >::with_args< run_id, testing_node_id >,
         protocol::command< TESTING_PARAM_CHILD >::with_args<
-            testing_run_id,
+            run_id,
             testing_node_id,
             std::variant< testing_key, testing_child_id > >,
         protocol::command<
-            TESTING_PARAM_CHILD_COUNT >::with_args< testing_run_id, testing_node_id >,
+            TESTING_PARAM_CHILD_COUNT >::with_args< run_id, testing_node_id >,
         protocol::command< TESTING_PARAM_KEY >::with_args<  //
-            testing_run_id,
+            run_id,
             testing_node_id,
             testing_child_id >,
-        protocol::command< TESTING_PARAM_TYPE >::with_args< testing_run_id, testing_node_id >,
+        protocol::command< TESTING_PARAM_TYPE >::with_args< run_id, testing_node_id >,
         protocol::command< TESTING_COLLECT >::with_args<
-            testing_run_id,
+            run_id,
             testing_node_id,
             std::optional< testing_key >,
             testing_collect_arg >,
-        protocol::command< TESTING_FINISHED >::with_args< testing_run_id >,
-        protocol::command< TESTING_ERROR >::with_args< testing_run_id >,
-        protocol::command< TESTING_FAILURE >::with_args< testing_run_id >,
+        protocol::command< TESTING_FINISHED >::with_args< run_id >,
+        protocol::command< TESTING_ERROR >::with_args< run_id >,
+        protocol::command< TESTING_FAILURE >::with_args< run_id >,
         protocol::command< TESTING_SUITE_NAME >::with_args< testing_name_buffer >,
         protocol::command< TESTING_SUITE_DATE >::with_args< testing_name_buffer >,
         protocol::command< TESTING_INTERNAL_ERROR >::with_args< testing_reactor_error_group >,
@@ -248,4 +248,4 @@ testing_controller_reactor_serialize( const testing_controller_reactor_variant& 
 either< testing_controller_reactor_variant, protocol::error_record >
 testing_controller_reactor_extract( const testing_controller_reactor_msg& );
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing

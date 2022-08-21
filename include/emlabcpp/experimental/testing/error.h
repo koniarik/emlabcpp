@@ -29,7 +29,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 
 struct testing_reactor_protocol_error
@@ -93,4 +93,4 @@ auto& operator<<( ostreamlike auto& os, const testing_error_variant& var )
         return os;
 }
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing

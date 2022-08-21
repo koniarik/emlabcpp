@@ -56,7 +56,7 @@ using namespace std::literals;  // TODO: << get rid of this
 // ----------------------------------------------------------------------------
 // tests definitions
 
-void simple_test_case( em::testing_record& rec )
+void simple_test_case( em::testing::testing_record& rec )
 {
         // showcase for the record API
 
@@ -89,13 +89,13 @@ void simple_test_case( em::testing_record& rec )
         rec.expect( 2 < 3 );
 }
 
-struct my_test_fixture : em::testing_interface
+struct my_test_fixture : em::testing::testing_interface
 {
-        // The basic test unit is actually "em::testing_interface"
+        // The basic test unit is actually "em::testing::testing_interface"
         // and it's run() method.
         //
         // `simple_test_case` is just called in run() method of
-        // lambda handler for the testing_interface
+        // lambda handler for the testing::testing_interface
         //
         // Apart from run, the test can also implement
         // setup/teardown methods for preparation of the tests.
@@ -114,17 +114,17 @@ struct my_test_fixture : em::testing_interface
         my_test_fixture( my_test_fixture&& )            = default;
         my_test_fixture& operator=( my_test_fixture&& ) = default;
 
-        void setup( em::testing_record& ) override
+        void setup( em::testing::testing_record& ) override
         {
                 // setup i2c
         }
 
-        void run( em::testing_record& ) override
+        void run( em::testing::testing_record& ) override
         {
                 // empty overload
         }
 
-        void teardown( em::testing_record& ) override
+        void teardown( em::testing::testing_record& ) override
         {
                 // teardown i2c
         }
@@ -135,7 +135,7 @@ struct my_test_case : my_test_fixture
         // testing class using basic fixture for preparation
         // tadaaaaah!
 
-        void run( em::testing_record& rec ) override
+        void run( em::testing::testing_record& rec ) override
         {
                 rec.collect( 0, "some key for collector", 42 );
 
@@ -146,7 +146,7 @@ struct my_test_case : my_test_fixture
 // ----------------------------------------------------------------------------
 // interfaces that has to be implemented for the framework objects
 
-struct reactor_iface : em::testing_reactor_interface
+struct reactor_iface : em::testing::testing_reactor_interface
 {
         em::thread_safe_queue& con_reac_buff;
         em::thread_safe_queue& reac_con_buff;
@@ -173,13 +173,13 @@ struct reactor_iface : em::testing_reactor_interface
 //  - most of the API for controller can be implemented specifically for gtest
 //  - only thing that remains is the "comm" api
 //  - if separated, that abstraction is easily possible
-struct controller_iface : em::testing_controller_interface
+struct controller_iface : em::testing::testing_controller_interface
 {
         em::thread_safe_queue& con_reac_buff;
         em::thread_safe_queue& reac_con_buff;
 
-        typename em::testing_tree::pool_type< 42 > pool;
-        em::testing_tree                           tree;
+        typename em::testing::testing_tree::pool_type< 42 > pool;
+        em::testing::testing_tree                           tree;
 
         controller_iface( em::thread_safe_queue& cr, em::thread_safe_queue& rc )
           : con_reac_buff( cr )
@@ -190,7 +190,7 @@ struct controller_iface : em::testing_controller_interface
                 // we need test that uses more compelx tree
                 nlohmann::json j = { { "simple_test", 32 }, { "complex_lambda", 42 } };
 
-                std::optional opt_tree = json_to_testing_tree( &pool, j );
+                std::optional opt_tree = em::testing::json_to_testing_tree( &pool, j );
                 if ( opt_tree ) {
                         tree = std::move( *opt_tree );
                 } else {
@@ -213,17 +213,17 @@ struct controller_iface : em::testing_controller_interface
         //
         // There is support for integration into gtests,
         // that prints all collected data in failure
-        void on_result( const em::testing_result& res ) final
+        void on_result( const em::testing::testing_result& res ) final
         {
-                EXPECT_PRED_FORMAT1( em::testing_gtest_predicate, res );
+                EXPECT_PRED_FORMAT1( em::testing::testing_gtest_predicate, res );
         }
 
-        em::testing_tree& get_param_tree() final
+        em::testing::testing_tree& get_param_tree() final
         {
                 return tree;
         }
 
-        void on_error( em::testing_error_variant err ) final
+        void on_error( em::testing::testing_error_variant err ) final
         {
                 FAIL() << err;
         }
@@ -236,15 +236,15 @@ int main( int argc, char** argv )
         // ----------------------------------------------------------------------------
         // register tests and examples of lambda tests
 
-        em::testing_default_reactor rec{ "emlabcpp::testing" };
+        em::testing::testing_default_reactor rec{ "emlabcpp::testing" };
 
         rec.register_callable( "simple test", simple_test_case );
-        rec.register_callable( "simple lambda test", [&]( em::testing_record& rec ) {
+        rec.register_callable( "simple lambda test", [&]( em::testing::testing_record& rec ) {
                 rec.success();
         } );
         rec.register_test( "simple struct test", my_test_case{} );
 
-        rec.register_callable( "complex lambda test", [&]( em::testing_record& rec ) {
+        rec.register_callable( "complex lambda test", [&]( em::testing::testing_record& rec ) {
                 std::optional< uint64_t > opt_data = rec.get_param< uint64_t >( 0 );
 
                 if ( opt_data ) {
@@ -256,9 +256,10 @@ int main( int argc, char** argv )
 
         rec.register_test(
             "lambda and fixture",
-            em::testing_compose( my_test_fixture{}, [&]( em::testing_record& rec ) {
-                    rec.expect( 1 > 0 );
-            } ) );
+            em::testing::testing_compose(
+                my_test_fixture{}, [&]( em::testing::testing_record& rec ) {
+                        rec.expect( 1 > 0 );
+                } ) );
 
         // ----------------------------------------------------------------------------
         // build the virtual example and run it
@@ -280,7 +281,7 @@ int main( int argc, char** argv )
 
         controller_iface ci{ con_reac_buff, reac_con_buff };
 
-        em::testing_register_gtests( ci );
+        em::testing::testing_register_gtests( ci );
 
         auto res = RUN_ALL_TESTS();
 

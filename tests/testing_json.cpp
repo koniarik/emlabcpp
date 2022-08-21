@@ -3,7 +3,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 TEST( TestingJson, json )
 {
@@ -17,11 +18,14 @@ TEST( TestingJson, json )
 
         pool_dynamic_resource mem_pool;
 
-        std::optional< testing_tree > opt_tree = json_to_testing_tree( &mem_pool, j );
+        std::optional< testing::testing_tree > opt_tree =
+            testing::json_to_testing_tree( &mem_pool, j );
 
         EXPECT_TRUE( opt_tree );
 
-        nlohmann::json result = testing_tree_to_json( *opt_tree );
+        nlohmann::json result = testing::testing_tree_to_json( *opt_tree );
 
         EXPECT_EQ( j, result );
 }
+
+}  // namespace emlabcpp

@@ -2,7 +2,7 @@
 
 #include "emlabcpp/protocol/packet_handler.h"
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 using controller_reactor_handler = protocol::packet_handler< testing_controller_reactor_packet >;
 using reactor_controller_handler = protocol::packet_handler< testing_reactor_controller_packet >;
@@ -29,4 +29,4 @@ testing_controller_reactor_extract( const testing_controller_reactor_msg& msg )
         return controller_reactor_handler::extract( msg );
 }
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing

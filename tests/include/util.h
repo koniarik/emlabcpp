@@ -40,7 +40,7 @@ std::string to_string( const T& val )
         return ss.str();
 }
 
-struct protocol_test_fixture : public testing::Test
+struct protocol_test_fixture : public ::testing::Test
 {
         virtual void generate_name( std::ostream& ) const = 0;
 };
@@ -66,7 +66,7 @@ inline void exec_protocol_test_fixture_test(
 {
         for ( auto [i, factory] : enumerate( factories ) ) {
                 std::unique_ptr< protocol_test_fixture > test_ptr{ factory() };
-                testing::RegisterTest(
+                ::testing::RegisterTest(
                     "protocol_test_fixture",
                     ( "test " + ::testing::PrintToString( *test_ptr ) ).c_str(),
                     nullptr,

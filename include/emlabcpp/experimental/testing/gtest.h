@@ -28,7 +28,7 @@
 
 #include <gtest/gtest.h>
 
-namespace emlabcpp
+namespace emlabcpp::testing
 {
 
 template < ostreamlike T >
@@ -161,6 +161,6 @@ void testing_register_gtests( testing_controller_interface& ci )
         }
 }
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::testing
 
 #endif
