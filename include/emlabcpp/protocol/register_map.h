@@ -32,7 +32,7 @@ namespace emlabcpp::protocol
 /// Structure that represents definition of one register in the map. It also contains the value
 /// itself.
 template < auto Key, convertible D >
-struct protocol_reg
+struct register_pair
 {
         using def_type                    = D;
         using key_type                    = decltype( Key );

@@ -61,7 +61,7 @@ struct conversion_result
 
 /// Concept that matches types considered base - serialized directly by using byte shifting.
 template < typename T >
-concept protocol_base_type =
+concept base_type =
     std::is_floating_point_v< T > || std::is_integral_v< T > || std::is_enum_v< T >;
 
 /// Enum specifies what endianess should be used.
@@ -88,13 +88,13 @@ struct protocol_endianess
 /// identificator of variant used, rather the first definition that manages to deserialize the
 /// message is used.
 template < typename... Ds >
-struct protocol_group
+struct group
 {
         using value_type = std::variant< Ds... >;
 };
 
 template < typename... Ds >
-struct protocol_tag_group
+struct tag_group
 {
         using value_type = std::variant< Ds... >;
 };
@@ -112,7 +112,7 @@ struct sized_buffer
 /// The value defined by `D` present in the message is offseted by `Offset`. If the offset for
 /// example `2`, value `4` in the message is parsed as `2` and value `1` is serialized as `3`.
 template < typename D, auto Offset >
-struct protocol_offset
+struct value_offset
 {
         static constexpr auto offset = Offset;
         using def_type               = D;

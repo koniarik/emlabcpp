@@ -33,7 +33,7 @@ namespace emlabcpp::protocol
 /// works directly with the types used by the map, based on compile time key. `select` and `insert`
 /// works with the map itself based on runtime information.
 template < typename Map >
-struct protocol_register_handler
+struct register_handler
 {
         using map_type = Map;
         using key_type = typename map_type::key_type;

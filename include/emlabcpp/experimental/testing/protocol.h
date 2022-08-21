@@ -128,7 +128,7 @@ struct testing_exec
         testing_run_id        rid;
 };
 
-using testing_controller_reactor_group = protocol::protocol_tag_group<
+using testing_controller_reactor_group = protocol::tag_group<
     testing_get_property< TESTING_SUITE_NAME >,
     testing_get_property< TESTING_SUITE_DATE >,
     testing_get_property< TESTING_COUNT >,
@@ -235,9 +235,9 @@ struct testing_packet_def
 };
 
 using testing_reactor_controller_packet =
-    protocol::protocol_packet< testing_packet_def, testing_reactor_controller_group >;
+    protocol::packet< testing_packet_def, testing_reactor_controller_group >;
 using testing_controller_reactor_packet =
-    protocol::protocol_packet< testing_packet_def, testing_controller_reactor_group >;
+    protocol::packet< testing_packet_def, testing_controller_reactor_group >;
 
 using testing_reactor_controller_msg = typename testing_reactor_controller_packet::message_type;
 using testing_controller_reactor_msg = typename testing_controller_reactor_packet::message_type;

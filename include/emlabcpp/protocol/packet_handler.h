@@ -31,7 +31,7 @@ namespace emlabcpp::protocol
 {
 
 template < typename Packet >
-struct protocol_packet_handler
+struct packet_handler
 {
         using message_type  = typename Packet::message_type;
         using prefix_type   = typename Packet::prefix_type;
@@ -40,7 +40,7 @@ struct protocol_packet_handler
         using size_type     = typename Packet::size_type;
         using checksum_type = typename Packet::checksum_type;
 
-        using sub_handler                          = protocol_handler< Packet >;
+        using sub_handler                          = handler< Packet >;
         static constexpr std::size_t size_offset   = Packet::prefix_decl::max_size;
         static constexpr std::size_t checksum_size = Packet::checksum_decl::max_size;
         static constexpr std::size_t size_size     = Packet::size_decl::max_size;

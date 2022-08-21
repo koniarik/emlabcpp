@@ -29,7 +29,7 @@
 
 using namespace emlabcpp;
 
-struct protocol_packet_test_def
+struct packet_test_def
 {
         static constexpr protocol::endianess_enum endianess = protocol::PROTOCOL_BIG_ENDIAN;
         static constexpr std::array< uint8_t, 4 > prefix    = { 0x91, 0x19, 0x91, 0x19 };
@@ -43,10 +43,10 @@ struct protocol_packet_test_def
 };
 
 using payload =
-    protocol::protocol_tuple< protocol::PROTOCOL_BIG_ENDIAN, uint32_t, uint8_t, uint8_t >;
-using packet       = protocol::protocol_packet< protocol_packet_test_def, payload >;
+    protocol::tuple< protocol::PROTOCOL_BIG_ENDIAN, uint32_t, uint8_t, uint8_t >;
+using packet       = protocol::packet< packet_test_def, payload >;
 using message_type = typename packet::message_type;
-using handler      = protocol::protocol_packet_handler< packet >;
+using handler      = protocol::packet_handler< packet >;
 
 TEST( Packet, simple )
 {

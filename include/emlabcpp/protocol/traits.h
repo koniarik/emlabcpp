@@ -59,9 +59,9 @@ concept convertible = requires( D val )
 };
 
 template < typename T >
-concept protocol_fixedly_sized = proto_traits< T >::min_size == proto_traits< T >::max_size;
+concept fixedly_sized = proto_traits< T >::min_size == proto_traits< T >::max_size;
 
-template < protocol_base_type D >
+template < base_type D >
 struct proto_traits< D >
 {
         using value_type                      = D;
@@ -125,9 +125,9 @@ struct proto_traits< sizeless_message< N > >
 };
 
 template < convertible D, auto Offset >
-struct proto_traits< protocol_offset< D, Offset > >
+struct proto_traits< value_offset< D, Offset > >
 {
-        using def_type   = typename protocol_offset< D, Offset >::def_type;
+        using def_type   = typename value_offset< D, Offset >::def_type;
         using def_decl   = proto_traits< def_type >;
         using value_type = typename def_decl::value_type;
 
@@ -175,7 +175,7 @@ struct proto_traits< tag< V > >
 };
 
 template < convertible... Ds >
-struct proto_traits< protocol_group< Ds... > >
+struct proto_traits< group< Ds... > >
 {
         using value_type = std::variant< typename proto_traits< Ds >::value_type... >;
 
@@ -187,14 +187,14 @@ struct proto_traits< protocol_group< Ds... > >
 };
 
 template < convertible... Ds >
-struct proto_traits< protocol_tag_group< Ds... > >
+struct proto_traits< tag_group< Ds... > >
 {
         using value_type = std::variant< typename proto_traits< Ds >::value_type... >;
 
         template < typename D >
         using to_tuple = std::tuple< tag< D::tag >, D >;
 
-        using sub_type = protocol_group< to_tuple< Ds >... >;
+        using sub_type = group< to_tuple< Ds >... >;
         using sub_decl = proto_traits< sub_type >;
 
         static constexpr std::size_t max_size = sub_decl::max_size;

@@ -107,7 +107,7 @@ public:
             "Each command of one group has to use same type of id" );
 
         using def_type =
-            protocol_endianess< Endianess, protocol_group< typename Cmds::def_type... > >;
+            protocol_endianess< Endianess, group< typename Cmds::def_type... > >;
         using decl       = proto_traits< def_type >;
         using value_type = typename decl::value_type;
 

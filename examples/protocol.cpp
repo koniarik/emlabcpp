@@ -16,7 +16,7 @@ int main( int, char*[] )
         // handler that does the conversion based on that definition. The definition is done using
         // types and templates and is separated from the actuall serialization and deserialization.
         //
-        // There are two top level types that shall be used: protocol::protocol_tuple and
+        // There are two top level types that shall be used: protocol::tuple and
         // protocol::command_group (variant-like). The user should use these as top level
         // type and define the protocol in these. They can be nested.
         //
@@ -29,22 +29,22 @@ int main( int, char*[] )
 
         // ---------------------------------------------------------------------------------------
         // The protocol tuple is defined by endianess and items that are stored in the tuple.
-        // protocol::protocol_tuple uses std::tuple as the type that actually holds the value. The
+        // protocol::tuple uses std::tuple as the type that actually holds the value. The
         // example definition below defines protocol for converting `std::tuple<uint32_t, in16_t,
         // int16_t>` into binary message `protocol::message<8>` of size 8.
         //
         // The structure contains ::value_type and ::message_type aliases.
         struct example_tuple
-          : em::protocol::protocol_tuple<
+          : em::protocol::tuple<
                 em::protocol::PROTOCOL_BIG_ENDIAN >::with_items< uint32_t, int16_t, int16_t >
         {
         };
 
-        // Once protocol is defined, it can be used with protocol::protocol_handler to do the
+        // Once protocol is defined, it can be used with protocol::handler to do the
         // serialization and deserialization. The materialization of code for handling the protocol
         // happens in the handler itself. The compile time is costly for the handler, it is
         // preferable to use it in standalone compilation unit.
-        using example_tuple_handler = em::protocol::protocol_handler< example_tuple >;
+        using example_tuple_handler = em::protocol::handler< example_tuple >;
 
         std::tuple< uint32_t, int16_t, int16_t > tuple_val = { 666, -2, 2 };
         em::protocol::message< 8 >      tuple_msg =
@@ -114,7 +114,7 @@ int main( int, char*[] )
 
         // serialization and deserialization works same way as in case of tuple
 
-        using example_group_handler = em::protocol::protocol_handler< example_group >;
+        using example_group_handler = em::protocol::handler< example_group >;
 
         em::protocol::message< 22 > group_msg =
             example_group_handler::serialize( group_val );

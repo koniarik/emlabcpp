@@ -216,19 +216,19 @@ int main( int argc, char** argv )
             make_valid_test_case< protocol::PROTOCOL_BIG_ENDIAN >(
                 *protocol::sizeless_message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
                 { 1, 2, 3, 4, 5 } ),
-            // protocol::protocol_offset
+            // protocol::value_offset
             make_specific_valid_test_case<
                 protocol::PROTOCOL_LITTLE_ENDIAN,
-                protocol::protocol_offset< uint16_t, 0 > >( 666u, { 154, 2 } ),
+                protocol::value_offset< uint16_t, 0 > >( 666u, { 154, 2 } ),
             make_specific_valid_test_case<
                 protocol::PROTOCOL_BIG_ENDIAN,
-                protocol::protocol_offset< uint16_t, 0 > >( 666u, { 2, 154 } ),
+                protocol::value_offset< uint16_t, 0 > >( 666u, { 2, 154 } ),
             make_specific_valid_test_case<
                 protocol::PROTOCOL_LITTLE_ENDIAN,
-                protocol::protocol_offset< uint16_t, 4 > >( 666u, { 158, 2 } ),
+                protocol::value_offset< uint16_t, 4 > >( 666u, { 158, 2 } ),
             make_specific_valid_test_case<
                 protocol::PROTOCOL_BIG_ENDIAN,
-                protocol::protocol_offset< uint16_t, 4 > >( 666u, { 2, 158 } ),
+                protocol::value_offset< uint16_t, 4 > >( 666u, { 2, 158 } ),
             // quantity
             make_valid_test_case< protocol::PROTOCOL_LITTLE_ENDIAN >(
                 tagged_quantity< struct offtag, uint16_t >{ 666u }, { 154, 2 } ),
@@ -267,7 +267,7 @@ int main( int argc, char** argv )
             make_specific_valid_test_case<
                 protocol::PROTOCOL_BIG_ENDIAN,
                 protocol::
-                    sized_buffer< protocol::protocol_offset< uint16_t, 2 >, uint16_t > >(
+                    sized_buffer< protocol::value_offset< uint16_t, 2 >, uint16_t > >(
                 666u, { 0, 4, 2, 154 } ),
             make_invalid_test_case< protocol::sized_buffer< uint16_t, uint16_t > >(
                 { 0, 1, 2, 2 }, protocol::error_record{ protocol::SIZE_ERR, 2 } ),

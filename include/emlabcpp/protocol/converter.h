@@ -64,7 +64,7 @@ concept converter_check = requires()
                 } -> std::same_as< conversion_result< typename T::value_type > >;
 };
 
-template < protocol_base_type D, endianess_enum Endianess >
+template < base_type D, endianess_enum Endianess >
 struct converter< D, Endianess >
 {
         using value_type                      = typename proto_traits< D >::value_type;
@@ -240,7 +240,7 @@ struct converter< std::variant< Ds... >, Endianess >
         static_assert(
             sizeof...( Ds ) < std::numeric_limits< id_type >::max(),
             "Number of items for variant is limited by the size of one byte - 256 items" );
-        static_assert( protocol_fixedly_sized< id_type > );
+        static_assert( fixedly_sized< id_type > );
 
         static constexpr std::size_t min_size =
             id_def::size_type::min_val +
@@ -350,7 +350,7 @@ struct converter< std::optional< T >, Endianess >
         static constexpr std::size_t min_size = decl::min_size;
         using presence_type                   = typename decl::presence_type;
 
-        static_assert( protocol_fixedly_sized< presence_type > );
+        static_assert( fixedly_sized< presence_type > );
 
         using presence_def                         = converter< presence_type, Endianess >;
         static constexpr std::size_t presence_size = presence_def::max_size;
@@ -491,11 +491,11 @@ struct converter< sizeless_message< N >, Endianess >
 };
 
 template < convertible D, auto Offset, endianess_enum Endianess >
-struct converter< protocol_offset< D, Offset >, Endianess >
+struct converter< value_offset< D, Offset >, Endianess >
 {
-        using value_type = typename proto_traits< protocol_offset< D, Offset > >::value_type;
+        using value_type = typename proto_traits< value_offset< D, Offset > >::value_type;
         static constexpr std::size_t max_size =
-            proto_traits< protocol_offset< D, Offset > >::max_size;
+            proto_traits< value_offset< D, Offset > >::max_size;
 
         using sub_def   = converter< D, Endianess >;
         using size_type = typename sub_def::size_type;
@@ -595,7 +595,7 @@ struct converter< sized_buffer< CounterDef, D >, Endianess >
         static constexpr std::size_t counter_size = counter_def::max_size;
 
         /// we expect that counter item does not have dynamic size
-        static_assert( protocol_fixedly_sized< CounterDef > );
+        static_assert( fixedly_sized< CounterDef > );
 
         static constexpr std::size_t min_size = counter_size + sub_def::size_type::min_val;
 
@@ -668,9 +668,9 @@ struct converter< tag< V >, Endianess >
 };
 
 template < typename... Ds, endianess_enum Endianess >
-struct converter< protocol_tag_group< Ds... >, Endianess >
+struct converter< tag_group< Ds... >, Endianess >
 {
-        using decl                            = proto_traits< protocol_tag_group< Ds... > >;
+        using decl                            = proto_traits< tag_group< Ds... > >;
         using value_type                      = typename decl::value_type;
         static constexpr std::size_t max_size = decl::max_size;
         static constexpr std::size_t min_size = decl::min_size;
@@ -722,11 +722,11 @@ struct converter< protocol_tag_group< Ds... >, Endianess >
 };
 
 template < typename... Ds, endianess_enum Endianess >
-struct converter< protocol_group< Ds... >, Endianess >
+struct converter< group< Ds... >, Endianess >
 {
-        using value_type = typename proto_traits< protocol_group< Ds... > >::value_type;
-        static constexpr std::size_t max_size = proto_traits< protocol_group< Ds... > >::max_size;
-        static constexpr std::size_t min_size = proto_traits< protocol_group< Ds... > >::min_size;
+        using value_type = typename proto_traits< group< Ds... > >::value_type;
+        static constexpr std::size_t max_size = proto_traits< group< Ds... > >::max_size;
+        static constexpr std::size_t min_size = proto_traits< group< Ds... > >::min_size;
 
         using def_variant = std::variant< Ds... >;
         using size_type   = bounded< std::size_t, min_size, max_size >;
@@ -882,7 +882,7 @@ struct converter< static_vector< T, N >, Endianess >
 
         static constexpr std::size_t counter_size = counter_def::max_size;
 
-        static_assert( protocol_fixedly_sized< counter_type > );
+        static_assert( fixedly_sized< counter_type > );
 
         static constexpr std::size_t max_size = proto_traits< static_vector< T, N > >::max_size;
         static constexpr std::size_t min_size = counter_size;

@@ -30,7 +30,7 @@ namespace emlabcpp::protocol
 {
 
 template < typename T >
-concept protocol_packet_def = requires( T t )
+concept packet_def = requires( T t )
 {
         {
                 T::endianess
@@ -41,18 +41,18 @@ concept protocol_packet_def = requires( T t )
 };
 
 template < typename Def, typename Payload >
-using protocol_packet_base = protocol_tuple<
+using packet_base = tuple<
     Def::endianess,
     std::decay_t< decltype( Def::prefix ) >,
     typename Def::size_type,
     Payload,
     typename Def::checksum_type >;
 
-template < protocol_packet_def Def, typename Payload >
-struct protocol_packet : protocol_packet_base< Def, Payload >
+template < packet_def Def, typename Payload >
+struct packet : packet_base< Def, Payload >
 {
         using payload_type = Payload;
-        using base         = protocol_packet_base< Def, Payload >;
+        using base         = packet_base< Def, Payload >;
 
         static constexpr auto prefix    = Def::prefix;
         static constexpr auto endianess = Def::endianess;
@@ -71,8 +71,8 @@ struct protocol_packet : protocol_packet_base< Def, Payload >
         using checksum_type = typename Def::checksum_type;
         using checksum_decl = proto_traits< checksum_type >;
 
-        static_assert( protocol_fixedly_sized< prefix_type > );
-        static_assert( protocol_fixedly_sized< size_type > );
+        static_assert( fixedly_sized< prefix_type > );
+        static_assert( fixedly_sized< size_type > );
 
         struct sequencer_def
         {

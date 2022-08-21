@@ -73,17 +73,17 @@ struct complex_group
         protocol::command<
             CF >::with_args< uint32_t, protocol::sizeless_message< 16 > >,
         protocol::command<
-            CG >::with_args< uint32_t, protocol::protocol_offset< uint8_t, 2 > >,
+            CG >::with_args< uint32_t, protocol::value_offset< uint8_t, 2 > >,
         protocol::command< CH >::with_args< test_quantity, uint16_t >,
         protocol::command< CI >::with_args<
             protocol::sized_buffer< uint8_t, protocol::sizeless_message< 8 > >,
             uint32_t >,
         protocol::command< CJ >::with_args<
-            protocol::protocol_group< uint32_t, uint8_t > > >
+            protocol::group< uint32_t, uint8_t > > >
 {
 };
 
-struct test_tuple : protocol::protocol_tuple< protocol::PROTOCOL_BIG_ENDIAN >::
+struct test_tuple : protocol::tuple< protocol::PROTOCOL_BIG_ENDIAN >::
                         with_items< uint32_t, uint16_t, std::bitset< 13 >, uint32_t >
 {
 };
@@ -91,7 +91,7 @@ struct test_tuple : protocol::protocol_tuple< protocol::PROTOCOL_BIG_ENDIAN >::
 template < typename Group >
 struct valid_test_case : protocol_test_fixture
 {
-        using handler    = protocol::protocol_handler< Group >;
+        using handler    = protocol::handler< Group >;
         using value_type = typename handler::value_type;
 
         value_type             val;

@@ -40,15 +40,15 @@ enum test_keys
 
 struct test_map : protocol::register_map<
                       protocol::PROTOCOL_BIG_ENDIAN,
-                      protocol::protocol_reg< FOO, uint32_t >,
-                      protocol::protocol_reg< WOO, uint32_t >,
-                      protocol::protocol_reg< TOO, uint8_t >,
-                      protocol::protocol_reg< SOO, bounded< uint8_t, 2, 4 > >,
-                      protocol::protocol_reg< KOO, protocol::protocol_offset< uint32_t, 42 > > >
+                      protocol::register_pair< FOO, uint32_t >,
+                      protocol::register_pair< WOO, uint32_t >,
+                      protocol::register_pair< TOO, uint8_t >,
+                      protocol::register_pair< SOO, bounded< uint8_t, 2, 4 > >,
+                      protocol::register_pair< KOO, protocol::value_offset< uint32_t, 42 > > >
 {
 };
 
-struct test_handler : protocol::protocol_register_handler< test_map >
+struct test_handler : protocol::register_handler< test_map >
 {
 };
 

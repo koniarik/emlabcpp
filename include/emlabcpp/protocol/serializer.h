@@ -32,7 +32,7 @@
 namespace emlabcpp::protocol
 {
 
-template < protocol_base_type T, endianess_enum Endianess >
+template < base_type T, endianess_enum Endianess >
 struct serializer
 {
         static constexpr std::size_t max_size = sizeof( T );

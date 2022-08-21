@@ -29,13 +29,13 @@
 namespace emlabcpp::protocol
 {
 
-/// protocol_handler< T > should be used to execute actual serialization and deserealization of
+/// handler< T > should be used to execute actual serialization and deserealization of
 /// protocol definition. It provides serialize/extract methods that should be used by the user.
 //
 /// You may want to have this class (With the include) to be present in separate .cpp file, as the
 /// compile time can be quite heavy.
 template < convertible T >
-struct protocol_handler
+struct handler
 {
         using def          = converter< T, PROTOCOL_BIG_ENDIAN >;
         using value_type   = typename def::value_type;

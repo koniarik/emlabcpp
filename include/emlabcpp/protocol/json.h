@@ -264,7 +264,7 @@ struct traits_json_serializer< sizeless_message< N > > : traits_json_serializer_
 };
 
 template < convertible D, auto Offset >
-struct traits_json_serializer< protocol_offset< D, Offset > > : traits_json_serializer_base
+struct traits_json_serializer< value_offset< D, Offset > > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "offset";
 
@@ -362,7 +362,7 @@ struct traits_json_serializer< tag< V > > : traits_json_serializer_base
 };
 
 template < convertible... Ds >
-struct traits_json_serializer< protocol_group< Ds... > > : traits_json_serializer_base
+struct traits_json_serializer< group< Ds... > > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "group";
 
@@ -382,8 +382,8 @@ struct traits_json_serializer< protocol_group< Ds... > > : traits_json_serialize
 };
 
 template < convertible... Ds >
-struct traits_json_serializer< protocol_tag_group< Ds... > >
-  : traits_json_serializer< typename proto_traits< protocol_tag_group< Ds... > >::sub_type >
+struct traits_json_serializer< tag_group< Ds... > >
+  : traits_json_serializer< typename proto_traits< tag_group< Ds... > >::sub_type >
 {
         static constexpr std::string_view type_name = "group";
 };

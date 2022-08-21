@@ -27,21 +27,21 @@
 namespace emlabcpp::protocol
 {
 
-/// protocol_tuple is high levle alternative to use just 'std::tuple' that is more friendly for
+/// tuple is high levle alternative to use just 'std::tuple' that is more friendly for
 /// standalone protocols. It is designed for message that are simply a set of serialized items. It
 /// also provieds more readable syntax. The template arguments at first configurate the protocol and
 /// later is follow by items present in the tuple, this can also be added with
-/// protocol_tuple::with_items alias that appends the items. For example:
+/// tuple::with_items alias that appends the items. For example:
 //
-/// protocol_tuple< PROTOCOL_BIG_ENDIAN >::with_items< uint32_t, uint32_t >;
+/// tuple< PROTOCOL_BIG_ENDIAN >::with_items< uint32_t, uint32_t >;
 //
 /// serializes/deserializes in same way as 'std::tuple<uint32_t,uint32_t>' configured for big
 /// endianess.
 template < endianess_enum Endianess, typename... Ds >
-struct protocol_tuple : converter_def_type_base
+struct tuple : converter_def_type_base
 {
         template < typename... SubDs >
-        using with_items = protocol_tuple< Endianess, Ds..., SubDs... >;
+        using with_items = tuple< Endianess, Ds..., SubDs... >;
 
         using def_type = protocol_endianess< Endianess, std::tuple< Ds... > >;
         using decl     = proto_traits< def_type >;
