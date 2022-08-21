@@ -63,7 +63,7 @@ class testing_reactor
 
         using handle_container = pool_list< test_handle >;
         using handle_iterator  = typename handle_container::iterator;
-        using sequencer_type   = testing_controller_reactor_packet::sequencer_type;
+        using sequencer_type   = controller_reactor_packet::sequencer_type;
 
         std::string_view suite_name_;
         std::string_view suite_date_ = __DATE__;
@@ -111,7 +111,7 @@ private:
         handle_message( get_property< TESTING_COUNT >, testing_reactor_interface_adapter& );
         void handle_message( get_test_name, testing_reactor_interface_adapter& );
         void handle_message( load_test, testing_reactor_interface_adapter& );
-        void handle_message( testing_exec, testing_reactor_interface_adapter& );
+        void handle_message( exec_request, testing_reactor_interface_adapter& );
 
         template < testing_test T >
         bool store_test( std::string_view name, T t )

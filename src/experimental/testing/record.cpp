@@ -29,7 +29,7 @@ namespace emlabcpp::testing
 
 std::optional< testing_node_type > testing_record::get_param_type( node_id nid )
 {
-        std::optional reply = exchange< testing_param_type_reply, TESTING_PARAM_TYPE >( nid );
+        std::optional reply = exchange< param_type_reply, TESTING_PARAM_TYPE >( nid );
         if ( reply ) {
                 return reply->type;
         }
@@ -38,7 +38,7 @@ std::optional< testing_node_type > testing_record::get_param_type( node_id nid )
 
 std::optional< value_type > testing_record::get_param_value( node_id nid )
 {
-        std::optional reply = exchange< testing_param_value_reply, TESTING_PARAM_VALUE >( nid );
+        std::optional reply = exchange< param_value_reply, TESTING_PARAM_VALUE >( nid );
 
         if ( reply ) {
                 return reply->value;
@@ -69,7 +69,7 @@ std::optional< node_id > testing_record::collect(
 std::optional< node_id >
 testing_record::get_param_child( node_id nid, testing_child_id chid )
 {
-        std::optional reply = exchange< testing_param_child_reply, TESTING_PARAM_CHILD >(
+        std::optional reply = exchange< param_child_reply, TESTING_PARAM_CHILD >(
             nid, std::variant< key_type, testing_child_id >{ chid } );
         if ( reply ) {
                 return reply->chid;
@@ -87,7 +87,7 @@ std::optional< node_id >
 testing_record::get_param_child( node_id nid, const key_type& key )
 {
         // TODO duplication of other overload /o\...
-        std::optional reply = exchange< testing_param_child_reply, TESTING_PARAM_CHILD >(
+        std::optional reply = exchange< param_child_reply, TESTING_PARAM_CHILD >(
             nid, std::variant< key_type, testing_child_id >{ key } );
         if ( reply ) {
                 return reply->chid;
@@ -99,7 +99,7 @@ std::optional< testing_child_count >
 testing_record::get_param_child_count( std::optional< node_id > nid )
 {
         std::optional reply =
-            exchange< testing_param_child_count_reply, TESTING_PARAM_CHILD_COUNT >( nid );
+            exchange< param_child_count_reply, TESTING_PARAM_CHILD_COUNT >( nid );
         if ( reply ) {
                 return reply->count;
         }
@@ -109,7 +109,7 @@ testing_record::get_param_child_count( std::optional< node_id > nid )
 std::optional< key_type >
 testing_record::get_param_key( node_id nid, testing_child_id chid )
 {
-        std::optional reply = exchange< testing_param_key_reply, TESTING_PARAM_KEY >( nid, chid );
+        std::optional reply = exchange< param_key_reply, TESTING_PARAM_KEY >( nid, chid );
         if ( reply ) {
                 return reply->key;
         }
@@ -124,7 +124,7 @@ void testing_record::report_wrong_type_error( node_id nid, const value_type& )
 template < typename T >
 std::optional< T > testing_record::read_variant_alternative( node_id )
 {
-        std::optional< testing_controller_reactor_variant > opt_var = comm_.read_variant();
+        std::optional< controller_reactor_variant > opt_var = comm_.read_variant();
         if ( !opt_var ) {
                 comm_.report_failure< TESTING_NO_RESPONSE_E >( T::tag );
                 return {};
@@ -135,7 +135,7 @@ std::optional< T > testing_record::read_variant_alternative( node_id )
                 return *val_ptr;
         }
 
-        const auto* tree_err = std::get_if< testing_tree_error_reply >( &*opt_var );
+        const auto* tree_err = std::get_if< tree_error_reply >( &*opt_var );
         if ( tree_err ) {
                 comm_.report_failure< TESTING_TREE_E >( tree_err->nid, tree_err->err );
         }

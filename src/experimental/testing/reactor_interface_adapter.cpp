@@ -25,13 +25,13 @@
 namespace emlabcpp::testing
 {
 
-std::optional< testing_controller_reactor_variant >
+std::optional< controller_reactor_variant >
 testing_reactor_interface_adapter::read_variant()
 {
         using sequencer = std::decay_t< decltype( seq_ ) >;
 
         uint8_t                                         to_read = sequencer::fixed_size;
-        std::optional< testing_controller_reactor_msg > opt_msg;
+        std::optional< controller_reactor_msg > opt_msg;
         while ( !opt_msg ) {
                 std::optional opt_data = iface_.receive( to_read );
                 if ( !opt_data ) {
@@ -52,8 +52,8 @@ testing_reactor_interface_adapter::read_variant()
                 return {};
         }
 
-        std::optional< testing_controller_reactor_variant > res;
-        testing_controller_reactor_extract( *opt_msg )
+        std::optional< controller_reactor_variant > res;
+        controller_reactor_extract( *opt_msg )
             .match(
                 [&]( auto var ) {
                         res = var;
@@ -63,9 +63,9 @@ testing_reactor_interface_adapter::read_variant()
                 } );
         return res;
 }
-void testing_reactor_interface_adapter::reply( const testing_reactor_controller_variant& var )
+void testing_reactor_interface_adapter::reply( const reactor_controller_variant& var )
 {
-        auto msg = testing_reactor_controller_serialize( var );
+        auto msg = reactor_controller_serialize( var );
         iface_.transmit( msg );
 }
 

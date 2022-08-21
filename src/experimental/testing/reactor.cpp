@@ -45,22 +45,22 @@ void testing_reactor::spin( testing_reactor_interface& top_iface )
             [&]( const auto& item ) {
                     handle_message( item, iface );
             },
-            [&]( const testing_param_value_reply& ) {
+            [&]( const param_value_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
-            [&]( const testing_param_child_reply& ) {
+            [&]( const param_child_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
-            [&]( const testing_param_child_count_reply& ) {
+            [&]( const param_child_count_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
-            [&]( const testing_param_key_reply& ) {
+            [&]( const param_key_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
-            [&]( const testing_param_type_reply& ) {
+            [&]( const param_type_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
-            [&]( const testing_tree_error_reply& ) {
+            [&]( const tree_error_reply& ) {
                     iface.report_failure< TESTING_UNDESIRED_MSG_E >();
             },
             [&]( const collect_reply& ) {
@@ -112,7 +112,7 @@ void testing_reactor::handle_message(
 
         active_exec_ = active_execution{ req.tid, req.rid, &access_test( req.tid ) };
 }
-void testing_reactor::handle_message( testing_exec, testing_reactor_interface_adapter& iface )
+void testing_reactor::handle_message( exec_request, testing_reactor_interface_adapter& iface )
 {
         if ( !active_exec_ ) {
                 iface.report_failure< TESTING_TEST_NOT_LOADED_E >();

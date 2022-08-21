@@ -4,27 +4,27 @@
 
 namespace emlabcpp::testing
 {
-using controller_reactor_handler = protocol::packet_handler< testing_controller_reactor_packet >;
-using reactor_controller_handler = protocol::packet_handler< testing_reactor_controller_packet >;
+using controller_reactor_handler = protocol::packet_handler< controller_reactor_packet >;
+using reactor_controller_handler = protocol::packet_handler< reactor_controller_packet >;
 
-testing_reactor_controller_msg
-testing_reactor_controller_serialize( const testing_reactor_controller_variant& var )
+reactor_controller_msg
+reactor_controller_serialize( const reactor_controller_variant& var )
 {
         return reactor_controller_handler::serialize( var );
 }
-either< testing_reactor_controller_variant, protocol::error_record >
-testing_reactor_controller_extract( const testing_reactor_controller_msg& msg )
+either< reactor_controller_variant, protocol::error_record >
+reactor_controller_extract( const reactor_controller_msg& msg )
 {
         return reactor_controller_handler::extract( msg );
 }
 
-testing_controller_reactor_msg
-testing_controller_reactor_serialize( const testing_controller_reactor_variant& var )
+controller_reactor_msg
+controller_reactor_serialize( const controller_reactor_variant& var )
 {
         return controller_reactor_handler::serialize( var );
 }
-either< testing_controller_reactor_variant, protocol::error_record >
-testing_controller_reactor_extract( const testing_controller_reactor_msg& msg )
+either< controller_reactor_variant, protocol::error_record >
+controller_reactor_extract( const controller_reactor_msg& msg )
 {
         return controller_reactor_handler::extract( msg );
 }

@@ -308,10 +308,10 @@ enum robot_cmds : uint8_t
 }
 
 struct robot_cmd_group
-  : protocol_command_group< PROTOCOL_LITTLE_ENDIAN >::with_commands<
-      protocol_command< FORWARD >::with_args< distance >,
-      protocol_command< LEFT >::with_args< angle >,
-      protocol_command< RIGHT >::with_args< angle >
+  : protocol::command_group< std::endian::little >::with_commands<
+      protocol::command< FORWARD >::with_args< distance >,
+      protocol::command< LEFT >::with_args< angle >,
+      protocol::command< RIGHT >::with_args< angle >
     >
 {};
 ```

@@ -41,10 +41,10 @@ public:
         {
         }
 
-        void send( const testing_controller_reactor_variant& var )
+        void send( const controller_reactor_variant& var )
         {
                 EMLABCPP_DEBUG_LOG( "con->rec: " << var );
-                auto msg = testing_controller_reactor_serialize( var );
+                auto msg = controller_reactor_serialize( var );
                 iface_.transmit( msg );
         }
 
@@ -58,9 +58,9 @@ public:
                 return iface_;
         }
 
-        std::optional< testing_reactor_controller_msg > read_message()
+        std::optional< reactor_controller_msg > read_message()
         {
-                using sequencer = testing_reactor_controller_packet::sequencer_type;
+                using sequencer = reactor_controller_packet::sequencer_type;
                 return protocol::sequencer_simple_load< sequencer >(
                     read_limit_, [&]( std::size_t c ) {
                             return iface_.receive( c );
@@ -80,7 +80,7 @@ public:
                 } else if ( err == CONTIGUOUS_CHILD_MISSING ) {
                         EMLABCPP_LOG( "Tree node child " << nid << " is missing " );
                 }
-                send( testing_tree_error_reply{ .rid = rid, .err = err, .nid = nid } );
+                send( tree_error_reply{ .rid = rid, .err = err, .nid = nid } );
         }
 
         void report_error( testing_error_variant var )
@@ -157,7 +157,7 @@ namespace
         }
 };  // namespace
 
-testing_reactor_controller_extract( *opt_msg )
+reactor_controller_extract( *opt_msg )
     .match(
         [&]( auto pack ) {
                 EMLABCPP_DEBUG_LOG( "con<-rec: " << pack );
@@ -239,7 +239,7 @@ void testing_controller::handle_message(
 
         harn.get_value( nid ).match(
             [&]( const value_type& val ) {
-                    iface.send( testing_param_value_reply{ rid, val } );
+                    iface.send( param_value_reply{ rid, val } );
             },
             [&]( contiguous_request_adapter_errors_enum err ) {
                     iface.reply_node_error( rid, err, nid );
@@ -260,7 +260,7 @@ void testing_controller::handle_message(
         harn.get_child( nid, chid )
             .match(
                 [&]( node_id child ) {
-                        iface.send( testing_param_child_reply{ rid, child } );
+                        iface.send( param_child_reply{ rid, child } );
                 },
                 [&]( contiguous_request_adapter_errors_enum err ) {
                         iface.reply_node_error( rid, err, nid );
@@ -279,7 +279,7 @@ void testing_controller::handle_message(
 
         harn.get_child_count( nid ).match(
             [&]( testing_child_id count ) {
-                    iface.send( testing_param_child_count_reply{ rid, count } );
+                    iface.send( param_child_count_reply{ rid, count } );
             },
             [&]( contiguous_request_adapter_errors_enum err ) {
                     iface.reply_node_error( rid, err, nid );
@@ -300,7 +300,7 @@ void testing_controller::handle_message(
         harn.get_key( nid, chid )
             .match(
                 [&]( const key_type& key ) {
-                        iface.send( testing_param_key_reply{ rid, key } );
+                        iface.send( param_key_reply{ rid, key } );
                 },
                 [&]( contiguous_request_adapter_errors_enum err ) {
                         iface.reply_node_error( rid, err, nid );
@@ -319,7 +319,7 @@ void testing_controller::handle_message(
 
         harn.get_type( nid ).match(
             [&]( contiguous_tree_type_enum type ) {
-                    iface.send( testing_param_type_reply{ rid, type } );
+                    iface.send( param_type_reply{ rid, type } );
             },
             [&]( contiguous_request_adapter_errors_enum err ) {
                     iface.reply_node_error( rid, err, nid );
@@ -421,7 +421,7 @@ void testing_controller::start_test( testing_test_id tid, testing_controller_int
         context_.emplace( tid, rid_, mem_pool_ );
 
         iface.send( load_test{ tid, rid_ } );
-        iface.send( testing_exec{ rid_ } );
+        iface.send( exec_request{ rid_ } );
 }
 
 void testing_controller::tick( testing_controller_interface& top_iface )
@@ -437,7 +437,7 @@ void testing_controller::tick( testing_controller_interface& top_iface )
                 return;
         }
 
-        testing_reactor_controller_extract( *opt_msg )
+        reactor_controller_extract( *opt_msg )
             .match(
                 [&]( auto var ) {
                         EMLABCPP_DEBUG_LOG( "con<-rec: " << var );

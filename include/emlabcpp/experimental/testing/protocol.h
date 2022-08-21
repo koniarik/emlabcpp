@@ -79,42 +79,42 @@ struct collect_reply
         node_id               nid;
 };
 
-struct testing_param_value_reply
+struct param_value_reply
 {
         static constexpr auto tag = TESTING_PARAM_VALUE;
         run_id                rid;
         value_type            value;
 };
 
-struct testing_param_type_reply
+struct param_type_reply
 {
         static constexpr auto tag = TESTING_PARAM_TYPE;
         run_id                rid;
         testing_node_type     type;
 };
 
-struct testing_param_child_reply
+struct param_child_reply
 {
         static constexpr auto tag = TESTING_PARAM_CHILD;
         run_id                rid;
         node_id               chid;
 };
 
-struct testing_param_child_count_reply
+struct param_child_count_reply
 {
         static constexpr auto tag = TESTING_PARAM_CHILD_COUNT;
         run_id                rid;
         testing_child_count   count;
 };
 
-struct testing_param_key_reply
+struct param_key_reply
 {
         static constexpr auto tag = TESTING_PARAM_KEY;
         run_id                rid;
-        key_type           key;
+        key_type              key;
 };
 
-struct testing_tree_error_reply
+struct tree_error_reply
 {
         static constexpr auto                  tag = TESTING_TREE_ERROR;
         run_id                                 rid;
@@ -122,28 +122,28 @@ struct testing_tree_error_reply
         node_id                                nid;
 };
 
-struct testing_exec
+struct exec_request
 {
         static constexpr auto tag = TESTING_EXEC;
         run_id                rid;
 };
 
-using testing_controller_reactor_group = protocol::tag_group<
+using controller_reactor_group = protocol::tag_group<
     get_property< TESTING_SUITE_NAME >,
     get_property< TESTING_SUITE_DATE >,
     get_property< TESTING_COUNT >,
     get_test_name,
     load_test,
     collect_reply,
-    testing_param_value_reply,
-    testing_param_child_reply,
-    testing_param_child_count_reply,
-    testing_param_key_reply,
-    testing_param_type_reply,
-    testing_tree_error_reply,
-    testing_exec >;
+    param_value_reply,
+    param_child_reply,
+    param_child_count_reply,
+    param_key_reply,
+    param_type_reply,
+    tree_error_reply,
+    exec_request >;
 
-using testing_controller_reactor_variant = typename testing_controller_reactor_group::value_type;
+using controller_reactor_variant = typename controller_reactor_group::value_type;
 
 enum testing_error_enum : uint8_t
 {
@@ -159,7 +159,7 @@ enum testing_error_enum : uint8_t
         TESTING_WRONG_MESSAGE_E       = 0xa
 };
 
-struct testing_reactor_error_group  //
+struct reactor_error_group  //
   : protocol::command_group<
         std::endian::big,
         protocol::command< TESTING_TEST_NOT_LOADED_E >,
@@ -176,9 +176,9 @@ struct testing_reactor_error_group  //
 {
 };
 
-using testing_reactor_error_variant = typename testing_reactor_error_group::value_type;
+using testing_reactor_error_variant = typename reactor_error_group::value_type;
 
-struct testing_reactor_controller_group
+struct reactor_controller_group
   : protocol::command_group<
         std::endian::big,
         protocol::command< TESTING_COUNT >::with_args< testing_test_id >,
@@ -199,14 +199,14 @@ struct testing_reactor_controller_group
         protocol::command< TESTING_FAILURE >::with_args< run_id >,
         protocol::command< TESTING_SUITE_NAME >::with_args< testing_name_buffer >,
         protocol::command< TESTING_SUITE_DATE >::with_args< testing_name_buffer >,
-        protocol::command< TESTING_INTERNAL_ERROR >::with_args< testing_reactor_error_group >,
+        protocol::command< TESTING_INTERNAL_ERROR >::with_args< reactor_error_group >,
         protocol::command< TESTING_PROTOCOL_ERROR >::with_args< protocol::error_record > >
 {
 };
 
-using testing_reactor_controller_variant = typename testing_reactor_controller_group::value_type;
+using reactor_controller_variant = typename reactor_controller_group::value_type;
 
-struct testing_packet_def
+struct packet_def
 {
         static constexpr std::endian              endianess = std::endian::big;
         static constexpr std::array< uint8_t, 4 > prefix    = { 0x42, 0x42, 0x42, 0x42 };
@@ -222,22 +222,18 @@ struct testing_packet_def
         }
 };
 
-using testing_reactor_controller_packet =
-    protocol::packet< testing_packet_def, testing_reactor_controller_group >;
-using testing_controller_reactor_packet =
-    protocol::packet< testing_packet_def, testing_controller_reactor_group >;
+using reactor_controller_packet = protocol::packet< packet_def, reactor_controller_group >;
+using controller_reactor_packet = protocol::packet< packet_def, controller_reactor_group >;
 
-using testing_reactor_controller_msg = typename testing_reactor_controller_packet::message_type;
-using testing_controller_reactor_msg = typename testing_controller_reactor_packet::message_type;
+using reactor_controller_msg = typename reactor_controller_packet::message_type;
+using controller_reactor_msg = typename controller_reactor_packet::message_type;
 
-testing_reactor_controller_msg
-testing_reactor_controller_serialize( const testing_reactor_controller_variant& );
-either< testing_reactor_controller_variant, protocol::error_record >
-testing_reactor_controller_extract( const testing_reactor_controller_msg& );
+reactor_controller_msg reactor_controller_serialize( const reactor_controller_variant& );
+either< reactor_controller_variant, protocol::error_record >
+reactor_controller_extract( const reactor_controller_msg& );
 
-testing_controller_reactor_msg
-testing_controller_reactor_serialize( const testing_controller_reactor_variant& );
-either< testing_controller_reactor_variant, protocol::error_record >
-testing_controller_reactor_extract( const testing_controller_reactor_msg& );
+controller_reactor_msg controller_reactor_serialize( const controller_reactor_variant& );
+either< controller_reactor_variant, protocol::error_record >
+controller_reactor_extract( const controller_reactor_msg& );
 
 }  // namespace emlabcpp::testing
