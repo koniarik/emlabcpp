@@ -64,10 +64,8 @@ template < container Container >
 {
         if constexpr ( static_sized< Container > ) {
                 return std::tuple_size_v< Container >;
-        } else if constexpr ( std::is_bounded_array_v< Container > ) {
-                return std::extent_v< Container >;
         } else {
-                return cont.size();
+                return std::size( cont );
         }
 }
 
