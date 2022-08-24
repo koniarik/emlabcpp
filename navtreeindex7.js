@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#a9b6bfbe5173ad707ed9bc05645063109":[3,0,0,2,59,4],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#a9f328cae23a4e4f9ff8255dc9d318acd":[3,0,0,2,59,0],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#aa71f59abc57f62b813f7e63f6a1bfbef":[3,0,0,2,59,5],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#aacce5ffb00978935ee7ebc83ea7c3ae8":[3,0,0,2,59,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "traits_8h.html#ac625ba8fcce291f5064a3ec8b5177cd5":[4,0,0,0,4,14,20],
 "traits_8h_source.html":[4,0,0,0,4,14],
 "tree_8h.html":[4,0,0,0,2,0,2],
-"tree_8h.html#a102fe4d18339d80a3534e5def0c17fb9":[4,0,0,0,2,0,2,7],
-"tree_8h.html#a67f4bfa3442a7cfe7b4fc9497a18af1a":[4,0,0,0,2,0,2,4]
+"tree_8h.html#a102fe4d18339d80a3534e5def0c17fb9":[4,0,0,0,2,0,2,7]
 };

@@ -12,10 +12,10 @@ var experimental_2testing_2error_8h =
     [ "controller_internal_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__internal__error", [
       [ "msg_id", "namespaceemlabcpp_1_1testing.html#aabcbfaeef30b250622398472f9539430", null ]
     ] ],
-    [ "testing_error_variant", "experimental_2testing_2error_8h.html#ae007175ff3774a735a9b4abd8778ec29", null ],
+    [ "error_variant", "experimental_2testing_2error_8h.html#a21c567b7200acbb97782be90bdf747b4", null ],
     [ "operator<<", "experimental_2testing_2error_8h.html#a056de8fb5d8acbfe4a7b008823d8e05f", null ],
     [ "operator<<", "experimental_2testing_2error_8h.html#a2bd49274a0f680348078dd37132c0197", null ],
+    [ "operator<<", "experimental_2testing_2error_8h.html#a5968d91955d9b3103d095de3edc8c898", null ],
     [ "operator<<", "experimental_2testing_2error_8h.html#ae88e1906c2894fa0e4c259a86ed2e752", null ],
-    [ "operator<<", "experimental_2testing_2error_8h.html#aa0f841f3d87b401883e6b82452554e4d", null ],
-    [ "operator<<", "experimental_2testing_2error_8h.html#a1ba96ea0066bd2a1b80c2da3ea703af7", null ]
+    [ "operator<<", "experimental_2testing_2error_8h.html#aa0f841f3d87b401883e6b82452554e4d", null ]
 ];
