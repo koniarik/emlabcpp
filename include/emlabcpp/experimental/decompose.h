@@ -17,7 +17,7 @@ namespace detail
         struct decompose_anything
         {
                 template < typename T >
-                operator T();
+                operator T() const;
         };
 
         template < class T, std::size_t I0, std::size_t... I >
