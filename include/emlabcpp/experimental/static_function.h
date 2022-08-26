@@ -52,12 +52,12 @@ namespace detail
                 [[no_unique_address]] T item_;
 
         public:
-                static_function_storage( T&& item )
+                explicit static_function_storage( T&& item )
                   : item_( std::move( item ) )
                 {
                 }
 
-                static_function_storage( const T& item )
+                explicit static_function_storage( const T& item )
                   : item_( item )
                 {
                 }
@@ -73,10 +73,11 @@ namespace detail
                 static ReturnType invoke( void* source, ArgTypes... args )
                 {
                         auto ptr = reinterpret_cast< static_function_storage* >( source );
-                        return ptr->item_( std::forward< ArgTypes >( args )... );
+                        return std::invoke( ptr->item_, std::forward< ArgTypes >( args )... );
                 }
 
-                static void* handle( void* source, void* target, static_function_operations op )
+                static void*
+                handle( void* const source, void* target, const static_function_operations op )
                 {
                         auto ptr = reinterpret_cast< static_function_storage* >( source );
 
@@ -125,7 +126,7 @@ public:
 
         static_function_base() = default;
 
-        static_function_base( std::nullptr_t )
+        explicit static_function_base( const std::nullptr_t )
           : static_function_base()
         {
         }
@@ -141,7 +142,7 @@ public:
         }
 
         template < typename Callable >
-        static_function_base( Callable c )
+        explicit( false ) static_function_base( Callable c )
         {
                 *this = std::move( c );
         }
@@ -180,7 +181,7 @@ public:
                 return *this;
         }
 
-        static_function_base& operator=( std::nullptr_t )
+        static_function_base& operator=( const std::nullptr_t )
         {
                 clear();
                 return *this;
@@ -214,7 +215,7 @@ public:
                 return *this;
         }
 
-        operator bool() const noexcept
+        explicit( false ) operator bool() const noexcept
         {
                 return obj_ != nullptr;
         }
@@ -230,7 +231,7 @@ public:
         }
 
 private:
-        static constexpr std::size_t required_space( std::size_t size, std::size_t align )
+        static constexpr std::size_t required_space( std::size_t size, const std::size_t align )
         {
                 if ( align > Align ) {
                         size += align - Align;
