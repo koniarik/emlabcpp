@@ -192,7 +192,7 @@ struct proto_traits< tag_group< Ds... > >
         using value_type = std::variant< typename proto_traits< Ds >::value_type... >;
 
         template < typename D >
-        using to_tuple = std::tuple< tag< D::tag >, D >;
+        using to_tuple = std::tuple< tag< D::id >, D >;
 
         using sub_type = group< to_tuple< Ds >... >;
         using sub_decl = proto_traits< sub_type >;

@@ -199,4 +199,15 @@ void for_each_register( const Map& m, UnaryCallable&& f )
         } );
 }
 
+template < ostreamlike Stream, std::endian Endianess, typename... Regs >
+auto& operator<<( Stream& os, const register_map< Endianess, Regs... >& m )
+{
+        for_each_register(
+            m, [&]< auto key, typename T >( const T& val ) {  //
+                    os << key << "\t" << val << "\n";
+            } );
+
+        return os;
+}
+
 }  // namespace emlabcpp::protocol

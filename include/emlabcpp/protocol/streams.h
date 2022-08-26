@@ -80,30 +80,4 @@ auto& operator<<( ostreamlike auto& os, const std::endian& val )
         return os;
 }
 
-template < ostreamlike Stream, std::endian Endianess, typename... Regs >
-auto& operator<<( Stream& os, const register_map< Endianess, Regs... >& m )
-{
-        using map = register_map< Endianess, Regs... >;
-
-        auto key_to_str = []( auto key ) {
-                return convert_enum( key );
-        };
-
-        std::size_t max_key_size = 0;
-
-        for_each_index< sizeof...( Regs ) >( [&]< std::size_t i >() {
-                static constexpr auto key = map::register_key( bounded_constant< i > );
-                max_key_size              = key_to_str( key ).size();
-        } );
-
-        for_each_index< sizeof...( Regs ) >( [&]< std::size_t i >() {
-                static constexpr auto key = map::register_key( bounded_constant< i > );
-                const auto&           val = m.template get_val< key >();
-
-                os << std::left << std::setw( static_cast< int >( max_key_size ) )
-                   << key_to_str( key ) << "\t" << val << "\n";
-        } );
-        return os;
-}
-
 }  // namespace emlabcpp::protocol
