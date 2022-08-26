@@ -44,3 +44,18 @@ TEST( Decompose, decompose )
         EXPECT_EQ( std::get< 1 >( t3 ), v3.s );
         EXPECT_EQ( std::get< 2 >( t3 ), v3.f );
 }
+
+struct tricky_opt
+{
+        int                          i;
+        std::optional< std::string > opt_string;
+};
+
+// NOLINTNEXTLINE
+TEST( Decompose, tricky )
+{
+        tricky_opt                                        to{ 42, "test" };
+        std::tuple< int&, std::optional< std::string >& > tov = decompose( to );
+        EXPECT_EQ( std::get< 0 >( tov ), to.i );
+        EXPECT_EQ( std::get< 1 >( tov ), to.opt_string );
+}
