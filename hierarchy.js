@@ -6,6 +6,7 @@ var hierarchy =
     ] ],
     [ "emlabcpp::bounded< T, MinVal, MaxVal >", "classemlabcpp_1_1bounded.html", null ],
     [ "emlabcpp::testing::collect_reply", "structemlabcpp_1_1testing_1_1collect__reply.html", null ],
+    [ "emlabcpp::testing::collect_request", "structemlabcpp_1_1testing_1_1collect__request.html", null ],
     [ "emlabcpp::protocol::command< ID, Defs >", "structemlabcpp_1_1protocol_1_1command.html", null ],
     [ "emlabcpp::protocol::command_group< Endianess >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1command__group_3_01Endianess_01_4", null ],
     [ "emlabcpp::pid< TimeType >::config", "classemlabcpp_1_1pid.html#structemlabcpp_1_1pid_1_1config", null ],
@@ -47,12 +48,6 @@ var hierarchy =
     [ "emlabcpp::protocol::converter< tag_group< Ds... >, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01tag__group_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol::converter< value_offset< D, Offset >, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01value__offset_3_01D_00_01Offset_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol::converter_def_type_base", "structemlabcpp_1_1protocol_1_1converter__def__type__base.html", [
-      [ "emlabcpp::protocol::command_group< std::endian::big, protocol::command< COUNT >::with_args< test_id >, protocol::command< NAME >::with_args< name_buffer >, protocol::command< PARAM_VALUE >::with_args< run_id, node_id >, protocol::command< PARAM_CHILD >::with_args< run_id, node_id, std::variant< key_type, child_id > >, protocol::command< PARAM_CHILD_COUNT >::with_args< run_id, node_id >, protocol::command< PARAM_KEY >::with_args< run_id, node_id, child_id >, protocol::command< PARAM_TYPE >::with_args< run_id, node_id >, protocol::command< COLLECT >::with_args< run_id, node_id, std::optional< key_type >, collect_value_type >, protocol::command< FINISHED >::with_args< run_id >, protocol::command< ERROR >::with_args< run_id >, protocol::command< FAILURE >::with_args< run_id >, protocol::command< SUITE_NAME >::with_args< name_buffer >, protocol::command< SUITE_DATE >::with_args< name_buffer >, protocol::command< INTERNAL_ERROR >::with_args< reactor_error_group >, protocol::command< PROTOCOL_ERROR >::with_args< protocol::error_record > >", "structemlabcpp_1_1protocol_1_1command__group.html", [
-        [ "emlabcpp::testing::reactor_controller_group", "structemlabcpp_1_1testing_1_1reactor__controller__group.html", null ]
-      ] ],
-      [ "emlabcpp::protocol::command_group< std::endian::big, protocol::command< TEST_NOT_LOADED_E >, protocol::command< TEST_NOT_FOUND_E >, protocol::command< WRONG_RUN_ID_E >, protocol::command< TEST_ALREADY_LOADED_E >, protocol::command< BAD_TEST_ID_E >, protocol::command< UNDESIRED_MSG_E >, protocol::command< NO_RESPONSE_E >::with_args< messages_enum >, protocol::command< TREE_E >::with_args< node_id, contiguous_request_adapter_errors_enum >, protocol::command< WRONG_TYPE_E >::with_args< node_id >, protocol::command< WRONG_MESSAGE_E > >", "structemlabcpp_1_1protocol_1_1command__group.html", [
-        [ "emlabcpp::testing::reactor_error_group", "structemlabcpp_1_1testing_1_1reactor__error__group.html", null ]
-      ] ],
       [ "emlabcpp::protocol::command_group< Endianess, Cmds >", "structemlabcpp_1_1protocol_1_1command__group.html", null ],
       [ "emlabcpp::protocol::tuple< Endianess, Ds >", "structemlabcpp_1_1protocol_1_1tuple.html", [
         [ "emlabcpp::protocol::packet< Def, Payload >", "structemlabcpp_1_1protocol_1_1packet.html", null ]
@@ -67,6 +62,7 @@ var hierarchy =
     [ "emlabcpp::either< LH, RH >", "classemlabcpp_1_1either.html", null ],
     [ "emlabcpp::empty_assembly_tag", "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag", null ],
     [ "emlabcpp::protocol::endianess_wrapper< Endianess, D >", "structemlabcpp_1_1protocol_1_1endianess__wrapper.html", null ],
+    [ "emlabcpp::testing::error< Err >", "structemlabcpp_1_1testing_1_1error.html", null ],
     [ "emlabcpp::protocol::error_record", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record", null ],
     [ "emlabcpp::testing::exec_request", "structemlabcpp_1_1testing_1_1exec__request.html", null ],
     [ "std::false_type", null, [
@@ -103,8 +99,12 @@ var hierarchy =
     [ "emlabcpp::generic_iterator< subscript_iterator< Container > >", "classemlabcpp_1_1generic__iterator.html", [
       [ "emlabcpp::subscript_iterator< Container >", "classemlabcpp_1_1subscript__iterator.html", null ]
     ] ],
+    [ "emlabcpp::testing::get_count_reply", "structemlabcpp_1_1testing_1_1get__count__reply.html", null ],
     [ "emlabcpp::testing::get_property< ID >", "structemlabcpp_1_1testing_1_1get__property.html", null ],
-    [ "emlabcpp::testing::get_test_name", "structemlabcpp_1_1testing_1_1get__test__name.html", null ],
+    [ "emlabcpp::testing::get_suite_date_reply", "structemlabcpp_1_1testing_1_1get__suite__date__reply.html", null ],
+    [ "emlabcpp::testing::get_suite_name_reply", "structemlabcpp_1_1testing_1_1get__suite__name__reply.html", null ],
+    [ "emlabcpp::testing::get_test_name_reply", "structemlabcpp_1_1testing_1_1get__test__name__reply.html", null ],
+    [ "emlabcpp::testing::get_test_name_request", "structemlabcpp_1_1testing_1_1get__test__name__request.html", null ],
     [ "emlabcpp::protocol::group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group", null ],
     [ "emlabcpp::protocol::handler< T >", "structemlabcpp_1_1protocol_1_1handler.html", null ],
     [ "std::hash< T >", "structstd_1_1hash_3_01T_01_4.html", null ],
@@ -127,14 +127,20 @@ var hierarchy =
       [ "emlabcpp::protocol::sizeless_message< N >", "classemlabcpp_1_1protocol_1_1sizeless__message.html", null ]
     ] ],
     [ "emlabcpp::min_max< T >", "structemlabcpp_1_1min__max.html", null ],
+    [ "emlabcpp::testing::no_response_error", "structemlabcpp_1_1testing_1_1no__response__error.html", null ],
     [ "std::numeric_limits< T >", "structstd_1_1numeric__limits_3_01T_01_4.html", null ],
     [ "emlabcpp::testing::packet_def", "structemlabcpp_1_1testing_1_1packet__def.html", null ],
     [ "emlabcpp::protocol::packet_handler< Packet >", "structemlabcpp_1_1protocol_1_1packet__handler.html", null ],
     [ "emlabcpp::testing::param_child_count_reply", "structemlabcpp_1_1testing_1_1param__child__count__reply.html", null ],
+    [ "emlabcpp::testing::param_child_count_request", "structemlabcpp_1_1testing_1_1param__child__count__request.html", null ],
     [ "emlabcpp::testing::param_child_reply", "structemlabcpp_1_1testing_1_1param__child__reply.html", null ],
+    [ "emlabcpp::testing::param_child_request", "structemlabcpp_1_1testing_1_1param__child__request.html", null ],
     [ "emlabcpp::testing::param_key_reply", "structemlabcpp_1_1testing_1_1param__key__reply.html", null ],
+    [ "emlabcpp::testing::param_key_request", "structemlabcpp_1_1testing_1_1param__key__request.html", null ],
     [ "emlabcpp::testing::param_type_reply", "structemlabcpp_1_1testing_1_1param__type__reply.html", null ],
+    [ "emlabcpp::testing::param_type_request", "structemlabcpp_1_1testing_1_1param__type__request.html", null ],
     [ "emlabcpp::testing::param_value_reply", "structemlabcpp_1_1testing_1_1param__value__reply.html", null ],
+    [ "emlabcpp::testing::param_value_request", "structemlabcpp_1_1testing_1_1param__value__request.html", null ],
     [ "emlabcpp::pid< TimeType >", "classemlabcpp_1_1pid.html", null ],
     [ "emlabcpp::pool_allocator< T >", "classemlabcpp_1_1pool__allocator.html", null ],
     [ "emlabcpp::pool_base< PoolSize, PoolCount >", "structemlabcpp_1_1pool__base.html", null ],
@@ -180,7 +186,9 @@ var hierarchy =
       [ "emlabcpp::testing::default_reactor", "classemlabcpp_1_1testing_1_1default__reactor.html", null ]
     ] ],
     [ "emlabcpp::testing::reactor_interface", "classemlabcpp_1_1testing_1_1reactor__interface.html", null ],
+    [ "emlabcpp::testing::reactor_internal_error_report", "structemlabcpp_1_1testing_1_1reactor__internal__error__report.html", null ],
     [ "emlabcpp::testing::reactor_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error", null ],
+    [ "emlabcpp::testing::reactor_protocol_error_report", "structemlabcpp_1_1testing_1_1reactor__protocol__error__report.html", null ],
     [ "emlabcpp::testing::record", "classemlabcpp_1_1testing_1_1record.html", null ],
     [ "emlabcpp::protocol::register_handler< Map >", "structemlabcpp_1_1protocol_1_1register__handler.html", null ],
     [ "emlabcpp::protocol::register_map< Endianess, Regs >", "classemlabcpp_1_1protocol_1_1register__map.html", null ],
@@ -210,6 +218,7 @@ var hierarchy =
     [ "emlabcpp::static_vector< uint16_t, PoolCount >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::tag< V >", "structemlabcpp_1_1tag.html", null ],
     [ "emlabcpp::protocol::tag_group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group", null ],
+    [ "emlabcpp::testing::test_finished", "structemlabcpp_1_1testing_1_1test__finished.html", null ],
     [ "emlabcpp::testing::test_info", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info", null ],
     [ "emlabcpp::testing::test_interface", "classemlabcpp_1_1testing_1_1test__interface.html", [
       [ "emlabcpp::testing::test_callable_overlay< Callable >", "classemlabcpp_1_1testing_1_1test__callable__overlay.html", null ]
@@ -231,6 +240,7 @@ var hierarchy =
     [ "emlabcpp::view< Iterator >", "classemlabcpp_1_1view.html", [
       [ "emlabcpp::bounded_view< Iterator, SizeType >", "classemlabcpp_1_1bounded__view.html", null ]
     ] ],
+    [ "emlabcpp::testing::wrong_type_error", "structemlabcpp_1_1testing_1_1wrong__type__error.html", null ],
     [ "emlabcpp::zip_iterator< Iterators >", "classemlabcpp_1_1zip__iterator.html", null ],
     [ "emlabcpp::Callables", null, [
       [ "emlabcpp::matcher< Callables >", "structemlabcpp_1_1matcher.html", null ]

@@ -2,7 +2,7 @@ var searchData=
 [
   ['f_235',['f',['../namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c',1,'emlabcpp']]],
   ['fail_236',['fail',['../classemlabcpp_1_1testing_1_1record.html#aaf6d35e3a28af918cb0c4b05e73bc211',1,'emlabcpp::testing::record']]],
-  ['failed_237',['failed',['../structemlabcpp_1_1testing_1_1test__result.html#a74317fc5d68dea540ed5e82d420004ef',1,'emlabcpp::testing::test_result']]],
+  ['failed_237',['failed',['../structemlabcpp_1_1testing_1_1test__result.html#a74317fc5d68dea540ed5e82d420004ef',1,'emlabcpp::testing::test_result::failed()'],['../structemlabcpp_1_1testing_1_1test__finished.html#a8cdacf54dda2fc323136512191fbc0c0',1,'emlabcpp::testing::test_finished::failed()']]],
   ['failure_238',['FAILURE',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca3841712339181fdbe54aa09a1eefba23',1,'emlabcpp::testing']]],
   ['fill_239',['fill',['../classemlabcpp_1_1pretty__printer.html#afbe8cc60bbd3e0704f4c589759a47f18',1,'emlabcpp::pretty_printer::fill(char ch)'],['../classemlabcpp_1_1pretty__printer.html#ad2baa70f04bc6e090b9e4f7568e20fc1',1,'emlabcpp::pretty_printer::fill()']]],
   ['find_240',['find',['../namespaceemlabcpp.html#ae6a73bbed8b818abff4ab4e7c2b9af68',1,'emlabcpp']]],

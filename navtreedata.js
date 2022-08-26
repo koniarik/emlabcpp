@@ -69,7 +69,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Typedefs", "functions_type.html", "functions_type" ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
@@ -86,15 +86,15 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"classemlabcpp_1_1either.html#abb8d56a5914674fbe4f2b1bfb635bae7",
-"classemlabcpp_1_1static__vector.html#a1cb3115b37984ce71393fca1dc7b7717",
-"experimental_2testing_2error_8h.html#a21c567b7200acbb97782be90bdf747b4",
-"namespaceemlabcpp.html#a5519896c5f0324265089711b6a020642",
-"namespaceemlabcpp_1_1testing.html#abdbd34423dcafe7f86156035eb20ac39",
-"structemlabcpp_1_1pool__deleter.html#a8fdabc223354417310c9789c3353a163",
-"structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html#afb48eead05579935fc8f2a78afa7c19f",
-"subscript_8h.html"
+"access_8h.html",
+"classemlabcpp_1_1either.html#abbeb2b3d0e7aa691ec88512328d20cc3",
+"classemlabcpp_1_1static__vector.html#a1fd0294ef3ff5be71fd8c70de19f26fa",
+"experimental_2testing_2error_8h.html#a2bd49274a0f680348078dd37132c0197",
+"namespaceemlabcpp.html#a3dcd56ce6fdffb4ebcf8a4c079335d8e",
+"namespaceemlabcpp_1_1testing.html#a58f62ed11f8e66de4ecc3168b0871b92",
+"structemlabcpp_1_1matcher.html#a4456ba5121d3a6511556c1ff69ce7967",
+"structemlabcpp_1_1protocol_1_1packet__handler.html",
+"structemlabcpp_1_1testing_1_1test__finished.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

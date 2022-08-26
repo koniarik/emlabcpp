@@ -1,12 +1,16 @@
 var searchData=
 [
-  ['generic_5fiterator_836',['generic_iterator',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20access_5fiterator_3c_20iterator_2c_20accesscallable_20_3e_20_3e_837',['generic_iterator&lt; access_iterator&lt; Iterator, AccessCallable &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20convert_5fiterator_3c_20t_2c_20iterator_20_3e_20_3e_838',['generic_iterator&lt; convert_iterator&lt; T, Iterator &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20numeric_5fiterator_3c_20t_20_3e_20_3e_839',['generic_iterator&lt; numeric_iterator&lt; T &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20static_5fcircular_5fbuffer_5fiterator_3c_20container_20_3e_20_3e_840',['generic_iterator&lt; static_circular_buffer_iterator&lt; Container &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20subscript_5fiterator_3c_20container_20_3e_20_3e_841',['generic_iterator&lt; subscript_iterator&lt; Container &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
-  ['get_5fproperty_842',['get_property',['../structemlabcpp_1_1testing_1_1get__property.html',1,'emlabcpp::testing']]],
-  ['get_5ftest_5fname_843',['get_test_name',['../structemlabcpp_1_1testing_1_1get__test__name.html',1,'emlabcpp::testing']]],
-  ['group_844',['group',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group',1,'emlabcpp::protocol']]]
+  ['generic_5fiterator_853',['generic_iterator',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
+  ['generic_5fiterator_3c_20access_5fiterator_3c_20iterator_2c_20accesscallable_20_3e_20_3e_854',['generic_iterator&lt; access_iterator&lt; Iterator, AccessCallable &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
+  ['generic_5fiterator_3c_20convert_5fiterator_3c_20t_2c_20iterator_20_3e_20_3e_855',['generic_iterator&lt; convert_iterator&lt; T, Iterator &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
+  ['generic_5fiterator_3c_20numeric_5fiterator_3c_20t_20_3e_20_3e_856',['generic_iterator&lt; numeric_iterator&lt; T &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
+  ['generic_5fiterator_3c_20static_5fcircular_5fbuffer_5fiterator_3c_20container_20_3e_20_3e_857',['generic_iterator&lt; static_circular_buffer_iterator&lt; Container &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
+  ['generic_5fiterator_3c_20subscript_5fiterator_3c_20container_20_3e_20_3e_858',['generic_iterator&lt; subscript_iterator&lt; Container &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
+  ['get_5fcount_5freply_859',['get_count_reply',['../structemlabcpp_1_1testing_1_1get__count__reply.html',1,'emlabcpp::testing']]],
+  ['get_5fproperty_860',['get_property',['../structemlabcpp_1_1testing_1_1get__property.html',1,'emlabcpp::testing']]],
+  ['get_5fsuite_5fdate_5freply_861',['get_suite_date_reply',['../structemlabcpp_1_1testing_1_1get__suite__date__reply.html',1,'emlabcpp::testing']]],
+  ['get_5fsuite_5fname_5freply_862',['get_suite_name_reply',['../structemlabcpp_1_1testing_1_1get__suite__name__reply.html',1,'emlabcpp::testing']]],
+  ['get_5ftest_5fname_5freply_863',['get_test_name_reply',['../structemlabcpp_1_1testing_1_1get__test__name__reply.html',1,'emlabcpp::testing']]],
+  ['get_5ftest_5fname_5frequest_864',['get_test_name_request',['../structemlabcpp_1_1testing_1_1get__test__name__request.html',1,'emlabcpp::testing']]],
+  ['group_865',['group',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group',1,'emlabcpp::protocol']]]
 ];

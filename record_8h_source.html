@@ -257,10 +257,10 @@ $(document).ready(function(){initNavTree('record_8h_source.html',''); initResiza
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        }</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        std::optional&lt; T &gt; read_variant_alternative( <a class="code" href="namespaceemlabcpp_1_1testing.html#a2cd11b9ad2da9a2055df3782718ee549">node_id</a> );</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        std::optional&lt; T &gt; read_variant_alternative();</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> ResultType, <span class="keyword">auto</span> ID, <span class="keyword">typename</span>... Args &gt;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        std::optional&lt; ResultType &gt; exchange( std::optional&lt; node_id &gt; nid, <span class="keyword">const</span> Args&amp;... args );</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> ResultType, <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        std::optional&lt; ResultType &gt; exchange( <span class="keyword">const</span> T&amp; item );</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;};</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;}  <span class="comment">// namespace emlabcpp::testing</span></div>
@@ -311,7 +311,7 @@ $(document).ready(function(){initNavTree('record_8h_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="record_8h.html">record.h</a></li>
-    <li class="footer">Generated on Fri Aug 26 2022 13:05:33 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 26 2022 13:05:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

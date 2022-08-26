@@ -155,7 +155,7 @@ $(document).ready(function(){initNavTree('reactor_8h_source.html',''); initResiz
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1protocol_1_1sequencer.html">sequencer_type</a>   = <a class="code" href="structemlabcpp_1_1protocol_1_1packet.html#a48c10ace40951322b6188bf195a1ab18">controller_reactor_packet::sequencer_type</a>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        std::string_view suite_name_;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        std::string_view suite_date_ = __DATE__;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        std::string_view suite_date_ = __DATE__ <span class="stringliteral">&quot; &quot;</span> __TIME__;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        handle_container handles_;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="structemlabcpp_1_1pool__interface.html">pool_interface</a>*  mem_;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="classemlabcpp_1_1protocol_1_1sequencer.html">sequencer_type</a>   seq_;</div>
@@ -193,7 +193,7 @@ $(document).ready(function(){initNavTree('reactor_8h_source.html',''); initResiz
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">void</span> handle_message( <a class="code" href="structemlabcpp_1_1testing_1_1get__property.html">get_property&lt; SUITE_NAME &gt;</a>, reactor_interface_adapter&amp; );</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">void</span> handle_message( <a class="code" href="structemlabcpp_1_1testing_1_1get__property.html">get_property&lt; SUITE_DATE &gt;</a>, reactor_interface_adapter&amp; );</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span> handle_message( <a class="code" href="structemlabcpp_1_1testing_1_1get__property.html">get_property&lt; COUNT &gt;</a>, reactor_interface_adapter&amp; );</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">void</span> handle_message( <a class="code" href="structemlabcpp_1_1testing_1_1get__test__name.html">get_test_name</a>, reactor_interface_adapter&amp; );</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">void</span> handle_message( <a class="code" href="structemlabcpp_1_1testing_1_1get__test__name__request.html">get_test_name_request</a>, reactor_interface_adapter&amp; );</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">void</span> handle_message( <a class="code" href="structemlabcpp_1_1testing_1_1load__test.html">load_test</a>, reactor_interface_adapter&amp; );</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">void</span> handle_message( <a class="code" href="structemlabcpp_1_1testing_1_1exec__request.html">exec_request</a>, reactor_interface_adapter&amp; );</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
@@ -261,10 +261,10 @@ $(document).ready(function(){initNavTree('reactor_8h_source.html',''); initResiz
 <div class="ttc" id="astructemlabcpp_1_1pool__interface_html"><div class="ttname"><a href="structemlabcpp_1_1pool__interface.html">emlabcpp::pool_interface</a></div><div class="ttdef"><b>Definition:</b> pool.h:41</div></div>
 <div class="ttc" id="astructemlabcpp_1_1pool__interface_html_ae984c89b9c93e062b1dd8b1d970896a0"><div class="ttname"><a href="structemlabcpp_1_1pool__interface.html#ae984c89b9c93e062b1dd8b1d970896a0">emlabcpp::pool_interface::allocate</a></div><div class="ttdeci">virtual void * allocate(std::size_t bytes, std::size_t alignment)=0</div></div>
 <div class="ttc" id="astructemlabcpp_1_1protocol_1_1packet_html_a48c10ace40951322b6188bf195a1ab18"><div class="ttname"><a href="structemlabcpp_1_1protocol_1_1packet.html#a48c10ace40951322b6188bf195a1ab18">emlabcpp::protocol::packet::sequencer_type</a></div><div class="ttdeci">sequencer&lt; sequencer_def &gt; sequencer_type</div><div class="ttdef"><b>Definition:</b> packet.h:93</div></div>
-<div class="ttc" id="astructemlabcpp_1_1testing_1_1exec__request_html"><div class="ttname"><a href="structemlabcpp_1_1testing_1_1exec__request.html">emlabcpp::testing::exec_request</a></div><div class="ttdef"><b>Definition:</b> protocol.h:126</div></div>
+<div class="ttc" id="astructemlabcpp_1_1testing_1_1exec__request_html"><div class="ttname"><a href="structemlabcpp_1_1testing_1_1exec__request.html">emlabcpp::testing::exec_request</a></div><div class="ttdef"><b>Definition:</b> protocol.h:204</div></div>
 <div class="ttc" id="astructemlabcpp_1_1testing_1_1get__property_html"><div class="ttname"><a href="structemlabcpp_1_1testing_1_1get__property.html">emlabcpp::testing::get_property</a></div><div class="ttdef"><b>Definition:</b> protocol.h:58</div></div>
-<div class="ttc" id="astructemlabcpp_1_1testing_1_1get__test__name_html"><div class="ttname"><a href="structemlabcpp_1_1testing_1_1get__test__name.html">emlabcpp::testing::get_test_name</a></div><div class="ttdef"><b>Definition:</b> protocol.h:63</div></div>
-<div class="ttc" id="astructemlabcpp_1_1testing_1_1load__test_html"><div class="ttname"><a href="structemlabcpp_1_1testing_1_1load__test.html">emlabcpp::testing::load_test</a></div><div class="ttdef"><b>Definition:</b> protocol.h:69</div></div>
+<div class="ttc" id="astructemlabcpp_1_1testing_1_1get__test__name__request_html"><div class="ttname"><a href="structemlabcpp_1_1testing_1_1get__test__name__request.html">emlabcpp::testing::get_test_name_request</a></div><div class="ttdef"><b>Definition:</b> protocol.h:81</div></div>
+<div class="ttc" id="astructemlabcpp_1_1testing_1_1load__test_html"><div class="ttname"><a href="structemlabcpp_1_1testing_1_1load__test.html">emlabcpp::testing::load_test</a></div><div class="ttdef"><b>Definition:</b> protocol.h:93</div></div>
 <div class="ttc" id="aview_8h_html"><div class="ttname"><a href="view_8h.html">view.h</a></div></div>
 <div class="ttc" id="avisit_8h_html"><div class="ttname"><a href="visit_8h.html">visit.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -273,7 +273,7 @@ $(document).ready(function(){initNavTree('reactor_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="reactor_8h.html">reactor.h</a></li>
-    <li class="footer">Generated on Fri Aug 26 2022 13:05:33 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 26 2022 13:05:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
