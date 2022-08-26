@@ -23,19 +23,7 @@ add_library(
   src/experimental/testing/controller.cpp)
 target_include_directories(emlabcpp PUBLIC include/)
 target_include_directories(emlabcpp PRIVATE src/)
-target_compile_options(
-  emlabcpp
-  PRIVATE -Wall
-          -Wextra
-          -pedantic
-          -Wconversion
-          -Wnon-virtual-dtor
-          -Wold-style-cast
-          -Wcast-align
-          -Wunused
-          -Woverloaded-virtual
-          -Wunreachable-code
-          -Wdouble-promotion)
+emlabcpp_compile_options(emlabcpp)
 
 if(EMLABCPP_COVERAGE_ENABLED)
   emlabcpp_target_enable_coverage(emlabcpp)

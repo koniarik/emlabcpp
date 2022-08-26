@@ -23,3 +23,19 @@ function(emlabcpp_target_enable_coverage target)
   target_compile_options(${target} PRIVATE --coverage)
   target_link_libraries(${target} gcov)
 endfunction()
+
+function(emlabcpp_compile_options target)
+target_compile_options(
+  ${target}
+  PRIVATE -Wall
+          -Wextra
+          -pedantic
+          -Wconversion
+          -Wnon-virtual-dtor
+          -Wold-style-cast
+          -Wcast-align
+          -Wunused
+          -Woverloaded-virtual
+          -Wunreachable-code
+          -Wdouble-promotion)
+endfunction()
