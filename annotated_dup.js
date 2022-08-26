@@ -53,6 +53,7 @@ var annotated_dup =
         [ "converter< mark, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01mark_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1converter_3_01mark_00_01Endianess_01_4" ],
         [ "converter< error_record, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4" ],
         [ "converter< static_vector< T, N >, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01static__vector_3_01T_00_01N_01_4_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1converter_3_01static__vector_3_01T_00_01N_01_4_00_01Endianess_01_4" ],
+        [ "memcpy_converter", "structemlabcpp_1_1protocol_1_1memcpy__converter.html", "structemlabcpp_1_1protocol_1_1memcpy__converter" ],
         [ "mark", "structemlabcpp_1_1protocol_1_1mark.html", "structemlabcpp_1_1protocol_1_1mark" ],
         [ "error_record", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record", "namespaceemlabcpp_1_1protocol_structemlabcpp_1_1protocol_1_1error__record_dup" ],
         [ "handler", "structemlabcpp_1_1protocol_1_1handler.html", "structemlabcpp_1_1protocol_1_1handler" ],

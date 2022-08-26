@@ -98,10 +98,10 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1protocol_1_1proto__t
 Public Types</h2></td></tr>
 <tr class="memitem:a7d338e11376d6f4f088b47b877adedc2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a7d338e11376d6f4f088b47b877adedc2">value_type</a> = std::variant&lt; typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; Ds &gt;::value_type... &gt;</td></tr>
 <tr class="separator:a7d338e11376d6f4f088b47b877adedc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f6b966ab30963e5093fd27ab31f0218"><td class="memTemplParams" colspan="2">template&lt;typename D &gt; </td></tr>
-<tr class="memitem:a8f6b966ab30963e5093fd27ab31f0218"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a8f6b966ab30963e5093fd27ab31f0218">to_tuple</a> = std::tuple&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; D::tag &gt;, D &gt;</td></tr>
-<tr class="separator:a8f6b966ab30963e5093fd27ab31f0218"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e54805857b3dccc133f2daea823f7c2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a5e54805857b3dccc133f2daea823f7c2">sub_type</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group">group</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a8f6b966ab30963e5093fd27ab31f0218">to_tuple</a>&lt; Ds &gt;... &gt;</td></tr>
+<tr class="memitem:add41e0bf2f3ea2dd27277e16a979a368"><td class="memTemplParams" colspan="2">template&lt;typename D &gt; </td></tr>
+<tr class="memitem:add41e0bf2f3ea2dd27277e16a979a368"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#add41e0bf2f3ea2dd27277e16a979a368">to_tuple</a> = std::tuple&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; D::id &gt;, D &gt;</td></tr>
+<tr class="separator:add41e0bf2f3ea2dd27277e16a979a368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e54805857b3dccc133f2daea823f7c2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a5e54805857b3dccc133f2daea823f7c2">sub_type</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group">group</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#add41e0bf2f3ea2dd27277e16a979a368">to_tuple</a>&lt; Ds &gt;... &gt;</td></tr>
 <tr class="separator:a5e54805857b3dccc133f2daea823f7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d7e5a8eca1cb4801cfb07d989bb43c5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a9d7e5a8eca1cb4801cfb07d989bb43c5">sub_decl</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a5e54805857b3dccc133f2daea823f7c2">sub_type</a> &gt;</td></tr>
 <tr class="separator:a9d7e5a8eca1cb4801cfb07d989bb43c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,15 +139,15 @@ template&lt;convertible... Ds&gt; </div>
 template&lt;convertible... Ds&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">emlabcpp::protocol::proto_traits</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group">tag_group</a>&lt; Ds... &gt; &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a5e54805857b3dccc133f2daea823f7c2">sub_type</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group">group</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a8f6b966ab30963e5093fd27ab31f0218">to_tuple</a>&lt; Ds &gt;... &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">emlabcpp::protocol::proto_traits</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group">tag_group</a>&lt; Ds... &gt; &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a5e54805857b3dccc133f2daea823f7c2">sub_type</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group">group</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#add41e0bf2f3ea2dd27277e16a979a368">to_tuple</a>&lt; Ds &gt;... &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8f6b966ab30963e5093fd27ab31f0218"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f6b966ab30963e5093fd27ab31f0218">&#9670;&nbsp;</a></span>to_tuple</h2>
+<a id="add41e0bf2f3ea2dd27277e16a979a368"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add41e0bf2f3ea2dd27277e16a979a368">&#9670;&nbsp;</a></span>to_tuple</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,7 +157,7 @@ template&lt;convertible... Ds&gt; </div>
 template&lt;typename D &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">emlabcpp::protocol::proto_traits</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group">tag_group</a>&lt; Ds... &gt; &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a8f6b966ab30963e5093fd27ab31f0218">to_tuple</a> =  std::tuple&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; D::tag &gt;, D &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">emlabcpp::protocol::proto_traits</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group">tag_group</a>&lt; Ds... &gt; &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#add41e0bf2f3ea2dd27277e16a979a368">to_tuple</a> =  std::tuple&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; D::id &gt;, D &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -238,7 +238,7 @@ template&lt;convertible... Ds&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html">proto_traits&lt; tag_group&lt; Ds... &gt; &gt;</a></li>
-    <li class="footer">Generated on Wed Aug 24 2022 13:10:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 26 2022 13:05:33 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

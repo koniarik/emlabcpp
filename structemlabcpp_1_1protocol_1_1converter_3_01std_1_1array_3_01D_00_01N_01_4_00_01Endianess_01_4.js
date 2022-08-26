@@ -1,8 +1,8 @@
 var structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4 =
 [
     [ "size_type", "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a05cc3bf1973aac948a429b42cb3bd4d7", null ],
-    [ "sub_def", "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ad6eb7ecfec89a4f863574dba05056392", null ],
-    [ "sub_size_type", "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#ab0435e106640d496c40408dc31dd1434", null ],
+    [ "sub_converter", "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a6fb2ffe5d6067b60d003c8ea53eb3f14", null ],
+    [ "sub_size_type", "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a1d880ad53d0e3b6cd7d2522c4f269941", null ],
     [ "value_type", "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a58a8a6d2ea8f43aaf6303b4b850c42cc", null ],
     [ "deserialize", "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a13b5d2d169a0fcee8f3ab3ec66173701", null ],
     [ "serialize_at", "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a9fcc7e819815376c2e16a80787b35fbc", null ],

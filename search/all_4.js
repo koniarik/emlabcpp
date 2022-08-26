@@ -26,12 +26,13 @@ var searchData=
   ['error_5fmark_223',['error_mark',['../namespaceemlabcpp_1_1protocol.html#a53258509ef594ffcca73ea55a640dd63',1,'emlabcpp::protocol::error_record']]],
   ['error_5frecord_224',['error_record',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record',1,'emlabcpp::protocol']]],
   ['error_5fvariant_225',['error_variant',['../namespaceemlabcpp_1_1testing.html#a21c567b7200acbb97782be90bdf747b4',1,'emlabcpp::testing']]],
-  ['errored_226',['errored',['../classemlabcpp_1_1testing_1_1record.html#a34286a72b684ee01083a13d892ee2e6e',1,'emlabcpp::testing::record::errored()'],['../structemlabcpp_1_1testing_1_1test__result.html#a66f07d2d45e4d734e4046a52ad4757c8',1,'emlabcpp::testing::test_result::errored()']]],
+  ['errored_226',['errored',['../structemlabcpp_1_1testing_1_1test__result.html#a66f07d2d45e4d734e4046a52ad4757c8',1,'emlabcpp::testing::test_result::errored()'],['../classemlabcpp_1_1testing_1_1record.html#a34286a72b684ee01083a13d892ee2e6e',1,'emlabcpp::testing::record::errored()']]],
   ['exec_227',['EXEC',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cac701d4251538d4cb8c79b9ba788e8ace',1,'emlabcpp::testing']]],
   ['exec_5frequest_228',['exec_request',['../structemlabcpp_1_1testing_1_1exec__request.html',1,'emlabcpp::testing']]],
   ['expect_229',['expect',['../classemlabcpp_1_1testing_1_1record.html#a7333674c7fb39296949c24904785c648',1,'emlabcpp::testing::record']]],
-  ['extract_230',['extract',['../structemlabcpp_1_1protocol_1_1handler.html#a4a4e9b8c20d7122816fa978d0b6121cb',1,'emlabcpp::protocol::handler::extract()'],['../structemlabcpp_1_1protocol_1_1register__handler.html#ac2460dd3224fef19b5bebe69a0064f30',1,'emlabcpp::protocol::register_handler::extract()'],['../structemlabcpp_1_1protocol_1_1packet__handler.html#a911f1f752d8eae2f2b527e0b043d6145',1,'emlabcpp::protocol::packet_handler::extract()']]],
-  ['impl_231',['impl',['../namespaceemlabcpp_1_1impl.html',1,'emlabcpp']]],
-  ['protocol_232',['protocol',['../namespaceemlabcpp_1_1protocol.html',1,'emlabcpp']]],
-  ['testing_233',['testing',['../namespaceemlabcpp_1_1testing.html',1,'emlabcpp']]]
+  ['explicit_230',['explicit',['../classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4.html#ad4b2850d89d92f79f2e14452e7613f82',1,'emlabcpp::static_function_base&lt; ReturnType(ArgTypes...), Capacity, Align, NoexceptMove &gt;::explicit(false) static_function_base(Callable c)'],['../classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4.html#a96be03ebfdff1598fd6697e8d5748d97',1,'emlabcpp::static_function_base&lt; ReturnType(ArgTypes...), Capacity, Align, NoexceptMove &gt;::explicit(false) operator bool() const noexcept']]],
+  ['extract_231',['extract',['../structemlabcpp_1_1protocol_1_1register__handler.html#ac2460dd3224fef19b5bebe69a0064f30',1,'emlabcpp::protocol::register_handler::extract()'],['../structemlabcpp_1_1protocol_1_1packet__handler.html#a911f1f752d8eae2f2b527e0b043d6145',1,'emlabcpp::protocol::packet_handler::extract()'],['../structemlabcpp_1_1protocol_1_1handler.html#a4a4e9b8c20d7122816fa978d0b6121cb',1,'emlabcpp::protocol::handler::extract()']]],
+  ['impl_232',['impl',['../namespaceemlabcpp_1_1impl.html',1,'emlabcpp']]],
+  ['protocol_233',['protocol',['../namespaceemlabcpp_1_1protocol.html',1,'emlabcpp']]],
+  ['testing_234',['testing',['../namespaceemlabcpp_1_1testing.html',1,'emlabcpp']]]
 ];

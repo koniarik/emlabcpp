@@ -122,6 +122,7 @@ var hierarchy =
     [ "emlabcpp::impl::map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", null ],
     [ "emlabcpp::mapped< Container, UnaryCallable >", "namespaceemlabcpp.html#structemlabcpp_1_1mapped", null ],
     [ "emlabcpp::mapped< Container, UnaryCallable >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4.html", null ],
+    [ "emlabcpp::protocol::memcpy_converter< T, Endianess >", "structemlabcpp_1_1protocol_1_1memcpy__converter.html", null ],
     [ "emlabcpp::protocol::message< N >", "classemlabcpp_1_1protocol_1_1message.html", [
       [ "emlabcpp::protocol::sizeless_message< N >", "classemlabcpp_1_1protocol_1_1sizeless__message.html", null ]
     ] ],
