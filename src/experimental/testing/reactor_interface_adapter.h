@@ -57,18 +57,6 @@ public:
 
         void reply( const reactor_controller_variant& );
 
-        template < messages_enum ID, typename... Args >
-        void reply( const Args&... args )
-        {
-                reply( reactor_controller_group::make_val< ID >( args... ) );
-        }
-
         void report_failure( const reactor_error_variant& );
-
-        template < error_enum ID, typename... Args >
-        void report_failure( const Args&... args )
-        {
-                report_failure( reactor_error_group::make_val< ID >( args... ) );
-        }
 };
 }  // namespace emlabcpp::testing

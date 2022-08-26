@@ -29,7 +29,7 @@ namespace emlabcpp::testing
 
 std::optional< node_type_enum > record::get_param_type( node_id nid )
 {
-        std::optional reply = exchange< param_type_reply, PARAM_TYPE >( nid );
+        std::optional reply = exchange< param_type_reply >( param_type_request{ rid_, nid } );
         if ( reply ) {
                 return reply->type;
         }
@@ -38,7 +38,7 @@ std::optional< node_type_enum > record::get_param_type( node_id nid )
 
 std::optional< value_type > record::get_param_value( node_id nid )
 {
-        std::optional reply = exchange< param_value_reply, PARAM_VALUE >( nid );
+        std::optional reply = exchange< param_value_reply >( param_value_request{ rid_, nid } );
 
         if ( reply ) {
                 return reply->value;
@@ -57,7 +57,8 @@ std::optional< node_id > record::collect(
     const std::optional< key_type >& key,
     const collect_value_type&        arg )
 {
-        std::optional reply = exchange< collect_reply, COLLECT >( parent, key, arg );
+        std::optional reply =
+            exchange< collect_reply >( collect_request{ rid_, parent, key, arg } );
         if ( reply ) {
                 return reply->nid;
         }
@@ -66,8 +67,8 @@ std::optional< node_id > record::collect(
 
 std::optional< node_id > record::get_param_child( node_id nid, child_id chid )
 {
-        std::optional reply = exchange< param_child_reply, PARAM_CHILD >(
-            nid, std::variant< key_type, child_id >{ chid } );
+        std::optional reply =
+            exchange< param_child_reply >( param_child_request{ rid_, nid, chid } );
         if ( reply ) {
                 return reply->chid;
         }
@@ -81,9 +82,8 @@ std::optional< node_id > record::get_param_child( node_id nid, std::string_view 
 
 std::optional< node_id > record::get_param_child( node_id nid, const key_type& key )
 {
-        // TODO duplication of other overload /o\...
-        std::optional reply = exchange< param_child_reply, PARAM_CHILD >(
-            nid, std::variant< key_type, child_id >{ key } );
+        std::optional reply =
+            exchange< param_child_reply >( param_child_request{ rid_, nid, key } );
         if ( reply ) {
                 return reply->chid;
         }
@@ -92,7 +92,11 @@ std::optional< node_id > record::get_param_child( node_id nid, const key_type& k
 
 std::optional< child_count > record::get_param_child_count( std::optional< node_id > nid )
 {
-        std::optional reply = exchange< param_child_count_reply, PARAM_CHILD_COUNT >( nid );
+        if ( !nid ) {
+                return std::nullopt;
+        }
+        std::optional reply = exchange< param_child_count_reply >(
+            param_child_count_request{ .rid = rid_, .parent = *nid } );
         if ( reply ) {
                 return reply->count;
         }
@@ -101,7 +105,7 @@ std::optional< child_count > record::get_param_child_count( std::optional< node_
 
 std::optional< key_type > record::get_param_key( node_id nid, child_id chid )
 {
-        std::optional reply = exchange< param_key_reply, PARAM_KEY >( nid, chid );
+        std::optional reply = exchange< param_key_reply >( param_key_request{ rid_, nid, chid } );
         if ( reply ) {
                 return reply->key;
         }
@@ -110,15 +114,15 @@ std::optional< key_type > record::get_param_key( node_id nid, child_id chid )
 
 void record::report_wrong_type_error( node_id nid, const value_type& )
 {
-        comm_.report_failure< WRONG_TYPE_E >( nid );
+        comm_.report_failure( wrong_type_error{ nid } );
 }
 
 template < typename T >
-std::optional< T > record::read_variant_alternative( node_id )
+std::optional< T > record::read_variant_alternative()
 {
         std::optional< controller_reactor_variant > opt_var = comm_.read_variant();
         if ( !opt_var ) {
-                comm_.report_failure< NO_RESPONSE_E >( T::tag );
+                comm_.report_failure( no_response_error{ T::id } );
                 return {};
         }
 
@@ -129,27 +133,21 @@ std::optional< T > record::read_variant_alternative( node_id )
 
         const auto* tree_err = std::get_if< tree_error_reply >( &*opt_var );
         if ( tree_err ) {
-                comm_.report_failure< TREE_E >( tree_err->nid, tree_err->err );
+                comm_.report_failure( *tree_err );
         }
 
-        comm_.report_failure< WRONG_MESSAGE_E >();
+        comm_.report_failure( error< WRONG_MESSAGE_E >{} );
 
         return std::nullopt;
 }
 
-template < typename ResultType, auto ID, typename... Args >
-std::optional< ResultType >
-record::exchange( std::optional< node_id > opt_nid, const Args&... args )
+template < typename ResultType, typename T >
+std::optional< ResultType > record::exchange( const T& item )
 {
-        if ( !opt_nid ) {
-                return std::nullopt;
-        }
 
-        node_id nid = *opt_nid;
+        comm_.reply( item );
 
-        comm_.reply< ID >( rid_, nid, args... );
-
-        return read_variant_alternative< ResultType >( nid );
+        return read_variant_alternative< ResultType >();
 }
 
 }  // namespace emlabcpp::testing

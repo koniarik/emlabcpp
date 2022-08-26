@@ -58,7 +58,7 @@ std::optional< controller_reactor_variant > reactor_interface_adapter::read_vari
                         res = var;
                 },
                 [&]( protocol::error_record rec ) {
-                        reply< PROTOCOL_ERROR >( rec );
+                        reply( reactor_protocol_error_report{ rec } );
                 } );
         return res;
 }
@@ -70,6 +70,6 @@ void reactor_interface_adapter::reply( const reactor_controller_variant& var )
 
 void reactor_interface_adapter::report_failure( const reactor_error_variant& evar )
 {
-        reply< INTERNAL_ERROR >( evar );
+        reply( reactor_internal_error_report{ evar } );
 }
 }  // namespace emlabcpp::testing

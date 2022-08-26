@@ -66,7 +66,7 @@ class reactor
         using sequencer_type   = controller_reactor_packet::sequencer_type;
 
         std::string_view suite_name_;
-        std::string_view suite_date_ = __DATE__;
+        std::string_view suite_date_ = __DATE__ " " __TIME__;
         handle_container handles_;
         pool_interface*  mem_;
         sequencer_type   seq_;
@@ -104,7 +104,7 @@ private:
         void handle_message( get_property< SUITE_NAME >, reactor_interface_adapter& );
         void handle_message( get_property< SUITE_DATE >, reactor_interface_adapter& );
         void handle_message( get_property< COUNT >, reactor_interface_adapter& );
-        void handle_message( get_test_name, reactor_interface_adapter& );
+        void handle_message( get_test_name_request, reactor_interface_adapter& );
         void handle_message( load_test, reactor_interface_adapter& );
         void handle_message( exec_request, reactor_interface_adapter& );
 

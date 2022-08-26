@@ -105,15 +105,16 @@ public:
                 const auto* internal_ptr = std::get_if< internal_reactor_error >( &var );
 
                 if ( internal_ptr ) {
-                        apply_on_match(
+                        match(
                             internal_ptr->val,
-                            [&]( tag< WRONG_TYPE_E >, auto nid ) {
-                                    const auto* node_ptr = iface_.get_param_tree().get_node( nid );
+                            [&]( const wrong_type_error& err ) {
+                                    const auto* node_ptr =
+                                        iface_.get_param_tree().get_node( err.nid );
                                     EMLABCPP_LOG(
                                         "Error due a wrong type of node "
-                                        << nid << " asserted in reactors test: " << *node_ptr );
+                                        << err.nid << " asserted in reactors test: " << *node_ptr );
                             },
-                            [&]< auto EID >( tag< EID >, const auto&... ){} );
+                            [&]( const auto& ) {} );
                 }
         }
 #else
@@ -125,10 +126,10 @@ public:
 
 namespace
 {
-        template < typename T, typename Req >
-        std::optional< T > load_data( const Req& req, controller_interface_adapter& iface )
+        template < typename ReturnType, typename Req >
+        std::optional< ReturnType > load_data( const Req& req, controller_interface_adapter& iface )
         {
-                std::optional< T > res;
+                std::optional< ReturnType > res;
 
                 iface.send( req );
 
@@ -138,42 +139,43 @@ namespace
                 }
 
                 auto handle = matcher{
-                    [&]( tag< Req::tag >, auto item ) {
+                    [&]( const ReturnType& item ) {
                             res = item;
                     },
-                    [&]( tag< INTERNAL_ERROR >, reactor_error_variant err ) {
-                            iface.report_error( internal_reactor_error{ std::move( err ) } );
+                    [&]( const reactor_internal_error_report& err ) {
+                            iface.report_error( internal_reactor_error{ err.var } );
                     },
-                    [&]( tag< PROTOCOL_ERROR >, protocol::error_record rec ) {
-                            iface.report_error( reactor_protocol_error{ rec } );
+                    [&]( const reactor_protocol_error_report& err ) {
+                            iface.report_error( reactor_protocol_error{ err.rec } );
                     },
-                    [&]< auto WID >( tag< WID >, auto... ){
-                        iface.report_error( controller_internal_error{ WID } );
-        }
-};  // namespace
+                    [&]< typename T >( const T& ) {
+                            iface.report_error( controller_internal_error{ T::id } );
+                    } };
 
-reactor_controller_extract( *opt_msg )
-    .match(
-        [&]( auto pack ) {
-                EMLABCPP_DEBUG_LOG( "con<-rec: " << pack );
-                apply_on_visit( handle, pack );
-        },
-        [&]( protocol::error_record rec ) {
-                EMLABCPP_LOG( "Protocol error from reactor: " << rec );
-                iface.report_error( controller_protocol_error{ rec } );
-        } );
-return res;
-}  // namespace emlabcpp::testing
-}
+                reactor_controller_extract( *opt_msg )
+                    .match(
+                        [&]( auto pack ) {
+                                EMLABCPP_DEBUG_LOG( "con<-rec: " << pack );
+                                visit( handle, pack );
+                        },
+                        [&]( protocol::error_record rec ) {
+                                EMLABCPP_LOG( "Protocol error from reactor: " << rec );
+                                iface.report_error( controller_protocol_error{ rec } );
+                        } );
+                return res;
+        }
+}  // namespace
 
 std::optional< controller >
 controller::make( controller_interface& top_iface, pool_interface* pool )
 {
         controller_interface_adapter iface{ top_iface };
 
-        auto opt_name  = load_data< name_buffer >( get_property< SUITE_NAME >{}, iface );
-        auto opt_date  = load_data< name_buffer >( get_property< SUITE_DATE >{}, iface );
-        auto opt_count = load_data< test_id >( get_property< COUNT >{}, iface );
+        std::optional opt_name =
+            load_data< get_suite_name_reply >( get_property< SUITE_NAME >{}, iface );
+        std::optional opt_date =
+            load_data< get_suite_date_reply >( get_property< SUITE_DATE >{}, iface );
+        std::optional opt_count = load_data< get_count_reply >( get_property< COUNT >{}, iface );
 
         if ( !opt_name ) {
                 EMLABCPP_LOG( "Failed to build controller - did not get a name" );
@@ -190,195 +192,19 @@ controller::make( controller_interface& top_iface, pool_interface* pool )
 
         pool_map< test_id, test_info > info{ pool };
 
-        for ( test_id i = 0; i < *opt_count; i++ ) {
-                auto opt_name = load_data< name_buffer >( get_test_name{ .tid = i }, iface );
+        for ( test_id i = 0; i < opt_count->count; i++ ) {
+                auto opt_name =
+                    load_data< get_test_name_reply >( get_test_name_request{ .tid = i }, iface );
                 if ( !opt_name ) {
                         EMLABCPP_LOG(
                             "Failed to build controller - did not get a test name for index: "
                             << i );
                         return {};
                 }
-                info[i] = test_info{ .name = *opt_name };
+                info[i] = test_info{ .name = opt_name->name };
         }
 
-        return controller{ *opt_name, *opt_date, std::move( info ), pool };
-}
-void controller::handle_message( tag< COUNT >, auto, controller_interface_adapter& iface )
-{
-        iface.report_error( controller_internal_error{ COUNT } );
-}
-void controller::handle_message( tag< NAME >, auto, controller_interface_adapter& iface )
-{
-        iface.report_error( controller_internal_error{ NAME } );
-}
-void controller::handle_message(
-    tag< PARAM_VALUE >,
-    run_id                        rid,
-    node_id                       nid,
-    controller_interface_adapter& iface )
-{
-        EMLABCPP_ASSERT( context_ );
-        EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
-
-        contiguous_request_adapter harn{ iface->get_param_tree() };
-
-        harn.get_value( nid ).match(
-            [&]( const value_type& val ) {
-                    iface.send( param_value_reply{ rid, val } );
-            },
-            [&]( contiguous_request_adapter_errors_enum err ) {
-                    iface.reply_node_error( rid, err, nid );
-            } );
-}
-void controller::handle_message(
-    tag< PARAM_CHILD >,
-    run_id                                    rid,
-    node_id                                   nid,
-    const std::variant< key_type, child_id >& chid,
-    controller_interface_adapter&             iface )
-{
-        EMLABCPP_ASSERT( context_ );
-        EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
-
-        contiguous_request_adapter harn{ iface->get_param_tree() };
-
-        harn.get_child( nid, chid )
-            .match(
-                [&]( node_id child ) {
-                        iface.send( param_child_reply{ rid, child } );
-                },
-                [&]( contiguous_request_adapter_errors_enum err ) {
-                        iface.reply_node_error( rid, err, nid );
-                } );
-}
-void controller::handle_message(
-    tag< PARAM_CHILD_COUNT >,
-    run_id                        rid,
-    node_id                       nid,
-    controller_interface_adapter& iface )
-{
-        EMLABCPP_ASSERT( context_ );
-        EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
-
-        contiguous_request_adapter harn{ iface->get_param_tree() };
-
-        harn.get_child_count( nid ).match(
-            [&]( child_id count ) {
-                    iface.send( param_child_count_reply{ rid, count } );
-            },
-            [&]( contiguous_request_adapter_errors_enum err ) {
-                    iface.reply_node_error( rid, err, nid );
-            } );
-}
-void controller::handle_message(
-    tag< PARAM_KEY >,
-    run_id                        rid,
-    node_id                       nid,
-    child_id                      chid,
-    controller_interface_adapter& iface )
-{
-        EMLABCPP_ASSERT( context_ );
-        EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
-
-        contiguous_request_adapter harn{ iface->get_param_tree() };
-
-        harn.get_key( nid, chid )
-            .match(
-                [&]( const key_type& key ) {
-                        iface.send( param_key_reply{ rid, key } );
-                },
-                [&]( contiguous_request_adapter_errors_enum err ) {
-                        iface.reply_node_error( rid, err, nid );
-                } );
-}
-void controller::handle_message(
-    tag< PARAM_TYPE >,
-    run_id                        rid,
-    node_id                       nid,
-    controller_interface_adapter& iface )
-{
-        EMLABCPP_ASSERT( context_ );
-        EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
-
-        contiguous_request_adapter harn{ iface->get_param_tree() };
-
-        harn.get_type( nid ).match(
-            [&]( contiguous_tree_type_enum type ) {
-                    iface.send( param_type_reply{ rid, type } );
-            },
-            [&]( contiguous_request_adapter_errors_enum err ) {
-                    iface.reply_node_error( rid, err, nid );
-            } );
-}
-
-void controller::handle_message(
-    tag< COLLECT >,
-    run_id                           rid,
-    node_id                          parent,
-    const std::optional< key_type >& opt_key,
-    const collect_value_type&        val,
-    controller_interface_adapter&    iface )
-{
-        EMLABCPP_ASSERT( context_ );
-        EMLABCPP_ASSERT( context_->rid == rid );  // TODO better error handling
-
-        data_tree& tree = context_->collected;
-
-        // TODO: this may be a bad idea ...
-        if ( tree.empty() ) {
-                if ( opt_key ) {
-                        tree.make_object_node();
-                } else {
-                        tree.make_array_node();
-                }
-        }
-
-        contiguous_request_adapter harn{ tree };
-
-        either< node_id, contiguous_request_adapter_errors_enum > res =
-            opt_key ? harn.insert( parent, *opt_key, val ) : harn.insert( parent, val );
-        res.match(
-            [&]( node_id nid ) {
-                    iface.send( collect_reply{ rid, nid } );
-            },
-            [&]( contiguous_request_adapter_errors_enum err ) {
-                    iface.reply_node_error( rid, err, parent );
-            } );
-}
-void controller::handle_message( tag< FINISHED >, auto, controller_interface_adapter& iface )
-{
-        iface->on_result( *context_ );
-        context_.reset();
-}
-void controller::handle_message( tag< ERROR >, auto, controller_interface_adapter& )
-{
-        context_->errored = true;
-}
-void controller::handle_message( tag< FAILURE >, auto, controller_interface_adapter& )
-{
-        context_->failed = true;
-}
-void controller::handle_message( tag< SUITE_NAME >, auto, controller_interface_adapter& iface )
-{
-        iface.report_error( controller_internal_error{ SUITE_NAME } );
-}
-void controller::handle_message( tag< SUITE_DATE >, auto, controller_interface_adapter& iface )
-{
-        iface.report_error( controller_internal_error{ SUITE_DATE } );
-}
-void controller::handle_message(
-    tag< INTERNAL_ERROR >,
-    reactor_error_variant         err,
-    controller_interface_adapter& iface )
-{
-        iface.report_error( internal_reactor_error{ std::move( err ) } );
-}
-void controller::handle_message(
-    tag< PROTOCOL_ERROR >,
-    protocol::error_record        rec,
-    controller_interface_adapter& iface )
-{
-        iface.report_error( reactor_protocol_error{ rec } );
+        return controller{ opt_name->name, opt_date->date, std::move( info ), pool };
 }
 
 void controller::start_test( test_id tid, controller_interface& top_iface )
@@ -393,6 +219,155 @@ void controller::start_test( test_id tid, controller_interface& top_iface )
         iface.send( load_test{ tid, rid_ } );
         iface.send( exec_request{ rid_ } );
 }
+
+struct controller_dispatcher
+{
+        controller_interface_adapter& iface;
+        std::optional< test_result >& context;
+
+        void operator()( const get_count_reply& )
+        {
+                iface.report_error( controller_internal_error{ COUNT } );
+        }
+
+        void operator()( const get_test_name_reply& )
+        {
+                iface.report_error( controller_internal_error{ NAME } );
+        }
+        void operator()( const collect_request& req )
+        {
+                EMLABCPP_ASSERT( context );
+                EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
+
+                data_tree& tree = context->collected;
+
+                // TODO: this may be a bad idea ...
+                if ( tree.empty() ) {
+                        if ( req.opt_key ) {
+                                tree.make_object_node();
+                        } else {
+                                tree.make_array_node();
+                        }
+                }
+
+                contiguous_request_adapter harn{ tree };
+
+                either< node_id, contiguous_request_adapter_errors_enum > res =
+                    req.opt_key ? harn.insert( req.parent, *req.opt_key, req.value ) :
+                                  harn.insert( req.parent, req.value );
+                res.match(
+                    [&]( node_id nid ) {
+                            iface.send( collect_reply{ req.rid, nid } );
+                    },
+                    [&]( contiguous_request_adapter_errors_enum err ) {
+                            iface.reply_node_error( req.rid, err, req.parent );
+                    } );
+        }
+        void operator()( const param_value_request& req )
+        {
+                EMLABCPP_ASSERT( context );
+                EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
+
+                contiguous_request_adapter harn{ iface->get_param_tree() };
+
+                harn.get_value( req.nid ).match(
+                    [&]( const value_type& val ) {
+                            iface.send( param_value_reply{ req.rid, val } );
+                    },
+                    [&]( contiguous_request_adapter_errors_enum err ) {
+                            iface.reply_node_error( req.rid, err, req.nid );
+                    } );
+        }
+        void operator()( const param_child_request& req )
+        {
+                EMLABCPP_ASSERT( context );
+                EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
+
+                contiguous_request_adapter harn{ iface->get_param_tree() };
+
+                harn.get_child( req.parent, req.chid )
+                    .match(
+                        [&]( node_id child ) {
+                                iface.send( param_child_reply{ req.rid, child } );
+                        },
+                        [&]( contiguous_request_adapter_errors_enum err ) {
+                                iface.reply_node_error( req.rid, err, req.parent );
+                        } );
+        }
+        void operator()( const param_child_count_request& req )
+        {
+                EMLABCPP_ASSERT( context );
+                EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
+
+                contiguous_request_adapter harn{ iface->get_param_tree() };
+
+                harn.get_child_count( req.parent )
+                    .match(
+                        [&]( child_id count ) {
+                                iface.send( param_child_count_reply{ req.rid, count } );
+                        },
+                        [&]( contiguous_request_adapter_errors_enum err ) {
+                                iface.reply_node_error( req.rid, err, req.parent );
+                        } );
+        }
+        void operator()( const param_key_request& req )
+        {
+                EMLABCPP_ASSERT( context );
+                EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
+
+                contiguous_request_adapter harn{ iface->get_param_tree() };
+
+                harn.get_key( req.nid, req.chid )
+                    .match(
+                        [&]( const key_type& key ) {
+                                iface.send( param_key_reply{ req.rid, key } );
+                        },
+                        [&]( contiguous_request_adapter_errors_enum err ) {
+                                iface.reply_node_error( req.rid, err, req.nid );
+                        } );
+        }
+        void operator()( const param_type_request& req )
+        {
+                EMLABCPP_ASSERT( context );
+                EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
+
+                contiguous_request_adapter harn{ iface->get_param_tree() };
+
+                harn.get_type( req.nid ).match(
+                    [&]( contiguous_tree_type_enum type ) {
+                            iface.send( param_type_reply{ req.rid, type } );
+                    },
+                    [&]( contiguous_request_adapter_errors_enum err ) {
+                            iface.reply_node_error( req.rid, err, req.nid );
+                    } );
+        }
+        void operator()( const test_finished& req )
+        {
+                EMLABCPP_ASSERT( context );
+                EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
+
+                context->failed  = req.failed;
+                context->errored = req.errored;
+                iface->on_result( *context );
+                context.reset();
+        }
+        void operator()( const get_suite_name_reply& )
+        {
+                iface.report_error( controller_internal_error{ SUITE_NAME } );
+        }
+        void operator()( const get_suite_date_reply& )
+        {
+                iface.report_error( controller_internal_error{ SUITE_DATE } );
+        }
+        void operator()( const reactor_internal_error_report& report )
+        {
+                iface.report_error( internal_reactor_error{ std::move( report.var ) } );
+        }
+        void operator()( const reactor_protocol_error_report& report )
+        {
+                iface.report_error( reactor_protocol_error{ report.rec } );
+        }
+};
 
 void controller::tick( controller_interface& top_iface )
 {
@@ -411,14 +386,10 @@ void controller::tick( controller_interface& top_iface )
             .match(
                 [&]( auto var ) {
                         EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
-                        apply_on_visit(
-                            [&]( auto... args ) {
-                                    handle_message( args..., iface );
-                            },
-                            var );
+                        visit( controller_dispatcher{ iface, context_ }, var );
                 },
                 [&]( protocol::error_record e ) {
                         iface.report_error( controller_protocol_error{ e } );
                 } );
 }
-}
+}  // namespace emlabcpp::testing

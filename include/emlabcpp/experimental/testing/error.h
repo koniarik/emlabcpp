@@ -70,11 +70,9 @@ auto& operator<<( ostreamlike auto& os, const controller_protocol_error& e )
 
 auto& operator<<( ostreamlike auto& os, const internal_reactor_error& e )
 {
-        apply_on_match(
-            e.val, [&]< auto ID >( tag< ID >, auto... args ) {
-                    os << convert_enum( ID );
-                    ( ( os << "," << args ), ... );
-            } );
+        match( e.val, [&]< typename T >( const T& ) {
+                os << T::id;
+        } );
         return os;
 }
 

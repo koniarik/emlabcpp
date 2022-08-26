@@ -168,10 +168,10 @@ private:
         }
 
         template < typename T >
-        std::optional< T > read_variant_alternative( node_id );
+        std::optional< T > read_variant_alternative();
 
-        template < typename ResultType, auto ID, typename... Args >
-        std::optional< ResultType > exchange( std::optional< node_id > nid, const Args&... args );
+        template < typename ResultType, typename T >
+        std::optional< ResultType > exchange( const T& item );
 };
 
 }  // namespace emlabcpp::testing
