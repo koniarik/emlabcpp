@@ -61,16 +61,16 @@ struct handler
                             << pretty_type_name< typename def::size_type >() );
                         return error_record{ SIZE_ERR, 0 };
                 }
-                auto [used, res] = def::deserialize( *opt_view );
-                if ( std::holds_alternative< const mark* >( res ) ) {
-                        const mark* mark = *std::get_if< 1 >( &res );
+                auto res = def::deserialize( *opt_view );
+                if ( res.has_error() ) {
+                        const mark* mark = res.get_error();
                         EMLABCPP_LOG(
                             "Failed to extract protocol def "
                             << pretty_type_name< T >() << " from message " << *opt_view
-                            << ", error is: " << *mark << " with " << used << " bytes" );
-                        return error_record{ *mark, used };
+                            << ", error is: " << *mark << " with " << res.used << " bytes" );
+                        return error_record{ *mark, res.used };
                 }
-                return std::get< 0 >( res );
+                return *res.get_value();
         }
 };
 

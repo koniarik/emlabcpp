@@ -34,11 +34,25 @@
 namespace emlabcpp::protocol
 {
 
+enum error_possibility_enum
+{
+        ERROR_POSSIBLE,
+        ERROR_IMPOSSIBLE
+};
+
 /// Strucutre used as result of deserialization in the internal mechanisms of protocol handling.
-/// Contains parsed value and bounded value of how much bytes were used.
+/// Contains parsed value and value of how much bytes were used.
+template < typename T, error_possibility_enum CanErr = ERROR_POSSIBLE >
+struct conversion_result;
+
 template < typename T >
+struct conversion_result< T, ERROR_IMPOSSIBLE >;
+
+template < typename T, error_possibility_enum CanErr >
 struct conversion_result
 {
+        static constexpr error_possibility_enum can_err = CanErr;
+
         std::size_t                    used = 0;
         std::variant< T, const mark* > res;
 
@@ -57,6 +71,95 @@ struct conversion_result
           : used( u )
           , res( m )
         {
+        }
+
+        explicit conversion_result( conversion_result< T, ERROR_IMPOSSIBLE >&& other )
+          : conversion_result( other.used, other.res )
+        {
+        }
+
+        bool has_error() const
+        {
+                return std::holds_alternative< const mark* >( res );
+        }
+
+        const mark* get_error()
+        {
+                if ( has_error() ) {
+                        return *std::get_if< const mark* >( &res );
+                }
+                return nullptr;
+        }
+
+        const T* get_value()
+        {
+                return std::get_if< T >( &res );
+        }
+
+        template < typename UnaryCallable >
+        auto convert_value( const UnaryCallable& cb ) &&  //
+            -> conversion_result< decltype( cb( std::declval< T >() ) ) >
+        {
+                if ( std::holds_alternative< const mark* >( res ) ) {
+                        return { used, *std::get_if< const mark* >( &res ) };
+                } else {
+                        return { used, cb( std::move( *std::get_if< T >( &res ) ) ) };
+                }
+        }
+
+        template < typename BinaryCallable >
+        auto
+        bind_value( const BinaryCallable& cb ) && -> decltype( cb( used, std::declval< T >() ) )
+        {
+                if ( std::holds_alternative< const mark* >( res ) ) {
+                        return { used, *std::get_if< const mark* >( &res ) };
+                } else {
+                        return cb( used, std::move( *std::get_if< T >( &res ) ) );
+                }
+        }
+};
+
+template < typename T >
+struct conversion_result< T, ERROR_IMPOSSIBLE >
+{
+        static constexpr error_possibility_enum can_err = ERROR_IMPOSSIBLE;
+
+        std::size_t used = 0;
+        T           res;
+
+        conversion_result() = default;
+        conversion_result( std::size_t u, T v )
+          : used( u )
+          , res( v )
+        {
+        }
+
+        constexpr bool has_error() const
+        {
+                return false;
+        }
+        const mark* get_error()
+        {
+                return nullptr;
+        }
+
+        const T* get_value()
+        {
+                return &res;
+        }
+
+        template < typename UnaryCallable >
+        auto convert_value( const UnaryCallable& cb ) &&  //
+            -> conversion_result< decltype( cb( std::declval< T >() ) ), ERROR_IMPOSSIBLE >
+        {
+                return { used, cb( std::move( res ) ) };
+        }
+
+        template < typename BinaryCallable >
+        auto
+        bind_value( const BinaryCallable& cb ) && -> decltype( cb( used, std::declval< T >() ) )
+        {
+                return cb( used, std::move( res ) );
         }
 };
 

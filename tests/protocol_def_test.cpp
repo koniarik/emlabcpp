@@ -65,16 +65,19 @@ struct valid_test_case : protocol_test_fixture
                     << "expected   (bin): " << convert_view< std::bitset< 8 > >( expected_buffer )
                     << "\n";
 
-                auto [pused, res] = pitem::deserialize(
+                auto sres = pitem::deserialize(
                     *bounded_view< const uint8_t*, typename pitem::size_type >::make(
                         view_n( buffer.begin(), *used ) ) );
-                if ( std::holds_alternative< const protocol::mark* >( res ) ) {
-                        FAIL() << *std::get< 1 >( res );
-                } else {
-                        auto rval = std::get< 0 >( res );
-                        EXPECT_EQ( rval, val );
-                }
-                EXPECT_EQ( pused, expected_buffer.size() );
+
+                if constexpr ( decltype( sres )::can_err == protocol::ERROR_POSSIBLE )
+                        if ( sres.has_error() ) {
+                                FAIL() << *sres.get_error();
+                                return;
+                        }
+
+                auto rval = *sres.get_value();
+                EXPECT_EQ( rval, val );
+                EXPECT_EQ( sres.used, expected_buffer.size() );
         }
 
         void generate_name( std::ostream& os ) const final

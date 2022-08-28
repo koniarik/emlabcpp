@@ -59,9 +59,16 @@ concept converter_check = requires()
 }
 &&requires( bounded_view< const uint8_t*, typename T::size_type > buff )
 {
+        T::deserialize( buff );
+};
+
+template < typename Conv >
+concept erroring_converter =
+    requires( const bounded_view< const uint8_t*, typename Conv::size_type >& buffer )
+{
         {
-                T::deserialize( buff )
-                } -> std::same_as< conversion_result< typename T::value_type > >;
+                Conv::deserialize( buffer )
+                } -> std::same_as< conversion_result< typename Conv::value_type, ERROR_POSSIBLE > >;
 };
 
 template < base_type D, std::endian Endianess >
@@ -86,7 +93,7 @@ struct converter< D, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> conversion_result< value_type >
+            -> conversion_result< value_type, ERROR_IMPOSSIBLE >
         {
                 return { max_size, serializer< value_type, Endianess >::deserialize( buffer ) };
         }
@@ -128,30 +135,36 @@ struct converter< std::array< D, N >, Endianess >
                 return *opt_bused;
         }
 
+        static constexpr error_possibility_enum error_posib =
+            ( fixedly_sized< D > && !erroring_converter< sub_converter > ) ? ERROR_IMPOSSIBLE :
+                                                                             ERROR_POSSIBLE;
+
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
-            -> conversion_result< value_type >
+            -> conversion_result< value_type, error_posib >
         {
+
                 value_type  res{};
                 std::size_t offset = 0;
 
                 for ( std::size_t i : range( N ) ) {
                         auto opt_view = buffer.template opt_offset< sub_size_type >( offset );
 
-                        if ( !opt_view ) {
-                                return { offset, &SIZE_ERR };
-                        }
+                        if constexpr ( error_posib == ERROR_POSSIBLE )
+                                if ( !opt_view ) {
+                                        return { offset, &SIZE_ERR };
+                                }
 
-                        auto [used, subres] = sub_converter::deserialize( *opt_view );
-                        offset += used;
+                        auto sres = sub_converter::deserialize( *opt_view );
+                        offset += sres.used;
+                        if constexpr ( erroring_converter< sub_converter > )
+                                if ( sres.has_error() ) {
+                                        return { offset, sres.get_error() };
+                                }
 
-                        if ( std::holds_alternative< const mark* >( subres ) ) {
-                                return { offset, *std::get_if< const mark* >( &subres ) };
-                        } else {
-                                res[i] = *std::get_if< 0 >( &subres );
-                        }
+                        res[i] = *sres.get_value();
                 }
 
-                return conversion_result{ offset, res };
+                return { offset, res };
         }
 };
 
@@ -190,8 +203,14 @@ struct converter< std::tuple< Ds... >, Endianess >
                 return *opt_bused;
         }
 
+        static constexpr error_possibility_enum error_posib =
+            fixedly_sized< def_type > &&
+                    ( !erroring_converter< converter< Ds, Endianess > > && ... && true ) ?
+                ERROR_IMPOSSIBLE :
+                ERROR_POSSIBLE;
+
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
-            -> conversion_result< value_type >
+            -> conversion_result< value_type, error_posib >
         {
                 value_type res;
 
@@ -206,25 +225,29 @@ struct converter< std::tuple< Ds... >, Endianess >
                             buffer.template opt_offset< typename sub_converter::size_type >(
                                 offset );
 
-                        if ( !opt_view ) {
-                                opt_err = &SIZE_ERR;
-                                return true;
-                        }
+                        if constexpr ( !fixedly_sized< def_type > )
+                                if ( !opt_view ) {
+                                        opt_err = &SIZE_ERR;
+                                        return true;
+                                }
 
-                        auto [sused, sres] = sub_converter::deserialize( *opt_view );
-                        offset += sused;
-                        if ( std::holds_alternative< const mark* >( sres ) ) {
-                                opt_err = *std::get_if< const mark* >( &sres );
-                                return true;
-                        } else {
-                                std::get< i >( res ) = *std::get_if< 0 >( &sres );
-                        }
+                        auto sres = sub_converter::deserialize( *opt_view );
+                        offset += sres.used;
+                        if constexpr ( erroring_converter< sub_converter > )
+                                if ( sres.has_error() ) {
+                                        opt_err = sres.get_error();
+                                        return true;
+                                }
+
+                        std::get< i >( res ) = *sres.get_value();
+
                         return false;
                 } );
 
-                if ( opt_err ) {
-                        return { offset, *opt_err };
-                }
+                if constexpr ( error_posib == ERROR_POSSIBLE )
+                        if ( opt_err ) {
+                                return { offset, *opt_err };
+                        }
                 return { offset, res };
         }
 };
@@ -283,46 +306,38 @@ struct converter< std::variant< Ds... >, Endianess >
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
-                conversion_result< value_type > res{ 0, &UNDEFVAR_ERR };
+                return id_def::deserialize( buffer.template first< id_size >() )
+                    .bind_value( [&buffer]( std::size_t iused, id_type id ) {
+                            auto item_view = buffer.template offset< id_size >();
 
-                auto [iused, idres] = id_def::deserialize( buffer.template first< id_size >() );
-                std::size_t used    = iused;
+                            conversion_result< value_type > res{ 0, &UNDEFVAR_ERR };
+                            until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
+                                    using D             = std::variant_alternative_t< i, def_type >;
+                                    using sub_converter = converter< D, Endianess >;
 
-                if ( std::holds_alternative< const mark* >( idres ) ) {
-                        res.res = *std::get_if< const mark* >( &idres );
-                        return res;
-                }
-                id_type id = std::get< 0 >( idres );
+                                    if ( id != i ) {
+                                            return false;
+                                    }
 
-                auto item_view = buffer.template offset< id_size >();
+                                    auto opt_view = item_view.template opt_offset<
+                                        typename sub_converter::size_type >( 0 );
 
-                until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
-                        using D             = std::variant_alternative_t< i, def_type >;
-                        using sub_converter = converter< D, Endianess >;
+                                    if ( !opt_view ) {
+                                            res.res = &SIZE_ERR;
+                                            return true;
+                                    }
 
-                        if ( id != i ) {
-                                return false;
-                        }
+                                    res = conversion_result< value_type >{
+                                        sub_converter::deserialize( *opt_view )
+                                            .convert_value( []( auto item ) {
+                                                    return value_type{ item };
+                                            } ) };
+                                    res.used += iused;
+                                    return true;
+                            } );
 
-                        auto opt_view =
-                            item_view.template opt_offset< typename sub_converter::size_type >( 0 );
-
-                        if ( !opt_view ) {
-                                res.res = &SIZE_ERR;
-                                return true;
-                        }
-
-                        auto [sused, sres] = sub_converter::deserialize( *opt_view );
-                        res.used           = used + sused;
-                        if ( std::holds_alternative< const mark* >( sres ) ) {
-                                res.res = *std::get_if< const mark* >( &sres );
-                        } else {
-                                res.res = value_type{ *std::get_if< 0 >( &sres ) };
-                        }
-                        return true;
-                } );
-
-                return res;
+                            return res;
+                    } );
         }
 };
 
@@ -380,45 +395,32 @@ struct converter< std::optional< T >, Endianess >
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
             -> conversion_result< value_type >
         {
-                conversion_result< value_type > res{ 0, &BADVAL_ERR };
+                return presence_def::deserialize( buffer.template first< presence_size >() )
+                    .bind_value(
+                        [&buffer]( std::size_t pused, presence_type is_present )
+                            -> conversion_result< value_type > {
+                                if ( is_present == 0 ) {
+                                        return { pused, value_type{} };
+                                }
+                                if ( is_present != 1 ) {
+                                        return { pused, &BADVAL_ERR };
+                                }
 
-                auto [pused, pres] =
-                    presence_def::deserialize( buffer.template first< presence_size >() );
-                res.used = pused;
+                                using sub_size = typename sub_converter::size_type;
+                                auto opt_view =
+                                    buffer.template opt_offset< sub_size >( presence_size );
 
-                if ( std::holds_alternative< const mark* >( pres ) ) {
-                        const mark* m = *std::get_if< const mark* >( &pres );
-                        res.res       = m;
-                        return res;
-                }
-                auto is_present = *std::get_if< presence_type >( &pres );
-                if ( is_present == 0 ) {
-                        res.res = std::nullopt;
-                        return res;
-                }
-                if ( is_present != 1 ) {
-                        return res;
-                }
+                                if ( !opt_view ) {
+                                        return { pused, &BADVAL_ERR };
+                                }
 
-                using sub_size = typename sub_converter::size_type;
-                auto opt_view  = buffer.template opt_offset< sub_size >( presence_size );
-
-                if ( !opt_view ) {
-                        return res;
-                }
-
-                auto [sused, sres] = sub_converter::deserialize( *opt_view );
-
-                res.used += sused;
-                match(
-                    sres,
-                    [&]( T val ) {
-                            res.res = std::make_optional( std::move( val ) );
-                    },
-                    [&]( const mark* m ) {
-                            res.res = m;
-                    } );
-                return res;
+                                auto res = sub_converter::deserialize( *opt_view )
+                                               .convert_value( []( T item ) {
+                                                       return std::make_optional( item );
+                                               } );
+                                res.used += pused;
+                                return conversion_result< value_type >{ std::move( res ) };
+                        } );
         }
 };
 
@@ -510,13 +512,11 @@ struct converter< value_offset< D, Offset >, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> conversion_result< value_type >
         {
-                auto [used, res] = sub_converter::deserialize( buffer );
-                if ( std::holds_alternative< const mark* >( res ) ) {
-                        return { used, *std::get_if< const mark* >( &res ) };
-                }
-                return { used, static_cast< value_type >( *std::get_if< 0 >( &res ) - Offset ) };
+                return sub_converter::deserialize( buffer ).convert_value(
+                    []( D val ) -> value_type {
+                            return static_cast< value_type >( val - Offset );
+                    } );
         }
 };
 
@@ -540,13 +540,10 @@ struct converter< D, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> conversion_result< value_type >
         {
-                auto [used, res] = sub_converter::deserialize( buffer );
-                if ( std::holds_alternative< const mark* >( res ) ) {
-                        return { used, *std::get_if< const mark* >( &res ) };
-                }
-                return { used, value_type{ *std::get_if< 0 >( &res ) } };
+                return sub_converter::deserialize( buffer ).convert_value( []( inner_type val ) {
+                        return value_type{ val };
+                } );
         }
 };
 
@@ -565,20 +562,19 @@ struct converter< bounded< D, Min, Max >, Endianess >
                 return sub_converter::serialize_at( buffer, *item );
         }
 
-        using result_either = conversion_result< value_type >;
+        using result_type = conversion_result< value_type >;
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
-                auto [used, res] = sub_converter::deserialize( buffer );
-                if ( std::holds_alternative< const mark* >( res ) ) {
-                        return { used, *std::get_if< const mark* >( &res ) };
-                }
-                auto opt_val = value_type::make( *std::get_if< 0 >( &res ) );
-                if ( !opt_val ) {
-                        return { 0, &BOUNDS_ERR };
-                }
-                return { used, *opt_val };
+                return sub_converter::deserialize( buffer ).bind_value(
+                    []( std::size_t used, D item ) -> result_type {
+                            auto opt_val = value_type::make( item );
+                            if ( !opt_val ) {
+                                    return { 0, &BOUNDS_ERR };
+                            }
+                            return { used, *opt_val };
+                    } );
         }
 };
 
@@ -617,25 +613,23 @@ struct converter< sized_buffer< CounterDef, D >, Endianess >
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
+                return counter_def::deserialize( buffer.template first< counter_size >() )
+                    .bind_value(
+                        [&]( std::size_t cused,
+                             std::size_t buffer_size ) -> conversion_result< value_type > {
+                                auto start_iter = buffer.begin() + counter_size;
 
-                auto [cused, cres] =
-                    counter_def::deserialize( buffer.template first< counter_size >() );
+                                auto opt_view = bounded_view<
+                                    const uint8_t*,
+                                    typename sub_converter::size_type >::
+                                    make( view_n( start_iter, buffer_size ) );
+                                if ( !opt_view ) {
+                                        return { cused, &SIZE_ERR };
+                                }
 
-                if ( std::holds_alternative< const mark* >( cres ) ) {
-                        return { cused, *std::get_if< const mark* >( &cres ) };
-                }
-                std::size_t used       = *std::get_if< 0 >( &cres );
-                auto        start_iter = buffer.begin() + counter_size;
-
-                auto opt_view =
-                    bounded_view< const uint8_t*, typename sub_converter::size_type >::make(
-                        view_n( start_iter, used ) );
-                if ( !opt_view ) {
-                        return { cused, &SIZE_ERR };
-                }
-
-                auto [sused, res] = sub_converter::deserialize( *opt_view );
-                return { cused + sused, res };
+                                auto [sused, res] = sub_converter::deserialize( *opt_view );
+                                return { cused + sused, res };
+                        } );
         }
 };
 
@@ -658,15 +652,13 @@ struct converter< tag< V >, Endianess >
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
-                auto [used, res] = sub_converter::deserialize( buffer );
-                if ( std::holds_alternative< const mark* >( res ) ) {
-                        return { 0, *std::get_if< const mark* >( &res ) };
-                }
-                auto val = *std::get_if< 0 >( &res );
-                if ( val != V ) {
-                        return { 0, &BADVAL_ERR };
-                }
-                return { used, tag< V >{} };
+                return sub_converter::deserialize( buffer ).bind_value(
+                    []( std::size_t used, auto val ) -> conversion_result< value_type > {
+                            if ( val != V ) {
+                                    return { 0, &BADVAL_ERR };
+                            }
+                            return { used, tag< V >{} };
+                    } );
         }
 };
 
@@ -708,19 +700,14 @@ struct converter< tag_group< Ds... >, Endianess >
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
-                auto [used, sres] = sub_converter::deserialize( buffer );
-                if ( std::holds_alternative< const mark* >( sres ) ) {
-                        return { used, *std::get_if< const mark* >( &sres ) };
-                }
-
-                return {
-                    used,
-                    visit(
-                        [&]< typename Tag, typename T >(
-                            const std::tuple< Tag, T >& pack ) -> value_type {
-                                return std::get< 1 >( pack );
-                        },
-                        *std::get_if< 0 >( &sres ) ) };
+                return sub_converter::deserialize( buffer ).convert_value( []( sub_value var ) {
+                        return visit(
+                            [&]< typename Tag, typename T >(
+                                const std::tuple< Tag, T >& pack ) -> value_type {
+                                    return std::get< 1 >( pack );
+                            },
+                            var );
+                } );
         }
 };
 
@@ -761,7 +748,7 @@ struct converter< group< Ds... >, Endianess >
                 std::size_t                                      size   = buffer.size();
                 std::optional< conversion_result< value_type > > opt_res;
 
-                until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
+                bool got_match = until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
                         using sub_converter =
                             converter< std::variant_alternative_t< i, def_variant >, Endianess >;
 
@@ -775,21 +762,18 @@ struct converter< group< Ds... >, Endianess >
                         if ( !opt_view ) {
                                 return false;
                         }
+                        opt_res = conversion_result< value_type >{
+                            sub_converter::deserialize( *opt_view ).convert_value( []( auto item ) {
+                                    return value_type{ item };
+                            } ) };
 
-                        auto [used, sres] = sub_converter::deserialize( *opt_view );
-                        if ( used == 0 ) {
+                        if ( opt_res->used == 0 ) {
                                 return false;
-                        }
-
-                        if ( std::holds_alternative< const mark* >( sres ) ) {
-                                opt_res.emplace( used, *std::get_if< const mark* >( &sres ) );
-                        } else {
-                                opt_res.emplace( used, value_type{ *std::get_if< 0 >( &sres ) } );
                         }
                         return true;
                 } );
 
-                if ( opt_res ) {
+                if ( got_match ) {
                         return *opt_res;
                 }
 
@@ -851,21 +835,17 @@ struct converter< error_record, Endianess >
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
-                auto [mused, mres] = mark_def::deserialize( buffer.first< mark_def::max_size >() );
-
-                if ( std::holds_alternative< const mark* >( mres ) ) {
-                        return { 0, *std::get_if< const mark* >( &mres ) };
-                }
-
-                auto [oused, ores] =
-                    offset_def::deserialize( buffer.offset< mark_def::max_size >() );
-
-                if ( std::holds_alternative< const mark* >( ores ) ) {
-                        return { mused, *std::get_if< const mark* >( &ores ) };
-                }
-                return {
-                    mused + oused,
-                    error_record{ *std::get_if< 0 >( &mres ), *std::get_if< 0 >( &ores ) } };
+                return mark_def::deserialize( buffer.first< mark_def::max_size >() )
+                    .bind_value(
+                        [&buffer]( std::size_t mused, mark m ) -> conversion_result< value_type > {
+                                return offset_def::deserialize(
+                                           buffer.offset< mark_def::max_size >() )
+                                    .bind_value(
+                                        [mused, &m]( std::size_t oused, std::size_t oval )
+                                            -> conversion_result< value_type > {
+                                                return { mused + oused, error_record{ m, oval } };
+                                        } );
+                        } );
         }
 };
 
@@ -917,38 +897,36 @@ struct converter< static_vector< T, N >, Endianess >
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
             -> conversion_result< value_type >
         {
-                auto [cused, cres] =
-                    counter_def::deserialize( buffer.template first< counter_size >() );
+                return counter_def::deserialize( buffer.template first< counter_size >() )
+                    .bind_value(
+                        [&buffer]( std::size_t cused, std::size_t count )
+                            -> conversion_result< value_type > {
+                                std::size_t offset = cused;
+                                value_type  res{};
 
-                if ( std::holds_alternative< const mark* >( cres ) ) {
-                        return { cused, *std::get_if< const mark* >( &cres ) };
-                }
-                std::size_t cnt    = *std::get_if< 0 >( &cres );
-                std::size_t offset = counter_size;
-                value_type  res{};
+                                for ( std::size_t i : range( count ) ) {
+                                        std::ignore = i;
 
-                for ( std::size_t i : range( cnt ) ) {
-                        std::ignore = i;
+                                        auto opt_view = buffer.template opt_offset<
+                                            typename sub_converter::size_type >( offset );
+                                        if ( !opt_view ) {
+                                                return { offset, &SIZE_ERR };
+                                        }
 
-                        auto opt_view =
-                            buffer.template opt_offset< typename sub_converter::size_type >(
-                                offset );
-                        if ( !opt_view ) {
-                                return { offset, &SIZE_ERR };
-                        }
+                                        auto sres = sub_converter::deserialize( *opt_view );
 
-                        auto [used, subres] = sub_converter::deserialize( *opt_view );
+                                        offset += sres.used;
 
-                        offset += used;
+                                        if constexpr ( erroring_converter< sub_converter > )
+                                                if ( sres.has_error() ) {
+                                                        return { offset, sres.get_error() };
+                                                }
 
-                        if ( std::holds_alternative< const mark* >( subres ) ) {
-                                return { offset, *std::get_if< const mark* >( &subres ) };
-                        } else {
-                                res.push_back( *std::get_if< 0 >( &subres ) );
-                        }
-                }
+                                        res.push_back( *sres.get_value() );
+                                }
 
-                return { offset, res };
+                                return { offset, res };
+                        } );
         }
 };
 
@@ -975,16 +953,11 @@ requires(
         }
 
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
-            -> conversion_result< value_type >
         {
-
-                auto [used, subres] = sub_converter::deserialize( buffer );
-
-                if ( std::holds_alternative< const mark* >( subres ) ) {
-                        return { used, *std::get_if< const mark* >( &subres ) };
-                } else {
-                        return { used, compose< T >( *std::get_if< 0 >( &subres ) ) };
-                }
+                return sub_converter::deserialize( buffer ).convert_value(
+                    []( const tuple_type& val ) {
+                            return compose< T >( val );
+                    } );
         }
 };
 
@@ -1011,17 +984,11 @@ struct memcpy_converter
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
-
-                auto [used, subres] = sub_converter::deserialize( buffer );
-
-                if ( std::holds_alternative< const mark* >( subres ) ) {
-                        return { used, *std::get_if< const mark* >( &subres ) };
-                } else {
-                        sub_type*  sub_ptr = std::get_if< 0 >( &subres );
+                sub_converter::deserialize( buffer ).convert_value( [&]( sub_type val ) {
                         value_type res;
-                        std::memcpy( &res, sub_ptr, sizeof( value_type ) );
-                        return { used, res };
-                }
+                        std::memcpy( &res, &val, sizeof( value_type ) );
+                        return res;
+                } );
         }
 };
 

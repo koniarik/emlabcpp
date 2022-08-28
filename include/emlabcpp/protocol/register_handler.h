@@ -80,11 +80,12 @@ struct register_handler
                 if ( !opt_view ) {
                         return error_record{ SIZE_ERR, 0 };
                 }
-                auto [used, res] = def::deserialize( *opt_view );
-                if ( std::holds_alternative< const mark* >( res ) ) {
-                        return error_record{ *std::get< 1 >( res ), used };
-                }
-                return std::get< 0 >( res );
+                auto sres = def::deserialize( *opt_view );
+                if constexpr ( decltype( sres )::can_err == ERROR_POSSIBLE )
+                        if ( sres.has_error() ) {
+                                return error_record{ *sres.get_error(), sres.used };
+                        }
+                return *sres.get_value();
         }
 
         static std::optional< error_record >
