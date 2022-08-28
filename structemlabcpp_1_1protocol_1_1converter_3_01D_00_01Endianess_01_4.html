@@ -128,8 +128,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a8e098e5c5b29edff792693b6a5efd2f5"><td class="memItemLeft" align="right" valign="top">static constexpr auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a8e098e5c5b29edff792693b6a5efd2f5">bget</a> (auto &amp;buffer, std::size_t i)</td></tr>
-<tr class="separator:a8e098e5c5b29edff792693b6a5efd2f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd4b2e71506381d954f5e24f9e5cde14"><td class="memItemLeft" align="right" valign="top">static constexpr auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#acd4b2e71506381d954f5e24f9e5cde14">bget</a> (auto &amp;buffer, const std::size_t i)</td></tr>
+<tr class="separator:acd4b2e71506381d954f5e24f9e5cde14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27926b2b16597d3a6eefe4e8748a74b3"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#aee0286227eb72ba73a3fdc002c54f97e">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a27926b2b16597d3a6eefe4e8748a74b3">serialize_at</a> (std::span&lt; uint8_t, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a1d054f4f05805200120105e02368d5ff">max_size</a> &gt; buffer, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a00c255f06165e4bd27328badb7473e6c">value_type</a> item)</td></tr>
 <tr class="separator:a27926b2b16597d3a6eefe4e8748a74b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0bd3260b28be8695329d273151c6176"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#af0bd3260b28be8695329d273151c6176">deserialize</a> (const <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>&lt; const uint8_t *, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#aee0286227eb72ba73a3fdc002c54f97e">size_type</a> &gt; &amp;buffer) -&gt; <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a00c255f06165e4bd27328badb7473e6c">value_type</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#ab9cf252bc7761c084c926c6b32bd2e50ae7397e2c8c6cb7e68e83e538fb31960f">ERROR_IMPOSSIBLE</a> &gt;</td></tr>
@@ -244,8 +244,8 @@ template&lt;base_type D, std::endian Endianess&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8e098e5c5b29edff792693b6a5efd2f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e098e5c5b29edff792693b6a5efd2f5">&#9670;&nbsp;</a></span>bget()</h2>
+<a id="acd4b2e71506381d954f5e24f9e5cde14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd4b2e71506381d954f5e24f9e5cde14">&#9670;&nbsp;</a></span>bget()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,7 +264,7 @@ template&lt;base_type D, std::endian Endianess&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramtype">const std::size_t&#160;</td>
           <td class="paramname"><em>i</em>&#160;</td>
         </tr>
         <tr>
@@ -483,7 +483,7 @@ template&lt;base_type D, std::endian Endianess&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html">converter&lt; D, Endianess &gt;</a></li>
-    <li class="footer">Generated on Sun Aug 28 2022 15:29:03 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 28 2022 21:25:25 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
