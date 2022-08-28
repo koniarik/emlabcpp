@@ -149,17 +149,19 @@ struct converter< std::array< D, N >, Endianess >
                 for ( const std::size_t i : range( N ) ) {
                         auto opt_view = buffer.template opt_offset< sub_size_type >( offset );
 
-                        if constexpr ( error_posib == ERROR_POSSIBLE )
+                        if constexpr ( error_posib == ERROR_POSSIBLE ) {
                                 if ( !opt_view ) {
                                         return { offset, &SIZE_ERR };
                                 }
+                        }
 
                         auto sres = sub_converter::deserialize( *opt_view );
                         offset += sres.used;
-                        if constexpr ( erroring_converter< sub_converter > )
+                        if constexpr ( erroring_converter< sub_converter > ) {
                                 if ( sres.has_error() ) {
                                         return { offset, sres.get_error() };
                                 }
+                        }
 
                         res[i] = *sres.get_value();
                 }
@@ -226,29 +228,32 @@ struct converter< std::tuple< Ds... >, Endianess >
                                 buffer.template opt_offset< typename sub_converter::size_type >(
                                     offset );
 
-                            if constexpr ( !fixedly_sized< def_type > )
+                            if constexpr ( !fixedly_sized< def_type > ) {
                                     if ( !opt_view ) {
                                             opt_err = &SIZE_ERR;
                                             return true;
                                     }
+                            }
 
                             auto sres = sub_converter::deserialize( *opt_view );
                             offset += sres.used;
-                            if constexpr ( erroring_converter< sub_converter > )
+                            if constexpr ( erroring_converter< sub_converter > ) {
                                     if ( sres.has_error() ) {
                                             opt_err = sres.get_error();
                                             return true;
                                     }
+                            }
 
                             std::get< i >( res ) = *sres.get_value();
 
                             return false;
                     } );
 
-                if constexpr ( error_posib == ERROR_POSSIBLE )
+                if constexpr ( error_posib == ERROR_POSSIBLE ) {
                         if ( opt_err ) {
                                 return { offset, *opt_err };
                         }
+                }
                 return { offset, res };
         }
 };
@@ -312,30 +317,31 @@ struct converter< std::variant< Ds... >, Endianess >
                             auto item_view = buffer.template offset< id_size >();
 
                             conversion_result< value_type > res{ 0, &UNDEFVAR_ERR };
-                            until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
-                                    using D             = std::variant_alternative_t< i, def_type >;
-                                    using sub_converter = converter< D, Endianess >;
+                            until_index< sizeof...( Ds ) >(
+                                [&res, &item_view, &id, &iused]< std::size_t i >() {
+                                        using D = std::variant_alternative_t< i, def_type >;
+                                        using sub_converter = converter< D, Endianess >;
 
-                                    if ( id != i ) {
-                                            return false;
-                                    }
+                                        if ( id != i ) {
+                                                return false;
+                                        }
 
-                                    auto opt_view = item_view.template opt_offset<
-                                        typename sub_converter::size_type >( 0 );
+                                        auto opt_view = item_view.template opt_offset<
+                                            typename sub_converter::size_type >( 0 );
 
-                                    if ( !opt_view ) {
-                                            res.res = &SIZE_ERR;
-                                            return true;
-                                    }
+                                        if ( !opt_view ) {
+                                                res.res = &SIZE_ERR;
+                                                return true;
+                                        }
 
-                                    res = conversion_result< value_type >{
-                                        sub_converter::deserialize( *opt_view )
-                                            .convert_value( []( auto item ) {
-                                                    return value_type{ item };
-                                            } ) };
-                                    res.used += iused;
-                                    return true;
-                            } );
+                                        res = conversion_result< value_type >{
+                                            sub_converter::deserialize( *opt_view )
+                                                .convert_value( []( auto item ) {
+                                                        return value_type{ item };
+                                                } ) };
+                                        res.used += iused;
+                                        return true;
+                                } );
 
                             return res;
                     } );
@@ -918,10 +924,11 @@ struct converter< static_vector< T, N >, Endianess >
 
                                         offset += sres.used;
 
-                                        if constexpr ( erroring_converter< sub_converter > )
+                                        if constexpr ( erroring_converter< sub_converter > ) {
                                                 if ( sres.has_error() ) {
                                                         return { offset, sres.get_error() };
                                                 }
+                                        }
 
                                         res.push_back( *sres.get_value() );
                                 }
@@ -983,9 +990,8 @@ struct memcpy_converter
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> conversion_result< value_type >
         {
-                sub_converter::deserialize( buffer ).convert_value( [&]( sub_type val ) {
+                return sub_converter::deserialize( buffer ).convert_value( [&]( sub_type val ) {
                         value_type res;
                         std::memcpy( &res, &val, sizeof( value_type ) );
                         return res;
