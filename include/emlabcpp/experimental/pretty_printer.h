@@ -3,6 +3,7 @@
 #include "emlabcpp/experimental/decompose.h"
 #include "emlabcpp/match.h"
 
+#include <filesystem>
 #include <optional>
 #include <sstream>
 #include <tuple>
@@ -78,6 +79,11 @@ public:
                 os_ << j;
         }
 #endif
+
+        void main_print( const std::filesystem::path& p )
+        {
+                os_ << p;
+        }
 
         template < typename T >
         void main_print( const std::reference_wrapper< T >& val )
