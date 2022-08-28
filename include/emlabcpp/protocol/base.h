@@ -78,12 +78,12 @@ struct conversion_result
         {
         }
 
-        bool has_error() const
+        [[nodiscard]] bool has_error() const
         {
                 return std::holds_alternative< const mark* >( res );
         }
 
-        const mark* get_error()
+        [[nodiscard]] const mark* get_error() const
         {
                 if ( has_error() ) {
                         return *std::get_if< const mark* >( &res );
@@ -91,7 +91,7 @@ struct conversion_result
                 return nullptr;
         }
 
-        const T* get_value()
+        [[nodiscard]] const T* get_value() const
         {
                 return std::get_if< T >( &res );
         }
@@ -128,22 +128,22 @@ struct conversion_result< T, ERROR_IMPOSSIBLE >
         T           res;
 
         conversion_result() = default;
-        conversion_result( std::size_t u, T v )
+        conversion_result( std::size_t u, const T& v )
           : used( u )
           , res( v )
         {
         }
 
-        constexpr bool has_error() const
+        [[nodiscard]] constexpr bool has_error() const
         {
                 return false;
         }
-        const mark* get_error()
+        [[nodiscard]] const mark* get_error() const
         {
                 return nullptr;
         }
 
-        const T* get_value()
+        [[nodiscard]] const T* get_value() const
         {
                 return &res;
         }

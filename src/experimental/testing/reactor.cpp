@@ -118,8 +118,8 @@ void reactor::exec_test( reactor_interface_adapter& iface )
 
         test_handle& h = *active_exec_->handle_ptr;
         record       rec{ active_exec_->tid, active_exec_->rid, iface };
-        bool         errd;
-        bool         faild;
+        bool         errd  = false;
+        bool         faild = false;
 
         defer d = [&] {
                 iface.reply(

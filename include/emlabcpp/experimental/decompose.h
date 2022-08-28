@@ -65,7 +65,7 @@ concept decomposable = std::is_class_v< std::decay_t< T > > && !gettable_contain
         constexpr auto decompose( T&& item )                                                      \
         {                                                                                         \
                 if constexpr ( !std::is_lvalue_reference_v< T > ) {                               \
-                        auto&& [__VA_ARGS__] = std::move( item );                                 \
+                        auto&& [__VA_ARGS__] = std::forward< T >( item );                         \
                         return std::make_tuple( __VA_ARGS__ );                                    \
                 } else {                                                                          \
                         auto& [__VA_ARGS__] = item;                                               \

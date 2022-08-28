@@ -17,6 +17,7 @@ namespace
         using log_tpl    = std::tuple< log_tp, const char*, int, std::string, log_severity >;
         using log_buffer = static_circular_buffer< log_tpl, log_buffer_size >;
 
+        // NOLINTNEXTLINE
         thread_local log_buffer LOG_BUFFER;
 
         void log_print_msg(

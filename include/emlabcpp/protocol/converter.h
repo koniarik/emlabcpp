@@ -313,7 +313,7 @@ struct converter< std::variant< Ds... >, Endianess >
             -> conversion_result< value_type >
         {
                 return id_def::deserialize( buffer.template first< id_size >() )
-                    .bind_value( [&buffer]( std::size_t iused, id_type id ) {
+                    .bind_value( [&buffer]( const std::size_t iused, const id_type id ) {
                             auto item_view = buffer.template offset< id_size >();
 
                             conversion_result< value_type > res{ 0, &UNDEFVAR_ERR };
@@ -355,7 +355,7 @@ struct converter< std::monostate, Endianess >
         static constexpr std::size_t max_size = 0;
         using size_type                       = bounded< std::size_t, 0, 0 >;
 
-        static constexpr size_type serialize_at( std::span< uint8_t, 0 >, const value_type& )
+        static constexpr size_type serialize_at( const std::span< uint8_t, 0 >, const value_type& )
         {
                 return size_type{};
         }
@@ -440,7 +440,7 @@ struct converter< std::bitset< N >, Endianess >
 
         static constexpr bool is_big_endian = Endianess == std::endian::big;
 
-        static constexpr auto& bget( auto& buffer, std::size_t i )
+        static constexpr auto& bget( auto& buffer, const std::size_t i )
         {
                 return buffer[is_big_endian ? i : max_size - 1 - i];
         }
@@ -448,9 +448,9 @@ struct converter< std::bitset< N >, Endianess >
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
         {
-                for ( std::size_t i : range( max_size ) ) {
+                for ( const std::size_t i : range( max_size ) ) {
                         std::bitset< 8 > byte;
-                        for ( std::size_t j : range( 8u ) ) {
+                        for ( const std::size_t j : range( 8u ) ) {
                                 byte[j] = item[i * 8 + j];
                         }
                         bget( buffer, i ) = static_cast< uint8_t >( byte.to_ulong() );
@@ -462,9 +462,9 @@ struct converter< std::bitset< N >, Endianess >
             -> conversion_result< value_type >
         {
                 std::bitset< N > res;
-                for ( std::size_t i : range( max_size ) ) {
+                for ( const std::size_t i : range( max_size ) ) {
                         std::bitset< 8 > byte = bget( buffer, i );
-                        for ( std::size_t j : range( 8u ) ) {
+                        for ( const std::size_t j : range( 8u ) ) {
                                 res[i * 8 + j] = byte[j];
                         }
                 }
@@ -482,7 +482,7 @@ struct converter< sizeless_message< N >, Endianess >
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
         {
-                for ( std::size_t i : range( item.size() ) ) {
+                for ( const std::size_t i : range( item.size() ) ) {
                         buffer[i] = item[i];
                 }
                 /// The size of protocol::message should always be within the 0...N range
@@ -622,8 +622,8 @@ struct converter< sized_buffer< CounterDef, D >, Endianess >
         {
                 return counter_def::deserialize( buffer.template first< counter_size >() )
                     .bind_value(
-                        [&]( std::size_t cused,
-                             std::size_t buffer_size ) -> conversion_result< value_type > {
+                        [&buffer]( std::size_t cused, std::size_t buffer_size )
+                            -> conversion_result< value_type > {
                                 auto start_iter = buffer.begin() + counter_size;
 
                                 auto opt_view = bounded_view<
@@ -688,7 +688,7 @@ struct converter< tag_group< Ds... >, Endianess >
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
         {
                 std::optional< size_type > opt_res;
-                until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
+                until_index< sizeof...( Ds ) >( [&buffer, &opt_res, &item]< std::size_t i >() {
                         if ( i != item.index() ) {
                                 return false;
                         }
@@ -709,7 +709,7 @@ struct converter< tag_group< Ds... >, Endianess >
         {
                 return sub_converter::deserialize( buffer ).convert_value( []( sub_value var ) {
                         return visit(
-                            [&]< typename Tag, typename T >(
+                            []< typename Tag, typename T >(
                                 const std::tuple< Tag, T >& pack ) -> value_type {
                                     return std::get< 1 >( pack );
                             },
@@ -732,7 +732,7 @@ struct converter< group< Ds... >, Endianess >
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
         {
                 std::optional< size_type > opt_res;
-                until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
+                until_index< sizeof...( Ds ) >( [&buffer, &item, &opt_res]< std::size_t i >() {
                         if ( i != item.index() ) {
                                 return false;
                         }
@@ -752,10 +752,11 @@ struct converter< group< Ds... >, Endianess >
             -> conversion_result< value_type >
         {
                 std::size_t                                      offset = 0;
-                std::size_t                                      size   = buffer.size();
+                const std::size_t                                size   = buffer.size();
                 std::optional< conversion_result< value_type > > opt_res;
 
-                bool got_match = until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
+                const bool got_match = until_index< sizeof...(
+                    Ds ) >( [&buffer, &offset, &size, &opt_res]< std::size_t i >() {
                         using sub_converter =
                             converter< std::variant_alternative_t< i, def_variant >, Endianess >;
 
@@ -844,11 +845,13 @@ struct converter< error_record, Endianess >
         {
                 return mark_def::deserialize( buffer.first< mark_def::max_size >() )
                     .bind_value(
-                        [&buffer]( std::size_t mused, mark m ) -> conversion_result< value_type > {
+                        [&buffer]( const std::size_t mused, const mark m )
+                            -> conversion_result< value_type > {
                                 return offset_def::deserialize(
                                            buffer.offset< mark_def::max_size >() )
                                     .bind_value(
-                                        [mused, &m]( std::size_t oused, std::size_t oval )
+                                        [mused,
+                                         &m]( const std::size_t oused, const std::size_t oval )
                                             -> conversion_result< value_type > {
                                                 return { mused + oused, error_record{ m, oval } };
                                         } );
