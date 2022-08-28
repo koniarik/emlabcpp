@@ -80,7 +80,7 @@ struct converter< D, Endianess >
 
         static constexpr bool is_big_endian = Endianess == std::endian::big;
 
-        static constexpr auto& bget( auto& buffer, std::size_t i )
+        static constexpr auto& bget( auto& buffer, const std::size_t i )
         {
                 return buffer[is_big_endian ? i : max_size - 1 - i];
         }
@@ -120,7 +120,7 @@ struct converter< std::array< D, N >, Endianess >
         {
                 auto iter = buffer.begin();
 
-                for ( std::size_t i : range( N ) ) {
+                for ( const std::size_t i : range( N ) ) {
                         std::span< uint8_t, sub_converter::max_size > sub_view{
                             iter, sub_converter::max_size };
 
@@ -146,7 +146,7 @@ struct converter< std::array< D, N >, Endianess >
                 value_type  res{};
                 std::size_t offset = 0;
 
-                for ( std::size_t i : range( N ) ) {
+                for ( const std::size_t i : range( N ) ) {
                         auto opt_view = buffer.template opt_offset< sub_size_type >( offset );
 
                         if constexpr ( error_posib == ERROR_POSSIBLE )
@@ -184,7 +184,7 @@ struct converter< std::tuple< Ds... >, Endianess >
         {
                 auto iter = buffer.begin();
 
-                for_each_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
+                for_each_index< sizeof...( Ds ) >( [&iter, &item]< std::size_t i >() {
                         using sub_converter =
                             converter< std::tuple_element_t< i, def_type >, Endianess >;
 
@@ -217,32 +217,33 @@ struct converter< std::tuple< Ds... >, Endianess >
                 std::size_t                  offset = 0;
                 std::optional< const mark* > opt_err;
 
-                until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
-                        using D             = std::tuple_element_t< i, def_type >;
-                        using sub_converter = converter< D, Endianess >;
+                until_index< sizeof...( Ds ) >(
+                    [&offset, &opt_err, &res, &buffer]< std::size_t i >() {
+                            using D             = std::tuple_element_t< i, def_type >;
+                            using sub_converter = converter< D, Endianess >;
 
-                        auto opt_view =
-                            buffer.template opt_offset< typename sub_converter::size_type >(
-                                offset );
+                            auto opt_view =
+                                buffer.template opt_offset< typename sub_converter::size_type >(
+                                    offset );
 
-                        if constexpr ( !fixedly_sized< def_type > )
-                                if ( !opt_view ) {
-                                        opt_err = &SIZE_ERR;
-                                        return true;
-                                }
+                            if constexpr ( !fixedly_sized< def_type > )
+                                    if ( !opt_view ) {
+                                            opt_err = &SIZE_ERR;
+                                            return true;
+                                    }
 
-                        auto sres = sub_converter::deserialize( *opt_view );
-                        offset += sres.used;
-                        if constexpr ( erroring_converter< sub_converter > )
-                                if ( sres.has_error() ) {
-                                        opt_err = sres.get_error();
-                                        return true;
-                                }
+                            auto sres = sub_converter::deserialize( *opt_view );
+                            offset += sres.used;
+                            if constexpr ( erroring_converter< sub_converter > )
+                                    if ( sres.has_error() ) {
+                                            opt_err = sres.get_error();
+                                            return true;
+                                    }
 
-                        std::get< i >( res ) = *sres.get_value();
+                            std::get< i >( res ) = *sres.get_value();
 
-                        return false;
-                } );
+                            return false;
+                    } );
 
                 if constexpr ( error_posib == ERROR_POSSIBLE )
                         if ( opt_err ) {
@@ -280,7 +281,7 @@ struct converter< std::variant< Ds... >, Endianess >
                     buffer.template first< id_size >(), static_cast< id_type >( item.index() ) );
 
                 std::optional< size_type > opt_res;
-                until_index< sizeof...( Ds ) >( [&]< std::size_t i >() {
+                until_index< sizeof...( Ds ) >( [&opt_res, &buffer, &item]< std::size_t i >() {
                         if ( i != item.index() ) {
                                 return false;
                         }
