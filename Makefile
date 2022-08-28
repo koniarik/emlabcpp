@@ -36,7 +36,7 @@ clang-tidy:
 	make -Cctidy_build -j
 
 clang-format:
-	find ./ -iname "*.h" -o -iname "*.cpp" | xargs clang-format -i
+	find ./ \( -iname "*.h" -o -iname "*.cpp" \) | xargs clang-format -i
 
 cmake-format:
 	find ./ -iname "*CMakeLists.txt" -o -iname "*.cmake" | xargs cmake-format -i
