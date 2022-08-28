@@ -114,6 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afa537a87d91b83ba5ea7fb04476df083"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e4335919e542f59bbc65ae28e34e2be"><td class="memItemLeft" align="right" valign="top">std::ios_base::fmtflags&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pretty__printer.html#a3e4335919e542f59bbc65ae28e34e2be">flags</a> (std::ios_base::fmtflags <a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>)</td></tr>
 <tr class="separator:a3e4335919e542f59bbc65ae28e34e2be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3454db5c636b3421bc3336d9aae6fdbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pretty__printer.html#a3454db5c636b3421bc3336d9aae6fdbd">main_print</a> (const std::filesystem::path &amp;p)</td></tr>
+<tr class="separator:a3454db5c636b3421bc3336d9aae6fdbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a878bd5dbcbca5216b86b435cfd8acde5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a878bd5dbcbca5216b86b435cfd8acde5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pretty__printer.html#a878bd5dbcbca5216b86b435cfd8acde5">main_print</a> (const std::reference_wrapper&lt; T &gt; &amp;val)</td></tr>
 <tr class="separator:a878bd5dbcbca5216b86b435cfd8acde5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,10 +123,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a72a209ab03fefdbd1344e299f31cc7b0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pretty__printer.html#a72a209ab03fefdbd1344e299f31cc7b0">main_print</a> (const T &amp;val)</td></tr>
 <tr class="separator:a72a209ab03fefdbd1344e299f31cc7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeab65e772397f0bfd61780e1f4bc18cc"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aeab65e772397f0bfd61780e1f4bc18cc"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pretty__printer.html#aeab65e772397f0bfd61780e1f4bc18cc">requires</a> (<a class="el" href="namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a">detail::directly_streamable_for</a>&lt; std::ostream, T &gt; &amp;&amp;!std::same_as&lt; T, uint8_t &gt; &amp;&amp;!std::is_enum_v&lt; T &gt;) void <a class="el" href="classemlabcpp_1_1pretty__printer.html#a878bd5dbcbca5216b86b435cfd8acde5">main_print</a>(const T &amp;val)</td></tr>
+<tr class="memitem:aeab65e772397f0bfd61780e1f4bc18cc"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pretty__printer.html#aeab65e772397f0bfd61780e1f4bc18cc">requires</a> (<a class="el" href="namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a">detail::directly_streamable_for</a>&lt; std::ostream, T &gt; &amp;&amp;!std::same_as&lt; T, uint8_t &gt; &amp;&amp;!std::is_enum_v&lt; T &gt;) void <a class="el" href="classemlabcpp_1_1pretty__printer.html#a3454db5c636b3421bc3336d9aae6fdbd">main_print</a>(const T &amp;val)</td></tr>
 <tr class="separator:aeab65e772397f0bfd61780e1f4bc18cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a301a1966555e122daf8714e6926f4626"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a301a1966555e122daf8714e6926f4626"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pretty__printer.html#a301a1966555e122daf8714e6926f4626">requires</a> (std::is_enum_v&lt; T &gt;) void <a class="el" href="classemlabcpp_1_1pretty__printer.html#a878bd5dbcbca5216b86b435cfd8acde5">main_print</a>(const T &amp;val)</td></tr>
+<tr class="memitem:a301a1966555e122daf8714e6926f4626"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pretty__printer.html#a301a1966555e122daf8714e6926f4626">requires</a> (std::is_enum_v&lt; T &gt;) void <a class="el" href="classemlabcpp_1_1pretty__printer.html#a3454db5c636b3421bc3336d9aae6fdbd">main_print</a>(const T &amp;val)</td></tr>
 <tr class="separator:a301a1966555e122daf8714e6926f4626"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39c217f4510d07616b2d62205dd55eb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pretty__printer.html#a39c217f4510d07616b2d62205dd55eb3">main_print</a> (const std::string_view &amp;sview)</td></tr>
 <tr class="separator:a39c217f4510d07616b2d62205dd55eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -278,8 +280,34 @@ template&lt;decomposable T&gt; </div>
 
 </div>
 </div>
+<a id="a3454db5c636b3421bc3336d9aae6fdbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3454db5c636b3421bc3336d9aae6fdbd">&#9670;&nbsp;</a></span>main_print() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void emlabcpp::pretty_printer::main_print </td>
+          <td>(</td>
+          <td class="paramtype">const std::filesystem::path &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad1d9f9d7efc75b4475408821d9fa6bd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1d9f9d7efc75b4475408821d9fa6bd7">&#9670;&nbsp;</a></span>main_print() <span class="overload">[1/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1d9f9d7efc75b4475408821d9fa6bd7">&#9670;&nbsp;</a></span>main_print() <span class="overload">[2/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,7 +335,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a878bd5dbcbca5216b86b435cfd8acde5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a878bd5dbcbca5216b86b435cfd8acde5">&#9670;&nbsp;</a></span>main_print() <span class="overload">[2/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a878bd5dbcbca5216b86b435cfd8acde5">&#9670;&nbsp;</a></span>main_print() <span class="overload">[3/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,7 +363,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a7c64e65432d295b751761e4554ecd139"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c64e65432d295b751761e4554ecd139">&#9670;&nbsp;</a></span>main_print() <span class="overload">[3/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c64e65432d295b751761e4554ecd139">&#9670;&nbsp;</a></span>main_print() <span class="overload">[4/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -363,7 +391,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a39c217f4510d07616b2d62205dd55eb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39c217f4510d07616b2d62205dd55eb3">&#9670;&nbsp;</a></span>main_print() <span class="overload">[4/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a39c217f4510d07616b2d62205dd55eb3">&#9670;&nbsp;</a></span>main_print() <span class="overload">[5/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -389,7 +417,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="afd7a474df3898ab0f7f1abe320589988"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd7a474df3898ab0f7f1abe320589988">&#9670;&nbsp;</a></span>main_print() <span class="overload">[5/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afd7a474df3898ab0f7f1abe320589988">&#9670;&nbsp;</a></span>main_print() <span class="overload">[6/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -419,7 +447,7 @@ template&lt;typename... Ts&gt; </div>
 </div>
 </div>
 <a id="a92075e6a91da05cf4761b01163231cdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92075e6a91da05cf4761b01163231cdd">&#9670;&nbsp;</a></span>main_print() <span class="overload">[6/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a92075e6a91da05cf4761b01163231cdd">&#9670;&nbsp;</a></span>main_print() <span class="overload">[7/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -449,7 +477,7 @@ template&lt;typename... Ts&gt; </div>
 </div>
 </div>
 <a id="a72a209ab03fefdbd1344e299f31cc7b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72a209ab03fefdbd1344e299f31cc7b0">&#9670;&nbsp;</a></span>main_print() <span class="overload">[7/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a72a209ab03fefdbd1344e299f31cc7b0">&#9670;&nbsp;</a></span>main_print() <span class="overload">[8/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -527,7 +555,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1pretty__printer.html#a3dc859f70fa5698c0bc3c5190e2cca45">backup_print()</a>, and <a class="el" href="classemlabcpp_1_1pretty__printer.html#a878bd5dbcbca5216b86b435cfd8acde5">main_print()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1pretty__printer.html#a3dc859f70fa5698c0bc3c5190e2cca45">backup_print()</a>, and <a class="el" href="classemlabcpp_1_1pretty__printer.html#a3454db5c636b3421bc3336d9aae6fdbd">main_print()</a>.</p>
 
 </div>
 </div>
@@ -672,7 +700,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1pretty__printer.html">pretty_printer</a></li>
-    <li class="footer">Generated on Fri Aug 26 2022 13:05:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Aug 28 2022 08:45:40 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

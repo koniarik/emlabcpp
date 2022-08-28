@@ -5,6 +5,7 @@ var classemlabcpp_1_1pretty__printer =
     [ "fill", "classemlabcpp_1_1pretty__printer.html#afbe8cc60bbd3e0704f4c589759a47f18", null ],
     [ "flags", "classemlabcpp_1_1pretty__printer.html#afa537a87d91b83ba5ea7fb04476df083", null ],
     [ "flags", "classemlabcpp_1_1pretty__printer.html#a3e4335919e542f59bbc65ae28e34e2be", null ],
+    [ "main_print", "classemlabcpp_1_1pretty__printer.html#a3454db5c636b3421bc3336d9aae6fdbd", null ],
     [ "main_print", "classemlabcpp_1_1pretty__printer.html#ad1d9f9d7efc75b4475408821d9fa6bd7", null ],
     [ "main_print", "classemlabcpp_1_1pretty__printer.html#a878bd5dbcbca5216b86b435cfd8acde5", null ],
     [ "main_print", "classemlabcpp_1_1pretty__printer.html#a7c64e65432d295b751761e4554ecd139", null ],
