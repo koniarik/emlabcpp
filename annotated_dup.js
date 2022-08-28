@@ -25,6 +25,7 @@ var annotated_dup =
       ] ],
       [ "protocol", "namespaceemlabcpp_1_1protocol.html", [
         [ "conversion_result", "structemlabcpp_1_1protocol_1_1conversion__result.html", "structemlabcpp_1_1protocol_1_1conversion__result" ],
+        [ "conversion_result< T, ERROR_IMPOSSIBLE >", "structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01ERROR__IMPOSSIBLE_01_4.html", "structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01ERROR__IMPOSSIBLE_01_4" ],
         [ "endianess_wrapper", "structemlabcpp_1_1protocol_1_1endianess__wrapper.html", "structemlabcpp_1_1protocol_1_1endianess__wrapper" ],
         [ "group", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group", "namespaceemlabcpp_1_1protocol_structemlabcpp_1_1protocol_1_1group_dup" ],
         [ "tag_group", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group", "namespaceemlabcpp_1_1protocol_structemlabcpp_1_1protocol_1_1tag__group_dup" ],

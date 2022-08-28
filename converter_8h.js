@@ -23,11 +23,12 @@ var converter_8h =
     [ "sub_converter", "converter_8h.html#a412977b545de7135102fd67e022c6ce0", null ],
     [ "tuple_type", "converter_8h.html#a44c0ab0566a435c350971a246635c2f9", null ],
     [ "value_type", "converter_8h.html#abe233a151a6ac879f09a4f0aa7426a09", null ],
-    [ "deserialize", "converter_8h.html#a06d45062b7fd0e863ee76d1af4a21d89", null ],
+    [ "deserialize", "converter_8h.html#aec17b785a7753b77e1ea19e123f1fda9", null ],
     [ "requires", "converter_8h.html#a919b5b19b105271c651067cd4c116b44", null ],
     [ "serialize_at", "converter_8h.html#a27f251a6e6a2b178445cddbcdb9e9ac3", null ],
     [ "converter_check", "converter_8h.html#af7b9659a2e1fe1042e7ada0c5797599c", null ],
     [ "Endianess", "converter_8h.html#a43423655ad145f4437a23bcad9e551d3", null ],
+    [ "erroring_converter", "converter_8h.html#aa9e9286894606e20655480510febcac0", null ],
     [ "max_size", "converter_8h.html#a9dfeb95ba0e6684fbc02d537318ac8da", null ],
     [ "min_size", "converter_8h.html#a4ec28242812c1aa8f1213c453bb17cab", null ]
 ];

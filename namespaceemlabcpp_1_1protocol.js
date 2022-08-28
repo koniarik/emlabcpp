@@ -4,6 +4,7 @@ var namespaceemlabcpp_1_1protocol =
       [ "message_derived_test", "namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376", null ]
     ] ],
     [ "conversion_result", "structemlabcpp_1_1protocol_1_1conversion__result.html", "structemlabcpp_1_1protocol_1_1conversion__result" ],
+    [ "conversion_result< T, ERROR_IMPOSSIBLE >", "structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01ERROR__IMPOSSIBLE_01_4.html", "structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01ERROR__IMPOSSIBLE_01_4" ],
     [ "endianess_wrapper", "structemlabcpp_1_1protocol_1_1endianess__wrapper.html", "structemlabcpp_1_1protocol_1_1endianess__wrapper" ],
     [ "group", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group", "namespaceemlabcpp_1_1protocol_structemlabcpp_1_1protocol_1_1group_dup" ],
     [ "tag_group", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group", "namespaceemlabcpp_1_1protocol_structemlabcpp_1_1protocol_1_1tag__group_dup" ],
@@ -72,7 +73,11 @@ var namespaceemlabcpp_1_1protocol =
     [ "sub_converter", "namespaceemlabcpp_1_1protocol.html#a412977b545de7135102fd67e022c6ce0", null ],
     [ "tuple_type", "namespaceemlabcpp_1_1protocol.html#a44c0ab0566a435c350971a246635c2f9", null ],
     [ "value_type", "namespaceemlabcpp_1_1protocol.html#abe233a151a6ac879f09a4f0aa7426a09", null ],
-    [ "deserialize", "namespaceemlabcpp_1_1protocol.html#a06d45062b7fd0e863ee76d1af4a21d89", null ],
+    [ "error_possibility_enum", "namespaceemlabcpp_1_1protocol.html#ab9cf252bc7761c084c926c6b32bd2e50", [
+      [ "ERROR_POSSIBLE", "namespaceemlabcpp_1_1protocol.html#ab9cf252bc7761c084c926c6b32bd2e50aea6258953d389b8dd852c72ae85888a3", null ],
+      [ "ERROR_IMPOSSIBLE", "namespaceemlabcpp_1_1protocol.html#ab9cf252bc7761c084c926c6b32bd2e50ae7397e2c8c6cb7e68e83e538fb31960f", null ]
+    ] ],
+    [ "deserialize", "namespaceemlabcpp_1_1protocol.html#aec17b785a7753b77e1ea19e123f1fda9", null ],
     [ "for_each_register", "namespaceemlabcpp_1_1protocol.html#a25417e5baf4dcb0a348bb0e6e5ea83a2", null ],
     [ "make_mark", "namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be", null ],
     [ "operator<<", "namespaceemlabcpp_1_1protocol.html#a16e17e9ab911b5545219ad5745d5ef2b", null ],
@@ -92,6 +97,7 @@ var namespaceemlabcpp_1_1protocol =
     [ "converter_check", "namespaceemlabcpp_1_1protocol.html#af7b9659a2e1fe1042e7ada0c5797599c", null ],
     [ "convertible", "namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5", null ],
     [ "Endianess", "namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3", null ],
+    [ "erroring_converter", "namespaceemlabcpp_1_1protocol.html#aa9e9286894606e20655480510febcac0", null ],
     [ "fixedly_sized", "namespaceemlabcpp_1_1protocol.html#ac625ba8fcce291f5064a3ec8b5177cd5", null ],
     [ "GROUP_ERR", "namespaceemlabcpp_1_1protocol.html#a0d666fa48e88a04569954408cc678126", null ],
     [ "LOWSIZE_ERR", "namespaceemlabcpp_1_1protocol.html#a0cc152a369eaf93310e8db07084d7c1b", null ],

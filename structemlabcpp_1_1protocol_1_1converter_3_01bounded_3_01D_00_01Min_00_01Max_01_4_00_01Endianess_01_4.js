@@ -1,6 +1,6 @@
 var structemlabcpp_1_1protocol_1_1converter_3_01bounded_3_01D_00_01Min_00_01Max_01_4_00_01Endianess_01_4 =
 [
-    [ "result_either", "structemlabcpp_1_1protocol_1_1converter_3_01bounded_3_01D_00_01Min_00_01Max_01_4_00_01Endianess_01_4.html#a86bd2fa3cdd4be25fa14108fcde3be61", null ],
+    [ "result_type", "structemlabcpp_1_1protocol_1_1converter_3_01bounded_3_01D_00_01Min_00_01Max_01_4_00_01Endianess_01_4.html#af43a150e2826d82ff4744a8e2a8d3186", null ],
     [ "size_type", "structemlabcpp_1_1protocol_1_1converter_3_01bounded_3_01D_00_01Min_00_01Max_01_4_00_01Endianess_01_4.html#ae12ed7aadc4682b9f8e01bec357ac147", null ],
     [ "sub_converter", "structemlabcpp_1_1protocol_1_1converter_3_01bounded_3_01D_00_01Min_00_01Max_01_4_00_01Endianess_01_4.html#afb2edc05fc326b0c986d8b025fe9d28b", null ],
     [ "value_type", "structemlabcpp_1_1protocol_1_1converter_3_01bounded_3_01D_00_01Min_00_01Max_01_4_00_01Endianess_01_4.html#aa03c0e36df9711fdd5de955ce6e0736b", null ],
