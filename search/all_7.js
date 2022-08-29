@@ -4,7 +4,7 @@ var searchData=
   ['handler_306',['handler',['../structemlabcpp_1_1protocol_1_1handler.html',1,'emlabcpp::protocol']]],
   ['handler_2eh_307',['handler.h',['../handler_8h.html',1,'']]],
   ['has_5factive_5ftest_308',['has_active_test',['../classemlabcpp_1_1testing_1_1controller.html#a0e6966dc0858187f635003e9783ad571',1,'emlabcpp::testing::controller']]],
-  ['has_5ferror_309',['has_error',['../structemlabcpp_1_1protocol_1_1conversion__result.html#a7c7c6072a7571b13d6208b0ed0dc96b5',1,'emlabcpp::protocol::conversion_result::has_error()'],['../structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01ERROR__IMPOSSIBLE_01_4.html#ac63f0f6c358915536929ba99c167fcfd',1,'emlabcpp::protocol::conversion_result&lt; T, ERROR_IMPOSSIBLE &gt;::has_error()']]],
+  ['has_5ferror_309',['has_error',['../structemlabcpp_1_1protocol_1_1conversion__result.html#a7c7c6072a7571b13d6208b0ed0dc96b5',1,'emlabcpp::protocol::conversion_result']]],
   ['has_5fsingle_5felement_310',['has_single_element',['../classemlabcpp_1_1bounded.html#a16ff2cd92759c7f62ef87df2c09a1ba0',1,'emlabcpp::bounded']]],
   ['has_5fstatic_5fsize_5fv_311',['has_static_size_v',['../namespaceemlabcpp.html#adaca063c7275419f3999bd854c88de3d',1,'emlabcpp']]],
   ['hash_3c_20t_20_3e_312',['hash&lt; T &gt;',['../structstd_1_1hash_3_01T_01_4.html',1,'std']]]
