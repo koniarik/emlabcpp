@@ -62,13 +62,16 @@ struct handler
                         return error_record{ SIZE_ERR, 0 };
                 }
                 auto res = def::deserialize( *opt_view );
-                if ( res.has_error() ) {
-                        const mark* mark = res.get_error();
-                        EMLABCPP_LOG(
-                            "Failed to extract protocol def "
-                            << pretty_type_name< T >() << " from message " << *opt_view
-                            << ", error is: " << *mark << " with " << res.used << " bytes" );
-                        return error_record{ *mark, res.used };
+                if constexpr ( erroring_converter< def > ) {
+                        if ( res.has_error() ) {
+                                const mark* mark = res.get_error();
+                                EMLABCPP_LOG(
+                                    "Failed to extract protocol def "
+                                    << pretty_type_name< T >() << " from message " << *opt_view
+                                    << ", error is: " << *mark << " with " << res.used
+                                    << " bytes" );
+                                return error_record{ *mark, res.used };
+                        }
                 }
                 return *res.get_value();
         }

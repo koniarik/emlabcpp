@@ -57,23 +57,23 @@ struct conversion_result
         std::variant< T, const mark* > res;
 
         conversion_result() = default;
-        conversion_result( std::size_t u, std::variant< T, const mark* > v )
+        conversion_result( const std::size_t u, const std::variant< T, const mark* >& v )
           : used( u )
           , res( v )
         {
         }
-        conversion_result( std::size_t u, T v )
+        conversion_result( const std::size_t u, const T& v )
           : used( u )
           , res( v )
         {
         }
-        conversion_result( std::size_t u, const mark* m )
+        conversion_result( const std::size_t u, const mark* m )
           : used( u )
           , res( m )
         {
         }
 
-        explicit conversion_result( conversion_result< T, ERROR_IMPOSSIBLE >&& other )
+        explicit conversion_result( const conversion_result< T, ERROR_IMPOSSIBLE >& other )
           : conversion_result( other.used, other.res )
         {
         }
@@ -128,19 +128,10 @@ struct conversion_result< T, ERROR_IMPOSSIBLE >
         T           res;
 
         conversion_result() = default;
-        conversion_result( std::size_t u, const T& v )
+        conversion_result( const std::size_t u, const T& v )
           : used( u )
           , res( v )
         {
-        }
-
-        [[nodiscard]] constexpr bool has_error() const
-        {
-                return false;
-        }
-        [[nodiscard]] const mark* get_error() const
-        {
-                return nullptr;
         }
 
         [[nodiscard]] const T* get_value() const

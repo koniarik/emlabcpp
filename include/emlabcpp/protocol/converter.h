@@ -888,7 +888,7 @@ struct converter< static_vector< T, N >, Endianess >
 
                 /// TODO: this duplicates std::array, generalize?
                 auto iter = buffer.begin() + counter_size;
-                for ( std::size_t i : range( item.size() ) ) {
+                for ( const std::size_t i : range( item.size() ) ) {
                         std::span< uint8_t, sub_converter::max_size > sub_view{
                             iter, sub_converter::max_size };
 
@@ -909,12 +909,12 @@ struct converter< static_vector< T, N >, Endianess >
         {
                 return counter_def::deserialize( buffer.template first< counter_size >() )
                     .bind_value(
-                        [&buffer]( std::size_t cused, std::size_t count )
+                        [&buffer]( const std::size_t cused, const std::size_t count )
                             -> conversion_result< value_type > {
                                 std::size_t offset = cused;
                                 value_type  res{};
 
-                                for ( std::size_t i : range( count ) ) {
+                                for ( const std::size_t i : range( count ) ) {
                                         std::ignore = i;
 
                                         auto opt_view = buffer.template opt_offset<
@@ -994,7 +994,7 @@ struct memcpy_converter
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
         {
-                return sub_converter::deserialize( buffer ).convert_value( [&]( sub_type val ) {
+                return sub_converter::deserialize( buffer ).convert_value( []( sub_type val ) {
                         value_type res;
                         std::memcpy( &res, &val, sizeof( value_type ) );
                         return res;
