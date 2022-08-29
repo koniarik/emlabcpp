@@ -85,6 +85,25 @@ struct test_tuple
 {
 };
 
+template < auto ID, typename T >
+struct simple_tag_struct
+{
+        static constexpr auto id = ID;
+
+        T value;
+
+        friend auto operator<=>(
+            const simple_tag_struct< ID, T >&,
+            const simple_tag_struct< ID, T >& ) = default;
+};
+
+using simple_ca = simple_tag_struct< CA, float >;
+using simple_cb = simple_tag_struct< CB, uint32_t >;
+using simple_cc = simple_tag_struct< CC, int16_t >;
+
+using simple_tag_group     = protocol::tag_group< simple_ca, simple_cb, simple_cc >;
+using simple_tag_group_var = typename simple_tag_group::value_type;
+
 template < typename Group >
 struct valid_test_case : protocol_test_fixture
 {
@@ -185,7 +204,13 @@ int main( int argc, char** argv )
                 complex_group::make_val< CJ >( static_cast< uint8_t >( 42 ) ), { 0, 24, 42 } ),
             make_valid_test_case< test_tuple >(
                 test_tuple::make_val( 23657453, 666, std::bitset< 13 >{ 42 }, 6634343 ),
-                { 1, 104, 251, 237, 2, 154, 42, 0, 0, 101, 59, 103 } ) };
+                { 1, 104, 251, 237, 2, 154, 42, 0, 0, 101, 59, 103 } ),
+            make_valid_test_case< simple_tag_group >(
+                simple_tag_group_var{ simple_ca{ 0.1f } }, { 0, 0, 61, 204, 204, 205 } ),
+            make_valid_test_case< simple_tag_group >(
+                simple_tag_group_var{ simple_cb{ 666 } }, { 0, 1, 0, 0, 2, 154 } ),
+
+        };
 
         exec_protocol_test_fixture_test( tests );
         return RUN_ALL_TESTS();

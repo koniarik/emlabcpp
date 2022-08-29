@@ -167,6 +167,14 @@ const variable_size_type VARIABLE_VAL_1{ std::array< uint8_t, 3 >{ 1, 2, 3 } };
 const variable_size_type VARIABLE_VAL_2{ std::array< uint8_t, 7 >{ 1, 2, 3, 4, 5, 6, 7 } };
 const variable_size_type VARIABLE_VAL_3{ std::array< uint8_t, 0 >{} };
 
+template < typename T >
+struct simple_struct
+{
+        T value;
+
+        friend auto operator<=>( const simple_struct< T >&, const simple_struct< T >& ) = default;
+};
+
 int main( int argc, char** argv )
 {
         testing::InitGoogleTest( &argc, argv );
@@ -314,7 +322,21 @@ int main( int argc, char** argv )
             make_invalid_test_case< std::optional< tag< 666u > > >(
                 { 1, 0 }, protocol::error_record{ protocol::BADVAL_ERR, 1 } ),
             make_invalid_test_case< std::optional< tag< 666u > > >(
-                { 1, 0, 0, 2, 152 }, protocol::error_record{ protocol::BADVAL_ERR, 1 } ) };
+                { 1, 0, 0, 2, 152 }, protocol::error_record{ protocol::BADVAL_ERR, 1 } ),
+            // decompose
+            make_valid_test_case< std::endian::big >(
+                simple_struct< uint16_t >{ 666 }, { 2, 154 } ),
+            make_valid_test_case< std::endian::little >(
+                simple_struct< int32_t >{ -1 }, { 255, 255, 255, 255 } ),
+            make_valid_test_case< std::endian::little >(
+                simple_struct< float >{ 1.f }, { 0, 0, 128, 63 } ),
+            make_valid_test_case< std::endian::little >(
+                simple_struct< std::variant< uint8_t, int16_t, uint16_t > >{ uint8_t{ 42 } },
+                { 0, 42 } ),
+            make_invalid_test_case< simple_struct< std::variant< uint8_t, int16_t, uint16_t > > >(
+                { 3, 0, 0 }, protocol::error_record{ protocol::UNDEFVAR_ERR, 0 } )
+
+        };
 
         exec_protocol_test_fixture_test( tests );
         return RUN_ALL_TESTS();
