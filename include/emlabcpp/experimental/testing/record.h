@@ -32,15 +32,13 @@ namespace emlabcpp::testing
 {
 class record
 {
-        test_id                    tid_;
         run_id                     rid_;
         reactor_interface_adapter& comm_;
         bool                       errored_ = false;
 
 public:
-        record( test_id tid, run_id rid, reactor_interface_adapter& comm )
-          : tid_( tid )
-          , rid_( rid )
+        record( test_id, run_id rid, reactor_interface_adapter& comm )
+          : rid_( rid )
           , comm_( comm )
         {
         }

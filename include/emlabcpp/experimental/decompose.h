@@ -85,7 +85,11 @@ constexpr std::tuple<> decompose( T&& )
 template < typename T, typename Tuple >
 constexpr T compose( Tuple tpl )
 {
-        return std::make_from_tuple< T >( std::move( tpl ) );
+        return std::apply(
+            []< typename... Args >( Args&&... args ) {
+                    return T{ std::forward< Args >( args )... };
+            },
+            std::move( tpl ) );
 }
 
 EMLABCPP_GENERATE_DECOMPOSE( 1, a0 )

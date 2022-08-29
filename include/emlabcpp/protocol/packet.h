@@ -85,7 +85,7 @@ struct packet : packet_base< Def, Payload >
                 static constexpr std::size_t get_size( const auto& buffer )
                 {
                         std::array< uint8_t, size_size > tmp;
-                        std::copy_n( buffer.begin() + prefix_size, size_size, tmp.begin() );
+                        std::copy_n( std::begin( buffer ) + prefix_size, size_size, tmp.begin() );
                         return serializer_type::deserialize( tmp ) + prefix_size + size_size;
                 }
         };

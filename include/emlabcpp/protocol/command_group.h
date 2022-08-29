@@ -20,6 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
+#include "emlabcpp/algorithm.h"
 #include "emlabcpp/assert.h"
 #include "emlabcpp/protocol/traits.h"
 #include "emlabcpp/types.h"
@@ -79,7 +80,7 @@ private:
         static constexpr std::size_t get_id_index( auto id )
         {
                 std::size_t res = sizeof...( Cmds );
-                until_index< sizeof...( Cmds ) >( [&]< std::size_t i >() {
+                until_index< sizeof...( Cmds ) >( [&res, id]< std::size_t i >() {
                         if ( std::tuple_element_t< i, cmds_type >::id == id ) {
                                 res = i;
                                 return true;
@@ -122,7 +123,7 @@ public:
         {
                 std::optional< value_type > res;
 
-                for_each_index< sizeof...( Cmds ) >( [&]< std::size_t i >() {
+                for_each_index< sizeof...( Cmds ) >( [&res, &args...]< std::size_t i >() {
                         using cmd = std::tuple_element_t< i, cmds_type >;
                         if constexpr ( cmd::id == id ) {
                                 res.emplace( cmd::make_val( args... ) );

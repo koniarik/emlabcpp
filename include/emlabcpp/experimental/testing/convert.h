@@ -8,7 +8,7 @@ template < typename T >
 struct value_type_converter;
 
 template < typename T >
-requires( alternative_of< T, value_type > ) struct value_type_converter< T >
+struct value_type_converter_getter
 {
         static std::optional< T > from_value( const value_type& var )
         {
@@ -23,6 +23,17 @@ requires( alternative_of< T, value_type > ) struct value_type_converter< T >
         {
                 return { item };
         }
+};
+
+template <>
+struct value_type_converter< int64_t > : value_type_converter_getter< int64_t >
+{
+};
+
+template < typename T >
+requires( alternative_of< T, value_type > ) struct value_type_converter< T >
+  : value_type_converter_getter< T >
+{
 };
 
 template < typename T >

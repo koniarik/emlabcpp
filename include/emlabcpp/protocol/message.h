@@ -48,13 +48,13 @@ public:
 
         static std::optional< message > make( const range_container auto& cont )
         {
-                if ( cont.size() > N ) {
+                if ( std::size( cont ) > N ) {
                         EMLABCPP_LOG(
                             "Failed to construct protocol message, bigger than limit: "
                             << cont.size() << " > " << N );
                         return {};
                 }
-                return { message( cont.begin(), cont.end() ) };
+                return { message( std::begin( cont ), std::end( cont ) ) };
         }
 
         message() = default;
@@ -125,12 +125,12 @@ public:
                 return &data_[0] + used_;
         }
 
-        uint8_t operator[]( std::size_t i ) const
+        uint8_t operator[]( const std::size_t i ) const
         {
                 return data_[i];
         }
 
-        uint8_t& operator[]( std::size_t i )
+        uint8_t& operator[]( const std::size_t i )
         {
                 return data_[i];
         }
@@ -175,13 +175,13 @@ public:
 
         static std::optional< sizeless_message > make( const range_container auto& cont )
         {
-                if ( cont.size() > N ) {
+                if ( std::size( cont ) > N ) {
                         EMLABCPP_LOG(
                             "Failed to construct sizeless protocol message, bigger than limit: "
-                            << cont.size() << " > " << N );
+                            << std::size( cont ) << " > " << N );
                         return {};
                 }
-                return { sizeless_message( cont.begin(), cont.end() ) };
+                return { sizeless_message( std::begin( cont ), std::end( cont ) ) };
         }
 
         template < std::size_t M >
