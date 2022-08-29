@@ -149,10 +149,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a16228c0599a833ed6da87ee29358db4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaaf155de219ae9571bb3172d3e3c4d33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1protocol_1_1message.html#afccd9962a5f13dcceb96b1bcb1a2df67">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1message.html#aaaf155de219ae9571bb3172d3e3c4d33">end</a> ()</td></tr>
 <tr class="separator:aaaf155de219ae9571bb3172d3e3c4d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a8f03fccfdda60240b66b6f1fed472b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1message.html#a8a8f03fccfdda60240b66b6f1fed472b">operator[]</a> (std::size_t i) const</td></tr>
-<tr class="separator:a8a8f03fccfdda60240b66b6f1fed472b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae96341ab651ec5ee16efb58e15d3bde8"><td class="memItemLeft" align="right" valign="top">uint8_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1message.html#ae96341ab651ec5ee16efb58e15d3bde8">operator[]</a> (std::size_t i)</td></tr>
-<tr class="separator:ae96341ab651ec5ee16efb58e15d3bde8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2834588a413acd64333989ccd6f2169"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1message.html#ae2834588a413acd64333989ccd6f2169">operator[]</a> (const std::size_t i) const</td></tr>
+<tr class="separator:ae2834588a413acd64333989ccd6f2169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16b854d1f3618ebdc50b18e313383289"><td class="memItemLeft" align="right" valign="top">uint8_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1message.html#a16b854d1f3618ebdc50b18e313383289">operator[]</a> (const std::size_t i)</td></tr>
+<tr class="separator:a16b854d1f3618ebdc50b18e313383289"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ae5c258a06b12c8e72b0fada2abd3ff"><td class="memTemplParams" colspan="2">template&lt;std::size_t M&gt; </td></tr>
 <tr class="memitem:a3ae5c258a06b12c8e72b0fada2abd3ff"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1message.html#a3ae5c258a06b12c8e72b0fada2abd3ff">operator std::array&lt; uint8_t, M &gt;</a> () const</td></tr>
 <tr class="separator:a3ae5c258a06b12c8e72b0fada2abd3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -672,8 +672,8 @@ template&lt;std::size_t M&gt; </div>
 
 </div>
 </div>
-<a id="ae96341ab651ec5ee16efb58e15d3bde8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae96341ab651ec5ee16efb58e15d3bde8">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+<a id="a16b854d1f3618ebdc50b18e313383289"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16b854d1f3618ebdc50b18e313383289">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -686,7 +686,7 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="memname">uint8_t&amp; <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">emlabcpp::protocol::message</a>&lt; N &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramtype">const std::size_t&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
           <td></td>
         </tr>
@@ -700,8 +700,8 @@ template&lt;std::size_t N&gt; </div>
 
 </div>
 </div>
-<a id="a8a8f03fccfdda60240b66b6f1fed472b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a8f03fccfdda60240b66b6f1fed472b">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+<a id="ae2834588a413acd64333989ccd6f2169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2834588a413acd64333989ccd6f2169">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -714,7 +714,7 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="memname">uint8_t <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">emlabcpp::protocol::message</a>&lt; N &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramtype">const std::size_t&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -852,7 +852,7 @@ template&lt;std::size_t N&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 06:37:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Aug 29 2022 07:05:47 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

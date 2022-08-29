@@ -174,7 +174,7 @@ $(document).ready(function(){initNavTree('packet_8h_source.html',''); initResiza
 <div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1protocol_1_1packet_1_1sequencer__def.html#aa26baaeccb725a68748eeaabcdff774d">   85</a></span>&#160;                <span class="keyword">static</span> constexpr std::size_t <a class="code" href="structemlabcpp_1_1protocol_1_1packet_1_1sequencer__def.html#aa26baaeccb725a68748eeaabcdff774d">get_size</a>( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; buffer )</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                {</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        std::array&lt; uint8_t, size_size &gt; tmp;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                        std::copy_n( buffer.begin() + <a class="code" href="structemlabcpp_1_1protocol_1_1packet.html#a630930874d0989ecb31f4f097c18bf28">prefix_size</a>, <a class="code" href="structemlabcpp_1_1protocol_1_1packet.html#a90a7ca56e4e665a56824585ebeebccb4">size_size</a>, tmp.begin() );</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                        std::copy_n( std::begin( buffer ) + <a class="code" href="structemlabcpp_1_1protocol_1_1packet.html#a630930874d0989ecb31f4f097c18bf28">prefix_size</a>, <a class="code" href="structemlabcpp_1_1protocol_1_1packet.html#a90a7ca56e4e665a56824585ebeebccb4">size_size</a>, tmp.begin() );</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1serializer.html#ac4bcfcd5d94584c28d07ad182a635192">serializer_type::deserialize</a>( tmp ) + <a class="code" href="structemlabcpp_1_1protocol_1_1packet.html#a630930874d0989ecb31f4f097c18bf28">prefix_size</a> + <a class="code" href="structemlabcpp_1_1protocol_1_1packet.html#a90a7ca56e4e665a56824585ebeebccb4">size_size</a>;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                }</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        };</div>
@@ -227,7 +227,7 @@ $(document).ready(function(){initNavTree('packet_8h_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="packet_8h.html">packet.h</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 06:37:12 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Aug 29 2022 07:05:47 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -96,6 +96,8 @@ var annotated_dup =
         [ "controller", "classemlabcpp_1_1testing_1_1controller.html", "classemlabcpp_1_1testing_1_1controller" ],
         [ "controller_interface", "classemlabcpp_1_1testing_1_1controller__interface.html", "classemlabcpp_1_1testing_1_1controller__interface" ],
         [ "value_type_converter", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter", null ],
+        [ "value_type_converter_getter", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", "structemlabcpp_1_1testing_1_1value__type__converter__getter" ],
+        [ "value_type_converter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html", null ],
         [ "value_type_converter< std::string_view >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4" ],
         [ "reactor_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1reactor__protocol__error_dup" ],
         [ "controller_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__protocol__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1controller__protocol__error_dup" ],

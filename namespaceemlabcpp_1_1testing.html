@@ -106,6 +106,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1testing_1_1value__type__converter"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a></td></tr>
 <tr class="separator:structemlabcpp_1_1testing_1_1value__type__converter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter__getter.html">value_type_converter_getter</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html">value_type_converter&lt; int64_t &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html">value_type_converter&lt; std::string_view &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1testing_1_1reactor__protocol__error"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error">reactor_protocol_error</a></td></tr>
@@ -319,12 +323,9 @@ Functions</h2></td></tr>
 <tr class="separator:a624b5cf78344f5808042aea31286bf6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0b4cea636a1c9a39049bf329270f2e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1testing.html#a031df5ed250c31b1ec9d4b11a149660c">key_type_buffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ae0b4cea636a1c9a39049bf329270f2e8">key_type_to_buffer</a> (std::string_view key)</td></tr>
 <tr class="separator:ae0b4cea636a1c9a39049bf329270f2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8b0ee356b928d68e96c44b7203628e3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af8b0ee356b928d68e96c44b7203628e3"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#af8b0ee356b928d68e96c44b7203628e3">requires</a> (<a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;</td></tr>
-<tr class="separator:af8b0ee356b928d68e96c44b7203628e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d50ef99cfd72f2abf559dc2020f089e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a7d50ef99cfd72f2abf559dc2020f089e"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a7d50ef99cfd72f2abf559dc2020f089e">requires</a> (!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;</td></tr>
-<tr class="separator:a7d50ef99cfd72f2abf559dc2020f089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7adcf3f4ee884f07d803220439c4f493"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7adcf3f4ee884f07d803220439c4f493"><td class="memTemplItemLeft" align="right" valign="top">requires(<a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a7adcf3f4ee884f07d803220439c4f493">requires</a> (!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;</td></tr>
+<tr class="separator:a7adcf3f4ee884f07d803220439c4f493"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0f841f3d87b401883e6b82452554e4d"><td class="memItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#aa0f841f3d87b401883e6b82452554e4d">operator&lt;&lt;</a> (<a class="el" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> auto &amp;os, const <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error">reactor_protocol_error</a> &amp;e)</td></tr>
 <tr class="separator:aa0f841f3d87b401883e6b82452554e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bd49274a0f680348078dd37132c0197"><td class="memItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a2bd49274a0f680348078dd37132c0197">operator&lt;&lt;</a> (<a class="el" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> auto &amp;os, const <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__protocol__error">controller_protocol_error</a> &amp;e)</td></tr>
@@ -1225,8 +1226,8 @@ msg_id</td>
 
 </div>
 </div>
-<a id="a7d50ef99cfd72f2abf559dc2020f089e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d50ef99cfd72f2abf559dc2020f089e">&#9670;&nbsp;</a></span>requires() <span class="overload">[1/2]</span></h2>
+<a id="a7adcf3f4ee884f07d803220439c4f493"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7adcf3f4ee884f07d803220439c4f493">&#9670;&nbsp;</a></span>requires()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1234,29 +1235,9 @@ msg_id</td>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">emlabcpp::testing::requires </td>
+          <td class="memname">requires ( <a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt; ) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt; emlabcpp::testing::requires </td>
           <td>(</td>
           <td class="paramtype">!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af8b0ee356b928d68e96c44b7203628e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8b0ee356b928d68e96c44b7203628e3">&#9670;&nbsp;</a></span>requires() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">emlabcpp::testing::requires </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -1355,7 +1336,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 06:37:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Aug 29 2022 07:05:47 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

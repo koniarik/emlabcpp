@@ -5,6 +5,8 @@ var namespaceemlabcpp_1_1testing =
     [ "controller", "classemlabcpp_1_1testing_1_1controller.html", "classemlabcpp_1_1testing_1_1controller" ],
     [ "controller_interface", "classemlabcpp_1_1testing_1_1controller__interface.html", "classemlabcpp_1_1testing_1_1controller__interface" ],
     [ "value_type_converter", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter", null ],
+    [ "value_type_converter_getter", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", "structemlabcpp_1_1testing_1_1value__type__converter__getter" ],
+    [ "value_type_converter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html", null ],
     [ "value_type_converter< std::string_view >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4" ],
     [ "reactor_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1reactor__protocol__error_dup" ],
     [ "controller_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__protocol__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1controller__protocol__error_dup" ],
@@ -115,8 +117,7 @@ var namespaceemlabcpp_1_1testing =
     [ "operator<<", "namespaceemlabcpp_1_1testing.html#aa0f841f3d87b401883e6b82452554e4d", null ],
     [ "reactor_controller_extract", "namespaceemlabcpp_1_1testing.html#abdbd34423dcafe7f86156035eb20ac39", null ],
     [ "reactor_controller_serialize", "namespaceemlabcpp_1_1testing.html#a907b89e57f53e46e3139377a33f31a30", null ],
-    [ "requires", "namespaceemlabcpp_1_1testing.html#a7d50ef99cfd72f2abf559dc2020f089e", null ],
-    [ "requires", "namespaceemlabcpp_1_1testing.html#af8b0ee356b928d68e96c44b7203628e3", null ],
+    [ "requires", "namespaceemlabcpp_1_1testing.html#a7adcf3f4ee884f07d803220439c4f493", null ],
     [ "string_to_buffer", "namespaceemlabcpp_1_1testing.html#a4f8e9da0be222612bdd79ff0634adb3f", null ],
     [ "test_compose", "namespaceemlabcpp_1_1testing.html#a5dfb36ed7abfd06d258541ad605291f7", null ],
     [ "test_callable", "namespaceemlabcpp_1_1testing.html#a7a1ef67ff724cc655ebe531ae789f956", null ]
