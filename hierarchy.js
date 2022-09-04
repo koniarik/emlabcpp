@@ -4,6 +4,10 @@ var hierarchy =
     [ "std::array< T >", null, [
       [ "emlabcpp::protocol::mark", "structemlabcpp_1_1protocol_1_1mark.html", null ]
     ] ],
+    [ "emlabcpp::protocol::backup_converter< typename, endian >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1backup__converter", null ],
+    [ "emlabcpp::protocol::backup_converter< T, Endianess >", "structemlabcpp_1_1protocol_1_1backup__converter_3_01T_00_01Endianess_01_4.html", null ],
+    [ "emlabcpp::protocol::backup_proto_traits< D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1backup__proto__traits", null ],
+    [ "emlabcpp::protocol::backup_proto_traits< T >", "structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4.html", null ],
     [ "emlabcpp::bounded< T, MinVal, MaxVal >", "classemlabcpp_1_1bounded.html", null ],
     [ "emlabcpp::testing::collect_reply", "structemlabcpp_1_1testing_1_1collect__reply.html", null ],
     [ "emlabcpp::testing::collect_request", "structemlabcpp_1_1testing_1_1collect__request.html", null ],
@@ -28,11 +32,6 @@ var hierarchy =
     [ "emlabcpp::convert_to< T >", "structemlabcpp_1_1convert__to.html", null ],
     [ "emlabcpp::protocol::converter< typename, endian >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter", null ],
     [ "emlabcpp::protocol::converter< bounded< D, Min, Max >, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01bounded_3_01D_00_01Min_00_01Max_01_4_00_01Endianess_01_4.html", null ],
-    [ "emlabcpp::protocol::converter< D::def_type, Endianess >", "namespaceemlabcpp_1_1protocol.html", [
-      [ "emlabcpp::protocol::converter< D, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html", [
-        [ "emlabcpp::protocol::converter< endianess_wrapper< Endianess, D >, ParentEndianess >", "structemlabcpp_1_1protocol_1_1converter_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_00_01ParentEndianess_01_4.html", null ]
-      ] ]
-    ] ],
     [ "emlabcpp::protocol::converter< error_record, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol::converter< group< Ds... >, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01group_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol::converter< mark, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01mark_00_01Endianess_01_4.html", null ],
@@ -53,6 +52,10 @@ var hierarchy =
       [ "emlabcpp::protocol::tuple< Endianess, Ds >", "structemlabcpp_1_1protocol_1_1tuple.html", [
         [ "emlabcpp::protocol::packet< Def, Payload >", "structemlabcpp_1_1protocol_1_1packet.html", null ]
       ] ]
+    ] ],
+    [ "converter_for", null, [
+      [ "emlabcpp::protocol::converter< D, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html", null ],
+      [ "emlabcpp::protocol::converter< endianess_wrapper< Endianess, D >, ParentEndianess >", "structemlabcpp_1_1protocol_1_1converter_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_00_01ParentEndianess_01_4.html", null ]
     ] ],
     [ "emlabcpp::detail::decompose_anything< size_t >", "structemlabcpp_1_1detail_1_1decompose__anything.html", null ],
     [ "emlabcpp::defer< Callable >", "classemlabcpp_1_1defer.html", null ],
@@ -156,11 +159,6 @@ var hierarchy =
     [ "emlabcpp::pretty_printer", "classemlabcpp_1_1pretty__printer.html", null ],
     [ "emlabcpp::protocol::proto_traits< D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits", null ],
     [ "emlabcpp::protocol::proto_traits< bounded< D, Min, Max > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html", null ],
-    [ "emlabcpp::protocol::proto_traits< D::def_type >", "namespaceemlabcpp_1_1protocol.html", [
-      [ "emlabcpp::protocol::proto_traits< D >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html", [
-        [ "emlabcpp::protocol::proto_traits< endianess_wrapper< Endianess, D > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_01_4.html", null ]
-      ] ]
-    ] ],
     [ "emlabcpp::protocol::proto_traits< error_record >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html", null ],
     [ "emlabcpp::protocol::proto_traits< group< Ds... > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01group_3_01Ds_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::protocol::proto_traits< mark >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01mark_01_4.html", null ],
@@ -225,6 +223,10 @@ var hierarchy =
       [ "emlabcpp::testing::test_callable_overlay< Callable >", "classemlabcpp_1_1testing_1_1test__callable__overlay.html", null ]
     ] ],
     [ "emlabcpp::testing::test_result", "structemlabcpp_1_1testing_1_1test__result.html", null ],
+    [ "traits_for", null, [
+      [ "emlabcpp::protocol::proto_traits< D >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html", null ],
+      [ "emlabcpp::protocol::proto_traits< endianess_wrapper< Endianess, D > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_01_4.html", null ]
+    ] ],
     [ "emlabcpp::testing::tree_error_reply", "structemlabcpp_1_1testing_1_1tree__error__reply.html", null ],
     [ "std::true_type", null, [
       [ "emlabcpp::are_same<>", "structemlabcpp_1_1are__same_3_4.html", null ],

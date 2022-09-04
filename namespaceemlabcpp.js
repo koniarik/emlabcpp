@@ -241,5 +241,6 @@ var namespaceemlabcpp =
     [ "static_size_v", "namespaceemlabcpp.html#a2e849ebc932caa63f7e1e6c67d0c2f7b", null ],
     [ "static_sized", "namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5", null ],
     [ "tuple_has_type_v", "namespaceemlabcpp.html#a8574533cb7c969125a6fde8f5063eff2", null ],
-    [ "UnaryCallable", "namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a", null ]
+    [ "UnaryCallable", "namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a", null ],
+    [ "with_value_type", "namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4", null ]
 ];

@@ -13,5 +13,6 @@ var concepts_8h =
     [ "ostreamlike", "concepts_8h.html#a27325f314502897567307b29b2b03776", null ],
     [ "range_container", "concepts_8h.html#a904e4439ee5b6a29ec1c9a5a6d404c55", null ],
     [ "referenceable_container", "concepts_8h.html#ad5b78b4d7a2e426170153951069c76cf", null ],
-    [ "static_sized", "concepts_8h.html#a8114b1d4bc758992dd14a1d64bd454c5", null ]
+    [ "static_sized", "concepts_8h.html#a8114b1d4bc758992dd14a1d64bd454c5", null ],
+    [ "with_value_type", "concepts_8h.html#af124e29aa89adc5fce430ee7fdda3cc4", null ]
 ];

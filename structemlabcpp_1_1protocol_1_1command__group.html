@@ -125,9 +125,9 @@ Public Types</h2></td></tr>
 <tr class="memitem:a593b01753fdf6997d7bdfb6814398c93"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a593b01753fdf6997d7bdfb6814398c93">cmd_value_type</a> = typename <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a14756ee2c89f0fc23af27b7693b3b1c9">cmd_type</a>&lt; ID &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a6c1cab9d6ad9da179385450b969dac77">value_type</a></td></tr>
 <tr class="separator:a593b01753fdf6997d7bdfb6814398c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad45b67c848cbde4f1d784923fb67c3c6"><td class="memTemplParams" colspan="2">template&lt;typename... SubCmds&gt; </td></tr>
-<tr class="memitem:ad45b67c848cbde4f1d784923fb67c3c6"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ad45b67c848cbde4f1d784923fb67c3c6">with_commands</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds..., SubCmds... &gt;</td></tr>
+<tr class="memitem:ad45b67c848cbde4f1d784923fb67c3c6"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ad45b67c848cbde4f1d784923fb67c3c6">with_commands</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">command_group</a>&lt; Endianess, Cmds..., SubCmds... &gt;</td></tr>
 <tr class="separator:ad45b67c848cbde4f1d784923fb67c3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8a5bbe436a5bcf3e7c387a506bd24f1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ab8a5bbe436a5bcf3e7c387a506bd24f1">def_type</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">endianess_wrapper</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group">group</a>&lt; typename Cmds::def_type... &gt; &gt;</td></tr>
+<tr class="memitem:ab8a5bbe436a5bcf3e7c387a506bd24f1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ab8a5bbe436a5bcf3e7c387a506bd24f1">def_type</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">endianess_wrapper</a>&lt; Endianess, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group">group</a>&lt; typename Cmds::def_type... &gt; &gt;</td></tr>
 <tr class="separator:ab8a5bbe436a5bcf3e7c387a506bd24f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a3cfbe12d703364fc5ef3dfc9dc9bca"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a3a3cfbe12d703364fc5ef3dfc9dc9bca">decl</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ab8a5bbe436a5bcf3e7c387a506bd24f1">def_type</a> &gt;</td></tr>
 <tr class="separator:a3a3cfbe12d703364fc5ef3dfc9dc9bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,7 +169,7 @@ template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 template&lt;auto ID&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a14756ee2c89f0fc23af27b7693b3b1c9">cmd_type</a> =  std::tuple_element_t&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a389fc59fac287bb557adf8294b46f6dd">id_index</a>&lt; ID &gt;, <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#aee70b3ca4c17585253944194322f7bee">cmds_type</a> &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; Endianess, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a14756ee2c89f0fc23af27b7693b3b1c9">cmd_type</a> =  std::tuple_element_t&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a389fc59fac287bb557adf8294b46f6dd">id_index</a>&lt; ID &gt;, <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#aee70b3ca4c17585253944194322f7bee">cmds_type</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -187,7 +187,7 @@ template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 template&lt;auto ID&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a593b01753fdf6997d7bdfb6814398c93">cmd_value_type</a> =  typename <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a14756ee2c89f0fc23af27b7693b3b1c9">cmd_type</a>&lt; ID &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a6c1cab9d6ad9da179385450b969dac77">value_type</a></td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; Endianess, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a593b01753fdf6997d7bdfb6814398c93">cmd_value_type</a> =  typename <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a14756ee2c89f0fc23af27b7693b3b1c9">cmd_type</a>&lt; ID &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a6c1cab9d6ad9da179385450b969dac77">value_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -203,7 +203,7 @@ template&lt;auto ID&gt; </div>
 template&lt;std::endian Endianess, typename... Cmds&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#aee70b3ca4c17585253944194322f7bee">cmds_type</a> =  std::tuple&lt; Cmds... &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; Endianess, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#aee70b3ca4c17585253944194322f7bee">cmds_type</a> =  std::tuple&lt; Cmds... &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -219,7 +219,7 @@ template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 template&lt;std::endian Endianess, typename... Cmds&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a3a3cfbe12d703364fc5ef3dfc9dc9bca">decl</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ab8a5bbe436a5bcf3e7c387a506bd24f1">def_type</a> &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; Endianess, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a3a3cfbe12d703364fc5ef3dfc9dc9bca">decl</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ab8a5bbe436a5bcf3e7c387a506bd24f1">def_type</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -235,7 +235,7 @@ template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 template&lt;std::endian Endianess, typename... Cmds&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ab8a5bbe436a5bcf3e7c387a506bd24f1">def_type</a> =  <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">endianess_wrapper</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group">group</a>&lt; typename Cmds::def_type... &gt; &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; Endianess, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ab8a5bbe436a5bcf3e7c387a506bd24f1">def_type</a> =  <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">endianess_wrapper</a>&lt; Endianess, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group">group</a>&lt; typename Cmds::def_type... &gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -251,7 +251,7 @@ template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 template&lt;std::endian Endianess, typename... Cmds&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ae75595015ba7fe1622a8de8eb4e195b0">message_type</a> =  <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a2cb6f27394161030509cff2485c1b7b3">max_size</a> &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; Endianess, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ae75595015ba7fe1622a8de8eb4e195b0">message_type</a> =  <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a2cb6f27394161030509cff2485c1b7b3">max_size</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -267,7 +267,7 @@ template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 template&lt;std::endian Endianess, typename... Cmds&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a6c1cab9d6ad9da179385450b969dac77">value_type</a> =  typename decl::value_type</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; Endianess, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a6c1cab9d6ad9da179385450b969dac77">value_type</a> =  typename decl::value_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -285,7 +285,7 @@ template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 template&lt;typename... SubCmds&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ad45b67c848cbde4f1d784923fb67c3c6">with_commands</a> =  <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds..., SubCmds... &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; Endianess, Cmds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ad45b67c848cbde4f1d784923fb67c3c6">with_commands</a> =  <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">command_group</a>&lt; Endianess, Cmds..., SubCmds... &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -307,7 +307,7 @@ template&lt;auto id, typename... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::requires </td>
+          <td class="memname"><a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; Endianess, Cmds &gt;::requires </td>
           <td>(</td>
           <td class="paramtype">(id==Cmds::id)||&#160;</td>
           <td class="paramname"><em>...</em></td><td>)</td>
@@ -342,7 +342,7 @@ template&lt;auto ID&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::id_index = get_id_index( ID )</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; Endianess, Cmds &gt;::id_index = get_id_index( ID )</td>
         </tr>
       </table>
   </td>
@@ -366,7 +366,7 @@ template&lt;std::endian Endianess, typename... Cmds&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Cmds &gt;::max_size = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ab8a5bbe436a5bcf3e7c387a506bd24f1">def_type</a> &gt;::max_size</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">emlabcpp::protocol::command_group</a>&lt; Endianess, Cmds &gt;::max_size = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#ab8a5bbe436a5bcf3e7c387a506bd24f1">def_type</a> &gt;::max_size</td>
         </tr>
       </table>
   </td>
@@ -387,7 +387,7 @@ template&lt;std::endian Endianess, typename... Cmds&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html">command_group</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 07:36:05 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 4 2022 19:50:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -36,6 +36,7 @@ var annotated_dup =
         [ "command_group", "structemlabcpp_1_1protocol_1_1command__group.html", "structemlabcpp_1_1protocol_1_1command__group" ],
         [ "command_group< Endianess >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1command__group_3_01Endianess_01_4", "namespaceemlabcpp_1_1protocol_structemlabcpp_1_1protocol_1_1command__group_3_01Endianess_01_4_dup" ],
         [ "converter", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter", null ],
+        [ "backup_converter", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1backup__converter", null ],
         [ "converter< D, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4" ],
         [ "converter< std::array< D, N >, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4" ],
         [ "converter< std::tuple< Ds... >, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_00_01Endianess_01_4" ],
@@ -54,6 +55,7 @@ var annotated_dup =
         [ "converter< mark, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01mark_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1converter_3_01mark_00_01Endianess_01_4" ],
         [ "converter< error_record, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4" ],
         [ "converter< static_vector< T, N >, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01static__vector_3_01T_00_01N_01_4_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1converter_3_01static__vector_3_01T_00_01N_01_4_00_01Endianess_01_4" ],
+        [ "backup_converter< T, Endianess >", "structemlabcpp_1_1protocol_1_1backup__converter_3_01T_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1backup__converter_3_01T_00_01Endianess_01_4" ],
         [ "memcpy_converter", "structemlabcpp_1_1protocol_1_1memcpy__converter.html", "structemlabcpp_1_1protocol_1_1memcpy__converter" ],
         [ "mark", "structemlabcpp_1_1protocol_1_1mark.html", "structemlabcpp_1_1protocol_1_1mark" ],
         [ "error_record", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record", "namespaceemlabcpp_1_1protocol_structemlabcpp_1_1protocol_1_1error__record_dup" ],
@@ -70,6 +72,7 @@ var annotated_dup =
         [ "serializer< float, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4" ],
         [ "serializer< bool, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4" ],
         [ "proto_traits", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits", null ],
+        [ "backup_proto_traits", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1backup__proto__traits", null ],
         [ "proto_traits< D >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4" ],
         [ "proto_traits< std::array< D, N > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1array_3_01D_00_01N_01_4_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1array_3_01D_00_01N_01_4_01_4" ],
         [ "proto_traits< std::tuple< Ds... > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1tuple_3_01Ds_8_8_8_01_4_01_4" ],
@@ -88,6 +91,7 @@ var annotated_dup =
         [ "proto_traits< error_record >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4" ],
         [ "proto_traits< static_vector< T, N > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01static__vector_3_01T_00_01N_01_4_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01static__vector_3_01T_00_01N_01_4_01_4" ],
         [ "proto_traits< std::optional< T > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1optional_3_01T_01_4_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1optional_3_01T_01_4_01_4" ],
+        [ "backup_proto_traits< T >", "structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4.html", "structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4" ],
         [ "tuple", "structemlabcpp_1_1protocol_1_1tuple.html", "structemlabcpp_1_1protocol_1_1tuple" ]
       ] ],
       [ "testing", "namespaceemlabcpp_1_1testing.html", [

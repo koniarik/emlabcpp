@@ -150,6 +150,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01static__vector_3_01T_00_01N_01_4_00_01Endianess_01_4.html">emlabcpp::protocol::converter&lt; static_vector&lt; T, N &gt;, Endianess &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1backup__converter_3_01T_00_01Endianess_01_4.html">emlabcpp::protocol::backup_converter&lt; T, Endianess &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1memcpy__converter.html">emlabcpp::protocol::memcpy_converter&lt; T, Endianess &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -162,24 +164,15 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:abe233a151a6ac879f09a4f0aa7426a09"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#abe233a151a6ac879f09a4f0aa7426a09">emlabcpp::protocol::value_type</a> = typename decl::value_type</td></tr>
-<tr class="separator:abe233a151a6ac879f09a4f0aa7426a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c9f77a80f142fce6ced33ec3b77e9a9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a1c9f77a80f142fce6ced33ec3b77e9a9">emlabcpp::protocol::size_type</a> = bounded&lt; std::size_t, min_size, max_size &gt;</td></tr>
-<tr class="separator:a1c9f77a80f142fce6ced33ec3b77e9a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44c0ab0566a435c350971a246635c2f9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a44c0ab0566a435c350971a246635c2f9">emlabcpp::protocol::tuple_type</a> = typename decl::tuple_type</td></tr>
-<tr class="separator:a44c0ab0566a435c350971a246635c2f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a412977b545de7135102fd67e022c6ce0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a412977b545de7135102fd67e022c6ce0">emlabcpp::protocol::sub_converter</a> = converter&lt; tuple_type, Endianess &gt;</td></tr>
-<tr class="separator:a412977b545de7135102fd67e022c6ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba2818d17e2b2cc369733e18839ba19f"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E&gt; </td></tr>
+<tr class="memitem:aba2818d17e2b2cc369733e18839ba19f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">emlabcpp::protocol::converter_for</a> = decltype(converter_for_impl&lt; D, E &gt;())</td></tr>
+<tr class="separator:aba2818d17e2b2cc369733e18839ba19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a919b5b19b105271c651067cd4c116b44"><td class="memTemplParams" colspan="2">template&lt;decomposable T, std::endian Endianess&gt; </td></tr>
-<tr class="memitem:a919b5b19b105271c651067cd4c116b44"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a919b5b19b105271c651067cd4c116b44">emlabcpp::protocol::requires</a> (!std::derived_from&lt; T, converter_def_type_base &gt; &amp;&amp;!quantity_derived&lt; T &gt;) struct converter&lt; T</td></tr>
-<tr class="separator:a919b5b19b105271c651067cd4c116b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27f251a6e6a2b178445cddbcdb9e9ac3"><td class="memItemLeft" align="right" valign="top">static constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a27f251a6e6a2b178445cddbcdb9e9ac3">emlabcpp::protocol::serialize_at</a> (std::span&lt; uint8_t, max_size &gt; buffer, const value_type &amp;item)</td></tr>
-<tr class="separator:a27f251a6e6a2b178445cddbcdb9e9ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec17b785a7753b77e1ea19e123f1fda9"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aec17b785a7753b77e1ea19e123f1fda9">emlabcpp::protocol::deserialize</a> (bounded_view&lt; const uint8_t *, size_type &gt; buffer)</td></tr>
-<tr class="separator:aec17b785a7753b77e1ea19e123f1fda9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E&gt; </td></tr>
+<tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9">emlabcpp::protocol::converter_for_impl</a> ()</td></tr>
+<tr class="separator:a8a42ec62524b9afc0195ff5f102300f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -190,12 +183,6 @@ Variables</h2></td></tr>
 <tr class="memitem:aa9e9286894606e20655480510febcac0"><td class="memTemplParams" colspan="2">template&lt;typename Conv &gt; </td></tr>
 <tr class="memitem:aa9e9286894606e20655480510febcac0"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aa9e9286894606e20655480510febcac0">emlabcpp::protocol::erroring_converter</a></td></tr>
 <tr class="separator:aa9e9286894606e20655480510febcac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43423655ad145f4437a23bcad9e551d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">emlabcpp::protocol::Endianess</a></td></tr>
-<tr class="separator:a43423655ad145f4437a23bcad9e551d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dfeb95ba0e6684fbc02d537318ac8da"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a> = decl::max_size</td></tr>
-<tr class="separator:a9dfeb95ba0e6684fbc02d537318ac8da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ec28242812c1aa8f1213c453bb17cab"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a4ec28242812c1aa8f1213c453bb17cab">emlabcpp::protocol::min_size</a> = decl::min_size</td></tr>
-<tr class="separator:a4ec28242812c1aa8f1213c453bb17cab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -203,7 +190,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="converter_8h.html">converter.h</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 07:36:05 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 4 2022 19:50:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,9 +1,9 @@
 var structemlabcpp_1_1protocol_1_1memcpy__converter =
 [
     [ "size_type", "structemlabcpp_1_1protocol_1_1memcpy__converter.html#a340be66e0902aaca56c8f18fc1b20dc4", null ],
-    [ "sub_converter", "structemlabcpp_1_1protocol_1_1memcpy__converter.html#ab10ea5d740b3d1f84ab4489fcc66e218", null ],
+    [ "sub_converter", "structemlabcpp_1_1protocol_1_1memcpy__converter.html#a1202bd4cae30a7c68309f16cb9e61129", null ],
     [ "sub_type", "structemlabcpp_1_1protocol_1_1memcpy__converter.html#a051102987ed7ca69fdef523b1bc71b28", null ],
-    [ "traits", "structemlabcpp_1_1protocol_1_1memcpy__converter.html#a64d45bbff5b19bcd3af5341e7ee894a7", null ],
+    [ "traits", "structemlabcpp_1_1protocol_1_1memcpy__converter.html#acf94d85fc55d0ad3248895e8843d5cbb", null ],
     [ "value_type", "structemlabcpp_1_1protocol_1_1memcpy__converter.html#a2070155eaee5514c13b161285bf5e56f", null ],
     [ "deserialize", "structemlabcpp_1_1protocol_1_1memcpy__converter.html#abaefc224ce34c1eb6eeffdb8d3d28100", null ],
     [ "serialize_at", "structemlabcpp_1_1protocol_1_1memcpy__converter.html#a29d962939d04e6102d1fad86c4895080", null ],

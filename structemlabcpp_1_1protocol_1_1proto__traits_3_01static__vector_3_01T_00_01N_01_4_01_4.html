@@ -105,7 +105,7 @@ Public Types</h2></td></tr>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a48f2b33f1699cd97c740a03327df4e85"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01static__vector_3_01T_00_01N_01_4_01_4.html#a48f2b33f1699cd97c740a03327df4e85">max_size</a></td></tr>
 <tr class="separator:a48f2b33f1699cd97c740a03327df4e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49e7ba6d3120fbf6611fc192ecfc1ecb"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01static__vector_3_01T_00_01N_01_4_01_4.html#a49e7ba6d3120fbf6611fc192ecfc1ecb">min_size</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01static__vector_3_01T_00_01N_01_4_01_4.html#af68022f31cab03e3a2ebc84684b8e8d5">counter_type</a> &gt;::min_size</td></tr>
+<tr class="memitem:a49e7ba6d3120fbf6611fc192ecfc1ecb"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01static__vector_3_01T_00_01N_01_4_01_4.html#a49e7ba6d3120fbf6611fc192ecfc1ecb">min_size</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01static__vector_3_01T_00_01N_01_4_01_4.html#af68022f31cab03e3a2ebc84684b8e8d5">counter_type</a> &gt;::min_size</td></tr>
 <tr class="separator:a49e7ba6d3120fbf6611fc192ecfc1ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
@@ -164,8 +164,7 @@ template&lt;convertible T, std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">            <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">proto_traits&lt; counter_type &gt;::max_size</a> + <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">proto_traits&lt; T &gt;::max_size</a> * N</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a9dfeb95ba0e6684fbc02d537318ac8da"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> converter.h:951</div></div>
+<div class="line">            traits_for&lt; counter_type &gt;::max_size + traits_for&lt; T &gt;::max_size * N</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -181,7 +180,7 @@ template&lt;convertible T, std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">emlabcpp::protocol::proto_traits</a>&lt; <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; &gt;::min_size = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01static__vector_3_01T_00_01N_01_4_01_4.html#af68022f31cab03e3a2ebc84684b8e8d5">counter_type</a> &gt;::min_size</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">emlabcpp::protocol::proto_traits</a>&lt; <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; &gt;::min_size = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01static__vector_3_01T_00_01N_01_4_01_4.html#af68022f31cab03e3a2ebc84684b8e8d5">counter_type</a> &gt;::min_size</td>
         </tr>
       </table>
   </td>
@@ -202,7 +201,7 @@ template&lt;convertible T, std::size_t N&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01static__vector_3_01T_00_01N_01_4_01_4.html">proto_traits&lt; static_vector&lt; T, N &gt; &gt;</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 07:36:05 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 4 2022 19:50:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

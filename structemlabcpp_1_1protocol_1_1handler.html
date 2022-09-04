@@ -99,8 +99,8 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1protocol_1_1handler.
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a05d36b85d8e8ed924a1406d60e5f611c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a05d36b85d8e8ed924a1406d60e5f611c">def</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">converter</a>&lt; T, std::endian::big &gt;</td></tr>
-<tr class="separator:a05d36b85d8e8ed924a1406d60e5f611c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70c4f05b47d09918e6bc13ce95aecb31"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a70c4f05b47d09918e6bc13ce95aecb31">def</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a>&lt; T, std::endian::big &gt;</td></tr>
+<tr class="separator:a70c4f05b47d09918e6bc13ce95aecb31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf8e1e4018585b862e3e46a5f69684fd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aaf8e1e4018585b862e3e46a5f69684fd">value_type</a> = typename def::value_type</td></tr>
 <tr class="separator:aaf8e1e4018585b862e3e46a5f69684fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a628acb0d52c7124cd132c5a7cd99f1e1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a628acb0d52c7124cd132c5a7cd99f1e1">message_type</a> = <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; def::max_size &gt;</td></tr>
@@ -120,8 +120,8 @@ struct emlabcpp::protocol::handler&lt; T &gt;</h3>
 <p>handler&lt; T &gt; should be used to execute actual serialization and deserealization of protocol definition. </p>
 <p>It provides serialize/extract methods that should be used by the user. You may want to have this class (With the include) to be present in separate .cpp file, as the compile time can be quite heavy. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a05d36b85d8e8ed924a1406d60e5f611c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05d36b85d8e8ed924a1406d60e5f611c">&#9670;&nbsp;</a></span>def</h2>
+<a id="a70c4f05b47d09918e6bc13ce95aecb31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70c4f05b47d09918e6bc13ce95aecb31">&#9670;&nbsp;</a></span>def</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,7 +129,7 @@ struct emlabcpp::protocol::handler&lt; T &gt;</h3>
 template&lt;convertible T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">emlabcpp::protocol::handler</a>&lt; T &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a05d36b85d8e8ed924a1406d60e5f611c">def</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">converter</a>&lt; T, std::endian::big &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">emlabcpp::protocol::handler</a>&lt; T &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a70c4f05b47d09918e6bc13ce95aecb31">def</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a>&lt; T, std::endian::big &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -195,7 +195,7 @@ template&lt;convertible T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#aec17b785a7753b77e1ea19e123f1fda9">emlabcpp::protocol::deserialize()</a>, <a class="el" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>, <a class="el" href="classemlabcpp_1_1bounded__view.html#a6b64890bc01240d6bb82c9cc96fc2abc">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::make()</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>, <a class="el" href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">emlabcpp::min()</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>, <a class="el" href="classemlabcpp_1_1view.html#aaa812fd178fc993e11fbbbc5894fb3c3">emlabcpp::view&lt; Iterator &gt;::size()</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a75075a1ed102c600dfd1f1894c1fc93b">emlabcpp::protocol::SIZE_ERR</a>, and <a class="el" href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">emlabcpp::view_n()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>, <a class="el" href="classemlabcpp_1_1bounded__view.html#a6b64890bc01240d6bb82c9cc96fc2abc">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::make()</a>, <a class="el" href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">emlabcpp::min()</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>, <a class="el" href="classemlabcpp_1_1view.html#aaa812fd178fc993e11fbbbc5894fb3c3">emlabcpp::view&lt; Iterator &gt;::size()</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a75075a1ed102c600dfd1f1894c1fc93b">emlabcpp::protocol::SIZE_ERR</a>, and <a class="el" href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">emlabcpp::view_n()</a>.</p>
 
 </div>
 </div>
@@ -225,7 +225,7 @@ template&lt;convertible T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1message.html#a64606ee225a66213b5299c6614505b3f">emlabcpp::protocol::message&lt; N &gt;::make()</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a27f251a6e6a2b178445cddbcdb9e9ac3">emlabcpp::protocol::serialize_at()</a>, and <a class="el" href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">emlabcpp::view_n()</a>.</p>
+<p class="reference">References <a class="el" href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1message.html#a64606ee225a66213b5299c6614505b3f">emlabcpp::protocol::message&lt; N &gt;::make()</a>, and <a class="el" href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">emlabcpp::view_n()</a>.</p>
 
 </div>
 </div>
@@ -238,7 +238,7 @@ template&lt;convertible T&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">handler</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 07:36:05 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 4 2022 19:50:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

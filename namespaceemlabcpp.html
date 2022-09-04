@@ -780,6 +780,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a5a66cad0d4226d39ffd692e16bcfc076"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a></td></tr>
 <tr class="memdesc:a5a66cad0d4226d39ffd692e16bcfc076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thanks for the solution goes to PJBoy@libera.  <a href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">More...</a><br /></td></tr>
 <tr class="separator:a5a66cad0d4226d39ffd692e16bcfc076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af124e29aa89adc5fce430ee7fdda3cc4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af124e29aa89adc5fce430ee7fdda3cc4"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4">with_value_type</a></td></tr>
+<tr class="separator:af124e29aa89adc5fce430ee7fdda3cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a459242c17dfd40402115fe8a63d21622"><td class="memTemplParams" colspan="2">template&lt;typename T , typename LH , typename RH &gt; </td></tr>
 <tr class="memitem:a459242c17dfd40402115fe8a63d21622"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a459242c17dfd40402115fe8a63d21622">either_uniquely_right_item</a></td></tr>
 <tr class="separator:a459242c17dfd40402115fe8a63d21622"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -5961,13 +5964,34 @@ template&lt;typename T , typename... Us&gt; </div>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="af124e29aa89adc5fce430ee7fdda3cc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af124e29aa89adc5fce430ee7fdda3cc4">&#9670;&nbsp;</a></span>with_value_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::with_value_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a></div>
+<div class="line">{</div>
+<div class="line">        <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a>;</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:48</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 07:36:05 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 4 2022 19:50:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

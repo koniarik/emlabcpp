@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('traits_8h.html',''); initResizable(); 
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -150,6 +151,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1optional_3_01T_01_4_01_4.html">emlabcpp::protocol::proto_traits&lt; std::optional&lt; T &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4.html">emlabcpp::protocol::backup_proto_traits&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -158,20 +161,26 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceemlabcpp_1_1protocol"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html">emlabcpp::protocol</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a3a34c38f8477e0d13ec03adfde561549"><td class="memTemplParams" colspan="2">template&lt;typename D &gt; </td></tr>
+<tr class="memitem:a3a34c38f8477e0d13ec03adfde561549"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">emlabcpp::protocol::traits_for</a> = decltype(traits_for_impl&lt; D &gt;())</td></tr>
+<tr class="separator:a3a34c38f8477e0d13ec03adfde561549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6a87c037501b441e22c490164b25493b"><td class="memTemplParams" colspan="2">template&lt;decomposable T&gt; </td></tr>
-<tr class="memitem:a6a87c037501b441e22c490164b25493b"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a6a87c037501b441e22c490164b25493b">emlabcpp::protocol::requires</a> (!std::derived_from&lt; T, converter_def_type_base &gt; &amp;&amp;!quantity_derived&lt; T &gt;) struct proto_traits&lt; T &gt;</td></tr>
-<tr class="separator:a6a87c037501b441e22c490164b25493b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c27fc5576f6e7894b809016d7d5cbdc"><td class="memTemplParams" colspan="2">template&lt;typename D &gt; </td></tr>
+<tr class="memitem:a9c27fc5576f6e7894b809016d7d5cbdc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a9c27fc5576f6e7894b809016d7d5cbdc">emlabcpp::protocol::traits_for_impl</a> ()</td></tr>
+<tr class="separator:a9c27fc5576f6e7894b809016d7d5cbdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:aabf37dc4e5c925a68b635522ef9567a5"><td class="memTemplParams" colspan="2">template&lt;typename D &gt; </td></tr>
 <tr class="memitem:aabf37dc4e5c925a68b635522ef9567a5"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5">emlabcpp::protocol::convertible</a></td></tr>
-<tr class="memdesc:aabf37dc4e5c925a68b635522ef9567a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This concepts limits types to types that can be declared, that is the overload of '<a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits" title="Each definition of item provided to protocol library should have specialization of &#39;proto_traits&#39; str...">proto_traits</a>' is fully defined: proto_traits::value_type contains definition of value produced by the declaration, proto_traits::max_size contains estimated maximal size in bytes taken by the serialized value in the message.  <a href="namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5">More...</a><br /></td></tr>
+<tr class="memdesc:aabf37dc4e5c925a68b635522ef9567a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This concepts limits types to types that can be declared, that is the overload of 'traits_for' is fully defined: traits_for::value_type contains definition of value produced by the declaration, traits_for::max_size contains estimated maximal size in bytes taken by the serialized value in the message.  <a href="namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5">More...</a><br /></td></tr>
 <tr class="separator:aabf37dc4e5c925a68b635522ef9567a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac625ba8fcce291f5064a3ec8b5177cd5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac625ba8fcce291f5064a3ec8b5177cd5"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ac625ba8fcce291f5064a3ec8b5177cd5">emlabcpp::protocol::fixedly_sized</a> = proto_traits&lt; T &gt;::min_size == proto_traits&lt; T &gt;::max_size</td></tr>
+<tr class="memitem:ac625ba8fcce291f5064a3ec8b5177cd5"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ac625ba8fcce291f5064a3ec8b5177cd5">emlabcpp::protocol::fixedly_sized</a> = traits_for&lt; T &gt;::min_size == traits_for&lt; T &gt;::max_size</td></tr>
 <tr class="separator:ac625ba8fcce291f5064a3ec8b5177cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -180,7 +189,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="traits_8h.html">traits.h</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 07:36:05 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 4 2022 19:50:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

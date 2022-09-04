@@ -153,8 +153,8 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                j[<span class="stringliteral">&quot;pretty_name&quot;</span>] = prot_ser::get_name();</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                j[<span class="stringliteral">&quot;raw_name&quot;</span>] = <span class="keyword">typeid</span>( D ).name();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                j[<span class="stringliteral">&quot;max_size&quot;</span>] = <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">decl::max_size</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                j[<span class="stringliteral">&quot;min_size&quot;</span>] = <a class="code" href="namespaceemlabcpp_1_1protocol.html#a4ec28242812c1aa8f1213c453bb17cab">decl::min_size</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                j[<span class="stringliteral">&quot;max_size&quot;</span>] = decl::max_size;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                j[<span class="stringliteral">&quot;min_size&quot;</span>] = decl::min_size;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                prot_ser::add_extra( j );</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
@@ -249,7 +249,7 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        }</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;};</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">template</span> &lt; convertible T &gt;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<a class="code" href="namespaceemlabcpp_1_1protocol.html#a919b5b19b105271c651067cd4c116b44">requires</a>( std::is_enum_v&lt; T &gt; ) <span class="keyword">struct </span>traits_json_serializer&lt; T &gt; : traits_json_serializer_base</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( std::is_enum_v&lt; T &gt; ) <span class="keyword">struct </span>traits_json_serializer&lt; T &gt; : traits_json_serializer_base</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;{</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;enum&quot;</span>;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keyword">static</span> std::string                get_name()</div>
@@ -370,7 +370,7 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;};</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="keyword">template</span> &lt; quantity_derived D &gt;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<a class="code" href="namespaceemlabcpp_1_1protocol.html#a919b5b19b105271c651067cd4c116b44">requires</a>( convertible&lt; D &gt; ) <span class="keyword">struct </span>traits_json_serializer&lt; D &gt; : traits_json_serializer_base</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( convertible&lt; D &gt; ) <span class="keyword">struct </span>traits_json_serializer&lt; D &gt; : traits_json_serializer_base</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;{</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;quantity&quot;</span>;</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
@@ -477,12 +477,12 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;};</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="keyword">template</span> &lt; std::endian Endianess, convertible D &gt;</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; endianess_wrapper&lt; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, D &gt; &gt; : traits_json_serializer&lt; D &gt;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="keyword">struct </span>traits_json_serializer&lt; endianess_wrapper&lt; Endianess, D &gt; &gt; : traits_json_serializer&lt; D &gt;</div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;{</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;};</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="keyword">template</span> &lt; std::derived_from&lt; converter_def_type_base &gt; D &gt;</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<a class="code" href="namespaceemlabcpp_1_1protocol.html#a919b5b19b105271c651067cd4c116b44">requires</a>( convertible&lt; D &gt; ) <span class="keyword">struct </span>traits_json_serializer&lt; D &gt;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( convertible&lt; D &gt; ) <span class="keyword">struct </span>traits_json_serializer&lt; D &gt;</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;  : traits_json_serializer&lt; typename D::def_type &gt;</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;{</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
@@ -541,7 +541,7 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;};</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160; </div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="keyword">template</span> &lt; decomposable D &gt;</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<a class="code" href="namespaceemlabcpp_1_1protocol.html#a919b5b19b105271c651067cd4c116b44">requires</a>(</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>(</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    convertible&lt; D &gt; &amp;&amp; !quantity_derived&lt; D &gt; &amp;&amp;</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    !std::derived_from&lt; D, converter_def_type_base &gt; ) <span class="keyword">struct </span>traits_json_serializer&lt; D &gt;</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;  : traits_json_serializer&lt; typename proto_traits&lt; D &gt;::tuple_type &gt;</div>
@@ -559,15 +559,12 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div class="ttc" id="aalgorithm_8h_html"><div class="ttname"><a href="algorithm_8h.html">algorithm.h</a></div></div>
 <div class="ttc" id="aenum_8h_html"><div class="ttname"><a href="enum_8h.html">enum.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html">emlabcpp::protocol</a></div><div class="ttdef"><b>Definition:</b> base.h:35</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a43423655ad145f4437a23bcad9e551d3"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">emlabcpp::protocol::Endianess</a></div><div class="ttdeci">Endianess</div><div class="ttdef"><b>Definition:</b> converter.h:948</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a4ec28242812c1aa8f1213c453bb17cab"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a4ec28242812c1aa8f1213c453bb17cab">emlabcpp::protocol::min_size</a></div><div class="ttdeci">static constexpr std::size_t min_size</div><div class="ttdef"><b>Definition:</b> converter.h:952</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a919b5b19b105271c651067cd4c116b44"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a919b5b19b105271c651067cd4c116b44">emlabcpp::protocol::requires</a></div><div class="ttdeci">requires(!std::derived_from&lt; T, converter_def_type_base &gt; &amp;&amp;!quantity_derived&lt; T &gt;) struct converter&lt; T</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a9dfeb95ba0e6684fbc02d537318ac8da"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> converter.h:951</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_aabf37dc4e5c925a68b635522ef9567a5"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5">emlabcpp::protocol::convertible</a></div><div class="ttdeci">concept convertible</div><div class="ttdoc">This concepts limits types to types that can be declared, that is the overload of 'proto_traits' is f...</div><div class="ttdef"><b>Definition:</b> traits.h:50</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_aabf37dc4e5c925a68b635522ef9567a5"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5">emlabcpp::protocol::convertible</a></div><div class="ttdeci">concept convertible</div><div class="ttdoc">This concepts limits types to types that can be declared, that is the overload of 'traits_for' is ful...</div><div class="ttdef"><b>Definition:</b> traits.h:66</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a1911a0fc83869772cacfc4d21772268f"><div class="ttname"><a href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">emlabcpp::map_f_to_a</a></div><div class="ttdeci">std::array&lt; T, N &gt; map_f_to_a(Container &amp;&amp;cont, UnaryCallable &amp;&amp;f=std::identity()) requires(!static_sized&lt; Container &gt;)</div><div class="ttdoc">Calls callable f(cont[i]) for i = 0...N and stores the result in array of an size N.</div><div class="ttdef"><b>Definition:</b> algorithm.h:421</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a31c1cbc5b728494acb47daebb913fd96"><div class="ttname"><a href="namespaceemlabcpp.html#a31c1cbc5b728494acb47daebb913fd96">emlabcpp::joined</a></div><div class="ttdeci">constexpr T joined(const Container &amp;cont, const T &amp;val, UnaryCallable &amp;&amp;f=std::identity())</div><div class="ttdoc">Function applies callable f to each item in container cont and contacts results with operator+,...</div><div class="ttdef"><b>Definition:</b> algorithm.h:469</div></div>
-<div class="ttc" id="astructemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4_html"><div class="ttname"><a href="structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html">emlabcpp::protocol::proto_traits&lt; D &gt;</a></div><div class="ttdef"><b>Definition:</b> traits.h:66</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_aab6fd32a8b3335eec93b94331d4293b0"><div class="ttname"><a href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">emlabcpp::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) const expr std</div><div class="ttdoc">Returns index of an element in tuple 't', for which call to predicate f(x) holds true,...</div><div class="ttdef"><b>Definition:</b> algorithm.h:118</div></div>
+<div class="ttc" id="astructemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4_html"><div class="ttname"><a href="structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html">emlabcpp::protocol::proto_traits&lt; D &gt;</a></div><div class="ttdef"><b>Definition:</b> traits.h:82</div></div>
 <div class="ttc" id="atraits_8h_html"><div class="ttname"><a href="traits_8h.html">traits.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -575,7 +572,7 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="protocol_2json_8h.html">json.h</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 07:36:05 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 4 2022 19:50:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
