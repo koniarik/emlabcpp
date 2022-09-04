@@ -75,6 +75,7 @@ add_emlabcpp_test(testing_json)
 add_emlabcpp_test(types_test)
 add_emlabcpp_test(visit_test)
 add_emlabcpp_test(zip_test)
+add_emlabcpp_test(rpc_test)
 
 # file(GLOB_RECURSE HEADER_FILES "${PROJECT_SOURCE_DIR}/include/*.h" )
 # add_format_test( TARGET emlabcpp_format WORKING_DIRECTORY
