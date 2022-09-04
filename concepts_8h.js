@@ -8,6 +8,7 @@ var concepts_8h =
     [ "container", "concepts_8h.html#ac6a5e3253aa7ea8bcd6574b3274c74b6", null ],
     [ "container_invocable", "concepts_8h.html#abeb742c691973ef2d34b0ace4d8eef15", null ],
     [ "directly_streamable_for", "concepts_8h.html#a2f551e44c5e38047b5051df9803ab03a", null ],
+    [ "element_of", "concepts_8h.html#a3895ca2fd367021e74c1915f724c0242", null ],
     [ "gettable_container", "concepts_8h.html#adb54eee14fc87e50de7f6ed35ad1aba0", null ],
     [ "invocable_returning", "concepts_8h.html#a5219e24bd076b3c65f56c69b9025dd69", null ],
     [ "ostreamlike", "concepts_8h.html#a27325f314502897567307b29b2b03776", null ],

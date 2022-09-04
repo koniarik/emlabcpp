@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quantity_5fderived_1458',['quantity_derived',['../namespaceemlabcpp.html#a869ab03f1bd49e1adc49de513ad86ba4',1,'emlabcpp']]]
+  ['quantity_5fderived_1484',['quantity_derived',['../namespaceemlabcpp.html#a869ab03f1bd49e1adc49de513ad86ba4',1,'emlabcpp']]]
 ];

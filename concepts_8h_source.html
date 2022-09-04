@@ -236,17 +236,23 @@ $(document).ready(function(){initNavTree('concepts_8h_source.html',''); initResi
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">return</span> ( std::same_as&lt; T, Ts &gt; || ... );</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}( <span class="keyword">static_cast&lt;</span> Variant* <span class="keyword">&gt;</span>( nullptr ) );</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4">  157</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4">with_value_type</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;{</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a>;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;};</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, <span class="keyword">typename</span> Tuple &gt;</div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a3895ca2fd367021e74c1915f724c0242">  157</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a3895ca2fd367021e74c1915f724c0242">element_of</a> = []&lt; <span class="keyword">typename</span>... Ts &gt;( std::tuple&lt; Ts... &gt;* ) {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">return</span> ( std::same_as&lt; T, Ts &gt; || ... );</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;}( <span class="keyword">static_cast&lt;</span> Tuple* <span class="keyword">&gt;</span>( nullptr ) );</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4">  162</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4">with_value_type</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;{</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;};</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1detail_html_a2f551e44c5e38047b5051df9803ab03a"><div class="ttname"><a href="namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a">emlabcpp::detail::directly_streamable_for</a></div><div class="ttdeci">concept directly_streamable_for</div><div class="ttdef"><b>Definition:</b> concepts.h:127</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:48</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a27325f314502897567307b29b2b03776"><div class="ttname"><a href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">emlabcpp::ostreamlike</a></div><div class="ttdeci">concept ostreamlike</div><div class="ttdef"><b>Definition:</b> concepts.h:134</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a3895ca2fd367021e74c1915f724c0242"><div class="ttname"><a href="namespaceemlabcpp.html#a3895ca2fd367021e74c1915f724c0242">emlabcpp::element_of</a></div><div class="ttdeci">concept element_of</div><div class="ttdef"><b>Definition:</b> concepts.h:157</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a5219e24bd076b3c65f56c69b9025dd69"><div class="ttname"><a href="namespaceemlabcpp.html#a5219e24bd076b3c65f56c69b9025dd69">emlabcpp::invocable_returning</a></div><div class="ttdeci">concept invocable_returning</div><div class="ttdef"><b>Definition:</b> concepts.h:117</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a5494e6f6f24a2fd7e7ccfaecb31944b3"><div class="ttname"><a href="namespaceemlabcpp.html#a5494e6f6f24a2fd7e7ccfaecb31944b3">emlabcpp::arithmetic_like</a></div><div class="ttdeci">concept arithmetic_like</div><div class="ttdef"><b>Definition:</b> concepts.h:61</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a5a66cad0d4226d39ffd692e16bcfc076"><div class="ttname"><a href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">emlabcpp::alternative_of</a></div><div class="ttdeci">concept alternative_of</div><div class="ttdoc">Thanks for the solution goes to PJBoy@libera.</div><div class="ttdef"><b>Definition:</b> concepts.h:152</div></div>
@@ -262,7 +268,7 @@ $(document).ready(function(){initNavTree('concepts_8h_source.html',''); initResi
 <div class="ttc" id="anamespaceemlabcpp_html_ac6a5e3253aa7ea8bcd6574b3274c74b6"><div class="ttname"><a href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">emlabcpp::container</a></div><div class="ttdeci">concept container</div><div class="ttdef"><b>Definition:</b> concepts.h:85</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ad5b78b4d7a2e426170153951069c76cf"><div class="ttname"><a href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">emlabcpp::referenceable_container</a></div><div class="ttdeci">concept referenceable_container</div><div class="ttdef"><b>Definition:</b> concepts.h:88</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_adb54eee14fc87e50de7f6ed35ad1aba0"><div class="ttname"><a href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">emlabcpp::gettable_container</a></div><div class="ttdeci">concept gettable_container</div><div class="ttdef"><b>Definition:</b> concepts.h:67</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_af124e29aa89adc5fce430ee7fdda3cc4"><div class="ttname"><a href="namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4">emlabcpp::with_value_type</a></div><div class="ttdeci">concept with_value_type</div><div class="ttdef"><b>Definition:</b> concepts.h:157</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_af124e29aa89adc5fce430ee7fdda3cc4"><div class="ttname"><a href="namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4">emlabcpp::with_value_type</a></div><div class="ttdeci">concept with_value_type</div><div class="ttdef"><b>Definition:</b> concepts.h:162</div></div>
 <div class="ttc" id="astructemlabcpp_1_1is__view_html"><div class="ttname"><a href="structemlabcpp_1_1is__view.html">emlabcpp::is_view</a></div><div class="ttdef"><b>Definition:</b> base.h:65</div></div>
 <div class="ttc" id="atypes_2base_8h_html"><div class="ttname"><a href="types_2base_8h.html">base.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -271,7 +277,7 @@ $(document).ready(function(){initNavTree('concepts_8h_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="concepts_8h.html">concepts.h</a></li>
-    <li class="footer">Generated on Sun Sep 4 2022 20:10:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 4 2022 21:07:20 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

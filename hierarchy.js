@@ -181,6 +181,7 @@ var hierarchy =
     [ "emlabcpp::quantity< tagged_quantity< Tag, float >, float >", "classemlabcpp_1_1quantity.html", [
       [ "emlabcpp::tagged_quantity< Tag, ValueType >", "classemlabcpp_1_1tagged__quantity.html", null ]
     ] ],
+    [ "emlabcpp::rpc::reactor< Def >", "classemlabcpp_1_1rpc_1_1reactor.html", null ],
     [ "emlabcpp::testing::reactor", "classemlabcpp_1_1testing_1_1reactor.html", [
       [ "emlabcpp::testing::default_reactor", "classemlabcpp_1_1testing_1_1default__reactor.html", null ]
     ] ],
@@ -223,6 +224,11 @@ var hierarchy =
       [ "emlabcpp::testing::test_callable_overlay< Callable >", "classemlabcpp_1_1testing_1_1test__callable__overlay.html", null ]
     ] ],
     [ "emlabcpp::testing::test_result", "structemlabcpp_1_1testing_1_1test__result.html", null ],
+    [ "emlabcpp::rpc::traits< T >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits", null ],
+    [ "emlabcpp::rpc::traits< Def >", "namespaceemlabcpp_1_1rpc.html", [
+      [ "emlabcpp::rpc::controller< Def >", "classemlabcpp_1_1rpc_1_1controller.html", null ]
+    ] ],
+    [ "emlabcpp::rpc::traits< std::tuple< Calls... > >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4", null ],
     [ "traits_for", null, [
       [ "emlabcpp::protocol::proto_traits< D >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html", null ],
       [ "emlabcpp::protocol::proto_traits< endianess_wrapper< Endianess, D > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_01_4.html", null ]

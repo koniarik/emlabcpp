@@ -94,6 +94,12 @@ var annotated_dup =
         [ "backup_proto_traits< T >", "structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4.html", "structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4" ],
         [ "tuple", "structemlabcpp_1_1protocol_1_1tuple.html", "structemlabcpp_1_1protocol_1_1tuple" ]
       ] ],
+      [ "rpc", "namespaceemlabcpp_1_1rpc.html", [
+        [ "traits", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits", null ],
+        [ "traits< std::tuple< Calls... > >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4", "namespaceemlabcpp_1_1rpc_structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4_dup" ],
+        [ "reactor", "classemlabcpp_1_1rpc_1_1reactor.html", "classemlabcpp_1_1rpc_1_1reactor" ],
+        [ "controller", "classemlabcpp_1_1rpc_1_1controller.html", "classemlabcpp_1_1rpc_1_1controller" ]
+      ] ],
       [ "testing", "namespaceemlabcpp_1_1testing.html", [
         [ "test_info", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1test__info_dup" ],
         [ "test_result", "structemlabcpp_1_1testing_1_1test__result.html", "structemlabcpp_1_1testing_1_1test__result" ],

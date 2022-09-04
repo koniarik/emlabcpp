@@ -103,6 +103,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceemlabcpp_1_1protocol"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceemlabcpp_1_1rpc"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1rpc.html">rpc</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceemlabcpp_1_1testing"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -780,6 +782,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a5a66cad0d4226d39ffd692e16bcfc076"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a></td></tr>
 <tr class="memdesc:a5a66cad0d4226d39ffd692e16bcfc076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thanks for the solution goes to PJBoy@libera.  <a href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">More...</a><br /></td></tr>
 <tr class="separator:a5a66cad0d4226d39ffd692e16bcfc076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3895ca2fd367021e74c1915f724c0242"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Tuple &gt; </td></tr>
+<tr class="memitem:a3895ca2fd367021e74c1915f724c0242"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3895ca2fd367021e74c1915f724c0242">element_of</a></td></tr>
+<tr class="separator:a3895ca2fd367021e74c1915f724c0242"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af124e29aa89adc5fce430ee7fdda3cc4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:af124e29aa89adc5fce430ee7fdda3cc4"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4">with_value_type</a></td></tr>
 <tr class="separator:af124e29aa89adc5fce430ee7fdda3cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -5535,6 +5540,25 @@ template&lt;typename T , typename LH , typename RH &gt; </div>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a3895ca2fd367021e74c1915f724c0242"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3895ca2fd367021e74c1915f724c0242">&#9670;&nbsp;</a></span>element_of</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Tuple &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::element_of</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= []&lt; <span class="keyword">typename</span>... Ts &gt;( std::tuple&lt; Ts... &gt;* ) {</div>
+<div class="line">        <span class="keywordflow">return</span> ( std::same_as&lt; T, Ts &gt; || ... );</div>
+<div class="line">}( <span class="keyword">static_cast&lt;</span> Tuple* <span class="keyword">&gt;</span>( nullptr ) )</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a6aa7db523ecb529a3835ce0f1175fb4c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6aa7db523ecb529a3835ce0f1175fb4c">&#9670;&nbsp;</a></span>f</h2>
 
@@ -5991,7 +6015,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sun Sep 4 2022 20:10:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 4 2022 21:07:20 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
