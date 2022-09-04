@@ -42,6 +42,9 @@ namespace emlabcpp::protocol
 template < convertible >
 struct traits_json_serializer;
 
+template < convertible >
+struct backup_traits_json_serializer;
+
 struct traits_json_serializer_base
 {
         static void add_extra( nlohmann::json& )
@@ -49,13 +52,11 @@ struct traits_json_serializer_base
         }
 };
 
-}  // namespace emlabcpp::protocol
-
-template < emlabcpp::protocol::convertible D >
-struct nlohmann::adl_serializer< emlabcpp::protocol::proto_traits< D > >
+template < typename D, typename ProtoSer >
+struct proto_traits_adl_serializer
 {
-        using decl     = emlabcpp::protocol::proto_traits< D >;
-        using prot_ser = emlabcpp::protocol::traits_json_serializer< D >;
+        using decl     = traits_for< D >;
+        using prot_ser = ProtoSer;
 
         static void to_json( nlohmann::json& j, const decl& )
         {
@@ -73,6 +74,21 @@ struct nlohmann::adl_serializer< emlabcpp::protocol::proto_traits< D > >
         {
                 return {};
         }
+};
+
+}  // namespace emlabcpp::protocol
+
+template < emlabcpp::protocol::convertible D >
+struct nlohmann::adl_serializer< emlabcpp::protocol::proto_traits< D > >
+  : emlabcpp::protocol::
+        proto_traits_adl_serializer< D, emlabcpp::protocol::traits_json_serializer< D > >
+{
+};
+template < emlabcpp::protocol::convertible D >
+struct nlohmann::adl_serializer< emlabcpp::protocol::backup_proto_traits< D > >
+  : emlabcpp::protocol::
+        proto_traits_adl_serializer< D, emlabcpp::protocol::backup_traits_json_serializer< D > >
+{
 };
 
 namespace emlabcpp::protocol
@@ -170,7 +186,7 @@ requires( std::is_enum_v< T > ) struct traits_json_serializer< T > : traits_json
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"] = proto_traits< std::underlying_type_t< T > >{};
+                j["sub_type"] = traits_for< std::underlying_type_t< T > >{};
 #ifdef EMLABCPP_USE_MAGIC_ENUM
                 j["values"] = magic_enum::enum_names< T >();
 #endif
@@ -190,7 +206,7 @@ struct traits_json_serializer< std::array< D, N > > : traits_json_serializer_bas
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"]   = proto_traits< D >{};
+                j["sub_type"]   = traits_for< D >{};
                 j["item_count"] = N;
         }
 };
@@ -211,7 +227,7 @@ struct traits_json_serializer< std::tuple< Ds... > > : traits_json_serializer_ba
                 if constexpr ( sizeof...( Ds ) != 0 ) {
                         j["sub_types"] = map_f_to_a(
                             std::tuple< Ds... >{}, [&]< typename D >( D ) -> nlohmann::json {
-                                    return proto_traits< D >{};
+                                    return traits_for< D >{};
                             } );
                 }
         }
@@ -222,7 +238,7 @@ struct traits_json_serializer< std::variant< Ds... > > : traits_json_serializer_
 {
         static constexpr std::string_view type_name = "variant";
 
-        using decl = proto_traits< std::variant< Ds... > >;
+        using decl = traits_for< std::variant< Ds... > >;
 
         static std::string get_name()
         {
@@ -236,7 +252,7 @@ struct traits_json_serializer< std::variant< Ds... > > : traits_json_serializer_
                 j["counter_type"] = typename decl::id_decl{};
                 j["sub_types"] =
                     map_f_to_a( std::tuple< Ds... >{}, [&]< typename D >( D ) -> nlohmann::json {
-                            return proto_traits< D >{};
+                            return traits_for< D >{};
                     } );
         }
 };
@@ -275,7 +291,7 @@ struct traits_json_serializer< value_offset< D, Offset > > : traits_json_seriali
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"] = proto_traits< D >{};
+                j["sub_type"] = traits_for< D >{};
                 j["offset"]   = Offset;
         }
 };
@@ -292,7 +308,7 @@ requires( convertible< D > ) struct traits_json_serializer< D > : traits_json_se
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"] = proto_traits< typename D::value_type >{};
+                j["sub_type"] = traits_for< typename D::value_type >{};
                 if ( D::get_unit() != "" ) {
                         j["unit"] = D::get_unit();
                 }
@@ -311,7 +327,7 @@ struct traits_json_serializer< bounded< D, Min, Max > > : traits_json_serializer
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"] = proto_traits< D >{};
+                j["sub_type"] = traits_for< D >{};
                 j["min"]      = Min;
                 j["max"]      = Max;
         }
@@ -329,8 +345,8 @@ struct traits_json_serializer< sized_buffer< CounterType, D > > : traits_json_se
 
         static void add_extra( nlohmann::json& j )
         {
-                j["counter_type"] = proto_traits< CounterType >{};
-                j["sub_type"]     = proto_traits< D >{};
+                j["counter_type"] = traits_for< CounterType >{};
+                j["sub_type"]     = traits_for< D >{};
         }
 };
 
@@ -350,7 +366,7 @@ struct traits_json_serializer< tag< V > > : traits_json_serializer_base
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"] = typename proto_traits< tag< V > >::sub_decl{};
+                j["sub_type"] = typename traits_for< tag< V > >::sub_decl{};
                 j["value"]    = V;
 #ifdef EMLABCPP_USE_MAGIC_ENUM
                 if constexpr ( std::is_enum_v< decltype( V ) > ) {
@@ -375,14 +391,14 @@ struct traits_json_serializer< group< Ds... > > : traits_json_serializer_base
         {
                 j["sub_types"] =
                     map_f_to_a( std::tuple< Ds... >{}, [&]< typename D >( D ) -> nlohmann::json {
-                            return proto_traits< D >{};
+                            return traits_for< D >{};
                     } );
         }
 };
 
 template < convertible... Ds >
 struct traits_json_serializer< tag_group< Ds... > >
-  : traits_json_serializer< typename proto_traits< tag_group< Ds... > >::sub_type >
+  : traits_json_serializer< typename traits_for< tag_group< Ds... > >::sub_type >
 {
         static constexpr std::string_view type_name = "group";
 };
@@ -422,12 +438,12 @@ struct traits_json_serializer< error_record > : traits_json_serializer_base
                 return std::string{ type_name };
         }
 
-        using decl = proto_traits< error_record >;
+        using decl = traits_for< error_record >;
 
         static void add_extra( nlohmann::json& j )
         {
-                j["mark_type"]   = proto_traits< typename decl::mark_type >{};
-                j["offset_type"] = proto_traits< typename decl::offset_type >{};
+                j["mark_type"]   = traits_for< typename decl::mark_type >{};
+                j["offset_type"] = traits_for< typename decl::offset_type >{};
         }
 };
 
@@ -446,16 +462,14 @@ struct traits_json_serializer< static_vector< T, N > > : traits_json_serializer_
         static void add_extra( nlohmann::json& j )
         {
                 j["counter_type"] =
-                    proto_traits< typename proto_traits< static_vector< T, N > >::counter_type >{};
-                j["sub_type"] = proto_traits< T >{};
+                    traits_for< typename traits_for< static_vector< T, N > >::counter_type >{};
+                j["sub_type"] = traits_for< T >{};
         }
 };
 
-template < decomposable D >
-requires(
-    convertible< D > && !quantity_derived< D > &&
-    !std::derived_from< D, converter_def_type_base > ) struct traits_json_serializer< D >
-  : traits_json_serializer< typename proto_traits< D >::tuple_type >
+template < convertible D >
+struct backup_traits_json_serializer
+  : traits_json_serializer< typename traits_for< D >::tuple_type >
 {
 
         static std::string get_name()
