@@ -41,25 +41,41 @@ namespace emlabcpp::protocol
 template < typename D >
 struct proto_traits;
 
+template < typename D >
+struct backup_proto_traits;
+
+template < typename D >
+auto traits_for_impl()
+{
+        if constexpr ( with_value_type< proto_traits< D > > ) {
+                return proto_traits< D >{};
+        } else {
+                return backup_proto_traits< D >{};
+        }
+}
+
+template < typename D >
+using traits_for = decltype( traits_for_impl< D >() );
+
 /// This concepts limits types to types that can be declared, that is the overload of
-/// 'proto_traits' is fully defined: proto_traits::value_type contains definition of value
-/// produced by the declaration, proto_traits::max_size contains estimated maximal size in bytes
-/// taken by the serialized value in the message. proto_traits::min_size should contain minimal
+/// 'traits_for' is fully defined: traits_for::value_type contains definition of value
+/// produced by the declaration, traits_for::max_size contains estimated maximal size in bytes
+/// taken by the serialized value in the message. traits_for::min_size should contain minimal
 /// size used.
 template < typename D >
 concept convertible = requires( D val )
 {
         {
-                proto_traits< D >::max_size
+                traits_for< D >::max_size
                 } -> std::convertible_to< std::size_t >;
         {
-                proto_traits< D >::min_size
+                traits_for< D >::min_size
                 } -> std::convertible_to< std::size_t >;
-        requires std::default_initializable< typename proto_traits< D >::value_type >;
+        requires std::default_initializable< typename traits_for< D >::value_type >;
 };
 
 template < typename T >
-concept fixedly_sized = proto_traits< T >::min_size == proto_traits< T >::max_size;
+concept fixedly_sized = traits_for< T >::min_size == traits_for< T >::max_size;
 
 template < base_type D >
 struct proto_traits< D >
@@ -73,29 +89,29 @@ template < convertible D, std::size_t N >
 struct proto_traits< std::array< D, N > >
 {
         using value_type                      = std::array< D, N >;
-        static constexpr std::size_t max_size = proto_traits< D >::max_size * N;
-        static constexpr std::size_t min_size = proto_traits< D >::min_size * N;
+        static constexpr std::size_t max_size = traits_for< D >::max_size * N;
+        static constexpr std::size_t min_size = traits_for< D >::min_size * N;
 };
 
 template < convertible... Ds >
 struct proto_traits< std::tuple< Ds... > >
 {
-        using value_type = std::tuple< typename proto_traits< Ds >::value_type... >;
-        static constexpr std::size_t max_size = ( proto_traits< Ds >::max_size + ... + 0 );
-        static constexpr std::size_t min_size = ( proto_traits< Ds >::min_size + ... + 0 );
+        using value_type = std::tuple< typename traits_for< Ds >::value_type... >;
+        static constexpr std::size_t max_size = ( traits_for< Ds >::max_size + ... + 0 );
+        static constexpr std::size_t min_size = ( traits_for< Ds >::min_size + ... + 0 );
 };
 
 template < convertible... Ds >
 struct proto_traits< std::variant< Ds... > >
 {
         using id_type    = uint8_t;
-        using id_decl    = proto_traits< id_type >;
-        using value_type = std::variant< typename proto_traits< Ds >::value_type... >;
+        using id_decl    = traits_for< id_type >;
+        using value_type = std::variant< typename traits_for< Ds >::value_type... >;
 
         static constexpr std::size_t max_size =
-            id_decl::max_size + std::max< std::size_t >( { proto_traits< Ds >::max_size... } );
+            id_decl::max_size + std::max< std::size_t >( { traits_for< Ds >::max_size... } );
         static constexpr std::size_t min_size =
-            id_decl::min_size + std::min< std::size_t >( { proto_traits< Ds >::min_size... } );
+            id_decl::min_size + std::min< std::size_t >( { traits_for< Ds >::min_size... } );
 };
 
 template <>
@@ -121,14 +137,14 @@ struct proto_traits< sizeless_message< N > >
         using value_type = sizeless_message< N >;
 
         static constexpr std::size_t max_size = N;
-        static constexpr std::size_t min_size = max_size;
+        static constexpr std::size_t min_size = 0;
 };
 
 template < convertible D, auto Offset >
 struct proto_traits< value_offset< D, Offset > >
 {
         using def_type   = typename value_offset< D, Offset >::def_type;
-        using def_decl   = proto_traits< def_type >;
+        using def_decl   = traits_for< def_type >;
         using value_type = typename def_decl::value_type;
 
         static constexpr std::size_t max_size = def_decl::max_size;
@@ -140,8 +156,8 @@ struct proto_traits< D >
 {
         using value_type = D;
 
-        static constexpr std::size_t max_size = proto_traits< typename D::value_type >::max_size;
-        static constexpr std::size_t min_size = proto_traits< typename D::value_type >::min_size;
+        static constexpr std::size_t max_size = traits_for< typename D::value_type >::max_size;
+        static constexpr std::size_t min_size = traits_for< typename D::value_type >::min_size;
 };
 
 template < convertible D, D Min, D Max >
@@ -149,15 +165,15 @@ struct proto_traits< bounded< D, Min, Max > >
 {
         using value_type = bounded< D, Min, Max >;
 
-        static constexpr std::size_t max_size = proto_traits< D >::max_size;
-        static constexpr std::size_t min_size = proto_traits< D >::min_size;
+        static constexpr std::size_t max_size = traits_for< D >::max_size;
+        static constexpr std::size_t min_size = traits_for< D >::min_size;
 };
 
 template < convertible CounterType, convertible D >
 struct proto_traits< sized_buffer< CounterType, D > >
 {
-        using counter_decl = proto_traits< CounterType >;
-        using sub_decl     = proto_traits< D >;
+        using counter_decl = traits_for< CounterType >;
+        using sub_decl     = traits_for< D >;
         using value_type   = typename sub_decl::value_type;
 
         static constexpr std::size_t max_size = counter_decl::max_size + sub_decl::max_size;
@@ -167,7 +183,7 @@ struct proto_traits< sized_buffer< CounterType, D > >
 template < auto V >
 struct proto_traits< tag< V > >
 {
-        using sub_decl   = proto_traits< decltype( V ) >;
+        using sub_decl   = traits_for< decltype( V ) >;
         using value_type = tag< V >;
 
         static constexpr std::size_t max_size = sub_decl::max_size;
@@ -177,37 +193,37 @@ struct proto_traits< tag< V > >
 template < convertible... Ds >
 struct proto_traits< group< Ds... > >
 {
-        using value_type = std::variant< typename proto_traits< Ds >::value_type... >;
+        using value_type = std::variant< typename traits_for< Ds >::value_type... >;
 
         static constexpr std::size_t max_size =
-            std::max< std::size_t >( { proto_traits< Ds >::max_size..., 0 } );
+            std::max< std::size_t >( { traits_for< Ds >::max_size..., 0 } );
         static constexpr std::size_t min_size = std::min< std::size_t >(
-            { proto_traits< Ds >::min_size...,
+            { traits_for< Ds >::min_size...,
               sizeof...( Ds ) == 0 ? 0 : std::numeric_limits< std::size_t >::max() } );
 };
 
 template < convertible... Ds >
 struct proto_traits< tag_group< Ds... > >
 {
-        using value_type = std::variant< typename proto_traits< Ds >::value_type... >;
+        using value_type = std::variant< typename traits_for< Ds >::value_type... >;
 
         template < typename D >
         using to_tuple = std::tuple< tag< D::id >, D >;
 
         using sub_type = group< to_tuple< Ds >... >;
-        using sub_decl = proto_traits< sub_type >;
+        using sub_decl = traits_for< sub_type >;
 
         static constexpr std::size_t max_size = sub_decl::max_size;
         static constexpr std::size_t min_size = sub_decl::min_size;
 };
 
 template < std::endian Endianess, convertible D >
-struct proto_traits< endianess_wrapper< Endianess, D > > : proto_traits< D >
+struct proto_traits< endianess_wrapper< Endianess, D > > : traits_for< D >
 {
 };
 
 template < std::derived_from< converter_def_type_base > D >
-struct proto_traits< D > : proto_traits< typename D::def_type >
+struct proto_traits< D > : traits_for< typename D::def_type >
 {
 };
 
@@ -227,8 +243,8 @@ struct proto_traits< error_record >
         using mark_type   = mark;
         using offset_type = std::size_t;
 
-        using mark_decl   = proto_traits< mark_type >;
-        using offset_decl = proto_traits< offset_type >;
+        using mark_decl   = traits_for< mark_type >;
+        using offset_decl = traits_for< offset_type >;
 
         static constexpr std::size_t max_size = mark_decl::max_size + offset_decl::max_size;
         static constexpr std::size_t min_size = mark_decl::min_size + offset_decl::min_size;
@@ -240,29 +256,26 @@ struct proto_traits< static_vector< T, N > >
         using value_type   = static_vector< T, N >;
         using counter_type = uint16_t;
         static constexpr std::size_t max_size =
-            proto_traits< counter_type >::max_size + proto_traits< T >::max_size * N;
-        static constexpr std::size_t min_size = proto_traits< counter_type >::min_size;
+            traits_for< counter_type >::max_size + traits_for< T >::max_size * N;
+        static constexpr std::size_t min_size = traits_for< counter_type >::min_size;
 };
 
 template < convertible T >
 struct proto_traits< std::optional< T > >
 {
-        using value_type    = std::optional< T >;
-        using presence_type = uint8_t;
-        using presence_decl = proto_traits< presence_type >;
-        static constexpr std::size_t max_size =
-            presence_decl::max_size + proto_traits< T >::max_size;
+        using value_type                      = std::optional< T >;
+        using presence_type                   = uint8_t;
+        using presence_decl                   = traits_for< presence_type >;
+        static constexpr std::size_t max_size = presence_decl::max_size + traits_for< T >::max_size;
         static constexpr std::size_t min_size = presence_decl::min_size;
 };
 
 template < decomposable T >
-requires(
-    !std::derived_from< T, converter_def_type_base > &&
-    !quantity_derived< T > ) struct proto_traits< T >
+struct backup_proto_traits< T >
 {
         using value_type                      = T;
         using tuple_type                      = decomposed_type< T >;
-        using tuple_decl                      = proto_traits< tuple_type >;
+        using tuple_decl                      = traits_for< tuple_type >;
         static constexpr std::size_t max_size = tuple_decl::max_size;
         static constexpr std::size_t min_size = tuple_decl::min_size;
 };

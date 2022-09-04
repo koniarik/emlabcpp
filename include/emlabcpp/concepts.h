@@ -153,4 +153,10 @@ concept alternative_of = []< typename... Ts >( std::variant< Ts... >* ) {
         return ( std::same_as< T, Ts > || ... );
 }( static_cast< Variant* >( nullptr ) );
 
+template < typename T >
+concept with_value_type = requires
+{
+        typename T::value_type;
+};
+
 }  // namespace emlabcpp

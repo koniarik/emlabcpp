@@ -33,7 +33,7 @@ template < std::endian Endianess, typename T >
 struct valid_test_case : protocol_test_fixture
 {
         static constexpr std::endian endianess = Endianess;
-        using pitem                            = protocol::converter< T, endianess >;
+        using pitem                            = protocol::converter_for< T, endianess >;
         static_assert( protocol::converter_check< pitem > );
         using value_type = typename pitem::value_type;
 
@@ -100,8 +100,8 @@ make_valid_test_case( T val, const std::vector< uint8_t >& buff )
 }
 template < std::endian Endianess, typename T >
 std::function< protocol_test_fixture*() > make_specific_valid_test_case(
-    typename protocol::converter< T, Endianess >::value_type val,
-    const std::vector< uint8_t >&                            buff )
+    typename protocol::converter_for< T, Endianess >::value_type val,
+    const std::vector< uint8_t >&                                buff )
 {
         return [=]() {
                 return new valid_test_case< Endianess, T >( val, buff );
@@ -112,7 +112,7 @@ template < typename T >
 struct invalid_test_case : protocol_test_fixture
 {
 
-        using pitem      = protocol::converter< T, std::endian::big >;
+        using pitem      = protocol::converter_for< T, std::endian::big >;
         using value_type = T;
 
         std::vector< uint8_t > inpt;
