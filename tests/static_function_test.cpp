@@ -20,7 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
-#include "emlabcpp/experimental/static_function.h"
+#include "emlabcpp/static_function.h"
 
 #include <gtest/gtest.h>
 

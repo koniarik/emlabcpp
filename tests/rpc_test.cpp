@@ -35,7 +35,7 @@ TEST( rpc, basic )
                     return wrap.on_message( msg );
             } )
             .match(
-                [&]( call1::reply r ) {
+                [&]( int r ) {
                         EXPECT_EQ( r, 84 );
                 },
                 [&]( auto ) {

@@ -1,5 +1,7 @@
 #include "emlabcpp/experimental/testing/json.h"
 
+#include "emlabcpp/static_function.h"
+
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 
 namespace emlabcpp::testing

@@ -1,7 +1,6 @@
 #include "emlabcpp/allocator/pool.h"
 #include "emlabcpp/experimental/contiguous_tree/base.h"
 #include "emlabcpp/experimental/logging.h"
-#include "emlabcpp/experimental/static_function.h"
 #include "emlabcpp/match.h"
 #include "emlabcpp/static_vector.h"
 
