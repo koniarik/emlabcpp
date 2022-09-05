@@ -55,6 +55,8 @@ var namespaceemlabcpp =
     [ "mapped< Container, UnaryCallable >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4.html", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4" ],
     [ "tag", "structemlabcpp_1_1tag.html", "structemlabcpp_1_1tag" ],
     [ "select_utype", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
+    [ "signature_of", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of", null ],
+    [ "signature_of< ReturnType(Class::*)(Args...) >", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4", "namespaceemlabcpp_structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4_dup" ],
     [ "view", "classemlabcpp_1_1view.html", "classemlabcpp_1_1view" ],
     [ "zip_iterator", "classemlabcpp_1_1zip__iterator.html", "classemlabcpp_1_1zip__iterator" ],
     [ "acceleration", "namespaceemlabcpp.html#a9f7b213031fa424abf6cc3d1d04ac1ca", null ],
