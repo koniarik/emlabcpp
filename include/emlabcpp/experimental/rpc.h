@@ -55,6 +55,13 @@ public:
 template < typename Def >
 class controller : public traits< Def >
 {
+        static constexpr std::size_t get_call_index( auto id )
+        {
+                return find_if_index< std::tuple_size_v< Def > >( [id]< std::size_t i >() {
+                        return std::tuple_element_t< i, Def >::id == id;
+                } );
+        }
+
 public:
         using traits_type          = traits< Def >;
         using reply_variant        = typename traits_type::reply_variant;
@@ -65,30 +72,100 @@ public:
 
         using request_handler = protocol::handler< request_type >;
         using reply_handler   = protocol::handler< reply_type >;
+
+        template < auto ID >
+        static constexpr std::size_t call_index = get_call_index( ID );
+
+        template < auto ID >
+        using call_type = std::tuple_element_t< call_index< ID >, Def >;
+
         // TODO: we need better error type /o\.. error_record here can belong to both: reactor and
         // controller
-        template < element_of< Def > T, typename MsgCallback >
-        static either< typename T::reply, protocol::error_record >
-        call( const typename T::request& req, MsgCallback&& cb )
+        template < auto ID, typename MsgCallback >
+        static either< typename call_type< ID >::reply, protocol::error_record >
+        call( const typename call_type< ID >::request& req, MsgCallback&& cb )
         {
+                using rt = typename call_type< ID >::reply;
 
                 auto req_msg   = request_handler::serialize( req );
                 auto reply_msg = cb( req_msg );
                 return reply_handler::extract( reply_msg )
-                    .bind_left(
-                        [&]( const auto& var )
-                            -> either< typename T::reply, protocol::error_record > {
-                                // TODO: extract car properly and decompose errors properly
+                    .bind_left( [&]( const auto& var ) -> either< rt, protocol::error_record > {
+                            // TODO: extract car properly and decompose errors properly
 
-                                auto* ptr =
-                                    std::get_if< typename T::reply >( std::get_if< 0 >( &var ) );
-                                if ( ptr ) {
-                                        return *ptr;
-                                } else {
-                                        return protocol::error_record{};
-                                }
-                        } );
+                            auto* ptr = std::get_if< rt >( std::get_if< 0 >( &var ) );
+                            if ( ptr ) {
+                                    return *ptr;
+                            } else {
+                                    return protocol::error_record{};
+                            }
+                    } );
         }
+};
+
+template < typename Signature >
+struct signature_of;
+
+template < typename ReturnType, typename Class, typename... Args >
+struct signature_of< ReturnType ( Class::* )( Args... ) >
+{
+        using return_type = ReturnType;
+        using class_type  = Class;
+        using args_tuple  = std::tuple< Args... >;
+};
+
+template < auto ID, auto Method >
+struct derive
+{
+        static constexpr auto id = ID;
+
+        static constexpr auto method = Method;
+
+        using sig = signature_of< decltype( Method ) >;
+
+        using request = typename sig::args_tuple;
+        using reply   = typename sig::return_type;
+};
+
+template < typename Class, typename... Bindings >
+class class_wrapper
+{
+public:
+        using bindings_tuple       = std::tuple< Bindings... >;
+        using call_defs            = bindings_tuple;
+        using reactor_type         = reactor< bindings_tuple >;
+        using request_message_type = typename reactor_type::request_message_type;
+        using reply_message_type   = typename reactor_type::reply_message_type;
+
+        class_wrapper( Class& obj )
+          : obj_( obj ){};
+
+        reply_message_type on_message( const request_message_type& msg )
+        {
+                return reactor_type::on_message( msg, *this );
+        }
+
+        template < typename Request >
+        auto operator()( const Request& req )
+        {
+                static constexpr auto i =
+                    find_if_index< std::tuple_size_v< bindings_tuple > >( []< std::size_t i > {
+                            return std::same_as<
+                                Request,
+                                typename std::tuple_element_t< i, bindings_tuple >::request >;
+                    } );
+                using call_type = std::tuple_element_t< i, bindings_tuple >;
+
+                return std::apply(
+                    [&]( const auto&... args ) {
+                            static constexpr auto m = call_type::method;
+                            return ( obj_.*m )( args... );
+                    },
+                    req );
+        }
+
+private:
+        Class& obj_;
 };
 
 }  // namespace emlabcpp::rpc

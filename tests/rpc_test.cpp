@@ -4,14 +4,9 @@
 
 using namespace emlabcpp;
 
-struct call1
+enum foo_ids : uint8_t
 {
-        struct request
-        {
-                int i;
-        };
-
-        using reply = int;
+        CALL_1
 };
 
 struct foo
@@ -22,25 +17,9 @@ struct foo
         }
 };
 
-struct test_wrapper
-{
-        foo& val_;
+using call1 = rpc::derive< CALL_1, &foo::call1_m >;
 
-        using call_defs            = std::tuple< call1 >;
-        using reactor              = rpc::reactor< call_defs >;
-        using request_message_type = typename reactor::request_message_type;
-        using reply_message_type   = typename reactor::reply_message_type;
-
-        reply_message_type on_message( const request_message_type& msg )
-        {
-                return reactor::on_message( msg, *this );
-        }
-
-        call1::reply operator()( call1::request r )
-        {
-                return val_.call1_m( r.i );
-        }
-};
+using test_wrapper = rpc::class_wrapper< foo, call1 >;
 
 TEST( rpc, basic )
 {
@@ -50,7 +29,7 @@ TEST( rpc, basic )
 
         using con = rpc::controller< test_wrapper::call_defs >;
 
-        con::call< call1 >(
+        con::call< CALL_1 >(
             call1::request{ 42 },
             [&]( const auto& msg ) {
                     return wrap.on_message( msg );
