@@ -76,18 +76,11 @@ struct command_group : converter_def_type_base
         using cmds_type = std::tuple< Cmds... >;
 
 private:
-        // TODO: duplication from register_map
         static constexpr std::size_t get_id_index( auto id )
         {
-                std::size_t res = sizeof...( Cmds );
-                until_index< sizeof...( Cmds ) >( [&res, id]< std::size_t i >() {
-                        if ( std::tuple_element_t< i, cmds_type >::id == id ) {
-                                res = i;
-                                return true;
-                        }
-                        return false;
+                return find_index< sizeof...( Cmds ) >( [id]< std::size_t i >() {
+                        return std::tuple_element_t< i, cmds_type >::id == id;
                 } );
-                return res;
         }
 
 public:

@@ -76,15 +76,10 @@ private:
 
         static constexpr std::size_t get_reg_index( key_type k )
         {
-                std::size_t res = std::tuple_size_v< registers_tuple >;
-                until_index< sizeof...( Regs ) >( [&]< std::size_t i >() {
-                        if ( std::tuple_element_t< i, registers_tuple >::key == k ) {
-                                res = i;
-                                return true;
-                        }
-                        return false;
-                } );
-                return res;
+                return find_if_index< std::tuple_size_v< registers_tuple > >(
+                    [&]< std::size_t i >() {
+                            return std::tuple_element_t< i, registers_tuple >::key == k;
+                    } );
         }
 
 public:
