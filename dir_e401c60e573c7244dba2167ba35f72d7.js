@@ -33,6 +33,7 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     [ "protocol.h", "protocol_8h.html", null ],
     [ "quantity.h", "quantity_8h.html", "quantity_8h" ],
     [ "static_circular_buffer.h", "static__circular__buffer_8h.html", "static__circular__buffer_8h" ],
+    [ "static_function.h", "static__function_8h.html", "static__function_8h" ],
     [ "static_vector.h", "static__vector_8h.html", "static__vector_8h" ],
     [ "types.h", "types_8h.html", "types_8h" ],
     [ "view.h", "view_8h.html", "view_8h" ],

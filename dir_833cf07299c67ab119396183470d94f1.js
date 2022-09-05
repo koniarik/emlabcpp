@@ -30,6 +30,5 @@ var dir_833cf07299c67ab119396183470d94f1 =
       ] ],
       [ "derive", "structemlabcpp_1_1rpc_1_1derive.html", "structemlabcpp_1_1rpc_1_1derive" ],
       [ "class_wrapper", "classemlabcpp_1_1rpc_1_1class__wrapper.html", "classemlabcpp_1_1rpc_1_1class__wrapper" ]
-    ] ],
-    [ "static_function.h", "static__function_8h.html", "static__function_8h" ]
+    ] ]
 ];

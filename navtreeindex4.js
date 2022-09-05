@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"namespaceemlabcpp.html#a1e7c3c010fa2b7cffe9478558c1d9df6":[2,0,0,146],
 "namespaceemlabcpp.html#a1fdcd2bf6efc13dd21e3298c777d4982":[2,0,0,147],
 "namespaceemlabcpp.html#a20db02f115d34db629106a39c5194e18":[2,0,0,211],
 "namespaceemlabcpp.html#a2254b75f92599473cee7451ded051a0e":[2,0,0,162],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "namespaceemlabcpp_1_1rpc.html#a9159bb395d5f2a1f23f3bec83bffd411":[4,0,0,0,2,7,0,0],
 "namespaceemlabcpp_1_1rpc.html#aa139b21a86588545871fddd21b6c2416":[4,0,0,0,2,7,3,0],
 "namespaceemlabcpp_1_1rpc.html#ac286dc4432f6b5d6111fa5260ab8711c":[4,0,0,0,2,7,3,1],
-"namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4":[4,0,0,0,2,7,3],
-"namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4":[4,0,0,0,2,7,0]
+"namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4":[4,0,0,0,2,7,3]
 };
