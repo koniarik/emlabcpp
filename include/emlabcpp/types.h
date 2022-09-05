@@ -130,4 +130,17 @@ requires( sizeof( uint64_t ) == N ) struct select_utype< N >
 template < std::size_t N >
 using select_utype_t = typename select_utype< N >::type;
 
+/// ------------------------------------------------------------------------------------------------
+
+template < typename Signature >
+struct signature_of;
+
+template < typename ReturnType, typename Class, typename... Args >
+struct signature_of< ReturnType ( Class::* )( Args... ) >
+{
+        using return_type = ReturnType;
+        using class_type  = Class;
+        using args_type   = std::tuple< Args... >;
+};
+
 }  // namespace emlabcpp

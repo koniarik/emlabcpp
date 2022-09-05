@@ -103,17 +103,6 @@ public:
         }
 };
 
-template < typename Signature >
-struct signature_of;
-
-template < typename ReturnType, typename Class, typename... Args >
-struct signature_of< ReturnType ( Class::* )( Args... ) >
-{
-        using return_type = ReturnType;
-        using class_type  = Class;
-        using args_tuple  = std::tuple< Args... >;
-};
-
 template < auto ID, auto Method >
 struct derive
 {
@@ -123,7 +112,7 @@ struct derive
 
         using sig = signature_of< decltype( Method ) >;
 
-        using request = typename sig::args_tuple;
+        using request = typename sig::args_type;
         using reply   = typename sig::return_type;
 };
 
