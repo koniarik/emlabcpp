@@ -493,7 +493,7 @@ constexpr void for_each_index( const NullCallable& f )
 /// to N until first call that returns true. Function returns the index on which predicate returned
 /// true.
 template < std::size_t N, typename PredicateCallable >
-constexpr std::size_t find_index( const PredicateCallable& f )
+constexpr std::size_t find_if_index( const PredicateCallable& f )
 {
         std::size_t res = N;
         until_index< N >( [&f, &res]< std::size_t i >() {
