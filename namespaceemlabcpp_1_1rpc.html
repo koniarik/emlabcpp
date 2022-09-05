@@ -100,6 +100,14 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">controller</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1rpc_1_1signature__of"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1signature__of">signature_of</a></td></tr>
+<tr class="separator:structemlabcpp_1_1rpc_1_1signature__of"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1rpc_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4">signature_of&lt; ReturnType(Class::*)(Args...) &gt;</a></td></tr>
+<tr class="separator:structemlabcpp_1_1rpc_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1rpc_1_1derive.html">derive</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1class__wrapper.html">class_wrapper</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="structemlabcpp_1_1rpc_1_1traits" id="structemlabcpp_1_1rpc_1_1traits"></a>
@@ -181,13 +189,68 @@ request_type</td>
 
 </div>
 </div>
+<a name="structemlabcpp_1_1rpc_1_1signature__of" id="structemlabcpp_1_1rpc_1_1signature__of"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1rpc_1_1signature__of">&#9670;&nbsp;</a></span>emlabcpp::rpc::signature_of</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::rpc::signature_of</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;typename Signature&gt;<br />
+struct emlabcpp::rpc::signature_of&lt; Signature &gt;</h3>
+
+</div>
+</div>
+</div>
+<a name="structemlabcpp_1_1rpc_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4" id="structemlabcpp_1_1rpc_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1rpc_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4">&#9670;&nbsp;</a></span>emlabcpp::rpc::signature_of&lt; ReturnType(Class::*)(Args...) &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::rpc::signature_of&lt; ReturnType(Class::*)(Args...) &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;typename ReturnType, typename Class, typename... Args&gt;<br />
+struct emlabcpp::rpc::signature_of&lt; ReturnType(Class::*)(Args...) &gt;</h3>
+
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="aa139b21a86588545871fddd21b6c2416"></a></td>
+<td class="fieldname">
+args_tuple</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ac286dc4432f6b5d6111fa5260ab8711c"></a>typedef Class</td>
+<td class="fieldname">
+class_type</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a79ceb92eb7d2d3f192cde1379b282ab4"></a>typedef ReturnType</td>
+<td class="fieldname">
+return_type</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1rpc.html">rpc</a></li>
-    <li class="footer">Generated on Sun Sep 4 2022 21:07:20 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Sep 5 2022 16:17:07 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

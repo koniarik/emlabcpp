@@ -129,6 +129,7 @@ var namespaceemlabcpp =
     [ "equal", "namespaceemlabcpp.html#ac1e0fe9ab6b7190faf578ec3e5f72301", null ],
     [ "find", "namespaceemlabcpp.html#ae6a73bbed8b818abff4ab4e7c2b9af68", null ],
     [ "find_if", "namespaceemlabcpp.html#adad2aaee725330a629c1fa9af8cf7e37", null ],
+    [ "find_if_index", "namespaceemlabcpp.html#aae434316a87fef12fc4d05dd543dddf7", null ],
     [ "for_cross_joint", "namespaceemlabcpp.html#a9671d53ec08de7c34437cf24d07aee0c", null ],
     [ "for_each", "namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9", null ],
     [ "for_each_index", "namespaceemlabcpp.html#a92a263e4623147eea2c226d8b9bcafc7", null ],

@@ -9,6 +9,7 @@ var hierarchy =
     [ "emlabcpp::protocol::backup_proto_traits< D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1backup__proto__traits", null ],
     [ "emlabcpp::protocol::backup_proto_traits< T >", "structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4.html", null ],
     [ "emlabcpp::bounded< T, MinVal, MaxVal >", "classemlabcpp_1_1bounded.html", null ],
+    [ "emlabcpp::rpc::class_wrapper< Class, Bindings >", "classemlabcpp_1_1rpc_1_1class__wrapper.html", null ],
     [ "emlabcpp::testing::collect_reply", "structemlabcpp_1_1testing_1_1collect__reply.html", null ],
     [ "emlabcpp::testing::collect_request", "structemlabcpp_1_1testing_1_1collect__request.html", null ],
     [ "emlabcpp::protocol::command< ID, Defs >", "structemlabcpp_1_1protocol_1_1command.html", null ],
@@ -59,6 +60,7 @@ var hierarchy =
     ] ],
     [ "emlabcpp::detail::decompose_anything< size_t >", "structemlabcpp_1_1detail_1_1decompose__anything.html", null ],
     [ "emlabcpp::defer< Callable >", "classemlabcpp_1_1defer.html", null ],
+    [ "emlabcpp::rpc::derive< ID, Method >", "structemlabcpp_1_1rpc_1_1derive.html", null ],
     [ "emlabcpp::derived_storage< T, N >", "classemlabcpp_1_1derived__storage.html", null ],
     [ "std::disjunction", null, [
       [ "emlabcpp::tuple_has_type< T, std::tuple< Us... > >", "structemlabcpp_1_1tuple__has__type_3_01T_00_01std_1_1tuple_3_01Us_8_8_8_01_4_01_4.html", null ]
@@ -199,6 +201,8 @@ var hierarchy =
     [ "emlabcpp::protocol::serializer< T, Endianess >", "structemlabcpp_1_1protocol_1_1serializer.html", null ],
     [ "emlabcpp::protocol::serializer< bool, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol::serializer< float, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html", null ],
+    [ "emlabcpp::rpc::signature_of< Signature >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1signature__of", null ],
+    [ "emlabcpp::rpc::signature_of< ReturnType(Class::*)(Args...) >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4", null ],
     [ "emlabcpp::protocol::sized_buffer< CounterDef, D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer", null ],
     [ "emlabcpp::static_circular_buffer< T, N >", "classemlabcpp_1_1static__circular__buffer.html", null ],
     [ "emlabcpp::static_circular_buffer< uint8_t, Def::message_type::max_size *2 >", "classemlabcpp_1_1static__circular__buffer.html", null ],

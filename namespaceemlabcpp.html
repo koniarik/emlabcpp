@@ -459,6 +459,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a92a263e4623147eea2c226d8b9bcafc7"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a92a263e4623147eea2c226d8b9bcafc7">for_each_index</a> (const NullCallable &amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>)</td></tr>
 <tr class="memdesc:a92a263e4623147eea2c226d8b9bcafc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N.  <a href="namespaceemlabcpp.html#a92a263e4623147eea2c226d8b9bcafc7">More...</a><br /></td></tr>
 <tr class="separator:a92a263e4623147eea2c226d8b9bcafc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae434316a87fef12fc4d05dd543dddf7"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename PredicateCallable &gt; </td></tr>
+<tr class="memitem:aae434316a87fef12fc4d05dd543dddf7"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aae434316a87fef12fc4d05dd543dddf7">find_if_index</a> (const PredicateCallable &amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>)</td></tr>
+<tr class="memdesc:aae434316a87fef12fc4d05dd543dddf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N until first call that returns true.  <a href="namespaceemlabcpp.html#aae434316a87fef12fc4d05dd543dddf7">More...</a><br /></td></tr>
+<tr class="separator:aae434316a87fef12fc4d05dd543dddf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aced106ff9e1a26187bb4872197cc1a7c"><td class="memTemplParams" colspan="2">template&lt;std::size_t i, typename PredicateCallable &gt; </td></tr>
 <tr class="memitem:aced106ff9e1a26187bb4872197cc1a7c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aced106ff9e1a26187bb4872197cc1a7c">until_index</a> (const PredicateCallable &amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>)</td></tr>
 <tr class="memdesc:aced106ff9e1a26187bb4872197cc1a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes predicate <code><a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to i until first call that returns true.  <a href="namespaceemlabcpp.html#aced106ff9e1a26187bb4872197cc1a7c">More...</a><br /></td></tr>
@@ -2479,6 +2483,39 @@ template&lt;range_container Container, container_invocable&lt; Container &gt; Pr
 <p>end() iterator is returned otherwise. The end() iterator is taken once, before the container is iterated. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>.</p>
+
+</div>
+</div>
+<a id="aae434316a87fef12fc4d05dd543dddf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae434316a87fef12fc4d05dd543dddf7">&#9670;&nbsp;</a></span>find_if_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename PredicateCallable &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::size_t emlabcpp::find_if_index </td>
+          <td>(</td>
+          <td class="paramtype">const PredicateCallable &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N until first call that returns true. </p>
+<p>Function returns the index on which predicate returned true. </p>
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
 
 </div>
 </div>
@@ -6015,7 +6052,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sun Sep 4 2022 21:07:20 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Sep 5 2022 16:17:07 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
