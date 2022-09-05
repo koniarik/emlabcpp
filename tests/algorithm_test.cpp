@@ -528,6 +528,18 @@ TEST( Algorithm, for_each_index )
 }
 
 // NOLINTNEXTLINE
+TEST( Algorithm, find_index )
+{
+        std::vector< std::size_t > idata{ 1, 2, 3, 4 };
+
+        std::size_t i = find_index< 4 >( [&]< std::size_t i >() {
+                return idata[i] == 3;
+        } );
+
+        EXPECT_EQ( i, 2 );
+}
+
+// NOLINTNEXTLINE
 TEST( Algorithm, until_index )
 {
         std::vector< std::size_t > idata{ 1, 2, 3, 4 };

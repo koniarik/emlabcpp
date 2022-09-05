@@ -489,6 +489,20 @@ constexpr void for_each_index( const NullCallable& f )
         }
 }
 
+/// Executes unary callable `f()` with template argument of type 'std::size_t', which ranges from 0
+/// to N until first call that returns true. Function returns the index on which predicate returned
+/// true.
+template < std::size_t N, typename PredicateCallable >
+constexpr std::size_t find_index( const PredicateCallable& f )
+{
+        std::size_t res = N;
+        until_index< N >( [&f, &res]< std::size_t i >() {
+                res = i;
+                return f.template operator()< i >();
+        } );
+        return res;
+}
+
 /// Executes predicate `f()` with template argument of type 'std::size_t', which ranges from 0
 /// to i until first call that returns true. Function returns whenever the `f` was called or not.
 template < std::size_t i, typename PredicateCallable >
