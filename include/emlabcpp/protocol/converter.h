@@ -343,7 +343,8 @@ struct converter< std::variant< Ds... >, Endianess >
                                         res = conversion_result< value_type >{
                                             sub_converter::deserialize( *opt_view )
                                                 .convert_value( []( auto item ) {
-                                                        return value_type{ item };
+                                                        return value_type{
+                                                            std::in_place_index< i >, item };
                                                 } ) };
                                         res.used += iused;
                                         return true;

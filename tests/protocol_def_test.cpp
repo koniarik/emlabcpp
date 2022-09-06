@@ -207,6 +207,10 @@ int main( int argc, char** argv )
                 std::variant< uint8_t, int16_t, uint16_t >{ int16_t{ -3 } }, { 1, 255, 253 } ),
             make_valid_test_case< std::endian::little >(
                 std::variant< uint8_t, int16_t, uint16_t >{ uint8_t{ 42 } }, { 0, 42 } ),
+            make_valid_test_case< std::endian::little >(
+                std::variant< uint8_t, uint8_t, uint16_t >(
+                    std::in_place_index< 1 >, uint8_t{ 42 } ),
+                { 1, 42 } ),
             make_invalid_test_case< std::variant< uint8_t, int16_t, uint16_t > >(
                 { 3, 0, 0 }, protocol::error_record{ protocol::UNDEFVAR_ERR, 0 } ),
             make_invalid_test_case< std::variant< uint8_t, int16_t, uint16_t > >(
