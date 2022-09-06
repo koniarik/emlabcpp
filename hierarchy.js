@@ -52,7 +52,9 @@ var hierarchy =
       [ "emlabcpp::protocol::command_group< Endianess, Cmds >", "structemlabcpp_1_1protocol_1_1command__group.html", null ],
       [ "emlabcpp::protocol::tuple< Endianess, Ds >", "structemlabcpp_1_1protocol_1_1tuple.html", [
         [ "emlabcpp::protocol::packet< Def, Payload >", "structemlabcpp_1_1protocol_1_1packet.html", null ]
-      ] ]
+      ] ],
+      [ "emlabcpp::rpc::traits< std::tuple< Calls... > >::reply_wrapper< Call >", "structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4_1_1reply__wrapper.html", null ],
+      [ "emlabcpp::rpc::traits< std::tuple< Calls... > >::request_wrapper< Call >", "structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4_1_1request__wrapper.html", null ]
     ] ],
     [ "converter_for", null, [
       [ "emlabcpp::protocol::converter< D, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html", null ],
@@ -68,6 +70,7 @@ var hierarchy =
     [ "emlabcpp::either< LH, RH >", "classemlabcpp_1_1either.html", null ],
     [ "emlabcpp::empty_assembly_tag", "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag", null ],
     [ "emlabcpp::protocol::endianess_wrapper< Endianess, D >", "structemlabcpp_1_1protocol_1_1endianess__wrapper.html", null ],
+    [ "emlabcpp::rpc::error", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1error", null ],
     [ "emlabcpp::testing::error< Err >", "structemlabcpp_1_1testing_1_1error.html", null ],
     [ "emlabcpp::protocol::error_record", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record", null ],
     [ "emlabcpp::testing::exec_request", "structemlabcpp_1_1testing_1_1exec__request.html", null ],
@@ -187,6 +190,7 @@ var hierarchy =
     [ "emlabcpp::testing::reactor", "classemlabcpp_1_1testing_1_1reactor.html", [
       [ "emlabcpp::testing::default_reactor", "classemlabcpp_1_1testing_1_1default__reactor.html", null ]
     ] ],
+    [ "emlabcpp::rpc::reactor_error", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1reactor__error", null ],
     [ "emlabcpp::testing::reactor_interface", "classemlabcpp_1_1testing_1_1reactor__interface.html", null ],
     [ "emlabcpp::testing::reactor_internal_error_report", "structemlabcpp_1_1testing_1_1reactor__internal__error__report.html", null ],
     [ "emlabcpp::testing::reactor_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error", null ],
@@ -195,6 +199,7 @@ var hierarchy =
     [ "emlabcpp::protocol::register_handler< Map >", "structemlabcpp_1_1protocol_1_1register__handler.html", null ],
     [ "emlabcpp::protocol::register_map< Endianess, Regs >", "classemlabcpp_1_1protocol_1_1register__map.html", null ],
     [ "emlabcpp::protocol::register_pair< Key, D >", "structemlabcpp_1_1protocol_1_1register__pair.html", null ],
+    [ "emlabcpp::rpc::reply_error", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1reply__error", null ],
     [ "emlabcpp::select_utype< size_t >", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
     [ "emlabcpp::protocol::sequencer< Def >", "classemlabcpp_1_1protocol_1_1sequencer.html", null ],
     [ "emlabcpp::protocol::packet< Def, Payload >::sequencer_def", "structemlabcpp_1_1protocol_1_1packet_1_1sequencer__def.html", null ],
@@ -257,6 +262,7 @@ var hierarchy =
     [ "emlabcpp::view< Iterator >", "classemlabcpp_1_1view.html", [
       [ "emlabcpp::bounded_view< Iterator, SizeType >", "classemlabcpp_1_1bounded__view.html", null ]
     ] ],
+    [ "emlabcpp::rpc::void_return_type", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1void__return__type", null ],
     [ "emlabcpp::testing::wrong_type_error", "structemlabcpp_1_1testing_1_1wrong__type__error.html", null ],
     [ "emlabcpp::zip_iterator< Iterators >", "classemlabcpp_1_1zip__iterator.html", null ],
     [ "emlabcpp::Callables", null, [

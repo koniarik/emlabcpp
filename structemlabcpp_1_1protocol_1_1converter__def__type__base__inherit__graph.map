@@ -1,6 +1,8 @@
 <map id="emlabcpp::protocol::converter_def_type_base" name="emlabcpp::protocol::converter_def_type_base">
-<area shape="rect" id="node1" title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib..." alt="" coords="5,50,200,91"/>
+<area shape="rect" id="node1" title="More complex constructs have custom mechanics that internally produces def_type alias used by the lib..." alt="" coords="5,123,200,165"/>
 <area shape="rect" id="node2" href="$structemlabcpp_1_1protocol_1_1command__group.html" title="Command group should be used as a collection of commands that are selected based on the ID,..." alt="" coords="248,5,472,61"/>
 <area shape="rect" id="node3" href="$structemlabcpp_1_1protocol_1_1tuple.html" title="tuple is high levle alternative to use just &#39;std::tuple&#39; that is more friendly for standalone protoco..." alt="" coords="268,86,452,127"/>
+<area shape="rect" id="node5" href="$structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4_1_1reply__wrapper.html" title=" " alt="" coords="256,152,464,208"/>
+<area shape="rect" id="node6" href="$structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4_1_1request__wrapper.html" title=" " alt="" coords="248,232,472,288"/>
 <area shape="rect" id="node4" href="$structemlabcpp_1_1protocol_1_1packet.html" title=" " alt="" coords="520,86,705,127"/>
 </map>

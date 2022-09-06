@@ -211,6 +211,7 @@ var namespaceemlabcpp =
     [ "view", "namespaceemlabcpp.html#a4b726ddab4f550f3e186f177243cb09b", null ],
     [ "view_n", "namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16", null ],
     [ "visit", "namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c", null ],
+    [ "visit_index", "namespaceemlabcpp.html#a7d239279335993f18f0aa49c2a0d4131", null ],
     [ "zip", "namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885", null ],
     [ "zip", "namespaceemlabcpp.html#a81d4ae07c2d875b52377456faf19fe92", null ],
     [ "alternative_of", "namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076", null ],

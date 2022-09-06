@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1rpc_1_1derive.html',
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="structemlabcpp_1_1rpc_1_1derive-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -100,19 +101,24 @@ Public Types</h2></td></tr>
 <tr class="separator:ac1f5e9e2b5dd19067a978655adf04987"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4abf7347a8a4bbe3bf255321f7ca06c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#ae4abf7347a8a4bbe3bf255321f7ca06c">request</a> = typename sig::args_type</td></tr>
 <tr class="separator:ae4abf7347a8a4bbe3bf255321f7ca06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32af84d84cee8ecc733a44b27a0a2f33"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#a32af84d84cee8ecc733a44b27a0a2f33">reply</a> = typename sig::return_type</td></tr>
-<tr class="separator:a32af84d84cee8ecc733a44b27a0a2f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40bc0b3561bb96c1ec59c3bc5ea436d6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#a40bc0b3561bb96c1ec59c3bc5ea436d6">reply</a> = std::conditional_t&lt; <a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#aae22302e973a200f51df5e19c8817d0c">void_returning</a>, <a class="el" href="namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1void__return__type">void_return_type</a>, typename sig::return_type &gt;</td></tr>
+<tr class="separator:a40bc0b3561bb96c1ec59c3bc5ea436d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a29e5ccf765e40ce47da1276c6e4058af"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#a40bc0b3561bb96c1ec59c3bc5ea436d6">reply</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#a29e5ccf765e40ce47da1276c6e4058af">handle</a> (auto &amp;obj, const auto &amp;... args)</td></tr>
+<tr class="separator:a29e5ccf765e40ce47da1276c6e4058af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a8557b8f96caee62f60e265d2f77b5aad"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#a8557b8f96caee62f60e265d2f77b5aad">id</a> = ID</td></tr>
 <tr class="separator:a8557b8f96caee62f60e265d2f77b5aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02a5298ad7b9dd598c4c7de5926049e1"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#a02a5298ad7b9dd598c4c7de5926049e1">method</a> = Method</td></tr>
-<tr class="separator:a02a5298ad7b9dd598c4c7de5926049e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae22302e973a200f51df5e19c8817d0c"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#aae22302e973a200f51df5e19c8817d0c">void_returning</a> = std::is_void_v&lt; typename sig::return_type &gt;</td></tr>
+<tr class="separator:aae22302e973a200f51df5e19c8817d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a32af84d84cee8ecc733a44b27a0a2f33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32af84d84cee8ecc733a44b27a0a2f33">&#9670;&nbsp;</a></span>reply</h2>
+<a id="a40bc0b3561bb96c1ec59c3bc5ea436d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40bc0b3561bb96c1ec59c3bc5ea436d6">&#9670;&nbsp;</a></span>reply</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -120,7 +126,7 @@ Static Public Attributes</h2></td></tr>
 template&lt;auto ID, auto Method&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1rpc_1_1derive.html">emlabcpp::rpc::derive</a>&lt; ID, Method &gt;::<a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#a32af84d84cee8ecc733a44b27a0a2f33">reply</a> =  typename sig::return_type</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1rpc_1_1derive.html">emlabcpp::rpc::derive</a>&lt; ID, Method &gt;::<a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#a40bc0b3561bb96c1ec59c3bc5ea436d6">reply</a> =  std::conditional_t&lt; <a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#aae22302e973a200f51df5e19c8817d0c">void_returning</a>, <a class="el" href="namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1void__return__type">void_return_type</a>, typename sig::return_type &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -159,6 +165,47 @@ template&lt;auto ID, auto Method&gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a29e5ccf765e40ce47da1276c6e4058af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29e5ccf765e40ce47da1276c6e4058af">&#9670;&nbsp;</a></span>handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;auto ID, auto Method&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr <a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#a40bc0b3561bb96c1ec59c3bc5ea436d6">reply</a> <a class="el" href="structemlabcpp_1_1rpc_1_1derive.html">emlabcpp::rpc::derive</a>&lt; ID, Method &gt;::handle </td>
+          <td>(</td>
+          <td class="paramtype">auto &amp;&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const auto &amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#aae22302e973a200f51df5e19c8817d0c">emlabcpp::rpc::derive&lt; ID, Method &gt;::void_returning</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a8557b8f96caee62f60e265d2f77b5aad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8557b8f96caee62f60e265d2f77b5aad">&#9670;&nbsp;</a></span>id</h2>
@@ -184,8 +231,8 @@ template&lt;auto ID, auto Method&gt; </div>
 
 </div>
 </div>
-<a id="a02a5298ad7b9dd598c4c7de5926049e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02a5298ad7b9dd598c4c7de5926049e1">&#9670;&nbsp;</a></span>method</h2>
+<a id="aae22302e973a200f51df5e19c8817d0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae22302e973a200f51df5e19c8817d0c">&#9670;&nbsp;</a></span>void_returning</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +243,7 @@ template&lt;auto ID, auto Method&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto <a class="el" href="structemlabcpp_1_1rpc_1_1derive.html">emlabcpp::rpc::derive</a>&lt; ID, Method &gt;::method = Method</td>
+          <td class="memname">constexpr bool <a class="el" href="structemlabcpp_1_1rpc_1_1derive.html">emlabcpp::rpc::derive</a>&lt; ID, Method &gt;::void_returning = std::is_void_v&lt; typename sig::return_type &gt;</td>
         </tr>
       </table>
   </td>
@@ -217,7 +264,7 @@ template&lt;auto ID, auto Method&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1rpc.html">rpc</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1rpc_1_1derive.html">derive</a></li>
-    <li class="footer">Generated on Mon Sep 5 2022 16:39:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Sep 6 2022 08:01:29 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

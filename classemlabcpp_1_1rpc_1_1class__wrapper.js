@@ -7,5 +7,5 @@ var classemlabcpp_1_1rpc_1_1class__wrapper =
     [ "request_message_type", "classemlabcpp_1_1rpc_1_1class__wrapper.html#a36bff3fadc26197f0295e8158a058387", null ],
     [ "class_wrapper", "classemlabcpp_1_1rpc_1_1class__wrapper.html#a943082d390be7914e8ee021a3e9ee760", null ],
     [ "on_message", "classemlabcpp_1_1rpc_1_1class__wrapper.html#a3813d93c79e964a22a2e46eb07d77fdf", null ],
-    [ "operator()", "classemlabcpp_1_1rpc_1_1class__wrapper.html#a1502c4ba18428939eeb17f2506d73e96", null ]
+    [ "operator()", "classemlabcpp_1_1rpc_1_1class__wrapper.html#a78b0c73ee47269b257d3d59eac65bb33", null ]
 ];
