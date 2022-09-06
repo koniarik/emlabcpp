@@ -29,17 +29,27 @@ namespace emlabcpp
 {
 namespace detail
 {
-        template < std::size_t N, typename Variant >
-        decltype( auto ) linear_visit_impl( Variant&& var, auto& cb );
+        template < std::size_t N >
+        decltype( auto ) linear_index_visit_impl( std::size_t index, auto& cb );
 }  // namespace detail
+
+template < typename Visitor, typename Variant >
+decltype( auto ) visit_index( Visitor&& vis, Variant&& var )
+{
+        return detail::linear_index_visit_impl<
+            std::variant_size_v< std::decay_t< Variant > > - 1 >( var.index(), vis );
+}
 
 /// Reimplementation of `std::visit`. This one trades worse complexity (linear) in favor of less
 /// assembly generated.
 template < typename Visitor, typename Variant >
 decltype( auto ) visit( Visitor&& vis, Variant&& var )
 {
-        return detail::linear_visit_impl< std::variant_size_v< std::decay_t< Variant > > - 1 >(
-            std::forward< Variant >( var ), vis );
+        return visit_index(
+            [&vis, &var]< std::size_t i > {
+                    return vis( std::get< i >( var ) );
+            },
+            var );
 }
 
 /// Combines `visit` and `std::apply` into one step - provided variant is expanded with `visit` and
@@ -60,17 +70,16 @@ decltype( auto ) apply_on_visit( Visitor&& vis, Variant&& var )
 }
 namespace detail
 {
-        template < std::size_t N, typename Variant >
-        decltype( auto ) linear_visit_impl( Variant&& var, auto& cb )
+        template < std::size_t N >
+        decltype( auto ) linear_index_visit_impl( std::size_t index, auto& cb )
         {
                 if constexpr ( N == 0 ) {
-                        return cb( std::get< 0 >( std::forward< Variant >( var ) ) );
+                        return cb.template operator()< 0 >();
                 } else {
-                        if ( var.index() == N ) {
-                                return cb( std::get< N >( std::forward< Variant >( var ) ) );
+                        if ( index == N ) {
+                                return cb.template operator()< N >();
                         } else {
-                                return linear_visit_impl< N - 1 >(
-                                    std::forward< Variant >( var ), cb );
+                                return linear_index_visit_impl< N - 1 >( index, cb );
                         }
                 }
         }
