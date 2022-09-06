@@ -225,11 +225,11 @@ private:
         Class& obj_;
 };
 
-template < auto ID, typename Signature >
+template < auto ID, typename Signature, std::size_t CallableSize = 32 >
 struct bind
 {
         static constexpr auto id = ID;
-        using sfunction          = static_function< Signature, 32 >;
+        using sfunction          = static_function< Signature, CallableSize >;
         using sig                = signature_of< Signature >;
 
         static constexpr bool void_returning = std::is_void_v< typename sig::return_type >;
