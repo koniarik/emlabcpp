@@ -102,7 +102,7 @@ using simple_cb = simple_tag_struct< CB, uint32_t >;
 using simple_cc = simple_tag_struct< CC, int16_t >;
 
 using simple_tag_group     = protocol::tag_group< simple_ca, simple_cb, simple_cc >;
-using simple_tag_group_var = typename simple_tag_group::value_type;
+using simple_tag_group_var = typename protocol::traits_for< simple_tag_group >::value_type;
 
 template < typename Group >
 struct valid_test_case : protocol_test_fixture
@@ -144,8 +144,9 @@ struct valid_test_case : protocol_test_fixture
 };
 
 template < typename Group >
-std::function< protocol_test_fixture*() >
-make_valid_test_case( typename Group::value_type val, const std::vector< uint8_t >& buff )
+std::function< protocol_test_fixture*() > make_valid_test_case(
+    typename protocol::traits_for< Group >::value_type val,
+    const std::vector< uint8_t >&                      buff )
 {
         return [=]() {
                 return new valid_test_case< Group >( val, buff );

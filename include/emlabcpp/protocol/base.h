@@ -167,7 +167,7 @@ template < std::endian Endianess, typename D >
 struct endianess_wrapper
 {
         static constexpr std::endian value = Endianess;
-        using value_type                   = D;
+        using def_type                     = D;
 };
 
 /// Serializes values from definitions Ds to std::variant. The byte message does not contain
@@ -176,13 +176,13 @@ struct endianess_wrapper
 template < typename... Ds >
 struct group
 {
-        using value_type = std::variant< Ds... >;
+        using def_type = std::variant< Ds... >;
 };
 
 template < typename... Ds >
 struct tag_group
 {
-        using value_type = std::variant< Ds... >;
+        using def_type = std::variant< Ds... >;
 };
 
 /// Creates a segment starting with counter defined by CounterDef, this counter limits how many
@@ -192,7 +192,7 @@ template < typename CounterDef, typename D >
 struct sized_buffer
 {
         using counter_type = CounterDef;
-        using value_type   = D;
+        using def_type     = D;
 };
 
 /// The value defined by `D` present in the message is offseted by `Offset`. If the offset for

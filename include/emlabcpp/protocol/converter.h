@@ -273,6 +273,7 @@ struct converter< std::tuple< Ds... >, Endianess >
         }
 };
 
+// TODO: make a tests for variant with duplicated types
 template < convertible... Ds, std::endian Endianess >
 struct converter< std::variant< Ds... >, Endianess >
 {
@@ -297,28 +298,21 @@ struct converter< std::variant< Ds... >, Endianess >
                 id_def::serialize_at(
                     buffer.template first< id_size >(), static_cast< id_type >( item.index() ) );
 
-                std::optional< size_type > opt_res;
-                until_index< sizeof...( Ds ) >( [&opt_res, &buffer, &item]< std::size_t i >() {
-                        if ( i != item.index() ) {
-                                return false;
-                        }
-                        using sub_converter =
-                            converter_for< std::variant_alternative_t< i, def_type >, Endianess >;
+                return visit_index(
+                    [&buffer, &item]< std::size_t i >() -> size_type {
+                            using sub_converter = converter_for<
+                                std::variant_alternative_t< i, def_type >,
+                                Endianess >;
 
-                        /// this also asserts that id has static serialized size
-                        opt_res = bounded_constant< id_def::max_size > +
-                                  sub_converter::serialize_at(
-                                      buffer.template subspan<
-                                          id_def::max_size,
-                                          sub_converter::max_size >(),
-                                      std::get< i >( item ) );
-
-                        return true;
-                } );
-                /// The only case in which this can fire is that iteration 0...sizeof...(Ds) above
-                /// did not mathced item.index(), which should not be possible
-                EMLABCPP_ASSERT( opt_res );
-                return *opt_res;
+                            /// this also asserts that id has static serialized size
+                            return bounded_constant< id_def::max_size > +
+                                   sub_converter::serialize_at(
+                                       buffer.template subspan<
+                                           id_def::max_size,
+                                           sub_converter::max_size >(),
+                                       std::get< i >( item ) );
+                    },
+                    item );
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
@@ -699,31 +693,26 @@ struct converter< tag_group< Ds... >, Endianess >
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
         {
-                std::optional< size_type > opt_res;
-                until_index< sizeof...( Ds ) >( [&buffer, &opt_res, &item]< std::size_t i >() {
-                        if ( i != item.index() ) {
-                                return false;
-                        }
-                        using D = std::variant_alternative_t< i, def_variant >;
+                return visit_index(
+                    [&buffer, &item]< std::size_t i >() {
+                            using D = std::variant_alternative_t< i, def_variant >;
 
-                        opt_res = sub_converter::serialize_at(
-                            buffer.template subspan< 0, sub_converter::max_size >(),
-                            std::make_tuple( tag< D::id >{}, std::get< i >( item ) ) );
-                        return true;
-                } );
-                /// same check as for std::variant
-                EMLABCPP_ASSERT( opt_res );
-                return *opt_res;
+                            return sub_converter::serialize_at(
+                                buffer.template subspan< 0, sub_converter::max_size >(),
+                                std::make_tuple( tag< D::id >{}, std::get< i >( item ) ) );
+                    },
+                    item );
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
                 return sub_converter::deserialize( buffer ).convert_value( []( sub_value var ) {
-                        return visit(
-                            []< typename Tag, typename T >(
-                                const std::tuple< Tag, T >& pack ) -> value_type {
-                                    return std::get< 1 >( pack );
+                        return visit_index(
+                            [&var]< std::size_t i > {
+                                    const auto* ptr = std::get_if< i >( &var );
+                                    return value_type{
+                                        std::in_place_index< i >, std::get< 1 >( *ptr ) };
                             },
                             var );
                 } );
@@ -743,22 +732,16 @@ struct converter< group< Ds... >, Endianess >
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
         {
-                std::optional< size_type > opt_res;
-                until_index< sizeof...( Ds ) >( [&buffer, &item, &opt_res]< std::size_t i >() {
-                        if ( i != item.index() ) {
-                                return false;
-                        }
-                        using sub_converter = converter_for<
-                            std::variant_alternative_t< i, def_variant >,
-                            Endianess >;
-                        opt_res = sub_converter::serialize_at(
-                            buffer.template subspan< 0, sub_converter::max_size >(),
-                            std::get< i >( item ) );
-                        return true;
-                } );
-                /// same check as for std::variant
-                EMLABCPP_ASSERT( opt_res );
-                return *opt_res;
+                return visit_index(
+                    [&buffer, &item]< std::size_t i >() -> size_type {
+                            using sub_converter = converter_for<
+                                std::variant_alternative_t< i, def_variant >,
+                                Endianess >;
+                            return sub_converter::serialize_at(
+                                buffer.template subspan< 0, sub_converter::max_size >(),
+                                std::get< i >( item ) );
+                    },
+                    item );
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
