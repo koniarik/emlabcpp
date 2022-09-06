@@ -36,6 +36,7 @@ function(emlabcpp_setup_test target)
             -Wdouble-promotion
             -ftemplate-backtrace-limit=0
             -DEMLABCPP_USE_LOGGING
+            -DEMLABCPP_USE_DEMANGLING
             -DEMLABCPP_ASSERT_NATIVE
             -DEMLABCPP_USE_NLOHMANN_JSON
             -DEMLABCPP_USE_MAGIC_ENUM
