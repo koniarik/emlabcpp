@@ -787,7 +787,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;        {</div>
 <div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;                <span class="keywordflow">return</span> sub_converter::deserialize( buffer ).<a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html#a3669c925e331e48cec779feaf021b12e">convert_value</a>( []( <a class="code" href="structemlabcpp_1_1protocol_1_1converter_3_01tag__group_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html#a09827fc7b7471333c419877f1744dce7">sub_value</a> var ) {</div>
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a7d239279335993f18f0aa49c2a0d4131">visit_index</a>(</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                            [&amp;var]&lt; std::size_t i &gt; {</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                            [&amp;var]&lt; std::size_t i &gt;() {</div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                                    <span class="keyword">const</span> <span class="keyword">auto</span>* ptr = std::get_if&lt; i &gt;( &amp;var );</div>
 <div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                                    <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1converter_3_01tag__group_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html#a6bef89d2c469fd25ec5f6d79eadae0e1">value_type</a>{</div>
 <div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                                        std::in_place_index&lt; i &gt;, std::get&lt; 1 &gt;( *ptr ) };</div>
@@ -1245,7 +1245,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="converter_8h.html">converter.h</a></li>
-    <li class="footer">Generated on Tue Sep 6 2022 12:04:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Sep 6 2022 12:18:01 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
