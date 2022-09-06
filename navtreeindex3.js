@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"experimental_2contiguous__tree_2base_8h.html#ab6d4662933f76ac56e85afb0ca37e997a00b519f4d947eb449e9d06ec03804256":[4,0,0,0,2,0,0,2,1],
 "experimental_2contiguous__tree_2base_8h.html#ab6d4662933f76ac56e85afb0ca37e997a2e260cb0c3d12bbc44f6ee65871b461f":[4,0,0,0,2,0,0,2,2],
 "experimental_2contiguous__tree_2base_8h.html#ab6d4662933f76ac56e85afb0ca37e997a4cdd7f9cd282729e856fe214f7575888":[4,0,0,0,2,0,0,2,0],
 "experimental_2contiguous__tree_2base_8h_source.html":[4,0,0,0,2,0,0],
@@ -152,8 +151,8 @@ var NAVTREEINDEX3 =
 "functions_type_w.html":[3,3,3,16],
 "functions_u.html":[3,3,0,20],
 "functions_v.html":[3,3,0,21],
-"functions_vars.html":[3,3,2,0],
 "functions_vars.html":[3,3,2],
+"functions_vars.html":[3,3,2,0],
 "functions_vars_c.html":[3,3,2,1],
 "functions_vars_d.html":[3,3,2,2],
 "functions_vars_e.html":[3,3,2,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX3 =
 "namespaceemlabcpp.html#a155a6828d776fbc298d37aabee6bc0d7":[2,0,0,163],
 "namespaceemlabcpp.html#a163dd8154f05ef8a818183d0d44cbcdc":[2,0,0,139],
 "namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16":[2,0,0,197],
-"namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f":[2,0,0,126]
+"namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f":[2,0,0,126],
+"namespaceemlabcpp.html#a1aef6c41e29219cbbc8538767c0e1f0e":[2,0,0,185]
 };
