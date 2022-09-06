@@ -227,7 +227,8 @@ using controller_reactor_group = protocol::tag_group<
     tree_error_reply,
     exec_request >;
 
-using controller_reactor_variant = typename controller_reactor_group::value_type;
+using controller_reactor_variant =
+    typename protocol::traits_for< controller_reactor_group >::value_type;
 
 enum error_enum : uint8_t
 {
@@ -295,7 +296,8 @@ using reactor_controller_group = protocol::tag_group<
     reactor_internal_error_report,
     reactor_protocol_error_report >;
 
-using reactor_controller_variant = typename reactor_controller_group::value_type;
+using reactor_controller_variant =
+    typename protocol::traits_for< reactor_controller_group >::value_type;
 
 struct packet_def
 {
