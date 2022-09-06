@@ -7,6 +7,10 @@ var types_8h =
       [ "class_type", "namespaceemlabcpp.html#ab60adad76c48810247772656a9e8991f", null ],
       [ "return_type", "namespaceemlabcpp.html#ac7edbf2749c47348c648397080131836", null ]
     ] ],
+    [ "signature_of< ReturnType(Args...) >", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of_3_01ReturnType_07Args_8_8_8_08_01_4", [
+      [ "args_type", "namespaceemlabcpp.html#a1d6031bb6774f9e0fdd9127e753b4429", null ],
+      [ "return_type", "namespaceemlabcpp.html#aaf6b1e41353c5010a20ce6ae5543a98d", null ]
+    ] ],
     [ "mapped_t", "types_8h.html#abf111745a0eec5119748333b9640afca", null ],
     [ "select_utype_t", "types_8h.html#ac223240cfaa32fcb48f0daa06c78a9e2", null ],
     [ "operator<<", "types_8h.html#a155a6828d776fbc298d37aabee6bc0d7", null ],

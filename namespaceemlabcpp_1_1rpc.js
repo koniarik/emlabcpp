@@ -9,5 +9,8 @@ var namespaceemlabcpp_1_1rpc =
     [ "reactor", "classemlabcpp_1_1rpc_1_1reactor.html", "classemlabcpp_1_1rpc_1_1reactor" ],
     [ "controller", "classemlabcpp_1_1rpc_1_1controller.html", "classemlabcpp_1_1rpc_1_1controller" ],
     [ "derive", "structemlabcpp_1_1rpc_1_1derive.html", "structemlabcpp_1_1rpc_1_1derive" ],
-    [ "class_wrapper", "classemlabcpp_1_1rpc_1_1class__wrapper.html", "classemlabcpp_1_1rpc_1_1class__wrapper" ]
+    [ "class_wrapper", "classemlabcpp_1_1rpc_1_1class__wrapper.html", "classemlabcpp_1_1rpc_1_1class__wrapper" ],
+    [ "bind", "structemlabcpp_1_1rpc_1_1bind.html", "structemlabcpp_1_1rpc_1_1bind" ],
+    [ "bind_wrapper", "classemlabcpp_1_1rpc_1_1bind__wrapper.html", "classemlabcpp_1_1rpc_1_1bind__wrapper" ],
+    [ "get_call_index", "namespaceemlabcpp_1_1rpc.html#a12e7fa7692c1aa0eca27cb5659dc25a4", null ]
 ];

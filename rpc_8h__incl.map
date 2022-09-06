@@ -1,7 +1,11 @@
 <map id="include/emlabcpp/experimental/rpc.h" name="include/emlabcpp/experimental/rpc.h">
-<area shape="rect" id="node1" title=" " alt="" coords="19,5,247,47"/>
-<area shape="rect" id="node2" href="$handler_8h.html" title=" " alt="" coords="30,95,237,121"/>
-<area shape="rect" id="node3" href="$either_8h.html" title=" " alt="" coords="64,244,203,271"/>
-<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="137,319,276,345"/>
-<area shape="rect" id="node5" href="$converter_8h.html" title=" " alt="" coords="23,169,243,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="217,5,445,47"/>
+<area shape="rect" id="node2" href="$handler_8h.html" title=" " alt="" coords="114,95,321,121"/>
+<area shape="rect" id="node6" href="$static__function_8h.html" title=" " alt="" coords="361,95,559,121"/>
+<area shape="rect" id="node3" href="$either_8h.html" title=" " alt="" coords="67,259,205,285"/>
+<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="140,333,279,360"/>
+<area shape="rect" id="node5" href="$converter_8h.html" title=" " alt="" coords="26,177,246,203"/>
+<area shape="rect" id="node7" href="$util_8h.html" title=" " alt="" coords="321,169,468,211"/>
+<area shape="rect" id="node8" title=" " alt="" coords="493,177,579,203"/>
+<area shape="rect" id="node9" title=" " alt="" coords="604,177,681,203"/>
 </map>

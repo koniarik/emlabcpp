@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"classemlabcpp_1_1either.html#ab8c748f81c10f3df0946e719f68e6d51":[3,0,0,15,17],
 "classemlabcpp_1_1either.html#abb8d56a5914674fbe4f2b1bfb635bae7":[3,0,0,15,28],
 "classemlabcpp_1_1either.html#abbeb2b3d0e7aa691ec88512328d20cc3":[3,0,0,15,6],
 "classemlabcpp_1_1either.html#abcbc5013b617c467983f5ea91fcc52c0":[3,0,0,15,3],
@@ -177,6 +178,10 @@ var NAVTREEINDEX1 =
 "classemlabcpp_1_1quantity.html#ab6abcbc6a59f2b081d5e8bca1a11a4d0":[3,0,0,33,0],
 "classemlabcpp_1_1quantity.html#ae1c10800f20823776a302a96776d4e07":[3,0,0,33,3],
 "classemlabcpp_1_1quantity.html#af343e7706e09c9956acc680651e3b74c":[3,0,0,33,10],
+"classemlabcpp_1_1rpc_1_1bind__wrapper.html":[3,0,0,3,11],
+"classemlabcpp_1_1rpc_1_1bind__wrapper.html#a4b0c607dd54a0edc84755b69f8fd84ff":[3,0,0,3,11,2],
+"classemlabcpp_1_1rpc_1_1bind__wrapper.html#a574ea7b428e5e9ba2302a44eb6b8dc48":[3,0,0,3,11,0],
+"classemlabcpp_1_1rpc_1_1bind__wrapper.html#aabf6bd104cd398f78da9f26493dd8c4f":[3,0,0,3,11,1],
 "classemlabcpp_1_1rpc_1_1class__wrapper.html":[3,0,0,3,9],
 "classemlabcpp_1_1rpc_1_1class__wrapper.html#a2ab59dfda82775ceabd8502196b2e64b":[3,0,0,3,9,1],
 "classemlabcpp_1_1rpc_1_1class__wrapper.html#a326e13d3d0864aeeb34eaf09ec5ca2b5":[3,0,0,3,9,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX1 =
 "classemlabcpp_1_1static__circular__buffer.html#ad79b32945aa2393af18e55ef2282cb58":[3,0,0,36,22],
 "classemlabcpp_1_1static__circular__buffer.html#add5ec3d89fed5dc891d2b2607413c90e":[3,0,0,36,28],
 "classemlabcpp_1_1static__circular__buffer.html#ae061112d8131301e07a8ab12a633a49e":[3,0,0,36,25],
-"classemlabcpp_1_1static__circular__buffer.html#ae66ed12d7b93d88d3aca30343b678810":[3,0,0,36,9],
-"classemlabcpp_1_1static__circular__buffer.html#aed2d8dce3af78778c37e0605b35d4f13":[3,0,0,36,32],
-"classemlabcpp_1_1static__circular__buffer.html#af31344709102462bcd156aea21ef5a41":[3,0,0,36,23],
-"classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426":[3,0,0,36,12],
-"classemlabcpp_1_1static__circular__buffer.html#af8168daadb9d8bc8ec423fdf3eda683c":[3,0,0,36,7],
-"classemlabcpp_1_1static__circular__buffer.html#af84f6406b3af6132c17c69963f9513c0":[3,0,0,36,6]
+"classemlabcpp_1_1static__circular__buffer.html#ae66ed12d7b93d88d3aca30343b678810":[3,0,0,36,9]
 };
