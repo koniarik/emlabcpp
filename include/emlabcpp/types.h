@@ -143,4 +143,11 @@ struct signature_of< ReturnType ( Class::* )( Args... ) >
         using args_type   = std::tuple< Args... >;
 };
 
+template < typename ReturnType, typename... Args >
+struct signature_of< ReturnType ( Args... ) >
+{
+        using return_type = ReturnType;
+        using args_type   = std::tuple< Args... >;
+};
+
 }  // namespace emlabcpp

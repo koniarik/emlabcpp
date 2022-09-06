@@ -1,4 +1,5 @@
 #include "emlabcpp/protocol/handler.h"
+#include "emlabcpp/static_function.h"
 
 #pragma once
 
@@ -101,16 +102,17 @@ public:
                     .join();
         }
 };
+template < typename Def >
+static constexpr std::size_t get_call_index( auto id )
+{
+        return find_if_index< std::tuple_size_v< Def > >( [id]< std::size_t i >() {
+                return std::tuple_element_t< i, Def >::id == id;
+        } );
+}
 
 template < typename Def >
 class controller : public traits< Def >
 {
-        static constexpr std::size_t get_call_index( auto id )
-        {
-                return find_if_index< std::tuple_size_v< Def > >( [id]< std::size_t i >() {
-                        return std::tuple_element_t< i, Def >::id == id;
-                } );
-        }
 
 public:
         using traits_type          = traits< Def >;
@@ -126,7 +128,7 @@ public:
         using reply_handler   = protocol::handler< outter_reply_group >;
 
         template < auto ID >
-        static constexpr std::size_t call_index = get_call_index( ID );
+        static constexpr std::size_t call_index = get_call_index< Def >( ID );
 
         template < auto ID >
         using call_type = std::tuple_element_t< call_index< ID >, Def >;
@@ -221,6 +223,67 @@ public:
 
 private:
         Class& obj_;
+};
+
+template < auto ID, typename Signature >
+struct bind
+{
+        static constexpr auto id = ID;
+        using sfunction          = static_function< Signature, 32 >;
+        using sig                = signature_of< Signature >;
+
+        static constexpr bool void_returning = std::is_void_v< typename sig::return_type >;
+
+        using request = typename sig::args_type;
+        using reply =
+            std::conditional_t< void_returning, void_return_type, typename sig::return_type >;
+};
+
+template < typename... Bindings >
+class bind_wrapper
+{
+        using def_type             = std::tuple< Bindings... >;
+        using callbacks            = std::tuple< typename Bindings::sfunction... >;
+        using reactor_type         = reactor< def_type >;
+        using request_message_type = typename reactor_type::request_message_type;
+        using reply_message_type   = typename reactor_type::reply_message_type;
+
+        template < auto ID >
+        static constexpr std::size_t call_index = get_call_index< def_type >( ID );
+
+public:
+        reply_message_type on_message( const request_message_type& msg )
+        {
+                return reactor_type::on_message( msg, *this );
+        }
+
+        template < auto ID, typename Callable >
+        void bind( Callable cb )
+        {
+                static constexpr std::size_t i = call_index< ID >;
+
+                std::get< i >( cbs_ ) = cb;
+        }
+
+        template < std::size_t I, typename Request >
+        auto operator()( tag< I >, const Request& req )
+        {
+                using call_type = std::tuple_element_t< I, def_type >;
+
+                return std::apply(
+                    [&]( const auto&... args ) -> call_type::reply {
+                            if constexpr ( call_type::void_returning ) {
+                                    std::get< I >( cbs_ )( args... );
+                                    return void_return_type{};
+                            } else {
+                                    return std::get< I >( cbs_ )( args... );
+                            }
+                    },
+                    req );
+        }
+
+private:
+        callbacks cbs_;
 };
 
 }  // namespace emlabcpp::rpc
