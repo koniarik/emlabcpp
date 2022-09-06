@@ -710,7 +710,7 @@ struct converter< tag_group< Ds... >, Endianess >
         {
                 return sub_converter::deserialize( buffer ).convert_value( []( sub_value var ) {
                         return visit_index(
-                            [&var]< std::size_t i > {
+                            [&var]< std::size_t i >() {
                                     const auto* ptr = std::get_if< i >( &var );
                                     return value_type{
                                         std::in_place_index< i >, std::get< 1 >( *ptr ) };
