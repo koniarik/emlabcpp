@@ -30,11 +30,11 @@ struct foo
         }
 };
 
-using call1 = rpc::derive< CALL_1, &foo::call1_m >;
-using call2 = rpc::derive< CALL_2, &foo::call2_m >;
-using call3 = rpc::derive< CALL_3, &foo::call3_m >;
-
-using test_wrapper = rpc::class_wrapper< foo, call1, call2, call3 >;
+using test_wrapper = rpc::class_wrapper<
+    foo,
+    rpc::derive< CALL_1, &foo::call1_m >,
+    rpc::derive< CALL_2, &foo::call2_m >,
+    rpc::derive< CALL_3, &foo::call3_m > >;
 
 TEST( rpc, basic )
 {
