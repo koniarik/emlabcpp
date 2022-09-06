@@ -2,6 +2,7 @@
 #include "emlabcpp/enum.h"
 #include "emlabcpp/experimental/decompose.h"
 #include "emlabcpp/match.h"
+#include "emlabcpp/types.h"
 
 #include <filesystem>
 #include <optional>
@@ -158,7 +159,7 @@ public:
         template < decomposable T >
         void backup_print( const T& item )
         {
-                *this << decompose( item );
+                *this << pretty_type_name< T >() << decompose( item );
         }
 
 private:
