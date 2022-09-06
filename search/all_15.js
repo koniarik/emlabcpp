@@ -20,7 +20,7 @@ var searchData=
   ['visit_2eh_836',['visit.h',['../visit_8h.html',1,'']]],
   ['visit_5findex_837',['visit_index',['../namespaceemlabcpp.html#a7d239279335993f18f0aa49c2a0d4131',1,'emlabcpp']]],
   ['void_5freturn_5ftype_838',['void_return_type',['../namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1void__return__type',1,'emlabcpp::rpc']]],
-  ['void_5freturning_839',['void_returning',['../structemlabcpp_1_1rpc_1_1bind.html#ab8606ab5ec4873efb72a23ca03022479',1,'emlabcpp::rpc::bind::void_returning()'],['../structemlabcpp_1_1rpc_1_1derive.html#aae22302e973a200f51df5e19c8817d0c',1,'emlabcpp::rpc::derive::void_returning()']]],
+  ['void_5freturning_839',['void_returning',['../structemlabcpp_1_1rpc_1_1bind.html#a2053d8c84b1082d438cea5be42a1f66d',1,'emlabcpp::rpc::bind::void_returning()'],['../structemlabcpp_1_1rpc_1_1derive.html#aae22302e973a200f51df5e19c8817d0c',1,'emlabcpp::rpc::derive::void_returning()']]],
   ['voltage_840',['voltage',['../namespaceemlabcpp.html#a1c9a554fd1715665000628242b77a474',1,'emlabcpp']]],
   ['volume_841',['volume',['../namespaceemlabcpp.html#a5f05bc39f7d9b7332f437d5a7b19156c',1,'emlabcpp']]],
   ['vtable_842',['vtable',['../classemlabcpp_1_1detail_1_1static__function__storage.html#a7c4d484f51daec707f887cff79772f5f',1,'emlabcpp::detail::static_function_storage']]]

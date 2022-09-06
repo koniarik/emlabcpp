@@ -8,7 +8,7 @@ var hierarchy =
     [ "emlabcpp::protocol::backup_converter< T, Endianess >", "structemlabcpp_1_1protocol_1_1backup__converter_3_01T_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol::backup_proto_traits< D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1backup__proto__traits", null ],
     [ "emlabcpp::protocol::backup_proto_traits< T >", "structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4.html", null ],
-    [ "emlabcpp::rpc::bind< ID, Signature >", "structemlabcpp_1_1rpc_1_1bind.html", null ],
+    [ "emlabcpp::rpc::bind< ID, Signature, CallableSize >", "structemlabcpp_1_1rpc_1_1bind.html", null ],
     [ "emlabcpp::rpc::bind_wrapper< Bindings >", "classemlabcpp_1_1rpc_1_1bind__wrapper.html", null ],
     [ "emlabcpp::bounded< T, MinVal, MaxVal >", "classemlabcpp_1_1bounded.html", null ],
     [ "emlabcpp::rpc::class_wrapper< Class, Bindings >", "classemlabcpp_1_1rpc_1_1class__wrapper.html", null ],
