@@ -478,6 +478,12 @@ joined( const Container& cont, const T& val, UnaryCallable&& f = std::identity()
         return res;
 }
 
+template < range_container Container, typename Iterator >
+void copy( const Container& cont, Iterator iter )
+{
+        std::copy( cont.begin(), cont.end(), iter );
+}
+
 /// Executes unary callable `f()` with template argument of type 'std::size_t', which ranges from 0
 /// to N.
 template < std::size_t N, typename NullCallable >
