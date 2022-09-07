@@ -64,7 +64,7 @@ struct handler
                 auto res = def::deserialize( *opt_view );
                 if constexpr ( erroring_converter< def > ) {
                         if ( res.has_error() ) {
-                                const mark* mark = res.get_error();
+                                const mark* const mark = res.get_error();
                                 EMLABCPP_LOG(
                                     "Failed to extract protocol def "
                                     << pretty_type_name< T >() << " from message " << *opt_view

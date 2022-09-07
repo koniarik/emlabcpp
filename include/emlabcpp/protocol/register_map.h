@@ -77,7 +77,7 @@ private:
         static constexpr std::size_t get_reg_index( key_type k )
         {
                 return find_if_index< std::tuple_size_v< registers_tuple > >(
-                    [&]< std::size_t i >() {
+                    [&k]< std::size_t i >() {
                             return std::tuple_element_t< i, registers_tuple >::key == k;
                     } );
         }
@@ -103,7 +103,7 @@ public:
         using reg_def_type = typename reg_type< Key >::def_type;
 
         register_map() = default;
-        register_map( typename Regs::value_type... args )
+        explicit register_map( typename Regs::value_type&... args )
           : registers_( Regs{ args }... )
         {
         }
@@ -131,14 +131,14 @@ public:
 
         static constexpr std::size_t register_size( register_index i )
         {
-                return select_index( i, [&]< std::size_t j >() {
+                return select_index( i, [&i]< std::size_t j >() {
                         return std::tuple_element_t< j, registers_tuple >::size;
                 } );
         }
 
         static constexpr key_type register_key( register_index i )
         {
-                return select_index( i, [&]< std::size_t j >() {
+                return select_index( i, [&i]< std::size_t j >() {
                         return std::tuple_element_t< j, registers_tuple >::key;
                 } );
         }
@@ -146,7 +146,7 @@ public:
         template < typename UnaryCallable >
         constexpr void setup_register( key_type key, UnaryCallable&& f )
         {
-                with_register( key, [&]< typename reg_type >( const reg_type& ) {
+                with_register( key, [this, &f]< typename reg_type >( const reg_type& ) {
                         std::get< reg_type >( registers_ ).value =
                             f.template operator()< reg_type >();
                 } );
@@ -161,7 +161,7 @@ public:
         {
                 using ret_type = decltype( f( std::get< 0 >( registers_ ) ) );
                 ret_type res;
-                with_register( key, [&]( const auto& reg ) {
+                with_register( key, [&res, &f]( const auto& reg ) {
                         res = f( reg );
                 } );
                 return res;
@@ -174,7 +174,7 @@ public:
                 registers_tuple > ) constexpr void with_register( key_type key, UnaryCallable&& f )
             const
         {
-                until_index< registers_count >( [&]< std::size_t j >() {
+                until_index< registers_count >( [this, &key, &f]< std::size_t j >() {
                         using reg_type = std::tuple_element_t< j, registers_tuple >;
                         if ( reg_type::key != key ) {
                                 return false;
@@ -188,7 +188,7 @@ public:
 template < typename Map, typename UnaryCallable >
 void for_each_register( const Map& m, UnaryCallable&& f )
 {
-        for_each_index< Map::registers_count >( [&]< std::size_t i >() {
+        for_each_index< Map::registers_count >( [&m, &f]< std::size_t i >() {
                 static constexpr auto key = Map::register_key( bounded_constant< i > );
                 f.template            operator()< key >( m.template get_val< key >() );
         } );
