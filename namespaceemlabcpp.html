@@ -191,7 +191,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:classemlabcpp_1_1static__function__base"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">static_function_base</a></td></tr>
 <tr class="separator:classemlabcpp_1_1static__function__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4.html">static_function_base&lt; ReturnType(ArgTypes...), Capacity, Align, NoexceptMove &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_01_4.html">static_function_base&lt; ReturnType(ArgTypes...), Capacity, Align &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data container for up to N elements.  <a href="classemlabcpp_1_1static__vector.html#details">More...</a><br /></td></tr>
@@ -259,9 +259,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a3a26f08c5adb26bcc69ec7fc1bf42910"><td class="memTemplParams" colspan="2">template&lt;typename Key , typename T &gt; </td></tr>
 <tr class="memitem:a3a26f08c5adb26bcc69ec7fc1bf42910"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">pool_map</a> = std::map&lt; Key, T, std::less&lt; Key &gt;, <a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a>&lt; std::pair&lt; const Key, T &gt; &gt; &gt;</td></tr>
 <tr class="separator:a3a26f08c5adb26bcc69ec7fc1bf42910"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a391a57c506ebf6ce79239bbf4b7aaf89"><td class="memTemplParams" colspan="2">template&lt;typename Signature , std::size_t Capacity&gt; </td></tr>
-<tr class="memitem:a391a57c506ebf6ce79239bbf4b7aaf89"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a391a57c506ebf6ce79239bbf4b7aaf89">static_function</a> = <a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">static_function_base</a>&lt; Signature, Capacity, alignof(void *), false &gt;</td></tr>
-<tr class="separator:a391a57c506ebf6ce79239bbf4b7aaf89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a803520b1d525d0030e528bc67b402b53"><td class="memTemplParams" colspan="2">template&lt;typename Signature , std::size_t Capacity&gt; </td></tr>
+<tr class="memitem:a803520b1d525d0030e528bc67b402b53"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a> = <a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">static_function_base</a>&lt; Signature, Capacity, alignof(void *) &gt;</td></tr>
+<tr class="separator:a803520b1d525d0030e528bc67b402b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98ab53b012e339a9621604b203df856e"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
 <tr class="memitem:a98ab53b012e339a9621604b203df856e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a98ab53b012e339a9621604b203df856e">iterator_of_t</a> = typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1iterator__of">iterator_of</a>&lt; Container &gt;::type</td></tr>
 <tr class="separator:a98ab53b012e339a9621604b203df856e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -461,6 +461,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a31c1cbc5b728494acb47daebb913fd96"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a31c1cbc5b728494acb47daebb913fd96">joined</a> (const Container &amp;cont, const T &amp;val, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>=std::identity())</td></tr>
 <tr class="memdesc:a31c1cbc5b728494acb47daebb913fd96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function applies callable <code>f</code> to each item in container <code>cont</code> and contacts results with operator+, <code>val</code> is used as a separator between the items.  <a href="namespaceemlabcpp.html#a31c1cbc5b728494acb47daebb913fd96">More...</a><br /></td></tr>
 <tr class="separator:a31c1cbc5b728494acb47daebb913fd96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af85136552afa4d0a86dd1fb078223cdd"><td class="memTemplParams" colspan="2">template&lt;range_container Container, typename Iterator &gt; </td></tr>
+<tr class="memitem:af85136552afa4d0a86dd1fb078223cdd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af85136552afa4d0a86dd1fb078223cdd">copy</a> (const Container &amp;cont, Iterator iter)</td></tr>
+<tr class="separator:af85136552afa4d0a86dd1fb078223cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92a263e4623147eea2c226d8b9bcafc7"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename NullCallable &gt; </td></tr>
 <tr class="memitem:a92a263e4623147eea2c226d8b9bcafc7"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a92a263e4623147eea2c226d8b9bcafc7">for_each_index</a> (const NullCallable &amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>)</td></tr>
 <tr class="memdesc:a92a263e4623147eea2c226d8b9bcafc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N.  <a href="namespaceemlabcpp.html#a92a263e4623147eea2c226d8b9bcafc7">More...</a><br /></td></tr>
@@ -875,8 +878,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><h3>template&lt;typename CallableType, std::size_t Capacity, std::size_t Align, bool NoexceptMove&gt;<br />
-class emlabcpp::static_function_base&lt; CallableType, Capacity, Align, NoexceptMove &gt;</h3>
+<div class="textblock"><h3>template&lt;typename CallableType, std::size_t Capacity, std::size_t Align&gt;<br />
+class emlabcpp::static_function_base&lt; CallableType, Capacity, Align &gt;</h3>
 
 </div>
 </div>
@@ -1441,8 +1444,8 @@ template&lt;std::size_t N&gt; </div>
 
 </div>
 </div>
-<a id="a391a57c506ebf6ce79239bbf4b7aaf89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a391a57c506ebf6ce79239bbf4b7aaf89">&#9670;&nbsp;</a></span>static_function</h2>
+<a id="a803520b1d525d0030e528bc67b402b53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a803520b1d525d0030e528bc67b402b53">&#9670;&nbsp;</a></span>static_function</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1450,7 +1453,7 @@ template&lt;std::size_t N&gt; </div>
 template&lt;typename Signature , std::size_t Capacity&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a391a57c506ebf6ce79239bbf4b7aaf89">emlabcpp::static_function</a> = typedef <a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">static_function_base</a>&lt; Signature, Capacity, alignof( void* ), false &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">emlabcpp::static_function</a> = typedef <a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">static_function_base</a>&lt; Signature, Capacity, alignof( void* ) &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2208,6 +2211,36 @@ template&lt;typename T , typename Iterator &gt; </div>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">view_n()</a>.</p>
+
+</div>
+</div>
+<a id="af85136552afa4d0a86dd1fb078223cdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af85136552afa4d0a86dd1fb078223cdd">&#9670;&nbsp;</a></span>copy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;range_container Container, typename Iterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void emlabcpp::copy </td>
+          <td>(</td>
+          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramname"><em>cont</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>iter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -6183,7 +6216,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Wed Sep 7 2022 14:07:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Sep 7 2022 14:32:29 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

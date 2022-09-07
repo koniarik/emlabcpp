@@ -294,9 +294,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a86af295c29486a2e771b64dafe6e100b"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, std::endian Endianess, typename... Regs&gt; </td></tr>
 <tr class="memitem:a86af295c29486a2e771b64dafe6e100b"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a86af295c29486a2e771b64dafe6e100b">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a>&lt; Endianess, Regs... &gt; &amp;m)</td></tr>
 <tr class="separator:a86af295c29486a2e771b64dafe6e100b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4e4eb7948e19b1bea5b33f07edef2a0"><td class="memTemplParams" colspan="2">template&lt;typename Sequencer , typename ReadCallback &gt; </td></tr>
-<tr class="memitem:ab4e4eb7948e19b1bea5b33f07edef2a0"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; typename Sequencer::message_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ab4e4eb7948e19b1bea5b33f07edef2a0">sequencer_simple_load</a> (std::size_t read_limit, ReadCallback &amp;&amp;read)</td></tr>
-<tr class="separator:ab4e4eb7948e19b1bea5b33f07edef2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65c1faf455d3f60687ad28bb43cfe060"><td class="memTemplParams" colspan="2">template&lt;typename Sequencer , typename ReadCallback &gt; </td></tr>
+<tr class="memitem:a65c1faf455d3f60687ad28bb43cfe060"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; typename Sequencer::message_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a65c1faf455d3f60687ad28bb43cfe060">sequencer_simple_load</a> (const std::size_t read_limit, ReadCallback &amp;&amp;read)</td></tr>
+<tr class="separator:a65c1faf455d3f60687ad28bb43cfe060"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad52649bb28ff1f5ffcd952a86b5ede82"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, std::size_t N&gt; </td></tr>
 <tr class="memitem:ad52649bb28ff1f5ffcd952a86b5ede82"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ad52649bb28ff1f5ffcd952a86b5ede82">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; N &gt; &amp;msg)</td></tr>
 <tr class="separator:ad52649bb28ff1f5ffcd952a86b5ede82"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -902,8 +902,8 @@ template&lt;ostreamlike Stream, std::endian Endianess, typename... Regs&gt; </di
 
 </div>
 </div>
-<a id="ab4e4eb7948e19b1bea5b33f07edef2a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4e4eb7948e19b1bea5b33f07edef2a0">&#9670;&nbsp;</a></span>sequencer_simple_load()</h2>
+<a id="a65c1faf455d3f60687ad28bb43cfe060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65c1faf455d3f60687ad28bb43cfe060">&#9670;&nbsp;</a></span>sequencer_simple_load()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -913,7 +913,7 @@ template&lt;typename Sequencer , typename ReadCallback &gt; </div>
         <tr>
           <td class="memname">std::optional&lt; typename Sequencer::message_type &gt; emlabcpp::protocol::sequencer_simple_load </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramtype">const std::size_t&#160;</td>
           <td class="paramname"><em>read_limit</em>, </td>
         </tr>
         <tr>
@@ -1370,7 +1370,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Wed Sep 7 2022 14:07:49 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Sep 7 2022 14:32:30 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

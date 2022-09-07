@@ -190,7 +190,7 @@ var annotated_dup =
       [ "static_circular_buffer_iterator", "classemlabcpp_1_1static__circular__buffer__iterator.html", "classemlabcpp_1_1static__circular__buffer__iterator" ],
       [ "static_circular_buffer", "classemlabcpp_1_1static__circular__buffer.html", "classemlabcpp_1_1static__circular__buffer" ],
       [ "static_function_base", "namespaceemlabcpp.html#classemlabcpp_1_1static__function__base", null ],
-      [ "static_function_base< ReturnType(ArgTypes...), Capacity, Align, NoexceptMove >", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4.html", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_00_01NoexceptMove_01_4" ],
+      [ "static_function_base< ReturnType(ArgTypes...), Capacity, Align >", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_01_4.html", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_01_4" ],
       [ "static_vector", "classemlabcpp_1_1static__vector.html", "classemlabcpp_1_1static__vector" ],
       [ "iterator_of", "namespaceemlabcpp.html#structemlabcpp_1_1iterator__of", "namespaceemlabcpp_structemlabcpp_1_1iterator__of_dup" ],
       [ "is_view", "structemlabcpp_1_1is__view.html", null ],
