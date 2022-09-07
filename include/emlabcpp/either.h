@@ -253,7 +253,7 @@ public:
         }
 
         template < typename U = left_item, typename K = right_item >
-        [[nodiscard]] std::enable_if_t< std::is_same_v< U, K >, left_item > join() &&
+        requires( std::same_as< U, K > ) [[nodiscard]] left_item join() &&
         {
                 if ( id_ == item::LEFT ) {
                         return std::move( left_ );
@@ -262,7 +262,7 @@ public:
                 return std::move( right_ );
         }
         template < typename U = left_item, typename K = right_item >
-        [[nodiscard]] std::enable_if_t< std::is_same_v< U, K >, left_item > join() const&
+        requires( std::same_as< U, K > ) [[nodiscard]] left_item join() const&
         {
                 if ( id_ == item::LEFT ) {
                         return left_;
