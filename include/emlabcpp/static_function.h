@@ -104,16 +104,11 @@ namespace detail
         };
 }  // namespace detail
 
-template < typename CallableType, std::size_t Capacity, std::size_t Align, bool NoexceptMove >
+template < typename CallableType, std::size_t Capacity, std::size_t Align >
 class static_function_base;
 
-template <
-    typename ReturnType,
-    typename... ArgTypes,
-    std::size_t Capacity,
-    std::size_t Align,
-    bool        NoexceptMove >
-class static_function_base< ReturnType( ArgTypes... ), Capacity, Align, NoexceptMove >
+template < typename ReturnType, typename... ArgTypes, std::size_t Capacity, std::size_t Align >
+class static_function_base< ReturnType( ArgTypes... ), Capacity, Align >
 {
         using vtable = detail::static_function_vtable< ReturnType, ArgTypes... >;
 
@@ -136,7 +131,7 @@ public:
                 *this = other;
         }
 
-        static_function_base( static_function_base&& other ) noexcept( NoexceptMove )
+        static_function_base( static_function_base&& other ) noexcept
         {
                 *this = std::move( other );
         }
@@ -164,7 +159,7 @@ public:
                 return *this;
         }
 
-        static_function_base& operator=( static_function_base&& other ) noexcept( NoexceptMove )
+        static_function_base& operator=( static_function_base&& other ) noexcept
         {
                 if ( this == &other ) {
                         return *this;
@@ -200,13 +195,6 @@ public:
 
                 static_assert(
                     requires_space <= Capacity, "Callable would not fit into the static_function" );
-
-                if constexpr ( NoexceptMove ) {
-                        static_assert(
-                            std::is_nothrow_move_constructible_v< Callable > &&
-                                std::is_nothrow_move_assignable_v< Callable >,
-                            "Callable has to use nothrow moves if NoexceptMove enabled for static_function" );
-                }
 
                 // TODO: check that class fits with alignment into storage
                 obj_    = storage::construct_at( &storage_, std::move( c ) );
@@ -257,6 +245,6 @@ private:
 };
 
 template < typename Signature, std::size_t Capacity >
-using static_function = static_function_base< Signature, Capacity, alignof( void* ), false >;
+using static_function = static_function_base< Signature, Capacity, alignof( void* ) >;
 
 }  // namespace emlabcpp

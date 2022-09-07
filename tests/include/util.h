@@ -20,6 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
+#include "emlabcpp/algorithm.h"
 #include "emlabcpp/static_vector.h"
 #include "emlabcpp/zip.h"
 
@@ -102,7 +103,7 @@ public:
                         return {};
                 }
                 static_vector< uint8_t, 64 > res;
-                std::copy( buff_.front().begin(), buff_.front().end(), std::back_inserter( res ) );
+                copy( buff_.front(), std::back_inserter( res ) );
                 buff_.pop_front();
                 return res;
         }

@@ -278,11 +278,11 @@ TEST( static_circular_buffer_test, back_inserter )
         trivial_buffer       buff;
         std::array< int, 3 > data = { 1, 2, 3 };
 
-        std::copy( data.begin(), data.end(), std::back_inserter( buff ) );
+        copy( data, std::back_inserter( buff ) );
 
         data = { 4, 5, 6 };
 
-        std::copy( data.begin(), data.end(), std::back_inserter( buff ) );
+        copy( data, std::back_inserter( buff ) );
 
         std::array< int, 6 > expected = { 1, 2, 3, 4, 5, 6 };
 

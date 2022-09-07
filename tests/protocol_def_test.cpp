@@ -128,7 +128,7 @@ struct invalid_test_case : protocol_test_fixture
         {
                 std::array< uint8_t, 2 * pitem::max_size > tmp{};
                 ASSERT_LE( inpt.size(), tmp.size() );
-                std::copy( inpt.begin(), inpt.end(), tmp.begin() );
+                copy( inpt, tmp.begin() );
 
                 auto opt_view = bounded_view< const uint8_t*, typename pitem::size_type >::make(
                     view_n( tmp.begin(), inpt.size() ) );

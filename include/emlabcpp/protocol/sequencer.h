@@ -47,7 +47,7 @@ public:
         template < typename Iterator >
         either< std::size_t, message_type > load_data( view< Iterator > dview )
         {
-                std::copy( dview.begin(), dview.end(), std::back_inserter( buffer_ ) );
+                copy( dview, std::back_inserter( buffer_ ) );
 
                 auto bend = buffer_.end();
                 while ( !buffer_.empty() ) {
@@ -108,7 +108,7 @@ public:
 
 template < typename Sequencer, typename ReadCallback >
 std::optional< typename Sequencer::message_type >
-sequencer_simple_load( std::size_t read_limit, ReadCallback&& read )
+sequencer_simple_load( const std::size_t read_limit, ReadCallback&& read )
 {
         Sequencer                                         seq;
         std::optional< typename Sequencer::message_type > res;
@@ -121,11 +121,11 @@ sequencer_simple_load( std::size_t read_limit, ReadCallback&& read )
                 }
                 seq.load_data( view{ *data } )
                     .match(
-                        [&]( std::size_t next_read ) {
+                        [&to_read, &count]( const std::size_t next_read ) {
                                 to_read = next_read;
                                 count   = 0;
                         },
-                        [&]( auto msg ) {
+                        [&res]( auto msg ) {
                                 res = msg;
                         } );
 

@@ -814,7 +814,7 @@ struct converter< mark, Endianess >
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, value_type item )
         {
-                std::copy( item.begin(), item.end(), buffer.begin() );
+                copy( item, buffer.begin() );
                 return size_type{};
         }
 
@@ -822,7 +822,7 @@ struct converter< mark, Endianess >
             -> conversion_result< value_type >
         {
                 value_type res{};
-                std::copy( buffer.begin(), buffer.begin() + max_size, res.begin() );
+                copy( view_n( buffer.begin(), max_size ), res.begin() );
                 return { 0, res };
         }
 };

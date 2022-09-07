@@ -75,8 +75,7 @@ public:
         {
                 copy_from( other );
         }
-        static_circular_buffer( static_circular_buffer&& other ) noexcept(
-            std::is_nothrow_move_constructible_v< T > )
+        static_circular_buffer( static_circular_buffer&& other ) noexcept
         {
                 move_from( other );
                 other.clear();
@@ -90,8 +89,7 @@ public:
                 copy_from( other );
                 return *this;
         }
-        static_circular_buffer& operator=( static_circular_buffer&& other ) noexcept(
-            std::is_nothrow_move_assignable_v< T > )
+        static_circular_buffer& operator=( static_circular_buffer&& other ) noexcept
         {
                 if ( this == &other ) {
                         return *this;
