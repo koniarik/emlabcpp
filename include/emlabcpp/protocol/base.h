@@ -125,8 +125,8 @@ struct conversion_result< T, error_possibility::IMPOSSIBLE >
 {
         static constexpr error_possibility can_err = error_possibility::IMPOSSIBLE;
 
-        std::size_t used = 0;
-        T           res;
+        std::size_t             used = 0;
+        [[no_unique_address]] T res;
 
         conversion_result() = default;
         conversion_result( const std::size_t u, const T& v )

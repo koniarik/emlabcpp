@@ -228,6 +228,12 @@ struct converter< std::tuple< Ds... >, Endianess >
                 error_possibility::IMPOSSIBLE :
                 error_possibility::POSSIBLE;
 
+        template < std::size_t I >
+        using nth_converter = converter_for< std::tuple_element_t< I, def_type >, Endianess >;
+
+        template < std::size_t I >
+        using nth_size = typename nth_converter< I >::size_type;
+
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
             -> conversion_result< value_type, error_posib >
         {
@@ -238,12 +244,7 @@ struct converter< std::tuple< Ds... >, Endianess >
 
                 until_index< sizeof...( Ds ) >(
                     [&offset, &opt_err, &res, &buffer]< std::size_t i >() {
-                            using D             = std::tuple_element_t< i, def_type >;
-                            using sub_converter = converter_for< D, Endianess >;
-
-                            auto opt_view =
-                                buffer.template opt_offset< typename sub_converter::size_type >(
-                                    offset );
+                            auto opt_view = buffer.template opt_offset< nth_size< i > >( offset );
 
                             if constexpr ( !fixedly_sized< def_type > ) {
                                     if ( !opt_view ) {
@@ -252,9 +253,9 @@ struct converter< std::tuple< Ds... >, Endianess >
                                     }
                             }
 
-                            auto sres = sub_converter::deserialize( *opt_view );
+                            auto sres = nth_converter< i >::deserialize( *opt_view );
                             offset += sres.used;
-                            if constexpr ( erroring_converter< sub_converter > ) {
+                            if constexpr ( erroring_converter< nth_converter< i > > ) {
                                     if ( sres.has_error() ) {
                                             opt_err = sres.get_error();
                                             return true;
@@ -317,6 +318,12 @@ struct converter< std::variant< Ds... >, Endianess >
                     item );
         }
 
+        template < std::size_t I >
+        using nth_converter = converter_for< std::variant_alternative_t< I, def_type >, Endianess >;
+
+        template < std::size_t I >
+        using nth_size = typename nth_converter< I >::size_type;
+
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
@@ -327,15 +334,12 @@ struct converter< std::variant< Ds... >, Endianess >
                             conversion_result< value_type > res{ 0, &UNDEFVAR_ERR };
                             until_index< sizeof...( Ds ) >(
                                 [&res, &item_view, &id, &iused]< std::size_t i >() {
-                                        using D = std::variant_alternative_t< i, def_type >;
-                                        using sub_converter = converter_for< D, Endianess >;
-
                                         if ( id != i ) {
                                                 return false;
                                         }
 
-                                        auto opt_view = item_view.template opt_offset<
-                                            typename sub_converter::size_type >( 0 );
+                                        auto opt_view =
+                                            item_view.template opt_offset< nth_size< i > >( 0 );
 
                                         if ( !opt_view ) {
                                                 res.res = &SIZE_ERR;
@@ -343,7 +347,7 @@ struct converter< std::variant< Ds... >, Endianess >
                                         }
 
                                         res = conversion_result< value_type >{
-                                            sub_converter::deserialize( *opt_view )
+                                            nth_converter< i >::deserialize( *opt_view )
                                                 .convert_value( []( auto item ) {
                                                         return value_type{
                                                             std::in_place_index< i >, item };
