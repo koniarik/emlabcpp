@@ -22,8 +22,6 @@ var classemlabcpp_1_1either =
     [ "convert_right", "classemlabcpp_1_1either.html#a3afbc8f2920b4bdb2345d17ec946206a", null ],
     [ "convert_right", "classemlabcpp_1_1either.html#a9e51e35517b6d142f1b3202cb54416d0", null ],
     [ "is_left", "classemlabcpp_1_1either.html#a09209aa1fa5a927d0ac4a20846b93639", null ],
-    [ "join", "classemlabcpp_1_1either.html#a4e19f17b30addf99b9cf6d507da39bf4", null ],
-    [ "join", "classemlabcpp_1_1either.html#a676cea623ea3481d7d4f2b8abb981b6a", null ],
     [ "match", "classemlabcpp_1_1either.html#a128ed8c69beed3c6f572b2d1ad92e7e9", null ],
     [ "match", "classemlabcpp_1_1either.html#a7b3ccb6729518414bf15e1697a69af26", null ],
     [ "match", "classemlabcpp_1_1either.html#a5058c79da378013d08673069babc9ee0", null ],
@@ -33,5 +31,7 @@ var classemlabcpp_1_1either =
     [ "operator=", "classemlabcpp_1_1either.html#a15cd859c08060547cb7aea24724e81de", null ],
     [ "operator=", "classemlabcpp_1_1either.html#ac47518f24d7cfd29255b49dbd1324bd3", null ],
     [ "operator=", "classemlabcpp_1_1either.html#a9c658869710a61c5bcfcce86aee32a14", null ],
+    [ "requires", "classemlabcpp_1_1either.html#ada20cf807b761e52ca3ff1222231e94a", null ],
+    [ "requires", "classemlabcpp_1_1either.html#a577724a637d00b9948a077ec179a7c82", null ],
     [ "operator==", "classemlabcpp_1_1either.html#a9ae0908c5c0e1eff758877b794d6fb43", null ]
 ];

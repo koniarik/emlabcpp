@@ -107,7 +107,7 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4c854242dd7cf41ecbfbb986d444b161"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#a4c854242dd7cf41ecbfbb986d444b161">either</a> () <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a> std</td></tr>
+<tr class="memitem:a4c854242dd7cf41ecbfbb986d444b161"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#a4c854242dd7cf41ecbfbb986d444b161">either</a> () <a class="el" href="classemlabcpp_1_1either.html#ada20cf807b761e52ca3ff1222231e94a">requires</a> std</td></tr>
 <tr class="separator:a4c854242dd7cf41ecbfbb986d444b161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcbc5013b617c467983f5ea91fcc52c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#abcbc5013b617c467983f5ea91fcc52c0">either</a> (<a class="el" href="classemlabcpp_1_1either.html#acdbfa3b0c267b283d1df22be04558b6a">left_item</a> &amp;&amp;item) noexcept</td></tr>
 <tr class="separator:abcbc5013b617c467983f5ea91fcc52c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,12 +152,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5058c79da378013d08673069babc9ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b3ccb6729518414bf15e1697a69af26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#a7b3ccb6729518414bf15e1697a69af26">match</a> (auto &amp;&amp;left_f, auto &amp;&amp;right_f) &amp;&amp;</td></tr>
 <tr class="separator:a7b3ccb6729518414bf15e1697a69af26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e19f17b30addf99b9cf6d507da39bf4"><td class="memTemplParams" colspan="2">template&lt;typename U  = left_item, typename K  = right_item&gt; </td></tr>
-<tr class="memitem:a4e19f17b30addf99b9cf6d507da39bf4"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_same_v&lt; U, K &gt;, <a class="el" href="classemlabcpp_1_1either.html#acdbfa3b0c267b283d1df22be04558b6a">left_item</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#a4e19f17b30addf99b9cf6d507da39bf4">join</a> () &amp;&amp;</td></tr>
-<tr class="separator:a4e19f17b30addf99b9cf6d507da39bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a676cea623ea3481d7d4f2b8abb981b6a"><td class="memTemplParams" colspan="2">template&lt;typename U  = left_item, typename K  = right_item&gt; </td></tr>
-<tr class="memitem:a676cea623ea3481d7d4f2b8abb981b6a"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if_t&lt; std::is_same_v&lt; U, K &gt;, <a class="el" href="classemlabcpp_1_1either.html#acdbfa3b0c267b283d1df22be04558b6a">left_item</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#a676cea623ea3481d7d4f2b8abb981b6a">join</a> () const &amp;</td></tr>
-<tr class="separator:a676cea623ea3481d7d4f2b8abb981b6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada20cf807b761e52ca3ff1222231e94a"><td class="memTemplParams" colspan="2">template&lt;typename U  = left_item, typename K  = right_item&gt; </td></tr>
+<tr class="memitem:ada20cf807b761e52ca3ff1222231e94a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#ada20cf807b761e52ca3ff1222231e94a">requires</a> (std::same_as&lt; U, K &gt;) <a class="el" href="classemlabcpp_1_1either.html#acdbfa3b0c267b283d1df22be04558b6a">left_item</a> join() &amp;&amp;</td></tr>
+<tr class="separator:ada20cf807b761e52ca3ff1222231e94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a577724a637d00b9948a077ec179a7c82"><td class="memTemplParams" colspan="2">template&lt;typename U  = left_item, typename K  = right_item&gt; </td></tr>
+<tr class="memitem:a577724a637d00b9948a077ec179a7c82"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#a577724a637d00b9948a077ec179a7c82">requires</a> (std::same_as&lt; U, K &gt;) <a class="el" href="classemlabcpp_1_1either.html#acdbfa3b0c267b283d1df22be04558b6a">left_item</a> join() const &amp;</td></tr>
+<tr class="separator:a577724a637d00b9948a077ec179a7c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c03f2e46b702d9928cc942f915ad92c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0c03f2e46b702d9928cc942f915ad92c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="classemlabcpp_1_1either.html#acdbfa3b0c267b283d1df22be04558b6a">left_item</a>, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#a0c03f2e46b702d9928cc942f915ad92c">construct_right</a> () const &amp;</td></tr>
 <tr class="separator:a0c03f2e46b702d9928cc942f915ad92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,7 +192,7 @@ class emlabcpp::either&lt; LH, RH &gt;</h3>
 
 <p>Either is heterogenous structure that holds one of the two types specified. </p>
 <p>This is stored as union, so the memory requirement of either is always the size of the bigger element + constant for identifying which on is contained.</p>
-<p>The intervall value can't be directly accessed, unless both sides are same, in which case <a class="el" href="classemlabcpp_1_1either.html#a4e19f17b30addf99b9cf6d507da39bf4">join()</a> / returns the internal value. (Which is safe if both are same) In case they are different, you can / only access the value by either convert_left/right, bind_left/right or match, which calls / appropiate callable based on whenever left or right item is present.</p>
+<p>The intervall value can't be directly accessed, unless both sides are same, in which case join() / returns the internal value. (Which is safe if both are same) In case they are different, you can / only access the value by either convert_left/right, bind_left/right or match, which calls / appropiate callable based on whenever left or right item is present.</p>
 <p>This prevents user of the code from errors in accessing proper side of the either. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="acdbfa3b0c267b283d1df22be04558b6a"></a>
@@ -794,64 +794,6 @@ template&lt;typename LH , typename RH &gt; </div>
 
 </div>
 </div>
-<a id="a4e19f17b30addf99b9cf6d507da39bf4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e19f17b30addf99b9cf6d507da39bf4">&#9670;&nbsp;</a></span>join() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LH , typename RH &gt; </div>
-<div class="memtemplate">
-template&lt;typename U  = left_item, typename K  = right_item&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::enable_if_t&lt; std::is_same_v&lt; U, K &gt;, <a class="el" href="classemlabcpp_1_1either.html#acdbfa3b0c267b283d1df22be04558b6a">left_item</a> &gt; <a class="el" href="classemlabcpp_1_1either.html">emlabcpp::either</a>&lt; LH, RH &gt;::join </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> &amp;&amp;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a676cea623ea3481d7d4f2b8abb981b6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a676cea623ea3481d7d4f2b8abb981b6a">&#9670;&nbsp;</a></span>join() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LH , typename RH &gt; </div>
-<div class="memtemplate">
-template&lt;typename U  = left_item, typename K  = right_item&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::enable_if_t&lt; std::is_same_v&lt; U, K &gt;, <a class="el" href="classemlabcpp_1_1either.html#acdbfa3b0c267b283d1df22be04558b6a">left_item</a> &gt; <a class="el" href="classemlabcpp_1_1either.html">emlabcpp::either</a>&lt; LH, RH &gt;::join </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const &amp;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a128ed8c69beed3c6f572b2d1ad92e7e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a128ed8c69beed3c6f572b2d1ad92e7e9">&#9670;&nbsp;</a></span>match() <span class="overload">[1/3]</span></h2>
 
@@ -1140,6 +1082,66 @@ template&lt;either_uniquely_right_item&lt; LH, RH &gt; T&gt; </div>
 
 </div>
 </div>
+<a id="ada20cf807b761e52ca3ff1222231e94a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada20cf807b761e52ca3ff1222231e94a">&#9670;&nbsp;</a></span>requires() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LH , typename RH &gt; </div>
+<div class="memtemplate">
+template&lt;typename U  = left_item, typename K  = right_item&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1either.html">emlabcpp::either</a>&lt; LH, RH &gt;::requires </td>
+          <td>(</td>
+          <td class="paramtype">std::same_as&lt; U, K &gt;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> &amp;&amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a577724a637d00b9948a077ec179a7c82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a577724a637d00b9948a077ec179a7c82">&#9670;&nbsp;</a></span>requires() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LH , typename RH &gt; </div>
+<div class="memtemplate">
+template&lt;typename U  = left_item, typename K  = right_item&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1either.html">emlabcpp::either</a>&lt; LH, RH &gt;::requires </td>
+          <td>(</td>
+          <td class="paramtype">std::same_as&lt; U, K &gt;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
 <a id="a9ae0908c5c0e1eff758877b794d6fb43"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9ae0908c5c0e1eff758877b794d6fb43">&#9670;&nbsp;</a></span>operator==</h2>
@@ -1188,7 +1190,7 @@ template&lt;typename LH , typename RH &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1either.html">either</a></li>
-    <li class="footer">Generated on Wed Sep 7 2022 11:40:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Sep 7 2022 12:00:32 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
