@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"structemlabcpp_1_1protocol_1_1tuple.html#a01e6334b599bb584f01ba9ec76b7f77d":[3,0,0,2,68,4],
 "structemlabcpp_1_1protocol_1_1tuple.html#a274b142c5c4f8527cdebebf4c9bfb35a":[3,0,0,2,68,0],
 "structemlabcpp_1_1protocol_1_1tuple.html#a452b4011833670e05508850c94a6409a":[3,0,0,2,68,6],
 "structemlabcpp_1_1protocol_1_1tuple.html#a5fe447743d4ce1801a55d9cdeaed3da2":[3,0,0,2,68,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "types_8h_source.html":[4,0,0,0,22],
 "util_8h.html":[4,0,0,0,1,1],
 "util_8h.html#a3c4b8276158ed7d743c68c7395ed0966":[4,0,0,0,1,1,0],
-"util_8h_source.html":[4,0,0,0,1,1],
-"view_8h.html":[4,0,0,0,23]
+"util_8h_source.html":[4,0,0,0,1,1]
 };

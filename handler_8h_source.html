@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('handler_8h_source.html',''); initResiz
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = def::deserialize( *opt_view );</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordflow">if</span> constexpr ( erroring_converter&lt; def &gt; ) {</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        <span class="keywordflow">if</span> ( <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.has_error() ) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a>* <a class="code" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a> = <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.get_error();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a>* <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a> = <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.get_error();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>(</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                    <span class="stringliteral">&quot;Failed to extract protocol def &quot;</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                    &lt;&lt; pretty_type_name&lt; T &gt;() &lt;&lt; <span class="stringliteral">&quot; from message &quot;</span> &lt;&lt; *opt_view</div>
@@ -196,7 +196,7 @@ $(document).ready(function(){initNavTree('handler_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="handler_8h.html">handler.h</a></li>
-    <li class="footer">Generated on Wed Sep 7 2022 13:55:21 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Sep 7 2022 14:07:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
