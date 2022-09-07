@@ -66,7 +66,7 @@ public:
                 other.clear();
         }
         template < std::size_t M >
-        requires( M <= N ) static_vector( std::array< T, M > data )
+        requires( M <= N ) explicit static_vector( std::array< T, M > data )
         {
                 move_from( data );
         }
@@ -90,10 +90,10 @@ public:
                 return *this;
         }
 
-        void swap( static_vector& other )
+        void swap( static_vector& other ) noexcept
         {
                 using std::swap;
-                size_type shared_n = std::min( size(), other.size() );
+                const size_type shared_n = std::min( size(), other.size() );
                 for ( size_type i = 0; i < shared_n; ++i ) {
                         swap( ref_item( i ), other.ref_item( i ) );
                 }
@@ -227,32 +227,29 @@ private:
         template < typename... Args >
         void emplace_item( size_type i, Args&&... args )
         {
-                std::construct_at(
-                    reinterpret_cast< T* >( &data_ ) + i, std::forward< Args >( args )... );
+                std::construct_at( begin() + i, std::forward< Args >( args )... );
         }
 
         template < typename Container >
         void copy_from( const Container& cont )
         {
                 size_ = cont.size();
-                std::uninitialized_copy(
-                    cont.begin(), cont.end(), reinterpret_cast< T* >( &data_ ) );
+                std::uninitialized_copy( cont.begin(), cont.end(), begin() );
         }
 
         template < typename Container >
         void move_from( Container& cont )
         {
                 size_ = cont.size();
-                std::uninitialized_move(
-                    cont.begin(), cont.end(), reinterpret_cast< T* >( &data_ ) );
+                std::uninitialized_move( cont.begin(), cont.end(), begin() );
         }
 
         /// Reference to the item in data_storage.
-        [[nodiscard]] reference ref_item( size_type i )
+        [[nodiscard]] reference ref_item( const size_type i )
         {
                 return *( begin() + i );
         }
-        [[nodiscard]] const_reference ref_item( size_type i ) const
+        [[nodiscard]] const_reference ref_item( const size_type i ) const
         {
                 return *( begin() + i );
         }
@@ -296,7 +293,7 @@ template < typename T, std::size_t N >
 }
 
 template < typename T, std::size_t N >
-void swap( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
+void swap( const static_vector< T, N >& lh, const static_vector< T, N >& rh ) noexcept
 {
         lh.swap( rh );
 }
@@ -312,7 +309,7 @@ template < typename T, std::size_t N >
 pretty_printer& operator<<( pretty_printer& os, const static_vector< T, N >& vec )
 {
         if constexpr ( std::same_as< T, char > ) {
-                for ( char c : vec ) {
+                for ( const char c : vec ) {
                         os << c;
                 }
         } else {

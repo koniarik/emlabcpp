@@ -207,11 +207,11 @@ public:
                 return next( to_ ) == from_;
         }
 
-        const_reference operator[]( size_type i ) const
+        const_reference operator[]( const size_type i ) const
         {
                 return ref_item( ( from_ + i ) % real_size );
         }
-        reference operator[]( size_type i )
+        reference operator[]( const size_type i )
         {
                 return ref_item( ( from_ + i ) % real_size );
         }
@@ -250,27 +250,34 @@ private:
         /// requires features of C++ we do not want to replicate and it's bettter to hide them in
         /// methods.
 
+        T* data()
+        {
+                return reinterpret_cast< T* >( std::addressof( data_ ) );
+        }
+        const T* data() const
+        {
+                return reinterpret_cast< const T* >( std::addressof( data_ ) );
+        }
+
         void delete_item( size_type i )
         {
                 std::destroy_at( std::addressof( ref_item( i ) ) );
         }
 
         template < typename... Args >
-        void emplace_item( size_type i, Args&&... args )
+        void emplace_item( const size_type i, Args&&... args )
         {
-                std::construct_at(
-                    reinterpret_cast< T* >( std::addressof( data_ ) ) + i,
-                    std::forward< Args >( args )... );
+                std::construct_at( data() + i, std::forward< Args >( args )... );
         }
 
         /// Reference to the item in data_storage.
-        [[nodiscard]] reference ref_item( size_type i )
+        [[nodiscard]] reference ref_item( const size_type i )
         {
-                return *( reinterpret_cast< T* >( std::addressof( data_ ) ) + i );
+                return *( data() + i );
         }
-        [[nodiscard]] const_reference ref_item( size_type i ) const
+        [[nodiscard]] const_reference ref_item( const size_type i ) const
         {
-                return *( reinterpret_cast< const T* >( std::addressof( data_ ) ) + i );
+                return *( data() + i );
         }
 
         /// Cleans entire buffer from items.
@@ -284,23 +291,21 @@ private:
         void copy_from( const static_circular_buffer& other )
         {
                 to_ = other.size();
-                std::uninitialized_copy(
-                    other.begin(), other.end(), reinterpret_cast< T* >( std::addressof( data_ ) ) );
+                std::uninitialized_copy( other.begin(), other.end(), data() );
         }
 
         void move_from( static_circular_buffer& other )
         {
                 to_ = other.size();
-                std::uninitialized_move(
-                    other.begin(), other.end(), reinterpret_cast< T* >( std::addressof( data_ ) ) );
+                std::uninitialized_move( other.begin(), other.end(), data() );
         }
 
         /// Use this only when moving the indexes in the circular buffer - bullet-proof.
-        [[nodiscard]] constexpr auto next( size_type i ) const
+        [[nodiscard]] constexpr auto next( const size_type i ) const
         {
                 return ( i + 1 ) % real_size;
         }
-        [[nodiscard]] constexpr auto prev( size_type i ) const
+        [[nodiscard]] constexpr auto prev( const size_type i ) const
         {
                 return i == 0 ? real_size - 1 : i - 1;
         }
@@ -372,6 +377,7 @@ public:
         static constexpr std::size_t real_size = Container::real_size;
         using value_type                       = typename Container::value_type;
         using reference       = std::conditional_t< is_const, const value_type&, value_type& >;
+        using const_reference = const value_type&;
         using difference_type = typename std::iterator_traits<
             static_circular_buffer_iterator< Container > >::difference_type;
 
@@ -392,12 +398,12 @@ public:
 
         reference operator*() noexcept
         {
-                return cont_.ref_item( i_ );
+                return cont_.get().ref_item( i_ );
         }
 
-        const reference operator*() const noexcept
+        reference operator*() const noexcept
         {
-                return cont_.ref_item( i_ );
+                return cont_.get().ref_item( i_ );
         }
 
         static_circular_buffer_iterator& operator+=( difference_type j ) noexcept
@@ -427,19 +433,19 @@ public:
         difference_type operator-( const static_circular_buffer_iterator& other ) const noexcept
         {
                 std::size_t i = i_;
-                if ( i < cont_.from_ ) {
+                if ( i < cont_.get().from_ ) {
                         i += real_size;
                 }
                 std::size_t j = other.i_;
-                if ( j < cont_.from_ ) {
+                if ( j < cont_.get().from_ ) {
                         j += real_size;
                 }
                 return static_cast< difference_type >( i - j );
         }
 
 private:
-        Container&  cont_;
-        std::size_t i_;
+        std::reference_wrapper< Container > cont_;
+        std::size_t                         i_;
 };
 
 }  // namespace emlabcpp
