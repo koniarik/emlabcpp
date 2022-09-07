@@ -75,29 +75,29 @@ public:
         either( left_item&& item ) noexcept
           : id_( item::LEFT )
         {
-                new ( &left_ ) left_item( std::move( item ) );
+                std::construct_at( &left_, std::move( item ) );
         }
 
         either( const left_item& item ) noexcept
           : id_( item::LEFT )
         {
-                new ( &left_ ) left_item( item );
+                std::construct_at( &left_, item );
         }
 
         template < either_uniquely_right_item< LH, RH > Item >
         either( Item&& item ) noexcept  /// NOLINT
           : id_( item::RIGHT )
         {
-                new ( &right_ ) right_item( std::forward< Item >( item ) );
+                std::construct_at( &right_, std::forward< Item >( item ) );
         }
 
         either( const either& other ) noexcept
           : id_( other.id_ )
         {
                 if ( id_ == item::LEFT ) {
-                        new ( &left_ ) left_item( other.left_ );
+                        std::construct_at( &left_, other.left_ );
                 } else {
-                        new ( &right_ ) right_item( other.right_ );
+                        std::construct_at( &right_, other.right_ );
                 }
         }
 
@@ -105,9 +105,9 @@ public:
           : id_( other.id_ )
         {
                 if ( id_ == item::LEFT ) {
-                        new ( &left_ ) left_item( std::move( other.left_ ) );
+                        std::construct_at( &left_, std::move( other.left_ ) );
                 } else {
-                        new ( &right_ ) right_item( std::move( other.right_ ) );
+                        std::construct_at( &right_, std::move( other.right_ ) );
                 }
         }
 
@@ -141,14 +141,14 @@ public:
         {
                 destruct();
                 id_ = item::LEFT;
-                new ( &left_ ) left_item( other );
+                std::construct_at( &left_, other );
                 return *this;
         }
         either& operator=( left_item&& other )
         {
                 destruct();
                 id_ = item::LEFT;
-                new ( &left_ ) left_item( std::move( other ) );
+                std::construct_at( &left_, std::move( other ) );
                 return *this;
         }
 
@@ -156,7 +156,7 @@ public:
         {
                 destruct();
                 id_ = item::RIGHT;
-                new ( &right_ ) right_item( other );
+                std::construct_at( &right_, other );
                 return *this;
         }
 
@@ -165,7 +165,7 @@ public:
         {
                 destruct();
                 id_ = item::RIGHT;
-                new ( &right_ ) right_item( std::forward< T >( other ) );
+                std::construct_at( &right_, std::forward< T >( other ) );
                 return *this;
         }
 
@@ -380,9 +380,9 @@ private:
         void destruct()
         {
                 if ( id_ == item::LEFT ) {
-                        left_.~left_item();
+                        std::destroy_at( &left_ );
                 } else {
-                        right_.~right_item();
+                        std::destroy_at( &right_ );
                 }
         }
 };
