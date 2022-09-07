@@ -264,7 +264,7 @@ template < convertible T >
 struct proto_traits< std::optional< T > >
 {
         using value_type                      = std::optional< T >;
-        using presence_type                   = uint8_t;
+        using presence_type                   = bounded< uint8_t, 0, 1 >;
         using presence_decl                   = traits_for< presence_type >;
         static constexpr std::size_t max_size = presence_decl::max_size + traits_for< T >::max_size;
         static constexpr std::size_t min_size = presence_decl::min_size;

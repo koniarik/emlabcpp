@@ -396,15 +396,18 @@ struct converter< std::optional< T >, Endianess >
         using sub_converter                        = converter_for< T, Endianess >;
         using size_type                            = bounded< std::size_t, min_size, max_size >;
 
+        static constexpr presence_type is_present  = bounded< uint8_t, 0, 1 >::get< 1 >();
+        static constexpr presence_type not_present = bounded< uint8_t, 0, 1 >::get< 0 >();
+
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& opt_val )
         {
                 if ( !opt_val ) {
                         return presence_def::serialize_at(
-                            buffer.template first< presence_size >(), 0 );
+                            buffer.template first< presence_size >(), not_present );
                 }
-                auto psize =
-                    presence_def::serialize_at( buffer.template first< presence_size >(), 1 );
+                auto psize = presence_def::serialize_at(
+                    buffer.template first< presence_size >(), is_present );
 
                 return psize +
                        sub_converter::serialize_at(
@@ -419,11 +422,8 @@ struct converter< std::optional< T >, Endianess >
                     .bind_value(
                         [&buffer]( std::size_t pused, presence_type is_present )
                             -> conversion_result< value_type > {
-                                if ( is_present == 0 ) {
+                                if ( is_present == not_present ) {
                                         return { pused, value_type{} };
-                                }
-                                if ( is_present != 1 ) {
-                                        return { pused, &BADVAL_ERR };
                                 }
 
                                 using sub_size = typename sub_converter::size_type;
