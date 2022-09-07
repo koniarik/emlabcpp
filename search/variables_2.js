@@ -1,7 +1,7 @@
 var searchData=
 [
   ['call_5findex_1448',['call_index',['../classemlabcpp_1_1rpc_1_1controller.html#ab047702e76075988df250de1f651c978',1,'emlabcpp::rpc::controller']]],
-  ['can_5ferr_1449',['can_err',['../structemlabcpp_1_1protocol_1_1conversion__result.html#a69a59a0b4c2d468bcf8dd3be79e4d243',1,'emlabcpp::protocol::conversion_result::can_err()'],['../structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01ERROR__IMPOSSIBLE_01_4.html#a4344e594645f090db53614ab98732c00',1,'emlabcpp::protocol::conversion_result&lt; T, ERROR_IMPOSSIBLE &gt;::can_err()']]],
+  ['can_5ferr_1449',['can_err',['../structemlabcpp_1_1protocol_1_1conversion__result.html#a1f2ff4c9af49f7427f72ac22a28233c5',1,'emlabcpp::protocol::conversion_result::can_err()'],['../structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html#a6c220b20948ecdd577202e9215985d40',1,'emlabcpp::protocol::conversion_result&lt; T, error_possibility::IMPOSSIBLE &gt;::can_err()']]],
   ['capacity_1450',['capacity',['../classemlabcpp_1_1protocol_1_1message.html#a0f47311f37f6e732397e688d0f67216e',1,'emlabcpp::protocol::message::capacity()'],['../classemlabcpp_1_1static__circular__buffer.html#a062b4be080a50784528f1c3a5f78ab41',1,'emlabcpp::static_circular_buffer::capacity()'],['../classemlabcpp_1_1static__vector.html#ac14413ef1e2b9321a2f975065e49c300',1,'emlabcpp::static_vector::capacity()']]],
   ['checksum_5ferr_1451',['CHECKSUM_ERR',['../namespaceemlabcpp_1_1protocol.html#a0eb2445c490b6ad98bd006097c7b4296',1,'emlabcpp::protocol']]],
   ['checksum_5fsize_1452',['checksum_size',['../structemlabcpp_1_1protocol_1_1packet__handler.html#a86060b19d1a17ee4701125f29f9b18dc',1,'emlabcpp::protocol::packet_handler']]],

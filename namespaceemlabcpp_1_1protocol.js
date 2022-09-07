@@ -4,7 +4,7 @@ var namespaceemlabcpp_1_1protocol =
       [ "message_derived_test", "namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376", null ]
     ] ],
     [ "conversion_result", "structemlabcpp_1_1protocol_1_1conversion__result.html", "structemlabcpp_1_1protocol_1_1conversion__result" ],
-    [ "conversion_result< T, ERROR_IMPOSSIBLE >", "structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01ERROR__IMPOSSIBLE_01_4.html", "structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01ERROR__IMPOSSIBLE_01_4" ],
+    [ "conversion_result< T, error_possibility::IMPOSSIBLE >", "structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html", "structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4" ],
     [ "endianess_wrapper", "structemlabcpp_1_1protocol_1_1endianess__wrapper.html", "structemlabcpp_1_1protocol_1_1endianess__wrapper" ],
     [ "group", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group", "namespaceemlabcpp_1_1protocol_structemlabcpp_1_1protocol_1_1group_dup" ],
     [ "tag_group", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group", "namespaceemlabcpp_1_1protocol_structemlabcpp_1_1protocol_1_1tag__group_dup" ],
@@ -75,9 +75,9 @@ var namespaceemlabcpp_1_1protocol =
     [ "converter_for", "namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f", null ],
     [ "packet_base", "namespaceemlabcpp_1_1protocol.html#a666cc0e4cd52e4691a45424fb1b8b8b1", null ],
     [ "traits_for", "namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549", null ],
-    [ "error_possibility_enum", "namespaceemlabcpp_1_1protocol.html#ab9cf252bc7761c084c926c6b32bd2e50", [
-      [ "ERROR_POSSIBLE", "namespaceemlabcpp_1_1protocol.html#ab9cf252bc7761c084c926c6b32bd2e50aea6258953d389b8dd852c72ae85888a3", null ],
-      [ "ERROR_IMPOSSIBLE", "namespaceemlabcpp_1_1protocol.html#ab9cf252bc7761c084c926c6b32bd2e50ae7397e2c8c6cb7e68e83e538fb31960f", null ]
+    [ "error_possibility", "namespaceemlabcpp_1_1protocol.html#a7385519e51174efa651328cd9c058a18", [
+      [ "POSSIBLE", "namespaceemlabcpp_1_1protocol.html#a7385519e51174efa651328cd9c058a18a06fa6f806a3b83d883902d3f53b0b942", null ],
+      [ "IMPOSSIBLE", "namespaceemlabcpp_1_1protocol.html#a7385519e51174efa651328cd9c058a18ae23b33dee677e4477f0f7ddeb6cf87bd", null ]
     ] ],
     [ "converter_for_impl", "namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9", null ],
     [ "for_each_register", "namespaceemlabcpp_1_1protocol.html#a25417e5baf4dcb0a348bb0e6e5ea83a2", null ],

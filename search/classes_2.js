@@ -18,7 +18,7 @@ var searchData=
   ['controller_5finternal_5ferror_895',['controller_internal_error',['../namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__internal__error',1,'emlabcpp::testing']]],
   ['controller_5fprotocol_5ferror_896',['controller_protocol_error',['../namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__protocol__error',1,'emlabcpp::testing']]],
   ['conversion_5fresult_897',['conversion_result',['../structemlabcpp_1_1protocol_1_1conversion__result.html',1,'emlabcpp::protocol']]],
-  ['conversion_5fresult_3c_20t_2c_20error_5fimpossible_20_3e_898',['conversion_result&lt; T, ERROR_IMPOSSIBLE &gt;',['../structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01ERROR__IMPOSSIBLE_01_4.html',1,'emlabcpp::protocol']]],
+  ['conversion_5fresult_3c_20t_2c_20error_5fpossibility_3a_3aimpossible_20_3e_898',['conversion_result&lt; T, error_possibility::IMPOSSIBLE &gt;',['../structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html',1,'emlabcpp::protocol']]],
   ['convert_5fiterator_899',['convert_iterator',['../classemlabcpp_1_1convert__iterator.html',1,'emlabcpp']]],
   ['convert_5fto_900',['convert_to',['../structemlabcpp_1_1convert__to.html',1,'emlabcpp']]],
   ['converter_901',['converter',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter',1,'emlabcpp::protocol']]],

@@ -108,8 +108,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa8e9335669788c210fd26cdbffd96396"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a575ecf1d66bdf7c7fe50762fcb4141cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html#a575ecf1d66bdf7c7fe50762fcb4141cb">conversion_result</a> (const std::size_t u, const <a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a> *m)</td></tr>
 <tr class="separator:a575ecf1d66bdf7c7fe50762fcb4141cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e9afcdbcbf5134b76045a66c57a7ea0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html#a7e9afcdbcbf5134b76045a66c57a7ea0">conversion_result</a> (const <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1protocol.html#ab9cf252bc7761c084c926c6b32bd2e50ae7397e2c8c6cb7e68e83e538fb31960f">ERROR_IMPOSSIBLE</a> &gt; &amp;other)</td></tr>
-<tr class="separator:a7e9afcdbcbf5134b76045a66c57a7ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bec8c6654700ec04833724fcd65d06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html#ad5bec8c6654700ec04833724fcd65d06">conversion_result</a> (const <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a7385519e51174efa651328cd9c058a18ae23b33dee677e4477f0f7ddeb6cf87bd">error_possibility::IMPOSSIBLE</a> &gt; &amp;other)</td></tr>
+<tr class="separator:ad5bec8c6654700ec04833724fcd65d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c7c6072a7571b13d6208b0ed0dc96b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html#a7c7c6072a7571b13d6208b0ed0dc96b5">has_error</a> () const</td></tr>
 <tr class="separator:a7c7c6072a7571b13d6208b0ed0dc96b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d63389487da28741b9a0a469557f601"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html#a0d63389487da28741b9a0a469557f601">get_error</a> () const</td></tr>
@@ -132,11 +132,11 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a69a59a0b4c2d468bcf8dd3be79e4d243"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespaceemlabcpp_1_1protocol.html#ab9cf252bc7761c084c926c6b32bd2e50">error_possibility_enum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html#a69a59a0b4c2d468bcf8dd3be79e4d243">can_err</a> = CanErr</td></tr>
-<tr class="separator:a69a59a0b4c2d468bcf8dd3be79e4d243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f2ff4c9af49f7427f72ac22a28233c5"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespaceemlabcpp_1_1protocol.html#a7385519e51174efa651328cd9c058a18">error_possibility</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html#a1f2ff4c9af49f7427f72ac22a28233c5">can_err</a> = CanErr</td></tr>
+<tr class="separator:a1f2ff4c9af49f7427f72ac22a28233c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, error_possibility_enum CanErr&gt;<br />
+<div class="textblock"><h3>template&lt;typename T, error_possibility CanErr&gt;<br />
 struct emlabcpp::protocol::conversion_result&lt; T, CanErr &gt;</h3>
 
 <p>Strucutre used as result of deserialization in the internal mechanisms of protocol handling. </p>
@@ -148,7 +148,7 @@ struct emlabcpp::protocol::conversion_result&lt; T, CanErr &gt;</h3>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -175,7 +175,7 @@ template&lt;typename T , error_possibility_enum CanErr&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -213,7 +213,7 @@ template&lt;typename T , error_possibility_enum CanErr&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -251,7 +251,7 @@ template&lt;typename T , error_possibility_enum CanErr&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -283,13 +283,13 @@ template&lt;typename T , error_possibility_enum CanErr&gt; </div>
 
 </div>
 </div>
-<a id="a7e9afcdbcbf5134b76045a66c57a7ea0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e9afcdbcbf5134b76045a66c57a7ea0">&#9670;&nbsp;</a></span>conversion_result() <span class="overload">[5/5]</span></h2>
+<a id="ad5bec8c6654700ec04833724fcd65d06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5bec8c6654700ec04833724fcd65d06">&#9670;&nbsp;</a></span>conversion_result() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -297,7 +297,7 @@ template&lt;typename T , error_possibility_enum CanErr&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">emlabcpp::protocol::conversion_result</a>&lt; T, CanErr &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1protocol.html#ab9cf252bc7761c084c926c6b32bd2e50ae7397e2c8c6cb7e68e83e538fb31960f">ERROR_IMPOSSIBLE</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a7385519e51174efa651328cd9c058a18ae23b33dee677e4477f0f7ddeb6cf87bd">error_possibility::IMPOSSIBLE</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -318,7 +318,7 @@ template&lt;typename T , error_possibility_enum CanErr&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
 <div class="memtemplate">
 template&lt;typename BinaryCallable &gt; </div>
 <table class="mlabels">
@@ -351,7 +351,7 @@ template&lt;typename BinaryCallable &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
 <div class="memtemplate">
 template&lt;typename UnaryCallable &gt; </div>
 <table class="mlabels">
@@ -384,7 +384,7 @@ template&lt;typename UnaryCallable &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -413,7 +413,7 @@ template&lt;typename T , error_possibility_enum CanErr&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -442,7 +442,7 @@ template&lt;typename T , error_possibility_enum CanErr&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -466,19 +466,19 @@ template&lt;typename T , error_possibility_enum CanErr&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a69a59a0b4c2d468bcf8dd3be79e4d243"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69a59a0b4c2d468bcf8dd3be79e4d243">&#9670;&nbsp;</a></span>can_err</h2>
+<a id="a1f2ff4c9af49f7427f72ac22a28233c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f2ff4c9af49f7427f72ac22a28233c5">&#9670;&nbsp;</a></span>can_err</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="namespaceemlabcpp_1_1protocol.html#ab9cf252bc7761c084c926c6b32bd2e50">error_possibility_enum</a> <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">emlabcpp::protocol::conversion_result</a>&lt; T, CanErr &gt;::can_err = CanErr</td>
+          <td class="memname">constexpr <a class="el" href="namespaceemlabcpp_1_1protocol.html#a7385519e51174efa651328cd9c058a18">error_possibility</a> <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">emlabcpp::protocol::conversion_result</a>&lt; T, CanErr &gt;::can_err = CanErr</td>
         </tr>
       </table>
   </td>
@@ -496,7 +496,7 @@ template&lt;typename T , error_possibility_enum CanErr&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::variant&lt; T, const <a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a>* &gt; <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">emlabcpp::protocol::conversion_result</a>&lt; T, CanErr &gt;::res</td>
@@ -512,7 +512,7 @@ template&lt;typename T , error_possibility_enum CanErr&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , error_possibility_enum CanErr&gt; </div>
+template&lt;typename T , error_possibility CanErr&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::size_t <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">emlabcpp::protocol::conversion_result</a>&lt; T, CanErr &gt;::used = 0</td>
@@ -531,7 +531,7 @@ template&lt;typename T , error_possibility_enum CanErr&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a></li>
-    <li class="footer">Generated on Wed Sep 7 2022 12:00:32 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Sep 7 2022 12:27:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
