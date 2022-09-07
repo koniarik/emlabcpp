@@ -81,7 +81,7 @@ struct register_handler
                         return error_record{ SIZE_ERR, 0 };
                 }
                 auto sres = def::deserialize( *opt_view );
-                if constexpr ( decltype( sres )::can_err == ERROR_POSSIBLE )
+                if constexpr ( erroring_converter< def > )
                         if ( sres.has_error() ) {
                                 return error_record{ *sres.get_error(), sres.used };
                         }

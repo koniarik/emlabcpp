@@ -84,7 +84,8 @@ concept erroring_converter =
 {
         {
                 Conv::deserialize( buffer )
-                } -> std::same_as< conversion_result< typename Conv::value_type, ERROR_POSSIBLE > >;
+                } -> std::same_as<
+                    conversion_result< typename Conv::value_type, error_possibility::POSSIBLE > >;
 };
 
 template < base_type D, std::endian Endianess >
@@ -109,7 +110,7 @@ struct converter< D, Endianess >
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
-            -> conversion_result< value_type, ERROR_IMPOSSIBLE >
+            -> conversion_result< value_type, error_possibility::IMPOSSIBLE >
         {
                 return { max_size, serializer< value_type, Endianess >::deserialize( buffer ) };
         }
@@ -151,9 +152,10 @@ struct converter< std::array< D, N >, Endianess >
                 return *opt_bused;
         }
 
-        static constexpr error_possibility_enum error_posib =
-            ( fixedly_sized< D > && !erroring_converter< sub_converter > ) ? ERROR_IMPOSSIBLE :
-                                                                             ERROR_POSSIBLE;
+        static constexpr error_possibility error_posib =
+            ( fixedly_sized< D > && !erroring_converter< sub_converter > ) ?
+                error_possibility::IMPOSSIBLE :
+                error_possibility::POSSIBLE;
 
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
             -> conversion_result< value_type, error_posib >
@@ -165,7 +167,7 @@ struct converter< std::array< D, N >, Endianess >
                 for ( const std::size_t i : range( N ) ) {
                         auto opt_view = buffer.template opt_offset< sub_size_type >( offset );
 
-                        if constexpr ( error_posib == ERROR_POSSIBLE ) {
+                        if constexpr ( error_posib == error_possibility::POSSIBLE ) {
                                 if ( !opt_view ) {
                                         return { offset, &SIZE_ERR };
                                 }
@@ -220,11 +222,11 @@ struct converter< std::tuple< Ds... >, Endianess >
                 return *opt_bused;
         }
 
-        static constexpr error_possibility_enum error_posib =
+        static constexpr error_possibility error_posib =
             fixedly_sized< def_type > &&
                     ( !erroring_converter< converter< Ds, Endianess > > && ... && true ) ?
-                ERROR_IMPOSSIBLE :
-                ERROR_POSSIBLE;
+                error_possibility::IMPOSSIBLE :
+                error_possibility::POSSIBLE;
 
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
             -> conversion_result< value_type, error_posib >
@@ -264,7 +266,7 @@ struct converter< std::tuple< Ds... >, Endianess >
                             return false;
                     } );
 
-                if constexpr ( error_posib == ERROR_POSSIBLE ) {
+                if constexpr ( error_posib == error_possibility::POSSIBLE ) {
                         if ( opt_err ) {
                                 return { offset, *opt_err };
                         }

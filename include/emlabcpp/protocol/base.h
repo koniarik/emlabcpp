@@ -34,24 +34,24 @@
 namespace emlabcpp::protocol
 {
 
-enum error_possibility_enum
+enum class error_possibility
 {
-        ERROR_POSSIBLE,
-        ERROR_IMPOSSIBLE
+        POSSIBLE,
+        IMPOSSIBLE
 };
 
 /// Strucutre used as result of deserialization in the internal mechanisms of protocol handling.
 /// Contains parsed value and value of how much bytes were used.
-template < typename T, error_possibility_enum CanErr = ERROR_POSSIBLE >
+template < typename T, error_possibility CanErr = error_possibility::POSSIBLE >
 struct conversion_result;
 
 template < typename T >
-struct conversion_result< T, ERROR_IMPOSSIBLE >;
+struct conversion_result< T, error_possibility::IMPOSSIBLE >;
 
-template < typename T, error_possibility_enum CanErr >
+template < typename T, error_possibility CanErr >
 struct conversion_result
 {
-        static constexpr error_possibility_enum can_err = CanErr;
+        static constexpr error_possibility can_err = CanErr;
 
         std::size_t                    used = 0;
         std::variant< T, const mark* > res;
@@ -73,7 +73,8 @@ struct conversion_result
         {
         }
 
-        explicit conversion_result( const conversion_result< T, ERROR_IMPOSSIBLE >& other )
+        explicit conversion_result(
+            const conversion_result< T, error_possibility::IMPOSSIBLE >& other )
           : conversion_result( other.used, other.res )
         {
         }
@@ -120,9 +121,9 @@ struct conversion_result
 };
 
 template < typename T >
-struct conversion_result< T, ERROR_IMPOSSIBLE >
+struct conversion_result< T, error_possibility::IMPOSSIBLE >
 {
-        static constexpr error_possibility_enum can_err = ERROR_IMPOSSIBLE;
+        static constexpr error_possibility can_err = error_possibility::IMPOSSIBLE;
 
         std::size_t used = 0;
         T           res;
@@ -141,7 +142,9 @@ struct conversion_result< T, ERROR_IMPOSSIBLE >
 
         template < typename UnaryCallable >
         auto convert_value( const UnaryCallable& cb ) &&  //
-            -> conversion_result< decltype( cb( std::declval< T >() ) ), ERROR_IMPOSSIBLE >
+            -> conversion_result<
+                decltype( cb( std::declval< T >() ) ),
+                error_possibility::IMPOSSIBLE >
         {
                 return { used, cb( std::move( res ) ) };
         }

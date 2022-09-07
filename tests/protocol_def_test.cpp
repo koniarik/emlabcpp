@@ -69,12 +69,12 @@ struct valid_test_case : protocol_test_fixture
                     *bounded_view< const uint8_t*, typename pitem::size_type >::make(
                         view_n( buffer.begin(), *used ) ) );
 
-                if constexpr ( decltype( sres )::can_err == protocol::ERROR_POSSIBLE )
+                if constexpr ( protocol::erroring_converter< pitem > ) {
                         if ( sres.has_error() ) {
                                 FAIL() << *sres.get_error();
                                 return;
                         }
-
+                }
                 auto rval = *sres.get_value();
                 EXPECT_EQ( rval, val );
                 EXPECT_EQ( sres.used, expected_buffer.size() );
