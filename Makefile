@@ -33,7 +33,7 @@ coverage: run_coverage
 
 clang-tidy:
 	cmake -Bctidy_build -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy 
-	make -Cctidy_build -j
+	cmake --build build
 
 clang-format:
 	find ./ \( -iname "*.h" -o -iname "*.cpp" \) | xargs clang-format -i
