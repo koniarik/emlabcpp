@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group":[4,0,0,0,4,0,3],
+"namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer":[4,0,0,0,4,0,5],
 "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group":[4,0,0,0,4,0,4],
 "namespaceemlabcpp_1_1protocol_1_1detail.html":[2,0,0,2,0],
 "namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376":[2,0,0,2,0,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "register__map_8h_source.html":[4,0,0,0,4,10],
 "request__adapter_8h.html":[4,0,0,0,2,0,1],
 "request__adapter_8h_source.html":[4,0,0,0,2,0,1],
-"rpc_8h.html":[4,0,0,0,2,7],
-"rpc_8h.html#a12e7fa7692c1aa0eca27cb5659dc25a4":[4,0,0,0,2,7,13],
-"rpc_8h_source.html":[4,0,0,0,2,7]
+"rpc_8h.html":[4,0,0,0,2,7]
 };

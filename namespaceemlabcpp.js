@@ -204,7 +204,7 @@ var namespaceemlabcpp =
     [ "sqrt", "namespaceemlabcpp.html#a5519896c5f0324265089711b6a020642", null ],
     [ "subscript_view", "namespaceemlabcpp.html#a46f1323b0b8ce43a44ca13753d457260", null ],
     [ "sum", "namespaceemlabcpp.html#ad5fde2ce524bee976e0c6c74c0be2917", null ],
-    [ "swap", "namespaceemlabcpp.html#aba54ad76836fd2a980ac4d6cf8d648af", null ],
+    [ "swap", "namespaceemlabcpp.html#a66b48062894b569667fa98dbf5ceeeae", null ],
     [ "tail", "namespaceemlabcpp.html#a254ed4de50fc497ac961253ac3625040", null ],
     [ "trim_view", "namespaceemlabcpp.html#a793151b3dbb2a3d533314e5a55cf6f54", null ],
     [ "tuple_zip_impl", "namespaceemlabcpp.html#aa8b8f5742901528282a9da6b8317e7b5", null ],

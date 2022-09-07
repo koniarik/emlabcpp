@@ -84,5 +84,5 @@ var searchData=
   ['suite_5fname_761',['suite_name',['../classemlabcpp_1_1testing_1_1controller.html#a13cb1ec084bf30a1c01b215bd3ced2dd',1,'emlabcpp::testing::controller']]],
   ['suite_5fname_762',['SUITE_NAME',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca80d3c264bc9a5f0a15ef3335f6a4d754',1,'emlabcpp::testing']]],
   ['sum_763',['sum',['../namespaceemlabcpp.html#ad5fde2ce524bee976e0c6c74c0be2917',1,'emlabcpp']]],
-  ['swap_764',['swap',['../classemlabcpp_1_1static__vector.html#aa311b7e7e5ad50d9b413f58a3a7087ab',1,'emlabcpp::static_vector::swap()'],['../namespaceemlabcpp.html#aba54ad76836fd2a980ac4d6cf8d648af',1,'emlabcpp::swap()']]]
+  ['swap_764',['swap',['../classemlabcpp_1_1static__vector.html#a11c991e4b126a5539dfe7bffa814d001',1,'emlabcpp::static_vector::swap()'],['../namespaceemlabcpp.html#a66b48062894b569667fa98dbf5ceeeae',1,'emlabcpp::swap()']]]
 ];

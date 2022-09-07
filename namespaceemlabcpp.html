@@ -656,9 +656,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aaa5569071253ac2623f7130fd1ff9d3a"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
 <tr class="memitem:aaa5569071253ac2623f7130fd1ff9d3a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aaa5569071253ac2623f7130fd1ff9d3a">operator!=</a> (const <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; &amp;lh, const <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; &amp;rh)</td></tr>
 <tr class="separator:aaa5569071253ac2623f7130fd1ff9d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba54ad76836fd2a980ac4d6cf8d648af"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:aba54ad76836fd2a980ac4d6cf8d648af"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aba54ad76836fd2a980ac4d6cf8d648af">swap</a> (const <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; &amp;lh, const <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; &amp;rh)</td></tr>
-<tr class="separator:aba54ad76836fd2a980ac4d6cf8d648af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66b48062894b569667fa98dbf5ceeeae"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:a66b48062894b569667fa98dbf5ceeeae"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a66b48062894b569667fa98dbf5ceeeae">swap</a> (const <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; &amp;lh, const <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; &amp;rh) noexcept</td></tr>
+<tr class="separator:a66b48062894b569667fa98dbf5ceeeae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dff36c03e0407491a4acf6b85b3f86e"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, typename T , std::size_t N&gt; </td></tr>
 <tr class="memitem:a7dff36c03e0407491a4acf6b85b3f86e"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7dff36c03e0407491a4acf6b85b3f86e">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; &amp;vec)</td></tr>
 <tr class="memdesc:a7dff36c03e0407491a4acf6b85b3f86e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output operator for the view, uses comma to separate the items in the view.  <a href="namespaceemlabcpp.html#a7dff36c03e0407491a4acf6b85b3f86e">More...</a><br /></td></tr>
@@ -5022,13 +5022,16 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
 
 </div>
 </div>
-<a id="aba54ad76836fd2a980ac4d6cf8d648af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba54ad76836fd2a980ac4d6cf8d648af">&#9670;&nbsp;</a></span>swap()</h2>
+<a id="a66b48062894b569667fa98dbf5ceeeae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66b48062894b569667fa98dbf5ceeeae">&#9670;&nbsp;</a></span>swap()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T , std::size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void emlabcpp::swap </td>
@@ -5048,9 +5051,12 @@ template&lt;typename T , std::size_t N&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="classemlabcpp_1_1static__vector.html#aa311b7e7e5ad50d9b413f58a3a7087ab">emlabcpp::static_vector&lt; T, N &gt;::swap()</a>.</p>
 
 </div>
 </div>
@@ -6216,7 +6222,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Wed Sep 7 2022 14:32:29 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Sep 7 2022 15:01:25 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

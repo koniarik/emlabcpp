@@ -29,9 +29,9 @@ var classemlabcpp_1_1static__vector =
     [ "operator[]", "classemlabcpp_1_1static__vector.html#a6d7dc09fdf0f0a7ad12f4d2faf87dc82", null ],
     [ "pop_back", "classemlabcpp_1_1static__vector.html#a695cb5bc8494b4bb5ce31bdcd50c47ff", null ],
     [ "push_back", "classemlabcpp_1_1static__vector.html#a51ee7dc6f9be615d0762635ecab58cd5", null ],
-    [ "requires", "classemlabcpp_1_1static__vector.html#a341fb370710104c6c45ffeb3ce9895cd", null ],
+    [ "requires", "classemlabcpp_1_1static__vector.html#aaaa6b6b9edd4069e4abbef54039c67d6", null ],
     [ "size", "classemlabcpp_1_1static__vector.html#a69dc10d4fa55b6747ef48967e8ee9805", null ],
-    [ "swap", "classemlabcpp_1_1static__vector.html#aa311b7e7e5ad50d9b413f58a3a7087ab", null ],
+    [ "swap", "classemlabcpp_1_1static__vector.html#a11c991e4b126a5539dfe7bffa814d001", null ],
     [ "take_back", "classemlabcpp_1_1static__vector.html#ad8085cd6a5180b432a5c4a5e7d8a3fff", null ],
     [ "capacity", "classemlabcpp_1_1static__vector.html#ac14413ef1e2b9321a2f975065e49c300", null ]
 ];

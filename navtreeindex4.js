@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"namespaceemlabcpp.html#a155a6828d776fbc298d37aabee6bc0d7":[2,0,0,165],
+"namespaceemlabcpp.html#a163dd8154f05ef8a818183d0d44cbcdc":[2,0,0,141],
 "namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16":[2,0,0,199],
 "namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f":[2,0,0,128],
 "namespaceemlabcpp.html#a1aef6c41e29219cbbc8538767c0e1f0e":[2,0,0,187],
@@ -66,6 +68,7 @@ var NAVTREEINDEX4 =
 "namespaceemlabcpp.html#a638fe803e243841625659a697eb71463":[2,0,0,137],
 "namespaceemlabcpp.html#a63a6aaa5fc338d3d342d90a14225fe82":[2,0,0,102],
 "namespaceemlabcpp.html#a640640991a3cfee97b11ab4df8759583":[2,0,0,167],
+"namespaceemlabcpp.html#a66b48062894b569667fa98dbf5ceeeae":[2,0,0,192],
 "namespaceemlabcpp.html#a670099942b8cdd3d2cc28760b1717d7c":[2,0,0,176],
 "namespaceemlabcpp.html#a67f4bfa3442a7cfe7b4fc9497a18af1a":[2,0,0,157],
 "namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9":[2,0,0,123],
@@ -134,7 +137,6 @@ var NAVTREEINDEX4 =
 "namespaceemlabcpp.html#ab6d4662933f76ac56e85afb0ca37e997a00b519f4d947eb449e9d06ec03804256":[2,0,0,94,1],
 "namespaceemlabcpp.html#ab6d4662933f76ac56e85afb0ca37e997a2e260cb0c3d12bbc44f6ee65871b461f":[2,0,0,94,2],
 "namespaceemlabcpp.html#ab6d4662933f76ac56e85afb0ca37e997a4cdd7f9cd282729e856fe214f7575888":[2,0,0,94,0],
-"namespaceemlabcpp.html#aba54ad76836fd2a980ac4d6cf8d648af":[2,0,0,192],
 "namespaceemlabcpp.html#abb6468ad7836780268a9d6ed31b017bc":[4,0,0,0,5,0,0,0],
 "namespaceemlabcpp.html#abbf48f5a991078e6acfe3db1e7762675":[2,0,0,81],
 "namespaceemlabcpp.html#abe4e80e0e361283130d83856b68f4e6d":[2,0,0,168],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "namespaceemlabcpp_1_1protocol.html#af6a2b6db86c30d95881fe0346b567f8b":[2,0,0,2,98],
 "namespaceemlabcpp_1_1protocol.html#af7b9659a2e1fe1042e7ada0c5797599c":[2,0,0,2,89],
 "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1command__group_3_01Endianess_01_4":[4,0,0,0,4,1,2],
-"namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record":[4,0,0,0,4,3,1],
-"namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group":[4,0,0,0,4,0,3],
-"namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer":[4,0,0,0,4,0,5]
+"namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record":[4,0,0,0,4,3,1]
 };

@@ -1,12 +1,13 @@
 var classemlabcpp_1_1static__circular__buffer__iterator =
 [
+    [ "const_reference", "classemlabcpp_1_1static__circular__buffer__iterator.html#ad240559d90f81c3ee0c031132e52f4f0", null ],
     [ "difference_type", "classemlabcpp_1_1static__circular__buffer__iterator.html#aa201895338e557ec046a51886057aeca", null ],
     [ "reference", "classemlabcpp_1_1static__circular__buffer__iterator.html#ab5b7cc63b1b950e5a8d9a2513218fbe7", null ],
     [ "value_type", "classemlabcpp_1_1static__circular__buffer__iterator.html#a3e00b3c7d4e86f7206fe94192fbcb7f0", null ],
     [ "static_circular_buffer_iterator", "classemlabcpp_1_1static__circular__buffer__iterator.html#a0484256bff8eb12a57640fe4535e4da3", null ],
     [ "static_circular_buffer_iterator", "classemlabcpp_1_1static__circular__buffer__iterator.html#afc51b5a1b1ba97086e1e8fddc1fe3e6a", null ],
     [ "static_circular_buffer_iterator", "classemlabcpp_1_1static__circular__buffer__iterator.html#a429b69d57f4d849a74e9817281062cb8", null ],
-    [ "operator*", "classemlabcpp_1_1static__circular__buffer__iterator.html#a0d629d6a61ca769b8d6c91d57032597b", null ],
+    [ "operator*", "classemlabcpp_1_1static__circular__buffer__iterator.html#a6843b1bb9da5cac60bc9aaa3a8b1975d", null ],
     [ "operator*", "classemlabcpp_1_1static__circular__buffer__iterator.html#a153fb7ee83977fca0eff907f4f85e992", null ],
     [ "operator+=", "classemlabcpp_1_1static__circular__buffer__iterator.html#ab40acd1a372f6d86258ff87a4c09aab3", null ],
     [ "operator-", "classemlabcpp_1_1static__circular__buffer__iterator.html#a30a24756614ba14646e103d30c95bc15", null ],
