@@ -94,8 +94,8 @@ var NAVTREEINDEX =
 "namespaceemlabcpp_1_1protocol_1_1detail.html",
 "sequencer_8h.html#ab4e4eb7948e19b1bea5b33f07edef2a0",
 "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1optional_3_01T_01_4_00_01Endianess_01_4.html#a15d113cc773db317a768171529f09653",
-"structemlabcpp_1_1protocol_1_1tuple.html#afc1f0656d18a2b898649c23bf96e38d6",
-"view_8h.html#a793151b3dbb2a3d533314e5a55cf6f54"
+"structemlabcpp_1_1protocol_1_1tuple.html#a452b4011833670e05508850c94a6409a",
+"view_8h.html#a172761451ef499ea1a316bf3b683fd16"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
