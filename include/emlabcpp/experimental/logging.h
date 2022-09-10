@@ -17,7 +17,8 @@ void log( const char* file, int line, const std::string& msg, log_severity );
 }  // namespace emlabcpp
 
 #define EMLABCPP_LOG_IMPL( msg, severity ) \
-        emlabcpp::log( __FILE__, __LINE__, ( emlabcpp::pretty_printer{} << msg ).str(), severity )
+        emlabcpp::log(                     \
+            __FILE__, __LINE__, ( emlabcpp::pretty_printer{} << msg ).str(), ( severity ) )
 
 #define EMLABCPP_LOG( msg ) EMLABCPP_LOG_IMPL( msg, emlabcpp::log_severity::INFO )
 

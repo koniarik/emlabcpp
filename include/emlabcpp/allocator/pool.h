@@ -41,7 +41,7 @@ struct pool_interface
 {
         virtual void* allocate( std::size_t bytes, std::size_t alignment ) = 0;
         virtual void  deallocate( void*, std::size_t alignment )           = 0;
-        virtual bool  full()                                               = 0;
+        virtual bool  full() const                                         = 0;
 
         virtual ~pool_interface() = default;
 };
@@ -52,7 +52,7 @@ class pool_resource final : public pool_interface
 public:
         pool_resource()
         {
-                for ( std::size_t i : range( PoolCount ) ) {
+                for ( const std::size_t i : range( PoolCount ) ) {
                         free_.push_back( static_cast< uint16_t >( i ) );
                 }
         }
@@ -62,14 +62,14 @@ public:
         pool_resource& operator=( const pool_resource& ) = delete;
         pool_resource& operator=( pool_resource&& )      = delete;
 
-        void* allocate( std::size_t bytes, std::size_t alignment ) final
+        void* allocate( const std::size_t bytes, const std::size_t alignment ) override
         {
                 void*       p    = nullptr;
                 std::size_t used = bytes;
                 if ( !free_.empty() ) {
-                        std::size_t i      = free_.back();
-                        void*       pool_p = &pools_[i];
-                        p                  = align( pool_p, alignment );
+                        const std::size_t i      = free_.back();
+                        void* const       pool_p = pools_[i].data();
+                        p                        = align( pool_p, alignment );
                         used += static_cast< std::size_t >(
                             reinterpret_cast< std::byte* >( p ) -
                             reinterpret_cast< std::byte* >( pool_p ) );
@@ -87,13 +87,13 @@ public:
                 return p;
         }
 
-        void deallocate( void* ptr, std::size_t ) final
+        void deallocate( void* const ptr, const std::size_t ) override
         {
 
-                auto pval = reinterpret_cast< std::size_t >( ptr );
-                auto bval = reinterpret_cast< std::size_t >( &pools_ );
+                const auto pval = reinterpret_cast< std::size_t >( ptr );
+                const auto bval = reinterpret_cast< std::size_t >( &pools_ );
 
-                std::size_t spot_i = ( pval - bval ) / PoolSize;
+                const std::size_t spot_i = ( pval - bval ) / PoolSize;
 
                 if ( spot_i >= PoolCount ) {
 #ifdef __EXCEPTIONS
@@ -106,7 +106,7 @@ public:
                 free_.push_back( static_cast< uint16_t >( spot_i ) );
         }
 
-        bool full() final
+        bool full() const override
         {
                 return free_.empty();
         }
@@ -122,17 +122,17 @@ private:
 
 class pool_dynamic_resource final : public pool_interface
 {
-        void* allocate( std::size_t bytes, std::size_t alignment ) final
+        void* allocate( const std::size_t bytes, const std::size_t alignment ) override
         {
                 return ::operator new ( bytes, std::align_val_t{ alignment } );
         }
 
-        void deallocate( void* ptr, std::size_t alignment ) final
+        void deallocate( void* const ptr, const std::size_t alignment ) override
         {
                 ::operator delete ( ptr, std::align_val_t{ alignment } );
         }
 
-        bool full() final
+        bool full() const override
         {
                 return false;
         }
@@ -150,21 +150,21 @@ public:
         {
         }
 
-        pool_allocator( pool_interface* src )
+        pool_allocator( pool_interface* const src )
           : resource_( src )
         {
         }
 
-        T* allocate( std::size_t n )
+        T* allocate( const std::size_t n )
         {
 
                 void* res = resource_->allocate( n * sizeof( T ), alignof( T ) );
                 return reinterpret_cast< T* >( res );
         }
 
-        void deallocate( T* p, std::size_t ) noexcept
+        void deallocate( T* const p, const std::size_t ) noexcept
         {
-                resource_->deallocate( p, alignof( T ) );
+                resource_->deallocate( reinterpret_cast< void* >( p ), alignof( T ) );
         }
 
         friend constexpr bool operator==( const pool_allocator& lh, const pool_allocator& rh )
