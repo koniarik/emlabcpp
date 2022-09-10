@@ -108,8 +108,8 @@ var namespaceemlabcpp_1_1testing =
     ] ],
     [ "controller_reactor_extract", "namespaceemlabcpp_1_1testing.html#ab2b3edc72f826144428e9d35ddab2bcb", null ],
     [ "controller_reactor_serialize", "namespaceemlabcpp_1_1testing.html#a4d0542d19d76636414c1b5ea7c1d0391", null ],
-    [ "key_type_to_buffer", "namespaceemlabcpp_1_1testing.html#ae0b4cea636a1c9a39049bf329270f2e8", null ],
-    [ "name_to_buffer", "namespaceemlabcpp_1_1testing.html#a624b5cf78344f5808042aea31286bf6b", null ],
+    [ "key_type_to_buffer", "namespaceemlabcpp_1_1testing.html#a62549c075763c5dbed5462d5d4603817", null ],
+    [ "name_to_buffer", "namespaceemlabcpp_1_1testing.html#adf747ac69a0bba3819fe10f84b0f8761", null ],
     [ "operator<<", "namespaceemlabcpp_1_1testing.html#a056de8fb5d8acbfe4a7b008823d8e05f", null ],
     [ "operator<<", "namespaceemlabcpp_1_1testing.html#a2bd49274a0f680348078dd37132c0197", null ],
     [ "operator<<", "namespaceemlabcpp_1_1testing.html#a5968d91955d9b3103d095de3edc8c898", null ],
@@ -118,7 +118,7 @@ var namespaceemlabcpp_1_1testing =
     [ "reactor_controller_extract", "namespaceemlabcpp_1_1testing.html#abdbd34423dcafe7f86156035eb20ac39", null ],
     [ "reactor_controller_serialize", "namespaceemlabcpp_1_1testing.html#a907b89e57f53e46e3139377a33f31a30", null ],
     [ "requires", "namespaceemlabcpp_1_1testing.html#a7adcf3f4ee884f07d803220439c4f493", null ],
-    [ "string_to_buffer", "namespaceemlabcpp_1_1testing.html#a4f8e9da0be222612bdd79ff0634adb3f", null ],
+    [ "string_to_buffer", "namespaceemlabcpp_1_1testing.html#ad633f76356e096e700a03f89c593dca8", null ],
     [ "test_compose", "namespaceemlabcpp_1_1testing.html#a5dfb36ed7abfd06d258541ad605291f7", null ],
     [ "test_callable", "namespaceemlabcpp_1_1testing.html#a7a1ef67ff724cc655ebe531ae789f956", null ]
 ];

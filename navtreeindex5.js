@@ -1,6 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group":[4,0,0,0,4,0,3],
 "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer":[4,0,0,0,4,0,5],
 "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group":[4,0,0,0,4,0,4],
 "namespaceemlabcpp_1_1protocol_1_1detail.html":[2,0,0,2,0],
@@ -62,13 +61,12 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp_1_1testing.html#a423817effbd7f9115519653b7bbcba42":[4,0,0,0,2,1,4,0,0],
 "namespaceemlabcpp_1_1testing.html#a46d6c036ac9c56d05eec8f09cf17cfe4":[2,0,0,4,55],
 "namespaceemlabcpp_1_1testing.html#a4d0542d19d76636414c1b5ea7c1d0391":[2,0,0,4,77],
-"namespaceemlabcpp_1_1testing.html#a4f8e9da0be222612bdd79ff0634adb3f":[2,0,0,4,88],
 "namespaceemlabcpp_1_1testing.html#a515587622310ad47ccc8d4f76961c585":[2,0,0,4,70],
 "namespaceemlabcpp_1_1testing.html#a55dce13b513939f69f3700556ffee4f1":[2,0,0,4,60],
 "namespaceemlabcpp_1_1testing.html#a58f62ed11f8e66de4ecc3168b0871b92":[2,0,0,4,54],
 "namespaceemlabcpp_1_1testing.html#a5968d91955d9b3103d095de3edc8c898":[2,0,0,4,82],
 "namespaceemlabcpp_1_1testing.html#a5dfb36ed7abfd06d258541ad605291f7":[2,0,0,4,89],
-"namespaceemlabcpp_1_1testing.html#a624b5cf78344f5808042aea31286bf6b":[2,0,0,4,79],
+"namespaceemlabcpp_1_1testing.html#a62549c075763c5dbed5462d5d4603817":[2,0,0,4,78],
 "namespaceemlabcpp_1_1testing.html#a7990a2783b0090e4fb21f6af5916c99c":[2,0,0,4,53],
 "namespaceemlabcpp_1_1testing.html#a7a1ef67ff724cc655ebe531ae789f956":[2,0,0,4,90],
 "namespaceemlabcpp_1_1testing.html#a7adcf3f4ee884f07d803220439c4f493":[2,0,0,4,87],
@@ -97,8 +95,9 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76ac4e2cca74f2a682c3f462ee09d0f8621":[2,0,0,4,74,8],
 "namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76ad96267bf0e69770de798294aba8c97a7":[2,0,0,4,74,3],
 "namespaceemlabcpp_1_1testing.html#acbd9645e3f3070dc31de4a5d5c22be05":[2,0,0,4,48],
+"namespaceemlabcpp_1_1testing.html#ad633f76356e096e700a03f89c593dca8":[2,0,0,4,88],
 "namespaceemlabcpp_1_1testing.html#ada2943d8a15384322ee561c0a59a76c3":[2,0,0,4,65],
-"namespaceemlabcpp_1_1testing.html#ae0b4cea636a1c9a39049bf329270f2e8":[2,0,0,4,78],
+"namespaceemlabcpp_1_1testing.html#adf747ac69a0bba3819fe10f84b0f8761":[2,0,0,4,79],
 "namespaceemlabcpp_1_1testing.html#ae36d07470ad020d80dd3d3eade16fcb5":[2,0,0,4,71],
 "namespaceemlabcpp_1_1testing.html#ae4364788fa5d61d0cc9f5caca1380376":[2,0,0,4,69],
 "namespaceemlabcpp_1_1testing.html#ae5199fc97a7274203e42e578b9fe8399":[2,0,0,4,62],
@@ -249,5 +248,6 @@ var NAVTREEINDEX5 =
 "register__map_8h_source.html":[4,0,0,0,4,10],
 "request__adapter_8h.html":[4,0,0,0,2,0,1],
 "request__adapter_8h_source.html":[4,0,0,0,2,0,1],
-"rpc_8h.html":[4,0,0,0,2,7]
+"rpc_8h.html":[4,0,0,0,2,7],
+"rpc_8h.html#a12e7fa7692c1aa0eca27cb5659dc25a4":[4,0,0,0,2,7,13]
 };

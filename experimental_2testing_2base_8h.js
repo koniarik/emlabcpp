@@ -21,7 +21,7 @@ var experimental_2testing_2base_8h =
     [ "string_buffer", "experimental_2testing_2base_8h.html#ae36d07470ad020d80dd3d3eade16fcb5", null ],
     [ "test_id", "experimental_2testing_2base_8h.html#a00b8f081e11fc3a56f298674ec89a8ca", null ],
     [ "value_type", "experimental_2testing_2base_8h.html#a7eba021904701a30cd427b798483dc5f", null ],
-    [ "key_type_to_buffer", "experimental_2testing_2base_8h.html#ae0b4cea636a1c9a39049bf329270f2e8", null ],
-    [ "name_to_buffer", "experimental_2testing_2base_8h.html#a624b5cf78344f5808042aea31286bf6b", null ],
-    [ "string_to_buffer", "experimental_2testing_2base_8h.html#a4f8e9da0be222612bdd79ff0634adb3f", null ]
+    [ "key_type_to_buffer", "experimental_2testing_2base_8h.html#a62549c075763c5dbed5462d5d4603817", null ],
+    [ "name_to_buffer", "experimental_2testing_2base_8h.html#adf747ac69a0bba3819fe10f84b0f8761", null ],
+    [ "string_to_buffer", "experimental_2testing_2base_8h.html#ad633f76356e096e700a03f89c593dca8", null ]
 ];
