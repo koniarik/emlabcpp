@@ -73,7 +73,7 @@ private:
             name_buffer                    name,
             name_buffer                    date,
             pool_map< test_id, test_info > tests,
-            pool_interface*                mem_pool )
+            pool_interface* const          mem_pool )
           : tests_( std::move( tests ) )
           , name_( std::move( name ) )
           , date_( std::move( date ) )

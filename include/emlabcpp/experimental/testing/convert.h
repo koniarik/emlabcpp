@@ -42,7 +42,7 @@ requires( !std::same_as< T, int64_t > && std::is_integral_v< T > ) struct value_
         static std::optional< T > from_value( const value_type& var )
         {
                 if ( std::holds_alternative< float >( var ) ) {
-                        float v = *std::get_if< float >( &var );
+                        const auto v = *std::get_if< float >( &var );
                         if ( v == 0.f ) {
                                 return T{ 0 };
                         }

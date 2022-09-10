@@ -63,7 +63,7 @@ struct test_info
 
 /// TODO: maybe make a function in static_vector namespace?
 template < typename T >
-T string_to_buffer( std::string_view sview )
+T string_to_buffer( const std::string_view sview )
 {
         T tmp;
         std::copy_n(
@@ -71,17 +71,17 @@ T string_to_buffer( std::string_view sview )
         return tmp;
 }
 
-inline name_buffer name_to_buffer( std::string_view sview )
+inline name_buffer name_to_buffer( const std::string_view sview )
 {
         return string_to_buffer< name_buffer >( sview );
 }
 
-inline key_type_buffer key_type_to_buffer( std::string_view key )
+inline key_type_buffer key_type_to_buffer( const std::string_view key )
 {
         return string_to_buffer< key_type_buffer >( key );
 }
 
-inline string_buffer string_to_buffer( std::string_view st )
+inline string_buffer string_to_buffer( const std::string_view st )
 {
         return string_to_buffer< string_buffer >( st );
 }
@@ -96,7 +96,7 @@ struct test_result
         bool      failed  = false;
         bool      errored = false;
 
-        test_result( test_id ttid, run_id trid, pool_interface* mem_pool )
+        test_result( const test_id ttid, const run_id trid, pool_interface* const mem_pool )
           : tid( ttid )
           , rid( trid )
           , collected( mem_pool )

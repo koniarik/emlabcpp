@@ -70,7 +70,7 @@ auto& operator<<( ostreamlike auto& os, const controller_protocol_error& e )
 
 auto& operator<<( ostreamlike auto& os, const internal_reactor_error& e )
 {
-        match( e.val, [&]< typename T >( const T& ) {
+        match( e.val, [&os, &e]< typename T >( const T& ) {
                 os << T::id;
         } );
         return os;
@@ -84,7 +84,7 @@ auto& operator<<( ostreamlike auto& os, const controller_internal_error& e )
 auto& operator<<( ostreamlike auto& os, const error_variant& var )
 {
         emlabcpp::visit(
-            [&]( const auto& item ) {
+            [&os, &var]( const auto& item ) {
                     os << item;
             },
             var );
