@@ -1,16 +1,5 @@
 var searchData=
 [
-  ['generic_5fiterator_935',['generic_iterator',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20access_5fiterator_3c_20iterator_2c_20accesscallable_20_3e_20_3e_936',['generic_iterator&lt; access_iterator&lt; Iterator, AccessCallable &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20convert_5fiterator_3c_20t_2c_20iterator_20_3e_20_3e_937',['generic_iterator&lt; convert_iterator&lt; T, Iterator &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20numeric_5fiterator_3c_20t_20_3e_20_3e_938',['generic_iterator&lt; numeric_iterator&lt; T &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20static_5fcircular_5fbuffer_5fiterator_3c_20container_20_3e_20_3e_939',['generic_iterator&lt; static_circular_buffer_iterator&lt; Container &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20subscript_5fiterator_3c_20container_20_3e_20_3e_940',['generic_iterator&lt; subscript_iterator&lt; Container &gt; &gt;',['../classemlabcpp_1_1generic__iterator.html',1,'emlabcpp']]],
-  ['get_5fcount_5freply_941',['get_count_reply',['../structemlabcpp_1_1testing_1_1get__count__reply.html',1,'emlabcpp::testing']]],
-  ['get_5fproperty_942',['get_property',['../structemlabcpp_1_1testing_1_1get__property.html',1,'emlabcpp::testing']]],
-  ['get_5fsuite_5fdate_5freply_943',['get_suite_date_reply',['../structemlabcpp_1_1testing_1_1get__suite__date__reply.html',1,'emlabcpp::testing']]],
-  ['get_5fsuite_5fname_5freply_944',['get_suite_name_reply',['../structemlabcpp_1_1testing_1_1get__suite__name__reply.html',1,'emlabcpp::testing']]],
-  ['get_5ftest_5fname_5freply_945',['get_test_name_reply',['../structemlabcpp_1_1testing_1_1get__test__name__reply.html',1,'emlabcpp::testing']]],
-  ['get_5ftest_5fname_5frequest_946',['get_test_name_request',['../structemlabcpp_1_1testing_1_1get__test__name__request.html',1,'emlabcpp::testing']]],
-  ['group_947',['group',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group',1,'emlabcpp::protocol']]]
+  ['function_5fview_941',['function_view',['../namespaceemlabcpp.html#classemlabcpp_1_1function__view',1,'emlabcpp']]],
+  ['function_5fview_3c_20returntype_28argtypes_2e_2e_2e_29_20_3e_942',['function_view&lt; ReturnType(ArgTypes...) &gt;',['../classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html',1,'emlabcpp']]]
 ];

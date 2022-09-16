@@ -94,6 +94,8 @@ var hierarchy =
       [ "emlabcpp::impl::is_std_vector< typename >", "structemlabcpp_1_1impl_1_1is__std__vector.html", null ],
       [ "emlabcpp::impl::is_view< typename >", "structemlabcpp_1_1impl_1_1is__view.html", null ]
     ] ],
+    [ "emlabcpp::function_view< Signature >", "namespaceemlabcpp.html#classemlabcpp_1_1function__view", null ],
+    [ "emlabcpp::function_view< ReturnType(ArgTypes...) >", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html", null ],
     [ "emlabcpp::generic_iterator< Derived >", "classemlabcpp_1_1generic__iterator.html", null ],
     [ "emlabcpp::generic_iterator< access_iterator< Iterator, AccessCallable > >", "classemlabcpp_1_1generic__iterator.html", [
       [ "emlabcpp::access_iterator< Iterator, AccessCallable >", "classemlabcpp_1_1access__iterator.html", null ]
@@ -210,7 +212,9 @@ var hierarchy =
     [ "emlabcpp::protocol::serializer< float, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::signature_of< Signature >", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of", null ],
     [ "emlabcpp::signature_of< ReturnType(Args...) >", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of_3_01ReturnType_07Args_8_8_8_08_01_4", null ],
-    [ "emlabcpp::signature_of< ReturnType(Class::*)(Args...) >", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4", null ],
+    [ "emlabcpp::signature_of< ReturnType(Class::*)(Args...) >", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4.html", [
+      [ "emlabcpp::signature_of< ReturnType(Class::*)(Args...) const >", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01const_01_4.html", null ]
+    ] ],
     [ "emlabcpp::protocol::sized_buffer< CounterDef, D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer", null ],
     [ "emlabcpp::static_circular_buffer< T, N >", "classemlabcpp_1_1static__circular__buffer.html", null ],
     [ "emlabcpp::static_circular_buffer< uint8_t, Def::message_type::max_size *2 >", "classemlabcpp_1_1static__circular__buffer.html", null ],

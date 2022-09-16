@@ -9,6 +9,9 @@ var dir_833cf07299c67ab119396183470d94f1 =
     [ "derived_storage.h", "derived__storage_8h.html", [
       [ "derived_storage", "classemlabcpp_1_1derived__storage.html", "classemlabcpp_1_1derived__storage" ]
     ] ],
+    [ "function_view.h", "function__view_8h.html", [
+      [ "function_view< ReturnType(ArgTypes...) >", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4" ]
+    ] ],
     [ "logging.h", "logging_8h.html", "logging_8h" ],
     [ "pretty_printer.h", "pretty__printer_8h.html", "pretty__printer_8h" ],
     [ "rpc.h", "rpc_8h.html", "rpc_8h" ]

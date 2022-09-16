@@ -21,6 +21,13 @@ var types_2base_8h =
     [ "static_size< std::array< T, N > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1array_3_01T_00_01N_01_4_01_4" ],
     [ "static_size< std::tuple< Ts... > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4" ],
     [ "static_size", "structemlabcpp_1_1static__size.html", null ],
+    [ "signature_of< ReturnType(Class::*)(Args...) >", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4.html", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4" ],
+    [ "signature_of< ReturnType(Class::*)(Args...) const >", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01const_01_4.html", null ],
+    [ "signature_of< ReturnType(Args...) >", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of_3_01ReturnType_07Args_8_8_8_08_01_4", [
+      [ "args_type", "namespaceemlabcpp.html#a1d6031bb6774f9e0fdd9127e753b4429", null ],
+      [ "return_type", "namespaceemlabcpp.html#aaf6b1e41353c5010a20ce6ae5543a98d", null ],
+      [ "signature", "namespaceemlabcpp.html#a04896856a5012f04869873b5f6431cf8", null ]
+    ] ],
     [ "iterator_of_t", "types_2base_8h.html#a98ab53b012e339a9621604b203df856e", null ],
     [ "are_same_v", "types_2base_8h.html#ae5e4923a149af384640fe5d3759dcc9a", null ],
     [ "is_std_array_v", "types_2base_8h.html#a1d463be90e36b5d5be447e407fca17bf", null ],
