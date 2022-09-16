@@ -198,4 +198,38 @@ struct static_size : impl::static_size< std::decay_t< T > >
 template < typename T >
 [[deprecated]] constexpr std::size_t static_size_v = static_size< T >::value;
 
+/// ------------------------------------------------------------------------------------------------
+
+template < typename Signature >
+struct signature_of;
+
+template < typename ReturnType, typename Class, typename... Args >
+struct signature_of< ReturnType ( Class::* )( Args... ) >
+{
+        using return_type = ReturnType;
+        using class_type  = Class;
+        using args_type   = std::tuple< Args... >;
+        using signature   = ReturnType( Args... );
+};
+
+template < typename ReturnType, typename Class, typename... Args >
+struct signature_of< ReturnType ( Class::* )( Args... ) const >
+  : signature_of< ReturnType ( Class::* )( Args... ) >
+{
+};
+
+template < typename ReturnType, typename... Args >
+struct signature_of< ReturnType( Args... ) >
+{
+        using return_type = ReturnType;
+        using args_type   = std::tuple< Args... >;
+        using signature   = ReturnType( Args... );
+};
+
+template < typename Callable >
+requires( requires() { &Callable::operator(); } ) struct signature_of< Callable >
+  : signature_of< decltype( &Callable::operator() ) >
+{
+};
+
 }  // namespace emlabcpp

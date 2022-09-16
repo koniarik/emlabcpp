@@ -164,4 +164,7 @@ concept with_value_type = requires
         typename T::value_type;
 };
 
+template < typename T, typename Signature >
+concept with_signature = std::same_as< typename signature_of< T >::signature, Signature >;
+
 }  // namespace emlabcpp
