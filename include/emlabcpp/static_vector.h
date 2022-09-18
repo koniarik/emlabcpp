@@ -65,6 +65,11 @@ public:
                 move_from( other );
                 other.clear();
         }
+        static_vector( std::size_t M, const T& item )
+        {
+                M = std::max( M, N );
+                std::uninitialized_fill( begin(), begin() + M, item );
+        }
         template < std::size_t M >
         requires( M <= N ) explicit static_vector( std::array< T, M > data )
         {
@@ -105,9 +110,19 @@ public:
                 }
         }
 
-        [[nodiscard]] iterator begin()
+        [[nodiscard]] T* data()
         {
                 return reinterpret_cast< T* >( &data_ );
+        }
+
+        [[nodiscard]] const T* data() const
+        {
+                return reinterpret_cast< const T* >( &data_ );
+        }
+
+        [[nodiscard]] iterator begin()
+        {
+                return data();
         }
 
         [[nodiscard]] iterator end()
@@ -117,7 +132,7 @@ public:
 
         [[nodiscard]] const_iterator begin() const
         {
-                return reinterpret_cast< const T* >( &data_ );
+                return data();
         }
 
         [[nodiscard]] const_iterator end() const
