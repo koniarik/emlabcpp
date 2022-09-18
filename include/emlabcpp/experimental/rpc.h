@@ -50,6 +50,8 @@ struct traits< std::tuple< Calls... > >
                 using def_type = typename Call::reply;
         };
 
+        using call_defs = std::tuple< Calls... >;
+
         using request_group = protocol::tag_group< request_wrapper< Calls >... >;
         using reply_group   = protocol::tag_group< reply_wrapper< Calls >... >;
 
@@ -66,11 +68,14 @@ struct traits< std::tuple< Calls... > >
         using reply_message_type   = protocol::message< reply_traits::max_size >;
 };
 
-template < typename Def >
+template < typename Wrapper >
+using wrapper_traits = traits< typename Wrapper::call_defs >;
+
+template < typename CallDefs >
 class reactor
 {
 public:
-        using traits_type          = traits< Def >;
+        using traits_type          = traits< CallDefs >;
         using reply_variant        = typename traits_type::reply_variant;
         using request_type         = typename traits_type::request_type;
         using request_group        = typename traits_type::request_group;
@@ -102,20 +107,21 @@ public:
                     .join();
         }
 };
-template < typename Def >
+template < typename CallDefs >
 static constexpr std::size_t get_call_index( auto id )
 {
-        return find_if_index< std::tuple_size_v< Def > >( [id]< std::size_t i >() {
-                return std::tuple_element_t< i, Def >::id == id;
+        return find_if_index< std::tuple_size_v< CallDefs > >( [id]< std::size_t i >() {
+                return std::tuple_element_t< i, CallDefs >::id == id;
         } );
 }
 
-template < typename Def >
-class controller : public traits< Def >
+template < typename Wrapper >
+class controller
 {
 
 public:
-        using traits_type          = traits< Def >;
+        using traits_type          = wrapper_traits< Wrapper >;
+        using call_defs            = typename traits_type::call_defs;
         using reply_variant        = typename traits_type::reply_variant;
         using request_type         = typename traits_type::request_type;
         using reply_type           = typename traits_type::reply_type;
@@ -128,10 +134,10 @@ public:
         using reply_handler   = protocol::handler< outter_reply_group >;
 
         template < auto ID >
-        static constexpr std::size_t call_index = get_call_index< Def >( ID );
+        static constexpr std::size_t call_index = get_call_index< call_defs >( ID );
 
         template < auto ID >
-        using call_type = std::tuple_element_t< call_index< ID >, Def >;
+        using call_type = std::tuple_element_t< call_index< ID >, call_defs >;
 
         template < auto ID, typename... Args, typename MsgCallback >
         static either< typename call_type< ID >::reply, error >

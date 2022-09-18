@@ -53,7 +53,7 @@ TEST( rpc, basic )
                 return wrap.on_message( msg );
         };
 
-        using con = rpc::controller< direct_test_wrapper::call_defs >;
+        using con = rpc::controller< direct_test_wrapper >;
 
         con::call< CALL_1 >( exchange_messages_f, 42 )
             .match(
@@ -107,7 +107,7 @@ TEST( rpc, bind )
                 return bwp.on_message( msg );
         };
 
-        using con = rpc::controller< direct_test_wrapper::call_defs >;
+        using con = rpc::controller< direct_test_wrapper >;
 
         con::call< CALL_1 >( exchange_messages_f, 42 )
             .match(

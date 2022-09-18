@@ -12,7 +12,15 @@ template < typename ReturnType, typename... ArgTypes >
 class function_view< ReturnType( ArgTypes... ) >
 {
 public:
-        template < with_signature< ReturnType( ArgTypes... ) > Callable >
+        using signature = ReturnType( ArgTypes... );
+
+        function_view( signature* fun )
+          : obj_( reinterpret_cast< void* >( fun ) )
+          , handler_( &FunctionHandler )
+        {
+        }
+
+        template < with_signature< signature > Callable >
         function_view( Callable& cb )
           : obj_( &cb )
           , handler_( &CallableHandler< Callable > )
@@ -30,6 +38,12 @@ private:
         {
                 Callable* cb_ptr = reinterpret_cast< Callable* >( ptr );
                 return ( *cb_ptr )( std::forward< ArgTypes >( args )... );
+        }
+
+        static ReturnType FunctionHandler( void* ptr, ArgTypes... args )
+        {
+                auto f_ptr = reinterpret_cast< signature* >( ptr );
+                return f_ptr( args... );
         }
 
         using handler = ReturnType( void*, ArgTypes... );
