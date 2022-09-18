@@ -20,6 +20,7 @@ var rpc_8h =
         [ "def_type", "structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4_1_1request__wrapper.html#a0549231c969b3eeb2fd6da020c3fcd79", null ],
         [ "id", "structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4_1_1request__wrapper.html#a398bfd19cb97cd216a72f85d609fa547", null ]
       ] ],
+      [ "call_defs", "namespaceemlabcpp_1_1rpc.html#af89a358084de571885c12a617467d870", null ],
       [ "outter_reply_group", "namespaceemlabcpp_1_1rpc.html#a415eb7b852e68cac1558c9d5c8fb9c73", null ],
       [ "reply_group", "namespaceemlabcpp_1_1rpc.html#a4241d5757e630262a6572c0d52045ca6", null ],
       [ "reply_message_type", "namespaceemlabcpp_1_1rpc.html#a9159bb395d5f2a1f23f3bec83bffd411", null ],
@@ -39,5 +40,6 @@ var rpc_8h =
     [ "class_wrapper", "classemlabcpp_1_1rpc_1_1class__wrapper.html", "classemlabcpp_1_1rpc_1_1class__wrapper" ],
     [ "bind", "structemlabcpp_1_1rpc_1_1bind.html", "structemlabcpp_1_1rpc_1_1bind" ],
     [ "bind_wrapper", "classemlabcpp_1_1rpc_1_1bind__wrapper.html", "classemlabcpp_1_1rpc_1_1bind__wrapper" ],
+    [ "wrapper_traits", "rpc_8h.html#a455c6a71e7f0a0f186004b4d463e34c6", null ],
     [ "get_call_index", "rpc_8h.html#a12e7fa7692c1aa0eca27cb5659dc25a4", null ]
 ];

@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('namespaceemlabcpp_1_1rpc.html',''); in
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">emlabcpp::rpc Namespace Reference</div>  </div>
@@ -118,9 +119,15 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1bind__wrapper.html">bind_wrapper</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a455c6a71e7f0a0f186004b4d463e34c6"><td class="memTemplParams" colspan="2">template&lt;typename Wrapper &gt; </td></tr>
+<tr class="memitem:a455c6a71e7f0a0f186004b4d463e34c6"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1rpc.html#a455c6a71e7f0a0f186004b4d463e34c6">wrapper_traits</a> = <a class="el" href="namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits">traits</a>&lt; typename Wrapper::call_defs &gt;</td></tr>
+<tr class="separator:a455c6a71e7f0a0f186004b4d463e34c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a12e7fa7692c1aa0eca27cb5659dc25a4"><td class="memTemplParams" colspan="2">template&lt;typename Def &gt; </td></tr>
+<tr class="memitem:a12e7fa7692c1aa0eca27cb5659dc25a4"><td class="memTemplParams" colspan="2">template&lt;typename CallDefs &gt; </td></tr>
 <tr class="memitem:a12e7fa7692c1aa0eca27cb5659dc25a4"><td class="memTemplItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1rpc.html#a12e7fa7692c1aa0eca27cb5659dc25a4">get_call_index</a> (auto id)</td></tr>
 <tr class="separator:a12e7fa7692c1aa0eca27cb5659dc25a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -256,6 +263,12 @@ struct emlabcpp::rpc::traits&lt; std::tuple&lt; Calls... &gt; &gt;</h3>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
+<a id="af89a358084de571885c12a617467d870"></a></td>
+<td class="fieldname">
+call_defs</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
 <a id="a415eb7b852e68cac1558c9d5c8fb9c73"></a>typedef variant&lt; <a class="el" href="namespaceemlabcpp_1_1rpc.html#a4241d5757e630262a6572c0d52045ca6">reply_group</a>, <a class="el" href="namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1reactor__error">reactor_error</a> &gt;</td>
 <td class="fieldname">
 outter_reply_group</td>
@@ -319,6 +332,23 @@ request_type</td>
 
 </div>
 </div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a455c6a71e7f0a0f186004b4d463e34c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a455c6a71e7f0a0f186004b4d463e34c6">&#9670;&nbsp;</a></span>wrapper_traits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Wrapper &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1rpc.html#a455c6a71e7f0a0f186004b4d463e34c6">emlabcpp::rpc::wrapper_traits</a> = typedef <a class="el" href="namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits">traits</a>&lt; typename Wrapper::call_defs &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a12e7fa7692c1aa0eca27cb5659dc25a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12e7fa7692c1aa0eca27cb5659dc25a4">&#9670;&nbsp;</a></span>get_call_index()</h2>
@@ -326,7 +356,7 @@ request_type</td>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Def &gt; </div>
+template&lt;typename CallDefs &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -354,7 +384,7 @@ template&lt;typename Def &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1rpc.html">rpc</a></li>
-    <li class="footer">Generated on Fri Sep 16 2022 17:39:40 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Sep 18 2022 19:14:07 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

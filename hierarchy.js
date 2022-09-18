@@ -26,6 +26,7 @@ var hierarchy =
     [ "emlabcpp::contiguous_request_adapter< Tree >", "classemlabcpp_1_1contiguous__request__adapter.html", null ],
     [ "emlabcpp::contiguous_tree< Key, Value >", "classemlabcpp_1_1contiguous__tree.html", null ],
     [ "emlabcpp::contiguous_tree< key_type, value_type >", "classemlabcpp_1_1contiguous__tree.html", null ],
+    [ "emlabcpp::rpc::controller< Wrapper >", "classemlabcpp_1_1rpc_1_1controller.html", null ],
     [ "emlabcpp::testing::controller", "classemlabcpp_1_1testing_1_1controller.html", null ],
     [ "emlabcpp::testing::controller_interface", "classemlabcpp_1_1testing_1_1controller__interface.html", null ],
     [ "emlabcpp::testing::controller_internal_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__internal__error", null ],
@@ -190,7 +191,7 @@ var hierarchy =
     [ "emlabcpp::quantity< tagged_quantity< Tag, float >, float >", "classemlabcpp_1_1quantity.html", [
       [ "emlabcpp::tagged_quantity< Tag, ValueType >", "classemlabcpp_1_1tagged__quantity.html", null ]
     ] ],
-    [ "emlabcpp::rpc::reactor< Def >", "classemlabcpp_1_1rpc_1_1reactor.html", null ],
+    [ "emlabcpp::rpc::reactor< CallDefs >", "classemlabcpp_1_1rpc_1_1reactor.html", null ],
     [ "emlabcpp::testing::reactor", "classemlabcpp_1_1testing_1_1reactor.html", [
       [ "emlabcpp::testing::default_reactor", "classemlabcpp_1_1testing_1_1default__reactor.html", null ]
     ] ],
@@ -241,9 +242,6 @@ var hierarchy =
     ] ],
     [ "emlabcpp::testing::test_result", "structemlabcpp_1_1testing_1_1test__result.html", null ],
     [ "emlabcpp::rpc::traits< T >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits", null ],
-    [ "emlabcpp::rpc::traits< Def >", "namespaceemlabcpp_1_1rpc.html", [
-      [ "emlabcpp::rpc::controller< Def >", "classemlabcpp_1_1rpc_1_1controller.html", null ]
-    ] ],
     [ "emlabcpp::rpc::traits< std::tuple< Calls... > >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4", null ],
     [ "traits_for", null, [
       [ "emlabcpp::protocol::proto_traits< D >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html", null ],
@@ -259,6 +257,8 @@ var hierarchy =
       [ "emlabcpp::impl::is_view< view< Iter > >", "structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html", null ]
     ] ],
     [ "emlabcpp::tuple_has_type< T, Tuple >", "namespaceemlabcpp.html#structemlabcpp_1_1tuple__has__type", null ],
+    [ "emlabcpp::type_map< typename, class >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map", null ],
+    [ "emlabcpp::type_map< std::tuple< Ts... >, Fun >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4", null ],
     [ "emlabcpp::protocol::value_offset< D, Offset >", "structemlabcpp_1_1protocol_1_1value__offset.html", null ],
     [ "emlabcpp::testing::value_type_converter< T >", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter", null ],
     [ "emlabcpp::testing::value_type_converter< std::string_view >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html", null ],

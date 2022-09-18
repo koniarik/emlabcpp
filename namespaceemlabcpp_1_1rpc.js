@@ -12,5 +12,6 @@ var namespaceemlabcpp_1_1rpc =
     [ "class_wrapper", "classemlabcpp_1_1rpc_1_1class__wrapper.html", "classemlabcpp_1_1rpc_1_1class__wrapper" ],
     [ "bind", "structemlabcpp_1_1rpc_1_1bind.html", "structemlabcpp_1_1rpc_1_1bind" ],
     [ "bind_wrapper", "classemlabcpp_1_1rpc_1_1bind__wrapper.html", "classemlabcpp_1_1rpc_1_1bind__wrapper" ],
+    [ "wrapper_traits", "namespaceemlabcpp_1_1rpc.html#a455c6a71e7f0a0f186004b4d463e34c6", null ],
     [ "get_call_index", "namespaceemlabcpp_1_1rpc.html#a12e7fa7692c1aa0eca27cb5659dc25a4", null ]
 ];

@@ -213,6 +213,8 @@ var annotated_dup =
       [ "mapped< Container, UnaryCallable >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4.html", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4" ],
       [ "tag", "structemlabcpp_1_1tag.html", "structemlabcpp_1_1tag" ],
       [ "select_utype", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
+      [ "type_map", "namespaceemlabcpp.html#structemlabcpp_1_1type__map", null ],
+      [ "type_map< std::tuple< Ts... >, Fun >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4", "namespaceemlabcpp_structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4_dup" ],
       [ "view", "classemlabcpp_1_1view.html", "classemlabcpp_1_1view" ],
       [ "zip_iterator", "classemlabcpp_1_1zip__iterator.html", "classemlabcpp_1_1zip__iterator" ]
     ] ],

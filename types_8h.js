@@ -2,8 +2,12 @@ var types_8h =
 [
     [ "mapped< Container, UnaryCallable >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4.html", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4" ],
     [ "tag", "structemlabcpp_1_1tag.html", "structemlabcpp_1_1tag" ],
+    [ "type_map< std::tuple< Ts... >, Fun >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4", [
+      [ "type", "namespaceemlabcpp.html#a7e53b3be429836ebe9e7cdecc239f7d8", null ]
+    ] ],
     [ "mapped_t", "types_8h.html#abf111745a0eec5119748333b9640afca", null ],
     [ "select_utype_t", "types_8h.html#ac223240cfaa32fcb48f0daa06c78a9e2", null ],
+    [ "type_map_t", "types_8h.html#afbd4de918223b1144d32fcef8a9dfe2a", null ],
     [ "operator<<", "types_8h.html#a155a6828d776fbc298d37aabee6bc0d7", null ],
     [ "pretty_type_name", "types_8h.html#a46d4ea091d64444e17a8e74d672c3c6c", null ],
     [ "requires", "types_8h.html#aab6fd32a8b3335eec93b94331d4293b0", null ],
