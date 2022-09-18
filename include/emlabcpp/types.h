@@ -130,4 +130,18 @@ requires( sizeof( uint64_t ) == N ) struct select_utype< N >
 template < std::size_t N >
 using select_utype_t = typename select_utype< N >::type;
 
+/// ------------------------------------------------------------------------------------------------
+
+template < typename, template < typename > class >
+struct type_map;
+
+template < typename... Ts, template < typename > class Fun >
+struct type_map< std::tuple< Ts... >, Fun >
+{
+        using type = std::tuple< Fun< Ts >... >;
+};
+
+template < typename T, template < typename > class Fun >
+using type_map_t = typename type_map< T, Fun >::type;
+
 }  // namespace emlabcpp
