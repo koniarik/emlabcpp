@@ -503,13 +503,14 @@ struct converter< message< N >, Endianess >
         {
 
                 auto used = msg_size_converter::serialize_at(
-                    buffer.template first< msg_size_size >(), item.size() );
+                    buffer.template first< msg_size_size >(),
+                    static_cast< msg_size_type >( item.size() ) );
 
                 for ( const std::size_t i : range( item.size() ) ) {
                         buffer[i + msg_size_size] = item[i];
                 }
                 /// The size of protocol::message should always be within the 0...N range
-                auto opt_bused = size_type::make( item.size() + msg_size_size );
+                auto opt_bused = size_type::make( item.size() + *used );
                 EMLABCPP_ASSERT( opt_bused );
                 return *opt_bused;
         }

@@ -233,6 +233,13 @@ int main( int argc, char** argv )
             make_valid_test_case< std::endian::big >(
                 *protocol::sizeless_message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
                 { 1, 2, 3, 4, 5 } ),
+            // protocol::message
+            make_valid_test_case< std::endian::little >(
+                *protocol::message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
+                { 5, 0, 1, 2, 3, 4, 5 } ),
+            make_valid_test_case< std::endian::big >(
+                *protocol::message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
+                { 0, 5, 1, 2, 3, 4, 5 } ),
             // protocol::value_offset
             make_specific_valid_test_case<
                 std::endian::little,
