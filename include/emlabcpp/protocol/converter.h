@@ -286,8 +286,8 @@ struct converter< std::variant< Ds... >, Endianess >
         static constexpr std::size_t min_size = traits_for< def_type >::min_size;
 
         using id_type                        = uint8_t;
-        using id_def                         = converter_for< id_type, Endianess >;
-        static constexpr std::size_t id_size = id_def::max_size;
+        using id_converter                   = converter_for< id_type, Endianess >;
+        static constexpr std::size_t id_size = id_converter::max_size;
 
         static_assert(
             sizeof...( Ds ) < std::numeric_limits< id_type >::max(),
@@ -298,7 +298,7 @@ struct converter< std::variant< Ds... >, Endianess >
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
         {
-                id_def::serialize_at(
+                id_converter::serialize_at(
                     buffer.template first< id_size >(), static_cast< id_type >( item.index() ) );
 
                 return visit_index(
@@ -308,10 +308,10 @@ struct converter< std::variant< Ds... >, Endianess >
                                 Endianess >;
 
                             /// this also asserts that id has static serialized size
-                            return bounded_constant< id_def::max_size > +
+                            return bounded_constant< id_converter::max_size > +
                                    sub_converter::serialize_at(
                                        buffer.template subspan<
-                                           id_def::max_size,
+                                           id_converter::max_size,
                                            sub_converter::max_size >(),
                                        std::get< i >( item ) );
                     },
@@ -327,7 +327,7 @@ struct converter< std::variant< Ds... >, Endianess >
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
-                return id_def::deserialize( buffer.template first< id_size >() )
+                return id_converter::deserialize( buffer.template first< id_size >() )
                     .bind_value( [&buffer]( const std::size_t iused, const id_type id ) {
                             auto item_view = buffer.template offset< id_size >();
 
@@ -391,8 +391,8 @@ struct converter< std::optional< T >, Endianess >
 
         static_assert( fixedly_sized< presence_type > );
 
-        using presence_def                         = converter_for< presence_type, Endianess >;
-        static constexpr std::size_t presence_size = presence_def::max_size;
+        using presence_converter                   = converter_for< presence_type, Endianess >;
+        static constexpr std::size_t presence_size = presence_converter::max_size;
         using sub_converter                        = converter_for< T, Endianess >;
         using size_type                            = bounded< std::size_t, min_size, max_size >;
 
@@ -403,10 +403,10 @@ struct converter< std::optional< T >, Endianess >
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& opt_val )
         {
                 if ( !opt_val ) {
-                        return presence_def::serialize_at(
+                        return presence_converter::serialize_at(
                             buffer.template first< presence_size >(), not_present );
                 }
-                auto psize = presence_def::serialize_at(
+                auto psize = presence_converter::serialize_at(
                     buffer.template first< presence_size >(), is_present );
 
                 return psize +
@@ -418,7 +418,7 @@ struct converter< std::optional< T >, Endianess >
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
             -> conversion_result< value_type >
         {
-                return presence_def::deserialize( buffer.template first< presence_size >() )
+                return presence_converter::deserialize( buffer.template first< presence_size >() )
                     .bind_value(
                         [&buffer]( std::size_t pused, presence_type is_present )
                             -> conversion_result< value_type > {
@@ -482,6 +482,53 @@ struct converter< std::bitset< N >, Endianess >
                         }
                 }
                 return { max_size, res };
+        }
+};
+
+template < std::size_t N, std::endian Endianess >
+struct converter< message< N >, Endianess >
+{
+        using traits_type                     = traits_for< message< N > >;
+        using value_type                      = typename traits_type::value_type;
+        static constexpr std::size_t min_size = traits_type::min_size;
+        static constexpr std::size_t max_size = traits_type::max_size;
+        using size_type                       = bounded< std::size_t, min_size, max_size >;
+        using msg_size_type                   = typename traits_type::msg_size_type;
+        static_assert( fixedly_sized< msg_size_type > );
+        using msg_size_converter                   = converter_for< msg_size_type, Endianess >;
+        static constexpr std::size_t msg_size_size = msg_size_converter::max_size;
+
+        static constexpr size_type
+        serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
+        {
+
+                auto used = msg_size_converter::serialize_at(
+                    buffer.template first< msg_size_size >(), item.size() );
+
+                for ( const std::size_t i : range( item.size() ) ) {
+                        buffer[i + msg_size_size] = item[i];
+                }
+                /// The size of protocol::message should always be within the 0...N range
+                auto opt_bused = size_type::make( item.size() + msg_size_size );
+                EMLABCPP_ASSERT( opt_bused );
+                return *opt_bused;
+        }
+
+        static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
+            -> conversion_result< value_type >
+        {
+                return msg_size_converter::deserialize( buffer.template first< msg_size_size >() )
+                    .bind_value(
+                        [&buffer]( std::size_t ssused, std::size_t size )
+                            -> conversion_result< value_type > {
+                                auto opt_msg =
+                                    value_type::make( view_n( buffer.begin() + ssused, size ) );
+
+                                if ( !opt_msg ) {
+                                        return { msg_size_size, &BIGSIZE_ERR };
+                                }
+                                return conversion_result{ opt_msg->size() + ssused, *opt_msg };
+                        } );
         }
 };
 
@@ -609,10 +656,10 @@ struct converter< sized_buffer< CounterDef, D >, Endianess >
 
         using sub_converter = converter_for< D, Endianess >;
 
-        using counter_def                         = converter_for< CounterDef, Endianess >;
-        using counter_size_type                   = typename counter_def::size_type;
-        using counter_type                        = typename counter_def::value_type;
-        static constexpr std::size_t counter_size = counter_def::max_size;
+        using counter_converter                   = converter_for< CounterDef, Endianess >;
+        using counter_size_type                   = typename counter_converter::size_type;
+        using counter_type                        = typename counter_converter::value_type;
+        static constexpr std::size_t counter_size = counter_converter::max_size;
 
         /// we expect that counter item does not have dynamic size
         static_assert( fixedly_sized< CounterDef > );
@@ -624,7 +671,7 @@ struct converter< sized_buffer< CounterDef, D >, Endianess >
         {
                 auto vused = sub_converter::serialize_at(
                     buffer.template last< sub_converter::max_size >(), item );
-                auto cused = counter_def::serialize_at(
+                auto cused = counter_converter::serialize_at(
                     buffer.template first< counter_size >(),
                     static_cast< counter_type >( *vused ) );
                 return vused + cused;
@@ -633,7 +680,7 @@ struct converter< sized_buffer< CounterDef, D >, Endianess >
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
-                return counter_def::deserialize( buffer.template first< counter_size >() )
+                return counter_converter::deserialize( buffer.template first< counter_size >() )
                     .bind_value(
                         [&buffer]( std::size_t cused, std::size_t buffer_size )
                             -> conversion_result< value_type > {
@@ -832,28 +879,30 @@ struct converter< error_record, Endianess >
 {
         using decl                            = traits_for< error_record >;
         using value_type                      = typename decl::value_type;
-        using mark_def                        = converter_for< mark, Endianess >;
-        using offset_def                      = converter_for< std::size_t, Endianess >;
+        using mark_converter                  = converter_for< mark, Endianess >;
+        using offset_converter                = converter_for< std::size_t, Endianess >;
         static constexpr std::size_t max_size = decl::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, value_type item )
         {
-                mark_def::serialize_at( buffer.first< mark_def::max_size >(), item.error_mark );
-                offset_def::serialize_at( buffer.last< offset_def::max_size >(), item.offset );
+                mark_converter::serialize_at(
+                    buffer.first< mark_converter::max_size >(), item.error_mark );
+                offset_converter::serialize_at(
+                    buffer.last< offset_converter::max_size >(), item.offset );
                 return size_type{};
         }
 
         static constexpr auto deserialize( const bounded_view< const uint8_t*, size_type >& buffer )
             -> conversion_result< value_type >
         {
-                return mark_def::deserialize( buffer.first< mark_def::max_size >() )
+                return mark_converter::deserialize( buffer.first< mark_converter::max_size >() )
                     .bind_value(
                         [&buffer]( const std::size_t mused, const mark m )
                             -> conversion_result< value_type > {
-                                return offset_def::deserialize(
-                                           buffer.offset< mark_def::max_size >() )
+                                return offset_converter::deserialize(
+                                           buffer.offset< mark_converter::max_size >() )
                                     .bind_value(
                                         [mused,
                                          &m]( const std::size_t oused, const std::size_t oval )
@@ -871,11 +920,11 @@ struct converter< static_vector< T, N >, Endianess >
 
         static_assert( N <= std::numeric_limits< uint16_t >::max() );
 
-        using counter_type  = typename traits_for< static_vector< T, N > >::counter_type;
-        using counter_def   = converter_for< counter_type, Endianess >;
-        using sub_converter = converter_for< T, Endianess >;
+        using counter_type      = typename traits_for< static_vector< T, N > >::counter_type;
+        using counter_converter = converter_for< counter_type, Endianess >;
+        using sub_converter     = converter_for< T, Endianess >;
 
-        static constexpr std::size_t counter_size = counter_def::max_size;
+        static constexpr std::size_t counter_size = counter_converter::max_size;
 
         static_assert( fixedly_sized< counter_type > );
 
@@ -887,7 +936,7 @@ struct converter< static_vector< T, N >, Endianess >
         serialize_at( std::span< uint8_t, max_size > buffer, value_type item )
         {
 
-                counter_def::serialize_at(
+                counter_converter::serialize_at(
                     buffer.template first< counter_size >(),
                     static_cast< counter_type >( item.size() ) );
 
@@ -912,7 +961,7 @@ struct converter< static_vector< T, N >, Endianess >
         static constexpr auto deserialize( bounded_view< const uint8_t*, size_type > buffer )
             -> conversion_result< value_type >
         {
-                return counter_def::deserialize( buffer.template first< counter_size >() )
+                return counter_converter::deserialize( buffer.template first< counter_size >() )
                     .bind_value(
                         [&buffer]( const std::size_t cused, const std::size_t count )
                             -> conversion_result< value_type > {

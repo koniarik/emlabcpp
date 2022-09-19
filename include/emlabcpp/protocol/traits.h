@@ -105,13 +105,13 @@ template < convertible... Ds >
 struct proto_traits< std::variant< Ds... > >
 {
         using id_type    = uint8_t;
-        using id_decl    = traits_for< id_type >;
+        using id_traits  = traits_for< id_type >;
         using value_type = std::variant< typename traits_for< Ds >::value_type... >;
 
         static constexpr std::size_t max_size =
-            id_decl::max_size + std::max< std::size_t >( { traits_for< Ds >::max_size... } );
+            id_traits::max_size + std::max< std::size_t >( { traits_for< Ds >::max_size... } );
         static constexpr std::size_t min_size =
-            id_decl::min_size + std::min< std::size_t >( { traits_for< Ds >::min_size... } );
+            id_traits::min_size + std::min< std::size_t >( { traits_for< Ds >::min_size... } );
 };
 
 template <>
@@ -140,15 +140,29 @@ struct proto_traits< sizeless_message< N > >
         static constexpr std::size_t min_size = 0;
 };
 
+template < std::size_t N >
+struct proto_traits< message< N > >
+{
+        using msg_size_type = uint16_t;
+        static_assert( N <= std::numeric_limits< msg_size_type >::max() );
+
+        using msg_size_traits = traits_for< msg_size_type >;
+
+        using value_type = message< N >;
+
+        static constexpr std::size_t max_size = msg_size_traits::max_size + N;
+        static constexpr std::size_t min_size = msg_size_traits::min_size + 0;
+};
+
 template < convertible D, auto Offset >
 struct proto_traits< value_offset< D, Offset > >
 {
         using def_type   = typename value_offset< D, Offset >::def_type;
-        using def_decl   = traits_for< def_type >;
-        using value_type = typename def_decl::value_type;
+        using def_traits = traits_for< def_type >;
+        using value_type = typename def_traits::value_type;
 
-        static constexpr std::size_t max_size = def_decl::max_size;
-        static constexpr std::size_t min_size = def_decl::min_size;
+        static constexpr std::size_t max_size = def_traits::max_size;
+        static constexpr std::size_t min_size = def_traits::min_size;
 };
 
 template < quantity_derived D >
@@ -172,22 +186,22 @@ struct proto_traits< bounded< D, Min, Max > >
 template < convertible CounterType, convertible D >
 struct proto_traits< sized_buffer< CounterType, D > >
 {
-        using counter_decl = traits_for< CounterType >;
-        using sub_decl     = traits_for< D >;
-        using value_type   = typename sub_decl::value_type;
+        using counter_traits = traits_for< CounterType >;
+        using sub_traits     = traits_for< D >;
+        using value_type     = typename sub_traits::value_type;
 
-        static constexpr std::size_t max_size = counter_decl::max_size + sub_decl::max_size;
-        static constexpr std::size_t min_size = counter_decl::min_size + sub_decl::min_size;
+        static constexpr std::size_t max_size = counter_traits::max_size + sub_traits::max_size;
+        static constexpr std::size_t min_size = counter_traits::min_size + sub_traits::min_size;
 };
 
 template < auto V >
 struct proto_traits< tag< V > >
 {
-        using sub_decl   = traits_for< decltype( V ) >;
+        using sub_traits = traits_for< decltype( V ) >;
         using value_type = tag< V >;
 
-        static constexpr std::size_t max_size = sub_decl::max_size;
-        static constexpr std::size_t min_size = sub_decl::min_size;
+        static constexpr std::size_t max_size = sub_traits::max_size;
+        static constexpr std::size_t min_size = sub_traits::min_size;
 };
 
 template < convertible... Ds >
@@ -210,11 +224,11 @@ struct proto_traits< tag_group< Ds... > >
         template < typename D >
         using to_tuple = std::tuple< tag< D::id >, D >;
 
-        using sub_type = group< to_tuple< Ds >... >;
-        using sub_decl = traits_for< sub_type >;
+        using sub_type   = group< to_tuple< Ds >... >;
+        using sub_traits = traits_for< sub_type >;
 
-        static constexpr std::size_t max_size = sub_decl::max_size;
-        static constexpr std::size_t min_size = sub_decl::min_size;
+        static constexpr std::size_t max_size = sub_traits::max_size;
+        static constexpr std::size_t min_size = sub_traits::min_size;
 };
 
 template < std::endian Endianess, convertible D >
@@ -243,11 +257,11 @@ struct proto_traits< error_record >
         using mark_type   = mark;
         using offset_type = std::size_t;
 
-        using mark_decl   = traits_for< mark_type >;
-        using offset_decl = traits_for< offset_type >;
+        using mark_traits   = traits_for< mark_type >;
+        using offset_traits = traits_for< offset_type >;
 
-        static constexpr std::size_t max_size = mark_decl::max_size + offset_decl::max_size;
-        static constexpr std::size_t min_size = mark_decl::min_size + offset_decl::min_size;
+        static constexpr std::size_t max_size = mark_traits::max_size + offset_traits::max_size;
+        static constexpr std::size_t min_size = mark_traits::min_size + offset_traits::min_size;
 };
 
 template < convertible T, std::size_t N >
@@ -263,11 +277,12 @@ struct proto_traits< static_vector< T, N > >
 template < convertible T >
 struct proto_traits< std::optional< T > >
 {
-        using value_type                      = std::optional< T >;
-        using presence_type                   = bounded< uint8_t, 0, 1 >;
-        using presence_decl                   = traits_for< presence_type >;
-        static constexpr std::size_t max_size = presence_decl::max_size + traits_for< T >::max_size;
-        static constexpr std::size_t min_size = presence_decl::min_size;
+        using value_type      = std::optional< T >;
+        using presence_type   = bounded< uint8_t, 0, 1 >;
+        using presence_traits = traits_for< presence_type >;
+        static constexpr std::size_t max_size =
+            presence_traits::max_size + traits_for< T >::max_size;
+        static constexpr std::size_t min_size = presence_traits::min_size;
 };
 
 template < decomposable T >
@@ -275,9 +290,9 @@ struct backup_proto_traits< T >
 {
         using value_type                      = T;
         using tuple_type                      = decomposed_type< T >;
-        using tuple_decl                      = traits_for< tuple_type >;
-        static constexpr std::size_t max_size = tuple_decl::max_size;
-        static constexpr std::size_t min_size = tuple_decl::min_size;
+        using tuple_traits                    = traits_for< tuple_type >;
+        static constexpr std::size_t max_size = tuple_traits::max_size;
+        static constexpr std::size_t min_size = tuple_traits::min_size;
 };
 
 }  // namespace emlabcpp::protocol
