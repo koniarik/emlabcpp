@@ -101,10 +101,10 @@ Public Types</h2></td></tr>
 <tr class="separator:aee86d6ce2494409bb3cfe7a2448c69de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81867f2705fc3f78366de70ef897a65b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#a81867f2705fc3f78366de70ef897a65b">value_type</a> = typename decl::value_type</td></tr>
 <tr class="separator:a81867f2705fc3f78366de70ef897a65b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af46ec01ce556d8fc9509864592adf209"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#af46ec01ce556d8fc9509864592adf209">mark_def</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a>, Endianess &gt;</td></tr>
-<tr class="separator:af46ec01ce556d8fc9509864592adf209"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac21d10002d876b5036f28d4bf854fdfa"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#ac21d10002d876b5036f28d4bf854fdfa">offset_def</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a>&lt; std::size_t, Endianess &gt;</td></tr>
-<tr class="separator:ac21d10002d876b5036f28d4bf854fdfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0397e1d74a336e3596b96ba236c03ae"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#ad0397e1d74a336e3596b96ba236c03ae">mark_converter</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a>, Endianess &gt;</td></tr>
+<tr class="separator:ad0397e1d74a336e3596b96ba236c03ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9335f6877f7d4d6e97f73d6a73fab00"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#ab9335f6877f7d4d6e97f73d6a73fab00">offset_converter</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a>&lt; std::size_t, Endianess &gt;</td></tr>
+<tr class="separator:ab9335f6877f7d4d6e97f73d6a73fab00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6eed1982a49b6b3d64b0a86a62bc279"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#ac6eed1982a49b6b3d64b0a86a62bc279">size_type</a> = <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#a2e1e8b6c480ab0269758d2c614966364">max_size</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#a2e1e8b6c480ab0269758d2c614966364">max_size</a> &gt;</td></tr>
 <tr class="separator:ac6eed1982a49b6b3d64b0a86a62bc279"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -137,8 +137,8 @@ template&lt;std::endian Endianess&gt; </div>
 
 </div>
 </div>
-<a id="af46ec01ce556d8fc9509864592adf209"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af46ec01ce556d8fc9509864592adf209">&#9670;&nbsp;</a></span>mark_def</h2>
+<a id="ad0397e1d74a336e3596b96ba236c03ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0397e1d74a336e3596b96ba236c03ae">&#9670;&nbsp;</a></span>mark_converter</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -146,15 +146,15 @@ template&lt;std::endian Endianess&gt; </div>
 template&lt;std::endian Endianess&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a>, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#af46ec01ce556d8fc9509864592adf209">mark_def</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a>, Endianess &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a>, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#ad0397e1d74a336e3596b96ba236c03ae">mark_converter</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a>, Endianess &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac21d10002d876b5036f28d4bf854fdfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac21d10002d876b5036f28d4bf854fdfa">&#9670;&nbsp;</a></span>offset_def</h2>
+<a id="ab9335f6877f7d4d6e97f73d6a73fab00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9335f6877f7d4d6e97f73d6a73fab00">&#9670;&nbsp;</a></span>offset_converter</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,7 +162,7 @@ template&lt;std::endian Endianess&gt; </div>
 template&lt;std::endian Endianess&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a>, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#ac21d10002d876b5036f28d4bf854fdfa">offset_def</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a>&lt; std::size_t, Endianess &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a>, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#ab9335f6877f7d4d6e97f73d6a73fab00">offset_converter</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a>&lt; std::size_t, Endianess &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -305,7 +305,7 @@ template&lt;std::endian Endianess&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html">converter&lt; error_record, Endianess &gt;</a></li>
-    <li class="footer">Generated on Sun Sep 18 2022 19:14:07 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Sep 19 2022 05:46:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
