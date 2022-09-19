@@ -249,7 +249,7 @@ struct traits_json_serializer< std::variant< Ds... > > : traits_json_serializer_
 
         static void add_extra( nlohmann::json& j )
         {
-                j["counter_type"] = typename decl::id_decl{};
+                j["counter_type"] = typename decl::id_traits{};
                 j["sub_types"] =
                     map_f_to_a( std::tuple< Ds... >{}, [&]< typename D >( D ) -> nlohmann::json {
                             return traits_for< D >{};
@@ -366,7 +366,7 @@ struct traits_json_serializer< tag< V > > : traits_json_serializer_base
 
         static void add_extra( nlohmann::json& j )
         {
-                j["sub_type"] = typename traits_for< tag< V > >::sub_decl{};
+                j["sub_type"] = typename traits_for< tag< V > >::sub_traits{};
                 j["value"]    = V;
 #ifdef EMLABCPP_USE_MAGIC_ENUM
                 if constexpr ( std::is_enum_v< decltype( V ) > ) {
