@@ -12,7 +12,7 @@ namespace emlabcpp
 
 namespace
 {
-        static constexpr std::size_t log_buffer_size = 128;
+        constexpr std::size_t log_buffer_size = 128;
         using log_tp     = std::chrono::time_point< std::chrono::system_clock >;
         using log_tpl    = std::tuple< log_tp, const char*, int, std::string, log_severity >;
         using log_buffer = static_circular_buffer< log_tpl, log_buffer_size >;
@@ -21,17 +21,17 @@ namespace
         thread_local log_buffer LOG_BUFFER;
 
         void log_print_msg(
-            log_tp             tp,
-            const char*        file,
-            int                line,
+            const log_tp       tp,
+            const char* const  file,
+            const int          line,
             const std::string& msg,
-            log_severity       severity )
+            const log_severity severity )
         {
-                std::string_view tcolor = severity == log_severity::INFO ? "33" : "250";
-                std::string_view fcolor = severity == log_severity::INFO ? "128" : "252";
-                std::string_view lcolor = severity == log_severity::INFO ? "164" : "248";
+                const std::string_view tcolor = severity == log_severity::INFO ? "33" : "250";
+                const std::string_view fcolor = severity == log_severity::INFO ? "128" : "252";
+                const std::string_view lcolor = severity == log_severity::INFO ? "164" : "248";
 
-                std::filesystem::path p{ file };
+                const std::filesystem::path p{ file };
 
                 std::ostream& os = std::cout;
 
@@ -40,11 +40,11 @@ namespace
                         return "\033[0m";
                 };
 
-                auto dur = tp.time_since_epoch();
-                auto ms  = std::chrono::duration_cast< std::chrono::milliseconds >( dur ) %
-                          std::chrono::seconds{ 1 };
+                const auto dur = tp.time_since_epoch();
+                const auto ms  = std::chrono::duration_cast< std::chrono::milliseconds >( dur ) %
+                                std::chrono::seconds{ 1 };
 
-                std::time_t t = std::chrono::system_clock::to_time_t( tp );
+                const std::time_t t = std::chrono::system_clock::to_time_t( tp );
                 os << colorize( tcolor, std::put_time( std::localtime( &t ), "%T." ) )
                    << colorize( tcolor, ms.count() ) << " "         // time
                    << colorize( fcolor, p.stem().native() ) << " "  // filename
