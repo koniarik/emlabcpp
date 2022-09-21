@@ -36,7 +36,7 @@ class controller_interface_adapter
         static constexpr std::size_t read_limit_ = 10;
 
 public:
-        controller_interface_adapter( controller_interface& iface )
+        explicit controller_interface_adapter( controller_interface& iface )
           : iface_( iface )
         {
         }
@@ -62,11 +62,14 @@ public:
         {
                 using sequencer = reactor_controller_packet::sequencer_type;
                 return protocol::sequencer_simple_load< sequencer >(
-                    read_limit_, [&]( std::size_t c ) {
-                            return iface_.receive( c );
+                    read_limit_, [this]( const std::size_t c ) {
+                            return this->iface_.receive( c );
                     } );
         }
-        void reply_node_error( run_id rid, contiguous_request_adapter_errors_enum err, node_id nid )
+        void reply_node_error(
+            const run_id                                 rid,
+            const contiguous_request_adapter_errors_enum err,
+            const node_id                                nid )
         {
                 if ( err == CONTIGUOUS_WRONG_TYPE ) {
                         EMLABCPP_LOG( "Failed to work with " << nid << ", wrong type of node" );
@@ -102,14 +105,14 @@ public:
                     []( const controller_internal_error& e ) {
                             EMLABCPP_LOG( "Wrong message arrived to controller: " << e );
                     } );
-                const auto* internal_ptr = std::get_if< internal_reactor_error >( &var );
+                const auto* const internal_ptr = std::get_if< internal_reactor_error >( &var );
 
-                if ( internal_ptr ) {
+                if ( internal_ptr != nullptr ) {
                         match(
                             internal_ptr->val,
-                            [&]( const wrong_type_error& err ) {
+                            [this]( const wrong_type_error& err ) {
                                     const auto* node_ptr =
-                                        iface_.get_param_tree().get_node( err.nid );
+                                        this->iface_.get_param_tree().get_node( err.nid );
                                     EMLABCPP_LOG(
                                         "Error due a wrong type of node "
                                         << err.nid << " asserted in reactors test: " << *node_ptr );
@@ -139,26 +142,26 @@ namespace
                 }
 
                 auto handle = matcher{
-                    [&]( const ReturnType& item ) {
+                    [&res]( const ReturnType& item ) {
                             res = item;
                     },
-                    [&]( const reactor_internal_error_report& err ) {
+                    [&iface]( const reactor_internal_error_report& err ) {
                             iface.report_error( internal_reactor_error{ err.var } );
                     },
-                    [&]( const reactor_protocol_error_report& err ) {
+                    [&iface]( const reactor_protocol_error_report& err ) {
                             iface.report_error( reactor_protocol_error{ err.rec } );
                     },
-                    [&]< typename T >( const T& ) {
+                    [&iface]< typename T >( const T& ) {
                             iface.report_error( controller_internal_error{ T::id } );
                     } };
 
                 reactor_controller_extract( *opt_msg )
                     .match(
-                        [&]( auto pack ) {
+                        [&handle]( auto pack ) {
                                 EMLABCPP_DEBUG_LOG( "con<-rec: " << pack );
                                 visit( handle, pack );
                         },
-                        [&]( protocol::error_record rec ) {
+                        [&iface]( const protocol::error_record rec ) {
                                 EMLABCPP_LOG( "Protocol error from reactor: " << rec );
                                 iface.report_error( controller_protocol_error{ rec } );
                         } );
@@ -167,7 +170,7 @@ namespace
 }  // namespace
 
 std::optional< controller >
-controller::make( controller_interface& top_iface, pool_interface* pool )
+controller::make( controller_interface& top_iface, pool_interface* const pool )
 {
         controller_interface_adapter iface{ top_iface };
 
@@ -193,15 +196,15 @@ controller::make( controller_interface& top_iface, pool_interface* pool )
         pool_map< test_id, test_info > info{ pool };
 
         for ( test_id i = 0; i < opt_count->count; i++ ) {
-                auto opt_name =
+                auto opt_test_name =
                     load_data< get_test_name_reply >( get_test_name_request{ .tid = i }, iface );
-                if ( !opt_name ) {
+                if ( !opt_test_name ) {
                         EMLABCPP_LOG(
                             "Failed to build controller - did not get a test name for index: "
                             << i );
                         return {};
                 }
-                info[i] = test_info{ .name = opt_name->name };
+                info[i] = test_info{ .name = opt_test_name->name };
         }
 
         return controller{ opt_name->name, opt_date->date, std::move( info ), pool };
@@ -256,11 +259,11 @@ struct controller_dispatcher
                     req.opt_key ? harn.insert( req.parent, *req.opt_key, req.value ) :
                                   harn.insert( req.parent, req.value );
                 res.match(
-                    [&]( node_id nid ) {
-                            iface.send( collect_reply{ req.rid, nid } );
+                    [this, &req]( const node_id nid ) {
+                            this->iface.send( collect_reply{ req.rid, nid } );
                     },
-                    [&]( contiguous_request_adapter_errors_enum err ) {
-                            iface.reply_node_error( req.rid, err, req.parent );
+                    [this, &req]( const contiguous_request_adapter_errors_enum err ) {
+                            this->iface.reply_node_error( req.rid, err, req.parent );
                     } );
         }
         void operator()( const param_value_request& req )
@@ -268,14 +271,14 @@ struct controller_dispatcher
                 EMLABCPP_ASSERT( context );
                 EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
 
-                contiguous_request_adapter harn{ iface->get_param_tree() };
+                const contiguous_request_adapter harn{ iface->get_param_tree() };
 
                 harn.get_value( req.nid ).match(
-                    [&]( const value_type& val ) {
-                            iface.send( param_value_reply{ req.rid, val } );
+                    [this, &req]( const value_type& val ) {
+                            this->iface.send( param_value_reply{ req.rid, val } );
                     },
-                    [&]( contiguous_request_adapter_errors_enum err ) {
-                            iface.reply_node_error( req.rid, err, req.nid );
+                    [this, &req]( const contiguous_request_adapter_errors_enum err ) {
+                            this->iface.reply_node_error( req.rid, err, req.nid );
                     } );
         }
         void operator()( const param_child_request& req )
@@ -283,15 +286,15 @@ struct controller_dispatcher
                 EMLABCPP_ASSERT( context );
                 EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
 
-                contiguous_request_adapter harn{ iface->get_param_tree() };
+                const contiguous_request_adapter harn{ iface->get_param_tree() };
 
                 harn.get_child( req.parent, req.chid )
                     .match(
-                        [&]( node_id child ) {
-                                iface.send( param_child_reply{ req.rid, child } );
+                        [this, &req]( const node_id child ) {
+                                this->iface.send( param_child_reply{ req.rid, child } );
                         },
-                        [&]( contiguous_request_adapter_errors_enum err ) {
-                                iface.reply_node_error( req.rid, err, req.parent );
+                        [this, &req]( const contiguous_request_adapter_errors_enum err ) {
+                                this->iface.reply_node_error( req.rid, err, req.parent );
                         } );
         }
         void operator()( const param_child_count_request& req )
@@ -303,11 +306,11 @@ struct controller_dispatcher
 
                 harn.get_child_count( req.parent )
                     .match(
-                        [&]( child_id count ) {
-                                iface.send( param_child_count_reply{ req.rid, count } );
+                        [this, &req]( child_id count ) {
+                                this->iface.send( param_child_count_reply{ req.rid, count } );
                         },
-                        [&]( contiguous_request_adapter_errors_enum err ) {
-                                iface.reply_node_error( req.rid, err, req.parent );
+                        [this, &req]( contiguous_request_adapter_errors_enum err ) {
+                                this->iface.reply_node_error( req.rid, err, req.parent );
                         } );
         }
         void operator()( const param_key_request& req )
@@ -319,10 +322,10 @@ struct controller_dispatcher
 
                 harn.get_key( req.nid, req.chid )
                     .match(
-                        [&]( const key_type& key ) {
+                        [this, &req]( const key_type& key ) {
                                 iface.send( param_key_reply{ req.rid, key } );
                         },
-                        [&]( contiguous_request_adapter_errors_enum err ) {
+                        [this, &req]( contiguous_request_adapter_errors_enum err ) {
                                 iface.reply_node_error( req.rid, err, req.nid );
                         } );
         }
@@ -334,10 +337,10 @@ struct controller_dispatcher
                 contiguous_request_adapter harn{ iface->get_param_tree() };
 
                 harn.get_type( req.nid ).match(
-                    [&]( contiguous_tree_type_enum type ) {
+                    [this, &req]( contiguous_tree_type_enum type ) {
                             iface.send( param_type_reply{ req.rid, type } );
                     },
-                    [&]( contiguous_request_adapter_errors_enum err ) {
+                    [this, &req]( contiguous_request_adapter_errors_enum err ) {
                             iface.reply_node_error( req.rid, err, req.nid );
                     } );
         }
@@ -384,11 +387,11 @@ void controller::tick( controller_interface& top_iface )
 
         reactor_controller_extract( *opt_msg )
             .match(
-                [&]( auto var ) {
+                [this, &iface]( auto var ) {
                         EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
-                        visit( controller_dispatcher{ iface, context_ }, var );
+                        visit( controller_dispatcher{ iface, this->context_ }, var );
                 },
-                [&]( protocol::error_record e ) {
+                [&iface]( const protocol::error_record e ) {
                         iface.report_error( controller_protocol_error{ e } );
                 } );
 }
