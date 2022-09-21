@@ -51,51 +51,58 @@ std::optional< data_tree > json_to_data_tree( pool_interface* mem_pool, const nl
 {
         data_tree tree{ mem_pool };
 
-        static_function< node_id( const nlohmann::json& j ), 32 > f =
-            [&tree, &f]( const nlohmann::json& j ) -> node_id {
+        static_function< std::optional< node_id >( const nlohmann::json& j ), 32 > f =
+            [&tree, &f]( const nlohmann::json& j ) -> std::optional< node_id > {
                 if ( j.is_object() ) {
                         std::optional opt_res = tree.make_object_node();
                         if ( !opt_res ) {
-                                // TODO: might wanna improve this
-                                throw std::exception{};
+                                EMLABCPP_LOG( "Failed to build tree object in json conversion" );
+                                return std::nullopt;
                         }
                         auto [nid, oh] = *opt_res;
                         for ( const auto& [key, value] : j.items() ) {
-                                node_id chid = f( value );
-                                oh.set( json_to_key_type( key ), chid );
+                                std::optional< node_id > chid = f( value );
+                                if ( !chid ) {
+                                        return std::nullopt;
+                                }
+                                oh.set( json_to_key_type( key ), *chid );
                         }
                         return nid;
                 }
                 if ( j.is_array() ) {
                         std::optional opt_res = tree.make_array_node();
                         if ( !opt_res ) {
-                                // TODO: might wanna improve this
-                                throw std::exception{};
+                                EMLABCPP_LOG( "Failed to build tree array in json conversion" );
+                                return std::nullopt;
                         }
                         auto [nid, ah] = *opt_res;
                         for ( const nlohmann::json& jj : j ) {
-                                node_id chid = f( jj );
-                                ah.append( chid );
+                                std::optional< node_id > chid = f( jj );
+                                if ( !chid ) {
+                                        return std::nullopt;
+                                }
+                                ah.append( *chid );
                         }
                         return nid;
                 }
                 std::optional< value_type > opt_val = json_to_value_type( j );
                 if ( !opt_val ) {
-                        throw std::exception{};
+                        EMLABCPP_LOG( "Failed to convert value in json conversion" );
+                        return std::nullopt;
                 }
                 std::optional opt_id = tree.make_value_node( *opt_val );
                 if ( !opt_id ) {
-                        throw std::exception{};
+                        EMLABCPP_LOG( "Failed to build value node in json conversion" );
+                        return std::nullopt;
                 }
                 return *opt_id;
         };
 
-        try {
-                f( inpt );
+        auto opt_root_id = f( inpt );
+        if ( opt_root_id ) {
                 return tree;
-        }
-        catch ( const std::exception& e ) {
-                EMLABCPP_LOG( "Build of testing tree failed because " << e.what() );
+        } else {
+                EMLABCPP_LOG( "Failed to convert testing tree from json" );
                 return std::nullopt;
         }
 }
