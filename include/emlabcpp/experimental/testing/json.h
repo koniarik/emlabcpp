@@ -6,7 +6,7 @@
 namespace emlabcpp::testing
 {
 
-value_type json_to_value_type( const nlohmann::json& j );
+std::optional< value_type > json_to_value_type( const nlohmann::json& j );
 
 nlohmann::json value_type_to_json( const value_type& tv );
 

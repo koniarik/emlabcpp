@@ -7,7 +7,7 @@
 namespace emlabcpp::testing
 {
 
-value_type json_to_value_type( const nlohmann::json& j )
+std::optional< value_type > json_to_value_type( const nlohmann::json& j )
 {
         using value_t = nlohmann::json::value_t;
 
@@ -22,24 +22,24 @@ value_type json_to_value_type( const nlohmann::json& j )
                 case value_t::string:
                         return string_to_buffer( j.get< std::string >() );
                 default:
-                        // TODO: might wanna improve this
-                        EMLABCPP_LOG( "Got type of json we can't process: " << j.type() );
-                        throw std::exception{};
+                        break;
         }
+        EMLABCPP_LOG( "Got type of json we can't process: " << j.type() );
+        return std::nullopt;
 }
 
 nlohmann::json value_type_to_json( const value_type& tv )
 {
         nlohmann::json res = match(
             tv,
-            [&]( const string_buffer& buff ) {
+            []( const string_buffer& buff ) {
                     return nlohmann::json{ std::string_view{ buff.begin(), buff.size() } };
             },
-            [&]( const auto& item ) {
+            []( const auto& item ) {
                     return nlohmann::json{ item };
-            } )[0];
+            } );
 
-        return res;
+        return res[0];
 }
 
 key_type json_to_key_type( const nlohmann::json& j )
@@ -52,7 +52,7 @@ std::optional< data_tree > json_to_data_tree( pool_interface* mem_pool, const nl
         data_tree tree{ mem_pool };
 
         static_function< node_id( const nlohmann::json& j ), 32 > f =
-            [&]( const nlohmann::json& j ) -> node_id {
+            [&tree, &f]( const nlohmann::json& j ) -> node_id {
                 if ( j.is_object() ) {
                         std::optional opt_res = tree.make_object_node();
                         if ( !opt_res ) {
@@ -79,7 +79,11 @@ std::optional< data_tree > json_to_data_tree( pool_interface* mem_pool, const nl
                         }
                         return nid;
                 }
-                std::optional opt_id = tree.make_value_node( json_to_value_type( j ) );
+                std::optional< value_type > opt_val = json_to_value_type( j );
+                if ( !opt_val ) {
+                        throw std::exception{};
+                }
+                std::optional opt_id = tree.make_value_node( *opt_val );
                 if ( !opt_id ) {
                         throw std::exception{};
                 }
