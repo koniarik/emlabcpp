@@ -52,7 +52,7 @@ public:
         {
                 static_assert( is_storable_with_align< U >( N ) );
                 ptr_ = align( ptr_, alignof( U ) );
-                ::new ( ptr_ ) U( std::forward< U >( item ) );
+                std::construct_at( ptr_, std::forward< U >( item ) );
         }
 
         derived_storage( const derived_storage& ) = delete;
@@ -63,22 +63,22 @@ public:
 
         T& operator*()
         {
-                return get_ref();
+                return *ptr_;
         }
 
         const T& operator*() const
         {
-                return get_ref();
+                return *ptr_;
         }
 
         T* operator->()
         {
-                return &get_ref();
+                return ptr_;
         }
 
         const T* operator->() const
         {
-                return &get_ref();
+                return ptr_;
         }
 
         operator bool() const
@@ -88,32 +88,22 @@ public:
 
         T& get()
         {
-                return get_ref();
+                return *ptr_;
         }
 
         const T& get() const
         {
-                return get_ref();
+                return *ptr_;
         }
 
         ~derived_storage()
         {
-                ::delete ( &get_ref() );
+                std::destroy_at( ptr_ );
         }
 
 private:
-        void*        ptr_;
+        T*           ptr_;
         storage_type storage_;
-
-        T& get_ref()
-        {
-                return *reinterpret_cast< T* >( ptr_ );
-        }
-
-        const T& get_ref() const
-        {
-                return *reinterpret_cast< const T* >( ptr_ );
-        }
 };
 
 }  // namespace emlabcpp
