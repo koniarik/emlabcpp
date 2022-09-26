@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('derived__storage_8h_source.html',''); 
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                static_assert( is_storable_with_align&lt; U &gt;( N ) );</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                ptr_ = <a class="code" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a>( ptr_, <span class="keyword">alignof</span>( U ) );</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                ::new ( ptr_ ) U( std::forward&lt; U &gt;( item ) );</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                std::construct_at( ptr_, std::forward&lt; U &gt;( item ) );</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#aa70d852ce6c8cf35abe0b903943e79a9">   58</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#aa70d852ce6c8cf35abe0b903943e79a9">derived_storage</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp; ) = <span class="keyword">delete</span>;</div>
@@ -152,22 +152,22 @@ $(document).ready(function(){initNavTree('derived__storage_8h_source.html',''); 
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a40ff040c80d6ed5d7c5541414f9f3830">   64</a></span>&#160;        T&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#a40ff040c80d6ed5d7c5541414f9f3830">operator*</a>()</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">return</span> get_ref();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">return</span> *ptr_;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a4124d8075ded2871445294b454da0a31">   69</a></span>&#160;        <span class="keyword">const</span> T&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#a4124d8075ded2871445294b454da0a31">operator*</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">return</span> get_ref();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">return</span> *ptr_;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
 <div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a076f58c424d7290dd62c18c223872b9f">   74</a></span>&#160;        T* <a class="code" href="classemlabcpp_1_1derived__storage.html#a076f58c424d7290dd62c18c223872b9f">operator-&gt;</a>()</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">return</span> &amp;get_ref();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">return</span> ptr_;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a21d75c879e3ab79315192a85ea5b19d0">   79</a></span>&#160;        <span class="keyword">const</span> T* <a class="code" href="classemlabcpp_1_1derived__storage.html#a21d75c879e3ab79315192a85ea5b19d0">operator-&gt;</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">return</span> &amp;get_ref();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">return</span> ptr_;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a735eb75f7d53b32206ade3b8b92a9fa4">   84</a></span>&#160;        <span class="keyword">operator</span> bool()<span class="keyword"> const</span></div>
@@ -177,35 +177,25 @@ $(document).ready(function(){initNavTree('derived__storage_8h_source.html',''); 
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#ad92cb33b920170156532bda3ae94810a">   89</a></span>&#160;        T&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#ad92cb33b920170156532bda3ae94810a">get</a>()</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">return</span> get_ref();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">return</span> *ptr_;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
 <div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a36435a2868f31fd9e7ae3beb870b0854">   94</a></span>&#160;        <span class="keyword">const</span> T&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#a36435a2868f31fd9e7ae3beb870b0854">get</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">return</span> get_ref();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">return</span> *ptr_;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a3cc3295a5d4d2bbee0f96d8ba5a8f3ce">   99</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#a3cc3295a5d4d2bbee0f96d8ba5a8f3ce">~derived_storage</a>()</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                ::delete ( &amp;get_ref() );</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                std::destroy_at( ptr_ );</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">void</span>*        ptr_;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        T*           ptr_;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#a7830e5c1d8e1d81e4c4c7035539cea5e">storage_type</a> storage_;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        T&amp; get_ref()</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">reinterpret_cast&lt;</span> T* <span class="keyword">&gt;</span>( ptr_ );</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">const</span> T&amp; get_ref()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">reinterpret_cast&lt;</span> <span class="keyword">const </span>T* <span class="keyword">&gt;</span>( ptr_ );</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1derived__storage_html"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html">emlabcpp::derived_storage</a></div><div class="ttdef"><b>Definition:</b> derived_storage.h:34</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a076f58c424d7290dd62c18c223872b9f"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a076f58c424d7290dd62c18c223872b9f">emlabcpp::derived_storage::operator-&gt;</a></div><div class="ttdeci">T * operator-&gt;()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:74</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a1ad560d197b23939a15bc113bd9a7b64"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a1ad560d197b23939a15bc113bd9a7b64">emlabcpp::derived_storage::derived_storage</a></div><div class="ttdeci">derived_storage()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:44</div></div>
@@ -232,7 +222,7 @@ $(document).ready(function(){initNavTree('derived__storage_8h_source.html',''); 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="derived__storage_8h.html">derived_storage.h</a></li>
-    <li class="footer">Generated on Wed Sep 21 2022 08:30:07 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Sep 26 2022 16:03:06 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
