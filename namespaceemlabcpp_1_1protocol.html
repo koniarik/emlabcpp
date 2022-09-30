@@ -179,6 +179,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1memcpy__converter.html">memcpy_converter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1protocol_1_1endpoint__load__error"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error">endpoint_load_error</a></td></tr>
+<tr class="separator:structemlabcpp_1_1protocol_1_1endpoint__load__error"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html">endpoint</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1protocol_1_1error__record"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a></td></tr>
@@ -204,6 +208,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register map is abstraction to work with registers of external devices.  <a href="classemlabcpp_1_1protocol_1_1register__map.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1sequencer__read__request.html">sequencer_read_request</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html">sequencer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -267,6 +273,8 @@ Typedefs</h2></td></tr>
 <tr class="memitem:aba2818d17e2b2cc369733e18839ba19f"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E&gt; </td></tr>
 <tr class="memitem:aba2818d17e2b2cc369733e18839ba19f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a> = decltype(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9">converter_for_impl</a>&lt; D, E &gt;())</td></tr>
 <tr class="separator:aba2818d17e2b2cc369733e18839ba19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a604e8244fbc16988fb4681dbc2d7bc6e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">endpoint_error</a> = std::variant&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error">endpoint_load_error</a> &gt;</td></tr>
+<tr class="separator:a604e8244fbc16988fb4681dbc2d7bc6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a666cc0e4cd52e4691a45424fb1b8b8b1"><td class="memTemplParams" colspan="2">template&lt;typename Def , typename Payload &gt; </td></tr>
 <tr class="memitem:a666cc0e4cd52e4691a45424fb1b8b8b1"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a666cc0e4cd52e4691a45424fb1b8b8b1">packet_base</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">tuple</a>&lt; Def::endianess, std::decay_t&lt; decltype(Def::prefix) &gt;, typename Def::size_type, Payload, typename Def::checksum_type &gt;</td></tr>
 <tr class="separator:a666cc0e4cd52e4691a45424fb1b8b8b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -521,6 +529,20 @@ struct emlabcpp::protocol::backup_converter&lt; typename, endian &gt;</h3>
 </div>
 </div>
 </div>
+<a name="structemlabcpp_1_1protocol_1_1endpoint__load__error" id="structemlabcpp_1_1protocol_1_1endpoint__load__error"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1protocol_1_1endpoint__load__error">&#9670;&nbsp;</a></span>emlabcpp::protocol::endpoint_load_error</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::protocol::endpoint_load_error</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div>
+</div>
+</div>
 <a name="structemlabcpp_1_1protocol_1_1error__record" id="structemlabcpp_1_1protocol_1_1error__record"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1protocol_1_1error__record">&#9670;&nbsp;</a></span>emlabcpp::protocol::error_record</h2>
 
@@ -605,6 +627,20 @@ template&lt;typename D , std::endian E&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">emlabcpp::protocol::converter_for</a> = typedef decltype( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9">converter_for_impl</a>&lt; D, E &gt;() )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a604e8244fbc16988fb4681dbc2d7bc6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a604e8244fbc16988fb4681dbc2d7bc6e">&#9670;&nbsp;</a></span>endpoint_error</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">emlabcpp::protocol::endpoint_error</a> = typedef std::variant&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error">endpoint_load_error</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -934,7 +970,7 @@ template&lt;typename Sequencer , typename ReadCallback &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">emlabcpp::count()</a>, <a class="el" href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">emlabcpp::count()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>.</p>
 
 </div>
 </div>
@@ -1374,7 +1410,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Mon Sep 26 2022 16:03:06 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Sep 30 2022 17:25:27 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

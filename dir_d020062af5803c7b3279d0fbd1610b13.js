@@ -9,6 +9,7 @@ var dir_d020062af5803c7b3279d0fbd1610b13 =
       ] ]
     ] ],
     [ "converter.h", "converter_8h.html", "converter_8h" ],
+    [ "endpoint.h", "endpoint_8h.html", "endpoint_8h" ],
     [ "error.h", "protocol_2error_8h.html", "protocol_2error_8h" ],
     [ "handler.h", "handler_8h.html", [
       [ "handler", "structemlabcpp_1_1protocol_1_1handler.html", "structemlabcpp_1_1protocol_1_1handler" ]

@@ -102,9 +102,11 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a69e7c5ef56a87163b5cb3aa986a24f87"><td class="memTemplParams" colspan="2">template&lt;typename Iterator &gt; </td></tr>
-<tr class="memitem:a69e7c5ef56a87163b5cb3aa986a24f87"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; std::size_t, <a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html#a151ed0369d153053a79bcffc9f685ffc">message_type</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html#a69e7c5ef56a87163b5cb3aa986a24f87">load_data</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iterator &gt; dview)</td></tr>
-<tr class="separator:a69e7c5ef56a87163b5cb3aa986a24f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac80689c04e0c9640e781fbbd548136b2"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
+<tr class="memitem:ac80689c04e0c9640e781fbbd548136b2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html#ac80689c04e0c9640e781fbbd548136b2">insert</a> (Container &amp;&amp;dview)</td></tr>
+<tr class="separator:ac80689c04e0c9640e781fbbd548136b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64e8374b61b14508ce54f0cdc1c014bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1sequencer__read__request.html">sequencer_read_request</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html#a151ed0369d153053a79bcffc9f685ffc">message_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html#a64e8374b61b14508ce54f0cdc1c014bb">get_message</a> ()</td></tr>
+<tr class="separator:a64e8374b61b14508ce54f0cdc1c014bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -131,24 +133,21 @@ template&lt;typename Def &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a69e7c5ef56a87163b5cb3aa986a24f87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69e7c5ef56a87163b5cb3aa986a24f87">&#9670;&nbsp;</a></span>load_data()</h2>
+<a id="a64e8374b61b14508ce54f0cdc1c014bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64e8374b61b14508ce54f0cdc1c014bb">&#9670;&nbsp;</a></span>get_message()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Def &gt; </div>
-<div class="memtemplate">
-template&lt;typename Iterator &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; std::size_t, <a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html#a151ed0369d153053a79bcffc9f685ffc">message_type</a> &gt; <a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html">emlabcpp::protocol::sequencer</a>&lt; Def &gt;::load_data </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1sequencer__read__request.html">sequencer_read_request</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html#a151ed0369d153053a79bcffc9f685ffc">message_type</a> &gt; <a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html">emlabcpp::protocol::sequencer</a>&lt; Def &gt;::get_message </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iterator &gt;&#160;</td>
-          <td class="paramname"><em>dview</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -164,7 +163,39 @@ template&lt;typename Iterator &gt; </div>
 <p>This is implied by the fact that we should have full match at the start of buffer</p>
 <p>clean up only the matched message</p>
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426">emlabcpp::static_circular_buffer&lt; T, N &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp.html#af85136552afa4d0a86dd1fb078223cdd">emlabcpp::copy()</a>, <a class="el" href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a4b705c2c87ce4b5d4c34a7d1607cdbc4">emlabcpp::static_circular_buffer&lt; T, N &gt;::empty()</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#aa8165951ae18e5a305ee580be7c749d4">emlabcpp::static_circular_buffer&lt; T, N &gt;::end()</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html#ab3b5f22f4ef35dd403e7be03baf90acb">emlabcpp::protocol::sequencer&lt; Def &gt;::fixed_size</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#aae5cd5d7d9d58ff118bf646e4fd26972">emlabcpp::static_circular_buffer&lt; T, N &gt;::pop_front()</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html#a7972bfcdd7aa34f5cb9ed1c3e2d6e889">emlabcpp::protocol::sequencer&lt; Def &gt;::prefix</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a4a90f093a980231b0156e8ed33c6e1f1">emlabcpp::static_circular_buffer&lt; T, N &gt;::size()</a>, and <a class="el" href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">emlabcpp::view_n()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426">emlabcpp::static_circular_buffer&lt; T, N &gt;::begin()</a>, <a class="el" href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a4b705c2c87ce4b5d4c34a7d1607cdbc4">emlabcpp::static_circular_buffer&lt; T, N &gt;::empty()</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#aa8165951ae18e5a305ee580be7c749d4">emlabcpp::static_circular_buffer&lt; T, N &gt;::end()</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html#ab3b5f22f4ef35dd403e7be03baf90acb">emlabcpp::protocol::sequencer&lt; Def &gt;::fixed_size</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#aae5cd5d7d9d58ff118bf646e4fd26972">emlabcpp::static_circular_buffer&lt; T, N &gt;::pop_front()</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html#a7972bfcdd7aa34f5cb9ed1c3e2d6e889">emlabcpp::protocol::sequencer&lt; Def &gt;::prefix</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a4a90f093a980231b0156e8ed33c6e1f1">emlabcpp::static_circular_buffer&lt; T, N &gt;::size()</a>, and <a class="el" href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">emlabcpp::view_n()</a>.</p>
+
+</div>
+</div>
+<a id="ac80689c04e0c9640e781fbbd548136b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80689c04e0c9640e781fbbd548136b2">&#9670;&nbsp;</a></span>insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Def &gt; </div>
+<div class="memtemplate">
+template&lt;typename Container &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html">emlabcpp::protocol::sequencer</a>&lt; Def &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
+          <td class="paramname"><em>dview</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#af85136552afa4d0a86dd1fb078223cdd">emlabcpp::copy()</a>.</p>
 
 </div>
 </div>
@@ -226,7 +257,7 @@ template&lt;typename Def &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html">sequencer</a></li>
-    <li class="footer">Generated on Mon Sep 26 2022 16:03:06 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Sep 30 2022 17:25:27 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

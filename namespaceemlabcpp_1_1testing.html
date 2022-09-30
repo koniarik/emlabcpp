@@ -170,13 +170,13 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1exec__request.html">exec_request</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1reactor__protocol__error__report.html">reactor_protocol_error_report</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1no__response__error.html">no_response_error</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1wrong__type__error.html">wrong_type_error</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1input__message__protocol__error.html">input_message_protocol_error</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1reactor__internal__error__report.html">reactor_internal_error_report</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -233,16 +233,20 @@ Typedefs</h2></td></tr>
 <tr class="separator:a2b6bf91acd98190c177f44da8706ad4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7990a2783b0090e4fb21f6af5916c99c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a7990a2783b0090e4fb21f6af5916c99c">controller_reactor_variant</a> = typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">protocol::traits_for</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#a2b6bf91acd98190c177f44da8706ad4f">controller_reactor_group</a> &gt;::<a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a></td></tr>
 <tr class="separator:a7990a2783b0090e4fb21f6af5916c99c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4364788fa5d61d0cc9f5caca1380376"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ae4364788fa5d61d0cc9f5caca1380376">reactor_error_variant</a> = std::variant&lt; <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a831f1fef1360cadaed62cbd4ff12da12">TEST_NOT_LOADED_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a67c99f2dfafe76b0d59cd48e6dfe9060">TEST_NOT_FOUND_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a6775c9c637e4eb881da022195d737ef4">WRONG_RUN_ID_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76ad96267bf0e69770de798294aba8c97a7">TEST_ALREADY_LOADED_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76abc7e642981e78350d9d7576b29082c70">BAD_TEST_ID_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76aa92b7d54a4af0d4a68deaca06f6b5d14">UNDESIRED_MSG_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1no__response__error.html">no_response_error</a>, <a class="el" href="structemlabcpp_1_1testing_1_1wrong__type__error.html">wrong_type_error</a>, <a class="el" href="structemlabcpp_1_1testing_1_1tree__error__reply.html">tree_error_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a7ea0b3234403e2b43fc830dbd901c795">WRONG_MESSAGE_E</a> &gt; &gt;</td></tr>
-<tr class="separator:ae4364788fa5d61d0cc9f5caca1380376"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada2943d8a15384322ee561c0a59a76c3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ada2943d8a15384322ee561c0a59a76c3">reactor_controller_group</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group">protocol::tag_group</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1get__count__reply.html">get_count_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1get__test__name__reply.html">get_test_name_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1collect__request.html">collect_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__value__request.html">param_value_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__child__request.html">param_child_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__child__count__request.html">param_child_count_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__key__request.html">param_key_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__type__request.html">param_type_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1test__finished.html">test_finished</a>, <a class="el" href="structemlabcpp_1_1testing_1_1get__suite__name__reply.html">get_suite_name_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1get__suite__date__reply.html">get_suite_date_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1reactor__internal__error__report.html">reactor_internal_error_report</a>, <a class="el" href="structemlabcpp_1_1testing_1_1reactor__protocol__error__report.html">reactor_protocol_error_report</a> &gt;</td></tr>
-<tr class="separator:ada2943d8a15384322ee561c0a59a76c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab013b23e3c03b3fc9202b93e14cd8d11"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ab013b23e3c03b3fc9202b93e14cd8d11">reactor_controller_variant</a> = typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">protocol::traits_for</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#ada2943d8a15384322ee561c0a59a76c3">reactor_controller_group</a> &gt;::<a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a></td></tr>
+<tr class="memitem:a9b6641e518c604f8d6dc3ddf02e77451"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a9b6641e518c604f8d6dc3ddf02e77451">reactor_error_variant</a> = std::variant&lt; <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a831f1fef1360cadaed62cbd4ff12da12">TEST_NOT_LOADED_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a67c99f2dfafe76b0d59cd48e6dfe9060">TEST_NOT_FOUND_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a6775c9c637e4eb881da022195d737ef4">WRONG_RUN_ID_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76ad96267bf0e69770de798294aba8c97a7">TEST_ALREADY_LOADED_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76abc7e642981e78350d9d7576b29082c70">BAD_TEST_ID_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76aa92b7d54a4af0d4a68deaca06f6b5d14">UNDESIRED_MSG_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1no__response__error.html">no_response_error</a>, <a class="el" href="structemlabcpp_1_1testing_1_1wrong__type__error.html">wrong_type_error</a>, <a class="el" href="structemlabcpp_1_1testing_1_1tree__error__reply.html">tree_error_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a7ea0b3234403e2b43fc830dbd901c795">WRONG_MESSAGE_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1input__message__protocol__error.html">input_message_protocol_error</a> &gt;</td></tr>
+<tr class="separator:a9b6641e518c604f8d6dc3ddf02e77451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20749c470f19431c661bddb4b905214e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a20749c470f19431c661bddb4b905214e">reactor_controller_group</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group">protocol::tag_group</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1get__count__reply.html">get_count_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1get__test__name__reply.html">get_test_name_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1collect__request.html">collect_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__value__request.html">param_value_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__child__request.html">param_child_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__child__count__request.html">param_child_count_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__key__request.html">param_key_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__type__request.html">param_type_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1test__finished.html">test_finished</a>, <a class="el" href="structemlabcpp_1_1testing_1_1get__suite__name__reply.html">get_suite_name_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1get__suite__date__reply.html">get_suite_date_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1reactor__internal__error__report.html">reactor_internal_error_report</a> &gt;</td></tr>
+<tr class="separator:a20749c470f19431c661bddb4b905214e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab013b23e3c03b3fc9202b93e14cd8d11"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ab013b23e3c03b3fc9202b93e14cd8d11">reactor_controller_variant</a> = typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">protocol::traits_for</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#a20749c470f19431c661bddb4b905214e">reactor_controller_group</a> &gt;::<a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a></td></tr>
 <tr class="separator:ab013b23e3c03b3fc9202b93e14cd8d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac91a16545f66b22f8b802fc1d2f541f5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ac91a16545f66b22f8b802fc1d2f541f5">reactor_controller_packet</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">protocol::packet</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1packet__def.html">packet_def</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#ada2943d8a15384322ee561c0a59a76c3">reactor_controller_group</a> &gt;</td></tr>
+<tr class="memitem:ac91a16545f66b22f8b802fc1d2f541f5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ac91a16545f66b22f8b802fc1d2f541f5">reactor_controller_packet</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">protocol::packet</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1packet__def.html">packet_def</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a20749c470f19431c661bddb4b905214e">reactor_controller_group</a> &gt;</td></tr>
 <tr class="separator:ac91a16545f66b22f8b802fc1d2f541f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a410a2f99046b92d750939728c5a9b59f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a410a2f99046b92d750939728c5a9b59f">controller_reactor_packet</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">protocol::packet</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1packet__def.html">packet_def</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a2b6bf91acd98190c177f44da8706ad4f">controller_reactor_group</a> &gt;</td></tr>
 <tr class="separator:a410a2f99046b92d750939728c5a9b59f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a360e9a9a055bb2138b9fdb0720acf6f4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a360e9a9a055bb2138b9fdb0720acf6f4">reactor_endpoint</a> = <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html">protocol::endpoint</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#a410a2f99046b92d750939728c5a9b59f">controller_reactor_packet</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#ac91a16545f66b22f8b802fc1d2f541f5">reactor_controller_packet</a> &gt;</td></tr>
+<tr class="separator:a360e9a9a055bb2138b9fdb0720acf6f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06998701a0d569905e04e5f3f88f91d4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a06998701a0d569905e04e5f3f88f91d4">controller_endpoint</a> = <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html">protocol::endpoint</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#ac91a16545f66b22f8b802fc1d2f541f5">reactor_controller_packet</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a410a2f99046b92d750939728c5a9b59f">controller_reactor_packet</a> &gt;</td></tr>
+<tr class="separator:a06998701a0d569905e04e5f3f88f91d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a159c9edf0be2745d08412fdacace7ef6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a159c9edf0be2745d08412fdacace7ef6">reactor_controller_msg</a> = typename <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#afc1f0656d18a2b898649c23bf96e38d6">reactor_controller_packet::message_type</a></td></tr>
 <tr class="separator:a159c9edf0be2745d08412fdacace7ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbe31b8088a2e1f4e1684bc2eeb7bce0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#abbe31b8088a2e1f4e1684bc2eeb7bce0">controller_reactor_msg</a> = typename <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#afc1f0656d18a2b898649c23bf96e38d6">controller_reactor_packet::message_type</a></td></tr>
@@ -309,6 +313,8 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76ac4e2cca74f2a682c3f462ee09d0f8621">WRONG_TYPE_E</a> = 0x9
 , <br />
 &#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a7ea0b3234403e2b43fc830dbd901c795">WRONG_MESSAGE_E</a> = 0xa
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a70e33cdaf6aa8a512fd227a8415c7b98">INPUT_MESSAGE_PROTOCOL_ERROR</a> = 0xb
 <br />
  }</td></tr>
 <tr class="separator:acaa3eb138817e4e8e0040cb830a35d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -339,14 +345,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a5dfb36ed7abfd06d258541ad605291f7"><td class="memTemplParams" colspan="2">template&lt;std::derived_from&lt; test_interface &gt; T, test_callable C&gt; </td></tr>
 <tr class="memitem:a5dfb36ed7abfd06d258541ad605291f7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1testing_1_1test__composer.html">test_composer</a>&lt; T, C &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a5dfb36ed7abfd06d258541ad605291f7">test_compose</a> (T t, C c)</td></tr>
 <tr class="separator:a5dfb36ed7abfd06d258541ad605291f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a907b89e57f53e46e3139377a33f31a30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1testing.html#a159c9edf0be2745d08412fdacace7ef6">reactor_controller_msg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a907b89e57f53e46e3139377a33f31a30">reactor_controller_serialize</a> (const <a class="el" href="namespaceemlabcpp_1_1testing.html#ab013b23e3c03b3fc9202b93e14cd8d11">reactor_controller_variant</a> &amp;)</td></tr>
-<tr class="separator:a907b89e57f53e46e3139377a33f31a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdbd34423dcafe7f86156035eb20ac39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#ab013b23e3c03b3fc9202b93e14cd8d11">reactor_controller_variant</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">protocol::error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#abdbd34423dcafe7f86156035eb20ac39">reactor_controller_extract</a> (const <a class="el" href="namespaceemlabcpp_1_1testing.html#a159c9edf0be2745d08412fdacace7ef6">reactor_controller_msg</a> &amp;)</td></tr>
-<tr class="separator:abdbd34423dcafe7f86156035eb20ac39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d0542d19d76636414c1b5ea7c1d0391"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1testing.html#abbe31b8088a2e1f4e1684bc2eeb7bce0">controller_reactor_msg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a4d0542d19d76636414c1b5ea7c1d0391">controller_reactor_serialize</a> (const <a class="el" href="namespaceemlabcpp_1_1testing.html#a7990a2783b0090e4fb21f6af5916c99c">controller_reactor_variant</a> &amp;)</td></tr>
-<tr class="separator:a4d0542d19d76636414c1b5ea7c1d0391"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2b3edc72f826144428e9d35ddab2bcb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#a7990a2783b0090e4fb21f6af5916c99c">controller_reactor_variant</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">protocol::error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ab2b3edc72f826144428e9d35ddab2bcb">controller_reactor_extract</a> (const <a class="el" href="namespaceemlabcpp_1_1testing.html#abbe31b8088a2e1f4e1684bc2eeb7bce0">controller_reactor_msg</a> &amp;)</td></tr>
-<tr class="separator:ab2b3edc72f826144428e9d35ddab2bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -479,7 +477,7 @@ rec</td>
 <div class="textblock"></div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a0c71d3856781ef06d1bb36d5ce8ea6df"></a><a class="el" href="namespaceemlabcpp_1_1testing.html#ae4364788fa5d61d0cc9f5caca1380376">reactor_error_variant</a></td>
+<a id="a0c71d3856781ef06d1bb36d5ce8ea6df"></a><a class="el" href="namespaceemlabcpp_1_1testing.html#a9b6641e518c604f8d6dc3ddf02e77451">reactor_error_variant</a></td>
 <td class="fieldname">
 val</td>
 <td class="fielddoc">
@@ -548,6 +546,20 @@ msg_id</td>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#abb99f2b435a1233d2af64136bcd8ae17">emlabcpp::testing::collect_value_type</a> = typedef std::variant&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a>, <a class="el" href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eeca">contiguous_container_type</a> &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06998701a0d569905e04e5f3f88f91d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06998701a0d569905e04e5f3f88f91d4">&#9670;&nbsp;</a></span>controller_endpoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a06998701a0d569905e04e5f3f88f91d4">emlabcpp::testing::controller_endpoint</a> = typedef <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html">protocol::endpoint</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#ac91a16545f66b22f8b802fc1d2f541f5">reactor_controller_packet</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a410a2f99046b92d750939728c5a9b59f">controller_reactor_packet</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -764,14 +776,14 @@ msg_id</td>
 
 </div>
 </div>
-<a id="ada2943d8a15384322ee561c0a59a76c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada2943d8a15384322ee561c0a59a76c3">&#9670;&nbsp;</a></span>reactor_controller_group</h2>
+<a id="a20749c470f19431c661bddb4b905214e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20749c470f19431c661bddb4b905214e">&#9670;&nbsp;</a></span>reactor_controller_group</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ada2943d8a15384322ee561c0a59a76c3">emlabcpp::testing::reactor_controller_group</a> = typedef <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group">protocol::tag_group</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1get__count__reply.html">get_count_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1get__test__name__reply.html">get_test_name_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1collect__request.html">collect_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__value__request.html">param_value_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__child__request.html">param_child_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__child__count__request.html">param_child_count_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__key__request.html">param_key_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__type__request.html">param_type_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1test__finished.html">test_finished</a>, <a class="el" href="structemlabcpp_1_1testing_1_1get__suite__name__reply.html">get_suite_name_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1get__suite__date__reply.html">get_suite_date_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1reactor__internal__error__report.html">reactor_internal_error_report</a>, <a class="el" href="structemlabcpp_1_1testing_1_1reactor__protocol__error__report.html">reactor_protocol_error_report</a> &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a20749c470f19431c661bddb4b905214e">emlabcpp::testing::reactor_controller_group</a> = typedef <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group">protocol::tag_group</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1get__count__reply.html">get_count_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1get__test__name__reply.html">get_test_name_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1collect__request.html">collect_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__value__request.html">param_value_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__child__request.html">param_child_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__child__count__request.html">param_child_count_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__key__request.html">param_key_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__type__request.html">param_type_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1test__finished.html">test_finished</a>, <a class="el" href="structemlabcpp_1_1testing_1_1get__suite__name__reply.html">get_suite_name_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1get__suite__date__reply.html">get_suite_date_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1reactor__internal__error__report.html">reactor_internal_error_report</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -799,7 +811,7 @@ msg_id</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ac91a16545f66b22f8b802fc1d2f541f5">emlabcpp::testing::reactor_controller_packet</a> = typedef <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">protocol::packet</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1packet__def.html">packet_def</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#ada2943d8a15384322ee561c0a59a76c3">reactor_controller_group</a> &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ac91a16545f66b22f8b802fc1d2f541f5">emlabcpp::testing::reactor_controller_packet</a> = typedef <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">protocol::packet</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1packet__def.html">packet_def</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a20749c470f19431c661bddb4b905214e">reactor_controller_group</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -813,21 +825,35 @@ msg_id</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ab013b23e3c03b3fc9202b93e14cd8d11">emlabcpp::testing::reactor_controller_variant</a> = typedef typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">protocol::traits_for</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#ada2943d8a15384322ee561c0a59a76c3">reactor_controller_group</a> &gt;::<a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a></td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ab013b23e3c03b3fc9202b93e14cd8d11">emlabcpp::testing::reactor_controller_variant</a> = typedef typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">protocol::traits_for</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#a20749c470f19431c661bddb4b905214e">reactor_controller_group</a> &gt;::<a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ae4364788fa5d61d0cc9f5caca1380376"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4364788fa5d61d0cc9f5caca1380376">&#9670;&nbsp;</a></span>reactor_error_variant</h2>
+<a id="a360e9a9a055bb2138b9fdb0720acf6f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a360e9a9a055bb2138b9fdb0720acf6f4">&#9670;&nbsp;</a></span>reactor_endpoint</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ae4364788fa5d61d0cc9f5caca1380376">emlabcpp::testing::reactor_error_variant</a> = typedef std::variant&lt; <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a831f1fef1360cadaed62cbd4ff12da12">TEST_NOT_LOADED_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a67c99f2dfafe76b0d59cd48e6dfe9060">TEST_NOT_FOUND_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a6775c9c637e4eb881da022195d737ef4">WRONG_RUN_ID_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76ad96267bf0e69770de798294aba8c97a7">TEST_ALREADY_LOADED_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76abc7e642981e78350d9d7576b29082c70">BAD_TEST_ID_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76aa92b7d54a4af0d4a68deaca06f6b5d14">UNDESIRED_MSG_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1no__response__error.html">no_response_error</a>, <a class="el" href="structemlabcpp_1_1testing_1_1wrong__type__error.html">wrong_type_error</a>, <a class="el" href="structemlabcpp_1_1testing_1_1tree__error__reply.html">tree_error_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a7ea0b3234403e2b43fc830dbd901c795">WRONG_MESSAGE_E</a> &gt; &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a360e9a9a055bb2138b9fdb0720acf6f4">emlabcpp::testing::reactor_endpoint</a> = typedef <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html">protocol::endpoint</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#a410a2f99046b92d750939728c5a9b59f">controller_reactor_packet</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#ac91a16545f66b22f8b802fc1d2f541f5">reactor_controller_packet</a> &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b6641e518c604f8d6dc3ddf02e77451"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b6641e518c604f8d6dc3ddf02e77451">&#9670;&nbsp;</a></span>reactor_error_variant</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a9b6641e518c604f8d6dc3ddf02e77451">emlabcpp::testing::reactor_error_variant</a> = typedef std::variant&lt; <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a831f1fef1360cadaed62cbd4ff12da12">TEST_NOT_LOADED_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a67c99f2dfafe76b0d59cd48e6dfe9060">TEST_NOT_FOUND_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a6775c9c637e4eb881da022195d737ef4">WRONG_RUN_ID_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76ad96267bf0e69770de798294aba8c97a7">TEST_ALREADY_LOADED_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76abc7e642981e78350d9d7576b29082c70">BAD_TEST_ID_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76aa92b7d54a4af0d4a68deaca06f6b5d14">UNDESIRED_MSG_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1no__response__error.html">no_response_error</a>, <a class="el" href="structemlabcpp_1_1testing_1_1wrong__type__error.html">wrong_type_error</a>, <a class="el" href="structemlabcpp_1_1testing_1_1tree__error__reply.html">tree_error_reply</a>, <a class="el" href="structemlabcpp_1_1testing_1_1error.html">error</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a7ea0b3234403e2b43fc830dbd901c795">WRONG_MESSAGE_E</a> &gt;, <a class="el" href="structemlabcpp_1_1testing_1_1input__message__protocol__error.html">input_message_protocol_error</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -913,6 +939,7 @@ msg_id</td>
 <tr><td class="fieldname"><a id="acaa3eb138817e4e8e0040cb830a35d76a70466f0b748d736102d167b0da2de751"></a>TREE_E&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="acaa3eb138817e4e8e0040cb830a35d76ac4e2cca74f2a682c3f462ee09d0f8621"></a>WRONG_TYPE_E&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="acaa3eb138817e4e8e0040cb830a35d76a7ea0b3234403e2b43fc830dbd901c795"></a>WRONG_MESSAGE_E&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acaa3eb138817e4e8e0040cb830a35d76a70e33cdaf6aa8a512fd227a8415c7b98"></a>INPUT_MESSAGE_PROTOCOL_ERROR&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -952,42 +979,6 @@ msg_id</td>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ab2b3edc72f826144428e9d35ddab2bcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2b3edc72f826144428e9d35ddab2bcb">&#9670;&nbsp;</a></span>controller_reactor_extract()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#a7990a2783b0090e4fb21f6af5916c99c">controller_reactor_variant</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">protocol::error_record</a> &gt; emlabcpp::testing::controller_reactor_extract </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceemlabcpp_1_1testing.html#abbe31b8088a2e1f4e1684bc2eeb7bce0">controller_reactor_msg</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4d0542d19d76636414c1b5ea7c1d0391"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d0542d19d76636414c1b5ea7c1d0391">&#9670;&nbsp;</a></span>controller_reactor_serialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespaceemlabcpp_1_1testing.html#abbe31b8088a2e1f4e1684bc2eeb7bce0">controller_reactor_msg</a> emlabcpp::testing::controller_reactor_serialize </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceemlabcpp_1_1testing.html#a7990a2783b0090e4fb21f6af5916c99c">controller_reactor_variant</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a62549c075763c5dbed5462d5d4603817"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a62549c075763c5dbed5462d5d4603817">&#9670;&nbsp;</a></span>key_type_to_buffer()</h2>
 
@@ -1190,42 +1181,6 @@ msg_id</td>
 
 </div>
 </div>
-<a id="abdbd34423dcafe7f86156035eb20ac39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdbd34423dcafe7f86156035eb20ac39">&#9670;&nbsp;</a></span>reactor_controller_extract()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#ab013b23e3c03b3fc9202b93e14cd8d11">reactor_controller_variant</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">protocol::error_record</a> &gt; emlabcpp::testing::reactor_controller_extract </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceemlabcpp_1_1testing.html#a159c9edf0be2745d08412fdacace7ef6">reactor_controller_msg</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a907b89e57f53e46e3139377a33f31a30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a907b89e57f53e46e3139377a33f31a30">&#9670;&nbsp;</a></span>reactor_controller_serialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespaceemlabcpp_1_1testing.html#a159c9edf0be2745d08412fdacace7ef6">reactor_controller_msg</a> emlabcpp::testing::reactor_controller_serialize </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceemlabcpp_1_1testing.html#ab013b23e3c03b3fc9202b93e14cd8d11">reactor_controller_variant</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a7adcf3f4ee884f07d803220439c4f493"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7adcf3f4ee884f07d803220439c4f493">&#9670;&nbsp;</a></span>requires()</h2>
 
@@ -1336,7 +1291,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Mon Sep 26 2022 16:03:06 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Sep 30 2022 17:25:27 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

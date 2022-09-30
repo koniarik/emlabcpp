@@ -22,21 +22,23 @@ var experimental_2testing_2protocol_8h =
     [ "tree_error_reply", "structemlabcpp_1_1testing_1_1tree__error__reply.html", "structemlabcpp_1_1testing_1_1tree__error__reply" ],
     [ "test_finished", "structemlabcpp_1_1testing_1_1test__finished.html", "structemlabcpp_1_1testing_1_1test__finished" ],
     [ "exec_request", "structemlabcpp_1_1testing_1_1exec__request.html", "structemlabcpp_1_1testing_1_1exec__request" ],
-    [ "reactor_protocol_error_report", "structemlabcpp_1_1testing_1_1reactor__protocol__error__report.html", "structemlabcpp_1_1testing_1_1reactor__protocol__error__report" ],
     [ "error", "structemlabcpp_1_1testing_1_1error.html", "structemlabcpp_1_1testing_1_1error" ],
     [ "no_response_error", "structemlabcpp_1_1testing_1_1no__response__error.html", "structemlabcpp_1_1testing_1_1no__response__error" ],
     [ "wrong_type_error", "structemlabcpp_1_1testing_1_1wrong__type__error.html", "structemlabcpp_1_1testing_1_1wrong__type__error" ],
+    [ "input_message_protocol_error", "structemlabcpp_1_1testing_1_1input__message__protocol__error.html", "structemlabcpp_1_1testing_1_1input__message__protocol__error" ],
     [ "reactor_internal_error_report", "structemlabcpp_1_1testing_1_1reactor__internal__error__report.html", "structemlabcpp_1_1testing_1_1reactor__internal__error__report" ],
     [ "packet_def", "structemlabcpp_1_1testing_1_1packet__def.html", "structemlabcpp_1_1testing_1_1packet__def" ],
+    [ "controller_endpoint", "experimental_2testing_2protocol_8h.html#a06998701a0d569905e04e5f3f88f91d4", null ],
     [ "controller_reactor_group", "experimental_2testing_2protocol_8h.html#a2b6bf91acd98190c177f44da8706ad4f", null ],
     [ "controller_reactor_msg", "experimental_2testing_2protocol_8h.html#abbe31b8088a2e1f4e1684bc2eeb7bce0", null ],
     [ "controller_reactor_packet", "experimental_2testing_2protocol_8h.html#a410a2f99046b92d750939728c5a9b59f", null ],
     [ "controller_reactor_variant", "experimental_2testing_2protocol_8h.html#a7990a2783b0090e4fb21f6af5916c99c", null ],
-    [ "reactor_controller_group", "experimental_2testing_2protocol_8h.html#ada2943d8a15384322ee561c0a59a76c3", null ],
+    [ "reactor_controller_group", "experimental_2testing_2protocol_8h.html#a20749c470f19431c661bddb4b905214e", null ],
     [ "reactor_controller_msg", "experimental_2testing_2protocol_8h.html#a159c9edf0be2745d08412fdacace7ef6", null ],
     [ "reactor_controller_packet", "experimental_2testing_2protocol_8h.html#ac91a16545f66b22f8b802fc1d2f541f5", null ],
     [ "reactor_controller_variant", "experimental_2testing_2protocol_8h.html#ab013b23e3c03b3fc9202b93e14cd8d11", null ],
-    [ "reactor_error_variant", "experimental_2testing_2protocol_8h.html#ae4364788fa5d61d0cc9f5caca1380376", null ],
+    [ "reactor_endpoint", "experimental_2testing_2protocol_8h.html#a360e9a9a055bb2138b9fdb0720acf6f4", null ],
+    [ "reactor_error_variant", "experimental_2testing_2protocol_8h.html#a9b6641e518c604f8d6dc3ddf02e77451", null ],
     [ "error_enum", "experimental_2testing_2protocol_8h.html#acaa3eb138817e4e8e0040cb830a35d76", [
       [ "TEST_NOT_LOADED_E", "experimental_2testing_2protocol_8h.html#acaa3eb138817e4e8e0040cb830a35d76a831f1fef1360cadaed62cbd4ff12da12", null ],
       [ "TEST_NOT_FOUND_E", "experimental_2testing_2protocol_8h.html#acaa3eb138817e4e8e0040cb830a35d76a67c99f2dfafe76b0d59cd48e6dfe9060", null ],
@@ -47,7 +49,8 @@ var experimental_2testing_2protocol_8h =
       [ "NO_RESPONSE_E", "experimental_2testing_2protocol_8h.html#acaa3eb138817e4e8e0040cb830a35d76a4be7f87d342f345d5c95b64f33d7cd36", null ],
       [ "TREE_E", "experimental_2testing_2protocol_8h.html#acaa3eb138817e4e8e0040cb830a35d76a70466f0b748d736102d167b0da2de751", null ],
       [ "WRONG_TYPE_E", "experimental_2testing_2protocol_8h.html#acaa3eb138817e4e8e0040cb830a35d76ac4e2cca74f2a682c3f462ee09d0f8621", null ],
-      [ "WRONG_MESSAGE_E", "experimental_2testing_2protocol_8h.html#acaa3eb138817e4e8e0040cb830a35d76a7ea0b3234403e2b43fc830dbd901c795", null ]
+      [ "WRONG_MESSAGE_E", "experimental_2testing_2protocol_8h.html#acaa3eb138817e4e8e0040cb830a35d76a7ea0b3234403e2b43fc830dbd901c795", null ],
+      [ "INPUT_MESSAGE_PROTOCOL_ERROR", "experimental_2testing_2protocol_8h.html#acaa3eb138817e4e8e0040cb830a35d76a70e33cdaf6aa8a512fd227a8415c7b98", null ]
     ] ],
     [ "messages_enum", "experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6c", [
       [ "EXEC", "experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6cac701d4251538d4cb8c79b9ba788e8ace", null ],
@@ -68,9 +71,5 @@ var experimental_2testing_2protocol_8h =
       [ "INTERNAL_ERROR", "experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6ca94ed7dad64766a32cea41354f0b3f318", null ],
       [ "PROTOCOL_ERROR", "experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6ca7b6f85de641381d0c1dd2ebf429a90cd", null ],
       [ "TREE_ERROR", "experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6cabf57942bad0597ed207985ac546776c3", null ]
-    ] ],
-    [ "controller_reactor_extract", "experimental_2testing_2protocol_8h.html#ab2b3edc72f826144428e9d35ddab2bcb", null ],
-    [ "controller_reactor_serialize", "experimental_2testing_2protocol_8h.html#a4d0542d19d76636414c1b5ea7c1d0391", null ],
-    [ "reactor_controller_extract", "experimental_2testing_2protocol_8h.html#abdbd34423dcafe7f86156035eb20ac39", null ],
-    [ "reactor_controller_serialize", "experimental_2testing_2protocol_8h.html#a907b89e57f53e46e3139377a33f31a30", null ]
+    ] ]
 ];
