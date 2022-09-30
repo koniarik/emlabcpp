@@ -250,11 +250,11 @@ private:
         /// requires features of C++ we do not want to replicate and it's bettter to hide them in
         /// methods.
 
-        T* data()
+        [[nodiscard]] T* data()
         {
                 return reinterpret_cast< T* >( std::addressof( data_ ) );
         }
-        const T* data() const
+        [[nodiscard]] const T* data() const
         {
                 return reinterpret_cast< const T* >( std::addressof( data_ ) );
         }

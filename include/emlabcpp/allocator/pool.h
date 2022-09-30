@@ -39,9 +39,9 @@ namespace emlabcpp
 
 struct pool_interface
 {
-        virtual void* allocate( std::size_t bytes, std::size_t alignment ) = 0;
-        virtual void  deallocate( void*, std::size_t alignment )           = 0;
-        virtual bool  full() const                                         = 0;
+        virtual void*              allocate( std::size_t bytes, std::size_t alignment ) = 0;
+        virtual void               deallocate( void*, std::size_t alignment )           = 0;
+        [[nodiscard]] virtual bool full() const                                         = 0;
 
         virtual ~pool_interface() = default;
 };
@@ -106,7 +106,7 @@ public:
                 free_.push_back( static_cast< uint16_t >( spot_i ) );
         }
 
-        bool full() const override
+        [[nodiscard]] bool full() const override
         {
                 return free_.empty();
         }
@@ -132,7 +132,7 @@ class pool_dynamic_resource final : public pool_interface
                 ::operator delete ( ptr, std::align_val_t{ alignment } );
         }
 
-        bool full() const override
+        [[nodiscard]] bool full() const override
         {
                 return false;
         }
