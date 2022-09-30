@@ -29,17 +29,15 @@ namespace emlabcpp::testing
 {
 class reactor_interface_adapter
 {
-        reactor_interface&                         iface_;
-        controller_reactor_packet::sequencer_type& seq_;
+        reactor_interface& iface_;
+        reactor_endpoint&  ep_;
 
         static constexpr std::size_t read_limit_ = 10;
 
 public:
-        reactor_interface_adapter(
-            reactor_interface&                         iface,
-            controller_reactor_packet::sequencer_type& seq )
+        reactor_interface_adapter( reactor_interface& iface, reactor_endpoint& ep )
           : iface_( iface )
-          , seq_( seq )
+          , ep_( ep )
         {
         }
 
@@ -53,7 +51,7 @@ public:
                 return &iface_;
         }
 
-        std::optional< controller_reactor_variant > read_variant();
+        either< controller_reactor_variant, protocol::endpoint_error > read_variant();
 
         void reply( const reactor_controller_variant& );
 

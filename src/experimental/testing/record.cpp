@@ -120,10 +120,24 @@ void record::report_wrong_type_error( node_id nid, const value_type& )
 template < typename T >
 std::optional< T > record::read_variant_alternative()
 {
-        std::optional< controller_reactor_variant > opt_var = comm_.read_variant();
+        std::optional< controller_reactor_variant > opt_var;
+        comm_.read_variant().match(
+            [&]( controller_reactor_variant var ) {
+                    opt_var = var;
+            },
+            [&]( protocol::endpoint_error err ) {
+                    match(
+                        err,
+                        [&]( protocol::error_record ) {
+                                // report his
+                        },
+                        [&]( protocol::endpoint_load_error ) {
+                                comm_.report_failure( no_response_error{ T::id } );
+                        } );
+            } );
+
         if ( !opt_var ) {
-                comm_.report_failure( no_response_error{ T::id } );
-                return {};
+                return std::nullopt;
         }
 
         const T* val_ptr = std::get_if< T >( &*opt_var );

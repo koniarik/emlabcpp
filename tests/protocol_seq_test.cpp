@@ -51,24 +51,24 @@ TEST( protocol_seq, basic )
 
         sequencer seq;
 
-        seq.load_data( view_n( data.begin(), 3 ) )
-            .match(
-                [&]( std::size_t to_read ) {
-                        EXPECT_EQ( to_read, 3 );
-                },
-                [&]( auto ) {
-                        FAIL();
-                } );
+        seq.insert( view_n( data.begin(), 3 ) );
+        seq.get_message().match(
+            [&]( protocol::sequencer_read_request to_read ) {
+                    EXPECT_EQ( *to_read, 3 );
+            },
+            [&]( auto ) {
+                    FAIL();
+            } );
 
-        seq.load_data( view_n( data.begin() + 3, 3 ) )
-            .match(
-                [&]( std::size_t ) {
-                        FAIL();
-                },
-                [&]( auto msg ) {
-                        bool are_equal = equal( msg, data );
-                        EXPECT_TRUE( are_equal );
-                } );
+        seq.insert( view_n( data.begin() + 3, 3 ) );
+        seq.get_message().match(
+            [&]( protocol::sequencer_read_request ) {
+                    FAIL();
+            },
+            [&]( auto msg ) {
+                    bool are_equal = equal( msg, data );
+                    EXPECT_TRUE( are_equal );
+            } );
 }
 
 TEST( protocol_seq, noise_at_start )
@@ -77,24 +77,24 @@ TEST( protocol_seq, noise_at_start )
 
         sequencer seq;
 
-        seq.load_data( view_n( data.begin(), 4 ) )
-            .match(
-                [&]( std::size_t to_read ) {
-                        EXPECT_EQ( to_read, 3 );
-                },
-                [&]( auto ) {
-                        FAIL();
-                } );
+        seq.insert( view_n( data.begin(), 4 ) );
+        seq.get_message().match(
+            [&]( protocol::sequencer_read_request to_read ) {
+                    EXPECT_EQ( *to_read, 3 );
+            },
+            [&]( auto ) {
+                    FAIL();
+            } );
 
-        seq.load_data( view_n( data.begin() + 4, 3 ) )
-            .match(
-                [&]( std::size_t ) {
-                        FAIL();
-                },
-                [&]( auto msg ) {
-                        bool are_equal = equal( msg, tail( data ) );
-                        EXPECT_TRUE( are_equal ) << msg;
-                } );
+        seq.insert( view_n( data.begin() + 4, 3 ) );
+        seq.get_message().match(
+            [&]( protocol::sequencer_read_request ) {
+                    FAIL();
+            },
+            [&]( auto msg ) {
+                    bool are_equal = equal( msg, tail( data ) );
+                    EXPECT_TRUE( are_equal ) << msg;
+            } );
 }
 
 TEST( protocol_seq, multi_msg )
@@ -107,23 +107,23 @@ TEST( protocol_seq, multi_msg )
 
         sequencer seq;
 
-        seq.load_data( view_n( data.begin(), 5 ) )
-            .match(
-                [&]( std::size_t ) {
-                        FAIL();
-                },
-                [&]( auto msg ) {
-                        bool are_equal = equal( msg, msg1 );
-                        EXPECT_TRUE( are_equal );
-                } );
+        seq.insert( view_n( data.begin(), 5 ) );
+        seq.get_message().match(
+            [&]( protocol::sequencer_read_request ) {
+                    FAIL();
+            },
+            [&]( auto msg ) {
+                    bool are_equal = equal( msg, msg1 );
+                    EXPECT_TRUE( are_equal );
+            } );
 
-        seq.load_data( view_n( data.begin() + 4, 6 ) )
-            .match(
-                [&]( std::size_t ) {
-                        FAIL();
-                },
-                [&]( auto msg ) {
-                        bool are_equal = equal( msg, msg2 );
-                        EXPECT_TRUE( are_equal );
-                } );
+        seq.insert( view_n( data.begin() + 4, 6 ) );
+        seq.get_message().match(
+            [&]( protocol::sequencer_read_request ) {
+                    FAIL();
+            },
+            [&]( auto msg ) {
+                    bool are_equal = equal( msg, msg2 );
+                    EXPECT_TRUE( are_equal );
+            } );
 }

@@ -32,19 +32,23 @@ namespace emlabcpp::testing
 class controller_interface_adapter
 {
         controller_interface& iface_;
+        controller_endpoint&  ep_;
 
         static constexpr std::size_t read_limit_ = 10;
 
 public:
-        explicit controller_interface_adapter( controller_interface& iface )
+        explicit controller_interface_adapter(
+            controller_interface& iface,
+            controller_endpoint&  ep )
           : iface_( iface )
+          , ep_( ep )
         {
         }
 
         void send( const controller_reactor_variant& var )
         {
                 EMLABCPP_DEBUG_LOG( "con->rec: " << var );
-                auto msg = controller_reactor_serialize( var );
+                auto msg = ep_.serialize( var );
                 iface_.transmit( msg );
         }
 
@@ -58,13 +62,11 @@ public:
                 return iface_;
         }
 
-        std::optional< reactor_controller_msg > read_message()
+        either< reactor_controller_variant, protocol::endpoint_error > read_variant()
         {
-                using sequencer = reactor_controller_packet::sequencer_type;
-                return protocol::sequencer_simple_load< sequencer >(
-                    read_limit_, [this]( const std::size_t c ) {
-                            return this->iface_.receive( c );
-                    } );
+                return ep_.load_variant( read_limit_, [this]( const std::size_t c ) {
+                        return this->iface_.receive( c );
+                } );
         }
         void reply_node_error(
             const run_id                                 rid,
@@ -135,36 +137,23 @@ namespace
                 std::optional< ReturnType > res;
 
                 iface.send( req );
+                iface.read_variant().match(
+                    [&]( const reactor_controller_variant& var ) {
+                            auto handle = matcher{
+                                [&res]( const ReturnType& item ) {
+                                        res = item;
+                                },
+                                [&iface]( const reactor_internal_error_report& err ) {
+                                        iface.report_error( internal_reactor_error{ err.var } );
+                                },
+                                [&iface]< typename T >( const T& ) {
+                                        iface.report_error( controller_internal_error{ T::id } );
+                                } };
 
-                auto opt_msg = iface.read_message();
-                if ( !opt_msg ) {
-                        return res;
-                }
-
-                auto handle = matcher{
-                    [&res]( const ReturnType& item ) {
-                            res = item;
+                            EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
+                            visit( handle, var );
                     },
-                    [&iface]( const reactor_internal_error_report& err ) {
-                            iface.report_error( internal_reactor_error{ err.var } );
-                    },
-                    [&iface]( const reactor_protocol_error_report& err ) {
-                            iface.report_error( reactor_protocol_error{ err.rec } );
-                    },
-                    [&iface]< typename T >( const T& ) {
-                            iface.report_error( controller_internal_error{ T::id } );
-                    } };
-
-                reactor_controller_extract( *opt_msg )
-                    .match(
-                        [&handle]( auto pack ) {
-                                EMLABCPP_DEBUG_LOG( "con<-rec: " << pack );
-                                visit( handle, pack );
-                        },
-                        [&iface]( const protocol::error_record rec ) {
-                                EMLABCPP_LOG( "Protocol error from reactor: " << rec );
-                                iface.report_error( controller_protocol_error{ rec } );
-                        } );
+                    [&]( const protocol::endpoint_error& ) {} );
                 return res;
         }
 }  // namespace
@@ -172,7 +161,8 @@ namespace
 std::optional< controller >
 controller::make( controller_interface& top_iface, pool_interface* const pool )
 {
-        controller_interface_adapter iface{ top_iface };
+        controller_endpoint          ep;
+        controller_interface_adapter iface{ top_iface, ep };
 
         std::optional opt_name =
             load_data< get_suite_name_reply >( get_property< SUITE_NAME >{}, iface );
@@ -212,7 +202,7 @@ controller::make( controller_interface& top_iface, pool_interface* const pool )
 
 void controller::start_test( test_id tid, controller_interface& top_iface )
 {
-        controller_interface_adapter iface{ top_iface };
+        controller_interface_adapter iface{ top_iface, ep_ };
         EMLABCPP_ASSERT( !context_ );
 
         rid_ += 1;
@@ -366,33 +356,21 @@ struct controller_dispatcher
         {
                 iface.report_error( internal_reactor_error{ std::move( report.var ) } );
         }
-        void operator()( const reactor_protocol_error_report& report )
-        {
-                iface.report_error( reactor_protocol_error{ report.rec } );
-        }
 };
 
 void controller::tick( controller_interface& top_iface )
 {
-        controller_interface_adapter iface{ top_iface };
+        controller_interface_adapter iface{ top_iface, ep_ };
 
         if ( !context_ ) {
                 return;
         }
 
-        auto opt_msg = iface.read_message();
-        if ( !opt_msg ) {
-                return;
-        }
-
-        reactor_controller_extract( *opt_msg )
-            .match(
-                [this, &iface]( auto var ) {
-                        EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
-                        visit( controller_dispatcher{ iface, this->context_ }, var );
-                },
-                [&iface]( const protocol::error_record e ) {
-                        iface.report_error( controller_protocol_error{ e } );
-                } );
+        iface.read_variant().match(
+            [&]( const reactor_controller_variant& var ) {
+                    EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
+                    visit( controller_dispatcher{ iface, this->context_ }, var );
+            },
+            [&]( const protocol::endpoint_error& ) {} );
 }
 }  // namespace emlabcpp::testing

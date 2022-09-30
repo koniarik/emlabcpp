@@ -68,6 +68,7 @@ private:
         std::optional< test_result >   context_;
         run_id                         rid_ = 0;
         pool_interface*                mem_pool_;
+        controller_endpoint            ep_;
 
         controller(
             name_buffer                    name,

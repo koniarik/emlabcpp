@@ -22,6 +22,7 @@
 //
 #include "emlabcpp/assert.h"
 #include "emlabcpp/either.h"
+#include "emlabcpp/quantity.h"
 #include "emlabcpp/static_circular_buffer.h"
 
 #include <array>
@@ -30,6 +31,11 @@
 
 namespace emlabcpp::protocol
 {
+
+struct sequencer_read_request : quantity< sequencer_read_request, std::size_t >
+{
+        using quantity::quantity;
+};
 
 template < typename Def >
 class sequencer
@@ -44,11 +50,14 @@ private:
 public:
         using message_type = typename Def::message_type;
 
-        template < typename Iterator >
-        either< std::size_t, message_type > load_data( view< Iterator > dview )
+        template < typename Container >
+        void insert( Container&& dview )
         {
                 copy( dview, std::back_inserter( buffer_ ) );
+        }
 
+        either< sequencer_read_request, message_type > get_message()
+        {
                 auto bend = buffer_.end();
                 while ( !buffer_.empty() ) {
                         auto [piter, biter] =
@@ -68,15 +77,16 @@ public:
 
                         /// partial match - matched maximum bytes available
                         if ( piter != prefix.end() ) {
-                                return fixed_size - static_cast< std::size_t >(
-                                                        std::distance( prefix.begin(), piter ) );
+                                return sequencer_read_request{
+                                    fixed_size - static_cast< std::size_t >(
+                                                     std::distance( prefix.begin(), piter ) ) };
                         }
 
                         break;
                 }
 
                 if ( buffer_.empty() ) {
-                        return fixed_size;
+                        return sequencer_read_request{ fixed_size };
                 }
 
                 std::size_t bsize = buffer_.size();
@@ -86,12 +96,12 @@ public:
                 EMLABCPP_ASSERT( bsize >= prefix.size() );
 
                 if ( bsize < fixed_size ) {
-                        return fixed_size - bsize;
+                        return sequencer_read_request{ fixed_size - bsize };
                 }
 
                 std::size_t desired_size = Def::get_size( buffer_ );
                 if ( bsize < desired_size ) {
-                        return desired_size - bsize;
+                        return sequencer_read_request{ desired_size - bsize };
                 }
 
                 auto opt_msg = message_type::make( view_n( buffer_.begin(), desired_size ) );
@@ -119,15 +129,15 @@ sequencer_simple_load( const std::size_t read_limit, ReadCallback&& read )
                 if ( !data ) {
                         return res;
                 }
-                seq.load_data( view{ *data } )
-                    .match(
-                        [&to_read, &count]( const std::size_t next_read ) {
-                                to_read = next_read;
-                                count   = 0;
-                        },
-                        [&res]( auto msg ) {
-                                res = msg;
-                        } );
+                seq.insert( *data );
+                seq.get_message().match(
+                    [&to_read, &count]( const std::size_t next_read ) {
+                            to_read = next_read;
+                            count   = 0;
+                    },
+                    [&res]( auto msg ) {
+                            res = msg;
+                    } );
 
                 count += 1;
         }

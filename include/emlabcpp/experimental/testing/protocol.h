@@ -24,6 +24,7 @@
 #include "emlabcpp/experimental/contiguous_tree/base.h"
 #include "emlabcpp/experimental/testing/base.h"
 #include "emlabcpp/protocol.h"
+#include "emlabcpp/protocol/endpoint.h"
 #include "emlabcpp/protocol/packet.h"
 
 #pragma once
@@ -206,12 +207,6 @@ struct exec_request
         run_id                rid;
 };
 
-struct reactor_protocol_error_report
-{
-        static constexpr auto  id = PROTOCOL_ERROR;
-        protocol::error_record rec;
-};
-
 using controller_reactor_group = protocol::tag_group<
     get_property< SUITE_NAME >,
     get_property< SUITE_DATE >,
@@ -232,16 +227,17 @@ using controller_reactor_variant =
 
 enum error_enum : uint8_t
 {
-        TEST_NOT_LOADED_E     = 0x1,
-        TEST_NOT_FOUND_E      = 0x2,
-        WRONG_RUN_ID_E        = 0x3,
-        TEST_ALREADY_LOADED_E = 0x4,
-        BAD_TEST_ID_E         = 0x5,
-        UNDESIRED_MSG_E       = 0x6,
-        NO_RESPONSE_E         = 0x7,
-        TREE_E                = 0x8,
-        WRONG_TYPE_E          = 0x9,
-        WRONG_MESSAGE_E       = 0xa
+        TEST_NOT_LOADED_E            = 0x1,
+        TEST_NOT_FOUND_E             = 0x2,
+        WRONG_RUN_ID_E               = 0x3,
+        TEST_ALREADY_LOADED_E        = 0x4,
+        BAD_TEST_ID_E                = 0x5,
+        UNDESIRED_MSG_E              = 0x6,
+        NO_RESPONSE_E                = 0x7,
+        TREE_E                       = 0x8,
+        WRONG_TYPE_E                 = 0x9,
+        WRONG_MESSAGE_E              = 0xa,
+        INPUT_MESSAGE_PROTOCOL_ERROR = 0xb,
 };
 
 template < error_enum Err >
@@ -262,6 +258,12 @@ struct wrong_type_error
         node_id               nid;
 };
 
+struct input_message_protocol_error
+{
+        static constexpr auto  id = INPUT_MESSAGE_PROTOCOL_ERROR;
+        protocol::error_record rec;
+};
+
 // TODO: this is not good, we want group here
 using reactor_error_variant = std::variant<
     error< TEST_NOT_LOADED_E >,
@@ -273,7 +275,8 @@ using reactor_error_variant = std::variant<
     no_response_error,
     wrong_type_error,
     tree_error_reply,
-    error< WRONG_MESSAGE_E > >;
+    error< WRONG_MESSAGE_E >,
+    input_message_protocol_error >;
 
 struct reactor_internal_error_report
 {
@@ -293,8 +296,7 @@ using reactor_controller_group = protocol::tag_group<
     test_finished,
     get_suite_name_reply,
     get_suite_date_reply,
-    reactor_internal_error_report,
-    reactor_protocol_error_report >;
+    reactor_internal_error_report >;
 
 using reactor_controller_variant =
     typename protocol::traits_for< reactor_controller_group >::value_type;
@@ -318,15 +320,23 @@ struct packet_def
 using reactor_controller_packet = protocol::packet< packet_def, reactor_controller_group >;
 using controller_reactor_packet = protocol::packet< packet_def, controller_reactor_group >;
 
+using reactor_endpoint = protocol::endpoint< controller_reactor_packet, reactor_controller_packet >;
+using controller_endpoint =
+    protocol::endpoint< reactor_controller_packet, controller_reactor_packet >;
+
 using reactor_controller_msg = typename reactor_controller_packet::message_type;
 using controller_reactor_msg = typename controller_reactor_packet::message_type;
 
-reactor_controller_msg reactor_controller_serialize( const reactor_controller_variant& );
-either< reactor_controller_variant, protocol::error_record >
-reactor_controller_extract( const reactor_controller_msg& );
-
-controller_reactor_msg controller_reactor_serialize( const controller_reactor_variant& );
-either< controller_reactor_variant, protocol::error_record >
-controller_reactor_extract( const controller_reactor_msg& );
-
 }  // namespace emlabcpp::testing
+
+namespace emlabcpp::protocol
+{
+
+extern template class endpoint<
+    testing::controller_reactor_packet,
+    testing::reactor_controller_packet >;
+extern template class endpoint<
+    testing::reactor_controller_packet,
+    testing::controller_reactor_packet >;
+
+}  // namespace emlabcpp::protocol

@@ -74,12 +74,12 @@ TEST( Packet, seq )
 
         seq test_seq{};
 
-        test_seq.load_data( view{ msg } )
-            .match(
-                [&]( std::size_t ) {
-                        FAIL();
-                },
-                [&]( message_type newmsg ) {
-                        EXPECT_EQ( newmsg, msg );
-                } );
+        test_seq.insert( msg );
+        test_seq.get_message().match(
+            [&]( protocol::sequencer_read_request ) {
+                    FAIL();
+            },
+            [&]( message_type newmsg ) {
+                    EXPECT_EQ( newmsg, msg );
+            } );
 }

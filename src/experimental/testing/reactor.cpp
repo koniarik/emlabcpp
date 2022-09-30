@@ -31,40 +31,47 @@ namespace emlabcpp::testing
 
 void reactor::spin( reactor_interface& top_iface )
 {
-        reactor_interface_adapter iface{ top_iface, seq_ };
+        reactor_interface_adapter iface{ top_iface, ep_ };
 
-        auto opt_var = iface.read_variant();
-
-        if ( !opt_var ) {
-                return;
-        }
-
-        // TODO: this does not work, split the CR group into multiple groups...
-        match(
-            *opt_var,
-            [&]( const auto& item ) {
-                    handle_message( item, iface );
+        iface.read_variant().match(
+            [&]( const controller_reactor_variant& var ) {
+                    // TODO: this does not work, split the CR group into multiple groups...
+                    match(
+                        var,
+                        [&]( const auto& item ) {
+                                handle_message( item, iface );
+                        },
+                        [&]( const param_value_reply& ) {
+                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
+                        },
+                        [&]( const param_child_reply& ) {
+                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
+                        },
+                        [&]( const param_child_count_reply& ) {
+                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
+                        },
+                        [&]( const param_key_reply& ) {
+                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
+                        },
+                        [&]( const param_type_reply& ) {
+                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
+                        },
+                        [&]( const tree_error_reply& ) {
+                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
+                        },
+                        [&]( const collect_reply& ) {
+                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
+                        } );
             },
-            [&]( const param_value_reply& ) {
-                    iface.report_failure( error< UNDESIRED_MSG_E >{} );
-            },
-            [&]( const param_child_reply& ) {
-                    iface.report_failure( error< UNDESIRED_MSG_E >{} );
-            },
-            [&]( const param_child_count_reply& ) {
-                    iface.report_failure( error< UNDESIRED_MSG_E >{} );
-            },
-            [&]( const param_key_reply& ) {
-                    iface.report_failure( error< UNDESIRED_MSG_E >{} );
-            },
-            [&]( const param_type_reply& ) {
-                    iface.report_failure( error< UNDESIRED_MSG_E >{} );
-            },
-            [&]( const tree_error_reply& ) {
-                    iface.report_failure( error< UNDESIRED_MSG_E >{} );
-            },
-            [&]( const collect_reply& ) {
-                    iface.report_failure( error< UNDESIRED_MSG_E >{} );
+            [&]( const protocol::endpoint_error& e ) {
+                    match(
+                        e,
+                        [&]( const protocol::endpoint_load_error& ) {
+                                iface.report_failure( no_response_error{} );
+                        },
+                        [&]( const protocol::error_record& rec ) {
+                                iface.report_failure( input_message_protocol_error{ rec } );
+                        } );
             } );
 }
 

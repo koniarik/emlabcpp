@@ -25,46 +25,17 @@
 namespace emlabcpp::testing
 {
 
-std::optional< controller_reactor_variant > reactor_interface_adapter::read_variant()
+either< controller_reactor_variant, protocol::endpoint_error >
+reactor_interface_adapter::read_variant()
 {
-        using sequencer = std::decay_t< decltype( seq_ ) >;
-
-        uint8_t                                 to_read = sequencer::fixed_size;
-        std::optional< controller_reactor_msg > opt_msg;
-        while ( !opt_msg ) {
-                std::optional opt_data = iface_.receive( to_read );
-                if ( !opt_data ) {
-                        return {};
-                }
-
-                seq_.load_data( view{ *opt_data } )
-                    .match(
-                        [&]( std::size_t next_read ) {
-                                to_read = static_cast< uint8_t >( next_read );
-                        },
-                        [&]( auto msg ) {
-                                opt_msg = msg;
-                        } );
-        }
-
-        if ( !opt_msg ) {
-                return {};
-        }
-
-        std::optional< controller_reactor_variant > res;
-        controller_reactor_extract( *opt_msg )
-            .match(
-                [&]( auto var ) {
-                        res = var;
-                },
-                [&]( protocol::error_record rec ) {
-                        reply( reactor_protocol_error_report{ rec } );
-                } );
-        return res;
+        // TODO: ugly constant
+        return ep_.load_variant( 10, [this]( const std::size_t c ) {
+                return iface_.receive( c );
+        } );
 }
 void reactor_interface_adapter::reply( const reactor_controller_variant& var )
 {
-        auto msg = reactor_controller_serialize( var );
+        auto msg = ep_.serialize( var );
         iface_.transmit( msg );
 }
 
