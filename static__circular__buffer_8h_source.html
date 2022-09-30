@@ -305,11 +305,11 @@ $(document).ready(function(){initNavTree('static__circular__buffer_8h_source.htm
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="comment">//</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment"></span>        <span class="comment">//</span></div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        T* data()</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        [[nodiscard]] T* data()</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        {</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span> T* <span class="keyword">&gt;</span>( std::addressof( data_ ) );</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <span class="keyword">const</span> T* data()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        [[nodiscard]] <span class="keyword">const</span> T* data()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span> <span class="keyword">const </span>T* <span class="keyword">&gt;</span>( std::addressof( data_ ) );</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        }</div>
@@ -572,7 +572,7 @@ $(document).ready(function(){initNavTree('static__circular__buffer_8h_source.htm
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="static__circular__buffer_8h.html">static_circular_buffer.h</a></li>
-    <li class="footer">Generated on Fri Sep 30 2022 17:25:27 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Sep 30 2022 17:28:47 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
