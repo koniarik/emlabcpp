@@ -143,12 +143,27 @@ public:
         static either< typename call_type< ID >::reply, error >
         call( MsgCallback&& cb, const Args&... args )
         {
-                using rt = typename call_type< ID >::reply;
+                auto req_msg   = make_call_msg< ID >( args... );
+                auto reply_msg = cb( req_msg );
+
+                return on_reply_msg< ID >( reply_msg );
+        }
+
+        template < auto ID, typename... Args >
+        static auto make_call_msg( const Args&... args )
+        {
 
                 typename call_type< ID >::request req{ args... };
                 auto                              req_msg = request_handler::serialize(
                     request_type{ std::in_place_index< call_index< ID > >, req } );
-                auto reply_msg = cb( req_msg );
+                return req_msg;
+        }
+
+        template < auto ID >
+        static either< typename call_type< ID >::reply, error >
+        on_reply_msg( const auto& reply_msg )
+        {
+                using rt = typename call_type< ID >::reply;
 
                 return reply_handler::extract( reply_msg )
                     .convert_right( convert_to< error >{} )
