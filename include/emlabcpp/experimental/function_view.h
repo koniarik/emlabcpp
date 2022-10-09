@@ -20,7 +20,7 @@ public:
         {
         }
 
-        template < with_signature< signature > Callable >
+        template < typename Callable >
         function_view( Callable& cb )
           : obj_( &cb )
           , handler_( &CallableHandler< Callable > )
