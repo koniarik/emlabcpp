@@ -9,6 +9,9 @@ EXTRAARGS=-DCMAKE_CXX_FLAGS="$(CXX_FLAGS)" -DCMAKE_EXE_LINKER_FLAGS="$(LINKER_FL
 
 .PHONY: clean build_test exec_test test
 
+test: build_test
+	cd build && ctest -T Test --output-on-failure
+
 clean:
 	rm -rf ./ctidy_build
 	rm -rf ./build
@@ -16,9 +19,6 @@ clean:
 build_test:
 	cmake -Bbuild $(EXTRAARGS)
 	cmake --build build
-
-test: build_test
-	cd build && ctest -T Test --output-on-failure
 
 build_coverage:
 	cmake -Bbuild $(EXTRAARGS) -DEMLABCPP_COVERAGE_ENABLED=ON
@@ -33,7 +33,7 @@ coverage: run_coverage
 
 clang-tidy:
 	cmake -Bctidy_build -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy 
-	cmake --build build
+	cmake --build ctidy_build
 
 clang-format:
 	find ./ \( -iname "*.h" -o -iname "*.cpp" \) | xargs clang-format -i
