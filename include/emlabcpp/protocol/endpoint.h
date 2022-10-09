@@ -83,17 +83,23 @@ public:
                         return endpoint_error{ endpoint_load_error{} };
                 }
 
+                return extract_value( *opt_msg );
+        }
+
+private:
+        either< input_value, endpoint_error > extract_value( const input_message& msg )
+        {
+
                 using handler = packet_handler< InputPacket >;
 
-                return handler::extract( *opt_msg )
-                    .convert_right( []( const error_record rec ) -> endpoint_error {
+                return handler::extract( msg ).convert_right(
+                    []( const error_record rec ) -> endpoint_error {
                             std::ignore = rec;
                             EMLABCPP_LOG( "Protocol error from endpoint: " << rec );
                             return endpoint_error{ rec };
                     } );
         }
 
-private:
         sequencer_type seq_;
 };
 
