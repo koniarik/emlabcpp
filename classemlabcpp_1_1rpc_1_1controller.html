@@ -128,6 +128,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3febe1db6ba2217715e7c1548e1b3656"><td class="memTemplParams" colspan="2">template&lt;auto ID, typename... Args, typename MsgCallback &gt; </td></tr>
 <tr class="memitem:a3febe1db6ba2217715e7c1548e1b3656"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; typename <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a5319b51db3857b413d08bae4d8a68cdb">call_type</a>&lt; ID &gt;::reply, <a class="el" href="namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1error">error</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a3febe1db6ba2217715e7c1548e1b3656">call</a> (MsgCallback &amp;&amp;cb, const Args &amp;... args)</td></tr>
 <tr class="separator:a3febe1db6ba2217715e7c1548e1b3656"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c6c5e5e0c9a01fefd9f6773ea1a2990"><td class="memTemplParams" colspan="2">template&lt;auto ID, typename... Args&gt; </td></tr>
+<tr class="memitem:a6c6c5e5e0c9a01fefd9f6773ea1a2990"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a6c6c5e5e0c9a01fefd9f6773ea1a2990">make_call_msg</a> (const Args &amp;... args)</td></tr>
+<tr class="separator:a6c6c5e5e0c9a01fefd9f6773ea1a2990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0148ec511a202e461184c202962487b6"><td class="memTemplParams" colspan="2">template&lt;auto ID&gt; </td></tr>
+<tr class="memitem:a0148ec511a202e461184c202962487b6"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; typename <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a5319b51db3857b413d08bae4d8a68cdb">call_type</a>&lt; ID &gt;::reply, <a class="el" href="namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1error">error</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a0148ec511a202e461184c202962487b6">on_reply_msg</a> (const auto &amp;reply_msg)</td></tr>
+<tr class="separator:a0148ec511a202e461184c202962487b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -369,7 +375,69 @@ template&lt;auto ID, typename... Args, typename MsgCallback &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>, <a class="el" href="namespaceemlabcpp_1_1rpc.html#a91fa27728962f943bf551ec8e40606da">emlabcpp::rpc::reply_error::expected_index</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a4a4e9b8c20d7122816fa978d0b6121cb">emlabcpp::protocol::handler&lt; T &gt;::extract()</a>, and <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#affeef15139ac1fc1165a89663a92a63b">emlabcpp::protocol::handler&lt; T &gt;::serialize()</a>.</p>
+</div>
+</div>
+<a id="a6c6c5e5e0c9a01fefd9f6773ea1a2990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c6c5e5e0c9a01fefd9f6773ea1a2990">&#9670;&nbsp;</a></span>make_call_msg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Wrapper &gt; </div>
+<div class="memtemplate">
+template&lt;auto ID, typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::make_call_msg </td>
+          <td>(</td>
+          <td class="paramtype">const Args &amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#affeef15139ac1fc1165a89663a92a63b">emlabcpp::protocol::handler&lt; T &gt;::serialize()</a>.</p>
+
+</div>
+</div>
+<a id="a0148ec511a202e461184c202962487b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0148ec511a202e461184c202962487b6">&#9670;&nbsp;</a></span>on_reply_msg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Wrapper &gt; </div>
+<div class="memtemplate">
+template&lt;auto ID&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; typename <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a5319b51db3857b413d08bae4d8a68cdb">call_type</a>&lt; ID &gt;::reply, <a class="el" href="namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1error">error</a> &gt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::on_reply_msg </td>
+          <td>(</td>
+          <td class="paramtype">const auto &amp;&#160;</td>
+          <td class="paramname"><em>reply_msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>, <a class="el" href="namespaceemlabcpp_1_1rpc.html#a91fa27728962f943bf551ec8e40606da">emlabcpp::rpc::reply_error::expected_index</a>, and <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a4a4e9b8c20d7122816fa978d0b6121cb">emlabcpp::protocol::handler&lt; T &gt;::extract()</a>.</p>
 
 </div>
 </div>
@@ -409,7 +477,7 @@ template&lt;auto ID&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1rpc.html">rpc</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">controller</a></li>
-    <li class="footer">Generated on Fri Sep 30 2022 17:28:47 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 9 2022 10:21:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

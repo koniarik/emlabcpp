@@ -172,21 +172,27 @@ $(document).ready(function(){initNavTree('endpoint_8h_source.html',''); initResi
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">endpoint_error</a>{ <a class="code" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error">endpoint_load_error</a>{} };</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keyword">using</span> <a class="code" href="structemlabcpp_1_1protocol_1_1handler.html">handler</a> = <a class="code" href="structemlabcpp_1_1protocol_1_1packet__handler.html">packet_handler&lt; InputPacket &gt;</a>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1handler.html#a4a4e9b8c20d7122816fa978d0b6121cb">handler::extract</a>( *opt_msg )</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    .convert_right( []( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> rec ) -&gt; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">endpoint_error</a> {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                            std::ignore = rec;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                            <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>( <span class="stringliteral">&quot;Protocol error from endpoint: &quot;</span> &lt;&lt; rec );</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                            <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">endpoint_error</a>{ rec };</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                    } );</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="classemlabcpp_1_1protocol_1_1endpoint.html#aa212477b87f982828f9f6fcc849eb382">sequencer_type</a> seq_;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}  <span class="comment">// namespace emlabcpp::protocol</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">return</span> extract_value( *opt_msg );</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="classemlabcpp_1_1either.html">either&lt; input_value, endpoint_error &gt;</a> extract_value( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1protocol_1_1endpoint.html#afff8181116cbb4cfea7f8eeaa658bbbc">input_message</a>&amp; msg )</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keyword">using</span> <a class="code" href="structemlabcpp_1_1protocol_1_1handler.html">handler</a> = <a class="code" href="structemlabcpp_1_1protocol_1_1packet__handler.html">packet_handler&lt; InputPacket &gt;</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1handler.html#a4a4e9b8c20d7122816fa978d0b6121cb">handler::extract</a>( msg ).convert_right(</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                    []( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> rec ) -&gt; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">endpoint_error</a> {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                            std::ignore = rec;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                            <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>( <span class="stringliteral">&quot;Protocol error from endpoint: &quot;</span> &lt;&lt; rec );</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                            <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">endpoint_error</a>{ rec };</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    } );</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="classemlabcpp_1_1protocol_1_1endpoint.html#aa212477b87f982828f9f6fcc849eb382">sequencer_type</a> seq_;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}  <span class="comment">// namespace emlabcpp::protocol</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1either_html"><div class="ttname"><a href="classemlabcpp_1_1either.html">emlabcpp::either</a></div><div class="ttdoc">Either is heterogenous structure that holds one of the two types specified.</div><div class="ttdef"><b>Definition:</b> either.h:52</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1protocol_1_1endpoint_html"><div class="ttname"><a href="classemlabcpp_1_1protocol_1_1endpoint.html">emlabcpp::protocol::endpoint</a></div><div class="ttdef"><b>Definition:</b> endpoint.h:16</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1protocol_1_1endpoint_html_a4361b388f8045f225b40406e4ff9c439"><div class="ttname"><a href="classemlabcpp_1_1protocol_1_1endpoint.html#a4361b388f8045f225b40406e4ff9c439">emlabcpp::protocol::endpoint::output_message</a></div><div class="ttdeci">typename OutputPacket::message_type output_message</div><div class="ttdef"><b>Definition:</b> endpoint.h:20</div></div>
@@ -218,7 +224,7 @@ $(document).ready(function(){initNavTree('endpoint_8h_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="endpoint_8h.html">endpoint.h</a></li>
-    <li class="footer">Generated on Fri Sep 30 2022 17:28:47 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 9 2022 10:21:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -27,6 +27,7 @@ var namespaceemlabcpp =
     [ "function_view", "namespaceemlabcpp.html#classemlabcpp_1_1function__view", null ],
     [ "function_view< ReturnType(ArgTypes...) >", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4" ],
     [ "pretty_printer", "classemlabcpp_1_1pretty__printer.html", "classemlabcpp_1_1pretty__printer" ],
+    [ "request_reply", "classemlabcpp_1_1request__reply.html", "classemlabcpp_1_1request__reply" ],
     [ "generic_iterator", "classemlabcpp_1_1generic__iterator.html", "classemlabcpp_1_1generic__iterator" ],
     [ "access_iterator", "classemlabcpp_1_1access__iterator.html", "classemlabcpp_1_1access__iterator" ],
     [ "convert_iterator", "classemlabcpp_1_1convert__iterator.html", "classemlabcpp_1_1convert__iterator" ],

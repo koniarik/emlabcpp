@@ -4,6 +4,7 @@ var hierarchy =
     [ "std::array< T >", null, [
       [ "emlabcpp::protocol::mark", "structemlabcpp_1_1protocol_1_1mark.html", null ]
     ] ],
+    [ "emlabcpp::request_reply< InputType, OutputType >::awaiter", "structemlabcpp_1_1request__reply_1_1awaiter.html", null ],
     [ "emlabcpp::protocol::backup_converter< typename, endian >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1backup__converter", null ],
     [ "emlabcpp::protocol::backup_converter< T, Endianess >", "structemlabcpp_1_1protocol_1_1backup__converter_3_01T_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol::backup_proto_traits< D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1backup__proto__traits", null ],
@@ -173,6 +174,7 @@ var hierarchy =
       [ "emlabcpp::pool_resource< PoolSize, PoolCount >", "classemlabcpp_1_1pool__resource.html", null ]
     ] ],
     [ "emlabcpp::pretty_printer", "classemlabcpp_1_1pretty__printer.html", null ],
+    [ "emlabcpp::request_reply< InputType, OutputType >::promise_type", "structemlabcpp_1_1request__reply_1_1promise__type.html", null ],
     [ "emlabcpp::protocol::proto_traits< D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits", null ],
     [ "emlabcpp::protocol::proto_traits< bounded< D, Min, Max > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html", null ],
     [ "emlabcpp::protocol::proto_traits< error_record >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html", null ],
@@ -214,6 +216,7 @@ var hierarchy =
     [ "emlabcpp::protocol::register_map< Endianess, Regs >", "classemlabcpp_1_1protocol_1_1register__map.html", null ],
     [ "emlabcpp::protocol::register_pair< Key, D >", "structemlabcpp_1_1protocol_1_1register__pair.html", null ],
     [ "emlabcpp::rpc::reply_error", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1reply__error", null ],
+    [ "emlabcpp::request_reply< InputType, OutputType >", "classemlabcpp_1_1request__reply.html", null ],
     [ "emlabcpp::select_utype< size_t >", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
     [ "emlabcpp::protocol::sequencer< Def >", "classemlabcpp_1_1protocol_1_1sequencer.html", null ],
     [ "emlabcpp::protocol::packet< Def, Payload >::sequencer_def", "structemlabcpp_1_1protocol_1_1packet_1_1sequencer__def.html", null ],

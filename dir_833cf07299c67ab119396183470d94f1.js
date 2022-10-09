@@ -14,5 +14,10 @@ var dir_833cf07299c67ab119396183470d94f1 =
     ] ],
     [ "logging.h", "logging_8h.html", "logging_8h" ],
     [ "pretty_printer.h", "pretty__printer_8h.html", "pretty__printer_8h" ],
+    [ "request_reply.h", "request__reply_8h.html", [
+      [ "request_reply", "classemlabcpp_1_1request__reply.html", "classemlabcpp_1_1request__reply" ],
+      [ "awaiter", "structemlabcpp_1_1request__reply_1_1awaiter.html", "structemlabcpp_1_1request__reply_1_1awaiter" ],
+      [ "promise_type", "structemlabcpp_1_1request__reply_1_1promise__type.html", "structemlabcpp_1_1request__reply_1_1promise__type" ]
+    ] ],
     [ "rpc.h", "rpc_8h.html", "rpc_8h" ]
 ];
