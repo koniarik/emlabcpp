@@ -212,6 +212,11 @@ public:
         {
                 return vtable_->invoke( obj_, std::forward< ArgTypes >( args )... );
         }
+        
+        ReturnType operator()( ArgTypes... args ) const
+        {
+                return vtable_->invoke( obj_, std::forward< ArgTypes >( args )... );
+        }
 
         ~static_function_base()
         {
