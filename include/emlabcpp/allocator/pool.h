@@ -22,6 +22,7 @@
 //
 #include "emlabcpp/allocator/util.h"
 #include "emlabcpp/assert.h"
+#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/static_vector.h"
 
@@ -76,6 +77,7 @@ public:
                 }
 
                 if ( p == nullptr || used > PoolSize ) {
+                        EMLABCPP_LOG("Failed to allocate");
 #ifdef __EXCEPTIONS
                         throw std::bad_alloc{};
 #else
@@ -96,6 +98,7 @@ public:
                 const std::size_t spot_i = ( pval - bval ) / PoolSize;
 
                 if ( spot_i >= PoolCount ) {
+                        EMLABCPP_LOG("Failed to deallocate");
 #ifdef __EXCEPTIONS
                         throw std::bad_alloc{};
 #else
