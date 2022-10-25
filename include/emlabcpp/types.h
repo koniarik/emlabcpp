@@ -86,17 +86,19 @@ auto& operator<<( Stream& os, tag< ID > )
 //// central function for returning name of type that can demangle if necessary
 
 template < typename T >
-std::string pretty_type_name()
+auto pretty_type_name()
 {
-        std::string res;
 #ifdef EMLABCPP_USE_DEMANGLING
-        int   tmp   = 0;
-        char* dname = abi::__cxa_demangle( typeid( T ).name(), nullptr, nullptr, &tmp );
-        res         = dname;
+        std::string res;
+        int         tmp   = 0;
+        char*       dname = abi::__cxa_demangle( typeid( T ).name(), nullptr, nullptr, &tmp );
+        res               = dname;
         // NOLINTNEXTLINE
         free( dname );
 #elif EMLABCPP_USE_TYPEID
-        res = typeid( T ).name();
+        std::string_view res = typeid( T ).name();
+#else
+        std::string_view res = "type names not supported";
 #endif
         return res;
 }
