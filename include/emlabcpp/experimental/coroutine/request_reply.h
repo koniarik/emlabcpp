@@ -1,4 +1,5 @@
 #include "emlabcpp/allocator/pool.h"
+#include "emlabcpp/experimental/coroutine/owning_coroutine_handle.h"
 #include "emlabcpp/experimental/logging.h"
 
 #include <coroutine>
@@ -58,6 +59,10 @@ public:
                 {
                 }
 
+                void return_void()
+                {
+                }
+
                 awaiter yield_value( OutputType out )
                 {
                         output = out;
@@ -98,7 +103,8 @@ public:
                 }
         };
 
-        using handle = std::coroutine_handle< promise_type >;
+        using handle        = std::coroutine_handle< promise_type >;
+        using owning_handle = owning_coroutine_handle< promise_type >;
 
         request_reply( const handle cor )
           : h_( cor )
@@ -117,16 +123,17 @@ public:
                         EMLABCPP_LOG( "Can't extract output from empty handle" );
                         return nullptr;
                 }
-                if ( !h_.promise().output ) {
+                if ( !h_->promise().output.has_value() ) {
+                        EMLABCPP_LOG( "No output in coroutine at " << &h_->promise().output );
                         return nullptr;
                 }
-                return &*h_.promise().output;
+                return &*h_->promise().output;
         }
 
         bool has_input()
         {
                 if ( h_ ) {
-                        return h_.promise().input.has_value();
+                        return h_->promise().input.has_value();
                 } else {
                         EMLABCPP_LOG( "Can't check input in empty handle" );
                         return false;
@@ -136,8 +143,7 @@ public:
         void store_input( const InputType& inpt )
         {
                 if ( h_ ) {
-
-                        h_.promise().input = inpt;
+                        h_->promise().input = inpt;
                 } else {
                         EMLABCPP_LOG( "Can't store input in empty handle" );
                 }
@@ -145,12 +151,12 @@ public:
 
         [[nodiscard]] bool done() const
         {
-                return h_.done();
+                return h_->done();
         }
 
         [[nodiscard]] bool tick()
         {
-                if ( !h_.promise().input ) {
+                if ( !h_->promise().input ) {
                         EMLABCPP_LOG( "Can't tick coroutine, no input" );
                         return false;
                 }
@@ -158,23 +164,21 @@ public:
                         EMLABCPP_LOG( "No handle in coroutine" );
                         return false;
                 }
-                if ( h_.done() ) {
+                if ( h_->done() ) {
                         EMLABCPP_LOG( "Ticking coroutine that is finished - skipping" );
                         return false;
                 }
-                h_();
+                h_->resume();
                 return true;
         }
 
-        ~request_reply()
+        void* address() const
         {
-                if ( h_ ) {
-                        h_.destroy();
-                }
+                return h_->address();
         }
 
 private:
-        handle h_;
+        owning_handle h_;
 };
 
 }  // namespace emlabcpp
