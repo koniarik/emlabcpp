@@ -133,7 +133,6 @@ namespace detail
 template < typename T >
 concept ostreamlike = !std::is_array_v< T > && requires( T val )
 {
-        bool( val );
         requires detail::directly_streamable_for< T, uint8_t >;
         requires detail::directly_streamable_for< T, uint16_t >;
         requires detail::directly_streamable_for< T, uint32_t >;

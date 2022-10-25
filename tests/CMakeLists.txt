@@ -20,7 +20,6 @@ function(emlabcpp_setup_test target)
     ${target}
     PRIVATE -ggdb
             -Wall
-            -Werror
             -Wextra
             -Wpedantic
             -Wnon-virtual-dtor

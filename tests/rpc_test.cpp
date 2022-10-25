@@ -79,7 +79,7 @@ TEST( rpc, basic )
             .match(
                 [&]( rpc::void_return_type ) {},
                 [&]( rpc::error err ) {
-                        pretty_printer pp;
+                        pretty_printer< std::stringstream > pp{};
                         pp << err;
                         FAIL() << pp.str();
                 } );
@@ -133,7 +133,7 @@ TEST( rpc, bind )
             .match(
                 [&]( rpc::void_return_type ) {},
                 [&]( rpc::error err ) {
-                        pretty_printer pp;
+                        pretty_printer< std::stringstream > pp{};
                         pp << err;
                         FAIL() << pp.str();
                 } );

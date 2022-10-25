@@ -25,6 +25,7 @@
 
 #include <array>
 #include <optional>
+#include <span>
 
 #pragma once
 
@@ -143,6 +144,11 @@ public:
                 std::copy( begin(), end(), res.begin() );
                 std::fill( res.begin() + N, res.end(), 0 );
                 return res;
+        }
+
+        operator std::span< uint8_t >() const
+        {
+                return std::span< uint8_t >{ data_, used_ };
         }
 
         friend auto operator==( const message& lh, const message& rh )

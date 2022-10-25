@@ -82,11 +82,10 @@ struct valid_test_case : protocol_test_fixture
 
         void generate_name( std::ostream& os ) const final
         {
-                pretty_printer pp;
+                pretty_printer< std::ostream& > pp{ os };
                 pp << "test case for: " << pretty_name< T >() << ";"
                    << " " << Endianess << ";" << std::hex
                    << " expected binary data: " << convert_view< int >( expected_buffer ) << ";";
-                os << pp.str();
         }
 };
 
@@ -145,11 +144,10 @@ struct invalid_test_case : protocol_test_fixture
 
         void generate_name( std::ostream& os ) const final
         {
-                pretty_printer pp{};
+                pretty_printer< std::ostream& > pp{ os };
                 pp << "invalid test for: " << pretty_name< T >() << ";"
                    << " input: " << inpt << ";"
                    << " expected error: " << expected_rec << ";";
-                os << pp.str();
         }
 };
 

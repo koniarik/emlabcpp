@@ -81,9 +81,9 @@ struct packet_handler
                                     EMLABCPP_LOG(
                                         "Problematic message: " << *message_type::make( msg ) );
                                     EMLABCPP_LOG(
-                                        std::hex << "Checksum failed, calculated: "
-                                                 << int( calculated_checksum )
-                                                 << " present: " << int( present_checksum ) );
+                                        "Checksum failed, calculated: "
+                                        << int( calculated_checksum )
+                                        << " present: " << int( present_checksum ) );
                                     return error_record{ CHECKSUM_ERR, checksum_pos };
                             }
                             return std::get< 2 >( pack );

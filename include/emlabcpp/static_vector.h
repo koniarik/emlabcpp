@@ -320,8 +320,9 @@ auto& operator<<( Stream& os, const static_vector< T, N >& vec )
         return os << view{ vec };
 }
 
-template < typename T, std::size_t N >
-pretty_printer& operator<<( pretty_printer& os, const static_vector< T, N >& vec )
+template < typename StreamType, typename T, std::size_t N >
+pretty_printer< StreamType >&
+operator<<( pretty_printer< StreamType >& os, const static_vector< T, N >& vec )
 {
         if constexpr ( std::same_as< T, char > ) {
                 for ( const char c : vec ) {

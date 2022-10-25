@@ -36,23 +36,19 @@ namespace emlabcpp::protocol
 template < ostreamlike Stream, std::size_t N >
 auto& operator<<( Stream& os, const message< N >& msg )
 {
-        std::ios_base::fmtflags f( os.flags() );
-        char                    fill_ch = os.fill();
-        std::streamsize         width   = os.width();
-        os.fill( '0' );
-        os.width( 2 );
-        os << std::hex;
+        // TODO: this might benefit from some refactoring?
+        static constexpr char hex_chars[16] = {
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+
         char l = '|';
         for ( std::size_t i : range( msg.size() ) ) {
                 if ( i % 4 == 0 ) {
                         l = '|';
                 }
-                os << l << int( msg[i] );
+                uint8_t val = msg[i];
+                os << l << hex_chars[val / 16] << hex_chars[val % 16];
                 l = ':';
         }
-        os.fill( fill_ch );
-        os.flags( f );
-        os.width( width );
         return os;
 }
 

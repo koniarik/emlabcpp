@@ -3,6 +3,7 @@
 #include "emlabcpp/experimental/decompose.h"
 #include "emlabcpp/match.h"
 #include "emlabcpp/types.h"
+#include "emlabcpp/view.h"
 
 #include <filesystem>
 #include <optional>
@@ -25,11 +26,19 @@ concept pretty_printer_main_printable = requires( const T& item, PrettyPrinter& 
         pp.main_print( item );
 };
 
+template < typename StreamType >
 class pretty_printer
 {
 public:
+        pretty_printer() = default;
+
+        pretty_printer( StreamType st )
+          : os_( st )
+        {
+        }
+
         template < typename T >
-        pretty_printer& operator<<( const T& item )
+        pretty_printer& operator<<( const T& item ) &
         {
                 if constexpr ( pretty_printer_main_printable< T, pretty_printer > ) {
                         main_print( item );
@@ -39,7 +48,7 @@ public:
                 return *this;
         }
 
-        operator bool()
+        operator bool() const
         {
                 return bool( os_ );
         }
@@ -49,7 +58,7 @@ public:
                 return os_.str();
         }
 
-        char fill()
+        char fill() const
         {
                 return os_.fill();
         }
@@ -57,7 +66,13 @@ public:
         {
                 return os_.fill( ch );
         }
-        std::streamsize width()
+
+        std::ios_base::fmtflags setf( std::ios_base::fmtflags flags, std::ios_base::fmtflags mask )
+        {
+                return os_.setf( flags, mask );
+        }
+
+        std::streamsize width() const
         {
                 return os_.width();
         }
@@ -65,7 +80,7 @@ public:
         {
                 return os_.width( w );
         }
-        std::ios_base::fmtflags flags()
+        std::ios_base::fmtflags flags() const
         {
                 return os_.flags();
         }
@@ -77,7 +92,8 @@ public:
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
         void main_print( const nlohmann::json& j )
         {
-                os_ << j;
+                std::ostream& os = os_;
+                os << j;
         }
 #endif
 
@@ -112,9 +128,16 @@ public:
                 *this << convert_enum( val );
         }
 
+        void main_print( const char* c )
+        {
+                main_print( std::string_view{ c } );
+        }
+
         void main_print( const std::string_view& sview )
         {
-                os_ << sview;
+                for ( char c : sview ) {
+                        os_ << c;
+                }
         }
 
         void main_print( const std::string& str )
@@ -163,7 +186,7 @@ public:
         }
 
 private:
-        std::stringstream os_;
+        StreamType os_;
 };
 
 }  // namespace emlabcpp

@@ -47,7 +47,8 @@ public:
 
         void send( const controller_reactor_variant& var )
         {
-                EMLABCPP_DEBUG_LOG( "con->rec: " << var );
+                // TODO: won't work with embedded log
+                // EMLABCPP_DEBUG_LOG( "con->rec: " << var );
                 auto msg = ep_.serialize( var );
                 iface_.transmit( msg );
         }
@@ -150,7 +151,8 @@ namespace
                                         iface.report_error( controller_internal_error{ T::id } );
                                 } };
 
-                            EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
+                            // TODO: log won't work on embedded
+                            // EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
                             visit( handle, var );
                     },
                     [&]( const protocol::endpoint_error& ) {} );
@@ -368,7 +370,8 @@ void controller::tick( controller_interface& top_iface )
 
         iface.read_variant().match(
             [&]( const reactor_controller_variant& var ) {
-                    EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
+                    // TODO: won't work with embedded logging
+                    // EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
                     visit( controller_dispatcher{ iface, this->context_ }, var );
             },
             [&]( const protocol::endpoint_error& ) {} );
