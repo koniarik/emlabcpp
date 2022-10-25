@@ -9,7 +9,7 @@ var types_8h =
     [ "select_utype_t", "types_8h.html#ac223240cfaa32fcb48f0daa06c78a9e2", null ],
     [ "type_map_t", "types_8h.html#afbd4de918223b1144d32fcef8a9dfe2a", null ],
     [ "operator<<", "types_8h.html#a155a6828d776fbc298d37aabee6bc0d7", null ],
-    [ "pretty_type_name", "types_8h.html#a46d4ea091d64444e17a8e74d672c3c6c", null ],
+    [ "pretty_type_name", "types_8h.html#a5b62f09ff5468bc513cac30ace3d6c58", null ],
     [ "requires", "types_8h.html#aab6fd32a8b3335eec93b94331d4293b0", null ],
     [ "requires", "types_8h.html#a3dcd56ce6fdffb4ebcf8a4c079335d8e", null ],
     [ "requires", "types_8h.html#ac39ed97224e397106e08c6e04012e62a", null ],

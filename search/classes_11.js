@@ -1,11 +1,20 @@
 var searchData=
 [
-  ['value_5foffset_1156',['value_offset',['../structemlabcpp_1_1protocol_1_1value__offset.html',1,'emlabcpp::protocol']]],
-  ['value_5ftype_5fconverter_1157',['value_type_converter',['../namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter',1,'emlabcpp::testing']]],
-  ['value_5ftype_5fconverter_3c_20int64_5ft_20_3e_1158',['value_type_converter&lt; int64_t &gt;',['../structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html',1,'emlabcpp::testing']]],
-  ['value_5ftype_5fconverter_3c_20std_3a_3astring_5fview_20_3e_1159',['value_type_converter&lt; std::string_view &gt;',['../structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html',1,'emlabcpp::testing']]],
-  ['value_5ftype_5fconverter_5fgetter_1160',['value_type_converter_getter',['../structemlabcpp_1_1testing_1_1value__type__converter__getter.html',1,'emlabcpp::testing']]],
-  ['value_5ftype_5fconverter_5fgetter_3c_20int64_5ft_20_3e_1161',['value_type_converter_getter&lt; int64_t &gt;',['../structemlabcpp_1_1testing_1_1value__type__converter__getter.html',1,'emlabcpp::testing']]],
-  ['view_1162',['view',['../classemlabcpp_1_1view.html',1,'emlabcpp']]],
-  ['void_5freturn_5ftype_1163',['void_return_type',['../namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1void__return__type',1,'emlabcpp::rpc']]]
+  ['tag_1161',['tag',['../structemlabcpp_1_1tag.html',1,'emlabcpp']]],
+  ['tag_5fgroup_1162',['tag_group',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group',1,'emlabcpp::protocol']]],
+  ['tagged_5fquantity_1163',['tagged_quantity',['../classemlabcpp_1_1tagged__quantity.html',1,'emlabcpp']]],
+  ['test_5fcallable_5foverlay_1164',['test_callable_overlay',['../classemlabcpp_1_1testing_1_1test__callable__overlay.html',1,'emlabcpp::testing']]],
+  ['test_5fcomposer_1165',['test_composer',['../classemlabcpp_1_1testing_1_1test__composer.html',1,'emlabcpp::testing']]],
+  ['test_5ffinished_1166',['test_finished',['../structemlabcpp_1_1testing_1_1test__finished.html',1,'emlabcpp::testing']]],
+  ['test_5finfo_1167',['test_info',['../namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info',1,'emlabcpp::testing']]],
+  ['test_5finterface_1168',['test_interface',['../classemlabcpp_1_1testing_1_1test__interface.html',1,'emlabcpp::testing']]],
+  ['test_5fresult_1169',['test_result',['../structemlabcpp_1_1testing_1_1test__result.html',1,'emlabcpp::testing']]],
+  ['traits_1170',['traits',['../namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits',1,'emlabcpp::rpc']]],
+  ['traits_3c_20std_3a_3atuple_3c_20calls_2e_2e_2e_20_3e_20_3e_1171',['traits&lt; std::tuple&lt; Calls... &gt; &gt;',['../namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4',1,'emlabcpp::rpc']]],
+  ['tree_5ferror_5freply_1172',['tree_error_reply',['../structemlabcpp_1_1testing_1_1tree__error__reply.html',1,'emlabcpp::testing']]],
+  ['tuple_1173',['tuple',['../structemlabcpp_1_1protocol_1_1tuple.html',1,'emlabcpp::protocol']]],
+  ['tuple_5fhas_5ftype_1174',['tuple_has_type',['../namespaceemlabcpp.html#structemlabcpp_1_1tuple__has__type',1,'emlabcpp']]],
+  ['tuple_5fhas_5ftype_3c_20t_2c_20std_3a_3atuple_3c_20us_2e_2e_2e_20_3e_20_3e_1175',['tuple_has_type&lt; T, std::tuple&lt; Us... &gt; &gt;',['../structemlabcpp_1_1tuple__has__type_3_01T_00_01std_1_1tuple_3_01Us_8_8_8_01_4_01_4.html',1,'emlabcpp']]],
+  ['type_5fmap_1176',['type_map',['../namespaceemlabcpp.html#structemlabcpp_1_1type__map',1,'emlabcpp']]],
+  ['type_5fmap_3c_20std_3a_3atuple_3c_20ts_2e_2e_2e_20_3e_2c_20fun_20_3e_1177',['type_map&lt; std::tuple&lt; Ts... &gt;, Fun &gt;',['../namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4',1,'emlabcpp']]]
 ];

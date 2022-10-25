@@ -125,53 +125,49 @@ $(document).ready(function(){initNavTree('streams_8h_source.html',''); initResiz
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt; ostreamlike Stream, std::<span class="keywordtype">size_t</span> N &gt;</div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html#ad52649bb28ff1f5ffcd952a86b5ede82">   37</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a86af295c29486a2e771b64dafe6e100b">operator&lt;&lt;</a>( Stream&amp; os, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1protocol_1_1message.html">message&lt; N &gt;</a>&amp; msg )</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        std::ios_base::fmtflags <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>( os.flags() );</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">char</span>                    fill_ch = os.fill();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        std::streamsize         width   = os.width();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        os.fill( <span class="charliteral">&#39;0&#39;</span> );</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        os.width( 2 );</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        os &lt;&lt; std::hex;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">char</span> l = <span class="charliteral">&#39;|&#39;</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#ac4b40baac2662db6424a475292ef03b3">range</a>( msg.<a class="code" href="classemlabcpp_1_1protocol_1_1message.html#ad89e228c4ddda2b608344f775a0c0dd8">size</a>() ) ) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">if</span> ( i % 4 == 0 ) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        l = <span class="charliteral">&#39;|&#39;</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                os &lt;&lt; l &lt;&lt; int( msg[i] );</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                l = <span class="charliteral">&#39;:&#39;</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        os.fill( fill_ch );</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        os.flags( <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> );</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        os.width( width );</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html#af249a28fd2e4a8061fae1a3efa82a658">   59</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a86af295c29486a2e771b64dafe6e100b">operator&lt;&lt;</a>( <a class="code" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> <span class="keyword">auto</span>&amp; os, <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a>&amp; m )</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">for</span> ( <span class="keywordtype">char</span> c : m ) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                os &lt;&lt; c;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html#a16e17e9ab911b5545219ad5745d5ef2b">   67</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a86af295c29486a2e771b64dafe6e100b">operator&lt;&lt;</a>( <a class="code" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> <span class="keyword">auto</span>&amp; os, <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a>&amp; rec )</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; rec.<a class="code" href="namespaceemlabcpp_1_1protocol.html#a53258509ef594ffcca73ea55a640dd63">error_mark</a> &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; rec.<a class="code" href="namespaceemlabcpp_1_1protocol.html#a7996dad74892867782224e252a6e8d53">offset</a> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html#a78012bf92df942bfb241c7e097c87846">   72</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a86af295c29486a2e771b64dafe6e100b">operator&lt;&lt;</a>( <a class="code" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> <span class="keyword">auto</span>&amp; os, <span class="keyword">const</span> std::endian&amp; val )</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">switch</span> ( val ) {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">case</span> std::endian::big:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;big endian&quot;</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">case</span> std::endian::little:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                        <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;little endian&quot;</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}  <span class="comment">// namespace emlabcpp::protocol</span></div>
-<div class="ttc" id="aclassemlabcpp_1_1protocol_1_1message_html"><div class="ttname"><a href="classemlabcpp_1_1protocol_1_1message.html">emlabcpp::protocol::message</a></div><div class="ttdoc">Protocol library has custom type that represents message, however this is just simple overaly over st...</div><div class="ttdef"><b>Definition:</b> message.h:38</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1protocol_1_1message_html_ad89e228c4ddda2b608344f775a0c0dd8"><div class="ttname"><a href="classemlabcpp_1_1protocol_1_1message.html#ad89e228c4ddda2b608344f775a0c0dd8">emlabcpp::protocol::message::size</a></div><div class="ttdeci">std::size_t size() const</div><div class="ttdef"><b>Definition:</b> message.h:83</div></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">// TODO: this might benefit from some refactoring?</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">char</span> hex_chars[16] = {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;1&#39;</span>, <span class="charliteral">&#39;2&#39;</span>, <span class="charliteral">&#39;3&#39;</span>, <span class="charliteral">&#39;4&#39;</span>, <span class="charliteral">&#39;5&#39;</span>, <span class="charliteral">&#39;6&#39;</span>, <span class="charliteral">&#39;7&#39;</span>, <span class="charliteral">&#39;8&#39;</span>, <span class="charliteral">&#39;9&#39;</span>, <span class="charliteral">&#39;A&#39;</span>, <span class="charliteral">&#39;B&#39;</span>, <span class="charliteral">&#39;C&#39;</span>, <span class="charliteral">&#39;D&#39;</span>, <span class="charliteral">&#39;E&#39;</span>, <span class="charliteral">&#39;F&#39;</span> };</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">char</span> l = <span class="charliteral">&#39;|&#39;</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#ac4b40baac2662db6424a475292ef03b3">range</a>( msg.<a class="code" href="classemlabcpp_1_1protocol_1_1message.html#ad89e228c4ddda2b608344f775a0c0dd8">size</a>() ) ) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">if</span> ( i % 4 == 0 ) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                        l = <span class="charliteral">&#39;|&#39;</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                uint8_t val = msg[i];</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                os &lt;&lt; l &lt;&lt; hex_chars[val / 16] &lt;&lt; hex_chars[val % 16];</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                l = <span class="charliteral">&#39;:&#39;</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html#af249a28fd2e4a8061fae1a3efa82a658">   55</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a86af295c29486a2e771b64dafe6e100b">operator&lt;&lt;</a>( <a class="code" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> <span class="keyword">auto</span>&amp; os, <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a>&amp; m )</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">for</span> ( <span class="keywordtype">char</span> c : m ) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                os &lt;&lt; c;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html#a16e17e9ab911b5545219ad5745d5ef2b">   63</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a86af295c29486a2e771b64dafe6e100b">operator&lt;&lt;</a>( <a class="code" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> <span class="keyword">auto</span>&amp; os, <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a>&amp; rec )</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; rec.<a class="code" href="namespaceemlabcpp_1_1protocol.html#a53258509ef594ffcca73ea55a640dd63">error_mark</a> &lt;&lt; <span class="stringliteral">&quot;(&quot;</span> &lt;&lt; rec.<a class="code" href="namespaceemlabcpp_1_1protocol.html#a7996dad74892867782224e252a6e8d53">offset</a> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html#a78012bf92df942bfb241c7e097c87846">   68</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a86af295c29486a2e771b64dafe6e100b">operator&lt;&lt;</a>( <a class="code" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> <span class="keyword">auto</span>&amp; os, <span class="keyword">const</span> std::endian&amp; val )</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">switch</span> ( val ) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">case</span> std::endian::big:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;big endian&quot;</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">case</span> std::endian::little:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;little endian&quot;</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}  <span class="comment">// namespace emlabcpp::protocol</span></div>
+<div class="ttc" id="aclassemlabcpp_1_1protocol_1_1message_html"><div class="ttname"><a href="classemlabcpp_1_1protocol_1_1message.html">emlabcpp::protocol::message</a></div><div class="ttdoc">Protocol library has custom type that represents message, however this is just simple overaly over st...</div><div class="ttdef"><b>Definition:</b> message.h:39</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1protocol_1_1message_html_ad89e228c4ddda2b608344f775a0c0dd8"><div class="ttname"><a href="classemlabcpp_1_1protocol_1_1message.html#ad89e228c4ddda2b608344f775a0c0dd8">emlabcpp::protocol::message::size</a></div><div class="ttdeci">std::size_t size() const</div><div class="ttdef"><b>Definition:</b> message.h:84</div></div>
 <div class="ttc" id="aenum_8h_html"><div class="ttname"><a href="enum_8h.html">enum.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html">emlabcpp::protocol</a></div><div class="ttdef"><b>Definition:</b> protocol.h:333</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a53258509ef594ffcca73ea55a640dd63"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a53258509ef594ffcca73ea55a640dd63">emlabcpp::protocol::error_record::error_mark</a></div><div class="ttdeci">mark error_mark</div><div class="ttdef"><b>Definition:</b> error.h:45</div></div>
@@ -179,7 +175,6 @@ $(document).ready(function(){initNavTree('streams_8h_source.html',''); initResiz
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a86af295c29486a2e771b64dafe6e100b"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a86af295c29486a2e771b64dafe6e100b">emlabcpp::protocol::operator&lt;&lt;</a></div><div class="ttdeci">auto &amp; operator&lt;&lt;(Stream &amp;os, const register_map&lt; Endianess, Regs... &gt; &amp;m)</div><div class="ttdef"><b>Definition:</b> register_map.h:198</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_structemlabcpp_1_1protocol_1_1error__record"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">emlabcpp::protocol::error_record</a></div><div class="ttdef"><b>Definition:</b> error.h:44</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a27325f314502897567307b29b2b03776"><div class="ttname"><a href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">emlabcpp::ostreamlike</a></div><div class="ttdeci">concept ostreamlike</div><div class="ttdef"><b>Definition:</b> concepts.h:134</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:152</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ac4b40baac2662db6424a475292ef03b3"><div class="ttname"><a href="namespaceemlabcpp.html#ac4b40baac2662db6424a475292ef03b3">emlabcpp::range</a></div><div class="ttdeci">constexpr view&lt; numeric_iterator&lt; Numeric &gt; &gt; range(Numeric from, Numeric to)</div><div class="ttdoc">Builds numeric view over interval [from, to)</div><div class="ttdef"><b>Definition:</b> numeric.h:103</div></div>
 <div class="ttc" id="anumeric_8h_html"><div class="ttname"><a href="numeric_8h.html">numeric.h</a></div></div>
 <div class="ttc" id="aprotocol_2base_8h_html"><div class="ttname"><a href="protocol_2base_8h.html">base.h</a></div></div>
@@ -191,7 +186,7 @@ $(document).ready(function(){initNavTree('streams_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="streams_8h.html">streams.h</a></li>
-    <li class="footer">Generated on Sun Oct 9 2022 10:21:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 25 2022 20:43:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

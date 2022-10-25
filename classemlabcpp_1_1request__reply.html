@@ -110,6 +110,8 @@ Public Types</h2></td></tr>
 <tr class="separator:a7fe20c777f3dd0744023b02ad0ac2be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02cfaef469e1e447cf6a806a7632bfa1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a02cfaef469e1e447cf6a806a7632bfa1">handle</a> = std::coroutine_handle&lt; <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html">promise_type</a> &gt;</td></tr>
 <tr class="separator:a02cfaef469e1e447cf6a806a7632bfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8119d98cbea514187d8859ecb3e46103"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a8119d98cbea514187d8859ecb3e46103">owning_handle</a> = <a class="el" href="classemlabcpp_1_1owning__coroutine__handle.html">owning_coroutine_handle</a>&lt; <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html">promise_type</a> &gt;</td></tr>
+<tr class="separator:a8119d98cbea514187d8859ecb3e46103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -133,8 +135,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aebe0a0964d7f6a3d9688657d2a5a09b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfb879c44feaf7d7e697dca76564cfd8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#adfb879c44feaf7d7e697dca76564cfd8">tick</a> ()</td></tr>
 <tr class="separator:adfb879c44feaf7d7e697dca76564cfd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a772b17939cbf1f403f82e99dbe468641"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a772b17939cbf1f403f82e99dbe468641">~request_reply</a> ()</td></tr>
-<tr class="separator:a772b17939cbf1f403f82e99dbe468641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17a4ee93a368367b870d30c4d4fb8068"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a17a4ee93a368367b870d30c4d4fb8068">address</a> () const</td></tr>
+<tr class="separator:a17a4ee93a368367b870d30c4d4fb8068"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a02cfaef469e1e447cf6a806a7632bfa1"></a>
@@ -179,6 +181,22 @@ template&lt;typename InputType , typename OutputType &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html#a7fe20c777f3dd0744023b02ad0ac2be0">output_type</a> =  OutputType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8119d98cbea514187d8859ecb3e46103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8119d98cbea514187d8859ecb3e46103">&#9670;&nbsp;</a></span>owning_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename InputType , typename OutputType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html#a8119d98cbea514187d8859ecb3e46103">owning_handle</a> =  <a class="el" href="classemlabcpp_1_1owning__coroutine__handle.html">owning_coroutine_handle</a>&lt; <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html">promise_type</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -270,8 +288,9 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 
 </div>
 </div>
-<a id="a772b17939cbf1f403f82e99dbe468641"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a772b17939cbf1f403f82e99dbe468641">&#9670;&nbsp;</a></span>~request_reply()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a17a4ee93a368367b870d30c4d4fb8068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17a4ee93a368367b870d30c4d4fb8068">&#9670;&nbsp;</a></span>address()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,10 +301,10 @@ template&lt;typename InputType , typename OutputType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::~<a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> </td>
+          <td class="memname">void* <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::address </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -297,7 +316,6 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="aebe0a0964d7f6a3d9688657d2a5a09b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aebe0a0964d7f6a3d9688657d2a5a09b7">&#9670;&nbsp;</a></span>done()</h2>
 
@@ -499,7 +517,7 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/emlabcpp/experimental/<a class="el" href="request__reply_8h_source.html">request_reply.h</a></li>
+<li>include/emlabcpp/experimental/coroutine/<a class="el" href="request__reply_8h_source.html">request_reply.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -507,7 +525,7 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a></li>
-    <li class="footer">Generated on Sun Oct 9 2022 10:21:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Oct 25 2022 20:43:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

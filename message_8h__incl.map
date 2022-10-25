@@ -1,9 +1,10 @@
 <map id="include/emlabcpp/protocol/message.h" name="include/emlabcpp/protocol/message.h">
-<area shape="rect" id="node1" title=" " alt="" coords="387,5,581,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="412,5,607,47"/>
 <area shape="rect" id="node2" href="$concepts_8h.html" title=" " alt="" coords="256,244,416,271"/>
 <area shape="rect" id="node4" title=" " alt="" coords="272,393,328,420"/>
-<area shape="rect" id="node8" href="$view_8h.html" title=" " alt="" coords="279,95,411,121"/>
+<area shape="rect" id="node8" href="$view_8h.html" title=" " alt="" coords="275,95,407,121"/>
 <area shape="rect" id="node10" title=" " alt="" coords="547,95,621,121"/>
+<area shape="rect" id="node11" title=" " alt="" coords="645,95,699,121"/>
 <area shape="rect" id="node3" href="$types_2base_8h.html" title=" " alt="" coords="5,319,179,345"/>
 <area shape="rect" id="node5" title=" " alt="" coords="296,319,376,345"/>
 <area shape="rect" id="node6" title=" " alt="" coords="401,319,471,345"/>

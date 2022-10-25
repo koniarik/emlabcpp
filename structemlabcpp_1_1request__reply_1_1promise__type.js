@@ -7,6 +7,7 @@ var structemlabcpp_1_1request__reply_1_1promise__type =
     [ "operator delete", "structemlabcpp_1_1request__reply_1_1promise__type.html#adf6f6f07a45a46b8b0b6c87054146481", null ],
     [ "operator new", "structemlabcpp_1_1request__reply_1_1promise__type.html#a5c643856a1e4729a85bae130d5a10b80", null ],
     [ "operator new", "structemlabcpp_1_1request__reply_1_1promise__type.html#a283e53aca35ec68583f000ddc2c11b9e", null ],
+    [ "return_void", "structemlabcpp_1_1request__reply_1_1promise__type.html#a5e9df65a75ca8b73924fc1edf40ebd79", null ],
     [ "unhandled_exception", "structemlabcpp_1_1request__reply_1_1promise__type.html#af1daf8e1f0a917cec0170a1e041ba0c6", null ],
     [ "yield_value", "structemlabcpp_1_1request__reply_1_1promise__type.html#aae21f90ff6506593a3123c566928efa0", null ],
     [ "input", "structemlabcpp_1_1request__reply_1_1promise__type.html#a3d1eb2106e74a5fd3d7667003b2ff2bd", null ],

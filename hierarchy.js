@@ -150,6 +150,8 @@ var hierarchy =
     [ "emlabcpp::min_max< T >", "structemlabcpp_1_1min__max.html", null ],
     [ "emlabcpp::testing::no_response_error", "structemlabcpp_1_1testing_1_1no__response__error.html", null ],
     [ "std::numeric_limits< T >", "structstd_1_1numeric__limits_3_01T_01_4.html", null ],
+    [ "emlabcpp::owning_coroutine_handle< PromiseType >", "classemlabcpp_1_1owning__coroutine__handle.html", null ],
+    [ "emlabcpp::owning_coroutine_handle< promise_type >", "classemlabcpp_1_1owning__coroutine__handle.html", null ],
     [ "emlabcpp::testing::packet_def", "structemlabcpp_1_1testing_1_1packet__def.html", null ],
     [ "emlabcpp::protocol::packet_handler< Packet >", "structemlabcpp_1_1protocol_1_1packet__handler.html", null ],
     [ "emlabcpp::testing::param_child_count_reply", "structemlabcpp_1_1testing_1_1param__child__count__reply.html", null ],
@@ -173,7 +175,7 @@ var hierarchy =
       [ "emlabcpp::pool_dynamic_resource", "classemlabcpp_1_1pool__dynamic__resource.html", null ],
       [ "emlabcpp::pool_resource< PoolSize, PoolCount >", "classemlabcpp_1_1pool__resource.html", null ]
     ] ],
-    [ "emlabcpp::pretty_printer", "classemlabcpp_1_1pretty__printer.html", null ],
+    [ "emlabcpp::pretty_printer< StreamType >", "classemlabcpp_1_1pretty__printer.html", null ],
     [ "emlabcpp::request_reply< InputType, OutputType >::promise_type", "structemlabcpp_1_1request__reply_1_1promise__type.html", null ],
     [ "emlabcpp::protocol::proto_traits< D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits", null ],
     [ "emlabcpp::protocol::proto_traits< bounded< D, Min, Max > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html", null ],
@@ -217,6 +219,7 @@ var hierarchy =
     [ "emlabcpp::protocol::register_pair< Key, D >", "structemlabcpp_1_1protocol_1_1register__pair.html", null ],
     [ "emlabcpp::rpc::reply_error", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1reply__error", null ],
     [ "emlabcpp::request_reply< InputType, OutputType >", "classemlabcpp_1_1request__reply.html", null ],
+    [ "emlabcpp::round_robin_executor< Coroutine, N >", "classemlabcpp_1_1round__robin__executor.html", null ],
     [ "emlabcpp::select_utype< size_t >", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
     [ "emlabcpp::protocol::sequencer< Def >", "classemlabcpp_1_1protocol_1_1sequencer.html", null ],
     [ "emlabcpp::protocol::packet< Def, Payload >::sequencer_def", "structemlabcpp_1_1protocol_1_1packet_1_1sequencer__def.html", null ],
@@ -228,6 +231,7 @@ var hierarchy =
     [ "emlabcpp::signature_of< ReturnType(Class::*)(Args...) >", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4.html", [
       [ "emlabcpp::signature_of< ReturnType(Class::*)(Args...) const >", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01const_01_4.html", null ]
     ] ],
+    [ "emlabcpp::simple_stream< WriteCallable >", "classemlabcpp_1_1simple__stream.html", null ],
     [ "emlabcpp::protocol::sized_buffer< CounterDef, D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer", null ],
     [ "emlabcpp::static_circular_buffer< T, N >", "classemlabcpp_1_1static__circular__buffer.html", null ],
     [ "emlabcpp::static_circular_buffer< uint8_t, Def::message_type::max_size *2 >", "classemlabcpp_1_1static__circular__buffer.html", null ],
@@ -244,6 +248,7 @@ var hierarchy =
     [ "emlabcpp::impl::static_size< std::tuple< Ts... > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::static_vector< T, N >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::static_vector< char, 32 >", "classemlabcpp_1_1static__vector.html", null ],
+    [ "emlabcpp::static_vector< Coroutine, N >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::static_vector< uint16_t, PoolCount >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::tag< V >", "structemlabcpp_1_1tag.html", null ],
     [ "emlabcpp::protocol::tag_group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group", null ],
