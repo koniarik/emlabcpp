@@ -146,11 +146,6 @@ public:
                 return res;
         }
 
-        operator std::span< uint8_t >() const
-        {
-                return std::span< uint8_t >{ data_, used_ };
-        }
-
         friend auto operator==( const message& lh, const message& rh )
         {
                 return view_n( lh.begin(), lh.used_ ) == view_n( rh.begin(), rh.used_ );
