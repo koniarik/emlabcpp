@@ -30,7 +30,7 @@ reactor_interface_adapter::read_variant()
 {
         // TODO: ugly constant
         return ep_.load_variant( 10, [this]( const std::size_t c ) {
-                return iface_.receive( c );
+                return iface_.receive( static_cast< uint8_t >( c ) );
         } );
 }
 void reactor_interface_adapter::reply( const reactor_controller_variant& var )
