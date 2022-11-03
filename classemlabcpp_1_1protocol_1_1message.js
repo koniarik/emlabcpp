@@ -18,7 +18,6 @@ var classemlabcpp_1_1protocol_1_1message =
     [ "front", "classemlabcpp_1_1protocol_1_1message.html#a4ac54d0288f1b01fc475c83370374515", null ],
     [ "make", "classemlabcpp_1_1protocol_1_1message.html#a64606ee225a66213b5299c6614505b3f", null ],
     [ "operator std::array< uint8_t, M >", "classemlabcpp_1_1protocol_1_1message.html#a3ae5c258a06b12c8e72b0fada2abd3ff", null ],
-    [ "operator std::span< uint8_t >", "classemlabcpp_1_1protocol_1_1message.html#a5441dc1241bcdb68bac003a2757668b8", null ],
     [ "operator[]", "classemlabcpp_1_1protocol_1_1message.html#a16b854d1f3618ebdc50b18e313383289", null ],
     [ "operator[]", "classemlabcpp_1_1protocol_1_1message.html#ae2834588a413acd64333989ccd6f2169", null ],
     [ "size", "classemlabcpp_1_1protocol_1_1message.html#ad89e228c4ddda2b608344f775a0c0dd8", null ],

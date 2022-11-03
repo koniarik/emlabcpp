@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html#a10eb22c6919ddbe23dbaed3067fa0e03":[3,0,0,2,1,1],
 "structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html#a6026a4ff732b6093f8dc8b8b12b1e142":[3,0,0,2,1,6],
 "structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html#a6c220b20948ecdd577202e9215985d40":[3,0,0,2,1,5],
 "structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html#ae8281e782bfa2c3619d11b3920d187f1":[3,0,0,2,1,7],
@@ -12,8 +11,8 @@ var NAVTREEINDEX7 =
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a1d054f4f05805200120105e02368d5ff":[3,0,0,2,13,12],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a27926b2b16597d3a6eefe4e8748a74b3":[3,0,0,2,13,10],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a45af82c224dd93c1326aaac80fdbc9c0":[3,0,0,2,13,7],
-"structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a5ea44fb2dc8cf3d1b6018eaea5f0e13d":[3,0,0,2,13,5],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a5ea44fb2dc8cf3d1b6018eaea5f0e13d":[3,0,0,2,13,4],
+"structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a5ea44fb2dc8cf3d1b6018eaea5f0e13d":[3,0,0,2,13,5],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a6c5feac86d2f8c6feaa58f90d442012f":[3,0,0,2,13,0],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a752ad07f1d5a50a1aea9fb4f7fd977fa":[3,0,0,2,13,2],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a818a80fa4dc8f1708574743ff9955f82":[3,0,0,2,13,11],
@@ -241,13 +240,14 @@ var NAVTREEINDEX7 =
 "structemlabcpp_1_1protocol_1_1packet__handler.html#aff3c7412614855623c29904e227de921":[3,0,0,2,42,12],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html":[3,0,0,2,53],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html#a53844818f3aba50fc2fcc2c8c0634bbf":[3,0,0,2,53,3],
-"structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html#ad5c5c033ca5cfea0c1165a916783fdf7":[3,0,0,2,53,0],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html#ad5c5c033ca5cfea0c1165a916783fdf7":[3,0,0,2,53,1],
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html#ad5c5c033ca5cfea0c1165a916783fdf7":[3,0,0,2,53,0],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html#afb48eead05579935fc8f2a78afa7c19f":[3,0,0,2,53,2],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html":[3,0,0,2,62],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html#a21d6adcd05591a665aeaa925c9aa3ebd":[3,0,0,2,62,2],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html#a24d97a00da57a72c3019966093bef518":[3,0,0,2,62,0],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html#a5e3bdd3df1fd25f89bcf67b33deedb65":[3,0,0,2,62,1],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_01_4.html":[3,0,0,2,67],
-"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html":[3,0,0,2,69]
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html":[3,0,0,2,69],
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#a33ff014880d9ec462b467f86130ab01b":[3,0,0,2,69,3]
 };

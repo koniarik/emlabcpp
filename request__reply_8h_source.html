@@ -246,35 +246,38 @@ $(document).ready(function(){initNavTree('request__reply_8h_source.html',''); in
 <div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1request__reply.html#adfb879c44feaf7d7e697dca76564cfd8">  157</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1request__reply.html#adfb879c44feaf7d7e697dca76564cfd8">tick</a>()</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        {</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <span class="keywordflow">if</span> ( !h_-&gt;promise().input ) {</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                        <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>( <span class="stringliteral">&quot;Can&#39;t tick coroutine, no input&quot;</span> );</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                        <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>( <span class="stringliteral">&quot;Can&#39;t tick coroutine &quot;</span> &lt;&lt; <a class="code" href="classemlabcpp_1_1request__reply.html#a17a4ee93a368367b870d30c4d4fb8068">address</a>() &lt;&lt; <span class="stringliteral">&quot;, no input&quot;</span> );</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                }</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                <span class="keywordflow">if</span> ( !h_ ) {</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                        <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>( <span class="stringliteral">&quot;No handle in coroutine&quot;</span> );</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                        <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>( <span class="stringliteral">&quot;No handle in coroutine &quot;</span> &lt;&lt; <a class="code" href="classemlabcpp_1_1request__reply.html#a17a4ee93a368367b870d30c4d4fb8068">address</a>() );</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                }</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                <span class="keywordflow">if</span> ( h_-&gt;done() ) {</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                        <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>( <span class="stringliteral">&quot;Ticking coroutine that is finished - skipping&quot;</span> );</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                }</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                h_-&gt;resume();</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        }</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1request__reply.html#a17a4ee93a368367b870d30c4d4fb8068">  175</a></span>&#160;        <span class="keywordtype">void</span>* <a class="code" href="classemlabcpp_1_1request__reply.html#a17a4ee93a368367b870d30c4d4fb8068">address</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                <span class="keywordflow">return</span> h_-&gt;address();</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        }</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <a class="code" href="classemlabcpp_1_1request__reply.html#a8119d98cbea514187d8859ecb3e46103">owning_handle</a> h_;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;};</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                        <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>(</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                            <span class="stringliteral">&quot;Ticking coroutine &quot;</span> &lt;&lt; <a class="code" href="classemlabcpp_1_1request__reply.html#a17a4ee93a368367b870d30c4d4fb8068">address</a>() &lt;&lt; <span class="stringliteral">&quot; that is finished - skipping&quot;</span> );</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                }</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                h_-&gt;promise().output.reset();</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                h_-&gt;resume();</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                h_-&gt;promise().input.reset();</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1request__reply.html#a17a4ee93a368367b870d30c4d4fb8068">  178</a></span>&#160;        <span class="keywordtype">void</span>* <a class="code" href="classemlabcpp_1_1request__reply.html#a17a4ee93a368367b870d30c4d4fb8068">address</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                <span class="keywordflow">return</span> h_-&gt;address();</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <a class="code" href="classemlabcpp_1_1request__reply.html#a8119d98cbea514187d8859ecb3e46103">owning_handle</a> h_;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;};</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1owning__coroutine__handle_html"><div class="ttname"><a href="classemlabcpp_1_1owning__coroutine__handle.html">emlabcpp::owning_coroutine_handle&lt; promise_type &gt;</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1request__reply_html"><div class="ttname"><a href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a></div><div class="ttdef"><b>Definition:</b> request_reply.h:15</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1request__reply_html_a02cfaef469e1e447cf6a806a7632bfa1"><div class="ttname"><a href="classemlabcpp_1_1request__reply.html#a02cfaef469e1e447cf6a806a7632bfa1">emlabcpp::request_reply::handle</a></div><div class="ttdeci">std::coroutine_handle&lt; promise_type &gt; handle</div><div class="ttdef"><b>Definition:</b> request_reply.h:106</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1request__reply_html_a17a4ee93a368367b870d30c4d4fb8068"><div class="ttname"><a href="classemlabcpp_1_1request__reply.html#a17a4ee93a368367b870d30c4d4fb8068">emlabcpp::request_reply::address</a></div><div class="ttdeci">void * address() const</div><div class="ttdef"><b>Definition:</b> request_reply.h:175</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1request__reply_html_a17a4ee93a368367b870d30c4d4fb8068"><div class="ttname"><a href="classemlabcpp_1_1request__reply.html#a17a4ee93a368367b870d30c4d4fb8068">emlabcpp::request_reply::address</a></div><div class="ttdeci">void * address() const</div><div class="ttdef"><b>Definition:</b> request_reply.h:178</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1request__reply_html_a313835215e39c60c30e6d1503f1f711a"><div class="ttname"><a href="classemlabcpp_1_1request__reply.html#a313835215e39c60c30e6d1503f1f711a">emlabcpp::request_reply::request_reply</a></div><div class="ttdeci">request_reply(request_reply &amp;&amp;)=default</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1request__reply_html_a3ce8cdb49a6b4c60bff52f0c076203a0"><div class="ttname"><a href="classemlabcpp_1_1request__reply.html#a3ce8cdb49a6b4c60bff52f0c076203a0">emlabcpp::request_reply::request_reply</a></div><div class="ttdeci">request_reply(const handle cor)</div><div class="ttdef"><b>Definition:</b> request_reply.h:109</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1request__reply_html_a4e850d4b194d87b46ee4f101b65b9086"><div class="ttname"><a href="classemlabcpp_1_1request__reply.html#a4e850d4b194d87b46ee4f101b65b9086">emlabcpp::request_reply::store_input</a></div><div class="ttdeci">void store_input(const InputType &amp;inpt)</div><div class="ttdef"><b>Definition:</b> request_reply.h:143</div></div>
@@ -318,7 +321,7 @@ $(document).ready(function(){initNavTree('request__reply_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_bf30c231d519e2b5c7e956ca963099cf.html">coroutine</a></li><li class="navelem"><a class="el" href="request__reply_8h.html">request_reply.h</a></li>
-    <li class="footer">Generated on Tue Oct 25 2022 20:43:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Nov 3 2022 20:46:21 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
