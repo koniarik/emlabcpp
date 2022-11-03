@@ -157,18 +157,21 @@ public:
         [[nodiscard]] bool tick()
         {
                 if ( !h_->promise().input ) {
-                        EMLABCPP_LOG( "Can't tick coroutine, no input" );
+                        EMLABCPP_LOG( "Can't tick coroutine " << address() << ", no input" );
                         return false;
                 }
                 if ( !h_ ) {
-                        EMLABCPP_LOG( "No handle in coroutine" );
+                        EMLABCPP_LOG( "No handle in coroutine " << address() );
                         return false;
                 }
                 if ( h_->done() ) {
-                        EMLABCPP_LOG( "Ticking coroutine that is finished - skipping" );
+                        EMLABCPP_LOG(
+                            "Ticking coroutine " << address() << " that is finished - skipping" );
                         return false;
                 }
+                h_->promise().output.reset();
                 h_->resume();
+                h_->promise().input.reset();
                 return true;
         }
 

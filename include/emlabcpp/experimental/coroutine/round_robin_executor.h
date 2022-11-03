@@ -21,10 +21,14 @@ public:
                         return false;
                 }
 
-                EMLABCPP_LOG( "Registering coroutine at " << cor.address() );
                 cont_.push_back( std::move( cor ) );
 
                 return true;
+        }
+
+        [[nodiscard]] bool empty() const
+        {
+                return cont_.empty();
         }
 
         [[nodiscard]] bool finished() const
@@ -41,13 +45,12 @@ public:
                 EMLABCPP_LOG( "Run of executor started" );
 
                 while ( !finished() ) {
-                        EMLABCPP_LOG(
-                            "Running coroutine: " << i << " from address " << cont_[i].address() );
 
                         Coroutine& cor = cont_[i];
                         i              = ( i + 1 ) % cont_.size();
 
                         if ( cor.done() ) {
+                                drop_coroutine( i );
                                 continue;
                         }
 
@@ -62,12 +65,24 @@ public:
                         cor.store_input( resp );
 
                         if ( !cor.tick() ) {
+                                EMLABCPP_LOG(
+                                    "Coroutine " << cor.address()
+                                                 << " failed to tick, bailing out" );
                                 co_return;
                         }
                 }
         }
 
 private:
+        void drop_coroutine( std::size_t i )
+        {
+                using std::swap;
+
+                swap( cont_[i], cont_.back() );
+
+                cont_.pop_back();
+        }
+
         container cont_;
 };
 
