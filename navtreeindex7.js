@@ -1,10 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html#a6026a4ff732b6093f8dc8b8b12b1e142":[3,0,0,2,1,6],
-"structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html#a6c220b20948ecdd577202e9215985d40":[3,0,0,2,1,5],
-"structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html#ae8281e782bfa2c3619d11b3920d187f1":[3,0,0,2,1,7],
-"structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html#af47d460e25f8dfef30db2617f8001028":[3,0,0,2,1,3],
-"structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html#af97dd4a80dbadb3264ae8f8733b301c5":[3,0,0,2,1,4],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html":[3,0,0,2,13],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a0489464697346f1741a87a88cdc45aec":[3,0,0,2,13,9],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a120e2c50833cd3cb110b63abcf82fc0c":[3,0,0,2,13,3],
@@ -249,5 +244,10 @@ var NAVTREEINDEX7 =
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html#a5e3bdd3df1fd25f89bcf67b33deedb65":[3,0,0,2,62,1],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_01_4.html":[3,0,0,2,67],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html":[3,0,0,2,69],
-"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#a33ff014880d9ec462b467f86130ab01b":[3,0,0,2,69,3]
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#a33ff014880d9ec462b467f86130ab01b":[3,0,0,2,69,3],
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#a3bfe1a873a3238ac0d53c0235976f6ce":[3,0,0,2,69,6],
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#a67ac66dc3ad4f1b302fb656048df01bb":[3,0,0,2,69,2],
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#a9b6bfbe5173ad707ed9bc05645063109":[3,0,0,2,69,4],
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#aa71f59abc57f62b813f7e63f6a1bfbef":[3,0,0,2,69,5],
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html#aacce5ffb00978935ee7ebc83ea7c3ae8":[3,0,0,2,69,1]
 };

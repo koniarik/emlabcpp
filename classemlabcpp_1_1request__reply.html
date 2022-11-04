@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>emlabcpp: emlabcpp::request_reply&lt; InputType, OutputType &gt; Class Template Reference</title>
+<title>emlabcpp: emlabcpp::request_reply&lt; RequestType, ReplyType &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1request__reply.html',
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classemlabcpp_1_1request__reply-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">emlabcpp::request_reply&lt; InputType, OutputType &gt; Class Template Reference</div>  </div>
+<div class="title">emlabcpp::request_reply&lt; RequestType, ReplyType &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -104,99 +104,101 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a697757d57d605dbb43e19c7caf1b2628"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a697757d57d605dbb43e19c7caf1b2628">input_type</a> = InputType</td></tr>
-<tr class="separator:a697757d57d605dbb43e19c7caf1b2628"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fe20c777f3dd0744023b02ad0ac2be0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a7fe20c777f3dd0744023b02ad0ac2be0">output_type</a> = OutputType</td></tr>
-<tr class="separator:a7fe20c777f3dd0744023b02ad0ac2be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02cfaef469e1e447cf6a806a7632bfa1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a02cfaef469e1e447cf6a806a7632bfa1">handle</a> = std::coroutine_handle&lt; <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html">promise_type</a> &gt;</td></tr>
-<tr class="separator:a02cfaef469e1e447cf6a806a7632bfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8119d98cbea514187d8859ecb3e46103"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a8119d98cbea514187d8859ecb3e46103">owning_handle</a> = <a class="el" href="classemlabcpp_1_1owning__coroutine__handle.html">owning_coroutine_handle</a>&lt; <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html">promise_type</a> &gt;</td></tr>
-<tr class="separator:a8119d98cbea514187d8859ecb3e46103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40411fe4d9759403b9650d1be59405fc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a40411fe4d9759403b9650d1be59405fc">request_type</a> = RequestType</td></tr>
+<tr class="separator:a40411fe4d9759403b9650d1be59405fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b451e53d6be14c024afdffac4b63796"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a9b451e53d6be14c024afdffac4b63796">reply_type</a> = ReplyType</td></tr>
+<tr class="separator:a9b451e53d6be14c024afdffac4b63796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95a5fde28d556bc975d4d53d031297ee"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a95a5fde28d556bc975d4d53d031297ee">handle</a> = std::coroutine_handle&lt; <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html">promise_type</a> &gt;</td></tr>
+<tr class="separator:a95a5fde28d556bc975d4d53d031297ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d2b169fec5165e5ec5d07583ae686b1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a2d2b169fec5165e5ec5d07583ae686b1">owning_handle</a> = <a class="el" href="classemlabcpp_1_1owning__coroutine__handle.html">owning_coroutine_handle</a>&lt; <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html">promise_type</a> &gt;</td></tr>
+<tr class="separator:a2d2b169fec5165e5ec5d07583ae686b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3ce8cdb49a6b4c60bff52f0c076203a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a3ce8cdb49a6b4c60bff52f0c076203a0">request_reply</a> (const <a class="el" href="classemlabcpp_1_1request__reply.html#a02cfaef469e1e447cf6a806a7632bfa1">handle</a> cor)</td></tr>
-<tr class="separator:a3ce8cdb49a6b4c60bff52f0c076203a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52a058b269a5cb43f8ea51a32de66400"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a52a058b269a5cb43f8ea51a32de66400">request_reply</a> (const <a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> &amp;)=delete</td></tr>
-<tr class="separator:a52a058b269a5cb43f8ea51a32de66400"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1e631f3a8907aba0971dd1d520f69fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#ad1e631f3a8907aba0971dd1d520f69fe">operator=</a> (const <a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> &amp;)=delete</td></tr>
-<tr class="separator:ad1e631f3a8907aba0971dd1d520f69fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a313835215e39c60c30e6d1503f1f711a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a313835215e39c60c30e6d1503f1f711a">request_reply</a> (<a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:a313835215e39c60c30e6d1503f1f711a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68b01ab1fc0cf8de74eefc25e514945a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a68b01ab1fc0cf8de74eefc25e514945a">operator=</a> (<a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:a68b01ab1fc0cf8de74eefc25e514945a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecff88dff01f26ed889057ba550a2de3"><td class="memItemLeft" align="right" valign="top">const OutputType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#aecff88dff01f26ed889057ba550a2de3">get_output</a> ()</td></tr>
-<tr class="separator:aecff88dff01f26ed889057ba550a2de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95c2d10b595e469e6afc64478f113be1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a95c2d10b595e469e6afc64478f113be1">has_input</a> ()</td></tr>
-<tr class="separator:a95c2d10b595e469e6afc64478f113be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e850d4b194d87b46ee4f101b65b9086"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a4e850d4b194d87b46ee4f101b65b9086">store_input</a> (const InputType &amp;inpt)</td></tr>
-<tr class="separator:a4e850d4b194d87b46ee4f101b65b9086"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebe0a0964d7f6a3d9688657d2a5a09b7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#aebe0a0964d7f6a3d9688657d2a5a09b7">done</a> () const</td></tr>
-<tr class="separator:aebe0a0964d7f6a3d9688657d2a5a09b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfb879c44feaf7d7e697dca76564cfd8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#adfb879c44feaf7d7e697dca76564cfd8">tick</a> ()</td></tr>
-<tr class="separator:adfb879c44feaf7d7e697dca76564cfd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17a4ee93a368367b870d30c4d4fb8068"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a17a4ee93a368367b870d30c4d4fb8068">address</a> () const</td></tr>
-<tr class="separator:a17a4ee93a368367b870d30c4d4fb8068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a335162b6079e80a55c9cde65a1a8a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a2a335162b6079e80a55c9cde65a1a8a4">request_reply</a> (const <a class="el" href="classemlabcpp_1_1request__reply.html#a95a5fde28d556bc975d4d53d031297ee">handle</a> cor)</td></tr>
+<tr class="separator:a2a335162b6079e80a55c9cde65a1a8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55c6478880aabdef5b191177d9b17995"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a55c6478880aabdef5b191177d9b17995">request_reply</a> (const <a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> &amp;)=delete</td></tr>
+<tr class="separator:a55c6478880aabdef5b191177d9b17995"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b80686af7668436d7fa7e5f5a7f25be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a6b80686af7668436d7fa7e5f5a7f25be">operator=</a> (const <a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> &amp;)=delete</td></tr>
+<tr class="separator:a6b80686af7668436d7fa7e5f5a7f25be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c33aafc69f06c79c135ff2e2454d804"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a7c33aafc69f06c79c135ff2e2454d804">request_reply</a> (<a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> &amp;&amp;)=default</td></tr>
+<tr class="separator:a7c33aafc69f06c79c135ff2e2454d804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8f50bdbb780ba9abab978563c8b807f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#ae8f50bdbb780ba9abab978563c8b807f">operator=</a> (<a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> &amp;&amp;)=default</td></tr>
+<tr class="separator:ae8f50bdbb780ba9abab978563c8b807f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa70370eb23c7ede490658e3b99acbc8"><td class="memItemLeft" align="right" valign="top">const ReplyType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#afa70370eb23c7ede490658e3b99acbc8">get_reply</a> ()</td></tr>
+<tr class="separator:afa70370eb23c7ede490658e3b99acbc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0814bc7d1eefcd1dbb50220ffffe7b30"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a0814bc7d1eefcd1dbb50220ffffe7b30">has_request</a> ()</td></tr>
+<tr class="separator:a0814bc7d1eefcd1dbb50220ffffe7b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe9ba2ced14031c1a887015e9a71ea1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#abe9ba2ced14031c1a887015e9a71ea1d">store_request</a> (const RequestType &amp;inpt)</td></tr>
+<tr class="separator:abe9ba2ced14031c1a887015e9a71ea1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1d26708a029dc16e67e24386ff0975b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#ab1d26708a029dc16e67e24386ff0975b">operator bool</a> () const</td></tr>
+<tr class="separator:ab1d26708a029dc16e67e24386ff0975b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad39e9542e95067f349160b055d35d9d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#ad39e9542e95067f349160b055d35d9d7">done</a> () const</td></tr>
+<tr class="separator:ad39e9542e95067f349160b055d35d9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a454848f6510de4e4721edc3ce1ad42b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a454848f6510de4e4721edc3ce1ad42b3">tick</a> ()</td></tr>
+<tr class="separator:a454848f6510de4e4721edc3ce1ad42b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58c21771175b9c1ddd9b43d567c0bb25"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html#a58c21771175b9c1ddd9b43d567c0bb25">address</a> () const</td></tr>
+<tr class="separator:a58c21771175b9c1ddd9b43d567c0bb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a02cfaef469e1e447cf6a806a7632bfa1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02cfaef469e1e447cf6a806a7632bfa1">&#9670;&nbsp;</a></span>handle</h2>
+<a id="a95a5fde28d556bc975d4d53d031297ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95a5fde28d556bc975d4d53d031297ee">&#9670;&nbsp;</a></span>handle</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html#a02cfaef469e1e447cf6a806a7632bfa1">handle</a> =  std::coroutine_handle&lt; <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html">promise_type</a> &gt;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html#a95a5fde28d556bc975d4d53d031297ee">handle</a> =  std::coroutine_handle&lt; <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html">promise_type</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a697757d57d605dbb43e19c7caf1b2628"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a697757d57d605dbb43e19c7caf1b2628">&#9670;&nbsp;</a></span>input_type</h2>
+<a id="a2d2b169fec5165e5ec5d07583ae686b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d2b169fec5165e5ec5d07583ae686b1">&#9670;&nbsp;</a></span>owning_handle</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html#a697757d57d605dbb43e19c7caf1b2628">input_type</a> =  InputType</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html#a2d2b169fec5165e5ec5d07583ae686b1">owning_handle</a> =  <a class="el" href="classemlabcpp_1_1owning__coroutine__handle.html">owning_coroutine_handle</a>&lt; <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html">promise_type</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7fe20c777f3dd0744023b02ad0ac2be0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fe20c777f3dd0744023b02ad0ac2be0">&#9670;&nbsp;</a></span>output_type</h2>
+<a id="a9b451e53d6be14c024afdffac4b63796"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b451e53d6be14c024afdffac4b63796">&#9670;&nbsp;</a></span>reply_type</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html#a7fe20c777f3dd0744023b02ad0ac2be0">output_type</a> =  OutputType</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html#a9b451e53d6be14c024afdffac4b63796">reply_type</a> =  ReplyType</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8119d98cbea514187d8859ecb3e46103"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8119d98cbea514187d8859ecb3e46103">&#9670;&nbsp;</a></span>owning_handle</h2>
+<a id="a40411fe4d9759403b9650d1be59405fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40411fe4d9759403b9650d1be59405fc">&#9670;&nbsp;</a></span>request_type</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html#a8119d98cbea514187d8859ecb3e46103">owning_handle</a> =  <a class="el" href="classemlabcpp_1_1owning__coroutine__handle.html">owning_coroutine_handle</a>&lt; <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html">promise_type</a> &gt;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html#a40411fe4d9759403b9650d1be59405fc">request_type</a> =  RequestType</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -204,21 +206,21 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a3ce8cdb49a6b4c60bff52f0c076203a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ce8cdb49a6b4c60bff52f0c076203a0">&#9670;&nbsp;</a></span>request_reply() <span class="overload">[1/3]</span></h2>
+<a id="a2a335162b6079e80a55c9cde65a1a8a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a335162b6079e80a55c9cde65a1a8a4">&#9670;&nbsp;</a></span>request_reply() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1request__reply.html#a02cfaef469e1e447cf6a806a7632bfa1">handle</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1request__reply.html#a95a5fde28d556bc975d4d53d031297ee">handle</a>&#160;</td>
           <td class="paramname"><em>cor</em></td><td>)</td>
           <td></td>
         </tr>
@@ -232,21 +234,21 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 
 </div>
 </div>
-<a id="a52a058b269a5cb43f8ea51a32de66400"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52a058b269a5cb43f8ea51a32de66400">&#9670;&nbsp;</a></span>request_reply() <span class="overload">[2/3]</span></h2>
+<a id="a55c6478880aabdef5b191177d9b17995"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55c6478880aabdef5b191177d9b17995">&#9670;&nbsp;</a></span>request_reply() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a>&lt; InputType, OutputType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a>&lt; RequestType, ReplyType &gt; &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -260,21 +262,21 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 
 </div>
 </div>
-<a id="a313835215e39c60c30e6d1503f1f711a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a313835215e39c60c30e6d1503f1f711a">&#9670;&nbsp;</a></span>request_reply() <span class="overload">[3/3]</span></h2>
+<a id="a7c33aafc69f06c79c135ff2e2454d804"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c33aafc69f06c79c135ff2e2454d804">&#9670;&nbsp;</a></span>request_reply() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::<a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a>&lt; InputType, OutputType &gt; &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a>&lt; RequestType, ReplyType &gt; &amp;&amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -289,19 +291,19 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a17a4ee93a368367b870d30c4d4fb8068"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17a4ee93a368367b870d30c4d4fb8068">&#9670;&nbsp;</a></span>address()</h2>
+<a id="a58c21771175b9c1ddd9b43d567c0bb25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58c21771175b9c1ddd9b43d567c0bb25">&#9670;&nbsp;</a></span>address()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void* <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::address </td>
+          <td class="memname">void* <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::address </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -316,19 +318,19 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 
 </div>
 </div>
-<a id="aebe0a0964d7f6a3d9688657d2a5a09b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebe0a0964d7f6a3d9688657d2a5a09b7">&#9670;&nbsp;</a></span>done()</h2>
+<a id="ad39e9542e95067f349160b055d35d9d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad39e9542e95067f349160b055d35d9d7">&#9670;&nbsp;</a></span>done()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::done </td>
+          <td class="memname">bool <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::done </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -343,19 +345,19 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 
 </div>
 </div>
-<a id="aecff88dff01f26ed889057ba550a2de3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecff88dff01f26ed889057ba550a2de3">&#9670;&nbsp;</a></span>get_output()</h2>
+<a id="afa70370eb23c7ede490658e3b99acbc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa70370eb23c7ede490658e3b99acbc8">&#9670;&nbsp;</a></span>get_reply()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const OutputType* <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::get_output </td>
+          <td class="memname">const ReplyType* <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::get_reply </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -372,19 +374,19 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 
 </div>
 </div>
-<a id="a95c2d10b595e469e6afc64478f113be1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95c2d10b595e469e6afc64478f113be1">&#9670;&nbsp;</a></span>has_input()</h2>
+<a id="a0814bc7d1eefcd1dbb50220ffffe7b30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0814bc7d1eefcd1dbb50220ffffe7b30">&#9670;&nbsp;</a></span>has_request()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::has_input </td>
+          <td class="memname">bool <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::has_request </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -401,21 +403,48 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 
 </div>
 </div>
-<a id="ad1e631f3a8907aba0971dd1d520f69fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1e631f3a8907aba0971dd1d520f69fe">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="ab1d26708a029dc16e67e24386ff0975b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1d26708a029dc16e67e24386ff0975b">&#9670;&nbsp;</a></span>operator bool()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a>&amp; <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::operator= </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::operator bool </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a>&lt; InputType, OutputType &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b80686af7668436d7fa7e5f5a7f25be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b80686af7668436d7fa7e5f5a7f25be">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename RequestType , typename ReplyType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a>&amp; <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a>&lt; RequestType, ReplyType &gt; &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -429,21 +458,21 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 
 </div>
 </div>
-<a id="a68b01ab1fc0cf8de74eefc25e514945a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68b01ab1fc0cf8de74eefc25e514945a">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="ae8f50bdbb780ba9abab978563c8b807f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8f50bdbb780ba9abab978563c8b807f">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a>&amp; <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::operator= </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a>&amp; <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a>&lt; InputType, OutputType &gt; &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a>&lt; RequestType, ReplyType &gt; &amp;&amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -457,21 +486,21 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 
 </div>
 </div>
-<a id="a4e850d4b194d87b46ee4f101b65b9086"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e850d4b194d87b46ee4f101b65b9086">&#9670;&nbsp;</a></span>store_input()</h2>
+<a id="abe9ba2ced14031c1a887015e9a71ea1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe9ba2ced14031c1a887015e9a71ea1d">&#9670;&nbsp;</a></span>store_request()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::store_input </td>
+          <td class="memname">void <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::store_request </td>
           <td>(</td>
-          <td class="paramtype">const InputType &amp;&#160;</td>
+          <td class="paramtype">const RequestType &amp;&#160;</td>
           <td class="paramname"><em>inpt</em></td><td>)</td>
           <td></td>
         </tr>
@@ -487,19 +516,19 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 
 </div>
 </div>
-<a id="adfb879c44feaf7d7e697dca76564cfd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfb879c44feaf7d7e697dca76564cfd8">&#9670;&nbsp;</a></span>tick()</h2>
+<a id="a454848f6510de4e4721edc3ce1ad42b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a454848f6510de4e4721edc3ce1ad42b3">&#9670;&nbsp;</a></span>tick()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename InputType , typename OutputType &gt; </div>
+template&lt;typename RequestType , typename ReplyType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; InputType, OutputType &gt;::tick </td>
+          <td class="memname">bool <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::tick </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -512,7 +541,7 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1request__reply.html#a17a4ee93a368367b870d30c4d4fb8068">emlabcpp::request_reply&lt; InputType, OutputType &gt;::address()</a>, and <a class="el" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1request__reply.html#a58c21771175b9c1ddd9b43d567c0bb25">emlabcpp::request_reply&lt; RequestType, ReplyType &gt;::address()</a>, and <a class="el" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>.</p>
 
 </div>
 </div>
@@ -525,7 +554,7 @@ template&lt;typename InputType , typename OutputType &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a></li>
-    <li class="footer">Generated on Thu Nov 3 2022 20:46:21 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Nov 4 2022 18:41:31 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

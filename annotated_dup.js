@@ -182,7 +182,6 @@ var annotated_dup =
       [ "contiguous_tree", "classemlabcpp_1_1contiguous__tree.html", "classemlabcpp_1_1contiguous__tree" ],
       [ "owning_coroutine_handle", "classemlabcpp_1_1owning__coroutine__handle.html", "classemlabcpp_1_1owning__coroutine__handle" ],
       [ "request_reply", "classemlabcpp_1_1request__reply.html", "classemlabcpp_1_1request__reply" ],
-      [ "round_robin_executor", "classemlabcpp_1_1round__robin__executor.html", "classemlabcpp_1_1round__robin__executor" ],
       [ "derived_storage", "classemlabcpp_1_1derived__storage.html", "classemlabcpp_1_1derived__storage" ],
       [ "function_view", "namespaceemlabcpp.html#classemlabcpp_1_1function__view", null ],
       [ "function_view< ReturnType(ArgTypes...) >", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4" ],

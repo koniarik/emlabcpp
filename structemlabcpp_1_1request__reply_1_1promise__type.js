@@ -1,16 +1,16 @@
 var structemlabcpp_1_1request__reply_1_1promise__type =
 [
-    [ "alloc", "structemlabcpp_1_1request__reply_1_1promise__type.html#ac6e2a098725f64114b1ce277d5629377", null ],
-    [ "final_suspend", "structemlabcpp_1_1request__reply_1_1promise__type.html#ae60edcb06c3bf67a7e4c94102716b427", null ],
-    [ "get_return_object", "structemlabcpp_1_1request__reply_1_1promise__type.html#add3729f75b776e0e7de1bf2feda701ed", null ],
-    [ "initial_suspend", "structemlabcpp_1_1request__reply_1_1promise__type.html#ae23abb8fcba7d83c99e8b3cd4d6e0ca0", null ],
-    [ "operator delete", "structemlabcpp_1_1request__reply_1_1promise__type.html#adf6f6f07a45a46b8b0b6c87054146481", null ],
-    [ "operator new", "structemlabcpp_1_1request__reply_1_1promise__type.html#a5c643856a1e4729a85bae130d5a10b80", null ],
-    [ "operator new", "structemlabcpp_1_1request__reply_1_1promise__type.html#a283e53aca35ec68583f000ddc2c11b9e", null ],
-    [ "return_void", "structemlabcpp_1_1request__reply_1_1promise__type.html#a5e9df65a75ca8b73924fc1edf40ebd79", null ],
-    [ "unhandled_exception", "structemlabcpp_1_1request__reply_1_1promise__type.html#af1daf8e1f0a917cec0170a1e041ba0c6", null ],
-    [ "yield_value", "structemlabcpp_1_1request__reply_1_1promise__type.html#aae21f90ff6506593a3123c566928efa0", null ],
-    [ "input", "structemlabcpp_1_1request__reply_1_1promise__type.html#a3d1eb2106e74a5fd3d7667003b2ff2bd", null ],
-    [ "output", "structemlabcpp_1_1request__reply_1_1promise__type.html#a895630cb08c18501a0eebbd8cd87181d", null ],
-    [ "ptr_size", "structemlabcpp_1_1request__reply_1_1promise__type.html#a21d25f568a84828ffc42d772c1a04d97", null ]
+    [ "alloc", "structemlabcpp_1_1request__reply_1_1promise__type.html#a5ab774918bba520529b59d2ca85fd99c", null ],
+    [ "final_suspend", "structemlabcpp_1_1request__reply_1_1promise__type.html#ae59543feda211aee7903c39e878d534a", null ],
+    [ "get_return_object", "structemlabcpp_1_1request__reply_1_1promise__type.html#a90920c1b1e874f62b619eda9a32a48cc", null ],
+    [ "initial_suspend", "structemlabcpp_1_1request__reply_1_1promise__type.html#a4a8e85c6d50491364d7ab59715a2b9eb", null ],
+    [ "operator delete", "structemlabcpp_1_1request__reply_1_1promise__type.html#aeef25ad7e87a25c009e025b21c3dbfe3", null ],
+    [ "operator new", "structemlabcpp_1_1request__reply_1_1promise__type.html#af6d3ae6c1302d3815a8a38a5a193bee8", null ],
+    [ "operator new", "structemlabcpp_1_1request__reply_1_1promise__type.html#ac8ef1fc77c9d0b28f1dff4898598c60b", null ],
+    [ "return_void", "structemlabcpp_1_1request__reply_1_1promise__type.html#ad1f6816ea89f4e648d6caac449ba9eb2", null ],
+    [ "unhandled_exception", "structemlabcpp_1_1request__reply_1_1promise__type.html#a36a1cd83cc8c9fdef94d6258fabae056", null ],
+    [ "yield_value", "structemlabcpp_1_1request__reply_1_1promise__type.html#a056a4dc0051f13ca132b07e1840dd1bb", null ],
+    [ "ptr_size", "structemlabcpp_1_1request__reply_1_1promise__type.html#acbccf25060e97045b8bfb0db507e4d54", null ],
+    [ "reply", "structemlabcpp_1_1request__reply_1_1promise__type.html#a597fd3c9366694c790723b23f54ce4f8", null ],
+    [ "request", "structemlabcpp_1_1request__reply_1_1promise__type.html#a39779aafd986504753175ea5b3c1c7cb", null ]
 ];

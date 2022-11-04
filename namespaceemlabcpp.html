@@ -156,8 +156,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1round__robin__executor.html">round_robin_executor</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1derived__storage.html">derived_storage</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:classemlabcpp_1_1function__view"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1function__view">function_view</a></td></tr>
@@ -545,6 +543,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a102fe4d18339d80a3534e5def0c17fb9"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, typename Key , typename Value &gt; </td></tr>
 <tr class="memitem:a102fe4d18339d80a3534e5def0c17fb9"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a102fe4d18339d80a3534e5def0c17fb9">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="classemlabcpp_1_1contiguous__tree.html">contiguous_tree</a>&lt; Key, Value &gt; &amp;tree)</td></tr>
 <tr class="separator:a102fe4d18339d80a3534e5def0c17fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75057b2cf77ebc92bf3560e4b592e079"><td class="memTemplParams" colspan="2">template&lt;typename Coroutine , std::size_t N&gt; </td></tr>
+<tr class="memitem:a75057b2cf77ebc92bf3560e4b592e079"><td class="memTemplItemLeft" align="right" valign="top">Coroutine&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a75057b2cf77ebc92bf3560e4b592e079">round_robin_run</a> (<a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *, std::array&lt; Coroutine, N &gt; coros)</td></tr>
+<tr class="separator:a75057b2cf77ebc92bf3560e4b592e079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afecb966a998ea6497e7b378bca2681c8"><td class="memTemplParams" colspan="2">template&lt;decomposable_0 T&gt; </td></tr>
 <tr class="memitem:afecb966a998ea6497e7b378bca2681c8"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::tuple&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8">decompose</a> (T &amp;&amp;)</td></tr>
 <tr class="separator:afecb966a998ea6497e7b378bca2681c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4902,6 +4903,38 @@ template&lt;typename Enum &gt; </div>
 
 </div>
 </div>
+<a id="a75057b2cf77ebc92bf3560e4b592e079"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75057b2cf77ebc92bf3560e4b592e079">&#9670;&nbsp;</a></span>round_robin_run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Coroutine , std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Coroutine emlabcpp::round_robin_run </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::array&lt; Coroutine, N &gt;&#160;</td>
+          <td class="paramname"><em>coros</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aab724dd793953a308bea8dba2118aade">all_of()</a>, and <a class="el" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>.</p>
+
+</div>
+</div>
 <a id="a22bdba517ae1cfa5e6b4f2e54e407bb1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a22bdba517ae1cfa5e6b4f2e54e407bb1">&#9670;&nbsp;</a></span>select_index() <span class="overload">[1/2]</span></h2>
 
@@ -6361,7 +6394,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Thu Nov 3 2022 20:46:21 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Nov 4 2022 18:41:31 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

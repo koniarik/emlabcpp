@@ -8,7 +8,5 @@ var dir_bf30c231d519e2b5c7e956ca963099cf =
       [ "awaiter", "structemlabcpp_1_1request__reply_1_1awaiter.html", "structemlabcpp_1_1request__reply_1_1awaiter" ],
       [ "promise_type", "structemlabcpp_1_1request__reply_1_1promise__type.html", "structemlabcpp_1_1request__reply_1_1promise__type" ]
     ] ],
-    [ "round_robin_executor.h", "round__robin__executor_8h.html", [
-      [ "round_robin_executor", "classemlabcpp_1_1round__robin__executor.html", "classemlabcpp_1_1round__robin__executor" ]
-    ] ]
+    [ "round_robin_executor.h", "round__robin__executor_8h.html", "round__robin__executor_8h" ]
 ];
