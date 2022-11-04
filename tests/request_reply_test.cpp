@@ -8,10 +8,10 @@
 namespace emlabcpp
 {
 
-using output_type = std::string;
-using input_type  = int;
+using reply_type   = std::string;
+using request_type = int;
 
-using rr_coro = request_reply< input_type, output_type >;
+using rr_coro = request_reply< request_type, reply_type >;
 
 rr_coro one_yield( pool_interface*, std::string val )
 {
@@ -23,15 +23,15 @@ rr_coro one_yield( pool_interface*, std::string val )
 TEST( RequestReply, base )
 {
 
-        pool_resource< 512, 1 >                  pool;
-        request_reply< input_type, output_type > req = one_yield( &pool, "test" );
+        pool_resource< 512, 1 >                   pool;
+        request_reply< request_type, reply_type > req = one_yield( &pool, "test" );
 
-        EXPECT_NE( req.get_output(), nullptr );
-        EXPECT_EQ( *req.get_output(), "test" );
+        EXPECT_NE( req.get_reply(), nullptr );
+        EXPECT_EQ( *req.get_reply(), "test" );
 
         EXPECT_FALSE( req.tick() );
 
-        req.store_input( 42 );
+        req.store_request( 42 );
 
         EXPECT_TRUE( req.tick() );
 
@@ -40,23 +40,19 @@ TEST( RequestReply, base )
 
 TEST( RequestReply, executor )
 {
-        using exec_type = round_robin_executor< rr_coro, 16 >;
 
-        exec_type                exec;
         pool_resource< 512, 16 > pool;
 
-        EXPECT_TRUE( exec.register_coroutine( one_yield( &pool, "test1" ) ) );
-        EXPECT_TRUE( exec.register_coroutine( one_yield( &pool, "test2" ) ) );
+        rr_coro cor = round_robin_run(
+            &pool, std::array{ one_yield( &pool, "test1" ), one_yield( &pool, "test2" ) } );
 
-        rr_coro cor = exec.run( &pool );
-
-        EXPECT_EQ( *cor.get_output(), "test1" );
-        cor.store_input( 42 );
+        EXPECT_EQ( *cor.get_reply(), "test1" );
+        cor.store_request( 42 );
 
         EXPECT_TRUE( cor.tick() );
 
-        EXPECT_EQ( *cor.get_output(), "test2" );
-        cor.store_input( 666 );
+        EXPECT_EQ( *cor.get_reply(), "test2" );
+        cor.store_request( 666 );
 
         EXPECT_TRUE( cor.tick() );
         EXPECT_FALSE( cor.tick() );

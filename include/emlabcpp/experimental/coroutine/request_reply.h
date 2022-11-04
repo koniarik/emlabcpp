@@ -10,12 +10,12 @@
 namespace emlabcpp
 {
 
-template < typename InputType, typename OutputType >
+template < typename RequestType, typename ReplyType >
 class request_reply
 {
 public:
-        using input_type  = InputType;
-        using output_type = OutputType;
+        using request_type = RequestType;
+        using reply_type   = ReplyType;
 
         struct promise_type;
 
@@ -30,17 +30,17 @@ public:
                 void await_suspend( std::coroutine_handle<> )
                 {
                 }
-                const InputType& await_resume()
+                const RequestType& await_resume()
                 {
-                        return *prom_->input;
+                        return *prom_->request;
                 }
         };
 
         struct promise_type
         {
                 static constexpr std::size_t ptr_size = sizeof( pool_interface* );
-                std::optional< InputType >   input;
-                std::optional< OutputType >  output;
+                std::optional< RequestType > request;
+                std::optional< ReplyType >   reply;
 
                 request_reply get_return_object()
                 {
@@ -63,9 +63,9 @@ public:
                 {
                 }
 
-                awaiter yield_value( OutputType out )
+                awaiter yield_value( ReplyType out )
                 {
-                        output = out;
+                        reply = out;
                         return { this };
                 }
 
@@ -117,36 +117,41 @@ public:
         request_reply( request_reply&& )            = default;
         request_reply& operator=( request_reply&& ) = default;
 
-        const OutputType* get_output()
+        const ReplyType* get_reply()
         {
                 if ( !h_ ) {
-                        EMLABCPP_LOG( "Can't extract output from empty handle" );
+                        EMLABCPP_LOG( "Can't extract reply from empty handle" );
                         return nullptr;
                 }
-                if ( !h_->promise().output.has_value() ) {
-                        EMLABCPP_LOG( "No output in coroutine at " << &h_->promise().output );
+                if ( !h_->promise().reply.has_value() ) {
+                        EMLABCPP_LOG( "No reply in coroutine at " << &h_->promise().reply );
                         return nullptr;
                 }
-                return &*h_->promise().output;
+                return &*h_->promise().reply;
         }
 
-        bool has_input()
+        bool has_request()
         {
                 if ( h_ ) {
-                        return h_->promise().input.has_value();
+                        return h_->promise().request.has_value();
                 } else {
-                        EMLABCPP_LOG( "Can't check input in empty handle" );
+                        EMLABCPP_LOG( "Can't check request in empty handle" );
                         return false;
                 }
         }
 
-        void store_input( const InputType& inpt )
+        void store_request( const RequestType& inpt )
         {
                 if ( h_ ) {
-                        h_->promise().input = inpt;
+                        h_->promise().request = inpt;
                 } else {
-                        EMLABCPP_LOG( "Can't store input in empty handle" );
+                        EMLABCPP_LOG( "Can't store request in empty handle" );
                 }
+        }
+
+        [[nodiscard]] operator bool() const
+        {
+                return h_->done();
         }
 
         [[nodiscard]] bool done() const
@@ -156,8 +161,8 @@ public:
 
         [[nodiscard]] bool tick()
         {
-                if ( !h_->promise().input ) {
-                        EMLABCPP_LOG( "Can't tick coroutine " << address() << ", no input" );
+                if ( !h_->promise().request ) {
+                        EMLABCPP_LOG( "Can't tick coroutine " << address() << ", no request" );
                         return false;
                 }
                 if ( !h_ ) {
@@ -169,9 +174,9 @@ public:
                             "Ticking coroutine " << address() << " that is finished - skipping" );
                         return false;
                 }
-                h_->promise().output.reset();
+                h_->promise().reply.reset();
                 h_->resume();
-                h_->promise().input.reset();
+                h_->promise().request.reset();
                 return true;
         }
 
