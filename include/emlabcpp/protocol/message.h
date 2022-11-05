@@ -21,6 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/concepts.h"
+#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/view.h"
 
 #include <array>
@@ -52,7 +53,7 @@ public:
                 if ( std::size( cont ) > N ) {
                         EMLABCPP_LOG(
                             "Failed to construct protocol message, bigger than limit: "
-                            << cont.size() << " > " << N );
+                            << std::size( cont ) << " > " << N );
                         return {};
                 }
                 return { message( std::begin( cont ), std::end( cont ) ) };

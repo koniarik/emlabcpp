@@ -24,7 +24,7 @@ Coroutine round_robin_run( pool_interface*, std::array< Coroutine, N > coros )
                         continue;
                 }
 
-                const auto* out = cor.get_reply();
+                const auto* out = cor.get_request();
 
                 if ( out == nullptr ) {
                         EMLABCPP_LOG( "reply from coroutine is nullptr!" );
@@ -32,7 +32,7 @@ Coroutine round_robin_run( pool_interface*, std::array< Coroutine, N > coros )
                 }
 
                 auto resp = co_yield *out;
-                cor.store_request( resp );
+                cor.store_reply( resp );
 
                 if ( !cor.tick() ) {
                         EMLABCPP_LOG(

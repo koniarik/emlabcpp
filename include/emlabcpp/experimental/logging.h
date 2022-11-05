@@ -122,17 +122,17 @@ struct logger
 
 extern logger LOGGER;
 
+void log_to_global_logger( std::string_view sv );
+
 }  // namespace emlabcpp
 
-#define EMLABCPP_LOG_IMPL( msg, severity )                                   \
-        {                                                                    \
-                emlabcpp::LOGGER.start();                                    \
-                auto f = +[]( std::string_view sv ) {                        \
-                        emlabcpp::LOGGER.write( sv );                        \
-                };                                                           \
-                emlabcpp::pretty_printer pp{ emlabcpp::simple_stream{ f } }; \
-                pp << msg;                                                   \
-                emlabcpp::LOGGER.end();                                      \
+#define EMLABCPP_LOG_IMPL( msg, severity )                                       \
+        {                                                                        \
+                emlabcpp::LOGGER.start();                                        \
+                emlabcpp::pretty_printer pp{                                     \
+                    emlabcpp::simple_stream{ emlabcpp::log_to_global_logger } }; \
+                pp << msg;                                                       \
+                emlabcpp::LOGGER.end();                                          \
         }
 
 #else

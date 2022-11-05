@@ -30,9 +30,9 @@ public:
                 void await_suspend( std::coroutine_handle<> )
                 {
                 }
-                const RequestType& await_resume()
+                const ReplyType& await_resume()
                 {
-                        return *prom_->request;
+                        return *prom_->reply;
                 }
         };
 
@@ -63,9 +63,9 @@ public:
                 {
                 }
 
-                awaiter yield_value( ReplyType out )
+                awaiter yield_value( RequestType out )
                 {
-                        reply = out;
+                        request = out;
                         return { this };
                 }
 
@@ -117,35 +117,35 @@ public:
         request_reply( request_reply&& )            = default;
         request_reply& operator=( request_reply&& ) = default;
 
-        const ReplyType* get_reply()
+        const RequestType* get_request()
         {
                 if ( !h_ ) {
-                        EMLABCPP_LOG( "Can't extract reply from empty handle" );
+                        EMLABCPP_LOG( "Can't extract request from empty handle" );
                         return nullptr;
                 }
-                if ( !h_->promise().reply.has_value() ) {
-                        EMLABCPP_LOG( "No reply in coroutine at " << &h_->promise().reply );
+                if ( !h_->promise().request.has_value() ) {
+                        EMLABCPP_LOG( "No request in coroutine at " << &h_->promise().request );
                         return nullptr;
                 }
-                return &*h_->promise().reply;
+                return &*h_->promise().request;
         }
 
-        bool has_request()
+        bool has_reply()
         {
                 if ( h_ ) {
-                        return h_->promise().request.has_value();
+                        return h_->promise().reply.has_value();
                 } else {
-                        EMLABCPP_LOG( "Can't check request in empty handle" );
+                        EMLABCPP_LOG( "Can't check reply in empty handle" );
                         return false;
                 }
         }
 
-        void store_request( const RequestType& inpt )
+        void store_reply( const ReplyType& inpt )
         {
                 if ( h_ ) {
-                        h_->promise().request = inpt;
+                        h_->promise().reply = inpt;
                 } else {
-                        EMLABCPP_LOG( "Can't store request in empty handle" );
+                        EMLABCPP_LOG( "Can't store reply in empty handle" );
                 }
         }
 
@@ -161,8 +161,8 @@ public:
 
         [[nodiscard]] bool tick()
         {
-                if ( !h_->promise().request ) {
-                        EMLABCPP_LOG( "Can't tick coroutine " << address() << ", no request" );
+                if ( !h_->promise().reply ) {
+                        EMLABCPP_LOG( "Can't tick coroutine " << address() << ", no reply" );
                         return false;
                 }
                 if ( !h_ ) {
@@ -174,9 +174,9 @@ public:
                             "Ticking coroutine " << address() << " that is finished - skipping" );
                         return false;
                 }
-                h_->promise().reply.reset();
-                h_->resume();
                 h_->promise().request.reset();
+                h_->resume();
+                h_->promise().reply.reset();
                 return true;
         }
 

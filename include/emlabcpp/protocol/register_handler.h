@@ -54,9 +54,11 @@ struct register_handler
                 using def = converter_for< reg_def_type< Key >, Map::endianess >;
 
                 std::array< uint8_t, max_size > buffer;
-                static_assert( def::max_size <= max_size );
+                static_assert( def::size_type::max_val <= max_size );
                 bounded used = def::serialize_at(
-                    std::span< uint8_t, def::max_size >( buffer.begin(), def::max_size ), val );
+                    std::span< uint8_t, def::size_type::max_val >(
+                        buffer.begin(), def::size_type::max_val ),
+                    val );
                 EMLABCPP_ASSERT( *used <= max_size );
 
                 return *message_type::make( view_n( buffer.begin(), *used ) );

@@ -228,4 +228,24 @@ constexpr auto pow( physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, 
             Byte * Power >{ static_cast< float >( std::pow( *val, Power ) ) };
 }
 
+template <
+    ostreamlike Stream,
+    int         Len,
+    int         Mass,
+    int         Time,
+    int         Current,
+    int         Temp,
+    int         Mol,
+    int         Li,
+    int         Angle,
+    int         Byte >
+auto& operator<<(
+    Stream&                                                                          os,
+    const physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte >& q )
+{
+        return os << *q
+                  << physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte >::
+                         get_unit();
+}
+
 }  // namespace emlabcpp

@@ -11,6 +11,11 @@ namespace emlabcpp
 namespace emlabcpp
 {
 logger LOGGER = {};
+
+void log_to_global_logger( std::string_view sv )
+{
+        LOGGER.write( sv );
+}
 }  // namespace emlabcpp
 
 #endif

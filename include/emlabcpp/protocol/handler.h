@@ -57,8 +57,7 @@ struct handler
                 if ( !opt_view ) {
                         EMLABCPP_LOG(
                             "Failed to build view over provided message - wrong size: "
-                            << msg.size() << " vs size type"
-                            << pretty_type_name< typename def::size_type >() );
+                            << msg.size() << " vs " << def::size_type::max_val );
                         return error_record{ SIZE_ERR, 0 };
                 }
                 auto res = def::deserialize( *opt_view );

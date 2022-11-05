@@ -5,6 +5,7 @@
 #include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
 
+#include <span>
 #include <filesystem>
 #include <optional>
 #include <sstream>
