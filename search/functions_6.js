@@ -20,7 +20,7 @@ var searchData=
   ['get_5fparam_5ftree_1361',['get_param_tree',['../classemlabcpp_1_1testing_1_1controller__interface.html#ae2382e652f2b2f2a92e36eb603a83cd5',1,'emlabcpp::testing::controller_interface']]],
   ['get_5fparam_5ftype_1362',['get_param_type',['../classemlabcpp_1_1testing_1_1record.html#a0da209442a79d20195c479505bdc8c46',1,'emlabcpp::testing::record']]],
   ['get_5fparam_5fvalue_1363',['get_param_value',['../classemlabcpp_1_1testing_1_1record.html#aa8cb53afb04127f721d7b2c1e2fed60c',1,'emlabcpp::testing::record']]],
-  ['get_5freply_1364',['get_reply',['../classemlabcpp_1_1request__reply.html#afa70370eb23c7ede490658e3b99acbc8',1,'emlabcpp::request_reply']]],
+  ['get_5frequest_1364',['get_request',['../classemlabcpp_1_1request__reply.html#a78e1bf9a552f05fbeb1438db6ee5b3fd',1,'emlabcpp::request_reply']]],
   ['get_5fresource_1365',['get_resource',['../classemlabcpp_1_1pool__allocator.html#a84c2d2bd4827a78efd53627dbf8681ca',1,'emlabcpp::pool_allocator']]],
   ['get_5freturn_5fobject_1366',['get_return_object',['../structemlabcpp_1_1request__reply_1_1promise__type.html#a90920c1b1e874f62b619eda9a32a48cc',1,'emlabcpp::request_reply::promise_type']]],
   ['get_5fsize_1367',['get_size',['../structemlabcpp_1_1protocol_1_1packet_1_1sequencer__def.html#aa26baaeccb725a68748eeaabcdff774d',1,'emlabcpp::protocol::packet::sequencer_def']]],

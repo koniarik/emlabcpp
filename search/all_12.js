@@ -71,7 +71,7 @@ var searchData=
   ['static_5fvector_3c_20uint16_5ft_2c_20poolcount_20_3e_796',['static_vector&lt; uint16_t, PoolCount &gt;',['../classemlabcpp_1_1static__vector.html',1,'emlabcpp']]],
   ['stem_5fof_797',['stem_of',['../namespaceemlabcpp.html#a5384c6950d84f064b4cb0c8983080870',1,'emlabcpp']]],
   ['storage_5ftype_798',['storage_type',['../classemlabcpp_1_1derived__storage.html#a7830e5c1d8e1d81e4c4c7035539cea5e',1,'emlabcpp::derived_storage::storage_type()'],['../classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_01_4.html#ab91eef123d1fa5dfb93bd2f3690303ab',1,'emlabcpp::static_function_base&lt; ReturnType(ArgTypes...), Capacity, Align &gt;::storage_type()']]],
-  ['store_5frequest_799',['store_request',['../classemlabcpp_1_1request__reply.html#abe9ba2ced14031c1a887015e9a71ea1d',1,'emlabcpp::request_reply']]],
+  ['store_5freply_799',['store_reply',['../classemlabcpp_1_1request__reply.html#ab4a5db0cfdb3e28e80de62b7ef8e2b8f',1,'emlabcpp::request_reply']]],
   ['str_800',['str',['../classemlabcpp_1_1pretty__printer.html#a9b1ba18c551e7e9ccb8b2b82ac71ba75',1,'emlabcpp::pretty_printer']]],
   ['streams_2eh_801',['streams.h',['../streams_8h.html',1,'']]],
   ['string_5fbuffer_802',['string_buffer',['../namespaceemlabcpp_1_1testing.html#ae36d07470ad020d80dd3d3eade16fcb5',1,'emlabcpp::testing']]],

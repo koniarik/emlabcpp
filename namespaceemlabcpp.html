@@ -602,6 +602,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a9b9eb800885b61e8071ef11e69debdf6"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">pow</a> (<a class="el" href="structemlabcpp_1_1physical__quantity.html">physical_quantity</a>&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt; val)</td></tr>
 <tr class="memdesc:a9b9eb800885b61e8071ef11e69debdf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power of physical quantity is power of root of it's value and the exponents are multiplied by the value.  <a href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">More...</a><br /></td></tr>
 <tr class="separator:a9b9eb800885b61e8071ef11e69debdf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62ac04b965c5f1f4ddc49c801a0f01b3"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte&gt; </td></tr>
+<tr class="memitem:a62ac04b965c5f1f4ddc49c801a0f01b3"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a62ac04b965c5f1f4ddc49c801a0f01b3">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="structemlabcpp_1_1physical__quantity.html">physical_quantity</a>&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt; &amp;q)</td></tr>
+<tr class="separator:a62ac04b965c5f1f4ddc49c801a0f01b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37fb61edcdf95a5c2fc63e29d2431946"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
 <tr class="memitem:a37fb61edcdf95a5c2fc63e29d2431946"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a37fb61edcdf95a5c2fc63e29d2431946">operator+</a> (<a class="el" href="classemlabcpp_1_1quantity.html">quantity</a>&lt; Derived, ValueType &gt; lhs, const <a class="el" href="classemlabcpp_1_1quantity.html">quantity</a>&lt; Derived, ValueType &gt; rhs)</td></tr>
 <tr class="memdesc:a37fb61edcdf95a5c2fc63e29d2431946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of quantities with same Derived and value_type.  <a href="namespaceemlabcpp.html#a37fb61edcdf95a5c2fc63e29d2431946">More...</a><br /></td></tr>
@@ -658,9 +661,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1e7c3c010fa2b7cffe9478558c1d9df6"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1e7c3c010fa2b7cffe9478558c1d9df6">operator/</a> (const ValueType val, const <a class="el" href="classemlabcpp_1_1quantity.html">quantity</a>&lt; Derived, ValueType &gt; q)</td></tr>
 <tr class="memdesc:a1e7c3c010fa2b7cffe9478558c1d9df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Division of value_type by quantity returns quantity.  <a href="namespaceemlabcpp.html#a1e7c3c010fa2b7cffe9478558c1d9df6">More...</a><br /></td></tr>
 <tr class="separator:a1e7c3c010fa2b7cffe9478558c1d9df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eca5f3bb3804309470b88131f9417de"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, typename T , typename ValueType &gt; </td></tr>
-<tr class="memitem:a8eca5f3bb3804309470b88131f9417de"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a8eca5f3bb3804309470b88131f9417de">operator&lt;&lt;</a> (Stream &amp;os, <a class="el" href="classemlabcpp_1_1quantity.html">quantity</a>&lt; T, ValueType &gt; q)</td></tr>
-<tr class="separator:a8eca5f3bb3804309470b88131f9417de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1c80290d135d19a201c0f04b47eb665"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, typename T , typename ValueType &gt; </td></tr>
+<tr class="memitem:ae1c80290d135d19a201c0f04b47eb665"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae1c80290d135d19a201c0f04b47eb665">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="classemlabcpp_1_1quantity.html">quantity</a>&lt; T, ValueType &gt; &amp;q)</td></tr>
+<tr class="separator:ae1c80290d135d19a201c0f04b47eb665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2254b75f92599473cee7451ded051a0e"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
 <tr class="memitem:a2254b75f92599473cee7451ded051a0e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2254b75f92599473cee7451ded051a0e">operator&lt;=&gt;</a> (const <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; &amp;lh, const <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; &amp;rh)</td></tr>
 <tr class="separator:a2254b75f92599473cee7451ded051a0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4019,7 +4022,7 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
 </div>
 </div>
 <a id="ab8b867e51bf5ac5aee398f465860edd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8b867e51bf5ac5aee398f465860edd7">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8b867e51bf5ac5aee398f465860edd7">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4049,7 +4052,7 @@ template&lt;typename StreamType , typename T , std::size_t N&gt; </div>
 </div>
 </div>
 <a id="a2f10b2ff6c20f2e8057487e521275521"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f10b2ff6c20f2e8057487e521275521">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f10b2ff6c20f2e8057487e521275521">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4079,7 +4082,7 @@ template&lt;ostreamlike Stream, typename T , T MinVal, T MaxVal&gt; </div>
 </div>
 </div>
 <a id="a6d9dc3aa5b82dc99dd38f0d03d521deb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d9dc3aa5b82dc99dd38f0d03d521deb">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[3/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9dc3aa5b82dc99dd38f0d03d521deb">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[3/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4109,7 +4112,7 @@ template&lt;ostreamlike Stream, typename Iterator , bounded_derived SizeType&gt;
 </div>
 </div>
 <a id="a67f4bfa3442a7cfe7b4fc9497a18af1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67f4bfa3442a7cfe7b4fc9497a18af1a">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[4/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a67f4bfa3442a7cfe7b4fc9497a18af1a">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[4/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4139,7 +4142,7 @@ template&lt;ostreamlike Stream, typename ArrayType &gt; </div>
 </div>
 </div>
 <a id="a7f88dc78162817fe61981e2ccb4542ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f88dc78162817fe61981e2ccb4542ef">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[5/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f88dc78162817fe61981e2ccb4542ef">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[5/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4171,7 +4174,7 @@ template&lt;ostreamlike Stream, typename Key , typename Value &gt; </div>
 </div>
 </div>
 <a id="aec5028f6cc9b4c19dde22d474205ee14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec5028f6cc9b4c19dde22d474205ee14">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[6/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec5028f6cc9b4c19dde22d474205ee14">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[6/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4201,7 +4204,7 @@ template&lt;ostreamlike Stream, typename ObjectType &gt; </div>
 </div>
 </div>
 <a id="a102fe4d18339d80a3534e5def0c17fb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a102fe4d18339d80a3534e5def0c17fb9">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[7/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a102fe4d18339d80a3534e5def0c17fb9">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[7/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4230,8 +4233,70 @@ template&lt;ostreamlike Stream, typename Key , typename Value &gt; </div>
 
 </div>
 </div>
+<a id="a62ac04b965c5f1f4ddc49c801a0f01b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62ac04b965c5f1f4ddc49c801a0f01b3">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[8/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ostreamlike Stream, int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">Stream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structemlabcpp_1_1physical__quantity.html">physical_quantity</a>&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt; &amp;&#160;</td>
+          <td class="paramname"><em>q</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1physical__quantity.html#a97a58186293ee42d1daf3288a376536d">emlabcpp::physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt;::get_unit()</a>.</p>
+
+</div>
+</div>
+<a id="ae1c80290d135d19a201c0f04b47eb665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1c80290d135d19a201c0f04b47eb665">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[9/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ostreamlike Stream, typename T , typename ValueType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">Stream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1quantity.html">quantity</a>&lt; T, ValueType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>q</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abf1d2eb2cc5c084a4173867a48032517"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf1d2eb2cc5c084a4173867a48032517">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[8/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abf1d2eb2cc5c084a4173867a48032517">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[10/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4263,7 +4328,7 @@ template&lt;ostreamlike Stream, typename T , std::size_t N&gt; </div>
 </div>
 </div>
 <a id="a7dff36c03e0407491a4acf6b85b3f86e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7dff36c03e0407491a4acf6b85b3f86e">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[9/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dff36c03e0407491a4acf6b85b3f86e">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[11/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4295,7 +4360,7 @@ template&lt;ostreamlike Stream, typename T , std::size_t N&gt; </div>
 </div>
 </div>
 <a id="a09ef973500b9ebc01d0f76f50c43aa38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09ef973500b9ebc01d0f76f50c43aa38">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[10/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a09ef973500b9ebc01d0f76f50c43aa38">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[12/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4326,38 +4391,8 @@ template&lt;ostreamlike Stream, typename Iterator &gt; </div>
 
 </div>
 </div>
-<a id="a8eca5f3bb3804309470b88131f9417de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8eca5f3bb3804309470b88131f9417de">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[11/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;ostreamlike Stream, typename T , typename ValueType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">Stream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1quantity.html">quantity</a>&lt; T, ValueType &gt;&#160;</td>
-          <td class="paramname"><em>q</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a155a6828d776fbc298d37aabee6bc0d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a155a6828d776fbc298d37aabee6bc0d7">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[12/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a155a6828d776fbc298d37aabee6bc0d7">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[13/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6394,7 +6429,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Fri Nov 4 2022 20:24:19 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Nov 5 2022 21:47:25 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

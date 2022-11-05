@@ -11,11 +11,11 @@ var classemlabcpp_1_1request__reply =
     [ "request_reply", "classemlabcpp_1_1request__reply.html#a7c33aafc69f06c79c135ff2e2454d804", null ],
     [ "address", "classemlabcpp_1_1request__reply.html#a58c21771175b9c1ddd9b43d567c0bb25", null ],
     [ "done", "classemlabcpp_1_1request__reply.html#ad39e9542e95067f349160b055d35d9d7", null ],
-    [ "get_reply", "classemlabcpp_1_1request__reply.html#afa70370eb23c7ede490658e3b99acbc8", null ],
-    [ "has_request", "classemlabcpp_1_1request__reply.html#a0814bc7d1eefcd1dbb50220ffffe7b30", null ],
+    [ "get_request", "classemlabcpp_1_1request__reply.html#a78e1bf9a552f05fbeb1438db6ee5b3fd", null ],
+    [ "has_reply", "classemlabcpp_1_1request__reply.html#a51f38fc125c41f59196ac072c80f4723", null ],
     [ "operator bool", "classemlabcpp_1_1request__reply.html#ab1d26708a029dc16e67e24386ff0975b", null ],
     [ "operator=", "classemlabcpp_1_1request__reply.html#a6b80686af7668436d7fa7e5f5a7f25be", null ],
     [ "operator=", "classemlabcpp_1_1request__reply.html#ae8f50bdbb780ba9abab978563c8b807f", null ],
-    [ "store_request", "classemlabcpp_1_1request__reply.html#abe9ba2ced14031c1a887015e9a71ea1d", null ],
+    [ "store_reply", "classemlabcpp_1_1request__reply.html#ab4a5db0cfdb3e28e80de62b7ef8e2b8f", null ],
     [ "tick", "classemlabcpp_1_1request__reply.html#a454848f6510de4e4721edc3ce1ad42b3", null ]
 ];

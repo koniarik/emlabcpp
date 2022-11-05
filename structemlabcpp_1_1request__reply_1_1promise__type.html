@@ -108,8 +108,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a36a1cd83cc8c9fdef94d6258fabae056"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1f6816ea89f4e648d6caac449ba9eb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html#ad1f6816ea89f4e648d6caac449ba9eb2">return_void</a> ()</td></tr>
 <tr class="separator:ad1f6816ea89f4e648d6caac449ba9eb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a056a4dc0051f13ca132b07e1840dd1bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1request__reply_1_1awaiter.html">awaiter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html#a056a4dc0051f13ca132b07e1840dd1bb">yield_value</a> (ReplyType out)</td></tr>
-<tr class="separator:a056a4dc0051f13ca132b07e1840dd1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf3b282e0945b0c66b478c3a44e379af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1request__reply_1_1awaiter.html">awaiter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html#acf3b282e0945b0c66b478c3a44e379af">yield_value</a> (RequestType out)</td></tr>
+<tr class="separator:acf3b282e0945b0c66b478c3a44e379af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6d3ae6c1302d3815a8a38a5a193bee8"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html#af6d3ae6c1302d3815a8a38a5a193bee8">operator new</a> (std::size_t sz, auto &amp;, <a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *<a class="el" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a>, auto &amp;&amp;...)</td></tr>
 <tr class="separator:af6d3ae6c1302d3815a8a38a5a193bee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8ef1fc77c9d0b28f1dff4898598c60b"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html#ac8ef1fc77c9d0b28f1dff4898598c60b">operator new</a> (std::size_t sz, <a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *<a class="el" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a>, auto &amp;&amp;...)</td></tr>
@@ -448,8 +448,8 @@ template&lt;typename RequestType , typename ReplyType &gt; </div>
 
 </div>
 </div>
-<a id="a056a4dc0051f13ca132b07e1840dd1bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a056a4dc0051f13ca132b07e1840dd1bb">&#9670;&nbsp;</a></span>yield_value()</h2>
+<a id="acf3b282e0945b0c66b478c3a44e379af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf3b282e0945b0c66b478c3a44e379af">&#9670;&nbsp;</a></span>yield_value()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -462,7 +462,7 @@ template&lt;typename RequestType , typename ReplyType &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structemlabcpp_1_1request__reply_1_1awaiter.html">awaiter</a> <a class="el" href="classemlabcpp_1_1request__reply.html">emlabcpp::request_reply</a>&lt; RequestType, ReplyType &gt;::promise_type::yield_value </td>
           <td>(</td>
-          <td class="paramtype">ReplyType&#160;</td>
+          <td class="paramtype">RequestType&#160;</td>
           <td class="paramname"><em>out</em></td><td>)</td>
           <td></td>
         </tr>
@@ -474,7 +474,7 @@ template&lt;typename RequestType , typename ReplyType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html#a597fd3c9366694c790723b23f54ce4f8">emlabcpp::request_reply&lt; RequestType, ReplyType &gt;::promise_type::reply</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html#a39779aafd986504753175ea5b3c1c7cb">emlabcpp::request_reply&lt; RequestType, ReplyType &gt;::promise_type::request</a>.</p>
 
 </div>
 </div>
@@ -544,7 +544,7 @@ template&lt;typename RequestType , typename ReplyType &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1request__reply.html">request_reply</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1request__reply_1_1promise__type.html">promise_type</a></li>
-    <li class="footer">Generated on Fri Nov 4 2022 20:24:19 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Nov 5 2022 21:47:25 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

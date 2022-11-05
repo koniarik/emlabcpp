@@ -38,7 +38,7 @@ var searchData=
   ['assert_2eh_35',['assert.h',['../assert_8h.html',1,'']]],
   ['avg_36',['avg',['../namespaceemlabcpp.html#aeb03fae2e4aecd67b1f163e1ab523e89',1,'emlabcpp']]],
   ['await_5fready_37',['await_ready',['../structemlabcpp_1_1request__reply_1_1awaiter.html#ae8845be58582bf2bf129bd624c938134',1,'emlabcpp::request_reply::awaiter']]],
-  ['await_5fresume_38',['await_resume',['../structemlabcpp_1_1request__reply_1_1awaiter.html#aaeb0198efb5375ddea537feaf37527a4',1,'emlabcpp::request_reply::awaiter']]],
+  ['await_5fresume_38',['await_resume',['../structemlabcpp_1_1request__reply_1_1awaiter.html#a22daf949ac78a014386cf9cf304d8dd1',1,'emlabcpp::request_reply::awaiter']]],
   ['await_5fsuspend_39',['await_suspend',['../structemlabcpp_1_1request__reply_1_1awaiter.html#adad06e7047aa27be51ad4928180f180c',1,'emlabcpp::request_reply::awaiter']]],
   ['awaiter_40',['awaiter',['../structemlabcpp_1_1request__reply_1_1awaiter.html',1,'emlabcpp::request_reply']]]
 ];

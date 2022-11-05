@@ -18,6 +18,6 @@ var searchData=
   ['assemble_5foptionals_1265',['assemble_optionals',['../namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486',1,'emlabcpp']]],
   ['avg_1266',['avg',['../namespaceemlabcpp.html#aeb03fae2e4aecd67b1f163e1ab523e89',1,'emlabcpp']]],
   ['await_5fready_1267',['await_ready',['../structemlabcpp_1_1request__reply_1_1awaiter.html#ae8845be58582bf2bf129bd624c938134',1,'emlabcpp::request_reply::awaiter']]],
-  ['await_5fresume_1268',['await_resume',['../structemlabcpp_1_1request__reply_1_1awaiter.html#aaeb0198efb5375ddea537feaf37527a4',1,'emlabcpp::request_reply::awaiter']]],
+  ['await_5fresume_1268',['await_resume',['../structemlabcpp_1_1request__reply_1_1awaiter.html#a22daf949ac78a014386cf9cf304d8dd1',1,'emlabcpp::request_reply::awaiter']]],
   ['await_5fsuspend_1269',['await_suspend',['../structemlabcpp_1_1request__reply_1_1awaiter.html#adad06e7047aa27be51ad4928180f180c',1,'emlabcpp::request_reply::awaiter']]]
 ];

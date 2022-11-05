@@ -9,7 +9,7 @@ var structemlabcpp_1_1request__reply_1_1promise__type =
     [ "operator new", "structemlabcpp_1_1request__reply_1_1promise__type.html#ac8ef1fc77c9d0b28f1dff4898598c60b", null ],
     [ "return_void", "structemlabcpp_1_1request__reply_1_1promise__type.html#ad1f6816ea89f4e648d6caac449ba9eb2", null ],
     [ "unhandled_exception", "structemlabcpp_1_1request__reply_1_1promise__type.html#a36a1cd83cc8c9fdef94d6258fabae056", null ],
-    [ "yield_value", "structemlabcpp_1_1request__reply_1_1promise__type.html#a056a4dc0051f13ca132b07e1840dd1bb", null ],
+    [ "yield_value", "structemlabcpp_1_1request__reply_1_1promise__type.html#acf3b282e0945b0c66b478c3a44e379af", null ],
     [ "ptr_size", "structemlabcpp_1_1request__reply_1_1promise__type.html#acbccf25060e97045b8bfb0db507e4d54", null ],
     [ "reply", "structemlabcpp_1_1request__reply_1_1promise__type.html#a597fd3c9366694c790723b23f54ce4f8", null ],
     [ "request", "structemlabcpp_1_1request__reply_1_1promise__type.html#a39779aafd986504753175ea5b3c1c7cb", null ]
