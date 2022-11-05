@@ -94,11 +94,7 @@ requires( !range_container< Container > ) [[nodiscard]] std::array< T, N > map_f
 template < typename >
 struct map_f_collector;
 
-template < typename T >
-requires requires( T a, typename T::value_type b )
-{
-        a.push_back( b );
-}
+template < with_push_back T >
 struct map_f_collector< T >
 {
         void collect( T& res, typename T::value_type val ) const
@@ -135,7 +131,7 @@ struct map_f_collector< std::array< T, N > >
 template < typename T >
 concept map_f_collectable = requires( T item, typename T::value_type val )
 {
-        map_f_collector< T >{}.collect( item, val );
+        map_f_collector< T >{}.collect( item, std::move( val ) );
 };
 
 }  // namespace emlabcpp::impl
