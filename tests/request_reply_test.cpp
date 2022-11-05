@@ -8,8 +8,8 @@
 namespace emlabcpp
 {
 
-using reply_type   = std::string;
-using request_type = int;
+using reply_type   = int;
+using request_type = std::string;
 
 using rr_coro = request_reply< request_type, reply_type >;
 
@@ -26,12 +26,12 @@ TEST( RequestReply, base )
         pool_resource< 512, 1 >                   pool;
         request_reply< request_type, reply_type > req = one_yield( &pool, "test" );
 
-        EXPECT_NE( req.get_reply(), nullptr );
-        EXPECT_EQ( *req.get_reply(), "test" );
+        EXPECT_NE( req.get_request(), nullptr );
+        EXPECT_EQ( *req.get_request(), "test" );
 
         EXPECT_FALSE( req.tick() );
 
-        req.store_request( 42 );
+        req.store_reply( 42 );
 
         EXPECT_TRUE( req.tick() );
 
@@ -46,13 +46,13 @@ TEST( RequestReply, executor )
         rr_coro cor = round_robin_run(
             &pool, std::array{ one_yield( &pool, "test1" ), one_yield( &pool, "test2" ) } );
 
-        EXPECT_EQ( *cor.get_reply(), "test1" );
-        cor.store_request( 42 );
+        EXPECT_EQ( *cor.get_request(), "test1" );
+        cor.store_reply( 42 );
 
         EXPECT_TRUE( cor.tick() );
 
-        EXPECT_EQ( *cor.get_reply(), "test2" );
-        cor.store_request( 666 );
+        EXPECT_EQ( *cor.get_request(), "test2" );
+        cor.store_reply( 666 );
 
         EXPECT_TRUE( cor.tick() );
         EXPECT_FALSE( cor.tick() );
