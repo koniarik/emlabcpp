@@ -6,16 +6,16 @@
 
 namespace emlabcpp
 {
-template < typename Coroutine, std::size_t N >
-Coroutine round_robin_run( pool_interface*, std::array< Coroutine, N > coros )
+template < typename Container >
+typename Container::value_type round_robin_run( pool_interface*, Container coros )
 {
         std::size_t i = 0;
         EMLABCPP_LOG( "Run of executor started" );
 
         while ( true ) {
 
-                Coroutine& cor = coros[i];
-                i              = ( i + 1 ) % N;
+                auto& cor = coros[i];
+                i         = ( i + 1 ) % std::size( coros );
 
                 if ( cor.done() ) {
                         if ( i == 0 && all_of( coros ) ) {
