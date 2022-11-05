@@ -208,7 +208,7 @@ var namespaceemlabcpp =
     [ "requires", "namespaceemlabcpp.html#acd74c7df9ccef5ce376d2c3fe2ef8908", null ],
     [ "requires", "namespaceemlabcpp.html#a39bdb9e4992c495c755d900b23435840", null ],
     [ "reversed", "namespaceemlabcpp.html#a3921b804e7ed8b1041ec50f786404c28", null ],
-    [ "round_robin_run", "namespaceemlabcpp.html#a75057b2cf77ebc92bf3560e4b592e079", null ],
+    [ "round_robin_run", "namespaceemlabcpp.html#a7983a336c71ab23faa9589161fe3eba8", null ],
     [ "select_index", "namespaceemlabcpp.html#a22bdba517ae1cfa5e6b4f2e54e407bb1", null ],
     [ "select_index", "namespaceemlabcpp.html#ab1e2e3e15b0c77fff6674ed7e6e1f67e", null ],
     [ "sign", "namespaceemlabcpp.html#a1aef6c41e29219cbbc8538767c0e1f0e", null ],
@@ -263,6 +263,7 @@ var namespaceemlabcpp =
     [ "static_sized", "namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5", null ],
     [ "tuple_has_type_v", "namespaceemlabcpp.html#a8574533cb7c969125a6fde8f5063eff2", null ],
     [ "UnaryCallable", "namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a", null ],
+    [ "with_push_back", "namespaceemlabcpp.html#a24f6b4dc0a35260a281aa436f5401cce", null ],
     [ "with_signature", "namespaceemlabcpp.html#afc8fd33adfcfe872f4402d4b61b41113", null ],
     [ "with_value_type", "namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4", null ]
 ];

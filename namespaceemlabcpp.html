@@ -543,9 +543,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a102fe4d18339d80a3534e5def0c17fb9"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, typename Key , typename Value &gt; </td></tr>
 <tr class="memitem:a102fe4d18339d80a3534e5def0c17fb9"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a102fe4d18339d80a3534e5def0c17fb9">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="classemlabcpp_1_1contiguous__tree.html">contiguous_tree</a>&lt; Key, Value &gt; &amp;tree)</td></tr>
 <tr class="separator:a102fe4d18339d80a3534e5def0c17fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75057b2cf77ebc92bf3560e4b592e079"><td class="memTemplParams" colspan="2">template&lt;typename Coroutine , std::size_t N&gt; </td></tr>
-<tr class="memitem:a75057b2cf77ebc92bf3560e4b592e079"><td class="memTemplItemLeft" align="right" valign="top">Coroutine&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a75057b2cf77ebc92bf3560e4b592e079">round_robin_run</a> (<a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *, std::array&lt; Coroutine, N &gt; coros)</td></tr>
-<tr class="separator:a75057b2cf77ebc92bf3560e4b592e079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7983a336c71ab23faa9589161fe3eba8"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
+<tr class="memitem:a7983a336c71ab23faa9589161fe3eba8"><td class="memTemplItemLeft" align="right" valign="top">Container::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7983a336c71ab23faa9589161fe3eba8">round_robin_run</a> (<a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *, Container coros)</td></tr>
+<tr class="separator:a7983a336c71ab23faa9589161fe3eba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afecb966a998ea6497e7b378bca2681c8"><td class="memTemplParams" colspan="2">template&lt;decomposable_0 T&gt; </td></tr>
 <tr class="memitem:afecb966a998ea6497e7b378bca2681c8"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::tuple&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8">decompose</a> (T &amp;&amp;)</td></tr>
 <tr class="separator:afecb966a998ea6497e7b378bca2681c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -837,6 +837,9 @@ Variables</h2></td></tr>
 <tr class="memitem:afc8fd33adfcfe872f4402d4b61b41113"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Signature &gt; </td></tr>
 <tr class="memitem:afc8fd33adfcfe872f4402d4b61b41113"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#afc8fd33adfcfe872f4402d4b61b41113">with_signature</a> = std::same_as&lt; typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1signature__of">signature_of</a>&lt; T &gt;::signature, Signature &gt;</td></tr>
 <tr class="separator:afc8fd33adfcfe872f4402d4b61b41113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24f6b4dc0a35260a281aa436f5401cce"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a24f6b4dc0a35260a281aa436f5401cce"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a24f6b4dc0a35260a281aa436f5401cce">with_push_back</a></td></tr>
+<tr class="separator:a24f6b4dc0a35260a281aa436f5401cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a459242c17dfd40402115fe8a63d21622"><td class="memTemplParams" colspan="2">template&lt;typename T , typename LH , typename RH &gt; </td></tr>
 <tr class="memitem:a459242c17dfd40402115fe8a63d21622"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a459242c17dfd40402115fe8a63d21622">either_uniquely_right_item</a></td></tr>
 <tr class="separator:a459242c17dfd40402115fe8a63d21622"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4938,16 +4941,16 @@ template&lt;typename Enum &gt; </div>
 
 </div>
 </div>
-<a id="a75057b2cf77ebc92bf3560e4b592e079"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75057b2cf77ebc92bf3560e4b592e079">&#9670;&nbsp;</a></span>round_robin_run()</h2>
+<a id="a7983a336c71ab23faa9589161fe3eba8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7983a336c71ab23faa9589161fe3eba8">&#9670;&nbsp;</a></span>round_robin_run()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Coroutine , std::size_t N&gt; </div>
+template&lt;typename Container &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Coroutine emlabcpp::round_robin_run </td>
+          <td class="memname">Container::value_type emlabcpp::round_robin_run </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *&#160;</td>
           <td class="paramname">, </td>
@@ -4955,7 +4958,7 @@ template&lt;typename Coroutine , std::size_t N&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::array&lt; Coroutine, N &gt;&#160;</td>
+          <td class="paramtype">Container&#160;</td>
           <td class="paramname"><em>coros</em>&#160;</td>
         </tr>
         <tr>
@@ -6386,6 +6389,27 @@ template&lt;typename T , typename... Us&gt; </div>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a24f6b4dc0a35260a281aa436f5401cce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24f6b4dc0a35260a281aa436f5401cce">&#9670;&nbsp;</a></span>with_push_back</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::with_push_back</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> b )</div>
+<div class="line">{</div>
+<div class="line">        a.push_back( std::move( b ) );</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:48</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="afc8fd33adfcfe872f4402d4b61b41113"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afc8fd33adfcfe872f4402d4b61b41113">&#9670;&nbsp;</a></span>with_signature</h2>
 
@@ -6419,7 +6443,6 @@ template&lt;typename T &gt; </div>
 <div class="line">{</div>
 <div class="line">        <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a>;</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:48</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -6429,7 +6452,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sat Nov 5 2022 21:47:25 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Nov 5 2022 22:33:32 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
