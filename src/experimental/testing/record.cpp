@@ -22,29 +22,12 @@
 //
 #include "emlabcpp/experimental/testing/record.h"
 
-#include "experimental/testing/reactor_interface_adapter.h"
-
 namespace emlabcpp::testing
 {
 
-std::optional< node_type_enum > record::get_param_type( node_id nid )
+param_type_awaiter record::get_param_type( node_id nid )
 {
-        std::optional reply = exchange< param_type_reply >( param_type_request{ rid_, nid } );
-        if ( reply ) {
-                return reply->type;
-        }
-        return std::nullopt;
-}
-
-std::optional< value_type > record::get_param_value( node_id nid )
-{
-        std::optional reply = exchange< param_value_reply >( param_value_request{ rid_, nid } );
-
-        if ( reply ) {
-                return reply->value;
-        }
-
-        return std::nullopt;
+        return param_type_awaiter{ param_type_request{ rid_, nid } };
 }
 
 std::optional< node_id > record::collect( node_id parent, const collect_value_type& arg )
@@ -65,51 +48,30 @@ std::optional< node_id > record::collect(
         return std::nullopt;
 }
 
-std::optional< node_id > record::get_param_child( node_id nid, child_id chid )
+param_child_awaiter record::get_param_child( node_id nid, child_id chid )
 {
-        std::optional reply =
-            exchange< param_child_reply >( param_child_request{ rid_, nid, chid } );
-        if ( reply ) {
-                return reply->chid;
-        }
-        return std::nullopt;
+        return param_child_awaiter{ param_child_request{ rid_, nid, chid } };
 }
 
-std::optional< node_id > record::get_param_child( node_id nid, std::string_view key )
+param_child_awaiter record::get_param_child( node_id nid, std::string_view key )
 {
         return get_param_child( nid, key_type_to_buffer( key ) );
 }
 
-std::optional< node_id > record::get_param_child( node_id nid, const key_type& key )
+param_child_awaiter record::get_param_child( node_id nid, const key_type& key )
 {
-        std::optional reply =
-            exchange< param_child_reply >( param_child_request{ rid_, nid, key } );
-        if ( reply ) {
-                return reply->chid;
-        }
-        return std::nullopt;
+        return param_child_awaiter{ param_child_request{ rid_, nid, key } };
 }
 
-std::optional< child_count > record::get_param_child_count( std::optional< node_id > nid )
+param_child_count_awaiter record::get_param_child_count( std::optional< node_id > nid )
 {
-        if ( !nid ) {
-                return std::nullopt;
-        }
-        std::optional reply = exchange< param_child_count_reply >(
-            param_child_count_request{ .rid = rid_, .parent = *nid } );
-        if ( reply ) {
-                return reply->count;
-        }
-        return std::nullopt;
+        return param_child_count_awaiter{
+            param_child_count_request{ .rid = rid_, .parent = *nid } };
 }
 
-std::optional< key_type > record::get_param_key( node_id nid, child_id chid )
+param_key_awaiter record::get_param_key( node_id nid, child_id chid )
 {
-        std::optional reply = exchange< param_key_reply >( param_key_request{ rid_, nid, chid } );
-        if ( reply ) {
-                return reply->key;
-        }
-        return std::nullopt;
+        return param_key_awaiter{ param_key_request{ rid_, nid, chid } };
 }
 
 void record::report_wrong_type_error( node_id nid, const value_type& )

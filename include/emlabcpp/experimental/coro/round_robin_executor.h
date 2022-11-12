@@ -4,7 +4,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::coro
 {
 template < typename Container >
 typename Container::value_type round_robin_run( pool_interface*, Container coros )
@@ -42,4 +42,4 @@ typename Container::value_type round_robin_run( pool_interface*, Container coros
         }
 }
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::coro

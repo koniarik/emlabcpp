@@ -1,5 +1,5 @@
-#include "emlabcpp/allocator/pool.h"
-#include "emlabcpp/experimental/coroutine/owning_coroutine_handle.h"
+#include "emlabcpp/experimental/coro/owning_coroutine_handle.h"
+#include "emlabcpp/experimental/coro/pool_promise.h"
 #include "emlabcpp/experimental/logging.h"
 
 #include <coroutine>
@@ -7,7 +7,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::coro
 {
 
 template < typename RequestType, typename ReplyType >
@@ -36,7 +36,7 @@ public:
                 }
         };
 
-        struct promise_type
+        struct promise_type : pool_promise< promise_type >
         {
                 static constexpr std::size_t ptr_size = sizeof( pool_interface* );
                 std::optional< RequestType > request;
@@ -67,39 +67,6 @@ public:
                 {
                         request = out;
                         return { this };
-                }
-
-                void* operator new( std::size_t sz, auto&, pool_interface* pi, auto&&... )
-                {
-                        return alloc( sz, pi );
-                }
-
-                void* operator new( std::size_t sz, pool_interface* pi, auto&&... )
-                {
-                        return alloc( sz, pi );
-                }
-
-                static void* alloc( std::size_t sz, pool_interface* pi )
-                {
-                        sz += ptr_size;
-                        void* vp = pi->allocate( sz, alignof( promise_type ) );
-
-                        pool_interface** p = reinterpret_cast< pool_interface** >( vp );
-
-                        *p = pi;
-
-                        p++;
-
-                        return p;
-                }
-
-                void operator delete( void* ptr, std::size_t )
-                {
-                        pool_interface** p = reinterpret_cast< pool_interface** >( ptr );
-
-                        p--;
-
-                        ( *p )->deallocate( ptr, alignof( promise_type ) );
                 }
         };
 
@@ -189,4 +156,4 @@ private:
         owning_handle h_;
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::coro

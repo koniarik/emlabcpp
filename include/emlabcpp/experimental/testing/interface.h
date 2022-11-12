@@ -20,6 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
+#include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/experimental/testing/record.h"
 #include "emlabcpp/protocol/packet_handler.h"
 
@@ -33,21 +34,25 @@ namespace emlabcpp::testing
 class test_interface
 {
 public:
-        virtual void setup( record& )
+        virtual test_coroutine setup( pool_interface*, record& )
         {
+                co_return;
         }
-        virtual void run( record& ) = 0;
-        virtual void teardown( record& )
+        virtual test_coroutine run( pool_interface*, record& ) = 0;
+        virtual test_coroutine teardown( pool_interface*, record& )
         {
+                co_return;
         }
 
         virtual ~test_interface() = default;
 };
 
 template < typename T >
-concept test_callable = requires( T t, record& rec )
+concept test_callable = requires( T t, pool_interface* pool, record& rec )
 {
-        t( rec );
+        {
+                t( pool, rec )
+                } -> std::same_as< test_coroutine >;
 };
 
 template < test_callable Callable >
@@ -61,9 +66,9 @@ public:
         {
         }
 
-        void run( record& rec ) final
+        test_coroutine run( pool_interface* pool, record& rec ) final
         {
-                cb_( rec );
+                return cb_( pool, rec );
         }
 };
 
@@ -79,9 +84,9 @@ public:
         {
         }
 
-        void run( record& rec ) final
+        test_coroutine run( pool_interface* pool, record& rec ) final
         {
-                cb_( rec );
+                return cb_( pool, rec );
         }
 };
 

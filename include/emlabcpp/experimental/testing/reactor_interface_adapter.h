@@ -22,6 +22,7 @@
 //
 
 #include "emlabcpp/experimental/testing/reactor_interface.h"
+#include "emlabcpp/static_function.h"
 
 #pragma once
 
@@ -29,8 +30,11 @@ namespace emlabcpp::testing
 {
 class reactor_interface_adapter
 {
+        using incoming_handler = static_function< bool( const controller_reactor_variant& ), 16 >;
+
         reactor_interface& iface_;
         reactor_endpoint&  ep_;
+        incoming_handler   h_{};
 
         static constexpr std::size_t read_limit_ = 10;
 
@@ -56,5 +60,12 @@ public:
         void reply( const reactor_controller_variant& );
 
         void report_failure( const reactor_error_variant& );
+
+        void register_incoming_handler( incoming_handler h )
+        {
+                h_ = h;
+        };
+
+        bool read_with_handler();
 };
 }  // namespace emlabcpp::testing

@@ -49,6 +49,7 @@ enum messages_enum : uint8_t
         PARAM_CHILD_COUNT = 0x12,
         PARAM_KEY         = 0x13,
         PARAM_TYPE        = 0x14,
+        PARAM_VALUE_KEY   = 0x15,
         INTERNAL_ERROR    = 0xf0,
         PROTOCOL_ERROR    = 0xf1,
         TREE_ERROR        = 0xf2,
@@ -123,6 +124,21 @@ struct param_value_request
 struct param_value_reply
 {
         static constexpr auto id = PARAM_VALUE;
+        run_id                rid;
+        value_type            value;
+};
+
+struct param_value_key_request
+{
+        static constexpr auto              id = PARAM_VALUE_KEY;
+        run_id                             rid;
+        node_id                            nid;
+        std::variant< key_type, child_id > key;
+};
+
+struct param_value_key_reply
+{
+        static constexpr auto id = PARAM_VALUE_KEY;
         run_id                rid;
         value_type            value;
 };
@@ -219,6 +235,7 @@ using controller_reactor_group = protocol::tag_group<
     param_child_count_reply,
     param_key_reply,
     param_type_reply,
+    param_value_key_reply,
     tree_error_reply,
     exec_request >;
 
@@ -293,6 +310,7 @@ using reactor_controller_group = protocol::tag_group<
     param_child_count_request,
     param_key_request,
     param_type_request,
+    param_value_key_request,
     test_finished,
     get_suite_name_reply,
     get_suite_date_reply,

@@ -56,20 +56,14 @@ using namespace std::literals;  // TODO: << get rid of this
 // ----------------------------------------------------------------------------
 // tests definitions
 
-void simple_test_case( em::testing::record& rec )
+em::testing::test_coroutine simple_test_case( em::pool_interface*, em::testing::record& rec )
 {
-        // showcase for the record API
 
         // request an argument from controller
-        auto opt_arg_id = rec.get_param_child( 0, "simple_test" );
-        if ( !opt_arg_id ) {
-                return;
-        }
-        auto opt_arg = rec.get_param< int64_t >( *opt_arg_id );
-        if ( !opt_arg ) {
-                rec.fail();
-                return;
-        }
+        em::testing::node_id arg_id = co_await rec.get_param_child( 0, "simple_test" );
+        int64_t              arg    = co_await rec.get_param< int64_t >( arg_id );
+
+        std::ignore = arg;
 
         // collecting records data in the controller
         // this is stored for later review
@@ -114,19 +108,22 @@ struct my_test_fixture : em::testing::test_interface
         my_test_fixture( my_test_fixture&& )            = default;
         my_test_fixture& operator=( my_test_fixture&& ) = default;
 
-        void setup( em::testing::record& ) override
+        em::testing::test_coroutine setup( em::pool_interface*, em::testing::record& ) override
         {
                 // setup i2c
+                co_return;
         }
 
-        void run( em::testing::record& ) override
+        em::testing::test_coroutine run( em::pool_interface*, em::testing::record& ) override
         {
                 // empty overload
+                co_return;
         }
 
-        void teardown( em::testing::record& ) override
+        em::testing::test_coroutine teardown( em::pool_interface*, em::testing::record& ) override
         {
                 // teardown i2c
+                co_return;
         }
 };
 
@@ -135,11 +132,13 @@ struct my_test_case : my_test_fixture
         // testing class using basic fixture for preparation
         // tadaaaaah!
 
-        void run( em::testing::record& rec ) override
+        em::testing::test_coroutine run( em::pool_interface*, em::testing::record& rec ) override
         {
                 rec.collect( 0, "some key for collector", 42 );
 
                 rec.fail();
+
+                co_return;
         }
 };
 
@@ -239,26 +238,32 @@ int main( int argc, char** argv )
         em::testing::default_reactor rec{ "emlabcpp::testing" };
 
         rec.register_callable( "simple test", simple_test_case );
-        rec.register_callable( "simple lambda test", [&]( em::testing::record& rec ) {
-                rec.success();
-        } );
+        rec.register_callable(
+            "simple lambda test",
+            [&]( em::pool_interface*, em::testing::record& rec ) -> em::testing::test_coroutine {
+                    rec.success();
+                    co_return;
+            } );
         rec.register_test( "simple struct test", my_test_case{} );
 
-        rec.register_callable( "complex lambda test", [&]( em::testing::record& rec ) {
-                std::optional< uint64_t > opt_data = rec.get_param< uint64_t >( 0 );
-
-                if ( opt_data ) {
-                        rec.success();
-                } else {
-                        rec.fail();
-                }
-        } );
+        rec.register_callable(
+            "complex lambda test",
+            [&]( em::pool_interface*, em::testing::record& rec ) -> em::testing::test_coroutine {
+                    uint64_t data = co_await rec.get_param< uint64_t >( 0 );
+                    std::ignore   = data;
+                    rec.success();
+                    co_return;
+            } );
 
         rec.register_test(
             "lambda and fixture",
-            em::testing::test_compose( my_test_fixture{}, [&]( em::testing::record& rec ) {
-                    rec.expect( 1 > 0 );
-            } ) );
+            em::testing::test_compose(
+                my_test_fixture{},
+                [&]( em::pool_interface*,
+                     em::testing::record& rec ) -> em::testing::test_coroutine {
+                        rec.expect( 1 > 0 );
+                        co_return;
+                } ) );
 
         // ----------------------------------------------------------------------------
         // build the virtual example and run it

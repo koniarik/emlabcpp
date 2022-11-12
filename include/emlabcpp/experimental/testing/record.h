@@ -21,7 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/experimental/testing/base.h"
-#include "emlabcpp/experimental/testing/convert.h"
+#include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/match.h"
 #include "emlabcpp/static_vector.h"
@@ -43,56 +43,41 @@ public:
         {
         }
 
-        std::optional< node_type_enum > get_param_type( node_id );
+        param_type_awaiter get_param_type( node_id );
 
         template < typename T >
-        std::optional< T > get_param( node_id node )
+        param_value_awaiter< T > get_param( node_id node )
         {
-                std::optional opt_var = get_param_value( node );
-                if ( !opt_var ) {
-                        EMLABCPP_LOG(
-                            "Failed to get param " << node << " with type "
-                                                   << pretty_type_name< T >() );
-                        return std::nullopt;
-                }
-                return extract_param< T >( *opt_var, node );
+                return param_value_awaiter< T >{ param_value_request{ rid_, node } };
         }
 
-        template < typename T, typename Key >
-        std::optional< T > get_param( node_id node, const Key& k )
+        template < typename T >
+        param_value_key_awaiter< T > get_param( node_id node, child_id chid )
         {
-                std::optional< node_id > opt_nid = get_param_child( node, k );
-                if ( !opt_nid ) {
-                        EMLABCPP_LOG(
-                            "Failed to get param " << k << " of node " << node << " with type "
-                                                   << pretty_type_name< T >() );
-                        return std::nullopt;
-                }
-                return get_param< T >( *opt_nid );
+                return param_value_key_awaiter< T >{ param_value_key_request{ rid_, node, chid } };
+        }
+        template < typename T >
+        param_value_key_awaiter< T > get_param( node_id node, const key_type& k )
+        {
+                return param_value_key_awaiter< T >{ param_value_key_request{ rid_, node, k } };
+        }
+        template < typename T >
+        param_value_key_awaiter< T > get_param( node_id node, std::string_view k )
+        {
+                return get_param< T >( node, key_type_to_buffer( k ) );
         }
 
-        template < typename T, typename Key >
-        std::optional< T > get_param( std::optional< node_id > node, const Key& k )
-        {
-                if ( !node ) {
-                        return std::nullopt;
-                }
-                return get_param< T >( *node, k );
-        }
+        param_child_awaiter get_param_child( node_id, child_id );
+        param_child_awaiter get_param_child( node_id, const key_type& key );
+        param_child_awaiter get_param_child( node_id, std::string_view key );
 
-        std::optional< value_type > get_param_value( node_id param );
-
-        std::optional< node_id > get_param_child( node_id, child_id );
-        std::optional< node_id > get_param_child( node_id, const key_type& key );
-        std::optional< node_id > get_param_child( node_id, std::string_view key );
-
-        std::optional< child_count > get_param_child_count( std::optional< node_id > );
-        std::optional< child_count > get_param_child_count( node_id nid )
+        param_child_count_awaiter get_param_child_count( std::optional< node_id > );
+        param_child_count_awaiter get_param_child_count( node_id nid )
         {
                 return get_param_child_count( std::optional{ nid } );
         }
 
-        std::optional< key_type > get_param_key( node_id, child_id );
+        param_key_awaiter get_param_key( node_id, child_id );
 
         bool errored()
         {
@@ -126,7 +111,8 @@ public:
         template < typename Arg >
         std::optional< node_id > collect( node_id parent, const Arg& arg )
         {
-                return collect( parent, value_type_converter< Arg >::to_value( arg ) );
+                const value_type& val = value_type_converter< Arg >::to_value( arg );
+                return collect( parent, collect_value_type{ val } );
         }
 
         void fail()

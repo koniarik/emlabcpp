@@ -1,7 +1,7 @@
 
-#include "emlabcpp/experimental/coroutine/request_reply.h"
+#include "emlabcpp/experimental/coro/request_reply.h"
 
-#include "emlabcpp/experimental/coroutine/round_robin_executor.h"
+#include "emlabcpp/experimental/coro/round_robin_executor.h"
 
 #include <gtest/gtest.h>
 
@@ -11,7 +11,7 @@ namespace emlabcpp
 using reply_type   = int;
 using request_type = std::string;
 
-using rr_coro = request_reply< request_type, reply_type >;
+using rr_coro = coro::request_reply< request_type, reply_type >;
 
 rr_coro one_yield( pool_interface*, std::string val )
 {
@@ -23,8 +23,8 @@ rr_coro one_yield( pool_interface*, std::string val )
 TEST( RequestReply, base )
 {
 
-        pool_resource< 512, 1 >                   pool;
-        request_reply< request_type, reply_type > req = one_yield( &pool, "test" );
+        pool_resource< 512, 1 > pool;
+        rr_coro                 req = one_yield( &pool, "test" );
 
         EXPECT_NE( req.get_request(), nullptr );
         EXPECT_EQ( *req.get_request(), "test" );

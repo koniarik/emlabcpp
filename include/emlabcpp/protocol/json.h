@@ -358,7 +358,7 @@ struct traits_json_serializer< tag< V > > : traits_json_serializer_base
         static std::string get_name()
         {
                 if constexpr ( std::is_enum_v< decltype( V ) > ) {
-                        return "tag<" + convert_enum( V ) + ">";
+                        return "tag<" + std::string{ convert_enum( V ) } + ">";
                 } else {
                         return "tag<" + std::to_string( V ) + ">";
                 }

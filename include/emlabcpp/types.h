@@ -95,7 +95,7 @@ auto pretty_type_name()
         res               = dname;
         // NOLINTNEXTLINE
         free( dname );
-#elif EMLABCPP_USE_TYPEID
+#elif defined EMLABCPP_USE_TYPEID
         std::string_view res = typeid( T ).name();
 #else
         std::string_view res = "type names not supported";
@@ -145,5 +145,28 @@ struct type_map< std::tuple< Ts... >, Fun >
 
 template < typename T, template < typename > class Fun >
 using type_map_t = typename type_map< T, Fun >::type;
+
+/// ------------------------------------------------------------------------------------------------
+
+template < typename T >
+struct type_tag
+{
+        using type = T;
+};
+
+/// ------------------------------------------------------------------------------------------------
+
+template < typename T, typename Variant >
+struct index_of;
+
+template < typename T, typename... Ts >
+struct index_of< T, std::variant< Ts... > >
+  : std::integral_constant<
+        std::size_t,
+        std::variant< type_tag< Ts >... >( type_tag< T >() ).index() >
+{
+        // got the tip for this from:
+        // https://stackoverflow.com/questions/52303316/get-index-by-type-in-stdvariant
+};
 
 }  // namespace emlabcpp

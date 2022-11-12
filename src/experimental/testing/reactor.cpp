@@ -22,7 +22,7 @@
 //
 #include "emlabcpp/experimental/testing/reactor.h"
 
-#include "experimental/testing/reactor_interface_adapter.h"
+#include "emlabcpp/experimental/testing/reactor_interface_adapter.h"
 
 namespace emlabcpp::testing
 {
@@ -42,6 +42,9 @@ void reactor::spin( reactor_interface& top_iface )
                                 handle_message( item, iface );
                         },
                         [&]( const param_value_reply& ) {
+                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
+                        },
+                        [&]( const param_value_key_reply& ) {
                                 iface.report_failure( error< UNDESIRED_MSG_E >{} );
                         },
                         [&]( const param_child_reply& ) {
@@ -133,15 +136,32 @@ void reactor::exec_test( reactor_interface_adapter& iface )
                     test_finished{ .rid = active_exec_->rid, .errored = errd, .failed = faild } );
         };
 
-        h.ptr->setup( rec );
+        {
+                test_coroutine coro = h.ptr->setup( mem_, rec );
+                if ( !coro.spin( &iface ) ) {
+                        return;
+                }
+        }
+
         if ( rec.errored() ) {
                 faild = true;
                 return;
         }
 
-        h.ptr->run( rec );
+        {
+                test_coroutine coro = h.ptr->run( mem_, rec );
+                if ( !coro.spin( &iface ) ) {
+                        return;
+                }
+        }
 
-        h.ptr->teardown( rec );
+        {
+                test_coroutine coro = h.ptr->teardown( mem_, rec );
+                if ( !coro.spin( &iface ) ) {
+                        return;
+                }
+        }
+
         if ( rec.errored() ) {
                 errd = true;
                 return;

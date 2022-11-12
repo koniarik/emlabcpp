@@ -1,9 +1,9 @@
-
 #include <coroutine>
+#include <utility>
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::coro
 {
 
 template < typename PromiseType >
@@ -31,6 +31,11 @@ public:
                 return *this;
         }
 
+        void operator()()
+        {
+                h_();
+        }
+
         operator bool() const
         {
                 return bool( h_ );
@@ -56,4 +61,4 @@ private:
         std::coroutine_handle< promise_type > h_;
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::coro

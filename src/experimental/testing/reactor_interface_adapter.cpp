@@ -20,7 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
-#include "experimental/testing/reactor_interface_adapter.h"
+#include "emlabcpp/experimental/testing/reactor_interface_adapter.h"
 
 namespace emlabcpp::testing
 {
@@ -42,5 +42,33 @@ void reactor_interface_adapter::reply( const reactor_controller_variant& var )
 void reactor_interface_adapter::report_failure( const reactor_error_variant& evar )
 {
         reply( reactor_internal_error_report{ evar } );
+}
+bool reactor_interface_adapter::read_with_handler()
+{
+        return read_variant()
+            .convert_left( [&]( controller_reactor_variant var ) {
+                    if ( h_( var ) ) {
+                            return true;
+                    }
+                    const auto* tree_err = std::get_if< tree_error_reply >( &var );
+                    if ( tree_err != nullptr ) {
+                            report_failure( *tree_err );
+                    }
+                    report_failure( error< WRONG_MESSAGE_E >{} );
+                    return false;
+            } )
+            .convert_right( [&]( protocol::endpoint_error e ) {
+                    // TODO: replication from reactor
+                    match(
+                        e,
+                        [&]( const protocol::endpoint_load_error& ) {
+                                report_failure( no_response_error{} );
+                        },
+                        [&]( const protocol::error_record& rec ) {
+                                report_failure( input_message_protocol_error{ rec } );
+                        } );
+                    return false;
+            } )
+            .join();
 }
 }  // namespace emlabcpp::testing

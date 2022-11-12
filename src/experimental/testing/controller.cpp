@@ -239,8 +239,10 @@ struct controller_dispatcher
                 // TODO: this may be a bad idea ...
                 if ( tree.empty() ) {
                         if ( req.opt_key ) {
+                                EMLABCPP_LOG( "collect tree is empty, making root object" );
                                 tree.make_object_node();
                         } else {
+                                EMLABCPP_LOG( "collect tree is empty, making root array" );
                                 tree.make_array_node();
                         }
                 }
@@ -272,6 +274,25 @@ struct controller_dispatcher
                     [this, &req]( const contiguous_request_adapter_errors_enum err ) {
                             this->iface.reply_node_error( req.rid, err, req.nid );
                     } );
+        }
+        void operator()( const param_value_key_request& req )
+        {
+                EMLABCPP_ASSERT( context );
+                EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
+
+                const contiguous_request_adapter harn{ iface->get_param_tree() };
+
+                harn.get_child( req.nid, req.key )
+                    .bind_left( [this, &req, &harn]( child_id chid ) {
+                            return harn.get_value( chid );
+                    } )
+                    .match(
+                        [this, &req]( const value_type& val ) {
+                                this->iface.send( param_value_reply{ req.rid, val } );
+                        },
+                        [this, &req]( const contiguous_request_adapter_errors_enum err ) {
+                                this->iface.reply_node_error( req.rid, err, req.nid );
+                        } );
         }
         void operator()( const param_child_request& req )
         {
