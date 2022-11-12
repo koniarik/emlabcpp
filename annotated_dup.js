@@ -1,6 +1,11 @@
 var annotated_dup =
 [
     [ "emlabcpp", "namespaceemlabcpp.html", [
+      [ "coro", "namespaceemlabcpp_1_1coro.html", [
+        [ "owning_coroutine_handle", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", "classemlabcpp_1_1coro_1_1owning__coroutine__handle" ],
+        [ "pool_promise", "structemlabcpp_1_1coro_1_1pool__promise.html", "structemlabcpp_1_1coro_1_1pool__promise" ],
+        [ "request_reply", "classemlabcpp_1_1coro_1_1request__reply.html", "classemlabcpp_1_1coro_1_1request__reply" ]
+      ] ],
       [ "detail", "namespaceemlabcpp_1_1detail.html", [
         [ "decompose_anything", "structemlabcpp_1_1detail_1_1decompose__anything.html", "structemlabcpp_1_1detail_1_1decompose__anything" ],
         [ "static_function_vtable", "structemlabcpp_1_1detail_1_1static__function__vtable.html", "structemlabcpp_1_1detail_1_1static__function__vtable" ],
@@ -122,6 +127,14 @@ var annotated_dup =
         [ "value_type_converter_getter", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", "structemlabcpp_1_1testing_1_1value__type__converter__getter" ],
         [ "value_type_converter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html", null ],
         [ "value_type_converter< std::string_view >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4" ],
+        [ "test_coroutine", "classemlabcpp_1_1testing_1_1test__coroutine.html", "classemlabcpp_1_1testing_1_1test__coroutine" ],
+        [ "param_awaiter", "structemlabcpp_1_1testing_1_1param__awaiter.html", "structemlabcpp_1_1testing_1_1param__awaiter" ],
+        [ "param_value_processor", "structemlabcpp_1_1testing_1_1param__value__processor.html", "structemlabcpp_1_1testing_1_1param__value__processor" ],
+        [ "param_value_key_processor", "structemlabcpp_1_1testing_1_1param__value__key__processor.html", "structemlabcpp_1_1testing_1_1param__value__key__processor" ],
+        [ "param_type_processor", "structemlabcpp_1_1testing_1_1param__type__processor.html", "structemlabcpp_1_1testing_1_1param__type__processor" ],
+        [ "param_child_processor", "structemlabcpp_1_1testing_1_1param__child__processor.html", "structemlabcpp_1_1testing_1_1param__child__processor" ],
+        [ "param_child_count_processor", "structemlabcpp_1_1testing_1_1param__child__count__processor.html", "structemlabcpp_1_1testing_1_1param__child__count__processor" ],
+        [ "param_key_processor", "structemlabcpp_1_1testing_1_1param__key__processor.html", "structemlabcpp_1_1testing_1_1param__key__processor" ],
         [ "reactor_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1reactor__protocol__error_dup" ],
         [ "controller_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__protocol__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1controller__protocol__error_dup" ],
         [ "internal_reactor_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1internal__reactor__error_dup" ],
@@ -140,6 +153,8 @@ var annotated_dup =
         [ "collect_reply", "structemlabcpp_1_1testing_1_1collect__reply.html", "structemlabcpp_1_1testing_1_1collect__reply" ],
         [ "param_value_request", "structemlabcpp_1_1testing_1_1param__value__request.html", "structemlabcpp_1_1testing_1_1param__value__request" ],
         [ "param_value_reply", "structemlabcpp_1_1testing_1_1param__value__reply.html", "structemlabcpp_1_1testing_1_1param__value__reply" ],
+        [ "param_value_key_request", "structemlabcpp_1_1testing_1_1param__value__key__request.html", "structemlabcpp_1_1testing_1_1param__value__key__request" ],
+        [ "param_value_key_reply", "structemlabcpp_1_1testing_1_1param__value__key__reply.html", "structemlabcpp_1_1testing_1_1param__value__key__reply" ],
         [ "param_child_request", "structemlabcpp_1_1testing_1_1param__child__request.html", "structemlabcpp_1_1testing_1_1param__child__request" ],
         [ "param_child_reply", "structemlabcpp_1_1testing_1_1param__child__reply.html", "structemlabcpp_1_1testing_1_1param__child__reply" ],
         [ "param_child_count_request", "structemlabcpp_1_1testing_1_1param__child__count__request.html", "structemlabcpp_1_1testing_1_1param__child__count__request" ],
@@ -160,6 +175,7 @@ var annotated_dup =
         [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html", "classemlabcpp_1_1testing_1_1reactor" ],
         [ "default_reactor", "classemlabcpp_1_1testing_1_1default__reactor.html", "classemlabcpp_1_1testing_1_1default__reactor" ],
         [ "reactor_interface", "classemlabcpp_1_1testing_1_1reactor__interface.html", "classemlabcpp_1_1testing_1_1reactor__interface" ],
+        [ "reactor_interface_adapter", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html", "classemlabcpp_1_1testing_1_1reactor__interface__adapter" ],
         [ "record", "classemlabcpp_1_1testing_1_1record.html", "classemlabcpp_1_1testing_1_1record" ]
       ] ],
       [ "min_max", "structemlabcpp_1_1min__max.html", "structemlabcpp_1_1min__max" ],
@@ -180,8 +196,6 @@ var annotated_dup =
       [ "contiguous_array_handle", "classemlabcpp_1_1contiguous__array__handle.html", "classemlabcpp_1_1contiguous__array__handle" ],
       [ "contiguous_node", "classemlabcpp_1_1contiguous__node.html", "classemlabcpp_1_1contiguous__node" ],
       [ "contiguous_tree", "classemlabcpp_1_1contiguous__tree.html", "classemlabcpp_1_1contiguous__tree" ],
-      [ "owning_coroutine_handle", "classemlabcpp_1_1owning__coroutine__handle.html", "classemlabcpp_1_1owning__coroutine__handle" ],
-      [ "request_reply", "classemlabcpp_1_1request__reply.html", "classemlabcpp_1_1request__reply" ],
       [ "derived_storage", "classemlabcpp_1_1derived__storage.html", "classemlabcpp_1_1derived__storage" ],
       [ "function_view", "namespaceemlabcpp.html#classemlabcpp_1_1function__view", null ],
       [ "function_view< ReturnType(ArgTypes...) >", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4" ],
@@ -223,6 +237,9 @@ var annotated_dup =
       [ "select_utype", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
       [ "type_map", "namespaceemlabcpp.html#structemlabcpp_1_1type__map", null ],
       [ "type_map< std::tuple< Ts... >, Fun >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4", "namespaceemlabcpp_structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4_dup" ],
+      [ "type_tag", "namespaceemlabcpp.html#structemlabcpp_1_1type__tag", "namespaceemlabcpp_structemlabcpp_1_1type__tag_dup" ],
+      [ "index_of", "namespaceemlabcpp.html#structemlabcpp_1_1index__of", null ],
+      [ "index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", null ],
       [ "view", "classemlabcpp_1_1view.html", "classemlabcpp_1_1view" ],
       [ "zip_iterator", "classemlabcpp_1_1zip__iterator.html", "classemlabcpp_1_1zip__iterator" ]
     ] ],

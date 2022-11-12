@@ -1,5 +1,6 @@
 var namespaceemlabcpp =
 [
+    [ "coro", "namespaceemlabcpp_1_1coro.html", "namespaceemlabcpp_1_1coro" ],
     [ "detail", "namespaceemlabcpp_1_1detail.html", "namespaceemlabcpp_1_1detail" ],
     [ "impl", "namespaceemlabcpp_1_1impl.html", "namespaceemlabcpp_1_1impl" ],
     [ "protocol", "namespaceemlabcpp_1_1protocol.html", "namespaceemlabcpp_1_1protocol" ],
@@ -23,8 +24,6 @@ var namespaceemlabcpp =
     [ "contiguous_array_handle", "classemlabcpp_1_1contiguous__array__handle.html", "classemlabcpp_1_1contiguous__array__handle" ],
     [ "contiguous_node", "classemlabcpp_1_1contiguous__node.html", "classemlabcpp_1_1contiguous__node" ],
     [ "contiguous_tree", "classemlabcpp_1_1contiguous__tree.html", "classemlabcpp_1_1contiguous__tree" ],
-    [ "owning_coroutine_handle", "classemlabcpp_1_1owning__coroutine__handle.html", "classemlabcpp_1_1owning__coroutine__handle" ],
-    [ "request_reply", "classemlabcpp_1_1request__reply.html", "classemlabcpp_1_1request__reply" ],
     [ "derived_storage", "classemlabcpp_1_1derived__storage.html", "classemlabcpp_1_1derived__storage" ],
     [ "function_view", "namespaceemlabcpp.html#classemlabcpp_1_1function__view", null ],
     [ "function_view< ReturnType(ArgTypes...) >", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4" ],
@@ -66,6 +65,9 @@ var namespaceemlabcpp =
     [ "select_utype", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
     [ "type_map", "namespaceemlabcpp.html#structemlabcpp_1_1type__map", null ],
     [ "type_map< std::tuple< Ts... >, Fun >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4", "namespaceemlabcpp_structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4_dup" ],
+    [ "type_tag", "namespaceemlabcpp.html#structemlabcpp_1_1type__tag", "namespaceemlabcpp_structemlabcpp_1_1type__tag_dup" ],
+    [ "index_of", "namespaceemlabcpp.html#structemlabcpp_1_1index__of", null ],
+    [ "index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", null ],
     [ "view", "classemlabcpp_1_1view.html", "classemlabcpp_1_1view" ],
     [ "zip_iterator", "classemlabcpp_1_1zip__iterator.html", "classemlabcpp_1_1zip__iterator" ],
     [ "acceleration", "namespaceemlabcpp.html#a9f7b213031fa424abf6cc3d1d04ac1ca", null ],
@@ -208,7 +210,6 @@ var namespaceemlabcpp =
     [ "requires", "namespaceemlabcpp.html#acd74c7df9ccef5ce376d2c3fe2ef8908", null ],
     [ "requires", "namespaceemlabcpp.html#a39bdb9e4992c495c755d900b23435840", null ],
     [ "reversed", "namespaceemlabcpp.html#a3921b804e7ed8b1041ec50f786404c28", null ],
-    [ "round_robin_run", "namespaceemlabcpp.html#a7983a336c71ab23faa9589161fe3eba8", null ],
     [ "select_index", "namespaceemlabcpp.html#a22bdba517ae1cfa5e6b4f2e54e407bb1", null ],
     [ "select_index", "namespaceemlabcpp.html#ab1e2e3e15b0c77fff6674ed7e6e1f67e", null ],
     [ "sign", "namespaceemlabcpp.html#a1aef6c41e29219cbbc8538767c0e1f0e", null ],

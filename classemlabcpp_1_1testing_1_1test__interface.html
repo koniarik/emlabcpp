@@ -103,12 +103,12 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1testing_1_1test__inte
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2041a7fe0bf9d19e261c788fd0e9fbac"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html#a2041a7fe0bf9d19e261c788fd0e9fbac">setup</a> (<a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a> &amp;)</td></tr>
-<tr class="separator:a2041a7fe0bf9d19e261c788fd0e9fbac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b4250228543189d6f05337999bf196e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html#a3b4250228543189d6f05337999bf196e">run</a> (<a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a> &amp;)=0</td></tr>
-<tr class="separator:a3b4250228543189d6f05337999bf196e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d2b88ff1407f4ad10f6935f3af22b5d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html#a8d2b88ff1407f4ad10f6935f3af22b5d">teardown</a> (<a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a> &amp;)</td></tr>
-<tr class="separator:a8d2b88ff1407f4ad10f6935f3af22b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ff4171e330a0bc179de51cabd1abeb4"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html">test_coroutine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html#a6ff4171e330a0bc179de51cabd1abeb4">setup</a> (<a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *, <a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a> &amp;)</td></tr>
+<tr class="separator:a6ff4171e330a0bc179de51cabd1abeb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8254e29b750a62bd8175ca06ddc999cd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html">test_coroutine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html#a8254e29b750a62bd8175ca06ddc999cd">run</a> (<a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *, <a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a> &amp;)=0</td></tr>
+<tr class="separator:a8254e29b750a62bd8175ca06ddc999cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f90ae5908d18707af7c8d1f590bc545"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html">test_coroutine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html#a7f90ae5908d18707af7c8d1f590bc545">teardown</a> (<a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *, <a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a> &amp;)</td></tr>
+<tr class="separator:a7f90ae5908d18707af7c8d1f590bc545"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c185b02f2b0afee1608d89ae1ae72d8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html#a2c185b02f2b0afee1608d89ae1ae72d8">~test_interface</a> ()=default</td></tr>
 <tr class="separator:a2c185b02f2b0afee1608d89ae1ae72d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -139,8 +139,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3b4250228543189d6f05337999bf196e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b4250228543189d6f05337999bf196e">&#9670;&nbsp;</a></span>run()</h2>
+<a id="a8254e29b750a62bd8175ca06ddc999cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8254e29b750a62bd8175ca06ddc999cd">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,11 +149,21 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void emlabcpp::testing::test_interface::run </td>
+          <td class="memname">virtual <a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html">test_coroutine</a> emlabcpp::testing::test_interface::run </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -163,12 +173,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classemlabcpp_1_1testing_1_1test__callable__overlay.html#a31504372aaf70c6c634d30216ee9c6cd">emlabcpp::testing::test_callable_overlay&lt; Callable &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classemlabcpp_1_1testing_1_1test__callable__overlay.html#a8e4152d3ab4e7dec34eef76a710028ce">emlabcpp::testing::test_callable_overlay&lt; Callable &gt;</a>.</p>
 
 </div>
 </div>
-<a id="a2041a7fe0bf9d19e261c788fd0e9fbac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2041a7fe0bf9d19e261c788fd0e9fbac">&#9670;&nbsp;</a></span>setup()</h2>
+<a id="a6ff4171e330a0bc179de51cabd1abeb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ff4171e330a0bc179de51cabd1abeb4">&#9670;&nbsp;</a></span>setup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,11 +187,21 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void emlabcpp::testing::test_interface::setup </td>
+          <td class="memname">virtual <a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html">test_coroutine</a> emlabcpp::testing::test_interface::setup </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -193,8 +213,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8d2b88ff1407f4ad10f6935f3af22b5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d2b88ff1407f4ad10f6935f3af22b5d">&#9670;&nbsp;</a></span>teardown()</h2>
+<a id="a7f90ae5908d18707af7c8d1f590bc545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f90ae5908d18707af7c8d1f590bc545">&#9670;&nbsp;</a></span>teardown()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,11 +223,21 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void emlabcpp::testing::test_interface::teardown </td>
+          <td class="memname">virtual <a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html">test_coroutine</a> emlabcpp::testing::test_interface::teardown </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -228,7 +258,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a></li>
-    <li class="footer">Generated on Sat Nov 5 2022 22:33:33 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Nov 12 2022 21:55:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

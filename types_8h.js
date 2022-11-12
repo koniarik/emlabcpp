@@ -5,6 +5,10 @@ var types_8h =
     [ "type_map< std::tuple< Ts... >, Fun >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4", [
       [ "type", "namespaceemlabcpp.html#a7e53b3be429836ebe9e7cdecc239f7d8", null ]
     ] ],
+    [ "type_tag", "namespaceemlabcpp.html#structemlabcpp_1_1type__tag", [
+      [ "type", "namespaceemlabcpp.html#aa956ddce4f2384a729e45e5b6a83c212", null ]
+    ] ],
+    [ "index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", null ],
     [ "mapped_t", "types_8h.html#abf111745a0eec5119748333b9640afca", null ],
     [ "select_utype_t", "types_8h.html#ac223240cfaa32fcb48f0daa06c78a9e2", null ],
     [ "type_map_t", "types_8h.html#afbd4de918223b1144d32fcef8a9dfe2a", null ],

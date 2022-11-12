@@ -1,0 +1,5 @@
+<map id="emlabcpp::coro::request_reply&lt; RequestType, ReplyType &gt;::awaiter" name="emlabcpp::coro::request_reply&lt; RequestType, ReplyType &gt;::awaiter">
+<area shape="rect" id="node1" title=" " alt="" coords="5,215,240,271"/>
+<area shape="rect" id="node2" href="$structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html" title=" " alt="" coords="5,96,240,152"/>
+<area shape="rect" id="node3" href="$structemlabcpp_1_1coro_1_1pool__promise.html" title=" " alt="" coords="22,5,223,47"/>
+</map>
