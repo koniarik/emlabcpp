@@ -95,8 +95,7 @@ class gtest : public ::testing::Test
         test_id                     tid_;
         controller_interface&       ci_;
 
-        using mem_type = pool_resource< 256, 32 >;
-        mem_type pool_mem_;
+        pool_dynamic_resource pool_mem_;
 
 public:
         gtest( controller_interface& ci, test_id tid )
@@ -131,9 +130,8 @@ public:
 
 void register_gtests( controller_interface& ci )
 {
-        using mem_type = pool_resource< 256, 64 >;
-        mem_type pool_mem_;
-        auto     opt_con = controller::make( ci, &pool_mem_ );
+        pool_dynamic_resource pool_mem_;
+        auto                  opt_con = controller::make( ci, &pool_mem_ );
 
         if ( !opt_con ) {
                 EMLABCPP_LOG( "Failed to build testing controller for gtest registration" );
