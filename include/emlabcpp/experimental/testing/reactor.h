@@ -128,7 +128,7 @@ public:
         ~reactor();
 };
 
-class default_reactor : private pool_base< 256, 32 >, public reactor
+class default_reactor : private pool_base< 512, 64 >, public reactor
 {
 public:
         /// TODO: this may not be the best idea, as pool_mem will exist only _after_ constructor

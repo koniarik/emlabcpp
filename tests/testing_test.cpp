@@ -67,9 +67,8 @@ em::testing::test_coroutine simple_test_case( em::pool_interface*, em::testing::
 
         // collecting records data in the controller
         // this is stored for later review
-        rec.collect( 0, "col1", "some_data"sv );
-        rec.collect( 0, "col2", 42 );
-        rec.collect( 0, "33", "foooo"sv );
+        co_await rec.collect( 0, "col1", "some_data"sv );
+        co_await rec.collect( 0, "33", "foooo"sv );
 
         // of course, we can decide whenever the test
         // failed or succeeded
@@ -134,7 +133,7 @@ struct my_test_case : my_test_fixture
 
         em::testing::test_coroutine run( em::pool_interface*, em::testing::record& rec ) override
         {
-                rec.collect( 0, "some key for collector", 42 );
+                co_await rec.collect( 0, "some key for collector", 42 );
 
                 rec.fail();
 

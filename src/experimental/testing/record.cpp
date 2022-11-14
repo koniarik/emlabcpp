@@ -30,22 +30,27 @@ param_type_awaiter record::get_param_type( node_id nid )
         return param_type_awaiter{ param_type_request{ rid_, nid } };
 }
 
-std::optional< node_id > record::collect( node_id parent, const collect_value_type& arg )
+collect_awaiter record::collect( node_id parent, const collect_value_type& arg )
 {
         return collect( parent, std::optional< key_type >{}, arg );
 }
 
-std::optional< node_id > record::collect(
+collect_awaiter record::collect( node_id parent, std::string_view k, contiguous_container_type t )
+{
+        return collect( parent, convert_key( k ), collect_value_type{ t } );
+}
+
+collect_awaiter record::collect( node_id parent, contiguous_container_type t )
+{
+        return collect( parent, collect_value_type{ t } );
+}
+
+collect_awaiter record::collect(
     node_id                          parent,
     const std::optional< key_type >& key,
     const collect_value_type&        arg )
 {
-        std::optional reply =
-            exchange< collect_reply >( collect_request{ rid_, parent, key, arg } );
-        if ( reply ) {
-                return reply->nid;
-        }
-        return std::nullopt;
+        return collect_awaiter{ collect_request{ rid_, parent, key, arg } };
 }
 
 param_child_awaiter record::get_param_child( node_id nid, child_id chid )

@@ -71,13 +71,13 @@ private:
 };
 
 template < typename Processor >
-struct param_awaiter
+struct record_awaiter
 {
         Processor proc;
 
         using request_type = decltype( proc.req );
 
-        param_awaiter( request_type req )
+        record_awaiter( request_type req )
           : proc{ .reply = {}, .req = req }
         {
         }
@@ -101,6 +101,23 @@ struct param_awaiter
         }
 };
 
+struct collect_processor
+{
+        node_id         reply;
+        collect_request req;
+
+        bool set_value( const controller_reactor_variant& var )
+        {
+                const auto* val_ptr = std::get_if< collect_reply >( &var );
+                if ( !val_ptr ) {
+                        return false;
+                }
+                reply = val_ptr->nid;
+                return true;
+        }
+};
+using collect_awaiter = record_awaiter< collect_processor >;
+
 template < typename T >
 struct param_value_processor
 {
@@ -121,7 +138,7 @@ struct param_value_processor
         }
 };
 template < typename T >
-using param_value_awaiter = param_awaiter< param_value_processor< T > >;
+using param_value_awaiter = record_awaiter< param_value_processor< T > >;
 
 template < typename T >
 struct param_value_key_processor
@@ -143,7 +160,7 @@ struct param_value_key_processor
         }
 };
 template < typename T >
-using param_value_key_awaiter = param_awaiter< param_value_key_processor< T > >;
+using param_value_key_awaiter = record_awaiter< param_value_key_processor< T > >;
 
 struct param_type_processor
 {
@@ -161,7 +178,7 @@ struct param_type_processor
                 return true;
         }
 };
-using param_type_awaiter = param_awaiter< param_type_processor >;
+using param_type_awaiter = record_awaiter< param_type_processor >;
 
 struct param_child_processor
 {
@@ -178,7 +195,7 @@ struct param_child_processor
                 return true;
         }
 };
-using param_child_awaiter = param_awaiter< param_child_processor >;
+using param_child_awaiter = record_awaiter< param_child_processor >;
 
 struct param_child_count_processor
 {
@@ -195,7 +212,7 @@ struct param_child_count_processor
                 return true;
         }
 };
-using param_child_count_awaiter = param_awaiter< param_child_count_processor >;
+using param_child_count_awaiter = record_awaiter< param_child_count_processor >;
 
 struct param_key_processor
 {
@@ -212,6 +229,6 @@ struct param_key_processor
                 return true;
         }
 };
-using param_key_awaiter = param_awaiter< param_key_processor >;
+using param_key_awaiter = record_awaiter< param_key_processor >;
 
 }  // namespace emlabcpp::testing
