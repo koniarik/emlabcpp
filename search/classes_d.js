@@ -25,7 +25,7 @@ var searchData=
   ['pid_1125',['pid',['../classemlabcpp_1_1pid.html',1,'emlabcpp']]],
   ['pool_5fallocator_1126',['pool_allocator',['../classemlabcpp_1_1pool__allocator.html',1,'emlabcpp']]],
   ['pool_5fbase_1127',['pool_base',['../structemlabcpp_1_1pool__base.html',1,'emlabcpp']]],
-  ['pool_5fbase_3c_20512_2c_2064_20_3e_1128',['pool_base&lt; 512, 64 &gt;',['../structemlabcpp_1_1pool__base.html',1,'emlabcpp']]],
+  ['pool_5fbase_3c_20512_2c_2032_20_3e_1128',['pool_base&lt; 512, 32 &gt;',['../structemlabcpp_1_1pool__base.html',1,'emlabcpp']]],
   ['pool_5fdeleter_1129',['pool_deleter',['../structemlabcpp_1_1pool__deleter.html',1,'emlabcpp']]],
   ['pool_5fdynamic_5fresource_1130',['pool_dynamic_resource',['../classemlabcpp_1_1pool__dynamic__resource.html',1,'emlabcpp']]],
   ['pool_5finterface_1131',['pool_interface',['../structemlabcpp_1_1pool__interface.html',1,'emlabcpp']]],

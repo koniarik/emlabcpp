@@ -180,7 +180,7 @@ var hierarchy =
     [ "emlabcpp::pid< TimeType >", "classemlabcpp_1_1pid.html", null ],
     [ "emlabcpp::pool_allocator< T >", "classemlabcpp_1_1pool__allocator.html", null ],
     [ "emlabcpp::pool_base< PoolSize, PoolCount >", "structemlabcpp_1_1pool__base.html", null ],
-    [ "emlabcpp::pool_base< 512, 64 >", "structemlabcpp_1_1pool__base.html", [
+    [ "emlabcpp::pool_base< 512, 32 >", "structemlabcpp_1_1pool__base.html", [
       [ "emlabcpp::testing::default_reactor", "classemlabcpp_1_1testing_1_1default__reactor.html", null ]
     ] ],
     [ "emlabcpp::pool_deleter", "structemlabcpp_1_1pool__deleter.html", null ],

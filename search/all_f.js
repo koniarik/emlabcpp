@@ -49,7 +49,7 @@ var searchData=
   ['pool_2eh_603',['pool.h',['../pool_8h.html',1,'']]],
   ['pool_5fallocator_604',['pool_allocator',['../classemlabcpp_1_1pool__allocator.html',1,'emlabcpp::pool_allocator&lt; T &gt;'],['../classemlabcpp_1_1pool__allocator.html#aee469609aef2056bfa457272420e85aa',1,'emlabcpp::pool_allocator::pool_allocator()'],['../classemlabcpp_1_1pool__allocator.html#a2aa5148e1c3802e8155ab145891dfb79',1,'emlabcpp::pool_allocator::pool_allocator(pool_interface *const src)'],['../classemlabcpp_1_1pool__allocator.html#a4564779a1c5107d53b0204f2a7e0bdb5',1,'emlabcpp::pool_allocator::pool_allocator(const pool_allocator&lt; U &gt; &amp;other)']]],
   ['pool_5fbase_605',['pool_base',['../structemlabcpp_1_1pool__base.html',1,'emlabcpp']]],
-  ['pool_5fbase_3c_20512_2c_2064_20_3e_606',['pool_base&lt; 512, 64 &gt;',['../structemlabcpp_1_1pool__base.html',1,'emlabcpp']]],
+  ['pool_5fbase_3c_20512_2c_2032_20_3e_606',['pool_base&lt; 512, 32 &gt;',['../structemlabcpp_1_1pool__base.html',1,'emlabcpp']]],
   ['pool_5fdeleter_607',['pool_deleter',['../structemlabcpp_1_1pool__deleter.html',1,'emlabcpp']]],
   ['pool_5fdeque_608',['pool_deque',['../namespaceemlabcpp.html#a43daa0cfcf1b4444fef3c134b538c492',1,'emlabcpp']]],
   ['pool_5fdynamic_5fresource_609',['pool_dynamic_resource',['../classemlabcpp_1_1pool__dynamic__resource.html',1,'emlabcpp']]],
