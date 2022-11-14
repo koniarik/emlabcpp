@@ -37,8 +37,8 @@ var searchData=
   ['assemble_5foptionals_34',['assemble_optionals',['../namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486',1,'emlabcpp']]],
   ['assert_2eh_35',['assert.h',['../assert_8h.html',1,'']]],
   ['avg_36',['avg',['../namespaceemlabcpp.html#aeb03fae2e4aecd67b1f163e1ab523e89',1,'emlabcpp']]],
-  ['await_5fready_37',['await_ready',['../structemlabcpp_1_1testing_1_1param__awaiter.html#a9e28402c7806ea3733f49a89a5253ca2',1,'emlabcpp::testing::param_awaiter::await_ready()'],['../structemlabcpp_1_1coro_1_1request__reply_1_1awaiter.html#ae0b2549994520f1bc7e747d1f710f621',1,'emlabcpp::coro::request_reply::awaiter::await_ready()']]],
+  ['await_5fready_37',['await_ready',['../structemlabcpp_1_1testing_1_1record__awaiter.html#a5bec3ccf6a51d24741629b33228eabf4',1,'emlabcpp::testing::record_awaiter::await_ready()'],['../structemlabcpp_1_1coro_1_1request__reply_1_1awaiter.html#ae0b2549994520f1bc7e747d1f710f621',1,'emlabcpp::coro::request_reply::awaiter::await_ready()']]],
   ['await_5fresume_38',['await_resume',['../structemlabcpp_1_1coro_1_1request__reply_1_1awaiter.html#a4718218a5aac22fac57835d9213ebe67',1,'emlabcpp::coro::request_reply::awaiter']]],
-  ['await_5fsuspend_39',['await_suspend',['../structemlabcpp_1_1testing_1_1param__awaiter.html#a7c467ceafae31025c0b897e60f5bdcb8',1,'emlabcpp::testing::param_awaiter::await_suspend()'],['../structemlabcpp_1_1coro_1_1request__reply_1_1awaiter.html#ad319afb3735570b1e9806469779f60d6',1,'emlabcpp::coro::request_reply::awaiter::await_suspend()']]],
+  ['await_5fsuspend_39',['await_suspend',['../structemlabcpp_1_1testing_1_1record__awaiter.html#a69ed91c887c180ce827e76926eda7ad5',1,'emlabcpp::testing::record_awaiter::await_suspend()'],['../structemlabcpp_1_1coro_1_1request__reply_1_1awaiter.html#ad319afb3735570b1e9806469779f60d6',1,'emlabcpp::coro::request_reply::awaiter::await_suspend()']]],
   ['awaiter_40',['awaiter',['../structemlabcpp_1_1coro_1_1request__reply_1_1awaiter.html',1,'emlabcpp::coro::request_reply']]]
 ];

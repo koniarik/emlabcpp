@@ -121,6 +121,9 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 : <a class="el" href="namespaceemlabcpp_1_1rpc.html#aeadb69b77989d63acfb82577e02f4420">emlabcpp::rpc::reactor_error</a>
 , <a class="el" href="classemlabcpp_1_1testing_1_1record.html#aa6f14aed2c2a2c2d3e9c5d046a4df86c">emlabcpp::testing::record</a>
 </li>
+<li>record_awaiter()
+: <a class="el" href="structemlabcpp_1_1testing_1_1record__awaiter.html#a30f8cdb007033d1b309cf799c8c3c700">emlabcpp::testing::record_awaiter&lt; Processor &gt;</a>
+</li>
 <li>reference
 : <a class="el" href="classemlabcpp_1_1generic__iterator.html#a58da75ec0f7d0fe6e90eb5e95667627d">emlabcpp::generic_iterator&lt; Derived &gt;</a>
 , <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a2254e0fe38c1f37f98650a6e499ed53a">emlabcpp::static_circular_buffer&lt; T, N &gt;</a>
@@ -158,7 +161,7 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 : <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a8fb00aa95c1e87be15a902fc6e229e0b">emlabcpp::protocol::register_map&lt; Endianess, Regs &gt;</a>
 </li>
 <li>register_map()
-: <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ac078fa2585dd4961b10364b399e49e76">emlabcpp::protocol::register_map&lt; Endianess, Regs &gt;</a>
+: <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ac1b8637639e83482561ed560b66dd395">emlabcpp::protocol::register_map&lt; Endianess, Regs &gt;</a>
 </li>
 <li>register_size()
 : <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a5ca8ba945e7b47eadb74117dc008e50a">emlabcpp::protocol::register_map&lt; Endianess, Regs &gt;</a>
@@ -180,6 +183,7 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 : <a class="el" href="structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#a9641e56a43d6caa968068b96865c95f3">emlabcpp::coro::request_reply&lt; RequestType, ReplyType &gt;::promise_type</a>
 , <a class="el" href="structemlabcpp_1_1rpc_1_1bind.html#a6fd24d113807e9a1a7522d3714eef3cd">emlabcpp::rpc::bind&lt; ID, Signature, CallableSize &gt;</a>
 , <a class="el" href="structemlabcpp_1_1rpc_1_1derive.html#a40bc0b3561bb96c1ec59c3bc5ea436d6">emlabcpp::rpc::derive&lt; ID, Method &gt;</a>
+, <a class="el" href="structemlabcpp_1_1testing_1_1collect__processor.html#adb93bf8da43eb677d360bc8f05d1638e">emlabcpp::testing::collect_processor</a>
 , <a class="el" href="structemlabcpp_1_1testing_1_1param__child__count__processor.html#ae46c24374105e0622fbbcc63b067ec9c">emlabcpp::testing::param_child_count_processor</a>
 , <a class="el" href="structemlabcpp_1_1testing_1_1param__child__processor.html#a0c2961b48f5cc4685d51b4e9365430e9">emlabcpp::testing::param_child_processor</a>
 , <a class="el" href="structemlabcpp_1_1testing_1_1param__key__processor.html#ab76d04889b17a5dcb3af6e91dc8ca36e">emlabcpp::testing::param_key_processor</a>
@@ -220,7 +224,8 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 : <a class="el" href="classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#aad4d3ae42e1e7893b9467a1d9b71f488">emlabcpp::testing::reactor_interface_adapter</a>
 </li>
 <li>req
-: <a class="el" href="structemlabcpp_1_1testing_1_1param__child__count__processor.html#a723899240baad20bde8084e0758c4149">emlabcpp::testing::param_child_count_processor</a>
+: <a class="el" href="structemlabcpp_1_1testing_1_1collect__processor.html#a33a837b60ba2bbee0133b01aba780559">emlabcpp::testing::collect_processor</a>
+, <a class="el" href="structemlabcpp_1_1testing_1_1param__child__count__processor.html#a723899240baad20bde8084e0758c4149">emlabcpp::testing::param_child_count_processor</a>
 , <a class="el" href="structemlabcpp_1_1testing_1_1param__child__processor.html#a81e6fc9bde8c06a6191c0c66c567532a">emlabcpp::testing::param_child_processor</a>
 , <a class="el" href="structemlabcpp_1_1testing_1_1param__key__processor.html#a481299bfd3991a5649567a80e239c9a9">emlabcpp::testing::param_key_processor</a>
 , <a class="el" href="structemlabcpp_1_1testing_1_1param__type__processor.html#abf35cdd59275a2d47b53091d3a40cf28">emlabcpp::testing::param_type_processor</a>
@@ -258,15 +263,15 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 , <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a686e1d9f088895316ae29fa6ca257747">emlabcpp::rpc::controller&lt; Wrapper &gt;</a>
 , <a class="el" href="classemlabcpp_1_1rpc_1_1reactor.html#a7c210f878722ae74317d02dd6f529e1f">emlabcpp::rpc::reactor&lt; CallDefs &gt;</a>
 , <a class="el" href="namespaceemlabcpp_1_1rpc.html#a61f8403a6178c4e3ac33aead3805dbf1">emlabcpp::rpc::traits&lt; std::tuple&lt; Calls... &gt; &gt;</a>
-, <a class="el" href="structemlabcpp_1_1testing_1_1param__awaiter.html#a4027644c8297283ec7436c938ef5e424">emlabcpp::testing::param_awaiter&lt; Processor &gt;</a>
+, <a class="el" href="structemlabcpp_1_1testing_1_1record__awaiter.html#aad79dc76387317a38c95da10060fe624">emlabcpp::testing::record_awaiter&lt; Processor &gt;</a>
 </li>
 <li>required_pool_size
 : <a class="el" href="classemlabcpp_1_1contiguous__tree.html#ab515f10df8b4d95502bf4988be395e1e">emlabcpp::contiguous_tree&lt; Key, Value &gt;</a>
 </li>
 <li>requires()
 : <a class="el" href="classemlabcpp_1_1bounded.html#a53a7e456f96a1af5abfd27f48b206924">emlabcpp::bounded&lt; T, MinVal, MaxVal &gt;</a>
-, <a class="el" href="classemlabcpp_1_1bounded__view.html#aa74d67e6fcf863e95a1e537fc695bce9">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;</a>
-, <a class="el" href="classemlabcpp_1_1either.html#a577724a637d00b9948a077ec179a7c82">emlabcpp::either&lt; LH, RH &gt;</a>
+, <a class="el" href="classemlabcpp_1_1bounded__view.html#adc401f011b02ae22f33db8fc9005116c">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;</a>
+, <a class="el" href="classemlabcpp_1_1either.html#ada20cf807b761e52ca3ff1222231e94a">emlabcpp::either&lt; LH, RH &gt;</a>
 , <a class="el" href="classemlabcpp_1_1pretty__printer.html#a857d5e6564375c7d16a3e8d511163ca5">emlabcpp::pretty_printer&lt; StreamType &gt;</a>
 , <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#adcdf4b785d8a11621a08053b2aa31d12">emlabcpp::protocol::command_group&lt; Endianess, Cmds &gt;</a>
 , <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#aa3b962aa6680ba29d114d86323e7ff5a">emlabcpp::protocol::register_map&lt; Endianess, Regs &gt;</a>
@@ -337,7 +342,7 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Nov 13 2022 20:03:23 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Nov 14 2022 17:19:05 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

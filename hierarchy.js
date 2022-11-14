@@ -13,6 +13,7 @@ var hierarchy =
     [ "emlabcpp::rpc::bind_wrapper< Bindings >", "classemlabcpp_1_1rpc_1_1bind__wrapper.html", null ],
     [ "emlabcpp::bounded< T, MinVal, MaxVal >", "classemlabcpp_1_1bounded.html", null ],
     [ "emlabcpp::rpc::class_wrapper< Class, Bindings >", "classemlabcpp_1_1rpc_1_1class__wrapper.html", null ],
+    [ "emlabcpp::testing::collect_processor", "structemlabcpp_1_1testing_1_1collect__processor.html", null ],
     [ "emlabcpp::testing::collect_reply", "structemlabcpp_1_1testing_1_1collect__reply.html", null ],
     [ "emlabcpp::testing::collect_request", "structemlabcpp_1_1testing_1_1collect__request.html", null ],
     [ "emlabcpp::protocol::command< ID, Defs >", "structemlabcpp_1_1protocol_1_1command.html", null ],
@@ -158,7 +159,6 @@ var hierarchy =
     [ "emlabcpp::coro::owning_coroutine_handle< promise_type >", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", null ],
     [ "emlabcpp::testing::packet_def", "structemlabcpp_1_1testing_1_1packet__def.html", null ],
     [ "emlabcpp::protocol::packet_handler< Packet >", "structemlabcpp_1_1protocol_1_1packet__handler.html", null ],
-    [ "emlabcpp::testing::param_awaiter< Processor >", "structemlabcpp_1_1testing_1_1param__awaiter.html", null ],
     [ "emlabcpp::testing::param_child_count_processor", "structemlabcpp_1_1testing_1_1param__child__count__processor.html", null ],
     [ "emlabcpp::testing::param_child_count_reply", "structemlabcpp_1_1testing_1_1param__child__count__reply.html", null ],
     [ "emlabcpp::testing::param_child_count_request", "structemlabcpp_1_1testing_1_1param__child__count__request.html", null ],
@@ -180,7 +180,7 @@ var hierarchy =
     [ "emlabcpp::pid< TimeType >", "classemlabcpp_1_1pid.html", null ],
     [ "emlabcpp::pool_allocator< T >", "classemlabcpp_1_1pool__allocator.html", null ],
     [ "emlabcpp::pool_base< PoolSize, PoolCount >", "structemlabcpp_1_1pool__base.html", null ],
-    [ "emlabcpp::pool_base< 256, 32 >", "structemlabcpp_1_1pool__base.html", [
+    [ "emlabcpp::pool_base< 512, 64 >", "structemlabcpp_1_1pool__base.html", [
       [ "emlabcpp::testing::default_reactor", "classemlabcpp_1_1testing_1_1default__reactor.html", null ]
     ] ],
     [ "emlabcpp::pool_deleter", "structemlabcpp_1_1pool__deleter.html", null ],
@@ -232,6 +232,7 @@ var hierarchy =
     [ "emlabcpp::testing::reactor_internal_error_report", "structemlabcpp_1_1testing_1_1reactor__internal__error__report.html", null ],
     [ "emlabcpp::testing::reactor_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error", null ],
     [ "emlabcpp::testing::record", "classemlabcpp_1_1testing_1_1record.html", null ],
+    [ "emlabcpp::testing::record_awaiter< Processor >", "structemlabcpp_1_1testing_1_1record__awaiter.html", null ],
     [ "emlabcpp::protocol::register_handler< Map >", "structemlabcpp_1_1protocol_1_1register__handler.html", null ],
     [ "emlabcpp::protocol::register_map< Endianess, Regs >", "classemlabcpp_1_1protocol_1_1register__map.html", null ],
     [ "emlabcpp::protocol::register_pair< Key, D >", "structemlabcpp_1_1protocol_1_1register__pair.html", null ],

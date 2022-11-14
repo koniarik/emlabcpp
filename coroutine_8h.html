@@ -113,7 +113,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html">emlabcpp::testing::test_coroutine::promise_type</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1param__awaiter.html">emlabcpp::testing::param_awaiter&lt; Processor &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1record__awaiter.html">emlabcpp::testing::record_awaiter&lt; Processor &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1collect__processor.html">emlabcpp::testing::collect_processor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1param__value__processor.html">emlabcpp::testing::param_value_processor&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,20 +139,22 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a18ea7139877eaa07fad0ca721e20ac8f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a18ea7139877eaa07fad0ca721e20ac8f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a18ea7139877eaa07fad0ca721e20ac8f">emlabcpp::testing::param_value_awaiter</a> = param_awaiter&lt; param_value_processor&lt; T &gt; &gt;</td></tr>
-<tr class="separator:a18ea7139877eaa07fad0ca721e20ac8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89efd0831968eb7072b2909fb609b0b7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a89efd0831968eb7072b2909fb609b0b7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a89efd0831968eb7072b2909fb609b0b7">emlabcpp::testing::param_value_key_awaiter</a> = param_awaiter&lt; param_value_key_processor&lt; T &gt; &gt;</td></tr>
-<tr class="separator:a89efd0831968eb7072b2909fb609b0b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ca5daa8ad09b04173727f0a99b05f65"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a3ca5daa8ad09b04173727f0a99b05f65">emlabcpp::testing::param_type_awaiter</a> = param_awaiter&lt; param_type_processor &gt;</td></tr>
-<tr class="separator:a3ca5daa8ad09b04173727f0a99b05f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8797ee103153e373efbf8a8fae063801"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a8797ee103153e373efbf8a8fae063801">emlabcpp::testing::param_child_awaiter</a> = param_awaiter&lt; param_child_processor &gt;</td></tr>
-<tr class="separator:a8797ee103153e373efbf8a8fae063801"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57c9ecb71ed1d27f98330b5a89de5fa1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a57c9ecb71ed1d27f98330b5a89de5fa1">emlabcpp::testing::param_child_count_awaiter</a> = param_awaiter&lt; param_child_count_processor &gt;</td></tr>
-<tr class="separator:a57c9ecb71ed1d27f98330b5a89de5fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a328c58b727be5882003cd693e58924cc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a328c58b727be5882003cd693e58924cc">emlabcpp::testing::param_key_awaiter</a> = param_awaiter&lt; param_key_processor &gt;</td></tr>
-<tr class="separator:a328c58b727be5882003cd693e58924cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76236a46a3f09588f770b1debc1620df"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a76236a46a3f09588f770b1debc1620df">emlabcpp::testing::collect_awaiter</a> = record_awaiter&lt; collect_processor &gt;</td></tr>
+<tr class="separator:a76236a46a3f09588f770b1debc1620df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0a3cdbbf7a59302dc67572d7bac0be7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af0a3cdbbf7a59302dc67572d7bac0be7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#af0a3cdbbf7a59302dc67572d7bac0be7">emlabcpp::testing::param_value_awaiter</a> = record_awaiter&lt; param_value_processor&lt; T &gt; &gt;</td></tr>
+<tr class="separator:af0a3cdbbf7a59302dc67572d7bac0be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c2c33df13e2c4a0258022714edb8bc9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0c2c33df13e2c4a0258022714edb8bc9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a0c2c33df13e2c4a0258022714edb8bc9">emlabcpp::testing::param_value_key_awaiter</a> = record_awaiter&lt; param_value_key_processor&lt; T &gt; &gt;</td></tr>
+<tr class="separator:a0c2c33df13e2c4a0258022714edb8bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf6ead9ca53b2f22da951ebe56b17052"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#acf6ead9ca53b2f22da951ebe56b17052">emlabcpp::testing::param_type_awaiter</a> = record_awaiter&lt; param_type_processor &gt;</td></tr>
+<tr class="separator:acf6ead9ca53b2f22da951ebe56b17052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30cd6dde13666c2810845bb0af1bdc37"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a30cd6dde13666c2810845bb0af1bdc37">emlabcpp::testing::param_child_awaiter</a> = record_awaiter&lt; param_child_processor &gt;</td></tr>
+<tr class="separator:a30cd6dde13666c2810845bb0af1bdc37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7cc9ca07d09fb9e8303ad541fc6628d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#aa7cc9ca07d09fb9e8303ad541fc6628d">emlabcpp::testing::param_child_count_awaiter</a> = record_awaiter&lt; param_child_count_processor &gt;</td></tr>
+<tr class="separator:aa7cc9ca07d09fb9e8303ad541fc6628d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad3a1034103b0d19966605c590e38b9c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#aad3a1034103b0d19966605c590e38b9c">emlabcpp::testing::param_key_awaiter</a> = record_awaiter&lt; param_key_processor &gt;</td></tr>
+<tr class="separator:aad3a1034103b0d19966605c590e38b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -158,7 +162,7 @@ Typedefs</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="coroutine_8h.html">coroutine.h</a></li>
-    <li class="footer">Generated on Sun Nov 13 2022 20:03:23 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Nov 14 2022 17:19:04 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
