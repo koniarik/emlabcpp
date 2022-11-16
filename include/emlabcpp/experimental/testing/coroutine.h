@@ -109,7 +109,7 @@ struct collect_processor
         bool set_value( const controller_reactor_variant& var )
         {
                 const auto* val_ptr = std::get_if< collect_reply >( &var );
-                if ( !val_ptr ) {
+                if ( val_ptr == nullptr ) {
                         return false;
                 }
                 reply = val_ptr->nid;
@@ -127,7 +127,7 @@ struct param_value_processor
         bool set_value( const controller_reactor_variant& var )
         {
                 const auto* val_ptr = std::get_if< param_value_reply >( &var );
-                if ( !val_ptr ) {
+                if ( val_ptr == nullptr ) {
                         return false;
                 }
                 auto opt_res = value_type_converter< T >::from_value( val_ptr->value );
@@ -149,7 +149,7 @@ struct param_value_key_processor
         bool set_value( const controller_reactor_variant& var )
         {
                 const auto* val_ptr = std::get_if< param_value_key_reply >( &var );
-                if ( !val_ptr ) {
+                if ( val_ptr == nullptr ) {
                         return false;
                 }
                 auto opt_res = value_type_converter< T >::from_value( val_ptr->value );
