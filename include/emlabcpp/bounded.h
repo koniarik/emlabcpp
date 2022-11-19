@@ -143,19 +143,22 @@ public:
         {
                 return *b <=> val;
         }
+
+        /// Sum of two bounded types of same base type is bounded within appropiate ranges.
+        template < T FromOther, T ToOther >
+        constexpr bounded< T, MinVal + FromOther, MaxVal + ToOther >
+        operator+( const bounded< T, FromOther, ToOther >& other ) const
+        {
+                return bounded< T, MinVal + FromOther, MaxVal + ToOther >( val_ + *other );
+        }
+
+        template< typename U, U FromOther, U ToOther >
+        friend class bounded;
 };
 
 /// Simple type alias for bounded index constants.
 template < std::size_t N >
 constexpr auto bounded_constant = bounded< std::size_t, N, N >{};
-
-/// Sum of two bounded types of same base type is bounded within appropiate ranges.
-template < typename T, T FromLh, T ToLh, T FromRh, T ToRh >
-constexpr bounded< T, FromLh + FromRh, ToLh + ToRh >
-operator+( const bounded< T, FromLh, ToLh >& lh, const bounded< T, FromRh, ToRh >& rh )
-{
-        return *bounded< T, FromLh + FromRh, ToLh + ToRh >::make( *lh + *rh );
-}
 
 namespace detail
 {
