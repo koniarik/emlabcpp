@@ -117,6 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a86cec16fb9f8c2f55246576af3852c1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#a86cec16fb9f8c2f55246576af3852c1d">rotate_left</a> (T step)</td></tr>
 <tr class="memdesc:a86cec16fb9f8c2f55246576af3852c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation to the left decreases the internal value by step modulo the range it is in.  <a href="classemlabcpp_1_1bounded.html#a86cec16fb9f8c2f55246576af3852c1d">More...</a><br /></td></tr>
 <tr class="separator:a86cec16fb9f8c2f55246576af3852c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ac1a3c91a05e9919cb77133c41b73b7"><td class="memTemplParams" colspan="2">template&lt;T FromOther, T ToOther&gt; </td></tr>
+<tr class="memitem:a6ac1a3c91a05e9919cb77133c41b73b7"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, MinVal+FromOther, MaxVal+ToOther &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#a6ac1a3c91a05e9919cb77133c41b73b7">operator+</a> (const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromOther, ToOther &gt; &amp;<a class="el" href="classemlabcpp_1_1bounded.html#a9389797ddc31078643a428c5a65c5b70">other</a>) const</td></tr>
+<tr class="memdesc:a6ac1a3c91a05e9919cb77133c41b73b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of two bounded types of same base type is bounded within appropiate ranges.  <a href="classemlabcpp_1_1bounded.html#a6ac1a3c91a05e9919cb77133c41b73b7">More...</a><br /></td></tr>
+<tr class="separator:a6ac1a3c91a05e9919cb77133c41b73b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -151,6 +155,9 @@ Static Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
+<tr class="memitem:adc263a45e23a191ff7b9ecf0812d6f3a"><td class="memTemplParams" colspan="2">template&lt;typename U , U FromOther, U ToOther&gt; </td></tr>
+<tr class="memitem:adc263a45e23a191ff7b9ecf0812d6f3a"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#adc263a45e23a191ff7b9ecf0812d6f3a">bounded</a></td></tr>
+<tr class="separator:adc263a45e23a191ff7b9ecf0812d6f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8da4cfc5126cbf8785344b24bfa5a188"><td class="memItemLeft" align="right" valign="top">constexpr friend auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#a8da4cfc5126cbf8785344b24bfa5a188">operator&lt;=&gt;</a> (const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a> &amp;, const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a> &amp;)=default</td></tr>
 <tr class="separator:a8da4cfc5126cbf8785344b24bfa5a188"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07ca416202caa869841a339427249c1f"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
@@ -340,6 +347,40 @@ template&lt;typename T , T MinVal, T MaxVal&gt; </div>
 
 </div>
 </div>
+<a id="a6ac1a3c91a05e9919cb77133c41b73b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ac1a3c91a05e9919cb77133c41b73b7">&#9670;&nbsp;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T MinVal, T MaxVal&gt; </div>
+<div class="memtemplate">
+template&lt;T FromOther, T ToOther&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, MinVal + FromOther, MaxVal + ToOther &gt; <a class="el" href="classemlabcpp_1_1bounded.html">emlabcpp::bounded</a>&lt; T, MinVal, MaxVal &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromOther, ToOther &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sum of two bounded types of same base type is bounded within appropiate ranges. </p>
+
+<p class="reference">References <a class="el" href="classemlabcpp_1_1bounded.html#a9389797ddc31078643a428c5a65c5b70">emlabcpp::bounded&lt; T, MinVal, MaxVal &gt;::other</a>.</p>
+
+</div>
+</div>
 <a id="a53a7e456f96a1af5abfd27f48b206924"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53a7e456f96a1af5abfd27f48b206924">&#9670;&nbsp;</a></span>requires()</h2>
 
@@ -427,6 +468,32 @@ template&lt;typename T , T MinVal, T MaxVal&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="adc263a45e23a191ff7b9ecf0812d6f3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc263a45e23a191ff7b9ecf0812d6f3a">&#9670;&nbsp;</a></span>bounded</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T MinVal, T MaxVal&gt; </div>
+<div class="memtemplate">
+template&lt;typename U , U FromOther, U ToOther&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8da4cfc5126cbf8785344b24bfa5a188"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8da4cfc5126cbf8785344b24bfa5a188">&#9670;&nbsp;</a></span>operator&lt;=&gt; <span class="overload">[1/2]</span></h2>
 
@@ -659,7 +726,7 @@ template&lt;typename T , T MinVal, T MaxVal&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1bounded.html">bounded</a></li>
-    <li class="footer">Generated on Wed Nov 16 2022 13:41:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Nov 19 2022 10:08:30 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

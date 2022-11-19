@@ -168,7 +168,6 @@ var namespaceemlabcpp =
     [ "operator*", "namespaceemlabcpp.html#a244aa2b00962ce96249bb72e5d07b0c1", null ],
     [ "operator*", "namespaceemlabcpp.html#a384e4bb5a921ff231358ff63aeecbe77", null ],
     [ "operator*", "namespaceemlabcpp.html#a9a1b0db510277c2522d504eabc6821e3", null ],
-    [ "operator+", "namespaceemlabcpp.html#aeb7076d68b2c2f2c0114502a2c7b0ce5", null ],
     [ "operator+", "namespaceemlabcpp.html#a37fb61edcdf95a5c2fc63e29d2431946", null ],
     [ "operator+", "namespaceemlabcpp.html#a4a90457babf1c49444a526a98007a751", null ],
     [ "operator-", "namespaceemlabcpp.html#afc235c95c20406e05b11a433e3ed7857", null ],

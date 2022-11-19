@@ -513,10 +513,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a3c4b8276158ed7d743c68c7395ed0966"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a> (void *ptr, std::size_t alignment)</td></tr>
 <tr class="memdesc:a3c4b8276158ed7d743c68c7395ed0966"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: this needs tests.  <a href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">More...</a><br /></td></tr>
 <tr class="separator:a3c4b8276158ed7d743c68c7395ed0966"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb7076d68b2c2f2c0114502a2c7b0ce5"><td class="memTemplParams" colspan="2">template&lt;typename T , T FromLh, T ToLh, T FromRh, T ToRh&gt; </td></tr>
-<tr class="memitem:aeb7076d68b2c2f2c0114502a2c7b0ce5"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromLh+FromRh, ToLh+ToRh &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aeb7076d68b2c2f2c0114502a2c7b0ce5">operator+</a> (const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromLh, ToLh &gt; &amp;lh, const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromRh, ToRh &gt; &amp;rh)</td></tr>
-<tr class="memdesc:aeb7076d68b2c2f2c0114502a2c7b0ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of two bounded types of same base type is bounded within appropiate ranges.  <a href="namespaceemlabcpp.html#aeb7076d68b2c2f2c0114502a2c7b0ce5">More...</a><br /></td></tr>
-<tr class="separator:aeb7076d68b2c2f2c0114502a2c7b0ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f10b2ff6c20f2e8057487e521275521"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, typename T , T MinVal, T MaxVal&gt; </td></tr>
 <tr class="memitem:a2f10b2ff6c20f2e8057487e521275521"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, MinVal, MaxVal &gt; &amp;b)</td></tr>
 <tr class="separator:a2f10b2ff6c20f2e8057487e521275521"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3680,50 +3676,8 @@ template&lt;typename Derived , typename ValueType &gt; </div>
 
 </div>
 </div>
-<a id="aeb7076d68b2c2f2c0114502a2c7b0ce5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb7076d68b2c2f2c0114502a2c7b0ce5">&#9670;&nbsp;</a></span>operator+() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , T FromLh, T ToLh, T FromRh, T ToRh&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromLh + FromRh, ToLh + ToRh &gt; emlabcpp::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromLh, ToLh &gt; &amp;&#160;</td>
-          <td class="paramname"><em>lh</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, FromRh, ToRh &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rh</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sum of two bounded types of same base type is bounded within appropiate ranges. </p>
-
-<p class="reference">References <a class="el" href="classemlabcpp_1_1bounded.html#a4c03b3f83e73a36634b7c8a176a2ef50">emlabcpp::bounded&lt; T, MinVal, MaxVal &gt;::make()</a>.</p>
-
-</div>
-</div>
 <a id="a37fb61edcdf95a5c2fc63e29d2431946"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37fb61edcdf95a5c2fc63e29d2431946">&#9670;&nbsp;</a></span>operator+() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a37fb61edcdf95a5c2fc63e29d2431946">&#9670;&nbsp;</a></span>operator+() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3763,7 +3717,7 @@ template&lt;typename Derived , typename ValueType &gt; </div>
 </div>
 </div>
 <a id="a4a90457babf1c49444a526a98007a751"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a90457babf1c49444a526a98007a751">&#9670;&nbsp;</a></span>operator+() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a90457babf1c49444a526a98007a751">&#9670;&nbsp;</a></span>operator+() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5829,7 +5783,7 @@ template&lt;typename T &gt; </div>
 <div class="line">{</div>
 <div class="line">        <a class="code" href="namespaceemlabcpp_1_1detail.html#aa15d5c022409d351cd45334d7501dc72">detail::bounded_derived_test</a>( val );</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1detail_html_aa15d5c022409d351cd45334d7501dc72"><div class="ttname"><a href="namespaceemlabcpp_1_1detail.html#aa15d5c022409d351cd45334d7501dc72">emlabcpp::detail::bounded_derived_test</a></div><div class="ttdeci">constexpr bool bounded_derived_test(const bounded&lt; T, MinVal, MaxVal &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> bounded.h:163</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1detail_html_aa15d5c022409d351cd45334d7501dc72"><div class="ttname"><a href="namespaceemlabcpp_1_1detail.html#aa15d5c022409d351cd45334d7501dc72">emlabcpp::detail::bounded_derived_test</a></div><div class="ttdeci">constexpr bool bounded_derived_test(const bounded&lt; T, MinVal, MaxVal &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> bounded.h:166</div></div>
 </div><!-- fragment -->
 <p>Concept that matchestype deriving from bounded. </p>
 
@@ -6466,7 +6420,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Wed Nov 16 2022 13:41:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Nov 19 2022 10:08:30 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9":[3,0,0,68,11],
 "classemlabcpp_1_1view.html#a617f51d3aa75acbb7ed6fce27af75bc2":[3,0,0,68,14],
 "classemlabcpp_1_1view.html#a8eed87d83894e640d2c635df44be9e60":[3,0,0,68,0],
 "classemlabcpp_1_1view.html#a8fdd836a77a7b1218f8785739715eaef":[3,0,0,68,15],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "functions_type_d.html":[3,3,3,3],
 "functions_type_e.html":[3,3,3,4],
 "functions_type_h.html":[3,3,3,5],
-"functions_type_i.html":[3,3,3,6],
-"functions_type_k.html":[3,3,3,7]
+"functions_type_i.html":[3,3,3,6]
 };
