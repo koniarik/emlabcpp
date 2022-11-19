@@ -129,6 +129,7 @@ var hierarchy =
     [ "emlabcpp::protocol::group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group", null ],
     [ "emlabcpp::protocol::handler< T >", "structemlabcpp_1_1protocol_1_1handler.html", null ],
     [ "std::hash< T >", "structstd_1_1hash_3_01T_01_4.html", null ],
+    [ "emlabcpp::identity_matrix< N, T >", "classemlabcpp_1_1identity__matrix.html", null ],
     [ "emlabcpp::index_of< T, Variant >", "namespaceemlabcpp.html#structemlabcpp_1_1index__of", null ],
     [ "emlabcpp::testing::input_message_protocol_error", "structemlabcpp_1_1testing_1_1input__message__protocol__error.html", null ],
     [ "std::integral_constant", null, [
@@ -148,6 +149,7 @@ var hierarchy =
     [ "emlabcpp::impl::map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", null ],
     [ "emlabcpp::mapped< Container, UnaryCallable >", "namespaceemlabcpp.html#structemlabcpp_1_1mapped", null ],
     [ "emlabcpp::mapped< Container, UnaryCallable >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4.html", null ],
+    [ "emlabcpp::matrix< N, M, T >", "classemlabcpp_1_1matrix.html", null ],
     [ "emlabcpp::protocol::memcpy_converter< T, Endianess >", "structemlabcpp_1_1protocol_1_1memcpy__converter.html", null ],
     [ "emlabcpp::protocol::message< N >", "classemlabcpp_1_1protocol_1_1message.html", [
       [ "emlabcpp::protocol::sizeless_message< N >", "classemlabcpp_1_1protocol_1_1sizeless__message.html", null ]
@@ -283,6 +285,7 @@ var hierarchy =
       [ "emlabcpp::protocol::proto_traits< D >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html", null ],
       [ "emlabcpp::protocol::proto_traits< endianess_wrapper< Endianess, D > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_01_4.html", null ]
     ] ],
+    [ "emlabcpp::transposed_matrix< Matrix >", "classemlabcpp_1_1transposed__matrix.html", null ],
     [ "emlabcpp::testing::tree_error_reply", "structemlabcpp_1_1testing_1_1tree__error__reply.html", null ],
     [ "std::true_type", null, [
       [ "emlabcpp::are_same<>", "structemlabcpp_1_1are__same_3_4.html", null ],
