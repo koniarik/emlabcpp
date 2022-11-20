@@ -1,6 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"structemlabcpp_1_1rpc_1_1derive.html#ae4abf7347a8a4bbe3bf255321f7ca06c":[3,0,0,4,8,1],
 "structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4_1_1reply__wrapper.html":[4,0,0,0,2,10,4,0],
 "structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4_1_1reply__wrapper.html#a742b1a6eb687e2cae77b03efc6d82585":[4,0,0,0,2,10,4,0,1],
 "structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4_1_1reply__wrapper.html#a7b963994840aae2c77743f8869152559":[4,0,0,0,2,10,4,0,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX9 =
 "traits_8h.html#a9c27fc5576f6e7894b809016d7d5cbdc":[4,0,0,0,4,15,21],
 "traits_8h.html#aabf37dc4e5c925a68b635522ef9567a5":[4,0,0,0,4,15,22],
 "traits_8h.html#ac625ba8fcce291f5064a3ec8b5177cd5":[4,0,0,0,4,15,23],
-"traits_8h_source.html":[4,0,0,0,4,15]
+"traits_8h_source.html":[4,0,0,0,4,15],
+"tree_8h.html":[4,0,0,0,2,0,2]
 };

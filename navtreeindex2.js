@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"classemlabcpp_1_1quantity.html#af343e7706e09c9956acc680651e3b74c":[3,0,0,40,10],
 "classemlabcpp_1_1rpc_1_1bind__wrapper.html":[3,0,0,4,11],
 "classemlabcpp_1_1rpc_1_1bind__wrapper.html#a4b0c607dd54a0edc84755b69f8fd84ff":[3,0,0,4,11,2],
 "classemlabcpp_1_1rpc_1_1bind__wrapper.html#a574ea7b428e5e9ba2302a44eb6b8dc48":[3,0,0,4,11,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "classemlabcpp_1_1testing_1_1record.html#ae15ed2b24e3f4c7f423e75a5924b3c18":[3,0,0,5,58,2],
 "classemlabcpp_1_1testing_1_1test__callable__overlay.html":[3,0,0,5,22],
 "classemlabcpp_1_1testing_1_1test__callable__overlay.html#a8e4152d3ab4e7dec34eef76a710028ce":[3,0,0,5,22,1],
-"classemlabcpp_1_1testing_1_1test__callable__overlay.html#aa1d47c921739eace8ac4b6969affe18d":[3,0,0,5,22,0]
+"classemlabcpp_1_1testing_1_1test__callable__overlay.html#aa1d47c921739eace8ac4b6969affe18d":[3,0,0,5,22,0],
+"classemlabcpp_1_1testing_1_1test__composer.html":[3,0,0,5,23]
 };
