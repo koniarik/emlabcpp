@@ -22,7 +22,8 @@ var namespaceemlabcpp_1_1testing =
     [ "internal_reactor_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1internal__reactor__error_dup" ],
     [ "controller_internal_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__internal__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1controller__internal__error_dup" ],
     [ "test_interface", "classemlabcpp_1_1testing_1_1test__interface.html", "classemlabcpp_1_1testing_1_1test__interface" ],
-    [ "test_callable_overlay", "classemlabcpp_1_1testing_1_1test__callable__overlay.html", "classemlabcpp_1_1testing_1_1test__callable__overlay" ],
+    [ "empty_test", "classemlabcpp_1_1testing_1_1empty__test.html", "classemlabcpp_1_1testing_1_1empty__test" ],
+    [ "test_callable", "classemlabcpp_1_1testing_1_1test__callable.html", "classemlabcpp_1_1testing_1_1test__callable" ],
     [ "test_composer", "classemlabcpp_1_1testing_1_1test__composer.html", "classemlabcpp_1_1testing_1_1test__composer" ],
     [ "get_property", "structemlabcpp_1_1testing_1_1get__property.html", "structemlabcpp_1_1testing_1_1get__property" ],
     [ "get_count_reply", "structemlabcpp_1_1testing_1_1get__count__reply.html", "structemlabcpp_1_1testing_1_1get__count__reply" ],
@@ -55,7 +56,6 @@ var namespaceemlabcpp_1_1testing =
     [ "reactor_internal_error_report", "structemlabcpp_1_1testing_1_1reactor__internal__error__report.html", "structemlabcpp_1_1testing_1_1reactor__internal__error__report" ],
     [ "packet_def", "structemlabcpp_1_1testing_1_1packet__def.html", "structemlabcpp_1_1testing_1_1packet__def" ],
     [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html", "classemlabcpp_1_1testing_1_1reactor" ],
-    [ "default_reactor", "classemlabcpp_1_1testing_1_1default__reactor.html", "classemlabcpp_1_1testing_1_1default__reactor" ],
     [ "reactor_interface", "classemlabcpp_1_1testing_1_1reactor__interface.html", "classemlabcpp_1_1testing_1_1reactor__interface" ],
     [ "reactor_interface_adapter", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html", "classemlabcpp_1_1testing_1_1reactor__interface__adapter" ],
     [ "record", "classemlabcpp_1_1testing_1_1record.html", "classemlabcpp_1_1testing_1_1record" ],
@@ -139,5 +139,5 @@ var namespaceemlabcpp_1_1testing =
     [ "requires", "namespaceemlabcpp_1_1testing.html#a7adcf3f4ee884f07d803220439c4f493", null ],
     [ "string_to_buffer", "namespaceemlabcpp_1_1testing.html#ad633f76356e096e700a03f89c593dca8", null ],
     [ "test_compose", "namespaceemlabcpp_1_1testing.html#a5dfb36ed7abfd06d258541ad605291f7", null ],
-    [ "test_callable", "namespaceemlabcpp_1_1testing.html#a7a1ef67ff724cc655ebe531ae789f956", null ]
+    [ "valid_test_callable", "namespaceemlabcpp_1_1testing.html#ad7a2a6759ff6cb8d4ee8777b7c33db2f", null ]
 ];

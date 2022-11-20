@@ -140,7 +140,9 @@ Classes</h2></td></tr>
 <tr class="separator:structemlabcpp_1_1testing_1_1controller__internal__error"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__callable__overlay.html">test_callable_overlay</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1empty__test.html">empty_test</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__callable.html">test_callable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__composer.html">test_composer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -205,8 +207,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1packet__def.html">packet_def</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1default__reactor.html">default_reactor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor__interface.html">reactor_interface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -384,15 +384,15 @@ Functions</h2></td></tr>
 <tr class="separator:a056de8fb5d8acbfe4a7b008823d8e05f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5968d91955d9b3103d095de3edc8c898"><td class="memItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a5968d91955d9b3103d095de3edc8c898">operator&lt;&lt;</a> (<a class="el" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> auto &amp;os, const <a class="el" href="namespaceemlabcpp_1_1testing.html#a21c567b7200acbb97782be90bdf747b4">error_variant</a> &amp;var)</td></tr>
 <tr class="separator:a5968d91955d9b3103d095de3edc8c898"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5dfb36ed7abfd06d258541ad605291f7"><td class="memTemplParams" colspan="2">template&lt;std::derived_from&lt; test_interface &gt; T, test_callable C&gt; </td></tr>
+<tr class="memitem:a5dfb36ed7abfd06d258541ad605291f7"><td class="memTemplParams" colspan="2">template&lt;std::derived_from&lt; test_interface &gt; T, valid_test_callable C&gt; </td></tr>
 <tr class="memitem:a5dfb36ed7abfd06d258541ad605291f7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1testing_1_1test__composer.html">test_composer</a>&lt; T, C &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a5dfb36ed7abfd06d258541ad605291f7">test_compose</a> (T t, C c)</td></tr>
 <tr class="separator:a5dfb36ed7abfd06d258541ad605291f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a7a1ef67ff724cc655ebe531ae789f956"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a7a1ef67ff724cc655ebe531ae789f956"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a7a1ef67ff724cc655ebe531ae789f956">test_callable</a></td></tr>
-<tr class="separator:a7a1ef67ff724cc655ebe531ae789f956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a2a6759ff6cb8d4ee8777b7c33db2f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad7a2a6759ff6cb8d4ee8777b7c33db2f"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ad7a2a6759ff6cb8d4ee8777b7c33db2f">valid_test_callable</a></td></tr>
+<tr class="separator:ad7a2a6759ff6cb8d4ee8777b7c33db2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="structemlabcpp_1_1testing_1_1test__info" id="structemlabcpp_1_1testing_1_1test__info"></a>
@@ -1384,7 +1384,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::derived_from&lt; test_interface &gt; T, test_callable C&gt; </div>
+template&lt;std::derived_from&lt; test_interface &gt; T, valid_test_callable C&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classemlabcpp_1_1testing_1_1test__composer.html">test_composer</a>&lt; T, C &gt; emlabcpp::testing::test_compose </td>
@@ -1409,8 +1409,8 @@ template&lt;std::derived_from&lt; test_interface &gt; T, test_callable C&gt; </d
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a7a1ef67ff724cc655ebe531ae789f956"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a1ef67ff724cc655ebe531ae789f956">&#9670;&nbsp;</a></span>test_callable</h2>
+<a id="ad7a2a6759ff6cb8d4ee8777b7c33db2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a2a6759ff6cb8d4ee8777b7c33db2f">&#9670;&nbsp;</a></span>valid_test_callable</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1418,7 +1418,7 @@ template&lt;std::derived_from&lt; test_interface &gt; T, test_callable C&gt; </d
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept emlabcpp::testing::test_callable</td>
+          <td class="memname">concept emlabcpp::testing::valid_test_callable</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1438,7 +1438,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Sun Nov 20 2022 12:05:52 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 20 2022 18:39:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

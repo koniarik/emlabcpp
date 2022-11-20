@@ -182,11 +182,9 @@ var hierarchy =
     [ "emlabcpp::pid< TimeType >", "classemlabcpp_1_1pid.html", null ],
     [ "emlabcpp::pool_allocator< T >", "classemlabcpp_1_1pool__allocator.html", null ],
     [ "emlabcpp::pool_base< PoolSize, PoolCount >", "structemlabcpp_1_1pool__base.html", null ],
-    [ "emlabcpp::pool_base< 512, 32 >", "structemlabcpp_1_1pool__base.html", [
-      [ "emlabcpp::testing::default_reactor", "classemlabcpp_1_1testing_1_1default__reactor.html", null ]
-    ] ],
     [ "emlabcpp::pool_deleter", "structemlabcpp_1_1pool__deleter.html", null ],
     [ "emlabcpp::pool_interface", "structemlabcpp_1_1pool__interface.html", [
+      [ "emlabcpp::pool_resource< 1024, 1 >", "classemlabcpp_1_1pool__resource.html", null ],
       [ "emlabcpp::pool_dynamic_resource", "classemlabcpp_1_1pool__dynamic__resource.html", null ],
       [ "emlabcpp::pool_resource< PoolSize, PoolCount >", "classemlabcpp_1_1pool__resource.html", null ]
     ] ],
@@ -225,9 +223,7 @@ var hierarchy =
       [ "emlabcpp::tagged_quantity< Tag, ValueType >", "classemlabcpp_1_1tagged__quantity.html", null ]
     ] ],
     [ "emlabcpp::rpc::reactor< CallDefs >", "classemlabcpp_1_1rpc_1_1reactor.html", null ],
-    [ "emlabcpp::testing::reactor", "classemlabcpp_1_1testing_1_1reactor.html", [
-      [ "emlabcpp::testing::default_reactor", "classemlabcpp_1_1testing_1_1default__reactor.html", null ]
-    ] ],
+    [ "emlabcpp::testing::reactor", "classemlabcpp_1_1testing_1_1reactor.html", null ],
     [ "emlabcpp::rpc::reactor_error", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1reactor__error", null ],
     [ "emlabcpp::testing::reactor_interface", "classemlabcpp_1_1testing_1_1reactor__interface.html", null ],
     [ "emlabcpp::testing::reactor_interface_adapter", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html", null ],
@@ -276,7 +272,8 @@ var hierarchy =
     [ "emlabcpp::testing::test_finished", "structemlabcpp_1_1testing_1_1test__finished.html", null ],
     [ "emlabcpp::testing::test_info", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info", null ],
     [ "emlabcpp::testing::test_interface", "classemlabcpp_1_1testing_1_1test__interface.html", [
-      [ "emlabcpp::testing::test_callable_overlay< Callable >", "classemlabcpp_1_1testing_1_1test__callable__overlay.html", null ]
+      [ "emlabcpp::testing::empty_test", "classemlabcpp_1_1testing_1_1empty__test.html", null ],
+      [ "emlabcpp::testing::test_callable< Callable >", "classemlabcpp_1_1testing_1_1test__callable.html", null ]
     ] ],
     [ "emlabcpp::testing::test_result", "structemlabcpp_1_1testing_1_1test__result.html", null ],
     [ "emlabcpp::rpc::traits< T >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits", null ],

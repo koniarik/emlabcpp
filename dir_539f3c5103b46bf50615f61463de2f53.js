@@ -15,8 +15,7 @@ var dir_539f3c5103b46bf50615f61463de2f53 =
     [ "json.h", "experimental_2testing_2json_8h.html", null ],
     [ "protocol.h", "experimental_2testing_2protocol_8h.html", "experimental_2testing_2protocol_8h" ],
     [ "reactor.h", "reactor_8h.html", [
-      [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html", "classemlabcpp_1_1testing_1_1reactor" ],
-      [ "default_reactor", "classemlabcpp_1_1testing_1_1default__reactor.html", "classemlabcpp_1_1testing_1_1default__reactor" ]
+      [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html", "classemlabcpp_1_1testing_1_1reactor" ]
     ] ],
     [ "reactor_interface.h", "reactor__interface_8h.html", [
       [ "reactor_interface", "classemlabcpp_1_1testing_1_1reactor__interface.html", "classemlabcpp_1_1testing_1_1reactor__interface" ]
