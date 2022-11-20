@@ -105,19 +105,17 @@ public:
                 }
 
                 if ( size() > other.size() ) {
-                        const size_type max_n = size();
-                        for ( size_type i = shared_n; i < max_n; ++i ) {
+                        for ( size_type i = shared_n; i < size(); ++i ) {
                                 other.emplace_back( std::move( ref_item( i ) ) );
                         }
-                        for ( size_type i = shared_n; i < max_n; ++i ) {
+                        while ( shared_n != size() ) {
                                 pop_back();
                         }
                 } else if ( size() < other.size() ) {
-                        const size_type max_n = other.size();
                         for ( size_type i = shared_n; i < other.size(); ++i ) {
                                 emplace_back( std::move( other.ref_item( i ) ) );
                         }
-                        for ( size_type i = shared_n; i < other.size(); ++i ) {
+                        while ( shared_n != other.size() ) {
                                 other.pop_back();
                         }
                 }
@@ -285,10 +283,8 @@ private:
         /// Cleans entire buffer from items.
         void purge()
         {
-                while ( size_ > 0 ) {
-                        delete_item( size_ - 1 );
-                        size_ -= 1;
-                }
+                std::destroy_n( begin(), size_ );
+                size_ = 0;
         }
 };
 
