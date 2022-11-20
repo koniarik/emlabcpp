@@ -21,6 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/experimental/testing/controller.h"
+#include "emlabcpp/experimental/testing/json.h"
 
 #ifdef EMLABCPP_USE_GTEST
 
@@ -30,50 +31,6 @@
 
 namespace emlabcpp::testing
 {
-
-template < ostreamlike T >
-T& recursive_print_node( T& os, const data_tree& t, node_id nid, std::size_t depth )
-{
-
-        std::string spacing( depth, ' ' );
-
-        const auto* node_ptr = t.get_node( nid );
-
-        if ( node_ptr == nullptr ) {
-                return os;
-        }
-
-        match(
-            node_ptr->get_container_handle(),
-            [&]( const value_type& v ) {
-                    match(
-                        v,
-                        [&]( string_buffer val ) {
-                                os << std::string_view{ val.begin(), val.size() };
-                        },
-                        [&]( auto val ) {
-                                os << val;
-                        } );
-            },
-            [&]( data_const_object_handle oh ) {
-                    for ( const auto& [key, chid] : oh ) {
-                            os << "\n"
-                               << spacing << std::string_view{ key.begin(), key.size() } << ":";
-                            recursive_print_node( os, t, chid, depth + 1 );
-                    }
-            },
-            [&]( data_const_array_handle ah ) {
-                    for ( const auto& [j, chid] : ah ) {
-                            std::ignore = j;
-                            os << "\n" << spacing << " - ";
-                            recursive_print_node( os, t, chid, depth + 1 );
-                    }
-            }
-
-        );
-
-        return os;
-}
 
 inline ::testing::AssertionResult gtest_predicate( const char*, const test_result& tres )
 {
@@ -85,7 +42,7 @@ inline ::testing::AssertionResult gtest_predicate( const char*, const test_resul
                 res = ::testing::AssertionFailure() << "Test errored";
         }
 
-        recursive_print_node( res, tres.collected, 0, 1 );
+        res << data_tree_to_json( tres.collected ).dump(4);
         return res;
 }
 

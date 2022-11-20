@@ -31,9 +31,38 @@
 namespace emlabcpp::testing
 {
 
+class reactor;
+
 class test_interface
 {
 public:
+        test_interface( name_buffer name )
+          : name( name )
+        {
+        }
+
+        test_interface( std::string_view name )
+          : name( name_to_buffer( name ) )
+        {
+        }
+
+        test_interface( const test_interface& )            = delete;
+        test_interface& operator=( const test_interface& ) = delete;
+
+        test_interface( test_interface&& other )
+          : name( other.name )
+        {
+                if ( other.prev != nullptr ) {
+                        prev       = other.prev;
+                        prev->next = this;
+                }
+                if ( other.next != nullptr ) {
+                        next       = other.next;
+                        next->prev = this;
+                }
+        }
+        test_interface& operator=( test_interface&& ) = delete;
+
         virtual test_coroutine setup( pool_interface*, record& )
         {
                 co_return;
@@ -44,25 +73,83 @@ public:
                 co_return;
         }
 
-        virtual ~test_interface() = default;
+        virtual ~test_interface()
+        {
+                if ( prev != nullptr ) {
+                        prev->next = next;
+                }
+                if ( next != nullptr ) {
+                        next->prev = prev;
+                }
+        }
+
+        friend reactor;
+
+private:
+        static test_interface* last( test_interface* test )
+        {
+                while ( test->next != nullptr ) {
+                        test = test->next;
+                }
+                return test;
+        }
+
+        static std::size_t count( test_interface* test )
+        {
+                std::size_t i = 0;
+                while ( test != nullptr ) {
+                        test = test->next;
+                        i += 1;
+                }
+                return i;
+        }
+
+        static test_interface* get( test_interface* test, test_id tid )
+        {
+                if ( test == nullptr ) {
+                        return nullptr;
+                }
+                if ( tid == 0 ) {
+                        return test;
+                }
+                return get( test->next, tid - 1 );
+        }
+
+        name_buffer     name;
+        test_interface* next = nullptr;
+        test_interface* prev = nullptr;
+};
+
+class empty_test : public test_interface
+{
+public:
+        empty_test()
+          : test_interface( name_buffer{} )
+        {
+        }
+        test_coroutine run( pool_interface*, record& )
+        {
+                co_return;
+        };
 };
 
 template < typename T >
-concept test_callable = requires( T t, pool_interface* pool, record& rec )
+concept valid_test_callable = requires( T t, pool_interface* pool, record& rec )
 {
         {
                 t( pool, rec )
                 } -> std::same_as< test_coroutine >;
 };
 
-template < test_callable Callable >
-class test_callable_overlay : public test_interface
+template < valid_test_callable Callable >
+class test_callable : public test_interface
 {
         Callable cb_;
 
 public:
-        test_callable_overlay( Callable cb )
-          : cb_( std::move( cb ) )
+        test_callable( std::string_view name, Callable cb )
+          : test_interface( name_to_buffer( name ) )
+          , cb_( std::move( cb ) )
         {
         }
 
@@ -72,7 +159,7 @@ public:
         }
 };
 
-template < std::derived_from< test_interface > T, test_callable C >
+template < std::derived_from< test_interface > T, valid_test_callable C >
 class test_composer : public T
 {
         C cb_;
@@ -90,7 +177,7 @@ public:
         }
 };
 
-template < std::derived_from< test_interface > T, test_callable C >
+template < std::derived_from< test_interface > T, valid_test_callable C >
 test_composer< T, C > test_compose( T t, C c )
 {
         return { std::move( t ), std::move( c ) };

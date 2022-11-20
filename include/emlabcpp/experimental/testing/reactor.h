@@ -40,43 +40,26 @@ namespace emlabcpp::testing
 class reactor
 {
 
-        struct test_handle
-        {
-                std::string_view name;
-                test_interface*  ptr;
-                std::size_t      alignment;
-
-                test_handle( std::string_view n, test_interface* p, std::size_t a )
-                  : name( n )
-                  , ptr( p )
-                  , alignment( a )
-                {
-                }
-        };
-
         struct active_execution
         {
-                test_id      tid;
-                run_id       rid;
-                test_handle* handle_ptr;
+                test_id         tid;
+                run_id          rid;
+                test_interface* iface_ptr;
         };
-
-        using handle_container = pool_list< test_handle >;
-        using handle_iterator  = typename handle_container::iterator;
 
         std::string_view suite_name_;
         std::string_view suite_date_ = __DATE__ " " __TIME__;
-        handle_container handles_;
-        pool_interface*  mem_;
-        reactor_endpoint ep_;
+
+        empty_test root_test_;
+
+        pool_resource< 1024, 1 > mem_;
+        reactor_endpoint         ep_;
 
         std::optional< active_execution > active_exec_;
 
 public:
-        reactor( std::string_view suite_name, pool_interface* mem )
+        reactor( std::string_view suite_name )
           : suite_name_( suite_name )
-          , handles_( mem )
-          , mem_( mem )
         {
         }
 
@@ -85,17 +68,7 @@ public:
         reactor& operator=( const reactor& ) = delete;
         reactor& operator=( reactor&& )      = delete;
 
-        template < std::derived_from< test_interface > T >
-        bool register_test( std::string_view name, T t )
-        {
-                return store_test( name, std::move( t ) );
-        }
-
-        template < test_callable T >
-        bool register_callable( std::string_view name, T cb )
-        {
-                return store_test( name, test_callable_overlay{ std::move( cb ) } );
-        }
+        void register_test( test_interface& t );
 
         void spin( reactor_interface& comm );
 
@@ -107,36 +80,7 @@ private:
         void handle_message( load_test, reactor_interface_adapter& );
         void handle_message( exec_request, reactor_interface_adapter& );
 
-        template < std::derived_from< test_interface > T >
-        bool store_test( std::string_view name, T t )
-        {
-                void* target = mem_->allocate( sizeof( T ), alignof( T ) );
-                if ( target == nullptr ) {
-                        EMLABCPP_LOG( "Failed to allocate memory for storing test " << name );
-                        return false;
-                }
-                T* obj = std::construct_at( reinterpret_cast< T* >( target ), std::move( t ) );
-                handles_.emplace_back( name, obj, alignof( T ) );
-                return true;
-        }
-
         void exec_test( reactor_interface_adapter& comm );
-
-        test_handle& access_test( test_id );
-
-public:
-        ~reactor();
-};
-
-class default_reactor : private pool_base< 512, 32 >, public reactor
-{
-public:
-        /// TODO: this may not be the best idea, as pool_mem will exist only _after_ constructor
-        /// for base class is called
-        default_reactor( std::string_view name )
-          : reactor( name, &this->pool_memory )
-        {
-        }
 };
 
 }  // namespace emlabcpp::testing

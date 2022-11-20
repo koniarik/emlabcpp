@@ -99,7 +99,11 @@ struct my_test_fixture : em::testing::test_interface
         // that executes preparation common in other tests
         // which just implement the run() method.
 
-        my_test_fixture() = default;
+        my_test_fixture( std::string_view name )
+          : em::testing::test_interface( name )
+        {
+        }
+
         // disabling copy should be allowed
         my_test_fixture( const my_test_fixture& )            = delete;
         my_test_fixture& operator=( const my_test_fixture& ) = delete;
@@ -130,6 +134,11 @@ struct my_test_case : my_test_fixture
 {
         // testing class using basic fixture for preparation
         // tadaaaaah!
+
+        my_test_case()
+          : my_test_fixture( "my_test_case" )
+        {
+        }
 
         em::testing::test_coroutine run( em::pool_interface*, em::testing::record& rec ) override
         {
@@ -236,33 +245,37 @@ int main( int argc, char** argv )
 
         em::testing::default_reactor rec{ "emlabcpp::testing" };
 
-        rec.register_callable( "simple test", simple_test_case );
-        rec.register_callable(
+        em::testing::test_callable st{ "simple test", simple_test_case };
+        rec.register_test( st );
+
+        em::testing::test_callable slt{
             "simple lambda test",
             [&]( em::pool_interface*, em::testing::record& rec ) -> em::testing::test_coroutine {
                     rec.success();
                     co_return;
-            } );
-        rec.register_test( "simple struct test", my_test_case{} );
+            } };
+        rec.register_test( slt );
 
-        rec.register_callable(
+        my_test_case mtc;
+        rec.register_test( mtc );
+
+        em::testing::test_callable clt{
             "complex lambda test",
             [&]( em::pool_interface*, em::testing::record& rec ) -> em::testing::test_coroutine {
                     uint64_t data = co_await rec.get_param< uint64_t >( 0 );
                     std::ignore   = data;
                     rec.success();
                     co_return;
-            } );
+            } };
+        rec.register_test( clt );
 
-        rec.register_test(
-            "lambda and fixture",
-            em::testing::test_compose(
-                my_test_fixture{},
-                [&]( em::pool_interface*,
-                     em::testing::record& rec ) -> em::testing::test_coroutine {
-                        rec.expect( 1 > 0 );
-                        co_return;
-                } ) );
+        auto laf = em::testing::test_compose(
+            my_test_fixture{ "lambda and fixture" },
+            [&]( em::pool_interface*, em::testing::record& rec ) -> em::testing::test_coroutine {
+                    rec.expect( 1 > 0 );
+                    co_return;
+            } );
+        rec.register_test( laf );
 
         // ----------------------------------------------------------------------------
         // build the virtual example and run it

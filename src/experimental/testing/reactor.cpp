@@ -27,7 +27,13 @@
 namespace emlabcpp::testing
 {
 
-// TODO maybe generalize?
+void reactor::register_test( test_interface& t )
+{
+        test_interface* test = test_interface::last( &root_test_ );
+
+        t.prev     = test;
+        test->next = &t;
+}
 
 void reactor::spin( reactor_interface& top_iface )
 {
@@ -88,15 +94,17 @@ void reactor::handle_message( get_property< SUITE_DATE >, reactor_interface_adap
 }
 void reactor::handle_message( get_property< COUNT >, reactor_interface_adapter& iface )
 {
-        iface.reply( get_count_reply{ static_cast< test_id >( handles_.size() ) } );
+        std::size_t c = test_interface::count( &root_test_ ) - 1;
+        iface.reply( get_count_reply{ static_cast< test_id >( c ) } );
 }
 void reactor::handle_message( get_test_name_request req, reactor_interface_adapter& iface )
 {
-        if ( req.tid >= handles_.size() ) {
+        test_interface* test_ptr = test_interface::get( &root_test_, req.tid + 1 );
+        if ( test_ptr == nullptr ) {
                 iface.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
         }
-        iface.reply( get_test_name_reply{ name_to_buffer( access_test( req.tid ).name ) } );
+        iface.reply( get_test_name_reply{ test_ptr->name } );
 }
 void reactor::handle_message( load_test req, reactor_interface_adapter& iface )
 {
@@ -105,12 +113,13 @@ void reactor::handle_message( load_test req, reactor_interface_adapter& iface )
                 return;
         }
 
-        if ( req.tid >= handles_.size() ) {
+        test_interface* test_ptr = test_interface::get( &root_test_, req.tid + 1 );
+        if ( test_ptr == nullptr ) {
                 iface.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
         }
 
-        active_exec_ = active_execution{ req.tid, req.rid, &access_test( req.tid ) };
+        active_exec_ = active_execution{ req.tid, req.rid, test_ptr };
 }
 void reactor::handle_message( exec_request, reactor_interface_adapter& iface )
 {
@@ -126,10 +135,10 @@ void reactor::handle_message( exec_request, reactor_interface_adapter& iface )
 void reactor::exec_test( reactor_interface_adapter& iface )
 {
 
-        test_handle& h = *active_exec_->handle_ptr;
-        record       rec{ active_exec_->tid, active_exec_->rid, iface };
-        bool         errd  = false;
-        bool         faild = false;
+        test_interface* test = active_exec_->iface_ptr;
+        record          rec{ active_exec_->tid, active_exec_->rid, iface };
+        bool            errd  = false;
+        bool            faild = false;
 
         defer d = [&] {
                 iface.reply(
@@ -137,7 +146,7 @@ void reactor::exec_test( reactor_interface_adapter& iface )
         };
 
         {
-                test_coroutine coro = h.ptr->setup( mem_, rec );
+                test_coroutine coro = test->setup( &mem_, rec );
                 if ( !coro.spin( &iface ) ) {
                         return;
                 }
@@ -149,14 +158,14 @@ void reactor::exec_test( reactor_interface_adapter& iface )
         }
 
         {
-                test_coroutine coro = h.ptr->run( mem_, rec );
+                test_coroutine coro = test->run( &mem_, rec );
                 if ( !coro.spin( &iface ) ) {
                         return;
                 }
         }
 
         {
-                test_coroutine coro = h.ptr->teardown( mem_, rec );
+                test_coroutine coro = test->teardown( &mem_, rec );
                 if ( !coro.spin( &iface ) ) {
                         return;
                 }
@@ -165,21 +174,6 @@ void reactor::exec_test( reactor_interface_adapter& iface )
         if ( rec.errored() ) {
                 errd = true;
                 return;
-        }
-}
-
-reactor::test_handle& reactor::access_test( test_id tid )
-{
-        auto iter = handles_.begin();
-        std::advance( iter, tid );
-        return *iter;
-}
-
-reactor::~reactor()
-{
-        for ( test_handle& h : handles_ ) {
-                std::destroy_at( h.ptr );
-                mem_->deallocate( h.ptr, h.alignment );
         }
 }
 
