@@ -243,7 +243,7 @@ int main( int argc, char** argv )
         // ----------------------------------------------------------------------------
         // register tests and examples of lambda tests
 
-        em::testing::default_reactor rec{ "emlabcpp::testing" };
+        em::testing::reactor rec{ "emlabcpp::testing" };
 
         em::testing::test_callable st{ "simple test", simple_test_case };
         rec.register_test( st );
