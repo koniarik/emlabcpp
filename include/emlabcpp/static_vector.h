@@ -99,14 +99,27 @@ public:
         {
                 using std::swap;
                 const size_type shared_n = std::min( size(), other.size() );
+
                 for ( size_type i = 0; i < shared_n; ++i ) {
                         swap( ref_item( i ), other.ref_item( i ) );
                 }
-                for ( size_type i = shared_n; i < size(); ++i ) {
-                        other.emplace_item( i, std::move( ref_item( i ) ) );
-                }
-                for ( size_type i = shared_n; i < other.size(); ++i ) {
-                        emplace_item( i, std::move( other.ref_item( i ) ) );
+
+                if ( size() > other.size() ) {
+                        const size_type max_n = size();
+                        for ( size_type i = shared_n; i < max_n; ++i ) {
+                                other.emplace_back( std::move( ref_item( i ) ) );
+                        }
+                        for ( size_type i = shared_n; i < max_n; ++i ) {
+                                pop_back();
+                        }
+                } else if ( size() < other.size() ) {
+                        const size_type max_n = other.size();
+                        for ( size_type i = shared_n; i < other.size(); ++i ) {
+                                emplace_back( std::move( other.ref_item( i ) ) );
+                        }
+                        for ( size_type i = shared_n; i < other.size(); ++i ) {
+                                other.pop_back();
+                        }
                 }
         }
 

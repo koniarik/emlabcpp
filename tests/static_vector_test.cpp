@@ -215,13 +215,17 @@ TEST( static_vector_test, iterators )
 
 TEST( static_vector_test, swap )
 {
-        obj_buffer vec1{ std::array{ "1"s, "2"s, "3"s, "4"s } };
+        obj_buffer vec1{ std::array{ "1"s, "2"s, "3"s, "4"s, "5"s } };
         obj_buffer vec2{ std::array{ "a"s, "b"s, "c"s } };
 
         obj_buffer vec1c = vec1;
         obj_buffer vec2c = vec2;
 
-        swap( vec1, vec2 );
+        EXPECT_EQ( vec1.size(), 5 );
+        EXPECT_EQ( vec2.size(), 3 );
+        vec1.swap( vec2 );
+        EXPECT_EQ( vec1.size(), 3 );
+        EXPECT_EQ( vec2.size(), 5 );
 
         EXPECT_EQ( vec1c, vec2 );
         EXPECT_EQ( vec2c, vec1 );
