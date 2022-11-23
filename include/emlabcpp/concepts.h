@@ -88,6 +88,10 @@ template < typename T >
 concept referenceable_container = is_view< T >::value ||
     ( range_container< T > && !std::is_rvalue_reference_v< T > );
 
+template < typename T, typename ValueType >
+concept range_container_with =
+    range_container< T > && std::same_as< typename T::value_type, ValueType >;
+
 template < typename T >
 concept static_sized = requires( T a )
 {
