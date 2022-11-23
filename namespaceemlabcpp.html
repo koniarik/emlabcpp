@@ -824,6 +824,9 @@ Variables</h2></td></tr>
 <tr class="memitem:ad5b78b4d7a2e426170153951069c76cf"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad5b78b4d7a2e426170153951069c76cf"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">referenceable_container</a></td></tr>
 <tr class="separator:ad5b78b4d7a2e426170153951069c76cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae70f5be4da9ac6f367034af1f5028827"><td class="memTemplParams" colspan="2">template&lt;typename T , typename ValueType &gt; </td></tr>
+<tr class="memitem:ae70f5be4da9ac6f367034af1f5028827"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae70f5be4da9ac6f367034af1f5028827">range_container_with</a></td></tr>
+<tr class="separator:ae70f5be4da9ac6f367034af1f5028827"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8114b1d4bc758992dd14a1d64bd454c5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a8114b1d4bc758992dd14a1d64bd454c5"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">static_sized</a></td></tr>
 <tr class="separator:a8114b1d4bc758992dd14a1d64bd454c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -6347,6 +6350,24 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="ae70f5be4da9ac6f367034af1f5028827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae70f5be4da9ac6f367034af1f5028827">&#9670;&nbsp;</a></span>range_container_with</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename ValueType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::range_container_with</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    range_container&lt; T &gt; &amp;&amp; std::same_as&lt; typename T::value_type, ValueType &gt;</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="ad5b78b4d7a2e426170153951069c76cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5b78b4d7a2e426170153951069c76cf">&#9670;&nbsp;</a></span>referenceable_container</h2>
 
@@ -6531,7 +6552,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sun Nov 20 2022 19:48:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 23 2022 14:09:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

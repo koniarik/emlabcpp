@@ -264,6 +264,7 @@ var namespaceemlabcpp =
     [ "pretty_printer_main_printable", "namespaceemlabcpp.html#aa1ef69632da6c0cc52cc821b5dce9885", null ],
     [ "quantity_derived", "namespaceemlabcpp.html#a869ab03f1bd49e1adc49de513ad86ba4", null ],
     [ "range_container", "namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55", null ],
+    [ "range_container_with", "namespaceemlabcpp.html#ae70f5be4da9ac6f367034af1f5028827", null ],
     [ "referenceable_container", "namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf", null ],
     [ "res", "namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626", null ],
     [ "static_size_v", "namespaceemlabcpp.html#a2e849ebc932caa63f7e1e6c67d0c2f7b", null ],
