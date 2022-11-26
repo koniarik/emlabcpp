@@ -228,7 +228,7 @@ template <
 template <
     container                        Container,
     container_invocable< Container > UnaryCallable = std::identity,
-    typename T = std::remove_reference_t< mapped_t< Container, UnaryCallable > > >
+    typename T = std::decay_t< mapped_t< Container, UnaryCallable > > >
 [[nodiscard]] constexpr T min_elem( const Container& cont, UnaryCallable&& f = std::identity() )
 {
         T val = std::numeric_limits< T >::max();
