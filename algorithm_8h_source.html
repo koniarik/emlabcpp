@@ -289,7 +289,7 @@ $(document).ready(function(){initNavTree('algorithm_8h_source.html',''); initRes
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="keyword">template</span> &lt;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <a class="code" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a>                        Container,</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    container_invocable&lt; Container &gt; <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> = std::identity,</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keyword">typename</span> T = std::remove_reference_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt; &gt;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keyword">typename</span> T = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt; &gt;</div>
 <div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#aaffd06a15a35e011691274cc98d14767">  232</a></span>&#160;[[nodiscard]] constexpr T <a class="code" href="namespaceemlabcpp.html#aaffd06a15a35e011691274cc98d14767">min_elem</a>( <span class="keyword">const</span> Container&amp; cont, <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a>&amp;&amp; <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> = std::identity() )</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;{</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        T val = <a class="code" href="namespaceemlabcpp.html#a82bc958527847885bdfc4005b22271e6">std::numeric_limits&lt; T &gt;::max</a>();</div>
@@ -643,7 +643,7 @@ $(document).ready(function(){initNavTree('algorithm_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="algorithm_8h.html">algorithm.h</a></li>
-    <li class="footer">Generated on Wed Nov 23 2022 14:09:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Nov 26 2022 10:36:46 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

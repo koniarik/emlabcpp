@@ -152,7 +152,7 @@ $(document).ready(function(){initNavTree('reactor__interface__adapter_8h_source.
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#a266c6fe203f1ce2bfd6be2f2be321701">   64</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#a266c6fe203f1ce2bfd6be2f2be321701">register_incoming_handler</a>( <a class="code" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">incoming_handler</a> h )</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                h_ = h;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                h_ = std::move(h);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        };</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#ab12f7872fd5fbfd0c529c25246ead1ff">   69</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#ab12f7872fd5fbfd0c529c25246ead1ff">read_with_handler</a>();</div>
@@ -183,7 +183,7 @@ $(document).ready(function(){initNavTree('reactor__interface__adapter_8h_source.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="reactor__interface__adapter_8h.html">reactor_interface_adapter.h</a></li>
-    <li class="footer">Generated on Wed Nov 23 2022 14:09:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Nov 26 2022 10:36:46 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

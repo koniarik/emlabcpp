@@ -2,6 +2,7 @@ var dir_833cf07299c67ab119396183470d94f1 =
 [
     [ "contiguous_tree", "dir_15f8cd90f3890d7a65699de4188dbb27.html", "dir_15f8cd90f3890d7a65699de4188dbb27" ],
     [ "coro", "dir_124696910e1f6c10a38401e63d4996f0.html", "dir_124696910e1f6c10a38401e63d4996f0" ],
+    [ "logging", "dir_7be96e89c84803827e352320bc015c84.html", "dir_7be96e89c84803827e352320bc015c84" ],
     [ "testing", "dir_539f3c5103b46bf50615f61463de2f53.html", "dir_539f3c5103b46bf50615f61463de2f53" ],
     [ "bounded_view.h", "bounded__view_8h.html", "bounded__view_8h" ],
     [ "decompose.h", "decompose_8h.html", "decompose_8h" ],

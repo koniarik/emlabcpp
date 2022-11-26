@@ -144,6 +144,8 @@ var hierarchy =
     [ "std::iterator_traits< emlabcpp::subscript_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1subscript__iterator_3_01Container_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::zip_iterator< Iterators... > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::testing::load_test", "structemlabcpp_1_1testing_1_1load__test.html", null ],
+    [ "emlabcpp::log_color_stub", "namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub", null ],
+    [ "emlabcpp::log_colors", "namespaceemlabcpp.html#structemlabcpp_1_1log__colors", null ],
     [ "emlabcpp::impl::map_f_collector< typename >", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector", null ],
     [ "emlabcpp::impl::map_f_collector< std::array< T, N > >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::impl::map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", null ],
@@ -276,6 +278,7 @@ var hierarchy =
       [ "emlabcpp::testing::test_callable< Callable >", "classemlabcpp_1_1testing_1_1test__callable.html", null ]
     ] ],
     [ "emlabcpp::testing::test_result", "structemlabcpp_1_1testing_1_1test__result.html", null ],
+    [ "emlabcpp::timelog", "namespaceemlabcpp.html#structemlabcpp_1_1timelog", null ],
     [ "emlabcpp::rpc::traits< T >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits", null ],
     [ "emlabcpp::rpc::traits< std::tuple< Calls... > >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4", null ],
     [ "traits_for", null, [

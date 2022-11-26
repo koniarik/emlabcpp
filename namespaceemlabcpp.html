@@ -160,6 +160,12 @@ Classes</h2></td></tr>
 <tr class="separator:classemlabcpp_1_1function__view"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html">function_view&lt; ReturnType(ArgTypes...) &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1log__colors"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__colors">log_colors</a></td></tr>
+<tr class="separator:structemlabcpp_1_1log__colors"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1log__color__stub"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub">log_color_stub</a></td></tr>
+<tr class="separator:structemlabcpp_1_1log__color__stub"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1timelog"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1timelog">timelog</a></td></tr>
+<tr class="separator:structemlabcpp_1_1timelog"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html">matrix</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1transposed__matrix.html">transposed_matrix</a></td></tr>
@@ -375,6 +381,13 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:ab2b48448332f877103f3f8254d055fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d26e4c3f680aa9ba3a5469a253cca55"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55">log_severity</a> { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55adc30ec20708ef7b0f641ef78b7880a15">DEBUG</a> = 1
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55a551b723eafd6a31d444fcb2f5920fbd3">INFO</a> = 2
+<br />
+ }</td></tr>
+<tr class="separator:a4d26e4c3f680aa9ba3a5469a253cca55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -434,7 +447,7 @@ Functions</h2></td></tr>
 <tr class="memitem:aa144487d11d6484b636482caa35a1cf1"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa144487d11d6484b636482caa35a1cf1">max_elem</a> (const Container &amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>=std::identity())</td></tr>
 <tr class="memdesc:aa144487d11d6484b636482caa35a1cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies unary callable 'f(x)' to each element of container 'cont', returns the largest return value of 'f(x)' calls.  <a href="namespaceemlabcpp.html#aa144487d11d6484b636482caa35a1cf1">More...</a><br /></td></tr>
 <tr class="separator:aa144487d11d6484b636482caa35a1cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaffd06a15a35e011691274cc98d14767"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::remove_reference_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
+<tr class="memitem:aaffd06a15a35e011691274cc98d14767"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
 <tr class="memitem:aaffd06a15a35e011691274cc98d14767"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aaffd06a15a35e011691274cc98d14767">min_elem</a> (const Container &amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>=std::identity())</td></tr>
 <tr class="memdesc:aaffd06a15a35e011691274cc98d14767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies unary callable 'f(x) to each element of container 'cont&lsquo;, returns the smallest return value of 'f(x)&rsquo; calls.  <a href="namespaceemlabcpp.html#aaffd06a15a35e011691274cc98d14767">More...</a><br /></td></tr>
 <tr class="separator:aaffd06a15a35e011691274cc98d14767"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -557,6 +570,16 @@ Functions</h2></td></tr>
 <tr class="separator:a5e72f5ad9fec2b8f70d4f8e0e5ec0d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab124463ea669779e32ea4428088a01c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab124463ea669779e32ea4428088a01c4">EMLABCPP_GENERATE_DECOMPOSE</a> (16, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15) template&lt; typename T &gt; using decomposed_type</td></tr>
 <tr class="separator:ab124463ea669779e32ea4428088a01c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09706de4f199476ac440fe166eb063f8"><td class="memItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a09706de4f199476ac440fe166eb063f8">operator&lt;&lt;</a> (<a class="el" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> auto &amp;os, const <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub">log_color_stub</a> &amp;c)</td></tr>
+<tr class="separator:a09706de4f199476ac440fe166eb063f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8be8a90808a1b02f5153671042a56336"><td class="memItemLeft" align="right" valign="top">consteval std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a8be8a90808a1b02f5153671042a56336">select_color</a> (const <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__colors">log_colors</a> &amp;lc, <a class="el" href="namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55">log_severity</a> sever)</td></tr>
+<tr class="separator:a8be8a90808a1b02f5153671042a56336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af201924f826df797c89d32157c0b23cd"><td class="memItemLeft" align="right" valign="top">consteval <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub">log_color_stub</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af201924f826df797c89d32157c0b23cd">log_color</a> (const <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__colors">log_colors</a> &amp;lc, <a class="el" href="namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55">log_severity</a> sever)</td></tr>
+<tr class="separator:af201924f826df797c89d32157c0b23cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a920fb482505dc3cae0921d70420006f4"><td class="memItemLeft" align="right" valign="top">consteval std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a920fb482505dc3cae0921d70420006f4">resetcolor</a> ()</td></tr>
+<tr class="separator:a920fb482505dc3cae0921d70420006f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac149a84d6a42e9bf793653777f3d4d4b"><td class="memItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac149a84d6a42e9bf793653777f3d4d4b">operator&lt;&lt;</a> (<a class="el" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> auto &amp;os, const <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1timelog">timelog</a> &amp;lg)</td></tr>
+<tr class="separator:ac149a84d6a42e9bf793653777f3d4d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5384c6950d84f064b4cb0c8983080870"><td class="memItemLeft" align="right" valign="top">consteval std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5384c6950d84f064b4cb0c8983080870">stem_of</a> (const char *file)</td></tr>
 <tr class="separator:a5384c6950d84f064b4cb0c8983080870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a512f1fd6d6a6aa3d5094088865158e23"><td class="memTemplParams" colspan="2">template&lt;matrix_like LH, matrix_like RH&gt; </td></tr>
@@ -864,6 +887,12 @@ Variables</h2></td></tr>
 <tr class="memitem:ad6adfccd266cb01c6cfd376ea222c110"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad6adfccd266cb01c6cfd376ea222c110"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad6adfccd266cb01c6cfd376ea222c110">decomposable_0</a> = <a class="el" href="namespaceemlabcpp.html#a771ceb5d56ed0208c7974b576c6dadc0">decomposable</a>&lt; T &gt; &amp;&amp;( <a class="el" href="namespaceemlabcpp_1_1detail.html#a10e61621464f2e4cc1316387d1b70b19">detail::decompose_count</a>&lt; T &gt;() == 0 )</td></tr>
 <tr class="separator:ad6adfccd266cb01c6cfd376ea222c110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af24e225a528ccaf71fd68b55062378dc"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__colors">log_colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af24e225a528ccaf71fd68b55062378dc">time_colors</a> = { .debug = &quot;250&quot;, .info = &quot;33&quot; }</td></tr>
+<tr class="separator:af24e225a528ccaf71fd68b55062378dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abea4a18fa94c2b650c0e1a96760bb725"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__colors">log_colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abea4a18fa94c2b650c0e1a96760bb725">file_colors</a> = { .debug = &quot;252&quot;, .info = &quot;128&quot; }</td></tr>
+<tr class="separator:abea4a18fa94c2b650c0e1a96760bb725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37dfdec86a0564faa630436c314f3315"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__colors">log_colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a37dfdec86a0564faa630436c314f3315">line_colors</a> = { .debug = &quot;248&quot;, .info = &quot;164&quot; }</td></tr>
+<tr class="separator:a37dfdec86a0564faa630436c314f3315"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71244dcc912784b08768c6ae041c37bc"><td class="memTemplParams" colspan="2">template&lt;typename M &gt; </td></tr>
 <tr class="memitem:a71244dcc912784b08768c6ae041c37bc"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a71244dcc912784b08768c6ae041c37bc">matrix_like</a></td></tr>
 <tr class="separator:a71244dcc912784b08768c6ae041c37bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -936,6 +965,97 @@ Variables</h2></td></tr>
 class emlabcpp::function_view&lt; Signature &gt;</h3>
 
 </div>
+</div>
+</div>
+<a name="structemlabcpp_1_1log__colors" id="structemlabcpp_1_1log__colors"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1log__colors">&#9670;&nbsp;</a></span>emlabcpp::log_colors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::log_colors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::log_colors:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1log__colors__coll__graph.svg" width="178" height="232"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="ad704665c8a10344a86c0832a9172d119"></a>string_view</td>
+<td class="fieldname">
+debug</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a758b493f0ae5fba7a25a040013bbf28b"></a>string_view</td>
+<td class="fieldname">
+info</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structemlabcpp_1_1log__color__stub" id="structemlabcpp_1_1log__color__stub"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1log__color__stub">&#9670;&nbsp;</a></span>emlabcpp::log_color_stub</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::log_color_stub</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::log_color_stub:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1log__color__stub__coll__graph.svg" width="199" height="218"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a947ae8250161b2045cebbac076cbb06f"></a>string_view</td>
+<td class="fieldname">
+c</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structemlabcpp_1_1timelog" id="structemlabcpp_1_1timelog"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1timelog">&#9670;&nbsp;</a></span>emlabcpp::timelog</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::timelog</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a72780e74e9bda101f80e92e9ab0bcb9e"></a>time_point&lt; system_clock &gt;</td>
+<td class="fieldname">
+tp</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
 </div>
 </div>
 <a name="classemlabcpp_1_1static__function__base" id="classemlabcpp_1_1static__function__base"></a>
@@ -1743,6 +1863,32 @@ template&lt;typename T , template&lt; typename &gt; class Fun&gt; </div>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab6d4662933f76ac56e85afb0ca37e997a4cdd7f9cd282729e856fe214f7575888"></a>CONTIGUOUS_TREE_VALUE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ab6d4662933f76ac56e85afb0ca37e997a00b519f4d947eb449e9d06ec03804256"></a>CONTIGUOUS_TREE_OBJECT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ab6d4662933f76ac56e85afb0ca37e997a2e260cb0c3d12bbc44f6ee65871b461f"></a>CONTIGUOUS_TREE_ARRAY&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a4d26e4c3f680aa9ba3a5469a253cca55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d26e4c3f680aa9ba3a5469a253cca55">&#9670;&nbsp;</a></span>log_severity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55">emlabcpp::log_severity</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4d26e4c3f680aa9ba3a5469a253cca55adc30ec20708ef7b0f641ef78b7880a15"></a>DEBUG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4d26e4c3f680aa9ba3a5469a253cca55a551b723eafd6a31d444fcb2f5920fbd3"></a>INFO&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -3004,6 +3150,36 @@ template&lt;range_container Container, typename T , container_invocable&lt; Cont
 
 </div>
 </div>
+<a id="af201924f826df797c89d32157c0b23cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af201924f826df797c89d32157c0b23cd">&#9670;&nbsp;</a></span>log_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">consteval <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub">log_color_stub</a> emlabcpp::log_color </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__colors">log_colors</a> &amp;&#160;</td>
+          <td class="paramname"><em>lc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55">log_severity</a>&#160;</td>
+          <td class="paramname"><em>sever</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a8be8a90808a1b02f5153671042a56336">select_color()</a>.</p>
+
+</div>
+</div>
 <a id="ae8555060e43c2b8cdd8d91bb248b9a6d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8555060e43c2b8cdd8d91bb248b9a6d">&#9670;&nbsp;</a></span>map_f()</h2>
 
@@ -3319,7 +3495,7 @@ template&lt;typename Derived , typename ValueType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::remove_reference_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </div>
+template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -4045,8 +4221,68 @@ template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&
 
 </div>
 </div>
+<a id="a09706de4f199476ac440fe166eb063f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09706de4f199476ac440fe166eb063f8">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> auto &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub">log_color_stub</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a947ae8250161b2045cebbac076cbb06f">emlabcpp::log_color_stub::c</a>.</p>
+
+</div>
+</div>
+<a id="ac149a84d6a42e9bf793653777f3d4d4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac149a84d6a42e9bf793653777f3d4d4b">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto&amp; emlabcpp::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> auto &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1timelog">timelog</a> &amp;&#160;</td>
+          <td class="paramname"><em>lg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a72780e74e9bda101f80e92e9ab0bcb9e">emlabcpp::timelog::tp</a>.</p>
+
+</div>
+</div>
 <a id="ab8b867e51bf5ac5aee398f465860edd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8b867e51bf5ac5aee398f465860edd7">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8b867e51bf5ac5aee398f465860edd7">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[3/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4076,7 +4312,7 @@ template&lt;typename StreamType , typename T , std::size_t N&gt; </div>
 </div>
 </div>
 <a id="a2f10b2ff6c20f2e8057487e521275521"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f10b2ff6c20f2e8057487e521275521">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f10b2ff6c20f2e8057487e521275521">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[4/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4106,7 +4342,7 @@ template&lt;ostreamlike Stream, typename T , T MinVal, T MaxVal&gt; </div>
 </div>
 </div>
 <a id="a6d9dc3aa5b82dc99dd38f0d03d521deb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d9dc3aa5b82dc99dd38f0d03d521deb">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[3/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9dc3aa5b82dc99dd38f0d03d521deb">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[5/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4136,7 +4372,7 @@ template&lt;ostreamlike Stream, typename Iterator , bounded_derived SizeType&gt;
 </div>
 </div>
 <a id="a67f4bfa3442a7cfe7b4fc9497a18af1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67f4bfa3442a7cfe7b4fc9497a18af1a">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[4/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a67f4bfa3442a7cfe7b4fc9497a18af1a">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[6/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4166,7 +4402,7 @@ template&lt;ostreamlike Stream, typename ArrayType &gt; </div>
 </div>
 </div>
 <a id="a7f88dc78162817fe61981e2ccb4542ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f88dc78162817fe61981e2ccb4542ef">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[5/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f88dc78162817fe61981e2ccb4542ef">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[7/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4198,7 +4434,7 @@ template&lt;ostreamlike Stream, typename Key , typename Value &gt; </div>
 </div>
 </div>
 <a id="aec5028f6cc9b4c19dde22d474205ee14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec5028f6cc9b4c19dde22d474205ee14">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[6/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aec5028f6cc9b4c19dde22d474205ee14">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[8/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4228,7 +4464,7 @@ template&lt;ostreamlike Stream, typename ObjectType &gt; </div>
 </div>
 </div>
 <a id="a102fe4d18339d80a3534e5def0c17fb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a102fe4d18339d80a3534e5def0c17fb9">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[7/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a102fe4d18339d80a3534e5def0c17fb9">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[9/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4258,7 +4494,7 @@ template&lt;ostreamlike Stream, typename Key , typename Value &gt; </div>
 </div>
 </div>
 <a id="a62ac04b965c5f1f4ddc49c801a0f01b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62ac04b965c5f1f4ddc49c801a0f01b3">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[8/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a62ac04b965c5f1f4ddc49c801a0f01b3">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[10/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4290,7 +4526,7 @@ template&lt;ostreamlike Stream, int Len, int Mass, int Time, int Current, int Te
 </div>
 </div>
 <a id="ae1c80290d135d19a201c0f04b47eb665"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1c80290d135d19a201c0f04b47eb665">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[9/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1c80290d135d19a201c0f04b47eb665">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[11/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4320,7 +4556,7 @@ template&lt;ostreamlike Stream, typename T , typename ValueType &gt; </div>
 </div>
 </div>
 <a id="abf1d2eb2cc5c084a4173867a48032517"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf1d2eb2cc5c084a4173867a48032517">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[10/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abf1d2eb2cc5c084a4173867a48032517">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[12/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4352,7 +4588,7 @@ template&lt;ostreamlike Stream, typename T , std::size_t N&gt; </div>
 </div>
 </div>
 <a id="a7dff36c03e0407491a4acf6b85b3f86e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7dff36c03e0407491a4acf6b85b3f86e">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[11/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dff36c03e0407491a4acf6b85b3f86e">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[13/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4384,7 +4620,7 @@ template&lt;ostreamlike Stream, typename T , std::size_t N&gt; </div>
 </div>
 </div>
 <a id="a09ef973500b9ebc01d0f76f50c43aa38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09ef973500b9ebc01d0f76f50c43aa38">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[12/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a09ef973500b9ebc01d0f76f50c43aa38">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[14/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4416,7 +4652,7 @@ template&lt;ostreamlike Stream, typename Iterator &gt; </div>
 </div>
 </div>
 <a id="a155a6828d776fbc298d37aabee6bc0d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a155a6828d776fbc298d37aabee6bc0d7">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[13/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a155a6828d776fbc298d37aabee6bc0d7">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[15/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4995,6 +5231,23 @@ template&lt;typename Enum &gt; </div>
 
 </div>
 </div>
+<a id="a920fb482505dc3cae0921d70420006f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a920fb482505dc3cae0921d70420006f4">&#9670;&nbsp;</a></span>resetcolor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">consteval std::string_view emlabcpp::resetcolor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3921b804e7ed8b1041ec50f786404c28"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3921b804e7ed8b1041ec50f786404c28">&#9670;&nbsp;</a></span>reversed()</h2>
 
@@ -5023,6 +5276,36 @@ template&lt;typename Enum &gt; </div>
 <p>Returns view to the Container in reverse order. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a>.</p>
+
+</div>
+</div>
+<a id="a8be8a90808a1b02f5153671042a56336"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8be8a90808a1b02f5153671042a56336">&#9670;&nbsp;</a></span>select_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">consteval std::string_view emlabcpp::select_color </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__colors">log_colors</a> &amp;&#160;</td>
+          <td class="paramname"><em>lc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55">log_severity</a>&#160;</td>
+          <td class="paramname"><em>sever</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ad704665c8a10344a86c0832a9172d119">emlabcpp::log_colors::debug</a>, <a class="el" href="namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55adc30ec20708ef7b0f641ef78b7880a15">DEBUG</a>, <a class="el" href="namespaceemlabcpp.html#a758b493f0ae5fba7a25a040013bbf28b">emlabcpp::log_colors::info</a>, and <a class="el" href="namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55a551b723eafd6a31d444fcb2f5920fbd3">INFO</a>.</p>
 
 </div>
 </div>
@@ -6034,6 +6317,28 @@ template&lt;typename T , typename Tuple &gt; </div>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="abea4a18fa94c2b650c0e1a96760bb725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abea4a18fa94c2b650c0e1a96760bb725">&#9670;&nbsp;</a></span>file_colors</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__colors">log_colors</a> emlabcpp::file_colors = { .debug = &quot;252&quot;, .info = &quot;128&quot; }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="adb54eee14fc87e50de7f6ed35ad1aba0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb54eee14fc87e50de7f6ed35ad1aba0">&#9670;&nbsp;</a></span>gettable_container</h2>
 
@@ -6194,6 +6499,28 @@ template&lt;typename T &gt; </div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37dfdec86a0564faa630436c314f3315"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37dfdec86a0564faa630436c314f3315">&#9670;&nbsp;</a></span>line_colors</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__colors">log_colors</a> emlabcpp::line_colors = { .debug = &quot;248&quot;, .info = &quot;164&quot; }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -6448,6 +6775,28 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="af24e225a528ccaf71fd68b55062378dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af24e225a528ccaf71fd68b55062378dc">&#9670;&nbsp;</a></span>time_colors</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1log__colors">log_colors</a> emlabcpp::time_colors = { .debug = &quot;250&quot;, .info = &quot;33&quot; }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8574533cb7c969125a6fde8f5063eff2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8574533cb7c969125a6fde8f5063eff2">&#9670;&nbsp;</a></span>tuple_has_type_v</h2>
 
@@ -6552,7 +6901,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Wed Nov 23 2022 14:09:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Nov 26 2022 10:36:46 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

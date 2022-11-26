@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['messages_5fenum_1987',['messages_enum',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6c',1,'emlabcpp::testing']]]
+  ['log_5fseverity_2021',['log_severity',['../namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55',1,'emlabcpp']]]
 ];
