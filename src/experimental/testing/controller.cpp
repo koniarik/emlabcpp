@@ -288,7 +288,7 @@ struct controller_dispatcher
                     } )
                     .match(
                         [this, &req]( const value_type& val ) {
-                                this->iface.send( param_value_reply{ req.rid, val } );
+                                this->iface.send( param_value_key_reply{ req.rid, val } );
                         },
                         [this, &req]( const contiguous_request_adapter_errors_enum err ) {
                                 this->iface.reply_node_error( req.rid, err, req.nid );

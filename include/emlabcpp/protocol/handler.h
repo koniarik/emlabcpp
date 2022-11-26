@@ -54,7 +54,7 @@ struct handler
         {
                 auto opt_view = bounded_view< const uint8_t*, typename def::size_type >::make(
                     view_n( msg.begin(), std::min( def::max_size, msg.size() ) ) );
-                if ( !opt_view ) {
+                if ( !opt_view.has_value() ) {
                         EMLABCPP_LOG(
                             "Failed to build view over provided message - wrong size: "
                             << msg.size() << " vs " << def::size_type::max_val );

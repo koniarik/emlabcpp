@@ -63,7 +63,7 @@ public:
 
         void register_incoming_handler( incoming_handler h )
         {
-                h_ = h;
+                h_ = std::move(h);
         };
 
         bool read_with_handler();
