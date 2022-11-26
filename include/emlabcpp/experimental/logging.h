@@ -18,6 +18,8 @@ consteval std::string_view stem_of( const char* file )
 
 #ifdef EMLABCPP_USE_LOGGING
 
+#include "emlabcpp/experimental/logging/color.h"
+#include "emlabcpp/experimental/logging/time.h"
 #include "emlabcpp/experimental/pretty_printer.h"
 
 #include <iostream>
@@ -25,72 +27,6 @@ consteval std::string_view stem_of( const char* file )
 namespace emlabcpp
 {
 
-enum class log_severity
-{
-        DEBUG = 1,
-        INFO  = 2
-};
-
-struct log_colors
-{
-        std::string_view debug;
-        std::string_view info;
-};
-
-static constexpr log_colors time_colors = { .debug = "250", .info = "33" };
-static constexpr log_colors file_colors = { .debug = "252", .info = "128" };
-static constexpr log_colors line_colors = { .debug = "248", .info = "164" };
-
-struct color
-{
-        std::string_view c;
-};
-
-auto& operator<<( ostreamlike auto& os, const color& c )
-{
-        return os << "\033[38;5;" << c.c << "m";
-}
-
-consteval std::string_view select_color( const log_colors& lc, log_severity sever )
-{
-        switch ( sever ) {
-                case log_severity::DEBUG:
-                        return lc.debug;
-                case log_severity::INFO:
-                        return lc.info;
-        }
-        return "";  // TODO: might rethink this
-}
-
-consteval color log_color( const log_colors& lc, log_severity sever )
-{
-        return color{ select_color( lc, sever ) };
-}
-
-consteval std::string_view resetcolor()
-{
-        return "\033[0m";
-}
-
-struct timelog
-{
-        std::chrono::time_point< std::chrono::system_clock > tp;
-};
-
-auto& operator<<( ostreamlike auto& os, const timelog& lg )
-{
-        const std::time_t t   = std::chrono::system_clock::to_time_t( lg.tp );
-        const auto        dur = lg.tp.time_since_epoch();
-        const auto        ms  = std::chrono::duration_cast< std::chrono::milliseconds >( dur ) %
-                        std::chrono::seconds{ 1 };
-
-        std::array< char, 42 > data;
-
-        std::size_t i = std::strftime( data.data(), data.size(), "%T.", std::localtime( &t ) );
-        os << std::string_view{ data.data(), i };
-
-        return os << ms.count();
-}
 
 }  // namespace emlabcpp
 
