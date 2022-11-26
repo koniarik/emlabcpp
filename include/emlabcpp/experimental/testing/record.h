@@ -48,18 +48,20 @@ public:
         template < typename T >
         param_value_awaiter< T > get_param( node_id node )
         {
-                return param_value_awaiter< T >{ param_value_request{ rid_, node } };
+                return param_value_awaiter< T >{ param_value_request{ rid_, node }, &comm_ };
         }
 
         template < typename T >
         param_value_key_awaiter< T > get_param( node_id node, child_id chid )
         {
-                return param_value_key_awaiter< T >{ param_value_key_request{ rid_, node, chid } };
+                return param_value_key_awaiter< T >{
+                    param_value_key_request{ rid_, node, chid }, &comm_ };
         }
         template < typename T >
         param_value_key_awaiter< T > get_param( node_id node, const key_type& k )
         {
-                return param_value_key_awaiter< T >{ param_value_key_request{ rid_, node, k } };
+                return param_value_key_awaiter< T >{
+                    param_value_key_request{ rid_, node, k }, &comm_ };
         }
         template < typename T >
         param_value_key_awaiter< T > get_param( node_id node, std::string_view k )

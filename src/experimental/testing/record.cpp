@@ -27,7 +27,7 @@ namespace emlabcpp::testing
 
 param_type_awaiter record::get_param_type( node_id nid )
 {
-        return param_type_awaiter{ param_type_request{ rid_, nid } };
+        return param_type_awaiter{ param_type_request{ rid_, nid }, &comm_ };
 }
 
 collect_awaiter record::collect( node_id parent, const collect_value_type& arg )
@@ -50,12 +50,12 @@ collect_awaiter record::collect(
     const std::optional< key_type >& key,
     const collect_value_type&        arg )
 {
-        return collect_awaiter{ collect_request{ rid_, parent, key, arg } };
+        return collect_awaiter{ collect_request{ rid_, parent, key, arg }, &comm_ };
 }
 
 param_child_awaiter record::get_param_child( node_id nid, child_id chid )
 {
-        return param_child_awaiter{ param_child_request{ rid_, nid, chid } };
+        return param_child_awaiter{ param_child_request{ rid_, nid, chid }, &comm_ };
 }
 
 param_child_awaiter record::get_param_child( node_id nid, std::string_view key )
@@ -65,18 +65,18 @@ param_child_awaiter record::get_param_child( node_id nid, std::string_view key )
 
 param_child_awaiter record::get_param_child( node_id nid, const key_type& key )
 {
-        return param_child_awaiter{ param_child_request{ rid_, nid, key } };
+        return param_child_awaiter{ param_child_request{ rid_, nid, key }, &comm_ };
 }
 
 param_child_count_awaiter record::get_param_child_count( std::optional< node_id > nid )
 {
         return param_child_count_awaiter{
-            param_child_count_request{ .rid = rid_, .parent = *nid } };
+            param_child_count_request{ .rid = rid_, .parent = *nid }, &comm_ };
 }
 
 param_key_awaiter record::get_param_key( node_id nid, child_id chid )
 {
-        return param_key_awaiter{ param_key_request{ rid_, nid, chid } };
+        return param_key_awaiter{ param_key_request{ rid_, nid, chid }, &comm_ };
 }
 
 void record::report_wrong_type_error( node_id nid, const value_type& )

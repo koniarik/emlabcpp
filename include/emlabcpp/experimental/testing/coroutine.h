@@ -16,7 +16,6 @@ class test_coroutine
 public:
         struct promise_type : coro::pool_promise< promise_type >
         {
-                reactor_interface_adapter* comm_ptr;
 
                 test_coroutine get_return_object()
                 {
@@ -52,8 +51,6 @@ public:
         // TODO: this is shady API as fuck
         bool spin( reactor_interface_adapter* comm )
         {
-                h_->promise().comm_ptr = comm;
-
                 h_();
 
                 while ( !h_->done() ) {
@@ -73,12 +70,14 @@ private:
 template < typename Processor >
 struct record_awaiter
 {
-        Processor proc;
+        Processor                  proc;
+        reactor_interface_adapter* comm_ptr;
 
         using request_type = decltype( proc.req );
 
-        record_awaiter( request_type req )
+        record_awaiter( request_type req, reactor_interface_adapter* comm )
           : proc{ .reply = {}, .req = req }
+          , comm_ptr( comm )
         {
         }
 
@@ -86,17 +85,30 @@ struct record_awaiter
         {
                 return false;
         }
+
         void await_suspend( std::coroutine_handle< test_coroutine::promise_type > h )
         {
-                reactor_interface_adapter& comm = *h.promise().comm_ptr;
-                comm.register_incoming_handler(
+                comm_ptr->register_incoming_handler(
                     [this]( const controller_reactor_variant& var ) -> bool {
                             return proc.set_value( var );
                     } );
-                comm.reply( proc.req );
+                comm_ptr->reply( proc.req );
         }
+
         decltype( auto ) await_resume()
         {
+                return proc.reply;
+        }
+
+        decltype( auto ) busy_wait()
+        {
+                comm_ptr->register_incoming_handler(
+                    [this]( const controller_reactor_variant& var ) -> bool {
+                            return proc.set_value( var );
+                    } );
+                comm_ptr->reply( proc.req );
+                std::ignore = comm_ptr->read_with_handler();
+
                 return proc.reply;
         }
 };
