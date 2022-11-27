@@ -8,6 +8,7 @@ var namespaceemlabcpp_1_1testing =
     [ "value_type_converter_getter", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", "structemlabcpp_1_1testing_1_1value__type__converter__getter" ],
     [ "value_type_converter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html", null ],
     [ "value_type_converter< std::string_view >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4" ],
+    [ "value_type_converter< std::chrono::duration< Rep, Ratio > >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4" ],
     [ "test_coroutine", "classemlabcpp_1_1testing_1_1test__coroutine.html", "classemlabcpp_1_1testing_1_1test__coroutine" ],
     [ "record_awaiter", "structemlabcpp_1_1testing_1_1record__awaiter.html", "structemlabcpp_1_1testing_1_1record__awaiter" ],
     [ "collect_processor", "structemlabcpp_1_1testing_1_1collect__processor.html", "structemlabcpp_1_1testing_1_1collect__processor" ],
@@ -136,7 +137,7 @@ var namespaceemlabcpp_1_1testing =
     [ "operator<<", "namespaceemlabcpp_1_1testing.html#a5968d91955d9b3103d095de3edc8c898", null ],
     [ "operator<<", "namespaceemlabcpp_1_1testing.html#ae88e1906c2894fa0e4c259a86ed2e752", null ],
     [ "operator<<", "namespaceemlabcpp_1_1testing.html#aa0f841f3d87b401883e6b82452554e4d", null ],
-    [ "requires", "namespaceemlabcpp_1_1testing.html#a7adcf3f4ee884f07d803220439c4f493", null ],
+    [ "requires", "namespaceemlabcpp_1_1testing.html#a5f51ceea4b512a1852bf7beca4837fb9", null ],
     [ "string_to_buffer", "namespaceemlabcpp_1_1testing.html#ad633f76356e096e700a03f89c593dca8", null ],
     [ "test_compose", "namespaceemlabcpp_1_1testing.html#a5dfb36ed7abfd06d258541ad605291f7", null ],
     [ "valid_test_callable", "namespaceemlabcpp_1_1testing.html#ad7a2a6759ff6cb8d4ee8777b7c33db2f", null ]

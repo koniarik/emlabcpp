@@ -1,6 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"functions_func.html":[3,3,1],
 "functions_func.html":[3,3,1,0],
 "functions_func_b.html":[3,3,1,1],
 "functions_func_c.html":[3,3,1,2],
@@ -39,8 +38,8 @@ var NAVTREEINDEX4 =
 "functions_rela.html":[3,3,4],
 "functions_s.html":[3,3,0,17],
 "functions_t.html":[3,3,0,18],
-"functions_type.html":[3,3,3],
 "functions_type.html":[3,3,3,0],
+"functions_type.html":[3,3,3],
 "functions_type_b.html":[3,3,3,1],
 "functions_type_c.html":[3,3,3,2],
 "functions_type_d.html":[3,3,3,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX4 =
 "namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c":[2,0,0,228],
 "namespaceemlabcpp.html#a71244dcc912784b08768c6ae041c37bc":[2,0,0,257],
 "namespaceemlabcpp.html#a72780e74e9bda101f80e92e9ab0bcb9e":[4,0,0,0,2,2,2,0,0],
-"namespaceemlabcpp.html#a758b493f0ae5fba7a25a040013bbf28b":[4,0,0,0,2,2,0,0,1]
+"namespaceemlabcpp.html#a758b493f0ae5fba7a25a040013bbf28b":[4,0,0,0,2,2,0,0,1],
+"namespaceemlabcpp.html#a75cf44a6df8173ea7a46979f57546332":[2,0,0,121]
 };
