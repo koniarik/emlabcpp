@@ -38,7 +38,7 @@ requires( alternative_of< T, value_type > ) struct value_type_converter< T >
 };
 
 template < typename T >
-requires( !std::same_as< T, int64_t > && std::is_integral_v< T > ) struct value_type_converter< T >
+requires( !std::same_as< T, int64_t > && std::is_integral_v< T > && !std::same_as<T,bool> ) struct value_type_converter< T >
 {
         static std::optional< T > from_value( const value_type& var )
         {
@@ -68,6 +68,15 @@ struct value_type_converter< std::string_view >
         static value_type to_value( const std::string_view& item )
         {
                 return string_to_buffer( item );
+        }
+};
+
+template < typename Rep, typename Ratio >
+struct value_type_converter< std::chrono::duration< Rep, Ratio > >
+{
+        static value_type to_value( const std::chrono::duration< Rep, Ratio >& val )
+        {
+                return value_type_converter< Rep >::to_value( val.count() );
         }
 };
 
