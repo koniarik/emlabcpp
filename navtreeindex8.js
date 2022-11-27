@@ -1,9 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"structemlabcpp_1_1protocol_1_1converter_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html#af2241ec250b8ed9006fb60dbbfe50071":[3,0,0,3,19,3],
-"structemlabcpp_1_1protocol_1_1converter_3_01std_1_1monostate_00_01Endianess_01_4.html":[3,0,0,3,17],
-"structemlabcpp_1_1protocol_1_1converter_3_01std_1_1monostate_00_01Endianess_01_4.html#a25a495f20b959873483ea0669b698f5a":[3,0,0,3,17,3],
-"structemlabcpp_1_1protocol_1_1converter_3_01std_1_1monostate_00_01Endianess_01_4.html#a39b7db40567bb0a1a7a9c631014b5b8f":[3,0,0,3,17,1],
 "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1monostate_00_01Endianess_01_4.html#a8b9bd396691de2546252002e55ca2588":[3,0,0,3,17,2],
 "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1monostate_00_01Endianess_01_4.html#a96987374574976067584fb2f1b4621f6":[3,0,0,3,17,4],
 "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1monostate_00_01Endianess_01_4.html#a9d8ce8673a7755ad458d651d7a8c1a55":[3,0,0,3,17,0],
@@ -249,5 +245,9 @@ var NAVTREEINDEX8 =
 "structemlabcpp_1_1protocol_1_1serializer.html#a14bb553a6080c1d660e58791d530174b":[3,0,0,3,48,2],
 "structemlabcpp_1_1protocol_1_1serializer.html#a24e9fd34586f9c37272127f42a692b2b":[3,0,0,3,48,6],
 "structemlabcpp_1_1protocol_1_1serializer.html#a3db8d0288a0d9c101fdb7a44793c4e83":[3,0,0,3,48,5],
-"structemlabcpp_1_1protocol_1_1serializer.html#a3f19e847096f522a1eac68acca3f870a":[3,0,0,3,48,4]
+"structemlabcpp_1_1protocol_1_1serializer.html#a3f19e847096f522a1eac68acca3f870a":[3,0,0,3,48,4],
+"structemlabcpp_1_1protocol_1_1serializer.html#a4571913a4062cdbd2e6f1e6d15e61e25":[3,0,0,3,48,1],
+"structemlabcpp_1_1protocol_1_1serializer.html#a86587d271435e48dc0a04f4e11f07ff5":[3,0,0,3,48,0],
+"structemlabcpp_1_1protocol_1_1serializer.html#ac4bcfcd5d94584c28d07ad182a635192":[3,0,0,3,48,3],
+"structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html":[3,0,0,3,50]
 };

@@ -1,10 +1,9 @@
 <map id="include/emlabcpp/experimental/logging/color.h" name="include/emlabcpp/experimental/logging/color.h">
-<area shape="rect" id="node1" title=" " alt="" coords="179,5,407,47"/>
-<area shape="rect" id="node2" href="$severity_8h.html" title=" " alt="" coords="11,95,189,136"/>
-<area shape="rect" id="node3" href="$concepts_8h.html" title=" " alt="" coords="213,102,373,129"/>
-<area shape="rect" id="node8" title=" " alt="" coords="398,102,495,129"/>
-<area shape="rect" id="node4" href="$types_2base_8h.html" title=" " alt="" coords="5,184,179,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="203,184,283,211"/>
-<area shape="rect" id="node6" title=" " alt="" coords="307,184,378,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="402,184,470,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="254,5,482,47"/>
+<area shape="rect" id="node2" href="$concepts_8h.html" title=" " alt="" coords="212,95,372,121"/>
+<area shape="rect" id="node7" title=" " alt="" coords="397,95,494,121"/>
+<area shape="rect" id="node3" href="$types_2base_8h.html" title=" " alt="" coords="5,169,179,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="203,169,283,196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="307,169,378,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="402,169,470,196"/>
 </map>

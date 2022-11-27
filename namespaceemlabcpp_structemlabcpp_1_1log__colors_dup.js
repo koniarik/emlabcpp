@@ -1,5 +1,6 @@
 var namespaceemlabcpp_structemlabcpp_1_1log__colors_dup =
 [
-    [ "debug", "namespaceemlabcpp.html#ad704665c8a10344a86c0832a9172d119", null ],
-    [ "info", "namespaceemlabcpp.html#a758b493f0ae5fba7a25a040013bbf28b", null ]
+    [ "file", "namespaceemlabcpp.html#a16da217837876e1ca186c4edf83590a1", null ],
+    [ "line", "namespaceemlabcpp.html#a33c5ed3dba4f9efa0836eeeec747e47b", null ],
+    [ "time", "namespaceemlabcpp.html#af175fa386686fa863a3f581d48e05167", null ]
 ];

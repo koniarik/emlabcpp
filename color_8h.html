@@ -92,15 +92,14 @@ $(document).ready(function(){initNavTree('color_8h.html',''); initResizable(); }
 <div class="title">color.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="severity_8h_source.html">emlabcpp/experimental/logging/severity.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="concepts_8h_source.html">emlabcpp/concepts.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="concepts_8h_source.html">emlabcpp/concepts.h</a>&quot;</code><br />
 <code>#include &lt;string_view&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for color.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="color_8h__incl.svg" width="502" height="216"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="color_8h__incl.svg" width="500" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -122,21 +121,15 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a09706de4f199476ac440fe166eb063f8"><td class="memItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a09706de4f199476ac440fe166eb063f8">emlabcpp::operator&lt;&lt;</a> (ostreamlike auto &amp;os, const log_color_stub &amp;c)</td></tr>
 <tr class="separator:a09706de4f199476ac440fe166eb063f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8be8a90808a1b02f5153671042a56336"><td class="memItemLeft" align="right" valign="top">consteval std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a8be8a90808a1b02f5153671042a56336">emlabcpp::select_color</a> (const log_colors &amp;lc, log_severity sever)</td></tr>
-<tr class="separator:a8be8a90808a1b02f5153671042a56336"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af201924f826df797c89d32157c0b23cd"><td class="memItemLeft" align="right" valign="top">consteval log_color_stub&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af201924f826df797c89d32157c0b23cd">emlabcpp::log_color</a> (const log_colors &amp;lc, log_severity sever)</td></tr>
-<tr class="separator:af201924f826df797c89d32157c0b23cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a920fb482505dc3cae0921d70420006f4"><td class="memItemLeft" align="right" valign="top">consteval std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a920fb482505dc3cae0921d70420006f4">emlabcpp::resetcolor</a> ()</td></tr>
-<tr class="separator:a920fb482505dc3cae0921d70420006f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a620a32406486ae5b889d41d446c4a8b0"><td class="memItemLeft" align="right" valign="top">consteval std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a620a32406486ae5b889d41d446c4a8b0">emlabcpp::reset_color</a> ()</td></tr>
+<tr class="separator:a620a32406486ae5b889d41d446c4a8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:af24e225a528ccaf71fd68b55062378dc"><td class="memItemLeft" align="right" valign="top">static constexpr log_colors&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af24e225a528ccaf71fd68b55062378dc">emlabcpp::time_colors</a> = { .debug = &quot;250&quot;, .info = &quot;33&quot; }</td></tr>
-<tr class="separator:af24e225a528ccaf71fd68b55062378dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abea4a18fa94c2b650c0e1a96760bb725"><td class="memItemLeft" align="right" valign="top">static constexpr log_colors&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abea4a18fa94c2b650c0e1a96760bb725">emlabcpp::file_colors</a> = { .debug = &quot;252&quot;, .info = &quot;128&quot; }</td></tr>
-<tr class="separator:abea4a18fa94c2b650c0e1a96760bb725"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37dfdec86a0564faa630436c314f3315"><td class="memItemLeft" align="right" valign="top">static constexpr log_colors&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a37dfdec86a0564faa630436c314f3315">emlabcpp::line_colors</a> = { .debug = &quot;248&quot;, .info = &quot;164&quot; }</td></tr>
-<tr class="separator:a37dfdec86a0564faa630436c314f3315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3959b862aa2e1cc006ab40cb96de64a2"><td class="memItemLeft" align="right" valign="top">static constexpr log_colors&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3959b862aa2e1cc006ab40cb96de64a2">emlabcpp::INFO_LOGGER_COLORS</a> = { .time = &quot;33&quot;, .file = &quot;128&quot;, .line = &quot;164&quot; }</td></tr>
+<tr class="separator:a3959b862aa2e1cc006ab40cb96de64a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a040c9fa2d6c0e4a28649479052ad8f8d"><td class="memItemLeft" align="right" valign="top">static constexpr log_colors&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a040c9fa2d6c0e4a28649479052ad8f8d">emlabcpp::DEBUG_LOGGER_COLORS</a> = { .time = &quot;250&quot;, .file = &quot;252&quot;, .line = &quot;248&quot; }</td></tr>
+<tr class="separator:a040c9fa2d6c0e4a28649479052ad8f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="structemlabcpp_1_1log__colors" id="structemlabcpp_1_1log__colors"></a>
@@ -155,21 +148,27 @@ Variables</h2></td></tr>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1log__colors__coll__graph.svg" width="178" height="232"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1log__colors__coll__graph.svg" width="178" height="247"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="ad704665c8a10344a86c0832a9172d119"></a>string_view</td>
+<a id="a16da217837876e1ca186c4edf83590a1"></a>string_view</td>
 <td class="fieldname">
-debug</td>
+file</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a758b493f0ae5fba7a25a040013bbf28b"></a>string_view</td>
+<a id="a33c5ed3dba4f9efa0836eeeec747e47b"></a>string_view</td>
 <td class="fieldname">
-info</td>
+line</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="af175fa386686fa863a3f581d48e05167"></a>string_view</td>
+<td class="fieldname">
+time</td>
 <td class="fielddoc">
 </td></tr>
 </table>
@@ -213,7 +212,7 @@ c</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_7be96e89c84803827e352320bc015c84.html">logging</a></li><li class="navelem"><a class="el" href="color_8h.html">color.h</a></li>
-    <li class="footer">Generated on Sun Nov 27 2022 11:03:43 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 27 2022 11:04:33 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
