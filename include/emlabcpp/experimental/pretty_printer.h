@@ -5,9 +5,9 @@
 #include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
 
-#include <span>
 #include <filesystem>
 #include <optional>
+#include <span>
 #include <sstream>
 #include <tuple>
 #include <variant>
@@ -93,14 +93,13 @@ public:
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
         void main_print( const nlohmann::json& j )
         {
-                std::ostream& os = os_;
-                os << j;
+                os_ << j.dump();
         }
 #endif
 
         void main_print( const std::filesystem::path& p )
         {
-                os_ << p;
+                main_print( p.string() );
         }
 
         template < typename T >
@@ -136,14 +135,12 @@ public:
 
         void main_print( const std::string_view& sview )
         {
-                for ( char c : sview ) {
-                        os_ << c;
-                }
+                os_ << sview;
         }
 
         void main_print( const std::string& str )
         {
-                os_ << str;
+                main_print( std::string_view{ str } );
         }
 
         template < typename... Ts >

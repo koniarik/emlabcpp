@@ -1,4 +1,3 @@
-#include "emlabcpp/experimental/logging/severity.h"
 #include "emlabcpp/concepts.h"
 
 #include <string_view>
@@ -7,15 +6,16 @@
 
 namespace emlabcpp
 {
+
 struct log_colors
 {
-        std::string_view debug;
-        std::string_view info;
+        std::string_view time;
+        std::string_view file;
+        std::string_view line;
 };
 
-static constexpr log_colors time_colors = { .debug = "250", .info = "33" };
-static constexpr log_colors file_colors = { .debug = "252", .info = "128" };
-static constexpr log_colors line_colors = { .debug = "248", .info = "164" };
+static constexpr log_colors INFO_LOGGER_COLORS  = { .time = "33", .file = "128", .line = "164" };
+static constexpr log_colors DEBUG_LOGGER_COLORS = { .time = "250", .file = "252", .line = "248" };
 
 struct log_color_stub
 {
@@ -27,23 +27,7 @@ auto& operator<<( ostreamlike auto& os, const log_color_stub& c )
         return os << "\033[38;5;" << c.c << "m";
 }
 
-consteval std::string_view select_color( const log_colors& lc, log_severity sever )
-{
-        switch ( sever ) {
-                case log_severity::DEBUG:
-                        return lc.debug;
-                case log_severity::INFO:
-                        return lc.info;
-        }
-        return "";  // TODO: might rethink this
-}
-
-consteval log_color_stub log_color( const log_colors& lc, log_severity sever )
-{
-        return log_color_stub{ select_color( lc, sever ) };
-}
-
-consteval std::string_view resetcolor()
+consteval std::string_view reset_color()
 {
         return "\033[0m";
 }

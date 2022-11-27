@@ -21,25 +21,133 @@ consteval std::string_view stem_of( const char* file )
 #include "emlabcpp/experimental/logging/color.h"
 #include "emlabcpp/experimental/logging/time.h"
 #include "emlabcpp/experimental/pretty_printer.h"
+#include "emlabcpp/experimental/simple_stream.h"
 
 #include <iostream>
 
 namespace emlabcpp
 {
 
+struct set_stdout
+{
+        bool enabled;
+};
+
+struct set_stderr
+{
+        bool enabled;
+};
+
+struct set_ostream
+{
+        std::ostream* os;
+};
+
+using logging_option = std::variant< set_stdout, set_stderr, set_ostream, log_colors >;
+
+class gpos_logger
+{
+public:
+        using ostream = pretty_printer< simple_stream< gpos_logger& > >;
+
+        gpos_logger( std::vector< logging_option > opts )
+        {
+                for ( const auto& opt : opts ) {
+                        set_option( opt );
+                }
+        }
+
+        void set_option( const logging_option& opt )
+        {
+                match(
+                    opt,
+                    [this]( const set_stdout& s ) {
+                            use_stdout_ = s.enabled;
+                    },
+                    [this]( const set_stderr& s ) {
+                            use_stderr_ = s.enabled;
+                    },
+                    [this]( const set_ostream& f ) {
+                            filestream_ = f.os;
+                    },
+                    [this]( const log_colors& c ) {
+                            colors_ = c;
+                    } );
+        }
+
+        ostream& time_stream()
+        {
+                set_color( colors_.time );
+                return os_;
+        }
+        ostream& file_stream()
+        {
+                set_color( colors_.file );
+                return os_;
+        }
+        ostream& line_stream()
+        {
+                set_color( colors_.line );
+                return os_;
+        }
+        ostream& msg_stream()
+        {
+                write_std_streams( reset_color() );
+                return os_;
+        }
+
+        void operator()( std::string_view sv )
+        {
+                write_std_streams( sv );
+                if ( filestream_ ) {
+                        filestream_->write(
+                            sv.data(), static_cast< std::streamsize >( sv.size() ) );
+                }
+        }
+
+private:
+        void set_color( std::string_view c )
+        {
+                write_std_streams( "\033[38;5;" );
+                write_std_streams( c );
+                write_std_streams( "m" );
+        }
+
+        void write_std_streams( std::string_view sv )
+        {
+                if ( use_stdout_ ) {
+                        std::cout.write( sv.data(), static_cast< std::streamsize >( sv.size() ) );
+                }
+                if ( use_stderr_ ) {
+                        std::cerr.write( sv.data(), static_cast< std::streamsize >( sv.size() ) );
+                }
+        }
+
+        ostream os_{ *this };
+
+        log_colors colors_{};
+
+        bool          use_stdout_ = false;
+        bool          use_stderr_ = false;
+        std::ostream* filestream_;
+};
+
+extern gpos_logger INFO_LOGGER;
+extern gpos_logger DEBUG_LOGGER;
 
 }  // namespace emlabcpp
 
-#define EMLABCPP_LOG_IMPL( msg, severity )                                               \
-        {                                                                                \
-                emlabcpp::pretty_printer< std::ostream& > pp{ std::cout };               \
-                pp << emlabcpp::log_color( emlabcpp::time_colors, severity )             \
-                   << emlabcpp::timelog( std::chrono::system_clock::now() ) << "|"       \
-                   << emlabcpp::log_color( emlabcpp::file_colors, severity )             \
-                   << emlabcpp::stem_of( __FILE__ ) << "|"                               \
-                   << emlabcpp::log_color( emlabcpp::line_colors, severity ) << __LINE__ \
-                   << emlabcpp::resetcolor() << "|" << msg << "\n";                      \
+#define EMLABCPP_LOG_IMPL( msg, logger )                                             \
+        {                                                                            \
+                logger.time_stream()                                                 \
+                    << emlabcpp::timelog( std::chrono::system_clock::now() ) << " "; \
+                logger.file_stream() << emlabcpp::stem_of( __FILE__ ) << ":";        \
+                logger.line_stream() << __LINE__ << " ";                             \
+                logger.msg_stream() << msg << "\n";                                  \
         }
+
+#define EMLABCPP_LOG( msg ) EMLABCPP_LOG_IMPL( msg, emlabcpp::INFO_LOGGER )
+#define EMLABCPP_DEBUG_LOG( msg ) EMLABCPP_LOG_IMPL( msg, emlabcpp::DEBUG_LOGGER )
 
 #elif defined EMLABCPP_USE_NONEABI_LOGGING
 
@@ -62,7 +170,7 @@ void log_to_global_logger( std::string_view sv );
 
 }  // namespace emlabcpp
 
-#define EMLABCPP_LOG_IMPL( msg, severity )                                       \
+#define EMLABCPP_LOG_IMPL( msg )                                                 \
         {                                                                        \
                 emlabcpp::LOGGER.start();                                        \
                 emlabcpp::pretty_printer pp{                                     \
@@ -71,11 +179,12 @@ void log_to_global_logger( std::string_view sv );
                 emlabcpp::LOGGER.end();                                          \
         }
 
+#define EMLABCPP_LOG( msg ) EMLABCPP_LOG_IMPL( msg )
+#define EMLABCPP_DEBUG_LOG( msg ) EMLABCPP_LOG_IMPL( msg )
+
 #else
 
-#define EMLABCPP_LOG_IMPL( msg, severity )
+#define EMLABCPP_LOG( msg )
+#define EMLABCPP_DEBUG_LOG( msg )
 
 #endif
-
-#define EMLABCPP_LOG( msg ) EMLABCPP_LOG_IMPL( msg, emlabcpp::log_severity::INFO )
-#define EMLABCPP_DEBUG_LOG( msg ) EMLABCPP_LOG_IMPL( msg, emlabcpp::log_severity::DEBUG )

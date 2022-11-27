@@ -1,6 +1,6 @@
+#include <array>
 #include <chrono>
 #include <string_view>
-#include <array>
 
 #pragma once
 
@@ -24,7 +24,10 @@ auto& operator<<( ostreamlike auto& os, const timelog& lg )
         std::size_t i = std::strftime( data.data(), data.size(), "%T.", std::localtime( &t ) );
         os << std::string_view{ data.data(), i };
 
-        return os << ms.count();
+        std::snprintf( data.begin(), data.size(), "%.3li", ms.count() );
+        os << std::string_view{ data.data() };
+
+        return os;
 }
 
 }  // namespace emlabcpp
