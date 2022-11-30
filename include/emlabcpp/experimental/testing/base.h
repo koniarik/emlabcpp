@@ -25,6 +25,7 @@
 #include "emlabcpp/experimental/contiguous_tree/tree.h"
 #include "emlabcpp/static_vector.h"
 
+#include <algorithm>
 #include <map>
 #include <variant>
 
