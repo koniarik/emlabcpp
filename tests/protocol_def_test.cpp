@@ -65,18 +65,15 @@ struct valid_test_case : protocol_test_fixture
                     << "expected   (bin): " << convert_view< std::bitset< 8 > >( expected_buffer )
                     << "\n";
 
-                auto sres = pitem::deserialize(
-                    *bounded_view< const uint8_t*, typename pitem::size_type >::make(
-                        view_n( buffer.begin(), *used ) ) );
+                value_type item;
+                auto       sres =
+                    pitem::deserialize( std::span< const uint8_t >{ buffer.begin(), *used }, item );
 
-                if constexpr ( protocol::erroring_converter< pitem > ) {
-                        if ( sres.has_error() ) {
-                                FAIL() << *sres.get_error();
-                                return;
-                        }
+                if ( sres.has_error() ) {
+                        FAIL() << *sres.get_error();
+                        return;
                 }
-                auto rval = *sres.get_value();
-                EXPECT_EQ( rval, val );
+                EXPECT_EQ( item, val );
                 EXPECT_EQ( sres.used, expected_buffer.size() );
         }
 
@@ -112,7 +109,7 @@ struct invalid_test_case : protocol_test_fixture
 {
 
         using pitem      = protocol::converter_for< T, std::endian::big >;
-        using value_type = T;
+        using value_type = typename pitem::value_type;
 
         std::vector< uint8_t > inpt;
         protocol::error_record expected_rec;
@@ -133,9 +130,10 @@ struct invalid_test_case : protocol_test_fixture
                     view_n( tmp.begin(), inpt.size() ) );
                 EXPECT_TRUE( opt_view );
 
-                auto [used, res] = pitem::deserialize( *opt_view );
-                if ( std::holds_alternative< const protocol::mark* >( res ) ) {
-                        EXPECT_EQ( expected_rec.error_mark, *std::get< 1 >( res ) );
+                value_type item;
+                auto [used, err] = pitem::deserialize( *opt_view, item );
+                if ( err != nullptr ) {
+                        EXPECT_EQ( expected_rec.error_mark, *err );
                         EXPECT_EQ( expected_rec.offset, used );
                 } else {
                         FAIL() << "deserialization passed";
@@ -212,7 +210,7 @@ int main( int argc, char** argv )
             make_invalid_test_case< std::variant< uint8_t, int16_t, uint16_t > >(
                 { 3, 0, 0 }, protocol::error_record{ protocol::UNDEFVAR_ERR, 0 } ),
             make_invalid_test_case< std::variant< uint8_t, int16_t, uint16_t > >(
-                { 1, 0 }, protocol::error_record{ protocol::SIZE_ERR, 0 } ),
+                { 1, 0 }, protocol::error_record{ protocol::SIZE_ERR, 1 } ),
             // std::bitset
             make_valid_test_case< std::endian::little >(
                 std::bitset< 3 >{ 0b00000111 }, { 0b00000111 } ),
@@ -329,7 +327,7 @@ int main( int argc, char** argv )
             make_valid_test_case< std::endian::little >(
                 std::optional< int32_t >{ 42u }, { 1, 0x2a, 0, 0, 0 } ),
             make_invalid_test_case< std::optional< tag< 666u > > >(
-                { 1, 0 }, protocol::error_record{ protocol::BADVAL_ERR, 1 } ),
+                { 1, 0 }, protocol::error_record{ protocol::SIZE_ERR, 1 } ),
             make_invalid_test_case< std::optional< tag< 666u > > >(
                 { 1, 0, 0, 2, 152 }, protocol::error_record{ protocol::BADVAL_ERR, 1 } ),
             // decompose

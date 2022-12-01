@@ -82,12 +82,12 @@ struct register_handler
                 if ( !opt_view ) {
                         return error_record{ SIZE_ERR, 0 };
                 }
-                auto sres = def::deserialize( *opt_view );
-                if constexpr ( erroring_converter< def > )
-                        if ( sres.has_error() ) {
-                                return error_record{ *sres.get_error(), sres.used };
-                        }
-                return *sres.get_value();
+                reg_value_type< Key > res;
+                auto                  sres = def::deserialize( *opt_view, res );
+                if ( sres.has_error() ) {
+                        return error_record{ *sres.get_error(), sres.used };
+                }
+                return res;
         }
 
         static std::optional< error_record >

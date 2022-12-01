@@ -37,7 +37,6 @@ struct serializer
 {
         static constexpr std::size_t max_size = sizeof( T );
         using size_type                       = bounded< std::size_t, max_size, max_size >;
-        using view_type                       = bounded_view< const uint8_t*, size_type >;
         static constexpr bool is_big_endian   = Endianess == std::endian::big;
 
         static constexpr auto& bget( auto& buffer, const std::size_t i )
@@ -51,7 +50,7 @@ struct serializer
                         item                             = static_cast< T >( item >> 8 );
                 }
         }
-        static constexpr T deserialize( const view_type& buffer )
+        static constexpr T deserialize( const std::span< const uint8_t, max_size >& buffer )
         {
                 T res{};
                 for ( std::size_t i : range( max_size ) ) {
@@ -70,7 +69,6 @@ struct serializer< float, Endianess >
 
         static constexpr std::size_t max_size = sizeof( float );
         using size_type                       = bounded< std::size_t, max_size, max_size >;
-        using view_type                       = bounded_view< const uint8_t*, size_type >;
 
         static constexpr void
         serialize_at( std::span< uint8_t, max_size > buffer, const float item )
@@ -80,7 +78,7 @@ struct serializer< float, Endianess >
                 sub_serializer::serialize_at( buffer, v );
         }
 
-        static constexpr float deserialize( const view_type& buffer )
+        static constexpr float deserialize( const std::span< const uint8_t, max_size >& buffer )
         {
                 const uint32_t v   = sub_serializer::deserialize( buffer );
                 float          res = 0;
@@ -94,13 +92,12 @@ struct serializer< bool, Endianess >
 {
         static constexpr std::size_t max_size = sizeof( bool );
         using size_type                       = bounded< std::size_t, max_size, max_size >;
-        using view_type                       = bounded_view< const uint8_t*, size_type >;
 
         static constexpr void serialize_at( std::span< uint8_t, max_size > buffer, const bool v )
         {
                 buffer[0] = v ? 0x1 : 0x0;
         }
-        static constexpr bool deserialize( const view_type& buffer )
+        static constexpr bool deserialize( const std::span< const uint8_t, max_size >& buffer )
         {
                 return buffer[0] == 0x1;
         }

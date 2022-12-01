@@ -86,7 +86,7 @@ struct record_awaiter
                 return false;
         }
 
-        void await_suspend( std::coroutine_handle< test_coroutine::promise_type > h )
+        void await_suspend( std::coroutine_handle< test_coroutine::promise_type > )
         {
                 comm_ptr->register_incoming_handler(
                     [this]( const controller_reactor_variant& var ) -> bool {

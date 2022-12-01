@@ -34,126 +34,32 @@
 namespace emlabcpp::protocol
 {
 
-enum class error_possibility
-{
-        POSSIBLE,
-        IMPOSSIBLE
-};
-
-/// Strucutre used as result of deserialization in the internal mechanisms of protocol handling.
-/// Contains parsed value and value of how much bytes were used.
-template < typename T, error_possibility CanErr = error_possibility::POSSIBLE >
-struct conversion_result;
-
-template < typename T >
-struct conversion_result< T, error_possibility::IMPOSSIBLE >;
-
-template < typename T, error_possibility CanErr >
 struct conversion_result
 {
-        static constexpr error_possibility can_err = CanErr;
 
-        std::size_t                    used = 0;
-        std::variant< T, const mark* > res;
+        std::size_t used  = 0;
+        const mark* error = nullptr;
 
         conversion_result() = default;
-        conversion_result( const std::size_t u, const std::variant< T, const mark* >& v )
+        conversion_result( const std::size_t u )
           : used( u )
-          , res( v )
-        {
-        }
-        conversion_result( const std::size_t u, const T& v )
-          : used( u )
-          , res( v )
+          , error( nullptr )
         {
         }
         conversion_result( const std::size_t u, const mark* m )
           : used( u )
-          , res( m )
-        {
-        }
-
-        explicit conversion_result(
-            const conversion_result< T, error_possibility::IMPOSSIBLE >& other )
-          : conversion_result( other.used, other.res )
+          , error( m )
         {
         }
 
         [[nodiscard]] bool has_error() const
         {
-                return std::holds_alternative< const mark* >( res );
+                return error != nullptr;
         }
 
         [[nodiscard]] const mark* get_error() const
         {
-                if ( has_error() ) {
-                        return *std::get_if< const mark* >( &res );
-                }
-                return nullptr;
-        }
-
-        [[nodiscard]] const T* get_value() const
-        {
-                return std::get_if< T >( &res );
-        }
-
-        template < typename UnaryCallable >
-        auto convert_value( const UnaryCallable& cb ) &&  //
-            -> conversion_result< decltype( cb( std::declval< T >() ) ) >
-        {
-                if ( std::holds_alternative< const mark* >( res ) ) {
-                        return { used, *std::get_if< const mark* >( &res ) };
-                } else {
-                        return { used, cb( std::move( *std::get_if< T >( &res ) ) ) };
-                }
-        }
-
-        template < typename BinaryCallable >
-        auto
-        bind_value( const BinaryCallable& cb ) && -> decltype( cb( used, std::declval< T >() ) )
-        {
-                if ( std::holds_alternative< const mark* >( res ) ) {
-                        return { used, *std::get_if< const mark* >( &res ) };
-                } else {
-                        return cb( used, std::move( *std::get_if< T >( &res ) ) );
-                }
-        }
-};
-
-template < typename T >
-struct conversion_result< T, error_possibility::IMPOSSIBLE >
-{
-        static constexpr error_possibility can_err = error_possibility::IMPOSSIBLE;
-
-        std::size_t             used = 0;
-        [[no_unique_address]] T res;
-
-        conversion_result() = default;
-        conversion_result( const std::size_t u, const T& v )
-          : used( u )
-          , res( v )
-        {
-        }
-
-        [[nodiscard]] const T* get_value() const
-        {
-                return &res;
-        }
-
-        template < typename UnaryCallable >
-        auto convert_value( const UnaryCallable& cb ) &&  //
-            -> conversion_result<
-                decltype( cb( std::declval< T >() ) ),
-                error_possibility::IMPOSSIBLE >
-        {
-                return { used, cb( std::move( res ) ) };
-        }
-
-        template < typename BinaryCallable >
-        auto
-        bind_value( const BinaryCallable& cb ) && -> decltype( cb( used, std::declval< T >() ) )
-        {
-                return cb( used, std::move( res ) );
+                return error;
         }
 };
 

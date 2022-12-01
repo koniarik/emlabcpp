@@ -60,19 +60,17 @@ struct handler
                             << msg.size() << " vs " << def::size_type::max_val );
                         return error_record{ SIZE_ERR, 0 };
                 }
-                auto res = def::deserialize( *opt_view );
-                if constexpr ( erroring_converter< def > ) {
-                        if ( res.has_error() ) {
-                                const mark* const mark = res.get_error();
-                                EMLABCPP_LOG(
-                                    "Failed to extract protocol def "
-                                    << pretty_type_name< T >() << " from message " << *opt_view
-                                    << ", error is: " << *mark << " with " << res.used
-                                    << " bytes" );
-                                return error_record{ *mark, res.used };
-                        }
+                value_type val;
+                auto       res = def::deserialize( *opt_view, val );
+                if ( res.has_error() ) {
+                        const mark* const mark = res.get_error();
+                        EMLABCPP_LOG(
+                            "Failed to extract protocol def "
+                            << pretty_type_name< T >() << " from message " << *opt_view
+                            << ", error is: " << *mark << " with " << res.used << " bytes" );
+                        return error_record{ *mark, res.used };
                 }
-                return *res.get_value();
+                return val;
         }
 };
 
