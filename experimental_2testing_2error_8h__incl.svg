@@ -142,18 +142,18 @@
 <path fill="none" stroke="midnightblue" d="M433.59,-123.4C424.01,-114.62 411.51,-103.18 400.8,-93.37"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="403.12,-90.75 393.38,-86.58 398.39,-95.91 403.12,-90.75"/>
 </g>
-<!-- Node51 -->
+<!-- Node52 -->
 <g id="node8" class="node">
-<title>Node51</title>
+<title>Node52</title>
 <g id="a_node8"><a xlink:href="protocol_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="red" points="463,-62 463,-81 579,-81 579,-62 463,-62"/>
 <text text-anchor="middle" x="521" y="-69" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp/protocol.h</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node51 -->
+<!-- Node3&#45;&gt;Node52 -->
 <g id="edge8" class="edge">
-<title>Node3&#45;&gt;Node51</title>
+<title>Node3&#45;&gt;Node52</title>
 <path fill="none" stroke="midnightblue" d="M464.62,-123.4C476.18,-112.96 491.92,-98.75 503.83,-88"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="506.29,-90.49 511.37,-81.19 501.6,-85.3 506.29,-90.49"/>
 </g>

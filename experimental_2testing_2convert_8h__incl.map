@@ -1,10 +1,11 @@
 <map id="include/emlabcpp/experimental/testing/convert.h" name="include/emlabcpp/experimental/testing/convert.h">
-<area shape="rect" id="node1" title=" " alt="" coords="283,5,511,47"/>
-<area shape="rect" id="node2" href="$experimental_2testing_2base_8h.html" title=" " alt="" coords="309,95,486,136"/>
+<area shape="rect" id="node1" title=" " alt="" coords="290,5,518,47"/>
+<area shape="rect" id="node2" href="$experimental_2testing_2base_8h.html" title=" " alt="" coords="315,95,493,136"/>
 <area shape="rect" id="node3" href="$algorithm_8h.html" title=" " alt="" coords="5,191,171,218"/>
-<area shape="rect" id="node4" href="$pool_8h.html" title=" " alt="" coords="347,273,493,315"/>
-<area shape="rect" id="node5" href="$static__vector_8h.html" title=" " alt="" coords="166,363,351,389"/>
-<area shape="rect" id="node6" title=" " alt="" coords="395,363,445,389"/>
-<area shape="rect" id="node7" href="$tree_8h.html" title=" " alt="" coords="246,184,423,225"/>
-<area shape="rect" id="node8" title=" " alt="" coords="569,191,637,218"/>
+<area shape="rect" id="node4" href="$pool_8h.html" title=" " alt="" coords="245,273,392,315"/>
+<area shape="rect" id="node5" href="$static__vector_8h.html" title=" " alt="" coords="226,363,411,389"/>
+<area shape="rect" id="node6" title=" " alt="" coords="455,363,505,389"/>
+<area shape="rect" id="node7" href="$tree_8h.html" title=" " alt="" coords="315,184,493,225"/>
+<area shape="rect" id="node8" title=" " alt="" coords="568,191,653,218"/>
+<area shape="rect" id="node9" title=" " alt="" coords="678,191,746,218"/>
 </map>
