@@ -692,41 +692,54 @@ struct converter< tag_group< Ds... >, Endianess >
         static constexpr std::size_t max_size = decl::max_size;
         static constexpr std::size_t min_size = decl::min_size;
 
-        using def_variant   = std::variant< Ds... >;
-        using size_type     = bounded< std::size_t, min_size, max_size >;
-        using sub_type      = typename decl::sub_type;
-        using sub_converter = converter_for< sub_type, Endianess >;
-
-        using sub_value = typename sub_converter::value_type;
+        using def_variant = std::variant< Ds... >;
+        using size_type   = bounded< std::size_t, min_size, max_size >;
 
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
         {
                 return visit_index(
-                    [&buffer, &item]< std::size_t i >() {
-                            using D = std::variant_alternative_t< i, def_variant >;
-
-                            return sub_converter::serialize_at(
-                                buffer.template subspan< 0, sub_converter::max_size >(),
-                                std::make_tuple( tag< D::id >{}, std::get< i >( item ) ) );
+                    [&buffer, &item]< std::size_t i >() -> size_type {
+                            auto tag_used = nth_tag_converter< i >::serialize_at(
+                                buffer.template subspan< 0, nth_tag_converter< i >::max_size >(),
+                                nth_tag< i >{} );
+                            auto used = nth_converter< i >::serialize_at(
+                                buffer.template subspan<
+                                    nth_tag_converter< i >::max_size,
+                                    nth_converter< i >::max_size >(),
+                                *std::get_if< i >( &item ) );
+                            return tag_used + used;
                     },
                     item );
         }
 
+        template < std::size_t I >
+        using nth_converter =
+            converter_for< std::variant_alternative_t< I, def_variant >, Endianess >;
+
+        template < std::size_t I >
+        using nth_tag = tag< std::variant_alternative_t< I, def_variant >::id >;
+
+        template < std::size_t I >
+        using nth_tag_converter = converter_for< nth_tag< I >, Endianess >;
+
         static constexpr conversion_result
         deserialize( const std::span< const uint8_t >& buffer, value_type& value )
         {
-                sub_value sub_t;
-                auto      subres = sub_converter::deserialize( buffer, sub_t );
-                if ( !subres.has_error() ) {
-                        visit_index(
-                            [&value, &sub_t]< std::size_t i >() {
-                                    value.template emplace< i >(
-                                        std::get< 1 >( *std::get_if< i >( &sub_t ) ) );
-                            },
-                            sub_t );
-                }
-                return subres;
+                conversion_result res;
+                until_index< sizeof...( Ds ) >( [&]< std::size_t i >() -> bool {
+                        nth_tag< i > tag;
+                        auto         tag_res = nth_tag_converter< i >::deserialize( buffer, tag );
+                        if ( tag_res.has_error() ) {
+                                return false;
+                        }
+
+                        res = nth_converter< i >::deserialize(
+                            buffer.subspan( tag_res.used ), value.template emplace< i >() );
+                        res.used += tag_res.used;
+                        return true;
+                } );
+                return res;
         }
 };
 
