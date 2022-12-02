@@ -23,6 +23,5 @@ var converter_8h =
     [ "memcpy_converter", "structemlabcpp_1_1protocol_1_1memcpy__converter.html", "structemlabcpp_1_1protocol_1_1memcpy__converter" ],
     [ "converter_for", "converter_8h.html#aba2818d17e2b2cc369733e18839ba19f", null ],
     [ "converter_for_impl", "converter_8h.html#a8a42ec62524b9afc0195ff5f102300f9", null ],
-    [ "converter_check", "converter_8h.html#af7b9659a2e1fe1042e7ada0c5797599c", null ],
-    [ "erroring_converter", "converter_8h.html#aa9e9286894606e20655480510febcac0", null ]
+    [ "converter_check", "converter_8h.html#af7b9659a2e1fe1042e7ada0c5797599c", null ]
 ];

@@ -99,15 +99,13 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1protocol_1_1serializ
 Public Types</h2></td></tr>
 <tr class="memitem:ae18c0e066f5a039d1cac7d50eecf63eb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#ae18c0e066f5a039d1cac7d50eecf63eb">size_type</a> = <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, <a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#acf595f68412bf580f15f969c9d2bd6c8">max_size</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#acf595f68412bf580f15f969c9d2bd6c8">max_size</a> &gt;</td></tr>
 <tr class="separator:ae18c0e066f5a039d1cac7d50eecf63eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0c47622b2e45446f0c5d24f1c9181a8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#ad0c47622b2e45446f0c5d24f1c9181a8">view_type</a> = <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>&lt; const uint8_t *, <a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#ae18c0e066f5a039d1cac7d50eecf63eb">size_type</a> &gt;</td></tr>
-<tr class="separator:ad0c47622b2e45446f0c5d24f1c9181a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a71ad28c6b8f1cc13be13f11a6dc4e06c"><td class="memItemLeft" align="right" valign="top">static constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#a71ad28c6b8f1cc13be13f11a6dc4e06c">serialize_at</a> (std::span&lt; uint8_t, <a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#acf595f68412bf580f15f969c9d2bd6c8">max_size</a> &gt; buffer, const bool v)</td></tr>
 <tr class="separator:a71ad28c6b8f1cc13be13f11a6dc4e06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2678f340ce7bab52798729415b4e9901"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#a2678f340ce7bab52798729415b4e9901">deserialize</a> (const <a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#ad0c47622b2e45446f0c5d24f1c9181a8">view_type</a> &amp;buffer)</td></tr>
-<tr class="separator:a2678f340ce7bab52798729415b4e9901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fbc3c2f30bf5015e27620ffd363ba5a"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#a6fbc3c2f30bf5015e27620ffd363ba5a">deserialize</a> (const std::span&lt; const uint8_t, <a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#acf595f68412bf580f15f969c9d2bd6c8">max_size</a> &gt; &amp;buffer)</td></tr>
+<tr class="separator:a6fbc3c2f30bf5015e27620ffd363ba5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -131,25 +129,9 @@ template&lt;std::endian Endianess&gt; </div>
 
 </div>
 </div>
-<a id="ad0c47622b2e45446f0c5d24f1c9181a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0c47622b2e45446f0c5d24f1c9181a8">&#9670;&nbsp;</a></span>view_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::endian Endianess&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1serializer.html">emlabcpp::protocol::serializer</a>&lt; bool, Endianess &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#ad0c47622b2e45446f0c5d24f1c9181a8">view_type</a> =  <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>&lt; const uint8_t*, <a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#ae18c0e066f5a039d1cac7d50eecf63eb">size_type</a> &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2678f340ce7bab52798729415b4e9901"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2678f340ce7bab52798729415b4e9901">&#9670;&nbsp;</a></span>deserialize()</h2>
+<a id="a6fbc3c2f30bf5015e27620ffd363ba5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fbc3c2f30bf5015e27620ffd363ba5a">&#9670;&nbsp;</a></span>deserialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,7 +144,7 @@ template&lt;std::endian Endianess&gt; </div>
         <tr>
           <td class="memname">static constexpr bool <a class="el" href="structemlabcpp_1_1protocol_1_1serializer.html">emlabcpp::protocol::serializer</a>&lt; bool, Endianess &gt;::deserialize </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#ad0c47622b2e45446f0c5d24f1c9181a8">view_type</a> &amp;&#160;</td>
+          <td class="paramtype">const std::span&lt; const uint8_t, <a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html#acf595f68412bf580f15f969c9d2bd6c8">max_size</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
           <td></td>
         </tr>
@@ -248,7 +230,7 @@ template&lt;std::endian Endianess&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html">serializer&lt; bool, Endianess &gt;</a></li>
-    <li class="footer">Generated on Thu Dec 1 2022 21:11:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Dec 2 2022 10:45:31 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

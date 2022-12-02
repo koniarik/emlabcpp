@@ -115,8 +115,8 @@ Public Types</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a9ce7925526560312d387c12a84691e80"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#ac12eaa8047da248a963f99a9b48a6a7a">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#a9ce7925526560312d387c12a84691e80">serialize_at</a> (std::span&lt; uint8_t, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#af5184b311ffde1f341b39ae85c2ddc16">max_size</a> &gt; buffer, const <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#a697370962fe78b6f8a0ffe1c55676d8f">value_type</a> &amp;item)</td></tr>
 <tr class="separator:a9ce7925526560312d387c12a84691e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1f8f5f8a111e45fe3d7e40b5e215edb"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#af1f8f5f8a111e45fe3d7e40b5e215edb">deserialize</a> (const <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>&lt; const uint8_t *, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#ac12eaa8047da248a963f99a9b48a6a7a">size_type</a> &gt; &amp;buffer) -&gt; <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#a697370962fe78b6f8a0ffe1c55676d8f">value_type</a> &gt;</td></tr>
-<tr class="separator:af1f8f5f8a111e45fe3d7e40b5e215edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeef1af875faf5ff0db32b0ec6b4c0345"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#aeef1af875faf5ff0db32b0ec6b4c0345">deserialize</a> (const std::span&lt; const uint8_t &gt; &amp;buffer, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#a697370962fe78b6f8a0ffe1c55676d8f">value_type</a> &amp;value)</td></tr>
+<tr class="separator:aeef1af875faf5ff0db32b0ec6b4c0345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -227,8 +227,8 @@ template&lt;convertible CounterDef, convertible D, std::endian Endianess&gt; </d
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af1f8f5f8a111e45fe3d7e40b5e215edb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1f8f5f8a111e45fe3d7e40b5e215edb">&#9670;&nbsp;</a></span>deserialize()</h2>
+<a id="aeef1af875faf5ff0db32b0ec6b4c0345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeef1af875faf5ff0db32b0ec6b4c0345">&#9670;&nbsp;</a></span>deserialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,12 +239,21 @@ template&lt;convertible CounterDef, convertible D, std::endian Endianess&gt; </d
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr auto <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer">sized_buffer</a>&lt; CounterDef, D &gt;, Endianess &gt;::deserialize </td>
+          <td class="memname">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a> <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer">sized_buffer</a>&lt; CounterDef, D &gt;, Endianess &gt;::deserialize </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>&lt; const uint8_t *, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#ac12eaa8047da248a963f99a9b48a6a7a">size_type</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td> -&gt; <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#a697370962fe78b6f8a0ffe1c55676d8f">value_type</a> &gt;
-        </td>
+          <td class="paramtype">const std::span&lt; const uint8_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#a697370962fe78b6f8a0ffe1c55676d8f">value_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -254,7 +263,7 @@ template&lt;convertible CounterDef, convertible D, std::endian Endianess&gt; </d
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html#a9a27dc864ee41ba854427cf10828d5b8">emlabcpp::protocol::conversion_result&lt; T, CanErr &gt;::bind_value()</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a75075a1ed102c600dfd1f1894c1fc93b">emlabcpp::protocol::SIZE_ERR</a>, and <a class="el" href="namespaceemlabcpp.html#a172761451ef499ea1a316bf3b683fd16">emlabcpp::view_n()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a75075a1ed102c600dfd1f1894c1fc93b">emlabcpp::protocol::SIZE_ERR</a>.</p>
 
 </div>
 </div>
@@ -344,7 +353,7 @@ template&lt;convertible CounterDef, convertible D, std::endian Endianess&gt; </d
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">            traits_for&lt; sized_buffer&lt; CounterDef, D &gt; &gt;<a class="code" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#af5184b311ffde1f341b39ae85c2ddc16">::max_size</a></div>
-<div class="ttc" id="astructemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4_html_af5184b311ffde1f341b39ae85c2ddc16"><div class="ttname"><a href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#af5184b311ffde1f341b39ae85c2ddc16">emlabcpp::protocol::converter&lt; sized_buffer&lt; CounterDef, D &gt;, Endianess &gt;::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> converter.h:653</div></div>
+<div class="ttc" id="astructemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4_html_af5184b311ffde1f341b39ae85c2ddc16"><div class="ttname"><a href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#af5184b311ffde1f341b39ae85c2ddc16">emlabcpp::protocol::converter&lt; sized_buffer&lt; CounterDef, D &gt;, Endianess &gt;::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> converter.h:610</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -371,7 +380,7 @@ template&lt;convertible CounterDef, convertible D, std::endian Endianess&gt; </d
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">            traits_for&lt; sized_buffer&lt; CounterDef, D &gt; &gt;<a class="code" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#a3171a006ab5b854c9cc65877fbf819c7">::min_size</a></div>
-<div class="ttc" id="astructemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4_html_a3171a006ab5b854c9cc65877fbf819c7"><div class="ttname"><a href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#a3171a006ab5b854c9cc65877fbf819c7">emlabcpp::protocol::converter&lt; sized_buffer&lt; CounterDef, D &gt;, Endianess &gt;::min_size</a></div><div class="ttdeci">static constexpr std::size_t min_size</div><div class="ttdef"><b>Definition:</b> converter.h:655</div></div>
+<div class="ttc" id="astructemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4_html_a3171a006ab5b854c9cc65877fbf819c7"><div class="ttname"><a href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#a3171a006ab5b854c9cc65877fbf819c7">emlabcpp::protocol::converter&lt; sized_buffer&lt; CounterDef, D &gt;, Endianess &gt;::min_size</a></div><div class="ttdeci">static constexpr std::size_t min_size</div><div class="ttdef"><b>Definition:</b> converter.h:612</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -384,7 +393,7 @@ template&lt;convertible CounterDef, convertible D, std::endian Endianess&gt; </d
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html">converter&lt; sized_buffer&lt; CounterDef, D &gt;, Endianess &gt;</a></li>
-    <li class="footer">Generated on Thu Dec 1 2022 21:11:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Dec 2 2022 10:45:31 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

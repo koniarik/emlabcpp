@@ -87,7 +87,6 @@ $(document).ready(function(){initNavTree('namespaceemlabcpp_1_1protocol.html',''
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -103,9 +102,6 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strucutre used as result of deserialization in the internal mechanisms of protocol handling.  <a href="structemlabcpp_1_1protocol_1_1conversion__result.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result_3_01T_00_01error__possibility_1_1IMPOSSIBLE_01_4.html">conversion_result&lt; T, error_possibility::IMPOSSIBLE &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">endianess_wrapper</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Follows a set of special data types used for definition of protocol.  <a href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html#details">More...</a><br /></td></tr>
@@ -282,16 +278,6 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a3a34c38f8477e0d13ec03adfde561549"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a> = decltype(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a9c27fc5576f6e7894b809016d7d5cbdc">traits_for_impl</a>&lt; D &gt;())</td></tr>
 <tr class="separator:a3a34c38f8477e0d13ec03adfde561549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a7385519e51174efa651328cd9c058a18"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a7385519e51174efa651328cd9c058a18">error_possibility</a> { <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1protocol.html#a7385519e51174efa651328cd9c058a18a06fa6f806a3b83d883902d3f53b0b942">POSSIBLE</a>
-, <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1protocol.html#a7385519e51174efa651328cd9c058a18ae23b33dee677e4477f0f7ddeb6cf87bd">IMPOSSIBLE</a>
-<br />
- }</td></tr>
-<tr class="separator:a7385519e51174efa651328cd9c058a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E&gt; </td></tr>
@@ -332,9 +318,6 @@ Variables</h2></td></tr>
 <tr class="memitem:af7b9659a2e1fe1042e7ada0c5797599c"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#af7b9659a2e1fe1042e7ada0c5797599c">converter_check</a></td></tr>
 <tr class="memdesc:af7b9659a2e1fe1042e7ada0c5797599c"><td class="mdescLeft">&#160;</td><td class="mdescRight">converter_check&lt;T&gt; concept verifies that 'T' is valid overload of converter.  <a href="namespaceemlabcpp_1_1protocol.html#af7b9659a2e1fe1042e7ada0c5797599c">More...</a><br /></td></tr>
 <tr class="separator:af7b9659a2e1fe1042e7ada0c5797599c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9e9286894606e20655480510febcac0"><td class="memTemplParams" colspan="2">template&lt;typename Conv &gt; </td></tr>
-<tr class="memitem:aa9e9286894606e20655480510febcac0"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aa9e9286894606e20655480510febcac0">erroring_converter</a></td></tr>
-<tr class="separator:aa9e9286894606e20655480510febcac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52a436aee08af672045226b734de0cc5"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a52a436aee08af672045226b734de0cc5">mark_size</a> = 16</td></tr>
 <tr class="memdesc:a52a436aee08af672045226b734de0cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error handling in protocol works with marks.  <a href="namespaceemlabcpp_1_1protocol.html#a52a436aee08af672045226b734de0cc5">More...</a><br /></td></tr>
 <tr class="separator:a52a436aee08af672045226b734de0cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -676,33 +659,6 @@ template&lt;typename D &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a7385519e51174efa651328cd9c058a18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7385519e51174efa651328cd9c058a18">&#9670;&nbsp;</a></span>error_possibility</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="namespaceemlabcpp_1_1protocol.html#a7385519e51174efa651328cd9c058a18">emlabcpp::protocol::error_possibility</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7385519e51174efa651328cd9c058a18a06fa6f806a3b83d883902d3f53b0b942"></a>POSSIBLE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7385519e51174efa651328cd9c058a18ae23b33dee677e4477f0f7ddeb6cf87bd"></a>IMPOSSIBLE&#160;</td><td class="fielddoc"></td></tr>
-</table>
 
 </div>
 </div>
@@ -1137,9 +1093,9 @@ template&lt;typename T &gt; </div>
 <div class="line">                T::serialize_at( buff, item )</div>
 <div class="line">                } -&gt; std::same_as&lt; typename T::size_type &gt;;</div>
 <div class="line">}</div>
-<div class="line">&amp;&amp;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( bounded_view&lt; const uint8_t*, typename T::size_type &gt; buff )</div>
+<div class="line">&amp;&amp;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( std::span&lt; const uint8_t &gt; buff, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> item )</div>
 <div class="line">{</div>
-<div class="line">        T::deserialize( buff );</div>
+<div class="line">        T::deserialize( buff, item );</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:81</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:49</div></div>
@@ -1176,30 +1132,6 @@ template&lt;typename D &gt; </div>
 <p>This concepts limits types to types that can be declared, that is the overload of 'traits_for' is fully defined: traits_for::value_type contains definition of value produced by the declaration, traits_for::max_size contains estimated maximal size in bytes taken by the serialized value in the message. </p>
 <p>traits_for::min_size should contain minimal size used. </p>
 
-</div>
-</div>
-<a id="aa9e9286894606e20655480510febcac0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9e9286894606e20655480510febcac0">&#9670;&nbsp;</a></span>erroring_converter</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Conv &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">concept emlabcpp::protocol::erroring_converter</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">    <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( <span class="keyword">const</span> bounded_view&lt; const uint8_t*, typename Conv::size_type &gt;&amp; buffer )</div>
-<div class="line">{</div>
-<div class="line">        {</div>
-<div class="line">                Conv::deserialize( buffer )</div>
-<div class="line">                } -&gt; std::same_as&lt;</div>
-<div class="line">                    conversion_result&lt; typename Conv::value_type, error_possibility::POSSIBLE &gt; &gt;;</div>
-<div class="line">}</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="ac625ba8fcce291f5064a3ec8b5177cd5"></a>
@@ -1410,7 +1342,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Thu Dec 1 2022 21:11:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Dec 2 2022 10:45:31 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

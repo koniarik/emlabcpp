@@ -153,15 +153,16 @@ $(document).ready(function(){initNavTree('functions_type_s.html',''); initResiza
 , <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#aefcb3f60da60fed7153ea4057ceeb7fa">emlabcpp::protocol::converter&lt; std::array&lt; D, N &gt;, Endianess &gt;</a>
 , <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01std_1_1optional_3_01T_01_4_00_01Endianess_01_4.html#a2759e64f17e33a0a3c67ee349486fe54">emlabcpp::protocol::converter&lt; std::optional&lt; T &gt;, Endianess &gt;</a>
 , <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#ae45d342dcfdee79fd0eb876257eae17b">emlabcpp::protocol::converter&lt; tag&lt; V &gt;, Endianess &gt;</a>
-, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag__group_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html#a293c53991f314b0d29ea8ae56fb2f42c">emlabcpp::protocol::converter&lt; tag_group&lt; Ds... &gt;, Endianess &gt;</a>
 , <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01value__offset_3_01D_00_01Offset_01_4_00_01Endianess_01_4.html#a2a2d272c94a8b43f5a6d94a862e28340">emlabcpp::protocol::converter&lt; value_offset&lt; D, Offset &gt;, Endianess &gt;</a>
-, <a class="el" href="structemlabcpp_1_1protocol_1_1memcpy__converter.html#a1202bd4cae30a7c68309f16cb9e61129">emlabcpp::protocol::memcpy_converter&lt; T, Endianess &gt;</a>
 </li>
 <li>sub_handler
 : <a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#a5edfe699f8bc2c07afeb4b6fce6ede05">emlabcpp::protocol::packet_handler&lt; Packet &gt;</a>
 </li>
 <li>sub_serializer
 : <a class="el" href="structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html#a81511f84385db70c7f0e7e8ab78a14cb">emlabcpp::protocol::serializer&lt; float, Endianess &gt;</a>
+</li>
+<li>sub_size
+: <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01std_1_1optional_3_01T_01_4_00_01Endianess_01_4.html#a7f8b5f9cb2d088789fc7d56e4d33b4b4">emlabcpp::protocol::converter&lt; std::optional&lt; T &gt;, Endianess &gt;</a>
 </li>
 <li>sub_size_type
 : <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01std_1_1array_3_01D_00_01N_01_4_00_01Endianess_01_4.html#a1d880ad53d0e3b6cd7d2522c4f269941">emlabcpp::protocol::converter&lt; std::array&lt; D, N &gt;, Endianess &gt;</a>
@@ -172,12 +173,7 @@ $(document).ready(function(){initNavTree('functions_type_s.html',''); initResiza
 , <a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a3b7df0afa008a2b46d671b316a82b401">emlabcpp::protocol::proto_traits&lt; tag_group&lt; Ds... &gt; &gt;</a>
 </li>
 <li>sub_type
-: <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag__group_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html#af9f317912333f9509288c4c4600e04d5">emlabcpp::protocol::converter&lt; tag_group&lt; Ds... &gt;, Endianess &gt;</a>
-, <a class="el" href="structemlabcpp_1_1protocol_1_1memcpy__converter.html#a051102987ed7ca69fdef523b1bc71b28">emlabcpp::protocol::memcpy_converter&lt; T, Endianess &gt;</a>
-, <a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a5e54805857b3dccc133f2daea823f7c2">emlabcpp::protocol::proto_traits&lt; tag_group&lt; Ds... &gt; &gt;</a>
-</li>
-<li>sub_value
-: <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag__group_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html#a09827fc7b7471333c419877f1744dce7">emlabcpp::protocol::converter&lt; tag_group&lt; Ds... &gt;, Endianess &gt;</a>
+: <a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a5e54805857b3dccc133f2daea823f7c2">emlabcpp::protocol::proto_traits&lt; tag_group&lt; Ds... &gt; &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -185,7 +181,7 @@ $(document).ready(function(){initNavTree('functions_type_s.html',''); initResiza
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Dec 1 2022 21:11:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Dec 2 2022 10:45:31 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
