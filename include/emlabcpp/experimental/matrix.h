@@ -15,23 +15,18 @@ public:
         static constexpr std::size_t cols = M;
         using row_type                    = std::array< value_type, M >;
 
-        constexpr matrix() = default;
+        constexpr matrix()
+        {
+                for ( row_type& row : data_ ) {
+                        for ( value_type& val : row ) {
+                                val = 0.f;
+                        }
+                }
+        };
 
         constexpr matrix( std::array< row_type, N > data )
           : data_( data )
         {
-        }
-
-        template < std::size_t U = N >
-        requires( U == 1 && M == 1 ) constexpr matrix( T item )
-        {
-                data_[0][0] = item;
-        }
-
-        template < std::size_t U = N >
-        requires( U == 1 && M == 1 ) operator float() const
-        {
-                return data_[0][0];
         }
 
         constexpr auto begin() const
@@ -179,6 +174,17 @@ concept matrix_like = requires( M m, std::size_t i, std::size_t j )
                 m[i][j]
                 } -> std::convertible_to< typename M::value_type >;
 };
+template < ostreamlike Stream, matrix_like Matrix >
+auto& operator<<( Stream& os, const Matrix& m )
+{
+        for ( std::size_t i : range( Matrix::rows ) ) {
+                for ( std::size_t j : range( Matrix::cols ) ) {
+                        os << m[i][j] << '\t';
+                }
+                os << '\n';
+        }
+        return os;
+}
 
 template < matrix_like LH, matrix_like RH >
 requires( LH::rows == RH::rows && LH::cols == RH::cols ) constexpr auto
@@ -227,11 +233,18 @@ operator*( const LH& lh, const typename LH::value_type& val )
         return res;
 }
 
+template < matrix_like LH >
+constexpr matrix< LH::rows, LH::cols, typename LH::value_type >
+operator*( const typename LH::value_type& val, const LH& lh )
+{
+        return lh * val;
+}
+
 template < matrix_like LH, matrix_like RH, typename T = typename LH::value_type >
 requires( LH::cols == RH::cols && LH::rows == RH::rows ) constexpr matrix< LH::rows, LH::cols, T >
 operator+( const LH& lh, const RH& rh )
 {
-        matrix< LH::rows, LH::cols, T > res;
+        matrix< LH::rows, LH::cols, T > res{};
         for ( std::size_t i : range( LH::rows ) ) {
                 for ( std::size_t j : range( LH::cols ) ) {
                         res[i][j] = lh[i][j] + rh[i][j];
@@ -244,7 +257,7 @@ template < matrix_like LH, matrix_like RH, typename T = typename LH::value_type 
 requires( LH::cols == RH::cols && LH::rows == RH::rows ) constexpr matrix< LH::rows, LH::cols, T >
 operator-( const LH& lh, const RH& rh )
 {
-        matrix< LH::rows, LH::cols, T > res;
+        matrix< LH::rows, LH::cols, T > res{};
         for ( std::size_t i : range( LH::rows ) ) {
                 for ( std::size_t j : range( LH::cols ) ) {
                         res[i][j] = lh[i][j] - rh[i][j];
@@ -278,7 +291,7 @@ requires(
         1 ) constexpr matrix< M::rows, M::cols, typename M::value_type > inverse( const M& m )
 {
         matrix< M::rows, M::cols, typename M::value_type > res;
-        res[0][0] = 1 / m[0][0];
+        res[0][0] = 1.f / m[0][0];
         return res;
 }
 
@@ -288,7 +301,7 @@ requires(
     M::cols ==
         2 ) constexpr matrix< M::rows, M::cols, typename M::value_type > inverse( const M& m )
 {
-        auto                                               v = 1 / determinant( m );
+        auto                                               v = 1.f / determinant( m );
         matrix< M::rows, M::cols, typename M::value_type > res;
         res[0] = { m[1][1], -m[0][1] };
         res[1] = { -m[1][0], m[0][0] };
