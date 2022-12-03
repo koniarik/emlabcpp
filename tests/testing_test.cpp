@@ -142,7 +142,7 @@ struct my_test_case : my_test_fixture
 
         em::testing::test_coroutine run( em::pool_interface*, em::testing::record& rec ) override
         {
-                co_await rec.collect( 0, "some key for collector", 42 );
+                co_await rec.collect( 0, "some key for collector", 42, false );
 
                 rec.fail();
 
