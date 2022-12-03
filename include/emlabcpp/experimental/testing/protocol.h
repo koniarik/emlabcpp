@@ -103,6 +103,7 @@ struct collect_request
         static constexpr auto     id = COLLECT;
         run_id                    rid;
         node_id                   parent;
+        bool                      expects_reply;
         std::optional< key_type > opt_key;
         collect_value_type        value;
 };

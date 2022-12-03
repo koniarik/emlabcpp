@@ -47,8 +47,6 @@ public:
 
         void send( const controller_reactor_variant& var )
         {
-                // TODO: won't work with embedded log
-                // EMLABCPP_DEBUG_LOG( "con->rec: " << var );
                 auto msg = ep_.serialize( var );
                 iface_.transmit( msg );
         }
@@ -114,13 +112,13 @@ public:
                         match(
                             internal_ptr->val,
                             [this]( const wrong_type_error& err ) {
-                                    const auto* node_ptr =
+                                    const auto* const node_ptr =
                                         this->iface_.get_param_tree().get_node( err.nid );
                                     EMLABCPP_LOG(
                                         "Error due a wrong type of node "
                                         << err.nid << " asserted in reactors test: " << *node_ptr );
                             },
-                            [&]( const auto& ) {} );
+                            []( const auto& ) {} );
                 }
         }
 #else
@@ -254,6 +252,9 @@ struct controller_dispatcher
                                   harn.insert( req.parent, req.value );
                 res.match(
                     [this, &req]( const node_id nid ) {
+                            if ( !req.expects_reply ) {
+                                    return;
+                            }
                             this->iface.send( collect_reply{ req.rid, nid } );
                     },
                     [this, &req]( const contiguous_request_adapter_errors_enum err ) {

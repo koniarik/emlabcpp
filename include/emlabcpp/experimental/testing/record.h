@@ -89,26 +89,37 @@ public:
         collect_awaiter collect(
             node_id                          parent,
             const std::optional< key_type >& key,
-            const collect_value_type&        arg );
+            const collect_value_type&        arg,
+            bool                             expects_reply = true );
 
-        collect_awaiter collect( node_id parent, const collect_value_type& arg );
+        collect_awaiter
+        collect( node_id parent, const collect_value_type& arg, bool expects_reply = true );
 
-        collect_awaiter collect( node_id parent, std::string_view k, contiguous_container_type t );
+        collect_awaiter collect(
+            node_id                   parent,
+            std::string_view          k,
+            contiguous_container_type t,
+            bool                      expects_reply = true );
 
-        collect_awaiter collect( node_id parent, contiguous_container_type t );
+        collect_awaiter
+        collect( node_id parent, contiguous_container_type t, bool expects_reply = true );
 
         template < typename Arg >
-        collect_awaiter collect( node_id parent, std::string_view k, const Arg& arg )
+        collect_awaiter
+        collect( node_id parent, std::string_view k, const Arg& arg, bool expects_reply = true )
         {
                 return collect(
-                    parent, convert_key( k ), value_type_converter< Arg >::to_value( arg ) );
+                    parent,
+                    convert_key( k ),
+                    value_type_converter< Arg >::to_value( arg ),
+                    expects_reply );
         }
 
         template < typename Arg >
-        collect_awaiter collect( node_id parent, const Arg& arg )
+        collect_awaiter collect( node_id parent, const Arg& arg, bool expects_reply = true )
         {
                 const value_type& val = value_type_converter< Arg >::to_value( arg );
-                return collect( parent, collect_value_type{ val } );
+                return collect( parent, collect_value_type{ val }, expects_reply );
         }
 
         void fail()

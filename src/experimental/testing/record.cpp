@@ -30,27 +30,39 @@ param_type_awaiter record::get_param_type( node_id nid )
         return param_type_awaiter{ param_type_request{ rid_, nid }, &comm_ };
 }
 
-collect_awaiter record::collect( node_id parent, const collect_value_type& arg )
+collect_awaiter record::collect( node_id parent, const collect_value_type& arg, bool expects_reply )
 {
-        return collect( parent, std::optional< key_type >{}, arg );
+        return collect( parent, std::optional< key_type >{}, arg, expects_reply );
 }
 
-collect_awaiter record::collect( node_id parent, std::string_view k, contiguous_container_type t )
+collect_awaiter record::collect(
+    node_id                   parent,
+    std::string_view          k,
+    contiguous_container_type t,
+    bool                      expects_reply )
 {
-        return collect( parent, convert_key( k ), collect_value_type{ t } );
+        return collect( parent, convert_key( k ), collect_value_type{ t }, expects_reply );
 }
 
-collect_awaiter record::collect( node_id parent, contiguous_container_type t )
+collect_awaiter record::collect( node_id parent, contiguous_container_type t, bool expects_reply )
 {
-        return collect( parent, collect_value_type{ t } );
+        return collect( parent, collect_value_type{ t }, expects_reply );
 }
 
 collect_awaiter record::collect(
     node_id                          parent,
     const std::optional< key_type >& key,
-    const collect_value_type&        arg )
+    const collect_value_type&        arg,
+    bool                             expects_reply )
 {
-        return collect_awaiter{ collect_request{ rid_, parent, key, arg }, &comm_ };
+        return collect_awaiter{
+            collect_request{
+                .rid           = rid_,
+                .parent        = parent,
+                .expects_reply = expects_reply,
+                .opt_key       = key,
+                .value         = arg },
+            &comm_ };
 }
 
 param_child_awaiter record::get_param_child( node_id nid, child_id chid )
