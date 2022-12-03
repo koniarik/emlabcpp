@@ -2,15 +2,13 @@ var classemlabcpp_1_1matrix =
 [
     [ "row_type", "classemlabcpp_1_1matrix.html#a4fd8511fd4dc1f6a9c7b0d1cafaa2efa", null ],
     [ "value_type", "classemlabcpp_1_1matrix.html#ab9216b1aaaf1cd5d69f1f585add4ff7f", null ],
-    [ "matrix", "classemlabcpp_1_1matrix.html#a5f9212735e1db185a4e65b04e5de536e", null ],
+    [ "matrix", "classemlabcpp_1_1matrix.html#a9b883a797fd747510ca379a547f3f037", null ],
     [ "matrix", "classemlabcpp_1_1matrix.html#a3b922476ca86d30728320f5c02ae396c", null ],
     [ "begin", "classemlabcpp_1_1matrix.html#ae38c9308433981cbc0f73818dbe760c0", null ],
     [ "end", "classemlabcpp_1_1matrix.html#a64da774d3b440cc71f6698b0452cf053", null ],
     [ "operator==", "classemlabcpp_1_1matrix.html#ab4946480a9ba8aa6e26240fbc9401a44", null ],
     [ "operator[]", "classemlabcpp_1_1matrix.html#a448b6bea3170945b4d5b7d505ef9111f", null ],
     [ "operator[]", "classemlabcpp_1_1matrix.html#a12c3009cb8005ef33b31470fc075c1cb", null ],
-    [ "requires", "classemlabcpp_1_1matrix.html#aefc8367ec2cbdd4823d8b7f7ac463fe1", null ],
-    [ "requires", "classemlabcpp_1_1matrix.html#a2174174d526f1bde683b8838d3066316", null ],
     [ "cols", "classemlabcpp_1_1matrix.html#a95c6400c5ffe9f7de3ae365c4893c159", null ],
     [ "rows", "classemlabcpp_1_1matrix.html#a56972613ba95706034164fc68355c3ed", null ]
 ];

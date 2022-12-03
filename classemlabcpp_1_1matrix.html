@@ -104,16 +104,10 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5f9212735e1db185a4e65b04e5de536e"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#a5f9212735e1db185a4e65b04e5de536e">matrix</a> ()=default</td></tr>
-<tr class="separator:a5f9212735e1db185a4e65b04e5de536e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b883a797fd747510ca379a547f3f037"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#a9b883a797fd747510ca379a547f3f037">matrix</a> ()</td></tr>
+<tr class="separator:a9b883a797fd747510ca379a547f3f037"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b922476ca86d30728320f5c02ae396c"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#a3b922476ca86d30728320f5c02ae396c">matrix</a> (std::array&lt; <a class="el" href="classemlabcpp_1_1matrix.html#a4fd8511fd4dc1f6a9c7b0d1cafaa2efa">row_type</a>, N &gt; data)</td></tr>
 <tr class="separator:a3b922476ca86d30728320f5c02ae396c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefc8367ec2cbdd4823d8b7f7ac463fe1"><td class="memTemplParams" colspan="2">template&lt;std::size_t U = N&gt; </td></tr>
-<tr class="memitem:aefc8367ec2cbdd4823d8b7f7ac463fe1"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#aefc8367ec2cbdd4823d8b7f7ac463fe1">requires</a> (U==1 &amp;&amp;M==1) const expr <a class="el" href="classemlabcpp_1_1matrix.html">matrix</a>(T item)</td></tr>
-<tr class="separator:aefc8367ec2cbdd4823d8b7f7ac463fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2174174d526f1bde683b8838d3066316"><td class="memTemplParams" colspan="2">template&lt;std::size_t U = N&gt; </td></tr>
-<tr class="memitem:a2174174d526f1bde683b8838d3066316"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#a2174174d526f1bde683b8838d3066316">requires</a> (U==1 &amp;&amp;M==1) operator float() const</td></tr>
-<tr class="separator:a2174174d526f1bde683b8838d3066316"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae38c9308433981cbc0f73818dbe760c0"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#ae38c9308433981cbc0f73818dbe760c0">begin</a> () const</td></tr>
 <tr class="separator:ae38c9308433981cbc0f73818dbe760c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64da774d3b440cc71f6698b0452cf053"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#a64da774d3b440cc71f6698b0452cf053">end</a> () const</td></tr>
@@ -166,8 +160,8 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5f9212735e1db185a4e65b04e5de536e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f9212735e1db185a4e65b04e5de536e">&#9670;&nbsp;</a></span>matrix() <span class="overload">[1/2]</span></h2>
+<a id="a9b883a797fd747510ca379a547f3f037"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b883a797fd747510ca379a547f3f037">&#9670;&nbsp;</a></span>matrix() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -186,7 +180,7 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -360,66 +354,6 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
 
 </div>
 </div>
-<a id="aefc8367ec2cbdd4823d8b7f7ac463fe1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefc8367ec2cbdd4823d8b7f7ac463fe1">&#9670;&nbsp;</a></span>requires() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
-<div class="memtemplate">
-template&lt;std::size_t U = N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::requires </td>
-          <td>(</td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"> = <code>=&#160;1&#160;&amp;&amp;&#160;M&#160;==&#160;1</code></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2174174d526f1bde683b8838d3066316"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2174174d526f1bde683b8838d3066316">&#9670;&nbsp;</a></span>requires() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
-<div class="memtemplate">
-template&lt;std::size_t U = N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::requires </td>
-          <td>(</td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"> = <code>=&#160;1&#160;&amp;&amp;&#160;M&#160;==&#160;1</code></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a95c6400c5ffe9f7de3ae365c4893c159"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a95c6400c5ffe9f7de3ae365c4893c159">&#9670;&nbsp;</a></span>cols</h2>
@@ -478,7 +412,7 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1matrix.html">matrix</a></li>
-    <li class="footer">Generated on Sat Dec 3 2022 10:50:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 3 2022 18:42:12 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
