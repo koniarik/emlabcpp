@@ -41,7 +41,7 @@ struct handler
         using value_type   = typename def::value_type;
         using message_type = message< def::max_size >;
 
-        static message_type serialize( value_type val )
+        static message_type serialize( const value_type& val )
         {
                 std::array< uint8_t, def::max_size > buffer{};
 
