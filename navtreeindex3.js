@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"classemlabcpp_1_1testing_1_1test__composer.html#a4ba53b44afb3f7deb9b368356abfa703":[3,0,0,5,25,1],
 "classemlabcpp_1_1testing_1_1test__coroutine.html":[3,0,0,5,9],
 "classemlabcpp_1_1testing_1_1test__coroutine.html#a35e48adc320028145212c39b94f7852c":[3,0,0,5,9,2],
 "classemlabcpp_1_1testing_1_1test__coroutine.html#a46c23126cc972c039953c91e1a74ca6b":[3,0,0,5,9,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "functions_func.html":[3,3,1,0],
 "functions_func_b.html":[3,3,1,1],
 "functions_func_c.html":[3,3,1,2],
-"functions_func_d.html":[3,3,1,3],
-"functions_func_e.html":[3,3,1,4]
+"functions_func_d.html":[3,3,1,3]
 };

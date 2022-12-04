@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"functions_func_e.html":[3,3,1,4],
 "functions_func_f.html":[3,3,1,5],
 "functions_func_g.html":[3,3,1,6],
 "functions_func_h.html":[3,3,1,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c":[2,0,0,227],
 "namespaceemlabcpp.html#a71244dcc912784b08768c6ae041c37bc":[2,0,0,256],
 "namespaceemlabcpp.html#a72780e74e9bda101f80e92e9ab0bcb9e":[4,0,0,0,2,2,2,0,0],
-"namespaceemlabcpp.html#a75cf44a6df8173ea7a46979f57546332":[2,0,0,121],
-"namespaceemlabcpp.html#a76870aafe8a72795ca80143c32313532":[2,0,0,224]
+"namespaceemlabcpp.html#a75cf44a6df8173ea7a46979f57546332":[2,0,0,121]
 };
