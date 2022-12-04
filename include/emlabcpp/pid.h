@@ -89,11 +89,12 @@ public:
 
         /// To correctly reset the pid, tell it the actuall output_ value
         /// That is required for cases when you set it up manually without pids knowledge
-        void reset( float output = 0 )
+        void reset( time_type t, float output, float iterm)
         {
                 output_     = output;
+                last_time_  = t;
                 last_input_ = 0;
-                i_term_     = std::clamp( output_, conf_.min, conf_.max );
+                i_term_     = std::clamp( iterm, conf_.min, conf_.max );
         }
 
         void set_config( config conf )
