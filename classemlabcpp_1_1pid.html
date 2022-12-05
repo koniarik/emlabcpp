@@ -118,9 +118,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae259ae962d4796fe8d05ff313246e52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29694fa46dc69d6cf0b14d35038259b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a29694fa46dc69d6cf0b14d35038259b8">set_output</a> (float output=0)</td></tr>
 <tr class="separator:a29694fa46dc69d6cf0b14d35038259b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb89b4775102d8952f25e02b4bacc4a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#aeb89b4775102d8952f25e02b4bacc4a8">reset</a> (float output=0)</td></tr>
-<tr class="memdesc:aeb89b4775102d8952f25e02b4bacc4a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">To correctly reset the pid, tell it the actuall output_ value That is required for cases when you set it up manually without pids knowledge.  <a href="classemlabcpp_1_1pid.html#aeb89b4775102d8952f25e02b4bacc4a8">More...</a><br /></td></tr>
-<tr class="separator:aeb89b4775102d8952f25e02b4bacc4a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ec41375d069d77eddaf25cdbcbe289e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a4ec41375d069d77eddaf25cdbcbe289e">reset</a> (<a class="el" href="classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4">time_type</a> t, float output, float iterm)</td></tr>
+<tr class="memdesc:a4ec41375d069d77eddaf25cdbcbe289e"><td class="mdescLeft">&#160;</td><td class="mdescRight">To correctly reset the pid, tell it the actuall output_ value That is required for cases when you set it up manually without pids knowledge.  <a href="classemlabcpp_1_1pid.html#a4ec41375d069d77eddaf25cdbcbe289e">More...</a><br /></td></tr>
+<tr class="separator:a4ec41375d069d77eddaf25cdbcbe289e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc80653f5ab1e5b6912da8324df2bd3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#abc80653f5ab1e5b6912da8324df2bd3e">set_config</a> (<a class="el" href="classemlabcpp_1_1pid.html#structemlabcpp_1_1pid_1_1config">config</a> conf)</td></tr>
 <tr class="separator:abc80653f5ab1e5b6912da8324df2bd3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0550d6b6bd18100317d9ec6b4d939715"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a0550d6b6bd18100317d9ec6b4d939715">update</a> (<a class="el" href="classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4">time_type</a> now, float input, float desired)</td></tr>
@@ -336,8 +336,8 @@ template&lt;typename TimeType &gt; </div>
 
 </div>
 </div>
-<a id="aeb89b4775102d8952f25e02b4bacc4a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb89b4775102d8952f25e02b4bacc4a8">&#9670;&nbsp;</a></span>reset()</h2>
+<a id="a4ec41375d069d77eddaf25cdbcbe289e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ec41375d069d77eddaf25cdbcbe289e">&#9670;&nbsp;</a></span>reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -350,9 +350,25 @@ template&lt;typename TimeType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classemlabcpp_1_1pid.html">emlabcpp::pid</a>&lt; TimeType &gt;::reset </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>output</em> = <code>0</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4">time_type</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>iterm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -513,7 +529,7 @@ template&lt;typename TimeType &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1pid.html">pid</a></li>
-    <li class="footer">Generated on Sun Dec 4 2022 10:32:30 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Dec 5 2022 09:31:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -14,6 +14,7 @@ var dir_833cf07299c67ab119396183470d94f1 =
     ] ],
     [ "logging.h", "logging_8h.html", "logging_8h" ],
     [ "matrix.h", "matrix_8h.html", "matrix_8h" ],
+    [ "multiplexer.h", "multiplexer_8h.html", "multiplexer_8h" ],
     [ "pretty_printer.h", "pretty__printer_8h.html", "pretty__printer_8h" ],
     [ "rpc.h", "rpc_8h.html", "rpc_8h" ],
     [ "simple_stream.h", "simple__stream_8h.html", [
