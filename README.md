@@ -97,7 +97,7 @@ void T::set_power(bounded<float, -1.f, 1.f>)
 
 ### concepts.h
 
-A set of C concepts designed for implementing a checks inside the library.
+A set of C++ concepts designed for implementing a checks inside the library.
 
 For example `ostreamlike` can be implement to write more generic ostream operators:
 
@@ -176,7 +176,7 @@ Keep in mind that this is for "general" use case, and for optimallity you may be
 
 #### iterators/numeric.h
 
-Iterator that mimics real data container of sequence of numbers. The number is stored inside the iterator and when iterator is advanced, so is the internal value changed. Contains also functions like `range(from,to)` that creates a range from this iterators.
+Iterator that mimics real data container of sequence of numbers. The number is stored inside the iterator and when iterator is advanced, so is the internal value changed. Use functions like `range(from,to)` to creates a range from this iterators.
 
 ```cpp
 std::vector<int> vec_data;
@@ -266,29 +266,8 @@ std::cout << position{0.25};
 
 ### pid.h
 
-Basic PID regulator implementation using floats, templated based on the time type;
+Basic PID regulator implementation using floats, templated based on the time type.
 
-```cpp
-using time_t = uint32_t;
-pid<time_t>::config conf = {
-    .p = 0.5f, 
-    .i = 0.005f, 
-    .d = 0.2f, 
-    .min = 0.0f, 
-    .max = 256.0f
-    };
-pid<time_t> regulator{time{0}, conf};
-
-time_t time = 0;
-float state = 0.0f;
-while(true)
-{
-    regulator.update(time, state, std::cos(time*0.05f));
-    state = regulator.output();
-
-    time += 1;
-}
-```
 ### protocol.h
 
 The protocol library serializes and deserialize C++ data structures into binary messages.
