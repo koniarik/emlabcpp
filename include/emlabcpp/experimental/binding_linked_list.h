@@ -28,6 +28,7 @@ public:
                         next       = other.next;
                         next->prev = this;
                 }
+                return *this;
         }
 
         void push_after( binding_linked_list_node< Derived >* node )

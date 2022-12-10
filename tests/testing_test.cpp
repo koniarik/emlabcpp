@@ -99,8 +99,8 @@ struct my_test_fixture : em::testing::test_interface
         // that executes preparation common in other tests
         // which just implement the run() method.
 
-        my_test_fixture( std::string_view name )
-          : em::testing::test_interface( name )
+        my_test_fixture( em::testing::reactor& reactor, std::string_view name )
+          : em::testing::test_interface( reactor, name )
         {
         }
 
@@ -135,8 +135,8 @@ struct my_test_case : my_test_fixture
         // testing class using basic fixture for preparation
         // tadaaaaah!
 
-        my_test_case()
-          : my_test_fixture( "my_test_case" )
+        my_test_case( em::testing::reactor& reactor )
+          : my_test_fixture( reactor, "my_test_case" )
         {
         }
 
@@ -243,23 +243,22 @@ int main( int argc, char** argv )
         // ----------------------------------------------------------------------------
         // register tests and examples of lambda tests
 
-        em::testing::reactor rec{ "emlabcpp::testing" };
+        em::testing::reactor reac{ "emlabcpp::testing" };
 
-        em::testing::test_callable st{ "simple test", simple_test_case };
-        rec.register_test( st );
+        em::testing::test_callable st{ reac, "simple test", simple_test_case };
 
         em::testing::test_callable slt{
+            reac,
             "simple lambda test",
             [&]( em::pool_interface*, em::testing::record& rec ) -> em::testing::test_coroutine {
                     rec.success();
                     co_return;
             } };
-        rec.register_test( slt );
 
-        my_test_case mtc;
-        rec.register_test( mtc );
+        my_test_case mtc{ reac };
 
         em::testing::test_callable clt{
+            reac,
             "complex lambda test",
             [&]( em::pool_interface*, em::testing::record& rec ) -> em::testing::test_coroutine {
                     uint64_t data = co_await rec.get_param< uint64_t >( 0 );
@@ -267,15 +266,13 @@ int main( int argc, char** argv )
                     rec.success();
                     co_return;
             } };
-        rec.register_test( clt );
 
         auto laf = em::testing::test_compose(
-            my_test_fixture{ "lambda and fixture" },
+            my_test_fixture{ reac, "lambda and fixture" },
             [&]( em::pool_interface*, em::testing::record& rec ) -> em::testing::test_coroutine {
                     rec.expect( 1 > 0 );
                     co_return;
             } );
-        rec.register_test( laf );
 
         // ----------------------------------------------------------------------------
         // build the virtual example and run it
@@ -290,7 +287,7 @@ int main( int argc, char** argv )
                 std::chrono::milliseconds t{ 10 };
 
                 while ( !finished_ ) {
-                        rec.spin( iface );
+                        reac.spin( iface );
                         std::this_thread::sleep_for( t );
                 }
         } };
