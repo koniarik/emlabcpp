@@ -68,7 +68,7 @@ public:
         reactor& operator=( const reactor& ) = delete;
         reactor& operator=( reactor&& )      = delete;
 
-        void register_test( test_interface& t );
+        test_interface& get_first_dummy_test();
 
         void spin( reactor_interface& comm );
 

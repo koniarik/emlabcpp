@@ -27,12 +27,9 @@
 namespace emlabcpp::testing
 {
 
-void reactor::register_test( test_interface& t )
+test_interface& reactor::get_first_dummy_test()
 {
-        test_interface* test = test_interface::last( &root_test_ );
-
-        t.prev     = test;
-        test->next = &t;
+        return root_test_;
 }
 
 void reactor::spin( reactor_interface& top_iface )
@@ -94,12 +91,12 @@ void reactor::handle_message( get_property< SUITE_DATE >, reactor_interface_adap
 }
 void reactor::handle_message( get_property< COUNT >, reactor_interface_adapter& iface )
 {
-        std::size_t c = test_interface::count( &root_test_ ) - 1;
+        std::size_t c = root_test_.count_next();
         iface.reply( get_count_reply{ static_cast< test_id >( c ) } );
 }
 void reactor::handle_message( get_test_name_request req, reactor_interface_adapter& iface )
 {
-        test_interface* test_ptr = test_interface::get( &root_test_, req.tid + 1 );
+        test_interface* test_ptr = root_test_.get_next( req.tid + 1 );
         if ( test_ptr == nullptr ) {
                 iface.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
@@ -113,7 +110,7 @@ void reactor::handle_message( load_test req, reactor_interface_adapter& iface )
                 return;
         }
 
-        test_interface* test_ptr = test_interface::get( &root_test_, req.tid + 1 );
+        test_interface* test_ptr = root_test_.get_next( req.tid + 1 );
         if ( test_ptr == nullptr ) {
                 iface.report_failure( error< BAD_TEST_ID_E >{} );
                 return;

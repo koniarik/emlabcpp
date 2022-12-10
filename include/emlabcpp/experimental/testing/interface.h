@@ -20,6 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
+#include "emlabcpp/experimental/binding_linked_list.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/experimental/testing/record.h"
 #include "emlabcpp/protocol/packet_handler.h"
@@ -32,105 +33,54 @@ namespace emlabcpp::testing
 {
 
 class reactor;
+class empty_test;
 
-class test_interface
+class test_interface : public binding_linked_list_node< test_interface >
 {
 public:
-        test_interface( name_buffer name )
-          : name( name )
-        {
-        }
-
-        test_interface( std::string_view name )
-          : name( name_to_buffer( name ) )
-        {
-        }
+        test_interface( reactor& rec, name_buffer name );
+        test_interface( reactor& rec, std::string_view name );
 
         test_interface( const test_interface& )            = delete;
         test_interface& operator=( const test_interface& ) = delete;
 
-        test_interface( test_interface&& other )
-          : name( other.name )
-        {
-                if ( other.prev != nullptr ) {
-                        prev       = other.prev;
-                        prev->next = this;
-                }
-                if ( other.next != nullptr ) {
-                        next       = other.next;
-                        next->prev = this;
-                }
-        }
+        test_interface( test_interface&& other ) = default;
+
         test_interface& operator=( test_interface&& ) = delete;
 
-        virtual test_coroutine setup( pool_interface*, record& )
-        {
-                co_return;
-        }
+        virtual test_coroutine setup( pool_interface*, record& );
         virtual test_coroutine run( pool_interface*, record& ) = 0;
-        virtual test_coroutine teardown( pool_interface*, record& )
-        {
-                co_return;
-        }
+        virtual test_coroutine teardown( pool_interface*, record& );
 
-        virtual ~test_interface()
-        {
-                if ( prev != nullptr ) {
-                        prev->next = next;
-                }
-                if ( next != nullptr ) {
-                        next->prev = prev;
-                }
-        }
+        virtual ~test_interface() = default;
 
         friend reactor;
+        friend empty_test;
 
 private:
-        static test_interface* last( test_interface* test )
-        {
-                while ( test->next != nullptr ) {
-                        test = test->next;
-                }
-                return test;
-        }
+        test_interface() = default;
 
-        static std::size_t count( test_interface* test )
-        {
-                std::size_t i = 0;
-                while ( test != nullptr ) {
-                        test = test->next;
-                        i += 1;
-                }
-                return i;
-        }
+        using binding_linked_list_node< test_interface >::push_after;
 
-        static test_interface* get( test_interface* test, test_id tid )
-        {
-                if ( test == nullptr ) {
-                        return nullptr;
-                }
-                if ( tid == 0 ) {
-                        return test;
-                }
-                return get( test->next, tid - 1 );
-        }
-
-        name_buffer     name;
-        test_interface* next = nullptr;
-        test_interface* prev = nullptr;
+        name_buffer name;
 };
 
 class empty_test : public test_interface
 {
 public:
-        empty_test()
-          : test_interface( name_buffer{} )
+        empty_test( reactor& rec )
+          : test_interface( rec, name_buffer{} )
         {
         }
         test_coroutine run( pool_interface*, record& )
         {
                 co_return;
         };
+
+        friend reactor;
+
+private:
+        empty_test() = default;
 };
 
 template < typename T >
@@ -147,8 +97,8 @@ class test_callable : public test_interface
         Callable cb_;
 
 public:
-        test_callable( std::string_view name, Callable cb )
-          : test_interface( name_to_buffer( name ) )
+        test_callable( reactor& rec, std::string_view name, Callable cb )
+          : test_interface( rec, name_to_buffer( name ) )
           , cb_( std::move( cb ) )
         {
         }
