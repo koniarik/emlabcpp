@@ -152,7 +152,7 @@ public:
                 return bounded< T, MinVal + FromOther, MaxVal + ToOther >( val_ + *other );
         }
 
-        template< typename U, U FromOther, U ToOther >
+        template < typename U, U FromOther, U ToOther >
         friend class bounded;
 };
 

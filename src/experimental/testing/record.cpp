@@ -91,5 +91,4 @@ param_key_awaiter record::get_param_key( node_id nid, child_id chid )
         return param_key_awaiter{ param_key_request{ rid_, nid, chid }, &comm_ };
 }
 
-
 }  // namespace emlabcpp::testing

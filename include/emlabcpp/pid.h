@@ -89,7 +89,7 @@ public:
 
         /// To correctly reset the pid, tell it the actuall output_ value
         /// That is required for cases when you set it up manually without pids knowledge
-        void reset( time_type t, float output, float iterm)
+        void reset( time_type t, float output, float iterm )
         {
                 output_     = output;
                 last_time_  = t;

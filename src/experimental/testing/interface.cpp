@@ -27,4 +27,3 @@ test_coroutine test_interface::teardown( pmr::memory_resource&, record& )
 }
 
 }  // namespace emlabcpp::testing
-
