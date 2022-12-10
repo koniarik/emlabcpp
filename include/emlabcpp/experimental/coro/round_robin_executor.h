@@ -1,5 +1,5 @@
 #include <emlabcpp/algorithm.h>
-#include <emlabcpp/allocator/pool.h>
+#include <emlabcpp/pmr/memory_resource.h>
 #include <emlabcpp/static_circular_buffer.h>
 
 #pragma once
@@ -7,7 +7,7 @@
 namespace emlabcpp::coro
 {
 template < typename Container >
-typename Container::value_type round_robin_run( pool_interface*, Container coros )
+typename Container::value_type round_robin_run( pmr::memory_resource&, Container coros )
 {
         std::size_t i = 0;
         EMLABCPP_LOG( "Run of executor started" );

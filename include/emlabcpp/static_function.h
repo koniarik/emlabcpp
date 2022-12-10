@@ -20,7 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
-#include "emlabcpp/allocator/util.h"
+#include "emlabcpp/pmr/util.h"
 
 #include <functional>
 #include <memory>
@@ -64,7 +64,7 @@ namespace detail
 
                 static void* construct_at( void* ptr, T item )
                 {
-                        ptr = align( ptr, alignof( static_function_storage ) );
+                        ptr = pmr::align( ptr, alignof( static_function_storage ) );
                         return std::construct_at(
                             reinterpret_cast< static_function_storage* >( ptr ),
                             std::move( item ) );
@@ -86,7 +86,7 @@ namespace detail
                                 return nullptr;
                         }
 
-                        target = align( target, alignof( static_function_storage ) );
+                        target = pmr::align( target, alignof( static_function_storage ) );
 
                         if ( op == static_function_operations::COPY ) {
                                 return std::construct_at(
@@ -212,7 +212,7 @@ public:
         {
                 return vtable_->invoke( obj_, std::forward< ArgTypes >( args )... );
         }
-        
+
         ReturnType operator()( ArgTypes... args ) const
         {
                 return vtable_->invoke( obj_, std::forward< ArgTypes >( args )... );

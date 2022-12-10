@@ -56,7 +56,7 @@ using namespace std::literals;  // TODO: << get rid of this
 // ----------------------------------------------------------------------------
 // tests definitions
 
-em::testing::test_coroutine simple_test_case( em::pool_interface*, em::testing::record& rec )
+em::testing::test_coroutine simple_test_case( em::pmr::memory_resource&, em::testing::record& rec )
 {
 
         // request an argument from controller
@@ -111,19 +111,21 @@ struct my_test_fixture : em::testing::test_interface
         my_test_fixture( my_test_fixture&& )            = default;
         my_test_fixture& operator=( my_test_fixture&& ) = default;
 
-        em::testing::test_coroutine setup( em::pool_interface*, em::testing::record& ) override
+        em::testing::test_coroutine
+        setup( em::pmr::memory_resource&, em::testing::record& ) override
         {
                 // setup i2c
                 co_return;
         }
 
-        em::testing::test_coroutine run( em::pool_interface*, em::testing::record& ) override
+        em::testing::test_coroutine run( em::pmr::memory_resource&, em::testing::record& ) override
         {
                 // empty overload
                 co_return;
         }
 
-        em::testing::test_coroutine teardown( em::pool_interface*, em::testing::record& ) override
+        em::testing::test_coroutine
+        teardown( em::pmr::memory_resource&, em::testing::record& ) override
         {
                 // teardown i2c
                 co_return;
@@ -140,7 +142,8 @@ struct my_test_case : my_test_fixture
         {
         }
 
-        em::testing::test_coroutine run( em::pool_interface*, em::testing::record& rec ) override
+        em::testing::test_coroutine
+        run( em::pmr::memory_resource&, em::testing::record& rec ) override
         {
                 co_await rec.collect( 0, "some key for collector", 42, false );
 
@@ -192,12 +195,12 @@ struct controller_iface : em::testing::controller_interface
           : con_reac_buff( cr )
           , reac_con_buff( rc )
           , pool()
-          , tree( &pool )
+          , tree( pool )
         {
                 // we need test that uses more compelx tree
                 nlohmann::json j = { { "simple_test", 32 }, { "complex_lambda", 42 } };
 
-                std::optional opt_tree = em::testing::json_to_data_tree( &pool, j );
+                std::optional opt_tree = em::testing::json_to_data_tree( pool, j );
                 if ( opt_tree ) {
                         tree = std::move( *opt_tree );
                 } else {
@@ -250,7 +253,8 @@ int main( int argc, char** argv )
         em::testing::test_callable slt{
             reac,
             "simple lambda test",
-            [&]( em::pool_interface*, em::testing::record& rec ) -> em::testing::test_coroutine {
+            [&]( em::pmr::memory_resource&,
+                 em::testing::record& rec ) -> em::testing::test_coroutine {
                     rec.success();
                     co_return;
             } };
@@ -260,7 +264,8 @@ int main( int argc, char** argv )
         em::testing::test_callable clt{
             reac,
             "complex lambda test",
-            [&]( em::pool_interface*, em::testing::record& rec ) -> em::testing::test_coroutine {
+            [&]( em::pmr::memory_resource&,
+                 em::testing::record& rec ) -> em::testing::test_coroutine {
                     uint64_t data = co_await rec.get_param< uint64_t >( 0 );
                     std::ignore   = data;
                     rec.success();
@@ -269,7 +274,8 @@ int main( int argc, char** argv )
 
         auto laf = em::testing::test_compose(
             my_test_fixture{ reac, "lambda and fixture" },
-            [&]( em::pool_interface*, em::testing::record& rec ) -> em::testing::test_coroutine {
+            [&]( em::pmr::memory_resource&,
+                 em::testing::record& rec ) -> em::testing::test_coroutine {
                     rec.expect( 1 > 0 );
                     co_return;
             } );

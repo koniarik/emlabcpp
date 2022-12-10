@@ -1,6 +1,6 @@
 
+#include "emlabcpp/experimental/coro/memory_promise.h"
 #include "emlabcpp/experimental/coro/owning_coroutine_handle.h"
-#include "emlabcpp/experimental/coro/pool_promise.h"
 #include "emlabcpp/experimental/testing/convert.h"
 #include "emlabcpp/experimental/testing/reactor_interface_adapter.h"
 
@@ -14,7 +14,7 @@ namespace emlabcpp::testing
 class test_coroutine
 {
 public:
-        struct promise_type : coro::pool_promise< promise_type >
+        struct promise_type : coro::memory_promise< promise_type >
         {
 
                 test_coroutine get_return_object()

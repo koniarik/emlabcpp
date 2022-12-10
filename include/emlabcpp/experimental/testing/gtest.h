@@ -22,6 +22,7 @@
 //
 #include "emlabcpp/experimental/testing/controller.h"
 #include "emlabcpp/experimental/testing/json.h"
+#include "emlabcpp/pmr/new_delete_resource.h"
 
 #ifdef EMLABCPP_USE_GTEST
 
@@ -42,7 +43,7 @@ inline ::testing::AssertionResult gtest_predicate( const char*, const test_resul
                 res = ::testing::AssertionFailure() << "Test errored";
         }
 
-        res << data_tree_to_json( tres.collected ).dump(4);
+        res << data_tree_to_json( tres.collected ).dump( 4 );
         return res;
 }
 
@@ -51,8 +52,6 @@ class gtest : public ::testing::Test
         std::optional< controller > opt_con_;
         test_id                     tid_;
         controller_interface&       ci_;
-
-        pool_dynamic_resource pool_mem_;
 
 public:
         gtest( controller_interface& ci, test_id tid )
@@ -64,7 +63,7 @@ public:
 
         void SetUp() final
         {
-                opt_con_ = controller::make( ci_, &pool_mem_ );
+                opt_con_ = controller::make( ci_, *pmr::new_delete_resource() );
                 if ( !opt_con_ ) {
                         EMLABCPP_LOG( "Failed to build testing controller for gtest" );
                 }
@@ -87,8 +86,7 @@ public:
 
 void register_gtests( controller_interface& ci )
 {
-        pool_dynamic_resource pool_mem_;
-        auto                  opt_con = controller::make( ci, &pool_mem_ );
+        auto opt_con = controller::make( ci, *pmr::new_delete_resource() );
 
         if ( !opt_con ) {
                 EMLABCPP_LOG( "Failed to build testing controller for gtest registration" );

@@ -20,10 +20,10 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
-#include "emlabcpp/allocator/pool.h"
 #include "emlabcpp/experimental/testing/controller_interface.h"
 #include "emlabcpp/iterators/convert.h"
 #include "emlabcpp/match.h"
+#include "emlabcpp/pmr/aliases.h"
 
 #pragma once
 
@@ -35,7 +35,8 @@ class controller_interface_adapter;
 class controller
 {
 public:
-        static std::optional< controller > make( controller_interface& iface, pool_interface* );
+        static std::optional< controller >
+        make( controller_interface& iface, pmr::memory_resource& );
 
         [[nodiscard]] std::string_view suite_name() const
         {
@@ -52,7 +53,7 @@ public:
                 return context_.has_value();
         }
 
-        [[nodiscard]] const pool_map< test_id, test_info >& get_tests() const
+        [[nodiscard]] const pmr::map< test_id, test_info >& get_tests() const
         {
                 return tests_;
         }
@@ -62,23 +63,23 @@ public:
         void tick( controller_interface& iface );
 
 private:
-        pool_map< test_id, test_info > tests_;
-        name_buffer                    name_;
-        name_buffer                    date_;
-        std::optional< test_result >   context_;
-        run_id                         rid_ = 0;
-        pool_interface*                mem_pool_;
-        controller_endpoint            ep_;
+        pmr::map< test_id, test_info >                 tests_;
+        name_buffer                                    name_;
+        name_buffer                                    date_;
+        std::optional< test_result >                   context_;
+        run_id                                         rid_ = 0;
+        std::reference_wrapper< pmr::memory_resource > mem_res_;
+        controller_endpoint                            ep_;
 
         controller(
             name_buffer                    name,
             name_buffer                    date,
-            pool_map< test_id, test_info > tests,
-            pool_interface* const          mem_pool )
+            pmr::map< test_id, test_info > tests,
+            pmr::memory_resource&          mem_res )
           : tests_( std::move( tests ) )
           , name_( std::move( name ) )
           , date_( std::move( date ) )
-          , mem_pool_( mem_pool )
+          , mem_res_( mem_res )
         {
         }
 };

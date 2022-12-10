@@ -20,12 +20,12 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
-#include "emlabcpp/allocator/pool.h"
 #include "emlabcpp/assert.h"
 #include "emlabcpp/defer.h"
 #include "emlabcpp/experimental/testing/interface.h"
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/experimental/testing/reactor_interface.h"
+#include "emlabcpp/pmr/pool_resource.h"
 #include "emlabcpp/protocol/packet_handler.h"
 #include "emlabcpp/view.h"
 #include "emlabcpp/visit.h"
@@ -52,8 +52,8 @@ class reactor
 
         empty_test root_test_;
 
-        pool_resource< 1024, 1 > mem_;
-        reactor_endpoint         ep_;
+        pmr::pool_resource< 1024, 1 > mem_;
+        reactor_endpoint              ep_;
 
         std::optional< active_execution > active_exec_;
 

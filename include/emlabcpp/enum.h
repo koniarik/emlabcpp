@@ -4,6 +4,8 @@
 
 #endif
 
+#include <type_traits>
+
 #pragma once
 
 namespace emlabcpp

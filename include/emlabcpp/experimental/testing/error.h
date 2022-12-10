@@ -20,7 +20,9 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
+#ifdef EMLABCPP_USE_MAGIC_ENUM
 #include "emlabcpp/enum.h"
+#endif
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/protocol/streams.h"
 #include "emlabcpp/visit.h"
@@ -78,7 +80,10 @@ auto& operator<<( ostreamlike auto& os, const internal_reactor_error& e )
 
 auto& operator<<( ostreamlike auto& os, const controller_internal_error& e )
 {
+#ifdef EMLABCPP_USE_MAGIC_ENUM
         return os << convert_enum( e.msg_id );
+#endif
+        return os << e.msg_id;
 }
 
 auto& operator<<( ostreamlike auto& os, const error_variant& var )

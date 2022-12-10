@@ -1,5 +1,5 @@
+#include "emlabcpp/experimental/coro/memory_promise.h"
 #include "emlabcpp/experimental/coro/owning_coroutine_handle.h"
-#include "emlabcpp/experimental/coro/pool_promise.h"
 #include "emlabcpp/experimental/logging.h"
 
 #include <coroutine>
@@ -36,9 +36,8 @@ public:
                 }
         };
 
-        struct promise_type : pool_promise< promise_type >
+        struct promise_type : memory_promise< promise_type >
         {
-                static constexpr std::size_t ptr_size = sizeof( pool_interface* );
                 std::optional< RequestType > request;
                 std::optional< ReplyType >   reply;
 

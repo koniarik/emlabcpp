@@ -1,5 +1,5 @@
-
 #include "emlabcpp/experimental/testing/json.h"
+#include "emlabcpp/pmr/new_delete_resource.h"
 
 #include <gtest/gtest.h>
 
@@ -16,9 +16,8 @@ TEST( TestingJson, json )
             { "v5", "wololo" },
             { "v6", nlohmann::json::array( { 1, 2, 3, 4, 5 } ) } };
 
-        pool_dynamic_resource mem_pool;
-
-        std::optional< testing::data_tree > opt_tree = testing::json_to_data_tree( &mem_pool, j );
+        std::optional< testing::data_tree > opt_tree =
+            testing::json_to_data_tree( *pmr::new_delete_resource(), j );
 
         EXPECT_TRUE( opt_tree );
 

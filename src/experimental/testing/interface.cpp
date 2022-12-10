@@ -5,11 +5,11 @@
 namespace emlabcpp::testing
 {
 
-test_interface::test_interface( reactor& rec,const name_buffer& name )
+test_interface::test_interface( reactor& rec, const name_buffer& name )
   : name( name )
 {
         test_interface& other = rec.get_first_dummy_test();
-        other.push_after(this);
+        other.push_after( this );
 }
 
 test_interface::test_interface( reactor& rec, std::string_view name )
@@ -17,11 +17,11 @@ test_interface::test_interface( reactor& rec, std::string_view name )
 {
 }
 
-test_coroutine test_interface::setup( pool_interface*, record& )
+test_coroutine test_interface::setup( pmr::memory_resource&, record& )
 {
         co_return;
 }
-test_coroutine test_interface::teardown( pool_interface*, record& )
+test_coroutine test_interface::teardown( pmr::memory_resource&, record& )
 {
         co_return;
 }

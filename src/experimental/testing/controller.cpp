@@ -159,7 +159,7 @@ namespace
 }  // namespace
 
 std::optional< controller >
-controller::make( controller_interface& top_iface, pool_interface* const pool )
+controller::make( controller_interface& top_iface, pmr::memory_resource& mem_resource )
 {
         controller_endpoint          ep;
         controller_interface_adapter iface{ top_iface, ep };
@@ -183,7 +183,7 @@ controller::make( controller_interface& top_iface, pool_interface* const pool )
                 return {};
         }
 
-        pool_map< test_id, test_info > info{ pool };
+        pmr::map< test_id, test_info > info{ mem_resource };
 
         for ( test_id i = 0; i < opt_count->count; i++ ) {
                 auto opt_test_name =
@@ -197,7 +197,7 @@ controller::make( controller_interface& top_iface, pool_interface* const pool )
                 info[i] = test_info{ .name = opt_test_name->name };
         }
 
-        return controller{ opt_name->name, opt_date->date, std::move( info ), pool };
+        return controller{ opt_name->name, opt_date->date, std::move( info ), mem_resource };
 }
 
 void controller::start_test( test_id tid, controller_interface& top_iface )
@@ -207,7 +207,7 @@ void controller::start_test( test_id tid, controller_interface& top_iface )
 
         rid_ += 1;
 
-        context_.emplace( tid, rid_, mem_pool_ );
+        context_.emplace( tid, rid_, mem_res_ );
 
         iface.send( load_test{ tid, rid_ } );
         iface.send( exec_request{ rid_ } );

@@ -21,12 +21,12 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/algorithm.h"
-#include "emlabcpp/allocator/pool.h"
 #include "emlabcpp/experimental/contiguous_tree/tree.h"
 #include "emlabcpp/static_vector.h"
 
 #include <algorithm>
 #include <map>
+#include <memory_resource>
 #include <variant>
 
 #pragma once
@@ -97,10 +97,10 @@ struct test_result
         bool      failed  = false;
         bool      errored = false;
 
-        test_result( const test_id ttid, const run_id trid, pool_interface* const mem_pool )
+        test_result( const test_id ttid, const run_id trid, pmr::memory_resource& mem_res )
           : tid( ttid )
           , rid( trid )
-          , collected( mem_pool )
+          , collected( mem_res )
         {
         }
 

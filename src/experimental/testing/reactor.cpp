@@ -143,7 +143,7 @@ void reactor::exec_test( reactor_interface_adapter& iface )
         };
 
         {
-                test_coroutine coro = test->setup( &mem_, rec );
+                test_coroutine coro = test->setup( mem_, rec );
                 if ( !coro.spin( &iface ) ) {
                         return;
                 }
@@ -155,14 +155,14 @@ void reactor::exec_test( reactor_interface_adapter& iface )
         }
 
         {
-                test_coroutine coro = test->run( &mem_, rec );
+                test_coroutine coro = test->run( mem_, rec );
                 if ( !coro.spin( &iface ) ) {
                         return;
                 }
         }
 
         {
-                test_coroutine coro = test->teardown( &mem_, rec );
+                test_coroutine coro = test->teardown( mem_, rec );
                 if ( !coro.spin( &iface ) ) {
                         return;
                 }

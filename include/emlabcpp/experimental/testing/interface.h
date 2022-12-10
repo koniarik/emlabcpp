@@ -48,9 +48,9 @@ public:
 
         test_interface& operator=( test_interface&& ) = delete;
 
-        virtual test_coroutine setup( pool_interface*, record& );
-        virtual test_coroutine run( pool_interface*, record& ) = 0;
-        virtual test_coroutine teardown( pool_interface*, record& );
+        virtual test_coroutine setup( pmr::memory_resource&, record& );
+        virtual test_coroutine run( pmr::memory_resource&, record& ) = 0;
+        virtual test_coroutine teardown( pmr::memory_resource&, record& );
 
         virtual ~test_interface() = default;
 
@@ -73,7 +73,7 @@ public:
         {
         }
 
-        test_coroutine run( pool_interface*, record& ) override
+        test_coroutine run( pmr::memory_resource&, record& ) override
         {
                 co_return;
         };
@@ -85,10 +85,10 @@ private:
 };
 
 template < typename T >
-concept valid_test_callable = requires( T t, pool_interface* pool, record& rec )
+concept valid_test_callable = requires( T t, pmr::memory_resource& mem_resource, record& rec )
 {
         {
-                t( pool, rec )
+                t( mem_resource, rec )
                 } -> std::same_as< test_coroutine >;
 };
 
@@ -104,9 +104,9 @@ public:
         {
         }
 
-        test_coroutine run( pool_interface* pool, record& rec ) final
+        test_coroutine run( pmr::memory_resource& mem_resource, record& rec ) final
         {
-                return cb_( pool, rec );
+                return cb_( mem_resource, rec );
         }
 };
 
@@ -122,9 +122,9 @@ public:
         {
         }
 
-        test_coroutine run( pool_interface* pool, record& rec ) final
+        test_coroutine run( pmr::memory_resource& mem_resource, record& rec ) final
         {
-                return cb_( pool, rec );
+                return cb_( mem_resource, rec );
         }
 };
 

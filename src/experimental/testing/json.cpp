@@ -47,9 +47,10 @@ key_type json_to_key_type( const nlohmann::json& j )
         return key_type_to_buffer( j.get< std::string_view >() );
 }
 
-std::optional< data_tree > json_to_data_tree( pool_interface* mem_pool, const nlohmann::json& inpt )
+std::optional< data_tree >
+json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt )
 {
-        data_tree tree{ mem_pool };
+        data_tree tree{ mem_res };
 
         static_function< std::optional< node_id >( const nlohmann::json& j ), 32 > f =
             [&tree, &f]( const nlohmann::json& j ) -> std::optional< node_id > {

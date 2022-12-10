@@ -26,7 +26,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::pmr
 {
 
 /// TODO: this needs tests
@@ -39,4 +39,4 @@ inline void* align( void* ptr, std::size_t alignment )
         return static_cast< std::byte* >( ptr ) + ( aligned - iptr );
 }
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::pmr

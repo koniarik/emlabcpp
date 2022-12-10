@@ -1,7 +1,8 @@
-#include "emlabcpp/allocator/pool.h"
 #include "emlabcpp/experimental/contiguous_tree/base.h"
 #include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/match.h"
+#include "emlabcpp/pmr/aliases.h"
+#include "emlabcpp/pmr/pool_resource.h"
 #include "emlabcpp/static_vector.h"
 
 #include <map>
@@ -178,8 +179,8 @@ public:
         using value_type          = Value;
         using node_id             = uint32_t;
         using child_id            = uint32_t;
-        using array_type          = pool_map< child_id, node_id >;
-        using object_type         = pool_map< key_type, node_id >;
+        using array_type          = pmr::map< child_id, node_id >;
+        using object_type         = pmr::map< key_type, node_id >;
         using content_type        = std::variant< Value, array_type, object_type >;
         using object_handle       = contiguous_object_handle< object_type >;
         using const_object_handle = contiguous_object_handle< const object_type >;
@@ -267,10 +268,10 @@ public:
         using value_type          = Value;
         using node_id             = uint32_t;
         using child_id            = uint32_t;
-        using array_type          = pool_map< child_id, node_id >;
-        using object_type         = pool_map< key_type, node_id >;
+        using array_type          = pmr::map< child_id, node_id >;
+        using object_type         = pmr::map< key_type, node_id >;
         using node_type           = contiguous_node< Key, Value >;
-        using container           = pool_map< node_id, node_type >;
+        using container           = pmr::map< node_id, node_type >;
         using content_type        = typename node_type::content_type;
         using object_handle       = typename node_type::object_handle;
         using const_object_handle = typename node_type::const_object_handle;
@@ -284,11 +285,11 @@ public:
         static constexpr std::size_t required_pool_size = 110;
 
         template < uint16_t Count >
-        using pool_type = pool_resource< required_pool_size, Count >;
+        using pool_type = pmr::pool_resource< required_pool_size, Count >;
 
-        contiguous_tree( pool_interface* mem_pool )
-          : data_( mem_pool )
-          , mem_pool_( mem_pool )
+        contiguous_tree( pmr::memory_resource& mem_res )
+          : data_( mem_res )
+          , mem_res_( mem_res )
         {
         }
 
@@ -350,7 +351,7 @@ public:
 
         std::optional< std::pair< node_id, array_handle > > make_array_node()
         {
-                std::optional opt_val = make_node( array_type{ mem_pool_ } );
+                std::optional opt_val = make_node( array_type{ mem_res_.get() } );
                 if ( !opt_val ) {
                         EMLABCPP_LOG( "Failed to make array node in tree" );
                         return std::nullopt;
@@ -362,7 +363,7 @@ public:
 
         std::optional< std::pair< node_id, object_handle > > make_object_node()
         {
-                std::optional opt_val = make_node( object_type{ mem_pool_ } );
+                std::optional opt_val = make_node( object_type{ mem_res_.get() } );
                 if ( !opt_val ) {
                         EMLABCPP_LOG( "Failed to make object node in tree" );
                         return std::nullopt;
@@ -375,16 +376,16 @@ public:
 private:
         std::optional< std::pair< node_id, iterator > > make_node( content_type cont )
         {
-                auto nid = static_cast< node_id >( data_.size() );
-                if ( mem_pool_->full() ) {
+                if ( mem_res_.get().is_full() ) {
                         return std::nullopt;
                 }
+                auto nid              = static_cast< node_id >( data_.size() );
                 auto [iter, inserted] = data_.emplace( nid, node_type{ std::move( cont ) } );
                 return std::make_pair( nid, iter );
         }
 
-        container       data_;
-        pool_interface* mem_pool_;
+        container                                      data_;
+        std::reference_wrapper< pmr::memory_resource > mem_res_;
 };
 
 template < ostreamlike Stream, typename Key, typename Value >
