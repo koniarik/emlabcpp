@@ -21,7 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 
-#include "emlabcpp/iterators/convert.h"
+#include "emlabcpp/convert_view.h"
 #include "emlabcpp/protocol/command_group.h"
 #include "emlabcpp/protocol/handler.h"
 #include "emlabcpp/protocol/json.h"

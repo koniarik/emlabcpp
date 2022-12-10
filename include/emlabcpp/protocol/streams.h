@@ -22,9 +22,9 @@
 //
 
 #include "emlabcpp/enum.h"
-#include "emlabcpp/iterators/numeric.h"
 #include "emlabcpp/protocol/base.h"
 #include "emlabcpp/protocol/register_map.h"
+#include "emlabcpp/range.h"
 
 #include <iomanip>
 

@@ -21,8 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/algorithm.h"
-#include "emlabcpp/iterator.h"
-#include "emlabcpp/iterators/numeric.h"
+#include "emlabcpp/range.h"
 
 #include <gtest/gtest.h>
 

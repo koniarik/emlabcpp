@@ -20,9 +20,9 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
+#include "emlabcpp/access_view.h"
 #include "emlabcpp/algorithm.h"
-#include "emlabcpp/iterators/access.h"
-#include "emlabcpp/iterators/numeric.h"
+#include "emlabcpp/range.h"
 
 #include <gtest/gtest.h>
 

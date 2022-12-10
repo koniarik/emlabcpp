@@ -20,7 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
-#include "emlabcpp/iterators/convert.h"
+#include "emlabcpp/convert_view.h"
 #include "emlabcpp/protocol/converter.h"
 #include "emlabcpp/protocol/streams.h"
 #include "util.h"
