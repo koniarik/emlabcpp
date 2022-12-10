@@ -24,14 +24,14 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::iterators
 {
 template < typename, typename >
 class access_iterator;
 }
 
 template < typename Iterator, typename AccessCallable >
-struct std::iterator_traits< emlabcpp::access_iterator< Iterator, AccessCallable > >
+struct std::iterator_traits< emlabcpp::iterators::access_iterator< Iterator, AccessCallable > >
 {
         using value_type      = std::remove_reference_t< decltype( std::declval< AccessCallable >()(
             *std::declval< Iterator >() ) ) >;
@@ -42,7 +42,7 @@ struct std::iterator_traits< emlabcpp::access_iterator< Iterator, AccessCallable
         using iterator_category = std::random_access_iterator_tag;
 };
 
-namespace emlabcpp
+namespace emlabcpp::iterators
 {
 
 /// access_iterator provides access to a reference of value stored in the Iterator.
@@ -101,4 +101,4 @@ public:
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::iterators

@@ -24,7 +24,7 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::iterators
 {
 
 template < typename >
@@ -33,7 +33,7 @@ class numeric_iterator;
 }
 
 template < typename T >
-struct std::iterator_traits< emlabcpp::numeric_iterator< T > >
+struct std::iterator_traits< emlabcpp::iterators::numeric_iterator< T > >
 {
         using value_type        = T;
         using difference_type   = std::ptrdiff_t;
@@ -43,7 +43,7 @@ struct std::iterator_traits< emlabcpp::numeric_iterator< T > >
         using iterator_category = std::random_access_iterator_tag;
 };
 
-namespace emlabcpp
+namespace emlabcpp::iterators
 {
 
 /// numeric iterator - iterator over numbers (which are calculated on the fly)
@@ -98,4 +98,4 @@ public:
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::iterators

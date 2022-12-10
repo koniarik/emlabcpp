@@ -24,14 +24,14 @@
 
 #pragma once
 
-namespace emlabcpp
+namespace emlabcpp::iterators
 {
 template < typename, typename >
 class convert_iterator;
 }
 
 template < typename T, typename Iterator >
-struct std::iterator_traits< emlabcpp::convert_iterator< T, Iterator > >
+struct std::iterator_traits< emlabcpp::iterators::convert_iterator< T, Iterator > >
 {
         using value_type        = T;
         using difference_type   = std::ptrdiff_t;
@@ -41,7 +41,7 @@ struct std::iterator_traits< emlabcpp::convert_iterator< T, Iterator > >
         using iterator_category = std::random_access_iterator_tag;
 };
 
-namespace emlabcpp
+namespace emlabcpp::iterators
 {
 template < typename T, typename Iterator >
 class convert_iterator : public generic_iterator< convert_iterator< T, Iterator > >
@@ -91,4 +91,4 @@ public:
         }
 };
 
-}  // namespace emlabcpp
+}  // namespace emlabcpp::iterators

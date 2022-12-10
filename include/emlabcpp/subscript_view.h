@@ -5,10 +5,10 @@
 namespace emlabcpp
 {
 template < typename Container >
-view< subscript_iterator< Container > > subscript_view( Container& cont )
+view< iterators::subscript_iterator< Container > > subscript_view( Container& cont )
 {
         return view{
-            subscript_iterator< Container >{ cont, 0 },
-            subscript_iterator< Container >{ cont, cont.size() } };
+            iterators::subscript_iterator< Container >{ cont, 0 },
+            iterators::subscript_iterator< Container >{ cont, cont.size() } };
 }
 }  // namespace emlabcpp
