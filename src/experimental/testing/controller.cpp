@@ -84,10 +84,10 @@ public:
                 send( tree_error_reply{ .rid = rid, .err = err, .nid = nid } );
         }
 
-        void report_error( error_variant var )
+        void report_error( const error_variant& var )
         {
                 log_error( var );
-                iface_.on_error( std::move( var ) );
+                iface_.on_error( var );
         }
 #ifdef EMLABCPP_USE_LOGGING
         void log_error( const error_variant& var )
@@ -378,7 +378,7 @@ struct controller_dispatcher
         }
         void operator()( const reactor_internal_error_report& report )
         {
-                iface.report_error( internal_reactor_error{ std::move( report.var ) } );
+                iface.report_error( internal_reactor_error{ report.var } );
         }
 };
 

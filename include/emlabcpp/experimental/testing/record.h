@@ -137,32 +137,10 @@ public:
         }
 
 private:
-        void report_wrong_type_error( node_id, const value_type& var );
-
-        template < typename T >
-        std::optional< T > extract_param( const value_type& var, node_id nid )
-        {
-                std::optional< T > res = value_type_converter< T >::from_value( var );
-                if ( !res ) {
-                        EMLABCPP_LOG(
-                            "Can't extract arg " << pretty_type_name< T >() << " from node " << nid
-                                                 << " it has type index: " << var.index() );
-                        report_wrong_type_error( nid, var );
-                        return std::nullopt;
-                }
-                return res;
-        }
-
         std::optional< key_type > convert_key( std::string_view sview )
         {
                 return key_type_to_buffer( sview );
         }
-
-        template < typename T >
-        std::optional< T > read_variant_alternative();
-
-        template < typename ResultType, typename T >
-        std::optional< ResultType > exchange( const T& item );
 };
 
 }  // namespace emlabcpp::testing

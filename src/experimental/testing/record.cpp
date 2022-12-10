@@ -91,56 +91,5 @@ param_key_awaiter record::get_param_key( node_id nid, child_id chid )
         return param_key_awaiter{ param_key_request{ rid_, nid, chid }, &comm_ };
 }
 
-void record::report_wrong_type_error( node_id nid, const value_type& )
-{
-        comm_.report_failure( wrong_type_error{ nid } );
-}
-
-template < typename T >
-std::optional< T > record::read_variant_alternative()
-{
-        std::optional< controller_reactor_variant > opt_var;
-        comm_.read_variant().match(
-            [&]( controller_reactor_variant var ) {
-                    opt_var = var;
-            },
-            [&]( protocol::endpoint_error err ) {
-                    match(
-                        err,
-                        [&]( protocol::error_record ) {
-                                // report his
-                        },
-                        [&]( protocol::endpoint_load_error ) {
-                                comm_.report_failure( no_response_error{ T::id } );
-                        } );
-            } );
-
-        if ( !opt_var ) {
-                return std::nullopt;
-        }
-
-        const T* val_ptr = std::get_if< T >( &*opt_var );
-        if ( val_ptr != nullptr ) {
-                return *val_ptr;
-        }
-
-        const auto* tree_err = std::get_if< tree_error_reply >( &*opt_var );
-        if ( tree_err ) {
-                comm_.report_failure( *tree_err );
-        }
-
-        comm_.report_failure( error< WRONG_MESSAGE_E >{} );
-
-        return std::nullopt;
-}
-
-template < typename ResultType, typename T >
-std::optional< ResultType > record::exchange( const T& item )
-{
-
-        comm_.reply( item );
-
-        return read_variant_alternative< ResultType >();
-}
 
 }  // namespace emlabcpp::testing

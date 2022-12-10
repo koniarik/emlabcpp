@@ -124,12 +124,12 @@ struct collect_processor
         node_id         reply;
         collect_request req;
 
-        bool expects_reply() const
+        [[nodiscard]] bool expects_reply() const
         {
                 return req.expects_reply;
         }
 
-        bool set_value( const controller_reactor_variant& var )
+        [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
                 const auto* val_ptr = std::get_if< collect_reply >( &var );
                 if ( val_ptr == nullptr ) {
@@ -147,12 +147,12 @@ struct param_value_processor
         T                   reply;
         param_value_request req;
 
-        bool expects_reply() const
+        [[nodiscard]] bool expects_reply() const
         {
                 return true;
         }
 
-        bool set_value( const controller_reactor_variant& var )
+        [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
                 const auto* val_ptr = std::get_if< param_value_reply >( &var );
                 if ( val_ptr == nullptr ) {
@@ -174,12 +174,12 @@ struct param_value_key_processor
         T                       reply;
         param_value_key_request req;
 
-        bool expects_reply() const
+        [[nodiscard]] bool expects_reply() const
         {
                 return true;
         }
 
-        bool set_value( const controller_reactor_variant& var )
+        [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
                 const auto* val_ptr = std::get_if< param_value_key_reply >( &var );
                 if ( val_ptr == nullptr ) {
@@ -201,12 +201,12 @@ struct param_type_processor
         param_type_request req;
         using reply_type = param_type_reply;
 
-        bool expects_reply() const
+        [[nodiscard]] bool expects_reply() const
         {
                 return true;
         }
 
-        bool set_value( const controller_reactor_variant& var )
+        [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
                 const auto* val_ptr = std::get_if< param_type_reply >( &var );
                 if ( val_ptr == nullptr ) {
@@ -223,12 +223,12 @@ struct param_child_processor
         node_id             reply;
         param_child_request req;
 
-        bool expects_reply() const
+        [[nodiscard]] bool expects_reply() const
         {
                 return true;
         }
 
-        bool set_value( const controller_reactor_variant& var )
+        [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
                 const auto* val_ptr = std::get_if< param_child_reply >( &var );
                 if ( val_ptr == nullptr ) {
@@ -245,12 +245,12 @@ struct param_child_count_processor
         child_count               reply;
         param_child_count_request req;
 
-        bool expects_reply() const
+        [[nodiscard]] bool expects_reply() const
         {
                 return true;
         }
 
-        bool set_value( const controller_reactor_variant& var )
+        [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
                 const auto* val_ptr = std::get_if< param_child_count_reply >( &var );
                 if ( val_ptr == nullptr ) {
@@ -267,12 +267,12 @@ struct param_key_processor
         key_type          reply;
         param_key_request req;
 
-        bool expects_reply() const
+        [[nodiscard]] bool expects_reply() const
         {
                 return true;
         }
 
-        bool set_value( const controller_reactor_variant& var )
+        [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
                 const auto* val_ptr = std::get_if< param_key_reply >( &var );
                 if ( val_ptr == nullptr ) {

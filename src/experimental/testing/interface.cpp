@@ -5,7 +5,7 @@
 namespace emlabcpp::testing
 {
 
-test_interface::test_interface( reactor& rec, name_buffer name )
+test_interface::test_interface( reactor& rec,const name_buffer& name )
   : name( name )
 {
         test_interface& other = rec.get_first_dummy_test();

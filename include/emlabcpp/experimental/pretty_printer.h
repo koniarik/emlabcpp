@@ -49,17 +49,17 @@ public:
                 return *this;
         }
 
-        operator bool() const
+        [[nodiscard]] operator bool() const
         {
                 return bool( os_ );
         }
 
-        std::string str()
+        [[nodiscard]] std::string str()
         {
                 return os_.str();
         }
 
-        char fill() const
+        [[nodiscard]] char fill() const
         {
                 return os_.fill();
         }
@@ -73,7 +73,7 @@ public:
                 return os_.setf( flags, mask );
         }
 
-        std::streamsize width() const
+        [[nodiscard]] std::streamsize width() const
         {
                 return os_.width();
         }
@@ -81,7 +81,7 @@ public:
         {
                 return os_.width( w );
         }
-        std::ios_base::fmtflags flags() const
+        [[nodiscard]] std::ios_base::fmtflags flags() const
         {
                 return os_.flags();
         }

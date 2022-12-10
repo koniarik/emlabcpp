@@ -18,13 +18,13 @@ public:
         }
 
         owning_coroutine_handle( const owning_coroutine_handle& ) = delete;
-        owning_coroutine_handle( owning_coroutine_handle&& other )
+        owning_coroutine_handle( owning_coroutine_handle&& other ) noexcept
         {
                 *this = std::move( other );
         }
 
         owning_coroutine_handle& operator=( const owning_coroutine_handle& ) = delete;
-        owning_coroutine_handle& operator=( owning_coroutine_handle&& other )
+        owning_coroutine_handle& operator=( owning_coroutine_handle&& other ) noexcept
         {
                 h_       = other.h_;
                 other.h_ = std::coroutine_handle< promise_type >{ nullptr };

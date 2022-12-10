@@ -14,11 +14,11 @@ public:
         binding_linked_list_node( const binding_linked_list_node& )            = delete;
         binding_linked_list_node& operator=( const binding_linked_list_node& ) = delete;
 
-        binding_linked_list_node( binding_linked_list_node&& other )
+        binding_linked_list_node( binding_linked_list_node&& other ) noexcept
         {
                 *this = std::move( other );
         }
-        binding_linked_list_node& operator=( binding_linked_list_node&& other )
+        binding_linked_list_node& operator=( binding_linked_list_node&& other ) noexcept
         {
                 if ( other.prev != nullptr ) {
                         prev       = other.prev;
@@ -42,7 +42,7 @@ public:
                 next       = node;
         }
 
-        Derived* get_next()
+        [[nodiscard]] Derived* get_next()
         {
                 if ( next == nullptr ) {
                         return nullptr;
@@ -50,7 +50,7 @@ public:
                 return &next->get_derived();
         }
 
-        Derived* get_next( std::size_t id )
+        [[nodiscard]] Derived* get_next( std::size_t id )
         {
                 if ( id == 0 ) {
                         return &get_derived();
@@ -61,7 +61,7 @@ public:
                 return next->get_next( id - 1 );
         }
 
-        std::size_t count_next() const
+        [[nodiscard]] std::size_t count_next() const
         {
                 std::size_t i = 0;
                 auto*       n = next;
@@ -72,7 +72,7 @@ public:
                 return i;
         }
 
-        Derived* get_prev()
+        [[nodiscard]] Derived* get_prev()
         {
                 if ( prev == nullptr ) {
                         return nullptr;
@@ -80,7 +80,7 @@ public:
                 return &prev->get_derived();
         }
 
-        Derived* get_prev( std::size_t id )
+        [[nodiscard]] Derived* get_prev( std::size_t id )
         {
                 if ( id == 0 ) {
                         return &get_derived();
@@ -105,11 +105,11 @@ private:
         binding_linked_list_node< Derived >* next = nullptr;
         binding_linked_list_node< Derived >* prev = nullptr;
 
-        Derived& get_derived()
+        [[nodiscard]] Derived& get_derived()
         {
                 return *static_cast< Derived* >( this );
         }
-        const Derived& get_derived() const
+        [[nodiscard]] const Derived& get_derived() const
         {
                 return *static_cast< const Derived* >( this );
         }

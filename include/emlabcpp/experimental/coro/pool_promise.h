@@ -26,7 +26,7 @@ struct pool_promise
                 sz += ptr_size;
                 void* vp = pi->allocate( sz, alignof( PromiseType ) );
 
-                pool_interface** p = reinterpret_cast< pool_interface** >( vp );
+                auto p = reinterpret_cast< pool_interface** >( vp );
 
                 *p = pi;
 
@@ -37,7 +37,7 @@ struct pool_promise
 
         void operator delete( void* ptr, std::size_t )
         {
-                pool_interface** p = reinterpret_cast< pool_interface** >( ptr );
+                auto p = reinterpret_cast< pool_interface** >( ptr );
 
                 p--;
 

@@ -10,6 +10,12 @@ namespace emlabcpp
 struct timelog
 {
         std::chrono::time_point< std::chrono::system_clock > tp;
+
+        timelog( std::chrono::time_point< std::chrono::system_clock > tp_ )
+          : tp( tp_ )
+        {
+        }
+        timelog() = default;
 };
 
 auto& operator<<( ostreamlike auto& os, const timelog& lg )

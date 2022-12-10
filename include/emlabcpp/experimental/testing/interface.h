@@ -38,7 +38,7 @@ class empty_test;
 class test_interface : public binding_linked_list_node< test_interface >
 {
 public:
-        test_interface( reactor& rec, name_buffer name );
+        test_interface( reactor& rec, const name_buffer& name );
         test_interface( reactor& rec, std::string_view name );
 
         test_interface( const test_interface& )            = delete;
@@ -72,7 +72,8 @@ public:
           : test_interface( rec, name_buffer{} )
         {
         }
-        test_coroutine run( pool_interface*, record& )
+
+        test_coroutine run( pool_interface*, record& ) override
         {
                 co_return;
         };

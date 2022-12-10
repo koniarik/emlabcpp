@@ -50,7 +50,7 @@ class gpos_logger
 public:
         using ostream = pretty_printer< simple_stream< gpos_logger& > >;
 
-        gpos_logger( std::vector< logging_option > opts )
+        gpos_logger( const std::vector< logging_option >& opts )
         {
                 for ( const auto& opt : opts ) {
                         set_option( opt );
