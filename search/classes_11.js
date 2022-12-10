@@ -10,7 +10,7 @@ var searchData=
   ['test_5finfo_1258',['test_info',['../namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info',1,'emlabcpp::testing']]],
   ['test_5finterface_1259',['test_interface',['../classemlabcpp_1_1testing_1_1test__interface.html',1,'emlabcpp::testing']]],
   ['test_5fresult_1260',['test_result',['../structemlabcpp_1_1testing_1_1test__result.html',1,'emlabcpp::testing']]],
-  ['timelog_1261',['timelog',['../namespaceemlabcpp.html#structemlabcpp_1_1timelog',1,'emlabcpp']]],
+  ['timelog_1261',['timelog',['../structemlabcpp_1_1timelog.html',1,'emlabcpp']]],
   ['traits_1262',['traits',['../namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits',1,'emlabcpp::rpc']]],
   ['traits_3c_20std_3a_3atuple_3c_20calls_2e_2e_2e_20_3e_20_3e_1263',['traits&lt; std::tuple&lt; Calls... &gt; &gt;',['../namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4',1,'emlabcpp::rpc']]],
   ['transposed_5fmatrix_1264',['transposed_matrix',['../classemlabcpp_1_1transposed__matrix.html',1,'emlabcpp']]],

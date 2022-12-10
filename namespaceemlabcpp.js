@@ -30,7 +30,7 @@ var namespaceemlabcpp =
     [ "function_view< ReturnType(ArgTypes...) >", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4" ],
     [ "log_colors", "namespaceemlabcpp.html#structemlabcpp_1_1log__colors", "namespaceemlabcpp_structemlabcpp_1_1log__colors_dup" ],
     [ "log_color_stub", "namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub", "namespaceemlabcpp_structemlabcpp_1_1log__color__stub_dup" ],
-    [ "timelog", "namespaceemlabcpp.html#structemlabcpp_1_1timelog", "namespaceemlabcpp_structemlabcpp_1_1timelog_dup" ],
+    [ "timelog", "structemlabcpp_1_1timelog.html", "structemlabcpp_1_1timelog" ],
     [ "matrix", "classemlabcpp_1_1matrix.html", "classemlabcpp_1_1matrix" ],
     [ "transposed_matrix", "classemlabcpp_1_1transposed__matrix.html", "classemlabcpp_1_1transposed__matrix" ],
     [ "identity_matrix", "classemlabcpp_1_1identity__matrix.html", "classemlabcpp_1_1identity__matrix" ],

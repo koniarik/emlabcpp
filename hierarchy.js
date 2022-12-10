@@ -280,7 +280,7 @@ var hierarchy =
     [ "emlabcpp::testing::test_finished", "structemlabcpp_1_1testing_1_1test__finished.html", null ],
     [ "emlabcpp::testing::test_info", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info", null ],
     [ "emlabcpp::testing::test_result", "structemlabcpp_1_1testing_1_1test__result.html", null ],
-    [ "emlabcpp::timelog", "namespaceemlabcpp.html#structemlabcpp_1_1timelog", null ],
+    [ "emlabcpp::timelog", "structemlabcpp_1_1timelog.html", null ],
     [ "emlabcpp::rpc::traits< T >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits", null ],
     [ "emlabcpp::rpc::traits< std::tuple< Calls... > >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4", null ],
     [ "traits_for", null, [
