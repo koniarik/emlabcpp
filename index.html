@@ -163,7 +163,7 @@ bounded.h</h2>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> T::set_power(bounded&lt;float, -1.f, 1.f&gt;)</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
 concepts.h</h2>
-<p>A set of C concepts designed for implementing a checks inside the library.</p>
+<p>A set of C++ concepts designed for implementing a checks inside the library.</p>
 <p>For example <code>ostreamlike</code> can be implement to write more generic ostream operators:</p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>(<a class="code" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">emlabcpp::ostreamlike</a> <span class="keyword">auto</span> &amp; os, <span class="keyword">const</span> static_vector&lt;T,N&gt;&amp;vec);</div>
 <div class="ttc" id="anamespaceemlabcpp_html_a27325f314502897567307b29b2b03776"><div class="ttname"><a href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">emlabcpp::ostreamlike</a></div><div class="ttdeci">concept ostreamlike</div><div class="ttdef"><b>Definition:</b> concepts.h:138</div></div>
@@ -220,7 +220,7 @@ iterator.h</h2>
 <p>For implementing iterator, you only provide the basic subset for this class and it takes care of the rest. Keep in mind that this is for "general" use case, and for optimallity you may be better served with fully custom iterator.</p>
 <h3><a class="anchor" id="autotoc_md20"></a>
 iterators/numeric.h</h3>
-<p>Iterator that mimics real data container of sequence of numbers. The number is stored inside the iterator and when iterator is advanced, so is the internal value changed. Contains also functions like <code>range(from,to)</code> that creates a range from this iterators.</p>
+<p>Iterator that mimics real data container of sequence of numbers. The number is stored inside the iterator and when iterator is advanced, so is the internal value changed. Use functions like <code>range(from,to)</code> to creates a range from this iterators.</p>
 <div class="fragment"><div class="line">std::vector&lt;int&gt; vec_data;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordflow">for</span>(std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>(vec_data.size()-1))</div>
@@ -289,28 +289,8 @@ physical_quantity.h</h2>
 <div class="ttc" id="anamespaceemlabcpp_html_a9f7b213031fa424abf6cc3d1d04ac1ca"><div class="ttname"><a href="namespaceemlabcpp.html#a9f7b213031fa424abf6cc3d1d04ac1ca">emlabcpp::acceleration</a></div><div class="ttdeci">physical_quantity&lt; 1, 0, -2, 0, 0, 0, 0, 0, 0 &gt; acceleration</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:89</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md25"></a>
 pid.h</h2>
-<p>Basic PID regulator implementation using floats, templated based on the time type;</p>
-<div class="fragment"><div class="line"><span class="keyword">using</span> time_t = uint32_t;</div>
-<div class="line">pid&lt;time_t&gt;::config conf = {</div>
-<div class="line">    .p = 0.5f, </div>
-<div class="line">    .i = 0.005f, </div>
-<div class="line">    .d = 0.2f, </div>
-<div class="line">    .min = 0.0f, </div>
-<div class="line">    .max = 256.0f</div>
-<div class="line">    };</div>
-<div class="line">pid&lt;time_t&gt; regulator{time{0}, conf};</div>
-<div class="line"> </div>
-<div class="line">time_t time = 0;</div>
-<div class="line"><span class="keywordtype">float</span> state = 0.0f;</div>
-<div class="line"><span class="keywordflow">while</span>(<span class="keyword">true</span>)</div>
-<div class="line">{</div>
-<div class="line">    regulator.update(time, state, <a class="code" href="namespaceemlabcpp.html#a364f72aef7b46ed76b90e1f7a054fc32">std::cos</a>(time*0.05f));</div>
-<div class="line">    state = regulator.output();</div>
-<div class="line"> </div>
-<div class="line">    time += 1;</div>
-<div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_html_a364f72aef7b46ed76b90e1f7a054fc32"><div class="ttname"><a href="namespaceemlabcpp.html#a364f72aef7b46ed76b90e1f7a054fc32">emlabcpp::cos</a></div><div class="ttdeci">constexpr auto cos(const quantity&lt; Derived, ValueType &gt; u)</div><div class="ttdoc">Returns cosinus of the quantity as scalar.</div><div class="ttdef"><b>Definition:</b> quantity.h:228</div></div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md26"></a>
+<p>Basic PID regulator implementation using floats, templated based on the time type.</p>
+<h2><a class="anchor" id="autotoc_md26"></a>
 protocol.h</h2>
 <p>The protocol library serializes and deserialize C++ data structures into binary messages. The principle is that the protocol is defined with library types. Based on the definition, <code>protocol_handler&lt;Def&gt;</code> provides routines for serialization and deserialization of data structures corresponding to said definition.</p>
 <p>In case of work with simple robot, we can create simple protocol: </p><div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="namespaceemlabcpp.html#a11ac05592b4c728910966af0c89b13a8">distance</a> = unsigned;</div>
@@ -430,7 +410,7 @@ zip.h</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Dec 10 2022 23:30:41 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 10 2022 23:34:19 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
