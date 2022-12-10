@@ -11,6 +11,13 @@ var hierarchy =
     [ "emlabcpp::protocol::backup_proto_traits< T >", "structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4.html", null ],
     [ "emlabcpp::rpc::bind< ID, Signature, CallableSize >", "structemlabcpp_1_1rpc_1_1bind.html", null ],
     [ "emlabcpp::rpc::bind_wrapper< Bindings >", "classemlabcpp_1_1rpc_1_1bind__wrapper.html", null ],
+    [ "emlabcpp::binding_linked_list_node< Derived >", "classemlabcpp_1_1binding__linked__list__node.html", null ],
+    [ "emlabcpp::binding_linked_list_node< test_interface >", "classemlabcpp_1_1binding__linked__list__node.html", [
+      [ "emlabcpp::testing::test_interface", "classemlabcpp_1_1testing_1_1test__interface.html", [
+        [ "emlabcpp::testing::empty_test", "classemlabcpp_1_1testing_1_1empty__test.html", null ],
+        [ "emlabcpp::testing::test_callable< Callable >", "classemlabcpp_1_1testing_1_1test__callable.html", null ]
+      ] ]
+    ] ],
     [ "emlabcpp::bounded< T, MinVal, MaxVal >", "classemlabcpp_1_1bounded.html", null ],
     [ "emlabcpp::rpc::class_wrapper< Class, Bindings >", "classemlabcpp_1_1rpc_1_1class__wrapper.html", null ],
     [ "emlabcpp::testing::collect_processor", "structemlabcpp_1_1testing_1_1collect__processor.html", null ],
@@ -272,10 +279,6 @@ var hierarchy =
     [ "emlabcpp::testing::test_coroutine", "classemlabcpp_1_1testing_1_1test__coroutine.html", null ],
     [ "emlabcpp::testing::test_finished", "structemlabcpp_1_1testing_1_1test__finished.html", null ],
     [ "emlabcpp::testing::test_info", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info", null ],
-    [ "emlabcpp::testing::test_interface", "classemlabcpp_1_1testing_1_1test__interface.html", [
-      [ "emlabcpp::testing::empty_test", "classemlabcpp_1_1testing_1_1empty__test.html", null ],
-      [ "emlabcpp::testing::test_callable< Callable >", "classemlabcpp_1_1testing_1_1test__callable.html", null ]
-    ] ],
     [ "emlabcpp::testing::test_result", "structemlabcpp_1_1testing_1_1test__result.html", null ],
     [ "emlabcpp::timelog", "namespaceemlabcpp.html#structemlabcpp_1_1timelog", null ],
     [ "emlabcpp::rpc::traits< T >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits", null ],

@@ -18,6 +18,7 @@ var namespaceemlabcpp =
     [ "defer", "classemlabcpp_1_1defer.html", "classemlabcpp_1_1defer" ],
     [ "either", "classemlabcpp_1_1either.html", "classemlabcpp_1_1either" ],
     [ "empty_assembly_tag", "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag", null ],
+    [ "binding_linked_list_node", "classemlabcpp_1_1binding__linked__list__node.html", "classemlabcpp_1_1binding__linked__list__node" ],
     [ "bounded_view", "classemlabcpp_1_1bounded__view.html", "classemlabcpp_1_1bounded__view" ],
     [ "contiguous_request_adapter", "classemlabcpp_1_1contiguous__request__adapter.html", "classemlabcpp_1_1contiguous__request__adapter" ],
     [ "contiguous_object_handle", "classemlabcpp_1_1contiguous__object__handle.html", "classemlabcpp_1_1contiguous__object__handle" ],
