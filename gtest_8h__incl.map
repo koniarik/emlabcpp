@@ -1,10 +1,12 @@
 <map id="include/emlabcpp/experimental/testing/gtest.h" name="include/emlabcpp/experimental/testing/gtest.h">
-<area shape="rect" id="node1" title=" " alt="" coords="330,5,558,47"/>
-<area shape="rect" id="node2" href="$controller_8h.html" title=" " alt="" coords="255,95,433,136"/>
-<area shape="rect" id="node7" href="$experimental_2testing_2json_8h.html" title=" " alt="" coords="531,95,709,136"/>
-<area shape="rect" id="node3" href="$pool_8h.html" title=" " alt="" coords="272,273,419,315"/>
-<area shape="rect" id="node4" href="$controller__interface_8h.html" title=" " alt="" coords="33,184,247,225"/>
-<area shape="rect" id="node5" href="$iterators_2convert_8h.html" title=" " alt="" coords="271,184,417,225"/>
-<area shape="rect" id="node6" href="$match_8h.html" title=" " alt="" coords="441,191,583,218"/>
-<area shape="rect" id="node8" href="$experimental_2testing_2base_8h.html" title=" " alt="" coords="607,184,785,225"/>
+<area shape="rect" id="node1" title=" " alt="" coords="753,5,981,47"/>
+<area shape="rect" id="node2" href="$controller_8h.html" title=" " alt="" coords="396,95,573,136"/>
+<area shape="rect" id="node7" href="$experimental_2testing_2json_8h.html" title=" " alt="" coords="779,95,956,136"/>
+<area shape="rect" id="node9" href="$new__delete__resource_8h.html" title=" " alt="" coords="981,95,1175,136"/>
+<area shape="rect" id="node3" href="$controller__interface_8h.html" title=" " alt="" coords="5,184,220,225"/>
+<area shape="rect" id="node4" href="$iterators_2convert_8h.html" title=" " alt="" coords="244,184,389,225"/>
+<area shape="rect" id="node5" href="$match_8h.html" title=" " alt="" coords="413,191,556,218"/>
+<area shape="rect" id="node6" href="$aliases_8h.html" title=" " alt="" coords="581,191,759,218"/>
+<area shape="rect" id="node8" href="$experimental_2testing_2base_8h.html" title=" " alt="" coords="784,184,961,225"/>
+<area shape="rect" id="node10" href="$memory__resource_8h.html" title=" " alt="" coords="991,184,1165,225"/>
 </map>

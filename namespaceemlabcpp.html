@@ -103,6 +103,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceemlabcpp_1_1impl"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html">impl</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceemlabcpp_1_1pmr"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1pmr.html">pmr</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceemlabcpp_1_1protocol"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceemlabcpp_1_1rpc"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1rpc.html">rpc</a></td></tr>
@@ -117,18 +119,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1convert__to.html">convert_to</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object with <code>operator()</code> that constructs object of type <code>T</code>out of passed-in value.  <a href="structemlabcpp_1_1convert__to.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pool__interface.html">pool_interface</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pool__resource.html">pool_resource</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pool__dynamic__resource.html">pool_dynamic_resource</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pool__base.html">pool_base</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pool__deleter.html">pool_deleter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html">bounded</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bounded type represents a overlay over type T which is constrained between MinVal and MaxVal as compile time constants.  <a href="classemlabcpp_1_1bounded.html#details">More...</a><br /></td></tr>
@@ -275,24 +265,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:aea3360c0f2ac93edf6576ef57da1749a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aea3360c0f2ac93edf6576ef57da1749a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aea3360c0f2ac93edf6576ef57da1749a">pool_unique_ptr</a> = std::unique_ptr&lt; T, <a class="el" href="structemlabcpp_1_1pool__deleter.html">pool_deleter</a> &gt;</td></tr>
-<tr class="separator:aea3360c0f2ac93edf6576ef57da1749a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53400461db610368cbe228ab40b5c63d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a53400461db610368cbe228ab40b5c63d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a53400461db610368cbe228ab40b5c63d">pool_vector</a> = std::vector&lt; T, <a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a>&lt; T &gt; &gt;</td></tr>
-<tr class="separator:a53400461db610368cbe228ab40b5c63d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3002b266e75831a1f53acc6309e9a772"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a3002b266e75831a1f53acc6309e9a772"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3002b266e75831a1f53acc6309e9a772">pool_list</a> = std::list&lt; T, <a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a>&lt; T &gt; &gt;</td></tr>
-<tr class="separator:a3002b266e75831a1f53acc6309e9a772"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3af23c0681903c11c3eebbf8043eaf2c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a3af23c0681903c11c3eebbf8043eaf2c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3af23c0681903c11c3eebbf8043eaf2c">pool_set</a> = std::set&lt; T, <a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a>&lt; T &gt; &gt;</td></tr>
-<tr class="separator:a3af23c0681903c11c3eebbf8043eaf2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43daa0cfcf1b4444fef3c134b538c492"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a43daa0cfcf1b4444fef3c134b538c492"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a43daa0cfcf1b4444fef3c134b538c492">pool_deque</a> = std::deque&lt; T, <a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a>&lt; T &gt; &gt;</td></tr>
-<tr class="separator:a43daa0cfcf1b4444fef3c134b538c492"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a26f08c5adb26bcc69ec7fc1bf42910"><td class="memTemplParams" colspan="2">template&lt;typename Key , typename T &gt; </td></tr>
-<tr class="memitem:a3a26f08c5adb26bcc69ec7fc1bf42910"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">pool_map</a> = std::map&lt; Key, T, std::less&lt; Key &gt;, <a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a>&lt; std::pair&lt; const Key, T &gt; &gt; &gt;</td></tr>
-<tr class="separator:a3a26f08c5adb26bcc69ec7fc1bf42910"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a803520b1d525d0030e528bc67b402b53"><td class="memTemplParams" colspan="2">template&lt;typename Signature , std::size_t Capacity&gt; </td></tr>
 <tr class="memitem:a803520b1d525d0030e528bc67b402b53"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a> = <a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">static_function_base</a>&lt; Signature, Capacity, alignof(void *) &gt;</td></tr>
 <tr class="separator:a803520b1d525d0030e528bc67b402b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -531,9 +503,6 @@ Functions</h2></td></tr>
 <tr class="separator:a8d77f50ca9dd31e43365e38debbd42fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1e2e3e15b0c77fff6674ed7e6e1f67e"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab1e2e3e15b0c77fff6674ed7e6e1f67e">select_index</a> (IndexType i, const Callable &amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>)</td></tr>
 <tr class="separator:ab1e2e3e15b0c77fff6674ed7e6e1f67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c4b8276158ed7d743c68c7395ed0966"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a> (void *ptr, std::size_t alignment)</td></tr>
-<tr class="memdesc:a3c4b8276158ed7d743c68c7395ed0966"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: this needs tests.  <a href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">More...</a><br /></td></tr>
-<tr class="separator:a3c4b8276158ed7d743c68c7395ed0966"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f10b2ff6c20f2e8057487e521275521"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, typename T , T MinVal, T MaxVal&gt; </td></tr>
 <tr class="memitem:a2f10b2ff6c20f2e8057487e521275521"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, MinVal, MaxVal &gt; &amp;b)</td></tr>
 <tr class="separator:a2f10b2ff6c20f2e8057487e521275521"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1520,102 +1489,6 @@ template&lt;typename Container , typename UnaryCallable &gt; </div>
 
 </div>
 </div>
-<a id="a43daa0cfcf1b4444fef3c134b538c492"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43daa0cfcf1b4444fef3c134b538c492">&#9670;&nbsp;</a></span>pool_deque</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a43daa0cfcf1b4444fef3c134b538c492">emlabcpp::pool_deque</a> = typedef std::deque&lt; T, <a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a>&lt; T &gt; &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3002b266e75831a1f53acc6309e9a772"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3002b266e75831a1f53acc6309e9a772">&#9670;&nbsp;</a></span>pool_list</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a3002b266e75831a1f53acc6309e9a772">emlabcpp::pool_list</a> = typedef std::list&lt; T, <a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a>&lt; T &gt; &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3a26f08c5adb26bcc69ec7fc1bf42910"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a26f08c5adb26bcc69ec7fc1bf42910">&#9670;&nbsp;</a></span>pool_map</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Key , typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a3a26f08c5adb26bcc69ec7fc1bf42910">emlabcpp::pool_map</a> = typedef std::map&lt; Key, T, std::less&lt; Key &gt;, <a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a>&lt; std::pair&lt; const Key, T &gt; &gt; &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3af23c0681903c11c3eebbf8043eaf2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3af23c0681903c11c3eebbf8043eaf2c">&#9670;&nbsp;</a></span>pool_set</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a3af23c0681903c11c3eebbf8043eaf2c">emlabcpp::pool_set</a> = typedef std::set&lt; T, <a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a>&lt; T &gt; &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aea3360c0f2ac93edf6576ef57da1749a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea3360c0f2ac93edf6576ef57da1749a">&#9670;&nbsp;</a></span>pool_unique_ptr</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#aea3360c0f2ac93edf6576ef57da1749a">emlabcpp::pool_unique_ptr</a> = typedef std::unique_ptr&lt; T, <a class="el" href="structemlabcpp_1_1pool__deleter.html">pool_deleter</a> &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a53400461db610368cbe228ab40b5c63d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53400461db610368cbe228ab40b5c63d">&#9670;&nbsp;</a></span>pool_vector</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a53400461db610368cbe228ab40b5c63d">emlabcpp::pool_vector</a> = typedef std::vector&lt; T, <a class="el" href="classemlabcpp_1_1pool__allocator.html">pool_allocator</a>&lt; T &gt; &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="abbf48f5a991078e6acfe3db1e7762675"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abbf48f5a991078e6acfe3db1e7762675">&#9670;&nbsp;</a></span>power</h2>
 
@@ -1987,44 +1860,6 @@ template&lt;container Container, typename T , typename BinaryCallable &gt; </div
 <p>NOLINT(bugprone-use-after-move)</p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>, <a class="el" href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">for_each()</a>, and <a class="el" href="namespaceemlabcpp.html#a4b323693e8d1a33bad5c12c63709fe3b">init()</a>.</p>
-
-</div>
-</div>
-<a id="a3c4b8276158ed7d743c68c7395ed0966"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c4b8276158ed7d743c68c7395ed0966">&#9670;&nbsp;</a></span>align()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void* emlabcpp::align </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>alignment</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>TODO: this needs tests. </p>
 
 </div>
 </div>
@@ -6838,7 +6673,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sat Dec 10 2022 16:53:32 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 10 2022 23:16:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

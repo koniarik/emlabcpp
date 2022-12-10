@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>emlabcpp: include/emlabcpp/allocator/util.h Source File</title>
+<title>emlabcpp: include/emlabcpp/pmr/util.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -115,10 +115,10 @@ $(document).ready(function(){initNavTree('util_8h_source.html',''); initResizabl
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">   33</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span>* <a class="code" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a>( <span class="keywordtype">void</span>* ptr, std::size_t alignment )</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#a204dae2444973396ce52ae927b8c445f">   33</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span>* <a class="code" href="namespaceemlabcpp_1_1pmr.html#a204dae2444973396ce52ae927b8c445f">align</a>( <span class="keywordtype">void</span>* ptr, std::size_t alignment )</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">// note: based on tips from sarah@#include discord</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> iptr         = <span class="keyword">reinterpret_cast&lt;</span> std::uintptr_t <span class="keyword">&gt;</span>( ptr );</div>
@@ -127,17 +127,17 @@ $(document).ready(function(){initNavTree('util_8h_source.html',''); initResizabl
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( ptr ) + ( aligned - iptr );</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
-<div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a3c4b8276158ed7d743c68c7395ed0966"><div class="ttname"><a href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">emlabcpp::align</a></div><div class="ttdeci">void * align(void *ptr, std::size_t alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:33</div></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}  <span class="comment">// namespace emlabcpp::pmr</span></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></div><div class="ttdef"><b>Definition:</b> aliases.h:13</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a204dae2444973396ce52ae927b8c445f"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a204dae2444973396ce52ae927b8c445f">emlabcpp::pmr::align</a></div><div class="ttdeci">void * align(void *ptr, std::size_t alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:33</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:88</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_52a6b55dd004b46393f33e3ff3a56c73.html">allocator</a></li><li class="navelem"><a class="el" href="util_8h.html">util.h</a></li>
-    <li class="footer">Generated on Sat Dec 10 2022 16:53:32 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_231aac52433e25ed4b5ea5619bdfd3e1.html">pmr</a></li><li class="navelem"><a class="el" href="util_8h.html">util.h</a></li>
+    <li class="footer">Generated on Sat Dec 10 2022 23:16:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

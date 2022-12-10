@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('static__function_8h_source.html',''); 
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//  Copyright © 2022 Jan Veverak Koniarik</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//  This file is part of project: emlabcpp</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="util_8h.html">emlabcpp/allocator/util.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="util_8h.html">emlabcpp/pmr/util.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
@@ -153,7 +153,7 @@ $(document).ready(function(){initNavTree('static__function_8h_source.html',''); 
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1detail_1_1static__function__storage.html#a22de268b5b018e70b55896ef311be3c2">   65</a></span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span>* <a class="code" href="classemlabcpp_1_1detail_1_1static__function__storage.html#a22de268b5b018e70b55896ef311be3c2">construct_at</a>( <span class="keywordtype">void</span>* ptr, T item )</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        ptr = <a class="code" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a>( ptr, <span class="keyword">alignof</span>( <a class="code" href="classemlabcpp_1_1detail_1_1static__function__storage.html">static_function_storage</a> ) );</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        ptr = <a class="code" href="namespaceemlabcpp_1_1pmr.html#a204dae2444973396ce52ae927b8c445f">pmr::align</a>( ptr, <span class="keyword">alignof</span>( <a class="code" href="classemlabcpp_1_1detail_1_1static__function__storage.html">static_function_storage</a> ) );</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        <span class="keywordflow">return</span> std::construct_at(</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                            <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="classemlabcpp_1_1detail_1_1static__function__storage.html">static_function_storage</a>* <span class="keyword">&gt;</span>( ptr ),</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                            std::move( item ) );</div>
@@ -175,7 +175,7 @@ $(document).ready(function(){initNavTree('static__function_8h_source.html',''); 
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        target = <a class="code" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a>( target, <span class="keyword">alignof</span>( <a class="code" href="classemlabcpp_1_1detail_1_1static__function__storage.html">static_function_storage</a> ) );</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        target = <a class="code" href="namespaceemlabcpp_1_1pmr.html#a204dae2444973396ce52ae927b8c445f">pmr::align</a>( target, <span class="keyword">alignof</span>( <a class="code" href="classemlabcpp_1_1detail_1_1static__function__storage.html">static_function_storage</a> ) );</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                        <span class="keywordflow">if</span> ( op == <a class="code" href="namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eae8606d021da140a92c7eba8d9b8af84f">static_function_operations::COPY</a> ) {</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                                <span class="keywordflow">return</span> std::construct_at(</div>
@@ -301,7 +301,7 @@ $(document).ready(function(){initNavTree('static__function_8h_source.html',''); 
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        {</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                <span class="keywordflow">return</span> vtable_-&gt;invoke( obj_, std::forward&lt; ArgTypes &gt;( args )... );</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        }</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
 <div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_01_4.html#a1da6063dafad8f53000896565781a61d">  216</a></span>&#160;        ReturnType <a class="code" href="classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_01_4.html#a1da6063dafad8f53000896565781a61d">operator()</a>( ArgTypes... args )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                <span class="keywordflow">return</span> vtable_-&gt;invoke( obj_, std::forward&lt; ArgTypes &gt;( args )... );</div>
@@ -313,10 +313,10 @@ $(document).ready(function(){initNavTree('static__function_8h_source.html',''); 
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        }</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keyword">static</span> constexpr std::size_t required_space( std::size_t size, <span class="keyword">const</span> std::size_t <a class="code" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a> )</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keyword">static</span> constexpr std::size_t required_space( std::size_t size, <span class="keyword">const</span> std::size_t <a class="code" href="namespaceemlabcpp_1_1pmr.html#a204dae2444973396ce52ae927b8c445f">align</a> )</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        {</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                <span class="keywordflow">if</span> ( <a class="code" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a> &gt; Align ) {</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                        size += <a class="code" href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">align</a> - Align;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                <span class="keywordflow">if</span> ( <a class="code" href="namespaceemlabcpp_1_1pmr.html#a204dae2444973396ce52ae927b8c445f">align</a> &gt; Align ) {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                        size += <a class="code" href="namespaceemlabcpp_1_1pmr.html#a204dae2444973396ce52ae927b8c445f">align</a> - Align;</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                }</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                <span class="keywordflow">return</span> size;</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        }</div>
@@ -366,8 +366,8 @@ $(document).ready(function(){initNavTree('static__function_8h_source.html',''); 
 <div class="ttc" id="anamespaceemlabcpp_1_1detail_html_a309933793612db190739322f8030e79eac39aa6dbe619bb8ef8187b00b686df6a"><div class="ttname"><a href="namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eac39aa6dbe619bb8ef8187b00b686df6a">emlabcpp::detail::static_function_operations::DESTROY</a></div><div class="ttdeci">@ DESTROY</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1detail_html_a309933793612db190739322f8030e79eae8606d021da140a92c7eba8d9b8af84f"><div class="ttname"><a href="namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eae8606d021da140a92c7eba8d9b8af84f">emlabcpp::detail::static_function_operations::COPY</a></div><div class="ttdeci">@ COPY</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1detail_html_a309933793612db190739322f8030e79eaf7f93635f8e193a924ae4a691bb66b8f"><div class="ttname"><a href="namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eaf7f93635f8e193a924ae4a691bb66b8f">emlabcpp::detail::static_function_operations::MOVE</a></div><div class="ttdeci">@ MOVE</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a204dae2444973396ce52ae927b8c445f"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a204dae2444973396ce52ae927b8c445f">emlabcpp::pmr::align</a></div><div class="ttdeci">void * align(void *ptr, std::size_t alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:33</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> impl.h:30</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a3c4b8276158ed7d743c68c7395ed0966"><div class="ttname"><a href="namespaceemlabcpp.html#a3c4b8276158ed7d743c68c7395ed0966">emlabcpp::align</a></div><div class="ttdeci">void * align(void *ptr, std::size_t alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:33</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:88</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_classemlabcpp_1_1static__function__base"><div class="ttname"><a href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">emlabcpp::static_function_base</a></div><div class="ttdef"><b>Definition:</b> static_function.h:108</div></div>
 <div class="ttc" id="astructemlabcpp_1_1detail_1_1static__function__vtable_html"><div class="ttname"><a href="structemlabcpp_1_1detail_1_1static__function__vtable.html">emlabcpp::detail::static_function_vtable</a></div><div class="ttdef"><b>Definition:</b> static_function.h:44</div></div>
@@ -379,7 +379,7 @@ $(document).ready(function(){initNavTree('static__function_8h_source.html',''); 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="static__function_8h.html">static_function.h</a></li>
-    <li class="footer">Generated on Sat Dec 10 2022 16:53:32 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 10 2022 23:16:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

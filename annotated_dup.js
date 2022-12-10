@@ -2,8 +2,8 @@ var annotated_dup =
 [
     [ "emlabcpp", "namespaceemlabcpp.html", [
       [ "coro", "namespaceemlabcpp_1_1coro.html", [
+        [ "memory_promise", "structemlabcpp_1_1coro_1_1memory__promise.html", "structemlabcpp_1_1coro_1_1memory__promise" ],
         [ "owning_coroutine_handle", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", "classemlabcpp_1_1coro_1_1owning__coroutine__handle" ],
-        [ "pool_promise", "structemlabcpp_1_1coro_1_1pool__promise.html", "structemlabcpp_1_1coro_1_1pool__promise" ],
         [ "request_reply", "classemlabcpp_1_1coro_1_1request__reply.html", "classemlabcpp_1_1coro_1_1request__reply" ]
       ] ],
       [ "detail", "namespaceemlabcpp_1_1detail.html", [
@@ -27,6 +27,13 @@ var annotated_dup =
         [ "static_size< std::array< T, N > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1array_3_01T_00_01N_01_4_01_4" ],
         [ "static_size< std::tuple< Ts... > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4" ],
         [ "is_view< view< Iter > >", "structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html", null ]
+      ] ],
+      [ "pmr", "namespaceemlabcpp_1_1pmr.html", [
+        [ "deleter", "structemlabcpp_1_1pmr_1_1deleter.html", "structemlabcpp_1_1pmr_1_1deleter" ],
+        [ "allocator", "classemlabcpp_1_1pmr_1_1allocator.html", "classemlabcpp_1_1pmr_1_1allocator" ],
+        [ "memory_resource", "classemlabcpp_1_1pmr_1_1memory__resource.html", "classemlabcpp_1_1pmr_1_1memory__resource" ],
+        [ "new_delete_resource_impl", "structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html", "structemlabcpp_1_1pmr_1_1new__delete__resource__impl" ],
+        [ "pool_resource", "classemlabcpp_1_1pmr_1_1pool__resource.html", "classemlabcpp_1_1pmr_1_1pool__resource" ]
       ] ],
       [ "protocol", "namespaceemlabcpp_1_1protocol.html", [
         [ "conversion_result", "structemlabcpp_1_1protocol_1_1conversion__result.html", "structemlabcpp_1_1protocol_1_1conversion__result" ],
@@ -181,12 +188,6 @@ var annotated_dup =
       ] ],
       [ "min_max", "structemlabcpp_1_1min__max.html", "structemlabcpp_1_1min__max" ],
       [ "convert_to", "structemlabcpp_1_1convert__to.html", "structemlabcpp_1_1convert__to" ],
-      [ "pool_interface", "structemlabcpp_1_1pool__interface.html", "structemlabcpp_1_1pool__interface" ],
-      [ "pool_resource", "classemlabcpp_1_1pool__resource.html", "classemlabcpp_1_1pool__resource" ],
-      [ "pool_dynamic_resource", "classemlabcpp_1_1pool__dynamic__resource.html", null ],
-      [ "pool_allocator", "classemlabcpp_1_1pool__allocator.html", "classemlabcpp_1_1pool__allocator" ],
-      [ "pool_base", "structemlabcpp_1_1pool__base.html", "structemlabcpp_1_1pool__base" ],
-      [ "pool_deleter", "structemlabcpp_1_1pool__deleter.html", "structemlabcpp_1_1pool__deleter" ],
       [ "bounded", "classemlabcpp_1_1bounded.html", "classemlabcpp_1_1bounded" ],
       [ "defer", "classemlabcpp_1_1defer.html", "classemlabcpp_1_1defer" ],
       [ "either", "classemlabcpp_1_1either.html", "classemlabcpp_1_1either" ],

@@ -41,9 +41,9 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structemlabcpp_1_1coro_1_1pool__promise.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="structemlabcpp_1_1coro_1_1memory__promise.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="12.5,-168.5 12.5,-198.5 163.5,-198.5 163.5,-168.5 12.5,-168.5"/>
-<text text-anchor="start" x="20.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::coro::pool</text>
+<text text-anchor="start" x="20.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::coro::memory</text>
 <text text-anchor="middle" x="88" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">_promise&lt; promise_type &gt;</text>
 </a>
 </g>

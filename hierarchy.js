@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "emlabcpp::pmr::allocator< T >", "classemlabcpp_1_1pmr_1_1allocator.html", null ],
     [ "emlabcpp::are_same<... >", "namespaceemlabcpp.html#structemlabcpp_1_1are__same", null ],
     [ "std::array< T >", null, [
       [ "emlabcpp::protocol::mark", "structemlabcpp_1_1protocol_1_1mark.html", null ]
@@ -74,6 +75,7 @@ var hierarchy =
     ] ],
     [ "emlabcpp::detail::decompose_anything< size_t >", "structemlabcpp_1_1detail_1_1decompose__anything.html", null ],
     [ "emlabcpp::defer< Callable >", "classemlabcpp_1_1defer.html", null ],
+    [ "emlabcpp::pmr::deleter", "structemlabcpp_1_1pmr_1_1deleter.html", null ],
     [ "emlabcpp::rpc::derive< ID, Method >", "structemlabcpp_1_1rpc_1_1derive.html", null ],
     [ "emlabcpp::derived_storage< T, N >", "classemlabcpp_1_1derived__storage.html", null ],
     [ "std::disjunction", null, [
@@ -159,6 +161,16 @@ var hierarchy =
     [ "emlabcpp::mapped< Container, UnaryCallable >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4.html", null ],
     [ "emlabcpp::matrix< N, M, T >", "classemlabcpp_1_1matrix.html", null ],
     [ "emlabcpp::protocol::memcpy_converter< T, Endianess >", "structemlabcpp_1_1protocol_1_1memcpy__converter.html", null ],
+    [ "emlabcpp::coro::memory_promise< PromiseType >", "structemlabcpp_1_1coro_1_1memory__promise.html", null ],
+    [ "emlabcpp::coro::memory_promise< promise_type >", "structemlabcpp_1_1coro_1_1memory__promise.html", [
+      [ "emlabcpp::coro::request_reply< RequestType, ReplyType >::promise_type", "structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html", null ],
+      [ "emlabcpp::testing::test_coroutine::promise_type", "structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html", null ]
+    ] ],
+    [ "emlabcpp::pmr::memory_resource", "classemlabcpp_1_1pmr_1_1memory__resource.html", [
+      [ "emlabcpp::pmr::pool_resource< 1024, 1 >", "classemlabcpp_1_1pmr_1_1pool__resource.html", null ],
+      [ "emlabcpp::pmr::new_delete_resource_impl", "structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html", null ],
+      [ "emlabcpp::pmr::pool_resource< PoolSize, PoolCount >", "classemlabcpp_1_1pmr_1_1pool__resource.html", null ]
+    ] ],
     [ "emlabcpp::protocol::message< N >", "classemlabcpp_1_1protocol_1_1message.html", [
       [ "emlabcpp::protocol::sizeless_message< N >", "classemlabcpp_1_1protocol_1_1sizeless__message.html", null ]
     ] ],
@@ -188,19 +200,6 @@ var hierarchy =
     [ "emlabcpp::testing::param_value_reply", "structemlabcpp_1_1testing_1_1param__value__reply.html", null ],
     [ "emlabcpp::testing::param_value_request", "structemlabcpp_1_1testing_1_1param__value__request.html", null ],
     [ "emlabcpp::pid< TimeType >", "classemlabcpp_1_1pid.html", null ],
-    [ "emlabcpp::pool_allocator< T >", "classemlabcpp_1_1pool__allocator.html", null ],
-    [ "emlabcpp::pool_base< PoolSize, PoolCount >", "structemlabcpp_1_1pool__base.html", null ],
-    [ "emlabcpp::pool_deleter", "structemlabcpp_1_1pool__deleter.html", null ],
-    [ "emlabcpp::pool_interface", "structemlabcpp_1_1pool__interface.html", [
-      [ "emlabcpp::pool_resource< 1024, 1 >", "classemlabcpp_1_1pool__resource.html", null ],
-      [ "emlabcpp::pool_dynamic_resource", "classemlabcpp_1_1pool__dynamic__resource.html", null ],
-      [ "emlabcpp::pool_resource< PoolSize, PoolCount >", "classemlabcpp_1_1pool__resource.html", null ]
-    ] ],
-    [ "emlabcpp::coro::pool_promise< PromiseType >", "structemlabcpp_1_1coro_1_1pool__promise.html", null ],
-    [ "emlabcpp::coro::pool_promise< promise_type >", "structemlabcpp_1_1coro_1_1pool__promise.html", [
-      [ "emlabcpp::coro::request_reply< RequestType, ReplyType >::promise_type", "structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html", null ],
-      [ "emlabcpp::testing::test_coroutine::promise_type", "structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html", null ]
-    ] ],
     [ "emlabcpp::pretty_printer< StreamType >", "classemlabcpp_1_1pretty__printer.html", null ],
     [ "emlabcpp::protocol::proto_traits< D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits", null ],
     [ "emlabcpp::protocol::proto_traits< bounded< D, Min, Max > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html", null ],

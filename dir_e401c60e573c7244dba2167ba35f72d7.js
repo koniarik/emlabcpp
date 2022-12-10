@@ -1,9 +1,9 @@
 var dir_e401c60e573c7244dba2167ba35f72d7 =
 [
     [ "algorithm", "dir_cd2498770f46874251cd2a7d2270663c.html", "dir_cd2498770f46874251cd2a7d2270663c" ],
-    [ "allocator", "dir_52a6b55dd004b46393f33e3ff3a56c73.html", "dir_52a6b55dd004b46393f33e3ff3a56c73" ],
     [ "experimental", "dir_833cf07299c67ab119396183470d94f1.html", "dir_833cf07299c67ab119396183470d94f1" ],
     [ "iterators", "dir_d23cc4b283f7681fa42a07595366cfa6.html", "dir_d23cc4b283f7681fa42a07595366cfa6" ],
+    [ "pmr", "dir_231aac52433e25ed4b5ea5619bdfd3e1.html", "dir_231aac52433e25ed4b5ea5619bdfd3e1" ],
     [ "protocol", "dir_d020062af5803c7b3279d0fbd1610b13.html", "dir_d020062af5803c7b3279d0fbd1610b13" ],
     [ "types", "dir_39f3dc408824a4272fd866f558579a7d.html", "dir_39f3dc408824a4272fd866f558579a7d" ],
     [ "algorithm.h", "algorithm_8h.html", "algorithm_8h" ],
