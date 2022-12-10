@@ -223,21 +223,21 @@ iterators/numeric.h</h3>
 <p>Iterator that mimics real data container of sequence of numbers. The number is stored inside the iterator and when iterator is advanced, so is the internal value changed. Contains also functions like <code>range(from,to)</code> that creates a range from this iterators.</p>
 <div class="fragment"><div class="line">std::vector&lt;int&gt; vec_data;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordflow">for</span>(std::size_t i : <a class="code" href="namespaceemlabcpp.html#ac4b40baac2662db6424a475292ef03b3">range</a>(vec_data.size()-1))</div>
+<div class="line"><span class="keywordflow">for</span>(std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>(vec_data.size()-1))</div>
 <div class="line">{</div>
 <div class="line">    std::cout &lt;&lt; vec_data[i] &lt;&lt; <span class="charliteral">&#39;-&#39;</span> &lt;&lt; vec_data[i+1] &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_html_ac4b40baac2662db6424a475292ef03b3"><div class="ttname"><a href="namespaceemlabcpp.html#ac4b40baac2662db6424a475292ef03b3">emlabcpp::range</a></div><div class="ttdeci">constexpr view&lt; numeric_iterator&lt; Numeric &gt; &gt; range(Numeric from, Numeric to)</div><div class="ttdoc">Builds numeric view over interval [from, to)</div><div class="ttdef"><b>Definition:</b> numeric.h:103</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_acf5a156c767ed17a892cc7e9b5acd2b1"><div class="ttname"><a href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">emlabcpp::range</a></div><div class="ttdeci">constexpr view&lt; iterators::numeric_iterator&lt; Numeric &gt; &gt; range(Numeric from, Numeric to)</div><div class="ttdoc">Builds numeric view over interval [from, to)</div><div class="ttdef"><b>Definition:</b> range.h:11</div></div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md21"></a>
 iterators/subscript.h</h3>
 <p>Iterator over datatype that implemented operator[] but does not have iterators.</p>
 <div class="fragment"><div class="line">std::bitset&lt;32&gt; bit_data;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">bool</span> b : <a class="code" href="namespaceemlabcpp.html#a46f1323b0b8ce43a44ca13753d457260">subscript_view</a>(bit_data))</div>
+<div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">bool</span> b : <a class="code" href="namespaceemlabcpp.html#ac813ec118aa63294f4ed7955f389e289">subscript_view</a>(bit_data))</div>
 <div class="line">{</div>
 <div class="line">    std::cout &lt;&lt; (b ? <span class="charliteral">&#39;a&#39;</span> : <span class="charliteral">&#39;b&#39;</span>);</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_html_a46f1323b0b8ce43a44ca13753d457260"><div class="ttname"><a href="namespaceemlabcpp.html#a46f1323b0b8ce43a44ca13753d457260">emlabcpp::subscript_view</a></div><div class="ttdeci">view&lt; subscript_iterator&lt; Container &gt; &gt; subscript_view(Container &amp;cont)</div><div class="ttdef"><b>Definition:</b> subscript.h:108</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ac813ec118aa63294f4ed7955f389e289"><div class="ttname"><a href="namespaceemlabcpp.html#ac813ec118aa63294f4ed7955f389e289">emlabcpp::subscript_view</a></div><div class="ttdeci">view&lt; iterators::subscript_iterator&lt; Container &gt; &gt; subscript_view(Container &amp;cont)</div><div class="ttdef"><b>Definition:</b> subscript_view.h:8</div></div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md22"></a>
 iterators/access.h</h3>
 <p>Iterators overlays the data stored in input container, and provides access only to 'reference' provided by function out of item in the container.</p>
@@ -247,7 +247,7 @@ iterators/access.h</h3>
 <div class="line"> </div>
 <div class="line">std::vector&lt;foo&gt; vec_data;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">auto</span> acview = <a class="code" href="namespaceemlabcpp.html#aeed89855f25c3cc3885b6ff97926cf4c">access_view</a>(vec_data,</div>
+<div class="line"><span class="keyword">auto</span> acview = <a class="code" href="namespaceemlabcpp.html#adcc04a8c30d4e666197002f7bdf037eb">access_view</a>(vec_data,</div>
 <div class="line">                          [](<span class="keyword">const</span> foo&amp; item) -&gt; <span class="keyword">const</span> std::string&amp; { </div>
 <div class="line">                            <span class="keywordflow">return</span> item.attr;</div>
 <div class="line">                          });</div>
@@ -256,7 +256,7 @@ iterators/access.h</h3>
 <div class="line">{</div>
 <div class="line">    std::cout &lt;&lt; item &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_html_aeed89855f25c3cc3885b6ff97926cf4c"><div class="ttname"><a href="namespaceemlabcpp.html#aeed89855f25c3cc3885b6ff97926cf4c">emlabcpp::access_view</a></div><div class="ttdeci">view&lt; access_iterator&lt; iterator_of_t&lt; Container &gt;, AccessCallable &gt; &gt; access_view(Container &amp;&amp;cont, AccessCallable &amp;&amp;f)</div><div class="ttdoc">Creates view ver container cont with AccessCallable f.</div><div class="ttdef"><b>Definition:</b> access.h:108</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_adcc04a8c30d4e666197002f7bdf037eb"><div class="ttname"><a href="namespaceemlabcpp.html#adcc04a8c30d4e666197002f7bdf037eb">emlabcpp::access_view</a></div><div class="ttdeci">view&lt; iterators::access_iterator&lt; iterator_of_t&lt; Container &gt;, AccessCallable &gt; &gt; access_view(Container &amp;&amp;cont, AccessCallable &amp;&amp;f)</div><div class="ttdoc">Creates view ver container cont with AccessCallable f.</div><div class="ttdef"><b>Definition:</b> access_view.h:13</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md23"></a>
 match.h</h2>
 <p>Match is mechanism similar to <code>std::visit(Callable,Variant)</code>, but one that changes the order of arguments and allows mutliple callables. The signature is along the lines of: <code>match(Variant,Callable...)</code>. The implementation composes callables together and let's method resolution pick the appropaite callable for alternative present in the variant.</p>
@@ -430,7 +430,7 @@ zip.h</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Dec 10 2022 23:16:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 10 2022 23:30:41 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

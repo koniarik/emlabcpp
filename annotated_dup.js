@@ -28,6 +28,12 @@ var annotated_dup =
         [ "static_size< std::tuple< Ts... > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4" ],
         [ "is_view< view< Iter > >", "structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html", null ]
       ] ],
+      [ "iterators", "namespaceemlabcpp_1_1iterators.html", [
+        [ "access_iterator", "classemlabcpp_1_1iterators_1_1access__iterator.html", "classemlabcpp_1_1iterators_1_1access__iterator" ],
+        [ "convert_iterator", "classemlabcpp_1_1iterators_1_1convert__iterator.html", "classemlabcpp_1_1iterators_1_1convert__iterator" ],
+        [ "numeric_iterator", "classemlabcpp_1_1iterators_1_1numeric__iterator.html", "classemlabcpp_1_1iterators_1_1numeric__iterator" ],
+        [ "subscript_iterator", "classemlabcpp_1_1iterators_1_1subscript__iterator.html", "classemlabcpp_1_1iterators_1_1subscript__iterator" ]
+      ] ],
       [ "pmr", "namespaceemlabcpp_1_1pmr.html", [
         [ "deleter", "structemlabcpp_1_1pmr_1_1deleter.html", "structemlabcpp_1_1pmr_1_1deleter" ],
         [ "allocator", "classemlabcpp_1_1pmr_1_1allocator.html", "classemlabcpp_1_1pmr_1_1allocator" ],
@@ -211,10 +217,6 @@ var annotated_dup =
       [ "pretty_printer", "classemlabcpp_1_1pretty__printer.html", "classemlabcpp_1_1pretty__printer" ],
       [ "simple_stream", "classemlabcpp_1_1simple__stream.html", "classemlabcpp_1_1simple__stream" ],
       [ "generic_iterator", "classemlabcpp_1_1generic__iterator.html", "classemlabcpp_1_1generic__iterator" ],
-      [ "access_iterator", "classemlabcpp_1_1access__iterator.html", "classemlabcpp_1_1access__iterator" ],
-      [ "convert_iterator", "classemlabcpp_1_1convert__iterator.html", "classemlabcpp_1_1convert__iterator" ],
-      [ "numeric_iterator", "classemlabcpp_1_1numeric__iterator.html", "classemlabcpp_1_1numeric__iterator" ],
-      [ "subscript_iterator", "classemlabcpp_1_1subscript__iterator.html", "classemlabcpp_1_1subscript__iterator" ],
       [ "matcher", "structemlabcpp_1_1matcher.html", "structemlabcpp_1_1matcher" ],
       [ "physical_quantity", "structemlabcpp_1_1physical__quantity.html", "structemlabcpp_1_1physical__quantity" ],
       [ "pid", "classemlabcpp_1_1pid.html", "classemlabcpp_1_1pid" ],
@@ -253,10 +255,10 @@ var annotated_dup =
       [ "zip_iterator", "classemlabcpp_1_1zip__iterator.html", "classemlabcpp_1_1zip__iterator" ]
     ] ],
     [ "std", null, [
-      [ "iterator_traits< emlabcpp::access_iterator< Iterator, AccessCallable > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1access__iterator_3_01Iterator_00_01AccessCallable_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1access__iterator_3_01Iterator_00_01AccessCallable_01_4_01_4" ],
-      [ "iterator_traits< emlabcpp::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4" ],
-      [ "iterator_traits< emlabcpp::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1numeric__iterator_3_01T_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1numeric__iterator_3_01T_01_4_01_4" ],
-      [ "iterator_traits< emlabcpp::subscript_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1subscript__iterator_3_01Container_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1subscript__iterator_3_01Container_01_4_01_4" ],
+      [ "iterator_traits< emlabcpp::iterators::access_iterator< Iterator, AccessCallable > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1access__iterator_3_01Iterator_00_01AccessCallable_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1access__iterator_3_01Iterator_00_01AccessCallable_01_4_01_4" ],
+      [ "iterator_traits< emlabcpp::iterators::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4" ],
+      [ "iterator_traits< emlabcpp::iterators::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4" ],
+      [ "iterator_traits< emlabcpp::iterators::subscript_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4" ],
       [ "numeric_limits< T >", "structstd_1_1numeric__limits_3_01T_01_4.html", "structstd_1_1numeric__limits_3_01T_01_4" ],
       [ "hash< T >", "structstd_1_1hash_3_01T_01_4.html", "structstd_1_1hash_3_01T_01_4" ],
       [ "iterator_traits< emlabcpp::static_circular_buffer_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01Container_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01Container_01_4_01_4" ],
