@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"classemlabcpp_1_1testing_1_1reactor__interface__adapter.html":[3,0,0,7,58],
 "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#a1dc94f679f5c3e983ce8d1c22ac53aa3":[3,0,0,7,58,1],
 "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#a1fb76ed76a8d8010a49d216ec367535d":[3,0,0,7,58,0],
 "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#a266c6fe203f1ce2bfd6be2f2be321701":[3,0,0,7,58,5],
@@ -17,6 +16,7 @@ var NAVTREEINDEX3 =
 "classemlabcpp_1_1testing_1_1record.html#a2666d5a260381843c10ff91677363ff0":[3,0,0,7,59,10],
 "classemlabcpp_1_1testing_1_1record.html#a4b5088e026fe9c58f1db4422269869aa":[3,0,0,7,59,1],
 "classemlabcpp_1_1testing_1_1record.html#a53463059e63257cf0f8d61f042b8669b":[3,0,0,7,59,4],
+"classemlabcpp_1_1testing_1_1record.html#a55f3f989c96c26ab52b4d03d13aae327":[3,0,0,7,59,13],
 "classemlabcpp_1_1testing_1_1record.html#a5d48f537bcb989026a39cf994b39480c":[3,0,0,7,59,5],
 "classemlabcpp_1_1testing_1_1record.html#a5d525249dc0b62eb02409965eb2fedba":[3,0,0,7,59,19],
 "classemlabcpp_1_1testing_1_1record.html#a5da93c2d191314f896b1816d32c6ec8b":[3,0,0,7,59,0],
@@ -29,7 +29,6 @@ var NAVTREEINDEX3 =
 "classemlabcpp_1_1testing_1_1record.html#aceafaa626676bb25a11b72c3be64a51c":[3,0,0,7,59,15],
 "classemlabcpp_1_1testing_1_1record.html#ad9de614969f42a680c74bd5fafd2e21c":[3,0,0,7,59,18],
 "classemlabcpp_1_1testing_1_1record.html#adf2ee1e02d672abc7472de8027dc236e":[3,0,0,7,59,21],
-"classemlabcpp_1_1testing_1_1record.html#aee5aec74130e796ae39d30b618303b72":[3,0,0,7,59,13],
 "classemlabcpp_1_1testing_1_1record.html#af99474220a2ccb13f48ba33e030fcdb7":[3,0,0,7,59,17],
 "classemlabcpp_1_1testing_1_1record.html#afc3ca687897f0291571e53e3aa8931d4":[3,0,0,7,59,12],
 "classemlabcpp_1_1testing_1_1test__callable.html":[3,0,0,7,24],
@@ -249,5 +248,6 @@ var NAVTREEINDEX3 =
 "experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6ca7b6f85de641381d0c1dd2ebf429a90cd":[4,0,0,0,1,3,9,42,17],
 "experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6ca80d3c264bc9a5f0a15ef3335f6a4d754":[4,0,0,0,1,3,9,42,4],
 "experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6ca877f69177a47fe79578e054501efe224":[4,0,0,0,1,3,9,42,8],
-"experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6ca8ef363444f05b891ef402c9abb530351":[4,0,0,0,1,3,9,42,12]
+"experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6ca8ef363444f05b891ef402c9abb530351":[4,0,0,0,1,3,9,42,12],
+"experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6ca94ed7dad64766a32cea41354f0b3f318":[4,0,0,0,1,3,9,42,16]
 };

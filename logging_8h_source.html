@@ -188,15 +188,15 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">void</span> operator()( <span class="keyword">const</span> std::string_view sv )</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        {</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                write_std_streams( sv );</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">if</span> ( filestream_ ) {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">if</span> ( filestream_ != <span class="keyword">nullptr</span> ) {</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        filestream_-&gt;write(</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                            sv.data(), <span class="keyword">static_cast&lt;</span> std::streamsize <span class="keyword">&gt;</span>( sv.size() ) );</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                }</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">void</span> set_color( <span class="keyword">const</span> std::string_view c )</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">void</span> set_color( <span class="keyword">const</span> std::string_view c )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                write_std_streams( <span class="stringliteral">&quot;\033[38;5;&quot;</span> );</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                write_std_streams( c );</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                write_std_streams( <span class="stringliteral">&quot;m&quot;</span> );</div>
@@ -293,7 +293,7 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="logging_8h.html">logging.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 17:34:34 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 18:38:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

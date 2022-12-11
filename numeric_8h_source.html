@@ -157,12 +157,12 @@ $(document).ready(function(){initNavTree('numeric_8h_source.html',''); initResiz
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
 <div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1iterators_1_1numeric__iterator.html#ac6d46f73321d8b000699bcdc631c74aa">   74</a></span>&#160;        constexpr <a class="code" href="classemlabcpp_1_1iterators_1_1numeric__iterator.html">numeric_iterator</a>&amp; <a class="code" href="classemlabcpp_1_1iterators_1_1numeric__iterator.html#ac6d46f73321d8b000699bcdc631c74aa">operator+=</a>( std::ptrdiff_t offset )</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                val_ += T( offset );</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                val_ += <span class="keyword">static_cast&lt;</span> T <span class="keyword">&gt;</span>( offset );</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
 <div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1iterators_1_1numeric__iterator.html#af90455742032627d017b25f055f64b80">   79</a></span>&#160;        constexpr <a class="code" href="classemlabcpp_1_1iterators_1_1numeric__iterator.html">numeric_iterator</a>&amp; <a class="code" href="classemlabcpp_1_1iterators_1_1numeric__iterator.html#af90455742032627d017b25f055f64b80">operator-=</a>( std::ptrdiff_t offset )</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                val_ -= T( offset );</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                val_ -= <span class="keyword">static_cast&lt;</span> T <span class="keyword">&gt;</span>( offset );</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
@@ -208,7 +208,7 @@ $(document).ready(function(){initNavTree('numeric_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d23cc4b283f7681fa42a07595366cfa6.html">iterators</a></li><li class="navelem"><a class="el" href="numeric_8h.html">numeric.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 17:34:34 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 18:38:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

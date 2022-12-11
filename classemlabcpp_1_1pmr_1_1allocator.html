@@ -109,8 +109,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a82a42419672c9e544fbf2383c7904e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad386b987b9a3ed5ff21026bb9681b3af"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html#ad386b987b9a3ed5ff21026bb9681b3af">allocate</a> (const std::size_t n)</td></tr>
 <tr class="separator:ad386b987b9a3ed5ff21026bb9681b3af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad49d4826436e97c112e76b22a2d50a83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html#ad49d4826436e97c112e76b22a2d50a83">deallocate</a> (T *const p, const std::size_t size) const noexcept</td></tr>
-<tr class="separator:ad49d4826436e97c112e76b22a2d50a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6212b03bc46f136af12449920944bdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html#ae6212b03bc46f136af12449920944bdc">deallocate</a> (T *const p, const std::size_t size) const</td></tr>
+<tr class="separator:ae6212b03bc46f136af12449920944bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7d56ec6385424c6fbd84ede83c63e35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html#aa7d56ec6385424c6fbd84ede83c63e35">get_resource</a> ()</td></tr>
 <tr class="separator:aa7d56ec6385424c6fbd84ede83c63e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -121,8 +121,6 @@ Friends</h2></td></tr>
 <tr class="separator:afa783bec2908e956517f48ac21ffa31d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a574c09f698951aaa2e5de1c1dc3464f1"><td class="memItemLeft" align="right" valign="top">constexpr friend bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html#a574c09f698951aaa2e5de1c1dc3464f1">operator==</a> (const <a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html">allocator</a> &amp;lh, const <a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html">allocator</a> &amp;rh)</td></tr>
 <tr class="separator:a574c09f698951aaa2e5de1c1dc3464f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9c18e00b5d81a407870013a99c985d2"><td class="memItemLeft" align="right" valign="top">constexpr friend bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html#ab9c18e00b5d81a407870013a99c985d2">operator!=</a> (const <a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html">allocator</a> &amp;lh, const <a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html">allocator</a> &amp;rh)</td></tr>
-<tr class="separator:ab9c18e00b5d81a407870013a99c985d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ae4d7ce343447e3d78356703de5abd636"></a>
@@ -231,8 +229,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ad49d4826436e97c112e76b22a2d50a83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad49d4826436e97c112e76b22a2d50a83">&#9670;&nbsp;</a></span>deallocate()</h2>
+<a id="ae6212b03bc46f136af12449920944bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6212b03bc46f136af12449920944bdc">&#9670;&nbsp;</a></span>deallocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,7 +260,7 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -325,44 +323,6 @@ template&lt;typename U &gt; </div>
 
 </div>
 </div>
-<a id="ab9c18e00b5d81a407870013a99c985d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9c18e00b5d81a407870013a99c985d2">&#9670;&nbsp;</a></span>operator!=</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr friend bool operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html">allocator</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>lh</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html">allocator</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rh</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a574c09f698951aaa2e5de1c1dc3464f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a574c09f698951aaa2e5de1c1dc3464f1">&#9670;&nbsp;</a></span>operator==</h2>
 
@@ -410,7 +370,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1pmr.html">pmr</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1pmr_1_1allocator.html">allocator</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 17:34:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 18:38:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
