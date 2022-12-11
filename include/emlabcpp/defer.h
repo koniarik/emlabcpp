@@ -42,18 +42,24 @@ namespace emlabcpp
 template < typename Callable >
 class defer
 {
-        Callable fun_;
-
 public:
         defer( Callable f )
           : fun_( std::move( f ) )
         {
         }
 
+        defer( const defer& )            = default;
+        defer( defer&& )                 = default;
+        defer& operator=( const defer& ) = default;
+        defer& operator=( defer&& )      = default;
+
         ~defer()
         {
                 fun_();
         }
+
+private:
+        Callable fun_;
 };
 
 }  // namespace emlabcpp
