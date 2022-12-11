@@ -159,16 +159,17 @@ namespace
 }  // namespace
 
 std::optional< controller >
-controller::make( controller_interface& top_iface, pmr::memory_resource& mem_resource )
+controller::make( controller_interface& iface, pmr::memory_resource& mem_resource )
 {
         controller_endpoint          ep;
-        controller_interface_adapter iface{ top_iface, ep };
+        controller_interface_adapter iface_adapter{ iface, ep };
 
         std::optional opt_name =
-            load_data< get_suite_name_reply >( get_property< SUITE_NAME >{}, iface );
+            load_data< get_suite_name_reply >( get_property< SUITE_NAME >{}, iface_adapter );
         std::optional opt_date =
-            load_data< get_suite_date_reply >( get_property< SUITE_DATE >{}, iface );
-        std::optional opt_count = load_data< get_count_reply >( get_property< COUNT >{}, iface );
+            load_data< get_suite_date_reply >( get_property< SUITE_DATE >{}, iface_adapter );
+        std::optional opt_count =
+            load_data< get_count_reply >( get_property< COUNT >{}, iface_adapter );
 
         if ( !opt_name ) {
                 EMLABCPP_LOG( "Failed to build controller - did not get a name" );
@@ -186,8 +187,8 @@ controller::make( controller_interface& top_iface, pmr::memory_resource& mem_res
         pmr::map< test_id, test_info > info{ mem_resource };
 
         for ( test_id i = 0; i < opt_count->count; i++ ) {
-                auto opt_test_name =
-                    load_data< get_test_name_reply >( get_test_name_request{ .tid = i }, iface );
+                auto opt_test_name = load_data< get_test_name_reply >(
+                    get_test_name_request{ .tid = i }, iface_adapter );
                 if ( !opt_test_name ) {
                         EMLABCPP_LOG(
                             "Failed to build controller - did not get a test name for index: "
@@ -200,17 +201,17 @@ controller::make( controller_interface& top_iface, pmr::memory_resource& mem_res
         return controller{ opt_name->name, opt_date->date, std::move( info ), mem_resource };
 }
 
-void controller::start_test( test_id tid, controller_interface& top_iface )
+void controller::start_test( test_id tid, controller_interface& iface )
 {
-        controller_interface_adapter iface{ top_iface, ep_ };
+        controller_interface_adapter iface_adapter{ iface, ep_ };
         EMLABCPP_ASSERT( !context_ );
 
         rid_ += 1;
 
         context_.emplace( tid, rid_, mem_res_ );
 
-        iface.send( load_test{ tid, rid_ } );
-        iface.send( exec_request{ rid_ } );
+        iface_adapter.send( load_test{ tid, rid_ } );
+        iface_adapter.send( exec_request{ rid_ } );
 }
 
 struct controller_dispatcher
@@ -382,19 +383,19 @@ struct controller_dispatcher
         }
 };
 
-void controller::tick( controller_interface& top_iface )
+void controller::tick( controller_interface& iface )
 {
-        controller_interface_adapter iface{ top_iface, ep_ };
+        controller_interface_adapter iface_adapter{ iface, ep_ };
 
         if ( !context_ ) {
                 return;
         }
 
-        iface.read_variant().match(
-            [this, &iface]( const reactor_controller_variant& var ) {
+        iface_adapter.read_variant().match(
+            [this, &iface_adapter]( const reactor_controller_variant& var ) {
                     // TODO: won't work with embedded logging
                     // EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
-                    visit( controller_dispatcher{ iface, this->context_ }, var );
+                    visit( controller_dispatcher{ iface_adapter, this->context_ }, var );
             },
             []( const protocol::endpoint_error& ) {} );
 }

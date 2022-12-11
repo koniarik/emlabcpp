@@ -32,9 +32,9 @@ test_interface& reactor::get_first_dummy_test()
         return root_test_;
 }
 
-void reactor::spin( reactor_interface& top_iface )
+void reactor::spin( reactor_interface& comm )
 {
-        reactor_interface_adapter iface{ top_iface, ep_ };
+        reactor_interface_adapter iface{ comm, ep_ };
 
         iface.read_variant().match(
             [this, &iface]( const controller_reactor_variant& var ) {

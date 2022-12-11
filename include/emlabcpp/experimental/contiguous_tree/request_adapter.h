@@ -88,7 +88,7 @@ public:
                     []( const std::variant< const_object_handle, const_array_handle > var ) {
                             return visit(
                                 []( const auto& handle ) {
-                                        return handle.size();
+                                        return std::size( handle );
                                 },
                                 var );
                     } );

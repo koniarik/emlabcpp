@@ -183,15 +183,15 @@ constexpr view< Iter > view_n( Iter begin, const std::size_t n )
 template < range_container Container >
 constexpr view< iterator_of_t< Container > > trim_view( Container& cont, const float r )
 {
-        const std::size_t step = cont.size() * ( 1.f - r ) / 2.f;
-        return { cont.begin() + step, cont.end() - step };
+        const std::size_t step = std::size( cont ) * ( 1.f - r ) / 2.f;
+        return { std::begin( cont ) + step, std::end( cont ) - step };
 }
 
 /// Returns view to the Container in reverse order.
 constexpr auto reversed( referenceable_container auto& container )
-    -> view< decltype( container.rbegin() ) >
+    -> view< decltype( std::rbegin( container ) ) >
 {
-        return { container.rbegin(), container.rend() };
+        return { std::rbegin( container ), std::rend( container ) };
 }
 
 /// Output operator for the view, uses comma to separate the items in the view.

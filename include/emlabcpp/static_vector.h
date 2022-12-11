@@ -259,15 +259,15 @@ private:
         template < typename Container >
         void copy_from( const Container& cont )
         {
-                size_ = cont.size();
-                std::uninitialized_copy( cont.begin(), cont.end(), begin() );
+                size_ = std::size( cont );
+                std::uninitialized_copy( std::begin( cont ), std::end( cont ), begin() );
         }
 
         template < typename Container >
         void move_from( Container& cont )
         {
-                size_ = cont.size();
-                std::uninitialized_move( cont.begin(), cont.end(), begin() );
+                size_ = std::size( cont );
+                std::uninitialized_move( std::begin( cont ), std::end( cont ), begin() );
         }
 
         /// Reference to the item in data_storage.
@@ -291,14 +291,15 @@ private:
 template < typename T, std::size_t N >
 [[nodiscard]] auto operator<=>( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
 {
-        return std::lexicographical_compare_three_way( lh.begin(), lh.end(), rh.begin(), rh.end() );
+        return std::lexicographical_compare_three_way(
+            std::begin( lh ), std::end( lh ), std::begin( rh ), std::end( rh ) );
 }
 
 template < typename T, std::size_t N >
 [[nodiscard]] bool operator==( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
 {
-        auto size = lh.size();
-        if ( size != rh.size() ) {
+        auto size = std::size( lh );
+        if ( size != std::size( rh ) ) {
                 return false;
         }
 
