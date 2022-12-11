@@ -253,7 +253,7 @@ template < ostreamlike Stream, typename Key, typename Value >
 auto& operator<<( Stream& os, const contiguous_node< Key, Value >& node )
 {
         visit(
-            [&]( const auto& val ) {
+            [&os]( const auto& val ) {
                     os << val;
             },
             node.get_container_handle() );

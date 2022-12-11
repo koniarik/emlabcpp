@@ -54,10 +54,10 @@ public:
                             if ( oh_ptr ) {
                                     match(
                                         id_var,
-                                        [&]( const key_type& k ) {
+                                        [&res, &oh_ptr]( const key_type& k ) {
                                                 res = oh_ptr->get_child( k );
                                         },
-                                        [&]( child_id chid ) {
+                                        [&res, &oh_ptr]( child_id chid ) {
                                                 res = oh_ptr->get_child( chid );
                                         } );
                             } else if (
@@ -87,7 +87,7 @@ public:
                 return get_containers( nid ).convert_left(
                     []( const std::variant< const_object_handle, const_array_handle > var ) {
                             return visit(
-                                [&]( const auto& handle ) {
+                                []( const auto& handle ) {
                                         return handle.size();
                                 },
                                 var );

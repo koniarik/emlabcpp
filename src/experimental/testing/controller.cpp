@@ -137,7 +137,7 @@ namespace
 
                 iface.send( req );
                 iface.read_variant().match(
-                    [&]( const reactor_controller_variant& var ) {
+                    [&iface, &res]( const reactor_controller_variant& var ) {
                             auto handle = matcher{
                                 [&res]( const ReturnType& item ) {
                                         res = item;
@@ -153,7 +153,7 @@ namespace
                             // EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
                             visit( handle, var );
                     },
-                    [&]( const protocol::endpoint_error& ) {} );
+                    []( const protocol::endpoint_error& ) {} );
                 return res;
         }
 }  // namespace
@@ -391,11 +391,11 @@ void controller::tick( controller_interface& top_iface )
         }
 
         iface.read_variant().match(
-            [&]( const reactor_controller_variant& var ) {
+            [this, &iface]( const reactor_controller_variant& var ) {
                     // TODO: won't work with embedded logging
                     // EMLABCPP_DEBUG_LOG( "con<-rec: " << var );
                     visit( controller_dispatcher{ iface, this->context_ }, var );
             },
-            [&]( const protocol::endpoint_error& ) {} );
+            []( const protocol::endpoint_error& ) {} );
 }
 }  // namespace emlabcpp::testing

@@ -147,7 +147,7 @@ public:
         void main_print( const std::variant< Ts... >& var )
         {
                 visit(
-                    [&]( const auto& val ) {
+                    [this]( const auto& val ) {
                             *this << val;
                     },
                     var );

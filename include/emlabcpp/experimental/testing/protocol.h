@@ -331,7 +331,7 @@ struct packet_def
         {
                 const uint8_t init = 0x0;
                 return accumulate(
-                    msg, init, [&]( const uint8_t accum, const uint8_t val ) -> uint8_t {
+                    msg, init, []( const uint8_t accum, const uint8_t val ) -> uint8_t {
                             return accum ^ val;
                     } );
         }

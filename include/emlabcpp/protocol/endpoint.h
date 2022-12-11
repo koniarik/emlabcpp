@@ -41,7 +41,7 @@ public:
 
                 return seq_.get_message()
                     .convert_left( convert_to< return_type >{} )
-                    .convert_right( [&]( const input_message msg ) {
+                    .convert_right( []( const input_message msg ) {
                             return handler::extract( msg )
                                 .convert_left( convert_to< return_type >{} )
                                 .convert_right( convert_to< return_type >{} )

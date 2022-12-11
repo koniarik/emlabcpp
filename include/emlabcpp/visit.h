@@ -59,9 +59,9 @@ template < typename Visitor, typename Variant >
 decltype( auto ) apply_on_visit( Visitor&& vis, Variant&& var )
 {
         return emlabcpp::visit(
-            [&]< typename Item >( Item&& item ) -> decltype( auto ) {
+            [&vis]< typename Item >( Item&& item ) -> decltype( auto ) {
                     return std::apply(
-                        [&]< typename... Vals >( Vals&&... vals ) -> decltype( auto ) {
+                        [&vis]< typename... Vals >( Vals&&... vals ) -> decltype( auto ) {
                                 return vis( std::forward< Vals >( vals )... );
                         },
                         std::forward< Item >( item ) );

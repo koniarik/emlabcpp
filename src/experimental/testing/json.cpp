@@ -111,7 +111,7 @@ json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt )
 nlohmann::json data_tree_to_json( const data_tree& tree )
 {
         static_function< nlohmann::json( node_id ), 32 > f =
-            [&]( const node_id nid ) -> nlohmann::json {
+            [&tree, &f]( const node_id nid ) -> nlohmann::json {
                 const auto* const node_ptr = tree.get_node( nid );
 
                 if ( node_ptr == nullptr ) {
@@ -120,10 +120,10 @@ nlohmann::json data_tree_to_json( const data_tree& tree )
 
                 return match(
                     node_ptr->get_container_handle(),
-                    [&]( const value_type& val ) {
+                    []( const value_type& val ) {
                             return value_type_to_json( val );
                     },
-                    [&]( const data_const_object_handle oh ) {
+                    [&f]( const data_const_object_handle oh ) {
                             nlohmann::json j;
                             for ( const auto& [key, chid] : oh ) {
                                     const std::string k{ key.begin(), key.size() };
@@ -131,7 +131,7 @@ nlohmann::json data_tree_to_json( const data_tree& tree )
                             }
                             return j;
                     },
-                    [&]( const data_const_array_handle ah ) {
+                    [&f]( const data_const_array_handle ah ) {
                             nlohmann::json j;
                             for ( const auto& [i, chid] : ah ) {
                                     j.push_back( f( chid ) );

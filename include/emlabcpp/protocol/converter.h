@@ -728,7 +728,7 @@ struct converter< tag_group< Ds... >, Endianess >
         deserialize( const std::span< const uint8_t >& buffer, value_type& value )
         {
                 conversion_result res;
-                until_index< sizeof...( Ds ) >( [&]< std::size_t i >() -> bool {
+                until_index< sizeof...( Ds ) >( [&buffer, &value, &res]< std::size_t i >() -> bool {
                         nth_tag< i > tag;
                         auto         tag_res = nth_tag_converter< i >::deserialize( buffer, tag );
                         if ( tag_res.has_error() ) {

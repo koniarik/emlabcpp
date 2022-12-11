@@ -37,45 +37,45 @@ void reactor::spin( reactor_interface& top_iface )
         reactor_interface_adapter iface{ top_iface, ep_ };
 
         iface.read_variant().match(
-            [&]( const controller_reactor_variant& var ) {
+            [this, &iface]( const controller_reactor_variant& var ) {
                     // TODO: this does not work, split the CR group into multiple groups...
                     match(
                         var,
-                        [&]( const auto& item ) {
+                        [this, &iface]( const auto& item ) {
                                 handle_message( item, iface );
                         },
-                        [&]( const param_value_reply& ) {
+                        [&iface]( const param_value_reply& ) {
                                 iface.report_failure( error< UNDESIRED_MSG_E >{} );
                         },
-                        [&]( const param_value_key_reply& ) {
+                        [&iface]( const param_value_key_reply& ) {
                                 iface.report_failure( error< UNDESIRED_MSG_E >{} );
                         },
-                        [&]( const param_child_reply& ) {
+                        [&iface]( const param_child_reply& ) {
                                 iface.report_failure( error< UNDESIRED_MSG_E >{} );
                         },
-                        [&]( const param_child_count_reply& ) {
+                        [&iface]( const param_child_count_reply& ) {
                                 iface.report_failure( error< UNDESIRED_MSG_E >{} );
                         },
-                        [&]( const param_key_reply& ) {
+                        [&iface]( const param_key_reply& ) {
                                 iface.report_failure( error< UNDESIRED_MSG_E >{} );
                         },
-                        [&]( const param_type_reply& ) {
+                        [&iface]( const param_type_reply& ) {
                                 iface.report_failure( error< UNDESIRED_MSG_E >{} );
                         },
-                        [&]( const tree_error_reply& ) {
+                        [&iface]( const tree_error_reply& ) {
                                 iface.report_failure( error< UNDESIRED_MSG_E >{} );
                         },
-                        [&]( const collect_reply& ) {
+                        [&iface]( const collect_reply& ) {
                                 iface.report_failure( error< UNDESIRED_MSG_E >{} );
                         } );
             },
-            [&]( const protocol::endpoint_error& e ) {
+            [&iface]( const protocol::endpoint_error& e ) {
                     match(
                         e,
-                        [&]( const protocol::endpoint_load_error& ) {
+                        [&iface]( const protocol::endpoint_load_error& ) {
                                 iface.report_failure( no_response_error{} );
                         },
-                        [&]( const protocol::error_record& rec ) {
+                        [&iface]( const protocol::error_record& rec ) {
                                 iface.report_failure( input_message_protocol_error{ rec } );
                         } );
             } );

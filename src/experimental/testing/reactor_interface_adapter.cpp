@@ -46,7 +46,7 @@ void reactor_interface_adapter::report_failure( const reactor_error_variant& eva
 bool reactor_interface_adapter::read_with_handler()
 {
         return read_variant()
-            .convert_left( [&]( controller_reactor_variant var ) {
+            .convert_left( [this]( controller_reactor_variant var ) {
                     if ( h_( var ) ) {
                             return true;
                     }
@@ -57,14 +57,14 @@ bool reactor_interface_adapter::read_with_handler()
                     report_failure( error< WRONG_MESSAGE_E >{} );
                     return false;
             } )
-            .convert_right( [&]( protocol::endpoint_error e ) {
+            .convert_right( [this]( protocol::endpoint_error e ) {
                     // TODO: replication from reactor
                     match(
                         e,
-                        [&]( const protocol::endpoint_load_error& ) {
+                        [this]( const protocol::endpoint_load_error& ) {
                                 report_failure( no_response_error{} );
                         },
-                        [&]( const protocol::error_record& rec ) {
+                        [this]( const protocol::error_record& rec ) {
                                 report_failure( input_message_protocol_error{ rec } );
                         } );
                     return false;
