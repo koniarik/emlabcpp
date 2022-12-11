@@ -12,7 +12,7 @@ var searchData=
   ['test_5fcallable_908',['test_callable',['../classemlabcpp_1_1testing_1_1test__callable.html',1,'emlabcpp::testing::test_callable&lt; Callable &gt;'],['../classemlabcpp_1_1testing_1_1test__callable.html#ac0faaf0f63c7b2552e47e9cd83277a5d',1,'emlabcpp::testing::test_callable::test_callable()']]],
   ['test_5fcompose_909',['test_compose',['../namespaceemlabcpp_1_1testing.html#a5dfb36ed7abfd06d258541ad605291f7',1,'emlabcpp::testing']]],
   ['test_5fcomposer_910',['test_composer',['../classemlabcpp_1_1testing_1_1test__composer.html',1,'emlabcpp::testing::test_composer&lt; T, C &gt;'],['../classemlabcpp_1_1testing_1_1test__composer.html#a30967d4b48de18989261ad9b8de231de',1,'emlabcpp::testing::test_composer::test_composer()']]],
-  ['test_5fcoroutine_911',['test_coroutine',['../classemlabcpp_1_1testing_1_1test__coroutine.html',1,'emlabcpp::testing::test_coroutine'],['../classemlabcpp_1_1testing_1_1test__coroutine.html#ac891c44517b0d7a9b4a8086e9b493374',1,'emlabcpp::testing::test_coroutine::test_coroutine()']]],
+  ['test_5fcoroutine_911',['test_coroutine',['../classemlabcpp_1_1testing_1_1test__coroutine.html',1,'emlabcpp::testing::test_coroutine'],['../classemlabcpp_1_1testing_1_1test__coroutine.html#a6f9680b6f372e50b5d3a03d1c229e995',1,'emlabcpp::testing::test_coroutine::test_coroutine()']]],
   ['test_5ffinished_912',['test_finished',['../structemlabcpp_1_1testing_1_1test__finished.html',1,'emlabcpp::testing']]],
   ['test_5fid_913',['test_id',['../namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca',1,'emlabcpp::testing']]],
   ['test_5finfo_914',['test_info',['../namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info',1,'emlabcpp::testing']]],

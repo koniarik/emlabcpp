@@ -192,7 +192,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                value =</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    <a class="code" href="structemlabcpp_1_1protocol_1_1serializer.html#a1c8d955f74be142328d0cb1c57a11e01">serializer&lt; value_type, Endianess &gt;::deserialize</a>( buffer.first&lt; max_size &gt;() );</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordflow">return</span> { max_size };</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>{ max_size };</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;};</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
@@ -247,7 +247,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                        offset += sres.used;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                }</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                <span class="keywordflow">return</span> { offset };</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>{ offset };</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        }</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;};</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
@@ -315,7 +315,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                    } );</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                <span class="keywordflow">return</span> { offset, err };</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>{ offset, err };</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        }</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;};</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
@@ -508,7 +508,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;                                value[i * 8 + j] = <span class="keywordtype">byte</span>[j];</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                        }</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                }</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                <span class="keywordflow">return</span> { max_size };</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>{ max_size };</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        }</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;};</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
@@ -756,7 +756,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;                <span class="keywordflow">if</span> ( val != V ) {</div>
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;                        <span class="keywordflow">return</span> { 0, &amp;<a class="code" href="namespaceemlabcpp_1_1protocol.html#ae7f63810880ec41008ee91a908c63148">BADVAL_ERR</a> };</div>
 <div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;                }</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;                <span class="keywordflow">return</span> { subres.used };</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>{ subres.<a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html#abebfeb3f7864ea1c89b7cf7409fcfd07">used</a> };</div>
 <div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;        }</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;};</div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160; </div>
@@ -905,7 +905,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;                        <span class="keywordflow">return</span> { 0, &amp;<a class="code" href="namespaceemlabcpp_1_1protocol.html#a75075a1ed102c600dfd1f1894c1fc93b">SIZE_ERR</a> };</div>
 <div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;                }</div>
 <div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;                <a class="code" href="namespaceemlabcpp.html#af85136552afa4d0a86dd1fb078223cdd">copy</a>( <a class="code" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">view_n</a>( buffer.begin(), max_size ), value.begin() );</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;                <span class="keywordflow">return</span> { max_size };</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>{ max_size };</div>
 <div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;        }</div>
 <div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;};</div>
 <div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160; </div>
@@ -1010,7 +1010,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;                        }</div>
 <div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;                }</div>
 <div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160; </div>
-<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;                <span class="keywordflow">return</span> { offset };</div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>{ offset };</div>
 <div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;        }</div>
 <div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;};</div>
 <div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160; </div>
@@ -1246,7 +1246,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="converter_8h.html">converter.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 12:49:28 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 13:14:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
