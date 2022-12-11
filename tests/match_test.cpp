@@ -96,3 +96,16 @@ TEST( match, vis_apply )
 
         EXPECT_TRUE( fired );
 }
+
+TEST( match, referecing )
+{
+        std::variant< std::vector< int >, std::string > var{ std::string{ "test" } };
+        match(
+            var,
+            [&]( const std::vector< int >& ) {
+                    FAIL();
+            },
+            [&]( std::string& s ) {
+                    s = "pololo";
+            } );
+}

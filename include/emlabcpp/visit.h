@@ -47,10 +47,10 @@ template < typename Visitor, typename Variant >
 decltype( auto ) visit( Visitor&& vis, Variant&& var )
 {
         return visit_index(
-            [&vis, var]< std::size_t i >() {
-                    return vis( std::get< i >( var ) );
+            [&vis, &var]< std::size_t i >() {
+                    return vis( std::get< i >( std::forward< Variant >( var ) ) );
             },
-            var );
+            std::forward< Variant >( var ) );
 }
 
 /// Combines `visit` and `std::apply` into one step - provided variant is expanded with `visit` and
