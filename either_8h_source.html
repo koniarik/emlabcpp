@@ -493,10 +493,10 @@ $(document).ready(function(){initNavTree('either_8h_source.html',''); initResiza
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;                <span class="keyword">using</span> left_type = <span class="keyword">typename</span> std::remove_reference_t&lt; Either &gt;::left_item;</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                <span class="keywordflow">return</span> std::forward&lt; Either &gt;( <a class="code" href="classemlabcpp_1_1either.html">either</a> )</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                    .convert_left( [&amp;]( <span class="keyword">auto</span> item ) {</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                    .convert_left( []( <span class="keyword">auto</span> item ) {</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                            <span class="keywordflow">return</span> std::make_optional( std::move( item ) );</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                    } )</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                    .convert_right( [&amp;]( <span class="keyword">auto</span> item ) {</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                    .convert_right( [&amp;collection]( <span class="keyword">auto</span> item ) {</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                            collection.emplace_back( std::move( item ) );</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                            <span class="keywordflow">return</span> std::optional&lt; left_type &gt;();</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                    } )</div>
@@ -506,7 +506,7 @@ $(document).ready(function(){initNavTree('either_8h_source.html',''); initResiza
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#ac30a98c58cf8a76fa9363a0d19c09486">assemble_optionals</a>(</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;                   convert( std::forward&lt; FirstE &gt;( first ) ),</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                   convert( std::forward&lt; Eithers &gt;( others ) )... )</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            .convert_right( [&amp;]( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag">empty_assembly_tag</a> ) {</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            .convert_right( [&amp;collection]( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag">empty_assembly_tag</a> ) {</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                    <span class="keywordflow">return</span> collection;</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;            } );</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;}</div>
@@ -561,7 +561,7 @@ $(document).ready(function(){initNavTree('either_8h_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="either_8h.html">either.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 11:16:53 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 11:43:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
