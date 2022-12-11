@@ -146,7 +146,7 @@ public:
         template < typename UnaryCallable >
         constexpr void setup_register( key_type key, UnaryCallable&& f )
         {
-                with_register( key, [this, &f]< typename reg_type >( const reg_type& ) {
+                with_register( key, [this, f = std::forward<UnaryCallable>(f)]< typename reg_type >( const reg_type& ) {
                         std::get< reg_type >( registers_ ).value =
                             f.template operator()< reg_type >();
                 } );
@@ -188,7 +188,7 @@ public:
 template < typename Map, typename UnaryCallable >
 void for_each_register( const Map& m, UnaryCallable&& f )
 {
-        for_each_index< Map::registers_count >( [&m, &f]< std::size_t i >() {
+        for_each_index< Map::registers_count >( [&m, f=std::forward<UnaryCallable>(f)]< std::size_t i >() {
                 static constexpr auto key = Map::register_key( bounded_constant< i > );
                 f.template            operator()< key >( m.template get_val< key >() );
         } );

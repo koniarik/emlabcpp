@@ -119,7 +119,7 @@ requires( !range_container< Container > ) [[nodiscard]] constexpr std::size_t
     find_if( Container&& t, PredicateCallable&& f = std::identity() )
 {
         return impl::find_if_impl(
-            t,
+            std::forward< Container >( t ),
             std::forward< PredicateCallable >( f ),
             std::make_index_sequence< std::tuple_size_v< std::decay_t< Container > > >{} );
 }
@@ -129,14 +129,14 @@ requires( !range_container< Container > ) [[nodiscard]] constexpr std::size_t
 template < container Container, typename T >
 [[nodiscard]] constexpr auto find( Container&& cont, const T& item )
 {
-        return find_if( cont, [&]( const auto& sub_item ) {
+        return find_if( std::forward< Container >( cont ), [&]( const auto& sub_item ) {
                 return sub_item == item;
         } );
 }
 
 /// Checks if container `cont` contains at least one occurence of `item`, returns true/false
 template < container Container, typename T >
-[[nodiscard]] constexpr auto contains( Container&& cont, const T& item )
+[[nodiscard]] constexpr bool contains( const Container& cont, const T& item )
 {
         if constexpr ( range_container< Container > ) {
                 return find( cont, item ) != cont.end();
@@ -322,10 +322,11 @@ template <
 /// Applies binary callable 'f(x,y)' to each combination of items `x` from `lh_cont`
 /// and `y` from `rh_cont`
 template < container LhContainer, container RhContainer, typename BinaryCallable >
-constexpr void for_cross_joint( LhContainer&& lh_cont, RhContainer&& rh_cont, BinaryCallable&& f )
+constexpr void
+for_cross_joint( const LhContainer& lh_cont, const RhContainer& rh_cont, BinaryCallable&& f )
 {
-        for_each( lh_cont, [&]( auto& lh_item ) {
-                for_each( rh_cont, [&]( auto& rh_item ) {
+        for_each( lh_cont, [&]( const auto& lh_item ) {
+                for_each( rh_cont, [&]( const auto& rh_item ) {
                         f( lh_item, rh_item );
                 } );
         } );

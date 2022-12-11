@@ -53,7 +53,7 @@ public:
         template < typename Container >
         void insert( Container&& dview )
         {
-                copy( dview, std::back_inserter( buffer_ ) );
+                copy( std::forward< Container >( dview ), std::back_inserter( buffer_ ) );
         }
 
         either< sequencer_read_request, message_type > get_message()

@@ -31,7 +31,7 @@ public:
         template < typename Container >
         void insert( Container&& data )
         {
-                seq_.insert( data );
+                seq_.insert( std::forward< Container >( data ) );
         }
 
         std::variant< std::size_t, input_value, error_record > get_message()

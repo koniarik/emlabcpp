@@ -29,15 +29,16 @@ namespace emlabcpp
 {
 namespace detail
 {
-        template < std::size_t N >
-        decltype( auto ) linear_index_visit_impl( std::size_t index, auto& cb );
+        template < std::size_t N, typename Callable >
+        decltype( auto ) linear_index_visit_impl( std::size_t index, Callable&& cb );
 }  // namespace detail
 
 template < typename Visitor, typename Variant >
-decltype( auto ) visit_index( Visitor&& vis, Variant&& var )
+decltype( auto ) visit_index( Visitor&& vis, const Variant& var )
 {
         return detail::linear_index_visit_impl<
-            std::variant_size_v< std::decay_t< Variant > > - 1 >( var.index(), vis );
+            std::variant_size_v< std::decay_t< Variant > > - 1 >(
+            var.index(), std::forward< Visitor >( vis ) );
 }
 
 /// Reimplementation of `std::visit`. This one trades worse complexity (linear) in favor of less
@@ -46,7 +47,7 @@ template < typename Visitor, typename Variant >
 decltype( auto ) visit( Visitor&& vis, Variant&& var )
 {
         return visit_index(
-            [&vis, &var]< std::size_t i >() {
+            [&vis, var]< std::size_t i >() {
                     return vis( std::get< i >( var ) );
             },
             var );
@@ -70,16 +71,17 @@ decltype( auto ) apply_on_visit( Visitor&& vis, Variant&& var )
 }
 namespace detail
 {
-        template < std::size_t N >
-        decltype( auto ) linear_index_visit_impl( std::size_t index, auto& cb )
+        template < std::size_t N, typename Callable >
+        decltype( auto ) linear_index_visit_impl( std::size_t index, Callable&& cb )
         {
                 if constexpr ( N == 0 ) {
-                        return cb.template operator()< 0 >();
+                        return std::forward< Callable >( cb ).template operator()< 0 >();
                 } else {
                         if ( index == N ) {
-                                return cb.template operator()< N >();
+                                return std::forward< Callable >( cb ).template operator()< N >();
                         } else {
-                                return linear_index_visit_impl< N - 1 >( index, cb );
+                                return linear_index_visit_impl< N - 1 >(
+                                    index, std::forward< Callable >( cb ) );
                         }
                 }
         }
