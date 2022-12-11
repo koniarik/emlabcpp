@@ -41,7 +41,7 @@ struct conversion_result
         const mark* error = nullptr;
 
         conversion_result() = default;
-        conversion_result( const std::size_t u )
+        explicit conversion_result( const std::size_t u )
           : used( u )
         {
         }

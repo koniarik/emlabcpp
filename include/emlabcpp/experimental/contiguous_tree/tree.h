@@ -27,7 +27,7 @@ class contiguous_object_handle
 public:
         using node_type = typename object_type::node_type;
 
-        contiguous_object_handle( object_type* obj )
+        explicit contiguous_object_handle( object_type* obj )
           : obj_( obj )
         {
         }
@@ -118,7 +118,7 @@ class contiguous_array_handle
 public:
         using node_type = typename array_type::node_type;
 
-        contiguous_array_handle( array_type* arr )
+        explicit contiguous_array_handle( array_type* arr )
           : arr_( arr )
         {
         }
@@ -187,7 +187,7 @@ public:
         using array_handle        = contiguous_array_handle< array_type >;
         using const_array_handle  = contiguous_array_handle< const array_type >;
 
-        contiguous_node( content_type cont )
+        explicit contiguous_node( content_type cont )
           : content_( std::move( cont ) )
         {
         }
@@ -287,7 +287,7 @@ public:
         template < uint16_t Count >
         using pool_type = pmr::pool_resource< required_pool_size, Count >;
 
-        contiguous_tree( pmr::memory_resource& mem_res )
+        explicit contiguous_tree( pmr::memory_resource& mem_res )
           : data_( mem_res )
           , mem_res_( mem_res )
         {

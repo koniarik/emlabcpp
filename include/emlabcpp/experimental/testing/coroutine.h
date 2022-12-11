@@ -19,7 +19,7 @@ public:
 
                 test_coroutine get_return_object()
                 {
-                        return { handle::from_promise( *this ) };
+                        return test_coroutine{ handle::from_promise( *this ) };
                 }
 
                 std::suspend_always initial_suspend() const
@@ -43,7 +43,7 @@ public:
         using handle        = std::coroutine_handle< promise_type >;
         using owning_handle = coro::owning_coroutine_handle< promise_type >;
 
-        test_coroutine( const handle cor )
+        explicit test_coroutine( const handle& cor )
           : h_( cor )
         {
         }

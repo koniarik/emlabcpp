@@ -21,7 +21,7 @@ public:
         using object_handle       = typename Tree::object_handle;
         using array_handle        = typename Tree::array_handle;
 
-        contiguous_request_adapter( Tree& tree )
+        explicit contiguous_request_adapter( Tree& tree )
           : tree_( tree )
         {
         }

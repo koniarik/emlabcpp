@@ -108,7 +108,7 @@ struct converter< D, Endianess >
                 value =
                     serializer< value_type, Endianess >::deserialize( buffer.first< max_size >() );
 
-                return { max_size };
+                return conversion_result{ max_size };
         }
 };
 
@@ -167,7 +167,7 @@ struct converter< std::array< D, N >, Endianess >
                         offset += sres.used;
                 }
 
-                return { offset };
+                return conversion_result{ offset };
         }
 };
 
@@ -235,7 +235,7 @@ struct converter< std::tuple< Ds... >, Endianess >
                             return false;
                     } );
 
-                return { offset, err };
+                return conversion_result{ offset, err };
         }
 };
 
@@ -429,7 +429,7 @@ struct converter< std::bitset< N >, Endianess >
                                 value[i * 8 + j] = byte[j];
                         }
                 }
-                return { max_size };
+                return conversion_result{ max_size };
         }
 };
 
@@ -680,7 +680,7 @@ struct converter< tag< V >, Endianess >
                 if ( val != V ) {
                         return { 0, &BADVAL_ERR };
                 }
-                return { subres.used };
+                return conversion_result{ subres.used };
         }
 };
 
@@ -829,7 +829,7 @@ struct converter< mark, Endianess >
                         return { 0, &SIZE_ERR };
                 }
                 copy( view_n( buffer.begin(), max_size ), value.begin() );
-                return { max_size };
+                return conversion_result{ max_size };
         }
 };
 
@@ -935,7 +935,7 @@ struct converter< static_vector< T, N >, Endianess >
                         }
                 }
 
-                return { offset };
+                return conversion_result{ offset };
         }
 };
 

@@ -58,7 +58,7 @@ public:
         requires(
             range_container< Container >&& static_sized< Container >&&
                                            std::tuple_size_v< Container > <= max &&
-            std::tuple_size_v< Container > >= min ) bounded_view( Container& cont )
+            std::tuple_size_v< Container > >= min ) explicit bounded_view( Container& cont )
           : bounded_view( std::begin( cont ), std::end( cont ) )
         {
         }

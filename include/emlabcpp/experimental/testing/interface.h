@@ -68,7 +68,7 @@ private:
 class empty_test : public test_interface
 {
 public:
-        empty_test( reactor& rec )
+        explicit empty_test( reactor& rec )
           : test_interface( rec, name_buffer{} )
         {
         }

@@ -33,7 +33,7 @@ class pretty_printer
 public:
         pretty_printer() = default;
 
-        pretty_printer( StreamType st )
+        explicit pretty_printer( StreamType st )
           : os_( st )
         {
         }
@@ -49,7 +49,7 @@ public:
                 return *this;
         }
 
-        [[nodiscard]] operator bool() const
+        [[nodiscard]] explicit operator bool() const
         {
                 return bool( os_ );
         }

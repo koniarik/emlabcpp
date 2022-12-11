@@ -50,7 +50,7 @@ class gpos_logger
 public:
         using ostream = pretty_printer< simple_stream< gpos_logger& > >;
 
-        gpos_logger( const std::vector< logging_option >& opts )
+        explicit gpos_logger( const std::vector< logging_option >& opts )
         {
                 for ( const auto& opt : opts ) {
                         set_option( opt );
@@ -123,7 +123,7 @@ private:
                 }
         }
 
-        ostream os_{ *this };
+        ostream os_{ simple_stream< gpos_logger& >{ *this } };
 
         log_colors colors_{};
 

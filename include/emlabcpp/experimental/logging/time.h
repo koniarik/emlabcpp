@@ -12,7 +12,7 @@ struct timelog
 {
         std::chrono::time_point< std::chrono::system_clock > tp;
 
-        timelog( const std::chrono::time_point< std::chrono::system_clock > tp_ )
+        explicit timelog( const std::chrono::time_point< std::chrono::system_clock > tp_ )
           : tp( tp_ )
         {
         }

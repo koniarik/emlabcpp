@@ -10,12 +10,12 @@ template < typename WriteCallable >
 class simple_stream
 {
 public:
-        simple_stream( WriteCallable wc )
+        explicit simple_stream( WriteCallable wc )
           : writer_( std::forward< WriteCallable >( wc ) )
         {
         }
 
-        operator bool() const
+        explicit operator bool() const
         {
                 return true;  // TODO: this mgiht be bad idea
         }

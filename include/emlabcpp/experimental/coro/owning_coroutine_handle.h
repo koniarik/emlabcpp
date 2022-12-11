@@ -12,7 +12,7 @@ class owning_coroutine_handle
 public:
         using promise_type = PromiseType;
 
-        owning_coroutine_handle( std::coroutine_handle< promise_type > h )
+        explicit owning_coroutine_handle( std::coroutine_handle< promise_type > h )
           : h_( h )
         {
         }
@@ -36,7 +36,7 @@ public:
                 h_();
         }
 
-        operator bool() const
+        explicit operator bool() const
         {
                 return bool( h_ );
         }

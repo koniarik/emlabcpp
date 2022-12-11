@@ -81,11 +81,13 @@ void reactor::spin( reactor_interface& top_iface )
             } );
 }
 
-void reactor::handle_message( const get_property< SUITE_NAME >, reactor_interface_adapter& iface ) const
+void reactor::handle_message( const get_property< SUITE_NAME >, reactor_interface_adapter& iface )
+    const
 {
         iface.reply( get_suite_name_reply{ name_to_buffer( suite_name_ ) } );
 }
-void reactor::handle_message( const get_property< SUITE_DATE >, reactor_interface_adapter& iface ) const
+void reactor::handle_message( const get_property< SUITE_DATE >, reactor_interface_adapter& iface )
+    const
 {
         iface.reply( get_suite_date_reply{ name_to_buffer( suite_date_ ) } );
 }
