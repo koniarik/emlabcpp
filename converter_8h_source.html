@@ -407,7 +407,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <span class="keyword">static</span> constexpr <a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a></div>
 <div class="line"><a name="l00329"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1protocol_1_1converter_3_01std_1_1monostate_00_01Endianess_01_4.html#aca0ac4760b507a08333e4e448763962a">  329</a></span>&#160;        <a class="code" href="structemlabcpp_1_1protocol_1_1converter_3_01std_1_1monostate_00_01Endianess_01_4.html#aca0ac4760b507a08333e4e448763962a">deserialize</a>( <span class="keyword">const</span> std::span&lt; const uint8_t &gt;&amp;, <a class="code" href="structemlabcpp_1_1protocol_1_1converter_3_01std_1_1monostate_00_01Endianess_01_4.html#a39b7db40567bb0a1a7a9c631014b5b8f">value_type</a>&amp; )</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        {</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                <span class="keywordflow">return</span> { 0 };</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>{ 0 };</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        }</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;};</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
@@ -1070,7 +1070,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;                }</div>
 <div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160; </div>
 <div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;                std::memcpy( &amp;value, buffer.begin(), <span class="keyword">sizeof</span>( <a class="code" href="structemlabcpp_1_1protocol_1_1memcpy__converter.html#a2070155eaee5514c13b161285bf5e56f">value_type</a> ) );</div>
-<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;                <span class="keywordflow">return</span> { <a class="code" href="structemlabcpp_1_1protocol_1_1memcpy__converter.html#a1f309bea5e1518c8766c637c55a2af6e">max_size</a> };</div>
+<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>{ <a class="code" href="structemlabcpp_1_1protocol_1_1memcpy__converter.html#a1f309bea5e1518c8766c637c55a2af6e">max_size</a> };</div>
 <div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;        }</div>
 <div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;};</div>
 <div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160; </div>
@@ -1246,7 +1246,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="converter_8h.html">converter.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 18:38:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 19:06:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
