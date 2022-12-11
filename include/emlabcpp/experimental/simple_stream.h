@@ -15,7 +15,7 @@ public:
         {
         }
 
-        operator bool()
+        operator bool() const
         {
                 return true;  // TODO: this mgiht be bad idea
         }

@@ -113,7 +113,7 @@ private:
                 write_std_streams( "m" );
         }
 
-        void write_std_streams( const std::string_view sv )
+        void write_std_streams( const std::string_view sv ) const
         {
                 if ( use_stdout_ ) {
                         std::cout.write( sv.data(), static_cast< std::streamsize >( sv.size() ) );
@@ -138,13 +138,13 @@ extern gpos_logger DEBUG_LOGGER;
 }  // namespace emlabcpp
 
 #define EMLABCPP_LOG_IMPL( msg, logger )                                             \
-        {                                                                            \
+        do {                                                                         \
                 ( logger ).time_stream()                                             \
                     << emlabcpp::timelog( std::chrono::system_clock::now() ) << " "; \
                 ( logger ).file_stream() << emlabcpp::stem_of( __FILE__ ) << ":";    \
                 ( logger ).line_stream() << __LINE__ << " ";                         \
                 ( logger ).msg_stream() << msg << "\n";                              \
-        }
+        } while ( false )
 
 #define EMLABCPP_LOG( msg ) EMLABCPP_LOG_IMPL( msg, emlabcpp::INFO_LOGGER )
 #define EMLABCPP_DEBUG_LOG( msg ) EMLABCPP_LOG_IMPL( msg, emlabcpp::DEBUG_LOGGER )
@@ -171,13 +171,13 @@ void log_to_global_logger( std::string_view sv );
 }  // namespace emlabcpp
 
 #define EMLABCPP_LOG_IMPL( msg )                                                 \
-        {                                                                        \
+        do {                                                                     \
                 emlabcpp::LOGGER.start();                                        \
                 emlabcpp::pretty_printer pp{                                     \
                     emlabcpp::simple_stream{ emlabcpp::log_to_global_logger } }; \
                 pp << msg;                                                       \
                 emlabcpp::LOGGER.end();                                          \
-        }
+        } while ( false )
 
 #define EMLABCPP_LOG( msg ) EMLABCPP_LOG_IMPL( msg )
 #define EMLABCPP_DEBUG_LOG( msg ) EMLABCPP_LOG_IMPL( msg )

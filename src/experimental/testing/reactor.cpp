@@ -81,15 +81,15 @@ void reactor::spin( reactor_interface& top_iface )
             } );
 }
 
-void reactor::handle_message( const get_property< SUITE_NAME >, reactor_interface_adapter& iface )
+void reactor::handle_message( const get_property< SUITE_NAME >, reactor_interface_adapter& iface ) const
 {
         iface.reply( get_suite_name_reply{ name_to_buffer( suite_name_ ) } );
 }
-void reactor::handle_message( const get_property< SUITE_DATE >, reactor_interface_adapter& iface )
+void reactor::handle_message( const get_property< SUITE_DATE >, reactor_interface_adapter& iface ) const
 {
         iface.reply( get_suite_date_reply{ name_to_buffer( suite_date_ ) } );
 }
-void reactor::handle_message( const get_property< COUNT >, reactor_interface_adapter& iface )
+void reactor::handle_message( const get_property< COUNT >, reactor_interface_adapter& iface ) const
 {
         const std::size_t c = root_test_.count_next();
         iface.reply( get_count_reply{ static_cast< test_id >( c ) } );

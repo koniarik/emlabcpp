@@ -81,7 +81,7 @@ public:
 
         param_key_awaiter get_param_key( node_id, child_id );
 
-        bool errored()
+        bool errored() const
         {
                 return errored_;
         }
@@ -131,7 +131,7 @@ public:
                 errored_ = true;
         }
 
-        void success()
+        void success() const
         {
         }
 

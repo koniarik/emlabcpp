@@ -17,7 +17,7 @@ struct deleter
         std::reference_wrapper< pmr::memory_resource > res;
 
         template < typename T >
-        void operator()( T* item )
+        void operator()( T* item ) const
         {
                 std::destroy_at( item );
                 res.get().deallocate( item, sizeof( T ), alignof( T ) );

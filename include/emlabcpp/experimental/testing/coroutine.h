@@ -22,20 +22,20 @@ public:
                         return { handle::from_promise( *this ) };
                 }
 
-                std::suspend_always initial_suspend()
+                std::suspend_always initial_suspend() const
                 {
                         return {};
                 }
-                std::suspend_never final_suspend() noexcept
+                std::suspend_never final_suspend() const noexcept
                 {
                         return {};
                 }
 
-                void unhandled_exception()
+                void unhandled_exception() const
                 {
                 }
 
-                void return_void()
+                void return_void() const
                 {
                 }
         };
@@ -49,7 +49,7 @@ public:
         }
 
         // TODO: this is shady API as fuck
-        bool spin( reactor_interface_adapter* const comm )
+        bool spin( reactor_interface_adapter* const comm ) const
         {
                 h_();
 
@@ -81,7 +81,7 @@ struct record_awaiter
         {
         }
 
-        bool await_ready()
+        bool await_ready() const
         {
                 return false;
         }

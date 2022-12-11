@@ -31,7 +31,7 @@ public:
                 return *this;
         }
 
-        void operator()()
+        void operator()() const
         {
                 h_();
         }

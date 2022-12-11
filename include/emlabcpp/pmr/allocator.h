@@ -33,7 +33,7 @@ public:
                 return reinterpret_cast< T* >( res );
         }
 
-        void deallocate( T* const p, const std::size_t size ) noexcept
+        void deallocate( T* const p, const std::size_t size ) const noexcept
         {
                 const bool succeeded = resource_.get().deallocate(
                     reinterpret_cast< void* >( p ), size, alignof( T ) );

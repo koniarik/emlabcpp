@@ -73,9 +73,9 @@ public:
         void spin( reactor_interface& comm );
 
 private:
-        void handle_message( get_property< SUITE_NAME >, reactor_interface_adapter& );
-        void handle_message( get_property< SUITE_DATE >, reactor_interface_adapter& );
-        void handle_message( get_property< COUNT >, reactor_interface_adapter& );
+        void handle_message( get_property< SUITE_NAME >, reactor_interface_adapter& ) const;
+        void handle_message( get_property< SUITE_DATE >, reactor_interface_adapter& ) const;
+        void handle_message( get_property< COUNT >, reactor_interface_adapter& ) const;
         void handle_message( get_test_name_request, reactor_interface_adapter& );
         void handle_message( load_test, reactor_interface_adapter& );
         void handle_message( exec_request, reactor_interface_adapter& );

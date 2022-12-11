@@ -301,7 +301,7 @@ struct std::numeric_limits< T >
 template < emlabcpp::quantity_derived T >
 struct std::hash< T >
 {
-        std::size_t operator()( T q )
+        std::size_t operator()( T q ) const
         {
                 /// TODO: this should be rewritten
                 /// 'reverse' the prefix+unit info in bits and than xor it with number
