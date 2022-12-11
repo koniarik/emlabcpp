@@ -337,15 +337,15 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> Container &gt;</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="keywordtype">void</span> copy_from( <span class="keyword">const</span> Container&amp; cont )</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        {</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                size_ = cont.size();</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                std::uninitialized_copy( cont.begin(), cont.end(), <a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>() );</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                size_ = std::size( cont );</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                std::uninitialized_copy( std::begin( cont ), std::end( cont ), <a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>() );</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        }</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> Container &gt;</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <span class="keywordtype">void</span> move_from( Container&amp; cont )</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        {</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                size_ = cont.size();</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                std::uninitialized_move( cont.begin(), cont.end(), <a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>() );</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                size_ = std::size( cont );</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                std::uninitialized_move( std::begin( cont ), std::end( cont ), <a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>() );</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        }</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        [[nodiscard]] <a class="code" href="classemlabcpp_1_1static__vector.html#afd91aab0a09749958a8874872b36b311">reference</a> ref_item( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html#a72d653f3395cac7d7bb3bc4583871cc7">size_type</a> i )</div>
@@ -367,58 +367,59 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
 <div class="line"><a name="l00292"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a640640991a3cfee97b11ab4df8759583">  292</a></span>&#160;[[nodiscard]] <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#a2254b75f92599473cee7451ded051a0e">operator&lt;=&gt;</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; lh, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; rh )</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;{</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">return</span> std::lexicographical_compare_three_way( lh.<a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>(), lh.<a class="code" href="classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb">end</a>(), rh.<a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>(), rh.<a class="code" href="classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb">end</a>() );</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;}</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#accaccb739b9336c5bd977ad988c3d336">  298</a></span>&#160;[[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp.html#abe4e80e0e361283130d83856b68f4e6d">operator==</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; lh, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; rh )</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;{</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keyword">auto</span> size = lh.<a class="code" href="classemlabcpp_1_1static__vector.html#a69dc10d4fa55b6747ef48967e8ee9805">size</a>();</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="keywordflow">if</span> ( size != rh.<a class="code" href="classemlabcpp_1_1static__vector.html#a69dc10d4fa55b6747ef48967e8ee9805">size</a>() ) {</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        }</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i = 0; i &lt; size; ++i ) {</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                <span class="keywordflow">if</span> ( lh[i] != rh[i] ) {</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                }</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        }</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;}</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00314"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#aaa5569071253ac2623f7130fd1ff9d3a">  314</a></span>&#160;[[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp.html#afaabfb4832972f3f9c7589a82ac8ac4f">operator!=</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; lh, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; rh )</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;{</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <span class="keywordflow">return</span> !( lh == rh );</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;}</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00320"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a66b48062894b569667fa98dbf5ceeeae">  320</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceemlabcpp.html#a66b48062894b569667fa98dbf5ceeeae">swap</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; lh, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; rh ) noexcept</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;{</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        lh.swap( rh );</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;}</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="keyword">template</span> &lt; ostreamlike Stream, <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00327"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a7dff36c03e0407491a4acf6b85b3f86e">  327</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( Stream&amp; os, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; vec )</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;{</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; <a class="code" href="classemlabcpp_1_1view.html">view</a>{ vec };</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;}</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> StreamType, <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;pretty_printer&lt; StreamType &gt;&amp;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( pretty_printer&lt; StreamType &gt;&amp; os, <span class="keyword">const</span> static_vector&lt; T, N &gt;&amp; vec )</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;{</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="keywordflow">if</span> constexpr ( std::same_as&lt; T, char &gt; ) {</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                <span class="keywordflow">for</span> ( <span class="keyword">const</span> <span class="keywordtype">char</span> c : vec ) {</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                        os &lt;&lt; c;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;                }</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;                os &lt;&lt; <a class="code" href="namespaceemlabcpp.html#a4b726ddab4f550f3e186f177243cb09b">view</a>{ vec };</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        }</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;}</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">return</span> std::lexicographical_compare_three_way(</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            std::begin( lh ), std::end( lh ), std::begin( rh ), std::end( rh ) );</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;}</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00299"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#accaccb739b9336c5bd977ad988c3d336">  299</a></span>&#160;[[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp.html#abe4e80e0e361283130d83856b68f4e6d">operator==</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; lh, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; rh )</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;{</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="keyword">auto</span> size = std::size( lh );</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keywordflow">if</span> ( size != std::size( rh ) ) {</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        }</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i = 0; i &lt; size; ++i ) {</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                <span class="keywordflow">if</span> ( lh[i] != rh[i] ) {</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                }</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        }</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;}</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#aaa5569071253ac2623f7130fd1ff9d3a">  315</a></span>&#160;[[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp.html#afaabfb4832972f3f9c7589a82ac8ac4f">operator!=</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; lh, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; rh )</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;{</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="keywordflow">return</span> !( lh == rh );</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;}</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a66b48062894b569667fa98dbf5ceeeae">  321</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceemlabcpp.html#a66b48062894b569667fa98dbf5ceeeae">swap</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; lh, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; rh ) noexcept</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;{</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        lh.swap( rh );</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;}</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="keyword">template</span> &lt; ostreamlike Stream, <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a7dff36c03e0407491a4acf6b85b3f86e">  328</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( Stream&amp; os, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1static__vector.html">static_vector&lt; T, N &gt;</a>&amp; vec )</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;{</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; <a class="code" href="classemlabcpp_1_1view.html">view</a>{ vec };</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;}</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> StreamType, <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;pretty_printer&lt; StreamType &gt;&amp;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( pretty_printer&lt; StreamType &gt;&amp; os, <span class="keyword">const</span> static_vector&lt; T, N &gt;&amp; vec )</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;{</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordflow">if</span> constexpr ( std::same_as&lt; T, char &gt; ) {</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                <span class="keywordflow">for</span> ( <span class="keyword">const</span> <span class="keywordtype">char</span> c : vec ) {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;                        os &lt;&lt; c;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                }</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                os &lt;&lt; <a class="code" href="namespaceemlabcpp.html#a4b726ddab4f550f3e186f177243cb09b">view</a>{ vec };</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        }</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;}</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html">emlabcpp::static_vector</a></div><div class="ttdoc">Data container for up to N elements.</div><div class="ttdef"><b>Definition:</b> static_vector.h:39</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a07a51eabf890bd03e872d12696064e9e"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a07a51eabf890bd03e872d12696064e9e">emlabcpp::static_vector::front</a></div><div class="ttdeci">const_reference front() const</div><div class="ttdef"><b>Definition:</b> static_vector.h:159</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a0885b033cb8b4e6a4b4105ad75a97d7a"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a0885b033cb8b4e6a4b4105ad75a97d7a">emlabcpp::static_vector::begin</a></div><div class="ttdeci">const_iterator begin() const</div><div class="ttdef"><b>Definition:</b> static_vector.h:144</div></div>
@@ -464,7 +465,7 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div class="ttc" id="anamespaceemlabcpp_html_a2254b75f92599473cee7451ded051a0e"><div class="ttname"><a href="namespaceemlabcpp.html#a2254b75f92599473cee7451ded051a0e">emlabcpp::operator&lt;=&gt;</a></div><div class="ttdeci">auto operator&lt;=&gt;(const static_circular_buffer&lt; T, N &gt; &amp;lh, const static_circular_buffer&lt; T, N &gt; &amp;rh)</div><div class="ttdef"><b>Definition:</b> static_circular_buffer.h:319</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a2f10b2ff6c20f2e8057487e521275521"><div class="ttname"><a href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">auto &amp; operator&lt;&lt;(Stream &amp;os, const bounded&lt; T, MinVal, MaxVal &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> bounded.h:180</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a4b726ddab4f550f3e186f177243cb09b"><div class="ttname"><a href="namespaceemlabcpp.html#a4b726ddab4f550f3e186f177243cb09b">emlabcpp::view</a></div><div class="ttdeci">view(Container &amp;cont) -&gt; view&lt; iterator_of_t&lt; Container &gt; &gt;</div><div class="ttdoc">The container deduction guide uses iterator_of_t.</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a66b48062894b569667fa98dbf5ceeeae"><div class="ttname"><a href="namespaceemlabcpp.html#a66b48062894b569667fa98dbf5ceeeae">emlabcpp::swap</a></div><div class="ttdeci">void swap(const static_vector&lt; T, N &gt; &amp;lh, const static_vector&lt; T, N &gt; &amp;rh) noexcept</div><div class="ttdef"><b>Definition:</b> static_vector.h:320</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a66b48062894b569667fa98dbf5ceeeae"><div class="ttname"><a href="namespaceemlabcpp.html#a66b48062894b569667fa98dbf5ceeeae">emlabcpp::swap</a></div><div class="ttdeci">void swap(const static_vector&lt; T, N &gt; &amp;lh, const static_vector&lt; T, N &gt; &amp;rh) noexcept</div><div class="ttdef"><b>Definition:</b> static_vector.h:321</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a82bc958527847885bdfc4005b22271e6"><div class="ttname"><a href="namespaceemlabcpp.html#a82bc958527847885bdfc4005b22271e6">emlabcpp::max</a></div><div class="ttdeci">constexpr Derived max(const quantity&lt; Derived, ValueType &gt; lh, const quantity&lt; Derived, ValueType &gt; rh)</div><div class="ttdoc">Quantity with maximum value of one of the quantities.</div><div class="ttdef"><b>Definition:</b> quantity.h:243</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ab4db09819cc4cc5a21ed238dd2e30d6a"><div class="ttname"><a href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">emlabcpp::min</a></div><div class="ttdeci">constexpr Derived min(const quantity&lt; Derived, ValueType &gt; lh, const quantity&lt; Derived, ValueType &gt; rh)</div><div class="ttdoc">Quantity with minimum value of one of the quantities.</div><div class="ttdef"><b>Definition:</b> quantity.h:251</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_abe4e80e0e361283130d83856b68f4e6d"><div class="ttname"><a href="namespaceemlabcpp.html#abe4e80e0e361283130d83856b68f4e6d">emlabcpp::operator==</a></div><div class="ttdeci">bool operator==(const static_circular_buffer&lt; T, N &gt; &amp;lh, const static_circular_buffer&lt; T, N &gt; &amp;rh)</div><div class="ttdef"><b>Definition:</b> static_circular_buffer.h:326</div></div>
@@ -476,7 +477,7 @@ $(document).ready(function(){initNavTree('static__vector_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="static__vector_8h.html">static_vector.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 13:42:18 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 14:06:24 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

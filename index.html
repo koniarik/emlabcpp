@@ -373,14 +373,14 @@ view.h</h2>
 <div class="line">}</div>
 <div class="line">std::cout &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">int</span> i : <a class="code" href="namespaceemlabcpp.html#aa61ce9edbdc13264073eecc3890c663d">reversed</a>(vec_data))</div>
+<div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">int</span> i : <a class="code" href="namespaceemlabcpp.html#a2fe2d2bf491db344cf04e4c2b9d799b8">reversed</a>(vec_data))</div>
 <div class="line">{</div>
 <div class="line">    std::cout &lt;&lt; i &lt;&lt; <span class="charliteral">&#39;,&#39;</span>;</div>
 <div class="line">}</div>
 <div class="line">std::cout &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="ttc" id="anamespaceemlabcpp_html_a2fe2d2bf491db344cf04e4c2b9d799b8"><div class="ttname"><a href="namespaceemlabcpp.html#a2fe2d2bf491db344cf04e4c2b9d799b8">emlabcpp::reversed</a></div><div class="ttdeci">constexpr auto reversed(referenceable_container auto &amp;container) -&gt; view&lt; decltype(std::rbegin(container)) &gt;</div><div class="ttdoc">Returns view to the Container in reverse order.</div><div class="ttdef"><b>Definition:</b> view.h:191</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a4b726ddab4f550f3e186f177243cb09b"><div class="ttname"><a href="namespaceemlabcpp.html#a4b726ddab4f550f3e186f177243cb09b">emlabcpp::view</a></div><div class="ttdeci">view(Container &amp;cont) -&gt; view&lt; iterator_of_t&lt; Container &gt; &gt;</div><div class="ttdoc">The container deduction guide uses iterator_of_t.</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a57c2da6250c29d0cf3d6a0cfecaa1e45"><div class="ttname"><a href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">emlabcpp::view_n</a></div><div class="ttdeci">constexpr view&lt; Iter &gt; view_n(Iter begin, const std::size_t n)</div><div class="ttdoc">Creates view over 'n' items of dataset starting at 'begin' This does not check validity of the range!</div><div class="ttdef"><b>Definition:</b> view.h:173</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_aa61ce9edbdc13264073eecc3890c663d"><div class="ttname"><a href="namespaceemlabcpp.html#aa61ce9edbdc13264073eecc3890c663d">emlabcpp::reversed</a></div><div class="ttdeci">constexpr auto reversed(referenceable_container auto &amp;container) -&gt; view&lt; decltype(container.rbegin()) &gt;</div><div class="ttdoc">Returns view to the Container in reverse order.</div><div class="ttdef"><b>Definition:</b> view.h:191</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md32"></a>
 visit.h</h2>
 <p><code>visit</code> is reimplementation of <code>std::visit</code> that has worse time complexity in exchange of less code being generate for the mechanism. It also drop support for multiple variants.</p>
@@ -410,7 +410,7 @@ zip.h</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Dec 11 2022 13:42:18 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 14:06:25 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

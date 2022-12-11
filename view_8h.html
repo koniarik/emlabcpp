@@ -137,9 +137,9 @@ Functions</h2></td></tr>
 <tr class="memitem:acd8a44534f893fb67e883a5a8b396ef4"><td class="memTemplItemLeft" align="right" valign="top">constexpr view&lt; iterator_of_t&lt; Container &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acd8a44534f893fb67e883a5a8b396ef4">emlabcpp::trim_view</a> (Container &amp;cont, const float r)</td></tr>
 <tr class="memdesc:acd8a44534f893fb67e883a5a8b396ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the view over over Container, where we ignore first r*size/2 items and last r*size/2 items.  <a href="namespaceemlabcpp.html#acd8a44534f893fb67e883a5a8b396ef4">More...</a><br /></td></tr>
 <tr class="separator:acd8a44534f893fb67e883a5a8b396ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa61ce9edbdc13264073eecc3890c663d"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa61ce9edbdc13264073eecc3890c663d">emlabcpp::reversed</a> (referenceable_container auto &amp;container) -&gt; view&lt; decltype(container.rbegin()) &gt;</td></tr>
-<tr class="memdesc:aa61ce9edbdc13264073eecc3890c663d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns view to the Container in reverse order.  <a href="namespaceemlabcpp.html#aa61ce9edbdc13264073eecc3890c663d">More...</a><br /></td></tr>
-<tr class="separator:aa61ce9edbdc13264073eecc3890c663d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fe2d2bf491db344cf04e4c2b9d799b8"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2fe2d2bf491db344cf04e4c2b9d799b8">emlabcpp::reversed</a> (referenceable_container auto &amp;container) -&gt; view&lt; decltype(std::rbegin(container)) &gt;</td></tr>
+<tr class="memdesc:a2fe2d2bf491db344cf04e4c2b9d799b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns view to the Container in reverse order.  <a href="namespaceemlabcpp.html#a2fe2d2bf491db344cf04e4c2b9d799b8">More...</a><br /></td></tr>
+<tr class="separator:a2fe2d2bf491db344cf04e4c2b9d799b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09ef973500b9ebc01d0f76f50c43aa38"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, typename Iterator &gt; </td></tr>
 <tr class="memitem:a09ef973500b9ebc01d0f76f50c43aa38"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a09ef973500b9ebc01d0f76f50c43aa38">emlabcpp::operator&lt;&lt;</a> (Stream &amp;os, const view&lt; Iterator &gt; &amp;output)</td></tr>
 <tr class="memdesc:a09ef973500b9ebc01d0f76f50c43aa38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output operator for the view, uses comma to separate the items in the view.  <a href="namespaceemlabcpp.html#a09ef973500b9ebc01d0f76f50c43aa38">More...</a><br /></td></tr>
@@ -151,7 +151,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="view_8h.html">view.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 13:42:18 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 14:06:24 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

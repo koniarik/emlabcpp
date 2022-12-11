@@ -728,9 +728,9 @@ Functions</h2></td></tr>
 <tr class="memitem:acd8a44534f893fb67e883a5a8b396ef4"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; <a class="el" href="namespaceemlabcpp.html#a98ab53b012e339a9621604b203df856e">iterator_of_t</a>&lt; Container &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acd8a44534f893fb67e883a5a8b396ef4">trim_view</a> (Container &amp;cont, const float r)</td></tr>
 <tr class="memdesc:acd8a44534f893fb67e883a5a8b396ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the view over over Container, where we ignore first r*size/2 items and last r*size/2 items.  <a href="namespaceemlabcpp.html#acd8a44534f893fb67e883a5a8b396ef4">More...</a><br /></td></tr>
 <tr class="separator:acd8a44534f893fb67e883a5a8b396ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa61ce9edbdc13264073eecc3890c663d"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa61ce9edbdc13264073eecc3890c663d">reversed</a> (<a class="el" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">referenceable_container</a> auto &amp;<a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a>) -&gt; <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; decltype(container.rbegin()) &gt;</td></tr>
-<tr class="memdesc:aa61ce9edbdc13264073eecc3890c663d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns view to the Container in reverse order.  <a href="namespaceemlabcpp.html#aa61ce9edbdc13264073eecc3890c663d">More...</a><br /></td></tr>
-<tr class="separator:aa61ce9edbdc13264073eecc3890c663d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fe2d2bf491db344cf04e4c2b9d799b8"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2fe2d2bf491db344cf04e4c2b9d799b8">reversed</a> (<a class="el" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">referenceable_container</a> auto &amp;<a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a>) -&gt; <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; decltype(std::rbegin(<a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a>)) &gt;</td></tr>
+<tr class="memdesc:a2fe2d2bf491db344cf04e4c2b9d799b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns view to the Container in reverse order.  <a href="namespaceemlabcpp.html#a2fe2d2bf491db344cf04e4c2b9d799b8">More...</a><br /></td></tr>
+<tr class="separator:a2fe2d2bf491db344cf04e4c2b9d799b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09ef973500b9ebc01d0f76f50c43aa38"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, typename Iterator &gt; </td></tr>
 <tr class="memitem:a09ef973500b9ebc01d0f76f50c43aa38"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a09ef973500b9ebc01d0f76f50c43aa38">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iterator &gt; &amp;output)</td></tr>
 <tr class="memdesc:a09ef973500b9ebc01d0f76f50c43aa38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output operator for the view, uses comma to separate the items in the view.  <a href="namespaceemlabcpp.html#a09ef973500b9ebc01d0f76f50c43aa38">More...</a><br /></td></tr>
@@ -4553,8 +4553,6 @@ template&lt;typename T , std::size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">emlabcpp::static_vector&lt; T, N &gt;::begin()</a>, and <a class="el" href="classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb">emlabcpp::static_vector&lt; T, N &gt;::end()</a>.</p>
-
 </div>
 </div>
 <a id="abe4e80e0e361283130d83856b68f4e6d"></a>
@@ -4616,8 +4614,6 @@ template&lt;typename T , std::size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="classemlabcpp_1_1static__vector.html#a69dc10d4fa55b6747ef48967e8ee9805">emlabcpp::static_vector&lt; T, N &gt;::size()</a>.</p>
 
 </div>
 </div>
@@ -5062,8 +5058,8 @@ template&lt;typename Enum &gt; </div>
 
 </div>
 </div>
-<a id="aa61ce9edbdc13264073eecc3890c663d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa61ce9edbdc13264073eecc3890c663d">&#9670;&nbsp;</a></span>reversed()</h2>
+<a id="a2fe2d2bf491db344cf04e4c2b9d799b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fe2d2bf491db344cf04e4c2b9d799b8">&#9670;&nbsp;</a></span>reversed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5076,7 +5072,7 @@ template&lt;typename Enum &gt; </div>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">referenceable_container</a> auto &amp;&#160;</td>
           <td class="paramname"><em>container</em></td><td>)</td>
-          <td> -&gt; <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; decltype( container.rbegin() ) &gt;
+          <td> -&gt; <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; decltype( std::rbegin( <a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a> ) ) &gt;
 </td>
         </tr>
       </table>
@@ -6664,7 +6660,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 13:42:18 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 14:06:24 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
