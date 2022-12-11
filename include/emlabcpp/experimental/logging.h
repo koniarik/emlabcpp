@@ -139,11 +139,11 @@ extern gpos_logger DEBUG_LOGGER;
 
 #define EMLABCPP_LOG_IMPL( msg, logger )                                             \
         {                                                                            \
-                logger.time_stream()                                                 \
+                ( logger ).time_stream()                                             \
                     << emlabcpp::timelog( std::chrono::system_clock::now() ) << " "; \
-                logger.file_stream() << emlabcpp::stem_of( __FILE__ ) << ":";        \
-                logger.line_stream() << __LINE__ << " ";                             \
-                logger.msg_stream() << msg << "\n";                                  \
+                ( logger ).file_stream() << emlabcpp::stem_of( __FILE__ ) << ":";    \
+                ( logger ).line_stream() << __LINE__ << " ";                         \
+                ( logger ).msg_stream() << msg << "\n";                              \
         }
 
 #define EMLABCPP_LOG( msg ) EMLABCPP_LOG_IMPL( msg, emlabcpp::INFO_LOGGER )
