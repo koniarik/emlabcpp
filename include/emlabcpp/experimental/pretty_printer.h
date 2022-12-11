@@ -128,7 +128,7 @@ public:
                 *this << convert_enum( val );
         }
 
-        void main_print( const char* c )
+        void main_print( const char* const c )
         {
                 main_print( std::string_view{ c } );
         }

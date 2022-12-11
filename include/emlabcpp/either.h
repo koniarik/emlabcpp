@@ -441,7 +441,7 @@ auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) requires
         return assemble_optionals(
                    convert( std::forward< FirstE >( first ) ),
                    convert( std::forward< Eithers >( others ) )... )
-            .convert_right( [&]( empty_assembly_tag ) {
+            .convert_right( [&]( const empty_assembly_tag ) {
                     return collection;
             } );
 }

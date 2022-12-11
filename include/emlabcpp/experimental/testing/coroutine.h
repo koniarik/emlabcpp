@@ -49,12 +49,12 @@ public:
         }
 
         // TODO: this is shady API as fuck
-        bool spin( reactor_interface_adapter* comm )
+        bool spin( reactor_interface_adapter* const comm )
         {
                 h_();
 
                 while ( !h_->done() ) {
-                        bool success = comm->read_with_handler();
+                        const bool success = comm->read_with_handler();
                         if ( !success ) {
                                 return false;
                         }
@@ -75,7 +75,7 @@ struct record_awaiter
 
         using request_type = decltype( proc.req );
 
-        record_awaiter( request_type req, reactor_interface_adapter* comm )
+        record_awaiter( request_type req, reactor_interface_adapter* const comm )
           : proc{ .reply = {}, .req = req }
           , comm_ptr( comm )
         {
@@ -131,7 +131,7 @@ struct collect_processor
 
         [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
-                const auto* val_ptr = std::get_if< collect_reply >( &var );
+                const auto* const val_ptr = std::get_if< collect_reply >( &var );
                 if ( val_ptr == nullptr ) {
                         return false;
                 }
@@ -154,7 +154,7 @@ struct param_value_processor
 
         [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
-                const auto* val_ptr = std::get_if< param_value_reply >( &var );
+                const auto* const val_ptr = std::get_if< param_value_reply >( &var );
                 if ( val_ptr == nullptr ) {
                         return false;
                 }
@@ -181,7 +181,7 @@ struct param_value_key_processor
 
         [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
-                const auto* val_ptr = std::get_if< param_value_key_reply >( &var );
+                const auto* const val_ptr = std::get_if< param_value_key_reply >( &var );
                 if ( val_ptr == nullptr ) {
                         return false;
                 }
@@ -208,7 +208,7 @@ struct param_type_processor
 
         [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
-                const auto* val_ptr = std::get_if< param_type_reply >( &var );
+                const auto* const val_ptr = std::get_if< param_type_reply >( &var );
                 if ( val_ptr == nullptr ) {
                         return false;
                 }
@@ -230,7 +230,7 @@ struct param_child_processor
 
         [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
-                const auto* val_ptr = std::get_if< param_child_reply >( &var );
+                const auto* const val_ptr = std::get_if< param_child_reply >( &var );
                 if ( val_ptr == nullptr ) {
                         return false;
                 }
@@ -252,7 +252,7 @@ struct param_child_count_processor
 
         [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
-                const auto* val_ptr = std::get_if< param_child_count_reply >( &var );
+                const auto* const val_ptr = std::get_if< param_child_count_reply >( &var );
                 if ( val_ptr == nullptr ) {
                         return false;
                 }
@@ -274,7 +274,7 @@ struct param_key_processor
 
         [[nodiscard]] bool set_value( const controller_reactor_variant& var )
         {
-                const auto* val_ptr = std::get_if< param_key_reply >( &var );
+                const auto* const val_ptr = std::get_if< param_key_reply >( &var );
                 if ( val_ptr == nullptr ) {
                         return false;
                 }

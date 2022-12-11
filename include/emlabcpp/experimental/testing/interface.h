@@ -98,7 +98,7 @@ class test_callable : public test_interface
         Callable cb_;
 
 public:
-        test_callable( reactor& rec, std::string_view name, Callable cb )
+        test_callable( reactor& rec, const std::string_view name, Callable cb )
           : test_interface( rec, name_to_buffer( name ) )
           , cb_( std::move( cb ) )
         {

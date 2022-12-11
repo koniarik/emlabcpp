@@ -50,7 +50,7 @@ public:
                 return &next->get_derived();
         }
 
-        [[nodiscard]] Derived* get_next( std::size_t id )
+        [[nodiscard]] Derived* get_next( const std::size_t id )
         {
                 if ( id == 0 ) {
                         return &get_derived();
@@ -80,7 +80,7 @@ public:
                 return &prev->get_derived();
         }
 
-        [[nodiscard]] Derived* get_prev( std::size_t id )
+        [[nodiscard]] Derived* get_prev( const std::size_t id )
         {
                 if ( id == 0 ) {
                         return &get_derived();

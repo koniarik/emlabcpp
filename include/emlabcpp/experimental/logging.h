@@ -4,10 +4,10 @@
 
 namespace emlabcpp
 {
-consteval std::string_view stem_of( const char* file )
+consteval std::string_view stem_of( const char* const file )
 {
-        std::string_view res{ file };
-        std::size_t      pos = res.find_last_of( '/' );
+        const std::string_view res{ file };
+        const std::size_t      pos = res.find_last_of( '/' );
         if ( pos == std::string_view::npos ) {
                 return res;
         }
@@ -96,7 +96,7 @@ public:
                 return os_;
         }
 
-        void operator()( std::string_view sv )
+        void operator()( const std::string_view sv )
         {
                 write_std_streams( sv );
                 if ( filestream_ ) {
@@ -106,14 +106,14 @@ public:
         }
 
 private:
-        void set_color( std::string_view c )
+        void set_color( const std::string_view c )
         {
                 write_std_streams( "\033[38;5;" );
                 write_std_streams( c );
                 write_std_streams( "m" );
         }
 
-        void write_std_streams( std::string_view sv )
+        void write_std_streams( const std::string_view sv )
         {
                 if ( use_stdout_ ) {
                         std::cout.write( sv.data(), static_cast< std::streamsize >( sv.size() ) );

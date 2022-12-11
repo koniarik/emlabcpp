@@ -11,7 +11,7 @@ struct timelog
 {
         std::chrono::time_point< std::chrono::system_clock > tp;
 
-        timelog( std::chrono::time_point< std::chrono::system_clock > tp_ )
+        timelog( const std::chrono::time_point< std::chrono::system_clock > tp_ )
           : tp( tp_ )
         {
         }
@@ -27,7 +27,8 @@ auto& operator<<( ostreamlike auto& os, const timelog& lg )
 
         std::array< char, 42 > data;
 
-        std::size_t i = std::strftime( data.data(), data.size(), "%T.", std::localtime( &t ) );
+        const std::size_t i =
+            std::strftime( data.data(), data.size(), "%T.", std::localtime( &t ) );
         os << std::string_view{ data.data(), i };
 
         std::snprintf( data.begin(), data.size(), "%.3li", ms.count() );

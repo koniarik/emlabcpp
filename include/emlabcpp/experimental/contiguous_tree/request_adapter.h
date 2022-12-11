@@ -150,7 +150,7 @@ private:
                     [&]( const value_type& val ) {
                             return tree_.make_value_node( val );
                     },
-                    [&]( contiguous_container_type type ) -> std::optional< node_id > {
+                    [&]( const contiguous_container_type type ) -> std::optional< node_id > {
                             if ( type == CONTIGUOUS_CONT_ARRAY ) {
                                     auto opt_res = tree_.make_array_node();
                                     if ( opt_res ) {
