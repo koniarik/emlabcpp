@@ -93,10 +93,10 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a5384c6950d84f064b4cb0c8983080870">    7</a></span>&#160;consteval std::string_view <a class="code" href="namespaceemlabcpp.html#a5384c6950d84f064b4cb0c8983080870">stem_of</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* file )</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a8957c9a260392953177f79b08a93da79">    7</a></span>&#160;consteval std::string_view <a class="code" href="namespaceemlabcpp.html#a8957c9a260392953177f79b08a93da79">stem_of</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> file )</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        std::string_view <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>{ file };</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        std::size_t      pos = <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.find_last_of( <span class="charliteral">&#39;/&#39;</span> );</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keyword">const</span> std::string_view <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>{ file };</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keyword">const</span> std::size_t      pos = <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.find_last_of( <span class="charliteral">&#39;/&#39;</span> );</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordflow">if</span> ( pos == std::string_view::npos ) {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        }</div>
@@ -185,7 +185,7 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">return</span> os_;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">void</span> operator()( std::string_view sv )</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">void</span> operator()( <span class="keyword">const</span> std::string_view sv )</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        {</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                write_std_streams( sv );</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">if</span> ( filestream_ ) {</div>
@@ -195,14 +195,14 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">void</span> set_color( std::string_view c )</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">void</span> set_color( <span class="keyword">const</span> std::string_view c )</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        {</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                write_std_streams( <span class="stringliteral">&quot;\033[38;5;&quot;</span> );</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                write_std_streams( c );</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                write_std_streams( <span class="stringliteral">&quot;m&quot;</span> );</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordtype">void</span> write_std_streams( std::string_view sv )</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordtype">void</span> write_std_streams( <span class="keyword">const</span> std::string_view sv )</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        {</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">if</span> ( use_stdout_ ) {</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                        std::cout.write( sv.data(), <span class="keyword">static_cast&lt;</span> std::streamsize <span class="keyword">&gt;</span>( sv.size() ) );</div>
@@ -279,10 +279,10 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="acolor_8h_html"><div class="ttname"><a href="color_8h.html">color.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> access_view.h:7</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a5384c6950d84f064b4cb0c8983080870"><div class="ttname"><a href="namespaceemlabcpp.html#a5384c6950d84f064b4cb0c8983080870">emlabcpp::stem_of</a></div><div class="ttdeci">consteval std::string_view stem_of(const char *file)</div><div class="ttdef"><b>Definition:</b> logging.h:7</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a57181a407fd6f29a50664f8ba4cb44cd"><div class="ttname"><a href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match</a></div><div class="ttdeci">decltype(auto) match(Variant &amp;&amp;var, Callables &amp;&amp;... cals)</div><div class="ttdef"><b>Definition:</b> match.h:54</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a620a32406486ae5b889d41d446c4a8b0"><div class="ttname"><a href="namespaceemlabcpp.html#a620a32406486ae5b889d41d446c4a8b0">emlabcpp::reset_color</a></div><div class="ttdeci">consteval std::string_view reset_color()</div><div class="ttdef"><b>Definition:</b> color.h:30</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:152</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a8957c9a260392953177f79b08a93da79"><div class="ttname"><a href="namespaceemlabcpp.html#a8957c9a260392953177f79b08a93da79">emlabcpp::stem_of</a></div><div class="ttdeci">consteval std::string_view stem_of(const char *const file)</div><div class="ttdef"><b>Definition:</b> logging.h:7</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:537</div></div>
 <div class="ttc" id="apretty__printer_8h_html"><div class="ttname"><a href="pretty__printer_8h.html">pretty_printer.h</a></div></div>
 <div class="ttc" id="asimple__stream_8h_html"><div class="ttname"><a href="simple__stream_8h.html">simple_stream.h</a></div></div>
@@ -293,7 +293,7 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="logging_8h.html">logging.h</a></li>
-    <li class="footer">Generated on Sat Dec 10 2022 23:34:18 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 10:32:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
