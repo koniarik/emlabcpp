@@ -342,7 +342,7 @@ $(document).ready(function(){initNavTree('quantity_8h_source.html',''); initResi
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;{</div>
 <div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01T_01_4.html#a06ad9026d2b3341dd81a7b1e20c09e39">  304</a></span>&#160;        std::size_t <a class="code" href="structstd_1_1hash_3_01T_01_4.html#a06ad9026d2b3341dd81a7b1e20c09e39">operator()</a>( T q )</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        {</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                std::string unit = T::get_unit();</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                <span class="keyword">const</span> std::string unit = T::get_unit();</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                <span class="keywordflow">return</span> std::hash&lt; typename T::value_type &gt;()( *q ) ^</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                       std::hash&lt; std::string &gt;()( unit );</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        }</div>
@@ -416,7 +416,7 @@ $(document).ready(function(){initNavTree('quantity_8h_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="quantity_8h.html">quantity.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 10:32:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 11:16:53 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('allocator_8h_source.html',''); initRes
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1allocator.html#ad386b987b9a3ed5ff21026bb9681b3af">   26</a></span>&#160;        T* <a class="code" href="classemlabcpp_1_1pmr_1_1allocator.html#ad386b987b9a3ed5ff21026bb9681b3af">allocate</a>( <span class="keyword">const</span> std::size_t n )</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <span class="keywordtype">void</span>* <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = resource_.get().allocate( n * <span class="keyword">sizeof</span>( T ), <span class="keyword">alignof</span>( T ) );</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <span class="keywordtype">void</span>* <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = resource_.get().allocate( n * <span class="keyword">sizeof</span>( T ), <span class="keyword">alignof</span>( T ) );</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <span class="keywordflow">if</span> ( <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> == <span class="keyword">nullptr</span> ) {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                        <a class="code" href="namespaceemlabcpp_1_1pmr.html#a0db595500c9bd8f5a2b7a52d4f137a9a">throw_bad_alloc</a>();</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                }</div>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('allocator_8h_source.html',''); initRes
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1allocator.html#a1123dba59759d363a8b52c7628504020">   36</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pmr_1_1allocator.html#a1123dba59759d363a8b52c7628504020">deallocate</a>( T* <span class="keyword">const</span> p, <span class="keyword">const</span> std::size_t size ) noexcept</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keywordtype">bool</span> succeeded = resource_.get().deallocate(</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">bool</span> succeeded = resource_.get().deallocate(</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                    <span class="keyword">reinterpret_cast&lt;</span> <span class="keywordtype">void</span>* <span class="keyword">&gt;</span>( p ), size, <span class="keyword">alignof</span>( T ) );</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">if</span> ( !succeeded ) {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                        <a class="code" href="namespaceemlabcpp_1_1pmr.html#a0db595500c9bd8f5a2b7a52d4f137a9a">throw_bad_alloc</a>();</div>
@@ -174,7 +174,7 @@ $(document).ready(function(){initNavTree('allocator_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_231aac52433e25ed4b5ea5619bdfd3e1.html">pmr</a></li><li class="navelem"><a class="el" href="allocator_8h.html">allocator.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 10:32:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 11:16:53 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

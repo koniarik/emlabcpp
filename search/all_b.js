@@ -7,7 +7,7 @@ var searchData=
   ['list_451',['list',['../namespaceemlabcpp_1_1pmr.html#aa9e0710702363605288c47c26736ea5f',1,'emlabcpp::pmr']]],
   ['load_452',['LOAD',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca39a57b8e9e8abeb37bd83a66fd14d6ec',1,'emlabcpp::testing']]],
   ['load_5ftest_453',['load_test',['../structemlabcpp_1_1testing_1_1load__test.html',1,'emlabcpp::testing']]],
-  ['load_5fvariant_454',['load_variant',['../classemlabcpp_1_1protocol_1_1endpoint.html#ad737a7c98a84f88c3ad0026311d0b4d6',1,'emlabcpp::protocol::endpoint']]],
+  ['load_5fvariant_454',['load_variant',['../classemlabcpp_1_1protocol_1_1endpoint.html#a427473ee50a8ef9a38235b23d68642f8',1,'emlabcpp::protocol::endpoint']]],
   ['log_5fcolor_5fstub_455',['log_color_stub',['../namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub',1,'emlabcpp']]],
   ['log_5fcolors_456',['log_colors',['../namespaceemlabcpp.html#structemlabcpp_1_1log__colors',1,'emlabcpp']]],
   ['log_5fseverity_457',['log_severity',['../namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55',1,'emlabcpp']]],

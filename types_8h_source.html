@@ -171,7 +171,7 @@ $(document).ready(function(){initNavTree('types_8h_source.html',''); initResizab
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_DEMANGLING</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        std::string <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">int</span>         tmp   = 0;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">char</span>*       dname = abi::__cxa_demangle( <span class="keyword">typeid</span>( T ).name(), <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, &amp;tmp );</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">char</span>* <span class="keyword">const</span> dname = abi::__cxa_demangle( <span class="keyword">typeid</span>( T ).name(), <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, &amp;tmp );</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>               = dname;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="comment">// NOLINTNEXTLINE</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        free( dname );</div>
@@ -276,7 +276,7 @@ $(document).ready(function(){initNavTree('types_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="types_8h.html">types.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 10:32:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 11:16:53 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

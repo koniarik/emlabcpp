@@ -17,6 +17,6 @@ var searchData=
   ['traits_5ffor_5fimpl_1681',['traits_for_impl',['../namespaceemlabcpp_1_1protocol.html#a9c27fc5576f6e7894b809016d7d5cbdc',1,'emlabcpp::protocol']]],
   ['transmit_1682',['transmit',['../classemlabcpp_1_1testing_1_1controller__interface.html#a97811177be21bd230b90c4691e09c37c',1,'emlabcpp::testing::controller_interface::transmit()'],['../classemlabcpp_1_1testing_1_1reactor__interface.html#a812a229a35b8fe5254cb7363c1254fbc',1,'emlabcpp::testing::reactor_interface::transmit()']]],
   ['transposed_5fmatrix_1683',['transposed_matrix',['../classemlabcpp_1_1transposed__matrix.html#ab813d638ed1215361c80854f05119fa7',1,'emlabcpp::transposed_matrix']]],
-  ['trim_5fview_1684',['trim_view',['../namespaceemlabcpp.html#a793151b3dbb2a3d533314e5a55cf6f54',1,'emlabcpp']]],
+  ['trim_5fview_1684',['trim_view',['../namespaceemlabcpp.html#acd8a44534f893fb67e883a5a8b396ef4',1,'emlabcpp']]],
   ['tuple_5fzip_5fimpl_1685',['tuple_zip_impl',['../namespaceemlabcpp.html#aa8b8f5742901528282a9da6b8317e7b5',1,'emlabcpp']]]
 ];

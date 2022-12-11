@@ -116,9 +116,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a676222c8f82f529f2b642ba5dee8eb11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82c6e790cabc42c56cc792037700c32a"><td class="memItemLeft" align="right" valign="top">std::variant&lt; std::size_t, <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#aa54914338ca08c2402f4ff526464dd1e">input_value</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#a82c6e790cabc42c56cc792037700c32a">get_message</a> ()</td></tr>
 <tr class="separator:a82c6e790cabc42c56cc792037700c32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad737a7c98a84f88c3ad0026311d0b4d6"><td class="memTemplParams" colspan="2">template&lt;typename ReadCallback &gt; </td></tr>
-<tr class="memitem:ad737a7c98a84f88c3ad0026311d0b4d6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#aa54914338ca08c2402f4ff526464dd1e">input_value</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">endpoint_error</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#ad737a7c98a84f88c3ad0026311d0b4d6">load_variant</a> (std::size_t read_limit, ReadCallback &amp;&amp;read)</td></tr>
-<tr class="separator:ad737a7c98a84f88c3ad0026311d0b4d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a427473ee50a8ef9a38235b23d68642f8"><td class="memTemplParams" colspan="2">template&lt;typename ReadCallback &gt; </td></tr>
+<tr class="memitem:a427473ee50a8ef9a38235b23d68642f8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#aa54914338ca08c2402f4ff526464dd1e">input_value</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">endpoint_error</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#a427473ee50a8ef9a38235b23d68642f8">load_variant</a> (const std::size_t read_limit, ReadCallback &amp;&amp;read)</td></tr>
+<tr class="separator:a427473ee50a8ef9a38235b23d68642f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="afff8181116cbb4cfea7f8eeaa658bbbc"></a>
@@ -261,8 +261,8 @@ template&lt;typename Container &gt; </div>
 
 </div>
 </div>
-<a id="ad737a7c98a84f88c3ad0026311d0b4d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad737a7c98a84f88c3ad0026311d0b4d6">&#9670;&nbsp;</a></span>load_variant()</h2>
+<a id="a427473ee50a8ef9a38235b23d68642f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a427473ee50a8ef9a38235b23d68642f8">&#9670;&nbsp;</a></span>load_variant()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,7 +277,7 @@ template&lt;typename ReadCallback &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#aa54914338ca08c2402f4ff526464dd1e">input_value</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">endpoint_error</a> &gt; <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html">emlabcpp::protocol::endpoint</a>&lt; InputPacket, OutputPacket &gt;::load_variant </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramtype">const std::size_t&#160;</td>
           <td class="paramname"><em>read_limit</em>, </td>
         </tr>
         <tr>
@@ -342,7 +342,7 @@ template&lt;typename InputPacket , typename OutputPacket &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html">endpoint</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 10:32:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 11:16:53 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

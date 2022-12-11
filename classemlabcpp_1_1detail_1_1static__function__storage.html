@@ -114,8 +114,8 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a22de268b5b018e70b55896ef311be3c2"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1detail_1_1static__function__storage.html#a22de268b5b018e70b55896ef311be3c2">construct_at</a> (void *ptr, T item)</td></tr>
 <tr class="separator:a22de268b5b018e70b55896ef311be3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cb942aa6f41009555b02217b0cc0aeb"><td class="memItemLeft" align="right" valign="top">static ReturnType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1detail_1_1static__function__storage.html#a9cb942aa6f41009555b02217b0cc0aeb">invoke</a> (void *source, ArgTypes... args)</td></tr>
-<tr class="separator:a9cb942aa6f41009555b02217b0cc0aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3ef32627b667907330b3d12cce86624"><td class="memItemLeft" align="right" valign="top">static ReturnType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1detail_1_1static__function__storage.html#af3ef32627b667907330b3d12cce86624">invoke</a> (void *const source, ArgTypes... args)</td></tr>
+<tr class="separator:af3ef32627b667907330b3d12cce86624"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8862198ad33dc14d66477d394b375fd3"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1detail_1_1static__function__storage.html#a8862198ad33dc14d66477d394b375fd3">handle</a> (void *const source, void *target, const <a class="el" href="namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79e">static_function_operations</a> op)</td></tr>
 <tr class="separator:a8862198ad33dc14d66477d394b375fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -218,7 +218,7 @@ template&lt;typename T , typename ReturnType , typename... ArgTypes&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1pmr.html#a204dae2444973396ce52ae927b8c445f">emlabcpp::pmr::align()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263">emlabcpp::pmr::align()</a>.</p>
 
 </div>
 </div>
@@ -264,12 +264,12 @@ template&lt;typename T , typename ReturnType , typename... ArgTypes&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1pmr.html#a204dae2444973396ce52ae927b8c445f">emlabcpp::pmr::align()</a>, <a class="el" href="namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eae8606d021da140a92c7eba8d9b8af84f">emlabcpp::detail::COPY</a>, and <a class="el" href="namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eac39aa6dbe619bb8ef8187b00b686df6a">emlabcpp::detail::DESTROY</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263">emlabcpp::pmr::align()</a>, <a class="el" href="namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eae8606d021da140a92c7eba8d9b8af84f">emlabcpp::detail::COPY</a>, and <a class="el" href="namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eac39aa6dbe619bb8ef8187b00b686df6a">emlabcpp::detail::DESTROY</a>.</p>
 
 </div>
 </div>
-<a id="a9cb942aa6f41009555b02217b0cc0aeb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cb942aa6f41009555b02217b0cc0aeb">&#9670;&nbsp;</a></span>invoke()</h2>
+<a id="af3ef32627b667907330b3d12cce86624"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3ef32627b667907330b3d12cce86624">&#9670;&nbsp;</a></span>invoke()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,7 +282,7 @@ template&lt;typename T , typename ReturnType , typename... ArgTypes&gt; </div>
         <tr>
           <td class="memname">static ReturnType <a class="el" href="classemlabcpp_1_1detail_1_1static__function__storage.html">emlabcpp::detail::static_function_storage</a>&lt; T, ReturnType, ArgTypes &gt;::invoke </td>
           <td>(</td>
-          <td class="paramtype">void *&#160;</td>
+          <td class="paramtype">void *const&#160;</td>
           <td class="paramname"><em>source</em>, </td>
         </tr>
         <tr>
@@ -329,10 +329,10 @@ template&lt;typename T , typename ReturnType , typename... ArgTypes&gt; </div>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">                    <a class="code" href="classemlabcpp_1_1detail_1_1static__function__storage.html#a9cb942aa6f41009555b02217b0cc0aeb">invoke</a>,</div>
+<div class="line">                    <a class="code" href="classemlabcpp_1_1detail_1_1static__function__storage.html#af3ef32627b667907330b3d12cce86624">invoke</a>,</div>
 <div class="line">                    <a class="code" href="classemlabcpp_1_1detail_1_1static__function__storage.html#a8862198ad33dc14d66477d394b375fd3">handle</a> }</div>
 <div class="ttc" id="aclassemlabcpp_1_1detail_1_1static__function__storage_html_a8862198ad33dc14d66477d394b375fd3"><div class="ttname"><a href="classemlabcpp_1_1detail_1_1static__function__storage.html#a8862198ad33dc14d66477d394b375fd3">emlabcpp::detail::static_function_storage::handle</a></div><div class="ttdeci">static void * handle(void *const source, void *target, const static_function_operations op)</div><div class="ttdef"><b>Definition:</b> static_function.h:80</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1detail_1_1static__function__storage_html_a9cb942aa6f41009555b02217b0cc0aeb"><div class="ttname"><a href="classemlabcpp_1_1detail_1_1static__function__storage.html#a9cb942aa6f41009555b02217b0cc0aeb">emlabcpp::detail::static_function_storage::invoke</a></div><div class="ttdeci">static ReturnType invoke(void *source, ArgTypes... args)</div><div class="ttdef"><b>Definition:</b> static_function.h:73</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1detail_1_1static__function__storage_html_af3ef32627b667907330b3d12cce86624"><div class="ttname"><a href="classemlabcpp_1_1detail_1_1static__function__storage.html#af3ef32627b667907330b3d12cce86624">emlabcpp::detail::static_function_storage::invoke</a></div><div class="ttdeci">static ReturnType invoke(void *const source, ArgTypes... args)</div><div class="ttdef"><b>Definition:</b> static_function.h:73</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -345,7 +345,7 @@ template&lt;typename T , typename ReturnType , typename... ArgTypes&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1detail_1_1static__function__storage.html">static_function_storage</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 10:32:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 11:16:53 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
