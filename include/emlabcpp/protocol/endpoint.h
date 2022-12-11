@@ -52,7 +52,7 @@ public:
 
         template < typename ReadCallback >
         either< input_value, endpoint_error >
-        load_variant( std::size_t read_limit, ReadCallback&& read )
+        load_variant( const std::size_t read_limit, ReadCallback&& read )
         {
                 // TODO: duplication of sequencer_simple_load
                 // TODO: decompose all of this /o

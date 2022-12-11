@@ -26,7 +26,7 @@ public:
         T* allocate( const std::size_t n )
         {
 
-                void* res = resource_.get().allocate( n * sizeof( T ), alignof( T ) );
+                void* const res = resource_.get().allocate( n * sizeof( T ), alignof( T ) );
                 if ( res == nullptr ) {
                         throw_bad_alloc();
                 }
@@ -35,7 +35,7 @@ public:
 
         void deallocate( T* const p, const std::size_t size ) noexcept
         {
-                bool succeeded = resource_.get().deallocate(
+                const bool succeeded = resource_.get().deallocate(
                     reinterpret_cast< void* >( p ), size, alignof( T ) );
                 if ( !succeeded ) {
                         throw_bad_alloc();

@@ -25,35 +25,37 @@
 namespace emlabcpp::testing
 {
 
-param_type_awaiter record::get_param_type( node_id nid )
+param_type_awaiter record::get_param_type( const node_id nid )
 {
         return param_type_awaiter{ param_type_request{ rid_, nid }, &comm_ };
 }
 
-collect_awaiter record::collect( node_id parent, const collect_value_type& arg, bool expects_reply )
+collect_awaiter
+record::collect( const node_id parent, const collect_value_type& arg, const bool expects_reply )
 {
         return collect( parent, std::optional< key_type >{}, arg, expects_reply );
 }
 
 collect_awaiter record::collect(
-    node_id                   parent,
-    std::string_view          k,
-    contiguous_container_type t,
-    bool                      expects_reply )
+    const node_id                   parent,
+    const std::string_view          k,
+    const contiguous_container_type t,
+    const bool                      expects_reply )
 {
         return collect( parent, convert_key( k ), collect_value_type{ t }, expects_reply );
 }
 
-collect_awaiter record::collect( node_id parent, contiguous_container_type t, bool expects_reply )
+collect_awaiter
+record::collect( const node_id parent, const contiguous_container_type t, const bool expects_reply )
 {
         return collect( parent, collect_value_type{ t }, expects_reply );
 }
 
 collect_awaiter record::collect(
-    node_id                          parent,
+    const node_id                    parent,
     const std::optional< key_type >& key,
     const collect_value_type&        arg,
-    bool                             expects_reply )
+    const bool                       expects_reply )
 {
         return collect_awaiter{
             collect_request{
@@ -65,28 +67,28 @@ collect_awaiter record::collect(
             &comm_ };
 }
 
-param_child_awaiter record::get_param_child( node_id nid, child_id chid )
+param_child_awaiter record::get_param_child( const node_id nid, const child_id chid )
 {
         return param_child_awaiter{ param_child_request{ rid_, nid, chid }, &comm_ };
 }
 
-param_child_awaiter record::get_param_child( node_id nid, std::string_view key )
+param_child_awaiter record::get_param_child( const node_id nid, const std::string_view key )
 {
         return get_param_child( nid, key_type_to_buffer( key ) );
 }
 
-param_child_awaiter record::get_param_child( node_id nid, const key_type& key )
+param_child_awaiter record::get_param_child( const node_id nid, const key_type& key )
 {
         return param_child_awaiter{ param_child_request{ rid_, nid, key }, &comm_ };
 }
 
-param_child_count_awaiter record::get_param_child_count( std::optional< node_id > nid )
+param_child_count_awaiter record::get_param_child_count( const std::optional< node_id > nid )
 {
         return param_child_count_awaiter{
             param_child_count_request{ .rid = rid_, .parent = *nid }, &comm_ };
 }
 
-param_key_awaiter record::get_param_key( node_id nid, child_id chid )
+param_key_awaiter record::get_param_key( const node_id nid, const child_id chid )
 {
         return param_key_awaiter{ param_key_request{ rid_, nid, chid }, &comm_ };
 }

@@ -50,7 +50,7 @@ bool reactor_interface_adapter::read_with_handler()
                     if ( h_( var ) ) {
                             return true;
                     }
-                    const auto* tree_err = std::get_if< tree_error_reply >( &var );
+                    const auto* const tree_err = std::get_if< tree_error_reply >( &var );
                     if ( tree_err != nullptr ) {
                             report_failure( *tree_err );
                     }

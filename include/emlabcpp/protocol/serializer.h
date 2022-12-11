@@ -93,7 +93,8 @@ struct serializer< bool, Endianess >
         static constexpr std::size_t max_size = sizeof( bool );
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
-        static constexpr void serialize_at( std::span< uint8_t, max_size > buffer, const bool v )
+        static constexpr void
+        serialize_at( const std::span< uint8_t, max_size > buffer, const bool v )
         {
                 buffer[0] = v ? 0x1 : 0x0;
         }

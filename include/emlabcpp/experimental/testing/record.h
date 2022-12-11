@@ -37,7 +37,7 @@ class record
         bool                       errored_ = false;
 
 public:
-        record( test_id, run_id rid, reactor_interface_adapter& comm )
+        record( const test_id, const run_id rid, reactor_interface_adapter& comm )
           : rid_( rid )
           , comm_( comm )
         {
@@ -46,25 +46,25 @@ public:
         param_type_awaiter get_param_type( node_id );
 
         template < typename T >
-        param_value_awaiter< T > get_param( node_id node )
+        param_value_awaiter< T > get_param( const node_id node )
         {
                 return param_value_awaiter< T >{ param_value_request{ rid_, node }, &comm_ };
         }
 
         template < typename T >
-        param_value_key_awaiter< T > get_param( node_id node, child_id chid )
+        param_value_key_awaiter< T > get_param( const node_id node, const child_id chid )
         {
                 return param_value_key_awaiter< T >{
                     param_value_key_request{ rid_, node, chid }, &comm_ };
         }
         template < typename T >
-        param_value_key_awaiter< T > get_param( node_id node, const key_type& k )
+        param_value_key_awaiter< T > get_param( const node_id node, const key_type& k )
         {
                 return param_value_key_awaiter< T >{
                     param_value_key_request{ rid_, node, k }, &comm_ };
         }
         template < typename T >
-        param_value_key_awaiter< T > get_param( node_id node, std::string_view k )
+        param_value_key_awaiter< T > get_param( const node_id node, std::string_view k )
         {
                 return get_param< T >( node, key_type_to_buffer( k ) );
         }
@@ -74,7 +74,7 @@ public:
         param_child_awaiter get_param_child( node_id, std::string_view key );
 
         param_child_count_awaiter get_param_child_count( std::optional< node_id > );
-        param_child_count_awaiter get_param_child_count( node_id nid )
+        param_child_count_awaiter get_param_child_count( const node_id nid )
         {
                 return get_param_child_count( std::optional{ nid } );
         }
@@ -105,8 +105,11 @@ public:
         collect( node_id parent, contiguous_container_type t, bool expects_reply = true );
 
         template < typename Arg >
-        collect_awaiter
-        collect( node_id parent, std::string_view k, const Arg& arg, bool expects_reply = true )
+        collect_awaiter collect(
+            const node_id          parent,
+            const std::string_view k,
+            const Arg&             arg,
+            const bool             expects_reply = true )
         {
                 return collect(
                     parent,
@@ -116,7 +119,8 @@ public:
         }
 
         template < typename Arg >
-        collect_awaiter collect( node_id parent, const Arg& arg, bool expects_reply = true )
+        collect_awaiter
+        collect( const node_id parent, const Arg& arg, const bool expects_reply = true )
         {
                 const value_type& val = value_type_converter< Arg >::to_value( arg );
                 return collect( parent, collect_value_type{ val }, expects_reply );
@@ -131,13 +135,13 @@ public:
         {
         }
 
-        void expect( bool val )
+        void expect( const bool val )
         {
                 val ? success() : fail();
         }
 
 private:
-        std::optional< key_type > convert_key( std::string_view sview )
+        std::optional< key_type > convert_key( const std::string_view sview )
         {
                 return key_type_to_buffer( sview );
         }

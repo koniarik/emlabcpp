@@ -816,7 +816,7 @@ struct converter< mark, Endianess >
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
         static constexpr size_type
-        serialize_at( std::span< uint8_t, max_size > buffer, value_type item )
+        serialize_at( const std::span< uint8_t, max_size > buffer, const value_type& item )
         {
                 copy( item, buffer.begin() );
                 return size_type{};

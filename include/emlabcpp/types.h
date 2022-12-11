@@ -91,7 +91,7 @@ auto pretty_type_name()
 #ifdef EMLABCPP_USE_DEMANGLING
         std::string res;
         int         tmp   = 0;
-        char*       dname = abi::__cxa_demangle( typeid( T ).name(), nullptr, nullptr, &tmp );
+        char* const dname = abi::__cxa_demangle( typeid( T ).name(), nullptr, nullptr, &tmp );
         res               = dname;
         // NOLINTNEXTLINE
         free( dname );

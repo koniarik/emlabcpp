@@ -41,11 +41,11 @@ auto& operator<<( Stream& os, const message< N >& msg )
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
         char l = '|';
-        for ( std::size_t i : range( msg.size() ) ) {
+        for ( const std::size_t i : range( msg.size() ) ) {
                 if ( i % 4 == 0 ) {
                         l = '|';
                 }
-                uint8_t val = msg[i];
+                const uint8_t val = msg[i];
                 os << l << hex_chars[val / 16] << hex_chars[val % 16];
                 l = ':';
         }

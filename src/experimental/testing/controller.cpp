@@ -284,7 +284,7 @@ struct controller_dispatcher
                 const contiguous_request_adapter harn{ iface->get_param_tree() };
 
                 harn.get_child( req.nid, req.key )
-                    .bind_left( [this, &req, &harn]( child_id chid ) {
+                    .bind_left( [this, &req, &harn]( const child_id chid ) {
                             return harn.get_value( chid );
                     } )
                     .match(
@@ -316,14 +316,14 @@ struct controller_dispatcher
                 EMLABCPP_ASSERT( context );
                 EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
 
-                contiguous_request_adapter harn{ iface->get_param_tree() };
+                const contiguous_request_adapter harn{ iface->get_param_tree() };
 
                 harn.get_child_count( req.parent )
                     .match(
-                        [this, &req]( child_id count ) {
+                        [this, &req]( const child_id count ) {
                                 this->iface.send( param_child_count_reply{ req.rid, count } );
                         },
-                        [this, &req]( contiguous_request_adapter_errors_enum err ) {
+                        [this, &req]( const contiguous_request_adapter_errors_enum err ) {
                                 this->iface.reply_node_error( req.rid, err, req.parent );
                         } );
         }
@@ -332,14 +332,14 @@ struct controller_dispatcher
                 EMLABCPP_ASSERT( context );
                 EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
 
-                contiguous_request_adapter harn{ iface->get_param_tree() };
+                const contiguous_request_adapter harn{ iface->get_param_tree() };
 
                 harn.get_key( req.nid, req.chid )
                     .match(
                         [this, &req]( const key_type& key ) {
                                 iface.send( param_key_reply{ req.rid, key } );
                         },
-                        [this, &req]( contiguous_request_adapter_errors_enum err ) {
+                        [this, &req]( const contiguous_request_adapter_errors_enum err ) {
                                 iface.reply_node_error( req.rid, err, req.nid );
                         } );
         }
@@ -348,13 +348,13 @@ struct controller_dispatcher
                 EMLABCPP_ASSERT( context );
                 EMLABCPP_ASSERT( context->rid == req.rid );  // TODO better error handling
 
-                contiguous_request_adapter harn{ iface->get_param_tree() };
+                const contiguous_request_adapter harn{ iface->get_param_tree() };
 
                 harn.get_type( req.nid ).match(
-                    [this, &req]( contiguous_tree_type_enum type ) {
+                    [this, &req]( const contiguous_tree_type_enum type ) {
                             iface.send( param_type_reply{ req.rid, type } );
                     },
-                    [this, &req]( contiguous_request_adapter_errors_enum err ) {
+                    [this, &req]( const contiguous_request_adapter_errors_enum err ) {
                             iface.reply_node_error( req.rid, err, req.nid );
                     } );
         }

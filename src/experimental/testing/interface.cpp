@@ -12,7 +12,7 @@ test_interface::test_interface( reactor& rec, const name_buffer& name )
         other.push_after( this );
 }
 
-test_interface::test_interface( reactor& rec, std::string_view name )
+test_interface::test_interface( reactor& rec, const std::string_view name )
   : test_interface( rec, name_to_buffer( name ) )
 {
 }

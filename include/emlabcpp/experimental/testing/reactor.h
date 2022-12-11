@@ -58,7 +58,7 @@ class reactor
         std::optional< active_execution > active_exec_;
 
 public:
-        reactor( std::string_view suite_name )
+        reactor( const std::string_view suite_name )
           : suite_name_( suite_name )
         {
         }

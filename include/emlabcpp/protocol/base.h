@@ -45,7 +45,7 @@ struct conversion_result
           : used( u )
         {
         }
-        conversion_result( const std::size_t u, const mark* m )
+        conversion_result( const std::size_t u, const mark* const m )
           : used( u )
           , error( m )
         {

@@ -251,7 +251,7 @@ private:
         }
 
         template < typename... Args >
-        void emplace_item( size_type i, Args&&... args )
+        void emplace_item( const size_type i, Args&&... args )
         {
                 std::construct_at( begin() + i, std::forward< Args >( args )... );
         }

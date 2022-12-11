@@ -329,10 +329,11 @@ struct packet_def
 
         static constexpr checksum_type get_checksum( const view< const uint8_t* > msg )
         {
-                uint8_t init = 0x0;
-                return accumulate( msg, init, [&]( uint8_t accum, uint8_t val ) -> uint8_t {
-                        return accum ^ val;
-                } );
+                const uint8_t init = 0x0;
+                return accumulate(
+                    msg, init, [&]( const uint8_t accum, const uint8_t val ) -> uint8_t {
+                            return accum ^ val;
+                    } );
         }
 };
 

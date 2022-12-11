@@ -90,7 +90,7 @@ public:
         }
 
         /// Access to i-th element in the range, expects Iterator::operator+
-        [[nodiscard]] constexpr decltype( auto ) operator[]( size_type i ) const
+        [[nodiscard]] constexpr decltype( auto ) operator[]( const size_type i ) const
         {
                 return *( begin_ + static_cast< difference_type >( i ) );
         }
@@ -170,7 +170,7 @@ struct impl::is_view< view< Iter > > : std::true_type
 /// Creates view over 'n' items of dataset starting at 'begin'
 /// This does not check validity of the range!
 template < typename Iter >
-constexpr view< Iter > view_n( Iter begin, std::size_t n )
+constexpr view< Iter > view_n( Iter begin, const std::size_t n )
 {
         auto end = std::next(
             begin, static_cast< typename std::iterator_traits< Iter >::difference_type >( n ) );
@@ -181,9 +181,9 @@ constexpr view< Iter > view_n( Iter begin, std::size_t n )
 /// and last r*size/2 items. This can be used to get the dataset without
 /// first/last 5% for example, by using r=0.1
 template < range_container Container >
-constexpr view< iterator_of_t< Container > > trim_view( Container& cont, float r )
+constexpr view< iterator_of_t< Container > > trim_view( Container& cont, const float r )
 {
-        std::size_t step = cont.size() * ( 1.f - r ) / 2.f;
+        const std::size_t step = cont.size() * ( 1.f - r ) / 2.f;
         return { cont.begin() + step, cont.end() - step };
 }
 

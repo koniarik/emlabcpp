@@ -81,36 +81,36 @@ void reactor::spin( reactor_interface& top_iface )
             } );
 }
 
-void reactor::handle_message( get_property< SUITE_NAME >, reactor_interface_adapter& iface )
+void reactor::handle_message( const get_property< SUITE_NAME >, reactor_interface_adapter& iface )
 {
         iface.reply( get_suite_name_reply{ name_to_buffer( suite_name_ ) } );
 }
-void reactor::handle_message( get_property< SUITE_DATE >, reactor_interface_adapter& iface )
+void reactor::handle_message( const get_property< SUITE_DATE >, reactor_interface_adapter& iface )
 {
         iface.reply( get_suite_date_reply{ name_to_buffer( suite_date_ ) } );
 }
-void reactor::handle_message( get_property< COUNT >, reactor_interface_adapter& iface )
+void reactor::handle_message( const get_property< COUNT >, reactor_interface_adapter& iface )
 {
-        std::size_t c = root_test_.count_next();
+        const std::size_t c = root_test_.count_next();
         iface.reply( get_count_reply{ static_cast< test_id >( c ) } );
 }
-void reactor::handle_message( get_test_name_request req, reactor_interface_adapter& iface )
+void reactor::handle_message( const get_test_name_request req, reactor_interface_adapter& iface )
 {
-        test_interface* test_ptr = root_test_.get_next( req.tid + 1 );
+        test_interface* const test_ptr = root_test_.get_next( req.tid + 1 );
         if ( test_ptr == nullptr ) {
                 iface.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
         }
         iface.reply( get_test_name_reply{ test_ptr->name } );
 }
-void reactor::handle_message( load_test req, reactor_interface_adapter& iface )
+void reactor::handle_message( const load_test req, reactor_interface_adapter& iface )
 {
         if ( active_exec_ ) {
                 iface.report_failure( error< TEST_ALREADY_LOADED_E >{} );
                 return;
         }
 
-        test_interface* test_ptr = root_test_.get_next( req.tid + 1 );
+        test_interface* const test_ptr = root_test_.get_next( req.tid + 1 );
         if ( test_ptr == nullptr ) {
                 iface.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
@@ -118,7 +118,7 @@ void reactor::handle_message( load_test req, reactor_interface_adapter& iface )
 
         active_exec_ = active_execution{ req.tid, req.rid, test_ptr };
 }
-void reactor::handle_message( exec_request, reactor_interface_adapter& iface )
+void reactor::handle_message( const exec_request, reactor_interface_adapter& iface )
 {
         if ( !active_exec_ ) {
                 iface.report_failure( error< TEST_NOT_LOADED_E >{} );
@@ -132,12 +132,12 @@ void reactor::handle_message( exec_request, reactor_interface_adapter& iface )
 void reactor::exec_test( reactor_interface_adapter& iface )
 {
 
-        test_interface* test = active_exec_->iface_ptr;
-        record          rec{ active_exec_->tid, active_exec_->rid, iface };
-        bool            errd  = false;
-        bool            faild = false;
+        test_interface* const test = active_exec_->iface_ptr;
+        record                rec{ active_exec_->tid, active_exec_->rid, iface };
+        bool                  errd  = false;
+        bool                  faild = false;
 
-        defer d = [&] {
+        const defer d = [&] {
                 iface.reply(
                     test_finished{ .rid = active_exec_->rid, .errored = errd, .failed = faild } );
         };

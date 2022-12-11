@@ -305,7 +305,7 @@ struct std::hash< T >
         {
                 /// TODO: this should be rewritten
                 /// 'reverse' the prefix+unit info in bits and than xor it with number
-                std::string unit = T::get_unit();
+                const std::string unit = T::get_unit();
                 return std::hash< typename T::value_type >()( *q ) ^
                        std::hash< std::string >()( unit );
         }

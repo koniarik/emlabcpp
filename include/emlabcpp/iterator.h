@@ -101,7 +101,7 @@ public:
                 return impl();
         }
 
-        constexpr Derived operator++( int )
+        constexpr Derived operator++( const int )
         {
                 auto copy = impl();
                 impl() += 1;
@@ -114,7 +114,7 @@ public:
                 return impl();
         }
 
-        constexpr Derived operator--( int )
+        constexpr Derived operator--( const int )
         {
                 auto copy = impl();
                 impl() -= 1;
