@@ -1,6 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a5e54805857b3dccc133f2daea823f7c2":[3,0,0,5,65,1],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#a6e9d8503848c99ae9f7b796d27ad4592":[3,0,0,5,65,4],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#aa89a96844da157fbef7c83da8afc132f":[3,0,0,5,65,3],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html#ab81e5125917d7dd84f9d18c5538f5662":[3,0,0,5,65,5],
@@ -236,18 +235,19 @@ var NAVTREEINDEX9 =
 "structemlabcpp_1_1testing_1_1record__awaiter.html#a33ace583c04689705528ea9865f5681f":[3,0,0,7,10,3],
 "structemlabcpp_1_1testing_1_1record__awaiter.html#a4019939d07dd2c466db440c8b0eb1b9b":[3,0,0,7,10,1],
 "structemlabcpp_1_1testing_1_1record__awaiter.html#a4f92d1d4f88134ba143462ed8fc31c21":[3,0,0,7,10,4],
-"structemlabcpp_1_1testing_1_1record__awaiter.html#a5bec3ccf6a51d24741629b33228eabf4":[3,0,0,7,10,2],
 "structemlabcpp_1_1testing_1_1record__awaiter.html#a963ea132e354b947191b6eb5ad1eeb70":[3,0,0,7,10,5],
+"structemlabcpp_1_1testing_1_1record__awaiter.html#aaa9111c49ffc7688c4b61a82bf7f7362":[3,0,0,7,10,2],
 "structemlabcpp_1_1testing_1_1record__awaiter.html#aad79dc76387317a38c95da10060fe624":[3,0,0,7,10,0],
 "structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html":[3,0,0,7,9,0],
-"structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#a1bc8e8bd0110d6541321a69f7c1483c0":[3,0,0,7,9,0,2],
+"structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#a30bc8adf4bf134ae9790e9c9a04db07b":[3,0,0,7,9,0,3],
 "structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#a4fd7df8f1335bbff7eefe8df9b799fa8":[3,0,0,7,9,0,1],
-"structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#a6df6dde487abf09cbded1c3d8240cd30":[3,0,0,7,9,0,0],
-"structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#a9aec4ef05955a4988f7b349a118d081d":[3,0,0,7,9,0,4],
-"structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#abd56aba0acaa4eb50b9072e9498cdd44":[3,0,0,7,9,0,3],
+"structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#aab8943899d4940228347530e52ad4b6a":[3,0,0,7,9,0,0],
+"structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#aba7a5b98b83f1a60ab10bac1688f3755":[3,0,0,7,9,0,4],
+"structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#afdeb2ec5f44b3d60e7b6a93862c6fe6f":[3,0,0,7,9,0,2],
 "structemlabcpp_1_1testing_1_1test__finished.html":[3,0,0,7,48],
 "structemlabcpp_1_1testing_1_1test__finished.html#a8cdacf54dda2fc323136512191fbc0c0":[3,0,0,7,48,1],
 "structemlabcpp_1_1testing_1_1test__finished.html#a934e10105bb8b79437fd0a664edfc9dc":[3,0,0,7,48,3],
 "structemlabcpp_1_1testing_1_1test__finished.html#ab82c4d8fb4a8459f13f4e1c5d5598622":[3,0,0,7,48,2],
-"structemlabcpp_1_1testing_1_1test__finished.html#ae774779abc359bb313e4dd1357b1ec74":[3,0,0,7,48,0]
+"structemlabcpp_1_1testing_1_1test__finished.html#ae774779abc359bb313e4dd1357b1ec74":[3,0,0,7,48,0],
+"structemlabcpp_1_1testing_1_1test__result.html":[3,0,0,7,1]
 };

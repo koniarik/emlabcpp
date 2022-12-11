@@ -1,7 +1,7 @@
 var classemlabcpp_1_1simple__stream =
 [
     [ "simple_stream", "classemlabcpp_1_1simple__stream.html#ae6ac043f4f41dcdcd7e5b59d91a46760", null ],
-    [ "operator bool", "classemlabcpp_1_1simple__stream.html#a07eef54336a3b536b9e52468c25028fa", null ],
+    [ "operator bool", "classemlabcpp_1_1simple__stream.html#a3fa580885dbde5664c9c6efed7920891", null ],
     [ "operator<<", "classemlabcpp_1_1simple__stream.html#a754b83a001e271ab3b9d0730e263a2c4", null ],
     [ "operator<<", "classemlabcpp_1_1simple__stream.html#a517fe3e46a8d3231705dffbb4e1e3d57", null ],
     [ "operator<<", "classemlabcpp_1_1simple__stream.html#a2ace4f3e7694f401e8e416a243994f28", null ],

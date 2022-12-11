@@ -6,7 +6,7 @@ var classemlabcpp_1_1coro_1_1owning__coroutine__handle =
     [ "owning_coroutine_handle", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#af9e1603bfbe188a25b73533c80ce79fb", null ],
     [ "~owning_coroutine_handle", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a56fddcf0f81dbe421cf609fcdebb042e", null ],
     [ "operator bool", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#aebf8e3a2122ce22d762fa4fef6177f94", null ],
-    [ "operator()", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a1dfa7c89275ed652f94e5eb724c35298", null ],
+    [ "operator()", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a34d58aad6f50f74ad2c9ba162a1a8106", null ],
     [ "operator*", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a447c1b80f825e68e6bc28667f304aabc", null ],
     [ "operator->", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a67a9ce9c9a17e207c5a0790ad6b0ff59", null ],
     [ "operator=", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a54f9129b3ba36844b0427b0008e8cbdc", null ],

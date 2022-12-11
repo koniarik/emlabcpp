@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"classemlabcpp_1_1protocol_1_1register__map.html#a2999eaaf7666321cf01acb68b684ce70":[3,0,0,5,44,22],
 "classemlabcpp_1_1protocol_1_1register__map.html#a33f5097792f99d104f47fd808132b3b9":[3,0,0,5,44,23],
 "classemlabcpp_1_1protocol_1_1register__map.html#a35826b2fe1c15b27563a805397fdd49f":[3,0,0,5,44,15],
 "classemlabcpp_1_1protocol_1_1register__map.html#a37a0efc4ce9dc342fa0fb375e377ea03":[3,0,0,5,44,18],
@@ -87,13 +86,13 @@ var NAVTREEINDEX2 =
 "classemlabcpp_1_1rpc_1_1reactor.html#af26a4f2541edc00bf841c83004d00c8b":[3,0,0,6,6,9],
 "classemlabcpp_1_1rpc_1_1reactor.html#afe6dbbcf2622160727d6d3c2394283e6":[3,0,0,6,6,7],
 "classemlabcpp_1_1simple__stream.html":[3,0,0,31],
-"classemlabcpp_1_1simple__stream.html#a07eef54336a3b536b9e52468c25028fa":[3,0,0,31,1],
 "classemlabcpp_1_1simple__stream.html#a138faddf8a35ce2ed04b41976e27e895":[3,0,0,31,15],
 "classemlabcpp_1_1simple__stream.html#a13c8b2579b800553be73bfadf576abe4":[3,0,0,31,13],
 "classemlabcpp_1_1simple__stream.html#a1a2b174d1ed6f2d463fa5a1e9df4fbd2":[3,0,0,31,6],
 "classemlabcpp_1_1simple__stream.html#a2ace4f3e7694f401e8e416a243994f28":[3,0,0,31,4],
 "classemlabcpp_1_1simple__stream.html#a32e7642e7d52af22743eac3a6be64996":[3,0,0,31,14],
 "classemlabcpp_1_1simple__stream.html#a3ea37e1ee40493597b3c3c222df2aee3":[3,0,0,31,9],
+"classemlabcpp_1_1simple__stream.html#a3fa580885dbde5664c9c6efed7920891":[3,0,0,31,1],
 "classemlabcpp_1_1simple__stream.html#a476fb9bcacdddae9ada4d16b14701e22":[3,0,0,31,10],
 "classemlabcpp_1_1simple__stream.html#a517fe3e46a8d3231705dffbb4e1e3d57":[3,0,0,31,3],
 "classemlabcpp_1_1simple__stream.html#a754b83a001e271ab3b9d0730e263a2c4":[3,0,0,31,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "classemlabcpp_1_1testing_1_1reactor__interface.html#ab5dece134c59b674eb5b69813f56e12d":[3,0,0,7,57,0],
 "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html":[3,0,0,7,58],
 "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#a1dc94f679f5c3e983ce8d1c22ac53aa3":[3,0,0,7,58,1],
-"classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#a1fb76ed76a8d8010a49d216ec367535d":[3,0,0,7,58,0]
+"classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#a1fb76ed76a8d8010a49d216ec367535d":[3,0,0,7,58,0],
+"classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#a266c6fe203f1ce2bfd6be2f2be321701":[3,0,0,7,58,5]
 };

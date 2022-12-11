@@ -37,7 +37,7 @@ var searchData=
   ['error_5fmark_276',['error_mark',['../namespaceemlabcpp_1_1protocol.html#a53258509ef594ffcca73ea55a640dd63',1,'emlabcpp::protocol::error_record']]],
   ['error_5frecord_277',['error_record',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record',1,'emlabcpp::protocol']]],
   ['error_5fvariant_278',['error_variant',['../namespaceemlabcpp_1_1testing.html#a21c567b7200acbb97782be90bdf747b4',1,'emlabcpp::testing']]],
-  ['errored_279',['errored',['../classemlabcpp_1_1testing_1_1record.html#a34286a72b684ee01083a13d892ee2e6e',1,'emlabcpp::testing::record::errored()'],['../structemlabcpp_1_1testing_1_1test__result.html#a66f07d2d45e4d734e4046a52ad4757c8',1,'emlabcpp::testing::test_result::errored()'],['../structemlabcpp_1_1testing_1_1test__finished.html#ae774779abc359bb313e4dd1357b1ec74',1,'emlabcpp::testing::test_finished::errored()']]],
+  ['errored_279',['errored',['../classemlabcpp_1_1testing_1_1record.html#a236441ad710327794f198aed6f6f366b',1,'emlabcpp::testing::record::errored()'],['../structemlabcpp_1_1testing_1_1test__result.html#a66f07d2d45e4d734e4046a52ad4757c8',1,'emlabcpp::testing::test_result::errored()'],['../structemlabcpp_1_1testing_1_1test__finished.html#ae774779abc359bb313e4dd1357b1ec74',1,'emlabcpp::testing::test_finished::errored()']]],
   ['exec_280',['EXEC',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cac701d4251538d4cb8c79b9ba788e8ace',1,'emlabcpp::testing']]],
   ['exec_5frequest_281',['exec_request',['../structemlabcpp_1_1testing_1_1exec__request.html',1,'emlabcpp::testing']]],
   ['expect_282',['expect',['../classemlabcpp_1_1testing_1_1record.html#a076914ed9831860a623b3a77d013a953',1,'emlabcpp::testing::record']]],

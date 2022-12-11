@@ -15,7 +15,7 @@ var searchData=
   ['info_390',['INFO',['../namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55a551b723eafd6a31d444fcb2f5920fbd3',1,'emlabcpp']]],
   ['info_5flogger_5fcolors_391',['INFO_LOGGER_COLORS',['../namespaceemlabcpp.html#a3959b862aa2e1cc006ab40cb96de64a2',1,'emlabcpp']]],
   ['init_392',['init',['../namespaceemlabcpp.html#a4b323693e8d1a33bad5c12c63709fe3b',1,'emlabcpp']]],
-  ['initial_5fsuspend_393',['initial_suspend',['../structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#a5bf42ae0e2e8f839e171add810a827a6',1,'emlabcpp::coro::request_reply::promise_type::initial_suspend()'],['../structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#a1bc8e8bd0110d6541321a69f7c1483c0',1,'emlabcpp::testing::test_coroutine::promise_type::initial_suspend()']]],
+  ['initial_5fsuspend_393',['initial_suspend',['../structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#a5bf42ae0e2e8f839e171add810a827a6',1,'emlabcpp::coro::request_reply::promise_type::initial_suspend()'],['../structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#afdeb2ec5f44b3d60e7b6a93862c6fe6f',1,'emlabcpp::testing::test_coroutine::promise_type::initial_suspend()']]],
   ['inner_5ftype_394',['inner_type',['../structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a6c5feac86d2f8c6feaa58f90d442012f',1,'emlabcpp::protocol::converter&lt; D, Endianess &gt;']]],
   ['input_5fmessage_395',['input_message',['../classemlabcpp_1_1protocol_1_1endpoint.html#afff8181116cbb4cfea7f8eeaa658bbbc',1,'emlabcpp::protocol::endpoint']]],
   ['input_5fmessage_5fprotocol_5ferror_396',['input_message_protocol_error',['../structemlabcpp_1_1testing_1_1input__message__protocol__error.html',1,'emlabcpp::testing']]],

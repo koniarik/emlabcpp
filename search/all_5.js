@@ -6,7 +6,7 @@ var searchData=
   ['failure_297',['FAILURE',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca3841712339181fdbe54aa09a1eefba23',1,'emlabcpp::testing']]],
   ['file_298',['file',['../namespaceemlabcpp.html#a16da217837876e1ca186c4edf83590a1',1,'emlabcpp::log_colors']]],
   ['fill_299',['fill',['../classemlabcpp_1_1pretty__printer.html#a2d77dc7bd7bad8e83ccc0d718ea3681e',1,'emlabcpp::pretty_printer::fill() const'],['../classemlabcpp_1_1pretty__printer.html#a201e0a6f8a1dbb32200d266aa821df0a',1,'emlabcpp::pretty_printer::fill(char ch)']]],
-  ['final_5fsuspend_300',['final_suspend',['../structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#a6df6dde487abf09cbded1c3d8240cd30',1,'emlabcpp::testing::test_coroutine::promise_type::final_suspend()'],['../structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#a2509e7196ccd1b94dce7b7961101dc5d',1,'emlabcpp::coro::request_reply::promise_type::final_suspend()']]],
+  ['final_5fsuspend_300',['final_suspend',['../structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#aab8943899d4940228347530e52ad4b6a',1,'emlabcpp::testing::test_coroutine::promise_type::final_suspend()'],['../structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#a2509e7196ccd1b94dce7b7961101dc5d',1,'emlabcpp::coro::request_reply::promise_type::final_suspend()']]],
   ['find_301',['find',['../namespaceemlabcpp.html#ae6a73bbed8b818abff4ab4e7c2b9af68',1,'emlabcpp']]],
   ['find_5fif_302',['find_if',['../namespaceemlabcpp.html#adad2aaee725330a629c1fa9af8cf7e37',1,'emlabcpp']]],
   ['find_5fif_5fimpl_303',['find_if_impl',['../namespaceemlabcpp_1_1impl.html#a502794f0cc63c9d3399dfcedd60bd48e',1,'emlabcpp::impl']]],
