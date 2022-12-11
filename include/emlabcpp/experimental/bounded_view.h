@@ -50,7 +50,7 @@ public:
         template < bounded_derived OtherSize >
         requires( OtherSize::min_val >= min && OtherSize::max_val <= max )
             bounded_view( const bounded_view< Iterator, OtherSize >& other )
-          : bounded_view( other.begin(), other.end() )
+          : bounded_view( std::begin( other ), std::end( other ) )
         {
         }
 
@@ -59,19 +59,19 @@ public:
             range_container< Container >&& static_sized< Container >&&
                                            std::tuple_size_v< Container > <= max &&
             std::tuple_size_v< Container > >= min ) bounded_view( Container& cont )
-          : bounded_view( cont.begin(), cont.end() )
+          : bounded_view( std::begin( cont ), std::end( cont ) )
         {
         }
 
         static std::optional< bounded_view > make( view< Iterator > v )
         {
-                if ( v.size() < min ) {
+                if ( std::size( v ) < min ) {
                         return {};
                 }
-                if ( v.size() > max ) {
+                if ( std::size( v ) > max ) {
                         return {};
                 }
-                return { bounded_view( v.begin(), v.end() ) };
+                return { bounded_view( std::begin( v ), std::end( v ) ) };
         }
 
         template < std::size_t n >
