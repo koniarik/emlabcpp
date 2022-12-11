@@ -131,9 +131,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a8be65555da61958326df0b50c6ee2bd8"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
 <tr class="memitem:a8be65555da61958326df0b50c6ee2bd8"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#a8be65555da61958326df0b50c6ee2bd8">quantity_derived_test</a> (const <a class="el" href="classemlabcpp_1_1quantity.html">quantity</a>&lt; Derived, ValueType &gt; &amp;)</td></tr>
 <tr class="separator:a8be65555da61958326df0b50c6ee2bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99aa710e12112cbd10a006e3e854b499"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a99aa710e12112cbd10a006e3e854b499"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#a99aa710e12112cbd10a006e3e854b499">linear_index_visit_impl</a> (std::size_t index, auto &amp;cb)</td></tr>
-<tr class="separator:a99aa710e12112cbd10a006e3e854b499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae62a62600226a000600fed5337655cbc"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename Callable &gt; </td></tr>
+<tr class="memitem:ae62a62600226a000600fed5337655cbc"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#ae62a62600226a000600fed5337655cbc">linear_index_visit_impl</a> (std::size_t index, Callable &amp;&amp;cb)</td></tr>
+<tr class="separator:ae62a62600226a000600fed5337655cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -305,13 +305,13 @@ template&lt;class T , std::size_t I0, std::size_t... I&gt; </div>
 
 </div>
 </div>
-<a id="a99aa710e12112cbd10a006e3e854b499"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99aa710e12112cbd10a006e3e854b499">&#9670;&nbsp;</a></span>linear_index_visit_impl()</h2>
+<a id="ae62a62600226a000600fed5337655cbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae62a62600226a000600fed5337655cbc">&#9670;&nbsp;</a></span>linear_index_visit_impl()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t N&gt; </div>
+template&lt;std::size_t N, typename Callable &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">decltype( auto ) emlabcpp::detail::linear_index_visit_impl </td>
@@ -322,7 +322,7 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">auto &amp;&#160;</td>
+          <td class="paramtype">Callable &amp;&amp;&#160;</td>
           <td class="paramname"><em>cb</em>&#160;</td>
         </tr>
         <tr>
@@ -413,7 +413,7 @@ template&lt;typename Stream , typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1detail.html">detail</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 13:14:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 13:42:18 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

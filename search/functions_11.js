@@ -21,7 +21,7 @@ var searchData=
   ['reset_1622',['reset',['../classemlabcpp_1_1pid.html#a4ec41375d069d77eddaf25cdbcbe289e',1,'emlabcpp::pid']]],
   ['reset_5fcolor_1623',['reset_color',['../namespaceemlabcpp.html#a620a32406486ae5b889d41d446c4a8b0',1,'emlabcpp']]],
   ['return_5fvoid_1624',['return_void',['../structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#a4d280bf77009affd6fb4c02b8850c407',1,'emlabcpp::coro::request_reply::promise_type::return_void()'],['../structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html#a30bc8adf4bf134ae9790e9c9a04db07b',1,'emlabcpp::testing::test_coroutine::promise_type::return_void()']]],
-  ['reversed_1625',['reversed',['../namespaceemlabcpp.html#a3921b804e7ed8b1041ec50f786404c28',1,'emlabcpp']]],
+  ['reversed_1625',['reversed',['../namespaceemlabcpp.html#aa61ce9edbdc13264073eecc3890c663d',1,'emlabcpp']]],
   ['rotate_5fleft_1626',['rotate_left',['../classemlabcpp_1_1bounded.html#a86cec16fb9f8c2f55246576af3852c1d',1,'emlabcpp::bounded']]],
   ['rotate_5fright_1627',['rotate_right',['../classemlabcpp_1_1bounded.html#a12d2c56dbd65a3e1a62f3810524e197b',1,'emlabcpp::bounded']]],
   ['round_5frobin_5frun_1628',['round_robin_run',['../namespaceemlabcpp_1_1coro.html#ab378dfed00f70195082f524f3b4a5c00',1,'emlabcpp::coro']]],

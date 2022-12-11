@@ -396,10 +396,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ae6a73bbed8b818abff4ab4e7c2b9af68"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae6a73bbed8b818abff4ab4e7c2b9af68">find</a> (Container &amp;&amp;cont, const T &amp;item)</td></tr>
 <tr class="memdesc:ae6a73bbed8b818abff4ab4e7c2b9af68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds first item in container 'cont' that is equal to 'item', returns iterator for container, or index for tuples.  <a href="namespaceemlabcpp.html#ae6a73bbed8b818abff4ab4e7c2b9af68">More...</a><br /></td></tr>
 <tr class="separator:ae6a73bbed8b818abff4ab4e7c2b9af68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b0e7551e0a56b4b0dada6225cee7406"><td class="memTemplParams" colspan="2">template&lt;container Container, typename T &gt; </td></tr>
-<tr class="memitem:a7b0e7551e0a56b4b0dada6225cee7406"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7b0e7551e0a56b4b0dada6225cee7406">contains</a> (Container &amp;&amp;cont, const T &amp;item)</td></tr>
-<tr class="memdesc:a7b0e7551e0a56b4b0dada6225cee7406"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if container <code>cont</code> contains at least one occurence of <code>item</code>, returns true/false.  <a href="namespaceemlabcpp.html#a7b0e7551e0a56b4b0dada6225cee7406">More...</a><br /></td></tr>
-<tr class="separator:a7b0e7551e0a56b4b0dada6225cee7406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b36ab023620ad0de3855f2f892d400f"><td class="memTemplParams" colspan="2">template&lt;container Container, typename T &gt; </td></tr>
+<tr class="memitem:a6b36ab023620ad0de3855f2f892d400f"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6b36ab023620ad0de3855f2f892d400f">contains</a> (const Container &amp;cont, const T &amp;item)</td></tr>
+<tr class="memdesc:a6b36ab023620ad0de3855f2f892d400f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if container <code>cont</code> contains at least one occurence of <code>item</code>, returns true/false.  <a href="namespaceemlabcpp.html#a6b36ab023620ad0de3855f2f892d400f">More...</a><br /></td></tr>
+<tr class="separator:a6b36ab023620ad0de3855f2f892d400f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a670099942b8cdd3d2cc28760b1717d7c"><td class="memTemplParams" colspan="2">template&lt;gettable_container Container, container_invocable&lt; Container &gt; UnaryCallable&gt; </td></tr>
 <tr class="memitem:a670099942b8cdd3d2cc28760b1717d7c"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a670099942b8cdd3d2cc28760b1717d7c">requires</a> (!<a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a>&lt; Container &gt;) const expr void <a class="el" href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">for_each</a>(Container &amp;&amp;cont</td></tr>
 <tr class="memdesc:a670099942b8cdd3d2cc28760b1717d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies unary callable 'f' to each element of container 'cont'.  <a href="namespaceemlabcpp.html#a670099942b8cdd3d2cc28760b1717d7c">More...</a><br /></td></tr>
@@ -440,10 +440,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a76870aafe8a72795ca80143c32313532"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a76870aafe8a72795ca80143c32313532">variance</a> (const Container &amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>=std::identity())</td></tr>
 <tr class="memdesc:a76870aafe8a72795ca80143c32313532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies callable 'f(x)' to each element of container 'cont' and returns the variance of values returned from the call.  <a href="namespaceemlabcpp.html#a76870aafe8a72795ca80143c32313532">More...</a><br /></td></tr>
 <tr class="separator:a76870aafe8a72795ca80143c32313532"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9671d53ec08de7c34437cf24d07aee0c"><td class="memTemplParams" colspan="2">template&lt;container LhContainer, container RhContainer, typename BinaryCallable &gt; </td></tr>
-<tr class="memitem:a9671d53ec08de7c34437cf24d07aee0c"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a9671d53ec08de7c34437cf24d07aee0c">for_cross_joint</a> (LhContainer &amp;&amp;lh_cont, RhContainer &amp;&amp;rh_cont, BinaryCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>)</td></tr>
-<tr class="memdesc:a9671d53ec08de7c34437cf24d07aee0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies binary callable 'f(x,y)' to each combination of items <code>x</code> from <code>lh_cont</code> and <code>y</code> from <code>rh_cont</code>  <a href="namespaceemlabcpp.html#a9671d53ec08de7c34437cf24d07aee0c">More...</a><br /></td></tr>
-<tr class="separator:a9671d53ec08de7c34437cf24d07aee0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a8e644a62f8747e59e7766ba811037a"><td class="memTemplParams" colspan="2">template&lt;container LhContainer, container RhContainer, typename BinaryCallable &gt; </td></tr>
+<tr class="memitem:a7a8e644a62f8747e59e7766ba811037a"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7a8e644a62f8747e59e7766ba811037a">for_cross_joint</a> (const LhContainer &amp;lh_cont, const RhContainer &amp;rh_cont, BinaryCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>)</td></tr>
+<tr class="memdesc:a7a8e644a62f8747e59e7766ba811037a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies binary callable 'f(x,y)' to each combination of items <code>x</code> from <code>lh_cont</code> and <code>y</code> from <code>rh_cont</code>  <a href="namespaceemlabcpp.html#a7a8e644a62f8747e59e7766ba811037a">More...</a><br /></td></tr>
+<tr class="separator:a7a8e644a62f8747e59e7766ba811037a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d80507cffdd192a333f6bd9c272e97a"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; PredicateCallable = std::identity&gt; </td></tr>
 <tr class="memitem:a2d80507cffdd192a333f6bd9c272e97a"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2d80507cffdd192a333f6bd9c272e97a">any_of</a> (const Container &amp;cont, PredicateCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>=std::identity())</td></tr>
 <tr class="memdesc:a2d80507cffdd192a333f6bd9c272e97a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if call to predicate 'f(x)' returns true for at least one item <code>x</code> in 'cont'.  <a href="namespaceemlabcpp.html#a2d80507cffdd192a333f6bd9c272e97a">More...</a><br /></td></tr>
@@ -728,16 +728,16 @@ Functions</h2></td></tr>
 <tr class="memitem:acd8a44534f893fb67e883a5a8b396ef4"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; <a class="el" href="namespaceemlabcpp.html#a98ab53b012e339a9621604b203df856e">iterator_of_t</a>&lt; Container &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acd8a44534f893fb67e883a5a8b396ef4">trim_view</a> (Container &amp;cont, const float r)</td></tr>
 <tr class="memdesc:acd8a44534f893fb67e883a5a8b396ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the view over over Container, where we ignore first r*size/2 items and last r*size/2 items.  <a href="namespaceemlabcpp.html#acd8a44534f893fb67e883a5a8b396ef4">More...</a><br /></td></tr>
 <tr class="separator:acd8a44534f893fb67e883a5a8b396ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3921b804e7ed8b1041ec50f786404c28"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3921b804e7ed8b1041ec50f786404c28">reversed</a> (<a class="el" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">referenceable_container</a> auto &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a>) -&gt; <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; decltype(container.rbegin()) &gt;</td></tr>
-<tr class="memdesc:a3921b804e7ed8b1041ec50f786404c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns view to the Container in reverse order.  <a href="namespaceemlabcpp.html#a3921b804e7ed8b1041ec50f786404c28">More...</a><br /></td></tr>
-<tr class="separator:a3921b804e7ed8b1041ec50f786404c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa61ce9edbdc13264073eecc3890c663d"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa61ce9edbdc13264073eecc3890c663d">reversed</a> (<a class="el" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">referenceable_container</a> auto &amp;<a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a>) -&gt; <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; decltype(container.rbegin()) &gt;</td></tr>
+<tr class="memdesc:aa61ce9edbdc13264073eecc3890c663d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns view to the Container in reverse order.  <a href="namespaceemlabcpp.html#aa61ce9edbdc13264073eecc3890c663d">More...</a><br /></td></tr>
+<tr class="separator:aa61ce9edbdc13264073eecc3890c663d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09ef973500b9ebc01d0f76f50c43aa38"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, typename Iterator &gt; </td></tr>
 <tr class="memitem:a09ef973500b9ebc01d0f76f50c43aa38"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a09ef973500b9ebc01d0f76f50c43aa38">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iterator &gt; &amp;output)</td></tr>
 <tr class="memdesc:a09ef973500b9ebc01d0f76f50c43aa38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output operator for the view, uses comma to separate the items in the view.  <a href="namespaceemlabcpp.html#a09ef973500b9ebc01d0f76f50c43aa38">More...</a><br /></td></tr>
 <tr class="separator:a09ef973500b9ebc01d0f76f50c43aa38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d239279335993f18f0aa49c2a0d4131"><td class="memTemplParams" colspan="2">template&lt;typename Visitor , typename Variant &gt; </td></tr>
-<tr class="memitem:a7d239279335993f18f0aa49c2a0d4131"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7d239279335993f18f0aa49c2a0d4131">visit_index</a> (Visitor &amp;&amp;vis, Variant &amp;&amp;var)</td></tr>
-<tr class="separator:a7d239279335993f18f0aa49c2a0d4131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b8d699d3167f848b3eb1e6d49dd2d20"><td class="memTemplParams" colspan="2">template&lt;typename Visitor , typename Variant &gt; </td></tr>
+<tr class="memitem:a1b8d699d3167f848b3eb1e6d49dd2d20"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1b8d699d3167f848b3eb1e6d49dd2d20">visit_index</a> (Visitor &amp;&amp;vis, const Variant &amp;var)</td></tr>
+<tr class="separator:a1b8d699d3167f848b3eb1e6d49dd2d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e4b7b6dd8a3a27f7f7bcea52f265b2c"><td class="memTemplParams" colspan="2">template&lt;typename Visitor , typename Variant &gt; </td></tr>
 <tr class="memitem:a6e4b7b6dd8a3a27f7f7bcea52f265b2c"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c">visit</a> (Visitor &amp;&amp;vis, Variant &amp;&amp;var)</td></tr>
 <tr class="memdesc:a6e4b7b6dd8a3a27f7f7bcea52f265b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reimplementation of <code>std::visit</code>.  <a href="namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c">More...</a><br /></td></tr>
@@ -2210,8 +2210,8 @@ template&lt;container Container&gt; </div>
 
 </div>
 </div>
-<a id="a7b0e7551e0a56b4b0dada6225cee7406"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b0e7551e0a56b4b0dada6225cee7406">&#9670;&nbsp;</a></span>contains()</h2>
+<a id="a6b36ab023620ad0de3855f2f892d400f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b36ab023620ad0de3855f2f892d400f">&#9670;&nbsp;</a></span>contains()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2222,9 +2222,9 @@ template&lt;container Container, typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::contains </td>
+          <td class="memname">constexpr bool emlabcpp::contains </td>
           <td>(</td>
-          <td class="paramtype">Container &amp;&amp;&#160;</td>
+          <td class="paramtype">const Container &amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -2747,8 +2747,8 @@ template&lt;std::size_t N, typename PredicateCallable &gt; </div>
 
 </div>
 </div>
-<a id="a9671d53ec08de7c34437cf24d07aee0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9671d53ec08de7c34437cf24d07aee0c">&#9670;&nbsp;</a></span>for_cross_joint()</h2>
+<a id="a7a8e644a62f8747e59e7766ba811037a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a8e644a62f8747e59e7766ba811037a">&#9670;&nbsp;</a></span>for_cross_joint()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2761,13 +2761,13 @@ template&lt;container LhContainer, container RhContainer, typename BinaryCallabl
         <tr>
           <td class="memname">constexpr void emlabcpp::for_cross_joint </td>
           <td>(</td>
-          <td class="paramtype">LhContainer &amp;&amp;&#160;</td>
+          <td class="paramtype">const LhContainer &amp;&#160;</td>
           <td class="paramname"><em>lh_cont</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">RhContainer &amp;&amp;&#160;</td>
+          <td class="paramtype">const RhContainer &amp;&#160;</td>
           <td class="paramname"><em>rh_cont</em>, </td>
         </tr>
         <tr>
@@ -5062,8 +5062,8 @@ template&lt;typename Enum &gt; </div>
 
 </div>
 </div>
-<a id="a3921b804e7ed8b1041ec50f786404c28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3921b804e7ed8b1041ec50f786404c28">&#9670;&nbsp;</a></span>reversed()</h2>
+<a id="aa61ce9edbdc13264073eecc3890c663d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa61ce9edbdc13264073eecc3890c663d">&#9670;&nbsp;</a></span>reversed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5074,7 +5074,7 @@ template&lt;typename Enum &gt; </div>
         <tr>
           <td class="memname">constexpr auto emlabcpp::reversed </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">referenceable_container</a> auto &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">referenceable_container</a> auto &amp;&#160;</td>
           <td class="paramname"><em>container</em></td><td>)</td>
           <td> -&gt; <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; decltype( container.rbegin() ) &gt;
 </td>
@@ -5663,12 +5663,12 @@ template&lt;typename Visitor , typename Variant &gt; </div>
 <p>Reimplementation of <code>std::visit</code>. </p>
 <p>This one trades worse complexity (linear) in favor of less assembly generated. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a7d239279335993f18f0aa49c2a0d4131">visit_index()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a1b8d699d3167f848b3eb1e6d49dd2d20">visit_index()</a>.</p>
 
 </div>
 </div>
-<a id="a7d239279335993f18f0aa49c2a0d4131"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d239279335993f18f0aa49c2a0d4131">&#9670;&nbsp;</a></span>visit_index()</h2>
+<a id="a1b8d699d3167f848b3eb1e6d49dd2d20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b8d699d3167f848b3eb1e6d49dd2d20">&#9670;&nbsp;</a></span>visit_index()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5684,7 +5684,7 @@ template&lt;typename Visitor , typename Variant &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Variant &amp;&amp;&#160;</td>
+          <td class="paramtype">const Variant &amp;&#160;</td>
           <td class="paramname"><em>var</em>&#160;</td>
         </tr>
         <tr>
@@ -5695,7 +5695,7 @@ template&lt;typename Visitor , typename Variant &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1detail.html#a99aa710e12112cbd10a006e3e854b499">emlabcpp::detail::linear_index_visit_impl()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1detail.html#ae62a62600226a000600fed5337655cbc">emlabcpp::detail::linear_index_visit_impl()</a>.</p>
 
 </div>
 </div>
@@ -6664,7 +6664,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 13:14:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 13:42:18 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

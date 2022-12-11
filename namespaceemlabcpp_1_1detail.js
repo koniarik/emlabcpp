@@ -12,7 +12,7 @@ var namespaceemlabcpp_1_1detail =
     [ "decompose_count", "namespaceemlabcpp_1_1detail.html#a10e61621464f2e4cc1316387d1b70b19", null ],
     [ "decompose_count_impl", "namespaceemlabcpp_1_1detail.html#afac237c2d59a7ecc344d8c7176a6eb10", null ],
     [ "decompose_count_impl", "namespaceemlabcpp_1_1detail.html#a250124b6fbc599bf8e1df28d585353fe", null ],
-    [ "linear_index_visit_impl", "namespaceemlabcpp_1_1detail.html#a99aa710e12112cbd10a006e3e854b499", null ],
+    [ "linear_index_visit_impl", "namespaceemlabcpp_1_1detail.html#ae62a62600226a000600fed5337655cbc", null ],
     [ "quantity_derived_test", "namespaceemlabcpp_1_1detail.html#a8be65555da61958326df0b50c6ee2bd8", null ],
     [ "directly_streamable_for", "namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a", null ],
     [ "max_decompose_count", "namespaceemlabcpp_1_1detail.html#a5e4034afb24c305fe50b620f99e7491b", null ]
