@@ -138,8 +138,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adc401f011b02ae22f33db8fc9005116c"><td class="memTemplParams" colspan="2">template&lt;bounded_derived OtherSize&gt; </td></tr>
 <tr class="memitem:adc401f011b02ae22f33db8fc9005116c"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded__view.html#adc401f011b02ae22f33db8fc9005116c">requires</a> (OtherSize::min_val &gt;=<a class="el" href="classemlabcpp_1_1bounded__view.html#a120331a8f072dbf94a7930d136e84144">min</a> &amp;&amp;OtherSize::max_val&lt;=<a class="el" href="classemlabcpp_1_1bounded__view.html#a2c3c04c502f39259c48b2ec30c42e0f3">max</a>) <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>(const <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>&lt; Iterator</td></tr>
 <tr class="separator:adc401f011b02ae22f33db8fc9005116c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8b74e5120b0b089b7f49192e7766086"><td class="memItemLeft" align="right" valign="top">OtherSize <a class="el" href="classemlabcpp_1_1bounded__view.html#a0ec6ad86e450d9d46603029bcb4e917b">other</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded__view.html#ac8b74e5120b0b089b7f49192e7766086">end</a> ())</td></tr>
-<tr class="separator:ac8b74e5120b0b089b7f49192e7766086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca9935a986c9268c9b89e1aab44fb3cb"><td class="memItemLeft" align="right" valign="top">OtherSize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded__view.html#aca9935a986c9268c9b89e1aab44fb3cb">std::end</a> (<a class="el" href="classemlabcpp_1_1bounded__view.html#a0ec6ad86e450d9d46603029bcb4e917b">other</a>))</td></tr>
+<tr class="separator:aca9935a986c9268c9b89e1aab44fb3cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb8e32e74f5b6f68b6603b530f2edf58"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
 <tr class="memitem:acb8e32e74f5b6f68b6603b530f2edf58"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded__view.html#acb8e32e74f5b6f68b6603b530f2edf58">requires</a> (<a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a>&lt; Container &gt; &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">static_sized</a>&lt; Container &gt; &amp;&amp;std::tuple_size_v&lt; Container &gt;&lt;=<a class="el" href="classemlabcpp_1_1bounded__view.html#a2c3c04c502f39259c48b2ec30c42e0f3">max</a> &amp;&amp;std::tuple_size_v&lt; Container &gt; &gt;=<a class="el" href="classemlabcpp_1_1bounded__view.html#a120331a8f072dbf94a7930d136e84144">min</a>) <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>(Container &amp;cont)</td></tr>
 <tr class="separator:acb8e32e74f5b6f68b6603b530f2edf58"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,7 +203,7 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a0ec6ad86e450d9d46603029bcb4e917b"><td class="memItemLeft" align="right" valign="top">OtherSize &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded__view.html#a0ec6ad86e450d9d46603029bcb4e917b">other</a>: <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>( other.begin()</td></tr>
+<tr class="memitem:a0ec6ad86e450d9d46603029bcb4e917b"><td class="memItemLeft" align="right" valign="top">OtherSize &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded__view.html#a0ec6ad86e450d9d46603029bcb4e917b">other</a>: <a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a>( std::begin( other )</td></tr>
 <tr class="separator:a0ec6ad86e450d9d46603029bcb4e917b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -253,33 +253,6 @@ template&lt;typename Iterator , bounded_derived SizeType&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac8b74e5120b0b089b7f49192e7766086"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8b74e5120b0b089b7f49192e7766086">&#9670;&nbsp;</a></span>end()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Iterator , bounded_derived SizeType&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">OtherSize <a class="el" href="classemlabcpp_1_1bounded__view.html#a0ec6ad86e450d9d46603029bcb4e917b">other</a> <a class="el" href="classemlabcpp_1_1bounded__view.html">emlabcpp::bounded_view</a>&lt; Iterator, SizeType &gt;::end </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="afe22eef7ada0974c41f40ba25738b4a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe22eef7ada0974c41f40ba25738b4a3">&#9670;&nbsp;</a></span>first()</h2>
 
@@ -335,7 +308,7 @@ template&lt;typename Iterator , bounded_derived SizeType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1bounded__view.html#aa9f3c2be7a0dcc3bf7c1080ed062e46e">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::bounded_view</a>, <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">emlabcpp::view&lt; Iterator &gt;::end()</a>, <a class="el" href="classemlabcpp_1_1bounded__view.html#a2c3c04c502f39259c48b2ec30c42e0f3">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::max</a>, <a class="el" href="classemlabcpp_1_1bounded__view.html#a120331a8f072dbf94a7930d136e84144">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::min</a>, and <a class="el" href="classemlabcpp_1_1view.html#aaa812fd178fc993e11fbbbc5894fb3c3">emlabcpp::view&lt; Iterator &gt;::size()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1bounded__view.html#aa9f3c2be7a0dcc3bf7c1080ed062e46e">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::bounded_view</a>, <a class="el" href="classemlabcpp_1_1bounded__view.html#a2c3c04c502f39259c48b2ec30c42e0f3">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::max</a>, <a class="el" href="classemlabcpp_1_1bounded__view.html#a120331a8f072dbf94a7930d136e84144">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::min</a>, and <a class="el" href="classemlabcpp_1_1bounded__view.html#aca9935a986c9268c9b89e1aab44fb3cb">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::std::end()</a>.</p>
 
 </div>
 </div>
@@ -364,7 +337,7 @@ template&lt;typename Iterator , bounded_derived SizeType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, and <a class="el" href="classemlabcpp_1_1bounded__view.html#ac8b74e5120b0b089b7f49192e7766086">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::end()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, and <a class="el" href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">emlabcpp::view&lt; Iterator &gt;::end()</a>.</p>
 
 </div>
 </div>
@@ -396,7 +369,7 @@ template&lt;typename OffsetSizeType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="classemlabcpp_1_1bounded__view.html#ac8b74e5120b0b089b7f49192e7766086">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::end()</a>, and <a class="el" href="classemlabcpp_1_1bounded__view.html#ac4129f0fd2b9840b78685a7d88d11469">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::offset()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">emlabcpp::view&lt; Iterator &gt;::end()</a>, and <a class="el" href="classemlabcpp_1_1bounded__view.html#ac4129f0fd2b9840b78685a7d88d11469">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;::offset()</a>.</p>
 
 </div>
 </div>
@@ -485,6 +458,34 @@ template&lt;typename Container &gt; </div>
           <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a>&lt; Container &gt; &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">static_sized</a>&lt; Container &gt; &amp;&amp;std::tuple_size_v&lt; Container &gt;&lt;=<a class="el" href="classemlabcpp_1_1bounded__view.html#a2c3c04c502f39259c48b2ec30c42e0f3">max</a> &amp;&amp;std::tuple_size_v&lt; Container &gt; &gt;=&#160;</td>
           <td class="paramname"><em>min</em></td><td>)</td>
           <td> &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca9935a986c9268c9b89e1aab44fb3cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca9935a986c9268c9b89e1aab44fb3cb">&#9670;&nbsp;</a></span>std::end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Iterator , bounded_derived SizeType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">OtherSize <a class="el" href="classemlabcpp_1_1bounded__view.html">emlabcpp::bounded_view</a>&lt; Iterator, SizeType &gt;::std::end </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1bounded__view.html#a0ec6ad86e450d9d46603029bcb4e917b">other</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -597,7 +598,7 @@ template&lt;typename Iterator , bounded_derived SizeType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 12:35:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 12:49:28 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
