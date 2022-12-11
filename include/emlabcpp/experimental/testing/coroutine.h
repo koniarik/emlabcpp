@@ -17,16 +17,16 @@ public:
         struct promise_type : coro::memory_promise< promise_type >
         {
 
-                test_coroutine get_return_object()
+                [[nodiscard]] test_coroutine get_return_object()
                 {
                         return test_coroutine{ handle::from_promise( *this ) };
                 }
 
-                std::suspend_always initial_suspend() const
+                [[nodiscard]] std::suspend_always initial_suspend() const
                 {
                         return {};
                 }
-                std::suspend_never final_suspend() const noexcept
+                [[nodiscard]] std::suspend_never final_suspend() const noexcept
                 {
                         return {};
                 }
@@ -81,7 +81,7 @@ struct record_awaiter
         {
         }
 
-        bool await_ready() const
+        [[nodiscard]] bool await_ready() const
         {
                 return false;
         }

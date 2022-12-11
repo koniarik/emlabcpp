@@ -328,7 +328,7 @@ struct converter< std::monostate, Endianess >
         static constexpr conversion_result
         deserialize( const std::span< const uint8_t >&, value_type& )
         {
-                return { 0 };
+                return conversion_result{ 0 };
         }
 };
 
@@ -995,7 +995,7 @@ struct memcpy_converter
                 }
 
                 std::memcpy( &value, buffer.begin(), sizeof( value_type ) );
-                return { max_size };
+                return conversion_result{ max_size };
         }
 };
 

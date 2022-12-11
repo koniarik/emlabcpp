@@ -81,7 +81,7 @@ public:
 
         param_key_awaiter get_param_key( node_id, child_id );
 
-        bool errored() const
+        [[nodiscard]] bool errored() const
         {
                 return errored_;
         }

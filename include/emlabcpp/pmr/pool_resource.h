@@ -24,7 +24,8 @@ public:
         pool_resource& operator=( const pool_resource& ) = delete;
         pool_resource& operator=( pool_resource&& )      = delete;
 
-        void* allocate( const std::size_t bytes, const std::size_t alignment ) override
+        [[nodiscard]] void*
+        allocate( const std::size_t bytes, const std::size_t alignment ) override
         {
                 void*       p    = nullptr;
                 std::size_t used = bytes;
@@ -45,7 +46,8 @@ public:
                 return p;
         }
 
-        bool deallocate( void* const ptr, const std::size_t, const std::size_t ) override
+        [[nodiscard]] bool
+        deallocate( void* const ptr, const std::size_t, const std::size_t ) override
         {
 
                 const auto pval = reinterpret_cast< std::size_t >( ptr );
@@ -61,12 +63,12 @@ public:
                 return true;
         }
 
-        bool is_equal( const pmr::memory_resource& other ) const noexcept override
+        [[nodiscard]] bool is_equal( const pmr::memory_resource& other ) const noexcept override
         {
                 return this == &other;
         }
 
-        bool is_full() const override
+        [[nodiscard]] bool is_full() const override
         {
                 return free_.empty();
         }
