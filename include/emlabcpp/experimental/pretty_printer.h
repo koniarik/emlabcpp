@@ -111,7 +111,7 @@ public:
         template < std::same_as< uint8_t > T >
         void main_print( const T& val )
         {
-                os_ << int( val );
+                os_ << static_cast< int >( val );
         }
 
         template < typename T >

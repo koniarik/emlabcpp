@@ -99,14 +99,14 @@ public:
         void operator()( const std::string_view sv )
         {
                 write_std_streams( sv );
-                if ( filestream_ ) {
+                if ( filestream_ != nullptr ) {
                         filestream_->write(
                             sv.data(), static_cast< std::streamsize >( sv.size() ) );
                 }
         }
 
 private:
-        void set_color( const std::string_view c )
+        void set_color( const std::string_view c ) const
         {
                 write_std_streams( "\033[38;5;" );
                 write_std_streams( c );

@@ -71,7 +71,7 @@ public:
                 return free_.empty();
         }
 
-        ~pool_resource() final = default;
+        ~pool_resource() override = default;
 
 private:
         using pool = std::array< std::byte, PoolSize >;

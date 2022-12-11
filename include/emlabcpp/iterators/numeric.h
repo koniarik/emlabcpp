@@ -73,12 +73,12 @@ public:
 
         constexpr numeric_iterator& operator+=( std::ptrdiff_t offset )
         {
-                val_ += T( offset );
+                val_ += static_cast< T >( offset );
                 return *this;
         }
         constexpr numeric_iterator& operator-=( std::ptrdiff_t offset )
         {
-                val_ -= T( offset );
+                val_ -= static_cast< T >( offset );
                 return *this;
         }
 

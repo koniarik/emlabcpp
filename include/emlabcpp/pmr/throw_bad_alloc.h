@@ -6,7 +6,7 @@
 namespace emlabcpp::pmr
 {
 
-inline void throw_bad_alloc()
+[[noreturn]] inline void throw_bad_alloc()
 {
         // TODO: this needs customization point /o\...
 #ifdef __EXCEPTIONS

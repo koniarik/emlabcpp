@@ -64,7 +64,7 @@ public:
                     param_value_key_request{ rid_, node, k }, &comm_ };
         }
         template < typename T >
-        param_value_key_awaiter< T > get_param( const node_id node, std::string_view k )
+        param_value_key_awaiter< T > get_param( const node_id node, const std::string_view k )
         {
                 return get_param< T >( node, key_type_to_buffer( k ) );
         }

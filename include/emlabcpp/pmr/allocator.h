@@ -33,7 +33,7 @@ public:
                 return reinterpret_cast< T* >( res );
         }
 
-        void deallocate( T* const p, const std::size_t size ) const noexcept
+        void deallocate( T* const p, const std::size_t size ) const
         {
                 const bool succeeded = resource_.get().deallocate(
                     reinterpret_cast< void* >( p ), size, alignof( T ) );
@@ -45,10 +45,6 @@ public:
         friend constexpr bool operator==( const allocator& lh, const allocator& rh )
         {
                 return lh.resource_.get().is_equal( rh.resource_.get() );
-        }
-        friend constexpr bool operator!=( const allocator& lh, const allocator& rh )
-        {
-                return !( lh == rh );
         }
 
         pmr::memory_resource& get_resource()

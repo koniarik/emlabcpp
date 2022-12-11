@@ -44,27 +44,37 @@ public:
         [[nodiscard]] either< node_id, error_enum >
         get_child( node_id nid, const std::variant< key_type, child_id >& id_var ) const
         {
+                auto get_object_child = []( const_object_handle&                      h,
+                                            const std::variant< key_type, child_id >& key ) {
+                        return visit(
+                            [&h]( const auto& k ) {
+                                    return h.get_child( k );
+                            },
+                            key );
+                };
+
+                auto get_array_child = []( const_array_handle&                       h,
+                                           const std::variant< key_type, child_id >& key )
+                    -> std::optional< node_id > {
+                        const child_id* const id_ptr = std::get_if< child_id >( &key );
+                        if ( id_ptr == nullptr ) {
+                                return std::nullopt;
+                        }
+                        return h.get_child( *id_ptr );
+                };
+
                 return get_containers( nid ).bind_left(
-                    [&id_var, &nid]( std::variant< const_object_handle, const_array_handle > var )
+                    [&id_var, &nid, &get_object_child, &get_array_child](
+                        std::variant< const_object_handle, const_array_handle > var )
                         -> either< node_id, error_enum > {
                             const_object_handle* oh_ptr = std::get_if< 0 >( &var );
                             const_array_handle*  ah_ptr = std::get_if< 1 >( &var );
 
                             std::optional< node_id > res;
-                            if ( oh_ptr ) {
-                                    match(
-                                        id_var,
-                                        [&res, &oh_ptr]( const key_type& k ) {
-                                                res = oh_ptr->get_child( k );
-                                        },
-                                        [&res, &oh_ptr]( child_id chid ) {
-                                                res = oh_ptr->get_child( chid );
-                                        } );
-                            } else if (
-                                ah_ptr != nullptr &&
-                                std::holds_alternative< child_id >( id_var ) ) {
-                                    auto id = *std::get_if< child_id >( &id_var );
-                                    res     = ah_ptr->get_child( id );
+                            if ( oh_ptr != nullptr ) {
+                                    res = get_object_child( *oh_ptr, id_var );
+                            } else if ( ah_ptr != nullptr ) {
+                                    res = get_array_child( *ah_ptr, id_var );
                             } else {
                                     EMLABCPP_LOG(
                                         "Node " << nid
@@ -165,8 +175,9 @@ private:
                                             return opt_res->first;
                                     }
                                     return std::nullopt;
+                            } else {
+                                    return std::nullopt;
                             }
-                            return std::nullopt;
                     } );
                 if ( !opt_nid ) {
                         EMLABCPP_LOG(
@@ -228,11 +239,11 @@ private:
                                 cont = node.get_container_handle();
 
                             AHandle* ah_ptr = std::get_if< AHandle >( &cont );
-                            if ( ah_ptr ) {
+                            if ( ah_ptr != nullptr ) {
                                     return var_type{ *ah_ptr };
                             }
                             OHandle* oh_ptr = std::get_if< OHandle >( &cont );
-                            if ( oh_ptr ) {
+                            if ( oh_ptr != nullptr ) {
                                     return var_type{ *oh_ptr };
                             }
                             EMLABCPP_LOG( "Node " << nid << " is not of container type" );
@@ -264,7 +275,7 @@ private:
                 return self->get_containers( nid ).bind_left(
                     [&nid]( auto& var ) -> either< Handle, error_enum > {
                             auto* h_ptr = std::get_if< Handle >( &var );
-                            if ( h_ptr ) {
+                            if ( h_ptr != nullptr ) {
                                     return *h_ptr;
                             }
                             EMLABCPP_LOG(
