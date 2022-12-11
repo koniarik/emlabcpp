@@ -1,5 +1,9 @@
 var NAVTREEINDEX7 =
 {
+"quantity_8h.html#ad94cfee3e6e80c1e90bc767e6ace9f7e":[4,0,0,0,20,4],
+"quantity_8h.html#ae1c80290d135d19a201c0f04b47eb665":[4,0,0,0,20,17],
+"quantity_8h.html#afc235c95c20406e05b11a433e3ed7857":[4,0,0,0,20,11],
+"quantity_8h_source.html":[4,0,0,0,20],
 "range_8h.html":[4,0,0,0,21],
 "range_8h.html#ace588590ccd59087b704005a3c04caae":[4,0,0,0,21,1],
 "range_8h.html#acf5a156c767ed17a892cc7e9b5acd2b1":[4,0,0,0,21,0],
@@ -197,8 +201,8 @@ var NAVTREEINDEX7 =
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a27926b2b16597d3a6eefe4e8748a74b3":[3,0,0,5,12,10],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a562a80f60a17bf63d15b7efc7154e217":[3,0,0,5,12,7],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a562a80f60a17bf63d15b7efc7154e217":[3,0,0,5,12,8],
-"structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a5ea44fb2dc8cf3d1b6018eaea5f0e13d":[3,0,0,5,12,4],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a5ea44fb2dc8cf3d1b6018eaea5f0e13d":[3,0,0,5,12,5],
+"structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a5ea44fb2dc8cf3d1b6018eaea5f0e13d":[3,0,0,5,12,4],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a6c5feac86d2f8c6feaa58f90d442012f":[3,0,0,5,12,0],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a752ad07f1d5a50a1aea9fb4f7fd977fa":[3,0,0,5,12,2],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a818a80fa4dc8f1708574743ff9955f82":[3,0,0,5,12,11],
@@ -245,9 +249,5 @@ var NAVTREEINDEX7 =
 "structemlabcpp_1_1protocol_1_1converter_3_01message_3_01N_01_4_00_01Endianess_01_4.html#a7e2cba2ec3a79b094730fc6e4ceda7dc":[3,0,0,5,19,4],
 "structemlabcpp_1_1protocol_1_1converter_3_01message_3_01N_01_4_00_01Endianess_01_4.html#a9f84b33b55735dc90b3a5254f25d8161":[3,0,0,5,19,0],
 "structemlabcpp_1_1protocol_1_1converter_3_01message_3_01N_01_4_00_01Endianess_01_4.html#aa13efc955040d7f5e3a0f3231112e981":[3,0,0,5,19,6],
-"structemlabcpp_1_1protocol_1_1converter_3_01message_3_01N_01_4_00_01Endianess_01_4.html#ab171fb13cfe64cb83b4ddb47a1a38e29":[3,0,0,5,19,5],
-"structemlabcpp_1_1protocol_1_1converter_3_01message_3_01N_01_4_00_01Endianess_01_4.html#afc310747364601d198adc0216554c732":[3,0,0,5,19,3],
-"structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html":[3,0,0,5,23],
-"structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#a1c211bd31e7a9d3e3deff077f8590f2d":[3,0,0,5,23,1],
-"structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#a1c25c3f7325af1c085e029fdebb57c93":[3,0,0,5,23,8]
+"structemlabcpp_1_1protocol_1_1converter_3_01message_3_01N_01_4_00_01Endianess_01_4.html#ab171fb13cfe64cb83b4ddb47a1a38e29":[3,0,0,5,19,5]
 };

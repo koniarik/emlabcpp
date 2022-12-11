@@ -119,24 +119,34 @@ $(document).ready(function(){initNavTree('defer_8h_source.html',''); initResizab
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Callable &gt;</div>
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1defer.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemlabcpp_1_1defer.html">defer</a></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        Callable fun_;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1defer.html#a6b2ff0449b46f547c54c7b5ba8621156">   48</a></span>&#160;        <a class="code" href="classemlabcpp_1_1defer.html#a6b2ff0449b46f547c54c7b5ba8621156">defer</a>( Callable <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> )</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;          : fun_( std::move( <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> ) )</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1defer.html#a3a78f8a5ed6a126b19c55de32b2860e3">   53</a></span>&#160;        <a class="code" href="classemlabcpp_1_1defer.html#a3a78f8a5ed6a126b19c55de32b2860e3">~defer</a>()</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                fun_();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1defer.html#a6b2ff0449b46f547c54c7b5ba8621156">   46</a></span>&#160;        <a class="code" href="classemlabcpp_1_1defer.html#a6b2ff0449b46f547c54c7b5ba8621156">defer</a>( Callable <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> )</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          : fun_( std::move( <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> ) )</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1defer.html#a4a6545297c79617d7bcf8b3ca4deb372">   51</a></span>&#160;        <a class="code" href="classemlabcpp_1_1defer.html#a4a6545297c79617d7bcf8b3ca4deb372">defer</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1defer.html">defer</a>&amp; )            = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1defer.html#aed8f7cb2807911c4671e11c4ef2c3cca">   52</a></span>&#160;        <a class="code" href="classemlabcpp_1_1defer.html#aed8f7cb2807911c4671e11c4ef2c3cca">defer</a>( <a class="code" href="classemlabcpp_1_1defer.html">defer</a>&amp;&amp; )                 = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1defer.html#a9c6ee909cb68b20cde65f9811e6d99fb">   53</a></span>&#160;        <a class="code" href="classemlabcpp_1_1defer.html">defer</a>&amp; <a class="code" href="classemlabcpp_1_1defer.html#a9c6ee909cb68b20cde65f9811e6d99fb">operator=</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1defer.html">defer</a>&amp; ) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1defer.html#a58c0677e18d350de75f3c5b6826953b8">   54</a></span>&#160;        <a class="code" href="classemlabcpp_1_1defer.html">defer</a>&amp; <a class="code" href="classemlabcpp_1_1defer.html#a58c0677e18d350de75f3c5b6826953b8">operator=</a>( <a class="code" href="classemlabcpp_1_1defer.html">defer</a>&amp;&amp; )      = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1defer.html#a3a78f8a5ed6a126b19c55de32b2860e3">   56</a></span>&#160;        <a class="code" href="classemlabcpp_1_1defer.html#a3a78f8a5ed6a126b19c55de32b2860e3">~defer</a>()</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                fun_();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        Callable fun_;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1defer_html"><div class="ttname"><a href="classemlabcpp_1_1defer.html">emlabcpp::defer</a></div><div class="ttdoc">Defer is an object that receives and stores callable, which is called on it's destruction.</div><div class="ttdef"><b>Definition:</b> defer.h:44</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1defer_html_a3a78f8a5ed6a126b19c55de32b2860e3"><div class="ttname"><a href="classemlabcpp_1_1defer.html#a3a78f8a5ed6a126b19c55de32b2860e3">emlabcpp::defer::~defer</a></div><div class="ttdeci">~defer()</div><div class="ttdef"><b>Definition:</b> defer.h:53</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1defer_html_a6b2ff0449b46f547c54c7b5ba8621156"><div class="ttname"><a href="classemlabcpp_1_1defer.html#a6b2ff0449b46f547c54c7b5ba8621156">emlabcpp::defer::defer</a></div><div class="ttdeci">defer(Callable f)</div><div class="ttdef"><b>Definition:</b> defer.h:48</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1defer_html_a3a78f8a5ed6a126b19c55de32b2860e3"><div class="ttname"><a href="classemlabcpp_1_1defer.html#a3a78f8a5ed6a126b19c55de32b2860e3">emlabcpp::defer::~defer</a></div><div class="ttdeci">~defer()</div><div class="ttdef"><b>Definition:</b> defer.h:56</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1defer_html_a4a6545297c79617d7bcf8b3ca4deb372"><div class="ttname"><a href="classemlabcpp_1_1defer.html#a4a6545297c79617d7bcf8b3ca4deb372">emlabcpp::defer::defer</a></div><div class="ttdeci">defer(const defer &amp;)=default</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1defer_html_a58c0677e18d350de75f3c5b6826953b8"><div class="ttname"><a href="classemlabcpp_1_1defer.html#a58c0677e18d350de75f3c5b6826953b8">emlabcpp::defer::operator=</a></div><div class="ttdeci">defer &amp; operator=(defer &amp;&amp;)=default</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1defer_html_a6b2ff0449b46f547c54c7b5ba8621156"><div class="ttname"><a href="classemlabcpp_1_1defer.html#a6b2ff0449b46f547c54c7b5ba8621156">emlabcpp::defer::defer</a></div><div class="ttdeci">defer(Callable f)</div><div class="ttdef"><b>Definition:</b> defer.h:46</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1defer_html_a9c6ee909cb68b20cde65f9811e6d99fb"><div class="ttname"><a href="classemlabcpp_1_1defer.html#a9c6ee909cb68b20cde65f9811e6d99fb">emlabcpp::defer::operator=</a></div><div class="ttdeci">defer &amp; operator=(const defer &amp;)=default</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1defer_html_aed8f7cb2807911c4671e11c4ef2c3cca"><div class="ttname"><a href="classemlabcpp_1_1defer.html#aed8f7cb2807911c4671e11c4ef2c3cca">emlabcpp::defer::defer</a></div><div class="ttdeci">defer(defer &amp;&amp;)=default</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> access_view.h:7</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:152</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -145,7 +155,7 @@ $(document).ready(function(){initNavTree('defer_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="defer_8h.html">defer.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 14:06:24 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 11 2022 16:06:42 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
