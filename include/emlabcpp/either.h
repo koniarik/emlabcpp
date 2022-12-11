@@ -428,10 +428,10 @@ auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) requires
                 using left_type = typename std::remove_reference_t< Either >::left_item;
 
                 return std::forward< Either >( either )
-                    .convert_left( [&]( auto item ) {
+                    .convert_left( []( auto item ) {
                             return std::make_optional( std::move( item ) );
                     } )
-                    .convert_right( [&]( auto item ) {
+                    .convert_right( [&collection]( auto item ) {
                             collection.emplace_back( std::move( item ) );
                             return std::optional< left_type >();
                     } )
@@ -441,7 +441,7 @@ auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) requires
         return assemble_optionals(
                    convert( std::forward< FirstE >( first ) ),
                    convert( std::forward< Eithers >( others ) )... )
-            .convert_right( [&]( const empty_assembly_tag ) {
+            .convert_right( [&collection]( const empty_assembly_tag ) {
                     return collection;
             } );
 }
