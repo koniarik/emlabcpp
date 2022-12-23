@@ -1,6 +1,7 @@
 
 #include "emlabcpp/pmr/memory_resource.h"
 #include "emlabcpp/pmr/throw_bad_alloc.h"
+#include "emlabcpp/experimental/logging.h"
 
 #pragma once
 
@@ -42,7 +43,7 @@ struct memory_promise
 
                 p--;
 
-                const bool succeeded = ( *p )->deallocate( ptr, size, alignof( PromiseType ) );
+                const bool succeeded = ( *p )->deallocate( p, size, alignof( PromiseType ) );
                 if ( !succeeded ) {
                         pmr::throw_bad_alloc();
                 }

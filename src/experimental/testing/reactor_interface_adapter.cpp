@@ -25,50 +25,15 @@
 namespace emlabcpp::testing
 {
 
-either< controller_reactor_variant, protocol::endpoint_error >
-reactor_interface_adapter::read_variant()
-{
-        // TODO: ugly constant
-        return ep_.load_variant( 10, [this]( const std::size_t c ) {
-                return iface_.receive( static_cast< uint8_t >( c ) );
-        } );
-}
 void reactor_interface_adapter::reply( const reactor_controller_variant& var )
 {
-        auto msg = ep_.serialize( var );
+        using h  = protocol::handler< reactor_controller_group >;
+        auto msg = h::serialize( var );
         iface_.transmit( msg );
 }
 
 void reactor_interface_adapter::report_failure( const reactor_error_variant& evar )
 {
         reply( reactor_internal_error_report{ evar } );
-}
-bool reactor_interface_adapter::read_with_handler()
-{
-        return read_variant()
-            .convert_left( [this]( controller_reactor_variant var ) {
-                    if ( h_( var ) ) {
-                            return true;
-                    }
-                    const auto* const tree_err = std::get_if< tree_error_reply >( &var );
-                    if ( tree_err != nullptr ) {
-                            report_failure( *tree_err );
-                    }
-                    report_failure( error< WRONG_MESSAGE_E >{} );
-                    return false;
-            } )
-            .convert_right( [this]( protocol::endpoint_error e ) {
-                    // TODO: replication from reactor
-                    match(
-                        e,
-                        [this]( const protocol::endpoint_load_error& ) {
-                                report_failure( no_response_error{} );
-                        },
-                        [this]( const protocol::error_record& rec ) {
-                                report_failure( input_message_protocol_error{ rec } );
-                        } );
-                    return false;
-            } )
-            .join();
 }
 }  // namespace emlabcpp::testing

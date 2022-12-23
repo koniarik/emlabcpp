@@ -1,4 +1,5 @@
 #include "emlabcpp/experimental/contiguous_tree/base.h"
+#include "emlabcpp/experimental/logging.h"
 
 #pragma once
 

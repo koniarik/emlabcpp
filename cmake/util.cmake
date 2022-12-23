@@ -37,5 +37,6 @@ function(emlabcpp_compile_options target)
             -Wunused
             -Woverloaded-virtual
             -Wunreachable-code
-            -Wdouble-promotion)
+            -Wdouble-promotion
+            -Wno-mismatched-new-delete)
 endfunction()

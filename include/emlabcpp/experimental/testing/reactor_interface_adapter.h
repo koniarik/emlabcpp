@@ -33,15 +33,13 @@ class reactor_interface_adapter
         using incoming_handler = static_function< bool( const controller_reactor_variant& ), 16 >;
 
         reactor_interface& iface_;
-        reactor_endpoint&  ep_;
         incoming_handler   h_{};
 
         static constexpr std::size_t read_limit_ = 10;
 
 public:
-        reactor_interface_adapter( reactor_interface& iface, reactor_endpoint& ep )
+        reactor_interface_adapter( reactor_interface& iface )
           : iface_( iface )
-          , ep_( ep )
         {
         }
 
@@ -55,17 +53,8 @@ public:
                 return &iface_;
         }
 
-        either< controller_reactor_variant, protocol::endpoint_error > read_variant();
-
         void reply( const reactor_controller_variant& );
 
         void report_failure( const reactor_error_variant& );
-
-        void register_incoming_handler( incoming_handler h )
-        {
-                h_ = std::move( h );
-        };
-
-        bool read_with_handler();
 };
 }  // namespace emlabcpp::testing

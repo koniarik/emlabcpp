@@ -20,17 +20,11 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
-#include "emlabcpp/assert.h"
-#include "emlabcpp/defer.h"
-#include "emlabcpp/experimental/testing/interface.h"
+#include "emlabcpp/experimental/testing/executor.h"
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/experimental/testing/reactor_interface.h"
 #include "emlabcpp/pmr/pool_resource.h"
-#include "emlabcpp/protocol/packet_handler.h"
-#include "emlabcpp/view.h"
-#include "emlabcpp/visit.h"
-
-#include <list>
+#include "emlabcpp/protocol/endpoint.h"
 
 #pragma once
 
@@ -39,27 +33,20 @@ namespace emlabcpp::testing
 
 class reactor
 {
+        std::string_view       suite_name_;
+        const std::string_view suite_date_ = __DATE__ " " __TIME__;
 
-        struct active_execution
-        {
-                test_id         tid;
-                run_id          rid;
-                test_interface* iface_ptr;
-        };
-
-        std::string_view suite_name_;
-        std::string_view suite_date_ = __DATE__ " " __TIME__;
-
-        empty_test root_test_;
-
+        empty_test                    root_test_;
         pmr::pool_resource< 1024, 1 > mem_;
-        reactor_endpoint              ep_;
 
-        std::optional< active_execution > active_exec_;
+        reactor_interface_adapter iface_;
+
+        std::optional< executor > opt_exec_;
 
 public:
-        explicit reactor( const std::string_view suite_name )
+        explicit reactor( const std::string_view suite_name, reactor_interface& iface )
           : suite_name_( suite_name )
+          , iface_( iface )
         {
         }
 
@@ -68,19 +55,23 @@ public:
         reactor& operator=( const reactor& ) = delete;
         reactor& operator=( reactor&& )      = delete;
 
-        test_interface& get_first_dummy_test();
+        void on_msg( std::span< const uint8_t > buffer );
 
-        void spin( reactor_interface& comm );
+        void on_msg( const controller_reactor_variant& var );
+
+        void register_test( test_interface& test )
+        {
+                root_test_.push_after( &test );
+        }
+
+        void tick();
 
 private:
-        void handle_message( get_property< SUITE_NAME >, reactor_interface_adapter& ) const;
-        void handle_message( get_property< SUITE_DATE >, reactor_interface_adapter& ) const;
-        void handle_message( get_property< COUNT >, reactor_interface_adapter& ) const;
-        void handle_message( get_test_name_request, reactor_interface_adapter& );
-        void handle_message( load_test, reactor_interface_adapter& );
-        void handle_message( exec_request, reactor_interface_adapter& );
-
-        void exec_test( reactor_interface_adapter& comm );
+        void handle_message( get_property< SUITE_NAME > );
+        void handle_message( get_property< SUITE_DATE > );
+        void handle_message( get_property< COUNT > );
+        void handle_message( get_test_name_request );
+        void handle_message( exec_request );
 };
 
 }  // namespace emlabcpp::testing

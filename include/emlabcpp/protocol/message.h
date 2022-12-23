@@ -82,6 +82,16 @@ public:
         {
         }
 
+        [[nodiscard]] const uint8_t* data() const
+        {
+                return &data_[0];
+        }
+
+        [[nodiscard]] uint8_t* data()
+        {
+                return &data_[0];
+        }
+
         [[nodiscard]] std::size_t size() const
         {
                 return used_;

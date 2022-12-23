@@ -15,9 +15,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_library(
   emlabcpp STATIC
   src/experimental/testing/reactor.cpp
-  src/experimental/testing/record.cpp
   src/experimental/testing/reactor_interface_adapter.cpp
   src/experimental/testing/protocol.cpp
+  src/experimental/testing/collect.cpp
   src/experimental/testing/interface.cpp
   src/experimental/logging.cpp
   src/experimental/testing/json.cpp

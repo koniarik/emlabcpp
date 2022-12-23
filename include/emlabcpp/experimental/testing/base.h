@@ -41,14 +41,13 @@ using node_id        = uint32_t;
 using child_count    = uint32_t;
 using child_id       = uint32_t;
 using node_type_enum = contiguous_tree_type_enum;
-using key_type       = key_type_buffer;
 using string_buffer  = static_vector< char, 32 >;
+using key_type       = key_type_buffer;
 
 // TODO: this breaks stuff as it has nlohmann::json serialization overload which is _not a good
 // idea_
 using value_type = std::variant< int64_t, float, bool, string_buffer >;
 static_assert( !alternative_of< uint32_t, value_type > );
-using collect_value_type       = std::variant< value_type, contiguous_container_type >;
 using run_id                   = uint32_t;
 using test_id                  = uint16_t;
 using data_tree                = contiguous_tree< key_type, value_type >;
@@ -91,16 +90,14 @@ class reactor_interface_adapter;
 
 struct test_result
 {
-        test_id   tid;
-        run_id    rid;
-        data_tree collected;
-        bool      failed  = false;
-        bool      errored = false;
+        test_id tid;
+        run_id  rid;
+        bool    failed  = false;
+        bool    errored = false;
 
-        test_result( const test_id ttid, const run_id trid, pmr::memory_resource& mem_res )
+        test_result( const test_id ttid, const run_id trid )
           : tid( ttid )
           , rid( trid )
-          , collected( mem_res )
         {
         }
 

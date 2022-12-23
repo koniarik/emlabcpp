@@ -27,153 +27,75 @@
 namespace emlabcpp::testing
 {
 
-test_interface& reactor::get_first_dummy_test()
+void reactor::tick()
 {
-        return root_test_;
+        if ( !opt_exec_.has_value() ) {
+                return;
+        }
+        opt_exec_->tick();
+        if ( opt_exec_->finished() ) {
+                iface_.reply( test_finished{
+                    .rid     = opt_exec_->get_run_id(),
+                    .errored = opt_exec_->errored(),
+                    .failed  = opt_exec_->failed() } );
+                opt_exec_.reset();
+        }
+}
+void reactor::on_msg( std::span< const uint8_t > buffer )
+{
+        using h = protocol::handler< controller_reactor_group >;
+        h::extract( view_n( buffer.data(), buffer.size() ) )
+            .match(
+                [this]( const controller_reactor_variant& var ) {
+                        on_msg( var );
+                },
+                [this]( const protocol::error_record& rec ) {
+                        iface_.report_failure( input_message_protocol_error{ rec } );
+                } );
+}
+void reactor::on_msg( const controller_reactor_variant& var )
+{
+        match( var, [this]( const auto& item ) {
+                handle_message( item );
+        } );
 }
 
-void reactor::spin( reactor_interface& comm )
+void reactor::handle_message( const get_property< SUITE_NAME > )
 {
-        reactor_interface_adapter iface{ comm, ep_ };
-
-        iface.read_variant().match(
-            [this, &iface]( const controller_reactor_variant& var ) {
-                    // TODO: this does not work, split the CR group into multiple groups...
-                    match(
-                        var,
-                        [this, &iface]( const auto& item ) {
-                                handle_message( item, iface );
-                        },
-                        [&iface]( const param_value_reply& ) {
-                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
-                        },
-                        [&iface]( const param_value_key_reply& ) {
-                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
-                        },
-                        [&iface]( const param_child_reply& ) {
-                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
-                        },
-                        [&iface]( const param_child_count_reply& ) {
-                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
-                        },
-                        [&iface]( const param_key_reply& ) {
-                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
-                        },
-                        [&iface]( const param_type_reply& ) {
-                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
-                        },
-                        [&iface]( const tree_error_reply& ) {
-                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
-                        },
-                        [&iface]( const collect_reply& ) {
-                                iface.report_failure( error< UNDESIRED_MSG_E >{} );
-                        } );
-            },
-            [&iface]( const protocol::endpoint_error& e ) {
-                    match(
-                        e,
-                        [&iface]( const protocol::endpoint_load_error& ) {
-                                iface.report_failure( no_response_error{} );
-                        },
-                        [&iface]( const protocol::error_record& rec ) {
-                                iface.report_failure( input_message_protocol_error{ rec } );
-                        } );
-            } );
+        iface_.reply( get_suite_name_reply{ name_to_buffer( suite_name_ ) } );
 }
-
-void reactor::handle_message( const get_property< SUITE_NAME >, reactor_interface_adapter& iface )
-    const
+void reactor::handle_message( const get_property< SUITE_DATE > )
 {
-        iface.reply( get_suite_name_reply{ name_to_buffer( suite_name_ ) } );
+        iface_.reply( get_suite_date_reply{ name_to_buffer( suite_date_ ) } );
 }
-void reactor::handle_message( const get_property< SUITE_DATE >, reactor_interface_adapter& iface )
-    const
-{
-        iface.reply( get_suite_date_reply{ name_to_buffer( suite_date_ ) } );
-}
-void reactor::handle_message( const get_property< COUNT >, reactor_interface_adapter& iface ) const
+void reactor::handle_message( const get_property< COUNT > )
 {
         const std::size_t c = root_test_.count_next();
-        iface.reply( get_count_reply{ static_cast< test_id >( c ) } );
+        iface_.reply( get_count_reply{ static_cast< test_id >( c ) } );
 }
-void reactor::handle_message( const get_test_name_request req, reactor_interface_adapter& iface )
+void reactor::handle_message( const get_test_name_request req )
 {
         test_interface* const test_ptr = root_test_.get_next( req.tid + 1 );
         if ( test_ptr == nullptr ) {
-                iface.report_failure( error< BAD_TEST_ID_E >{} );
+                iface_.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
         }
-        iface.reply( get_test_name_reply{ test_ptr->name } );
+        iface_.reply( get_test_name_reply{ test_ptr->name } );
 }
-void reactor::handle_message( const load_test req, reactor_interface_adapter& iface )
+
+void reactor::handle_message( const exec_request req )
 {
-        if ( active_exec_ ) {
-                iface.report_failure( error< TEST_ALREADY_LOADED_E >{} );
+        if ( opt_exec_ ) {
+                iface_.report_failure( error< TEST_IS_RUNING_E >{} );
                 return;
         }
 
         test_interface* const test_ptr = root_test_.get_next( req.tid + 1 );
         if ( test_ptr == nullptr ) {
-                iface.report_failure( error< BAD_TEST_ID_E >{} );
+                iface_.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
         }
 
-        active_exec_ = active_execution{ req.tid, req.rid, test_ptr };
+        opt_exec_.emplace( req.rid, mem_, *test_ptr );
 }
-void reactor::handle_message( const exec_request, reactor_interface_adapter& iface )
-{
-        if ( !active_exec_ ) {
-                iface.report_failure( error< TEST_NOT_LOADED_E >{} );
-                return;
-        }
-
-        exec_test( iface );
-        active_exec_.reset();
-}
-
-void reactor::exec_test( reactor_interface_adapter& iface )
-{
-
-        test_interface* const test = active_exec_->iface_ptr;
-        record                rec{ active_exec_->tid, active_exec_->rid, iface };
-        bool                  errd  = false;
-        bool                  faild = false;
-
-        const defer d = [&] {
-                iface.reply(
-                    test_finished{ .rid = active_exec_->rid, .errored = errd, .failed = faild } );
-        };
-
-        {
-                test_coroutine coro = test->setup( mem_, rec );
-                if ( !coro.spin( &iface ) ) {
-                        return;
-                }
-        }
-
-        if ( rec.errored() ) {
-                faild = true;
-                return;
-        }
-
-        {
-                test_coroutine coro = test->run( mem_, rec );
-                if ( !coro.spin( &iface ) ) {
-                        return;
-                }
-        }
-
-        {
-                test_coroutine coro = test->teardown( mem_, rec );
-                if ( !coro.spin( &iface ) ) {
-                        return;
-                }
-        }
-
-        if ( rec.errored() ) {
-                errd = true;
-                return;
-        }
-}
-
 }  // namespace emlabcpp::testing

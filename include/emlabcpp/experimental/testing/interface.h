@@ -33,13 +33,12 @@ namespace emlabcpp::testing
 {
 
 class reactor;
-class empty_test;
 
 class test_interface : public binding_linked_list_node< test_interface >
 {
 public:
-        test_interface( reactor& rec, const name_buffer& name );
-        test_interface( reactor& rec, std::string_view name );
+        test_interface( const name_buffer& name );
+        test_interface( std::string_view name );
 
         test_interface( const test_interface& )            = delete;
         test_interface& operator=( const test_interface& ) = delete;
@@ -55,7 +54,6 @@ public:
         virtual ~test_interface() = default;
 
         friend reactor;
-        friend empty_test;
 
 private:
         test_interface() = default;
@@ -68,8 +66,8 @@ private:
 class empty_test : public test_interface
 {
 public:
-        explicit empty_test( reactor& rec )
-          : test_interface( rec, name_buffer{} )
+        explicit empty_test()
+          : test_interface( name_buffer{} )
         {
         }
 
@@ -77,11 +75,6 @@ public:
         {
                 co_return;
         };
-
-        friend reactor;
-
-private:
-        empty_test() = default;
 };
 
 template < typename T >

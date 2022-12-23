@@ -39,7 +39,7 @@ public:
                 }
 
                 if ( p == nullptr || used > PoolSize ) {
-                        EMLABCPP_LOG( "Failed to allocate" );
+                        EMLABCPP_LOG( "Failed to allocate " << bytes << " bytes" );
                         return nullptr;
                 }
                 free_.pop_back();

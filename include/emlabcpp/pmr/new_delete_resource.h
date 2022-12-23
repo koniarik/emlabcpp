@@ -25,9 +25,9 @@ struct new_delete_resource_impl : memory_resource
         }
 };
 
-memory_resource* new_delete_resource()
+memory_resource& new_delete_resource()
 {
         static new_delete_resource_impl impl;
-        return &impl;
+        return impl;
 }
 }  // namespace emlabcpp::pmr

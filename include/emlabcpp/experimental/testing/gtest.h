@@ -43,58 +43,39 @@ inline ::testing::AssertionResult gtest_predicate( const char*, const test_resul
                 res = ::testing::AssertionFailure() << "Test errored";
         }
 
-        res << data_tree_to_json( tres.collected ).dump( 4 );
+        // res << data_tree_to_json( tres.collected ).dump( 4 );
         return res;
 }
 
 class gtest : public ::testing::Test
 {
-        std::optional< controller > opt_con_;
-        test_id                     tid_;
-        controller_interface&       ci_;
+        std::optional< controller >   opt_con_;
+        test_id                       tid_;
+        std::shared_ptr< controller > cont_ptr_;
 
 public:
-        gtest( controller_interface& ci, test_id tid )
+        gtest( std::shared_ptr< controller > controller_ptr, test_id tid )
           : opt_con_()
           , tid_( tid )
-          , ci_( ci )
+          , cont_ptr_( controller_ptr )
         {
-        }
-
-        void SetUp() final
-        {
-                opt_con_ = controller::make( ci_, *pmr::new_delete_resource() );
-                if ( !opt_con_ ) {
-                        EMLABCPP_LOG( "Failed to build testing controller for gtest" );
-                }
-                ASSERT_TRUE( opt_con_ );
         }
 
         void TestBody() final
         {
-                opt_con_->start_test( tid_, ci_ );
-                while ( opt_con_->has_active_test() ) {
-                        opt_con_->tick( ci_ );
+                cont_ptr_->start_test( tid_ );
+                while ( cont_ptr_->is_test_running() ) {
+                        cont_ptr_->tick();
                 }
-        }
-
-        void TearDown() final
-        {
-                opt_con_.reset();
         }
 };
 
 void register_gtests( controller_interface& ci )
 {
-        auto opt_con = controller::make( ci, *pmr::new_delete_resource() );
+        auto controller_ptr = std::make_shared< controller >( pmr::new_delete_resource(), ci );
 
-        if ( !opt_con ) {
-                EMLABCPP_LOG( "Failed to build testing controller for gtest registration" );
-                return;
-        }
-
-        std::string suite_name = std::string{ opt_con->suite_name() };
-        for ( auto [tid, tinfo] : opt_con->get_tests() ) {
+        std::string suite_name = std::string{ controller_ptr->suite_name() };
+        for ( auto [tid, tinfo] : controller_ptr->get_tests() ) {
                 std::string name{ tinfo.name.begin(), tinfo.name.end() };
                 test_id     test_id = tid;
                 ::testing::RegisterTest(
@@ -104,8 +85,8 @@ void register_gtests( controller_interface& ci )
                     nullptr,
                     __FILE__,
                     __LINE__,
-                    [&ci, test_id] {
-                            return new gtest( ci, test_id );
+                    [controller_ptr, test_id] {
+                            return new gtest( controller_ptr, test_id );
                     } );
         }
 }

@@ -49,7 +49,7 @@ struct handler
                 EMLABCPP_ASSERT( *used <= def::max_size );
                 return *message_type::make( view_n( buffer.begin(), *used ) );
         };
-
+        
         static either< value_type, error_record > extract( const view< const uint8_t* >& msg )
         {
                 auto opt_view = bounded_view< const uint8_t*, typename def::size_type >::make(

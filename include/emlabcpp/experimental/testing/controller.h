@@ -20,9 +20,8 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
-#include "emlabcpp/experimental/testing/controller_interface.h"
-#include "emlabcpp/iterators/convert.h"
-#include "emlabcpp/match.h"
+#include "emlabcpp/experimental/testing/controller_interface_adapter.h"
+#include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/pmr/aliases.h"
 
 #pragma once
@@ -30,13 +29,34 @@
 namespace emlabcpp::testing
 {
 
-class controller_interface_adapter;
-
 class controller
 {
+        struct initializing_state
+        {
+                test_coroutine coro;
+        };
+
+        struct test_running_state
+        {
+                test_result context;
+        };
+
+        struct idle_state
+        {
+        };
+
+        using states = std::variant< initializing_state, test_running_state, idle_state >;
+
 public:
-        static std::optional< controller >
-        make( controller_interface& iface, pmr::memory_resource& );
+        controller( pmr::memory_resource& mem_res, controller_interface& iface )
+          : mem_res_( mem_res )
+          , iface_( iface )
+          , tests_( mem_res )
+        {
+                initializing_state* i_state_ptr = std::get_if< initializing_state >( &state_ );
+                EMLABCPP_ASSERT( i_state_ptr != nullptr );
+                i_state_ptr->coro = initialize( mem_res );
+        }
 
         [[nodiscard]] std::string_view suite_name() const
         {
@@ -48,9 +68,14 @@ public:
                 return { date_.begin(), date_.end() };
         }
 
-        [[nodiscard]] bool has_active_test() const
+        [[nodiscard]] bool is_initializing() const
         {
-                return context_.has_value();
+                return std::holds_alternative< initializing_state >( state_ );
+        }
+
+        [[nodiscard]] bool is_test_running() const
+        {
+                return std::holds_alternative< test_running_state >( state_ );
         }
 
         [[nodiscard]] const pmr::map< test_id, test_info >& get_tests() const
@@ -58,30 +83,24 @@ public:
                 return tests_;
         }
 
-        void start_test( test_id tid, controller_interface& iface );
+        void on_msg( std::span< const uint8_t > data );
+        void on_msg( const reactor_controller_variant& );
 
-        void tick( controller_interface& iface );
+        void start_test( test_id tid );
+
+        void tick();
 
 private:
+        test_coroutine initialize( pmr::memory_resource& mem_res );
+
+        states state_ = initializing_state{};
+
+        std::reference_wrapper< pmr::memory_resource > mem_res_;
+        controller_interface_adapter                   iface_;
         pmr::map< test_id, test_info >                 tests_;
         name_buffer                                    name_;
         name_buffer                                    date_;
-        std::optional< test_result >                   context_;
         run_id                                         rid_ = 0;
-        std::reference_wrapper< pmr::memory_resource > mem_res_;
-        controller_endpoint                            ep_;
-
-        controller(
-            name_buffer                    name,
-            name_buffer                    date,
-            pmr::map< test_id, test_info > tests,
-            pmr::memory_resource&          mem_res )
-          : tests_( std::move( tests ) )
-          , name_( std::move( name ) )
-          , date_( std::move( date ) )
-          , mem_res_( mem_res )
-        {
-        }
 };
 
 }  // namespace emlabcpp::testing

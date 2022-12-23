@@ -12,6 +12,8 @@ class owning_coroutine_handle
 public:
         using promise_type = PromiseType;
 
+        owning_coroutine_handle() = default;
+
         explicit owning_coroutine_handle( std::coroutine_handle< promise_type > h )
           : h_( h )
         {

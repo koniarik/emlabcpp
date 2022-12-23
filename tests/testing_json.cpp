@@ -17,7 +17,7 @@ TEST( TestingJson, json )
             { "v6", nlohmann::json::array( { 1, 2, 3, 4, 5 } ) } };
 
         std::optional< testing::data_tree > opt_tree =
-            testing::json_to_data_tree( *pmr::new_delete_resource(), j );
+            testing::json_to_data_tree( pmr::new_delete_resource(), j );
 
         EXPECT_TRUE( opt_tree );
 

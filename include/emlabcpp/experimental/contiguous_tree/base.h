@@ -1,3 +1,7 @@
+#include "emlabcpp/either.h"
+
+#include <cstdint>
+#include <functional>
 
 #pragma once
 

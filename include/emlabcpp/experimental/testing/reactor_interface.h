@@ -30,8 +30,7 @@ namespace emlabcpp::testing
 class reactor_interface
 {
 public:
-        virtual void                                          transmit( std::span< uint8_t > ) = 0;
-        virtual std::optional< static_vector< uint8_t, 64 > > receive( uint8_t )               = 0;
+        virtual void transmit( std::span< uint8_t > ) = 0;
 
         virtual ~reactor_interface() = default;
 };

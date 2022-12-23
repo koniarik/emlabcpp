@@ -22,6 +22,7 @@
 //
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/experimental/contiguous_tree/base.h"
+#include "emlabcpp/experimental/multiplexer.h"
 #include "emlabcpp/experimental/testing/base.h"
 #include "emlabcpp/protocol.h"
 #include "emlabcpp/protocol/endpoint.h"
@@ -37,19 +38,11 @@ enum messages_enum : uint8_t
         EXEC              = 0x1,
         COUNT             = 0x2,
         NAME              = 0x3,
-        LOAD              = 0x4,
         SUITE_NAME        = 0x6,
         SUITE_DATE        = 0x7,
-        COLLECT           = 0x8,
         FINISHED          = 0x9,
         ERROR             = 0xa,
         FAILURE           = 0xb,
-        PARAM_VALUE       = 0x10,
-        PARAM_CHILD       = 0x11,
-        PARAM_CHILD_COUNT = 0x12,
-        PARAM_KEY         = 0x13,
-        PARAM_TYPE        = 0x14,
-        PARAM_VALUE_KEY   = 0x15,
         INTERNAL_ERROR    = 0xf0,
         PROTOCOL_ERROR    = 0xf1,
         TREE_ERROR        = 0xf2,
@@ -91,121 +84,9 @@ struct get_test_name_reply
         name_buffer           name;
 };
 
-struct load_test
-{
-        static constexpr auto id = LOAD;
-        test_id               tid;
-        run_id                rid;
-};
-
-struct collect_request
-{
-        static constexpr auto     id = COLLECT;
-        run_id                    rid;
-        node_id                   parent;
-        bool                      expects_reply;
-        std::optional< key_type > opt_key;
-        collect_value_type        value;
-};
-
-struct collect_reply
-{
-        static constexpr auto id = COLLECT;
-        run_id                rid;
-        node_id               nid;
-};
-
-struct param_value_request
-{
-        static constexpr auto id = PARAM_VALUE;
-        run_id                rid;
-        node_id               nid;
-};
-
-struct param_value_reply
-{
-        static constexpr auto id = PARAM_VALUE;
-        run_id                rid;
-        value_type            value;
-};
-
-struct param_value_key_request
-{
-        static constexpr auto              id = PARAM_VALUE_KEY;
-        run_id                             rid;
-        node_id                            nid;
-        std::variant< key_type, child_id > key;
-};
-
-struct param_value_key_reply
-{
-        static constexpr auto id = PARAM_VALUE_KEY;
-        run_id                rid;
-        value_type            value;
-};
-
-struct param_child_request
-{
-        static constexpr auto              id = PARAM_CHILD;
-        run_id                             rid;
-        node_id                            parent;
-        std::variant< key_type, child_id > chid;
-};
-
-struct param_child_reply
-{
-        static constexpr auto id = PARAM_CHILD;
-        run_id                rid;
-        node_id               chid;
-};
-
-struct param_child_count_request
-{
-        static constexpr auto id = PARAM_CHILD_COUNT;
-        run_id                rid;
-        node_id               parent;
-};
-
-struct param_child_count_reply
-{
-        static constexpr auto id = PARAM_CHILD_COUNT;
-        run_id                rid;
-        child_count           count;
-};
-
-struct param_key_request
-{
-        static constexpr auto id = PARAM_KEY;
-        run_id                rid;
-        node_id               nid;
-        child_id              chid;
-};
-
-struct param_key_reply
-{
-        static constexpr auto id = PARAM_KEY;
-        run_id                rid;
-        key_type              key;
-};
-
-struct param_type_request
-{
-        static constexpr auto id = PARAM_TYPE;
-        run_id                rid;
-        node_id               nid;
-};
-
-struct param_type_reply
-{
-        static constexpr auto id = PARAM_TYPE;
-        run_id                rid;
-        node_type_enum        type;
-};
-
 struct tree_error_reply
 {
         static constexpr auto                  id = TREE_ERROR;
-        run_id                                 rid;
         contiguous_request_adapter_errors_enum err;
         node_id                                nid;
 };
@@ -222,6 +103,7 @@ struct exec_request
 {
         static constexpr auto id = EXEC;
         run_id                rid;
+        test_id               tid;
 };
 
 using controller_reactor_group = protocol::tag_group<
@@ -229,15 +111,6 @@ using controller_reactor_group = protocol::tag_group<
     get_property< SUITE_DATE >,
     get_property< COUNT >,
     get_test_name_request,
-    load_test,
-    collect_reply,
-    param_value_reply,
-    param_child_reply,
-    param_child_count_reply,
-    param_key_reply,
-    param_type_reply,
-    param_value_key_reply,
-    tree_error_reply,
     exec_request >;
 
 using controller_reactor_variant =
@@ -245,10 +118,8 @@ using controller_reactor_variant =
 
 enum error_enum : uint8_t
 {
-        TEST_NOT_LOADED_E            = 0x1,
+        TEST_IS_RUNING_E             = 0x1,
         TEST_NOT_FOUND_E             = 0x2,
-        WRONG_RUN_ID_E               = 0x3,
-        TEST_ALREADY_LOADED_E        = 0x4,
         BAD_TEST_ID_E                = 0x5,
         UNDESIRED_MSG_E              = 0x6,
         NO_RESPONSE_E                = 0x7,
@@ -284,10 +155,8 @@ struct input_message_protocol_error
 
 // TODO: this is not good, we want group here
 using reactor_error_variant = std::variant<
-    error< TEST_NOT_LOADED_E >,
+    error< TEST_IS_RUNING_E >,
     error< TEST_NOT_FOUND_E >,
-    error< WRONG_RUN_ID_E >,
-    error< TEST_ALREADY_LOADED_E >,
     error< BAD_TEST_ID_E >,
     error< UNDESIRED_MSG_E >,
     no_response_error,
@@ -305,13 +174,6 @@ struct reactor_internal_error_report
 using reactor_controller_group = protocol::tag_group<
     get_count_reply,
     get_test_name_reply,
-    collect_request,
-    param_value_request,
-    param_child_request,
-    param_child_count_request,
-    param_key_request,
-    param_type_request,
-    param_value_key_request,
     test_finished,
     get_suite_name_reply,
     get_suite_date_reply,
@@ -319,6 +181,8 @@ using reactor_controller_group = protocol::tag_group<
 
 using reactor_controller_variant =
     typename protocol::traits_for< reactor_controller_group >::value_type;
+
+using packet_payload = protocol::multiplexer_payload< 64 >;
 
 struct packet_def
 {
@@ -337,26 +201,15 @@ struct packet_def
         }
 };
 
-using reactor_controller_packet = protocol::packet< packet_def, reactor_controller_group >;
-using controller_reactor_packet = protocol::packet< packet_def, controller_reactor_group >;
-
-using reactor_endpoint = protocol::endpoint< controller_reactor_packet, reactor_controller_packet >;
-using controller_endpoint =
-    protocol::endpoint< reactor_controller_packet, controller_reactor_packet >;
-
-using reactor_controller_msg = typename reactor_controller_packet::message_type;
-using controller_reactor_msg = typename controller_reactor_packet::message_type;
+using packet   = protocol::packet< packet_def, packet_payload >;
+using endpoint = protocol::endpoint< packet, packet >;
+using message  = typename packet::message_type;
 
 }  // namespace emlabcpp::testing
 
 namespace emlabcpp::protocol
 {
 
-extern template class endpoint<
-    testing::controller_reactor_packet,
-    testing::reactor_controller_packet >;
-extern template class endpoint<
-    testing::reactor_controller_packet,
-    testing::controller_reactor_packet >;
+extern template class endpoint< testing::packet, testing::packet >;
 
 }  // namespace emlabcpp::protocol
