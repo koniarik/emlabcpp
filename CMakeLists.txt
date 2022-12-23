@@ -17,6 +17,7 @@ add_library(
   src/experimental/testing/reactor.cpp
   src/experimental/testing/reactor_interface_adapter.cpp
   src/experimental/testing/protocol.cpp
+  src/experimental/testing/parameters.cpp
   src/experimental/testing/collect.cpp
   src/experimental/testing/interface.cpp
   src/experimental/logging.cpp
