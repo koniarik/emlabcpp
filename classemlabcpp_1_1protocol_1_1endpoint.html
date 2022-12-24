@@ -114,8 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a676222c8f82f529f2b642ba5dee8eb11"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
 <tr class="memitem:a676222c8f82f529f2b642ba5dee8eb11"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#a676222c8f82f529f2b642ba5dee8eb11">insert</a> (Container &amp;&amp;data)</td></tr>
 <tr class="separator:a676222c8f82f529f2b642ba5dee8eb11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82c6e790cabc42c56cc792037700c32a"><td class="memItemLeft" align="right" valign="top">std::variant&lt; std::size_t, <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#aa54914338ca08c2402f4ff526464dd1e">input_value</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#a82c6e790cabc42c56cc792037700c32a">get_message</a> ()</td></tr>
-<tr class="separator:a82c6e790cabc42c56cc792037700c32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf5cee46fc0fe200a434352cdb44180b"><td class="memItemLeft" align="right" valign="top">std::variant&lt; std::size_t, <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#aa54914338ca08c2402f4ff526464dd1e">input_value</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#acf5cee46fc0fe200a434352cdb44180b">get_value</a> ()</td></tr>
+<tr class="separator:acf5cee46fc0fe200a434352cdb44180b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a427473ee50a8ef9a38235b23d68642f8"><td class="memTemplParams" colspan="2">template&lt;typename ReadCallback &gt; </td></tr>
 <tr class="memitem:a427473ee50a8ef9a38235b23d68642f8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#aa54914338ca08c2402f4ff526464dd1e">input_value</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">endpoint_error</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#a427473ee50a8ef9a38235b23d68642f8">load_variant</a> (const std::size_t read_limit, ReadCallback &amp;&amp;read)</td></tr>
 <tr class="separator:a427473ee50a8ef9a38235b23d68642f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,8 +202,8 @@ template&lt;typename InputPacket , typename OutputPacket &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a82c6e790cabc42c56cc792037700c32a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82c6e790cabc42c56cc792037700c32a">&#9670;&nbsp;</a></span>get_message()</h2>
+<a id="acf5cee46fc0fe200a434352cdb44180b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf5cee46fc0fe200a434352cdb44180b">&#9670;&nbsp;</a></span>get_value()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,7 +214,7 @@ template&lt;typename InputPacket , typename OutputPacket &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::variant&lt; std::size_t, <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#aa54914338ca08c2402f4ff526464dd1e">input_value</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt; <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html">emlabcpp::protocol::endpoint</a>&lt; InputPacket, OutputPacket &gt;::get_message </td>
+          <td class="memname">std::variant&lt; std::size_t, <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#aa54914338ca08c2402f4ff526464dd1e">input_value</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt; <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html">emlabcpp::protocol::endpoint</a>&lt; InputPacket, OutputPacket &gt;::get_value </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -342,7 +342,7 @@ template&lt;typename InputPacket , typename OutputPacket &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html">endpoint</a></li>
-    <li class="footer">Generated on Sat Dec 24 2022 11:39:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 24 2022 23:29:57 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

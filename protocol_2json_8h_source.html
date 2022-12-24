@@ -144,22 +144,22 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> D, <span class="keyword">typename</span> ProtoSer &gt;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">struct </span>proto_traits_adl_serializer</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">using</span> decl     = traits_for&lt; D &gt;;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">using</span> traits   = traits_for&lt; D &gt;;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">using</span> prot_ser = ProtoSer;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> to_json( nlohmann::json&amp; j, <span class="keyword">const</span> decl&amp; )</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> to_json( nlohmann::json&amp; j, <span class="keyword">const</span> traits&amp; )</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                j[<span class="stringliteral">&quot;type&quot;</span>] = prot_ser::type_name;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_DEMANGLING</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                j[<span class="stringliteral">&quot;pretty_name&quot;</span>] = prot_ser::get_name();</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                j[<span class="stringliteral">&quot;raw_name&quot;</span>] = <span class="keyword">typeid</span>( D ).name();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                j[<span class="stringliteral">&quot;max_size&quot;</span>] = decl::max_size;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                j[<span class="stringliteral">&quot;min_size&quot;</span>] = decl::min_size;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                j[<span class="stringliteral">&quot;max_size&quot;</span>] = traits::max_size;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                j[<span class="stringliteral">&quot;min_size&quot;</span>] = traits::min_size;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                prot_ser::add_extra( j );</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">static</span> decl from_json( <span class="keyword">const</span> nlohmann::json&amp; )</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">static</span> traits from_json( <span class="keyword">const</span> nlohmann::json&amp; )</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">return</span> {};</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
@@ -327,18 +327,18 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;{</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keyword">static</span> constexpr std::string_view type_name = <span class="stringliteral">&quot;variant&quot;</span>;</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keyword">using</span> decl = <a class="code" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a>&lt; std::variant&lt; Ds... &gt; &gt;;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keyword">using</span> traits = <a class="code" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a>&lt; std::variant&lt; Ds... &gt; &gt;;</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <span class="keyword">static</span> std::string get_name()</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        {</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                std::vector&lt; std::string &gt; names{ traits_json_serializer&lt; Ds &gt;::get_name()... };</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                <span class="keywordflow">return</span> traits_json_serializer&lt; typename decl::id_type &gt;::get_name() + <span class="stringliteral">&quot;,{&quot;</span> +</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                <span class="keywordflow">return</span> traits_json_serializer&lt; typename traits::id_type &gt;::get_name() + <span class="stringliteral">&quot;,{&quot;</span> +</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                       <a class="code" href="namespaceemlabcpp.html#a31c1cbc5b728494acb47daebb913fd96">joined</a>( names, std::string{ <span class="stringliteral">&quot;|&quot;</span> } ) + <span class="stringliteral">&quot;}&quot;</span>;</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        }</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> add_extra( nlohmann::json&amp; j )</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                j[<span class="stringliteral">&quot;counter_type&quot;</span>] = <span class="keyword">typename</span> decl::id_traits{};</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                j[<span class="stringliteral">&quot;counter_type&quot;</span>] = <span class="keyword">typename</span> traits::id_traits{};</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                j[<span class="stringliteral">&quot;sub_types&quot;</span>] =</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                    <a class="code" href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">map_f_to_a</a>( std::tuple&lt; Ds... &gt;{}, [&amp;]&lt; <span class="keyword">typename</span> D &gt;( D ) -&gt; nlohmann::json {</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                            <span class="keywordflow">return</span> traits_for&lt; D &gt;{};</div>
@@ -527,12 +527,12 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                <span class="keywordflow">return</span> std::string{ type_name };</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        }</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        <span class="keyword">using</span> decl = traits_for&lt; error_record &gt;;</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        <span class="keyword">using</span> traits = traits_for&lt; error_record &gt;;</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> add_extra( nlohmann::json&amp; j )</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        {</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                j[<span class="stringliteral">&quot;mark_type&quot;</span>]   = traits_for&lt; typename decl::mark_type &gt;{};</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                j[<span class="stringliteral">&quot;offset_type&quot;</span>] = traits_for&lt; typename decl::offset_type &gt;{};</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                j[<span class="stringliteral">&quot;mark_type&quot;</span>]   = traits_for&lt; typename traits::mark_type &gt;{};</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                j[<span class="stringliteral">&quot;offset_type&quot;</span>] = traits_for&lt; typename traits::offset_type &gt;{};</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        }</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;};</div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160; </div>
@@ -586,7 +586,7 @@ $(document).ready(function(){initNavTree('protocol_2json_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="protocol_2json_8h.html">json.h</a></li>
-    <li class="footer">Generated on Sat Dec 24 2022 11:39:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 24 2022 23:29:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

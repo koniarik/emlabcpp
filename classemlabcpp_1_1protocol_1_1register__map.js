@@ -1,6 +1,5 @@
 var classemlabcpp_1_1protocol_1_1register__map =
 [
-    [ "decl", "classemlabcpp_1_1protocol_1_1register__map.html#a0b2b4b01c957a84af90e2fd1dbf33cf7", null ],
     [ "key_type", "classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b", null ],
     [ "message_type", "classemlabcpp_1_1protocol_1_1register__map.html#a839a1044031392b0aad65f6c100e884c", null ],
     [ "reg_def_type", "classemlabcpp_1_1protocol_1_1register__map.html#a9a8585ce3fa58e7c413e83df4b81e28e", null ],
@@ -8,6 +7,7 @@ var classemlabcpp_1_1protocol_1_1register__map =
     [ "reg_value_type", "classemlabcpp_1_1protocol_1_1register__map.html#a43b737178dcc70ca41577a03ea9c8fb4", null ],
     [ "register_index", "classemlabcpp_1_1protocol_1_1register__map.html#ad9c9d7232471e21e3b8ffc20082074b9", null ],
     [ "registers_tuple", "classemlabcpp_1_1protocol_1_1register__map.html#a123ef0007c53a0241f548d9e1b559de3", null ],
+    [ "traits", "classemlabcpp_1_1protocol_1_1register__map.html#ac910e0d119bf622432dc91a200693b5a", null ],
     [ "register_map", "classemlabcpp_1_1protocol_1_1register__map.html#ac1b8637639e83482561ed560b66dd395", null ],
     [ "register_map", "classemlabcpp_1_1protocol_1_1register__map.html#ac078fa2585dd4961b10364b399e49e76", null ],
     [ "contains", "classemlabcpp_1_1protocol_1_1register__map.html#ab5642aa9603b98cbdf974d7465ce1aa5", null ],

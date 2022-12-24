@@ -116,9 +116,9 @@ Public Types</h2></td></tr>
 <tr class="memitem:a43b737178dcc70ca41577a03ea9c8fb4"><td class="memTemplParams" colspan="2">template&lt;key_type Key&gt; </td></tr>
 <tr class="memitem:a43b737178dcc70ca41577a03ea9c8fb4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a43b737178dcc70ca41577a03ea9c8fb4">reg_value_type</a> = typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::value_type</td></tr>
 <tr class="separator:a43b737178dcc70ca41577a03ea9c8fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b2b4b01c957a84af90e2fd1dbf33cf7"><td class="memTemplParams" colspan="2">template&lt;key_type Key&gt; </td></tr>
-<tr class="memitem:a0b2b4b01c957a84af90e2fd1dbf33cf7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a0b2b4b01c957a84af90e2fd1dbf33cf7">decl</a> = typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a0b2b4b01c957a84af90e2fd1dbf33cf7">decl</a></td></tr>
-<tr class="separator:a0b2b4b01c957a84af90e2fd1dbf33cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac910e0d119bf622432dc91a200693b5a"><td class="memTemplParams" colspan="2">template&lt;key_type Key&gt; </td></tr>
+<tr class="memitem:ac910e0d119bf622432dc91a200693b5a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ac910e0d119bf622432dc91a200693b5a">traits</a> = typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ac910e0d119bf622432dc91a200693b5a">traits</a></td></tr>
+<tr class="separator:ac910e0d119bf622432dc91a200693b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a8585ce3fa58e7c413e83df4b81e28e"><td class="memTemplParams" colspan="2">template&lt;key_type Key&gt; </td></tr>
 <tr class="memitem:a9a8585ce3fa58e7c413e83df4b81e28e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a9a8585ce3fa58e7c413e83df4b81e28e">reg_def_type</a> = typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::def_type</td></tr>
 <tr class="separator:a9a8585ce3fa58e7c413e83df4b81e28e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,7 +171,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a186d6906563c747f46ff7b429532f5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6df959b196db8242aea28d3fc0e41e38"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a6df959b196db8242aea28d3fc0e41e38">registers_count</a> = sizeof...( Regs )</td></tr>
 <tr class="separator:a6df959b196db8242aea28d3fc0e41e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33f5097792f99d104f47fd808132b3b9"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a33f5097792f99d104f47fd808132b3b9">max_value_size</a> = std::max( { Regs::decl::max_size... } )</td></tr>
+<tr class="memitem:a33f5097792f99d104f47fd808132b3b9"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a33f5097792f99d104f47fd808132b3b9">max_value_size</a> = std::max( { Regs::traits::max_size... } )</td></tr>
 <tr class="separator:a33f5097792f99d104f47fd808132b3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2999eaaf7666321cf01acb68b684ce70"><td class="memTemplParams" colspan="2">template&lt;key_type Key&gt; </td></tr>
 <tr class="memitem:a2999eaaf7666321cf01acb68b684ce70"><td class="memTemplItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a2999eaaf7666321cf01acb68b684ce70">key_index</a> = get_reg_index( Key )</td></tr>
@@ -187,24 +187,6 @@ class emlabcpp::protocol::register_map&lt; Endianess, Regs &gt;</h3>
 <p>Register map is abstraction to work with registers of external devices. </p>
 <p>It stores values of serializable types that can be accessed based on key (usually enum representing address of register in the device).You can access the value based on the key itself, both at compile time and at runtime. You can also iterate over the values and there is handler that allows serialization and deserialization of bytes into the values defined in the map. This includes additional information that can be accessed about the map. This can also be used as simple table of configuration values. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a0b2b4b01c957a84af90e2fd1dbf33cf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b2b4b01c957a84af90e2fd1dbf33cf7">&#9670;&nbsp;</a></span>decl</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::endian Endianess, typename... Regs&gt; </div>
-<div class="memtemplate">
-template&lt;key_type Key&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a0b2b4b01c957a84af90e2fd1dbf33cf7">decl</a> =  typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a0b2b4b01c957a84af90e2fd1dbf33cf7">decl</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="acb3c07ddc87d99ea052d70bcc4932f9b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acb3c07ddc87d99ea052d70bcc4932f9b">&#9670;&nbsp;</a></span>key_type</h2>
 
@@ -317,6 +299,24 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a123ef0007c53a0241f548d9e1b559de3">registers_tuple</a> =  std::tuple&lt; Regs... &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac910e0d119bf622432dc91a200693b5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac910e0d119bf622432dc91a200693b5a">&#9670;&nbsp;</a></span>traits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
+<div class="memtemplate">
+template&lt;key_type Key&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ac910e0d119bf622432dc91a200693b5a">traits</a> =  typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ac910e0d119bf622432dc91a200693b5a">traits</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -757,7 +757,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::max_value_size = std::max( { Regs::decl::max_size... } )</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::max_value_size = std::max( { Regs::traits::max_size... } )</td>
         </tr>
       </table>
   </td>
@@ -834,7 +834,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a></li>
-    <li class="footer">Generated on Sat Dec 24 2022 11:39:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 24 2022 23:29:57 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
