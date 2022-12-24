@@ -335,11 +335,11 @@ struct converter< std::monostate, Endianess >
 template < convertible T, std::endian Endianess >
 struct converter< std::optional< T >, Endianess >
 {
-        using decl                            = traits_for< std::optional< T > >;
+        using traits                          = traits_for< std::optional< T > >;
         using value_type                      = std::optional< T >;
-        static constexpr std::size_t max_size = decl::max_size;
-        static constexpr std::size_t min_size = decl::min_size;
-        using presence_type                   = typename decl::presence_type;
+        static constexpr std::size_t max_size = traits::max_size;
+        static constexpr std::size_t min_size = traits::min_size;
+        using presence_type                   = typename traits::presence_type;
 
         static_assert( fixedly_sized< presence_type > );
 
@@ -687,10 +687,10 @@ struct converter< tag< V >, Endianess >
 template < typename... Ds, std::endian Endianess >
 struct converter< tag_group< Ds... >, Endianess >
 {
-        using decl                            = traits_for< tag_group< Ds... > >;
-        using value_type                      = typename decl::value_type;
-        static constexpr std::size_t max_size = decl::max_size;
-        static constexpr std::size_t min_size = decl::min_size;
+        using traits                          = traits_for< tag_group< Ds... > >;
+        using value_type                      = typename traits::value_type;
+        static constexpr std::size_t max_size = traits::max_size;
+        static constexpr std::size_t min_size = traits::min_size;
 
         using def_variant = std::variant< Ds... >;
         using size_type   = bounded< std::size_t, min_size, max_size >;
@@ -836,11 +836,11 @@ struct converter< mark, Endianess >
 template < std::endian Endianess >
 struct converter< error_record, Endianess >
 {
-        using decl                            = traits_for< error_record >;
-        using value_type                      = typename decl::value_type;
+        using traits                          = traits_for< error_record >;
+        using value_type                      = typename traits::value_type;
         using mark_converter                  = converter_for< mark, Endianess >;
         using offset_converter                = converter_for< std::size_t, Endianess >;
-        static constexpr std::size_t max_size = decl::max_size;
+        static constexpr std::size_t max_size = traits::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
         static constexpr size_type
@@ -942,14 +942,14 @@ struct converter< static_vector< T, N >, Endianess >
 template < decomposable T, std::endian Endianess >
 struct backup_converter< T, Endianess >
 {
-        using decl                            = traits_for< T >;
-        using value_type                      = typename decl::value_type;
-        static constexpr std::size_t max_size = decl::max_size;
-        static constexpr std::size_t min_size = decl::min_size;
+        using traits                          = traits_for< T >;
+        using value_type                      = typename traits::value_type;
+        static constexpr std::size_t max_size = traits::max_size;
+        static constexpr std::size_t min_size = traits::min_size;
 
         using size_type = bounded< std::size_t, min_size, max_size >;
 
-        using tuple_type    = typename decl::tuple_type;
+        using tuple_type    = typename traits::tuple_type;
         using sub_converter = converter_for< tuple_type, Endianess >;
 
         static constexpr size_type

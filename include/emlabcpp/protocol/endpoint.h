@@ -34,7 +34,7 @@ public:
                 seq_.insert( std::forward< Container >( data ) );
         }
 
-        std::variant< std::size_t, input_value, error_record > get_message()
+        std::variant< std::size_t, input_value, error_record > get_value()
         {
                 using return_type = std::variant< std::size_t, input_value, error_record >;
                 using handler     = packet_handler< InputPacket >;

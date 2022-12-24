@@ -44,8 +44,7 @@ template < typename Def, typename Payload >
 using packet_base = tuple<
     Def::endianess,
     std::decay_t< decltype( Def::prefix ) >,
-    typename Def::size_type,
-    Payload,
+    sized_buffer< typename Def::size_type, Payload >,
     typename Def::checksum_type >;
 
 template < packet_def Def, typename Payload >
@@ -58,18 +57,18 @@ struct packet : packet_base< Def, Payload >
         static constexpr auto endianess = Def::endianess;
 
         using prefix_type                        = std::decay_t< decltype( prefix ) >;
-        using prefix_decl                        = proto_traits< prefix_type >;
-        static constexpr std::size_t prefix_size = prefix_decl::max_size;
+        using prefix_traits                      = proto_traits< prefix_type >;
+        static constexpr std::size_t prefix_size = prefix_traits::max_size;
 
         using size_type                        = typename Def::size_type;
-        using size_decl                        = proto_traits< size_type >;
-        static constexpr std::size_t size_size = size_decl::max_size;
+        using size_traits                      = proto_traits< size_type >;
+        static constexpr std::size_t size_size = size_traits::max_size;
 
-        using payload_decl = proto_traits< Payload >;
-        using value_type   = typename payload_decl::value_type;
+        using payload_traits = proto_traits< Payload >;
+        using value_type     = typename payload_traits::value_type;
 
-        using checksum_type = typename Def::checksum_type;
-        using checksum_decl = proto_traits< checksum_type >;
+        using checksum_type   = typename Def::checksum_type;
+        using checksum_traits = proto_traits< checksum_type >;
 
         static_assert( fixedly_sized< prefix_type > );
         static_assert( fixedly_sized< size_type > );
@@ -79,14 +78,16 @@ struct packet : packet_base< Def, Payload >
                 using message_type    = typename base::message_type;
                 using serializer_type = serializer< size_type, endianess >;
 
-                static constexpr std::array< uint8_t, prefix_decl::max_size > prefix = Def::prefix;
-                static constexpr std::size_t fixed_size = prefix_size + size_decl::max_size;
+                static constexpr std::array< uint8_t, prefix_traits::max_size > prefix =
+                    Def::prefix;
+                static constexpr std::size_t fixed_size = prefix_size + size_size;
 
                 static constexpr std::size_t get_size( const auto& buffer )
                 {
                         std::array< uint8_t, size_size > tmp;
                         std::copy_n( std::begin( buffer ) + prefix_size, size_size, tmp.begin() );
-                        return serializer_type::deserialize( tmp ) + prefix_size + size_size;
+                        return serializer_type::deserialize( tmp ) + fixed_size +
+                               checksum_traits::max_size;
                 }
         };
 

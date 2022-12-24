@@ -101,8 +101,8 @@ public:
             "Each command of one group has to use same type of id" );
 
         using def_type   = endianess_wrapper< Endianess, group< typename Cmds::def_type... > >;
-        using decl       = proto_traits< def_type >;
-        using value_type = typename decl::value_type;
+        using traits       = proto_traits< def_type >;
+        using value_type = typename traits::value_type;
 
         static constexpr std::size_t max_size = proto_traits< def_type >::max_size;
 

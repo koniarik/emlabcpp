@@ -100,33 +100,39 @@ struct host_items
             } };
 
         std::function< void( std::span< const uint8_t > ) > cb;
+        testing::endpoint                                   ep;
 
         template < std::size_t N >
         void send( protocol::port_type port, const protocol::message< N >& data )
         {
-                cb( protocol::serialize_multiplexed< N >( port, data ) );
+                cb( ep.serialize(
+                    std::make_tuple( port, protocol::sizeless_message< 64 >{ data } ) ) );
         }
 
         void on_msg( const std::span< const uint8_t > data )
         {
-                protocol::extract_multiplexed< 32 >(
-                    data,
-                    [&]( protocol::port_type port, std::span< const uint8_t > data ) {
-                            switch ( port ) {
-                            case 1:
-                                    cont.on_msg( data );
-                                    return true;
-                            case 2:
-                                    col_serv.on_msg( data );
-                                    return true;
-                            case 3:
-                                    param_serv.on_msg( data );
-                                    return true;
-                            }
-                            return false;
+                ep.insert( data );
+                match(
+                    ep.get_value(),
+                    [&]( std::size_t ) {
+                            FAIL();
                     },
-                    [&]( std::span< const uint8_t > data ) {
-                            FAIL() << view_n( data.data(), data.size() );
+                    [&]( const auto& payload ) {
+                            const auto& [port, data] = payload;
+                            switch ( port ) {
+                                    case 1:
+                                            cont.on_msg( data );
+                                            break;
+                                    case 2:
+                                            col_serv.on_msg( data );
+                                            break;
+                                    case 3:
+                                            param_serv.on_msg( data );
+                                            break;
+                            }
+                    },
+                    [&]( protocol::error_record e ) {
+                            FAIL() << e;
                     } );
         }
 };
@@ -144,33 +150,39 @@ struct dev_items
         } };
 
         std::function< void( std::span< const uint8_t > ) > cb;
+        testing::endpoint                                   ep;
 
         template < std::size_t N >
         void send( protocol::port_type port, const protocol::message< N >& data )
         {
-                cb( protocol::serialize_multiplexed< N >( port, data ) );
+                cb( ep.serialize(
+                    std::make_tuple( port, protocol::sizeless_message< 64 >{ data } ) ) );
         }
 
         void on_msg( const std::span< const uint8_t > data )
         {
-                protocol::extract_multiplexed< 32 >(
-                    data,
-                    [&]( protocol::port_type port, std::span< const uint8_t > data ) {
-                            switch ( port ) {
-                            case 1:
-                                    reac.on_msg( data );
-                                    return true;
-                            case 2:
-                                    coll.on_msg( data );
-                                    return true;
-                            case 3:
-                                    params.on_msg( data );
-                                    return true;
-                            }
-                            return false;
+                ep.insert( data );
+                match(
+                    ep.get_value(),
+                    [&]( std::size_t ) {
+                            FAIL();
                     },
-                    [&]( std::span< const uint8_t > data ) {
-                            FAIL() << view_n( data.data(), data.size() );
+                    [&]( const auto& payload ) {
+                            const auto& [port, data] = payload;
+                            switch ( port ) {
+                                    case 1:
+                                            reac.on_msg( data );
+                                            break;
+                                    case 2:
+                                            coll.on_msg( data );
+                                            break;
+                                    case 3:
+                                            params.on_msg( data );
+                                            break;
+                            }
+                    },
+                    [&]( protocol::error_record e ) {
+                            FAIL() << e;
                     } );
         }
 };
@@ -182,9 +194,11 @@ TEST( testing_combined, complex )
         dev_items  dev;
 
         host.cb = [&]( auto data ) {
+                EMLABCPP_LOG("to dev: " << data);
                 dev.on_msg( data );
         };
         dev.cb = [&]( auto data ) {
+                EMLABCPP_LOG("to host: " << data);
                 host.on_msg( data );
         };
 

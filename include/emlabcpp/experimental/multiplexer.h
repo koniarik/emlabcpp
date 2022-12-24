@@ -11,7 +11,7 @@ namespace emlabcpp::protocol
 using port_type = uint16_t;
 
 template < std::size_t N >
-using multiplexer_payload = tuple< std::endian::little, port_type, message< N > >;
+using multiplexer_payload = tuple< std::endian::little, port_type, sizeless_message< N > >;
 
 template < std::size_t N >
 using multiplexer_value = typename multiplexer_payload< N >::value_type;

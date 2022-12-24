@@ -44,11 +44,11 @@ struct tuple : converter_def_type_base
         using with_items = tuple< Endianess, Ds..., SubDs... >;
 
         using def_type = endianess_wrapper< Endianess, std::tuple< Ds... > >;
-        using decl     = proto_traits< def_type >;
+        using traits   = proto_traits< def_type >;
 
-        static constexpr std::size_t max_size = decl::max_size;
+        static constexpr std::size_t max_size = traits::max_size;
 
-        using value_type   = typename decl::value_type;
+        using value_type   = typename traits::value_type;
         using message_type = message< max_size >;
 
         constexpr static value_type

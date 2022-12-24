@@ -55,22 +55,22 @@ struct traits_json_serializer_base
 template < typename D, typename ProtoSer >
 struct proto_traits_adl_serializer
 {
-        using decl     = traits_for< D >;
+        using traits   = traits_for< D >;
         using prot_ser = ProtoSer;
 
-        static void to_json( nlohmann::json& j, const decl& )
+        static void to_json( nlohmann::json& j, const traits& )
         {
                 j["type"] = prot_ser::type_name;
 #ifdef EMLABCPP_USE_DEMANGLING
                 j["pretty_name"] = prot_ser::get_name();
 #endif
                 j["raw_name"] = typeid( D ).name();
-                j["max_size"] = decl::max_size;
-                j["min_size"] = decl::min_size;
+                j["max_size"] = traits::max_size;
+                j["min_size"] = traits::min_size;
                 prot_ser::add_extra( j );
         }
 
-        static decl from_json( const nlohmann::json& )
+        static traits from_json( const nlohmann::json& )
         {
                 return {};
         }
@@ -238,18 +238,18 @@ struct traits_json_serializer< std::variant< Ds... > > : traits_json_serializer_
 {
         static constexpr std::string_view type_name = "variant";
 
-        using decl = traits_for< std::variant< Ds... > >;
+        using traits = traits_for< std::variant< Ds... > >;
 
         static std::string get_name()
         {
                 std::vector< std::string > names{ traits_json_serializer< Ds >::get_name()... };
-                return traits_json_serializer< typename decl::id_type >::get_name() + ",{" +
+                return traits_json_serializer< typename traits::id_type >::get_name() + ",{" +
                        joined( names, std::string{ "|" } ) + "}";
         }
 
         static void add_extra( nlohmann::json& j )
         {
-                j["counter_type"] = typename decl::id_traits{};
+                j["counter_type"] = typename traits::id_traits{};
                 j["sub_types"] =
                     map_f_to_a( std::tuple< Ds... >{}, [&]< typename D >( D ) -> nlohmann::json {
                             return traits_for< D >{};
@@ -438,12 +438,12 @@ struct traits_json_serializer< error_record > : traits_json_serializer_base
                 return std::string{ type_name };
         }
 
-        using decl = traits_for< error_record >;
+        using traits = traits_for< error_record >;
 
         static void add_extra( nlohmann::json& j )
         {
-                j["mark_type"]   = traits_for< typename decl::mark_type >{};
-                j["offset_type"] = traits_for< typename decl::offset_type >{};
+                j["mark_type"]   = traits_for< typename traits::mark_type >{};
+                j["offset_type"] = traits_for< typename traits::offset_type >{};
         }
 };
 

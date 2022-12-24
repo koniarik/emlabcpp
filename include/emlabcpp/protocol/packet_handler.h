@@ -41,22 +41,16 @@ struct packet_handler
         using checksum_type = typename Packet::checksum_type;
 
         using sub_handler                          = handler< Packet >;
-        static constexpr std::size_t size_offset   = Packet::prefix_decl::max_size;
-        static constexpr std::size_t checksum_size = Packet::checksum_decl::max_size;
-        static constexpr std::size_t size_size     = Packet::size_decl::max_size;
+        static constexpr std::size_t size_offset   = Packet::prefix_traits::max_size;
+        static constexpr std::size_t checksum_size = Packet::checksum_traits::max_size;
+        static constexpr std::size_t size_size     = Packet::size_traits::max_size;
         static constexpr auto        endianess     = Packet::endianess;
 
         static message_type serialize( const value_type& val )
         {
 
                 message_type msg = sub_handler::serialize(
-                    std::make_tuple( Packet::prefix, size_type{}, val, checksum_type{} ) );
-
-                auto size = static_cast< size_type >(
-                    msg.size() - Packet::prefix_decl::max_size - size_size );
-
-                serializer< size_type, endianess >::serialize_at(
-                    std::span< uint8_t, size_size >{ msg.begin() + size_offset, size_size }, size );
+                    std::make_tuple( Packet::prefix, val, checksum_type{} ) );
 
                 checksum_type chcksm =
                     Packet::get_checksum( view_n( msg.begin(), msg.size() - checksum_size ) );
@@ -71,9 +65,9 @@ struct packet_handler
         static either< value_type, error_record > extract( const view< const uint8_t* >& msg )
         {
                 return sub_handler::extract( msg ).bind_left(
-                    [&msg]( std::tuple< prefix_type, size_type, value_type, checksum_type > pack )
+                    [&msg]( std::tuple< prefix_type, value_type, checksum_type > pack )
                         -> either< value_type, error_record > {
-                            checksum_type     present_checksum = std::get< 3 >( pack );
+                            checksum_type     present_checksum = std::get< 2 >( pack );
                             const std::size_t checksum_pos     = msg.size() - checksum_size;
                             checksum_type     calculated_checksum =
                                 Packet::get_checksum( view_n( msg.begin(), checksum_pos ) );
@@ -86,7 +80,7 @@ struct packet_handler
                                         << " present: " << int( present_checksum ) );
                                     return error_record{ CHECKSUM_ERR, checksum_pos };
                             }
-                            return std::get< 2 >( pack );
+                            return std::get< 1 >( pack );
                     } );
         }
 };

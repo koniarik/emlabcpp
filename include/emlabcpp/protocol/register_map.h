@@ -37,9 +37,9 @@ struct register_pair
         using def_type                    = D;
         using key_type                    = decltype( Key );
         static constexpr key_type key     = Key;
-        using decl                        = proto_traits< def_type >;
-        using value_type                  = typename decl::value_type;
-        static constexpr std::size_t size = decl::max_size;
+        using traits                        = proto_traits< def_type >;
+        using value_type                  = typename traits::value_type;
+        static constexpr std::size_t size = traits::max_size;
 
         value_type value;
 };
@@ -68,7 +68,7 @@ public:
         static constexpr std::size_t registers_count = sizeof...( Regs );
         using register_index = bounded< std::size_t, 0, registers_count - 1 >;
 
-        static constexpr std::size_t max_value_size = std::max( { Regs::decl::max_size... } );
+        static constexpr std::size_t max_value_size = std::max( { Regs::traits::max_size... } );
         using message_type                          = message< max_value_size >;
 
 private:
@@ -97,7 +97,7 @@ public:
         using reg_value_type = typename reg_type< Key >::value_type;
 
         template < key_type Key >
-        using decl = typename reg_type< Key >::decl;
+        using traits = typename reg_type< Key >::traits;
 
         template < key_type Key >
         using reg_def_type = typename reg_type< Key >::def_type;
