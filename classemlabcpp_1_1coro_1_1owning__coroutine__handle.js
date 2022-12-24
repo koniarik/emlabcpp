@@ -1,6 +1,7 @@
 var classemlabcpp_1_1coro_1_1owning__coroutine__handle =
 [
     [ "promise_type", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#ab3342b524de7db077a31757a4ef2fec8", null ],
+    [ "owning_coroutine_handle", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a9cfeed331c2645ae78e1ae9297196460", null ],
     [ "owning_coroutine_handle", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a6c6b51a063d7f71bdba39bc0f6b280ae", null ],
     [ "owning_coroutine_handle", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#aa9ab1616c606fa59760603cd6fbf618c", null ],
     [ "owning_coroutine_handle", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#af9e1603bfbe188a25b73533c80ce79fb", null ],

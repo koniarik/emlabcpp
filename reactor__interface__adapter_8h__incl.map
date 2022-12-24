@@ -1,9 +1,12 @@
 <map id="include/emlabcpp/experimental/testing/reactor_interface_adapter.h" name="include/emlabcpp/experimental/testing/reactor_interface_adapter.h">
-<area shape="rect" id="node1" title=" " alt="" coords="145,5,373,61"/>
-<area shape="rect" id="node2" href="$reactor__interface_8h.html" title=" " alt="" coords="49,109,248,151"/>
-<area shape="rect" id="node4" href="$static__function_8h.html" title=" " alt="" coords="300,117,499,143"/>
-<area shape="rect" id="node3" href="$experimental_2testing_2protocol_8h.html" title=" " alt="" coords="5,199,183,240"/>
-<area shape="rect" id="node5" href="$util_8h.html" title=" " alt="" coords="207,206,360,233"/>
-<area shape="rect" id="node6" title=" " alt="" coords="384,206,471,233"/>
-<area shape="rect" id="node7" title=" " alt="" coords="495,206,573,233"/>
+<area shape="rect" id="node1" title=" " alt="" coords="797,5,1025,61"/>
+<area shape="rect" id="node2" href="$experimental_2testing_2protocol_8h.html" title=" " alt="" coords="532,109,709,151"/>
+<area shape="rect" id="node7" href="$static__function_8h.html" title=" " alt="" coords="609,288,808,315"/>
+<area shape="rect" id="node3" href="$algorithm_8h.html" title=" " alt="" coords="258,288,423,315"/>
+<area shape="rect" id="node4" href="$experimental_2contiguous__tree_2base_8h.html" title=" " alt="" coords="33,199,211,240"/>
+<area shape="rect" id="node5" href="$multiplexer_8h.html" title=" " alt="" coords="235,199,412,240"/>
+<area shape="rect" id="node6" href="$experimental_2testing_2base_8h.html" title=" " alt="" coords="436,199,613,240"/>
+<area shape="rect" id="node8" href="$protocol_8h.html" title=" " alt="" coords="638,206,793,233"/>
+<area shape="rect" id="node9" href="$endpoint_8h.html" title=" " alt="" coords="817,206,1033,233"/>
+<area shape="rect" id="node10" href="$packet_8h.html" title=" " alt="" coords="1057,206,1259,233"/>
 </map>

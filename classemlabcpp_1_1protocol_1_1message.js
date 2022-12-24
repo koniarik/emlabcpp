@@ -12,6 +12,8 @@ var classemlabcpp_1_1protocol_1_1message =
     [ "back", "classemlabcpp_1_1protocol_1_1message.html#a89ad550145edde2ab38bb0914ed67d71", null ],
     [ "begin", "classemlabcpp_1_1protocol_1_1message.html#aa3d999a668267cebb19fdd015b6763ae", null ],
     [ "begin", "classemlabcpp_1_1protocol_1_1message.html#abd042e75c7db39b53345b8cba818ea47", null ],
+    [ "data", "classemlabcpp_1_1protocol_1_1message.html#a0e21b61e7bc9ce2a87163f98fe477df0", null ],
+    [ "data", "classemlabcpp_1_1protocol_1_1message.html#a31271fcc8af0ee8f368b88a4cb058e7f", null ],
     [ "end", "classemlabcpp_1_1protocol_1_1message.html#aaaf155de219ae9571bb3172d3e3c4d33", null ],
     [ "end", "classemlabcpp_1_1protocol_1_1message.html#a16228c0599a833ed6da87ee29358db4c", null ],
     [ "front", "classemlabcpp_1_1protocol_1_1message.html#a4cddc176b48cb2f255070592bda98ef0", null ],

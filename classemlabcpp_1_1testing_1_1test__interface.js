@@ -1,7 +1,7 @@
 var classemlabcpp_1_1testing_1_1test__interface =
 [
-    [ "test_interface", "classemlabcpp_1_1testing_1_1test__interface.html#a33b777fe7f36476438dc88995203e297", null ],
-    [ "test_interface", "classemlabcpp_1_1testing_1_1test__interface.html#adf68b936c9b4d69c4e0cbcc1225c952d", null ],
+    [ "test_interface", "classemlabcpp_1_1testing_1_1test__interface.html#a6c1163200b761b4764c56e00aa8c2f6f", null ],
+    [ "test_interface", "classemlabcpp_1_1testing_1_1test__interface.html#ac9ffbcc9a69782558199440ef47fa646", null ],
     [ "test_interface", "classemlabcpp_1_1testing_1_1test__interface.html#a6ef802ecd2954c14b045fb989f9ded36", null ],
     [ "test_interface", "classemlabcpp_1_1testing_1_1test__interface.html#ae51e1cdb42d1487cd5af6095eb7fc898", null ],
     [ "~test_interface", "classemlabcpp_1_1testing_1_1test__interface.html#a2c185b02f2b0afee1608d89ae1ae72d8", null ],
@@ -10,6 +10,5 @@ var classemlabcpp_1_1testing_1_1test__interface =
     [ "run", "classemlabcpp_1_1testing_1_1test__interface.html#ac43f94dcd599108d5d8586982f7646ae", null ],
     [ "setup", "classemlabcpp_1_1testing_1_1test__interface.html#af30b93bbc4de751b7cc70796a0a710dc", null ],
     [ "teardown", "classemlabcpp_1_1testing_1_1test__interface.html#aa8c3a0807b94cdabc31313f9aeefe058", null ],
-    [ "empty_test", "classemlabcpp_1_1testing_1_1test__interface.html#a00c7934c084f4740a2c13db89d3df913", null ],
     [ "reactor", "classemlabcpp_1_1testing_1_1test__interface.html#a0d9b9915bd390f82f93e9a10a966a78d", null ]
 ];

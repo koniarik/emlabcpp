@@ -1,10 +1,12 @@
 var classemlabcpp_1_1testing_1_1reactor =
 [
-    [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html#aace40132a43496db77e4a69c504c2100", null ],
+    [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html#a13a7c6d708cd6fa28c7016c8a14a9525", null ],
     [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html#a49388eaa347437b2abf55b913fc393ad", null ],
     [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html#a9dcc1bf28271a1ed63bbbf862b25c10a", null ],
-    [ "get_first_dummy_test", "classemlabcpp_1_1testing_1_1reactor.html#ab2abcb373af54fbeb7544f30f01b91c8", null ],
+    [ "on_msg", "classemlabcpp_1_1testing_1_1reactor.html#a0f01f3461095f744b82d806bffa701c1", null ],
+    [ "on_msg", "classemlabcpp_1_1testing_1_1reactor.html#aa68b0e2af6cb386da25f7d2ef663b803", null ],
     [ "operator=", "classemlabcpp_1_1testing_1_1reactor.html#affb1a3ee1431f1405461d178d3c27342", null ],
     [ "operator=", "classemlabcpp_1_1testing_1_1reactor.html#ad13820dd5d8355c62ae92a5f4da64c24", null ],
-    [ "spin", "classemlabcpp_1_1testing_1_1reactor.html#a724bb404bde9cc695401f6dd980c362a", null ]
+    [ "register_test", "classemlabcpp_1_1testing_1_1reactor.html#af2c0b6c42c85f85c00bb297542b5ed59", null ],
+    [ "tick", "classemlabcpp_1_1testing_1_1reactor.html#ac1ade245e2f25dd3d9eba05b4b081d4f", null ]
 ];

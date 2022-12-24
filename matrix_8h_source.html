@@ -150,9 +150,9 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">class </span>stub</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                stub( std::size_t i, Matrix2&amp; <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> )</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                stub( std::size_t i, Matrix2&amp; m )</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                  : i_( i )</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                  , m_( <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> )</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                  , m_( m )</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                }</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                constexpr <span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="classemlabcpp_1_1transposed__matrix.html#ad6d1d092d91ac77769f5697be4fbe624">operator[]</a>( std::size_t j )<span class="keyword"> const</span></div>
@@ -175,8 +175,8 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1transposed__matrix.html#a5ad262361bb6632c0b68d593e67ad793">   86</a></span>&#160;        <span class="keyword">static</span> constexpr std::size_t <a class="code" href="classemlabcpp_1_1transposed__matrix.html#a5ad262361bb6632c0b68d593e67ad793">rows</a> = Matrix::cols;</div>
 <div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1transposed__matrix.html#a8c513420dd8839f61241a34045df3732">   87</a></span>&#160;        <span class="keyword">static</span> constexpr std::size_t <a class="code" href="classemlabcpp_1_1transposed__matrix.html#a8c513420dd8839f61241a34045df3732">cols</a> = Matrix::rows;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1transposed__matrix.html#ab813d638ed1215361c80854f05119fa7">   89</a></span>&#160;        constexpr <a class="code" href="classemlabcpp_1_1transposed__matrix.html#ab813d638ed1215361c80854f05119fa7">transposed_matrix</a>( Matrix&amp; <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> )</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;          : m_( <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> )</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1transposed__matrix.html#ab813d638ed1215361c80854f05119fa7">   89</a></span>&#160;        constexpr <a class="code" href="classemlabcpp_1_1transposed__matrix.html#ab813d638ed1215361c80854f05119fa7">transposed_matrix</a>( Matrix&amp; m )</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;          : m_( m )</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        {</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
@@ -251,7 +251,7 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;};</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> M &gt;</div>
-<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a71244dcc912784b08768c6ae041c37bc">  165</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a71244dcc912784b08768c6ae041c37bc">matrix_like</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( M <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>, std::size_t i, std::size_t j )</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a71244dcc912784b08768c6ae041c37bc">  165</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a71244dcc912784b08768c6ae041c37bc">matrix_like</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( M m, std::size_t i, std::size_t j )</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;{</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        {</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                M::rows</div>
@@ -260,15 +260,15 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                M::cols</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>[i][j]</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                m[i][j]</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                } -&gt; std::convertible_to&lt; typename M::value_type &gt;;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;};</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keyword">template</span> &lt; ostreamlike Stream, matrix_like Matrix &gt;</div>
-<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a951e2e116200e84ad4b8161d399c2362">  178</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( Stream&amp; os, <span class="keyword">const</span> Matrix&amp; <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> )</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a951e2e116200e84ad4b8161d399c2362">  178</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( Stream&amp; os, <span class="keyword">const</span> Matrix&amp; m )</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;{</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( Matrix::rows ) ) {</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( Matrix::cols ) ) {</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                        os &lt;&lt; <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>[i][j] &lt;&lt; <span class="charliteral">&#39;\t&#39;</span>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                        os &lt;&lt; m[i][j] &lt;&lt; <span class="charliteral">&#39;\t&#39;</span>;</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                }</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                os &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        }</div>
@@ -356,31 +356,31 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;}</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;constexpr transposed_matrix&lt; M &gt; transpose( M&amp; <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> )</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;constexpr transposed_matrix&lt; M &gt; transpose( M&amp; m )</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;{</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        <span class="keywordflow">return</span> { <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> };</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        <span class="keywordflow">return</span> { m };</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;}</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;constexpr matrix&lt; M::cols, M::rows, typename M::value_type &gt; transpose( M&amp;&amp; <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> )</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;constexpr matrix&lt; M::cols, M::rows, typename M::value_type &gt; transpose( M&amp;&amp; m )</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;{</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="keywordflow">return</span> transpose( <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> );</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="keywordflow">return</span> transpose( m );</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;};</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
-<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ac4ee7e0f160b1450636b4a460f27e18a">  282</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( M::rows == 2 &amp;&amp; M::cols == 2 ) constexpr auto determinant( const M&amp; <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> )</div>
+<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ac4ee7e0f160b1450636b4a460f27e18a">  282</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( M::rows == 2 &amp;&amp; M::cols == 2 ) constexpr auto determinant( const M&amp; m )</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;{</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>[0][0] * <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>[1][1] - <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>[0][1] * <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>[1][0];</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">return</span> m[0][0] * m[1][1] - m[0][1] * m[1][0];</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;}</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
 <div class="line"><a name="l00288"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">  288</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>(</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    M::rows == 1 &amp;&amp;</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    M::cols ==</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        1 ) constexpr <a class="code" href="classemlabcpp_1_1matrix.html">matrix</a>&lt; M::rows, M::cols, typename M::<a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt; inverse( const M&amp; <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> )</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        1 ) constexpr <a class="code" href="classemlabcpp_1_1matrix.html">matrix</a>&lt; M::rows, M::cols, typename M::<a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt; inverse( const M&amp; m )</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;{</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <a class="code" href="classemlabcpp_1_1matrix.html">matrix&lt; M::rows, M::cols, typename M::value_type &gt;</a> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[0][0] = 1.f / <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>[0][0];</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[0][0] = 1.f / m[0][0];</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;}</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
@@ -388,12 +388,12 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>(</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    M::rows == 2 &amp;&amp;</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    M::cols ==</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        2 ) constexpr matrix&lt; M::rows, M::cols, typename M::<a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt; inverse( const M&amp; <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> )</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        2 ) constexpr matrix&lt; M::rows, M::cols, typename M::<a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt; inverse( const M&amp; m )</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;{</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="keyword">auto</span>                                               v = 1.f / determinant( <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a> );</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="keyword">auto</span>                                               v = 1.f / determinant( m );</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        matrix&lt; M::rows, M::cols, typename M::value_type &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[0] = { <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>[1][1], -<a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>[0][1] };</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[1] = { -<a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>[1][0], <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>[0][0] };</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[0] = { m[1][1], -m[0][1] };</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[1] = { -m[1][0], m[0][0] };</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordflow">return</span> v * <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;}</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
@@ -425,7 +425,7 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div class="ttc" id="aclassemlabcpp_1_1transposed__matrix_html_abb3939f5e60c4233c8347653cfd6488e"><div class="ttname"><a href="classemlabcpp_1_1transposed__matrix.html#abb3939f5e60c4233c8347653cfd6488e">emlabcpp::transposed_matrix::operator[]</a></div><div class="ttdeci">constexpr stub&lt; Matrix &gt; operator[](std::size_t i)</div><div class="ttdef"><b>Definition:</b> matrix.h:99</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1transposed__matrix_html_ad3fe7e1715c3c6a609af3d0888cd57ca"><div class="ttname"><a href="classemlabcpp_1_1transposed__matrix.html#ad3fe7e1715c3c6a609af3d0888cd57ca">emlabcpp::transposed_matrix::operator==</a></div><div class="ttdeci">constexpr bool operator==(const transposed_matrix &amp;other) const =default</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1transposed__matrix_html_ad6d1d092d91ac77769f5697be4fbe624"><div class="ttname"><a href="classemlabcpp_1_1transposed__matrix.html#ad6d1d092d91ac77769f5697be4fbe624">emlabcpp::transposed_matrix::operator[]</a></div><div class="ttdeci">constexpr stub&lt; const Matrix &gt; operator[](std::size_t i) const</div><div class="ttdef"><b>Definition:</b> matrix.h:94</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:49</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:50</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> access_view.h:7</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a2f10b2ff6c20f2e8057487e521275521"><div class="ttname"><a href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">auto &amp; operator&lt;&lt;(Stream &amp;os, const bounded&lt; T, MinVal, MaxVal &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> bounded.h:180</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a37fb61edcdf95a5c2fc63e29d2431946"><div class="ttname"><a href="namespaceemlabcpp.html#a37fb61edcdf95a5c2fc63e29d2431946">emlabcpp::operator+</a></div><div class="ttdeci">constexpr Derived operator+(quantity&lt; Derived, ValueType &gt; lhs, const quantity&lt; Derived, ValueType &gt; rhs)</div><div class="ttdoc">Sum of quantities with same Derived and value_type.</div><div class="ttdef"><b>Definition:</b> quantity.h:171</div></div>
@@ -436,7 +436,6 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div class="ttc" id="anamespaceemlabcpp_html_aab6fd32a8b3335eec93b94331d4293b0"><div class="ttname"><a href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">emlabcpp::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) const expr std</div><div class="ttdoc">Returns index of an element in tuple 't', for which call to predicate f(x) holds true,...</div><div class="ttdef"><b>Definition:</b> algorithm.h:118</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_abe4e80e0e361283130d83856b68f4e6d"><div class="ttname"><a href="namespaceemlabcpp.html#abe4e80e0e361283130d83856b68f4e6d">emlabcpp::operator==</a></div><div class="ttdeci">bool operator==(const static_circular_buffer&lt; T, N &gt; &amp;lh, const static_circular_buffer&lt; T, N &gt; &amp;rh)</div><div class="ttdef"><b>Definition:</b> static_circular_buffer.h:326</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_acf5a156c767ed17a892cc7e9b5acd2b1"><div class="ttname"><a href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">emlabcpp::range</a></div><div class="ttdeci">constexpr view&lt; iterators::numeric_iterator&lt; Numeric &gt; &gt; range(Numeric from, Numeric to)</div><div class="ttdoc">Builds numeric view over interval [from, to)</div><div class="ttdef"><b>Definition:</b> range.h:11</div></div>
-<div class="ttc" id="anamespaceprotocol_1_1protocol_html_af1708a3209215c484ac651db8220b36f"><div class="ttname"><a href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">protocol::protocol::m</a></div><div class="ttdeci">const message&lt; M &gt; &amp; m</div><div class="ttdef"><b>Definition:</b> multiplexer.h:37</div></div>
 <div class="ttc" id="arange_8h_html"><div class="ttname"><a href="range_8h.html">range.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -444,7 +443,7 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="matrix_8h.html">matrix.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 19:19:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 24 2022 11:39:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

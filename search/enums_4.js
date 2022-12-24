@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['static_5ffunction_5foperations_2082',['static_function_operations',['../namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79e',1,'emlabcpp::detail']]]
+  ['messages_5fenum_2154',['messages_enum',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6c',1,'emlabcpp::testing']]],
+  ['multiplexer_5fenum_2155',['multiplexer_enum',['../namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37daf',1,'emlabcpp::protocol']]]
 ];

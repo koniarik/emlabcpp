@@ -1,10 +1,13 @@
 <map id="include/emlabcpp/experimental/testing/controller.h" name="include/emlabcpp/experimental/testing/controller.h">
-<area shape="rect" id="node1" title=" " alt="" coords="348,5,576,47"/>
-<area shape="rect" id="node2" href="$controller__interface_8h.html" title=" " alt="" coords="67,95,281,136"/>
-<area shape="rect" id="node5" href="$iterators_2convert_8h.html" title=" " alt="" coords="305,95,451,136"/>
-<area shape="rect" id="node7" href="$match_8h.html" title=" " alt="" coords="475,102,617,129"/>
-<area shape="rect" id="node8" href="$aliases_8h.html" title=" " alt="" coords="642,102,821,129"/>
-<area shape="rect" id="node3" href="$experimental_2testing_2error_8h.html" title=" " alt="" coords="5,184,183,225"/>
-<area shape="rect" id="node4" href="$experimental_2testing_2protocol_8h.html" title=" " alt="" coords="68,273,245,315"/>
-<area shape="rect" id="node6" href="$iterator_8h.html" title=" " alt="" coords="303,191,453,218"/>
+<area shape="rect" id="node1" title=" " alt="" coords="553,5,781,47"/>
+<area shape="rect" id="node2" href="$controller__interface__adapter_8h.html" title=" " alt="" coords="34,95,237,151"/>
+<area shape="rect" id="node5" href="$coroutine_8h.html" title=" " alt="" coords="579,102,756,143"/>
+<area shape="rect" id="node11" href="$aliases_8h.html" title=" " alt="" coords="781,109,959,136"/>
+<area shape="rect" id="node3" href="$controller__interface_8h.html" title=" " alt="" coords="28,206,243,247"/>
+<area shape="rect" id="node4" href="$static__function_8h.html" title=" " alt="" coords="76,303,275,329"/>
+<area shape="rect" id="node6" href="$memory__promise_8h.html" title=" " alt="" coords="881,206,1067,247"/>
+<area shape="rect" id="node7" href="$owning__coroutine__handle_8h.html" title=" " alt="" coords="680,199,857,255"/>
+<area shape="rect" id="node8" title=" " alt="" coords="895,303,978,329"/>
+<area shape="rect" id="node9" href="$experimental_2testing_2convert_8h.html" title=" " alt="" coords="479,206,656,247"/>
+<area shape="rect" id="node10" href="$reactor__interface__adapter_8h.html" title=" " alt="" coords="267,199,454,255"/>
 </map>

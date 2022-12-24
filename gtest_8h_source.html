@@ -132,82 +132,61 @@ $(document).ready(function(){initNavTree('gtest_8h_source.html',''); initResizab
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = ::testing::AssertionFailure() &lt;&lt; <span class="stringliteral">&quot;Test errored&quot;</span>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> &lt;&lt; data_tree_to_json( tres.collected ).dump( 4 );</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">// res &lt;&lt; data_tree_to_json( tres.collected ).dump( 4 );</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">class </span>gtest : <span class="keyword">public</span> ::testing::Test</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        std::optional&lt; controller &gt; opt_con_;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a>                     tid_;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        controller_interface&amp;       ci_;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        std::optional&lt; controller &gt;   opt_con_;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a>                       tid_;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::shared_ptr&lt; controller &gt; cont_ptr_;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        gtest( controller_interface&amp; ci, <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a> tid )</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        gtest( std::shared_ptr&lt; controller &gt; controller_ptr, <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a> tid )</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;          : opt_con_()</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;          , tid_( tid )</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;          , ci_( ci )</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;          , cont_ptr_( controller_ptr )</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> SetUp() final</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> TestBody() final</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                opt_con_ = <a class="code" href="classemlabcpp_1_1testing_1_1controller.html#ad29b62761dcaf150e5ef860e74caaf9d">controller::make</a>( ci_, *<a class="code" href="namespaceemlabcpp_1_1pmr.html#aeccf36d4c652dcb4bff9faf5b0b04798">pmr::new_delete_resource</a>() );</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">if</span> ( !opt_con_ ) {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>( <span class="stringliteral">&quot;Failed to build testing controller for gtest&quot;</span> );</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                cont_ptr_-&gt;start_test( tid_ );</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">while</span> ( cont_ptr_-&gt;is_test_running() ) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        cont_ptr_-&gt;tick();</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                ASSERT_TRUE( opt_con_ );</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">void</span> TestBody() final</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                opt_con_-&gt;start_test( tid_, ci_ );</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">while</span> ( opt_con_-&gt;has_active_test() ) {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                        opt_con_-&gt;tick( ci_ );</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">void</span> TearDown() final</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                opt_con_.reset();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> register_gtests( controller_interface&amp; ci )</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">auto</span> opt_con = <a class="code" href="classemlabcpp_1_1testing_1_1controller.html#ad29b62761dcaf150e5ef860e74caaf9d">controller::make</a>( ci, *<a class="code" href="namespaceemlabcpp_1_1pmr.html#aeccf36d4c652dcb4bff9faf5b0b04798">pmr::new_delete_resource</a>() );</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">if</span> ( !opt_con ) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>( <span class="stringliteral">&quot;Failed to build testing controller for gtest registration&quot;</span> );</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> register_gtests( controller_interface&amp; ci )</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">auto</span> controller_ptr = std::make_shared&lt; controller &gt;( <a class="code" href="namespaceemlabcpp_1_1pmr.html#a52bf0aa428dd57cda666f487d3f2582d">pmr::new_delete_resource</a>(), ci );</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        std::string suite_name = std::string{ controller_ptr-&gt;suite_name() };</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">for</span> ( <span class="keyword">auto</span> [tid, tinfo] : controller_ptr-&gt;get_tests() ) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                std::string name{ tinfo.name.begin(), tinfo.name.end() };</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a>     <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a> = tid;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                ::testing::RegisterTest(</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    suite_name.c_str(),</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    name.c_str(),</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    <span class="keyword">nullptr</span>,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    <span class="keyword">nullptr</span>,</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    __FILE__,</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    __LINE__,</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    [controller_ptr, <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a>] {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                            return new gtest( controller_ptr, test_id );</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                    } );</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}  <span class="comment">// namespace emlabcpp::testing</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        std::string suite_name = std::string{ opt_con-&gt;suite_name() };</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">for</span> ( <span class="keyword">auto</span> [tid, tinfo] : opt_con-&gt;get_tests() ) {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                std::string name{ tinfo.name.begin(), tinfo.name.end() };</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a>     <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a> = tid;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                ::testing::RegisterTest(</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    suite_name.c_str(),</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                    name.c_str(),</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                    <span class="keyword">nullptr</span>,</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    <span class="keyword">nullptr</span>,</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                    __FILE__,</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    __LINE__,</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    [&amp;ci, <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a>] {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                            return new gtest( ci, test_id );</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    } );</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}  <span class="comment">// namespace emlabcpp::testing</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing_1_1controller_html_ad29b62761dcaf150e5ef860e74caaf9d"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1controller.html#ad29b62761dcaf150e5ef860e74caaf9d">emlabcpp::testing::controller::make</a></div><div class="ttdeci">static std::optional&lt; controller &gt; make(controller_interface &amp;iface, pmr::memory_resource &amp;)</div></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="acontroller_8h_html"><div class="ttname"><a href="controller_8h.html">controller.h</a></div></div>
 <div class="ttc" id="aexperimental_2testing_2json_8h_html"><div class="ttname"><a href="experimental_2testing_2json_8h.html">json.h</a></div></div>
-<div class="ttc" id="alogging_8h_html_aaf5aed2bc0aba2c3fe8e02f112589f6d"><div class="ttname"><a href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a></div><div class="ttdeci">#define EMLABCPP_LOG(msg)</div><div class="ttdef"><b>Definition:</b> logging.h:187</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_aeccf36d4c652dcb4bff9faf5b0b04798"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#aeccf36d4c652dcb4bff9faf5b0b04798">emlabcpp::pmr::new_delete_resource</a></div><div class="ttdeci">memory_resource * new_delete_resource()</div><div class="ttdef"><b>Definition:</b> new_delete_resource.h:28</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1testing_html"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html">emlabcpp::testing</a></div><div class="ttdef"><b>Definition:</b> base.h:35</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a52bf0aa428dd57cda666f487d3f2582d"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a52bf0aa428dd57cda666f487d3f2582d">emlabcpp::pmr::new_delete_resource</a></div><div class="ttdeci">memory_resource &amp; new_delete_resource()</div><div class="ttdef"><b>Definition:</b> new_delete_resource.h:28</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html">emlabcpp::testing</a></div><div class="ttdef"><b>Definition:</b> base.h:36</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a00b8f081e11fc3a56f298674ec89a8ca"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">emlabcpp::testing::test_id</a></div><div class="ttdeci">uint16_t test_id</div><div class="ttdef"><b>Definition:</b> base.h:53</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:538</div></div>
 <div class="ttc" id="anew__delete__resource_8h_html"><div class="ttname"><a href="new__delete__resource_8h.html">new_delete_resource.h</a></div></div>
@@ -217,7 +196,7 @@ $(document).ready(function(){initNavTree('gtest_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="gtest_8h.html">gtest.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 19:19:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 24 2022 11:39:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

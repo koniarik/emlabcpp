@@ -6,7 +6,6 @@ var experimental_2testing_2base_8h =
     [ "test_result", "structemlabcpp_1_1testing_1_1test__result.html", "structemlabcpp_1_1testing_1_1test__result" ],
     [ "child_count", "experimental_2testing_2base_8h.html#aa5f2797989f4c0edacfaa3d8967435a2", null ],
     [ "child_id", "experimental_2testing_2base_8h.html#acbd9645e3f3070dc31de4a5d5c22be05", null ],
-    [ "collect_value_type", "experimental_2testing_2base_8h.html#abb99f2b435a1233d2af64136bcd8ae17", null ],
     [ "data_array_handle", "experimental_2testing_2base_8h.html#a58f62ed11f8e66de4ecc3168b0871b92", null ],
     [ "data_const_array_handle", "experimental_2testing_2base_8h.html#a46d6c036ac9c56d05eec8f09cf17cfe4", null ],
     [ "data_const_object_handle", "experimental_2testing_2base_8h.html#a184fa0eeb8df3c358705a6e152656f4e", null ],

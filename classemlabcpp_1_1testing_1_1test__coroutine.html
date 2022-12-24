@@ -109,10 +109,16 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a9a6a9ff27ed8a2282e9f9ea29a5fcdbb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html#a9a6a9ff27ed8a2282e9f9ea29a5fcdbb">test_coroutine</a> ()=default</td></tr>
+<tr class="separator:a9a6a9ff27ed8a2282e9f9ea29a5fcdbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f9680b6f372e50b5d3a03d1c229e995"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html#a6f9680b6f372e50b5d3a03d1c229e995">test_coroutine</a> (const <a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html#a6137d4d37c087dfe4b4a431dfb58d699">handle</a> &amp;cor)</td></tr>
 <tr class="separator:a6f9680b6f372e50b5d3a03d1c229e995"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4958f4b077eff3e7882910bc5d9440b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html#a4958f4b077eff3e7882910bc5d9440b9">spin</a> (<a class="el" href="classemlabcpp_1_1testing_1_1reactor__interface__adapter.html">reactor_interface_adapter</a> *const comm) const</td></tr>
-<tr class="separator:a4958f4b077eff3e7882910bc5d9440b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10cb42a1589a40b9a00bf768d721df2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html#a10cb42a1589a40b9a00bf768d721df2c">done</a> () const</td></tr>
+<tr class="separator:a10cb42a1589a40b9a00bf768d721df2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e28bd99d90c6e4fe2615ba130d132f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html#a5e28bd99d90c6e4fe2615ba130d132f2">destroy</a> ()</td></tr>
+<tr class="separator:a5e28bd99d90c6e4fe2615ba130d132f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad405658266e99c9b4b75ba977ada0945"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html#ad405658266e99c9b4b75ba977ada0945">tick</a> ()</td></tr>
+<tr class="separator:ad405658266e99c9b4b75ba977ada0945"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a6137d4d37c087dfe4b4a431dfb58d699"></a>
@@ -144,8 +150,33 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9a6a9ff27ed8a2282e9f9ea29a5fcdbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a6a9ff27ed8a2282e9f9ea29a5fcdbb">&#9670;&nbsp;</a></span>test_coroutine() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">emlabcpp::testing::test_coroutine::test_coroutine </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6f9680b6f372e50b5d3a03d1c229e995"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f9680b6f372e50b5d3a03d1c229e995">&#9670;&nbsp;</a></span>test_coroutine()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f9680b6f372e50b5d3a03d1c229e995">&#9670;&nbsp;</a></span>test_coroutine() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,8 +202,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4958f4b077eff3e7882910bc5d9440b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4958f4b077eff3e7882910bc5d9440b9">&#9670;&nbsp;</a></span>spin()</h2>
+<a id="a5e28bd99d90c6e4fe2615ba130d132f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e28bd99d90c6e4fe2615ba130d132f2">&#9670;&nbsp;</a></span>destroy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,10 +212,34 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool emlabcpp::testing::test_coroutine::spin </td>
+          <td class="memname">void emlabcpp::testing::test_coroutine::destroy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1testing_1_1reactor__interface__adapter.html">reactor_interface_adapter</a> *const&#160;</td>
-          <td class="paramname"><em>comm</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10cb42a1589a40b9a00bf768d721df2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10cb42a1589a40b9a00bf768d721df2c">&#9670;&nbsp;</a></span>done()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool emlabcpp::testing::test_coroutine::done </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -197,6 +252,33 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ad405658266e99c9b4b75ba977ada0945"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad405658266e99c9b4b75ba977ada0945">&#9670;&nbsp;</a></span>tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void emlabcpp::testing::test_coroutine::tick </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a4084b1334bacda756131a06297cbe4dfadd0f1fac7b1452a7c98db1c15fa9b7bb">emlabcpp::testing::ERRORED</a>, and <a class="el" href="namespaceemlabcpp_1_1testing.html#a4084b1334bacda756131a06297cbe4dfa1869d56535e8b1449a6da54ff5e11f50">emlabcpp::testing::WAITING</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/emlabcpp/experimental/testing/<a class="el" href="coroutine_8h_source.html">coroutine.h</a></li>
 </ul>
@@ -206,7 +288,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1testing_1_1test__coroutine.html">test_coroutine</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 19:19:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 24 2022 11:39:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

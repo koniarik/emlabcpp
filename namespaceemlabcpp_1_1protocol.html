@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('namespaceemlabcpp_1_1protocol.html',''
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -266,6 +267,24 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a27361c5473347e8bb68060f54dec5f0b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a27361c5473347e8bb68060f54dec5f0b">port_type</a> = uint16_t</td></tr>
+<tr class="separator:a27361c5473347e8bb68060f54dec5f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1950d96503ce3cf42f3acdcaac14e612"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:a1950d96503ce3cf42f3acdcaac14e612"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a1950d96503ce3cf42f3acdcaac14e612">multiplexer_payload</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">tuple</a>&lt; std::endian::little, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a27361c5473347e8bb68060f54dec5f0b">port_type</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; N &gt; &gt;</td></tr>
+<tr class="separator:a1950d96503ce3cf42f3acdcaac14e612"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aaac1eae5d63f6d5247ab537a17b0b7"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:a1aaac1eae5d63f6d5247ab537a17b0b7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a1aaac1eae5d63f6d5247ab537a17b0b7">multiplexer_value</a> = typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#a1950d96503ce3cf42f3acdcaac14e612">multiplexer_payload</a>&lt; N &gt;::value_type</td></tr>
+<tr class="separator:a1aaac1eae5d63f6d5247ab537a17b0b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecf6971020e07eaf0c7f0f3b373d5df8"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:aecf6971020e07eaf0c7f0f3b373d5df8"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aecf6971020e07eaf0c7f0f3b373d5df8">multiplexer_message</a> = typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#a1950d96503ce3cf42f3acdcaac14e612">multiplexer_payload</a>&lt; N &gt;::message_type</td></tr>
+<tr class="separator:aecf6971020e07eaf0c7f0f3b373d5df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a986f53c6ddc39b9b91e4bc40d744e569"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:a986f53c6ddc39b9b91e4bc40d744e569"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a986f53c6ddc39b9b91e4bc40d744e569">multiplexer_handler</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">handler</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a1950d96503ce3cf42f3acdcaac14e612">multiplexer_payload</a>&lt; N &gt; &gt;</td></tr>
+<tr class="separator:a986f53c6ddc39b9b91e4bc40d744e569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81042a6c1a100c96f3c81c1a901fdcd7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a81042a6c1a100c96f3c81c1a901fdcd7">multiplexer_service_protocol</a> = std::tuple&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37daf">multiplexer_enum</a> &gt;</td></tr>
+<tr class="separator:a81042a6c1a100c96f3c81c1a901fdcd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6900e590c2a7a53cc72a3233bbded88"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ad6900e590c2a7a53cc72a3233bbded88">multiplexer_service_msg</a> = typename <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">handler</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a81042a6c1a100c96f3c81c1a901fdcd7">multiplexer_service_protocol</a> &gt;::message_type</td></tr>
+<tr class="separator:ad6900e590c2a7a53cc72a3233bbded88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba2818d17e2b2cc369733e18839ba19f"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E&gt; </td></tr>
 <tr class="memitem:aba2818d17e2b2cc369733e18839ba19f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a> = decltype(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9">converter_for_impl</a>&lt; D, E &gt;())</td></tr>
 <tr class="separator:aba2818d17e2b2cc369733e18839ba19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -278,8 +297,24 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a3a34c38f8477e0d13ec03adfde561549"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a> = decltype(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a9c27fc5576f6e7894b809016d7d5cbdc">traits_for_impl</a>&lt; D &gt;())</td></tr>
 <tr class="separator:a3a34c38f8477e0d13ec03adfde561549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a95e0cc87ac4f73ef63f5a43c3bc37daf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37daf">multiplexer_enum</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafad7cee373ed46d900f608c5970cdfe643">PORT_MATCH_ERROR</a> = 0
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafa89fc9790558c285c0664b57f3251ebc1">PROTOCOL_ERROR</a> = 1
+<br />
+ }</td></tr>
+<tr class="separator:a95e0cc87ac4f73ef63f5a43c3bc37daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ac7eedfdcd9d97cab61e6f83c70ca919a"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:ac7eedfdcd9d97cab61e6f83c70ca919a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aecf6971020e07eaf0c7f0f3b373d5df8">multiplexer_message</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ac7eedfdcd9d97cab61e6f83c70ca919a">serialize_multiplexed</a> (<a class="el" href="namespaceemlabcpp_1_1protocol.html#a27361c5473347e8bb68060f54dec5f0b">port_type</a> port, const <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; N &gt; &amp;m)</td></tr>
+<tr class="separator:ac7eedfdcd9d97cab61e6f83c70ca919a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcf7387198936360e4c0741160b98700"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename BinaryCallable , typename MsgCallable &gt; </td></tr>
+<tr class="memitem:abcf7387198936360e4c0741160b98700"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#abcf7387198936360e4c0741160b98700">extract_multiplexed</a> (const std::span&lt; const uint8_t &gt; &amp;msg, BinaryCallable &amp;&amp;handle_cb, MsgCallable &amp;&amp;msg_cb)</td></tr>
+<tr class="separator:abcf7387198936360e4c0741160b98700"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E&gt; </td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9">converter_for_impl</a> ()</td></tr>
 <tr class="separator:a8a42ec62524b9afc0195ff5f102300f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -310,6 +345,8 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a3dbe3c70d988ca2ecaf8e6b6d594998c"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespaceemlabcpp_1_1protocol.html#a27361c5473347e8bb68060f54dec5f0b">port_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a3dbe3c70d988ca2ecaf8e6b6d594998c">multiplexer_service_id</a> = 0</td></tr>
+<tr class="separator:a3dbe3c70d988ca2ecaf8e6b6d594998c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa86d1c4c148d71e70716484056a293c0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aa86d1c4c148d71e70716484056a293c0"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aa86d1c4c148d71e70716484056a293c0">base_type</a> = std::is_floating_point_v&lt; T &gt; || std::is_integral_v&lt; T &gt; || std::is_enum_v&lt; T &gt;</td></tr>
 <tr class="memdesc:aa86d1c4c148d71e70716484056a293c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that matches types considered base - serialized directly by using byte shifting.  <a href="namespaceemlabcpp_1_1protocol.html#aa86d1c4c148d71e70716484056a293c0">More...</a><br /></td></tr>
@@ -630,6 +667,98 @@ template&lt;typename D , std::endian E&gt; </div>
 
 </div>
 </div>
+<a id="a986f53c6ddc39b9b91e4bc40d744e569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a986f53c6ddc39b9b91e4bc40d744e569">&#9670;&nbsp;</a></span>multiplexer_handler</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#a986f53c6ddc39b9b91e4bc40d744e569">emlabcpp::protocol::multiplexer_handler</a> = typedef <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">handler</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a1950d96503ce3cf42f3acdcaac14e612">multiplexer_payload</a>&lt; N &gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aecf6971020e07eaf0c7f0f3b373d5df8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecf6971020e07eaf0c7f0f3b373d5df8">&#9670;&nbsp;</a></span>multiplexer_message</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#aecf6971020e07eaf0c7f0f3b373d5df8">emlabcpp::protocol::multiplexer_message</a> = typedef typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#a1950d96503ce3cf42f3acdcaac14e612">multiplexer_payload</a>&lt; N &gt;::message_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1950d96503ce3cf42f3acdcaac14e612"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1950d96503ce3cf42f3acdcaac14e612">&#9670;&nbsp;</a></span>multiplexer_payload</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#a1950d96503ce3cf42f3acdcaac14e612">emlabcpp::protocol::multiplexer_payload</a> = typedef <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">tuple</a>&lt; std::endian::little, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a27361c5473347e8bb68060f54dec5f0b">port_type</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; N &gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6900e590c2a7a53cc72a3233bbded88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6900e590c2a7a53cc72a3233bbded88">&#9670;&nbsp;</a></span>multiplexer_service_msg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#ad6900e590c2a7a53cc72a3233bbded88">emlabcpp::protocol::multiplexer_service_msg</a> = typedef typename <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">handler</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a81042a6c1a100c96f3c81c1a901fdcd7">multiplexer_service_protocol</a> &gt;::message_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81042a6c1a100c96f3c81c1a901fdcd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81042a6c1a100c96f3c81c1a901fdcd7">&#9670;&nbsp;</a></span>multiplexer_service_protocol</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#a81042a6c1a100c96f3c81c1a901fdcd7">emlabcpp::protocol::multiplexer_service_protocol</a> = typedef std::tuple&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37daf">multiplexer_enum</a> &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1aaac1eae5d63f6d5247ab537a17b0b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aaac1eae5d63f6d5247ab537a17b0b7">&#9670;&nbsp;</a></span>multiplexer_value</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#a1aaac1eae5d63f6d5247ab537a17b0b7">emlabcpp::protocol::multiplexer_value</a> = typedef typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#a1950d96503ce3cf42f3acdcaac14e612">multiplexer_payload</a>&lt; N &gt;::value_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a666cc0e4cd52e4691a45424fb1b8b8b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a666cc0e4cd52e4691a45424fb1b8b8b1">&#9670;&nbsp;</a></span>packet_base</h2>
 
@@ -640,6 +769,20 @@ template&lt;typename Def , typename Payload &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#a666cc0e4cd52e4691a45424fb1b8b8b1">emlabcpp::protocol::packet_base</a> = typedef <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">tuple</a>&lt; Def::endianess, std::decay_t&lt; decltype( Def::prefix ) &gt;, typename Def::size_type, Payload, typename Def::checksum_type &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27361c5473347e8bb68060f54dec5f0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27361c5473347e8bb68060f54dec5f0b">&#9670;&nbsp;</a></span>port_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#a27361c5473347e8bb68060f54dec5f0b">emlabcpp::protocol::port_type</a> = typedef uint16_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -662,6 +805,25 @@ template&lt;typename D &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a95e0cc87ac4f73ef63f5a43c3bc37daf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95e0cc87ac4f73ef63f5a43c3bc37daf">&#9670;&nbsp;</a></span>multiplexer_enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37daf">emlabcpp::protocol::multiplexer_enum</a> : uint8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a95e0cc87ac4f73ef63f5a43c3bc37dafad7cee373ed46d900f608c5970cdfe643"></a>PORT_MATCH_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a95e0cc87ac4f73ef63f5a43c3bc37dafa89fc9790558c285c0664b57f3251ebc1"></a>PROTOCOL_ERROR&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a8a42ec62524b9afc0195ff5f102300f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8a42ec62524b9afc0195ff5f102300f9">&#9670;&nbsp;</a></span>converter_for_impl()</h2>
@@ -681,6 +843,44 @@ template&lt;typename D , std::endian E&gt; </div>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4">emlabcpp::with_value_type</a>.</p>
+
+</div>
+</div>
+<a id="abcf7387198936360e4c0741160b98700"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcf7387198936360e4c0741160b98700">&#9670;&nbsp;</a></span>extract_multiplexed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename BinaryCallable , typename MsgCallable &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool emlabcpp::protocol::extract_multiplexed </td>
+          <td>(</td>
+          <td class="paramtype">const std::span&lt; const uint8_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BinaryCallable &amp;&amp;&#160;</td>
+          <td class="paramname"><em>handle_cb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MsgCallable &amp;&amp;&#160;</td>
+          <td class="paramname"><em>msg_cb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a4a4e9b8c20d7122816fa978d0b6121cb">emlabcpp::protocol::handler&lt; T &gt;::extract()</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3dbe3c70d988ca2ecaf8e6b6d594998c">multiplexer_service_id</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafad7cee373ed46d900f608c5970cdfe643">PORT_MATCH_ERROR</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafa89fc9790558c285c0664b57f3251ebc1">PROTOCOL_ERROR</a>, and <a class="el" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">emlabcpp::view_n()</a>.</p>
 
 </div>
 </div>
@@ -712,7 +912,7 @@ template&lt;typename Map , typename UnaryCallable &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a>, and <a class="el" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">protocol::protocol::m</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a>.</p>
 
 </div>
 </div>
@@ -804,8 +1004,6 @@ template&lt;typename Map , typename UnaryCallable &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">protocol::protocol::m</a>.</p>
-
 </div>
 </div>
 <a id="a78012bf92df942bfb241c7e097c87846"></a>
@@ -896,7 +1094,7 @@ template&lt;ostreamlike Stream, std::endian Endianess, typename... Regs&gt; </di
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a25417e5baf4dcb0a348bb0e6e5ea83a2">for_each_register()</a>, and <a class="el" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">protocol::protocol::m</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a25417e5baf4dcb0a348bb0e6e5ea83a2">for_each_register()</a>.</p>
 
 </div>
 </div>
@@ -929,6 +1127,38 @@ template&lt;typename Sequencer , typename ReadCallback &gt; </div>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">emlabcpp::count()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>.</p>
+
+</div>
+</div>
+<a id="ac7eedfdcd9d97cab61e6f83c70ca919a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7eedfdcd9d97cab61e6f83c70ca919a">&#9670;&nbsp;</a></span>serialize_multiplexed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aecf6971020e07eaf0c7f0f3b373d5df8">multiplexer_message</a>&lt; N &gt; emlabcpp::protocol::serialize_multiplexed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a27361c5473347e8bb68060f54dec5f0b">port_type</a>&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#ab94ed6e95e60af5a0353af4340e989dc">emlabcpp::protocol::handler&lt; T &gt;::serialize()</a>.</p>
 
 </div>
 </div>
@@ -1100,7 +1330,7 @@ template&lt;typename T &gt; </div>
 <div class="line">        T::deserialize( buff, item );</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:81</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:49</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:50</div></div>
 </div><!-- fragment -->
 <p>converter_check&lt;T&gt; concept verifies that 'T' is valid overload of converter. </p>
 <p>Use this in tests of custom converter overloads. </p>
@@ -1242,9 +1472,31 @@ template&lt;typename T &gt; </div>
 <div class="line">{</div>
 <div class="line">        <a class="code" href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">detail::message_derived_test</a>( val );</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_1_1detail_html_aba82f9bdb1604d0b12a5f9ce21d48376"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">emlabcpp::protocol::detail::message_derived_test</a></div><div class="ttdeci">constexpr bool message_derived_test(const message&lt; N &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> message.h:200</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_1_1detail_html_aba82f9bdb1604d0b12a5f9ce21d48376"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">emlabcpp::protocol::detail::message_derived_test</a></div><div class="ttdeci">constexpr bool message_derived_test(const message&lt; N &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> message.h:210</div></div>
 </div><!-- fragment -->
 <p>concept matches any type that is message or derives from it. </p>
+
+</div>
+</div>
+<a id="a3dbe3c70d988ca2ecaf8e6b6d594998c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dbe3c70d988ca2ecaf8e6b6d594998c">&#9670;&nbsp;</a></span>multiplexer_service_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceemlabcpp_1_1protocol.html#a27361c5473347e8bb68060f54dec5f0b">port_type</a> emlabcpp::protocol::multiplexer_service_id = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1344,7 +1596,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 19:19:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 24 2022 11:39:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,25 +1,7 @@
 var classemlabcpp_1_1testing_1_1record =
 [
-    [ "record", "classemlabcpp_1_1testing_1_1record.html#a5da93c2d191314f896b1816d32c6ec8b", null ],
-    [ "collect", "classemlabcpp_1_1testing_1_1record.html#a4b5088e026fe9c58f1db4422269869aa", null ],
-    [ "collect", "classemlabcpp_1_1testing_1_1record.html#a0f078997bd7d921549b99e3e0c9650cc", null ],
-    [ "collect", "classemlabcpp_1_1testing_1_1record.html#ac997099c80d97b925d0c29c99904e0a5", null ],
-    [ "collect", "classemlabcpp_1_1testing_1_1record.html#a53463059e63257cf0f8d61f042b8669b", null ],
-    [ "collect", "classemlabcpp_1_1testing_1_1record.html#a5d48f537bcb989026a39cf994b39480c", null ],
-    [ "collect", "classemlabcpp_1_1testing_1_1record.html#a611f74d3762bb45b32b54dbdd5caa5d9", null ],
     [ "errored", "classemlabcpp_1_1testing_1_1record.html#a236441ad710327794f198aed6f6f366b", null ],
     [ "expect", "classemlabcpp_1_1testing_1_1record.html#a076914ed9831860a623b3a77d013a953", null ],
     [ "fail", "classemlabcpp_1_1testing_1_1record.html#aaf6d35e3a28af918cb0c4b05e73bc211", null ],
-    [ "get_param", "classemlabcpp_1_1testing_1_1record.html#a2666d5a260381843c10ff91677363ff0", null ],
-    [ "get_param", "classemlabcpp_1_1testing_1_1record.html#a0554bdaabd0555701231bb2a1e7ac41e", null ],
-    [ "get_param", "classemlabcpp_1_1testing_1_1record.html#afc3ca687897f0291571e53e3aa8931d4", null ],
-    [ "get_param", "classemlabcpp_1_1testing_1_1record.html#a55f3f989c96c26ab52b4d03d13aae327", null ],
-    [ "get_param_child", "classemlabcpp_1_1testing_1_1record.html#aaa00c3f3fbb956b7f28f7080839a4c04", null ],
-    [ "get_param_child", "classemlabcpp_1_1testing_1_1record.html#aceafaa626676bb25a11b72c3be64a51c", null ],
-    [ "get_param_child", "classemlabcpp_1_1testing_1_1record.html#aab10f8f6537651377a33d22ed0b09fea", null ],
-    [ "get_param_child_count", "classemlabcpp_1_1testing_1_1record.html#af99474220a2ccb13f48ba33e030fcdb7", null ],
-    [ "get_param_child_count", "classemlabcpp_1_1testing_1_1record.html#ad9de614969f42a680c74bd5fafd2e21c", null ],
-    [ "get_param_key", "classemlabcpp_1_1testing_1_1record.html#a5d525249dc0b62eb02409965eb2fedba", null ],
-    [ "get_param_type", "classemlabcpp_1_1testing_1_1record.html#ab3c8345ff8f58788553a97e4578db978", null ],
     [ "success", "classemlabcpp_1_1testing_1_1record.html#adf2ee1e02d672abc7472de8027dc236e", null ]
 ];

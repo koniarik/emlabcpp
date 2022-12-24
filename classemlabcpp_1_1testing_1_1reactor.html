@@ -84,7 +84,6 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1testing_1_1reactor.ht
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classemlabcpp_1_1testing_1_1reactor-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -96,8 +95,8 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1testing_1_1reactor.ht
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aace40132a43496db77e4a69c504c2100"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#aace40132a43496db77e4a69c504c2100">reactor</a> (const std::string_view suite_name)</td></tr>
-<tr class="separator:aace40132a43496db77e4a69c504c2100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a7c6d708cd6fa28c7016c8a14a9525"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#a13a7c6d708cd6fa28c7016c8a14a9525">reactor</a> (const std::string_view suite_name, <a class="el" href="namespaceemlabcpp_1_1testing.html#afcb8b5d944bb2a2f2041ce575ddb7805">reactor_transmit_callback</a> tb)</td></tr>
+<tr class="separator:a13a7c6d708cd6fa28c7016c8a14a9525"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49388eaa347437b2abf55b913fc393ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#a49388eaa347437b2abf55b913fc393ad">reactor</a> (const <a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a> &amp;)=delete</td></tr>
 <tr class="separator:a49388eaa347437b2abf55b913fc393ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dcc1bf28271a1ed63bbbf862b25c10a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#a9dcc1bf28271a1ed63bbbf862b25c10a">reactor</a> (<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a> &amp;&amp;)=delete</td></tr>
@@ -106,14 +105,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:affb1a3ee1431f1405461d178d3c27342"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad13820dd5d8355c62ae92a5f4da64c24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#ad13820dd5d8355c62ae92a5f4da64c24">operator=</a> (<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:ad13820dd5d8355c62ae92a5f4da64c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2abcb373af54fbeb7544f30f01b91c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#ab2abcb373af54fbeb7544f30f01b91c8">get_first_dummy_test</a> ()</td></tr>
-<tr class="separator:ab2abcb373af54fbeb7544f30f01b91c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a724bb404bde9cc695401f6dd980c362a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#a724bb404bde9cc695401f6dd980c362a">spin</a> (<a class="el" href="classemlabcpp_1_1testing_1_1reactor__interface.html">reactor_interface</a> &amp;comm)</td></tr>
-<tr class="separator:a724bb404bde9cc695401f6dd980c362a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa68b0e2af6cb386da25f7d2ef663b803"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#aa68b0e2af6cb386da25f7d2ef663b803">on_msg</a> (std::span&lt; const uint8_t &gt; buffer)</td></tr>
+<tr class="separator:aa68b0e2af6cb386da25f7d2ef663b803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f01f3461095f744b82d806bffa701c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#a0f01f3461095f744b82d806bffa701c1">on_msg</a> (const <a class="el" href="namespaceemlabcpp_1_1testing.html#a7990a2783b0090e4fb21f6af5916c99c">controller_reactor_variant</a> &amp;var)</td></tr>
+<tr class="separator:a0f01f3461095f744b82d806bffa701c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c0b6c42c85f85c00bb297542b5ed59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#af2c0b6c42c85f85c00bb297542b5ed59">register_test</a> (<a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a> &amp;test)</td></tr>
+<tr class="separator:af2c0b6c42c85f85c00bb297542b5ed59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1ade245e2f25dd3d9eba05b4b081d4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#ac1ade245e2f25dd3d9eba05b4b081d4f">tick</a> ()</td></tr>
+<tr class="separator:ac1ade245e2f25dd3d9eba05b4b081d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aace40132a43496db77e4a69c504c2100"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aace40132a43496db77e4a69c504c2100">&#9670;&nbsp;</a></span>reactor() <span class="overload">[1/3]</span></h2>
+<a id="a13a7c6d708cd6fa28c7016c8a14a9525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13a7c6d708cd6fa28c7016c8a14a9525">&#9670;&nbsp;</a></span>reactor() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,8 +128,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">emlabcpp::testing::reactor::reactor </td>
           <td>(</td>
           <td class="paramtype">const std::string_view&#160;</td>
-          <td class="paramname"><em>suite_name</em></td><td>)</td>
+          <td class="paramname"><em>suite_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp_1_1testing.html#afcb8b5d944bb2a2f2041ce575ddb7805">reactor_transmit_callback</a>&#160;</td>
+          <td class="paramname"><em>tb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -191,16 +204,35 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab2abcb373af54fbeb7544f30f01b91c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2abcb373af54fbeb7544f30f01b91c8">&#9670;&nbsp;</a></span>get_first_dummy_test()</h2>
+<a id="a0f01f3461095f744b82d806bffa701c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f01f3461095f744b82d806bffa701c1">&#9670;&nbsp;</a></span>on_msg() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a>&amp; emlabcpp::testing::reactor::get_first_dummy_test </td>
+          <td class="memname">void emlabcpp::testing::reactor::on_msg </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="namespaceemlabcpp_1_1testing.html#a7990a2783b0090e4fb21f6af5916c99c">controller_reactor_variant</a> &amp;&#160;</td>
+          <td class="paramname"><em>var</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa68b0e2af6cb386da25f7d2ef663b803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa68b0e2af6cb386da25f7d2ef663b803">&#9670;&nbsp;</a></span>on_msg() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void emlabcpp::testing::reactor::on_msg </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -260,17 +292,44 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a724bb404bde9cc695401f6dd980c362a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a724bb404bde9cc695401f6dd980c362a">&#9670;&nbsp;</a></span>spin()</h2>
+<a id="af2c0b6c42c85f85c00bb297542b5ed59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2c0b6c42c85f85c00bb297542b5ed59">&#9670;&nbsp;</a></span>register_test()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void emlabcpp::testing::reactor::register_test </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a> &amp;&#160;</td>
+          <td class="paramname"><em>test</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classemlabcpp_1_1binding__linked__list__node.html#a5d85da6ff6ac42be962606d18ea00dc6">emlabcpp::binding_linked_list_node&lt; Derived &gt;::push_after()</a>.</p>
+
+</div>
+</div>
+<a id="ac1ade245e2f25dd3d9eba05b4b081d4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1ade245e2f25dd3d9eba05b4b081d4f">&#9670;&nbsp;</a></span>tick()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void emlabcpp::testing::reactor::spin </td>
+          <td class="memname">void emlabcpp::testing::reactor::tick </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1testing_1_1reactor__interface.html">reactor_interface</a> &amp;&#160;</td>
-          <td class="paramname"><em>comm</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -287,7 +346,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 19:19:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 24 2022 11:39:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

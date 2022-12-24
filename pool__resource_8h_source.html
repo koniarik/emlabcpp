@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('pool__resource_8h_source.html',''); in
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">if</span> ( p == <span class="keyword">nullptr</span> || used &gt; PoolSize ) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>( <span class="stringliteral">&quot;Failed to allocate&quot;</span> );</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        <a class="code" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>( <span class="stringliteral">&quot;Failed to allocate &quot;</span> &lt;&lt; bytes &lt;&lt; <span class="stringliteral">&quot; bytes&quot;</span> );</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                free_.<a class="code" href="classemlabcpp_1_1static__vector.html#a695cb5bc8494b4bb5ce31bdcd50c47ff">pop_back</a>();</div>
@@ -204,7 +204,7 @@ $(document).ready(function(){initNavTree('pool__resource_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_231aac52433e25ed4b5ea5619bdfd3e1.html">pmr</a></li><li class="navelem"><a class="el" href="pool__resource_8h.html">pool_resource.h</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 19:19:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 24 2022 11:39:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

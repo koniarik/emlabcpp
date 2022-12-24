@@ -3727,8 +3727,6 @@ template&lt;typename... Iterators&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">protocol::protocol::m</a>.</p>
-
 </div>
 </div>
 <a id="afc235c95c20406e05b11a433e3ed7857"></a>
@@ -4301,7 +4299,7 @@ template&lt;ostreamlike Stream, matrix_like Matrix&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">protocol::protocol::m</a>, and <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>.</p>
 
 </div>
 </div>
@@ -4913,7 +4911,7 @@ template&lt;matrix_like M&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">protocol::protocol::m</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
 
 </div>
 </div>
@@ -4934,8 +4932,6 @@ template&lt;matrix_like M&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">protocol::protocol::m</a>.</p>
 
 </div>
 </div>
@@ -6320,7 +6316,7 @@ template&lt;typename M &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">requires</a>( M <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>, std::size_t i, std::size_t j )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">requires</a>( M m, std::size_t i, std::size_t j )</div>
 <div class="line">{</div>
 <div class="line">        {</div>
 <div class="line">                M::rows</div>
@@ -6329,11 +6325,10 @@ template&lt;typename M &gt; </div>
 <div class="line">                M::cols</div>
 <div class="line">                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
 <div class="line">        {</div>
-<div class="line">                <a class="code" href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">m</a>[i][j]</div>
+<div class="line">                m[i][j]</div>
 <div class="line">                } -&gt; std::convertible_to&lt; typename M::value_type &gt;;</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespaceemlabcpp_html_ae9679354218890ed9c289c674a125378"><div class="ttname"><a href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">emlabcpp::requires</a></div><div class="ttdeci">requires(M::rows==1 &amp;&amp;M::cols==1) const expr matrix&lt; M</div><div class="ttdef"><b>Definition:</b> matrix.h:288</div></div>
-<div class="ttc" id="anamespaceprotocol_1_1protocol_html_af1708a3209215c484ac651db8220b36f"><div class="ttname"><a href="namespaceprotocol_1_1protocol.html#af1708a3209215c484ac651db8220b36f">protocol::protocol::m</a></div><div class="ttdeci">const message&lt; M &gt; &amp; m</div><div class="ttdef"><b>Definition:</b> multiplexer.h:37</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -6614,7 +6609,7 @@ template&lt;typename T &gt; </div>
 <div class="line">{</div>
 <div class="line">        a.push_back( std::move( b ) );</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:49</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:50</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -6660,7 +6655,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sun Dec 11 2022 19:19:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 24 2022 11:39:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

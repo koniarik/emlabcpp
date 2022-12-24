@@ -1,7 +1,6 @@
 var namespaces_dup =
 [
     [ "emlabcpp", "namespaceemlabcpp.html", "namespaceemlabcpp" ],
-    [ "protocol", "namespaceprotocol.html", "namespaceprotocol" ],
     [ "std", null, [
       [ "iterator_traits< emlabcpp::iterators::access_iterator< Iterator, AccessCallable > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1access__iterator_3_01Iterator_00_01AccessCallable_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1access__iterator_3_01Iterator_00_01AccessCallable_01_4_01_4" ],
       [ "iterator_traits< emlabcpp::iterators::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4" ],
