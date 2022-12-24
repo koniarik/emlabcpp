@@ -3,7 +3,7 @@
 
 namespace emlabcpp::testing
 {
-bool param_type_processor::set_value( const server_client_params_variant& var )
+bool param_type_processor::set_value( const params_server_client_variant& var )
 {
         const auto* const val_ptr = std::get_if< param_type_reply >( &var );
         if ( val_ptr == nullptr ) {
@@ -14,7 +14,7 @@ bool param_type_processor::set_value( const server_client_params_variant& var )
 }
 template class params_awaiter< param_type_processor >;
 
-[[nodiscard]] bool param_child_processor::set_value( const server_client_params_variant& var )
+[[nodiscard]] bool param_child_processor::set_value( const params_server_client_variant& var )
 {
         const auto* const val_ptr = std::get_if< param_child_reply >( &var );
         if ( val_ptr == nullptr ) {
@@ -25,7 +25,7 @@ template class params_awaiter< param_type_processor >;
 }
 template class params_awaiter< param_child_processor >;
 
-[[nodiscard]] bool param_child_count_processor::set_value( const server_client_params_variant& var )
+[[nodiscard]] bool param_child_count_processor::set_value( const params_server_client_variant& var )
 {
         const auto* const val_ptr = std::get_if< param_child_count_reply >( &var );
         if ( val_ptr == nullptr ) {
@@ -36,7 +36,7 @@ template class params_awaiter< param_child_processor >;
 }
 template class params_awaiter< param_child_count_processor >;
 
-[[nodiscard]] bool param_key_processor::set_value( const server_client_params_variant& var )
+[[nodiscard]] bool param_key_processor::set_value( const params_server_client_variant& var )
 {
         const auto* const val_ptr = std::get_if< param_key_reply >( &var );
         if ( val_ptr == nullptr ) {
@@ -47,7 +47,7 @@ template class params_awaiter< param_child_count_processor >;
 }
 template class params_awaiter< param_key_processor >;
 
-parameters::parameters( params_send_callback send_cb )
+parameters::parameters( params_client_transmit_callback send_cb )
   : send_cb_( std::move( send_cb ) )
 {
 }
@@ -55,10 +55,10 @@ parameters::parameters( params_send_callback send_cb )
 void parameters::on_msg( std::span< const uint8_t > data )
 {
         // TODO: this is copy pasta festival from collect...
-        using h = protocol::handler< server_client_params_group >;
+        using h = protocol::handler< params_server_client_group >;
         h::extract( view_n( data.data(), data.size() ) )
             .match(
-                [&]( const server_client_params_variant& req ) {
+                [&]( const params_server_client_variant& req ) {
                         on_msg( req );
                 },
                 [&]( auto err ) {
@@ -66,7 +66,7 @@ void parameters::on_msg( std::span< const uint8_t > data )
                 } );
 }
 
-void parameters::on_msg( const server_client_params_variant& req )
+void parameters::on_msg( const params_server_client_variant& req )
 {
         if ( !reply_cb_ ) {
                 return;
@@ -103,19 +103,19 @@ param_key_awaiter parameters::get_key( node_id nid, child_id chid )
         return param_key_awaiter{ param_key_request{ nid, chid }, *this };
 }
 
-void parameters::exchange( const client_server_params_variant& req, params_reply_callback reply_cb )
+void parameters::exchange( const params_client_server_variant& req, params_reply_callback reply_cb )
 {
         reply_cb_ = reply_cb;
         send( req );
 }
 
-void parameters::send( const client_server_params_variant& val )
+void parameters::send( const params_client_server_variant& val )
 {
-        using h = protocol::handler< client_server_params_group >;
+        using h = protocol::handler< params_client_server_group >;
         send_cb_( h::serialize( val ) );
 }
 
-parameters_server::parameters_server( data_tree tree, params_send_callback send_cb )
+parameters_server::parameters_server( data_tree tree, params_server_transmit_callback send_cb )
   : tree_( tree )
   , send_cb_( std::move( send_cb ) )
 {
@@ -124,10 +124,10 @@ parameters_server::parameters_server( data_tree tree, params_send_callback send_
 void parameters_server::on_msg( std::span< const uint8_t > data )
 {
         // TODO: this is copy pasta festival from collect...
-        using h = protocol::handler< client_server_params_group >;
+        using h = protocol::handler< params_client_server_group >;
         h::extract( view_n( data.data(), data.size() ) )
             .match(
-                [&]( const client_server_params_variant& req ) {
+                [&]( const params_client_server_variant& req ) {
                         on_msg( req );
                 },
                 [&]( auto err ) {
@@ -135,7 +135,7 @@ void parameters_server::on_msg( std::span< const uint8_t > data )
                 } );
 }
 
-void parameters_server::on_msg( const client_server_params_variant& req )
+void parameters_server::on_msg( const params_client_server_variant& req )
 {
         visit(
             [&]( const auto& item ) {
@@ -240,9 +240,9 @@ void parameters_server::reply_node_error(
         send( tree_error_reply{ .err = err, .nid = nid } );
 }
 
-void parameters_server::send( const server_client_params_variant& var )
+void parameters_server::send( const params_server_client_variant& var )
 {
-        using h = protocol::handler< server_client_params_group >;
+        using h = protocol::handler< params_server_client_group >;
         send_cb_( h::serialize( var ) );
 }
 

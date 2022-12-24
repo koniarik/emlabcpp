@@ -2,6 +2,7 @@
 #include "emlabcpp/experimental/function_view.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/experimental/testing/protocol.h"
+#include "emlabcpp/protocol/handler.h"
 #include "emlabcpp/static_function.h"
 
 #pragma once
@@ -94,7 +95,7 @@ struct param_type_reply
         node_type_enum        type;
 };
 
-using client_server_params_group = protocol::tag_group<
+using params_client_server_group = protocol::tag_group<
     param_value_request,
     param_child_request,
     param_child_count_request,
@@ -102,10 +103,12 @@ using client_server_params_group = protocol::tag_group<
     param_type_request,
     param_value_key_request >;
 
-using client_server_params_variant =
-    typename protocol::traits_for< client_server_params_group >::value_type;
+using params_client_server_variant =
+    typename protocol::traits_for< params_client_server_group >::value_type;
+using params_client_server_message =
+    typename protocol::handler< params_client_server_group >::message_type;
 
-using server_client_params_group = protocol::tag_group<
+using params_server_client_group = protocol::tag_group<
     param_value_reply,
     param_child_reply,
     param_child_count_reply,
@@ -114,11 +117,16 @@ using server_client_params_group = protocol::tag_group<
     param_value_key_reply,
     tree_error_reply >;
 
-using server_client_params_variant =
-    typename protocol::traits_for< server_client_params_group >::value_type;
+using params_server_client_variant =
+    typename protocol::traits_for< params_server_client_group >::value_type;
+using params_server_client_message =
+    typename protocol::handler< params_server_client_group >::message_type;
 
-using params_reply_callback = static_function< void( const server_client_params_variant& ), 32 >;
-using params_send_callback  = function_view< void( std::span< const uint8_t > ) >;
+using params_reply_callback = static_function< void( const params_server_client_variant& ), 32 >;
+using params_client_transmit_callback =
+    static_function< void( const params_client_server_message& ), 32 >;
+using params_server_transmit_callback =
+    static_function< void( const params_server_client_message& ), 32 >;
 
 class parameters;
 
@@ -164,7 +172,7 @@ struct param_value_processor
         T                   reply;
         param_value_request req;
 
-        [[nodiscard]] bool set_value( const server_client_params_variant& var )
+        [[nodiscard]] bool set_value( const params_server_client_variant& var )
         {
                 const auto* const val_ptr = std::get_if< param_value_reply >( &var );
                 if ( val_ptr == nullptr ) {
@@ -186,7 +194,7 @@ struct param_value_key_processor
         T                       reply;
         param_value_key_request req;
 
-        [[nodiscard]] bool set_value( const server_client_params_variant& var )
+        [[nodiscard]] bool set_value( const params_server_client_variant& var )
         {
                 const auto* const val_ptr = std::get_if< param_value_key_reply >( &var );
                 if ( val_ptr == nullptr ) {
@@ -208,7 +216,7 @@ struct param_type_processor
         param_type_request req;
         using reply_type = param_type_reply;
 
-        [[nodiscard]] bool set_value( const server_client_params_variant& var );
+        [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
 using param_type_awaiter = params_awaiter< param_type_processor >;
 extern template class params_awaiter< param_type_processor >;
@@ -218,7 +226,7 @@ struct param_child_processor
         node_id             reply;
         param_child_request req;
 
-        [[nodiscard]] bool set_value( const server_client_params_variant& var );
+        [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
 using param_child_awaiter = params_awaiter< param_child_processor >;
 extern template class params_awaiter< param_child_processor >;
@@ -228,7 +236,7 @@ struct param_child_count_processor
         child_count               reply;
         param_child_count_request req;
 
-        [[nodiscard]] bool set_value( const server_client_params_variant& var );
+        [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
 using param_child_count_awaiter = params_awaiter< param_child_count_processor >;
 extern template class params_awaiter< param_child_count_processor >;
@@ -238,7 +246,7 @@ struct param_key_processor
         key_type          reply;
         param_key_request req;
 
-        [[nodiscard]] bool set_value( const server_client_params_variant& var );
+        [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
 using param_key_awaiter = params_awaiter< param_key_processor >;
 extern template class params_awaiter< param_key_processor >;
@@ -246,10 +254,10 @@ extern template class params_awaiter< param_key_processor >;
 class parameters
 {
 public:
-        parameters( params_send_callback send_cb );
+        parameters( params_client_transmit_callback send_cb );
 
         void on_msg( std::span< const uint8_t > data );
-        void on_msg( const server_client_params_variant& req );
+        void on_msg( const params_server_client_variant& req );
 
         param_type_awaiter get_type( node_id nid );
 
@@ -283,13 +291,13 @@ public:
 
         param_key_awaiter get_key( node_id nid, child_id chid );
 
-        void exchange( const client_server_params_variant& req, params_reply_callback reply_cb );
+        void exchange( const params_client_server_variant& req, params_reply_callback reply_cb );
 
-        void send( const client_server_params_variant& val );
+        void send( const params_client_server_variant& val );
 
 private:
-        params_reply_callback reply_cb_;
-        params_send_callback  send_cb_;
+        params_reply_callback           reply_cb_;
+        params_client_transmit_callback send_cb_;
 };
 
 template < typename Processor >
@@ -298,7 +306,7 @@ void params_awaiter< Processor >::await_suspend(
 {
         coro_handle       = h;
         h.promise().iface = this;
-        params.exchange( proc.req, [&]( const server_client_params_variant& var ) {
+        params.exchange( proc.req, [&]( const params_server_client_variant& var ) {
                 if ( !proc.set_value( var ) ) {
                         EMLABCPP_LOG( "Setting value to processor errored" );
                         state = await_state::ERRORED;
@@ -311,10 +319,10 @@ void params_awaiter< Processor >::await_suspend(
 class parameters_server
 {
 public:
-        parameters_server( data_tree tree, params_send_callback send_cb );
+        parameters_server( data_tree tree, params_server_transmit_callback send_cb );
 
         void on_msg( std::span< const uint8_t > data );
-        void on_msg( const client_server_params_variant& req );
+        void on_msg( const params_client_server_variant& req );
 
 private:
         void on_req( const param_value_request& req );
@@ -325,9 +333,9 @@ private:
         void on_req( const param_type_request& req );
         void
         reply_node_error( const contiguous_request_adapter_errors_enum err, const node_id nid );
-        void send( const server_client_params_variant& var );
+        void send( const params_server_client_variant& var );
 
-        data_tree            tree_;
-        params_send_callback send_cb_;
+        data_tree                       tree_;
+        params_server_transmit_callback send_cb_;
 };
 }  // namespace emlabcpp::testing

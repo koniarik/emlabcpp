@@ -22,6 +22,7 @@
 //
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/experimental/contiguous_tree/tree.h"
+#include "emlabcpp/static_function.h"
 #include "emlabcpp/static_vector.h"
 
 #include <algorithm>

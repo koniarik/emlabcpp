@@ -35,17 +35,17 @@ namespace emlabcpp::testing
 
 enum messages_enum : uint8_t
 {
-        EXEC              = 0x1,
-        COUNT             = 0x2,
-        NAME              = 0x3,
-        SUITE_NAME        = 0x6,
-        SUITE_DATE        = 0x7,
-        FINISHED          = 0x9,
-        ERROR             = 0xa,
-        FAILURE           = 0xb,
-        INTERNAL_ERROR    = 0xf0,
-        PROTOCOL_ERROR    = 0xf1,
-        TREE_ERROR        = 0xf2,
+        EXEC           = 0x1,
+        COUNT          = 0x2,
+        NAME           = 0x3,
+        SUITE_NAME     = 0x6,
+        SUITE_DATE     = 0x7,
+        FINISHED       = 0x9,
+        ERROR          = 0xa,
+        FAILURE        = 0xb,
+        INTERNAL_ERROR = 0xf0,
+        PROTOCOL_ERROR = 0xf1,
+        TREE_ERROR     = 0xf2,
 };
 
 template < messages_enum ID >
@@ -115,6 +115,8 @@ using controller_reactor_group = protocol::tag_group<
 
 using controller_reactor_variant =
     typename protocol::traits_for< controller_reactor_group >::value_type;
+using controller_reactor_message =
+    typename protocol::handler< controller_reactor_group >::message_type;
 
 enum error_enum : uint8_t
 {
@@ -181,6 +183,12 @@ using reactor_controller_group = protocol::tag_group<
 
 using reactor_controller_variant =
     typename protocol::traits_for< reactor_controller_group >::value_type;
+using reactor_controller_message =
+    typename protocol::handler< reactor_controller_group >::message_type;
+
+using reactor_transmit_callback = static_function< void( const reactor_controller_message& ), 32 >;
+using controller_transmit_callback =
+    static_function< void( const controller_reactor_message& ), 32 >;
 
 using packet_payload = protocol::multiplexer_payload< 64 >;
 

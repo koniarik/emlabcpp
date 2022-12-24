@@ -31,7 +31,7 @@ namespace emlabcpp::testing
 class controller_interface
 {
 public:
-        virtual void transmit( std::span< uint8_t > ) = 0;
+        virtual void transmit( const controller_reactor_message& ) = 0;
         virtual void on_result( const test_result& )  = 0;
         virtual void on_error( const error_variant& ) = 0;
 

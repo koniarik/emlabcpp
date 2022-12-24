@@ -22,7 +22,6 @@
 //
 #include "emlabcpp/experimental/testing/executor.h"
 #include "emlabcpp/experimental/testing/protocol.h"
-#include "emlabcpp/experimental/testing/reactor_interface.h"
 #include "emlabcpp/pmr/pool_resource.h"
 #include "emlabcpp/protocol/endpoint.h"
 
@@ -44,9 +43,9 @@ class reactor
         std::optional< executor > opt_exec_;
 
 public:
-        explicit reactor( const std::string_view suite_name, reactor_interface& iface )
+        explicit reactor( const std::string_view suite_name, reactor_transmit_callback tb )
           : suite_name_( suite_name )
-          , iface_( iface )
+          , iface_( std::move( tb ) )
         {
         }
 

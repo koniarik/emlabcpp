@@ -35,24 +35,27 @@
 namespace emlabcpp
 {
 
-class reactor_interface : public testing::reactor_interface
+class reactor_interface
 {
 public:
-        std::vector< testing::reactor_controller_variant > msgs;
+        static std::vector< testing::reactor_controller_variant > msgs;
 
-        void transmit( std::span< uint8_t > msg )
+        void operator()( std::span< const uint8_t > msg )
         {
                 using h = protocol::handler< testing::reactor_controller_group >;
                 h::extract( view_n( msg.data(), msg.size() ) )
                     .match(
                         [&]( const auto& var ) {
+                                EMLABCPP_LOG( "Got a msg: " << var );
                                 msgs.push_back( var );
                         },
-                        [&]( const auto& ) {
+                        [&]( const auto& err ) {
+                                EMLABCPP_LOG( "Got an error: " << err );
                                 FAIL();
                         } );
         }
 };
+std::vector< testing::reactor_controller_variant > reactor_interface::msgs{};
 
 template < typename T >
 void executor_test_run( T& tf )

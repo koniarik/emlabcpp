@@ -21,7 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 
-#include "emlabcpp/experimental/testing/reactor_interface.h"
+#include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/static_function.h"
 
 #pragma once
@@ -32,25 +32,15 @@ class reactor_interface_adapter
 {
         using incoming_handler = static_function< bool( const controller_reactor_variant& ), 16 >;
 
-        reactor_interface& iface_;
-        incoming_handler   h_{};
+        reactor_transmit_callback transmit_;
+        incoming_handler          h_{};
 
         static constexpr std::size_t read_limit_ = 10;
 
 public:
-        reactor_interface_adapter( reactor_interface& iface )
-          : iface_( iface )
+        reactor_interface_adapter( reactor_transmit_callback tb )
+          : transmit_( std::move( tb ) )
         {
-        }
-
-        reactor_interface& operator*()
-        {
-                return iface_;
-        }
-
-        reactor_interface* operator->()
-        {
-                return &iface_;
         }
 
         void reply( const reactor_controller_variant& );

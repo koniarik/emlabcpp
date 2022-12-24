@@ -26,10 +26,16 @@ struct collect_reply
         node_id nid;
 };
 
-using server_client_collect_group = std::variant< collect_reply, tree_error_reply >;
+using collect_server_client_group = std::variant< collect_reply, tree_error_reply >;
+using collect_server_client_message =
+    typename protocol::handler< collect_server_client_group >::message_type;
+using collect_client_server_message = typename protocol::handler< collect_request >::message_type;
 
-using collect_reply_callback = static_function< void( const server_client_collect_group& ), 32 >;
-using collect_send_callback  = function_view< void( std::span< const uint8_t > ) >;
+using collect_reply_callback = static_function< void( const collect_server_client_group& ), 32 >;
+using collect_client_transmit_callback =
+    static_function< void( const collect_client_server_message& ), 32 >;
+using collect_server_transmit_callback =
+    static_function< void( const collect_server_client_message& ), 32 >;
 
 class collector;
 
@@ -66,7 +72,7 @@ public:
 class collector
 {
 public:
-        collector( collect_send_callback send_cb );
+        collector( collect_client_transmit_callback send_cb );
 
         collector( const collector& )            = delete;
         collector( collector&& )                 = delete;
@@ -74,7 +80,7 @@ public:
         collector& operator=( collector&& )      = delete;
 
         void on_msg( const std::span< const uint8_t >& msg );
-        void on_msg( const server_client_collect_group& var );
+        void on_msg( const collect_server_client_group& var );
 
         collect_awaiter set( node_id parent, std::string_view key, contiguous_container_type t );
         collect_awaiter append( node_id parent, contiguous_container_type t );
@@ -97,23 +103,23 @@ public:
 private:
         void send( const collect_request& req );
 
-        collect_reply_callback reply_callback_;
-        collect_send_callback  send_cb_;
+        collect_reply_callback           reply_callback_;
+        collect_client_transmit_callback send_cb_;
 };
 
 class collect_server
 {
 public:
-        collect_server( pmr::memory_resource& mem_res, collect_send_callback send_cb );
+        collect_server( pmr::memory_resource& mem_res, collect_server_transmit_callback send_cb );
 
         void on_msg( std::span< const uint8_t > data );
         void on_msg( const collect_request& req );
 
 private:
-        void send( const server_client_collect_group& val );
+        void send( const collect_server_client_group& val );
 
-        data_tree             tree_;
-        collect_send_callback send_cb_;
+        data_tree                        tree_;
+        collect_server_transmit_callback send_cb_;
 };
 
 }  // namespace emlabcpp::testing
