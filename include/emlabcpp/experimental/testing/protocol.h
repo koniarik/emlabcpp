@@ -215,7 +215,7 @@ struct packet_def
 };
 
 using packet   = protocol::packet< packet_def, packet_payload >;
-using endpoint = protocol::endpoint< packet, packet >;
+using endpoint = protocol::multiplexed_endpoint< packet >;
 using message  = typename packet::message_type;
 
 }  // namespace emlabcpp::testing

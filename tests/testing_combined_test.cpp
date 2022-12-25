@@ -14,12 +14,6 @@ namespace emlabcpp
 
 struct controller_iface : testing::controller_interface
 {
-        testing::reactor* reac = nullptr;
-
-        void transmit( const testing::controller_reactor_message& data )
-        {
-                reac->on_msg( data );
-        }
         void on_result( const testing::test_result& )
         {
         }
@@ -31,16 +25,19 @@ struct controller_iface : testing::controller_interface
 TEST( testing_combined, base )
 {
         testing::controller* con_ptr;
-        auto                 reactor_send_f = [&]( auto data ) {
+        testing::reactor*    reac_ptr;
+        auto                 reactor_send_f = [&]( const auto& data ) {
                 con_ptr->on_msg( data );
         };
-
-        controller_iface ciface;
+        auto contr_send_f = [&]( const auto& data ) {
+                reac_ptr->on_msg( data );
+        };
 
         testing::reactor reac{ "reac", reactor_send_f };
-        ciface.reac = &reac;
+        reac_ptr = &reac;
 
-        testing::controller cont{ pmr::new_delete_resource(), ciface };
+        controller_iface ciface;
+        testing::controller cont{ pmr::new_delete_resource(), ciface, contr_send_f };
         con_ptr = &cont;
 
         simple_test_fixture tf{ "test" };
@@ -65,17 +62,6 @@ TEST( testing_combined, base )
 
 struct complex_controller_iface : testing::controller_interface
 {
-        complex_controller_iface( testing::controller_transmit_callback cb )
-          : cb_( std::move( cb ) )
-        {
-        }
-
-        testing::controller_transmit_callback cb_;
-
-        void transmit( const testing::controller_reactor_message& data )
-        {
-                cb_( data );
-        }
         void on_result( const testing::test_result& )
         {
         }
@@ -86,11 +72,11 @@ struct complex_controller_iface : testing::controller_interface
 
 struct host_items
 {
-        complex_controller_iface   ciface{ [&]( const auto& data ) {
-                send( testing::core_channel, data );
-        } };
-        testing::controller        cont{ pmr::new_delete_resource(), ciface };
-        testing::collect_server    col_serv{ pmr::new_delete_resource(), [&]( const auto& data ) {
+        complex_controller_iface ciface{};
+        testing::controller      cont{ pmr::new_delete_resource(), ciface, [&]( const auto& data ) {
+                                         send( testing::core_channel, data );
+                                 } };
+        testing::collect_server  col_serv{ pmr::new_delete_resource(), [&]( const auto& data ) {
                                                  send( testing::collect_channel, data );
                                          } };
         testing::parameters_server param_serv{
@@ -105,20 +91,17 @@ struct host_items
         template < std::size_t N >
         void send( protocol::channel_type channel, const protocol::message< N >& data )
         {
-                cb( ep.serialize(
-                    std::make_tuple( channel, protocol::sizeless_message< 64 >{ data } ) ) );
+                cb( ep.serialize( channel, data ) );
         }
 
         void on_msg( const std::span< const uint8_t > data )
         {
                 ep.insert( data );
-                match(
-                    ep.get_value(),
+                ep.match_value(
                     [&]( std::size_t ) {
                             FAIL();
                     },
-                    [&]( const auto& payload ) {
-                            const auto& [channel, data] = payload;
+                    [&]( protocol::channel_type channel, const auto& data ) {
                             switch ( channel ) {
                             case testing::core_channel:
                                     cont.on_msg( data );
@@ -155,20 +138,17 @@ struct dev_items
         template < std::size_t N >
         void send( protocol::channel_type channel, const protocol::message< N >& data )
         {
-                cb( ep.serialize(
-                    std::make_tuple( channel, protocol::sizeless_message< 64 >{ data } ) ) );
+                cb( ep.serialize( channel, data ) );
         }
 
         void on_msg( const std::span< const uint8_t > data )
         {
                 ep.insert( data );
-                match(
-                    ep.get_value(),
+                ep.match_value(
                     [&]( std::size_t ) {
                             FAIL();
                     },
-                    [&]( const auto& payload ) {
-                            const auto& [channel, data] = payload;
+                    [&]( protocol::channel_type channel, const auto& data ) {
                             switch ( channel ) {
                             case testing::core_channel:
                                     reac.on_msg( data );

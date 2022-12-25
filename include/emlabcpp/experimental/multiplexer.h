@@ -1,4 +1,5 @@
 
+#include "emlabcpp/protocol/endpoint.h"
 #include "emlabcpp/protocol/handler.h"
 #include "emlabcpp/protocol/tuple.h"
 #include "emlabcpp/static_vector.h"
@@ -62,5 +63,56 @@ bool extract_multiplexed(
             } )
             .join();
 }
+
+template < typename Packet >
+class multiplexed_endpoint
+{
+public:
+        using message_type    = Packet::message_type;
+        using payload_message = typename Packet::payload_type::nth_def< 1 >;
+        
+
+        // TODO: !!! use "has_static_size" concept!
+        // TODO: maybe message_like concept?
+        template < std::size_t N >
+        message_type serialize( channel_type chann, const message< N >& msg )
+        {
+                return ep.serialize( std::make_tuple( chann, payload_message{ msg } ) );
+        }
+
+        template < std::size_t N >
+        message_type serialize( channel_type chann, const sizeless_message< N >& msg )
+        {
+                return ep.serialize( std::make_tuple( chann, payload_message{ msg } ) );
+        }
+
+        template < typename Container >
+        void insert( Container&& data )
+        {
+                ep.insert( std::forward< Container >( data ) );
+        }
+
+        std::variant< std::size_t, std::tuple< channel_type, payload_message >, error_record >
+        get_value()
+        {
+                return ep.get_value();
+        }
+
+        template < typename NextCallable, typename ValueCallable, typename ErrorCallable >
+        auto match_value( NextCallable&& nc, ValueCallable&& vc, ErrorCallable&& ec )
+        {
+                return match(
+                    ep.get_value(),
+                    std::forward< NextCallable >( nc ),
+                    [&vc]< typename T >( T&& payload ) {
+                            return std::apply(
+                                std::forward< ValueCallable >( vc ), std::forward< T >( payload ) );
+                    },
+                    std::forward< ErrorCallable >( ec ) );
+        }
+
+private:
+        endpoint< Packet, Packet > ep;
+};
 
 }  // namespace emlabcpp::protocol

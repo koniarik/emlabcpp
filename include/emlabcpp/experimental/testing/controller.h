@@ -48,9 +48,12 @@ class controller
         using states = std::variant< initializing_state, test_running_state, idle_state >;
 
 public:
-        controller( pmr::memory_resource& mem_res, controller_interface& iface )
+        controller(
+            pmr::memory_resource&        mem_res,
+            controller_interface&        iface,
+            controller_transmit_callback send_cb )
           : mem_res_( mem_res )
-          , iface_( iface )
+          , iface_( iface, send_cb )
           , tests_( mem_res )
         {
                 initializing_state* i_state_ptr = std::get_if< initializing_state >( &state_ );

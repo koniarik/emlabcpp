@@ -13,10 +13,14 @@ class controller_interface_adapter
         static constexpr std::size_t read_limit_ = 10;
 
         static_function< bool( const reactor_controller_variant& ), 32 > reply_cb_;
+        controller_transmit_callback                                     send_cb_;
 
 public:
-        explicit controller_interface_adapter( controller_interface& iface )
+        explicit controller_interface_adapter(
+            controller_interface&        iface,
+            controller_transmit_callback send_cb )
           : iface_( iface )
+          , send_cb_( send_cb )
         {
         }
 
@@ -24,7 +28,7 @@ public:
         {
                 using h  = protocol::handler< controller_reactor_group >;
                 auto msg = h::serialize( var );
-                iface_.transmit( msg );
+                send_cb_( msg );
         }
 
         controller_interface* operator->()
