@@ -49,33 +49,29 @@ inline ::testing::AssertionResult gtest_predicate( const char*, const test_resul
 
 class gtest : public ::testing::Test
 {
-        std::optional< controller >   opt_con_;
-        test_id                       tid_;
-        std::shared_ptr< controller > cont_ptr_;
+        test_id     tid_;
+        controller& cont_;
 
 public:
-        gtest( std::shared_ptr< controller > controller_ptr, test_id tid )
-          : opt_con_()
-          , tid_( tid )
-          , cont_ptr_( controller_ptr )
+        gtest( controller& cont, test_id tid )
+          : tid_( tid )
+          , cont_( cont )
         {
         }
 
         void TestBody() final
         {
-                cont_ptr_->start_test( tid_ );
-                while ( cont_ptr_->is_test_running() ) {
-                        cont_ptr_->tick();
+                cont_.start_test( tid_ );
+                while ( cont_.is_test_running() ) {
+                        cont_.tick();
                 }
         }
 };
 
-void register_gtests( controller_interface& ci )
+void register_gtests( controller& cont )
 {
-        auto controller_ptr = std::make_shared< controller >( pmr::new_delete_resource(), ci );
-
-        std::string suite_name = std::string{ controller_ptr->suite_name() };
-        for ( auto [tid, tinfo] : controller_ptr->get_tests() ) {
+        std::string suite_name = std::string{ cont.suite_name() };
+        for ( auto [tid, tinfo] : cont.get_tests() ) {
                 std::string name{ tinfo.name.begin(), tinfo.name.end() };
                 test_id     test_id = tid;
                 ::testing::RegisterTest(
@@ -85,8 +81,8 @@ void register_gtests( controller_interface& ci )
                     nullptr,
                     __FILE__,
                     __LINE__,
-                    [controller_ptr, test_id] {
-                            return new gtest( controller_ptr, test_id );
+                    [&cont, test_id] {
+                            return new gtest( cont, test_id );
                     } );
         }
 }

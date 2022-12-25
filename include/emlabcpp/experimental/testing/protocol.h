@@ -191,6 +191,11 @@ using controller_transmit_callback =
     static_function< void( const controller_reactor_message& ), 32 >;
 
 using packet_payload = protocol::multiplexer_payload< 64 >;
+// TODO: this needs rethinking /o\ entire multiplexer needs redesign?
+using packet_message = protocol::sizeless_message< 64 >;
+
+// TODO: this needs more constructive approach... why is it here?
+static constexpr protocol::channel_type core_channel = 1;
 
 struct packet_def
 {

@@ -21,6 +21,7 @@ void collect_awaiter::await_suspend( std::coroutine_handle< test_coroutine::prom
                             state = await_state::READY;
                     },
                     [&]( const tree_error_reply& err ) {
+                            std::ignore = err;
                             EMLABCPP_LOG( "Got an error: " << err );
                             state = await_state::ERRORED;
                     } );
@@ -40,7 +41,8 @@ void collector::on_msg( const std::span< const uint8_t >& msg )
                 [&]( const collect_server_client_group& req ) {
                         on_msg( req );
                 },
-                [&]( auto err ) {
+                [&]( const auto& err ) {
+                        std::ignore = err;
                         EMLABCPP_LOG( "Failed to extract msg: " << err );
                 } );
 }
@@ -92,7 +94,9 @@ void collector::send( const collect_request& req )
         send_cb_( h::serialize( req ) );
 }
 
-collect_server::collect_server( pmr::memory_resource& mem_res, collect_server_transmit_callback send_cb )
+collect_server::collect_server(
+    pmr::memory_resource&            mem_res,
+    collect_server_transmit_callback send_cb )
   : tree_( mem_res )
   , send_cb_( std::move( send_cb ) )
 {

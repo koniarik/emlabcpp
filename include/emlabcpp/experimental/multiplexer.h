@@ -8,10 +8,10 @@
 namespace emlabcpp::protocol
 {
 
-using port_type = uint16_t;
+using channel_type = uint16_t;
 
 template < std::size_t N >
-using multiplexer_payload = tuple< std::endian::little, port_type, sizeless_message< N > >;
+using multiplexer_payload = tuple< std::endian::little, channel_type, sizeless_message< N > >;
 
 template < std::size_t N >
 using multiplexer_value = typename multiplexer_payload< N >::value_type;
@@ -28,15 +28,15 @@ enum multiplexer_enum : uint8_t
         PROTOCOL_ERROR   = 1,
 };
 
-static constexpr port_type multiplexer_service_id = 0;
+static constexpr channel_type multiplexer_service_id = 0;
 
 using multiplexer_service_protocol = std::tuple< multiplexer_enum >;
 using multiplexer_service_msg      = typename handler< multiplexer_service_protocol >::message_type;
 
 template < std::size_t N >
-multiplexer_message< N > serialize_multiplexed( port_type port, const message< N >& m )
+multiplexer_message< N > serialize_multiplexed( channel_type channel, const message< N >& m )
 {
-        return multiplexer_handler< N >::serialize( std::make_tuple( port, m ) );
+        return multiplexer_handler< N >::serialize( std::make_tuple( channel, m ) );
 }
 
 template < std::size_t N, typename BinaryCallable, typename MsgCallable >

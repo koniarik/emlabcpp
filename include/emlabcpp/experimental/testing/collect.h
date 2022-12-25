@@ -10,6 +10,8 @@
 namespace emlabcpp::testing
 {
 
+static constexpr protocol::channel_type collect_channel = 2;
+
 using collect_key_type   = key_type_buffer;
 using collect_value_type = std::variant< value_type, contiguous_container_type >;
 

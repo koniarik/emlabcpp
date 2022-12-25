@@ -15,6 +15,18 @@ test_interface::test_interface( const std::string_view name )
 {
 }
 
+test_interface::test_interface( reactor& rec, const name_buffer& name )
+  : name( name )
+{
+        rec.register_test( *this );
+}
+
+test_interface::test_interface( reactor& rec, const std::string_view name )
+  : test_interface( name_to_buffer( name ) )
+{
+        rec.register_test( *this );
+}
+
 test_coroutine test_interface::setup( pmr::memory_resource&, record& )
 {
         co_return;

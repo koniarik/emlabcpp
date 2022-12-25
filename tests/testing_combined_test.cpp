@@ -87,11 +87,11 @@ struct complex_controller_iface : testing::controller_interface
 struct host_items
 {
         complex_controller_iface   ciface{ [&]( const auto& data ) {
-                send( 1, data );
+                send( em::testing::core_channel, data );
         } };
         testing::controller        cont{ pmr::new_delete_resource(), ciface };
         testing::collect_server    col_serv{ pmr::new_delete_resource(), [&]( const auto& data ) {
-                                                 send( 2, data );
+                                                 send( em::testing::collect_channel, data );
                                          } };
         testing::parameters_server param_serv{
             testing::data_tree{ pmr::new_delete_resource() },
@@ -103,10 +103,10 @@ struct host_items
         testing::endpoint                                   ep;
 
         template < std::size_t N >
-        void send( protocol::port_type port, const protocol::message< N >& data )
+        void send( protocol::channel_type channel, const protocol::message< N >& data )
         {
                 cb( ep.serialize(
-                    std::make_tuple( port, protocol::sizeless_message< 64 >{ data } ) ) );
+                    std::make_tuple( channel, protocol::sizeless_message< 64 >{ data } ) ) );
         }
 
         void on_msg( const std::span< const uint8_t > data )
@@ -118,17 +118,17 @@ struct host_items
                             FAIL();
                     },
                     [&]( const auto& payload ) {
-                            const auto& [port, data] = payload;
-                            switch ( port ) {
-                                    case 1:
-                                            cont.on_msg( data );
-                                            break;
-                                    case 2:
-                                            col_serv.on_msg( data );
-                                            break;
-                                    case 3:
-                                            param_serv.on_msg( data );
-                                            break;
+                            const auto& [channel, data] = payload;
+                            switch ( channel ) {
+                            case em::testing::core_channel:
+                                    cont.on_msg( data );
+                                    break;
+                            case em::testing::collect_channel:
+                                    col_serv.on_msg( data );
+                                    break;
+                            case 3:
+                                    param_serv.on_msg( data );
+                                    break;
                             }
                     },
                     [&]( protocol::error_record e ) {
@@ -140,10 +140,10 @@ struct host_items
 struct dev_items
 {
         testing::reactor    reac{ "reac", [&]( const auto& data ) {
-                                      send( 1, data );
+                                      send( em::testing::core_channel, data );
                               } };
         testing::collector  coll{ [&]( const auto& data ) {
-                send( 2, data );
+                send( em::testing::collect_channel, data );
         } };
         testing::parameters params{ [&]( const auto& data ) {
                 send( 3, data );
@@ -153,10 +153,10 @@ struct dev_items
         testing::endpoint                                   ep;
 
         template < std::size_t N >
-        void send( protocol::port_type port, const protocol::message< N >& data )
+        void send( protocol::channel_type channel, const protocol::message< N >& data )
         {
                 cb( ep.serialize(
-                    std::make_tuple( port, protocol::sizeless_message< 64 >{ data } ) ) );
+                    std::make_tuple( channel, protocol::sizeless_message< 64 >{ data } ) ) );
         }
 
         void on_msg( const std::span< const uint8_t > data )
@@ -168,17 +168,17 @@ struct dev_items
                             FAIL();
                     },
                     [&]( const auto& payload ) {
-                            const auto& [port, data] = payload;
-                            switch ( port ) {
-                                    case 1:
-                                            reac.on_msg( data );
-                                            break;
-                                    case 2:
-                                            coll.on_msg( data );
-                                            break;
-                                    case 3:
-                                            params.on_msg( data );
-                                            break;
+                            const auto& [channel, data] = payload;
+                            switch ( channel ) {
+                            case em::testing::core_channel:
+                                    reac.on_msg( data );
+                                    break;
+                            case em::testing::collect_channel:
+                                    coll.on_msg( data );
+                                    break;
+                            case 3:
+                                    params.on_msg( data );
+                                    break;
                             }
                     },
                     [&]( protocol::error_record e ) {
@@ -194,11 +194,11 @@ TEST( testing_combined, complex )
         dev_items  dev;
 
         host.cb = [&]( auto data ) {
-                EMLABCPP_LOG("to dev: " << data);
+                EMLABCPP_LOG( "to dev: " << data );
                 dev.on_msg( data );
         };
         dev.cb = [&]( auto data ) {
-                EMLABCPP_LOG("to host: " << data);
+                EMLABCPP_LOG( "to host: " << data );
                 host.on_msg( data );
         };
 
