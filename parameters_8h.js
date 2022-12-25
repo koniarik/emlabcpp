@@ -30,12 +30,12 @@ var parameters_8h =
     [ "params_client_server_group", "parameters_8h.html#a3817cdc1ac1517bf368ab18549947016", null ],
     [ "params_client_server_message", "parameters_8h.html#a939a4deb49e2c809aaee1251f9ff7373", null ],
     [ "params_client_server_variant", "parameters_8h.html#a3764dee64fdda404c0993a3ea42600ce", null ],
-    [ "params_client_transmit_callback", "parameters_8h.html#a646986d2b9a73ad99a267c0af1b4cb51", null ],
+    [ "params_client_transmit_callback", "parameters_8h.html#a6e3dd50d6925af6be839b383210caf6c", null ],
     [ "params_reply_callback", "parameters_8h.html#ad63c63d342408825c82efcf6014b2a4b", null ],
     [ "params_server_client_group", "parameters_8h.html#a5e58a267cd3278f4420c1437eaf179d6", null ],
     [ "params_server_client_message", "parameters_8h.html#a7e1f933b19818e29bac91fbe5811f8d5", null ],
     [ "params_server_client_variant", "parameters_8h.html#a2df72f608e4f6bdc15509ae107867d33", null ],
-    [ "params_server_transmit_callback", "parameters_8h.html#abb56523fa19b1b72dee2bfbe5db74670", null ],
+    [ "params_server_transmit_callback", "parameters_8h.html#a658300b4027d2a6149d265aa1f86c4e8", null ],
     [ "params_enum", "parameters_8h.html#abb07fe9541c63a9babdb6f577489443a", [
       [ "PARAM_VALUE", "parameters_8h.html#abb07fe9541c63a9babdb6f577489443aa5a762008e8eca4531fef87b0164b2cdf", null ],
       [ "PARAM_CHILD", "parameters_8h.html#abb07fe9541c63a9babdb6f577489443aa635fd949e556b317f5a5422ab69c45b5", null ],
@@ -43,5 +43,6 @@ var parameters_8h =
       [ "PARAM_KEY", "parameters_8h.html#abb07fe9541c63a9babdb6f577489443aa588a485ee5046bd1f4f654d5e58809af", null ],
       [ "PARAM_TYPE", "parameters_8h.html#abb07fe9541c63a9babdb6f577489443aa3624918944d320b7cc07f4ca99a99b91", null ],
       [ "PARAM_VALUE_KEY", "parameters_8h.html#abb07fe9541c63a9babdb6f577489443aa988a042b19386ddc31b0c9663700abab", null ]
-    ] ]
+    ] ],
+    [ "params_channel", "parameters_8h.html#ac9a51928f91d086811c026bf7c0c6798", null ]
 ];

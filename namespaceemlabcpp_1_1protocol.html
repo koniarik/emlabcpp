@@ -317,6 +317,9 @@ Functions</h2></td></tr>
 <tr class="memitem:abcf7387198936360e4c0741160b98700"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename BinaryCallable , typename MsgCallable &gt; </td></tr>
 <tr class="memitem:abcf7387198936360e4c0741160b98700"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#abcf7387198936360e4c0741160b98700">extract_multiplexed</a> (const std::span&lt; const uint8_t &gt; &amp;msg, BinaryCallable &amp;&amp;handle_cb, MsgCallable &amp;&amp;msg_cb)</td></tr>
 <tr class="separator:abcf7387198936360e4c0741160b98700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5474a4187292ed9f9d50b1a5a63547c3"><td class="memTemplParams" colspan="2">template&lt;typename... Slotted&gt; </td></tr>
+<tr class="memitem:a5474a4187292ed9f9d50b1a5a63547c3"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a5474a4187292ed9f9d50b1a5a63547c3">multiplexed_dispatch</a> (<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a> chann, const auto &amp;data, Slotted &amp;... slotted)</td></tr>
+<tr class="separator:a5474a4187292ed9f9d50b1a5a63547c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E&gt; </td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9">converter_for_impl</a> ()</td></tr>
 <tr class="separator:a8a42ec62524b9afc0195ff5f102300f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -947,6 +950,44 @@ template&lt;typename Map , typename UnaryCallable &gt; </div>
 <p>note: do not try to fix the argument type, this is correct approach.</p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>.</p>
+
+</div>
+</div>
+<a id="a5474a4187292ed9f9d50b1a5a63547c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5474a4187292ed9f9d50b1a5a63547c3">&#9670;&nbsp;</a></span>multiplexed_dispatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Slotted&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool emlabcpp::protocol::multiplexed_dispatch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a>&#160;</td>
+          <td class="paramname"><em>chann</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const auto &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Slotted &amp;...&#160;</td>
+          <td class="paramname"><em>slotted</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a>.</p>
 
 </div>
 </div>
@@ -1598,7 +1639,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Sun Dec 25 2022 18:07:31 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 25 2022 21:43:26 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

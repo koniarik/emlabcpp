@@ -1,7 +1,8 @@
 var classemlabcpp_1_1testing_1_1parameters =
 [
-    [ "parameters", "classemlabcpp_1_1testing_1_1parameters.html#a879f8f5e847cb875c6bc9e6ceed64893", null ],
+    [ "parameters", "classemlabcpp_1_1testing_1_1parameters.html#aa803950e166c898aebf70f7da2192ee1", null ],
     [ "exchange", "classemlabcpp_1_1testing_1_1parameters.html#aca339e77aa1c300a080f37e8fb6e9ec8", null ],
+    [ "get_channel", "classemlabcpp_1_1testing_1_1parameters.html#a3688f2e3972422c57948613f689466b1", null ],
     [ "get_child", "classemlabcpp_1_1testing_1_1parameters.html#a5170f7fbb22c08629b0c80022ef22b5b", null ],
     [ "get_child", "classemlabcpp_1_1testing_1_1parameters.html#abc5ac3ed0fad38859b00c5f11c9f52ab", null ],
     [ "get_child", "classemlabcpp_1_1testing_1_1parameters.html#a84e86a6d1e5e8ea43a54883c8441c8a0", null ],

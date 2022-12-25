@@ -13,12 +13,12 @@ var collect_8h =
     [ "collector", "classemlabcpp_1_1testing_1_1collector.html", "classemlabcpp_1_1testing_1_1collector" ],
     [ "collect_server", "classemlabcpp_1_1testing_1_1collect__server.html", "classemlabcpp_1_1testing_1_1collect__server" ],
     [ "collect_client_server_message", "collect_8h.html#a394ba6099a6530516b2ddb88f9254612", null ],
-    [ "collect_client_transmit_callback", "collect_8h.html#ab74e5653ac145cf2f860b79ad13c659d", null ],
+    [ "collect_client_transmit_callback", "collect_8h.html#acf8a3025427d0866864027f255874d5f", null ],
     [ "collect_key_type", "collect_8h.html#ab06e7bc9409e4ce5bca0d5c24b3f8c54", null ],
     [ "collect_reply_callback", "collect_8h.html#ab819765634c50c04dbea447f617c26f2", null ],
     [ "collect_server_client_group", "collect_8h.html#ab2a20a39928284e80ca27466da77a4c1", null ],
     [ "collect_server_client_message", "collect_8h.html#a8f31210bf94829b46e3ed0373409b3c8", null ],
-    [ "collect_server_transmit_callback", "collect_8h.html#a15464624d601172206c8a5d814c62f3f", null ],
+    [ "collect_server_transmit_callback", "collect_8h.html#a1c4b06aae859bb4636f4a9025f909dc1", null ],
     [ "collect_value_type", "collect_8h.html#abb99f2b435a1233d2af64136bcd8ae17", null ],
     [ "collect_channel", "collect_8h.html#a99f1151dbb3866e17e7c5d4b51f8a090", null ]
 ];

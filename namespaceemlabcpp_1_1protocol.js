@@ -96,6 +96,7 @@ var namespaceemlabcpp_1_1protocol =
     [ "extract_multiplexed", "namespaceemlabcpp_1_1protocol.html#abcf7387198936360e4c0741160b98700", null ],
     [ "for_each_register", "namespaceemlabcpp_1_1protocol.html#a25417e5baf4dcb0a348bb0e6e5ea83a2", null ],
     [ "make_mark", "namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be", null ],
+    [ "multiplexed_dispatch", "namespaceemlabcpp_1_1protocol.html#a5474a4187292ed9f9d50b1a5a63547c3", null ],
     [ "operator<<", "namespaceemlabcpp_1_1protocol.html#a16e17e9ab911b5545219ad5745d5ef2b", null ],
     [ "operator<<", "namespaceemlabcpp_1_1protocol.html#af249a28fd2e4a8061fae1a3efa82a658", null ],
     [ "operator<<", "namespaceemlabcpp_1_1protocol.html#a78012bf92df942bfb241c7e097c87846", null ],

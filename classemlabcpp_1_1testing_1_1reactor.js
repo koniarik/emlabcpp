@@ -1,8 +1,9 @@
 var classemlabcpp_1_1testing_1_1reactor =
 [
-    [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html#a13a7c6d708cd6fa28c7016c8a14a9525", null ],
+    [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html#abb379bd85dbd7d7c4222d5207eb7b5b2", null ],
     [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html#a49388eaa347437b2abf55b913fc393ad", null ],
     [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html#a9dcc1bf28271a1ed63bbbf862b25c10a", null ],
+    [ "get_channel", "classemlabcpp_1_1testing_1_1reactor.html#ac7265033bad012729f9fddc18f3f409c", null ],
     [ "on_msg", "classemlabcpp_1_1testing_1_1reactor.html#a0f01f3461095f744b82d806bffa701c1", null ],
     [ "on_msg", "classemlabcpp_1_1testing_1_1reactor.html#aa68b0e2af6cb386da25f7d2ef663b803", null ],
     [ "operator=", "classemlabcpp_1_1testing_1_1reactor.html#affb1a3ee1431f1405461d178d3c27342", null ],

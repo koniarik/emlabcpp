@@ -117,6 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab92c599d18670cc68a1cf5cc2c00fef8"><td class="memTemplParams" colspan="2">template&lt;typename NextCallable , typename ValueCallable , typename ErrorCallable &gt; </td></tr>
 <tr class="memitem:ab92c599d18670cc68a1cf5cc2c00fef8"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#ab92c599d18670cc68a1cf5cc2c00fef8">match_value</a> (NextCallable &amp;&amp;nc, ValueCallable &amp;&amp;vc, ErrorCallable &amp;&amp;ec)</td></tr>
 <tr class="separator:ab92c599d18670cc68a1cf5cc2c00fef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae09fbf201515782ec16e8ac99cfce44f"><td class="memTemplParams" colspan="2">template&lt;typename... Slotted&gt; </td></tr>
+<tr class="memitem:ae09fbf201515782ec16e8ac99cfce44f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#ae09fbf201515782ec16e8ac99cfce44f">dispatch_value</a> (Slotted &amp;... slotted)</td></tr>
+<tr class="separator:ae09fbf201515782ec16e8ac99cfce44f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ab13bd2645ac91d230bfa57a4fabbfb01"></a>
@@ -152,6 +155,38 @@ template&lt;typename Packet &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae09fbf201515782ec16e8ac99cfce44f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae09fbf201515782ec16e8ac99cfce44f">&#9670;&nbsp;</a></span>dispatch_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Packet &gt; </div>
+<div class="memtemplate">
+template&lt;typename... Slotted&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html">emlabcpp::protocol::multiplexed_endpoint</a>&lt; Packet &gt;::dispatch_value </td>
+          <td>(</td>
+          <td class="paramtype">Slotted &amp;...&#160;</td>
+          <td class="paramname"><em>slotted</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html#acf5cee46fc0fe200a434352cdb44180b">emlabcpp::protocol::endpoint&lt; InputPacket, OutputPacket &gt;::get_value()</a>, and <a class="el" href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match()</a>.</p>
+
+</div>
+</div>
 <a id="a7962c3b01af1b1a0b0e89bd53a7c4100"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7962c3b01af1b1a0b0e89bd53a7c4100">&#9670;&nbsp;</a></span>get_value()</h2>
 
@@ -354,7 +389,7 @@ template&lt;std::size_t N&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html">multiplexed_endpoint</a></li>
-    <li class="footer">Generated on Sun Dec 25 2022 18:07:31 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 25 2022 21:43:26 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
