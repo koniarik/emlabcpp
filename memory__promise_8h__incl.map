@@ -1,10 +1,10 @@
 <map id="include/emlabcpp/experimental/coro/memory_promise.h" name="include/emlabcpp/experimental/coro/memory_promise.h">
-<area shape="rect" id="node1" title=" " alt="" coords="169,5,397,47"/>
-<area shape="rect" id="node2" href="$memory__resource_8h.html" title=" " alt="" coords="5,95,180,136"/>
-<area shape="rect" id="node4" href="$throw__bad__alloc_8h.html" title=" " alt="" coords="205,95,362,136"/>
-<area shape="rect" id="node7" href="$logging_8h.html" title=" " alt="" coords="387,95,564,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="57,184,128,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="209,184,275,211"/>
-<area shape="rect" id="node6" title=" " alt="" coords="299,184,348,211"/>
-<area shape="rect" id="node8" title=" " alt="" coords="427,184,524,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="180,5,408,47"/>
+<area shape="rect" id="node2" href="$logging_8h.html" title=" " alt="" coords="5,95,183,136"/>
+<area shape="rect" id="node4" href="$memory__resource_8h.html" title=" " alt="" coords="207,95,381,136"/>
+<area shape="rect" id="node6" href="$throw__bad__alloc_8h.html" title=" " alt="" coords="406,95,563,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="45,184,143,211"/>
+<area shape="rect" id="node5" title=" " alt="" coords="259,184,329,211"/>
+<area shape="rect" id="node7" title=" " alt="" coords="411,184,476,211"/>
+<area shape="rect" id="node8" title=" " alt="" coords="500,184,549,211"/>
 </map>
