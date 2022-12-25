@@ -69,16 +69,9 @@ public:
         bool done() const
         {
                 if ( h_ ) {
-                        return h_->done();
+                        return h_.done();
                 }
                 return true;
-        }
-
-        void destroy()
-        {
-                if ( h_ ) {
-                        h_->destroy();
-                }
         }
 
         // TODO: this is shady API as fuck
@@ -87,8 +80,8 @@ public:
                 if ( !h_ ) {
                         return;
                 }
-                if ( h_->promise().iface != nullptr ) {
-                        await_state s = h_->promise().iface->get_state();
+                if ( h_.promise().iface != nullptr ) {
+                        await_state s = h_.promise().iface->get_state();
                         if ( s == await_state::WAITING ) {
                                 return;
                         } else if ( s == await_state::ERRORED ) {
@@ -97,7 +90,7 @@ public:
                                 return;
                         }
                 }
-                if ( !h_->done() ) {
+                if ( !h_.done() ) {
                         h_();
                 }
         }

@@ -89,17 +89,17 @@ public:
                         EMLABCPP_LOG( "Can't extract request from empty handle" );
                         return nullptr;
                 }
-                if ( !h_->promise().request.has_value() ) {
-                        EMLABCPP_LOG( "No request in coroutine at " << &h_->promise().request );
+                if ( !h_.promise().request.has_value() ) {
+                        EMLABCPP_LOG( "No request in coroutine at " << &h_.promise().request );
                         return nullptr;
                 }
-                return &*h_->promise().request;
+                return &*h_.promise().request;
         }
 
         bool has_reply()
         {
                 if ( h_ ) {
-                        return h_->promise().reply.has_value();
+                        return h_.promise().reply.has_value();
                 } else {
                         EMLABCPP_LOG( "Can't check reply in empty handle" );
                         return false;
@@ -109,7 +109,7 @@ public:
         void store_reply( const ReplyType& inpt )
         {
                 if ( h_ ) {
-                        h_->promise().reply = inpt;
+                        h_.promise().reply = inpt;
                 } else {
                         EMLABCPP_LOG( "Can't store reply in empty handle" );
                 }
@@ -117,17 +117,17 @@ public:
 
         [[nodiscard]] operator bool() const
         {
-                return h_->done();
+                return h_.done();
         }
 
         [[nodiscard]] bool done() const
         {
-                return h_->done();
+                return h_.done();
         }
 
         [[nodiscard]] bool tick()
         {
-                if ( !h_->promise().reply ) {
+                if ( !h_.promise().reply ) {
                         EMLABCPP_LOG( "Can't tick coroutine " << address() << ", no reply" );
                         return false;
                 }
@@ -135,20 +135,20 @@ public:
                         EMLABCPP_LOG( "No handle in coroutine " << address() );
                         return false;
                 }
-                if ( h_->done() ) {
+                if ( h_.done() ) {
                         EMLABCPP_LOG(
                             "Ticking coroutine " << address() << " that is finished - skipping" );
                         return false;
                 }
-                h_->promise().request.reset();
-                h_->resume();
-                h_->promise().reply.reset();
+                h_.promise().request.reset();
+                h_();
+                h_.promise().reply.reset();
                 return true;
         }
 
         void* address() const
         {
-                return h_->address();
+                return h_.address();
         }
 
 private:

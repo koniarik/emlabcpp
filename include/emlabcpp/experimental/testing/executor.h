@@ -57,7 +57,7 @@ public:
                         if ( rec_.errored() ) {
                                 failed_ = true;
                         }
-                        coro_.destroy();
+                        coro_ = test_coroutine();
                         coro_ = test_.run( mem_, rec_ );
                         phas_ = phase::RUN;
                         break;
@@ -66,7 +66,7 @@ public:
                                 coro_.tick();
                                 break;
                         }
-                        coro_.destroy();
+                        coro_ = test_coroutine();
                         coro_ = test_.teardown( mem_, rec_ );
                         phas_ = phase::TEARDOWN;
                         break;

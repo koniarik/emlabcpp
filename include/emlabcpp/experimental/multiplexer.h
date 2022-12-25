@@ -70,7 +70,6 @@ class multiplexed_endpoint
 public:
         using message_type    = Packet::message_type;
         using payload_message = typename Packet::payload_type::nth_def< 1 >;
-        
 
         // TODO: !!! use "has_static_size" concept!
         // TODO: maybe message_like concept?
@@ -104,9 +103,8 @@ public:
                 return match(
                     ep.get_value(),
                     std::forward< NextCallable >( nc ),
-                    [&vc]< typename T >( T&& payload ) {
-                            return std::apply(
-                                std::forward< ValueCallable >( vc ), std::forward< T >( payload ) );
+                    [&vc]( const std::tuple< channel_type, payload_message >& payload ) {
+                            return std::apply( std::forward< ValueCallable >( vc ), payload );
                     },
                     std::forward< ErrorCallable >( ec ) );
         }

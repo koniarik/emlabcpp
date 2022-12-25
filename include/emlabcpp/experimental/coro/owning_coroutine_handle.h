@@ -28,8 +28,7 @@ public:
         owning_coroutine_handle& operator=( const owning_coroutine_handle& ) = delete;
         owning_coroutine_handle& operator=( owning_coroutine_handle&& other ) noexcept
         {
-                h_       = other.h_;
-                other.h_ = std::coroutine_handle< promise_type >{ nullptr };
+                std::swap( h_, other.h_ );
                 return *this;
         }
 
@@ -38,23 +37,33 @@ public:
                 h_();
         }
 
-        explicit operator bool() const
+        constexpr explicit operator bool() const
         {
                 return bool( h_ );
         }
 
-        const std::coroutine_handle< promise_type >& operator*() const
+        constexpr bool done() const
         {
-                return h_;
+                return h_.done();
         }
-        const std::coroutine_handle< promise_type >* operator->() const
+        constexpr void* address() const
         {
-                return &h_;
+                return h_.address();
+        }
+
+        constexpr promise_type& promise()
+        {
+                return h_.promise();
+        }
+
+        constexpr const promise_type& promise() const
+        {
+                return h_.promise();
         }
 
         ~owning_coroutine_handle()
         {
-                if ( h_ && !h_.done() ) {
+                if ( h_ ) {
                         h_.destroy();
                 }
         }
