@@ -64,6 +64,20 @@ bool extract_multiplexed(
             .join();
 }
 
+template < typename... Slotted >
+bool multiplexed_dispatch( channel_type chann, const auto& data, Slotted&... slotted )
+{
+        // TODO: assert that channels are unique
+        auto f = [&]< typename T >( T& item ) {
+                if ( chann == item.get_channel() ) {
+                        item.on_msg( data );
+                        return true;
+                }
+                return false;
+        };
+        return ( f( slotted ) || ... || false );
+}
+
 template < typename Packet >
 class multiplexed_endpoint
 {
@@ -107,6 +121,23 @@ public:
                             return std::apply( std::forward< ValueCallable >( vc ), payload );
                     },
                     std::forward< ErrorCallable >( ec ) );
+        }
+
+        template < typename... Slotted >
+        bool dispatch_value( Slotted&... slotted )
+        {
+                return match(
+                    ep.get_value(),
+                    []( std::size_t ) {
+                            return true;
+                    },
+                    [&]( const std::tuple< channel_type, payload_message >& payload ) {
+                            const auto& [id, data] = payload;
+                            return multiplexed_dispatch( id, data, slotted... );
+                    },
+                    []( const error_record& ) {
+                            return false;
+                    } );
         }
 
 private:

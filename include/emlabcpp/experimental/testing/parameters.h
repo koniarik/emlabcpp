@@ -10,6 +10,8 @@
 namespace emlabcpp::testing
 {
 
+static constexpr protocol::channel_type params_channel = 3;
+
 enum params_enum : uint8_t
 {
         PARAM_VALUE       = 0x10,
@@ -124,9 +126,9 @@ using params_server_client_message =
 
 using params_reply_callback = static_function< void( const params_server_client_variant& ), 32 >;
 using params_client_transmit_callback =
-    static_function< void( const params_client_server_message& ), 32 >;
+    static_function< void( protocol::channel_type, const params_client_server_message& ), 32 >;
 using params_server_transmit_callback =
-    static_function< void( const params_server_client_message& ), 32 >;
+    static_function< void( protocol::channel_type, const params_server_client_message& ), 32 >;
 
 class parameters;
 
@@ -254,7 +256,12 @@ extern template class params_awaiter< param_key_processor >;
 class parameters
 {
 public:
-        parameters( params_client_transmit_callback send_cb );
+        parameters( protocol::channel_type chann, params_client_transmit_callback send_cb );
+
+        protocol::channel_type get_channel()
+        {
+                return channel_;
+        }
 
         void on_msg( std::span< const uint8_t > data );
         void on_msg( const params_server_client_variant& req );
@@ -296,6 +303,7 @@ public:
         void send( const params_client_server_variant& val );
 
 private:
+        protocol::channel_type          channel_;
         params_reply_callback           reply_cb_;
         params_client_transmit_callback send_cb_;
 };
@@ -319,7 +327,15 @@ void params_awaiter< Processor >::await_suspend(
 class parameters_server
 {
 public:
-        parameters_server( data_tree tree, params_server_transmit_callback send_cb );
+        parameters_server(
+            protocol::channel_type          chann,
+            data_tree                       tree,
+            params_server_transmit_callback send_cb );
+        
+        protocol::channel_type get_channel()
+        {
+                return channel_;
+        }
 
         void on_msg( std::span< const uint8_t > data );
         void on_msg( const params_client_server_variant& req );
@@ -335,6 +351,7 @@ private:
         reply_node_error( const contiguous_request_adapter_errors_enum err, const node_id nid );
         void send( const params_server_client_variant& var );
 
+        protocol::channel_type          channel_;
         data_tree                       tree_;
         params_server_transmit_callback send_cb_;
 };

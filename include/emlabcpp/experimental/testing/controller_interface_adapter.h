@@ -8,18 +8,19 @@ namespace emlabcpp::testing
 
 class controller_interface_adapter
 {
-        controller_interface& iface_;
-
-        static constexpr std::size_t read_limit_ = 10;
+        protocol::channel_type channel_;
+        controller_interface&  iface_;
 
         static_function< bool( const reactor_controller_variant& ), 32 > reply_cb_;
         controller_transmit_callback                                     send_cb_;
 
 public:
         explicit controller_interface_adapter(
+            protocol::channel_type       channel,
             controller_interface&        iface,
             controller_transmit_callback send_cb )
-          : iface_( iface )
+          : channel_( channel )
+          , iface_( iface )
           , send_cb_( std::move( send_cb ) )
         {
         }
@@ -28,7 +29,7 @@ public:
         {
                 using h  = protocol::handler< controller_reactor_group >;
                 auto msg = h::serialize( var );
-                send_cb_( msg );
+                send_cb_( channel_, msg );
         }
 
         controller_interface* operator->()

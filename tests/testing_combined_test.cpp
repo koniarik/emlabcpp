@@ -26,18 +26,18 @@ TEST( testing_combined, base )
 {
         testing::controller* con_ptr;
         testing::reactor*    reac_ptr;
-        auto                 reactor_send_f = [&]( const auto& data ) {
+        auto                 reactor_send_f = [&]( auto, const auto& data ) {
                 con_ptr->on_msg( data );
         };
-        auto contr_send_f = [&]( const auto& data ) {
+        auto contr_send_f = [&]( auto, const auto& data ) {
                 reac_ptr->on_msg( data );
         };
 
-        testing::reactor reac{ "reac", reactor_send_f };
+        testing::reactor reac{ 0, "reac", reactor_send_f };
         reac_ptr = &reac;
 
-        controller_iface ciface;
-        testing::controller cont{ pmr::new_delete_resource(), ciface, contr_send_f };
+        controller_iface    ciface;
+        testing::controller cont{ 0, pmr::new_delete_resource(), ciface, contr_send_f };
         con_ptr = &cont;
 
         simple_test_fixture tf{ "test" };
@@ -73,16 +73,24 @@ struct complex_controller_iface : testing::controller_interface
 struct host_items
 {
         complex_controller_iface ciface{};
-        testing::controller      cont{ pmr::new_delete_resource(), ciface, [&]( const auto& data ) {
-                                         send( testing::core_channel, data );
-                                 } };
-        testing::collect_server  col_serv{ pmr::new_delete_resource(), [&]( const auto& data ) {
-                                                 send( testing::collect_channel, data );
-                                         } };
+        testing::controller      cont{
+            testing::core_channel,
+            pmr::new_delete_resource(),
+            ciface,
+            [&]( auto chan, const auto& data ) {
+                    send( chan, data );
+            } };
+        testing::collect_server col_serv{
+            testing::collect_channel,
+            pmr::new_delete_resource(),
+            [&]( auto chan, const auto& data ) {
+                    send( chan, data );
+            } };
         testing::parameters_server param_serv{
+            testing::params_channel,
             testing::data_tree{ pmr::new_delete_resource() },
-            [&]( const auto& data ) {
-                    send( 3, data );
+            [&]( auto chan, const auto& data ) {
+                    send( chan, data );
             } };
 
         std::function< void( std::span< const uint8_t > ) > cb;
@@ -97,40 +105,21 @@ struct host_items
         void on_msg( const std::span< const uint8_t > data )
         {
                 ep.insert( data );
-                ep.match_value(
-                    [&]( std::size_t ) {
-                            FAIL();
-                    },
-                    [&]( protocol::channel_type channel, const auto& data ) {
-                            switch ( channel ) {
-                            case testing::core_channel:
-                                    cont.on_msg( data );
-                                    break;
-                            case testing::collect_channel:
-                                    col_serv.on_msg( data );
-                                    break;
-                            case 3:
-                                    param_serv.on_msg( data );
-                                    break;
-                            }
-                    },
-                    [&]( protocol::error_record e ) {
-                            FAIL() << e;
-                    } );
+                ep.dispatch_value( cont, col_serv, param_serv );
         }
 };
 
 struct dev_items
 {
-        testing::reactor    reac{ "reac", [&]( const auto& data ) {
-                                      send( testing::core_channel, data );
+        testing::reactor   reac{ testing::core_channel, "reac", [&]( auto chan, const auto& data ) {
+                                      send( chan, data );
                               } };
-        testing::collector  coll{ [&]( const auto& data ) {
-                send( testing::collect_channel, data );
-        } };
-        testing::parameters params{ [&]( const auto& data ) {
-                send( 3, data );
-        } };
+        testing::collector coll{ testing::collect_channel, [&]( auto chan, const auto& data ) {
+                                        send( chan, data );
+                                } };
+        testing::parameters params{ testing::params_channel, [&]( auto chan, const auto& data ) {
+                                           send( chan, data );
+                                   } };
 
         std::function< void( std::span< const uint8_t > ) > cb;
         testing::endpoint                                   ep;
@@ -144,26 +133,7 @@ struct dev_items
         void on_msg( const std::span< const uint8_t > data )
         {
                 ep.insert( data );
-                ep.match_value(
-                    [&]( std::size_t ) {
-                            FAIL();
-                    },
-                    [&]( protocol::channel_type channel, const auto& data ) {
-                            switch ( channel ) {
-                            case testing::core_channel:
-                                    reac.on_msg( data );
-                                    break;
-                            case testing::collect_channel:
-                                    coll.on_msg( data );
-                                    break;
-                            case 3:
-                                    params.on_msg( data );
-                                    break;
-                            }
-                    },
-                    [&]( protocol::error_record e ) {
-                            FAIL() << e;
-                    } );
+                ep.dispatch_value( reac, coll, params );
         }
 };
 

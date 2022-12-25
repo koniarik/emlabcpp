@@ -29,7 +29,7 @@ void reactor_interface_adapter::reply( const reactor_controller_variant& var )
 {
         using h  = protocol::handler< reactor_controller_group >;
         auto msg = h::serialize( var );
-        transmit_( msg );
+        transmit_( channel_, msg );
 }
 
 void reactor_interface_adapter::report_failure( const reactor_error_variant& evar )

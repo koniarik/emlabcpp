@@ -28,8 +28,9 @@ void collect_awaiter::await_suspend( std::coroutine_handle< test_coroutine::prom
         } );
 }
 
-collector::collector( collect_client_transmit_callback send_cb )
-  : send_cb_( std::move( send_cb ) )
+collector::collector( protocol::channel_type chann, collect_client_transmit_callback send_cb )
+  : channel_( chann )
+  , send_cb_( std::move( send_cb ) )
 {
 }
 
@@ -91,13 +92,15 @@ void collector::exchange( const collect_request& req, collect_reply_callback cb 
 void collector::send( const collect_request& req )
 {
         using h = protocol::handler< collect_request >;
-        send_cb_( h::serialize( req ) );
+        send_cb_( channel_, h::serialize( req ) );
 }
 
 collect_server::collect_server(
+    protocol::channel_type           chan,
     pmr::memory_resource&            mem_res,
     collect_server_transmit_callback send_cb )
-  : tree_( mem_res )
+  : channel_( chan )
+  , tree_( mem_res )
   , send_cb_( std::move( send_cb ) )
 {
 }
@@ -149,7 +152,7 @@ void collect_server::on_msg( const collect_request& req )
 void collect_server::send( const collect_server_client_group& val )
 {
         using h = protocol::handler< collect_server_client_group >;
-        send_cb_( h::serialize( val ) );
+        send_cb_( channel_, h::serialize( val ) );
 }
 
 }  // namespace emlabcpp::testing

@@ -56,14 +56,14 @@ TEST( params, base )
         testing::parameters*        col_ptr;
         testing::parameters_server* server_ptr;
 
-        auto col_send_f = [&]( auto data ) {
+        auto col_send_f = [&]( auto, auto data ) {
                 server_ptr->on_msg( data );
         };
-        auto server_send_f = [&]( auto data ) {
+        auto server_send_f = [&]( auto, auto data ) {
                 col_ptr->on_msg( data );
         };
 
-        testing::parameters coll{ col_send_f };
+        testing::parameters coll{ 0, col_send_f };
         col_ptr = &coll;
 
         nlohmann::json jsn{
@@ -77,7 +77,7 @@ TEST( params, base )
         std::optional< testing::data_tree > opt_data =
             testing::json_to_data_tree( pmr::new_delete_resource(), jsn );
         EXPECT_TRUE( opt_data );
-        testing::parameters_server server{ std::move( *opt_data ), server_send_f };
+        testing::parameters_server server{ 0, std::move( *opt_data ), server_send_f };
         server_ptr = &server;
 
         params_test_fixture tf{ "wololo", coll };

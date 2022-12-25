@@ -49,11 +49,13 @@ class controller
 
 public:
         controller(
+            protocol::channel_type       channel,
             pmr::memory_resource&        mem_res,
             controller_interface&        iface,
             controller_transmit_callback send_cb )
-          : mem_res_( mem_res )
-          , iface_( iface, std::move( send_cb ) )
+          : channel_( channel )
+          , mem_res_( mem_res )
+          , iface_( channel_, iface, std::move( send_cb ) )
           , tests_( mem_res )
         {
                 initializing_state* i_state_ptr = std::get_if< initializing_state >( &state_ );
@@ -61,6 +63,10 @@ public:
                 i_state_ptr->coro = initialize( mem_res );
         }
 
+        [[nodiscard]] constexpr protocol::channel_type get_channel() const
+        {
+                return channel_;
+        }
         [[nodiscard]] std::string_view suite_name() const
         {
                 return { name_.begin(), name_.end() };
@@ -96,7 +102,8 @@ public:
 private:
         test_coroutine initialize( pmr::memory_resource& mem_res );
 
-        states state_ = initializing_state{};
+        protocol::channel_type channel_;
+        states                 state_ = initializing_state{};
 
         std::reference_wrapper< pmr::memory_resource > mem_res_;
         controller_interface_adapter                   iface_;

@@ -32,14 +32,14 @@ class reactor_interface_adapter
 {
         using incoming_handler = static_function< bool( const controller_reactor_variant& ), 16 >;
 
+        protocol::channel_type    channel_;
         reactor_transmit_callback transmit_;
         incoming_handler          h_{};
 
-        static constexpr std::size_t read_limit_ = 10;
-
 public:
-        reactor_interface_adapter( reactor_transmit_callback tb )
-          : transmit_( std::move( tb ) )
+        reactor_interface_adapter( protocol::channel_type chann, reactor_transmit_callback tb )
+          : channel_( chann )
+          , transmit_( std::move( tb ) )
         {
         }
 

@@ -44,17 +44,17 @@ TEST( collect, base )
         testing::collector*      col_ptr;
         testing::collect_server* server_ptr;
 
-        auto col_send_f = [&]( auto data ) {
+        auto col_send_f = [&]( auto, auto data ) {
                 server_ptr->on_msg( data );
         };
-        auto server_send_f = [&]( auto data ) {
+        auto server_send_f = [&]( auto, auto data ) {
                 col_ptr->on_msg( data );
         };
 
-        testing::collector coll{ col_send_f };
+        testing::collector coll{ 0, col_send_f };
         col_ptr = &coll;
 
-        testing::collect_server server{ pmr::new_delete_resource(), server_send_f };
+        testing::collect_server server{ 0, pmr::new_delete_resource(), server_send_f };
         server_ptr = &server;
 
         collector_test_fixture tf{ "wololo", coll };

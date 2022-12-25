@@ -35,9 +35,9 @@ using collect_client_server_message = typename protocol::handler< collect_reques
 
 using collect_reply_callback = static_function< void( const collect_server_client_group& ), 32 >;
 using collect_client_transmit_callback =
-    static_function< void( const collect_client_server_message& ), 32 >;
+    static_function< void( protocol::channel_type, const collect_client_server_message& ), 32 >;
 using collect_server_transmit_callback =
-    static_function< void( const collect_server_client_message& ), 32 >;
+    static_function< void( protocol::channel_type, const collect_server_client_message& ), 32 >;
 
 class collector;
 
@@ -71,15 +71,22 @@ public:
         }
 };
 
+// TODO: make concept for "testing module" -> has get_channel/on_msg...
+
 class collector
 {
 public:
-        collector( collect_client_transmit_callback send_cb );
+        collector( protocol::channel_type chann, collect_client_transmit_callback send_cb );
 
         collector( const collector& )            = delete;
         collector( collector&& )                 = delete;
         collector& operator=( const collector& ) = delete;
         collector& operator=( collector&& )      = delete;
+
+        constexpr protocol::channel_type get_channel() const
+        {
+                return channel_;
+        }
 
         void on_msg( const std::span< const uint8_t >& msg );
         void on_msg( const collect_server_client_group& var );
@@ -105,6 +112,7 @@ public:
 private:
         void send( const collect_request& req );
 
+        protocol::channel_type           channel_;
         collect_reply_callback           reply_callback_;
         collect_client_transmit_callback send_cb_;
 };
@@ -112,7 +120,15 @@ private:
 class collect_server
 {
 public:
-        collect_server( pmr::memory_resource& mem_res, collect_server_transmit_callback send_cb );
+        collect_server(
+            protocol::channel_type           chan,
+            pmr::memory_resource&            mem_res,
+            collect_server_transmit_callback send_cb );
+
+        protocol::channel_type get_channel()
+        {
+                return channel_;
+        }
 
         void on_msg( std::span< const uint8_t > data );
         void on_msg( const collect_request& req );
@@ -130,6 +146,7 @@ public:
 private:
         void send( const collect_server_client_group& val );
 
+        protocol::channel_type           channel_;
         data_tree                        tree_;
         collect_server_transmit_callback send_cb_;
 };

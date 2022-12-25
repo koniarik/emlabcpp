@@ -47,8 +47,9 @@ template class params_awaiter< param_child_count_processor >;
 }
 template class params_awaiter< param_key_processor >;
 
-parameters::parameters( params_client_transmit_callback send_cb )
-  : send_cb_( std::move( send_cb ) )
+parameters::parameters( protocol::channel_type chann, params_client_transmit_callback send_cb )
+  : channel_( chann )
+  , send_cb_( std::move( send_cb ) )
 {
 }
 
@@ -113,11 +114,15 @@ void parameters::exchange( const params_client_server_variant& req, params_reply
 void parameters::send( const params_client_server_variant& val )
 {
         using h = protocol::handler< params_client_server_group >;
-        send_cb_( h::serialize( val ) );
+        send_cb_( channel_, h::serialize( val ) );
 }
 
-parameters_server::parameters_server( data_tree tree, params_server_transmit_callback send_cb )
-  : tree_( tree )
+parameters_server::parameters_server(
+    protocol::channel_type          chann,
+    data_tree                       tree,
+    params_server_transmit_callback send_cb )
+  : channel_( chann )
+  , tree_( tree )
   , send_cb_( std::move( send_cb ) )
 {
 }
@@ -245,7 +250,7 @@ void parameters_server::reply_node_error(
 void parameters_server::send( const params_server_client_variant& var )
 {
         using h = protocol::handler< params_server_client_group >;
-        send_cb_( h::serialize( var ) );
+        send_cb_( channel_, h::serialize( var ) );
 }
 
 };  // namespace emlabcpp::testing

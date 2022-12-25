@@ -32,6 +32,8 @@ namespace emlabcpp::testing
 
 class reactor
 {
+        protocol::channel_type channel_;
+
         std::string_view       suite_name_;
         const std::string_view suite_date_ = __DATE__ " " __TIME__;
 
@@ -43,9 +45,13 @@ class reactor
         std::optional< executor > opt_exec_;
 
 public:
-        explicit reactor( const std::string_view suite_name, reactor_transmit_callback tb )
-          : suite_name_( suite_name )
-          , iface_( std::move( tb ) )
+        explicit reactor(
+            protocol::channel_type    chann,
+            const std::string_view    suite_name,
+            reactor_transmit_callback tb )
+          : channel_( chann )
+          , suite_name_( suite_name )
+          , iface_( chann, std::move( tb ) )
         {
         }
 
@@ -54,8 +60,12 @@ public:
         reactor& operator=( const reactor& ) = delete;
         reactor& operator=( reactor&& )      = delete;
 
-        void on_msg( std::span< const uint8_t > buffer );
+        constexpr protocol::channel_type get_channel() const
+        {
+                return channel_;
+        }
 
+        void on_msg( std::span< const uint8_t > buffer );
         void on_msg( const controller_reactor_variant& var );
 
         void register_test( test_interface& test )

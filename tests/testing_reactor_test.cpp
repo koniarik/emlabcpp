@@ -40,7 +40,7 @@ class reactor_interface
 public:
         static std::vector< testing::reactor_controller_variant > msgs;
 
-        void operator()( std::span< const uint8_t > msg )
+        void operator()( auto, std::span< const uint8_t > msg )
         {
                 using h = protocol::handler< testing::reactor_controller_group >;
                 h::extract( view_n( msg.data(), msg.size() ) )
@@ -91,7 +91,7 @@ TEST( executor, complex_full_run )
 TEST( reactor, reactor_simple )
 {
         reactor_interface iface;
-        testing::reactor  rec{ "reac", iface };
+        testing::reactor  rec{ 0, "reac", iface };
 
         simple_test_fixture tf{ "simple" };
         simple_test_fixture tf2{ "test" };

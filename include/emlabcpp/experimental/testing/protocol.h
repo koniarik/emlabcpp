@@ -186,9 +186,10 @@ using reactor_controller_variant =
 using reactor_controller_message =
     typename protocol::handler< reactor_controller_group >::message_type;
 
-using reactor_transmit_callback = static_function< void( const reactor_controller_message& ), 32 >;
+using reactor_transmit_callback =
+    static_function< void( protocol::channel_type, const reactor_controller_message& ), 32 >;
 using controller_transmit_callback =
-    static_function< void( const controller_reactor_message& ), 32 >;
+    static_function< void( protocol::channel_type, const controller_reactor_message& ), 32 >;
 
 using packet_payload = protocol::multiplexer_payload< 64 >;
 // TODO: this needs rethinking /o\ entire multiplexer needs redesign?
