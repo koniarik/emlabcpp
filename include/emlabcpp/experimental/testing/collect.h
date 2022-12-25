@@ -117,6 +117,16 @@ public:
         void on_msg( std::span< const uint8_t > data );
         void on_msg( const collect_request& req );
 
+        void clear()
+        {
+                tree_.clear();
+        }
+
+        const data_tree& get_tree()
+        {
+                return tree_;
+        }
+
 private:
         void send( const collect_server_client_group& val );
 

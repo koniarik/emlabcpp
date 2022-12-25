@@ -293,6 +293,11 @@ public:
         {
         }
 
+        void clear()
+        {
+                data_.clear();
+        }
+
         [[nodiscard]] const node_type* get_node( node_id nid ) const
         {
                 auto iter = data_.find( nid );
