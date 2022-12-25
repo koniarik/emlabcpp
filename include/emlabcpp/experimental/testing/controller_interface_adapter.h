@@ -20,7 +20,7 @@ public:
             controller_interface&        iface,
             controller_transmit_callback send_cb )
           : iface_( iface )
-          , send_cb_( send_cb )
+          , send_cb_( std::move( send_cb ) )
         {
         }
 

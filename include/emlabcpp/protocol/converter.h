@@ -638,7 +638,7 @@ struct converter< sized_buffer< CounterDef, D >, Endianess >
         static constexpr conversion_result
         deserialize( const std::span< const uint8_t >& buffer, value_type& value )
         {
-                counter_type size;
+                counter_type size = 0;
                 auto         cres = counter_converter::deserialize( buffer, size );
                 if ( cres.has_error() ) {
                         return cres;

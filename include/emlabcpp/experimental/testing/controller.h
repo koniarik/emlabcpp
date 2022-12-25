@@ -53,7 +53,7 @@ public:
             controller_interface&        iface,
             controller_transmit_callback send_cb )
           : mem_res_( mem_res )
-          , iface_( iface, send_cb )
+          , iface_( iface, std::move( send_cb ) )
           , tests_( mem_res )
         {
                 initializing_state* i_state_ptr = std::get_if< initializing_state >( &state_ );

@@ -31,10 +31,12 @@ namespace emlabcpp::testing
 {
 
 template < typename T >
-struct msg_awaiter
+struct msg_awaiter : public test_awaiter_interface
 {
-        T                          reply;
-        controller_reactor_variant request;
+        T                                                     reply;
+        await_state                                           state = await_state::WAITING;
+        controller_reactor_variant                            request;
+        std::coroutine_handle< test_coroutine::promise_type > coro_handle;
 
         controller_interface_adapter& iface;
 
@@ -44,17 +46,26 @@ struct msg_awaiter
         {
         }
 
+        await_state get_state() const
+        {
+                return state;
+        }
+
         bool await_ready()
         {
                 return false;
         }
-        void await_suspend( std::coroutine_handle< typename test_coroutine::promise_type > )
+        void await_suspend( std::coroutine_handle< typename test_coroutine::promise_type > h )
         {
+                coro_handle                 = h;
+                coro_handle.promise().iface = this;
                 iface.set_reply_cb( [this]( const reactor_controller_variant& var ) {
                         const T* val_ptr = std::get_if< T >( &var );
                         if ( val_ptr == nullptr ) {
+                                state = await_state::ERRORED;
                                 return false;
                         }
+                        state = await_state::READY;
                         reply = *val_ptr;
                         return true;
                 } );
@@ -62,6 +73,7 @@ struct msg_awaiter
         }
         T await_resume()
         {
+                coro_handle.promise().iface = nullptr;
                 return reply;
         }
 };

@@ -43,7 +43,6 @@ inline ::testing::AssertionResult gtest_predicate( const char*, const test_resul
                 res = ::testing::AssertionFailure() << "Test errored";
         }
 
-        // res << data_tree_to_json( tres.collected ).dump( 4 );
         return res;
 }
 
