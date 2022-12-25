@@ -19,7 +19,7 @@ var experimental_2testing_2protocol_8h =
     [ "controller_reactor_message", "experimental_2testing_2protocol_8h.html#a525a178b0ea7ef8fa80c45e9ae80e4f2", null ],
     [ "controller_reactor_variant", "experimental_2testing_2protocol_8h.html#a7990a2783b0090e4fb21f6af5916c99c", null ],
     [ "controller_transmit_callback", "experimental_2testing_2protocol_8h.html#aa037b25d885bdaddeafe1e69ae74eb03", null ],
-    [ "endpoint", "experimental_2testing_2protocol_8h.html#a751f9c370a5f3a37a35bdcf302546a73", null ],
+    [ "endpoint", "experimental_2testing_2protocol_8h.html#a55d4f7bfdfdf4dd54d5763c8a95775c0", null ],
     [ "message", "experimental_2testing_2protocol_8h.html#ac20ae60a35b1add076793aeb77e89853", null ],
     [ "packet", "experimental_2testing_2protocol_8h.html#a1552bd84b510ee082c62d4e8cb609f63", null ],
     [ "packet_message", "experimental_2testing_2protocol_8h.html#a9a57c3c23267437b444cef8cf5fa4a5c", null ],

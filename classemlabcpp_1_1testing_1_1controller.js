@@ -1,6 +1,6 @@
 var classemlabcpp_1_1testing_1_1controller =
 [
-    [ "controller", "classemlabcpp_1_1testing_1_1controller.html#a7d7c24559db19c7a405dddbefb25c00a", null ],
+    [ "controller", "classemlabcpp_1_1testing_1_1controller.html#a22e1369360ae8db1a4b3d417c5b8beaa", null ],
     [ "get_tests", "classemlabcpp_1_1testing_1_1controller.html#a83c9fb2aef69b23cebe97e69b6344c4c", null ],
     [ "is_initializing", "classemlabcpp_1_1testing_1_1controller.html#a3b7b6bb77d95919d27b96c5b3a79084e", null ],
     [ "is_test_running", "classemlabcpp_1_1testing_1_1controller.html#a07ad22c11e34a13c748b84220b67a2f6", null ],

@@ -3,6 +3,7 @@ var namespaceemlabcpp_1_1protocol =
     [ "detail", "namespaceemlabcpp_1_1protocol_1_1detail.html", [
       [ "message_derived_test", "namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376", null ]
     ] ],
+    [ "multiplexed_endpoint", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint" ],
     [ "conversion_result", "structemlabcpp_1_1protocol_1_1conversion__result.html", "structemlabcpp_1_1protocol_1_1conversion__result" ],
     [ "endianess_wrapper", "structemlabcpp_1_1protocol_1_1endianess__wrapper.html", "structemlabcpp_1_1protocol_1_1endianess__wrapper" ],
     [ "group", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group", "namespaceemlabcpp_1_1protocol_structemlabcpp_1_1protocol_1_1group_dup" ],

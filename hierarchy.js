@@ -87,6 +87,7 @@ var hierarchy =
     [ "emlabcpp::empty_assembly_tag", "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag", null ],
     [ "emlabcpp::protocol::endianess_wrapper< Endianess, D >", "structemlabcpp_1_1protocol_1_1endianess__wrapper.html", null ],
     [ "emlabcpp::protocol::endpoint< InputPacket, OutputPacket >", "classemlabcpp_1_1protocol_1_1endpoint.html", null ],
+    [ "emlabcpp::protocol::endpoint< Packet, Packet >", "classemlabcpp_1_1protocol_1_1endpoint.html", null ],
     [ "emlabcpp::protocol::endpoint_load_error", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error", null ],
     [ "emlabcpp::rpc::error", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1error", null ],
     [ "emlabcpp::testing::error< Err >", "structemlabcpp_1_1testing_1_1error.html", null ],
@@ -175,6 +176,7 @@ var hierarchy =
       [ "emlabcpp::protocol::sizeless_message< N >", "classemlabcpp_1_1protocol_1_1sizeless__message.html", null ]
     ] ],
     [ "emlabcpp::min_max< T >", "structemlabcpp_1_1min__max.html", null ],
+    [ "emlabcpp::protocol::multiplexed_endpoint< Packet >", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", null ],
     [ "emlabcpp::testing::no_response_error", "structemlabcpp_1_1testing_1_1no__response__error.html", null ],
     [ "std::numeric_limits< T >", "structstd_1_1numeric__limits_3_01T_01_4.html", null ],
     [ "emlabcpp::coro::owning_coroutine_handle< PromiseType >", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", null ],
@@ -265,6 +267,7 @@ var hierarchy =
     [ "emlabcpp::static_function_base< void(const collect_client_server_message &), 32 >", "namespaceemlabcpp.html#namespaceemlabcpp", null ],
     [ "emlabcpp::static_function_base< void(const collect_server_client_group &), 32 >", "namespaceemlabcpp.html#namespaceemlabcpp", null ],
     [ "emlabcpp::static_function_base< void(const collect_server_client_message &), 32 >", "namespaceemlabcpp.html#namespaceemlabcpp", null ],
+    [ "emlabcpp::static_function_base< void(const controller_reactor_message &), 32 >", "namespaceemlabcpp.html#namespaceemlabcpp", null ],
     [ "emlabcpp::static_function_base< void(const params_client_server_message &), 32 >", "namespaceemlabcpp.html#namespaceemlabcpp", null ],
     [ "emlabcpp::static_function_base< void(const params_server_client_message &), 32 >", "namespaceemlabcpp.html#namespaceemlabcpp", null ],
     [ "emlabcpp::static_function_base< void(const params_server_client_variant &), 32 >", "namespaceemlabcpp.html#namespaceemlabcpp", null ],

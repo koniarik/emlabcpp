@@ -42,6 +42,7 @@ var annotated_dup =
         [ "pool_resource", "classemlabcpp_1_1pmr_1_1pool__resource.html", "classemlabcpp_1_1pmr_1_1pool__resource" ]
       ] ],
       [ "protocol", "namespaceemlabcpp_1_1protocol.html", [
+        [ "multiplexed_endpoint", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint" ],
         [ "conversion_result", "structemlabcpp_1_1protocol_1_1conversion__result.html", "structemlabcpp_1_1protocol_1_1conversion__result" ],
         [ "endianess_wrapper", "structemlabcpp_1_1protocol_1_1endianess__wrapper.html", "structemlabcpp_1_1protocol_1_1endianess__wrapper" ],
         [ "group", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group", "namespaceemlabcpp_1_1protocol_structemlabcpp_1_1protocol_1_1group_dup" ],

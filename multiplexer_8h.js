@@ -1,5 +1,6 @@
 var multiplexer_8h =
 [
+    [ "multiplexed_endpoint", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint" ],
     [ "channel_type", "multiplexer_8h.html#a0db15f01394ce6ad3ae6257e4866dca2", null ],
     [ "multiplexer_handler", "multiplexer_8h.html#a986f53c6ddc39b9b91e4bc40d744e569", null ],
     [ "multiplexer_message", "multiplexer_8h.html#aecf6971020e07eaf0c7f0f3b373d5df8", null ],

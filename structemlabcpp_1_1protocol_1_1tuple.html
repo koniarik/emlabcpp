@@ -119,9 +119,14 @@ Public Types</h2></td></tr>
 <tr class="memitem:a01e6334b599bb584f01ba9ec76b7f77d"><td class="memTemplParams" colspan="2">template&lt;typename... SubDs&gt; </td></tr>
 <tr class="memitem:a01e6334b599bb584f01ba9ec76b7f77d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a01e6334b599bb584f01ba9ec76b7f77d">with_items</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">tuple</a>&lt; Endianess, Ds..., SubDs... &gt;</td></tr>
 <tr class="separator:a01e6334b599bb584f01ba9ec76b7f77d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6671ccd92a1c25582f1d5bf38794c05a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a6671ccd92a1c25582f1d5bf38794c05a">def_type</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">endianess_wrapper</a>&lt; Endianess, std::tuple&lt; Ds... &gt; &gt;</td></tr>
-<tr class="separator:a6671ccd92a1c25582f1d5bf38794c05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09cdeb23053ea46dc5025e16ec3d3982"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a09cdeb23053ea46dc5025e16ec3d3982">traits</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a6671ccd92a1c25582f1d5bf38794c05a">def_type</a> &gt;</td></tr>
+<tr class="memitem:a2b1eba83ab893b222ae85609e3fd5e76"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a2b1eba83ab893b222ae85609e3fd5e76">def_tuple</a> = std::tuple&lt; Ds... &gt;</td></tr>
+<tr class="separator:a2b1eba83ab893b222ae85609e3fd5e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad759c5b3121639567b64c13462db57c7"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:ad759c5b3121639567b64c13462db57c7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#ad759c5b3121639567b64c13462db57c7">nth_def</a> = std::tuple_element_t&lt; N, <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a2b1eba83ab893b222ae85609e3fd5e76">def_tuple</a> &gt;</td></tr>
+<tr class="separator:ad759c5b3121639567b64c13462db57c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2775839ad03eeebe6ab7e9b861ae8ac2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a2775839ad03eeebe6ab7e9b861ae8ac2">def_type</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">endianess_wrapper</a>&lt; Endianess, <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a2b1eba83ab893b222ae85609e3fd5e76">def_tuple</a> &gt;</td></tr>
+<tr class="separator:a2775839ad03eeebe6ab7e9b861ae8ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09cdeb23053ea46dc5025e16ec3d3982"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a09cdeb23053ea46dc5025e16ec3d3982">traits</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a2775839ad03eeebe6ab7e9b861ae8ac2">def_type</a> &gt;</td></tr>
 <tr class="separator:a09cdeb23053ea46dc5025e16ec3d3982"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a843321f3547cb0a35706d2855c9451c1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a843321f3547cb0a35706d2855c9451c1">value_type</a> = typename traits::value_type</td></tr>
 <tr class="separator:a843321f3547cb0a35706d2855c9451c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,8 +150,8 @@ struct emlabcpp::protocol::tuple&lt; Endianess, Ds &gt;</h3>
 <p>tuple is high levle alternative to use just 'std::tuple' that is more friendly for standalone protocols. </p>
 <p>It is designed for message that are simply a set of serialized items. It also provieds more readable syntax. The template arguments at first configurate the protocol and later is follow by items present in the tuple, this can also be added with <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a01e6334b599bb584f01ba9ec76b7f77d">tuple::with_items</a> alias that appends the items. For example: tuple&lt; BIG_ENDIAN &gt;::with_items&lt; uint32_t, uint32_t &gt;; serializes/deserializes in same way as 'std::tuple&lt;uint32_t,uint32_t&gt;' configured for big endianess. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a6671ccd92a1c25582f1d5bf38794c05a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6671ccd92a1c25582f1d5bf38794c05a">&#9670;&nbsp;</a></span>def_type</h2>
+<a id="a2b1eba83ab893b222ae85609e3fd5e76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b1eba83ab893b222ae85609e3fd5e76">&#9670;&nbsp;</a></span>def_tuple</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +159,23 @@ struct emlabcpp::protocol::tuple&lt; Endianess, Ds &gt;</h3>
 template&lt;std::endian Endianess, typename... Ds&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">emlabcpp::protocol::tuple</a>&lt; Endianess, Ds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a6671ccd92a1c25582f1d5bf38794c05a">def_type</a> =  <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">endianess_wrapper</a>&lt; Endianess, std::tuple&lt; Ds... &gt; &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">emlabcpp::protocol::tuple</a>&lt; Endianess, Ds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a2b1eba83ab893b222ae85609e3fd5e76">def_tuple</a> =  std::tuple&lt; Ds... &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2775839ad03eeebe6ab7e9b861ae8ac2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2775839ad03eeebe6ab7e9b861ae8ac2">&#9670;&nbsp;</a></span>def_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::endian Endianess, typename... Ds&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">emlabcpp::protocol::tuple</a>&lt; Endianess, Ds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a2775839ad03eeebe6ab7e9b861ae8ac2">def_type</a> =  <a class="el" href="structemlabcpp_1_1protocol_1_1endianess__wrapper.html">endianess_wrapper</a>&lt; Endianess, <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a2b1eba83ab893b222ae85609e3fd5e76">def_tuple</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -177,6 +198,24 @@ template&lt;std::endian Endianess, typename... Ds&gt; </div>
 
 </div>
 </div>
+<a id="ad759c5b3121639567b64c13462db57c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad759c5b3121639567b64c13462db57c7">&#9670;&nbsp;</a></span>nth_def</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::endian Endianess, typename... Ds&gt; </div>
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">emlabcpp::protocol::tuple</a>&lt; Endianess, Ds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#ad759c5b3121639567b64c13462db57c7">nth_def</a> =  std::tuple_element_t&lt; N, <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a2b1eba83ab893b222ae85609e3fd5e76">def_tuple</a> &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a09cdeb23053ea46dc5025e16ec3d3982"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a09cdeb23053ea46dc5025e16ec3d3982">&#9670;&nbsp;</a></span>traits</h2>
 
@@ -186,7 +225,7 @@ template&lt;std::endian Endianess, typename... Ds&gt; </div>
 template&lt;std::endian Endianess, typename... Ds&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">emlabcpp::protocol::tuple</a>&lt; Endianess, Ds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a09cdeb23053ea46dc5025e16ec3d3982">traits</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a6671ccd92a1c25582f1d5bf38794c05a">def_type</a> &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">emlabcpp::protocol::tuple</a>&lt; Endianess, Ds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a09cdeb23053ea46dc5025e16ec3d3982">traits</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a2775839ad03eeebe6ab7e9b861ae8ac2">def_type</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -290,7 +329,7 @@ template&lt;std::endian Endianess, typename... Ds&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">tuple</a></li>
-    <li class="footer">Generated on Sun Dec 25 2022 11:25:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 25 2022 12:29:23 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
