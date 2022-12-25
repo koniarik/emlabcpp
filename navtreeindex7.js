@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"namespacemembers_v.html":[2,1,0,21],
 "namespacemembers_vars.html":[2,1,2],
 "namespacemembers_w.html":[2,1,0,22],
 "namespacemembers_z.html":[2,1,0,23],
@@ -249,5 +248,6 @@ var NAVTREEINDEX7 =
 "structemlabcpp_1_1matcher.html#ada6e281be70507e556af3f8f04c6f7e4":[3,0,0,33,4],
 "structemlabcpp_1_1min__max.html":[3,0,0,8],
 "structemlabcpp_1_1min__max.html#a29ff465434eadb6dd1db7286ed98366e":[3,0,0,8,1],
-"structemlabcpp_1_1min__max.html#a8b3d9b948aeacf4261611ee2fc26eb64":[3,0,0,8,3]
+"structemlabcpp_1_1min__max.html#a8b3d9b948aeacf4261611ee2fc26eb64":[3,0,0,8,3],
+"structemlabcpp_1_1min__max.html#ac4cc0b5a0f2485f3524e3cf74500407a":[3,0,0,8,4]
 };

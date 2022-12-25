@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <a class="code" href="classemlabcpp_1_1testing_1_1controller__interface.html">controller_interface</a>&amp;        iface,</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <a class="code" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">controller_transmit_callback</a> send_cb )</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;          : mem_res_( mem_res )</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;          , iface_( iface, send_cb )</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;          , iface_( iface, std::move( send_cb ) )</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;          , tests_( mem_res )</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                initializing_state* i_state_ptr = std::get_if&lt; initializing_state &gt;( &amp;state_ );</div>
@@ -231,7 +231,7 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="controller_8h.html">controller.h</a></li>
-    <li class="footer">Generated on Sun Dec 25 2022 18:07:05 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 25 2022 18:07:31 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
