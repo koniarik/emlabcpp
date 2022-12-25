@@ -134,6 +134,7 @@ var namespaceemlabcpp =
     [ "copy", "namespaceemlabcpp.html#af85136552afa4d0a86dd1fb078223cdd", null ],
     [ "cos", "namespaceemlabcpp.html#a364f72aef7b46ed76b90e1f7a054fc32", null ],
     [ "count", "namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f", null ],
+    [ "data_view", "namespaceemlabcpp.html#a7dcf3cf10bd4814024f7177751b63c26", null ],
     [ "decompose", "namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8", null ],
     [ "EMLABCPP_GENERATE_DECOMPOSE", "namespaceemlabcpp.html#ab124463ea669779e32ea4428088a01c4", null ],
     [ "enumerate", "namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc", null ],

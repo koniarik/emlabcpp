@@ -724,6 +724,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a57c2da6250c29d0cf3d6a0cfecaa1e45"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iter &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">view_n</a> (Iter begin, const std::size_t n)</td></tr>
 <tr class="memdesc:a57c2da6250c29d0cf3d6a0cfecaa1e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates view over 'n' items of dataset starting at 'begin' This does not check validity of the range!  <a href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">More...</a><br /></td></tr>
 <tr class="separator:a57c2da6250c29d0cf3d6a0cfecaa1e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dcf3cf10bd4814024f7177751b63c26"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
+<tr class="memitem:a7dcf3cf10bd4814024f7177751b63c26"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7dcf3cf10bd4814024f7177751b63c26">data_view</a> (Container &amp;cont)</td></tr>
+<tr class="separator:a7dcf3cf10bd4814024f7177751b63c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd8a44534f893fb67e883a5a8b396ef4"><td class="memTemplParams" colspan="2">template&lt;range_container Container&gt; </td></tr>
 <tr class="memitem:acd8a44534f893fb67e883a5a8b396ef4"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; <a class="el" href="namespaceemlabcpp.html#a98ab53b012e339a9621604b203df856e">iterator_of_t</a>&lt; Container &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acd8a44534f893fb67e883a5a8b396ef4">trim_view</a> (Container &amp;cont, const float r)</td></tr>
 <tr class="memdesc:acd8a44534f893fb67e883a5a8b396ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the view over over Container, where we ignore first r*size/2 items and last r*size/2 items.  <a href="namespaceemlabcpp.html#acd8a44534f893fb67e883a5a8b396ef4">More...</a><br /></td></tr>
@@ -2411,6 +2414,36 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
 <p>Applies the predicate 'f(x)' to each element of container 'cont' and returns the count of items, for which f(x) returned 'true'. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>, <a class="el" href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">for_each()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+
+</div>
+</div>
+<a id="a7dcf3cf10bd4814024f7177751b63c26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dcf3cf10bd4814024f7177751b63c26">&#9670;&nbsp;</a></span>data_view()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Container &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto emlabcpp::data_view </td>
+          <td>(</td>
+          <td class="paramtype">Container &amp;&#160;</td>
+          <td class="paramname"><em>cont</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">view_n()</a>.</p>
 
 </div>
 </div>
@@ -6655,7 +6688,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sat Dec 24 2022 23:29:57 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 25 2022 11:06:06 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -22,6 +22,7 @@ var experimental_2testing_2protocol_8h =
     [ "endpoint", "experimental_2testing_2protocol_8h.html#a751f9c370a5f3a37a35bdcf302546a73", null ],
     [ "message", "experimental_2testing_2protocol_8h.html#ac20ae60a35b1add076793aeb77e89853", null ],
     [ "packet", "experimental_2testing_2protocol_8h.html#a1552bd84b510ee082c62d4e8cb609f63", null ],
+    [ "packet_message", "experimental_2testing_2protocol_8h.html#a9a57c3c23267437b444cef8cf5fa4a5c", null ],
     [ "packet_payload", "experimental_2testing_2protocol_8h.html#ae54084670588cf3812a2f95d763178ab", null ],
     [ "reactor_controller_group", "experimental_2testing_2protocol_8h.html#a3c9868c0a922834c0c062583bff67cef", null ],
     [ "reactor_controller_message", "experimental_2testing_2protocol_8h.html#af2a18ebb255c16f47e08d5f8f8d8a9f6", null ],
@@ -51,5 +52,6 @@ var experimental_2testing_2protocol_8h =
       [ "INTERNAL_ERROR", "experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6ca94ed7dad64766a32cea41354f0b3f318", null ],
       [ "PROTOCOL_ERROR", "experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6ca7b6f85de641381d0c1dd2ebf429a90cd", null ],
       [ "TREE_ERROR", "experimental_2testing_2protocol_8h.html#a293ec7de85094a09f0cf5d840eaa2e6cabf57942bad0597ed207985ac546776c3", null ]
-    ] ]
+    ] ],
+    [ "core_channel", "experimental_2testing_2protocol_8h.html#ac454345521b3303995ab9d0afe40c98b", null ]
 ];

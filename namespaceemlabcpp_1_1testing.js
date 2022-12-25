@@ -93,6 +93,7 @@ var namespaceemlabcpp_1_1testing =
     [ "node_id", "namespaceemlabcpp_1_1testing.html#a2cd11b9ad2da9a2055df3782718ee549", null ],
     [ "node_type_enum", "namespaceemlabcpp_1_1testing.html#aeaa7e76964de0a6f4457ce46b9f726f9", null ],
     [ "packet", "namespaceemlabcpp_1_1testing.html#a1552bd84b510ee082c62d4e8cb609f63", null ],
+    [ "packet_message", "namespaceemlabcpp_1_1testing.html#a9a57c3c23267437b444cef8cf5fa4a5c", null ],
     [ "packet_payload", "namespaceemlabcpp_1_1testing.html#ae54084670588cf3812a2f95d763178ab", null ],
     [ "param_child_awaiter", "namespaceemlabcpp_1_1testing.html#a30029ccab4f1130a5cb7bd2ff71a26e9", null ],
     [ "param_child_count_awaiter", "namespaceemlabcpp_1_1testing.html#a29582e2287076283acc6721b470d115a", null ],
@@ -165,5 +166,7 @@ var namespaceemlabcpp_1_1testing =
     [ "requires", "namespaceemlabcpp_1_1testing.html#a5f51ceea4b512a1852bf7beca4837fb9", null ],
     [ "string_to_buffer", "namespaceemlabcpp_1_1testing.html#ad633f76356e096e700a03f89c593dca8", null ],
     [ "test_compose", "namespaceemlabcpp_1_1testing.html#a5dfb36ed7abfd06d258541ad605291f7", null ],
+    [ "collect_channel", "namespaceemlabcpp_1_1testing.html#a99f1151dbb3866e17e7c5d4b51f8a090", null ],
+    [ "core_channel", "namespaceemlabcpp_1_1testing.html#ac454345521b3303995ab9d0afe40c98b", null ],
     [ "valid_test_callable", "namespaceemlabcpp_1_1testing.html#ad7a2a6759ff6cb8d4ee8777b7c33db2f", null ]
 ];
