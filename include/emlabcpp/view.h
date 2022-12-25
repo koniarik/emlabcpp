@@ -177,6 +177,12 @@ constexpr view< Iter > view_n( Iter begin, const std::size_t n )
         return view< Iter >{ std::move( begin ), end };
 }
 
+template < typename Container >
+constexpr auto data_view( Container& cont )
+{
+        return view_n( std::data( cont ), std::size( cont ) );
+}
+
 /// Creates the view over over Container, where we ignore first r*size/2 items
 /// and last r*size/2 items. This can be used to get the dataset without
 /// first/last 5% for example, by using r=0.1
