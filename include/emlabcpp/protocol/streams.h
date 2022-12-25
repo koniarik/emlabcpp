@@ -68,10 +68,10 @@ auto& operator<<( ostreamlike auto& os, const error_record& rec )
 auto& operator<<( ostreamlike auto& os, const std::endian& val )
 {
         switch ( val ) {
-                case std::endian::big:
-                        return os << "big endian";
-                case std::endian::little:
-                        return os << "little endian";
+        case std::endian::big:
+                return os << "big endian";
+        case std::endian::little:
+                return os << "little endian";
         }
         return os;
 }

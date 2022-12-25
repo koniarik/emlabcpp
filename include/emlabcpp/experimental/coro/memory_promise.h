@@ -1,7 +1,7 @@
 
+#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/pmr/memory_resource.h"
 #include "emlabcpp/pmr/throw_bad_alloc.h"
-#include "emlabcpp/experimental/logging.h"
 
 #pragma once
 

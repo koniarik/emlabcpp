@@ -59,15 +59,15 @@ int main( int, char*[] )
 
         int sign_rand_val = ( std::rand() % 3 ) - 1;
         switch ( em::sign( sign_rand_val ) ) {
-                case -1:
-                        std::cout << "sign_rand_val is negative\n";
-                        break;
-                case 0:
-                        std::cout << "sign_rand_val is zero\n";
-                        break;
-                case 1:
-                        std::cout << "sign_rand_val is positive\n";
-                        break;
+        case -1:
+                std::cout << "sign_rand_val is negative\n";
+                break;
+        case 0:
+                std::cout << "sign_rand_val is zero\n";
+                break;
+        case 1:
+                std::cout << "sign_rand_val is positive\n";
+                break;
         }
 
         // ---------------------------------------------------------------------------------------

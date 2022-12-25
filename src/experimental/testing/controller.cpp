@@ -140,7 +140,7 @@ void controller::on_msg( const reactor_controller_variant& var )
                     return std::nullopt;
             } );
         if ( new_state ) {
-                state_ = std::move(*new_state);
+                state_ = std::move( *new_state );
         }
 }
 
@@ -165,7 +165,7 @@ void controller::tick()
                     return std::nullopt;
             } );
         if ( new_state ) {
-                state_ = std::move(*new_state);
+                state_ = std::move( *new_state );
         }
 }
 }  // namespace emlabcpp::testing

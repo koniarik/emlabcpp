@@ -12,17 +12,17 @@ std::optional< value_type > json_to_value_type( const nlohmann::json& j )
         using value_t = nlohmann::json::value_t;
 
         switch ( j.type() ) {
-                case value_t::boolean:
-                        return j.get< bool >();
-                case value_t::number_integer:
-                case value_t::number_unsigned:
-                        return j.get< int64_t >();
-                case value_t::number_float:
-                        return j.get< float >();
-                case value_t::string:
-                        return string_to_buffer( j.get< std::string >() );
-                default:
-                        break;
+        case value_t::boolean:
+                return j.get< bool >();
+        case value_t::number_integer:
+        case value_t::number_unsigned:
+                return j.get< int64_t >();
+        case value_t::number_float:
+                return j.get< float >();
+        case value_t::string:
+                return string_to_buffer( j.get< std::string >() );
+        default:
+                break;
         }
         EMLABCPP_LOG( "Got type of json we can't process: " << j.type() );
         return std::nullopt;
