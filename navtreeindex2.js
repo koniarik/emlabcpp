@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"classemlabcpp_1_1protocol_1_1message.html#afccd9962a5f13dcceb96b1bcb1a2df67":[3,0,0,5,39,1],
 "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html":[3,0,0,5,0],
 "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a24058df241e15bde8bae7e25ec689194":[3,0,0,5,0,3],
 "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a6605c05c2f15be849f74468489b7f529":[3,0,0,5,0,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "classemlabcpp_1_1testing_1_1collector.html#a189b2448d093ee90eba6a084a8614eec":[3,0,0,7,5,8],
 "classemlabcpp_1_1testing_1_1collector.html#a18b525b9401693121381fe8f54812811":[3,0,0,7,5,11],
 "classemlabcpp_1_1testing_1_1collector.html#a30acb6e6e46654a281268aa8aa8e95ea":[3,0,0,7,5,12],
-"classemlabcpp_1_1testing_1_1collector.html#a480fe06973962f319c99bd8e96148149":[3,0,0,7,5,0],
-"classemlabcpp_1_1testing_1_1collector.html#a58a9c1b29edd6a49ae6b8af1f5f535c9":[3,0,0,7,5,5]
+"classemlabcpp_1_1testing_1_1collector.html#a480fe06973962f319c99bd8e96148149":[3,0,0,7,5,0]
 };

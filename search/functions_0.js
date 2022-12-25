@@ -4,7 +4,7 @@ var searchData=
   ['access_5fiterator_1445',['access_iterator',['../classemlabcpp_1_1iterators_1_1access__iterator.html#a9089ac0afd7991ddd238af7342d94481',1,'emlabcpp::iterators::access_iterator']]],
   ['access_5fview_1446',['access_view',['../namespaceemlabcpp.html#adcc04a8c30d4e666197002f7bdf037eb',1,'emlabcpp']]],
   ['accumulate_1447',['accumulate',['../namespaceemlabcpp.html#a234414158becfed39f1b4958c694a8d9',1,'emlabcpp']]],
-  ['address_1448',['address',['../classemlabcpp_1_1coro_1_1request__reply.html#a5c176f4aaafdbb0d1e3f958aa8e86c27',1,'emlabcpp::coro::request_reply']]],
+  ['address_1448',['address',['../classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#aa7b0ed84ae02094f0d3f476ffaceb6ba',1,'emlabcpp::coro::owning_coroutine_handle::address()'],['../classemlabcpp_1_1coro_1_1request__reply.html#a5c176f4aaafdbb0d1e3f958aa8e86c27',1,'emlabcpp::coro::request_reply::address()']]],
   ['align_1449',['align',['../namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263',1,'emlabcpp::pmr']]],
   ['all_5fof_1450',['all_of',['../namespaceemlabcpp.html#aab724dd793953a308bea8dba2118aade',1,'emlabcpp']]],
   ['alloc_1451',['alloc',['../structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9',1,'emlabcpp::coro::memory_promise']]],
