@@ -1,6 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578":[2,0,0,2,17],
 "namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f":[2,0,0,2,19],
 "namespaceemlabcpp_1_1iterators.html":[2,0,0,3],
 "namespaceemlabcpp_1_1pmr.html":[2,0,0,4],
@@ -249,5 +248,6 @@ var NAVTREEINDEX6 =
 "new__delete__resource_8h_source.html":[4,0,0,0,3,3],
 "numeric_8h.html":[4,0,0,0,2,2],
 "numeric_8h_source.html":[4,0,0,0,2,2],
-"owning__coroutine__handle_8h.html":[4,0,0,0,1,1,1]
+"owning__coroutine__handle_8h.html":[4,0,0,0,1,1,1],
+"owning__coroutine__handle_8h_source.html":[4,0,0,0,1,1,1]
 };
