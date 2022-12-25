@@ -87,11 +87,11 @@ struct complex_controller_iface : testing::controller_interface
 struct host_items
 {
         complex_controller_iface   ciface{ [&]( const auto& data ) {
-                send( em::testing::core_channel, data );
+                send( testing::core_channel, data );
         } };
         testing::controller        cont{ pmr::new_delete_resource(), ciface };
         testing::collect_server    col_serv{ pmr::new_delete_resource(), [&]( const auto& data ) {
-                                                 send( em::testing::collect_channel, data );
+                                                 send( testing::collect_channel, data );
                                          } };
         testing::parameters_server param_serv{
             testing::data_tree{ pmr::new_delete_resource() },
@@ -120,10 +120,10 @@ struct host_items
                     [&]( const auto& payload ) {
                             const auto& [channel, data] = payload;
                             switch ( channel ) {
-                            case em::testing::core_channel:
+                            case testing::core_channel:
                                     cont.on_msg( data );
                                     break;
-                            case em::testing::collect_channel:
+                            case testing::collect_channel:
                                     col_serv.on_msg( data );
                                     break;
                             case 3:
@@ -140,10 +140,10 @@ struct host_items
 struct dev_items
 {
         testing::reactor    reac{ "reac", [&]( const auto& data ) {
-                                      send( em::testing::core_channel, data );
+                                      send( testing::core_channel, data );
                               } };
         testing::collector  coll{ [&]( const auto& data ) {
-                send( em::testing::collect_channel, data );
+                send( testing::collect_channel, data );
         } };
         testing::parameters params{ [&]( const auto& data ) {
                 send( 3, data );
@@ -170,10 +170,10 @@ struct dev_items
                     [&]( const auto& payload ) {
                             const auto& [channel, data] = payload;
                             switch ( channel ) {
-                            case em::testing::core_channel:
+                            case testing::core_channel:
                                     reac.on_msg( data );
                                     break;
-                            case em::testing::collect_channel:
+                            case testing::collect_channel:
                                     coll.on_msg( data );
                                     break;
                             case 3:
