@@ -109,6 +109,7 @@ void controller::on_msg( std::span< const uint8_t > data )
                         on_msg( var );
                 },
                 [this]( const protocol::error_record& rec ) {
+                        std::ignore = rec;
                         EMLABCPP_LOG( "Failed to extract incoming msg: " << rec );
                 } );
 }

@@ -110,7 +110,8 @@ void collect_server::on_msg( std::span< const uint8_t > data )
                 [&]( const collect_request& req ) {
                         on_msg( req );
                 },
-                [&]( auto err ) {
+                [&]( const auto& err ) {
+                        std::ignore = err;
                         EMLABCPP_LOG( "Failed to extract msg: " << err );
                 } );
 }

@@ -61,7 +61,8 @@ void parameters::on_msg( std::span< const uint8_t > data )
                 [&]( const params_server_client_variant& req ) {
                         on_msg( req );
                 },
-                [&]( auto err ) {
+                [&]( const auto& err ) {
+                        std::ignore = err;
                         EMLABCPP_LOG( "Failed to extract msg: " << err );
                 } );
 }
@@ -130,7 +131,8 @@ void parameters_server::on_msg( std::span< const uint8_t > data )
                 [&]( const params_client_server_variant& req ) {
                         on_msg( req );
                 },
-                [&]( auto err ) {
+                [&]( const auto& err ) {
+                        std::ignore = err;
                         EMLABCPP_LOG( "Failed to extract msg: " << err );
                 } );
 }
