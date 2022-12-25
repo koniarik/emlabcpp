@@ -1,5 +1,9 @@
 var NAVTREEINDEX8 =
 {
+"structemlabcpp_1_1min__max.html#ac4cc0b5a0f2485f3524e3cf74500407a":[3,0,0,8,4],
+"structemlabcpp_1_1min__max.html#acba95668bfcd892dcd2fdca507bdc621":[3,0,0,8,0],
+"structemlabcpp_1_1min__max.html#aec3e14c40995b881949ef12c89e64143":[3,0,0,8,2],
+"structemlabcpp_1_1physical__quantity.html":[3,0,0,34],
 "structemlabcpp_1_1physical__quantity.html#a97a58186293ee42d1daf3288a376536d":[3,0,0,34,0],
 "structemlabcpp_1_1pmr_1_1deleter.html":[3,0,0,4,0],
 "structemlabcpp_1_1pmr_1_1deleter.html#a7aafa52a964556f26bc8f9eb5520e9eb":[3,0,0,4,0,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX8 =
 "structemlabcpp_1_1protocol_1_1memcpy__converter.html#acf94d85fc55d0ad3248895e8843d5cbb":[3,0,0,5,33,1],
 "structemlabcpp_1_1protocol_1_1packet.html":[3,0,0,5,41],
 "structemlabcpp_1_1protocol_1_1packet.html#a01458ef8a1880efb2e59d466c30ede3f":[3,0,0,5,41,11],
-"structemlabcpp_1_1protocol_1_1packet.html#a0e44a86d47abc0dcc90f020c74d3d823":[3,0,0,5,41,10],
-"structemlabcpp_1_1protocol_1_1packet.html#a0ee2e0250b3e6d4eefb5194c27773787":[3,0,0,5,41,6],
-"structemlabcpp_1_1protocol_1_1packet.html#a117a841e57e21da98dbc93b3f37ac2af":[3,0,0,5,41,9],
-"structemlabcpp_1_1protocol_1_1packet.html#a294381f4f726dc11faf304b8b9a53980":[3,0,0,5,41,12],
-"structemlabcpp_1_1protocol_1_1packet.html#a2a421f8a570d5ec36106cbf7bcf321b9":[3,0,0,5,41,4]
+"structemlabcpp_1_1protocol_1_1packet.html#a0e44a86d47abc0dcc90f020c74d3d823":[3,0,0,5,41,10]
 };

@@ -19,6 +19,7 @@ var classemlabcpp_1_1contiguous__tree =
     [ "contiguous_tree", "classemlabcpp_1_1contiguous__tree.html#ad561ee50843ea4bd65701444800dbb55", null ],
     [ "begin", "classemlabcpp_1_1contiguous__tree.html#ac30613a3885b9701f946f2043017de00", null ],
     [ "begin", "classemlabcpp_1_1contiguous__tree.html#aef0b78ec18d96649afcfaaeefa2b585d", null ],
+    [ "clear", "classemlabcpp_1_1contiguous__tree.html#aab9d9cff976ec36920b97a9f0df2671c", null ],
     [ "empty", "classemlabcpp_1_1contiguous__tree.html#a1d1187f156113cfe8185deadf0354192", null ],
     [ "end", "classemlabcpp_1_1contiguous__tree.html#af5cd22e329edf9a99266a5ad9d396157", null ],
     [ "end", "classemlabcpp_1_1contiguous__tree.html#a11150833edba04a7cec7e58b93a16e13", null ],
