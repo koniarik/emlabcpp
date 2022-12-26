@@ -316,6 +316,7 @@ void params_awaiter< Processor >::await_suspend(
         h.promise().iface = this;
         params.exchange( proc.req, [&]( const params_server_client_variant& var ) {
                 if ( !proc.set_value( var ) ) {
+                        // TODO: reply with error to server!!!
                         EMLABCPP_LOG( "Setting value to processor errored" );
                         state = await_state::ERRORED;
                 } else {
@@ -331,7 +332,7 @@ public:
             protocol::channel_type          chann,
             data_tree                       tree,
             params_server_transmit_callback send_cb );
-        
+
         protocol::channel_type get_channel()
         {
                 return channel_;
