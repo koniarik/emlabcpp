@@ -9,12 +9,15 @@ var classemlabcpp_1_1pid =
     ] ],
     [ "time_type", "classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4", null ],
     [ "pid", "classemlabcpp_1_1pid.html#a2e8ac73e4a93e33e6368af4ce0bbd369", null ],
+    [ "get_config", "classemlabcpp_1_1pid.html#a4d154d847fd63de61e647883631cc9bf", null ],
     [ "get_desired", "classemlabcpp_1_1pid.html#a276f67c11c02dccb9cb9f94179212f95", null ],
-    [ "get_input", "classemlabcpp_1_1pid.html#a8ea7d84937be8e79a6b22e58060d6093", null ],
+    [ "get_limits", "classemlabcpp_1_1pid.html#acd8305e06bbced19b1eaa0fab12bdf68", null ],
+    [ "get_measured", "classemlabcpp_1_1pid.html#a39c9895da2457663801bc0c0a4c69cb7", null ],
     [ "get_output", "classemlabcpp_1_1pid.html#a2859e71a7b6fdefbed26fda572795c4c", null ],
-    [ "reset", "classemlabcpp_1_1pid.html#a4ec41375d069d77eddaf25cdbcbe289e", null ],
     [ "set_config", "classemlabcpp_1_1pid.html#abc80653f5ab1e5b6912da8324df2bd3e", null ],
+    [ "set_limits", "classemlabcpp_1_1pid.html#aba14ada7a0e3fd7587c5f1e024d15a58", null ],
     [ "set_output", "classemlabcpp_1_1pid.html#a29694fa46dc69d6cf0b14d35038259b8", null ],
+    [ "set_pid", "classemlabcpp_1_1pid.html#aca04489ffd35c9d9832848f7b289598e", null ],
     [ "set_time", "classemlabcpp_1_1pid.html#ae259ae962d4796fe8d05ff313246e52f", null ],
-    [ "update", "classemlabcpp_1_1pid.html#a0550d6b6bd18100317d9ec6b4d939715", null ]
+    [ "update", "classemlabcpp_1_1pid.html#a77e0fe2df4c84f93732d42a54bf3e171", null ]
 ];
