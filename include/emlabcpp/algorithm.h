@@ -54,8 +54,9 @@ constexpr int sign( const T& val )
 template < arithmetic_operators T, arithmetic_operators U >
 [[nodiscard]] constexpr U map_range( T input, T from_min, T from_max, U to_min, U to_max )
 {
-        return to_min + ( to_max - to_min ) * static_cast< U >( input - from_min ) /
-                            static_cast< U >( from_max - from_min );
+        return to_min + static_cast< U >(
+                            ( to_max - to_min ) * static_cast< U >( input - from_min ) /
+                            static_cast< U >( from_max - from_min ) );
 }
 
 /// Returns the size of the container, regardless of what it is
