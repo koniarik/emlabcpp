@@ -279,6 +279,12 @@ struct traits_json_serializer< sizeless_message< N > > : traits_json_serializer_
         static constexpr std::string_view type_name = "sizeless_message";
 };
 
+template < std::size_t N >
+struct traits_json_serializer< message< N > > : traits_json_serializer_base
+{
+        static constexpr std::string_view type_name = "message";
+};
+
 template < convertible D, auto Offset >
 struct traits_json_serializer< value_offset< D, Offset > > : traits_json_serializer_base
 {
