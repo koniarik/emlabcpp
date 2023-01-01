@@ -64,6 +64,7 @@ struct register_handler
                 return *message_type::make( view_n( buffer.begin(), *used ) );
         }
 
+        // TODO: what happens if the key is bad?
         static message_type select( const map_type& m, key_type key )
         {
                 return m.with_register( key, [&]< typename reg_type >( const reg_type& reg ) {
