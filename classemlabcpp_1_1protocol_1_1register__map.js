@@ -14,17 +14,13 @@ var classemlabcpp_1_1protocol_1_1register__map =
     [ "get_val", "classemlabcpp_1_1protocol_1_1register__map.html#a62b17ac82a2b9c703b7699784624a65e", null ],
     [ "register_key", "classemlabcpp_1_1protocol_1_1register__map.html#a8fb00aa95c1e87be15a902fc6e229e0b", null ],
     [ "register_size", "classemlabcpp_1_1protocol_1_1register__map.html#a5ca8ba945e7b47eadb74117dc008e50a", null ],
-    [ "requires", "classemlabcpp_1_1protocol_1_1register__map.html#aa3b962aa6680ba29d114d86323e7ff5a", null ],
-    [ "requires", "classemlabcpp_1_1protocol_1_1register__map.html#a35826b2fe1c15b27563a805397fdd49f", null ],
     [ "set_val", "classemlabcpp_1_1protocol_1_1register__map.html#a96b8db3f94aafc9de5dce48e6189ec83", null ],
     [ "setup_register", "classemlabcpp_1_1protocol_1_1register__map.html#a62410c195ed948480339d60e9ef756a8", null ],
-    [ "with_register", "classemlabcpp_1_1protocol_1_1register__map.html#a37a0efc4ce9dc342fa0fb375e377ea03", null ],
-    [ "const", "classemlabcpp_1_1protocol_1_1register__map.html#aedeefd1218b40c7b4a10617275b8f898", null ],
+    [ "with_register", "classemlabcpp_1_1protocol_1_1register__map.html#af48d4d383f0cd62c837b3a4aa18a5d27", null ],
+    [ "with_register", "classemlabcpp_1_1protocol_1_1register__map.html#a069dc3bd6089aa6ba6759ea9f3d94d11", null ],
     [ "contains_key", "classemlabcpp_1_1protocol_1_1register__map.html#ad94eab5cd02340f4e09d15e08d7ee91a", null ],
     [ "endianess", "classemlabcpp_1_1protocol_1_1register__map.html#a186d6906563c747f46ff7b429532f5c4", null ],
     [ "key_index", "classemlabcpp_1_1protocol_1_1register__map.html#a2999eaaf7666321cf01acb68b684ce70", null ],
     [ "max_value_size", "classemlabcpp_1_1protocol_1_1register__map.html#a33f5097792f99d104f47fd808132b3b9", null ],
-    [ "registers_count", "classemlabcpp_1_1protocol_1_1register__map.html#a6df959b196db8242aea28d3fc0e41e38", null ],
-    [ "res", "classemlabcpp_1_1protocol_1_1register__map.html#af0d49a8de018c2b9a876daa4ea6c2d18", null ],
-    [ "res", "classemlabcpp_1_1protocol_1_1register__map.html#a172a76504fb563494cdf31fd5439341c", null ]
+    [ "registers_count", "classemlabcpp_1_1protocol_1_1register__map.html#a6df959b196db8242aea28d3fc0e41e38", null ]
 ];

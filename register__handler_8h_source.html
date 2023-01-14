@@ -180,19 +180,20 @@ $(document).ready(function(){initNavTree('register__handler_8h_source.html','');
 <div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1protocol_1_1register__handler.html#a33ed2a3c07b344acbb985ad99356648a">   95</a></span>&#160;        <a class="code" href="structemlabcpp_1_1protocol_1_1register__handler.html#a33ed2a3c07b344acbb985ad99356648a">insert</a>( <a class="code" href="structemlabcpp_1_1protocol_1_1register__handler.html#ac94dd880c63207f834a3b792d4d27559">map_type</a>&amp; m, <a class="code" href="structemlabcpp_1_1protocol_1_1register__handler.html#a2f0dbd2bef460875e42538319b1d58a0">key_type</a> key, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1view.html">view&lt; const uint8_t* &gt;</a>&amp; buff )</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        {</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                std::optional&lt; error_record &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                m.setup_register( key, [&amp;]&lt; <span class="keyword">typename</span> reg_type &gt;() {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        <span class="keywordflow">return</span> extract&lt; reg_type::key &gt;( buff )</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                            .convert_right( [&amp;]( <span class="keyword">auto</span> err ) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                    <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = err;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                    <span class="keywordflow">return</span> m.template get_val&lt; reg_type::key &gt;();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                            } )</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                            .join();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                } );</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;};</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}  <span class="comment">// namespace emlabcpp::protocol</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                m.with_register( key, [&amp;]&lt; <span class="keyword">typename</span> reg_type &gt;( reg_type&amp; reg ) {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        extract&lt; reg_type::key &gt;( buff ).match(</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                            [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; val ) {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                    reg.value = val;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                            },</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                            [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; err ) {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                    <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = err;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                            } );</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                } );</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}  <span class="comment">// namespace emlabcpp::protocol</span></div>
 <div class="ttc" id="aassert_8h_html_a1be190c4e600e598cc284808298bde75"><div class="ttname"><a href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a></div><div class="ttdeci">#define EMLABCPP_ASSERT(cond)</div><div class="ttdef"><b>Definition:</b> assert.h:35</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1bounded__view_html_a6b64890bc01240d6bb82c9cc96fc2abc"><div class="ttname"><a href="classemlabcpp_1_1bounded__view.html#a6b64890bc01240d6bb82c9cc96fc2abc">emlabcpp::bounded_view::make</a></div><div class="ttdeci">static std::optional&lt; bounded_view &gt; make(view&lt; Iterator &gt; v)</div><div class="ttdef"><b>Definition:</b> bounded_view.h:66</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1bounded_html"><div class="ttname"><a href="classemlabcpp_1_1bounded.html">emlabcpp::bounded</a></div><div class="ttdoc">Bounded type represents a overlay over type T which is constrained between MinVal and MaxVal as compi...</div><div class="ttdef"><b>Definition:</b> bounded.h:48</div></div>
@@ -227,7 +228,7 @@ $(document).ready(function(){initNavTree('register__handler_8h_source.html','');
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="register__handler_8h.html">register_handler.h</a></li>
-    <li class="footer">Generated on Sun Jan 1 2023 20:05:53 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 14 2023 15:37:02 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
