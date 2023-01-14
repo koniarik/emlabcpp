@@ -108,8 +108,9 @@ public:
                 i_term_   = std::clamp( i_term_, conf_.min, conf_.max );
         }
 
-        min_max<float> get_limits() const {
-                return {conf_.min, conf_.max};
+        min_max< float > get_limits() const
+        {
+                return { conf_.min, conf_.max };
         }
 
         /// call this reularly, the meaning of time value 'now' is up to you, just be consistent
@@ -141,10 +142,10 @@ public:
 
                 return output_;
         }
-        
+
         void set_output( float output = 0 )
         {
-                output_ = std::clamp(output, conf_.min, conf_.max);
+                output_ = std::clamp( output, conf_.min, conf_.max );
         }
 
         [[nodiscard]] float get_output() const

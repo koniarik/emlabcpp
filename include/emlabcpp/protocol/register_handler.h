@@ -95,13 +95,14 @@ struct register_handler
         insert( map_type& m, key_type key, const view< const uint8_t* >& buff )
         {
                 std::optional< error_record > res;
-                m.setup_register( key, [&]< typename reg_type >() {
-                        return extract< reg_type::key >( buff )
-                            .convert_right( [&]( auto err ) {
+                m.with_register( key, [&]< typename reg_type >( reg_type& reg ) {
+                        extract< reg_type::key >( buff ).match(
+                            [&]( const auto& val ) {
+                                    reg.value = val;
+                            },
+                            [&]( const auto& err ) {
                                     res = err;
-                                    return m.template get_val< reg_type::key >();
-                            } )
-                            .join();
+                            } );
                 } );
                 return res;
         }

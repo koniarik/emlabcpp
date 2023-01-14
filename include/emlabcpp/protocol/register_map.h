@@ -37,7 +37,7 @@ struct register_pair
         using def_type                    = D;
         using key_type                    = decltype( Key );
         static constexpr key_type key     = Key;
-        using traits                        = proto_traits< def_type >;
+        using traits                      = proto_traits< def_type >;
         using value_type                  = typename traits::value_type;
         static constexpr std::size_t size = traits::max_size;
 
@@ -146,40 +146,49 @@ public:
         template < typename UnaryCallable >
         constexpr void setup_register( key_type key, UnaryCallable&& f )
         {
-                with_register( key, [this, f = std::forward<UnaryCallable>(f)]< typename reg_type >( const reg_type& ) {
-                        std::get< reg_type >( registers_ ).value =
+                with_register( key, [this, f = std::forward<UnaryCallable>(f)]< typename reg_type >( reg_type& reg) {
+                        reg.value =
                             f.template operator()< reg_type >();
                 } );
         }
 
-        template < typename UnaryCallable >
+        template < typename UnaryCallable > constexpr auto with_register( key_type key, UnaryCallable&& f ) const
+        {
+                return with_register_impl(*this, key, std::forward<UnaryCallable>(f));
+        }
+        
+        template < typename UnaryCallable > constexpr auto with_register( key_type key, UnaryCallable&& f )
+        {
+                return with_register_impl(*this, key, std::forward<UnaryCallable>(f));
+        }
+private:
+        template < typename Class, typename UnaryCallable >
         requires(
             !register_map_void_returning<
                 UnaryCallable,
-                registers_tuple > ) constexpr auto with_register( key_type key, UnaryCallable&& f )
-            const
+                registers_tuple > ) constexpr auto with_register_impl(Class& obj, key_type key, UnaryCallable&& f ) const
         {
                 using ret_type = decltype( f( std::get< 0 >( registers_ ) ) );
                 ret_type res;
-                with_register( key, [&res, &f]( const auto& reg ) {
+                with_register_impl(obj, key, [&res, &f]( const auto& reg ) {
                         res = f( reg );
                 } );
                 return res;
         }
 
-        template < typename UnaryCallable >
+        template< typename Class, typename UnaryCallable >
         requires(
             register_map_void_returning<
                 UnaryCallable,
-                registers_tuple > ) constexpr void with_register( key_type key, UnaryCallable&& f )
-            const
+                registers_tuple > )
+        static constexpr void with_register_impl(Class& obj, key_type key, UnaryCallable&& f)
         {
-                until_index< registers_count >( [this, &key, &f]< std::size_t j >() {
+                until_index< registers_count >( [&obj, &key, &f]< std::size_t j >() {
                         using reg_type = std::tuple_element_t< j, registers_tuple >;
                         if ( reg_type::key != key ) {
                                 return false;
                         }
-                        f( std::get< j >( registers_ ) );
+                        f( std::get< j >( obj.registers_ ) );
                         return true;
                 } );
         }
@@ -198,7 +207,7 @@ template < ostreamlike Stream, std::endian Endianess, typename... Regs >
 auto& operator<<( Stream& os, const register_map< Endianess, Regs... >& m )
 {
         for_each_register(
-            m, [&os]< auto key, typename T >( const T& val ) {  //
+            m, [&os]< auto key, typename T >( const T& val ) {  
                     os << key << "\t" << val << "\n";
             } );
 

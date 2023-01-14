@@ -31,8 +31,8 @@ namespace emlabcpp::testing
 class controller_interface
 {
 public:
-        virtual void on_result( const test_result& )               = 0;
-        virtual void on_error( const error_variant& )              = 0;
+        virtual void on_result( const test_result& )  = 0;
+        virtual void on_error( const error_variant& ) = 0;
 
         virtual ~controller_interface() = default;
 };
