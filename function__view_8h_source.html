@@ -123,13 +123,13 @@ $(document).ready(function(){initNavTree('function__view_8h_source.html',''); in
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> Callable &gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">static</span> ReturnType CallableHandler( <span class="keywordtype">void</span>* ptr, ArgTypes... args )</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">static</span> ReturnType CallableHandler( <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr, ArgTypes... args )</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                Callable* cb_ptr = <span class="keyword">reinterpret_cast&lt;</span> Callable* <span class="keyword">&gt;</span>( ptr );</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">return</span> ( *cb_ptr )( std::forward&lt; ArgTypes &gt;( args )... );</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">static</span> ReturnType FunctionHandler( <span class="keywordtype">void</span>* ptr, ArgTypes... args )</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">static</span> ReturnType FunctionHandler( <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr, ArgTypes... args )</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keyword">auto</span> f_ptr = <span class="keyword">reinterpret_cast&lt;</span> signature* <span class="keyword">&gt;</span>( ptr );</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keywordflow">return</span> f_ptr( args... );</div>
@@ -155,7 +155,7 @@ $(document).ready(function(){initNavTree('function__view_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="function__view_8h.html">function_view.h</a></li>
-    <li class="footer">Generated on Sat Jan 14 2023 15:37:02 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Jan 17 2023 10:13:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
