@@ -1,7 +1,7 @@
 #include <array>
 #include <chrono>
+#include <ctime>
 #include <string_view>
-#include <time.h>
 
 #pragma once
 

@@ -83,7 +83,7 @@ class multiplexed_endpoint
 {
 public:
         using message_type    = typename Packet::message_type;
-        using payload_message = typename Packet::payload_type::nth_def< 1 >;
+        using payload_message = typename Packet::payload_type::template nth_def< 1 >;
 
         // TODO: !!! use "has_static_size" concept!
         // TODO: maybe message_like concept?

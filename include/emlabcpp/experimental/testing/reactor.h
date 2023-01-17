@@ -60,7 +60,7 @@ public:
         reactor& operator=( const reactor& ) = delete;
         reactor& operator=( reactor&& )      = delete;
 
-        constexpr protocol::channel_type get_channel() const
+        [[nodiscard]] constexpr protocol::channel_type get_channel() const
         {
                 return channel_;
         }

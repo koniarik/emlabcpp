@@ -24,20 +24,19 @@ public:
           , test_( test )
           , rec_()
           , coro_()
-          , phas_( phase::INIT )
         {
         }
 
-        bool errored() const
+        [[nodiscard]] bool errored() const
         {
                 return errored_;
         }
-        bool failed() const
+        [[nodiscard]] bool failed() const
         {
                 return failed_;
         }
 
-        run_id get_run_id() const
+        [[nodiscard]] run_id get_run_id() const
         {
                 return rid_;
         }
@@ -85,7 +84,7 @@ public:
                 }
         }
 
-        bool finished() const
+        [[nodiscard]] bool finished() const
         {
                 return phas_ == phase::FINISHED;
         }
@@ -98,7 +97,7 @@ private:
         test_interface&       test_;
         record                rec_;
         test_coroutine        coro_;
-        phase                 phas_;
+        phase                 phas_{ phase::INIT };
 };
 
 }  // namespace emlabcpp::testing

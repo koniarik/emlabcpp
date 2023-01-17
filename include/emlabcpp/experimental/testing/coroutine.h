@@ -21,7 +21,7 @@ enum class await_state : uint8_t
 class test_awaiter_interface
 {
 public:
-        virtual await_state get_state() const = 0;
+        [[nodiscard]] virtual await_state get_state() const = 0;
         virtual ~test_awaiter_interface()     = default;
 };
 
@@ -66,7 +66,7 @@ public:
         {
         }
 
-        bool done() const
+        [[nodiscard]] bool done() const
         {
                 if ( h_ ) {
                         return h_.done();
