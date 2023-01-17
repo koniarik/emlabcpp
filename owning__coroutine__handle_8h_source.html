@@ -126,16 +126,16 @@ $(document).ready(function(){initNavTree('owning__coroutine__handle_8h_source.ht
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                h_();</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#af680ef8607a7dc34a62ea6de5191ca53">   40</a></span>&#160;        constexpr <span class="keyword">explicit</span> <span class="keyword">operator</span> bool()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#af680ef8607a7dc34a62ea6de5191ca53">   40</a></span>&#160;        [[nodiscard]] constexpr <span class="keyword">explicit</span> <span class="keyword">operator</span> bool()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">return</span> bool( h_ );</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a547a844cc24771f25bb6e8e296c75b8a">   45</a></span>&#160;        constexpr <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a547a844cc24771f25bb6e8e296c75b8a">done</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a547a844cc24771f25bb6e8e296c75b8a">   45</a></span>&#160;        [[nodiscard]] constexpr <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a547a844cc24771f25bb6e8e296c75b8a">done</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">return</span> h_.done();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#aa7b0ed84ae02094f0d3f476ffaceb6ba">   49</a></span>&#160;        constexpr <span class="keywordtype">void</span>* <a class="code" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#aa7b0ed84ae02094f0d3f476ffaceb6ba">address</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#aa7b0ed84ae02094f0d3f476ffaceb6ba">   49</a></span>&#160;        [[nodiscard]] constexpr <span class="keywordtype">void</span>* <a class="code" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#aa7b0ed84ae02094f0d3f476ffaceb6ba">address</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">return</span> h_.address();</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
@@ -145,7 +145,7 @@ $(document).ready(function(){initNavTree('owning__coroutine__handle_8h_source.ht
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">return</span> h_.promise();</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a84d617ae977da6fb54fddc9f63d59dc8">   59</a></span>&#160;        constexpr <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#ab3342b524de7db077a31757a4ef2fec8">promise_type</a>&amp; <a class="code" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a84d617ae977da6fb54fddc9f63d59dc8">promise</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a84d617ae977da6fb54fddc9f63d59dc8">   59</a></span>&#160;        [[nodiscard]] constexpr <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#ab3342b524de7db077a31757a4ef2fec8">promise_type</a>&amp; <a class="code" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#a84d617ae977da6fb54fddc9f63d59dc8">promise</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">return</span> h_.promise();</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
@@ -184,7 +184,7 @@ $(document).ready(function(){initNavTree('owning__coroutine__handle_8h_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_124696910e1f6c10a38401e63d4996f0.html">coro</a></li><li class="navelem"><a class="el" href="owning__coroutine__handle_8h.html">owning_coroutine_handle.h</a></li>
-    <li class="footer">Generated on Tue Jan 17 2023 10:13:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Jan 17 2023 10:44:12 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
