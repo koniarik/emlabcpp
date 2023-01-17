@@ -98,8 +98,8 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1protocol_1_1multiplex
 Public Types</h2></td></tr>
 <tr class="memitem:aec7fa1ff43a2619d100e2824d80feab4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#aec7fa1ff43a2619d100e2824d80feab4">message_type</a> = typename Packet::message_type</td></tr>
 <tr class="separator:aec7fa1ff43a2619d100e2824d80feab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d2eb02ac81b5534efe576af520b5c8e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a9d2eb02ac81b5534efe576af520b5c8e">payload_message</a> = typename Packet::payload_type::nth_def&lt; 1 &gt;</td></tr>
-<tr class="separator:a9d2eb02ac81b5534efe576af520b5c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a526fd663a909c0987b2e886f377c1464"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a526fd663a909c0987b2e886f377c1464">payload_message</a> = typename Packet::payload_type::template nth_def&lt; 1 &gt;</td></tr>
+<tr class="separator:a526fd663a909c0987b2e886f377c1464"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -112,7 +112,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a24058df241e15bde8bae7e25ec689194"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
 <tr class="memitem:a24058df241e15bde8bae7e25ec689194"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a24058df241e15bde8bae7e25ec689194">insert</a> (Container &amp;&amp;data)</td></tr>
 <tr class="separator:a24058df241e15bde8bae7e25ec689194"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7962c3b01af1b1a0b0e89bd53a7c4100"><td class="memItemLeft" align="right" valign="top">std::variant&lt; std::size_t, std::tuple&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a9d2eb02ac81b5534efe576af520b5c8e">payload_message</a> &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a7962c3b01af1b1a0b0e89bd53a7c4100">get_value</a> ()</td></tr>
+<tr class="memitem:a7962c3b01af1b1a0b0e89bd53a7c4100"><td class="memItemLeft" align="right" valign="top">std::variant&lt; std::size_t, std::tuple&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a526fd663a909c0987b2e886f377c1464">payload_message</a> &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a7962c3b01af1b1a0b0e89bd53a7c4100">get_value</a> ()</td></tr>
 <tr class="separator:a7962c3b01af1b1a0b0e89bd53a7c4100"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab92c599d18670cc68a1cf5cc2c00fef8"><td class="memTemplParams" colspan="2">template&lt;typename NextCallable , typename ValueCallable , typename ErrorCallable &gt; </td></tr>
 <tr class="memitem:ab92c599d18670cc68a1cf5cc2c00fef8"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#ab92c599d18670cc68a1cf5cc2c00fef8">match_value</a> (NextCallable &amp;&amp;nc, ValueCallable &amp;&amp;vc, ErrorCallable &amp;&amp;ec)</td></tr>
@@ -138,8 +138,8 @@ template&lt;typename Packet &gt; </div>
 
 </div>
 </div>
-<a id="a9d2eb02ac81b5534efe576af520b5c8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d2eb02ac81b5534efe576af520b5c8e">&#9670;&nbsp;</a></span>payload_message</h2>
+<a id="a526fd663a909c0987b2e886f377c1464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a526fd663a909c0987b2e886f377c1464">&#9670;&nbsp;</a></span>payload_message</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,7 +147,7 @@ template&lt;typename Packet &gt; </div>
 template&lt;typename Packet &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html">emlabcpp::protocol::multiplexed_endpoint</a>&lt; Packet &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a9d2eb02ac81b5534efe576af520b5c8e">payload_message</a> =  typename Packet::payload_type::nth_def&lt; 1 &gt;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html">emlabcpp::protocol::multiplexed_endpoint</a>&lt; Packet &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a526fd663a909c0987b2e886f377c1464">payload_message</a> =  typename Packet::payload_type::template nth_def&lt; 1 &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -199,7 +199,7 @@ template&lt;typename Packet &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::variant&lt; std::size_t, std::tuple&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a9d2eb02ac81b5534efe576af520b5c8e">payload_message</a> &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt; <a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html">emlabcpp::protocol::multiplexed_endpoint</a>&lt; Packet &gt;::get_value </td>
+          <td class="memname">std::variant&lt; std::size_t, std::tuple&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html#a526fd663a909c0987b2e886f377c1464">payload_message</a> &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt; <a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html">emlabcpp::protocol::multiplexed_endpoint</a>&lt; Packet &gt;::get_value </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -389,7 +389,7 @@ template&lt;std::size_t N&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html">multiplexed_endpoint</a></li>
-    <li class="footer">Generated on Tue Jan 17 2023 10:44:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Jan 17 2023 10:50:25 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
