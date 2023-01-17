@@ -18,7 +18,7 @@ class executor
         };
 
 public:
-        executor( run_id rid, pmr::memory_resource& mem, test_interface& test )
+        executor( const run_id rid, pmr::memory_resource& mem, test_interface& test )
           : rid_( rid )
           , mem_( mem )
           , test_( test )

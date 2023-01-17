@@ -16,7 +16,7 @@ class controller_interface_adapter
 
 public:
         explicit controller_interface_adapter(
-            protocol::channel_type       channel,
+            const protocol::channel_type channel,
             controller_interface&        iface,
             controller_transmit_callback send_cb )
           : channel_( channel )
@@ -27,8 +27,8 @@ public:
 
         void send( const controller_reactor_variant& var )
         {
-                using h  = protocol::handler< controller_reactor_group >;
-                auto msg = h::serialize( var );
+                using h        = protocol::handler< controller_reactor_group >;
+                const auto msg = h::serialize( var );
                 send_cb_( channel_, msg );
         }
 
@@ -44,7 +44,7 @@ public:
 
         void set_reply_cb( static_function< bool( const reactor_controller_variant& ), 32 > cb )
         {
-                reply_cb_ = cb;
+                reply_cb_ = std::move( cb );
         }
 
         bool on_msg_with_cb( const reactor_controller_variant& var )

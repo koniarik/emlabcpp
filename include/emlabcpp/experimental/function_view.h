@@ -34,13 +34,13 @@ public:
 
 private:
         template < typename Callable >
-        static ReturnType CallableHandler( void* ptr, ArgTypes... args )
+        static ReturnType CallableHandler( void* const ptr, ArgTypes... args )
         {
                 Callable* cb_ptr = reinterpret_cast< Callable* >( ptr );
                 return ( *cb_ptr )( std::forward< ArgTypes >( args )... );
         }
 
-        static ReturnType FunctionHandler( void* ptr, ArgTypes... args )
+        static ReturnType FunctionHandler( void* const ptr, ArgTypes... args )
         {
                 auto f_ptr = reinterpret_cast< signature* >( ptr );
                 return f_ptr( args... );

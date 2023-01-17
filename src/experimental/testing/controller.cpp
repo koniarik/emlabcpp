@@ -90,7 +90,7 @@ test_coroutine controller::initialize( pmr::memory_resource& )
         test_id count =
             ( co_await msg_awaiter< get_count_reply >( get_property< COUNT >{}, iface_ ) ).count;
 
-        for ( test_id i : range( count ) ) {
+        for ( const test_id i : range( count ) ) {
                 auto name_reply = co_await msg_awaiter< get_test_name_reply >(
                     get_test_name_request{ .tid = i }, iface_ );
 
@@ -98,7 +98,7 @@ test_coroutine controller::initialize( pmr::memory_resource& )
         }
 }
 
-void controller::start_test( test_id tid )
+void controller::start_test( const test_id tid )
 {
         if ( !std::holds_alternative< idle_state >( state_ ) ) {
                 EMLABCPP_LOG( "Can't start a new test, not in prepared state" );
@@ -112,7 +112,7 @@ void controller::start_test( test_id tid )
         iface_.send( exec_request{ .rid = rid_, .tid = tid } );
 }
 
-void controller::on_msg( std::span< const uint8_t > data )
+void controller::on_msg( const std::span< const uint8_t > data )
 {
         using h = protocol::handler< reactor_controller_group >;
         h::extract( view_n( data.data(), data.size() ) )

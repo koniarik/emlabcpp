@@ -49,7 +49,7 @@ class controller
 
 public:
         controller(
-            protocol::channel_type       channel,
+            const protocol::channel_type channel,
             pmr::memory_resource&        mem_res,
             controller_interface&        iface,
             controller_transmit_callback send_cb )
@@ -92,10 +92,10 @@ public:
                 return tests_;
         }
 
-        void on_msg( std::span< const uint8_t > data );
+        void on_msg( const std::span< const uint8_t > data );
         void on_msg( const reactor_controller_variant& );
 
-        void start_test( test_id tid );
+        void start_test( const test_id tid );
 
         void tick();
 

@@ -128,7 +128,7 @@ public:
         {
                 return match(
                     ep.get_value(),
-                    []( std::size_t ) {
+                    []( const std::size_t ) {
                             return true;
                     },
                     [&]( const std::tuple< channel_type, payload_message >& payload ) {

@@ -46,9 +46,9 @@ class reactor
 
 public:
         explicit reactor(
-            protocol::channel_type    chann,
-            const std::string_view    suite_name,
-            reactor_transmit_callback tb )
+            const protocol::channel_type chann,
+            const std::string_view       suite_name,
+            reactor_transmit_callback    tb )
           : channel_( chann )
           , suite_name_( suite_name )
           , iface_( chann, std::move( tb ) )
