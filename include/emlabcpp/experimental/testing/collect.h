@@ -64,7 +64,7 @@ public:
 
         void await_suspend( std::coroutine_handle< test_coroutine::promise_type > h );
 
-        node_id await_resume()
+        node_id await_resume() const
         {
                 coro_handle.promise().iface = nullptr;
                 return res;
@@ -125,7 +125,7 @@ public:
             pmr::memory_resource&            mem_res,
             collect_server_transmit_callback send_cb );
 
-        protocol::channel_type get_channel()
+        protocol::channel_type get_channel() const
         {
                 return channel_;
         }
@@ -138,7 +138,7 @@ public:
                 tree_.clear();
         }
 
-        const data_tree& get_tree()
+        const data_tree& get_tree() const
         {
                 return tree_;
         }

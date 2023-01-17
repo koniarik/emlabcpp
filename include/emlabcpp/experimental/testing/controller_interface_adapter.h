@@ -58,7 +58,7 @@ public:
                 iface_.on_error( var );
         }
 #ifdef EMLABCPP_USE_LOGGING
-        void log_error( const error_variant& var )
+        void log_error( const error_variant& var ) const
         {
                 match(
                     var,

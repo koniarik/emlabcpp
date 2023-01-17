@@ -258,7 +258,7 @@ class parameters
 public:
         parameters( protocol::channel_type chann, params_client_transmit_callback send_cb );
 
-        protocol::channel_type get_channel()
+        protocol::channel_type get_channel() const
         {
                 return channel_;
         }
@@ -333,7 +333,7 @@ public:
             data_tree                       tree,
             params_server_transmit_callback send_cb );
 
-        protocol::channel_type get_channel()
+        protocol::channel_type get_channel() const
         {
                 return channel_;
         }

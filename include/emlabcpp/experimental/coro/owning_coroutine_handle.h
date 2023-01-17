@@ -37,16 +37,16 @@ public:
                 h_();
         }
 
-        constexpr explicit operator bool() const
+        [[nodiscard]] constexpr explicit operator bool() const
         {
                 return bool( h_ );
         }
 
-        constexpr bool done() const
+        [[nodiscard]] constexpr bool done() const
         {
                 return h_.done();
         }
-        constexpr void* address() const
+        [[nodiscard]] constexpr void* address() const
         {
                 return h_.address();
         }
@@ -56,7 +56,7 @@ public:
                 return h_.promise();
         }
 
-        constexpr const promise_type& promise() const
+        [[nodiscard]] constexpr const promise_type& promise() const
         {
                 return h_.promise();
         }
