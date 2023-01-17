@@ -46,12 +46,12 @@ struct msg_awaiter : public test_awaiter_interface
         {
         }
 
-        await_state get_state() const
+        [[nodiscard]] await_state get_state() const override
         {
                 return state;
         }
 
-        bool await_ready() const
+        [[nodiscard]] bool await_ready() const
         {
                 return false;
         }

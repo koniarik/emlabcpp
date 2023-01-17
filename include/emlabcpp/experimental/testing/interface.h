@@ -37,10 +37,10 @@ class reactor;
 class test_interface : public binding_linked_list_node< test_interface >
 {
 public:
-        test_interface( const name_buffer& name );
+        test_interface( name_buffer name );
         test_interface( std::string_view name );
 
-        test_interface( reactor&, const name_buffer& name );
+        test_interface( reactor&, name_buffer name );
         test_interface( reactor&, std::string_view name );
 
         test_interface( const test_interface& )            = delete;

@@ -3,6 +3,8 @@
 
 #include "emlabcpp/experimental/logging.h"
 
+#include <utility>
+
 namespace emlabcpp::testing
 {
 bool param_type_processor::set_value( const params_server_client_variant& var )
@@ -109,7 +111,7 @@ param_key_awaiter parameters::get_key( node_id nid, child_id chid )
 
 void parameters::exchange( const params_client_server_variant& req, params_reply_callback reply_cb )
 {
-        reply_cb_ = reply_cb;
+        reply_cb_ = std::move( reply_cb );
         send( req );
 }
 
@@ -124,7 +126,7 @@ parameters_server::parameters_server(
     data_tree                       tree,
     params_server_transmit_callback send_cb )
   : channel_( chann )
-  , tree_( tree )
+  , tree_( std::move( tree ) )
   , send_cb_( std::move( send_cb ) )
 {
 }

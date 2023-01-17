@@ -1,5 +1,7 @@
 #include "emlabcpp/experimental/testing/collect.h"
 
+#include <utility>
+
 namespace emlabcpp::testing
 {
 
@@ -85,7 +87,7 @@ void collector::append( node_id parent, const value_type& val )
 
 void collector::exchange( const collect_request& req, collect_reply_callback cb )
 {
-        reply_callback_ = cb;
+        reply_callback_ = std::move( cb );
         send( req );
 }
 

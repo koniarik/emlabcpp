@@ -52,7 +52,7 @@ public:
 
         collect_awaiter( collect_request req, collector& coll );
 
-        await_state get_state() const
+        [[nodiscard]] await_state get_state() const override
         {
                 return state;
         }
@@ -64,7 +64,7 @@ public:
 
         void await_suspend( std::coroutine_handle< test_coroutine::promise_type > h );
 
-        node_id await_resume() const
+        [[nodiscard]] node_id await_resume() const
         {
                 coro_handle.promise().iface = nullptr;
                 return res;
@@ -83,7 +83,7 @@ public:
         collector& operator=( const collector& ) = delete;
         collector& operator=( collector&& )      = delete;
 
-        constexpr protocol::channel_type get_channel() const
+        [[nodiscard]] constexpr protocol::channel_type get_channel() const
         {
                 return channel_;
         }
@@ -125,7 +125,7 @@ public:
             pmr::memory_resource&            mem_res,
             collect_server_transmit_callback send_cb );
 
-        protocol::channel_type get_channel() const
+        [[nodiscard]] protocol::channel_type get_channel() const
         {
                 return channel_;
         }
@@ -138,7 +138,7 @@ public:
                 tree_.clear();
         }
 
-        const data_tree& get_tree() const
+        [[nodiscard]] const data_tree& get_tree() const
         {
                 return tree_;
         }

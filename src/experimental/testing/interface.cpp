@@ -2,11 +2,13 @@
 
 #include "emlabcpp/experimental/testing/reactor.h"
 
+#include <utility>
+
 namespace emlabcpp::testing
 {
 
-test_interface::test_interface( const name_buffer& name )
-  : name( name )
+test_interface::test_interface( name_buffer name )
+  : name( std::move( name ) )
 {
 }
 
@@ -15,8 +17,8 @@ test_interface::test_interface( const std::string_view name )
 {
 }
 
-test_interface::test_interface( reactor& rec, const name_buffer& name )
-  : name( name )
+test_interface::test_interface( reactor& rec, name_buffer name )
+  : name( std::move( name ) )
 {
         rec.register_test( *this );
 }

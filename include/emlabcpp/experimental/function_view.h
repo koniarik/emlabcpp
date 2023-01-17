@@ -36,7 +36,7 @@ private:
         template < typename Callable >
         static ReturnType CallableHandler( void* const ptr, ArgTypes... args )
         {
-                Callable* cb_ptr = reinterpret_cast< Callable* >( ptr );
+                auto* cb_ptr = reinterpret_cast< Callable* >( ptr );
                 return ( *cb_ptr )( std::forward< ArgTypes >( args )... );
         }
 
