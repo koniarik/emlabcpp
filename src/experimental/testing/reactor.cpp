@@ -70,17 +70,18 @@ void reactor::handle_message( const get_property< SUITE_DATE > )
 }
 void reactor::handle_message( const get_property< COUNT > )
 {
-        const std::size_t c = root_test_.count_next();
+        const std::size_t c = root_node_.count_next();
         iface_.reply( get_count_reply{ static_cast< test_id >( c ) } );
 }
 void reactor::handle_message( const get_test_name_request req )
 {
-        test_interface* const test_ptr = root_test_.get_next( req.tid + 1 );
-        if ( test_ptr == nullptr ) {
+        test_ll_node* const node_ptr = root_node_.get_next( req.tid + 1 );
+        if ( node_ptr == nullptr ) {
                 iface_.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
         }
-        iface_.reply( get_test_name_reply{ test_ptr->name } );
+        test_interface* test_ptr = **node_ptr;
+        iface_.reply( get_test_name_reply{ name_to_buffer( test_ptr->get_name() ) } );
 }
 
 void reactor::handle_message( const exec_request req )
@@ -90,12 +91,12 @@ void reactor::handle_message( const exec_request req )
                 return;
         }
 
-        test_interface* const test_ptr = root_test_.get_next( req.tid + 1 );
-        if ( test_ptr == nullptr ) {
+        test_ll_node* const node_ptr = root_node_.get_next( req.tid + 1 );
+        if ( node_ptr == nullptr ) {
                 iface_.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
         }
-
+        test_interface* test_ptr = **node_ptr;
         opt_exec_.emplace( req.rid, mem_, *test_ptr );
 }
 }  // namespace emlabcpp::testing

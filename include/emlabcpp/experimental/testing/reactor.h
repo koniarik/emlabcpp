@@ -37,7 +37,7 @@ class reactor
         std::string_view       suite_name_;
         const std::string_view suite_date_ = __DATE__ " " __TIME__;
 
-        empty_test                    root_test_;
+        test_ll_node                  root_node_;
         pmr::pool_resource< 1024, 1 > mem_;
 
         reactor_interface_adapter iface_;
@@ -68,9 +68,9 @@ public:
         void on_msg( std::span< const uint8_t > buffer );
         void on_msg( const controller_reactor_variant& var );
 
-        void register_test( test_interface& test )
+        void register_test( linked_list_node< test_interface* >& test )
         {
-                root_test_.push_after( &test );
+                root_node_.link_as_next( test );
         }
 
         void tick();

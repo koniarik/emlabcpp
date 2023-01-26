@@ -13,6 +13,11 @@ class simple_test_fixture : public testing::test_interface
 public:
         using testing::test_interface::test_interface;
 
+        std::string_view get_name() const
+        {
+                return "simple wololo";
+        }
+
         testing::test_coroutine setup( pmr::memory_resource&, testing::record& )
         {
                 setup_count += 1;
@@ -38,6 +43,11 @@ class complex_test_fixture : public testing::test_interface
 {
 public:
         using testing::test_interface::test_interface;
+
+        std::string_view get_name() const
+        {
+                return "complex wololo";
+        }
 
         testing::test_coroutine setup( pmr::memory_resource&, testing::record& )
         {

@@ -14,10 +14,14 @@ struct params_test_fixture : public testing::test_interface
         bool                 checkpoint_reached = false;
         bool                 end_reached        = false;
 
-        params_test_fixture( std::string_view name, testing::parameters& param )
-          : testing::test_interface( name )
-          , params( param )
+        params_test_fixture( testing::parameters& param )
+          : params( param )
         {
+        }
+
+        std::string_view get_name() const
+        {
+                return "wololo";
         }
 
         testing::test_coroutine run( pmr::memory_resource&, testing::record& )
@@ -80,7 +84,7 @@ TEST( params, base )
         testing::parameters_server server{ 0, std::move( *opt_data ), server_send_f };
         server_ptr = &server;
 
-        params_test_fixture tf{ "wololo", coll };
+        params_test_fixture tf{ coll };
 
         testing::executor exec{ 0u, pmr::new_delete_resource(), tf };
 

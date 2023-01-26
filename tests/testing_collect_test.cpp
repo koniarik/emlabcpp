@@ -14,10 +14,14 @@ struct collector_test_fixture : public testing::test_interface
         bool                checkpoint_reached = false;
         bool                end_reached        = false;
 
-        collector_test_fixture( std::string_view name, testing::collector& col )
-          : testing::test_interface( name )
-          , coll( col )
+        collector_test_fixture( testing::collector& col )
+          : coll( col )
         {
+        }
+
+        std::string_view get_name() const
+        {
+                return "wololo";
         }
 
         testing::test_coroutine run( pmr::memory_resource&, testing::record& )
@@ -57,7 +61,7 @@ TEST( collect, base )
         testing::collect_server server{ 0, pmr::new_delete_resource(), server_send_f };
         server_ptr = &server;
 
-        collector_test_fixture tf{ "wololo", coll };
+        collector_test_fixture tf{ coll };
 
         testing::executor exec{ 0u, pmr::new_delete_resource(), tf };
 

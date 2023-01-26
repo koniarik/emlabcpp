@@ -20,7 +20,7 @@
 //  Copyright © 2022 Jan Veverak Koniarik
 //  This file is part of project: emlabcpp
 //
-#include "emlabcpp/experimental/binding_linked_list.h"
+#include "emlabcpp/experimental/linked_list.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/experimental/testing/record.h"
 #include "emlabcpp/protocol/packet_handler.h"
@@ -32,53 +32,26 @@
 namespace emlabcpp::testing
 {
 
-class reactor;
-
-class test_interface : public binding_linked_list_node< test_interface >
+class test_interface
 {
 public:
-        test_interface( name_buffer name );
-        test_interface( std::string_view name );
-
-        test_interface( reactor&, name_buffer name );
-        test_interface( reactor&, std::string_view name );
+        test_interface() = default;
 
         test_interface( const test_interface& )            = delete;
+        test_interface( test_interface&& other )           = delete;
         test_interface& operator=( const test_interface& ) = delete;
+        test_interface& operator=( test_interface&& )      = delete;
 
-        test_interface( test_interface&& other ) = default;
-
-        test_interface& operator=( test_interface&& ) = delete;
+        virtual std::string_view get_name() const = 0;
 
         virtual test_coroutine setup( pmr::memory_resource&, record& );
         virtual test_coroutine run( pmr::memory_resource&, record& ) = 0;
         virtual test_coroutine teardown( pmr::memory_resource&, record& );
 
         virtual ~test_interface() = default;
-
-        friend reactor;
-
-private:
-        test_interface() = default;
-
-        using binding_linked_list_node< test_interface >::push_after;
-
-        name_buffer name;
 };
 
-class empty_test : public test_interface
-{
-public:
-        explicit empty_test()
-          : test_interface( name_buffer{} )
-        {
-        }
-
-        test_coroutine run( pmr::memory_resource&, record& ) override
-        {
-                co_return;
-        };
-};
+using test_ll_node = linked_list_node< test_interface* >;
 
 template < typename T >
 concept valid_test_callable = requires( T t, pmr::memory_resource& mem_resource, record& rec )
@@ -88,46 +61,72 @@ concept valid_test_callable = requires( T t, pmr::memory_resource& mem_resource,
                 } -> std::same_as< test_coroutine >;
 };
 
+template < std::derived_from< test_interface > T >
+class test_unit
+{
+public:
+        template < typename... Args >
+        test_unit( auto& reac, Args&&... args )
+          : item_( std::forward< Args >( args )... )
+          , node_( &item_ )
+        {
+                reac.register_test( node_ );
+        }
+
+        test_unit( const test_unit& )            = delete;
+        test_unit( test_unit&& )                 = delete;
+        test_unit& operator=( const test_unit& ) = delete;
+        test_unit& operator=( test_unit&& )      = delete;
+
+        T& operator*()
+        {
+                return item_;
+        }
+        const T& operator*() const
+        {
+                return item_;
+        }
+
+        T* operator->()
+        {
+                return &item_;
+        }
+        const T* operator->() const
+        {
+                return &item_;
+        }
+
+private:
+        T            item_;
+        test_ll_node node_;
+};
+
 template < valid_test_callable Callable >
 class test_callable : public test_interface
 {
-        Callable cb_;
-
 public:
-        test_callable( reactor& rec, const std::string_view name, Callable cb )
-          : test_interface( rec, name_to_buffer( name ) )
+        test_callable( auto& reac, const std::string_view name, Callable cb )
+          : node_( this )
+          , name_( name_to_buffer( name ) )
           , cb_( std::move( cb ) )
         {
+                reac.register_test( node_ );
+        }
+
+        std::string_view get_name() const
+        {
+                return std::string_view{ name_.data(), name_.size() };
         }
 
         test_coroutine run( pmr::memory_resource& mem_resource, record& rec ) final
         {
                 return cb_( mem_resource, rec );
         }
+
+private:
+        test_ll_node node_;
+        name_buffer  name_;
+        Callable     cb_;
 };
-
-template < std::derived_from< test_interface > T, valid_test_callable C >
-class test_composer : public T
-{
-        C cb_;
-
-public:
-        test_composer( T t, C c )
-          : T( std::move( t ) )
-          , cb_( std::move( c ) )
-        {
-        }
-
-        test_coroutine run( pmr::memory_resource& mem_resource, record& rec ) final
-        {
-                return cb_( mem_resource, rec );
-        }
-};
-
-template < std::derived_from< test_interface > T, valid_test_callable C >
-test_composer< T, C > test_compose( T t, C c )
-{
-        return { std::move( t ), std::move( c ) };
-}
 
 }  // namespace emlabcpp::testing

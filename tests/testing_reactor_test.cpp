@@ -76,14 +76,14 @@ void executor_test_run( T& tf )
 
 TEST( executor, simple_full_run )
 {
-        simple_test_fixture tf{ "test" };
+        simple_test_fixture tf{};
 
         executor_test_run( tf );
 }
 
 TEST( executor, complex_full_run )
 {
-        complex_test_fixture tf{ "test" };
+        complex_test_fixture tf{};
 
         executor_test_run( tf );
 }
@@ -93,11 +93,8 @@ TEST( reactor, reactor_simple )
         reactor_interface iface;
         testing::reactor  rec{ 0, "reac", iface };
 
-        simple_test_fixture tf{ "simple" };
-        simple_test_fixture tf2{ "test" };
-
-        rec.register_test( tf );
-        rec.register_test( tf2 );
+        testing::test_unit< simple_test_fixture > tf{ rec };
+        testing::test_unit< simple_test_fixture > tf2{ rec };
 
         rec.on_msg( testing::exec_request{ .rid = 0, .tid = 0 } );
 
@@ -106,12 +103,12 @@ TEST( reactor, reactor_simple )
                 rec.tick();
         }
 
-        EXPECT_EQ( tf.setup_count, 0 );
-        EXPECT_EQ( tf.run_count, 0 );
-        EXPECT_EQ( tf.teardown_count, 0 );
-        EXPECT_EQ( tf2.setup_count, 1 );
-        EXPECT_EQ( tf2.run_count, 1 );
-        EXPECT_EQ( tf2.teardown_count, 1 );
+        EXPECT_EQ( tf->setup_count, 0 );
+        EXPECT_EQ( tf->run_count, 0 );
+        EXPECT_EQ( tf->teardown_count, 0 );
+        EXPECT_EQ( tf2->setup_count, 1 );
+        EXPECT_EQ( tf2->run_count, 1 );
+        EXPECT_EQ( tf2->teardown_count, 1 );
 
         EXPECT_EQ( iface.msgs.size(), 1 );
         EXPECT_TRUE( std::holds_alternative< testing::test_finished >( iface.msgs.back() ) );
