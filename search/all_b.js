@@ -1,9 +1,13 @@
 var searchData=
 [
-  ['left_5fitem_467',['left_item',['../classemlabcpp_1_1either.html#acdbfa3b0c267b283d1df22be04558b6a',1,'emlabcpp::either']]],
-  ['length_468',['length',['../namespaceemlabcpp.html#a458a21111b267fd6b9727f821974f859',1,'emlabcpp']]],
-  ['line_469',['line',['../namespaceemlabcpp.html#a33c5ed3dba4f9efa0836eeeec747e47b',1,'emlabcpp::log_colors']]],
-  ['linear_5findex_5fvisit_5fimpl_470',['linear_index_visit_impl',['../namespaceemlabcpp_1_1detail.html#ae62a62600226a000600fed5337655cbc',1,'emlabcpp::detail']]],
+  ['left_5fitem_463',['left_item',['../classemlabcpp_1_1either.html#acdbfa3b0c267b283d1df22be04558b6a',1,'emlabcpp::either']]],
+  ['length_464',['length',['../namespaceemlabcpp.html#a458a21111b267fd6b9727f821974f859',1,'emlabcpp']]],
+  ['line_465',['line',['../namespaceemlabcpp.html#a33c5ed3dba4f9efa0836eeeec747e47b',1,'emlabcpp::log_colors']]],
+  ['linear_5findex_5fvisit_5fimpl_466',['linear_index_visit_impl',['../namespaceemlabcpp_1_1detail.html#ae62a62600226a000600fed5337655cbc',1,'emlabcpp::detail']]],
+  ['link_5fas_5fnext_467',['link_as_next',['../classemlabcpp_1_1linked__list__node.html#a61df0affd2ad89a973da406f95a9b29d',1,'emlabcpp::linked_list_node']]],
+  ['linked_5flist_2eh_468',['linked_list.h',['../linked__list_8h.html',1,'']]],
+  ['linked_5flist_5fnode_469',['linked_list_node',['../classemlabcpp_1_1linked__list__node.html',1,'emlabcpp::linked_list_node&lt; T &gt;'],['../classemlabcpp_1_1linked__list__node.html#aa4a94331b9e84546abb679c761a2647d',1,'emlabcpp::linked_list_node::linked_list_node(linked_list_node &amp;&amp;other) noexcept'],['../classemlabcpp_1_1linked__list__node.html#a272436070cc11a554af57b6b0060efb7',1,'emlabcpp::linked_list_node::linked_list_node()=default'],['../classemlabcpp_1_1linked__list__node.html#a75a42877e5118ad445b44d6413f9113e',1,'emlabcpp::linked_list_node::linked_list_node(Args &amp;&amp;... args)'],['../classemlabcpp_1_1linked__list__node.html#af95a376259605ebd192d0c0401c8a5fa',1,'emlabcpp::linked_list_node::linked_list_node(const linked_list_node &amp;)=delete']]],
+  ['linked_5flist_5fnode_3c_20test_5finterface_20_2a_20_3e_470',['linked_list_node&lt; test_interface * &gt;',['../classemlabcpp_1_1linked__list__node.html',1,'emlabcpp']]],
   ['list_471',['list',['../namespaceemlabcpp_1_1pmr.html#aa9e0710702363605288c47c26736ea5f',1,'emlabcpp::pmr']]],
   ['log_5fcolor_5fstub_472',['log_color_stub',['../namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub',1,'emlabcpp']]],
   ['log_5fcolors_473',['log_colors',['../namespaceemlabcpp.html#structemlabcpp_1_1log__colors',1,'emlabcpp']]],

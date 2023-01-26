@@ -12,13 +12,6 @@ var hierarchy =
     [ "emlabcpp::protocol::backup_proto_traits< T >", "structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4.html", null ],
     [ "emlabcpp::rpc::bind< ID, Signature, CallableSize >", "structemlabcpp_1_1rpc_1_1bind.html", null ],
     [ "emlabcpp::rpc::bind_wrapper< Bindings >", "classemlabcpp_1_1rpc_1_1bind__wrapper.html", null ],
-    [ "emlabcpp::binding_linked_list_node< Derived >", "classemlabcpp_1_1binding__linked__list__node.html", null ],
-    [ "emlabcpp::binding_linked_list_node< test_interface >", "classemlabcpp_1_1binding__linked__list__node.html", [
-      [ "emlabcpp::testing::test_interface", "classemlabcpp_1_1testing_1_1test__interface.html", [
-        [ "emlabcpp::testing::empty_test", "classemlabcpp_1_1testing_1_1empty__test.html", null ],
-        [ "emlabcpp::testing::test_callable< Callable >", "classemlabcpp_1_1testing_1_1test__callable.html", null ]
-      ] ]
-    ] ],
     [ "emlabcpp::bounded< T, MinVal, MaxVal >", "classemlabcpp_1_1bounded.html", null ],
     [ "emlabcpp::rpc::class_wrapper< Class, Bindings >", "classemlabcpp_1_1rpc_1_1class__wrapper.html", null ],
     [ "emlabcpp::testing::collect_reply", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__reply", null ],
@@ -153,6 +146,8 @@ var hierarchy =
     [ "std::iterator_traits< emlabcpp::iterators::subscript_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::static_circular_buffer_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01Container_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::zip_iterator< Iterators... > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4.html", null ],
+    [ "emlabcpp::linked_list_node< T >", "classemlabcpp_1_1linked__list__node.html", null ],
+    [ "emlabcpp::linked_list_node< test_interface * >", "classemlabcpp_1_1linked__list__node.html", null ],
     [ "emlabcpp::log_color_stub", "namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub", null ],
     [ "emlabcpp::log_colors", "namespaceemlabcpp.html#structemlabcpp_1_1log__colors", null ],
     [ "emlabcpp::impl::map_f_collector< typename >", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector", null ],
@@ -293,7 +288,11 @@ var hierarchy =
     [ "emlabcpp::testing::test_coroutine", "classemlabcpp_1_1testing_1_1test__coroutine.html", null ],
     [ "emlabcpp::testing::test_finished", "structemlabcpp_1_1testing_1_1test__finished.html", null ],
     [ "emlabcpp::testing::test_info", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info", null ],
+    [ "emlabcpp::testing::test_interface", "classemlabcpp_1_1testing_1_1test__interface.html", [
+      [ "emlabcpp::testing::test_callable< Callable >", "classemlabcpp_1_1testing_1_1test__callable.html", null ]
+    ] ],
     [ "emlabcpp::testing::test_result", "structemlabcpp_1_1testing_1_1test__result.html", null ],
+    [ "emlabcpp::testing::test_unit< T >", "classemlabcpp_1_1testing_1_1test__unit.html", null ],
     [ "emlabcpp::timelog", "structemlabcpp_1_1timelog.html", null ],
     [ "emlabcpp::rpc::traits< T >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits", null ],
     [ "emlabcpp::rpc::traits< std::tuple< Calls... > >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4", null ],
@@ -331,8 +330,5 @@ var hierarchy =
     [ "emlabcpp::zip_iterator< Iterators >", "classemlabcpp_1_1zip__iterator.html", null ],
     [ "emlabcpp::Callables", null, [
       [ "emlabcpp::matcher< Callables >", "structemlabcpp_1_1matcher.html", null ]
-    ] ],
-    [ "emlabcpp::testing::T", null, [
-      [ "emlabcpp::testing::test_composer< T, C >", "classemlabcpp_1_1testing_1_1test__composer.html", null ]
     ] ]
 ];

@@ -8,6 +8,6 @@ var classemlabcpp_1_1testing_1_1reactor =
     [ "on_msg", "classemlabcpp_1_1testing_1_1reactor.html#aa68b0e2af6cb386da25f7d2ef663b803", null ],
     [ "operator=", "classemlabcpp_1_1testing_1_1reactor.html#affb1a3ee1431f1405461d178d3c27342", null ],
     [ "operator=", "classemlabcpp_1_1testing_1_1reactor.html#ad13820dd5d8355c62ae92a5f4da64c24", null ],
-    [ "register_test", "classemlabcpp_1_1testing_1_1reactor.html#af2c0b6c42c85f85c00bb297542b5ed59", null ],
+    [ "register_test", "classemlabcpp_1_1testing_1_1reactor.html#ad0fa3f6b66cab03cd6453302bbbe42f9", null ],
     [ "tick", "classemlabcpp_1_1testing_1_1reactor.html#ac1ade245e2f25dd3d9eba05b4b081d4f", null ]
 ];

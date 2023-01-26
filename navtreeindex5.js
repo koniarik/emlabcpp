@@ -1,5 +1,11 @@
 var NAVTREEINDEX5 =
 {
+"match_8h.html":[4,0,0,0,16],
+"match_8h.html#a57181a407fd6f29a50664f8ba4cb44cd":[4,0,0,0,16,2],
+"match_8h.html#a63a6aaa5fc338d3d342d90a14225fe82":[4,0,0,0,16,1],
+"match_8h.html#ab077da8cbabe4cc68820537ddc602b91":[4,0,0,0,16,3],
+"match_8h_source.html":[4,0,0,0,16],
+"matrix_8h.html":[4,0,0,0,1,10],
 "matrix_8h.html#a512f1fd6d6a6aa3d5094088865158e23":[4,0,0,0,1,10,4],
 "matrix_8h.html#a71244dcc912784b08768c6ae041c37bc":[4,0,0,0,1,10,7],
 "matrix_8h.html#a951e2e116200e84ad4b8161d399c2362":[4,0,0,0,1,10,3],
@@ -243,11 +249,5 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8":[2,0,0,120],
 "namespaceemlabcpp.html#aff43a196db9cecc357e6f4452638b32f":[2,0,0,242],
 "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag":[4,0,0,0,13,1],
-"namespaceemlabcpp.html#structemlabcpp_1_1iterator__of":[4,0,0,0,5,0,0],
-"namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub":[4,0,0,0,1,2,0,1],
-"namespaceemlabcpp.html#structemlabcpp_1_1log__colors":[4,0,0,0,1,2,0,0],
-"namespaceemlabcpp.html#structemlabcpp_1_1signature__of_3_01ReturnType_07Args_8_8_8_08_01_4":[4,0,0,0,5,0,21],
-"namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4":[4,0,0,0,26,2],
-"namespaceemlabcpp.html#structemlabcpp_1_1type__tag":[4,0,0,0,26,3],
-"namespaceemlabcpp_1_1coro.html":[2,0,0,0]
+"namespaceemlabcpp.html#structemlabcpp_1_1iterator__of":[4,0,0,0,5,0,0]
 };

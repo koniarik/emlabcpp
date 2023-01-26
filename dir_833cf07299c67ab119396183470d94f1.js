@@ -4,9 +4,6 @@ var dir_833cf07299c67ab119396183470d94f1 =
     [ "coro", "dir_124696910e1f6c10a38401e63d4996f0.html", "dir_124696910e1f6c10a38401e63d4996f0" ],
     [ "logging", "dir_7be96e89c84803827e352320bc015c84.html", "dir_7be96e89c84803827e352320bc015c84" ],
     [ "testing", "dir_539f3c5103b46bf50615f61463de2f53.html", "dir_539f3c5103b46bf50615f61463de2f53" ],
-    [ "binding_linked_list.h", "binding__linked__list_8h.html", [
-      [ "binding_linked_list_node", "classemlabcpp_1_1binding__linked__list__node.html", "classemlabcpp_1_1binding__linked__list__node" ]
-    ] ],
     [ "bounded_view.h", "bounded__view_8h.html", "bounded__view_8h" ],
     [ "decompose.h", "decompose_8h.html", "decompose_8h" ],
     [ "derived_storage.h", "derived__storage_8h.html", [
@@ -14,6 +11,9 @@ var dir_833cf07299c67ab119396183470d94f1 =
     ] ],
     [ "function_view.h", "function__view_8h.html", [
       [ "function_view< ReturnType(ArgTypes...) >", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4" ]
+    ] ],
+    [ "linked_list.h", "linked__list_8h.html", [
+      [ "linked_list_node", "classemlabcpp_1_1linked__list__node.html", "classemlabcpp_1_1linked__list__node" ]
     ] ],
     [ "logging.h", "logging_8h.html", "logging_8h" ],
     [ "matrix.h", "matrix_8h.html", "matrix_8h" ],

@@ -86,13 +86,13 @@ $(document).ready(function(){initNavTree('interface_8h.html',''); initResizable(
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">interface.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="binding__linked__list_8h_source.html">emlabcpp/experimental/binding_linked_list.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="linked__list_8h_source.html">emlabcpp/experimental/linked_list.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="coroutine_8h_source.html">emlabcpp/experimental/testing/coroutine.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="record_8h_source.html">emlabcpp/experimental/testing/record.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="packet__handler_8h_source.html">emlabcpp/protocol/packet_handler.h</a>&quot;</code><br />
@@ -112,11 +112,9 @@ $(document).ready(function(){initNavTree('interface_8h.html',''); initResizable(
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">emlabcpp::testing::test_interface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1empty__test.html">emlabcpp::testing::empty_test</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__unit.html">emlabcpp::testing::test_unit&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__callable.html">emlabcpp::testing::test_callable&lt; Callable &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__composer.html">emlabcpp::testing::test_composer&lt; T, C &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -126,11 +124,10 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceemlabcpp_1_1testing"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html">emlabcpp::testing</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a5dfb36ed7abfd06d258541ad605291f7"><td class="memTemplParams" colspan="2">template&lt;std::derived_from&lt; test_interface &gt; T, valid_test_callable C&gt; </td></tr>
-<tr class="memitem:a5dfb36ed7abfd06d258541ad605291f7"><td class="memTemplItemLeft" align="right" valign="top">test_composer&lt; T, C &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a5dfb36ed7abfd06d258541ad605291f7">emlabcpp::testing::test_compose</a> (T t, C c)</td></tr>
-<tr class="separator:a5dfb36ed7abfd06d258541ad605291f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a7fe568da44b931c7d52e1e9dca0bbed8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a7fe568da44b931c7d52e1e9dca0bbed8">emlabcpp::testing::test_ll_node</a> = linked_list_node&lt; test_interface * &gt;</td></tr>
+<tr class="separator:a7fe568da44b931c7d52e1e9dca0bbed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -144,7 +141,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="interface_8h.html">interface.h</a></li>
-    <li class="footer">Generated on Thu Jan 19 2023 11:48:33 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Jan 26 2023 18:19:04 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
