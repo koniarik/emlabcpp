@@ -23,14 +23,14 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     [ "match.h", "match_8h.html", "match_8h" ],
     [ "physical_quantity.h", "physical__quantity_8h.html", "physical__quantity_8h" ],
     [ "pid.h", "pid_8h.html", [
-      [ "pid", "classemlabcpp_1_1pid.html", "classemlabcpp_1_1pid" ],
-      [ "config", "classemlabcpp_1_1pid.html#structemlabcpp_1_1pid_1_1config", [
-        [ "d", "classemlabcpp_1_1pid.html#aadd38645eb3d83816828452374f213b2", null ],
-        [ "i", "classemlabcpp_1_1pid.html#afe22bc364818bedcc5d60df9f95f78ab", null ],
-        [ "max", "classemlabcpp_1_1pid.html#a236b401541516049d6d4a57f032f26ec", null ],
-        [ "min", "classemlabcpp_1_1pid.html#aa525bfb8c39a2233dead00ed7864f0b6", null ],
-        [ "p", "classemlabcpp_1_1pid.html#a6123194a5bddd4514802a632ddec8f93", null ]
-      ] ]
+      [ "pid_config", "namespaceemlabcpp.html#structemlabcpp_1_1pid__config", [
+        [ "d", "namespaceemlabcpp.html#a746cee07ec402a541ac9ddaeb3d7766b", null ],
+        [ "i", "namespaceemlabcpp.html#ac83cbebc227c3ab1db574c0bcd91aa00", null ],
+        [ "max", "namespaceemlabcpp.html#a1dab7d91ef7074137fa5029b31645a5e", null ],
+        [ "min", "namespaceemlabcpp.html#acbad58bcc02b8ee6d19ab8ac98e8fa47", null ],
+        [ "p", "namespaceemlabcpp.html#a732cb65d4a0cecc5a8025e914596014f", null ]
+      ] ],
+      [ "pid", "classemlabcpp_1_1pid.html", "classemlabcpp_1_1pid" ]
     ] ],
     [ "protocol.h", "protocol_8h.html", null ],
     [ "quantity.h", "quantity_8h.html", "quantity_8h" ],

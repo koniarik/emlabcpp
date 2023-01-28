@@ -20,7 +20,6 @@ var hierarchy =
     [ "emlabcpp::testing::collector", "classemlabcpp_1_1testing_1_1collector.html", null ],
     [ "emlabcpp::protocol::command< ID, Defs >", "structemlabcpp_1_1protocol_1_1command.html", null ],
     [ "emlabcpp::protocol::command_group< Endianess >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1command__group_3_01Endianess_01_4", null ],
-    [ "emlabcpp::pid< TimeType >::config", "classemlabcpp_1_1pid.html#structemlabcpp_1_1pid_1_1config", null ],
     [ "std::conjunction", null, [
       [ "emlabcpp::are_same< T, Ts... >", "structemlabcpp_1_1are__same_3_01T_00_01Ts_8_8_8_01_4.html", null ]
     ] ],
@@ -199,6 +198,7 @@ var hierarchy =
     [ "emlabcpp::testing::parameters", "classemlabcpp_1_1testing_1_1parameters.html", null ],
     [ "emlabcpp::testing::parameters_server", "classemlabcpp_1_1testing_1_1parameters__server.html", null ],
     [ "emlabcpp::pid< TimeType >", "classemlabcpp_1_1pid.html", null ],
+    [ "emlabcpp::pid_config", "namespaceemlabcpp.html#structemlabcpp_1_1pid__config", null ],
     [ "emlabcpp::pretty_printer< StreamType >", "classemlabcpp_1_1pretty__printer.html", null ],
     [ "emlabcpp::protocol::proto_traits< D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits", null ],
     [ "emlabcpp::protocol::proto_traits< bounded< D, Min, Max > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html", null ],

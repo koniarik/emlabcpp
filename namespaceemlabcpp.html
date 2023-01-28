@@ -178,6 +178,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1physical__quantity.html">physical_quantity</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structemlabcpp_1_1physical__quantity.html" title="physical_quantity represents all physical units defined using the International System of Units and m...">physical_quantity</a> represents all physical units defined using the International System of Units and more.  <a href="structemlabcpp_1_1physical__quantity.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1pid__config"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1pid__config">pid_config</a></td></tr>
+<tr class="separator:structemlabcpp_1_1pid__config"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html">pid</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of PID regulator, the object should be constructed and populated with pid&lt;T&gt;::conf structure with configuration values (p,i,d coeficients, min/max output vals).  <a href="classemlabcpp_1_1pid.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -999,6 +1001,53 @@ time</td>
 c</td>
 <td class="fielddoc">
 </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structemlabcpp_1_1pid__config" id="structemlabcpp_1_1pid__config"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1pid__config">&#9670;&nbsp;</a></span>emlabcpp::pid_config</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::pid_config</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a746cee07ec402a541ac9ddaeb3d7766b"></a>float</td>
+<td class="fieldname">
+d</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ac83cbebc227c3ab1db574c0bcd91aa00"></a>float</td>
+<td class="fieldname">
+i</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a1dab7d91ef7074137fa5029b31645a5e"></a>float</td>
+<td class="fieldname">
+max</td>
+<td class="fielddoc">
+minimal output value </td></tr>
+<tr><td class="fieldtype">
+<a id="acbad58bcc02b8ee6d19ab8ac98e8fa47"></a>float</td>
+<td class="fieldname">
+min</td>
+<td class="fielddoc">
+sets this propebly, otherwise the pid won't work for corner cases </td></tr>
+<tr><td class="fieldtype">
+<a id="a732cb65d4a0cecc5a8025e914596014f"></a>float</td>
+<td class="fieldname">
+p</td>
+<td class="fielddoc">
+coeficients </td></tr>
 </table>
 
 </div>
@@ -6688,7 +6737,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Thu Jan 26 2023 18:19:05 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 28 2023 22:27:24 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
