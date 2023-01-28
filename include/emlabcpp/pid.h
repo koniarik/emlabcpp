@@ -22,10 +22,26 @@
 //
 #include "emlabcpp/algorithm.h"
 
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+#include <nlohmann/json.hpp>
+#endif
+
 #pragma once
 
 namespace emlabcpp
 {
+// Structure to configure the pid reglator
+struct pid_config
+{
+        /// coeficients
+        float p = 0;
+        float i = 0;
+        float d = 0;
+
+        /// sets this propebly, otherwise the pid won't work for corner cases
+        float min = 0;    /// minimal output value
+        float max = 100;  /// maximal output value
+};
 
 /// Implementation of PID regulator, the object should be constructed and populated with
 /// pid<T>::conf structure with configuration values (p,i,d coeficients, min/max output vals). The
@@ -36,20 +52,8 @@ class pid
         /// based on
         /// http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/
 public:
-        /// use this structure to configure the pid reglator
-        struct config
-        {
-                /// coeficients
-                float p = 0;
-                float i = 0;
-                float d = 0;
-
-                /// sets this propebly, otherwise the pid won't work for corner cases
-                float min = 0;    /// minimal output value
-                float max = 100;  /// maximal output value
-        };
-
         using time_type = TimeType;
+        using config    = pid_config;
 
 private:
         config conf_;
@@ -163,3 +167,32 @@ public:
 };
 
 }  // namespace emlabcpp
+
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+
+template <>
+struct nlohmann::adl_serializer< emlabcpp::pid_config >
+{
+        using cfg_type = emlabcpp::pid_config;
+        static void to_json( nlohmann::json& j, const cfg_type& cfg )
+        {
+                j["p"]   = cfg.p;
+                j["i"]   = cfg.i;
+                j["d"]   = cfg.d;
+                j["min"] = cfg.min;
+                j["max"] = cfg.max;
+        }
+
+        static cfg_type from_json( const nlohmann::json& j )
+        {
+                cfg_type cfg;
+                cfg.p   = j["p"];
+                cfg.i   = j["i"];
+                cfg.d   = j["d"];
+                cfg.min = j["min"];
+                cfg.max = j["max"];
+                return cfg;
+        }
+};
+
+#endif
