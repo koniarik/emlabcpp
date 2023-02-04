@@ -170,6 +170,7 @@ var hierarchy =
       [ "emlabcpp::protocol::sizeless_message< N >", "classemlabcpp_1_1protocol_1_1sizeless__message.html", null ]
     ] ],
     [ "emlabcpp::min_max< T >", "structemlabcpp_1_1min__max.html", null ],
+    [ "emlabcpp::min_max< float >", "structemlabcpp_1_1min__max.html", null ],
     [ "emlabcpp::protocol::multiplexed_endpoint< Packet >", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", null ],
     [ "emlabcpp::testing::no_response_error", "structemlabcpp_1_1testing_1_1no__response__error.html", null ],
     [ "std::numeric_limits< T >", "structstd_1_1numeric__limits_3_01T_01_4.html", null ],
@@ -198,6 +199,7 @@ var hierarchy =
     [ "emlabcpp::testing::parameters", "classemlabcpp_1_1testing_1_1parameters.html", null ],
     [ "emlabcpp::testing::parameters_server", "classemlabcpp_1_1testing_1_1parameters__server.html", null ],
     [ "emlabcpp::pid< TimeType >", "classemlabcpp_1_1pid.html", null ],
+    [ "emlabcpp::pid_coefficients", "namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients", null ],
     [ "emlabcpp::pid_config", "namespaceemlabcpp.html#structemlabcpp_1_1pid__config", null ],
     [ "emlabcpp::pretty_printer< StreamType >", "classemlabcpp_1_1pretty__printer.html", null ],
     [ "emlabcpp::protocol::proto_traits< D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits", null ],

@@ -35,6 +35,7 @@ var namespaceemlabcpp =
     [ "generic_iterator", "classemlabcpp_1_1generic__iterator.html", "classemlabcpp_1_1generic__iterator" ],
     [ "matcher", "structemlabcpp_1_1matcher.html", "structemlabcpp_1_1matcher" ],
     [ "physical_quantity", "structemlabcpp_1_1physical__quantity.html", "structemlabcpp_1_1physical__quantity" ],
+    [ "pid_coefficients", "namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients", "namespaceemlabcpp_structemlabcpp_1_1pid__coefficients_dup" ],
     [ "pid_config", "namespaceemlabcpp.html#structemlabcpp_1_1pid__config", "namespaceemlabcpp_structemlabcpp_1_1pid__config_dup" ],
     [ "pid", "classemlabcpp_1_1pid.html", "classemlabcpp_1_1pid" ],
     [ "quantity", "classemlabcpp_1_1quantity.html", "classemlabcpp_1_1quantity" ],

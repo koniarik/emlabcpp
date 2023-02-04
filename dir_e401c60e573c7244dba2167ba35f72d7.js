@@ -23,12 +23,14 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     [ "match.h", "match_8h.html", "match_8h" ],
     [ "physical_quantity.h", "physical__quantity_8h.html", "physical__quantity_8h" ],
     [ "pid.h", "pid_8h.html", [
+      [ "pid_coefficients", "namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients", [
+        [ "d", "namespaceemlabcpp.html#a655b9d57207a6513eefd69f5099fdae2", null ],
+        [ "i", "namespaceemlabcpp.html#a99ba17ee27bed7c782d9364b7b614eae", null ],
+        [ "p", "namespaceemlabcpp.html#ac0b0048d94d97cc9884974fe74898b69", null ]
+      ] ],
       [ "pid_config", "namespaceemlabcpp.html#structemlabcpp_1_1pid__config", [
-        [ "d", "namespaceemlabcpp.html#a746cee07ec402a541ac9ddaeb3d7766b", null ],
-        [ "i", "namespaceemlabcpp.html#ac83cbebc227c3ab1db574c0bcd91aa00", null ],
-        [ "max", "namespaceemlabcpp.html#a1dab7d91ef7074137fa5029b31645a5e", null ],
-        [ "min", "namespaceemlabcpp.html#acbad58bcc02b8ee6d19ab8ac98e8fa47", null ],
-        [ "p", "namespaceemlabcpp.html#a732cb65d4a0cecc5a8025e914596014f", null ]
+        [ "coefficients", "namespaceemlabcpp.html#a096dcb0c9bf6af343c832bebada97419", null ],
+        [ "limits", "namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c", null ]
       ] ],
       [ "pid", "classemlabcpp_1_1pid.html", "classemlabcpp_1_1pid" ]
     ] ],

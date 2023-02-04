@@ -1,5 +1,8 @@
 var NAVTREEINDEX6 =
 {
+"namespaceemlabcpp.html#structemlabcpp_1_1pid__config":[4,0,0,0,18,1],
+"namespaceemlabcpp.html#structemlabcpp_1_1signature__of_3_01ReturnType_07Args_8_8_8_08_01_4":[4,0,0,0,5,0,21],
+"namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4":[4,0,0,0,26,2],
 "namespaceemlabcpp.html#structemlabcpp_1_1type__tag":[4,0,0,0,26,3],
 "namespaceemlabcpp_1_1coro.html":[2,0,0,0],
 "namespaceemlabcpp_1_1coro.html#ab378dfed00f70195082f524f3b4a5c00":[2,0,0,0,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX6 =
 "namespacemembers_f.html":[2,1,0,5],
 "namespacemembers_func.html":[2,1,1],
 "namespacemembers_g.html":[2,1,0,6],
-"namespacemembers_h.html":[2,1,0,7],
-"namespacemembers_i.html":[2,1,0,8],
-"namespacemembers_j.html":[2,1,0,9],
-"namespacemembers_k.html":[2,1,0,10]
+"namespacemembers_h.html":[2,1,0,7]
 };
