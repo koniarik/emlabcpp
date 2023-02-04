@@ -30,17 +30,22 @@
 
 namespace emlabcpp
 {
-// Structure to configure the pid reglator
-struct pid_config
+
+struct pid_coefficients
 {
         /// coeficients
         float p = 0;
         float i = 0;
         float d = 0;
+};
 
-        /// sets this propebly, otherwise the pid won't work for corner cases
-        float min = 0;    /// minimal output value
-        float max = 100;  /// maximal output value
+// Structure to configure the pid reglator
+struct pid_config
+{
+        pid_coefficients coefficients{ .p = 1.f, .i = 0.f, .d = 0.f };
+
+        /// sets this properly, otherwise the pid won't work for corner cases
+        min_max< float > limits{ 0.f, 100.f };
 };
 
 /// Implementation of PID regulator, the object should be constructed and populated with
@@ -88,8 +93,8 @@ public:
 
         void set_config( config conf )
         {
-                set_pid( conf.p, conf.i, conf.d );
-                set_limits( conf.min, conf.max );
+                set_pid( conf.coefficients );
+                set_limits( conf.limits );
         }
 
         const config& get_config() const
@@ -99,22 +104,29 @@ public:
 
         void set_pid( float p, float i, float d )
         {
-                conf_.p = p;
-                conf_.i = i;
-                conf_.d = d;
+                set_pid( { p, i, d } );
+        }
+
+        void set_pid( pid_coefficients c )
+        {
+                conf_.coefficients = c;
         }
 
         void set_limits( float min, float max )
         {
-                conf_.min = min;
-                conf_.max = max;
-                output_   = std::clamp( output_, conf_.min, conf_.max );
-                i_term_   = std::clamp( i_term_, conf_.min, conf_.max );
+                set_limits( { min, max } );
         }
 
-        min_max< float > get_limits() const
+        void set_limits( em::min_max< float > lim )
         {
-                return { conf_.min, conf_.max };
+                conf_.limits = lim;
+                output_      = std::clamp( output_, conf_.limits.min, conf_.limits.max );
+                i_term_      = std::clamp( i_term_, conf_.limits.min, conf_.limits.max );
+        }
+
+        const min_max< float >& get_limits() const
+        {
+                return conf_.limits;
         }
 
         /// call this reularly, the meaning of time value 'now' is up to you, just be consistent
@@ -131,15 +143,17 @@ public:
                 }
                 last_desired_ = desired;
 
+                const pid_coefficients& coeff = conf_.coefficients;
+
                 float error = desired - measured;
-                i_term_ += conf_.i * ( error * t_diff );
+                i_term_ += coeff.i * ( error * t_diff );
                 /// we want to prevent the i_term_ to escallate out of proportion, to prevent it
                 /// from going to infinity and beyond
-                i_term_ = std::clamp( i_term_, conf_.min, conf_.max );
+                i_term_ = std::clamp( i_term_, conf_.limits.min, conf_.limits.max );
 
                 float measured_diff = ( measured - last_measured_ ) / t_diff;
-                output_             = conf_.p * error + i_term_ - conf_.d * measured_diff;
-                output_             = std::clamp( output_, conf_.min, conf_.max );
+                output_             = coeff.p * error + i_term_ - coeff.d * measured_diff;
+                output_             = std::clamp( output_, conf_.limits.min, conf_.limits.max );
 
                 last_measured_ = measured;
                 last_time_     = now;
@@ -149,7 +163,7 @@ public:
 
         void set_output( float output = 0 )
         {
-                output_ = std::clamp( output, conf_.min, conf_.max );
+                output_ = std::clamp( output, conf_.limits.min, conf_.limits.max );
         }
 
         [[nodiscard]] float get_output() const
@@ -171,26 +185,41 @@ public:
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 
 template <>
-struct nlohmann::adl_serializer< emlabcpp::pid_config >
+struct nlohmann::adl_serializer< emlabcpp::pid_coefficients >
 {
-        using cfg_type = emlabcpp::pid_config;
+        using cfg_type = emlabcpp::pid_coefficients;
         static void to_json( nlohmann::json& j, const cfg_type& cfg )
         {
-                j["p"]   = cfg.p;
-                j["i"]   = cfg.i;
-                j["d"]   = cfg.d;
-                j["min"] = cfg.min;
-                j["max"] = cfg.max;
+                j["p"] = cfg.p;
+                j["i"] = cfg.i;
+                j["d"] = cfg.d;
         }
 
         static cfg_type from_json( const nlohmann::json& j )
         {
                 cfg_type cfg;
-                cfg.p   = j["p"];
-                cfg.i   = j["i"];
-                cfg.d   = j["d"];
-                cfg.min = j["min"];
-                cfg.max = j["max"];
+                cfg.p = j["p"];
+                cfg.i = j["i"];
+                cfg.d = j["d"];
+                return cfg;
+        }
+};
+
+template <>
+struct nlohmann::adl_serializer< emlabcpp::pid_config >
+{
+        using cfg_type = emlabcpp::pid_config;
+        static void to_json( nlohmann::json& j, const cfg_type& cfg )
+        {
+                j["coefficients"] = cfg.coefficients;
+                j["limits"]       = cfg.limits;
+        }
+
+        static cfg_type from_json( const nlohmann::json& j )
+        {
+                cfg_type cfg;
+                cfg.coefficients = j["coefficients"];
+                cfg.limits       = j["limits"];
                 return cfg;
         }
 };

@@ -29,6 +29,10 @@
 #include <cstdlib>
 #include <tuple>
 
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+#include <nlohmann/json.hpp>
+#endif
+
 #pragma once
 
 namespace emlabcpp
@@ -562,3 +566,22 @@ constexpr void select_index( IndexType i, const Callable& f )
 }
 
 }  // namespace emlabcpp
+
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+
+template < typename T >
+struct nlohmann::adl_serializer< emlabcpp::min_max< T > >
+{
+        static void to_json( nlohmann::json& j, const emlabcpp::min_max< T >& mm )
+        {
+                j["min"] = mm.min;
+                j["max"] = mm.max;
+        }
+
+        static emlabcpp::min_max< T > from_json( const nlohmann::json& j )
+        {
+                return emlabcpp::min_max< T >{ j["min"], j["max"] };
+        }
+};
+
+#endif
