@@ -162,7 +162,7 @@ var hierarchy =
       [ "emlabcpp::testing::test_coroutine::promise_type", "structemlabcpp_1_1testing_1_1test__coroutine_1_1promise__type.html", null ]
     ] ],
     [ "emlabcpp::pmr::memory_resource", "classemlabcpp_1_1pmr_1_1memory__resource.html", [
-      [ "emlabcpp::pmr::pool_resource< 1024, 1 >", "classemlabcpp_1_1pmr_1_1pool__resource.html", null ],
+      [ "emlabcpp::pmr::pool_resource< 512, 2 >", "classemlabcpp_1_1pmr_1_1pool__resource.html", null ],
       [ "emlabcpp::pmr::new_delete_resource_impl", "structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html", null ],
       [ "emlabcpp::pmr::pool_resource< PoolSize, PoolCount >", "classemlabcpp_1_1pmr_1_1pool__resource.html", null ]
     ] ],
@@ -285,9 +285,9 @@ var hierarchy =
     [ "emlabcpp::protocol::tag_group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group", null ],
     [ "emlabcpp::testing::test_awaiter_interface", "classemlabcpp_1_1testing_1_1test__awaiter__interface.html", [
       [ "emlabcpp::testing::collect_awaiter", "classemlabcpp_1_1testing_1_1collect__awaiter.html", null ],
-      [ "emlabcpp::testing::params_awaiter< Processor >", "structemlabcpp_1_1testing_1_1params__awaiter.html", null ]
+      [ "emlabcpp::testing::params_awaiter< Processor >", "structemlabcpp_1_1testing_1_1params__awaiter.html", null ],
+      [ "emlabcpp::testing::test_coroutine", "classemlabcpp_1_1testing_1_1test__coroutine.html", null ]
     ] ],
-    [ "emlabcpp::testing::test_coroutine", "classemlabcpp_1_1testing_1_1test__coroutine.html", null ],
     [ "emlabcpp::testing::test_finished", "structemlabcpp_1_1testing_1_1test__finished.html", null ],
     [ "emlabcpp::testing::test_info", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info", null ],
     [ "emlabcpp::testing::test_interface", "classemlabcpp_1_1testing_1_1test__interface.html", [

@@ -1,5 +1,9 @@
 var NAVTREEINDEX5 =
 {
+"match_8h_source.html":[4,0,0,0,16],
+"matrix_8h.html":[4,0,0,0,1,10],
+"matrix_8h.html#a512f1fd6d6a6aa3d5094088865158e23":[4,0,0,0,1,10,4],
+"matrix_8h.html#a71244dcc912784b08768c6ae041c37bc":[4,0,0,0,1,10,7],
 "matrix_8h.html#a951e2e116200e84ad4b8161d399c2362":[4,0,0,0,1,10,3],
 "matrix_8h.html#ac4ee7e0f160b1450636b4a460f27e18a":[4,0,0,0,1,10,6],
 "matrix_8h.html#ae9679354218890ed9c289c674a125378":[4,0,0,0,1,10,5],
@@ -245,9 +249,5 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc":[2,0,0,124],
 "namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8":[2,0,0,122],
 "namespaceemlabcpp.html#aff43a196db9cecc357e6f4452638b32f":[2,0,0,244],
-"namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag":[4,0,0,0,13,1],
-"namespaceemlabcpp.html#structemlabcpp_1_1iterator__of":[4,0,0,0,5,0,0],
-"namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub":[4,0,0,0,1,2,0,1],
-"namespaceemlabcpp.html#structemlabcpp_1_1log__colors":[4,0,0,0,1,2,0,0],
-"namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients":[4,0,0,0,18,0]
+"namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag":[4,0,0,0,13,1]
 };

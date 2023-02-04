@@ -1,5 +1,6 @@
 <map id="emlabcpp::testing::test_awaiter_interface" name="emlabcpp::testing::test_awaiter_interface">
-<area shape="rect" id="node1" title=" " alt="" coords="99,5,267,47"/>
-<area shape="rect" id="node2" href="$classemlabcpp_1_1testing_1_1collect__awaiter.html" title=" " alt="" coords="5,95,152,136"/>
-<area shape="rect" id="node3" href="$structemlabcpp_1_1testing_1_1params__awaiter.html" title=" " alt="" coords="177,95,397,136"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,173,112"/>
+<area shape="rect" id="node2" href="$classemlabcpp_1_1testing_1_1collect__awaiter.html" title=" " alt="" coords="258,5,405,47"/>
+<area shape="rect" id="node3" href="$structemlabcpp_1_1testing_1_1params__awaiter.html" title=" " alt="" coords="221,71,441,112"/>
+<area shape="rect" id="node4" href="$classemlabcpp_1_1testing_1_1test__coroutine.html" title=" " alt="" coords="258,136,405,177"/>
 </map>

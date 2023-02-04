@@ -23,9 +23,9 @@
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="classemlabcpp_1_1pmr_1_1pool__resource.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="175.5,-110 175.5,-140 297.5,-140 297.5,-110 175.5,-110"/>
-<text text-anchor="start" x="183.5" y="-128" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::pmr::pool</text>
-<text text-anchor="middle" x="236.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">_resource&lt; 1024, 1 &gt;</text>
+<polygon fill="white" stroke="black" points="178,-110 178,-140 295,-140 295,-110 178,-110"/>
+<text text-anchor="start" x="186" y="-128" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::pmr::pool</text>
+<text text-anchor="middle" x="236.5" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">_resource&lt; 512, 2 &gt;</text>
 </a>
 </g>
 </g>
