@@ -125,7 +125,7 @@ void controller::on_msg( const std::span< const uint8_t > data )
                         EMLABCPP_LOG( "Failed to extract incoming msg: " << rec );
                 } );
 }
-void controller::on_msg( const reactor_controller_variant& var ) 
+void controller::on_msg( const reactor_controller_variant& var )
 {
         using opt_state     = std::optional< states >;
         opt_state new_state = match(
@@ -157,7 +157,7 @@ void controller::on_msg( const reactor_controller_variant& var )
         }
 }
 
-void controller::tick() 
+void controller::tick()
 {
         using opt_state     = std::optional< states >;
         opt_state new_state = match(

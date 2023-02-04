@@ -22,7 +22,7 @@ class test_awaiter_interface
 {
 public:
         [[nodiscard]] virtual await_state get_state() const = 0;
-        virtual ~test_awaiter_interface()     = default;
+        virtual ~test_awaiter_interface()                   = default;
 };
 
 class test_coroutine

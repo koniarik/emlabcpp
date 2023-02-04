@@ -37,7 +37,9 @@ class reactor_interface_adapter
         incoming_handler          h_{};
 
 public:
-        reactor_interface_adapter( const protocol::channel_type chann, reactor_transmit_callback tb )
+        reactor_interface_adapter(
+            const protocol::channel_type chann,
+            reactor_transmit_callback    tb )
           : channel_( chann )
           , transmit_( std::move( tb ) )
         {
