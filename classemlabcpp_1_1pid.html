@@ -122,8 +122,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afc27a67f73eee3a88f24a94faf475bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba14ada7a0e3fd7587c5f1e024d15a58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#aba14ada7a0e3fd7587c5f1e024d15a58">set_limits</a> (float <a class="el" href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">min</a>, float <a class="el" href="namespaceemlabcpp.html#a82bc958527847885bdfc4005b22271e6">max</a>)</td></tr>
 <tr class="separator:aba14ada7a0e3fd7587c5f1e024d15a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a342af296b81f505fbddde14b80e62bdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a342af296b81f505fbddde14b80e62bdf">set_limits</a> (em::min_max&lt; float &gt; lim)</td></tr>
-<tr class="separator:a342af296b81f505fbddde14b80e62bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a233cf0a5f8d4ccedc2876221adf20776"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a233cf0a5f8d4ccedc2876221adf20776">set_limits</a> (<a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; float &gt; lim)</td></tr>
+<tr class="separator:a233cf0a5f8d4ccedc2876221adf20776"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef47190bf4aea29bd2d34de0e7eef7c6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; float &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#aef47190bf4aea29bd2d34de0e7eef7c6">get_limits</a> () const</td></tr>
 <tr class="separator:aef47190bf4aea29bd2d34de0e7eef7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77e0fe2df4c84f93732d42a54bf3e171"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a77e0fe2df4c84f93732d42a54bf3e171">update</a> (<a class="el" href="classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4">time_type</a> now, float measured, float desired)</td></tr>
@@ -392,38 +392,8 @@ template&lt;typename TimeType &gt; </div>
 
 </div>
 </div>
-<a id="a342af296b81f505fbddde14b80e62bdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a342af296b81f505fbddde14b80e62bdf">&#9670;&nbsp;</a></span>set_limits() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename TimeType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classemlabcpp_1_1pid.html">emlabcpp::pid</a>&lt; TimeType &gt;::set_limits </td>
-          <td>(</td>
-          <td class="paramtype">em::min_max&lt; float &gt;&#160;</td>
-          <td class="paramname"><em>lim</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c">emlabcpp::pid_config::limits</a>, <a class="el" href="structemlabcpp_1_1min__max.html#a8b3d9b948aeacf4261611ee2fc26eb64">emlabcpp::min_max&lt; T &gt;::max</a>, and <a class="el" href="structemlabcpp_1_1min__max.html#ac4cc0b5a0f2485f3524e3cf74500407a">emlabcpp::min_max&lt; T &gt;::min</a>.</p>
-
-</div>
-</div>
 <a id="aba14ada7a0e3fd7587c5f1e024d15a58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba14ada7a0e3fd7587c5f1e024d15a58">&#9670;&nbsp;</a></span>set_limits() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aba14ada7a0e3fd7587c5f1e024d15a58">&#9670;&nbsp;</a></span>set_limits() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -459,6 +429,36 @@ template&lt;typename TimeType &gt; </div>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a82bc958527847885bdfc4005b22271e6">emlabcpp::max()</a>, and <a class="el" href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">emlabcpp::min()</a>.</p>
+
+</div>
+</div>
+<a id="a233cf0a5f8d4ccedc2876221adf20776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a233cf0a5f8d4ccedc2876221adf20776">&#9670;&nbsp;</a></span>set_limits() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TimeType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classemlabcpp_1_1pid.html">emlabcpp::pid</a>&lt; TimeType &gt;::set_limits </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; float &gt;&#160;</td>
+          <td class="paramname"><em>lim</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c">emlabcpp::pid_config::limits</a>, <a class="el" href="structemlabcpp_1_1min__max.html#a8b3d9b948aeacf4261611ee2fc26eb64">emlabcpp::min_max&lt; T &gt;::max</a>, and <a class="el" href="structemlabcpp_1_1min__max.html#ac4cc0b5a0f2485f3524e3cf74500407a">emlabcpp::min_max&lt; T &gt;::min</a>.</p>
 
 </div>
 </div>
@@ -653,7 +653,7 @@ template&lt;typename TimeType &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1pid.html">pid</a></li>
-    <li class="footer">Generated on Sat Feb 4 2023 16:48:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Feb 4 2023 19:45:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
