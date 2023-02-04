@@ -35,6 +35,28 @@
 namespace emlabcpp
 {
 
+class nested_test_fixture : public testing::test_interface
+{
+public:
+        using testing::test_interface::test_interface;
+
+        std::string_view get_name() const
+        {
+                return "nested test case";
+        }
+
+        testing::test_coroutine run( pmr::memory_resource& mem, testing::record& rec )
+        {
+                for ( std::size_t i : range( 1u, 8u ) ) {
+                        co_await sub.run( mem, rec );
+
+                        EXPECT_EQ( sub.run_count, i );
+                }
+        }
+
+        complex_test_fixture sub{};
+};
+
 class reactor_interface
 {
 public:
@@ -86,6 +108,17 @@ TEST( executor, complex_full_run )
         complex_test_fixture tf{};
 
         executor_test_run( tf );
+}
+
+TEST( executor, nested )
+{
+        nested_test_fixture tf{};
+
+        testing::executor exec{ 0, pmr::new_delete_resource(), tf };
+
+        while ( !exec.finished() ) {
+                exec.tick();
+        }
 }
 
 TEST( reactor, reactor_simple )

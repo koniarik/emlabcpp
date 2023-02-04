@@ -22,10 +22,13 @@ class test_awaiter_interface
 {
 public:
         [[nodiscard]] virtual await_state get_state() const = 0;
-        virtual ~test_awaiter_interface()                   = default;
+        virtual void                      tick()
+        {
+        }
+        virtual ~test_awaiter_interface() = default;
 };
 
-class test_coroutine
+class test_coroutine : public test_awaiter_interface
 {
 public:
         struct promise_type : coro::memory_promise< promise_type >
@@ -74,15 +77,40 @@ public:
                 return true;
         }
 
+        [[nodiscard]] await_state get_state() const override
+        {
+                if ( done() ) {
+                        return await_state::READY;
+                }
+                return await_state::WAITING;
+        }
+
+        [[nodiscard]] bool await_ready() const
+        {
+                return false;
+        }
+
+        void await_suspend( std::coroutine_handle< typename test_coroutine::promise_type > h )
+        {
+                h.promise().iface = this;
+        }
+
+        void await_resume()
+        {
+        }
+
         // TODO: this is shady API as fuck
         void tick()
         {
                 if ( !h_ ) {
                         return;
                 }
-                if ( h_.promise().iface != nullptr ) {
-                        await_state s = h_.promise().iface->get_state();
+                test_awaiter_interface* iface = h_.promise().iface;
+
+                if ( iface != nullptr ) {
+                        await_state s = iface->get_state();
                         if ( s == await_state::WAITING ) {
+                                iface->tick();
                                 return;
                         } else if ( s == await_state::ERRORED ) {
                                 EMLABCPP_LOG( "Coroutine errored, killing it" );
@@ -91,6 +119,7 @@ public:
                         }
                 }
                 if ( !h_.done() ) {
+                        iface = nullptr;
                         h_();
                 }
         }

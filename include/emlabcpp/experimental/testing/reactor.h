@@ -37,8 +37,8 @@ class reactor
         std::string_view       suite_name_;
         const std::string_view suite_date_ = __DATE__ " " __TIME__;
 
-        test_ll_node                  root_node_;
-        pmr::pool_resource< 1024, 1 > mem_;
+        test_ll_node                 root_node_;
+        pmr::pool_resource< 512, 2 > mem_;
 
         reactor_interface_adapter iface_;
 

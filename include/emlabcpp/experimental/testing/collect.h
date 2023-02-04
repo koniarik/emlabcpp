@@ -44,11 +44,10 @@ class collector;
 class [[nodiscard]] collect_awaiter : public test_awaiter_interface
 {
 public:
-        collect_request                                       req;
-        node_id                                               res{};
-        await_state                                           state = await_state::WAITING;
-        collector&                                            col;
-        std::coroutine_handle< test_coroutine::promise_type > coro_handle;
+        collect_request req;
+        node_id         res{};
+        await_state     state = await_state::WAITING;
+        collector&      col;
 
         collect_awaiter( collect_request req, collector& coll );
 
@@ -66,7 +65,6 @@ public:
 
         [[nodiscard]] node_id await_resume() const
         {
-                coro_handle.promise().iface = nullptr;
                 return res;
         }
 };

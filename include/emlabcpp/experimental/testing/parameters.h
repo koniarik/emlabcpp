@@ -135,10 +135,9 @@ class parameters;
 template < typename Processor >
 struct [[nodiscard]] params_awaiter : public test_awaiter_interface
 {
-        Processor                                             proc;
-        await_state                                           state = await_state::WAITING;
-        parameters&                                           params;
-        std::coroutine_handle< test_coroutine::promise_type > coro_handle;
+        Processor   proc;
+        await_state state = await_state::WAITING;
+        parameters& params;
 
         using request_type = decltype( proc.req );
 
@@ -162,8 +161,6 @@ struct [[nodiscard]] params_awaiter : public test_awaiter_interface
 
         decltype( auto ) await_resume()
         {
-                // copy-pasta festival from collect
-                coro_handle.promise().iface = nullptr;
                 return proc.reply;
         }
 };
@@ -312,7 +309,6 @@ template < typename Processor >
 void params_awaiter< Processor >::await_suspend(
     std::coroutine_handle< test_coroutine::promise_type > h )
 {
-        coro_handle       = h;
         h.promise().iface = this;
         params.exchange( proc.req, [&]( const params_server_client_variant& var ) {
                 if ( !proc.set_value( var ) ) {

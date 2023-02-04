@@ -13,7 +13,6 @@ collect_awaiter::collect_awaiter( collect_request req, collector& coll )
 
 void collect_awaiter::await_suspend( std::coroutine_handle< test_coroutine::promise_type > h )
 {
-        coro_handle       = h;
         h.promise().iface = this;
         col.exchange( req, [this]( const collect_server_client_group& var ) {
                 match(
