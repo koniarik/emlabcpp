@@ -38,12 +38,14 @@ TEST( PID, base )
 
 TEST( PID, simple )
 {
-        tpid::config conf;
-        conf.p   = 0.2f;
-        conf.i   = 0.01f;
-        conf.d   = 0.01f;
-        conf.min = 0.f;
-        conf.max = 100.f;
+        tpid::config conf{
+            .coefficients{
+                .p = 0.2f,
+                .i = 0.01f,
+                .d = 0.01f,
+            },
+            .limits{ 0.f, 100.f },
+        };
 
         tpid my_pid{ float{ 0 }, conf };
 

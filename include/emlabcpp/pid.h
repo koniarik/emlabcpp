@@ -117,7 +117,7 @@ public:
                 set_limits( { min, max } );
         }
 
-        void set_limits( em::min_max< float > lim )
+        void set_limits( min_max< float > lim )
         {
                 conf_.limits = lim;
                 output_      = std::clamp( output_, conf_.limits.min, conf_.limits.max );
