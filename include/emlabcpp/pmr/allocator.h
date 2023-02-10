@@ -26,7 +26,6 @@ public:
 
         T* allocate( const std::size_t n )
         {
-
                 void* const res = resource_.get().allocate( n * sizeof( T ), alignof( T ) );
                 if ( res == nullptr ) {
                         throw_bad_alloc();

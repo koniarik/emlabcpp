@@ -22,7 +22,7 @@
 //
 #include "emlabcpp/experimental/testing/executor.h"
 #include "emlabcpp/experimental/testing/protocol.h"
-#include "emlabcpp/pmr/pool_resource.h"
+#include "emlabcpp/pmr/stack_resource.h"
 #include "emlabcpp/protocol/endpoint.h"
 
 #pragma once
@@ -38,7 +38,7 @@ class reactor
         const std::string_view suite_date_ = __DATE__ " " __TIME__;
 
         test_ll_node                 root_node_;
-        pmr::pool_resource< 512, 2 > mem_;
+        pmr::stack_resource< 1024 > mem_;
 
         reactor_interface_adapter iface_;
 
