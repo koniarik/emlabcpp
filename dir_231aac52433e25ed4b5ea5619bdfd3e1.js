@@ -11,6 +11,9 @@ var dir_231aac52433e25ed4b5ea5619bdfd3e1 =
     [ "pool_resource.h", "pool__resource_8h.html", [
       [ "pool_resource", "classemlabcpp_1_1pmr_1_1pool__resource.html", "classemlabcpp_1_1pmr_1_1pool__resource" ]
     ] ],
+    [ "stack_resource.h", "stack__resource_8h.html", [
+      [ "stack_resource", "classemlabcpp_1_1pmr_1_1stack__resource.html", "classemlabcpp_1_1pmr_1_1stack__resource" ]
+    ] ],
     [ "throw_bad_alloc.h", "throw__bad__alloc_8h.html", "throw__bad__alloc_8h" ],
     [ "util.h", "util_8h.html", "util_8h" ]
 ];

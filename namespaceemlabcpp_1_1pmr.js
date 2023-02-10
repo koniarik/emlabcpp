@@ -5,6 +5,7 @@ var namespaceemlabcpp_1_1pmr =
     [ "memory_resource", "classemlabcpp_1_1pmr_1_1memory__resource.html", "classemlabcpp_1_1pmr_1_1memory__resource" ],
     [ "new_delete_resource_impl", "structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html", "structemlabcpp_1_1pmr_1_1new__delete__resource__impl" ],
     [ "pool_resource", "classemlabcpp_1_1pmr_1_1pool__resource.html", "classemlabcpp_1_1pmr_1_1pool__resource" ],
+    [ "stack_resource", "classemlabcpp_1_1pmr_1_1stack__resource.html", "classemlabcpp_1_1pmr_1_1stack__resource" ],
     [ "deque", "namespaceemlabcpp_1_1pmr.html#afb6624d9cbb77fc5417e36cf287c559f", null ],
     [ "list", "namespaceemlabcpp_1_1pmr.html#aa9e0710702363605288c47c26736ea5f", null ],
     [ "map", "namespaceemlabcpp_1_1pmr.html#abad2b32174c8ecf62cfcd1cd63f47808", null ],

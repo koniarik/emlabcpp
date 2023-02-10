@@ -1,12 +1,13 @@
 <map id="include/emlabcpp/pmr/aliases.h" name="include/emlabcpp/pmr/aliases.h">
-<area shape="rect" id="node1" title=" " alt="" coords="401,5,568,47"/>
-<area shape="rect" id="node2" href="$allocator_8h.html" title=" " alt="" coords="93,95,281,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="305,95,368,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="393,95,435,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="459,95,510,121"/>
-<area shape="rect" id="node8" title=" " alt="" coords="534,95,611,121"/>
-<area shape="rect" id="node9" title=" " alt="" coords="635,95,678,121"/>
-<area shape="rect" id="node10" title=" " alt="" coords="703,95,765,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="497,5,664,47"/>
+<area shape="rect" id="node2" href="$allocator_8h.html" title=" " alt="" coords="189,95,377,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="401,95,464,121"/>
+<area shape="rect" id="node7" title=" " alt="" coords="489,95,531,121"/>
+<area shape="rect" id="node8" title=" " alt="" coords="555,95,606,121"/>
+<area shape="rect" id="node9" title=" " alt="" coords="630,95,707,121"/>
+<area shape="rect" id="node10" title=" " alt="" coords="731,95,774,121"/>
+<area shape="rect" id="node11" title=" " alt="" coords="799,95,861,121"/>
 <area shape="rect" id="node3" href="$memory__resource_8h.html" title=" " alt="" coords="5,169,180,211"/>
 <area shape="rect" id="node4" href="$throw__bad__alloc_8h.html" title=" " alt="" coords="205,169,362,211"/>
+<area shape="rect" id="node5" title=" " alt="" coords="387,177,473,203"/>
 </map>

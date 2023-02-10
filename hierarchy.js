@@ -164,7 +164,8 @@ var hierarchy =
     [ "emlabcpp::pmr::memory_resource", "classemlabcpp_1_1pmr_1_1memory__resource.html", [
       [ "emlabcpp::pmr::pool_resource< 512, 2 >", "classemlabcpp_1_1pmr_1_1pool__resource.html", null ],
       [ "emlabcpp::pmr::new_delete_resource_impl", "structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html", null ],
-      [ "emlabcpp::pmr::pool_resource< PoolSize, PoolCount >", "classemlabcpp_1_1pmr_1_1pool__resource.html", null ]
+      [ "emlabcpp::pmr::pool_resource< PoolSize, PoolCount >", "classemlabcpp_1_1pmr_1_1pool__resource.html", null ],
+      [ "emlabcpp::pmr::stack_resource< Capacity >", "classemlabcpp_1_1pmr_1_1stack__resource.html", null ]
     ] ],
     [ "emlabcpp::protocol::message< N >", "classemlabcpp_1_1protocol_1_1message.html", [
       [ "emlabcpp::protocol::sizeless_message< N >", "classemlabcpp_1_1protocol_1_1sizeless__message.html", null ]

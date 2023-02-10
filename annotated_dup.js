@@ -39,7 +39,8 @@ var annotated_dup =
         [ "allocator", "classemlabcpp_1_1pmr_1_1allocator.html", "classemlabcpp_1_1pmr_1_1allocator" ],
         [ "memory_resource", "classemlabcpp_1_1pmr_1_1memory__resource.html", "classemlabcpp_1_1pmr_1_1memory__resource" ],
         [ "new_delete_resource_impl", "structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html", "structemlabcpp_1_1pmr_1_1new__delete__resource__impl" ],
-        [ "pool_resource", "classemlabcpp_1_1pmr_1_1pool__resource.html", "classemlabcpp_1_1pmr_1_1pool__resource" ]
+        [ "pool_resource", "classemlabcpp_1_1pmr_1_1pool__resource.html", "classemlabcpp_1_1pmr_1_1pool__resource" ],
+        [ "stack_resource", "classemlabcpp_1_1pmr_1_1stack__resource.html", "classemlabcpp_1_1pmr_1_1stack__resource" ]
       ] ],
       [ "protocol", "namespaceemlabcpp_1_1protocol.html", [
         [ "multiplexed_endpoint", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint" ],
