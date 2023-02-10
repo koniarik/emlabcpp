@@ -107,6 +107,15 @@ public:
           : registers_( Regs{ args }... )
         {
         }
+        
+        constexpr explicit register_map( const Regs&... regs )
+          : registers_( regs... )
+        {
+        }
+
+        std::array<key_type, registers_count> get_keys() const {
+                return {Regs::key...};
+        }
 
         [[nodiscard]] constexpr bool contains( key_type key ) const
         {
