@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"namespaceemlabcpp.html#aff43a196db9cecc357e6f4452638b32f":[2,0,0,244],
+"namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag":[4,0,0,0,13,1],
 "namespaceemlabcpp.html#structemlabcpp_1_1iterator__of":[4,0,0,0,5,0,0],
 "namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub":[4,0,0,0,1,2,0,1],
 "namespaceemlabcpp.html#structemlabcpp_1_1log__colors":[4,0,0,0,1,2,0,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "namespacemembers_b.html":[2,1,0,1],
 "namespacemembers_c.html":[2,1,0,2],
 "namespacemembers_d.html":[2,1,0,3],
-"namespacemembers_e.html":[2,1,0,4],
-"namespacemembers_enum.html":[2,1,4],
-"namespacemembers_eval.html":[2,1,5]
+"namespacemembers_e.html":[2,1,0,4]
 };
