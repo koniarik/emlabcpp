@@ -1,6 +1,6 @@
 <map id="emlabcpp::pmr::memory_resource" name="emlabcpp::pmr::memory_resource">
 <area shape="rect" id="node1" title=" " alt="" coords="5,108,188,149"/>
-<area shape="rect" id="node2" href="$classemlabcpp_1_1pmr_1_1pool__resource.html" title=" " alt="" coords="244,5,400,47"/>
+<area shape="rect" id="node2" href="$classemlabcpp_1_1pmr_1_1stack__resource.html" title=" " alt="" coords="241,5,403,47"/>
 <area shape="rect" id="node3" href="$structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html" title=" " alt="" coords="237,71,407,112"/>
 <area shape="rect" id="node4" href="$classemlabcpp_1_1pmr_1_1pool__resource.html" title=" " alt="" coords="243,137,401,193"/>
 <area shape="rect" id="node5" href="$classemlabcpp_1_1pmr_1_1stack__resource.html" title=" " alt="" coords="236,217,408,259"/>

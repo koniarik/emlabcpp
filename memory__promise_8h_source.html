@@ -132,7 +132,7 @@ $(document).ready(function(){initNavTree('memory__promise_8h_source.html',''); i
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                p--;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">bool</span> succeeded = ( *p )-&gt;<a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html#ad15c362e662a63d44e8bc01076450730">deallocate</a>( p, size, <span class="keyword">alignof</span>( PromiseType ) );</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">bool</span> succeeded = ( *p )-&gt;<a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html#ad15c362e662a63d44e8bc01076450730">deallocate</a>( p, size + <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74">ptr_size</a>, <span class="keyword">alignof</span>( PromiseType ) );</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">if</span> ( !succeeded ) {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        <a class="code" href="namespaceemlabcpp_1_1pmr.html#a0db595500c9bd8f5a2b7a52d4f137a9a">pmr::throw_bad_alloc</a>();</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                }</div>
@@ -156,7 +156,7 @@ $(document).ready(function(){initNavTree('memory__promise_8h_source.html',''); i
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_124696910e1f6c10a38401e63d4996f0.html">coro</a></li><li class="navelem"><a class="el" href="memory__promise_8h.html">memory_promise.h</a></li>
-    <li class="footer">Generated on Fri Feb 10 2023 17:41:22 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Feb 10 2023 17:58:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
