@@ -72,6 +72,16 @@ struct pretty_printer< protocol::message< N > >
         }
 };
 
+template < std::size_t N >
+struct pretty_printer< protocol::sizeless_message< N > >
+{
+        template < typename T >
+        static void print( T&& w, const protocol::sizeless_message< N >& msg )
+        {
+                pretty_printer< protocol::message< N > >::print( w, msg );
+        }
+};
+
 template <>
 struct pretty_printer< protocol::mark >
 {

@@ -76,6 +76,7 @@ public:
 
         void log_time( const timelog& tl )
         {
+                write( '\n' );
                 set_color( colors_.time );
                 write( tl );
         }
@@ -83,12 +84,14 @@ public:
         void log_file( std::string_view file )
         {
                 set_color( colors_.file );
+                write( ' ' );
                 write( file );
         }
 
         void log_line( int line )
         {
                 set_color( colors_.line );
+                write( ':' );
                 write( line );
         }
 
@@ -98,7 +101,6 @@ public:
                 write_std_streams( reset_color() );
                 write( ' ' );
                 ( write( args ), ... );
-                write( '\n' );
         }
 
 private:
