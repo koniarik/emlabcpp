@@ -38,9 +38,9 @@ public:
         test_interface() = default;
 
         test_interface( const test_interface& )            = delete;
-        test_interface( test_interface&& other )           = delete;
         test_interface& operator=( const test_interface& ) = delete;
-        test_interface& operator=( test_interface&& )      = delete;
+        test_interface( test_interface&& other )           = default;
+        test_interface& operator=( test_interface&& )      = default;
 
         virtual std::string_view get_name() const = 0;
 
@@ -112,6 +112,9 @@ public:
         {
                 reac.register_test( node_ );
         }
+
+        test_callable( test_callable&& ) noexcept            = default;
+        test_callable& operator=( test_callable&& ) noexcept = default;
 
         std::string_view get_name() const
         {
