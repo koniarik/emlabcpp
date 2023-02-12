@@ -1,5 +1,6 @@
 #include "emlabcpp/pmr/memory_resource.h"
 #include "emlabcpp/pmr/throw_bad_alloc.h"
+
 #include <functional>
 
 #pragma once
@@ -36,7 +37,7 @@ public:
         void deallocate( T* const p, const std::size_t n ) const
         {
                 const bool succeeded = resource_.get().deallocate(
-                    reinterpret_cast< void* >( p ), n * sizeof(T), alignof( T ) );
+                    reinterpret_cast< void* >( p ), n * sizeof( T ), alignof( T ) );
                 if ( !succeeded ) {
                         throw_bad_alloc();
                 }
