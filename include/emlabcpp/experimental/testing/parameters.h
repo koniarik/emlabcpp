@@ -313,7 +313,7 @@ void params_awaiter< Processor >::await_suspend(
         params.exchange( proc.req, [&]( const params_server_client_variant& var ) {
                 if ( !proc.set_value( var ) ) {
                         // TODO: reply with error to server!!!
-                        EMLABCPP_LOG( "Setting value to processor errored" );
+                        EMLABCPP_ERROR_LOG( "Setting value to processor errored" );
                         state = await_state::ERRORED;
                 } else {
                         state = await_state::READY;

@@ -6,18 +6,18 @@ namespace emlabcpp
 {
 gpos_logger INFO_LOGGER{ { set_stdout{ true }, set_stderr{ false }, INFO_LOGGER_COLORS } };
 gpos_logger DEBUG_LOGGER{ { set_stdout{ false }, set_stderr{ false }, DEBUG_LOGGER_COLORS } };
+gpos_logger ERROR_LOGGER{ { set_stdout{ false }, set_stderr{ false }, ERROR_LOGGER_COLORS } };
 }  // namespace emlabcpp
 
 #elif defined EMLABCPP_USE_NONEABI_LOGGING
 
 namespace emlabcpp
 {
-logger LOGGER = {};
 
-void log_to_global_logger( std::string_view sv )
-{
-        LOGGER.write( sv );
-}
+noneabi_logger INFO_LOGGER{};
+noneabi_logger DEBUG_LOGGER{};
+noneabi_logger ERROR_LOGGER{};
+
 }  // namespace emlabcpp
 
 #endif

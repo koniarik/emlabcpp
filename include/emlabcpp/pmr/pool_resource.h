@@ -39,7 +39,7 @@ public:
                 }
 
                 if ( p == nullptr || used > PoolSize ) {
-                        EMLABCPP_LOG( "Failed to allocate " << bytes << " bytes" );
+                        EMLABCPP_ERROR_LOG( "Failed to allocate ", bytes, " bytes" );
                         return nullptr;
                 }
                 free_.pop_back();
@@ -56,7 +56,7 @@ public:
                 const std::size_t spot_i = ( pval - bval ) / PoolSize;
 
                 if ( spot_i >= PoolCount ) {
-                        EMLABCPP_LOG( "Failed to deallocate" );
+                        EMLABCPP_ERROR_LOG( "Failed to deallocate" );
                         return false;
                 }
                 free_.push_back( static_cast< uint16_t >( spot_i ) );

@@ -1,3 +1,6 @@
+#include "emlabcpp/experimental/pretty_printer.h"
+#include "emlabcpp/match.h"
+
 #include <string_view>
 
 #pragma once
@@ -20,8 +23,6 @@ consteval std::string_view stem_of( const char* const file )
 
 #include "emlabcpp/experimental/logging/color.h"
 #include "emlabcpp/experimental/logging/time.h"
-#include "emlabcpp/experimental/pretty_printer.h"
-#include "emlabcpp/experimental/simple_stream.h"
 
 #include <iostream>
 
@@ -48,8 +49,6 @@ using logging_option = std::variant< set_stdout, set_stderr, set_ostream, log_co
 class gpos_logger
 {
 public:
-        using ostream = pretty_printer< simple_stream< gpos_logger& > >;
-
         explicit gpos_logger( const std::vector< logging_option >& opts )
         {
                 for ( const auto& opt : opts ) {
@@ -75,29 +74,48 @@ public:
                     } );
         }
 
-        ostream& time_stream()
+        void log_time( const timelog& tl )
         {
                 set_color( colors_.time );
-                return os_;
-        }
-        ostream& file_stream()
-        {
-                set_color( colors_.file );
-                return os_;
-        }
-        ostream& line_stream()
-        {
-                set_color( colors_.line );
-                return os_;
-        }
-        ostream& msg_stream()
-        {
-                write_std_streams( reset_color() );
-                return os_;
+                write( tl );
         }
 
-        void operator()( const std::string_view sv )
+        void log_file( std::string_view file )
         {
+                set_color( colors_.file );
+                write( file );
+        }
+
+        void log_line( int line )
+        {
+                set_color( colors_.line );
+                write( line );
+        }
+
+        template < typename... Args >
+        void log( const Args&... args )
+        {
+                write_std_streams( reset_color() );
+                write( ' ' );
+                ( write( args ), ... );
+                write( '\n' );
+        }
+
+private:
+        template < typename T >
+        void write( const T& t )
+        {
+
+                pretty_printer< T >::print(
+                    recursive_writer{ [&]( const auto& sub ) {
+                            write( sub );
+                    } },
+                    t );
+        }
+
+        void write( std::string_view sv )
+        {
+
                 write_std_streams( sv );
                 if ( filestream_ != nullptr ) {
                         filestream_->write(
@@ -105,7 +123,6 @@ public:
                 }
         }
 
-private:
         void set_color( const std::string_view c ) const
         {
                 write_std_streams( "\033[38;5;" );
@@ -123,8 +140,6 @@ private:
                 }
         }
 
-        ostream os_{ simple_stream< gpos_logger& >{ *this } };
-
         log_colors colors_{};
 
         bool          use_stdout_ = false;
@@ -132,59 +147,48 @@ private:
         std::ostream* filestream_;
 };
 
-extern gpos_logger INFO_LOGGER;
 extern gpos_logger DEBUG_LOGGER;
+extern gpos_logger INFO_LOGGER;
+extern gpos_logger ERROR_LOGGER;
 
 }  // namespace emlabcpp
 
-#define EMLABCPP_LOG_IMPL( msg, logger )                                             \
-        do {                                                                         \
-                ( logger ).time_stream()                                             \
-                    << emlabcpp::timelog( std::chrono::system_clock::now() ) << " "; \
-                ( logger ).file_stream() << emlabcpp::stem_of( __FILE__ ) << ":";    \
-                ( logger ).line_stream() << __LINE__ << " ";                         \
-                ( logger ).msg_stream() << msg << "\n";                              \
+#define EMLABCPP_LOG_IMPL( logger, ... )                                                      \
+        do {                                                                                  \
+                ( logger ).log_time( emlabcpp::timelog( std::chrono::system_clock::now() ) ); \
+                ( logger ).log_file( emlabcpp::stem_of( __FILE__ ) );                         \
+                ( logger ).log_line( __LINE__ );                                              \
+                ( logger ).log( __VA_ARGS__ );                                                \
         } while ( false )
 
-#define EMLABCPP_LOG( msg ) EMLABCPP_LOG_IMPL( msg, emlabcpp::INFO_LOGGER )
-#define EMLABCPP_DEBUG_LOG( msg ) EMLABCPP_LOG_IMPL( msg, emlabcpp::DEBUG_LOGGER )
+#define EMLABCPP_DEBUG_LOG( ... ) EMLABCPP_LOG_IMPL( emlabcpp::DEBUG_LOGGER, __VA_ARGS__ )
+#define EMLABCPP_INFO_LOG( ... ) EMLABCPP_LOG_IMPL( emlabcpp::INFO_LOGGER, __VA_ARGS__ )
+#define EMLABCPP_ERROR_LOG( ... ) EMLABCPP_LOG_IMPL( emlabcpp::ERROR_LOGGER, __VA_ARGS__ )
 
 #elif defined EMLABCPP_USE_NONEABI_LOGGING
-
-#include "emlabcpp/experimental/pretty_printer.h"
-#include "emlabcpp/experimental/simple_stream.h"
 
 namespace emlabcpp
 {
 
-struct logger
-{
-        void start();
-        void write( std::string_view );
-        void end();
-};
-
-extern logger LOGGER;
-
-void log_to_global_logger( std::string_view sv );
+extern noneabi_logger DEBUG_LOGGER;
+extern noneabi_logger INFO_LOGGER;
+extern noneabi_logger ERROR_LOGGER;
 
 }  // namespace emlabcpp
 
-#define EMLABCPP_LOG_IMPL( msg )                                                 \
-        do {                                                                     \
-                emlabcpp::LOGGER.start();                                        \
-                emlabcpp::pretty_printer pp{                                     \
-                    emlabcpp::simple_stream{ emlabcpp::log_to_global_logger } }; \
-                pp << msg;                                                       \
-                emlabcpp::LOGGER.end();                                          \
+#define EMLABCPP_LOG_IMPL( logger, ... )       \
+        do {                                   \
+                ( logger ).log( __VA_ARGS__ ); \
         } while ( false )
 
-#define EMLABCPP_LOG( msg ) EMLABCPP_LOG_IMPL( msg )
-#define EMLABCPP_DEBUG_LOG( msg ) EMLABCPP_LOG_IMPL( msg )
+#define EMLABCPP_DEBUG_LOG( ... ) EMLABCPP_LOG_IMPL( emlabcpp::DEBUG_LOGGER, __VA_ARGS__ )
+#define EMLABCPP_INFO_LOG( ... ) EMLABCPP_LOG_IMPL( emlabcpp::INFO_LOGGER, __VA_ARGS__ )
+#define EMLABCPP_ERROR_LOG( ... ) EMLABCPP_LOG_IMPL( emlabcpp::ERROR_LOGGER, __VA_ARGS__ )
 
 #else
 
-#define EMLABCPP_LOG( msg )
-#define EMLABCPP_DEBUG_LOG( msg )
+#define EMLABCPP_INFO_LOG( ... )
+#define EMLABCPP_DEBUG_LOG( ... )
+#define EMLABCPP_ERROR_LOG( ... )
 
 #endif

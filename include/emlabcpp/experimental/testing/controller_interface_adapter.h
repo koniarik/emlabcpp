@@ -63,16 +63,16 @@ public:
                 match(
                     var,
                     []( const reactor_protocol_error& e ) {
-                            EMLABCPP_LOG( "Protocol error reported from reactor: " << e );
+                            EMLABCPP_ERROR_LOG( "Protocol error reported from reactor: ", e );
                     },
                     []( const controller_protocol_error& e ) {
-                            EMLABCPP_LOG( "Protocol error reported from controller: " << e );
+                            EMLABCPP_ERROR_LOG( "Protocol error reported from controller: ", e );
                     },
                     []( const internal_reactor_error& e ) {
-                            EMLABCPP_LOG( "Internal error from reactor: " << e );
+                            EMLABCPP_ERROR_LOG( "Internal error from reactor: ", e );
                     },
                     []( const controller_internal_error& e ) {
-                            EMLABCPP_LOG( "Wrong message arrived to controller: " << e );
+                            EMLABCPP_ERROR_LOG( "Wrong message arrived to controller: ", e );
                     } );
                 const auto* const internal_ptr = std::get_if< internal_reactor_error >( &var );
 

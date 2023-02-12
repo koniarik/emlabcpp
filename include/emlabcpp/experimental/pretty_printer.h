@@ -5,10 +5,8 @@
 #include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
 
-#include <filesystem>
 #include <optional>
 #include <span>
-#include <sstream>
 #include <tuple>
 #include <variant>
 
@@ -21,170 +19,312 @@
 namespace emlabcpp
 {
 
-template < typename T, typename PrettyPrinter >
-concept pretty_printer_main_printable = requires( const T& item, PrettyPrinter& pp )
+template < typename T >
+struct pretty_printer;
+
+#define EMLABCPP_PRETTY_PRINT_BASIC( bsize, w, fmt, item )                                 \
+        {                                                                                  \
+                std::array< char, bsize > buffer{};                                        \
+                int used = snprintf( buffer.data(), buffer.size(), fmt, item );            \
+                if ( used > 0 ) {                                                          \
+                        std::size_t size =                                                 \
+                            std::min( static_cast< std::size_t >( used ), buffer.size() ); \
+                        w( std::string_view( buffer.data(), size ) );                      \
+                }                                                                          \
+        }                                                                                  \
+        while ( false )
+
+template < std::size_t N >
+struct buffer_writer
 {
-        pp.main_print( item );
+        void operator()( char c )
+        {
+                if ( size == N ) {
+                        return;
+                }
+                buffer[size] = c;
+                size += 1;
+        }
+
+        std::string_view sv()
+        {
+                return { buffer.data(), size };
+        }
+
+        std::array< char, N > buffer{};
+        std::size_t           size = 0;
 };
 
-template < typename StreamType >
-class pretty_printer
+template < typename Writer >
+struct recursive_writer
 {
-public:
-        pretty_printer() = default;
-
-        explicit pretty_printer( StreamType st )
-          : os_( st )
+        void operator()( std::string_view sv )
         {
+                w( sv );
         }
 
         template < typename T >
-        pretty_printer& operator<<( const T& item ) &
+        void operator()( const T& item )
         {
-                if constexpr ( pretty_printer_main_printable< T, pretty_printer > ) {
-                        main_print( item );
-                } else {
-                        backup_print( item );
-                }
+                pretty_printer< T >::print( *this, item );
+        }
+
+        Writer w;
+};
+
+template < typename... Ts >
+auto& pretty_stream_write( ostreamlike auto& os, const Ts&... item )
+{
+        ( pretty_printer< Ts >::print(
+              recursive_writer{ [&]( std::string_view sv ) {
+                      os << sv;
+              } },
+              item ),
+          ... );
+        return os;
+};
+
+template < typename W >
+struct pretty_stream
+{
+
+        template < typename U >
+        pretty_stream& operator<<( const U& item )
+        {
+                writer( item );
                 return *this;
         }
 
-        [[nodiscard]] explicit operator bool() const
-        {
-                return bool( os_ );
-        }
+        W writer;
+};
 
-        [[nodiscard]] std::string str()
+template <>
+struct pretty_printer< signed char >
+{
+        template < typename W >
+        static void print( W&& w, signed char i )
         {
-                return os_.str();
+                EMLABCPP_PRETTY_PRINT_BASIC( 4, w, "%hhi", i );
         }
+};
 
-        [[nodiscard]] char fill() const
+template <>
+struct pretty_printer< short int >
+{
+        template < typename W >
+        static void print( W&& w, short int i )
         {
-                return os_.fill();
+                EMLABCPP_PRETTY_PRINT_BASIC( 8, w, "%hi", i );
         }
-        char fill( char ch )
-        {
-                return os_.fill( ch );
-        }
+};
 
-        std::ios_base::fmtflags setf( std::ios_base::fmtflags flags, std::ios_base::fmtflags mask )
+template <>
+struct pretty_printer< int >
+{
+        template < typename W >
+        static void print( W&& w, int i )
         {
-                return os_.setf( flags, mask );
+                EMLABCPP_PRETTY_PRINT_BASIC( 16, w, "%i", i );
         }
+};
 
-        [[nodiscard]] std::streamsize width() const
+template <>
+struct pretty_printer< long int >
+{
+        template < typename W >
+        static void print( W&& w, long int i )
         {
-                return os_.width();
+                EMLABCPP_PRETTY_PRINT_BASIC( 32, w, "%li", i );
         }
-        std::streamsize width( std::streamsize w )
-        {
-                return os_.width( w );
-        }
-        [[nodiscard]] std::ios_base::fmtflags flags() const
-        {
-                return os_.flags();
-        }
-        std::ios_base::fmtflags flags( std::ios_base::fmtflags f )
-        {
-                return os_.flags( f );
-        }
+};
 
-#ifdef EMLABCPP_USE_NLOHMANN_JSON
-        void main_print( const nlohmann::json& j )
+template <>
+struct pretty_printer< unsigned char >
+{
+        template < typename W >
+        static void print( W&& w, unsigned char u )
         {
-                os_ << j.dump();
+                EMLABCPP_PRETTY_PRINT_BASIC( 8, w, "%hhu", u );
         }
-#endif
+};
 
-        void main_print( const std::filesystem::path& p )
+template <>
+struct pretty_printer< short unsigned >
+{
+        template < typename W >
+        static void print( W&& w, short unsigned u )
         {
-                main_print( p.string() );
+                EMLABCPP_PRETTY_PRINT_BASIC( 8, w, "%hu", u );
         }
+};
 
-        template < typename T >
-        void main_print( const std::reference_wrapper< T >& val )
+template <>
+struct pretty_printer< unsigned >
+{
+        template < typename W >
+        static void print( W&& w, unsigned u )
         {
-                *this << val.get();
+                EMLABCPP_PRETTY_PRINT_BASIC( 16, w, "%u", u );
         }
+};
 
-        template < std::same_as< uint8_t > T >
-        void main_print( const T& val )
+template <>
+struct pretty_printer< long unsigned >
+{
+        template < typename W >
+        static void print( W&& w, long unsigned u )
         {
-                os_ << static_cast< int >( val );
+                EMLABCPP_PRETTY_PRINT_BASIC( 32, w, "%lu", u );
         }
+};
 
-        template < typename T >
-        requires(
-            detail::directly_streamable_for< std::ostream, T > && !std::same_as< T, uint8_t > &&
-            !std::is_enum_v< T > ) void main_print( const T& val )
+template <>
+struct pretty_printer< char >
+{
+        template < typename W >
+        static void print( W&& w, char c )
         {
-                os_ << val;
+                EMLABCPP_PRETTY_PRINT_BASIC( 4, w, "%c", c );
         }
+};
 
-        template < typename T >
-        requires( std::is_enum_v< T > ) void main_print( const T& val )
+template < std::size_t N >
+struct pretty_printer< char[N] >
+{
+        template < typename W >
+        static void print( W&& w, const char* c )
         {
-                *this << convert_enum( val );
+                EMLABCPP_PRETTY_PRINT_BASIC( 32, w, "%s", c );
         }
+};
 
-        void main_print( const char* const c )
+template <>
+struct pretty_printer< std::string >
+{
+        template < typename W >
+        static void print( W&& w, const std::string& s )
         {
-                main_print( std::string_view{ c } );
+                w( std::string_view{ s } );
         }
+};
 
-        void main_print( const std::string_view& sview )
+template <>
+struct pretty_printer< bool >
+{
+        template < typename W >
+        static void print( W&& w, bool b )
         {
-                os_ << sview;
+                w( b ? 't' : 'f' );
         }
+};
 
-        void main_print( const std::string& str )
+template < typename T >
+requires( std::is_pointer_v< T > ) struct pretty_printer< T >
+{
+        template < typename W >
+        static void print( W&& w, T val )
         {
-                main_print( std::string_view{ str } );
+                EMLABCPP_PRETTY_PRINT_BASIC( 16, w, "%p", static_cast< void* >( val ) );
         }
+};
 
-        template < typename... Ts >
-        void main_print( const std::variant< Ts... >& var )
+template < typename T >
+requires( std::is_enum_v< T > ) struct pretty_printer< T >
+{
+        template < typename W >
+        static void print( W&& w, T val )
+        {
+                w( convert_enum( val ) );
+        }
+};
+
+template < typename Iterator >
+struct pretty_printer< view< Iterator > >
+{
+        template < typename W >
+        static void print( W&& w, const view< Iterator >& output )
+        {
+                string_serialize_view( w, output );
+        }
+};
+
+template < typename T, std::size_t N >
+struct pretty_printer< std::span< T, N > >
+{
+        template < typename W >
+        static void print( W&& w, const std::span< T, N >& sp )
+        {
+                string_serialize_view( w, view{ sp } );
+        }
+};
+
+template < typename T >
+struct pretty_printer< std::vector< T > >
+{
+        template < typename W >
+        static void print( W&& w, const std::vector< T >& vec )
+        {
+                string_serialize_view( w, data_view( vec ) );
+        }
+};
+
+template < typename... Ts >
+struct pretty_printer< std::variant< Ts... > >
+{
+        template < typename W >
+        static void print( W&& w, const std::variant< Ts... >& var )
         {
                 visit(
-                    [this]( const auto& val ) {
-                            *this << val;
+                    [&w]( const auto& item ) {
+                            w( item );
                     },
                     var );
         }
+};
 
-        template < typename... Ts >
-        void main_print( const std::tuple< Ts... >& tpl )
+template < typename... Ts >
+struct pretty_printer< std::tuple< Ts... > >
+{
+        template < typename W >
+        static void print( W&& w, const std::tuple< Ts... >& tpl )
         {
-                if ( sizeof...( Ts ) == 0 ) {
-                        *this << "()";
+                if constexpr ( sizeof...( Ts ) == 0 ) {
+                        w( "()" );
                         return;
                 }
+
                 char delim = '(';
                 for_each( tpl, [&]( const auto& item ) {
-                        *this << delim << item;
-                        delim = ',';
+                        w( delim );
+                        w( item );
                 } );
-                *this << ')';
+                w( ')' );
         }
+};
 
-        template < typename T >
-        void main_print( const std::optional< T >& val )
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+
+template <>
+struct pretty_printer< nlohmann::json >
+{
+        template < typename W >
+        static void print( W&& w, const nlohmann::json& j )
         {
-                if ( val ) {
-                        *this << *val;
-                }
-                *this << "nothing";
+                std::string s = j.dump( 4 );
+                w( s );
         }
+};
 
-        template < decomposable T >
-        void backup_print( const T& item )
+#endif
+
+template < decomposable T >
+struct pretty_printer< T >
+{
+        template < typename W >
+        static void print( W&& w, const T& item )
         {
-                *this << pretty_type_name< T >() << decompose( item );
+                w( decompose( item ) );
         }
-
-private:
-        StreamType os_;
 };
 
 }  // namespace emlabcpp

@@ -68,11 +68,11 @@ public:
                 h::extract( view_n( msg.data(), msg.size() ) )
                     .match(
                         [&]( const auto& var ) {
-                                EMLABCPP_LOG( "Got a msg: " << var );
+                                EMLABCPP_INFO_LOG( "Got a msg: ", var );
                                 msgs.push_back( var );
                         },
                         [&]( const auto& err ) {
-                                EMLABCPP_LOG( "Got an error: " << err );
+                                EMLABCPP_ERROR_LOG( "Got an error: ", err );
                                 FAIL();
                         } );
         }

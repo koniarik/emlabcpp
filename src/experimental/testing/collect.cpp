@@ -23,7 +23,7 @@ void collect_awaiter::await_suspend( std::coroutine_handle< test_coroutine::prom
                     },
                     [&]( const tree_error_reply& err ) {
                             std::ignore = err;
-                            EMLABCPP_LOG( "Got an error: " << err );
+                            EMLABCPP_ERROR_LOG( "Got an error: ", err );
                             state = await_state::ERRORED;
                     } );
         } );
@@ -45,7 +45,7 @@ void collector::on_msg( const std::span< const uint8_t >& msg )
                 },
                 [&]( const auto& err ) {
                         std::ignore = err;
-                        EMLABCPP_LOG( "Failed to extract msg: " << err );
+                        EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                 } );
 }
 void collector::on_msg( const collect_server_client_group& var )
@@ -116,7 +116,7 @@ void collect_server::on_msg( std::span< const uint8_t > data )
                 },
                 [&]( const auto& err ) {
                         std::ignore = err;
-                        EMLABCPP_LOG( "Failed to extract msg: " << err );
+                        EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                 } );
 }
 
@@ -125,10 +125,10 @@ void collect_server::on_msg( const collect_request& req )
         // TODO: this may be a bad idea ...
         if ( tree_.empty() ) {
                 if ( req.opt_key ) {
-                        EMLABCPP_LOG( "collect tree is empty, making root object" );
+                        EMLABCPP_ERROR_LOG( "collect tree is empty, making root object" );
                         tree_.make_object_node();
                 } else {
-                        EMLABCPP_LOG( "collect tree is empty, making root array" );
+                        EMLABCPP_ERROR_LOG( "collect tree is empty, making root array" );
                         tree_.make_array_node();
                 }
         }

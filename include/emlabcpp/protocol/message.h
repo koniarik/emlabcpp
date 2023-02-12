@@ -51,9 +51,11 @@ public:
         static std::optional< message > make( const range_container auto& cont )
         {
                 if ( std::size( cont ) > N ) {
-                        EMLABCPP_LOG(
-                            "Failed to construct protocol message, bigger than limit: "
-                            << std::size( cont ) << " > " << N );
+                        EMLABCPP_INFO_LOG(
+                            "Failed to construct protocol message, bigger than limit: ",
+                            std::size( cont ),
+                            " > ",
+                            N );
                         return {};
                 }
                 return { message( std::begin( cont ), std::end( cont ) ) };
@@ -188,9 +190,11 @@ public:
         static std::optional< sizeless_message > make( const range_container auto& cont )
         {
                 if ( std::size( cont ) > N ) {
-                        EMLABCPP_LOG(
-                            "Failed to construct sizeless protocol message, bigger than limit: "
-                            << std::size( cont ) << " > " << N );
+                        EMLABCPP_INFO_LOG(
+                            "Failed to construct sizeless protocol message, bigger than limit: ",
+                            std::size( cont ),
+                            " > ",
+                            N );
                         return {};
                 }
                 return { sizeless_message( std::begin( cont ), std::end( cont ) ) };

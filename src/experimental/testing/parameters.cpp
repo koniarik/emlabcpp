@@ -68,7 +68,7 @@ void parameters::on_msg( std::span< const uint8_t > data )
                 },
                 [&]( const auto& err ) {
                         std::ignore = err;
-                        EMLABCPP_LOG( "Failed to extract msg: " << err );
+                        EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                 } );
 }
 
@@ -142,7 +142,7 @@ void parameters_server::on_msg( std::span< const uint8_t > data )
                 },
                 [&]( const auto& err ) {
                         std::ignore = err;
-                        EMLABCPP_LOG( "Failed to extract msg: " << err );
+                        EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                 } );
 }
 
@@ -240,13 +240,13 @@ void parameters_server::reply_node_error(
     const node_id                                nid )
 {
         if ( err == CONTIGUOUS_WRONG_TYPE ) {
-                EMLABCPP_LOG( "Failed to work with " << nid << ", wrong type of node" );
+                EMLABCPP_ERROR_LOG( "Failed to work with ", nid, ", wrong type of node" );
         } else if ( err == CONTIGUOUS_FULL ) {
-                EMLABCPP_LOG( "Failed to insert data, data storage is full" );
+                EMLABCPP_ERROR_LOG( "Failed to insert data, data storage is full" );
         } else if ( err == CONTIGUOUS_MISSING_NODE ) {
-                EMLABCPP_LOG( "Tree node " << nid << " is missing " );
+                EMLABCPP_ERROR_LOG( "Tree node ", nid, " is missing " );
         } else if ( err == CONTIGUOUS_CHILD_MISSING ) {
-                EMLABCPP_LOG( "Tree node child " << nid << " is missing " );
+                EMLABCPP_ERROR_LOG( "Tree node child ", nid, " is missing " );
         }
         send( tree_error_reply{ .err = err, .nid = nid } );
 }

@@ -37,7 +37,7 @@ public:
         [[nodiscard]] void*
         allocate( const std::size_t bytes, const std::size_t alignment ) override
         {
-                EMLABCPP_LOG( "Top is " << top_ << " and start of buffer is " << buff_.data() );
+                EMLABCPP_INFO_LOG( "Top is ", top_, " and start of buffer is ", buff_.data() );
 
                 std::byte* prev_ptr  = top_;
                 node       prev_node = get_node( prev_ptr );
@@ -49,7 +49,7 @@ public:
                 set_node( top_, prev_ptr, nullptr );
                 set_node( prev_ptr, prev_node.prev_ptr, top_ );
 
-                EMLABCPP_LOG( "Allocating " << p << " for " << bytes << " bytes" );
+                EMLABCPP_INFO_LOG( "Allocating ", p, " for ", bytes, " bytes" );
 
                 return p;
         }
@@ -57,7 +57,7 @@ public:
         [[nodiscard]] bool
         deallocate( void* const ptr, const std::size_t bytes, const std::size_t ) override
         {
-                EMLABCPP_LOG( "Deallocating " << ptr << " with " << bytes << " bytes" );
+                EMLABCPP_INFO_LOG( "Deallocating ", ptr, " with ", bytes, " bytes" );
                 std::byte* node_ptr = reinterpret_cast< std::byte* >( ptr ) + bytes + node_size;
                 auto [prev_ptr, next_ptr] = get_node( node_ptr );
 
@@ -89,7 +89,7 @@ public:
 private:
         node get_node( std::byte* ptr )
         {
-                EMLABCPP_LOG( "Reading from " << ptr );
+                EMLABCPP_INFO_LOG( "Reading from ", ptr );
                 ptr -= sizeof( std::byte* );
 
                 std::byte* prev = nullptr;
@@ -104,7 +104,7 @@ private:
 
         void set_node( std::byte* ptr, std::byte* prev, std::byte* next )
         {
-                EMLABCPP_LOG( "Storing at " << ptr );
+                EMLABCPP_INFO_LOG( "Storing at ", ptr );
                 ptr -= sizeof( std::byte* );
                 std::memcpy( ptr, &prev, sizeof( std::byte* ) );
                 ptr -= sizeof( std::byte* );

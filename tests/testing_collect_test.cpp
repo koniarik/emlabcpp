@@ -27,13 +27,13 @@ struct collector_test_fixture : public testing::test_interface
         testing::test_coroutine run( pmr::memory_resource&, testing::record& )
         {
                 coll.set( 0, "key1", 42 );
-                EMLABCPP_LOG( "Collected key1" );
+                EMLABCPP_ERROR_LOG( "Collected key1" );
                 testing::node_id nid = co_await coll.set( 0, "key2", CONTIGUOUS_CONT_ARRAY );
-                EMLABCPP_LOG( "Collected key2" );
+                EMLABCPP_ERROR_LOG( "Collected key2" );
                 coll.append( nid, 52 );
-                EMLABCPP_LOG( "Collected 52" );
+                EMLABCPP_ERROR_LOG( "Collected 52" );
                 coll.append( nid, 666 );
-                EMLABCPP_LOG( "Collected 666" );
+                EMLABCPP_ERROR_LOG( "Collected 666" );
 
                 checkpoint_reached = true;
 

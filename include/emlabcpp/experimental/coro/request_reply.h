@@ -86,11 +86,11 @@ public:
         const RequestType* get_request()
         {
                 if ( !h_ ) {
-                        EMLABCPP_LOG( "Can't extract request from empty handle" );
+                        EMLABCPP_ERROR_LOG( "Can't extract request from empty handle" );
                         return nullptr;
                 }
                 if ( !h_.promise().request.has_value() ) {
-                        EMLABCPP_LOG( "No request in coroutine at " << &h_.promise().request );
+                        EMLABCPP_ERROR_LOG( "No request in coroutine at ", &h_.promise().request );
                         return nullptr;
                 }
                 return &*h_.promise().request;
@@ -101,7 +101,7 @@ public:
                 if ( h_ ) {
                         return h_.promise().reply.has_value();
                 } else {
-                        EMLABCPP_LOG( "Can't check reply in empty handle" );
+                        EMLABCPP_ERROR_LOG( "Can't check reply in empty handle" );
                         return false;
                 }
         }
@@ -111,7 +111,7 @@ public:
                 if ( h_ ) {
                         h_.promise().reply = inpt;
                 } else {
-                        EMLABCPP_LOG( "Can't store reply in empty handle" );
+                        EMLABCPP_ERROR_LOG( "Can't store reply in empty handle" );
                 }
         }
 
@@ -128,16 +128,16 @@ public:
         [[nodiscard]] bool tick()
         {
                 if ( !h_.promise().reply ) {
-                        EMLABCPP_LOG( "Can't tick coroutine " << address() << ", no reply" );
+                        EMLABCPP_ERROR_LOG( "Can't tick coroutine ", address(), ", no reply" );
                         return false;
                 }
                 if ( !h_ ) {
-                        EMLABCPP_LOG( "No handle in coroutine " << address() );
+                        EMLABCPP_ERROR_LOG( "No handle in coroutine ", address() );
                         return false;
                 }
                 if ( h_.done() ) {
-                        EMLABCPP_LOG(
-                            "Ticking coroutine " << address() << " that is finished - skipping" );
+                        EMLABCPP_ERROR_LOG(
+                            "Ticking coroutine ", address(), " that is finished - skipping" );
                         return false;
                 }
                 h_.promise().request.reset();

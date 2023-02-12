@@ -72,12 +72,13 @@ struct packet_handler
                             checksum_type     calculated_checksum =
                                 Packet::get_checksum( view_n( msg.begin(), checksum_pos ) );
                             if ( present_checksum != calculated_checksum ) {
-                                    EMLABCPP_LOG(
-                                        "Problematic message: " << *message_type::make( msg ) );
-                                    EMLABCPP_LOG(
-                                        "Checksum failed, calculated: "
-                                        << int( calculated_checksum )
-                                        << " present: " << int( present_checksum ) );
+                                    EMLABCPP_ERROR_LOG(
+                                        "Problematic message: ", *message_type::make( msg ) );
+                                    EMLABCPP_ERROR_LOG(
+                                        "Checksum failed, calculated: ",
+                                        int( calculated_checksum ),
+                                        " present: ",
+                                        int( present_checksum ) );
                                     return error_record{ CHECKSUM_ERR, checksum_pos };
                             }
                             return std::get< 1 >( pack );

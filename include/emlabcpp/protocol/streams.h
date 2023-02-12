@@ -30,50 +30,98 @@
 
 #pragma once
 
-namespace emlabcpp::protocol
+namespace emlabcpp
 {
 
-template < ostreamlike Stream, std::size_t N >
-auto& operator<<( Stream& os, const message< N >& msg )
+template < std::size_t N >
+struct pretty_printer< protocol::message< N > >
 {
-        // TODO: this might benefit from some refactoring?
-        static constexpr char hex_chars[16] = {
-            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+        template < typename T >
+        static void print( T&& w, const protocol::message< N >& msg )
+        {
+                // TODO: this might benefit from some refactoring?
+                static constexpr char hex_chars[16] = {
+                    '0',
+                    '1',
+                    '2',
+                    '3',
+                    '4',
+                    '5',
+                    '6',
+                    '7',
+                    '8',
+                    '9',
+                    'A',
+                    'B',
+                    'C',
+                    'D',
+                    'E',
+                    'F' };
 
-        char l = '|';
-        for ( const std::size_t i : range( msg.size() ) ) {
-                if ( i % 4 == 0 ) {
-                        l = '|';
+                char l = '|';
+                for ( const std::size_t i : range( msg.size() ) ) {
+                        if ( i % 4 == 0 ) {
+                                l = '|';
+                        }
+                        const uint8_t val = msg[i];
+                        w( l );
+                        w( hex_chars[val / 16] );
+                        w( hex_chars[val % 16] );
+                        l = ':';
                 }
-                const uint8_t val = msg[i];
-                os << l << hex_chars[val / 16] << hex_chars[val % 16];
-                l = ':';
         }
-        return os;
-}
+};
 
-auto& operator<<( ostreamlike auto& os, const mark& m )
+template <>
+struct pretty_printer< protocol::mark >
 {
-        for ( char c : m ) {
-                os << c;
+        template < typename T >
+        static void print( T&& w, const protocol::mark& m )
+        {
+                w( std::string_view( m.data(), m.size() ) );
         }
-        return os;
-}
+};
 
-auto& operator<<( ostreamlike auto& os, const error_record& rec )
+template <>
+struct pretty_printer< protocol::error_record >
 {
-        return os << rec.error_mark << "(" << rec.offset << ")";
-}
-
-auto& operator<<( ostreamlike auto& os, const std::endian& val )
-{
-        switch ( val ) {
-        case std::endian::big:
-                return os << "big endian";
-        case std::endian::little:
-                return os << "little endian";
+        template < typename T >
+        static void print( T&& w, const protocol::error_record& rec )
+        {
+                w( rec.error_mark );
+                w( '(' );
+                w( rec.offset );
+                w( ')' );
         }
-        return os;
-}
+};
 
-}  // namespace emlabcpp::protocol
+namespace protocol
+{
+        template < std::size_t N >
+        auto& operator<<( ostreamlike auto& os, const message< N >& m )
+        {
+                return pretty_stream_write( os, m );
+        }
+
+        auto& operator<<( ostreamlike auto& os, const mark& m )
+        {
+                return pretty_stream_write( os, m );
+        }
+
+        auto& operator<<( ostreamlike auto& os, const error_record& rec )
+        {
+                return pretty_stream_write( os, rec );
+        }
+
+        auto& operator<<( ostreamlike auto& os, const std::endian& val )
+        {
+                switch ( val ) {
+                case std::endian::big:
+                        return os << "big endian";
+                case std::endian::little:
+                        return os << "little endian";
+                }
+                return os;
+        }
+}  // namespace protocol
+}  // namespace emlabcpp

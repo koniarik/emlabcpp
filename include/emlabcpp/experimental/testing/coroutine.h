@@ -113,7 +113,7 @@ public:
                                 iface->tick();
                                 return;
                         } else if ( s == await_state::ERRORED ) {
-                                EMLABCPP_LOG( "Coroutine errored, killing it" );
+                                EMLABCPP_ERROR_LOG( "Coroutine errored, killing it" );
                                 h_ = owning_handle();
                                 return;
                         }

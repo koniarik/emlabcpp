@@ -83,15 +83,19 @@ public:
         static std::optional< bounded< T, min_val, max_val > > make( U val )
         {
                 if ( static_cast< T >( val ) < min_val ) {
-                        EMLABCPP_LOG(
-                            "Failed to build bounded, value "
-                            << val << " is smaller than min value " << min_val );
+                        EMLABCPP_ERROR_LOG(
+                            "Failed to build bounded, value ",
+                            val,
+                            " is smaller than min value ",
+                            min_val );
                         return {};
                 }
                 if ( static_cast< T >( val ) > max_val ) {
-                        EMLABCPP_LOG(
-                            "Failed to build bounded, value " << val << " is bigger than max value "
-                                                              << max_val );
+                        EMLABCPP_ERROR_LOG(
+                            "Failed to build bounded, value ",
+                            val,
+                            " is bigger than max value ",
+                            max_val );
                         return {};
                 }
                 return bounded{ static_cast< T >( val ) };

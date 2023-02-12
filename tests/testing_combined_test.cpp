@@ -143,11 +143,11 @@ TEST( testing_combined, complex )
         dev_items  dev;
 
         host.cb = [&]( auto data ) {
-                EMLABCPP_LOG( "to dev: " << data );
+                EMLABCPP_INFO_LOG( "to dev: ", data );
                 dev.on_msg( data );
         };
         dev.cb = [&]( auto data ) {
-                EMLABCPP_LOG( "to host: " << data );
+                EMLABCPP_INFO_LOG( "to host: ", data );
                 host.on_msg( data );
         };
 

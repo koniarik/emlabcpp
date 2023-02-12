@@ -200,19 +200,29 @@ constexpr auto reversed( referenceable_container auto& container )
         return { std::rbegin( container ), std::rend( container ) };
 }
 
-/// Output operator for the view, uses comma to separate the items in the view.
-template < ostreamlike Stream, typename Iterator >
-auto& operator<<( Stream& os, const view< Iterator >& output )
+template < typename Iterator >
+void string_serialize_view( auto&& w, const view< Iterator >& output )
 {
         using value_type = typename std::iterator_traits< Iterator >::value_type;
         bool first       = true;
         for ( const value_type& item : output ) {
                 if ( !first ) {
-                        os << ',';
+                        w( ',' );
                 }
-                os << item;
+                w( item );
                 first = false;
         }
+}
+
+/// Output operator for the view, uses comma to separate the items in the view.
+template < ostreamlike Stream, typename Iterator >
+auto& operator<<( Stream& os, const view< Iterator >& output )
+{
+        string_serialize_view(
+            [&]( const auto& item ) {
+                    os << item;
+            },
+            output );
         return os;
 }
 

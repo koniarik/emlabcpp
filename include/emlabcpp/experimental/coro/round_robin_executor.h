@@ -10,7 +10,7 @@ template < typename Container >
 typename Container::value_type round_robin_run( pmr::memory_resource&, Container coros )
 {
         std::size_t i = 0;
-        EMLABCPP_LOG( "Run of executor started" );
+        EMLABCPP_INFO_LOG( "Run of executor started" );
 
         while ( true ) {
 
@@ -27,7 +27,7 @@ typename Container::value_type round_robin_run( pmr::memory_resource&, Container
                 const auto* out = cor.get_request();
 
                 if ( out == nullptr ) {
-                        EMLABCPP_LOG( "reply from coroutine is nullptr!" );
+                        EMLABCPP_ERROR_LOG( "reply from coroutine is nullptr!" );
                         co_return;
                 }
 
@@ -35,8 +35,8 @@ typename Container::value_type round_robin_run( pmr::memory_resource&, Container
                 cor.store_reply( resp );
 
                 if ( !cor.tick() ) {
-                        EMLABCPP_LOG(
-                            "Coroutine " << cor.address() << " failed to tick, bailing out" );
+                        EMLABCPP_ERROR_LOG(
+                            "Coroutine ", cor.address(), " failed to tick, bailing out" );
                         co_return;
                 }
         }

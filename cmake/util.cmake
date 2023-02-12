@@ -38,5 +38,6 @@ function(emlabcpp_compile_options target)
             -Woverloaded-virtual
             -Wunreachable-code
             -Wdouble-promotion
-            -Wno-mismatched-new-delete)
+            -Wno-mismatched-new-delete
+            -Wno-format-nonliteral)
 endfunction()

@@ -330,18 +330,18 @@ auto& operator<<( Stream& os, const static_vector< T, N >& vec )
         return os << view{ vec };
 }
 
-template < typename StreamType, typename T, std::size_t N >
-pretty_printer< StreamType >&
-operator<<( pretty_printer< StreamType >& os, const static_vector< T, N >& vec )
+template < typename T, std::size_t N >
+struct pretty_printer< static_vector< T, N > >
 {
-        if constexpr ( std::same_as< T, char > ) {
-                for ( const char c : vec ) {
-                        os << c;
+        template < typename W >
+        static void print( W&& w, const static_vector< T, N >& vec )
+        {
+                if constexpr ( std::same_as< T, char > ) {
+                        w( std::string_view{ vec.data(), vec.size() } );
+                } else {
+                        w( view{ vec } );
                 }
-        } else {
-                os << view{ vec };
         }
-        return os;
-}
+};
 
 }  // namespace emlabcpp

@@ -35,7 +35,7 @@ public:
                         -> either< std::reference_wrapper< const value_type >, error_enum > {
                             const value_type* val_ptr = node.get_value();
                             if ( val_ptr == nullptr ) {
-                                    EMLABCPP_LOG( "Node " << id << " is not value type" );
+                                    EMLABCPP_ERROR_LOG( "Node ", id, " is not value type" );
                                     return CONTIGUOUS_WRONG_TYPE;
                             }
                             return std::ref( *val_ptr );
@@ -77,16 +77,17 @@ public:
                             } else if ( ah_ptr != nullptr ) {
                                     res = get_array_child( *ah_ptr, id_var );
                             } else {
-                                    EMLABCPP_LOG(
-                                        "Node " << nid
-                                                << " does not have children, is value type" );
+                                    EMLABCPP_ERROR_LOG(
+                                        "Node ", nid, " does not have children, is value type" );
                                     return CONTIGUOUS_WRONG_TYPE;
                             }
 
                             if ( !res ) {
-                                    EMLABCPP_LOG(
-                                        "Node " << nid << " does not have child with identifier: "
-                                                << id_var );
+                                    EMLABCPP_ERROR_LOG(
+                                        "Node ",
+                                        nid,
+                                        " does not have child with identifier: ",
+                                        id_var );
                                     return CONTIGUOUS_CHILD_MISSING;
                             }
                             return *res;
@@ -112,9 +113,8 @@ public:
                             const key_type* key_ptr = oh.get_key( chid );
 
                             if ( key_ptr == nullptr ) {
-                                    EMLABCPP_LOG(
-                                        "Node " << nid
-                                                << " does not have child with id: " << chid );
+                                    EMLABCPP_ERROR_LOG(
+                                        "Node ", nid, " does not have child with id: ", chid );
                                     return CONTIGUOUS_CHILD_MISSING;
                             }
                             return *key_ptr;
@@ -181,8 +181,8 @@ private:
                             }
                     } );
                 if ( !opt_nid ) {
-                        EMLABCPP_LOG(
-                            "Failed to construct node, tree is full, size is: " << tree_.size() );
+                        EMLABCPP_ERROR_LOG(
+                            "Failed to construct node, tree is full, size is: ", tree_.size() );
                         return CONTIGUOUS_FULL;
                 }
                 return *opt_nid;
@@ -207,7 +207,7 @@ private:
                 Node* node_ptr = self->tree_.get_node( nid );
 
                 if ( node_ptr == nullptr ) {
-                        EMLABCPP_LOG( "Node " << nid << " is not in the tree" );
+                        EMLABCPP_ERROR_LOG( "Node ", nid, " is not in the tree" );
                         return CONTIGUOUS_MISSING_NODE;
                 }
 
@@ -247,7 +247,7 @@ private:
                             if ( oh_ptr != nullptr ) {
                                     return var_type{ *oh_ptr };
                             }
-                            EMLABCPP_LOG( "Node " << nid << " is not of container type" );
+                            EMLABCPP_ERROR_LOG( "Node ", nid, " is not of container type" );
                             return CONTIGUOUS_WRONG_TYPE;
                     } );
         }
@@ -279,9 +279,8 @@ private:
                             if ( h_ptr != nullptr ) {
                                     return *h_ptr;
                             }
-                            EMLABCPP_LOG(
-                                "Node " << nid
-                                        << " is not of type: " << pretty_type_name< Handle >() );
+                            EMLABCPP_ERROR_LOG(
+                                "Node ", nid, " is not of type: ", pretty_type_name< Handle >() );
                             return CONTIGUOUS_WRONG_TYPE;
                     } );
         }

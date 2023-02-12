@@ -347,7 +347,7 @@ public:
         {
                 std::optional opt_val = make_node( std::move( val ) );
                 if ( !opt_val ) {
-                        EMLABCPP_LOG( "Failed to make value node in tree" );
+                        EMLABCPP_ERROR_LOG( "Failed to make value node in tree" );
                         return std::nullopt;
                 }
                 auto [nid, iter] = *opt_val;
@@ -358,7 +358,7 @@ public:
         {
                 std::optional opt_val = make_node( array_type{ mem_res_.get() } );
                 if ( !opt_val ) {
-                        EMLABCPP_LOG( "Failed to make array node in tree" );
+                        EMLABCPP_ERROR_LOG( "Failed to make array node in tree" );
                         return std::nullopt;
                 }
                 auto [nid, iter] = *opt_val;
@@ -370,7 +370,7 @@ public:
         {
                 std::optional opt_val = make_node( object_type{ mem_res_.get() } );
                 if ( !opt_val ) {
-                        EMLABCPP_LOG( "Failed to make object node in tree" );
+                        EMLABCPP_ERROR_LOG( "Failed to make object node in tree" );
                         return std::nullopt;
                 }
                 auto [nid, iter] = *opt_val;

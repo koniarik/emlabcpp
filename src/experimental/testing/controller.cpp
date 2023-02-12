@@ -100,7 +100,7 @@ test_coroutine controller::initialize( pmr::memory_resource& )
 void controller::start_test( const test_id tid )
 {
         if ( !std::holds_alternative< idle_state >( state_ ) ) {
-                EMLABCPP_LOG( "Can't start a new test, not in prepared state" );
+                EMLABCPP_ERROR_LOG( "Can't start a new test, not in prepared state" );
                 return;
         }
 
@@ -121,7 +121,7 @@ void controller::on_msg( const std::span< const uint8_t > data )
                 },
                 [this]( const protocol::error_record& rec ) {
                         std::ignore = rec;
-                        EMLABCPP_LOG( "Failed to extract incoming msg: " << rec );
+                        EMLABCPP_ERROR_LOG( "Failed to extract incoming msg: ", rec );
                 } );
 }
 void controller::on_msg( const reactor_controller_variant& var )
@@ -131,7 +131,7 @@ void controller::on_msg( const reactor_controller_variant& var )
             state_,
             [&]( const initializing_state& ) -> opt_state {
                     if ( !iface_.on_msg_with_cb( var ) ) {
-                            EMLABCPP_LOG( "Got wrong message, bailing out: " << var );
+                            EMLABCPP_ERROR_LOG( "Got wrong message, bailing out: ", var );
                             std::abort();
                     }
                     return std::nullopt;
@@ -139,7 +139,7 @@ void controller::on_msg( const reactor_controller_variant& var )
             [&]( test_running_state& rs ) -> opt_state {
                     const auto& tf_ptr = std::get_if< test_finished >( &var );
                     if ( tf_ptr == nullptr ) {
-                            EMLABCPP_LOG( "Got wrong message, bailing out: " << var );
+                            EMLABCPP_ERROR_LOG( "Got wrong message, bailing out: ", var );
                             std::abort();
                     }
 
@@ -167,7 +167,7 @@ void controller::tick()
                             return std::nullopt;
                     }
 
-                    EMLABCPP_LOG( "Controller finished initialization and is prepared" );
+                    EMLABCPP_INFO_LOG( "Controller finished initialization and is prepared" );
                     return states{ idle_state{} };
             },
             [&]( const test_running_state& ) -> opt_state {

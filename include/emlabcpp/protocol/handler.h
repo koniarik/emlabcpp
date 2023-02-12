@@ -52,22 +52,20 @@ struct handler
 
         static either< value_type, error_record > extract( const view< const uint8_t* >& msg )
         {
-                auto opt_view = bounded_view< const uint8_t*, typename def::size_type >::make(
-                    view_n( msg.begin(), std::min( def::max_size, msg.size() ) ) );
-                if ( !opt_view.has_value() ) {
-                        EMLABCPP_LOG(
-                            "Failed to build view over provided message - wrong size: "
-                            << msg.size() << " vs " << def::size_type::max_val );
-                        return error_record{ SIZE_ERR, 0 };
-                }
                 value_type val;
-                auto       res = def::deserialize( *opt_view, val );
+                auto       res = def::deserialize( msg, val );
                 if ( res.has_error() ) {
                         const mark* const mark = res.get_error();
-                        EMLABCPP_LOG(
-                            "Failed to extract protocol def "
-                            << pretty_type_name< T >() << " from message " << *opt_view
-                            << ", error is: " << *mark << " with " << res.used << " bytes" );
+                        EMLABCPP_ERROR_LOG(
+                            "Failed to extract protocol def ",
+                            pretty_type_name< T >(),
+                            " from message ",
+                            msg,
+                            ", error is: ",
+                            *mark,
+                            " with ",
+                            res.used,
+                            " bytes" );
                         return error_record{ *mark, res.used };
                 }
                 return val;
