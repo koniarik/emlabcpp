@@ -87,62 +87,68 @@ $(document).ready(function(){initNavTree('time_8h_source.html',''); initResizabl
 <div class="title">time.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="time_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string_view&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<a href="time_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pretty__printer_8h.html">emlabcpp/experimental/pretty_printer.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string_view&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1timelog.html">   11</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1timelog.html">timelog</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e">   13</a></span>&#160;        std::chrono::time_point&lt; std::chrono::system_clock &gt; <a class="code" href="structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e">tp</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1timelog.html#ab7de8e983b424607ed2195468127452c">   15</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="structemlabcpp_1_1timelog.html#ab7de8e983b424607ed2195468127452c">timelog</a>( <span class="keyword">const</span> std::chrono::time_point&lt; std::chrono::system_clock &gt; tp_ )</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;          : <a class="code" href="structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e">tp</a>( tp_ )</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1timelog.html#a08a9628841e2d5eeeeb2bad23bfe2380">   19</a></span>&#160;        <a class="code" href="structemlabcpp_1_1timelog.html#a08a9628841e2d5eeeeb2bad23bfe2380">timelog</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ac149a84d6a42e9bf793653777f3d4d4b">   22</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( <a class="code" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> <span class="keyword">auto</span>&amp; os, <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1timelog.html">timelog</a>&amp; lg )</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">const</span> std::time_t t   = std::chrono::system_clock::to_time_t( lg.<a class="code" href="structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e">tp</a> );</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>        dur = lg.<a class="code" href="structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e">tp</a>.time_since_epoch();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>        ms  = std::chrono::duration_cast&lt; std::chrono::milliseconds &gt;( dur ) %</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                        std::chrono::seconds{ 1 };</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::array&lt; char, 42 &gt; data;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        std::tm           tmval;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">const</span> std::size_t i =</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            std::strftime( data.data(), data.size(), <span class="stringliteral">&quot;%T.&quot;</span>, localtime_r( &amp;t, &amp;tmval ) );</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        os &lt;&lt; std::string_view{ data.data(), i };</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        std::snprintf( data.begin(), data.size(), <span class="stringliteral">&quot;%.3li&quot;</span>, ms.count() );</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        os &lt;&lt; std::string_view{ data.data() };</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1timelog.html">   13</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1timelog.html">timelog</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e">   15</a></span>&#160;        std::chrono::time_point&lt; std::chrono::system_clock &gt; <a class="code" href="structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e">tp</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1timelog.html#ab7de8e983b424607ed2195468127452c">   17</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="structemlabcpp_1_1timelog.html#ab7de8e983b424607ed2195468127452c">timelog</a>( <span class="keyword">const</span> std::chrono::time_point&lt; std::chrono::system_clock &gt; tp_ )</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;          : <a class="code" href="structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e">tp</a>( tp_ )</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1timelog.html#a08a9628841e2d5eeeeb2bad23bfe2380">   21</a></span>&#160;        <a class="code" href="structemlabcpp_1_1timelog.html#a08a9628841e2d5eeeeb2bad23bfe2380">timelog</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01timelog_01_4.html">   25</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; <a class="code" href="structemlabcpp_1_1timelog.html">timelog</a> &gt;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01timelog_01_4.html#af874ffd8dedef3d011db56d4aa0c82ac">   28</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01timelog_01_4.html#af874ffd8dedef3d011db56d4aa0c82ac">print</a>( W&amp;&amp; w, <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1timelog.html">timelog</a>&amp; lg )</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <span class="keyword">const</span> std::time_t t   = std::chrono::system_clock::to_time_t( lg.<a class="code" href="structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e">tp</a> );</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>        dur = lg.<a class="code" href="structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e">tp</a>.time_since_epoch();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> ms = std::chrono::duration_cast&lt; std::chrono::milliseconds &gt;( dur ) %</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                std::chrono::seconds{ 1 };</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                std::array&lt; char, 42 &gt; data;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                std::tm           tmval;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keyword">const</span> std::size_t i =</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                    std::strftime( data.data(), data.size(), <span class="stringliteral">&quot;%T.&quot;</span>, localtime_r( &amp;t, &amp;tmval ) );</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                w( std::string_view{ data.data(), i } );</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                std::snprintf( data.begin(), data.size(), <span class="stringliteral">&quot;%.3li&quot;</span>, ms.count() );</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                w( std::string_view{ data.data() } );</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> access_view.h:7</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a27325f314502897567307b29b2b03776"><div class="ttname"><a href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">emlabcpp::ostreamlike</a></div><div class="ttdeci">concept ostreamlike</div><div class="ttdef"><b>Definition:</b> concepts.h:138</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a2f10b2ff6c20f2e8057487e521275521"><div class="ttname"><a href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">auto &amp; operator&lt;&lt;(Stream &amp;os, const bounded&lt; T, MinVal, MaxVal &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> bounded.h:180</div></div>
-<div class="ttc" id="astructemlabcpp_1_1timelog_html"><div class="ttname"><a href="structemlabcpp_1_1timelog.html">emlabcpp::timelog</a></div><div class="ttdef"><b>Definition:</b> time.h:12</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1pretty__printer"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">emlabcpp::pretty_printer</a></div><div class="ttdef"><b>Definition:</b> pretty_printer.h:23</div></div>
+<div class="ttc" id="apretty__printer_8h_html"><div class="ttname"><a href="pretty__printer_8h.html">pretty_printer.h</a></div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01timelog_01_4_html_af874ffd8dedef3d011db56d4aa0c82ac"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01timelog_01_4.html#af874ffd8dedef3d011db56d4aa0c82ac">emlabcpp::pretty_printer&lt; timelog &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, const timelog &amp;lg)</div><div class="ttdef"><b>Definition:</b> time.h:28</div></div>
+<div class="ttc" id="astructemlabcpp_1_1timelog_html"><div class="ttname"><a href="structemlabcpp_1_1timelog.html">emlabcpp::timelog</a></div><div class="ttdef"><b>Definition:</b> time.h:14</div></div>
 <div class="ttc" id="astructemlabcpp_1_1timelog_html_a08a9628841e2d5eeeeb2bad23bfe2380"><div class="ttname"><a href="structemlabcpp_1_1timelog.html#a08a9628841e2d5eeeeb2bad23bfe2380">emlabcpp::timelog::timelog</a></div><div class="ttdeci">timelog()=default</div></div>
-<div class="ttc" id="astructemlabcpp_1_1timelog_html_a72780e74e9bda101f80e92e9ab0bcb9e"><div class="ttname"><a href="structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e">emlabcpp::timelog::tp</a></div><div class="ttdeci">std::chrono::time_point&lt; std::chrono::system_clock &gt; tp</div><div class="ttdef"><b>Definition:</b> time.h:13</div></div>
-<div class="ttc" id="astructemlabcpp_1_1timelog_html_ab7de8e983b424607ed2195468127452c"><div class="ttname"><a href="structemlabcpp_1_1timelog.html#ab7de8e983b424607ed2195468127452c">emlabcpp::timelog::timelog</a></div><div class="ttdeci">timelog(const std::chrono::time_point&lt; std::chrono::system_clock &gt; tp_)</div><div class="ttdef"><b>Definition:</b> time.h:15</div></div>
+<div class="ttc" id="astructemlabcpp_1_1timelog_html_a72780e74e9bda101f80e92e9ab0bcb9e"><div class="ttname"><a href="structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e">emlabcpp::timelog::tp</a></div><div class="ttdeci">std::chrono::time_point&lt; std::chrono::system_clock &gt; tp</div><div class="ttdef"><b>Definition:</b> time.h:15</div></div>
+<div class="ttc" id="astructemlabcpp_1_1timelog_html_ab7de8e983b424607ed2195468127452c"><div class="ttname"><a href="structemlabcpp_1_1timelog.html#ab7de8e983b424607ed2195468127452c">emlabcpp::timelog::timelog</a></div><div class="ttdeci">timelog(const std::chrono::time_point&lt; std::chrono::system_clock &gt; tp_)</div><div class="ttdef"><b>Definition:</b> time.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_7be96e89c84803827e352320bc015c84.html">logging</a></li><li class="navelem"><a class="el" href="time_8h.html">time.h</a></li>
-    <li class="footer">Generated on Fri Feb 10 2023 17:58:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Feb 12 2023 08:48:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

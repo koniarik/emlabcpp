@@ -402,7 +402,7 @@ $(document).ready(function(){initNavTree('parameters_8h_source.html',''); initRe
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        params.exchange( proc.req, [&amp;]( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a2df72f608e4f6bdc15509ae107867d33">params_server_client_variant</a>&amp; var ) {</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                if ( !proc.set_value( var ) ) {</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                        <span class="comment">// TODO: reply with error to server!!!</span></div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                        EMLABCPP_LOG( <span class="stringliteral">&quot;Setting value to processor errored&quot;</span> );</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                        EMLABCPP_ERROR_LOG( <span class="stringliteral">&quot;Setting value to processor errored&quot;</span> );</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                        state = await_state::ERRORED;</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                        state = await_state::READY;</div>
@@ -566,7 +566,7 @@ $(document).ready(function(){initNavTree('parameters_8h_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="parameters_8h.html">parameters.h</a></li>
-    <li class="footer">Generated on Fri Feb 10 2023 17:58:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Feb 12 2023 08:48:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

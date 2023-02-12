@@ -1,11 +1,13 @@
 <map id="include/emlabcpp/pmr/stack_resource.h" name="include/emlabcpp/pmr/stack_resource.h">
-<area shape="rect" id="node1" title=" " alt="" coords="399,5,565,47"/>
-<area shape="rect" id="node2" href="$logging_8h.html" title=" " alt="" coords="5,95,183,136"/>
-<area shape="rect" id="node4" href="$memory__resource_8h.html" title=" " alt="" coords="207,95,381,136"/>
-<area shape="rect" id="node6" href="$util_8h.html" title=" " alt="" coords="405,102,559,129"/>
-<area shape="rect" id="node8" title=" " alt="" coords="583,102,639,129"/>
-<area shape="rect" id="node9" title=" " alt="" coords="663,102,730,129"/>
-<area shape="rect" id="node3" title=" " alt="" coords="45,184,143,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="305,184,376,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="449,184,515,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="525,5,692,47"/>
+<area shape="rect" id="node2" href="$logging_8h.html" title=" " alt="" coords="132,95,309,136"/>
+<area shape="rect" id="node6" href="$memory__resource_8h.html" title=" " alt="" coords="333,95,508,136"/>
+<area shape="rect" id="node8" href="$util_8h.html" title=" " alt="" coords="532,102,685,129"/>
+<area shape="rect" id="node10" title=" " alt="" coords="710,102,766,129"/>
+<area shape="rect" id="node11" title=" " alt="" coords="790,102,857,129"/>
+<area shape="rect" id="node3" href="$pretty__printer_8h.html" title=" " alt="" coords="5,184,183,225"/>
+<area shape="rect" id="node4" href="$match_8h.html" title=" " alt="" coords="85,273,228,300"/>
+<area shape="rect" id="node5" title=" " alt="" coords="259,191,356,218"/>
+<area shape="rect" id="node7" title=" " alt="" coords="433,191,504,218"/>
+<area shape="rect" id="node9" title=" " alt="" coords="575,191,642,218"/>
 </map>

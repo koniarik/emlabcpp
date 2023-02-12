@@ -11,5 +11,6 @@ var color_8h =
     [ "operator<<", "color_8h.html#a09706de4f199476ac440fe166eb063f8", null ],
     [ "reset_color", "color_8h.html#a620a32406486ae5b889d41d446c4a8b0", null ],
     [ "DEBUG_LOGGER_COLORS", "color_8h.html#a040c9fa2d6c0e4a28649479052ad8f8d", null ],
+    [ "ERROR_LOGGER_COLORS", "color_8h.html#aa04c4ddd773c5ae47bf78d051770a30a", null ],
     [ "INFO_LOGGER_COLORS", "color_8h.html#a3959b862aa2e1cc006ab40cb96de64a2", null ]
 ];

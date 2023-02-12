@@ -335,9 +335,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a65c1faf455d3f60687ad28bb43cfe060"><td class="memTemplParams" colspan="2">template&lt;typename Sequencer , typename ReadCallback &gt; </td></tr>
 <tr class="memitem:a65c1faf455d3f60687ad28bb43cfe060"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; typename Sequencer::message_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a65c1faf455d3f60687ad28bb43cfe060">sequencer_simple_load</a> (const std::size_t read_limit, ReadCallback &amp;&amp;read)</td></tr>
 <tr class="separator:a65c1faf455d3f60687ad28bb43cfe060"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad52649bb28ff1f5ffcd952a86b5ede82"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, std::size_t N&gt; </td></tr>
-<tr class="memitem:ad52649bb28ff1f5ffcd952a86b5ede82"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ad52649bb28ff1f5ffcd952a86b5ede82">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; N &gt; &amp;msg)</td></tr>
-<tr class="separator:ad52649bb28ff1f5ffcd952a86b5ede82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0361c3da3f761861f932310dd581b94f"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:a0361c3da3f761861f932310dd581b94f"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0361c3da3f761861f932310dd581b94f">operator&lt;&lt;</a> (<a class="el" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> auto &amp;os, const <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; N &gt; &amp;m)</td></tr>
+<tr class="separator:a0361c3da3f761861f932310dd581b94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af249a28fd2e4a8061fae1a3efa82a658"><td class="memItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#af249a28fd2e4a8061fae1a3efa82a658">operator&lt;&lt;</a> (<a class="el" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> auto &amp;os, const <a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a> &amp;m)</td></tr>
 <tr class="separator:af249a28fd2e4a8061fae1a3efa82a658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16e17e9ab911b5545219ad5745d5ef2b"><td class="memItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a16e17e9ab911b5545219ad5745d5ef2b">operator&lt;&lt;</a> (<a class="el" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> auto &amp;os, const <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &amp;rec)</td></tr>
@@ -1017,7 +1017,7 @@ template&lt;typename... Slotted&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a53258509ef594ffcca73ea55a640dd63">emlabcpp::protocol::error_record::error_mark</a>, and <a class="el" href="namespaceemlabcpp_1_1protocol.html#a7996dad74892867782224e252a6e8d53">emlabcpp::protocol::error_record::offset</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#afcb43f873b880adf7247a54e0d0b4a03">emlabcpp::pretty_stream_write()</a>.</p>
 
 </div>
 </div>
@@ -1047,10 +1047,44 @@ template&lt;typename... Slotted&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#afcb43f873b880adf7247a54e0d0b4a03">emlabcpp::pretty_stream_write()</a>.</p>
+
+</div>
+</div>
+<a id="a0361c3da3f761861f932310dd581b94f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0361c3da3f761861f932310dd581b94f">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto&amp; emlabcpp::protocol::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> auto &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#afcb43f873b880adf7247a54e0d0b4a03">emlabcpp::pretty_stream_write()</a>.</p>
+
 </div>
 </div>
 <a id="a78012bf92df942bfb241c7e097c87846"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78012bf92df942bfb241c7e097c87846">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[3/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a78012bf92df942bfb241c7e097c87846">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1074,38 +1108,6 @@ template&lt;typename... Slotted&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad52649bb28ff1f5ffcd952a86b5ede82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad52649bb28ff1f5ffcd952a86b5ede82">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[4/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;ostreamlike Stream, std::size_t N&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto&amp; emlabcpp::protocol::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">Stream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>msg</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">emlabcpp::range()</a>, and <a class="el" href="classemlabcpp_1_1protocol_1_1message.html#ad89e228c4ddda2b608344f775a0c0dd8">emlabcpp::protocol::message&lt; N &gt;::size()</a>.</p>
 
 </div>
 </div>
@@ -1515,7 +1517,7 @@ template&lt;typename T &gt; </div>
 <div class="line">{</div>
 <div class="line">        <a class="code" href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">detail::message_derived_test</a>( val );</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_1_1detail_html_aba82f9bdb1604d0b12a5f9ce21d48376"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">emlabcpp::protocol::detail::message_derived_test</a></div><div class="ttdeci">constexpr bool message_derived_test(const message&lt; N &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> message.h:210</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_1_1detail_html_aba82f9bdb1604d0b12a5f9ce21d48376"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">emlabcpp::protocol::detail::message_derived_test</a></div><div class="ttdeci">constexpr bool message_derived_test(const message&lt; N &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> message.h:214</div></div>
 </div><!-- fragment -->
 <p>concept matches any type that is message or derives from it. </p>
 
@@ -1639,7 +1641,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Fri Feb 10 2023 17:58:18 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Feb 12 2023 08:48:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

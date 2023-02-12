@@ -91,13 +91,15 @@ $(document).ready(function(){initNavTree('logging_8h.html',''); initResizable();
 <div class="title">logging.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;string_view&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="pretty__printer_8h_source.html">emlabcpp/experimental/pretty_printer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="match_8h_source.html">emlabcpp/match.h</a>&quot;</code><br />
+<code>#include &lt;string_view&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for logging.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="logging_8h__incl.svg" width="239" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="logging_8h__incl.svg" width="1038" height="455"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -110,10 +112,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aaf5aed2bc0aba2c3fe8e02f112589f6d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logging_8h.html#aaf5aed2bc0aba2c3fe8e02f112589f6d">EMLABCPP_LOG</a>(msg)</td></tr>
-<tr class="separator:aaf5aed2bc0aba2c3fe8e02f112589f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e472a2310df100a970b108b685428f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logging_8h.html#a2e472a2310df100a970b108b685428f5">EMLABCPP_DEBUG_LOG</a>(msg)</td></tr>
-<tr class="separator:a2e472a2310df100a970b108b685428f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fedc1f7cb2ad93b9469d7189195ee36"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a>(...)</td></tr>
+<tr class="separator:a5fedc1f7cb2ad93b9469d7189195ee36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bae0d339175519cb81ce2c059155229"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">EMLABCPP_DEBUG_LOG</a>(...)</td></tr>
+<tr class="separator:a2bae0d339175519cb81ce2c059155229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada7075f34eb3793a4a33b7b4a80341b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>(...)</td></tr>
+<tr class="separator:ada7075f34eb3793a4a33b7b4a80341b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -121,8 +125,8 @@ Functions</h2></td></tr>
 <tr class="separator:a8957c9a260392953177f79b08a93da79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a2e472a2310df100a970b108b685428f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e472a2310df100a970b108b685428f5">&#9670;&nbsp;</a></span>EMLABCPP_DEBUG_LOG</h2>
+<a id="a2bae0d339175519cb81ce2c059155229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bae0d339175519cb81ce2c059155229">&#9670;&nbsp;</a></span>EMLABCPP_DEBUG_LOG</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,7 +135,7 @@ Functions</h2></td></tr>
           <td class="memname">#define EMLABCPP_DEBUG_LOG</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">msg</td><td>)</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -139,17 +143,35 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aaf5aed2bc0aba2c3fe8e02f112589f6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf5aed2bc0aba2c3fe8e02f112589f6d">&#9670;&nbsp;</a></span>EMLABCPP_LOG</h2>
+<a id="ada7075f34eb3793a4a33b7b4a80341b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada7075f34eb3793a4a33b7b4a80341b4">&#9670;&nbsp;</a></span>EMLABCPP_ERROR_LOG</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define EMLABCPP_LOG</td>
+          <td class="memname">#define EMLABCPP_ERROR_LOG</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">msg</td><td>)</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5fedc1f7cb2ad93b9469d7189195ee36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fedc1f7cb2ad93b9469d7189195ee36">&#9670;&nbsp;</a></span>EMLABCPP_INFO_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EMLABCPP_INFO_LOG</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -163,7 +185,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="logging_8h.html">logging.h</a></li>
-    <li class="footer">Generated on Fri Feb 10 2023 17:58:18 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Feb 12 2023 08:48:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

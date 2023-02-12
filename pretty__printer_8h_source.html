@@ -94,224 +94,376 @@ $(document).ready(function(){initNavTree('pretty__printer_8h_source.html',''); i
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">emlabcpp/types.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="view_8h.html">emlabcpp/view.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;filesystem&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;optional&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;span&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;variant&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_NLOHMANN_JSON</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;span&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;variant&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_NLOHMANN_JSON</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, <span class="keyword">typename</span> PrettyPr<span class="keywordtype">int</span>er &gt;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#aa1ef69632da6c0cc52cc821b5dce9885">   25</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#aa1ef69632da6c0cc52cc821b5dce9885">pretty_printer_main_printable</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( <span class="keyword">const</span> T&amp; item, PrettyPrinter&amp; pp )</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        pp.main_print( item );</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> StreamType &gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemlabcpp_1_1pretty__printer.html">pretty_printer</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#ae9ab50225cdf9d70b4ed344c72962768">   34</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pretty__printer.html#ae9ab50225cdf9d70b4ed344c72962768">pretty_printer</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a801191858f596da9f105735e39458fe4">   36</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a801191858f596da9f105735e39458fe4">pretty_printer</a>( StreamType st )</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;          : os_( st )</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#aaf993d3a8ce7c5698f25af2a66e9e66c">   42</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pretty__printer.html">pretty_printer</a>&amp; <a class="code" href="classemlabcpp_1_1pretty__printer.html#aaf993d3a8ce7c5698f25af2a66e9e66c">operator&lt;&lt;</a>( <span class="keyword">const</span> T&amp; item ) &amp;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">if</span> constexpr ( pretty_printer_main_printable&lt; T, pretty_printer &gt; ) {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        <a class="code" href="classemlabcpp_1_1pretty__printer.html#a4a1d82f8ef6259df6ca87f776032e3dc">main_print</a>( item );</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                        <a class="code" href="classemlabcpp_1_1pretty__printer.html#a9c49638c57c2d3bfb726804f05cc8f85">backup_print</a>( item );</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a95fe1ec62fafcab4ad5df50b09135f9f">   52</a></span>&#160;        [[nodiscard]] <span class="keyword">explicit</span> <span class="keyword">operator</span> bool()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">return</span> bool( os_ );</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a9b1ba18c551e7e9ccb8b2b82ac71ba75">   57</a></span>&#160;        [[nodiscard]] std::string <a class="code" href="classemlabcpp_1_1pretty__printer.html#a9b1ba18c551e7e9ccb8b2b82ac71ba75">str</a>()</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">return</span> os_.str();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a2d77dc7bd7bad8e83ccc0d718ea3681e">   62</a></span>&#160;        [[nodiscard]] <span class="keywordtype">char</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a2d77dc7bd7bad8e83ccc0d718ea3681e">fill</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span> os_.fill();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a201e0a6f8a1dbb32200d266aa821df0a">   66</a></span>&#160;        <span class="keywordtype">char</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a201e0a6f8a1dbb32200d266aa821df0a">fill</a>( <span class="keywordtype">char</span> ch )</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">return</span> os_.fill( ch );</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a35ca3057144ecec037d37b1adeb892fa">   71</a></span>&#160;        std::ios_base::fmtflags <a class="code" href="classemlabcpp_1_1pretty__printer.html#a35ca3057144ecec037d37b1adeb892fa">setf</a>( std::ios_base::fmtflags <a class="code" href="classemlabcpp_1_1pretty__printer.html#ab1bb5a56534a372370be082bcb15b14e">flags</a>, std::ios_base::fmtflags mask )</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">return</span> os_.setf( <a class="code" href="classemlabcpp_1_1pretty__printer.html#ab1bb5a56534a372370be082bcb15b14e">flags</a>, mask );</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#abdb5ed69e366bfcb2293c874a507791f">   76</a></span>&#160;        [[nodiscard]] std::streamsize <a class="code" href="classemlabcpp_1_1pretty__printer.html#abdb5ed69e366bfcb2293c874a507791f">width</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">return</span> os_.width();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#ad5558bf4ff260beae09ec130f74fd44a">   80</a></span>&#160;        std::streamsize <a class="code" href="classemlabcpp_1_1pretty__printer.html#ad5558bf4ff260beae09ec130f74fd44a">width</a>( std::streamsize w )</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">return</span> os_.width( w );</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#ab1bb5a56534a372370be082bcb15b14e">   84</a></span>&#160;        [[nodiscard]] std::ios_base::fmtflags <a class="code" href="classemlabcpp_1_1pretty__printer.html#ab1bb5a56534a372370be082bcb15b14e">flags</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">return</span> os_.flags();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#afcb8d081ac76d54641d0dc306fc7264e">   88</a></span>&#160;        std::ios_base::fmtflags <a class="code" href="classemlabcpp_1_1pretty__printer.html#afcb8d081ac76d54641d0dc306fc7264e">flags</a>( std::ios_base::fmtflags <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> )</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keywordflow">return</span> os_.flags( <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> );</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_NLOHMANN_JSON</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a4a1d82f8ef6259df6ca87f776032e3dc">main_print</a>( <span class="keyword">const</span> nlohmann::json&amp; j )</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                os_ &lt;&lt; j.dump();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a4a1d82f8ef6259df6ca87f776032e3dc">  100</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a4a1d82f8ef6259df6ca87f776032e3dc">main_print</a>( <span class="keyword">const</span> std::filesystem::path&amp; p )</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <a class="code" href="classemlabcpp_1_1pretty__printer.html#a4a1d82f8ef6259df6ca87f776032e3dc">main_print</a>( p.string() );</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#ad203ff49f30084cdd15ba6b62dfe1eeb">  106</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#ad203ff49f30084cdd15ba6b62dfe1eeb">main_print</a>( <span class="keyword">const</span> std::reference_wrapper&lt; T &gt;&amp; val )</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                *<span class="keyword">this</span> &lt;&lt; val.get();</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html">   23</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">   25</a></span>&#160;<span class="preprocessor">#define EMLABCPP_PRETTY_PRINT_BASIC( bsize, w, fmt, item )                                 \</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">        {                                                                                  \</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">                std::array&lt; char, bsize &gt; buffer{};                                        \</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">                int used = snprintf( buffer.data(), buffer.size(), fmt, item );            \</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">                if ( used &gt; 0 ) {                                                          \</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">                        std::size_t size =                                                 \</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">                            std::min( static_cast&lt; std::size_t &gt;( used ), buffer.size() ); \</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">                        w( std::string_view( buffer.data(), size ) );                      \</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">                }                                                                          \</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">        }                                                                                  \</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">        while ( false )</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1buffer__writer.html">   38</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1buffer__writer.html">buffer_writer</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1buffer__writer.html#abbc5c33cdfc8c1aa5e31d9f0826881f6">   40</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1buffer__writer.html#abbc5c33cdfc8c1aa5e31d9f0826881f6">operator()</a>( <span class="keywordtype">char</span> c )</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">if</span> ( <a class="code" href="structemlabcpp_1_1buffer__writer.html#aeda4f6fc85cb514007eec02e01bee9f2">size</a> == N ) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <a class="code" href="structemlabcpp_1_1buffer__writer.html#aab603d512c52b24e8d35ca36d3ccb91b">buffer</a>[<a class="code" href="structemlabcpp_1_1buffer__writer.html#aeda4f6fc85cb514007eec02e01bee9f2">size</a>] = c;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <a class="code" href="structemlabcpp_1_1buffer__writer.html#aeda4f6fc85cb514007eec02e01bee9f2">size</a> += 1;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1buffer__writer.html#abf453ad0b941a5e676d1cea2e8182f6c">   49</a></span>&#160;        std::string_view <a class="code" href="structemlabcpp_1_1buffer__writer.html#abf453ad0b941a5e676d1cea2e8182f6c">sv</a>()</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">return</span> { <a class="code" href="structemlabcpp_1_1buffer__writer.html#aab603d512c52b24e8d35ca36d3ccb91b">buffer</a>.data(), <a class="code" href="structemlabcpp_1_1buffer__writer.html#aeda4f6fc85cb514007eec02e01bee9f2">size</a> };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1buffer__writer.html#aab603d512c52b24e8d35ca36d3ccb91b">   54</a></span>&#160;        std::array&lt; char, N &gt; <a class="code" href="structemlabcpp_1_1buffer__writer.html#aab603d512c52b24e8d35ca36d3ccb91b">buffer</a>{};</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1buffer__writer.html#aeda4f6fc85cb514007eec02e01bee9f2">   55</a></span>&#160;        std::size_t           <a class="code" href="structemlabcpp_1_1buffer__writer.html#aeda4f6fc85cb514007eec02e01bee9f2">size</a> = 0;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Writer &gt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1recursive__writer.html">   59</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1recursive__writer.html">recursive_writer</a></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1recursive__writer.html#a44fe5205e421d345b21fb97223712868">   61</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1recursive__writer.html#a44fe5205e421d345b21fb97223712868">operator()</a>( std::string_view sv )</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <a class="code" href="structemlabcpp_1_1recursive__writer.html#a3b2c3fd8b1ab61724fc050717fc2d55c">w</a>( sv );</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1recursive__writer.html#a6b193b831f55be6155c643c64357a3e3">   67</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1recursive__writer.html#a6b193b831f55be6155c643c64357a3e3">operator()</a>( <span class="keyword">const</span> T&amp; item )</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer&lt; T &gt;::print</a>( *<span class="keyword">this</span>, item );</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1recursive__writer.html#a3b2c3fd8b1ab61724fc050717fc2d55c">   72</a></span>&#160;        Writer <a class="code" href="structemlabcpp_1_1recursive__writer.html#a3b2c3fd8b1ab61724fc050717fc2d55c">w</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span>... Ts &gt;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#afcb43f873b880adf7247a54e0d0b4a03">   76</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#afcb43f873b880adf7247a54e0d0b4a03">pretty_stream_write</a>( <a class="code" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> <span class="keyword">auto</span>&amp; os, <span class="keyword">const</span> Ts&amp;... item )</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        ( <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer&lt; Ts &gt;::print</a>(</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;              <a class="code" href="structemlabcpp_1_1recursive__writer.html">recursive_writer</a>{ [&amp;]( std::string_view sv ) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                      os &lt;&lt; sv;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;              } },</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;              item ),</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;          ... );</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__stream.html">   88</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1pretty__stream.html">pretty_stream</a></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> U &gt;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__stream.html#a3a4f9a713408045ffd49ab6247535999">   92</a></span>&#160;        <a class="code" href="structemlabcpp_1_1pretty__stream.html">pretty_stream</a>&amp; <a class="code" href="structemlabcpp_1_1pretty__stream.html#a3a4f9a713408045ffd49ab6247535999">operator&lt;&lt;</a>( <span class="keyword">const</span> U&amp; item )</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <a class="code" href="structemlabcpp_1_1pretty__stream.html#a5c256fb1e90fb2af4b8c9e0d893b77b8">writer</a>( item );</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__stream.html#a5c256fb1e90fb2af4b8c9e0d893b77b8">   98</a></span>&#160;        W <a class="code" href="structemlabcpp_1_1pretty__stream.html#a5c256fb1e90fb2af4b8c9e0d893b77b8">writer</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;};</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01signed_01char_01_4.html">  102</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; signed char &gt;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01signed_01char_01_4.html#a98668683df347c3896617d486c859a96">  105</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01signed_01char_01_4.html#a98668683df347c3896617d486c859a96">print</a>( W&amp;&amp; w, <span class="keywordtype">signed</span> <span class="keywordtype">char</span> i )</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <a class="code" href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">EMLABCPP_PRETTY_PRINT_BASIC</a>( 4, w, <span class="stringliteral">&quot;%hhi&quot;</span>, i );</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keyword">template</span> &lt; std::same_as&lt; u<span class="keywordtype">int</span>8_t &gt; T &gt;</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a901b2ba80108e1eaa08612ead1dd5569">  112</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a901b2ba80108e1eaa08612ead1dd5569">main_print</a>( <span class="keyword">const</span> T&amp; val )</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        {</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                os_ &lt;&lt; static_cast&lt; int &gt;( val );</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a857d5e6564375c7d16a3e8d511163ca5">  118</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pretty__printer.html#a857d5e6564375c7d16a3e8d511163ca5">requires</a>(</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            detail::directly_streamable_for&lt; std::ostream, T &gt; &amp;&amp; !std::same_as&lt; T, uint8_t &gt; &amp;&amp;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            !std::is_enum_v&lt; T &gt; ) <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a4a1d82f8ef6259df6ca87f776032e3dc">main_print</a>( <span class="keyword">const</span> T&amp; val )</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                os_ &lt;&lt; val;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#aa3eeed485110a5b701307c735f360254">  126</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pretty__printer.html#aa3eeed485110a5b701307c735f360254">requires</a>( std::is_enum_v&lt; T &gt; ) <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a4a1d82f8ef6259df6ca87f776032e3dc">main_print</a>( <span class="keyword">const</span> T&amp; val )</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                *<span class="keyword">this</span> &lt;&lt; convert_enum( val );</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01short_01int_01_4.html">  112</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; short int &gt;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;{</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01short_01int_01_4.html#ac94487fc9eaad86df0d2c46b231ef751">  115</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01short_01int_01_4.html#ac94487fc9eaad86df0d2c46b231ef751">print</a>( W&amp;&amp; w, <span class="keywordtype">short</span> <span class="keywordtype">int</span> i )</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <a class="code" href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">EMLABCPP_PRETTY_PRINT_BASIC</a>( 8, w, <span class="stringliteral">&quot;%hi&quot;</span>, i );</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;};</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01int_01_4.html">  122</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; int &gt;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01int_01_4.html#a7fdf0d7be3552eba09947b895c0aceac">  125</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01int_01_4.html#a7fdf0d7be3552eba09947b895c0aceac">print</a>( W&amp;&amp; w, <span class="keywordtype">int</span> i )</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                <a class="code" href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">EMLABCPP_PRETTY_PRINT_BASIC</a>( 16, w, <span class="stringliteral">&quot;%i&quot;</span>, i );</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;};</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#aca107f0ec799233d0abc7c90e776b823">  131</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#aca107f0ec799233d0abc7c90e776b823">main_print</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> c )</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <a class="code" href="classemlabcpp_1_1pretty__printer.html#a4a1d82f8ef6259df6ca87f776032e3dc">main_print</a>( std::string_view{ c } );</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a58afdfc143daacd9a60aa757c722653e">  136</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a58afdfc143daacd9a60aa757c722653e">main_print</a>( <span class="keyword">const</span> std::string_view&amp; sview )</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        {</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                os_ &lt;&lt; sview;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01long_01int_01_4.html">  132</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; long int &gt;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01long_01int_01_4.html#ab049cb1ece05a1d8c7b83ec1c7be870d">  135</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01long_01int_01_4.html#ab049cb1ece05a1d8c7b83ec1c7be870d">print</a>( W&amp;&amp; w, <span class="keywordtype">long</span> <span class="keywordtype">int</span> i )</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                <a class="code" href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">EMLABCPP_PRETTY_PRINT_BASIC</a>( 32, w, <span class="stringliteral">&quot;%li&quot;</span>, i );</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;};</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a46060f11d43850c957d1bd98c744a507">  141</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a46060f11d43850c957d1bd98c744a507">main_print</a>( <span class="keyword">const</span> std::string&amp; <a class="code" href="classemlabcpp_1_1pretty__printer.html#a9b1ba18c551e7e9ccb8b2b82ac71ba75">str</a> )</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        {</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                <a class="code" href="classemlabcpp_1_1pretty__printer.html#a4a1d82f8ef6259df6ca87f776032e3dc">main_print</a>( std::string_view{ <a class="code" href="classemlabcpp_1_1pretty__printer.html#a9b1ba18c551e7e9ccb8b2b82ac71ba75">str</a> } );</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span>... Ts &gt;</div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a6fb36f640c3690cf371ed067cc631c9f">  147</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a6fb36f640c3690cf371ed067cc631c9f">main_print</a>( <span class="keyword">const</span> std::variant&lt; Ts... &gt;&amp; var )</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c">visit</a>(</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                    [<span class="keyword">this</span>]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; val ) {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                            *<span class="keyword">this</span> &lt;&lt; val;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                    },</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                    var );</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        }</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span>... Ts &gt;</div>
-<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a4bf48cde0663ce1e832f912398ba243d">  157</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a4bf48cde0663ce1e832f912398ba243d">main_print</a>( <span class="keyword">const</span> std::tuple&lt; Ts... &gt;&amp; tpl )</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <span class="keywordflow">if</span> ( <span class="keyword">sizeof</span>...( Ts ) == 0 ) {</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                        *<span class="keyword">this</span> &lt;&lt; <span class="stringliteral">&quot;()&quot;</span>;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                <span class="keywordtype">char</span> delim = <span class="charliteral">&#39;(&#39;</span>;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">for_each</a>( tpl, [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; item ) {</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                        *<span class="keyword">this</span> &lt;&lt; delim &lt;&lt; item;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                        delim = <span class="charliteral">&#39;,&#39;</span>;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                } );</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                *<span class="keyword">this</span> &lt;&lt; <span class="charliteral">&#39;)&#39;</span>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01unsigned_01char_01_4.html">  142</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; unsigned char &gt;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;{</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01unsigned_01char_01_4.html#a92fe424483310bfb7da09f6b716588d8">  145</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01unsigned_01char_01_4.html#a92fe424483310bfb7da09f6b716588d8">print</a>( W&amp;&amp; w, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> u )</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        {</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <a class="code" href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">EMLABCPP_PRETTY_PRINT_BASIC</a>( 8, w, <span class="stringliteral">&quot;%hhu&quot;</span>, u );</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;};</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01short_01unsigned_01_4.html">  152</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; short unsigned &gt;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;{</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01short_01unsigned_01_4.html#aba34037c4c482e1f9272422b0b5c81bd">  155</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01short_01unsigned_01_4.html#aba34037c4c482e1f9272422b0b5c81bd">print</a>( W&amp;&amp; w, <span class="keywordtype">short</span> <span class="keywordtype">unsigned</span> u )</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                <a class="code" href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">EMLABCPP_PRETTY_PRINT_BASIC</a>( 8, w, <span class="stringliteral">&quot;%hu&quot;</span>, u );</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;};</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01unsigned_01_4.html">  162</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; unsigned &gt;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;{</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01unsigned_01_4.html#abfe88d53e9c36512e5426c020f9298dc">  165</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01unsigned_01_4.html#abfe88d53e9c36512e5426c020f9298dc">print</a>( W&amp;&amp; w, <span class="keywordtype">unsigned</span> u )</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        {</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                <a class="code" href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">EMLABCPP_PRETTY_PRINT_BASIC</a>( 16, w, <span class="stringliteral">&quot;%u&quot;</span>, u );</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        }</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;};</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#ae7358f1aeb7080cee98e2cf43ac5ec73">  172</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#ae7358f1aeb7080cee98e2cf43ac5ec73">main_print</a>( <span class="keyword">const</span> std::optional&lt; T &gt;&amp; val )</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                <span class="keywordflow">if</span> ( val ) {</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                        *<span class="keyword">this</span> &lt;&lt; *val;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                }</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                *<span class="keyword">this</span> &lt;&lt; <span class="stringliteral">&quot;nothing&quot;</span>;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01long_01unsigned_01_4.html">  172</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; long unsigned &gt;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;{</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01long_01unsigned_01_4.html#a1f2d84b7ad156ae0d74f8ee0cd015863">  175</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01long_01unsigned_01_4.html#a1f2d84b7ad156ae0d74f8ee0cd015863">print</a>( W&amp;&amp; w, <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> u )</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                <a class="code" href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">EMLABCPP_PRETTY_PRINT_BASIC</a>( 32, w, <span class="stringliteral">&quot;%lu&quot;</span>, u );</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        }</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keyword">template</span> &lt; decomposable T &gt;</div>
-<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pretty__printer.html#a9c49638c57c2d3bfb726804f05cc8f85">  181</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1pretty__printer.html#a9c49638c57c2d3bfb726804f05cc8f85">backup_print</a>( <span class="keyword">const</span> T&amp; item )</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        {</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                *this &lt;&lt; pretty_type_name&lt; T &gt;() &lt;&lt; <a class="code" href="namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8">decompose</a>( item );</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        }</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        StreamType os_;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;};</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html">emlabcpp::pretty_printer</a></div><div class="ttdef"><b>Definition:</b> pretty_printer.h:32</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a201e0a6f8a1dbb32200d266aa821df0a"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a201e0a6f8a1dbb32200d266aa821df0a">emlabcpp::pretty_printer::fill</a></div><div class="ttdeci">char fill(char ch)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:66</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a2d77dc7bd7bad8e83ccc0d718ea3681e"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a2d77dc7bd7bad8e83ccc0d718ea3681e">emlabcpp::pretty_printer::fill</a></div><div class="ttdeci">char fill() const</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:62</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a35ca3057144ecec037d37b1adeb892fa"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a35ca3057144ecec037d37b1adeb892fa">emlabcpp::pretty_printer::setf</a></div><div class="ttdeci">std::ios_base::fmtflags setf(std::ios_base::fmtflags flags, std::ios_base::fmtflags mask)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:71</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a46060f11d43850c957d1bd98c744a507"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a46060f11d43850c957d1bd98c744a507">emlabcpp::pretty_printer::main_print</a></div><div class="ttdeci">void main_print(const std::string &amp;str)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:141</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a4a1d82f8ef6259df6ca87f776032e3dc"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a4a1d82f8ef6259df6ca87f776032e3dc">emlabcpp::pretty_printer::main_print</a></div><div class="ttdeci">void main_print(const std::filesystem::path &amp;p)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:100</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a4bf48cde0663ce1e832f912398ba243d"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a4bf48cde0663ce1e832f912398ba243d">emlabcpp::pretty_printer::main_print</a></div><div class="ttdeci">void main_print(const std::tuple&lt; Ts... &gt; &amp;tpl)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:157</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a58afdfc143daacd9a60aa757c722653e"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a58afdfc143daacd9a60aa757c722653e">emlabcpp::pretty_printer::main_print</a></div><div class="ttdeci">void main_print(const std::string_view &amp;sview)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:136</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a6fb36f640c3690cf371ed067cc631c9f"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a6fb36f640c3690cf371ed067cc631c9f">emlabcpp::pretty_printer::main_print</a></div><div class="ttdeci">void main_print(const std::variant&lt; Ts... &gt; &amp;var)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:147</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a801191858f596da9f105735e39458fe4"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a801191858f596da9f105735e39458fe4">emlabcpp::pretty_printer::pretty_printer</a></div><div class="ttdeci">pretty_printer(StreamType st)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:36</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a857d5e6564375c7d16a3e8d511163ca5"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a857d5e6564375c7d16a3e8d511163ca5">emlabcpp::pretty_printer::requires</a></div><div class="ttdeci">requires(detail::directly_streamable_for&lt; std::ostream, T &gt; &amp;&amp;!std::same_as&lt; T, uint8_t &gt; &amp;&amp;!std::is_enum_v&lt; T &gt;) void main_print(const T &amp;val)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:118</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a901b2ba80108e1eaa08612ead1dd5569"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a901b2ba80108e1eaa08612ead1dd5569">emlabcpp::pretty_printer::main_print</a></div><div class="ttdeci">void main_print(const T &amp;val)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:112</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a9b1ba18c551e7e9ccb8b2b82ac71ba75"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a9b1ba18c551e7e9ccb8b2b82ac71ba75">emlabcpp::pretty_printer::str</a></div><div class="ttdeci">std::string str()</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:57</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_a9c49638c57c2d3bfb726804f05cc8f85"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#a9c49638c57c2d3bfb726804f05cc8f85">emlabcpp::pretty_printer::backup_print</a></div><div class="ttdeci">void backup_print(const T &amp;item)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:181</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_aa3eeed485110a5b701307c735f360254"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#aa3eeed485110a5b701307c735f360254">emlabcpp::pretty_printer::requires</a></div><div class="ttdeci">requires(std::is_enum_v&lt; T &gt;) void main_print(const T &amp;val)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:126</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_aaf993d3a8ce7c5698f25af2a66e9e66c"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#aaf993d3a8ce7c5698f25af2a66e9e66c">emlabcpp::pretty_printer::operator&lt;&lt;</a></div><div class="ttdeci">pretty_printer &amp; operator&lt;&lt;(const T &amp;item) &amp;</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:42</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_ab1bb5a56534a372370be082bcb15b14e"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#ab1bb5a56534a372370be082bcb15b14e">emlabcpp::pretty_printer::flags</a></div><div class="ttdeci">std::ios_base::fmtflags flags() const</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:84</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_abdb5ed69e366bfcb2293c874a507791f"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#abdb5ed69e366bfcb2293c874a507791f">emlabcpp::pretty_printer::width</a></div><div class="ttdeci">std::streamsize width() const</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:76</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_aca107f0ec799233d0abc7c90e776b823"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#aca107f0ec799233d0abc7c90e776b823">emlabcpp::pretty_printer::main_print</a></div><div class="ttdeci">void main_print(const char *const c)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:131</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_ad203ff49f30084cdd15ba6b62dfe1eeb"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#ad203ff49f30084cdd15ba6b62dfe1eeb">emlabcpp::pretty_printer::main_print</a></div><div class="ttdeci">void main_print(const std::reference_wrapper&lt; T &gt; &amp;val)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:106</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_ad5558bf4ff260beae09ec130f74fd44a"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#ad5558bf4ff260beae09ec130f74fd44a">emlabcpp::pretty_printer::width</a></div><div class="ttdeci">std::streamsize width(std::streamsize w)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:80</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_ae7358f1aeb7080cee98e2cf43ac5ec73"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#ae7358f1aeb7080cee98e2cf43ac5ec73">emlabcpp::pretty_printer::main_print</a></div><div class="ttdeci">void main_print(const std::optional&lt; T &gt; &amp;val)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:172</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_ae9ab50225cdf9d70b4ed344c72962768"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#ae9ab50225cdf9d70b4ed344c72962768">emlabcpp::pretty_printer::pretty_printer</a></div><div class="ttdeci">pretty_printer()=default</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pretty__printer_html_afcb8d081ac76d54641d0dc306fc7264e"><div class="ttname"><a href="classemlabcpp_1_1pretty__printer.html#afcb8d081ac76d54641d0dc306fc7264e">emlabcpp::pretty_printer::flags</a></div><div class="ttdeci">std::ios_base::fmtflags flags(std::ios_base::fmtflags f)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:88</div></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;};</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01char_01_4.html">  182</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; char &gt;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01char_01_4.html#aacff38430184acf7fd2bd8f1a4b97224">  185</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01char_01_4.html#aacff38430184acf7fd2bd8f1a4b97224">print</a>( W&amp;&amp; w, <span class="keywordtype">char</span> c )</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                <a class="code" href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">EMLABCPP_PRETTY_PRINT_BASIC</a>( 4, w, <span class="stringliteral">&quot;%c&quot;</span>, c );</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        }</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;};</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01char_0fN_0e_01_4.html">  192</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; char[N] &gt;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;{</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01char_0fN_0e_01_4.html#af338e1a1ed9f5a9265e43b5ea900384f">  195</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01char_0fN_0e_01_4.html#af338e1a1ed9f5a9265e43b5ea900384f">print</a>( W&amp;&amp; w, <span class="keyword">const</span> <span class="keywordtype">char</span>* c )</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                <a class="code" href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">EMLABCPP_PRETTY_PRINT_BASIC</a>( 32, w, <span class="stringliteral">&quot;%s&quot;</span>, c );</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;};</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01std_1_1string_01_4.html">  202</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; std::string &gt;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;{</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01std_1_1string_01_4.html#a4665fb00e4784ef73c33cba6686e4658">  205</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01std_1_1string_01_4.html#a4665fb00e4784ef73c33cba6686e4658">print</a>( W&amp;&amp; w, <span class="keyword">const</span> std::string&amp; s )</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                w( std::string_view{ s } );</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        }</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;};</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01bool_01_4.html">  212</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; bool &gt;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;{</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00215"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01bool_01_4.html#a8c2a9c6596813a9254559262196636ef">  215</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01bool_01_4.html#a8c2a9c6596813a9254559262196636ef">print</a>( W&amp;&amp; w, <span class="keywordtype">bool</span> b )</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                w( b ? <span class="charliteral">&#39;t&#39;</span> : <span class="charliteral">&#39;f&#39;</span> );</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        }</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;};</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a53a54421dadf3639047daa6aab4fc470">  222</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( std::is_pointer_v&lt; T &gt; ) <span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; T &gt;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;{</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> print( W&amp;&amp; w, T val )</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        {</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <a class="code" href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">EMLABCPP_PRETTY_PRINT_BASIC</a>( 16, w, <span class="stringliteral">&quot;%p&quot;</span>, <span class="keyword">static_cast&lt;</span> <span class="keywordtype">void</span>* <span class="keyword">&gt;</span>( val ) );</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        }</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;};</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#abed05683098f9a93c5b694ff9b9f3c16">  232</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( std::is_enum_v&lt; T &gt; ) <span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; T &gt;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;{</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> print( W&amp;&amp; w, T val )</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        {</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                w( convert_enum( val ) );</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;};</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Iterator &gt;</div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01view_3_01Iterator_01_4_01_4.html">  242</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; <a class="code" href="classemlabcpp_1_1view.html">view</a>&lt; Iterator &gt; &gt;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;{</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01view_3_01Iterator_01_4_01_4.html#a17a2ad5daeaa8933955810aec671cb8d">  245</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01view_3_01Iterator_01_4_01_4.html#a17a2ad5daeaa8933955810aec671cb8d">print</a>( W&amp;&amp; w, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1view.html">view&lt; Iterator &gt;</a>&amp; output )</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a888c42312b3da5697607239f222025bf">string_serialize_view</a>( w, output );</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        }</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;};</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01std_1_1span_3_01T_00_01N_01_4_01_4.html">  252</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; std::span&lt; T, N &gt; &gt;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;{</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01std_1_1span_3_01T_00_01N_01_4_01_4.html#a6fdced2cd13ce08973575aa2d1d2defd">  255</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01std_1_1span_3_01T_00_01N_01_4_01_4.html#a6fdced2cd13ce08973575aa2d1d2defd">print</a>( W&amp;&amp; w, <span class="keyword">const</span> std::span&lt; T, N &gt;&amp; sp )</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        {</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a888c42312b3da5697607239f222025bf">string_serialize_view</a>( w, <a class="code" href="classemlabcpp_1_1view.html">view</a>{ sp } );</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        }</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;};</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01std_1_1vector_3_01T_01_4_01_4.html">  262</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; std::<a class="code" href="namespaceemlabcpp_1_1pmr.html#a425c25e733351df6fc74a961a350c268">vector</a>&lt; T &gt; &gt;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;{</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01std_1_1vector_3_01T_01_4_01_4.html#a19a64a7aa2ec3a4acc0b1f558f7d2b72">  265</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01std_1_1vector_3_01T_01_4_01_4.html#a19a64a7aa2ec3a4acc0b1f558f7d2b72">print</a>( W&amp;&amp; w, <span class="keyword">const</span> std::vector&lt; T &gt;&amp; vec )</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a888c42312b3da5697607239f222025bf">string_serialize_view</a>( w, <a class="code" href="namespaceemlabcpp.html#a7dcf3cf10bd4814024f7177751b63c26">data_view</a>( vec ) );</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        }</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;};</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span>... Ts &gt;</div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html">  272</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; std::variant&lt; Ts... &gt; &gt;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;{</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html#a83b18337d5569cd358b7492a3c1b708d">  275</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html#a83b18337d5569cd358b7492a3c1b708d">print</a>( W&amp;&amp; w, <span class="keyword">const</span> std::variant&lt; Ts... &gt;&amp; var )</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        {</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c">visit</a>(</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                    [&amp;w]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; item ) {</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                            w( item );</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                    },</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                    var );</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;};</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span>... Ts &gt;</div>
+<div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html">  286</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; std::tuple&lt; Ts... &gt; &gt;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;{</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html#a90f2b726bd65cc52bebc28a934940294">  289</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html#a90f2b726bd65cc52bebc28a934940294">print</a>( W&amp;&amp; w, <span class="keyword">const</span> std::tuple&lt; Ts... &gt;&amp; tpl )</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        {</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                <span class="keywordflow">if</span> constexpr ( <span class="keyword">sizeof</span>...( Ts ) == 0 ) {</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                        w( <span class="stringliteral">&quot;()&quot;</span> );</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                }</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                <span class="keywordtype">char</span> delim = <span class="charliteral">&#39;(&#39;</span>;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">for_each</a>( tpl, [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; item ) {</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                        w( delim );</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                        w( item );</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                } );</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                w( <span class="charliteral">&#39;)&#39;</span> );</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        }</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;};</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_NLOHMANN_JSON</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="keyword">struct </span>pretty_printer&lt; nlohmann::json &gt;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;{</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> print( W&amp;&amp; w, <span class="keyword">const</span> nlohmann::json&amp; j )</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        {</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                std::string s = j.dump( 4 );</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                w( s );</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        }</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;};</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="keyword">template</span> &lt; decomposable T &gt;</div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01T_01_4.html">  321</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; T &gt;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;{</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00324"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01T_01_4.html#a3bcff0b077cd3a39dafefb4f48db2b10">  324</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01T_01_4.html#a3bcff0b077cd3a39dafefb4f48db2b10">print</a>( W&amp;&amp; w, <span class="keyword">const</span> T&amp; item )</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                w( <a class="code" href="namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8">decompose</a>( item ) );</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        }</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;};</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="ttc" id="aclassemlabcpp_1_1view_html"><div class="ttname"><a href="classemlabcpp_1_1view.html">emlabcpp::view</a></div><div class="ttdoc">Generic class to represent view of some container.</div><div class="ttdef"><b>Definition:</b> view.h:38</div></div>
 <div class="ttc" id="aconcepts_8h_html"><div class="ttname"><a href="concepts_8h.html">concepts.h</a></div></div>
 <div class="ttc" id="adecompose_8h_html"><div class="ttname"><a href="decompose_8h.html">decompose.h</a></div></div>
 <div class="ttc" id="aenum_8h_html"><div class="ttname"><a href="enum_8h.html">enum.h</a></div></div>
 <div class="ttc" id="amatch_8h_html"><div class="ttname"><a href="match_8h.html">match.h</a></div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a425c25e733351df6fc74a961a350c268"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a425c25e733351df6fc74a961a350c268">emlabcpp::pmr::vector</a></div><div class="ttdeci">std::vector&lt; T, allocator&lt; T &gt; &gt; vector</div><div class="ttdef"><b>Definition:</b> aliases.h:31</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> access_view.h:7</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a27325f314502897567307b29b2b03776"><div class="ttname"><a href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">emlabcpp::ostreamlike</a></div><div class="ttdeci">concept ostreamlike</div><div class="ttdef"><b>Definition:</b> concepts.h:138</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a685395cc470dfed697a40d2c718af4e9"><div class="ttname"><a href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">emlabcpp::for_each</a></div><div class="ttdeci">constexpr void for_each(Container &amp;&amp;cont, UnaryCallable &amp;&amp;f)</div><div class="ttdoc">Applies unary callable 'f' to each element of container 'cont'.</div><div class="ttdef"><b>Definition:</b> algorithm.h:167</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:157</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a6e4b7b6dd8a3a27f7f7bcea52f265b2c"><div class="ttname"><a href="namespaceemlabcpp.html#a6e4b7b6dd8a3a27f7f7bcea52f265b2c">emlabcpp::visit</a></div><div class="ttdeci">decltype(auto) visit(Visitor &amp;&amp;vis, Variant &amp;&amp;var)</div><div class="ttdoc">Reimplementation of std::visit.</div><div class="ttdef"><b>Definition:</b> visit.h:47</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_aa1ef69632da6c0cc52cc821b5dce9885"><div class="ttname"><a href="namespaceemlabcpp.html#aa1ef69632da6c0cc52cc821b5dce9885">emlabcpp::pretty_printer_main_printable</a></div><div class="ttdeci">concept pretty_printer_main_printable</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:25</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a7dcf3cf10bd4814024f7177751b63c26"><div class="ttname"><a href="namespaceemlabcpp.html#a7dcf3cf10bd4814024f7177751b63c26">emlabcpp::data_view</a></div><div class="ttdeci">constexpr auto data_view(Container &amp;cont)</div><div class="ttdef"><b>Definition:</b> view.h:181</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a888c42312b3da5697607239f222025bf"><div class="ttname"><a href="namespaceemlabcpp.html#a888c42312b3da5697607239f222025bf">emlabcpp::string_serialize_view</a></div><div class="ttdeci">void string_serialize_view(auto &amp;&amp;w, const view&lt; Iterator &gt; &amp;output)</div><div class="ttdef"><b>Definition:</b> view.h:204</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aab6fd32a8b3335eec93b94331d4293b0"><div class="ttname"><a href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">emlabcpp::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) const expr std</div><div class="ttdoc">Returns index of an element in tuple 't', for which call to predicate f(x) holds true,...</div><div class="ttdef"><b>Definition:</b> algorithm.h:123</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_afcb43f873b880adf7247a54e0d0b4a03"><div class="ttname"><a href="namespaceemlabcpp.html#afcb43f873b880adf7247a54e0d0b4a03">emlabcpp::pretty_stream_write</a></div><div class="ttdeci">auto &amp; pretty_stream_write(ostreamlike auto &amp;os, const Ts &amp;... item)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:76</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afecb966a998ea6497e7b378bca2681c8"><div class="ttname"><a href="namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8">emlabcpp::decompose</a></div><div class="ttdeci">constexpr std::tuple decompose(T &amp;&amp;)</div><div class="ttdef"><b>Definition:</b> decompose.h:80</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1pretty__printer"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">emlabcpp::pretty_printer</a></div><div class="ttdef"><b>Definition:</b> pretty_printer.h:23</div></div>
+<div class="ttc" id="apretty__printer_8h_html_a524b4c79f412a65407e80ba98919cd61"><div class="ttname"><a href="pretty__printer_8h.html#a524b4c79f412a65407e80ba98919cd61">EMLABCPP_PRETTY_PRINT_BASIC</a></div><div class="ttdeci">#define EMLABCPP_PRETTY_PRINT_BASIC(bsize, w, fmt, item)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:25</div></div>
+<div class="ttc" id="astructemlabcpp_1_1buffer__writer_html"><div class="ttname"><a href="structemlabcpp_1_1buffer__writer.html">emlabcpp::buffer_writer</a></div><div class="ttdef"><b>Definition:</b> pretty_printer.h:39</div></div>
+<div class="ttc" id="astructemlabcpp_1_1buffer__writer_html_aab603d512c52b24e8d35ca36d3ccb91b"><div class="ttname"><a href="structemlabcpp_1_1buffer__writer.html#aab603d512c52b24e8d35ca36d3ccb91b">emlabcpp::buffer_writer::buffer</a></div><div class="ttdeci">std::array&lt; char, N &gt; buffer</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:54</div></div>
+<div class="ttc" id="astructemlabcpp_1_1buffer__writer_html_abbc5c33cdfc8c1aa5e31d9f0826881f6"><div class="ttname"><a href="structemlabcpp_1_1buffer__writer.html#abbc5c33cdfc8c1aa5e31d9f0826881f6">emlabcpp::buffer_writer::operator()</a></div><div class="ttdeci">void operator()(char c)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:40</div></div>
+<div class="ttc" id="astructemlabcpp_1_1buffer__writer_html_abf453ad0b941a5e676d1cea2e8182f6c"><div class="ttname"><a href="structemlabcpp_1_1buffer__writer.html#abf453ad0b941a5e676d1cea2e8182f6c">emlabcpp::buffer_writer::sv</a></div><div class="ttdeci">std::string_view sv()</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:49</div></div>
+<div class="ttc" id="astructemlabcpp_1_1buffer__writer_html_aeda4f6fc85cb514007eec02e01bee9f2"><div class="ttname"><a href="structemlabcpp_1_1buffer__writer.html#aeda4f6fc85cb514007eec02e01bee9f2">emlabcpp::buffer_writer::size</a></div><div class="ttdeci">std::size_t size</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:55</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01T_01_4_html_a3bcff0b077cd3a39dafefb4f48db2b10"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01T_01_4.html#a3bcff0b077cd3a39dafefb4f48db2b10">emlabcpp::pretty_printer&lt; T &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, const T &amp;item)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:324</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01bool_01_4_html_a8c2a9c6596813a9254559262196636ef"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01bool_01_4.html#a8c2a9c6596813a9254559262196636ef">emlabcpp::pretty_printer&lt; bool &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, bool b)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:215</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01char_01_4_html_aacff38430184acf7fd2bd8f1a4b97224"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01char_01_4.html#aacff38430184acf7fd2bd8f1a4b97224">emlabcpp::pretty_printer&lt; char &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, char c)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:185</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01char_0fN_0e_01_4_html_af338e1a1ed9f5a9265e43b5ea900384f"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01char_0fN_0e_01_4.html#af338e1a1ed9f5a9265e43b5ea900384f">emlabcpp::pretty_printer&lt; char[N] &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, const char *c)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:195</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01int_01_4_html_a7fdf0d7be3552eba09947b895c0aceac"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01int_01_4.html#a7fdf0d7be3552eba09947b895c0aceac">emlabcpp::pretty_printer&lt; int &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, int i)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:125</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01long_01int_01_4_html_ab049cb1ece05a1d8c7b83ec1c7be870d"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01long_01int_01_4.html#ab049cb1ece05a1d8c7b83ec1c7be870d">emlabcpp::pretty_printer&lt; long int &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, long int i)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:135</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01long_01unsigned_01_4_html_a1f2d84b7ad156ae0d74f8ee0cd015863"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01long_01unsigned_01_4.html#a1f2d84b7ad156ae0d74f8ee0cd015863">emlabcpp::pretty_printer&lt; long unsigned &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, long unsigned u)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:175</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01short_01int_01_4_html_ac94487fc9eaad86df0d2c46b231ef751"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01short_01int_01_4.html#ac94487fc9eaad86df0d2c46b231ef751">emlabcpp::pretty_printer&lt; short int &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, short int i)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:115</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01short_01unsigned_01_4_html_aba34037c4c482e1f9272422b0b5c81bd"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01short_01unsigned_01_4.html#aba34037c4c482e1f9272422b0b5c81bd">emlabcpp::pretty_printer&lt; short unsigned &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, short unsigned u)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:155</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01signed_01char_01_4_html_a98668683df347c3896617d486c859a96"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01signed_01char_01_4.html#a98668683df347c3896617d486c859a96">emlabcpp::pretty_printer&lt; signed char &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, signed char i)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:105</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01std_1_1span_3_01T_00_01N_01_4_01_4_html_a6fdced2cd13ce08973575aa2d1d2defd"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01std_1_1span_3_01T_00_01N_01_4_01_4.html#a6fdced2cd13ce08973575aa2d1d2defd">emlabcpp::pretty_printer&lt; std::span&lt; T, N &gt; &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, const std::span&lt; T, N &gt; &amp;sp)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:255</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01std_1_1string_01_4_html_a4665fb00e4784ef73c33cba6686e4658"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01std_1_1string_01_4.html#a4665fb00e4784ef73c33cba6686e4658">emlabcpp::pretty_printer&lt; std::string &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, const std::string &amp;s)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:205</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4_html_a90f2b726bd65cc52bebc28a934940294"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html#a90f2b726bd65cc52bebc28a934940294">emlabcpp::pretty_printer&lt; std::tuple&lt; Ts... &gt; &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, const std::tuple&lt; Ts... &gt; &amp;tpl)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:289</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4_html_a83b18337d5569cd358b7492a3c1b708d"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html#a83b18337d5569cd358b7492a3c1b708d">emlabcpp::pretty_printer&lt; std::variant&lt; Ts... &gt; &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, const std::variant&lt; Ts... &gt; &amp;var)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:275</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01std_1_1vector_3_01T_01_4_01_4_html_a19a64a7aa2ec3a4acc0b1f558f7d2b72"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01std_1_1vector_3_01T_01_4_01_4.html#a19a64a7aa2ec3a4acc0b1f558f7d2b72">emlabcpp::pretty_printer&lt; std::vector&lt; T &gt; &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, const std::vector&lt; T &gt; &amp;vec)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:265</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01unsigned_01_4_html_abfe88d53e9c36512e5426c020f9298dc"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01unsigned_01_4.html#abfe88d53e9c36512e5426c020f9298dc">emlabcpp::pretty_printer&lt; unsigned &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, unsigned u)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:165</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01unsigned_01char_01_4_html_a92fe424483310bfb7da09f6b716588d8"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01unsigned_01char_01_4.html#a92fe424483310bfb7da09f6b716588d8">emlabcpp::pretty_printer&lt; unsigned char &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, unsigned char u)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:145</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01view_3_01Iterator_01_4_01_4_html_a17a2ad5daeaa8933955810aec671cb8d"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01view_3_01Iterator_01_4_01_4.html#a17a2ad5daeaa8933955810aec671cb8d">emlabcpp::pretty_printer&lt; view&lt; Iterator &gt; &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, const view&lt; Iterator &gt; &amp;output)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:245</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__stream_html"><div class="ttname"><a href="structemlabcpp_1_1pretty__stream.html">emlabcpp::pretty_stream</a></div><div class="ttdef"><b>Definition:</b> pretty_printer.h:89</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__stream_html_a3a4f9a713408045ffd49ab6247535999"><div class="ttname"><a href="structemlabcpp_1_1pretty__stream.html#a3a4f9a713408045ffd49ab6247535999">emlabcpp::pretty_stream::operator&lt;&lt;</a></div><div class="ttdeci">pretty_stream &amp; operator&lt;&lt;(const U &amp;item)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:92</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__stream_html_a5c256fb1e90fb2af4b8c9e0d893b77b8"><div class="ttname"><a href="structemlabcpp_1_1pretty__stream.html#a5c256fb1e90fb2af4b8c9e0d893b77b8">emlabcpp::pretty_stream::writer</a></div><div class="ttdeci">W writer</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:98</div></div>
+<div class="ttc" id="astructemlabcpp_1_1recursive__writer_html"><div class="ttname"><a href="structemlabcpp_1_1recursive__writer.html">emlabcpp::recursive_writer</a></div><div class="ttdef"><b>Definition:</b> pretty_printer.h:60</div></div>
+<div class="ttc" id="astructemlabcpp_1_1recursive__writer_html_a3b2c3fd8b1ab61724fc050717fc2d55c"><div class="ttname"><a href="structemlabcpp_1_1recursive__writer.html#a3b2c3fd8b1ab61724fc050717fc2d55c">emlabcpp::recursive_writer::w</a></div><div class="ttdeci">Writer w</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:72</div></div>
+<div class="ttc" id="astructemlabcpp_1_1recursive__writer_html_a44fe5205e421d345b21fb97223712868"><div class="ttname"><a href="structemlabcpp_1_1recursive__writer.html#a44fe5205e421d345b21fb97223712868">emlabcpp::recursive_writer::operator()</a></div><div class="ttdeci">void operator()(std::string_view sv)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:61</div></div>
+<div class="ttc" id="astructemlabcpp_1_1recursive__writer_html_a6b193b831f55be6155c643c64357a3e3"><div class="ttname"><a href="structemlabcpp_1_1recursive__writer.html#a6b193b831f55be6155c643c64357a3e3">emlabcpp::recursive_writer::operator()</a></div><div class="ttdeci">void operator()(const T &amp;item)</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:67</div></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
 <div class="ttc" id="aview_8h_html"><div class="ttname"><a href="view_8h.html">view.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -320,7 +472,7 @@ $(document).ready(function(){initNavTree('pretty__printer_8h_source.html',''); i
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="pretty__printer_8h.html">pretty_printer.h</a></li>
-    <li class="footer">Generated on Fri Feb 10 2023 17:58:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Feb 12 2023 08:48:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
