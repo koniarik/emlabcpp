@@ -170,6 +170,30 @@ extern gpos_logger ERROR_LOGGER;
 namespace emlabcpp
 {
 
+class noneabi_logger
+{
+public:
+        template < typename... Args >
+        void log( const Args&... args )
+        {
+                ( write( args ), ... );
+                end();
+        }
+
+        template < typename T >
+        void write( const T& t )
+        {
+                pretty_printer< T >::print(
+                    recursive_writer{ [&]( std::string_view sv ) {
+                            write( sv );
+                    } },
+                    t );
+        }
+
+        void write( std::string_view );
+        void end();
+};
+
 extern noneabi_logger DEBUG_LOGGER;
 extern noneabi_logger INFO_LOGGER;
 extern noneabi_logger ERROR_LOGGER;

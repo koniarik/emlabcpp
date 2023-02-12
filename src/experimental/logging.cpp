@@ -10,14 +10,4 @@ gpos_logger ERROR_LOGGER{ { set_stdout{ false }, set_stderr{ false }, ERROR_LOGG
 }  // namespace emlabcpp
 
 #elif defined EMLABCPP_USE_NONEABI_LOGGING
-
-namespace emlabcpp
-{
-
-noneabi_logger INFO_LOGGER{};
-noneabi_logger DEBUG_LOGGER{};
-noneabi_logger ERROR_LOGGER{};
-
-}  // namespace emlabcpp
-
 #endif

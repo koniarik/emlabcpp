@@ -5,6 +5,8 @@
 #include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
 
+#include <charconv>
+#include <filesystem>
 #include <optional>
 #include <span>
 #include <tuple>
@@ -22,17 +24,16 @@ namespace emlabcpp
 template < typename T >
 struct pretty_printer;
 
-#define EMLABCPP_PRETTY_PRINT_BASIC( bsize, w, fmt, item )                                 \
-        {                                                                                  \
-                std::array< char, bsize > buffer{};                                        \
-                int used = snprintf( buffer.data(), buffer.size(), fmt, item );            \
-                if ( used > 0 ) {                                                          \
-                        std::size_t size =                                                 \
-                            std::min( static_cast< std::size_t >( used ), buffer.size() ); \
-                        w( std::string_view( buffer.data(), size ) );                      \
-                }                                                                          \
-        }                                                                                  \
-        while ( false )
+template < std::size_t N, typename Writer, typename T >
+void pretty_print_serialize_basic( Writer&& w, const T& val )
+{
+        std::array< char, N > buffer{};
+        auto [ptr, ec] = std::to_chars( buffer.data(), buffer.data() + buffer.size(), val );
+        if ( ec == std::errc() ) {
+                w( std::string_view{
+                    buffer.data(), static_cast< std::size_t >( ptr - buffer.data() ) } );
+        }
+}
 
 template < std::size_t N >
 struct buffer_writer
@@ -44,6 +45,13 @@ struct buffer_writer
                 }
                 buffer[size] = c;
                 size += 1;
+        }
+
+        void operator()( std::string_view sv )
+        {
+                for ( char c : sv ) {
+                        this->operator()( c );
+                }
         }
 
         std::string_view sv()
@@ -84,6 +92,15 @@ auto& pretty_stream_write( ostreamlike auto& os, const Ts&... item )
         return os;
 };
 
+template < std::size_t N, typename... Ts >
+buffer_writer< N > pretty_print_buffer( const Ts&... item )
+{
+        buffer_writer< N > buff{};
+        ( pretty_printer< Ts >::print( recursive_writer{ buff }, item ), ... );
+
+        return buff;
+}
+
 template < typename W >
 struct pretty_stream
 {
@@ -104,7 +121,7 @@ struct pretty_printer< signed char >
         template < typename W >
         static void print( W&& w, signed char i )
         {
-                EMLABCPP_PRETTY_PRINT_BASIC( 4, w, "%hhi", i );
+                pretty_print_serialize_basic< 4 >( w, i );
         }
 };
 
@@ -114,7 +131,7 @@ struct pretty_printer< short int >
         template < typename W >
         static void print( W&& w, short int i )
         {
-                EMLABCPP_PRETTY_PRINT_BASIC( 8, w, "%hi", i );
+                pretty_print_serialize_basic< 8 >( w, i );
         }
 };
 
@@ -124,7 +141,7 @@ struct pretty_printer< int >
         template < typename W >
         static void print( W&& w, int i )
         {
-                EMLABCPP_PRETTY_PRINT_BASIC( 16, w, "%i", i );
+                pretty_print_serialize_basic< 16 >( w, i );
         }
 };
 
@@ -134,7 +151,7 @@ struct pretty_printer< long int >
         template < typename W >
         static void print( W&& w, long int i )
         {
-                EMLABCPP_PRETTY_PRINT_BASIC( 32, w, "%li", i );
+                pretty_print_serialize_basic< 32 >( w, i );
         }
 };
 
@@ -144,7 +161,7 @@ struct pretty_printer< unsigned char >
         template < typename W >
         static void print( W&& w, unsigned char u )
         {
-                EMLABCPP_PRETTY_PRINT_BASIC( 8, w, "%hhu", u );
+                pretty_print_serialize_basic< 4 >( w, u );
         }
 };
 
@@ -154,7 +171,7 @@ struct pretty_printer< short unsigned >
         template < typename W >
         static void print( W&& w, short unsigned u )
         {
-                EMLABCPP_PRETTY_PRINT_BASIC( 8, w, "%hu", u );
+                pretty_print_serialize_basic< 16 >( w, u );
         }
 };
 
@@ -164,7 +181,7 @@ struct pretty_printer< unsigned >
         template < typename W >
         static void print( W&& w, unsigned u )
         {
-                EMLABCPP_PRETTY_PRINT_BASIC( 16, w, "%u", u );
+                pretty_print_serialize_basic< 16 >( w, u );
         }
 };
 
@@ -174,7 +191,17 @@ struct pretty_printer< long unsigned >
         template < typename W >
         static void print( W&& w, long unsigned u )
         {
-                EMLABCPP_PRETTY_PRINT_BASIC( 32, w, "%lu", u );
+                pretty_print_serialize_basic< 32 >( w, u );
+        }
+};
+
+template <>
+struct pretty_printer< float >
+{
+        template < typename W >
+        static void print( W&& w, float f )
+        {
+                pretty_print_serialize_basic< 32 >( w, f );
         }
 };
 
@@ -184,7 +211,7 @@ struct pretty_printer< char >
         template < typename W >
         static void print( W&& w, char c )
         {
-                EMLABCPP_PRETTY_PRINT_BASIC( 4, w, "%c", c );
+                w( std::string_view{ &c, 1 } );
         }
 };
 
@@ -194,7 +221,7 @@ struct pretty_printer< char[N] >
         template < typename W >
         static void print( W&& w, const char* c )
         {
-                EMLABCPP_PRETTY_PRINT_BASIC( 32, w, "%s", c );
+                w( std::string_view{ c, N } );
         }
 };
 
@@ -224,7 +251,8 @@ requires( std::is_pointer_v< T > ) struct pretty_printer< T >
         template < typename W >
         static void print( W&& w, T val )
         {
-                EMLABCPP_PRETTY_PRINT_BASIC( 16, w, "%p", static_cast< void* >( val ) );
+                w( "0x" );
+                w( std::bit_cast< std::uintptr_t >( val ) );
         }
 };
 
@@ -254,7 +282,17 @@ struct pretty_printer< std::span< T, N > >
         template < typename W >
         static void print( W&& w, const std::span< T, N >& sp )
         {
-                string_serialize_view( w, view{ sp } );
+                string_serialize_view( w, data_view( sp ) );
+        }
+};
+
+template <>
+struct pretty_printer< std::filesystem::path >
+{
+        template < typename W >
+        static void print( W&& w, const std::filesystem::path& p )
+        {
+                w( p.string() );
         }
 };
 
