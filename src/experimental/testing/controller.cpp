@@ -131,16 +131,14 @@ void controller::on_msg( const reactor_controller_variant& var )
             state_,
             [&]( const initializing_state& ) -> opt_state {
                     if ( !iface_.on_msg_with_cb( var ) ) {
-                            EMLABCPP_ERROR_LOG( "Got wrong message, bailing out: ", var );
-                            std::abort();
+                            EMLABCPP_ERROR_LOG( "Got wrong message: ", var );
                     }
                     return std::nullopt;
             },
             [&]( test_running_state& rs ) -> opt_state {
                     const auto& tf_ptr = std::get_if< test_finished >( &var );
                     if ( tf_ptr == nullptr ) {
-                            EMLABCPP_ERROR_LOG( "Got wrong message, bailing out: ", var );
-                            std::abort();
+                            EMLABCPP_ERROR_LOG( "Got wrong message: ", var );
                     }
 
                     rs.context.failed  = tf_ptr->failed;
