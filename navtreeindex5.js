@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"memory__promise_8h.html":[4,0,0,0,1,1,0],
+"memory__promise_8h_source.html":[4,0,0,0,1,1,0],
 "memory__resource_8h.html":[4,0,0,0,3,2],
 "memory__resource_8h_source.html":[4,0,0,0,3,2],
 "message_8h.html":[4,0,0,0,4,7],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp.html#structemlabcpp_1_1iterator__of":[4,0,0,0,5,0,0],
 "namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub":[4,0,0,0,1,2,0,1],
 "namespaceemlabcpp.html#structemlabcpp_1_1log__colors":[4,0,0,0,1,2,0,0],
-"namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients":[4,0,0,0,18,0],
-"namespaceemlabcpp.html#structemlabcpp_1_1pid__config":[4,0,0,0,18,1],
-"namespaceemlabcpp.html#structemlabcpp_1_1signature__of_3_01ReturnType_07Args_8_8_8_08_01_4":[4,0,0,0,5,0,21]
+"namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients":[4,0,0,0,18,0]
 };
