@@ -10,8 +10,8 @@ jobs:
     name: Build
     runs-on: ubuntu-22.04
     env:
-      CC: gcc-10
-      CXX: g++-10
+      CC: gcc-11
+      CXX: g++-11
       SONAR_SCANNER_VERSION: 4.7.0.2747
       SONAR_SERVER_URL: "https://sonarcloud.io"
       BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory # Directory where build-wrapper output will be placed
@@ -20,7 +20,7 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: Install dependencies
-        run: sudo apt install libgtest-dev gcc-10 g++-10 nlohmann-json3-dev libgtest-dev
+        run: sudo apt install libgtest-dev gcc-11 g++-11 nlohmann-json3-dev libgtest-dev
       - name: install gcovr 5.0
         run: |
           pip install gcovr==5.0 # 5.1 is not supported
