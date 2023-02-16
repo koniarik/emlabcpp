@@ -74,22 +74,18 @@ public:
                     } );
         }
 
-        void log_time( const timelog& tl )
+        void log_header( const timelog& tl, std::string_view file, int line )
         {
+
                 write( '\n' );
+
                 set_color( colors_.time );
                 write( tl );
-        }
 
-        void log_file( std::string_view file )
-        {
                 set_color( colors_.file );
                 write( ' ' );
                 write( file );
-        }
 
-        void log_line( int line )
-        {
                 set_color( colors_.line );
                 write( ':' );
                 write( line );
@@ -155,12 +151,13 @@ extern gpos_logger ERROR_LOGGER;
 
 }  // namespace emlabcpp
 
-#define EMLABCPP_LOG_IMPL( logger, ... )                                                      \
-        do {                                                                                  \
-                ( logger ).log_time( emlabcpp::timelog( std::chrono::system_clock::now() ) ); \
-                ( logger ).log_file( emlabcpp::stem_of( __FILE__ ) );                         \
-                ( logger ).log_line( __LINE__ );                                              \
-                ( logger ).log( __VA_ARGS__ );                                                \
+#define EMLABCPP_LOG_IMPL( logger, ... )                                   \
+        do {                                                               \
+                ( logger ).log_header(                                     \
+                    emlabcpp::timelog( std::chrono::system_clock::now() ), \
+                    emlabcpp::stem_of( __FILE__ ),                         \
+                    __LINE__ );                                            \
+                ( logger ).log( __VA_ARGS__ );                             \
         } while ( false )
 
 #define EMLABCPP_DEBUG_LOG( ... ) EMLABCPP_LOG_IMPL( emlabcpp::DEBUG_LOGGER, __VA_ARGS__ )
