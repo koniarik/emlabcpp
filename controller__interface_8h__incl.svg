@@ -57,18 +57,18 @@
 <path fill="none" stroke="midnightblue" d="M194.91,-123.4C170.41,-113.69 137.67,-100.71 111.38,-90.29"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="112.6,-87.01 102.02,-86.58 110.02,-93.51 112.6,-87.01"/>
 </g>
-<!-- Node67 -->
+<!-- Node68 -->
 <g id="node4" class="node">
-<title>Node67</title>
+<title>Node68</title>
 <g id="a_node4"><a xlink:href="streams_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="red" points="151,-62 151,-81 310,-81 310,-62 151,-62"/>
 <text text-anchor="middle" x="230.5" y="-69" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp/protocol/streams.h</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node67 -->
+<!-- Node2&#45;&gt;Node68 -->
 <g id="edge3" class="edge">
-<title>Node2&#45;&gt;Node67</title>
+<title>Node2&#45;&gt;Node68</title>
 <path fill="none" stroke="midnightblue" d="M230.5,-123.4C230.5,-114.06 230.5,-101.71 230.5,-91.52"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="234,-91.19 230.5,-81.19 227,-91.19 234,-91.19"/>
 </g>

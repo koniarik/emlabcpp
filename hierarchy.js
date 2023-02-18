@@ -219,6 +219,8 @@ var hierarchy =
     [ "emlabcpp::pretty_printer< short unsigned >", "structemlabcpp_1_1pretty__printer_3_01short_01unsigned_01_4.html", null ],
     [ "emlabcpp::pretty_printer< signed char >", "structemlabcpp_1_1pretty__printer_3_01signed_01char_01_4.html", null ],
     [ "emlabcpp::pretty_printer< static_vector< T, N > >", "structemlabcpp_1_1pretty__printer_3_01static__vector_3_01T_00_01N_01_4_01_4.html", null ],
+    [ "emlabcpp::pretty_printer< std::array< T, N > >", "structemlabcpp_1_1pretty__printer_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
+    [ "emlabcpp::pretty_printer< std::chrono::duration< Rep, Period > >", "structemlabcpp_1_1pretty__printer_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Period_01_4_01_4.html", null ],
     [ "emlabcpp::pretty_printer< std::filesystem::path >", "structemlabcpp_1_1pretty__printer_3_01std_1_1filesystem_1_1path_01_4.html", null ],
     [ "emlabcpp::pretty_printer< std::span< T, N > >", "structemlabcpp_1_1pretty__printer_3_01std_1_1span_3_01T_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::pretty_printer< std::string >", "structemlabcpp_1_1pretty__printer_3_01std_1_1string_01_4.html", null ],
