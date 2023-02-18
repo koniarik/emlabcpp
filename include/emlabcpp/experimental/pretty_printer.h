@@ -6,6 +6,7 @@
 #include "emlabcpp/view.h"
 
 #include <charconv>
+#include <chrono>
 #include <filesystem>
 #include <optional>
 #include <span>
@@ -286,6 +287,16 @@ struct pretty_printer< std::span< T, N > >
         }
 };
 
+template < typename T, std::size_t N >
+struct pretty_printer< std::array< T, N > >
+{
+        template < typename W >
+        static void print( W&& w, const std::array< T, N >& arr )
+        {
+                string_serialize_view( w, data_view( arr ) );
+        }
+};
+
 template <>
 struct pretty_printer< std::filesystem::path >
 {
@@ -337,6 +348,16 @@ struct pretty_printer< std::tuple< Ts... > >
                         w( item );
                 } );
                 w( ')' );
+        }
+};
+
+template < typename Rep, typename Period >
+struct pretty_printer< std::chrono::duration< Rep, Period > >
+{
+        template < typename W >
+        static void print( W&& w, const std::chrono::duration< Rep, Period >& d )
+        {
+                pretty_printer< Rep >::print( w, d.count() );
         }
 };
 
