@@ -7,7 +7,7 @@
 
 namespace emlabcpp
 {
-consteval std::string_view stem_of( const char* const file )
+consteval std::string_view stem_of( std::string_view file )
 {
         const std::string_view res{ file };
         const std::size_t      pos = res.find_last_of( '/' );
@@ -151,18 +151,21 @@ extern gpos_logger ERROR_LOGGER;
 
 }  // namespace emlabcpp
 
-#define EMLABCPP_LOG_IMPL( logger, ... )                                   \
+#define EMLABCPP_LOG_IMPL( logger, file, line, ... )                       \
         do {                                                               \
                 ( logger ).log_header(                                     \
                     emlabcpp::timelog( std::chrono::system_clock::now() ), \
-                    emlabcpp::stem_of( __FILE__ ),                         \
-                    __LINE__ );                                            \
+                    emlabcpp::stem_of( file ),                             \
+                    line );                                                \
                 ( logger ).log( __VA_ARGS__ );                             \
         } while ( false )
 
-#define EMLABCPP_DEBUG_LOG( ... ) EMLABCPP_LOG_IMPL( emlabcpp::DEBUG_LOGGER, __VA_ARGS__ )
-#define EMLABCPP_INFO_LOG( ... ) EMLABCPP_LOG_IMPL( emlabcpp::INFO_LOGGER, __VA_ARGS__ )
-#define EMLABCPP_ERROR_LOG( ... ) EMLABCPP_LOG_IMPL( emlabcpp::ERROR_LOGGER, __VA_ARGS__ )
+#define EMLABCPP_DEBUG_LOG( ... ) \
+        EMLABCPP_LOG_IMPL( emlabcpp::DEBUG_LOGGER, __FILE__, __LINE__, __VA_ARGS__ )
+#define EMLABCPP_INFO_LOG( ... ) \
+        EMLABCPP_LOG_IMPL( emlabcpp::INFO_LOGGER, __FILE__, __LINE__, __VA_ARGS__ )
+#define EMLABCPP_ERROR_LOG( ... ) \
+        EMLABCPP_LOG_IMPL( emlabcpp::ERROR_LOGGER, __FILE__, __LINE__, __VA_ARGS__ )
 
 #elif defined EMLABCPP_USE_NONEABI_LOGGING
 
