@@ -1,11 +1,13 @@
 ---
 Checks: >          
   -*,
-  bugprone-*,-bugprone-easily-swappable-parameters,-bugprone-macro-parentheses,-bugprone-exception-escape,
-  performance*,
+  bugprone*,-bugprone-easily-swappable-parameters,-bugprone-macro-parentheses,-bugprone-exception-escape,
+  concurrency*,
   modernize*, -modernize-use-trailing-return-type,-modernize-avoid-c-arrays,-modernize-use-nullptr,
-  readbility*,
+  misc*,
+  performance*,
   portability*,
+  readbility*,
 WarningsAsErrors: true
 HeaderFilterRegex: '.*'
 AnalyzeTemporaryDtors: true
@@ -49,5 +51,7 @@ CheckOptions:
     value: lower_case
   - key:             readability-identifier-naming.VariableCase
     value: lower_case
+  - key:             misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
+    value: '1'
 ...
 
