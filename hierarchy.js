@@ -232,7 +232,7 @@ var hierarchy =
     [ "emlabcpp::pretty_printer< unsigned >", "structemlabcpp_1_1pretty__printer_3_01unsigned_01_4.html", null ],
     [ "emlabcpp::pretty_printer< unsigned char >", "structemlabcpp_1_1pretty__printer_3_01unsigned_01char_01_4.html", null ],
     [ "emlabcpp::pretty_printer< view< Iterator > >", "structemlabcpp_1_1pretty__printer_3_01view_3_01Iterator_01_4_01_4.html", null ],
-    [ "emlabcpp::pretty_stream< W >", "structemlabcpp_1_1pretty__stream.html", null ],
+    [ "emlabcpp::pretty_stream< Writer >", "structemlabcpp_1_1pretty__stream.html", null ],
     [ "emlabcpp::protocol::proto_traits< D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits", null ],
     [ "emlabcpp::protocol::proto_traits< bounded< D, Min, Max > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01bounded_3_01D_00_01Min_00_01Max_01_4_01_4.html", null ],
     [ "emlabcpp::protocol::proto_traits< error_record >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html", null ],

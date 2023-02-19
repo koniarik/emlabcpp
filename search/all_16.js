@@ -10,7 +10,7 @@ var searchData=
   ['with_5fsignature_1094',['with_signature',['../namespaceemlabcpp.html#afc8fd33adfcfe872f4402d4b61b41113',1,'emlabcpp']]],
   ['with_5fvalue_5ftype_1095',['with_value_type',['../namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4',1,'emlabcpp']]],
   ['wrapper_5ftraits_1096',['wrapper_traits',['../namespaceemlabcpp_1_1rpc.html#a455c6a71e7f0a0f186004b4d463e34c6',1,'emlabcpp::rpc']]],
-  ['writer_1097',['writer',['../structemlabcpp_1_1pretty__stream.html#a5c256fb1e90fb2af4b8c9e0d893b77b8',1,'emlabcpp::pretty_stream']]],
+  ['writer_1097',['writer',['../structemlabcpp_1_1pretty__stream.html#a409301acac4d662e95d68936089272bb',1,'emlabcpp::pretty_stream']]],
   ['wrong_5fmessage_5fe_1098',['WRONG_MESSAGE_E',['../namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a7ea0b3234403e2b43fc830dbd901c795',1,'emlabcpp::testing']]],
   ['wrong_5ftype_5fe_1099',['WRONG_TYPE_E',['../namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76ac4e2cca74f2a682c3f462ee09d0f8621',1,'emlabcpp::testing']]],
   ['wrong_5ftype_5ferror_1100',['wrong_type_error',['../structemlabcpp_1_1testing_1_1wrong__type__error.html',1,'emlabcpp::testing']]]

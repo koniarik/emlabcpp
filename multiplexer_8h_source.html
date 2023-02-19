@@ -136,18 +136,18 @@ $(document).ready(function(){initNavTree('multiplexer_8h_source.html',''); initR
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    MsgCallable&amp;&amp;                     msg_cb )</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1handler.html#a4a4e9b8c20d7122816fa978d0b6121cb">multiplexer_handler&lt; N &gt;::extract</a>( <a class="code" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">view_n</a>( msg.data(), msg.size() ) )</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            .convert_left( [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; pack ) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keyword">auto</span> [id, msg] = pack;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    <span class="keywordtype">bool</span> success   = handle_cb( <span class="keywordtype">id</span>, msg );</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            .convert_left( [&amp;handle_cb, &amp;msg_cb]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; pack ) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keyword">auto</span> [id, submsg] = pack;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    <span class="keywordtype">bool</span> success      = handle_cb( <span class="keywordtype">id</span>, submsg );</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    <span class="keywordflow">if</span> ( !success ) {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                            <a class="code" href="classemlabcpp_1_1protocol_1_1message.html">message&lt; N &gt;</a> msg{ <a class="code" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafad7cee373ed46d900f608c5970cdfe643">PORT_MATCH_ERROR</a> };</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                            msg_cb( serialize_multiplexed&lt; N &gt;( <a class="code" href="namespaceemlabcpp_1_1protocol.html#ac45b34ffbd63c8c942cea66c9b489c16">multiplexer_service_id</a>, msg ) );</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                            <a class="code" href="classemlabcpp_1_1protocol_1_1message.html">message&lt; N &gt;</a> errmsg{ <a class="code" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafad7cee373ed46d900f608c5970cdfe643">PORT_MATCH_ERROR</a> };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                            msg_cb( serialize_multiplexed&lt; N &gt;( <a class="code" href="namespaceemlabcpp_1_1protocol.html#ac45b34ffbd63c8c942cea66c9b489c16">multiplexer_service_id</a>, errmsg ) );</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    }</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    <span class="keywordflow">return</span> success;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            } )</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            .convert_right( [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; ) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    <a class="code" href="classemlabcpp_1_1protocol_1_1message.html">message&lt; N &gt;</a> msg{ <a class="code" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafa89fc9790558c285c0664b57f3251ebc1">PROTOCOL_ERROR</a> };</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    msg_cb( serialize_multiplexed&lt; N &gt;( <a class="code" href="namespaceemlabcpp_1_1protocol.html#ac45b34ffbd63c8c942cea66c9b489c16">multiplexer_service_id</a>, msg ) );</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            .convert_right( [&amp;msg_cb]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; ) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    <a class="code" href="classemlabcpp_1_1protocol_1_1message.html">message&lt; N &gt;</a> errmsg{ <a class="code" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafa89fc9790558c285c0664b57f3251ebc1">PROTOCOL_ERROR</a> };</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    msg_cb( serialize_multiplexed&lt; N &gt;( <a class="code" href="namespaceemlabcpp_1_1protocol.html#ac45b34ffbd63c8c942cea66c9b489c16">multiplexer_service_id</a>, errmsg ) );</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            } )</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            .join();</div>
@@ -220,7 +220,7 @@ $(document).ready(function(){initNavTree('multiplexer_8h_source.html',''); initR
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    []( <span class="keyword">const</span> std::size_t ) {</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                            return true;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                    },</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                    [&amp;]( <span class="keyword">const</span> std::tuple&lt; channel_type, payload_message &gt;&amp; payload ) {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                    [&amp;slotted...]( <span class="keyword">const</span> std::tuple&lt; channel_type, payload_message &gt;&amp; payload ) {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                            const auto&amp; [id, data] = payload;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                            return multiplexed_dispatch( id, data, slotted... );</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                    },</div>
@@ -281,7 +281,7 @@ $(document).ready(function(){initNavTree('multiplexer_8h_source.html',''); initR
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="multiplexer_8h.html">multiplexer.h</a></li>
-    <li class="footer">Generated on Sun Feb 19 2023 19:28:00 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Feb 19 2023 20:49:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
