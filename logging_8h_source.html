@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a3e48f23d7d6cfdc5ac9a2ef4e22c3108">   10</a></span>&#160;consteval std::string_view <a class="code" href="namespaceemlabcpp.html#a3e48f23d7d6cfdc5ac9a2ef4e22c3108">stem_of</a>( std::string_view file )</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a69c59e260f99791d626a9665243323d0">   10</a></span>&#160;consteval std::string_view <a class="code" href="namespaceemlabcpp.html#a69c59e260f99791d626a9665243323d0">stem_of</a>( <span class="keyword">const</span> std::string_view file )</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">const</span> std::string_view <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>{ file };</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">const</span> std::size_t      pos = <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.find_last_of( <span class="charliteral">&#39;/&#39;</span> );</div>
@@ -163,7 +163,7 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    } );</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">void</span> log_header( <span class="keyword">const</span> timelog&amp; tl, std::string_view file, <span class="keywordtype">int</span> line )</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">void</span> log_header( <span class="keyword">const</span> timelog&amp; tl, <span class="keyword">const</span> std::string_view file, <span class="keyword">const</span> <span class="keywordtype">int</span> line )</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                write( <span class="charliteral">&#39;\n&#39;</span> );</div>
@@ -200,7 +200,7 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    t );</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordtype">void</span> write( std::string_view sv )</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordtype">void</span> write( <span class="keyword">const</span> std::string_view sv )</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        {</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                write_std_streams( sv );</div>
@@ -310,9 +310,9 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="ttc" id="acolor_8h_html"><div class="ttname"><a href="color_8h.html">color.h</a></div></div>
 <div class="ttc" id="amatch_8h_html"><div class="ttname"><a href="match_8h.html">match.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> access_view.h:7</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a3e48f23d7d6cfdc5ac9a2ef4e22c3108"><div class="ttname"><a href="namespaceemlabcpp.html#a3e48f23d7d6cfdc5ac9a2ef4e22c3108">emlabcpp::stem_of</a></div><div class="ttdeci">consteval std::string_view stem_of(std::string_view file)</div><div class="ttdef"><b>Definition:</b> logging.h:10</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a57181a407fd6f29a50664f8ba4cb44cd"><div class="ttname"><a href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match</a></div><div class="ttdeci">decltype(auto) match(Variant &amp;&amp;var, Callables &amp;&amp;... cals)</div><div class="ttdef"><b>Definition:</b> match.h:54</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a620a32406486ae5b889d41d446c4a8b0"><div class="ttname"><a href="namespaceemlabcpp.html#a620a32406486ae5b889d41d446c4a8b0">emlabcpp::reset_color</a></div><div class="ttdeci">consteval std::string_view reset_color()</div><div class="ttdef"><b>Definition:</b> color.h:31</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a69c59e260f99791d626a9665243323d0"><div class="ttname"><a href="namespaceemlabcpp.html#a69c59e260f99791d626a9665243323d0">emlabcpp::stem_of</a></div><div class="ttdeci">consteval std::string_view stem_of(const std::string_view file)</div><div class="ttdef"><b>Definition:</b> logging.h:10</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:157</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:543</div></div>
 <div class="ttc" id="apretty__printer_8h_html"><div class="ttname"><a href="pretty__printer_8h.html">pretty_printer.h</a></div></div>
@@ -324,7 +324,7 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="logging_8h.html">logging.h</a></li>
-    <li class="footer">Generated on Sat Feb 18 2023 23:22:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Feb 19 2023 17:30:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

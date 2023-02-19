@@ -258,7 +258,7 @@ var namespaceemlabcpp =
     [ "sign", "namespaceemlabcpp.html#a1aef6c41e29219cbbc8538767c0e1f0e", null ],
     [ "sin", "namespaceemlabcpp.html#aa3d3eb598a75856181b79136ed06dbd8", null ],
     [ "sqrt", "namespaceemlabcpp.html#a5519896c5f0324265089711b6a020642", null ],
-    [ "stem_of", "namespaceemlabcpp.html#a3e48f23d7d6cfdc5ac9a2ef4e22c3108", null ],
+    [ "stem_of", "namespaceemlabcpp.html#a69c59e260f99791d626a9665243323d0", null ],
     [ "string_serialize_view", "namespaceemlabcpp.html#a888c42312b3da5697607239f222025bf", null ],
     [ "subscript_view", "namespaceemlabcpp.html#ac813ec118aa63294f4ed7955f389e289", null ],
     [ "sum", "namespaceemlabcpp.html#ad5fde2ce524bee976e0c6c74c0be2917", null ],
