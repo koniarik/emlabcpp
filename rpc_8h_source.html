@@ -327,7 +327,7 @@ $(document).ready(function(){initNavTree('rpc_8h_source.html',''); initResizable
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                <span class="keyword">using</span> call_type = std::tuple_element_t&lt; I, bindings_tuple &gt;;</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                <span class="keywordflow">return</span> std::apply(</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                    [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp;... args ) -&gt; call_type::reply {</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                    [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp;... args ) -&gt; <span class="keyword">typename</span> call_type::reply {</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                            <span class="keywordflow">return</span> call_type::handle( obj_, args... );</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                    },</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                    req );</div>
@@ -383,7 +383,7 @@ $(document).ready(function(){initNavTree('rpc_8h_source.html',''); initResizable
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                <span class="keyword">using</span> call_type = std::tuple_element_t&lt; I, def_type &gt;;</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                <span class="keywordflow">return</span> std::apply(</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                    [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp;... args ) -&gt; call_type::reply {</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                    [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp;... args ) -&gt; <span class="keyword">typename</span> call_type::reply {</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                            <span class="keywordflow">if</span> constexpr ( call_type::void_returning ) {</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                                    std::get&lt; I &gt;( cbs_ )( args... );</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                                    <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1void__return__type">void_return_type</a>{};</div>
@@ -437,7 +437,7 @@ $(document).ready(function(){initNavTree('rpc_8h_source.html',''); initResizable
 <div class="ttc" id="aclassemlabcpp_1_1rpc_1_1reactor_html_ae2243e7de4ef94f1f62643a2c549825f"><div class="ttname"><a href="classemlabcpp_1_1rpc_1_1reactor.html#ae2243e7de4ef94f1f62643a2c549825f">emlabcpp::rpc::reactor::reply_type</a></div><div class="ttdeci">typename traits_type::reply_type reply_type</div><div class="ttdef"><b>Definition:</b> rpc.h:83</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1rpc_1_1reactor_html_afe6dbbcf2622160727d6d3c2394283e6"><div class="ttname"><a href="classemlabcpp_1_1rpc_1_1reactor.html#afe6dbbcf2622160727d6d3c2394283e6">emlabcpp::rpc::reactor::request_message_type</a></div><div class="ttdeci">typename traits_type::request_message_type request_message_type</div><div class="ttdef"><b>Definition:</b> rpc.h:85</div></div>
 <div class="ttc" id="ahandler_8h_html"><div class="ttname"><a href="handler_8h.html">handler.h</a></div></div>
-<div class="ttc" id="alogging_8h_html_ada7075f34eb3793a4a33b7b4a80341b4"><div class="ttname"><a href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a></div><div class="ttdeci">#define EMLABCPP_ERROR_LOG(...)</div><div class="ttdef"><b>Definition:</b> logging.h:218</div></div>
+<div class="ttc" id="alogging_8h_html_ada7075f34eb3793a4a33b7b4a80341b4"><div class="ttname"><a href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a></div><div class="ttdeci">#define EMLABCPP_ERROR_LOG(...)</div><div class="ttdef"><b>Definition:</b> logging.h:215</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a3a34c38f8477e0d13ec03adfde561549"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">emlabcpp::protocol::traits_for</a></div><div class="ttdeci">decltype(traits_for_impl&lt; D &gt;()) traits_for</div><div class="ttdef"><b>Definition:</b> traits.h:58</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_structemlabcpp_1_1protocol_1_1error__record"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">emlabcpp::protocol::error_record</a></div><div class="ttdef"><b>Definition:</b> error.h:44</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_structemlabcpp_1_1protocol_1_1tag__group"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group">emlabcpp::protocol::tag_group</a></div><div class="ttdef"><b>Definition:</b> base.h:92</div></div>
@@ -487,7 +487,7 @@ $(document).ready(function(){initNavTree('rpc_8h_source.html',''); initResizable
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="rpc_8h.html">rpc.h</a></li>
-    <li class="footer">Generated on Sun Feb 19 2023 17:30:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Feb 19 2023 19:28:00 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

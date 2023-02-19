@@ -7,7 +7,7 @@ var classemlabcpp_1_1linked__list__node =
     [ "~linked_list_node", "classemlabcpp_1_1linked__list__node.html#aa2ad0359d0655df8c49a1f15c7cf7921", null ],
     [ "count_next", "classemlabcpp_1_1linked__list__node.html#a4ecf08f44cd97ac5da43660fc5b1b47b", null ],
     [ "get_next", "classemlabcpp_1_1linked__list__node.html#ab7f5e3b8a7a49db0420c38781a4dfa50", null ],
-    [ "get_next", "classemlabcpp_1_1linked__list__node.html#a95702d53b54ab8c39d46fcbbdd6bb5ab", null ],
+    [ "get_next", "classemlabcpp_1_1linked__list__node.html#a8e91ebaeb6cbc3c440fea6d3e1f4b9fa", null ],
     [ "get_prev", "classemlabcpp_1_1linked__list__node.html#a6cc83e841a12979b043f18958f882c7b", null ],
     [ "get_prev", "classemlabcpp_1_1linked__list__node.html#a68f3e3f844072f2a6102552458cb886c", null ],
     [ "link_as_next", "classemlabcpp_1_1linked__list__node.html#a61df0affd2ad89a973da406f95a9b29d", null ],

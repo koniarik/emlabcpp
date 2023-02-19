@@ -1,6 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"structemlabcpp_1_1protocol_1_1serializer.html#a24e9fd34586f9c37272127f42a692b2b":[3,0,0,5,48,5],
 "structemlabcpp_1_1protocol_1_1serializer.html#a3db8d0288a0d9c101fdb7a44793c4e83":[3,0,0,5,48,4],
 "structemlabcpp_1_1protocol_1_1serializer.html#a3f19e847096f522a1eac68acca3f870a":[3,0,0,5,48,3],
 "structemlabcpp_1_1protocol_1_1serializer.html#a86587d271435e48dc0a04f4e11f07ff5":[3,0,0,5,48,0],
@@ -29,9 +28,10 @@ var NAVTREEINDEX10 =
 "structemlabcpp_1_1protocol_1_1value__offset.html#a25915b6fc0a00dff31b5e9091b641d55":[3,0,0,5,6,1],
 "structemlabcpp_1_1protocol_1_1value__offset.html#a388bb9f0968c41c21e1f87b6ab3143ca":[3,0,0,5,6,0],
 "structemlabcpp_1_1recursive__writer.html":[3,0,0,33],
-"structemlabcpp_1_1recursive__writer.html#a3b2c3fd8b1ab61724fc050717fc2d55c":[3,0,0,33,2],
-"structemlabcpp_1_1recursive__writer.html#a44fe5205e421d345b21fb97223712868":[3,0,0,33,1],
-"structemlabcpp_1_1recursive__writer.html#a6b193b831f55be6155c643c64357a3e3":[3,0,0,33,0],
+"structemlabcpp_1_1recursive__writer.html#a3b2c3fd8b1ab61724fc050717fc2d55c":[3,0,0,33,3],
+"structemlabcpp_1_1recursive__writer.html#a44fe5205e421d345b21fb97223712868":[3,0,0,33,2],
+"structemlabcpp_1_1recursive__writer.html#a6b193b831f55be6155c643c64357a3e3":[3,0,0,33,1],
+"structemlabcpp_1_1recursive__writer.html#acc648e635a30bff393b50f8370b3f9a9":[3,0,0,33,0],
 "structemlabcpp_1_1rpc_1_1bind.html":[3,0,0,6,10],
 "structemlabcpp_1_1rpc_1_1bind.html#a1ebff10a386756399f97bcee342eb20e":[3,0,0,6,10,1],
 "structemlabcpp_1_1rpc_1_1bind.html#a2053d8c84b1082d438cea5be42a1f66d":[3,0,0,6,10,5],

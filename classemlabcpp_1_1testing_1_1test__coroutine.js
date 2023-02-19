@@ -10,5 +10,5 @@ var classemlabcpp_1_1testing_1_1test__coroutine =
     [ "await_suspend", "classemlabcpp_1_1testing_1_1test__coroutine.html#ad1d65c9231fae8b50509e5f974e218e6", null ],
     [ "done", "classemlabcpp_1_1testing_1_1test__coroutine.html#a10cb42a1589a40b9a00bf768d721df2c", null ],
     [ "get_state", "classemlabcpp_1_1testing_1_1test__coroutine.html#aefe05a542e200f6c2b9c624984b00904", null ],
-    [ "tick", "classemlabcpp_1_1testing_1_1test__coroutine.html#ad405658266e99c9b4b75ba977ada0945", null ]
+    [ "tick", "classemlabcpp_1_1testing_1_1test__coroutine.html#a4f85dc4c4efa2e5e4c8f0f926b663d13", null ]
 ];
