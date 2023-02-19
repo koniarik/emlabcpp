@@ -19,17 +19,18 @@ struct params_test_fixture : public testing::test_interface
         {
         }
 
-        std::string_view get_name() const
+        [[nodiscard]] std::string_view get_name() const override
         {
                 return "wololo";
         }
 
-        testing::test_coroutine run( pmr::memory_resource&, testing::record& )
+        testing::test_coroutine run( pmr::memory_resource&, testing::record& ) override
         {
                 testing::node_type_enum t =
                     co_await params.get_type( co_await params.get_child( 0, "pi" ) );
                 EXPECT_EQ( t, CONTIGUOUS_TREE_VALUE );
 
+                static_assert(alternative_of<bool, testing::value_type>);
                 bool bval = co_await params.get_value< bool >( 0, "happy" );
                 EXPECT_TRUE( bval );
 

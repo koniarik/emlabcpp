@@ -70,15 +70,17 @@ public:
                 return next_;
         }
 
-        [[nodiscard]] linked_list_node* get_next( const std::size_t id )
+        [[nodiscard]] linked_list_node* get_next( std::size_t id )
         {
-                if ( id == 0 ) {
-                        return this;
+                auto* n = next_;
+                while ( n != nullptr ) {
+                        if ( n == 0 ) {
+                                return n;
+                        }
+                        n = n->next_;
+                        id -= 1;
                 }
-                if ( next_ == nullptr ) {
-                        return nullptr;
-                }
-                return next_->get_next( id - 1 );
+                return nullptr;
         }
 
         [[nodiscard]] std::size_t count_next() const

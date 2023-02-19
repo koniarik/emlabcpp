@@ -6,7 +6,7 @@ using namespace emlabcpp;
 
 using basic_view   = function_view< void( int ) >;
 using return_view  = function_view< std::string( int ) >;
-using complex_view = function_view< float( int, std::string ) >;
+using complex_view = function_view< float( int, const std::string& ) >;
 
 // NOLINTNEXTLINE
 TEST( FunctionView, call_view_pointer )
@@ -22,10 +22,10 @@ TEST( FunctionView, call_view_pointer )
         std::string sub_res = rf( 42 );
         EXPECT_EQ( sub_res, "42" );
 
-        auto lc = []( int val, std::string sval ) -> float {
+        auto lc = []( int val, const std::string& sval ) -> float {
                 return static_cast< float >( val * std::stoi( sval ) );
         };
-        static_assert( with_signature< decltype( lc ), float( int, std::string ) > );
+        static_assert( with_signature< decltype( lc ), float( int, const std::string& ) > );
         complex_view cf{ lc };
         float        val = cf( 42, "2" );
         EXPECT_EQ( val, 84 );
@@ -58,7 +58,7 @@ TEST( FunctionView, call_callable )
         EXPECT_EQ( test_sres, "666" );
 
         test_value = 0;
-        auto lc    = [&]( int val, std::string sval ) -> float {
+        auto lc    = [&]( int val, const std::string& sval ) -> float {
                 test_value = val;
                 return static_cast< float >( std::stoi( sval ) );
         };

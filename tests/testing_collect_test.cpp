@@ -19,12 +19,12 @@ struct collector_test_fixture : public testing::test_interface
         {
         }
 
-        std::string_view get_name() const
+        [[nodiscard]] std::string_view get_name() const override
         {
                 return "wololo";
         }
 
-        testing::test_coroutine run( pmr::memory_resource&, testing::record& )
+        testing::test_coroutine run( pmr::memory_resource&, testing::record& ) override
         {
                 coll.set( 0, "key1", 42 );
                 EMLABCPP_ERROR_LOG( "Collected key1" );

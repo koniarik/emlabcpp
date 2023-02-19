@@ -42,7 +42,7 @@ public:
                 std::byte* prev_ptr  = top_;
                 node       prev_node = get_node( prev_ptr );
 
-                std::byte* const p = reinterpret_cast< std::byte* >( align( top_, alignment ) );
+                auto* const p = reinterpret_cast< std::byte* >( align( top_, alignment ) );
 
                 top_ = p + bytes + node_size;
 

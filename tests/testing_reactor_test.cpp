@@ -40,12 +40,12 @@ class nested_test_fixture : public testing::test_interface
 public:
         using testing::test_interface::test_interface;
 
-        std::string_view get_name() const
+        [[nodiscard]] std::string_view get_name() const override
         {
                 return "nested test case";
         }
 
-        testing::test_coroutine run( pmr::memory_resource& mem, testing::record& rec )
+        testing::test_coroutine run( pmr::memory_resource& mem, testing::record& rec ) override
         {
                 for ( std::size_t i : range( 1u, 8u ) ) {
                         co_await sub.run( mem, rec );

@@ -67,7 +67,7 @@ public:
         }
 };
 
-void register_gtests( controller& cont )
+inline void register_gtests( controller& cont )
 {
         std::string suite_name = std::string{ cont.suite_name() };
         for ( auto [tid, tinfo] : cont.get_tests() ) {

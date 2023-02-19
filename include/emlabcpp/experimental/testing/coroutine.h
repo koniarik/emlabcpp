@@ -100,7 +100,7 @@ public:
         }
 
         // TODO: this is shady API as fuck
-        void tick()
+        void tick() override
         {
                 if ( !h_ ) {
                         return;

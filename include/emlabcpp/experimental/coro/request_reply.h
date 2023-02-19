@@ -80,8 +80,8 @@ public:
         request_reply( const request_reply& )            = delete;
         request_reply& operator=( const request_reply& ) = delete;
 
-        request_reply( request_reply&& )            = default;
-        request_reply& operator=( request_reply&& ) = default;
+        request_reply( request_reply&& ) noexcept            = default;
+        request_reply& operator=( request_reply&& ) noexcept = default;
 
         const RequestType* get_request()
         {
@@ -146,7 +146,7 @@ public:
                 return true;
         }
 
-        void* address() const
+        [[nodiscard]] void* address() const
         {
                 return h_.address();
         }

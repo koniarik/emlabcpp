@@ -238,7 +238,7 @@ public:
                 using call_type = std::tuple_element_t< I, bindings_tuple >;
 
                 return std::apply(
-                    [&]( const auto&... args ) -> call_type::reply {
+                    [&]( const auto&... args ) -> typename call_type::reply {
                             return call_type::handle( obj_, args... );
                     },
                     req );
@@ -294,7 +294,7 @@ public:
                 using call_type = std::tuple_element_t< I, def_type >;
 
                 return std::apply(
-                    [&]( const auto&... args ) -> call_type::reply {
+                    [&]( const auto&... args ) -> typename call_type::reply {
                             if constexpr ( call_type::void_returning ) {
                                     std::get< I >( cbs_ )( args... );
                                     return void_return_type{};

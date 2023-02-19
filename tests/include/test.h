@@ -13,22 +13,22 @@ class simple_test_fixture : public testing::test_interface
 public:
         using testing::test_interface::test_interface;
 
-        std::string_view get_name() const
+        [[nodiscard]] std::string_view get_name() const override
         {
                 return "simple wololo";
         }
 
-        testing::test_coroutine setup( pmr::memory_resource&, testing::record& )
+        testing::test_coroutine setup( pmr::memory_resource&, testing::record& ) override
         {
                 setup_count += 1;
                 co_return;
         }
-        testing::test_coroutine run( pmr::memory_resource&, testing::record& )
+        testing::test_coroutine run( pmr::memory_resource&, testing::record& ) override
         {
                 run_count += 1;
                 co_return;
         }
-        testing::test_coroutine teardown( pmr::memory_resource&, testing::record& )
+        testing::test_coroutine teardown( pmr::memory_resource&, testing::record& ) override
         {
                 teardown_count += 1;
                 co_return;
@@ -44,24 +44,24 @@ class complex_test_fixture : public testing::test_interface
 public:
         using testing::test_interface::test_interface;
 
-        std::string_view get_name() const
+        [[nodiscard]] std::string_view get_name() const override
         {
                 return "complex wololo";
         }
 
-        testing::test_coroutine setup( pmr::memory_resource&, testing::record& )
+        testing::test_coroutine setup( pmr::memory_resource&, testing::record& ) override
         {
                 co_await std::suspend_always{};
                 co_await std::suspend_never{};
                 setup_count += 1;
         }
-        testing::test_coroutine run( pmr::memory_resource&, testing::record& )
+        testing::test_coroutine run( pmr::memory_resource&, testing::record& ) override
         {
                 co_await std::suspend_always{};
                 co_await std::suspend_never{};
                 run_count += 1;
         }
-        testing::test_coroutine teardown( pmr::memory_resource&, testing::record& )
+        testing::test_coroutine teardown( pmr::memory_resource&, testing::record& ) override
         {
                 co_await std::suspend_always{};
                 co_await std::suspend_never{};

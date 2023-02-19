@@ -67,6 +67,11 @@ struct buffer_writer
 template < typename Writer >
 struct recursive_writer
 {
+        recursive_writer( Writer w )
+          : w( std::move( w ) )
+        {
+        }
+
         void operator()( std::string_view sv )
         {
                 w( sv );

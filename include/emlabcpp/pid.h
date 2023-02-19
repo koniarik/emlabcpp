@@ -97,7 +97,7 @@ public:
                 set_limits( conf.limits );
         }
 
-        const config& get_config() const
+        [[nodiscard]] const config& get_config() const
         {
                 return conf_;
         }
@@ -124,7 +124,7 @@ public:
                 i_term_      = std::clamp( i_term_, conf_.limits.min, conf_.limits.max );
         }
 
-        const min_max< float >& get_limits() const
+        [[nodiscard]] const min_max< float >& get_limits() const
         {
                 return conf_.limits;
         }

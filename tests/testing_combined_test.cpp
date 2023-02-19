@@ -14,10 +14,10 @@ namespace emlabcpp
 
 struct controller_iface : testing::controller_interface
 {
-        void on_result( const testing::test_result& )
+        void on_result( const testing::test_result& ) override
         {
         }
-        void on_error( const testing::error_variant& )
+        void on_error( const testing::error_variant& ) override
         {
         }
 };
@@ -61,10 +61,10 @@ TEST( testing_combined, base )
 
 struct complex_controller_iface : testing::controller_interface
 {
-        void on_result( const testing::test_result& )
+        void on_result( const testing::test_result& ) override
         {
         }
-        void on_error( const testing::error_variant& )
+        void on_error( const testing::error_variant& ) override
         {
         }
 };

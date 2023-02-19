@@ -29,11 +29,11 @@ public:
         {
         }
 
-        constexpr auto begin() const
+        [[nodiscard]] constexpr auto begin() const
         {
                 return data_.begin();
         }
-        constexpr auto end() const
+        [[nodiscard]] constexpr auto end() const
         {
                 return data_.end();
         }

@@ -42,7 +42,7 @@ public:
         test_interface( test_interface&& other )           = default;
         test_interface& operator=( test_interface&& )      = default;
 
-        virtual std::string_view get_name() const = 0;
+        [[nodiscard]] virtual std::string_view get_name() const = 0;
 
         virtual test_coroutine setup( pmr::memory_resource&, record& );
         virtual test_coroutine run( pmr::memory_resource&, record& ) = 0;
@@ -116,7 +116,7 @@ public:
         test_callable( test_callable&& ) noexcept            = default;
         test_callable& operator=( test_callable&& ) noexcept = default;
 
-        std::string_view get_name() const
+        [[nodiscard]] std::string_view get_name() const override
         {
                 return std::string_view{ name_.data(), name_.size() };
         }
