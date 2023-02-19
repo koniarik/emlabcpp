@@ -152,8 +152,8 @@ extern gpos_logger ERROR_LOGGER;
         do {                                                               \
                 ( logger ).log_header(                                     \
                     emlabcpp::timelog( std::chrono::system_clock::now() ), \
-                    emlabcpp::stem_of( file ),                             \
-                    line );                                                \
+                    emlabcpp::stem_of( ( file ) ),                         \
+                    ( line ) );                                            \
                 ( logger ).log( __VA_ARGS__, '\n' );                       \
         } while ( false )
 

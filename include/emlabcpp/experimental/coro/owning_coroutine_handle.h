@@ -39,7 +39,7 @@ public:
 
         [[nodiscard]] constexpr explicit operator bool() const
         {
-                return bool( h_ );
+                return static_cast< bool >( h_ );
         }
 
         [[nodiscard]] constexpr bool done() const

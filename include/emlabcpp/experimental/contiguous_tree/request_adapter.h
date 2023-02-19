@@ -64,34 +64,39 @@ public:
                         return h.get_child( *id_ptr );
                 };
 
-                return get_containers( nid ).bind_left(
-                    [&id_var, &nid, &get_object_child, &get_array_child](
-                        std::variant< const_object_handle, const_array_handle > var )
-                        -> either< node_id, error_enum > {
-                            const_object_handle* oh_ptr = std::get_if< 0 >( &var );
-                            const_array_handle*  ah_ptr = std::get_if< 1 >( &var );
+                return get_containers( nid )
+                    .bind_left(
+                        [&id_var, &nid, &get_object_child, &get_array_child](
+                            std::variant< const_object_handle, const_array_handle > var )
+                            -> either< std::optional< node_id >, error_enum > {
+                                const_object_handle* oh_ptr = std::get_if< 0 >( &var );
+                                const_array_handle*  ah_ptr = std::get_if< 1 >( &var );
 
-                            std::optional< node_id > res;
-                            if ( oh_ptr != nullptr ) {
-                                    res = get_object_child( *oh_ptr, id_var );
-                            } else if ( ah_ptr != nullptr ) {
-                                    res = get_array_child( *ah_ptr, id_var );
-                            } else {
-                                    EMLABCPP_ERROR_LOG(
-                                        "Node ", nid, " does not have children, is value type" );
-                                    return CONTIGUOUS_WRONG_TYPE;
-                            }
-
-                            if ( !res ) {
-                                    EMLABCPP_ERROR_LOG(
-                                        "Node ",
-                                        nid,
-                                        " does not have child with identifier: ",
-                                        id_var );
-                                    return CONTIGUOUS_CHILD_MISSING;
-                            }
-                            return *res;
-                    } );
+                                if ( oh_ptr != nullptr ) {
+                                        return get_object_child( *oh_ptr, id_var );
+                                } else if ( ah_ptr != nullptr ) {
+                                        return get_array_child( *ah_ptr, id_var );
+                                } else {
+                                        EMLABCPP_ERROR_LOG(
+                                            "Node ",
+                                            nid,
+                                            " does not have children, is value type" );
+                                        return CONTIGUOUS_WRONG_TYPE;
+                                }
+                        } )
+                    .bind_left(
+                        [&nid, &id_var](
+                            std::optional< node_id > opt_nid ) -> either< node_id, error_enum > {
+                                if ( opt_nid ) {
+                                        return *opt_nid;
+                                }
+                                EMLABCPP_ERROR_LOG(
+                                    "Node ",
+                                    nid,
+                                    " does not have child with identifier: ",
+                                    id_var );
+                                return CONTIGUOUS_CHILD_MISSING;
+                        } );
         }
 
         [[nodiscard]] either< child_id, error_enum > get_child_count( node_id nid ) const
