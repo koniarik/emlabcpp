@@ -79,7 +79,6 @@ struct valid_test_case : protocol_test_fixture
 
         void generate_name( std::ostream& os ) const final
         {
-
                 pretty_stream_write( os, "test case for: ", pretty_name< T >(), ";" );
                 pretty_stream_write( os, " ", Endianess, ";" );
                 pretty_stream_write(

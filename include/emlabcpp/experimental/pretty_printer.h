@@ -30,10 +30,10 @@ void pretty_print_serialize_basic( Writer&& w, const T& val )
 {
         std::array< char, N > buffer{};
         auto [ptr, ec] = std::to_chars( buffer.data(), buffer.data() + buffer.size(), val );
-        if ( ec == std::errc() ) {
-                w( std::string_view{
-                    buffer.data(), static_cast< std::size_t >( ptr - buffer.data() ) } );
+        if ( ec != std::errc() ) {
+                return;
         }
+        w( std::string_view{ buffer.data(), static_cast< std::size_t >( ptr - buffer.data() ) } );
 }
 
 template < std::size_t N >
@@ -227,7 +227,8 @@ struct pretty_printer< char[N] >
         template < typename Writer >
         static void print( Writer&& w, const char* const c )
         {
-                w( std::string_view{ c, N } );
+                // TODO: is this really a good idea?
+                w( std::string_view{ c, N - 1 } );
         }
 };
 
