@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['info_2296',['INFO',['../namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55a551b723eafd6a31d444fcb2f5920fbd3',1,'emlabcpp']]],
-  ['input_5fmessage_5fprotocol_5ferror_2297',['INPUT_MESSAGE_PROTOCOL_ERROR',['../namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a70e33cdaf6aa8a512fd227a8415c7b98',1,'emlabcpp::testing']]],
-  ['internal_5ferror_2298',['INTERNAL_ERROR',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca94ed7dad64766a32cea41354f0b3f318',1,'emlabcpp::testing']]]
+  ['failure_2290',['FAILURE',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca3841712339181fdbe54aa09a1eefba23',1,'emlabcpp::testing']]],
+  ['finished_2291',['FINISHED',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca12d0cc9212a1a22db9ce472105aba2f5',1,'emlabcpp::testing']]],
+  ['full_2292',['FULL',['../namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10aba7de5bc6888294e5884b024a4c894f1',1,'emlabcpp']]]
 ];

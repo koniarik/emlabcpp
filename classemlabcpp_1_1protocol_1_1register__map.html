@@ -159,7 +159,7 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a186d6906563c747f46ff7b429532f5c4"><td class="memItemLeft" align="right" valign="top">static constexpr std::endian&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a186d6906563c747f46ff7b429532f5c4">endianess</a> = Endianess</td></tr>
+<tr class="memitem:a186d6906563c747f46ff7b429532f5c4"><td class="memItemLeft" align="right" valign="top">static constexpr std::endian&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a186d6906563c747f46ff7b429532f5c4">endianess</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a></td></tr>
 <tr class="separator:a186d6906563c747f46ff7b429532f5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6df959b196db8242aea28d3fc0e41e38"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a6df959b196db8242aea28d3fc0e41e38">registers_count</a> = sizeof...( Regs )</td></tr>
 <tr class="separator:a6df959b196db8242aea28d3fc0e41e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,7 +188,7 @@ class emlabcpp::protocol::register_map&lt; Endianess, Regs &gt;</h3>
 template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a> =  typename std::tuple_element_t&lt; 0, <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a123ef0007c53a0241f548d9e1b559de3">registers_tuple</a> &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a></td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a> =  typename std::tuple_element_t&lt; 0, <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a123ef0007c53a0241f548d9e1b559de3">registers_tuple</a> &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -204,7 +204,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a839a1044031392b0aad65f6c100e884c">message_type</a> =  <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a33f5097792f99d104f47fd808132b3b9">max_value_size</a> &gt;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a839a1044031392b0aad65f6c100e884c">message_type</a> =  <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a33f5097792f99d104f47fd808132b3b9">max_value_size</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -222,7 +222,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 template&lt;key_type Key&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a9a8585ce3fa58e7c413e83df4b81e28e">reg_def_type</a> =  typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::def_type</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a9a8585ce3fa58e7c413e83df4b81e28e">reg_def_type</a> =  typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::def_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -240,7 +240,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 template&lt;key_type Key&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a> =  std::tuple_element_t&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a2999eaaf7666321cf01acb68b684ce70">key_index</a>&lt; Key &gt;, <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a123ef0007c53a0241f548d9e1b559de3">registers_tuple</a> &gt;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a> =  std::tuple_element_t&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a2999eaaf7666321cf01acb68b684ce70">key_index</a>&lt; Key &gt;, <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a123ef0007c53a0241f548d9e1b559de3">registers_tuple</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -258,7 +258,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 template&lt;key_type Key&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a43b737178dcc70ca41577a03ea9c8fb4">reg_value_type</a> =  typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::value_type</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a43b737178dcc70ca41577a03ea9c8fb4">reg_value_type</a> =  typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::value_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -274,7 +274,7 @@ template&lt;key_type Key&gt; </div>
 template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ad9c9d7232471e21e3b8ffc20082074b9">register_index</a> =  <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, 0, <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a6df959b196db8242aea28d3fc0e41e38">registers_count</a> - 1 &gt;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ad9c9d7232471e21e3b8ffc20082074b9">register_index</a> =  <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, 0, <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a6df959b196db8242aea28d3fc0e41e38">registers_count</a> - 1 &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -290,7 +290,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 template&lt;std::endian Endianess, typename... Regs&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a123ef0007c53a0241f548d9e1b559de3">registers_tuple</a> =  std::tuple&lt; Regs... &gt;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a123ef0007c53a0241f548d9e1b559de3">registers_tuple</a> =  std::tuple&lt; Regs... &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -308,7 +308,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 template&lt;key_type Key&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ac910e0d119bf622432dc91a200693b5a">traits</a> =  typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ac910e0d119bf622432dc91a200693b5a">traits</a></td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ac910e0d119bf622432dc91a200693b5a">traits</a> =  typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ac910e0d119bf622432dc91a200693b5a">traits</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -328,7 +328,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a> </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -355,7 +355,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a> </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a> </td>
           <td>(</td>
           <td class="paramtype">typename Regs::value_type &amp;...&#160;</td>
           <td class="paramname"><em>args</em></td><td>)</td>
@@ -383,7 +383,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a> </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a> </td>
           <td>(</td>
           <td class="paramtype">const Regs &amp;...&#160;</td>
           <td class="paramname"><em>regs</em></td><td>)</td>
@@ -412,7 +412,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::contains </td>
+          <td class="memname">constexpr bool <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::contains </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a>&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
@@ -440,7 +440,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt;<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a6df959b196db8242aea28d3fc0e41e38">registers_count</a>&gt; <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::get_keys </td>
+          <td class="memname">std::array&lt;<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a6df959b196db8242aea28d3fc0e41e38">registers_count</a>&gt; <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::get_keys </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -469,7 +469,7 @@ template&lt;key_type Key&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a43b737178dcc70ca41577a03ea9c8fb4">reg_value_type</a>&lt; Key &gt; <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::get_val </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a43b737178dcc70ca41577a03ea9c8fb4">reg_value_type</a>&lt; Key &gt; <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::get_val </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -496,7 +496,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a> <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::register_key </td>
+          <td class="memname">static constexpr <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a> <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::register_key </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ad9c9d7232471e21e3b8ffc20082074b9">register_index</a>&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -526,7 +526,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr std::size_t <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::register_size </td>
+          <td class="memname">static constexpr std::size_t <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::register_size </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ad9c9d7232471e21e3b8ffc20082074b9">register_index</a>&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -558,7 +558,7 @@ template&lt;key_type Key&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::set_val </td>
+          <td class="memname">void <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::set_val </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a43b737178dcc70ca41577a03ea9c8fb4">reg_value_type</a>&lt; Key &gt;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
@@ -588,7 +588,7 @@ template&lt;typename UnaryCallable &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr void <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::setup_register </td>
+          <td class="memname">constexpr void <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::setup_register </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a>&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -630,7 +630,7 @@ template&lt;typename UnaryCallable &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::with_register </td>
+          <td class="memname">constexpr auto <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::with_register </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a>&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -670,7 +670,7 @@ template&lt;typename UnaryCallable &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::with_register </td>
+          <td class="memname">constexpr auto <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::with_register </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a>&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -711,7 +711,7 @@ template&lt;key_type Key&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::contains_key</td>
+          <td class="memname">constexpr bool <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::contains_key</td>
         </tr>
       </table>
   </td>
@@ -737,7 +737,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::endian <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::endianess = Endianess</td>
+          <td class="memname">constexpr std::endian <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::endianess = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a></td>
         </tr>
       </table>
   </td>
@@ -763,7 +763,7 @@ template&lt;key_type Key&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::key_index = get_reg_index( Key )</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::key_index = get_reg_index( Key )</td>
         </tr>
       </table>
   </td>
@@ -787,7 +787,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::max_value_size = std::max( { Regs::traits::max_size... } )</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::max_value_size = std::max( { Regs::traits::max_size... } )</td>
         </tr>
       </table>
   </td>
@@ -811,7 +811,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; Endianess, Regs &gt;::registers_count = sizeof...( Regs )</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::registers_count = sizeof...( Regs )</td>
         </tr>
       </table>
   </td>
@@ -832,7 +832,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a></li>
-    <li class="footer">Generated on Sun Feb 19 2023 21:08:22 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Feb 19 2023 21:50:18 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -90,7 +90,7 @@ var namespaceemlabcpp_1_1testing =
     [ "message", "namespaceemlabcpp_1_1testing.html#ac20ae60a35b1add076793aeb77e89853", null ],
     [ "name_buffer", "namespaceemlabcpp_1_1testing.html#ae5199fc97a7274203e42e578b9fe8399", null ],
     [ "node_id", "namespaceemlabcpp_1_1testing.html#a2cd11b9ad2da9a2055df3782718ee549", null ],
-    [ "node_type_enum", "namespaceemlabcpp_1_1testing.html#aeaa7e76964de0a6f4457ce46b9f726f9", null ],
+    [ "node_type_enum", "namespaceemlabcpp_1_1testing.html#ace52aae1880a8e3ab02b4b65a298c1b3", null ],
     [ "packet", "namespaceemlabcpp_1_1testing.html#a1552bd84b510ee082c62d4e8cb609f63", null ],
     [ "packet_message", "namespaceemlabcpp_1_1testing.html#a9a57c3c23267437b444cef8cf5fa4a5c", null ],
     [ "packet_payload", "namespaceemlabcpp_1_1testing.html#ae54084670588cf3812a2f95d763178ab", null ],

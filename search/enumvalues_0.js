@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bad_5ftest_5fid_5fe_2277',['BAD_TEST_ID_E',['../namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76abc7e642981e78350d9d7576b29082c70',1,'emlabcpp::testing']]]
+  ['array_2280',['ARRAY',['../namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fdacb4fb1757fb37c43cded35d3eb857c43',1,'emlabcpp::ARRAY()'],['../namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eecaacb4fb1757fb37c43cded35d3eb857c43',1,'emlabcpp::ARRAY()']]]
 ];

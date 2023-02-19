@@ -14,7 +14,7 @@ var classemlabcpp_1_1contiguous__node =
     [ "contiguous_node", "classemlabcpp_1_1contiguous__node.html#a96db6798966b71d0068639f33b41c1d0", null ],
     [ "get_container_handle", "classemlabcpp_1_1contiguous__node.html#ab2bdd4e3438bf46e4a178dc66dedd333", null ],
     [ "get_container_handle", "classemlabcpp_1_1contiguous__node.html#a7ca197e4e81c40041ea371af8d05955b", null ],
-    [ "get_type", "classemlabcpp_1_1contiguous__node.html#ad01f858b3cca547253df95f19be26061", null ],
+    [ "get_type", "classemlabcpp_1_1contiguous__node.html#aa5d8553d9314dfa124978a503d9f9409", null ],
     [ "get_value", "classemlabcpp_1_1contiguous__node.html#a56175eb8d27786d18f22070e2f8c5334", null ],
     [ "get_value", "classemlabcpp_1_1contiguous__node.html#a5be51d3bb66fd49ad31da3409211a722", null ]
 ];

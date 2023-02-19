@@ -134,19 +134,19 @@ var namespaceemlabcpp =
     [ "voltage", "namespaceemlabcpp.html#a1c9a554fd1715665000628242b77a474", null ],
     [ "volume", "namespaceemlabcpp.html#a5f05bc39f7d9b7332f437d5a7b19156c", null ],
     [ "contiguous_container_type", "namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eeca", [
-      [ "CONTIGUOUS_CONT_ARRAY", "namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eecaa7f7967e3e621152628699b4d1aeeef24", null ],
-      [ "CONTIGUOUS_CONT_OBJECT", "namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eecaac58166e78eb669242b19d6d7f1868a48", null ]
+      [ "ARRAY", "namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eecaacb4fb1757fb37c43cded35d3eb857c43", null ],
+      [ "OBJECT", "namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eecaa8eee8e217391199668cbac89472ace53", null ]
     ] ],
-    [ "contiguous_request_adapter_errors_enum", "namespaceemlabcpp.html#ab2b48448332f877103f3f8254d055fb9", [
-      [ "CONTIGUOUS_MISSING_NODE", "namespaceemlabcpp.html#ab2b48448332f877103f3f8254d055fb9aa3c531870544990e8af1079552480f97", null ],
-      [ "CONTIGUOUS_WRONG_TYPE", "namespaceemlabcpp.html#ab2b48448332f877103f3f8254d055fb9a8a10e98eaca12bbfa36cc05874329abe", null ],
-      [ "CONTIGUOUS_CHILD_MISSING", "namespaceemlabcpp.html#ab2b48448332f877103f3f8254d055fb9a34c37ba0fe227476b398e694f2ba3806", null ],
-      [ "CONTIGUOUS_FULL", "namespaceemlabcpp.html#ab2b48448332f877103f3f8254d055fb9a1d14c95c3fcb822302caf1ce0bbf439f", null ]
+    [ "contiguous_request_adapter_errors", "namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10", [
+      [ "MISSING_NODE", "namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10a7e94d60ca52c8bf6da26a0a479f08d21", null ],
+      [ "WRONG_TYPE", "namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10a9bf67e4befa0dcd99caa7f01f2c9b714", null ],
+      [ "CHILD_MISSING", "namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10a3396545d99c2f2d78dd20411b4a66ad2", null ],
+      [ "FULL", "namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10aba7de5bc6888294e5884b024a4c894f1", null ]
     ] ],
-    [ "contiguous_tree_type_enum", "namespaceemlabcpp.html#ab6d4662933f76ac56e85afb0ca37e997", [
-      [ "CONTIGUOUS_TREE_VALUE", "namespaceemlabcpp.html#ab6d4662933f76ac56e85afb0ca37e997a4cdd7f9cd282729e856fe214f7575888", null ],
-      [ "CONTIGUOUS_TREE_OBJECT", "namespaceemlabcpp.html#ab6d4662933f76ac56e85afb0ca37e997a00b519f4d947eb449e9d06ec03804256", null ],
-      [ "CONTIGUOUS_TREE_ARRAY", "namespaceemlabcpp.html#ab6d4662933f76ac56e85afb0ca37e997a2e260cb0c3d12bbc44f6ee65871b461f", null ]
+    [ "contiguous_tree_type", "namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fd", [
+      [ "VALUE", "namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fdaecc2e9c313faddb07e7da223c1dc5c3f", null ],
+      [ "OBJECT", "namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fda8eee8e217391199668cbac89472ace53", null ],
+      [ "ARRAY", "namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fdacb4fb1757fb37c43cded35d3eb857c43", null ]
     ] ],
     [ "log_severity", "namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55", [
       [ "DEBUG", "namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55adc30ec20708ef7b0f641ef78b7880a15", null ],

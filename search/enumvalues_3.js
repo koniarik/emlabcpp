@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['error_2291',['ERROR',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca877f69177a47fe79578e054501efe224',1,'emlabcpp::testing']]],
-  ['errored_2292',['ERRORED',['../namespaceemlabcpp_1_1testing.html#a4084b1334bacda756131a06297cbe4dfadd0f1fac7b1452a7c98db1c15fa9b7bb',1,'emlabcpp::testing']]],
-  ['exec_2293',['EXEC',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cac701d4251538d4cb8c79b9ba788e8ace',1,'emlabcpp::testing']]]
+  ['debug_2285',['DEBUG',['../namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55adc30ec20708ef7b0f641ef78b7880a15',1,'emlabcpp']]],
+  ['destroy_2286',['DESTROY',['../namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eac39aa6dbe619bb8ef8187b00b686df6a',1,'emlabcpp::detail']]]
 ];

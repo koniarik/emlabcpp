@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['undesired_5fmsg_5fe_2317',['UNDESIRED_MSG_E',['../namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76aa92b7d54a4af0d4a68deaca06f6b5d14',1,'emlabcpp::testing']]]
+  ['suite_5fdate_2310',['SUITE_DATE',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca50e315ea9fe571c82325de10302c70a0',1,'emlabcpp::testing']]],
+  ['suite_5fname_2311',['SUITE_NAME',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca80d3c264bc9a5f0a15ef3335f6a4d754',1,'emlabcpp::testing']]]
 ];

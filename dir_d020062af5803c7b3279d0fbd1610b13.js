@@ -25,11 +25,7 @@ var dir_d020062af5803c7b3279d0fbd1610b13 =
     ] ],
     [ "register_map.h", "register__map_8h.html", "register__map_8h" ],
     [ "sequencer.h", "sequencer_8h.html", "sequencer_8h" ],
-    [ "serializer.h", "serializer_8h.html", [
-      [ "serializer", "structemlabcpp_1_1protocol_1_1serializer.html", "structemlabcpp_1_1protocol_1_1serializer" ],
-      [ "serializer< float, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4" ],
-      [ "serializer< bool, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4" ]
-    ] ],
+    [ "serializer.h", "serializer_8h.html", "serializer_8h" ],
     [ "streams.h", "streams_8h.html", "streams_8h" ],
     [ "traits.h", "traits_8h.html", "traits_8h" ],
     [ "tuple.h", "tuple_8h.html", [
