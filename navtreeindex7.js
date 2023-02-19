@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"namespacemembers_b.html":[2,1,0,1],
 "namespacemembers_c.html":[2,1,0,2],
 "namespacemembers_d.html":[2,1,0,3],
 "namespacemembers_e.html":[2,1,0,4],
@@ -249,5 +248,6 @@ var NAVTREEINDEX7 =
 "structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#ab97d6982c4781647c6ef005174e7b774":[3,0,0,0,2,1,7],
 "structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#ac60930d0aece6d536056c03dc9a9d4ae":[3,0,0,0,2,1,5],
 "structemlabcpp_1_1detail_1_1decompose__anything.html":[3,0,0,1,0],
-"structemlabcpp_1_1detail_1_1decompose__anything.html#a172267c826646bbdd8ce62c0f040d3a1":[3,0,0,1,0,0]
+"structemlabcpp_1_1detail_1_1decompose__anything.html#a172267c826646bbdd8ce62c0f040d3a1":[3,0,0,1,0,0],
+"structemlabcpp_1_1detail_1_1static__function__vtable.html":[3,0,0,1,1]
 };
