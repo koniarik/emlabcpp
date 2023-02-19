@@ -17,11 +17,11 @@ void collect_awaiter::await_suspend( const std::coroutine_handle< test_coroutine
         col.exchange( req, [this]( const collect_server_client_group& var ) {
                 match(
                     var,
-                    [&]( const collect_reply& rpl ) {
+                    [this]( const collect_reply& rpl ) {
                             res   = rpl.nid;
                             state = await_state::READY;
                     },
-                    [&]( const tree_error_reply& err ) {
+                    [this]( const tree_error_reply& err ) {
                             std::ignore = err;
                             EMLABCPP_ERROR_LOG( "Got an error: ", err );
                             state = await_state::ERRORED;
@@ -40,10 +40,10 @@ void collector::on_msg( const std::span< const uint8_t >& msg )
         using h = protocol::handler< collect_server_client_group >;
         h::extract( view_n( msg.data(), msg.size() ) )
             .match(
-                [&]( const collect_server_client_group& req ) {
+                [this]( const collect_server_client_group& req ) {
                         on_msg( req );
                 },
-                [&]( const auto& err ) {
+                []( const auto& err ) {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                 } );
@@ -71,7 +71,7 @@ collect_awaiter collector::append( const node_id parent, contiguous_container_ty
                 .parent = parent, .expects_reply = true, .opt_key = std::nullopt, .value = t },
             *this };
 }
-void collector::set( const node_id parent, std::string_view key, const value_type& val )
+void collector::set( const node_id parent, const std::string_view key, const value_type& val )
 {
         send( collect_request{
             .parent        = parent,
@@ -98,7 +98,7 @@ void collector::send( const collect_request& req )
 }
 
 collect_server::collect_server(
-    protocol::channel_type           chan,
+    const protocol::channel_type     chan,
     pmr::memory_resource&            mem_res,
     collect_server_transmit_callback send_cb )
   : channel_( chan )
@@ -107,15 +107,15 @@ collect_server::collect_server(
 {
 }
 
-void collect_server::on_msg( std::span< const uint8_t > data )
+void collect_server::on_msg( const std::span< const uint8_t > data )
 {
         using h = protocol::handler< collect_request >;
         h::extract( view_n( data.data(), data.size() ) )
             .match(
-                [&]( const collect_request& req ) {
+                [this]( const collect_request& req ) {
                         on_msg( req );
                 },
-                [&]( const auto& err ) {
+                []( const auto& err ) {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                 } );

@@ -51,22 +51,22 @@ template class params_awaiter< param_child_count_processor >;
 }
 template class params_awaiter< param_key_processor >;
 
-parameters::parameters( protocol::channel_type chann, params_client_transmit_callback send_cb )
+parameters::parameters( const protocol::channel_type chann, params_client_transmit_callback send_cb )
   : channel_( chann )
   , send_cb_( std::move( send_cb ) )
 {
 }
 
-void parameters::on_msg( std::span< const uint8_t > data )
+void parameters::on_msg( const std::span< const uint8_t > data )
 {
         // TODO: this is copy pasta festival from collect...
         using h = protocol::handler< params_server_client_group >;
         h::extract( view_n( data.data(), data.size() ) )
             .match(
-                [&]( const params_server_client_variant& req ) {
+                [this]( const params_server_client_variant& req ) {
                         on_msg( req );
                 },
-                [&]( const auto& err ) {
+                []( const auto& err ) {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                 } );
@@ -80,21 +80,21 @@ void parameters::on_msg( const params_server_client_variant& req )
         reply_cb_( req );
 }
 
-param_type_awaiter parameters::get_type( node_id nid )
+param_type_awaiter parameters::get_type( const node_id nid )
 {
         return param_type_awaiter{ param_type_request{ nid }, *this };
 }
 
-param_child_awaiter parameters::get_child( node_id nid, child_id chid )
+param_child_awaiter parameters::get_child( const node_id nid, const child_id chid )
 {
         return param_child_awaiter{ param_child_request{ nid, chid }, *this };
 }
-param_child_awaiter parameters::get_child( node_id nid, const key_type& key )
+param_child_awaiter parameters::get_child( const node_id nid, const key_type& key )
 {
         return param_child_awaiter{ param_child_request{ nid, key }, *this };
 }
 
-param_child_awaiter parameters::get_child( node_id nid, std::string_view key )
+param_child_awaiter parameters::get_child( const node_id nid, const std::string_view key )
 {
         return get_child( nid, key_type_to_buffer( key ) );
 }
@@ -104,7 +104,7 @@ param_child_count_awaiter parameters::get_child_count( const node_id nid )
         return param_child_count_awaiter{ param_child_count_request{ .parent = nid }, *this };
 }
 
-param_key_awaiter parameters::get_key( node_id nid, child_id chid )
+param_key_awaiter parameters::get_key( const node_id nid, const child_id chid )
 {
         return param_key_awaiter{ param_key_request{ nid, chid }, *this };
 }
@@ -137,10 +137,10 @@ void parameters_server::on_msg( std::span< const uint8_t > data )
         using h = protocol::handler< params_client_server_group >;
         h::extract( view_n( data.data(), data.size() ) )
             .match(
-                [&]( const params_client_server_variant& req ) {
+                [this]( const params_client_server_variant& req ) {
                         on_msg( req );
                 },
-                [&]( const auto& err ) {
+                []( const auto& err ) {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                 } );
@@ -149,7 +149,7 @@ void parameters_server::on_msg( std::span< const uint8_t > data )
 void parameters_server::on_msg( const params_client_server_variant& req )
 {
         visit(
-            [&]( const auto& item ) {
+            [this]( const auto& item ) {
                     on_req( item );
             },
             req );

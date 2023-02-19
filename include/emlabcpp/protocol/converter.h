@@ -371,14 +371,14 @@ struct converter< std::optional< T >, Endianess >
         static constexpr conversion_result
         deserialize( const std::span< const uint8_t >& buffer, value_type& value )
         {
-                presence_type is_present;
-                auto          subres =
-                    presence_converter::deserialize( buffer.first< presence_size >(), is_present );
+                presence_type is_present_v;
+                auto          subres = presence_converter::deserialize(
+                    buffer.first< presence_size >(), is_present_v );
                 if ( subres.has_error() ) {
                         return subres;
                 }
 
-                if ( is_present == not_present ) {
+                if ( is_present_v == not_present ) {
                         return subres;
                 }
 
@@ -928,10 +928,11 @@ struct converter< static_vector< T, N >, Endianess >
                         }
                         std::span subspan = buffer.subspan( offset );
                         value.emplace_back();
-                        auto subres = sub_converter::deserialize( subspan, value.back() );
-                        offset += subres.used;
+
+                        auto itemres = sub_converter::deserialize( subspan, value.back() );
+                        offset += itemres.used;
                         if ( subres.has_error() ) {
-                                return { offset, subres.get_error() };
+                                return { offset, itemres.get_error() };
                         }
                 }
 

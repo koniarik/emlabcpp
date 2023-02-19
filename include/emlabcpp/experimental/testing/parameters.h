@@ -310,7 +310,7 @@ void params_awaiter< Processor >::await_suspend(
     const std::coroutine_handle< test_coroutine::promise_type > h )
 {
         h.promise().iface = this;
-        params.exchange( proc.req, [&]( const params_server_client_variant& var ) {
+        params.exchange( proc.req, [this]( const params_server_client_variant& var ) {
                 if ( !proc.set_value( var ) ) {
                         // TODO: reply with error to server!!!
                         EMLABCPP_ERROR_LOG( "Setting value to processor errored" );

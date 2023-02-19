@@ -27,8 +27,8 @@ namespace emlabcpp::testing
 
 void reactor_interface_adapter::reply( const reactor_controller_variant& var )
 {
-        using h  = protocol::handler< reactor_controller_group >;
-        auto msg = h::serialize( var );
+        using h        = protocol::handler< reactor_controller_group >;
+        const auto msg = h::serialize( var );
         transmit_( channel_, msg );
 }
 

@@ -102,7 +102,7 @@ private:
         {
 
                 pretty_printer< T >::print(
-                    recursive_writer{ [&]( const auto& sub ) {
+                    recursive_writer{ [this]( const auto& sub ) {
                             write( sub );
                     } },
                     t );

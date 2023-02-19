@@ -41,7 +41,7 @@ void reactor::tick()
                 opt_exec_.reset();
         }
 }
-void reactor::on_msg( std::span< const uint8_t > buffer )
+void reactor::on_msg( const std::span< const uint8_t > buffer )
 {
         using h = protocol::handler< controller_reactor_group >;
         h::extract( view_n( buffer.data(), buffer.size() ) )
@@ -80,7 +80,7 @@ void reactor::handle_message( const get_test_name_request req )
                 iface_.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
         }
-        test_interface* test_ptr = **node_ptr;
+        test_interface* const test_ptr = **node_ptr;
         iface_.reply( get_test_name_reply{ name_to_buffer( test_ptr->get_name() ) } );
 }
 
@@ -96,7 +96,7 @@ void reactor::handle_message( const exec_request req )
                 iface_.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
         }
-        test_interface* test_ptr = **node_ptr;
+        test_interface* const test_ptr = **node_ptr;
         opt_exec_.emplace( req.rid, mem_, *test_ptr );
 }
 }  // namespace emlabcpp::testing

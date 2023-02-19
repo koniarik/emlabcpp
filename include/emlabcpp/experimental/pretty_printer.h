@@ -90,7 +90,7 @@ template < typename... Ts >
 auto& pretty_stream_write( ostreamlike auto& os, const Ts&... item )
 {
         ( pretty_printer< Ts >::print(
-              recursive_writer{ [&]( std::string_view sv ) {
+              recursive_writer{ [&os]( std::string_view sv ) {
                       os << sv;
               } },
               item ),
@@ -107,7 +107,7 @@ buffer_writer< N > pretty_print_buffer( const Ts&... item )
         return buff;
 }
 
-template < typename W >
+template < typename Writer >
 struct pretty_stream
 {
 
@@ -118,104 +118,104 @@ struct pretty_stream
                 return *this;
         }
 
-        W writer;
+        Writer writer;
 };
 
 template <>
 struct pretty_printer< signed char >
 {
-        template < typename W >
-        static void print( W&& w, signed char i )
+        template < typename Writer >
+        static void print( Writer&& w, signed char i )
         {
-                pretty_print_serialize_basic< 4 >( w, i );
+                pretty_print_serialize_basic< 4 >( std::forward< Writer >( w ), i );
         }
 };
 
 template <>
 struct pretty_printer< short int >
 {
-        template < typename W >
-        static void print( W&& w, short int i )
+        template < typename Writer >
+        static void print( Writer&& w, short int i )
         {
-                pretty_print_serialize_basic< 8 >( w, i );
+                pretty_print_serialize_basic< 8 >( std::forward< Writer >( w ), i );
         }
 };
 
 template <>
 struct pretty_printer< int >
 {
-        template < typename W >
-        static void print( W&& w, int i )
+        template < typename Writer >
+        static void print( Writer&& w, int i )
         {
-                pretty_print_serialize_basic< 16 >( w, i );
+                pretty_print_serialize_basic< 16 >( std::forward< Writer >( w ), i );
         }
 };
 
 template <>
 struct pretty_printer< long int >
 {
-        template < typename W >
-        static void print( W&& w, long int i )
+        template < typename Writer >
+        static void print( Writer&& w, long int i )
         {
-                pretty_print_serialize_basic< 32 >( w, i );
+                pretty_print_serialize_basic< 32 >( std::forward< Writer >( w ), i );
         }
 };
 
 template <>
 struct pretty_printer< unsigned char >
 {
-        template < typename W >
-        static void print( W&& w, unsigned char u )
+        template < typename Writer >
+        static void print( Writer&& w, unsigned char u )
         {
-                pretty_print_serialize_basic< 4 >( w, u );
+                pretty_print_serialize_basic< 4 >( std::forward< Writer >( w ), u );
         }
 };
 
 template <>
 struct pretty_printer< short unsigned >
 {
-        template < typename W >
-        static void print( W&& w, short unsigned u )
+        template < typename Writer >
+        static void print( Writer&& w, short unsigned u )
         {
-                pretty_print_serialize_basic< 16 >( w, u );
+                pretty_print_serialize_basic< 16 >( std::forward< Writer >( w ), u );
         }
 };
 
 template <>
 struct pretty_printer< unsigned >
 {
-        template < typename W >
-        static void print( W&& w, unsigned u )
+        template < typename Writer >
+        static void print( Writer&& w, unsigned u )
         {
-                pretty_print_serialize_basic< 16 >( w, u );
+                pretty_print_serialize_basic< 16 >( std::forward< Writer >( w ), u );
         }
 };
 
 template <>
 struct pretty_printer< long unsigned >
 {
-        template < typename W >
-        static void print( W&& w, long unsigned u )
+        template < typename Writer >
+        static void print( Writer&& w, long unsigned u )
         {
-                pretty_print_serialize_basic< 32 >( w, u );
+                pretty_print_serialize_basic< 32 >( std::forward< Writer >( w ), u );
         }
 };
 
 template <>
 struct pretty_printer< float >
 {
-        template < typename W >
-        static void print( W&& w, float f )
+        template < typename Writer >
+        static void print( Writer&& w, float f )
         {
-                pretty_print_serialize_basic< 32 >( w, f );
+                pretty_print_serialize_basic< 32 >( std::forward< Writer >( w ), f );
         }
 };
 
 template <>
 struct pretty_printer< char >
 {
-        template < typename W >
-        static void print( W&& w, const char c )
+        template < typename Writer >
+        static void print( Writer&& w, const char c )
         {
                 w( std::string_view{ &c, 1 } );
         }
@@ -224,8 +224,8 @@ struct pretty_printer< char >
 template < std::size_t N >
 struct pretty_printer< char[N] >
 {
-        template < typename W >
-        static void print( W&& w, const char* const c )
+        template < typename Writer >
+        static void print( Writer&& w, const char* const c )
         {
                 w( std::string_view{ c, N } );
         }
@@ -234,8 +234,8 @@ struct pretty_printer< char[N] >
 template <>
 struct pretty_printer< std::string >
 {
-        template < typename W >
-        static void print( W&& w, const std::string& s )
+        template < typename Writer >
+        static void print( Writer&& w, const std::string& s )
         {
                 w( std::string_view{ s } );
         }
@@ -244,8 +244,8 @@ struct pretty_printer< std::string >
 template <>
 struct pretty_printer< bool >
 {
-        template < typename W >
-        static void print( W&& w, const bool b )
+        template < typename Writer >
+        static void print( Writer&& w, const bool b )
         {
                 w( b ? 't' : 'f' );
         }
@@ -254,8 +254,8 @@ struct pretty_printer< bool >
 template < typename T >
 requires( std::is_pointer_v< T > ) struct pretty_printer< T >
 {
-        template < typename W >
-        static void print( W&& w, T val )
+        template < typename Writer >
+        static void print( Writer&& w, T val )
         {
                 w( "0x" );
                 w( std::bit_cast< std::uintptr_t >( val ) );
@@ -265,8 +265,8 @@ requires( std::is_pointer_v< T > ) struct pretty_printer< T >
 template < typename T >
 requires( std::is_enum_v< T > ) struct pretty_printer< T >
 {
-        template < typename W >
-        static void print( W&& w, T val )
+        template < typename Writer >
+        static void print( Writer&& w, T val )
         {
                 w( convert_enum( val ) );
         }
@@ -275,38 +275,38 @@ requires( std::is_enum_v< T > ) struct pretty_printer< T >
 template < typename Iterator >
 struct pretty_printer< view< Iterator > >
 {
-        template < typename W >
-        static void print( W&& w, const view< Iterator >& output )
+        template < typename Writer >
+        static void print( Writer&& w, const view< Iterator >& output )
         {
-                string_serialize_view( w, output );
+                string_serialize_view( std::forward< Writer >( w ), output );
         }
 };
 
 template < typename T, std::size_t N >
 struct pretty_printer< std::span< T, N > >
 {
-        template < typename W >
-        static void print( W&& w, const std::span< T, N >& sp )
+        template < typename Writer >
+        static void print( Writer&& w, const std::span< T, N >& sp )
         {
-                string_serialize_view( w, data_view( sp ) );
+                string_serialize_view( std::forward< Writer >( w ), data_view( sp ) );
         }
 };
 
 template < typename T, std::size_t N >
 struct pretty_printer< std::array< T, N > >
 {
-        template < typename W >
-        static void print( W&& w, const std::array< T, N >& arr )
+        template < typename Writer >
+        static void print( Writer&& w, const std::array< T, N >& arr )
         {
-                string_serialize_view( w, data_view( arr ) );
+                string_serialize_view( std::forward< Writer >( w ), data_view( arr ) );
         }
 };
 
 template <>
 struct pretty_printer< std::filesystem::path >
 {
-        template < typename W >
-        static void print( W&& w, const std::filesystem::path& p )
+        template < typename Writer >
+        static void print( Writer&& w, const std::filesystem::path& p )
         {
                 w( p.string() );
         }
@@ -315,18 +315,18 @@ struct pretty_printer< std::filesystem::path >
 template < typename T >
 struct pretty_printer< std::vector< T > >
 {
-        template < typename W >
-        static void print( W&& w, const std::vector< T >& vec )
+        template < typename Writer >
+        static void print( Writer&& w, const std::vector< T >& vec )
         {
-                string_serialize_view( w, data_view( vec ) );
+                string_serialize_view( std::forward< Writer >( w ), data_view( vec ) );
         }
 };
 
 template < typename... Ts >
 struct pretty_printer< std::variant< Ts... > >
 {
-        template < typename W >
-        static void print( W&& w, const std::variant< Ts... >& var )
+        template < typename Writer >
+        static void print( Writer&& w, const std::variant< Ts... >& var )
         {
                 visit(
                     [&w]( const auto& item ) {
@@ -339,8 +339,8 @@ struct pretty_printer< std::variant< Ts... > >
 template < typename... Ts >
 struct pretty_printer< std::tuple< Ts... > >
 {
-        template < typename W >
-        static void print( W&& w, const std::tuple< Ts... >& tpl )
+        template < typename Writer >
+        static void print( Writer&& w, const std::tuple< Ts... >& tpl )
         {
                 if constexpr ( sizeof...( Ts ) == 0 ) {
                         w( "()" );
@@ -359,8 +359,8 @@ struct pretty_printer< std::tuple< Ts... > >
 template < typename Rep, typename Period >
 struct pretty_printer< std::chrono::duration< Rep, Period > >
 {
-        template < typename W >
-        static void print( W&& w, const std::chrono::duration< Rep, Period >& d )
+        template < typename Writer >
+        static void print( Writer&& w, const std::chrono::duration< Rep, Period >& d )
         {
                 pretty_printer< Rep >::print( w, d.count() );
         }
@@ -371,8 +371,8 @@ struct pretty_printer< std::chrono::duration< Rep, Period > >
 template <>
 struct pretty_printer< nlohmann::json >
 {
-        template < typename W >
-        static void print( W&& w, const nlohmann::json& j )
+        template < typename Writer >
+        static void print( Writer&& w, const nlohmann::json& j )
         {
                 std::string s = j.dump( 4 );
                 w( s );
@@ -384,8 +384,8 @@ struct pretty_printer< nlohmann::json >
 template < decomposable T >
 struct pretty_printer< T >
 {
-        template < typename W >
-        static void print( W&& w, const T& item )
+        template < typename Writer >
+        static void print( Writer&& w, const T& item )
         {
                 w( pretty_type_name< T >() );
                 w( decompose( item ) );

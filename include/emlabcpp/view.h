@@ -219,7 +219,7 @@ template < ostreamlike Stream, typename Iterator >
 auto& operator<<( Stream& os, const view< Iterator >& output )
 {
         string_serialize_view(
-            [&]( const auto& item ) {
+            [&os]( const auto& item ) {
                     os << item;
             },
             output );

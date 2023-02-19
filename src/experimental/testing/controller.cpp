@@ -39,7 +39,7 @@ struct msg_awaiter : public test_awaiter_interface
 
         controller_interface_adapter& iface;
 
-        msg_awaiter( controller_reactor_variant req, controller_interface_adapter& ifa )
+        msg_awaiter( const controller_reactor_variant& req, controller_interface_adapter& ifa )
           : request( req )
           , iface( ifa )
         {
@@ -55,7 +55,7 @@ struct msg_awaiter : public test_awaiter_interface
                 return false;
         }
 
-        void await_suspend( std::coroutine_handle< typename test_coroutine::promise_type > h )
+        void await_suspend( const std::coroutine_handle< typename test_coroutine::promise_type > h )
         {
                 h.promise().iface = this;
                 iface.set_reply_cb( [this]( const reactor_controller_variant& var ) {
@@ -86,11 +86,11 @@ test_coroutine controller::initialize( pmr::memory_resource& )
         date_ =
             ( co_await msg_awaiter< get_suite_date_reply >( get_property< SUITE_DATE >{}, iface_ ) )
                 .date;
-        test_id count =
+        const test_id count =
             ( co_await msg_awaiter< get_count_reply >( get_property< COUNT >{}, iface_ ) ).count;
 
         for ( const test_id i : range( count ) ) {
-                auto name_reply = co_await msg_awaiter< get_test_name_reply >(
+                const auto name_reply = co_await msg_awaiter< get_test_name_reply >(
                     get_test_name_request{ .tid = i }, iface_ );
 
                 tests_[i] = test_info{ .name = name_reply.name };
@@ -129,13 +129,13 @@ void controller::on_msg( const reactor_controller_variant& var )
         using opt_state     = std::optional< states >;
         opt_state new_state = match(
             state_,
-            [&]( const initializing_state& ) -> opt_state {
+            [this, &var]( const initializing_state& ) -> opt_state {
                     if ( !iface_.on_msg_with_cb( var ) ) {
                             EMLABCPP_ERROR_LOG( "Got wrong message: ", var );
                     }
                     return std::nullopt;
             },
-            [&]( test_running_state& rs ) -> opt_state {
+            [this, &var]( test_running_state& rs ) -> opt_state {
                     const auto& tf_ptr = std::get_if< test_finished >( &var );
                     if ( tf_ptr == nullptr ) {
                             EMLABCPP_ERROR_LOG( "Got wrong message: ", var );
@@ -146,7 +146,7 @@ void controller::on_msg( const reactor_controller_variant& var )
                     iface_->on_result( rs.context );
                     return states{ idle_state{} };
             },
-            [&]( idle_state ) -> opt_state {
+            []( const idle_state ) -> opt_state {
                     return std::nullopt;
             } );
         if ( new_state ) {
@@ -159,7 +159,7 @@ void controller::tick()
         using opt_state     = std::optional< states >;
         opt_state new_state = match(
             state_,
-            [&]( initializing_state& st ) -> opt_state {
+            []( initializing_state& st ) -> opt_state {
                     if ( !st.coro.done() ) {
                             st.coro.tick();
                             return std::nullopt;
@@ -168,10 +168,10 @@ void controller::tick()
                     EMLABCPP_INFO_LOG( "Controller finished initialization and is prepared" );
                     return states{ idle_state{} };
             },
-            [&]( const test_running_state& ) -> opt_state {
+            []( const test_running_state& ) -> opt_state {
                     return std::nullopt;
             },
-            [&]( idle_state ) -> opt_state {
+            []( const idle_state ) -> opt_state {
                     return std::nullopt;
             } );
         if ( new_state ) {
