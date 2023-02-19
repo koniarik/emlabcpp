@@ -30,7 +30,7 @@ struct params_test_fixture : public testing::test_interface
                     co_await params.get_type( co_await params.get_child( 0, "pi" ) );
                 EXPECT_EQ( t, CONTIGUOUS_TREE_VALUE );
 
-                static_assert(alternative_of<bool, testing::value_type>);
+                static_assert( alternative_of< bool, testing::value_type > );
                 bool bval = co_await params.get_value< bool >( 0, "happy" );
                 EXPECT_TRUE( bval );
 

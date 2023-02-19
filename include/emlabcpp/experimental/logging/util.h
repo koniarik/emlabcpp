@@ -57,4 +57,3 @@ std::array< std::string_view, N > expand_var_names( std::string_view sv )
                         std::forward_as_tuple( __VA_ARGS__ ) ) );                      \
         }                                                                              \
         while ( false )
-

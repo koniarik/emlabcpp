@@ -89,7 +89,8 @@ public:
         void on_msg( const std::span< const uint8_t >& msg );
         void on_msg( const collect_server_client_group& var );
 
-        collect_awaiter set( const node_id parent, std::string_view key, contiguous_container_type t );
+        collect_awaiter
+        set( const node_id parent, std::string_view key, contiguous_container_type t );
         collect_awaiter append( const node_id parent, contiguous_container_type t );
         void            set( const node_id parent, std::string_view key, const value_type& val );
         void            append( const node_id parent, const value_type& val );
