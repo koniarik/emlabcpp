@@ -90,7 +90,7 @@ public:
                 return false;
         }
 
-        void await_suspend( std::coroutine_handle< typename test_coroutine::promise_type > h )
+        void await_suspend( const std::coroutine_handle< typename test_coroutine::promise_type > h )
         {
                 h.promise().iface = this;
         }
@@ -108,7 +108,7 @@ public:
                 test_awaiter_interface* iface = h_.promise().iface;
 
                 if ( iface != nullptr ) {
-                        await_state s = iface->get_state();
+                        const await_state s = iface->get_state();
                         if ( s == await_state::WAITING ) {
                                 iface->tick();
                                 return;

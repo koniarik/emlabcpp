@@ -7,7 +7,7 @@
 
 namespace emlabcpp
 {
-consteval std::string_view stem_of( std::string_view file )
+consteval std::string_view stem_of( const std::string_view file )
 {
         const std::string_view res{ file };
         const std::size_t      pos = res.find_last_of( '/' );
@@ -74,7 +74,7 @@ public:
                     } );
         }
 
-        void log_header( const timelog& tl, std::string_view file, int line )
+        void log_header( const timelog& tl, const std::string_view file, const int line )
         {
 
                 write( '\n' );
@@ -111,7 +111,7 @@ private:
                     t );
         }
 
-        void write( std::string_view sv )
+        void write( const std::string_view sv )
         {
 
                 write_std_streams( sv );

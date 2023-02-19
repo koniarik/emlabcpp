@@ -307,7 +307,7 @@ private:
 
 template < typename Processor >
 void params_awaiter< Processor >::await_suspend(
-    std::coroutine_handle< test_coroutine::promise_type > h )
+    const std::coroutine_handle< test_coroutine::promise_type > h )
 {
         h.promise().iface = this;
         params.exchange( proc.req, [&]( const params_server_client_variant& var ) {

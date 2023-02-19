@@ -39,7 +39,7 @@ void pretty_print_serialize_basic( Writer&& w, const T& val )
 template < std::size_t N >
 struct buffer_writer
 {
-        void operator()( char c )
+        void operator()( const char c )
         {
                 if ( size == N ) {
                         return;
@@ -48,7 +48,7 @@ struct buffer_writer
                 size += 1;
         }
 
-        void operator()( std::string_view sv )
+        void operator()( const std::string_view sv )
         {
                 for ( char c : sv ) {
                         this->operator()( c );
@@ -210,7 +210,7 @@ template <>
 struct pretty_printer< char >
 {
         template < typename W >
-        static void print( W&& w, char c )
+        static void print( W&& w, const char c )
         {
                 w( std::string_view{ &c, 1 } );
         }
@@ -220,7 +220,7 @@ template < std::size_t N >
 struct pretty_printer< char[N] >
 {
         template < typename W >
-        static void print( W&& w, const char* c )
+        static void print( W&& w, const char* const c )
         {
                 w( std::string_view{ c, N } );
         }
@@ -240,7 +240,7 @@ template <>
 struct pretty_printer< bool >
 {
         template < typename W >
-        static void print( W&& w, bool b )
+        static void print( W&& w, const bool b )
         {
                 w( b ? 't' : 'f' );
         }

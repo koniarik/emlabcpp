@@ -11,7 +11,7 @@ collect_awaiter::collect_awaiter( collect_request req, collector& coll )
 {
 }
 
-void collect_awaiter::await_suspend( std::coroutine_handle< test_coroutine::promise_type > h )
+void collect_awaiter::await_suspend( const std::coroutine_handle< test_coroutine::promise_type > h )
 {
         h.promise().iface = this;
         col.exchange( req, [this]( const collect_server_client_group& var ) {
@@ -29,7 +29,7 @@ void collect_awaiter::await_suspend( std::coroutine_handle< test_coroutine::prom
         } );
 }
 
-collector::collector( protocol::channel_type chann, collect_client_transmit_callback send_cb )
+collector::collector( const protocol::channel_type chann, collect_client_transmit_callback send_cb )
   : channel_( chann )
   , send_cb_( std::move( send_cb ) )
 {
@@ -53,7 +53,8 @@ void collector::on_msg( const collect_server_client_group& var )
         reply_callback_( var );
 }
 
-collect_awaiter collector::set( node_id parent, std::string_view key, contiguous_container_type t )
+collect_awaiter
+collector::set( const node_id parent, const std::string_view key, contiguous_container_type t )
 {
         return collect_awaiter{
             collect_request{
@@ -63,14 +64,14 @@ collect_awaiter collector::set( node_id parent, std::string_view key, contiguous
                 .value         = t },
             *this };
 }
-collect_awaiter collector::append( node_id parent, contiguous_container_type t )
+collect_awaiter collector::append( const node_id parent, contiguous_container_type t )
 {
         return collect_awaiter{
             collect_request{
                 .parent = parent, .expects_reply = true, .opt_key = std::nullopt, .value = t },
             *this };
 }
-void collector::set( node_id parent, std::string_view key, const value_type& val )
+void collector::set( const node_id parent, std::string_view key, const value_type& val )
 {
         send( collect_request{
             .parent        = parent,
@@ -78,7 +79,7 @@ void collector::set( node_id parent, std::string_view key, const value_type& val
             .opt_key       = key_type_to_buffer( key ),
             .value         = val } );
 }
-void collector::append( node_id parent, const value_type& val )
+void collector::append( const node_id parent, const value_type& val )
 {
         send( collect_request{
             .parent = parent, .expects_reply = false, .opt_key = std::nullopt, .value = val } );
