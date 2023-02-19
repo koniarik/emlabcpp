@@ -931,7 +931,7 @@ struct converter< static_vector< T, N >, Endianess >
 
                         auto itemres = sub_converter::deserialize( subspan, value.back() );
                         offset += itemres.used;
-                        if ( subres.has_error() ) {
+                        if ( itemres.has_error() ) {
                                 return { offset, itemres.get_error() };
                         }
                 }
