@@ -76,9 +76,6 @@ public:
 
         void log_header( const timelog& tl, const std::string_view file, const int line )
         {
-
-                write( '\n' );
-
                 set_color( colors_.time );
                 write( tl );
 
@@ -157,7 +154,7 @@ extern gpos_logger ERROR_LOGGER;
                     emlabcpp::timelog( std::chrono::system_clock::now() ), \
                     emlabcpp::stem_of( file ),                             \
                     line );                                                \
-                ( logger ).log( __VA_ARGS__ );                             \
+                ( logger ).log( __VA_ARGS__, '\n' );                       \
         } while ( false )
 
 #define EMLABCPP_DEBUG_LOG( ... ) \
@@ -202,9 +199,9 @@ extern noneabi_logger ERROR_LOGGER;
 
 }  // namespace emlabcpp
 
-#define EMLABCPP_LOG_IMPL( logger, ... )       \
-        do {                                   \
-                ( logger ).log( __VA_ARGS__ ); \
+#define EMLABCPP_LOG_IMPL( logger, ... )             \
+        do {                                         \
+                ( logger ).log( __VA_ARGS__, `\n` ); \
         } while ( false )
 
 #define EMLABCPP_DEBUG_LOG( ... ) EMLABCPP_LOG_IMPL( emlabcpp::DEBUG_LOGGER, __VA_ARGS__ )

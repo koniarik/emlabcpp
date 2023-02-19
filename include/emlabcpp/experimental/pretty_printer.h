@@ -387,6 +387,7 @@ struct pretty_printer< T >
         template < typename W >
         static void print( W&& w, const T& item )
         {
+                w( pretty_type_name< T >() );
                 w( decompose( item ) );
         }
 };
