@@ -344,8 +344,7 @@ private:
         void on_req( const param_child_count_request& req );
         void on_req( const param_key_request& req );
         void on_req( const param_type_request& req );
-        void
-        reply_node_error( const contiguous_request_adapter_errors_enum err, const node_id nid );
+        void reply_node_error( const contiguous_request_adapter_errors err, const node_id nid );
         void send( const params_server_client_variant& var );
 
         protocol::channel_type          channel_;

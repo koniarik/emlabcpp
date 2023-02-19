@@ -136,7 +136,7 @@ void collect_server::on_msg( const collect_request& req )
 
         contiguous_request_adapter harn{ tree_ };
 
-        either< node_id, contiguous_request_adapter_errors_enum > res =
+        either< node_id, contiguous_request_adapter_errors > res =
             req.opt_key ? harn.insert( req.parent, *req.opt_key, req.value ) :
                           harn.insert( req.parent, req.value );
         res.match(
@@ -146,7 +146,7 @@ void collect_server::on_msg( const collect_request& req )
                     }
                     this->send( collect_reply{ nid } );
             },
-            [this, &req]( const contiguous_request_adapter_errors_enum err ) {
+            [this, &req]( const contiguous_request_adapter_errors err ) {
                     this->send( tree_error_reply{ err, req.parent } );
             } );
 }

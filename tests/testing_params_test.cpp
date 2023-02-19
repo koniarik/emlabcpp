@@ -28,7 +28,7 @@ struct params_test_fixture : public testing::test_interface
         {
                 testing::node_type_enum t =
                     co_await params.get_type( co_await params.get_child( 0, "pi" ) );
-                EXPECT_EQ( t, CONTIGUOUS_TREE_VALUE );
+                EXPECT_EQ( t, contiguous_tree_type::VALUE );
 
                 static_assert( alternative_of< bool, testing::value_type > );
                 bool bval = co_await params.get_value< bool >( 0, "happy" );
@@ -40,7 +40,7 @@ struct params_test_fixture : public testing::test_interface
 
                 testing::node_id        list_node = co_await params.get_child( 0, "list" );
                 testing::node_type_enum t2        = co_await params.get_type( list_node );
-                EXPECT_EQ( t2, CONTIGUOUS_TREE_ARRAY );
+                EXPECT_EQ( t2, contiguous_tree_type::ARRAY );
 
                 std::size_t count = co_await params.get_child_count( list_node );
                 EXPECT_EQ( count, 3 );

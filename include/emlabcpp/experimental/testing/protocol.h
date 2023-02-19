@@ -86,9 +86,9 @@ struct get_test_name_reply
 
 struct tree_error_reply
 {
-        static constexpr auto                  id = TREE_ERROR;
-        contiguous_request_adapter_errors_enum err;
-        node_id                                nid;
+        static constexpr auto             id = TREE_ERROR;
+        contiguous_request_adapter_errors err;
+        node_id                           nid;
 };
 
 struct test_finished

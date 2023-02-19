@@ -15,8 +15,8 @@ public:
         using node_id             = typename Tree::node_id;
         using node_type           = typename Tree::node_type;
         using child_id            = typename Tree::child_id;
-        using type_enum           = contiguous_tree_type_enum;
-        using error_enum          = contiguous_request_adapter_errors_enum;
+        using type_enum           = contiguous_tree_type;
+        using error_enum          = contiguous_request_adapter_errors;
         using const_object_handle = typename Tree::const_object_handle;
         using const_array_handle  = typename Tree::const_array_handle;
         using object_handle       = typename Tree::object_handle;
@@ -36,7 +36,7 @@ public:
                             const value_type* val_ptr = node.get_value();
                             if ( val_ptr == nullptr ) {
                                     EMLABCPP_ERROR_LOG( "Node ", id, " is not value type" );
-                                    return CONTIGUOUS_WRONG_TYPE;
+                                    return error_enum::WRONG_TYPE;
                             }
                             return std::ref( *val_ptr );
                     } );
@@ -81,7 +81,7 @@ public:
                                             "Node ",
                                             nid,
                                             " does not have children, is value type" );
-                                        return CONTIGUOUS_WRONG_TYPE;
+                                        return error_enum::WRONG_TYPE;
                                 }
                         } )
                     .bind_left(
@@ -95,7 +95,7 @@ public:
                                     nid,
                                     " does not have child with identifier: ",
                                     id_var );
-                                return CONTIGUOUS_CHILD_MISSING;
+                                return error_enum::CHILD_MISSING;
                         } );
         }
 
@@ -120,7 +120,7 @@ public:
                             if ( key_ptr == nullptr ) {
                                     EMLABCPP_ERROR_LOG(
                                         "Node ", nid, " does not have child with id: ", chid );
-                                    return CONTIGUOUS_CHILD_MISSING;
+                                    return error_enum::CHILD_MISSING;
                             }
                             return *key_ptr;
                     } );
@@ -168,14 +168,14 @@ private:
                             return tree_.make_value_node( val );
                     },
                     [this]( const contiguous_container_type type ) -> std::optional< node_id > {
-                            if ( type == CONTIGUOUS_CONT_ARRAY ) {
+                            if ( type == contiguous_container_type::ARRAY ) {
                                     auto opt_res = tree_.make_array_node();
                                     if ( opt_res ) {
                                             return opt_res->first;
                                     }
                                     return std::nullopt;
 
-                            } else if ( type == CONTIGUOUS_CONT_OBJECT ) {
+                            } else if ( type == contiguous_container_type::OBJECT ) {
                                     auto opt_res = tree_.make_object_node();
                                     if ( opt_res ) {
                                             return opt_res->first;
@@ -188,7 +188,7 @@ private:
                 if ( !opt_nid ) {
                         EMLABCPP_ERROR_LOG(
                             "Failed to construct node, tree is full, size is: ", tree_.size() );
-                        return CONTIGUOUS_FULL;
+                        return error_enum::FULL;
                 }
                 return *opt_nid;
         }
@@ -213,7 +213,7 @@ private:
 
                 if ( node_ptr == nullptr ) {
                         EMLABCPP_ERROR_LOG( "Node ", nid, " is not in the tree" );
-                        return CONTIGUOUS_MISSING_NODE;
+                        return error_enum::MISSING_NODE;
                 }
 
                 return std::ref( *node_ptr );
@@ -253,7 +253,7 @@ private:
                                     return var_type{ *oh_ptr };
                             }
                             EMLABCPP_ERROR_LOG( "Node ", nid, " is not of container type" );
-                            return CONTIGUOUS_WRONG_TYPE;
+                            return error_enum::WRONG_TYPE;
                     } );
         }
 
@@ -286,7 +286,7 @@ private:
                             }
                             EMLABCPP_ERROR_LOG(
                                 "Node ", nid, " is not of type: ", pretty_type_name< Handle >() );
-                            return CONTIGUOUS_WRONG_TYPE;
+                            return error_enum::WRONG_TYPE;
                     } );
         }
 

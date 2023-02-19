@@ -28,7 +28,8 @@ struct collector_test_fixture : public testing::test_interface
         {
                 coll.set( 0, "key1", 42 );
                 EMLABCPP_ERROR_LOG( "Collected key1" );
-                testing::node_id nid = co_await coll.set( 0, "key2", CONTIGUOUS_CONT_ARRAY );
+                testing::node_id nid =
+                    co_await coll.set( 0, "key2", contiguous_container_type::ARRAY );
                 EMLABCPP_ERROR_LOG( "Collected key2" );
                 coll.append( nid, 52 );
                 EMLABCPP_ERROR_LOG( "Collected 52" );
@@ -37,7 +38,7 @@ struct collector_test_fixture : public testing::test_interface
 
                 checkpoint_reached = true;
 
-                co_await coll.set( nid, "key3", CONTIGUOUS_CONT_ARRAY );
+                co_await coll.set( nid, "key3", contiguous_container_type::ARRAY );
 
                 end_reached = true;
         }

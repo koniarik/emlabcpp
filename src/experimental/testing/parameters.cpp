@@ -51,7 +51,9 @@ template class params_awaiter< param_child_count_processor >;
 }
 template class params_awaiter< param_key_processor >;
 
-parameters::parameters( const protocol::channel_type chann, params_client_transmit_callback send_cb )
+parameters::parameters(
+    const protocol::channel_type    chann,
+    params_client_transmit_callback send_cb )
   : channel_( chann )
   , send_cb_( std::move( send_cb ) )
 {
@@ -163,7 +165,7 @@ void parameters_server::on_req( const param_value_request& req )
             [this]( const value_type& val ) {
                     send( param_value_reply{ val } );
             },
-            [this, &req]( const contiguous_request_adapter_errors_enum err ) {
+            [this, &req]( const contiguous_request_adapter_errors err ) {
                     reply_node_error( err, req.nid );
             } );
 }
@@ -179,7 +181,7 @@ void parameters_server::on_req( const param_value_key_request& req )
                 [this]( const value_type& val ) {
                         send( param_value_key_reply{ val } );
                 },
-                [this, &req]( const contiguous_request_adapter_errors_enum err ) {
+                [this, &req]( const contiguous_request_adapter_errors err ) {
                         reply_node_error( err, req.nid );
                 } );
 }
@@ -192,7 +194,7 @@ void parameters_server::on_req( const param_child_request& req )
                 [this]( const node_id child ) {
                         send( param_child_reply{ child } );
                 },
-                [this, &req]( const contiguous_request_adapter_errors_enum err ) {
+                [this, &req]( const contiguous_request_adapter_errors err ) {
                         reply_node_error( err, req.parent );
                 } );
 }
@@ -205,7 +207,7 @@ void parameters_server::on_req( const param_child_count_request& req )
                 [this]( const child_id count ) {
                         send( param_child_count_reply{ count } );
                 },
-                [this, &req]( const contiguous_request_adapter_errors_enum err ) {
+                [this, &req]( const contiguous_request_adapter_errors err ) {
                         reply_node_error( err, req.parent );
                 } );
 }
@@ -218,7 +220,7 @@ void parameters_server::on_req( const param_key_request& req )
                 [this]( const key_type& key ) {
                         send( param_key_reply{ key } );
                 },
-                [this, &req]( const contiguous_request_adapter_errors_enum err ) {
+                [this, &req]( const contiguous_request_adapter_errors err ) {
                         reply_node_error( err, req.nid );
                 } );
 }
@@ -227,25 +229,25 @@ void parameters_server::on_req( const param_type_request& req )
         const contiguous_request_adapter harn{ tree_ };
 
         harn.get_type( req.nid ).match(
-            [this]( const contiguous_tree_type_enum type ) {
+            [this]( const contiguous_tree_type type ) {
                     send( param_type_reply{ type } );
             },
-            [this, &req]( const contiguous_request_adapter_errors_enum err ) {
+            [this, &req]( const contiguous_request_adapter_errors err ) {
                     reply_node_error( err, req.nid );
             } );
 }
 
 void parameters_server::reply_node_error(
-    const contiguous_request_adapter_errors_enum err,
-    const node_id                                nid )
+    const contiguous_request_adapter_errors err,
+    const node_id                           nid )
 {
-        if ( err == CONTIGUOUS_WRONG_TYPE ) {
+        if ( err == contiguous_request_adapter_errors::WRONG_TYPE ) {
                 EMLABCPP_ERROR_LOG( "Failed to work with ", nid, ", wrong type of node" );
-        } else if ( err == CONTIGUOUS_FULL ) {
+        } else if ( err == contiguous_request_adapter_errors::FULL ) {
                 EMLABCPP_ERROR_LOG( "Failed to insert data, data storage is full" );
-        } else if ( err == CONTIGUOUS_MISSING_NODE ) {
+        } else if ( err == contiguous_request_adapter_errors::MISSING_NODE ) {
                 EMLABCPP_ERROR_LOG( "Tree node ", nid, " is missing " );
-        } else if ( err == CONTIGUOUS_CHILD_MISSING ) {
+        } else if ( err == contiguous_request_adapter_errors::CHILD_MISSING ) {
                 EMLABCPP_ERROR_LOG( "Tree node child ", nid, " is missing " );
         }
         send( tree_error_reply{ .err = err, .nid = nid } );

@@ -230,18 +230,18 @@ public:
                 return std::ref( *std::get_if< Value >( &content_ ) );
         }
 
-        [[nodiscard]] contiguous_tree_type_enum get_type() const
+        [[nodiscard]] contiguous_tree_type get_type() const
         {
                 return match(
                     content_,
                     []( const Value& ) {
-                            return CONTIGUOUS_TREE_VALUE;
+                            return contiguous_tree_type::VALUE;
                     },
                     []( const array_type& ) {
-                            return CONTIGUOUS_TREE_ARRAY;
+                            return contiguous_tree_type::ARRAY;
                     },
                     []( const object_type& ) {
-                            return CONTIGUOUS_TREE_OBJECT;
+                            return contiguous_tree_type::OBJECT;
                     } );
         }
 

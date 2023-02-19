@@ -41,7 +41,7 @@ using key_type_buffer = static_vector< char, 16 >;
 using node_id        = uint32_t;
 using child_count    = uint32_t;
 using child_id       = uint32_t;
-using node_type_enum = contiguous_tree_type_enum;
+using node_type_enum = contiguous_tree_type;
 using string_buffer  = static_vector< char, 32 >;
 using key_type       = key_type_buffer;
 

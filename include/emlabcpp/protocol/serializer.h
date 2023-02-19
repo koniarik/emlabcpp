@@ -61,6 +61,24 @@ struct serializer
         }
 };
 
+template < base_type T, std::endian Endianess >
+requires( std::is_enum_v< T > ) struct serializer< T, Endianess >
+{
+        using utype                           = std::underlying_type_t< T >;
+        using userializer                     = serializer< utype, Endianess >;
+        static constexpr std::size_t max_size = userializer::max_size;
+        using size_type                       = bounded< std::size_t, max_size, max_size >;
+
+        static constexpr void serialize_at( std::span< uint8_t, max_size > buffer, T item )
+        {
+                userializer::serialize_at( buffer, static_cast< utype >( item ) );
+        }
+        static constexpr T deserialize( const std::span< const uint8_t, max_size >& buffer )
+        {
+                return static_cast< T >( userializer::deserialize( buffer ) );
+        }
+};
+
 template < std::endian Endianess >
 struct serializer< float, Endianess >
 {
