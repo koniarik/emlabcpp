@@ -201,7 +201,7 @@ extern noneabi_logger ERROR_LOGGER;
 
 #define EMLABCPP_LOG_IMPL( logger, ... )             \
         do {                                         \
-                ( logger ).log( __VA_ARGS__, `\n` ); \
+                ( logger ).log( __VA_ARGS__, '\n' ); \
         } while ( false )
 
 #define EMLABCPP_DEBUG_LOG( ... ) EMLABCPP_LOG_IMPL( emlabcpp::DEBUG_LOGGER, __VA_ARGS__ )
