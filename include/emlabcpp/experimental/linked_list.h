@@ -72,9 +72,9 @@ public:
 
         [[nodiscard]] linked_list_node* get_next( std::size_t id )
         {
-                auto* n = next_;
+                auto* n = this;
                 while ( n != nullptr ) {
-                        if ( n == 0 ) {
+                        if ( id == 0 ) {
                                 return n;
                         }
                         n = n->next_;
