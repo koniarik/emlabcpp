@@ -21,6 +21,7 @@
 //  This file is part of project: emlabcpp
 //
 #include "emlabcpp/experimental/linked_list.h"
+#include "emlabcpp/experimental/testing/base.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/experimental/testing/record.h"
 #include "emlabcpp/protocol/packet_handler.h"
@@ -105,12 +106,10 @@ template < valid_test_callable Callable >
 class test_callable : public test_interface
 {
 public:
-        test_callable( auto& reac, const std::string_view name, Callable cb )
-          : node_( this )
-          , name_( name_to_buffer( name ) )
+        test_callable( const std::string_view name, Callable cb )
+          : name_( name_to_buffer( name ) )
           , cb_( std::move( cb ) )
         {
-                reac.register_test( node_ );
         }
 
         test_callable( test_callable&& ) noexcept            = default;
@@ -127,9 +126,8 @@ public:
         }
 
 private:
-        test_ll_node node_;
-        name_buffer  name_;
-        Callable     cb_;
+        name_buffer name_;
+        Callable    cb_;
 };
 
 }  // namespace emlabcpp::testing
