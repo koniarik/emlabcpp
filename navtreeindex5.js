@@ -1,6 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"matrix_8h.html":[4,0,0,0,1,10],
 "matrix_8h.html#a512f1fd6d6a6aa3d5094088865158e23":[4,0,0,0,1,10,4],
 "matrix_8h.html#a71244dcc912784b08768c6ae041c37bc":[4,0,0,0,1,10,7],
 "matrix_8h.html#a951e2e116200e84ad4b8161d399c2362":[4,0,0,0,1,10,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp.html#afc8fd33adfcfe872f4402d4b61b41113":[2,0,0,295],
 "namespaceemlabcpp.html#afcb43f873b880adf7247a54e0d0b4a03":[2,0,0,215],
 "namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e":[2,0,0,108],
-"namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc":[2,0,0,156]
+"namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc":[2,0,0,156],
+"namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8":[2,0,0,154]
 };
