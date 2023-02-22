@@ -26,14 +26,20 @@ public:
         }
         linked_list_node& operator=( linked_list_node&& other ) noexcept
         {
-                if ( other.prev_ != nullptr ) {
-                        prev_        = other.prev_;
+                item_ = std::move( other.item_ );
+
+                prev_ = other.prev_;
+                if ( prev_ != nullptr ) {
                         prev_->next_ = this;
+                        other.prev_  = nullptr;
                 }
-                if ( other.next_ != nullptr ) {
-                        next_        = other.next_;
+
+                next_ = other.next_;
+                if ( next_ != nullptr ) {
                         next_->prev_ = this;
+                        other.next_  = nullptr;
                 }
+
                 return *this;
         }
 
