@@ -148,6 +148,13 @@ void parameters_server::on_msg( std::span< const uint8_t > data )
                 } );
 }
 
+void parameters_server::on_req( const param_error& req )
+{
+        std::ignore = req;
+        EMLABCPP_ERROR_LOG(
+            "Params errored: ", std::string_view{ req.error.data(), req.error.size() } );
+}
+
 void parameters_server::on_msg( const params_client_server_variant& req )
 {
         visit(

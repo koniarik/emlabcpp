@@ -126,10 +126,10 @@ void collect_server::on_msg( const collect_request& req )
         // TODO: this may be a bad idea ...
         if ( tree_.empty() ) {
                 if ( req.opt_key ) {
-                        EMLABCPP_ERROR_LOG( "collect tree is empty, making root object" );
+                        EMLABCPP_DEBUG_LOG( "collect tree is empty, making root object" );
                         tree_.make_object_node();
                 } else {
-                        EMLABCPP_ERROR_LOG( "collect tree is empty, making root array" );
+                        EMLABCPP_DEBUG_LOG( "collect tree is empty, making root array" );
                         tree_.make_array_node();
                 }
         }

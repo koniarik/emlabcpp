@@ -20,6 +20,7 @@ enum params_enum : uint8_t
         PARAM_KEY         = 0x13,
         PARAM_TYPE        = 0x14,
         PARAM_VALUE_KEY   = 0x15,
+        PARAM_ERROR       = 0x16,
 };
 
 struct param_value_request
@@ -97,13 +98,20 @@ struct param_type_reply
         node_type_enum        type;
 };
 
+struct param_error
+{
+        static constexpr auto id = PARAM_ERROR;
+        string_buffer         error;
+};
+
 using params_client_server_group = protocol::tag_group<
     param_value_request,
     param_child_request,
     param_child_count_request,
     param_key_request,
     param_type_request,
-    param_value_key_request >;
+    param_value_key_request,
+    param_error >;
 
 using params_client_server_variant =
     typename protocol::traits_for< params_client_server_group >::value_type;
@@ -312,7 +320,8 @@ void params_awaiter< Processor >::await_suspend(
         h.promise().iface = this;
         params.exchange( proc.req, [this]( const params_server_client_variant& var ) {
                 if ( !proc.set_value( var ) ) {
-                        // TODO: reply with error to server!!!
+                        params.send( param_error{
+                            string_to_buffer( "failed to process parameter value" ) } );
                         EMLABCPP_ERROR_LOG( "Setting value to processor errored" );
                         state = await_state::ERRORED;
                 } else {
@@ -338,6 +347,7 @@ public:
         void on_msg( const params_client_server_variant& req );
 
 private:
+        void on_req( const param_error& req );
         void on_req( const param_value_request& req );
         void on_req( const param_value_key_request& req );
         void on_req( const param_child_request& req );
