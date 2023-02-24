@@ -136,6 +136,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1param__type__reply.html">emlabcpp::testing::param_type_reply</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1param__error.html">emlabcpp::testing::param_error</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1params__awaiter.html">emlabcpp::testing::params_awaiter&lt; Processor &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1param__value__processor.html">emlabcpp::testing::param_value_processor&lt; T &gt;</a></td></tr>
@@ -164,8 +166,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a3817cdc1ac1517bf368ab18549947016"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a3817cdc1ac1517bf368ab18549947016">emlabcpp::testing::params_client_server_group</a> = protocol::tag_group&lt; param_value_request, param_child_request, param_child_count_request, param_key_request, param_type_request, param_value_key_request &gt;</td></tr>
-<tr class="separator:a3817cdc1ac1517bf368ab18549947016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a320b735cd3fe21581ad5d8aa602b9841"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a320b735cd3fe21581ad5d8aa602b9841">emlabcpp::testing::params_client_server_group</a> = protocol::tag_group&lt; param_value_request, param_child_request, param_child_count_request, param_key_request, param_type_request, param_value_key_request, param_error &gt;</td></tr>
+<tr class="separator:a320b735cd3fe21581ad5d8aa602b9841"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3764dee64fdda404c0993a3ea42600ce"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a3764dee64fdda404c0993a3ea42600ce">emlabcpp::testing::params_client_server_variant</a> = typename protocol::traits_for&lt; params_client_server_group &gt;::value_type</td></tr>
 <tr class="separator:a3764dee64fdda404c0993a3ea42600ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a939a4deb49e2c809aaee1251f9ff7373"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a939a4deb49e2c809aaee1251f9ff7373">emlabcpp::testing::params_client_server_message</a> = typename protocol::handler&lt; params_client_server_group &gt;::message_type</td></tr>
@@ -211,6 +213,8 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa3624918944d320b7cc07f4ca99a99b91">emlabcpp::testing::PARAM_TYPE</a> = 0x14
 , <br />
 &#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa988a042b19386ddc31b0c9663700abab">emlabcpp::testing::PARAM_VALUE_KEY</a> = 0x15
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aab705bd275e3f4aa8d88067b1c25a8880">emlabcpp::testing::PARAM_ERROR</a> = 0x16
 <br />
  }</td></tr>
 <tr class="separator:abb07fe9541c63a9babdb6f577489443a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -226,7 +230,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="parameters_8h.html">parameters.h</a></li>
-    <li class="footer">Generated on Wed Feb 22 2023 20:24:57 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Feb 24 2023 16:31:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

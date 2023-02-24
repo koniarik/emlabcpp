@@ -186,6 +186,7 @@ var hierarchy =
     [ "emlabcpp::testing::param_child_processor", "structemlabcpp_1_1testing_1_1param__child__processor.html", null ],
     [ "emlabcpp::testing::param_child_reply", "structemlabcpp_1_1testing_1_1param__child__reply.html", null ],
     [ "emlabcpp::testing::param_child_request", "structemlabcpp_1_1testing_1_1param__child__request.html", null ],
+    [ "emlabcpp::testing::param_error", "structemlabcpp_1_1testing_1_1param__error.html", null ],
     [ "emlabcpp::testing::param_key_processor", "structemlabcpp_1_1testing_1_1param__key__processor.html", null ],
     [ "emlabcpp::testing::param_key_reply", "structemlabcpp_1_1testing_1_1param__key__reply.html", null ],
     [ "emlabcpp::testing::param_key_request", "structemlabcpp_1_1testing_1_1param__key__request.html", null ],

@@ -37,6 +37,7 @@ var namespaceemlabcpp_1_1testing =
     [ "param_key_reply", "structemlabcpp_1_1testing_1_1param__key__reply.html", "structemlabcpp_1_1testing_1_1param__key__reply" ],
     [ "param_type_request", "structemlabcpp_1_1testing_1_1param__type__request.html", "structemlabcpp_1_1testing_1_1param__type__request" ],
     [ "param_type_reply", "structemlabcpp_1_1testing_1_1param__type__reply.html", "structemlabcpp_1_1testing_1_1param__type__reply" ],
+    [ "param_error", "structemlabcpp_1_1testing_1_1param__error.html", "structemlabcpp_1_1testing_1_1param__error" ],
     [ "params_awaiter", "structemlabcpp_1_1testing_1_1params__awaiter.html", "structemlabcpp_1_1testing_1_1params__awaiter" ],
     [ "param_value_processor", "structemlabcpp_1_1testing_1_1param__value__processor.html", "structemlabcpp_1_1testing_1_1param__value__processor" ],
     [ "param_value_key_processor", "structemlabcpp_1_1testing_1_1param__value__key__processor.html", "structemlabcpp_1_1testing_1_1param__value__key__processor" ],
@@ -100,7 +101,7 @@ var namespaceemlabcpp_1_1testing =
     [ "param_type_awaiter", "namespaceemlabcpp_1_1testing.html#a4b21c1cb1bf857fce1a8e7667bd6eb0c", null ],
     [ "param_value_awaiter", "namespaceemlabcpp_1_1testing.html#a3494d4dfdcdba476b36065c37cca9828", null ],
     [ "param_value_key_awaiter", "namespaceemlabcpp_1_1testing.html#a8ff5a12dc5c6c8fcb45e524d4bc45426", null ],
-    [ "params_client_server_group", "namespaceemlabcpp_1_1testing.html#a3817cdc1ac1517bf368ab18549947016", null ],
+    [ "params_client_server_group", "namespaceemlabcpp_1_1testing.html#a320b735cd3fe21581ad5d8aa602b9841", null ],
     [ "params_client_server_message", "namespaceemlabcpp_1_1testing.html#a939a4deb49e2c809aaee1251f9ff7373", null ],
     [ "params_client_server_variant", "namespaceemlabcpp_1_1testing.html#a3764dee64fdda404c0993a3ea42600ce", null ],
     [ "params_client_transmit_callback", "namespaceemlabcpp_1_1testing.html#a6e3dd50d6925af6be839b383210caf6c", null ],
@@ -154,7 +155,8 @@ var namespaceemlabcpp_1_1testing =
       [ "PARAM_CHILD_COUNT", "namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa8ef363444f05b891ef402c9abb530351", null ],
       [ "PARAM_KEY", "namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa588a485ee5046bd1f4f654d5e58809af", null ],
       [ "PARAM_TYPE", "namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa3624918944d320b7cc07f4ca99a99b91", null ],
-      [ "PARAM_VALUE_KEY", "namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa988a042b19386ddc31b0c9663700abab", null ]
+      [ "PARAM_VALUE_KEY", "namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa988a042b19386ddc31b0c9663700abab", null ],
+      [ "PARAM_ERROR", "namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aab705bd275e3f4aa8d88067b1c25a8880", null ]
     ] ],
     [ "key_type_to_buffer", "namespaceemlabcpp_1_1testing.html#a62549c075763c5dbed5462d5d4603817", null ],
     [ "name_to_buffer", "namespaceemlabcpp_1_1testing.html#adf747ac69a0bba3819fe10f84b0f8761", null ],
