@@ -16,7 +16,7 @@ struct log_colors
 
 static constexpr log_colors INFO_LOGGER_COLORS  = { .time = "33", .file = "128", .line = "164" };
 static constexpr log_colors DEBUG_LOGGER_COLORS = { .time = "250", .file = "252", .line = "248" };
-static constexpr log_colors ERROR_LOGGER_COLORS = { .time = "40", .file = "28", .line = "29" };
+static constexpr log_colors ERROR_LOGGER_COLORS = { .time = "196", .file = "197", .line = "198" };
 
 struct log_color_stub
 {
