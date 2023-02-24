@@ -80,6 +80,16 @@ struct value_type_converter< std::chrono::duration< Rep, Ratio > >
         {
                 return value_type_converter< Rep >::to_value( val.count() );
         }
+
+        static std::optional< std::chrono::duration< Rep, Ratio > >
+        from_value( const value_type& var )
+        {
+                std::optional< Rep > opt_raw = value_type_converter< Rep >::from_value( var );
+                if ( !opt_raw.has_value() ) {
+                        return std::nullopt;
+                }
+                return std::chrono::duration< Rep, Ratio >{ *opt_raw };
+        }
 };
 
 }  // namespace emlabcpp::testing
