@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__request":[4,0,0,0,1,3,1,0],
 "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__internal__error":[4,0,0,0,1,3,7,3],
 "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__protocol__error":[4,0,0,0,1,3,7,1],
 "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error":[4,0,0,0,1,3,7,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74":[3,0,0,0,0,4],
 "structemlabcpp_1_1coro_1_1memory__promise.html#aa5df7963db5ed1dec491c634158bc0d4":[3,0,0,0,0,2],
 "structemlabcpp_1_1coro_1_1memory__promise.html#aac7842c7528e91d7817528daa145e04a":[3,0,0,0,0,1],
-"structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9":[3,0,0,0,0,0],
-"structemlabcpp_1_1coro_1_1request__reply_1_1awaiter.html":[3,0,0,0,2,0]
+"structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9":[3,0,0,0,0,0]
 };
