@@ -44,7 +44,7 @@ std::array< std::string_view, N > expand_var_names( std::string_view sv )
 
 }  // namespace emlabcpp::logging
 
-#define EMLABCPP_DEBUG_LOG_VARS( ... )                                                 \
+#define EMLABCPP_INFO_LOG_VARS( ... )                                                 \
         {                                                                              \
                 static constexpr std::size_t N = EMLACBPP_VA_ARGS_SIZE( __VA_ARGS__ ); \
                 std::apply(                                                            \
