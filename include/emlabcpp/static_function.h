@@ -185,6 +185,10 @@ public:
         template < typename Callable >
         static_function_base& operator=( Callable c )
         {
+                static_assert(
+                    std::invocable< Callable, ArgTypes... >,
+                    "Provided callable has to be invocable with arguments" );
+
                 clear();
 
                 using storage =
