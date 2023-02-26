@@ -1,3 +1,4 @@
+#include "emlabcpp/experimental/logging.h"
 
 #pragma once
 
