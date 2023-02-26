@@ -3,7 +3,7 @@ Checks: >
   -*,
   bugprone*,-bugprone-easily-swappable-parameters,-bugprone-macro-parentheses,-bugprone-exception-escape,
   concurrency*,
-  modernize*, -modernize-use-trailing-return-type,-modernize-avoid-c-arrays,-modernize-use-nullptr,
+  modernize*,-modernize-use-trailing-return-type,-modernize-avoid-c-arrays,-modernize-use-nullptr,
   misc*,
   performance*,
   portability*,
