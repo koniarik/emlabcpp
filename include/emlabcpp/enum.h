@@ -18,7 +18,7 @@ requires( std::is_enum_v< Enum > ) auto convert_enum( Enum val )
 #ifdef EMLABCPP_USE_MAGIC_ENUM
         return magic_enum::enum_name( val );
 #else
-        return std::to_string( val );
+        return std::to_string( static_cast< std::underlying_type_t< Enum > >( val ) );
 #endif
 }
 
