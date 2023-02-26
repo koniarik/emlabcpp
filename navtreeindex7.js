@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__request":[4,0,0,0,1,3,1,0],
 "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__internal__error":[4,0,0,0,1,3,7,3],
 "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__protocol__error":[4,0,0,0,1,3,7,1],
 "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error":[4,0,0,0,1,3,7,2],
@@ -114,11 +115,11 @@ var NAVTREEINDEX7 =
 "pool__resource_8h.html":[4,0,0,0,3,4],
 "pool__resource_8h_source.html":[4,0,0,0,3,4],
 "pretty__printer_8h.html":[4,0,0,0,1,12],
-"pretty__printer_8h.html#a53a54421dadf3639047daa6aab4fc470":[4,0,0,0,1,12,29],
-"pretty__printer_8h.html#a8bf06ccbfbc6633b4244c7295fdc98cf":[4,0,0,0,1,12,25],
-"pretty__printer_8h.html#abed05683098f9a93c5b694ff9b9f3c16":[4,0,0,0,1,12,28],
-"pretty__printer_8h.html#aea91805d160a2eda9dfc9f0f29477351":[4,0,0,0,1,12,26],
-"pretty__printer_8h.html#afcb43f873b880adf7247a54e0d0b4a03":[4,0,0,0,1,12,27],
+"pretty__printer_8h.html#a53a54421dadf3639047daa6aab4fc470":[4,0,0,0,1,12,33],
+"pretty__printer_8h.html#a8bf06ccbfbc6633b4244c7295fdc98cf":[4,0,0,0,1,12,29],
+"pretty__printer_8h.html#abed05683098f9a93c5b694ff9b9f3c16":[4,0,0,0,1,12,32],
+"pretty__printer_8h.html#aea91805d160a2eda9dfc9f0f29477351":[4,0,0,0,1,12,30],
+"pretty__printer_8h.html#afcb43f873b880adf7247a54e0d0b4a03":[4,0,0,0,1,12,31],
 "pretty__printer_8h_source.html":[4,0,0,0,1,12],
 "protocol_2base_8h.html":[4,0,0,0,4,0],
 "protocol_2base_8h.html#aa86d1c4c148d71e70716484056a293c0":[4,0,0,0,4,0,7],
@@ -233,8 +234,8 @@ var NAVTREEINDEX7 =
 "streams_8h.html#a78012bf92df942bfb241c7e097c87846":[4,0,0,0,4,14,7],
 "streams_8h.html#af249a28fd2e4a8061fae1a3efa82a658":[4,0,0,0,4,14,5],
 "streams_8h_source.html":[4,0,0,0,4,14],
-"structemlabcpp_1_1are__same_3_01T_00_01Ts_8_8_8_01_4.html":[3,0,0,79],
-"structemlabcpp_1_1are__same_3_4.html":[3,0,0,80],
+"structemlabcpp_1_1are__same_3_01T_00_01Ts_8_8_8_01_4.html":[3,0,0,83],
+"structemlabcpp_1_1are__same_3_4.html":[3,0,0,84],
 "structemlabcpp_1_1buffer__writer.html":[3,0,0,32],
 "structemlabcpp_1_1buffer__writer.html#a240a84e7253235ebb05c412dd8125ae2":[3,0,0,32,0],
 "structemlabcpp_1_1buffer__writer.html#aab603d512c52b24e8d35ca36d3ccb91b":[3,0,0,32,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74":[3,0,0,0,0,4],
 "structemlabcpp_1_1coro_1_1memory__promise.html#aa5df7963db5ed1dec491c634158bc0d4":[3,0,0,0,0,2],
 "structemlabcpp_1_1coro_1_1memory__promise.html#aac7842c7528e91d7817528daa145e04a":[3,0,0,0,0,1],
-"structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9":[3,0,0,0,0,0],
-"structemlabcpp_1_1coro_1_1request__reply_1_1awaiter.html":[3,0,0,0,2,0]
+"structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9":[3,0,0,0,0,0]
 };
