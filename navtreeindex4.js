@@ -1,6 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"enum_8h_source.html":[4,0,0,0,14],
 "executor_8h.html":[4,0,0,0,1,3,8],
 "executor_8h_source.html":[4,0,0,0,1,3,8],
 "experimental_2contiguous__tree_2base_8h.html":[4,0,0,0,1,0,0],
@@ -19,7 +18,7 @@ var NAVTREEINDEX4 =
 "experimental_2contiguous__tree_2base_8h_source.html":[4,0,0,0,1,0,0],
 "experimental_2logging_2util_8h.html":[4,0,0,0,1,2,3],
 "experimental_2logging_2util_8h.html#a04248a323e06ff3779b3b3a86f1d2a43":[4,0,0,0,1,2,3,2],
-"experimental_2logging_2util_8h.html#a3b745f0f0f4e9614607707782a4f9631":[4,0,0,0,1,2,3,0],
+"experimental_2logging_2util_8h.html#a34d7d2336fd44b97109ebbccc3569c41":[4,0,0,0,1,2,3,0],
 "experimental_2logging_2util_8h.html#a6243454a964ef93f684c446f807b777a":[4,0,0,0,1,2,3,3],
 "experimental_2logging_2util_8h.html#aab0b47cd656c869fc0714a3d1c5b3dc7":[4,0,0,0,1,2,3,1],
 "experimental_2logging_2util_8h_source.html":[4,0,0,0,1,2,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX4 =
 "match_8h.html#a57181a407fd6f29a50664f8ba4cb44cd":[4,0,0,0,16,2],
 "match_8h.html#a63a6aaa5fc338d3d342d90a14225fe82":[4,0,0,0,16,1],
 "match_8h.html#ab077da8cbabe4cc68820537ddc602b91":[4,0,0,0,16,3],
-"match_8h_source.html":[4,0,0,0,16]
+"match_8h_source.html":[4,0,0,0,16],
+"matrix_8h.html":[4,0,0,0,1,10]
 };
