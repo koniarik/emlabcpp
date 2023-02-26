@@ -8,9 +8,12 @@
 #include <charconv>
 #include <chrono>
 #include <filesystem>
+#include <map>
 #include <optional>
+#include <set>
 #include <span>
 #include <tuple>
+#include <unordered_map>
 #include <variant>
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
@@ -323,6 +326,36 @@ struct pretty_printer< std::vector< T > >
         }
 };
 
+template < typename T >
+struct pretty_printer< std::set< T > >
+{
+        template < typename Writer >
+        static void print( Writer&& w, const std::set< T >& vec )
+        {
+                string_serialize_view( std::forward< Writer >( w ), view( vec ) );
+        }
+};
+
+template < typename K, typename T >
+struct pretty_printer< std::map< K, T > >
+{
+        template < typename Writer >
+        static void print( Writer&& w, const std::map< K, T >& m )
+        {
+                string_serialize_view( std::forward< Writer >( w ), view( m ) );
+        }
+};
+
+template < typename K, typename T >
+struct pretty_printer< std::unordered_map< K, T > >
+{
+        template < typename Writer >
+        static void print( Writer&& w, const std::unordered_map< K, T >& m )
+        {
+                string_serialize_view( std::forward< Writer >( w ), view( m ) );
+        }
+};
+
 template < typename... Ts >
 struct pretty_printer< std::variant< Ts... > >
 {
@@ -353,6 +386,20 @@ struct pretty_printer< std::tuple< Ts... > >
                         w( delim );
                         w( item );
                 } );
+                w( ')' );
+        }
+};
+
+template < typename LH, typename RH >
+struct pretty_printer< std::pair< LH, RH > >
+{
+        template < typename Writer >
+        static void print( Writer&& w, const std::pair< LH, RH >& p )
+        {
+                w( '(' );
+                w( p.first );
+                w( ',' );
+                w( p.second );
                 w( ')' );
         }
 };
