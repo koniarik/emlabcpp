@@ -110,8 +110,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2e8ac73e4a93e33e6368af4ce0bbd369"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a2e8ac73e4a93e33e6368af4ce0bbd369">pid</a> (<a class="el" href="classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4">time_type</a> now, <a class="el" href="classemlabcpp_1_1pid.html#a9b501efa3256141fd6b1dcbd1555b6a8">config</a> conf=<a class="el" href="classemlabcpp_1_1pid.html#a9b501efa3256141fd6b1dcbd1555b6a8">config</a>{})</td></tr>
 <tr class="memdesc:a2e8ac73e4a93e33e6368af4ce0bbd369"><td class="mdescLeft">&#160;</td><td class="mdescRight">improvements from naive PID:  <a href="classemlabcpp_1_1pid.html#a2e8ac73e4a93e33e6368af4ce0bbd369">More...</a><br /></td></tr>
 <tr class="separator:a2e8ac73e4a93e33e6368af4ce0bbd369"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae259ae962d4796fe8d05ff313246e52f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#ae259ae962d4796fe8d05ff313246e52f">set_time</a> (<a class="el" href="classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4">time_type</a> t)</td></tr>
-<tr class="separator:ae259ae962d4796fe8d05ff313246e52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49c64094847dbffbd278b00273552235"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a49c64094847dbffbd278b00273552235">set_last_time</a> (<a class="el" href="classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4">time_type</a> t)</td></tr>
+<tr class="separator:a49c64094847dbffbd278b00273552235"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af73af531f971ef2bfec4e83b587be8d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#af73af531f971ef2bfec4e83b587be8d7">set_last_measured</a> (float v)</td></tr>
+<tr class="separator:af73af531f971ef2bfec4e83b587be8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc80653f5ab1e5b6912da8324df2bd3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#abc80653f5ab1e5b6912da8324df2bd3e">set_config</a> (<a class="el" href="classemlabcpp_1_1pid.html#a9b501efa3256141fd6b1dcbd1555b6a8">config</a> conf)</td></tr>
 <tr class="separator:abc80653f5ab1e5b6912da8324df2bd3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d154d847fd63de61e647883631cc9bf"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classemlabcpp_1_1pid.html#a9b501efa3256141fd6b1dcbd1555b6a8">config</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html#a4d154d847fd63de61e647883631cc9bf">get_config</a> () const</td></tr>
@@ -392,6 +394,62 @@ template&lt;typename TimeType &gt; </div>
 
 </div>
 </div>
+<a id="af73af531f971ef2bfec4e83b587be8d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af73af531f971ef2bfec4e83b587be8d7">&#9670;&nbsp;</a></span>set_last_measured()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TimeType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classemlabcpp_1_1pid.html">emlabcpp::pid</a>&lt; TimeType &gt;::set_last_measured </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49c64094847dbffbd278b00273552235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49c64094847dbffbd278b00273552235">&#9670;&nbsp;</a></span>set_last_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TimeType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classemlabcpp_1_1pid.html">emlabcpp::pid</a>&lt; TimeType &gt;::set_last_time </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4">time_type</a>&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aba14ada7a0e3fd7587c5f1e024d15a58"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba14ada7a0e3fd7587c5f1e024d15a58">&#9670;&nbsp;</a></span>set_limits() <span class="overload">[1/2]</span></h2>
 
@@ -566,34 +624,6 @@ template&lt;typename TimeType &gt; </div>
 
 </div>
 </div>
-<a id="ae259ae962d4796fe8d05ff313246e52f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae259ae962d4796fe8d05ff313246e52f">&#9670;&nbsp;</a></span>set_time()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename TimeType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classemlabcpp_1_1pid.html">emlabcpp::pid</a>&lt; TimeType &gt;::set_time </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1pid.html#a9c976249341039b8a90a698b70a917e4">time_type</a>&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a77e0fe2df4c84f93732d42a54bf3e171"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a77e0fe2df4c84f93732d42a54bf3e171">&#9670;&nbsp;</a></span>update()</h2>
 
@@ -653,7 +683,7 @@ template&lt;typename TimeType &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1pid.html">pid</a></li>
-    <li class="footer">Generated on Sun Feb 26 2023 13:29:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 11 2023 22:24:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
