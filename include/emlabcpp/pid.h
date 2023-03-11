@@ -86,9 +86,14 @@ public:
                 set_config( conf );
         }
 
-        void set_time( time_type t )
+        void set_last_time( time_type t )
         {
                 last_time_ = t;
+        }
+
+        void set_last_measured( float v )
+        {
+                last_measured_ = v;
         }
 
         void set_config( config conf )
@@ -136,11 +141,12 @@ public:
         /// eventually converges to 'desired' value
         float update( time_type now, float measured, float desired )
         {
-                auto t_diff = static_cast< float >( now - last_time_ );
-
-                if ( t_diff == 0.f ) {
+                if ( now == last_time_ ) {
                         return output_;
                 }
+
+                auto t_diff = static_cast< float >( now - last_time_ );
+
                 last_desired_ = desired;
 
                 const pid_coefficients& coeff = conf_.coefficients;
