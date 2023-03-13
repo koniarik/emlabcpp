@@ -74,22 +74,22 @@ public:
                     sizeof...( Ts ) == N + 1, "Number of parameters for simplex has to be N+1" );
         }
 
-        constexpr const_iterator begin() const
+        [[nodiscard]] constexpr const_iterator begin() const
         {
                 return points_.begin();
         }
 
-        constexpr const_iterator end() const
+        [[nodiscard]] constexpr const_iterator end() const
         {
                 return points_.end();
         }
 
-        constexpr const Item& operator[]( std::size_t index ) const
+        [[nodiscard]] constexpr const Item& operator[]( std::size_t index ) const
         {
                 return points_[index];
         }
 
-        constexpr std::size_t size() const
+        [[nodiscard]] constexpr std::size_t size() const
         {
                 return points_.size();
         }

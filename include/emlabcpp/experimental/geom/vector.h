@@ -63,15 +63,15 @@ constexpr vector< N > operator+( vector< N > lh, const vector< N >& rh )
 ///
 constexpr vector< 3 > cross_product( const vector< 3 >& a, const vector< 3 >& b )
 {
-        return vector< 3 >(
-            a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0] );
+        return vector< 3 >{
+            a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0] };
 }
 
 /// Returns a normal to a point A in two dimensions
 ///
 constexpr vector< 2 > normal_of( const vector< 2 >& a )
 {
-        return vector< 2 >( a[1], -a[0] );
+        return vector< 2 >{ a[1], -a[0] };
 }
 
 template < std::size_t N >

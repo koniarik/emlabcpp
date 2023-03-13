@@ -73,47 +73,47 @@ public:
                 static_assert( sizeof...( T ) == N, "Number of parameters has to be N" );
         }
 
-        constexpr const_iterator begin() const
+        [[nodiscard]] constexpr const_iterator begin() const
         {
                 return data_.begin();
         }
 
-        constexpr const_iterator end() const
+        [[nodiscard]] constexpr const_iterator end() const
         {
                 return data_.end();
         }
 
-        constexpr iterator begin()
+        [[nodiscard]] constexpr iterator begin()
         {
                 return data_.begin();
         }
 
-        constexpr iterator end()
+        [[nodiscard]] constexpr iterator end()
         {
                 return data_.end();
         }
 
-        constexpr float operator[]( std::size_t i ) const
+        [[nodiscard]] constexpr float operator[]( std::size_t i ) const
         {
                 return data_[i];
         }
 
-        constexpr float& operator[]( std::size_t i )
+        [[nodiscard]] constexpr float& operator[]( std::size_t i )
         {
                 return data_[i];
         }
 
-        constexpr Derived operator-() const
+        [[nodiscard]] constexpr Derived operator-() const
         {
                 return { impl() * -1.f };
         }
 
-        constexpr std::size_t size() const
+        [[nodiscard]] constexpr std::size_t size() const
         {
                 return N;
         }
 
-        constexpr const container& operator*() const
+        [[nodiscard]] constexpr const container& operator*() const
         {
                 return data_;
         }

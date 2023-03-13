@@ -51,32 +51,32 @@ public:
                 fields_[3] = std::cos( a * 0.5f );
         }
 
-        constexpr float operator[]( std::size_t i ) const noexcept
+        [[nodiscard]] constexpr float operator[]( std::size_t i ) const noexcept
         {
                 return fields_[i];
         }
 
-        constexpr const_iterator begin() const
+        [[nodiscard]] constexpr const_iterator begin() const
         {
                 return fields_.begin();
         }
 
-        constexpr const_iterator end() const
+        [[nodiscard]] constexpr const_iterator end() const
         {
                 return fields_.end();
         }
 
-        constexpr iterator begin()
+        [[nodiscard]] constexpr iterator begin()
         {
                 return fields_.begin();
         }
 
-        constexpr iterator end()
+        [[nodiscard]] constexpr iterator end()
         {
                 return fields_.end();
         }
 
-        constexpr std::size_t size() const
+        [[nodiscard]] constexpr std::size_t size() const
         {
                 return fields_.size();
         }

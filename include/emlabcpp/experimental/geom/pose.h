@@ -59,21 +59,21 @@ struct pose
         {
         }
 
-        explicit constexpr pose( point< 3 > position )
-          : position( std::move( position ) )
+        explicit constexpr pose( const point< 3 >& position )
+          : position( position )
           , orientation( neutral_quat )
         {
         }
 
-        explicit constexpr pose( quaternion orientation )
+        explicit constexpr pose( const quaternion& orientation )
           : position( 0, 0, 0 )
-          , orientation( std::move( orientation ) )
+          , orientation( orientation )
         {
         }
 
-        constexpr pose( point< 3 > position, quaternion orientation )
-          : position( std::move( position ) )
-          , orientation( std::move( orientation ) )
+        constexpr pose( const point< 3 >& position, const quaternion& orientation )
+          : position( position )
+          , orientation( orientation )
         {
         }
 };
