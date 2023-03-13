@@ -245,7 +245,7 @@ struct param_type_processor
         [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
 using param_type_awaiter = params_awaiter< param_type_processor >;
-extern template class params_awaiter< param_type_processor >;
+extern template struct params_awaiter< param_type_processor >;
 
 struct param_child_processor
 {
@@ -255,7 +255,7 @@ struct param_child_processor
         [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
 using param_child_awaiter = params_awaiter< param_child_processor >;
-extern template class params_awaiter< param_child_processor >;
+extern template struct params_awaiter< param_child_processor >;
 
 struct param_child_count_processor
 {
@@ -265,7 +265,7 @@ struct param_child_count_processor
         [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
 using param_child_count_awaiter = params_awaiter< param_child_count_processor >;
-extern template class params_awaiter< param_child_count_processor >;
+extern template struct params_awaiter< param_child_count_processor >;
 
 struct param_key_processor
 {
@@ -275,7 +275,7 @@ struct param_key_processor
         [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
 using param_key_awaiter = params_awaiter< param_key_processor >;
-extern template class params_awaiter< param_key_processor >;
+extern template struct params_awaiter< param_key_processor >;
 
 class parameters
 {

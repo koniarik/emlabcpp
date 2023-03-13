@@ -21,6 +21,7 @@
 
 #include "point_test.h"
 
+#include <cmath>
 #include <gtest/gtest.h>
 
 using namespace emlabcpp;
@@ -42,7 +43,7 @@ TYPED_TEST( PointTest, perpendicular )
         point< 2 >                zero_p{ { 0, 0 } };
         point< 2 >                unit_p{ { n, n } };
 
-        float diag_dist = sqrt( 2 * n * n ) / 2;
+        float diag_dist = std::sqrt( static_cast< float >( 2 * n * n ) ) / 2.f;
 
         line< 2 > test_line{ zero_p, unit_p };
         ASSERT_NEAR( distance_of( test_line, p ), diag_dist, 1e-6 );

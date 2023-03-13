@@ -115,7 +115,7 @@ void controller::on_msg( const std::span< const uint8_t > data )
                 [this]( const reactor_controller_variant& var ) {
                         on_msg( var );
                 },
-                [this]( const protocol::error_record& rec ) {
+                []( const protocol::error_record& rec ) {
                         std::ignore = rec;
                         EMLABCPP_ERROR_LOG( "Failed to extract incoming msg: ", rec );
                 } );

@@ -18,6 +18,9 @@
 ///
 
 #include "emlabcpp/experimental/testing/base.h"
+#include "emlabcpp/pmr/memory_resource.h"
+
+#include <optional>
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 #include <nlohmann/json.hpp>
