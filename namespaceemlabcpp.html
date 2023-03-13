@@ -168,10 +168,13 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class implementing multidimensional point in coordinate system of dimension N.  <a href="classemlabcpp_1_1point.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1pose__distance"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1pose__distance">pose_distance</a></td></tr>
+<tr class="memdesc:structemlabcpp_1_1pose__distance"><td class="mdescLeft">&#160;</td><td class="mdescRight">distance between two poses in space, represented as 'space distance' and 'angular distance'  <a href="namespaceemlabcpp.html#structemlabcpp_1_1pose__distance">More...</a><br /></td></tr>
 <tr class="separator:structemlabcpp_1_1pose__distance"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pose.html">pose</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">represents orientation and position in 3D space  <a href="structemlabcpp_1_1pose.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1quaternion.html">quaternion</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">API and behavior of this is inspired by tf::Quaternion.  <a href="classemlabcpp_1_1quaternion.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -694,26 +697,34 @@ Functions</h2></td></tr>
 <tr class="memdesc:aaf2a3b65521b77f85095c0130ef945fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to calculate distance of projection of point A.  <a href="namespaceemlabcpp.html#aaf2a3b65521b77f85095c0130ef945fe">More...</a><br /></td></tr>
 <tr class="separator:aaf2a3b65521b77f85095c0130ef945fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95b7c5f71b2d2128143bbd09bc6cb341"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a95b7c5f71b2d2128143bbd09bc6cb341">steps</a> (<a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1pose__distance">pose_distance</a> dist, float dist_step, float angle_step)</td></tr>
+<tr class="memdesc:a95b7c5f71b2d2128143bbd09bc6cb341"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns steps necessary for linear interpolation of distance between poses 'dis', such that:  <a href="namespaceemlabcpp.html#a95b7c5f71b2d2128143bbd09bc6cb341">More...</a><br /></td></tr>
 <tr class="separator:a95b7c5f71b2d2128143bbd09bc6cb341"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b460db38cf4162f2102f01e6f42616c"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0b460db38cf4162f2102f01e6f42616c">operator&lt;</a> (const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;x, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;y)</td></tr>
 <tr class="separator:a0b460db38cf4162f2102f01e6f42616c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae905e83f27246077252ae1308f0fda07"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae905e83f27246077252ae1308f0fda07">operator==</a> (const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;x, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;y)</td></tr>
+<tr class="memdesc:ae905e83f27246077252ae1308f0fda07"><td class="mdescLeft">&#160;</td><td class="mdescRight">compares poses on their position and orientation  <a href="namespaceemlabcpp.html#ae905e83f27246077252ae1308f0fda07">More...</a><br /></td></tr>
 <tr class="separator:ae905e83f27246077252ae1308f0fda07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45f2745b15d83802490aa46fc8e25102"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a45f2745b15d83802490aa46fc8e25102">operator!=</a> (const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;x, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;y)</td></tr>
+<tr class="memdesc:a45f2745b15d83802490aa46fc8e25102"><td class="mdescLeft">&#160;</td><td class="mdescRight">negation of operator== between poses  <a href="namespaceemlabcpp.html#a45f2745b15d83802490aa46fc8e25102">More...</a><br /></td></tr>
 <tr class="separator:a45f2745b15d83802490aa46fc8e25102"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac081ada5ee8e130abc77d8471f570661"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1pose__distance">pose_distance</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac081ada5ee8e130abc77d8471f570661">distance_of</a> (const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;x, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;y)</td></tr>
+<tr class="memdesc:ac081ada5ee8e130abc77d8471f570661"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns PoseDistance between provided poses  <a href="namespaceemlabcpp.html#ac081ada5ee8e130abc77d8471f570661">More...</a><br /></td></tr>
 <tr class="separator:ac081ada5ee8e130abc77d8471f570661"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a130ed4c792c2efaf92b76eb607a433c3"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a130ed4c792c2efaf92b76eb607a433c3">almost_equal</a> (const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;x, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;y, float eps=<a class="el" href="namespaceemlabcpp.html#a20db02f115d34db629106a39c5194e18">default_epsilon</a>)</td></tr>
+<tr class="memdesc:a130ed4c792c2efaf92b76eb607a433c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">two poses are almost equal when their orientations and positions are almost equal  <a href="namespaceemlabcpp.html#a130ed4c792c2efaf92b76eb607a433c3">More...</a><br /></td></tr>
 <tr class="separator:a130ed4c792c2efaf92b76eb607a433c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fe90ef4b53557e6198f75e4e3f0e86f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1pose.html">pose</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1fe90ef4b53557e6198f75e4e3f0e86f">lin_interp</a> (const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;from, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;goal, float factor)</td></tr>
+<tr class="memdesc:a1fe90ef4b53557e6198f75e4e3f0e86f"><td class="mdescLeft">&#160;</td><td class="mdescRight">linear interpolation between base se and goal pose, with factor 0 'base' is returned, with factor 1 'goal' is returned.  <a href="namespaceemlabcpp.html#a1fe90ef4b53557e6198f75e4e3f0e86f">More...</a><br /></td></tr>
 <tr class="separator:a1fe90ef4b53557e6198f75e4e3f0e86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa68ddb76ca74c38e8582a5fa4180da7b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa68ddb76ca74c38e8582a5fa4180da7b">lineary_interpolate_path</a> (const std::vector&lt; <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &gt; &amp;ipath, float d_step, float a_step)</td></tr>
 <tr class="separator:aa68ddb76ca74c38e8582a5fa4180da7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cc504832a0c2ee50c85b216971c170a"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0cc504832a0c2ee50c85b216971c170a">transform</a> (const <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; 3 &gt; &amp;a, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;transformation)</td></tr>
+<tr class="memdesc:a0cc504832a0c2ee50c85b216971c170a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Point A is rotated based on 'transformation' orientation and than moved based on 'transformation' position.  <a href="namespaceemlabcpp.html#a0cc504832a0c2ee50c85b216971c170a">More...</a><br /></td></tr>
 <tr class="separator:a0cc504832a0c2ee50c85b216971c170a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61331372de6b7c1f226a19df31b820bc"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a61331372de6b7c1f226a19df31b820bc">transform</a> (const <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; 3 &gt; &amp;v, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;transformation)</td></tr>
 <tr class="separator:a61331372de6b7c1f226a19df31b820bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6416b91bd33ea2a47540c131ba789fe"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1pose.html">pose</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae6416b91bd33ea2a47540c131ba789fe">transform</a> (const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;x, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;transformation)</td></tr>
+<tr class="memdesc:ae6416b91bd33ea2a47540c131ba789fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pose X is rotated based on 'transformation' orientation and than moved based on 'transformation' position.  <a href="namespaceemlabcpp.html#ae6416b91bd33ea2a47540c131ba789fe">More...</a><br /></td></tr>
 <tr class="separator:ae6416b91bd33ea2a47540c131ba789fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fdc7d913ad6f5537d3c78d1fe0518dd"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0fdc7d913ad6f5537d3c78d1fe0518dd"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0fdc7d913ad6f5537d3c78d1fe0518dd">transform</a> (const <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &amp;mm, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;transformation)</td></tr>
@@ -724,6 +735,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ae9b509189c2527a5023267e866b85d68"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae9b509189c2527a5023267e866b85d68">inverse_transform</a> (const T &amp;item, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;transformation)</td></tr>
 <tr class="separator:ae9b509189c2527a5023267e866b85d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a585ac88872a7d3a671951eba53e721de"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1pose.html">pose</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a585ac88872a7d3a671951eba53e721de">rotate</a> (const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;x, const <a class="el" href="classemlabcpp_1_1quaternion.html">quaternion</a> &amp;quat)</td></tr>
+<tr class="memdesc:a585ac88872a7d3a671951eba53e721de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pose X is rotated based on quaternion 'quad'.  <a href="namespaceemlabcpp.html#a585ac88872a7d3a671951eba53e721de">More...</a><br /></td></tr>
 <tr class="separator:a585ac88872a7d3a671951eba53e721de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d9f2c9f70372883377a906c4ee7c8dc"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1quaternion.html">quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a4d9f2c9f70372883377a906c4ee7c8dc">inverse</a> (const <a class="el" href="classemlabcpp_1_1quaternion.html">quaternion</a> &amp;q)</td></tr>
 <tr class="separator:a4d9f2c9f70372883377a906c4ee7c8dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1292,7 +1304,8 @@ class emlabcpp::function_view&lt; Signature &gt;</h3>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><table class="fieldtable">
+<div class="textblock"><p>distance between two poses in space, represented as 'space distance' and 'angular distance' </p>
+</div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
 <a id="a86cfd1cc45e85428b1d42ea979b19b7e"></a>float</td>
@@ -2545,6 +2558,8 @@ template&lt;vec_point_derived Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>two poses are almost equal when their orientations and positions are almost equal </p>
+
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#af4898d31a822e25963cab32a985e89f4">almost_equal()</a>, <a class="el" href="structemlabcpp_1_1pose.html#a91718e2267586a129cfe03c3e67641f9">emlabcpp::pose::orientation</a>, and <a class="el" href="structemlabcpp_1_1pose.html#a61e29575c2f82392bb0ad93a9d80e576">emlabcpp::pose::position</a>.</p>
 
 </div>
@@ -3596,6 +3611,8 @@ template&lt;std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>returns PoseDistance between provided poses </p>
+
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#aa86203b42f9478701d1f52443d5729a3">angle_shortest_path()</a>, <a class="el" href="namespaceemlabcpp.html#a51181e92ac66d2a113b7c0e5b9a2718e">distance_of()</a>, <a class="el" href="structemlabcpp_1_1pose.html#a91718e2267586a129cfe03c3e67641f9">emlabcpp::pose::orientation</a>, and <a class="el" href="structemlabcpp_1_1pose.html#a61e29575c2f82392bb0ad93a9d80e576">emlabcpp::pose::position</a>.</p>
 
 </div>
@@ -4420,6 +4437,9 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>linear interpolation between base se and goal pose, with factor 0 'base' is returned, with factor 1 'goal' is returned. </p>
+<p>With factor 0.5, pose between 'base' and 'goal' pose is returned </p>
+
 <p class="reference">References <a class="el" href="structemlabcpp_1_1pose.html#a91718e2267586a129cfe03c3e67641f9">emlabcpp::pose::orientation</a>, <a class="el" href="structemlabcpp_1_1pose.html#a61e29575c2f82392bb0ad93a9d80e576">emlabcpp::pose::position</a>, and <a class="el" href="namespaceemlabcpp.html#aeb2a793ecef21878567a88585e7f7b6b">slerp()</a>.</p>
 
 </div>
@@ -5216,6 +5236,8 @@ template&lt;typename Derived , std::size_t N&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>negation of operator== between poses </p>
 
 </div>
 </div>
@@ -7077,6 +7099,8 @@ template&lt;typename T , std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>compares poses on their position and orientation </p>
+
 <p class="reference">References <a class="el" href="structemlabcpp_1_1pose.html#a91718e2267586a129cfe03c3e67641f9">emlabcpp::pose::orientation</a>, and <a class="el" href="structemlabcpp_1_1pose.html#a61e29575c2f82392bb0ad93a9d80e576">emlabcpp::pose::position</a>.</p>
 
 </div>
@@ -8057,6 +8081,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Pose X is rotated based on quaternion 'quad'. </p>
+
 <p class="reference">References <a class="el" href="structemlabcpp_1_1pose.html#a91718e2267586a129cfe03c3e67641f9">emlabcpp::pose::orientation</a>, and <a class="el" href="structemlabcpp_1_1pose.html#a61e29575c2f82392bb0ad93a9d80e576">emlabcpp::pose::position</a>.</p>
 
 </div>
@@ -8475,6 +8501,13 @@ template&lt;int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li,
 </table>
 </div><div class="memdoc">
 
+<p>returns steps necessary for linear interpolation of distance between poses 'dis', such that: </p>
+<ul>
+<li>the number of steps is minimized</li>
+<li>space distance between interpolated poses is smaller than dist_step</li>
+<li>angle distance between interpolated poses is smaller than angle_step </li>
+</ul>
+
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a86cfd1cc45e85428b1d42ea979b19b7e">emlabcpp::pose_distance::angle_dist</a>, <a class="el" href="namespaceemlabcpp.html#a746c782172b5cd06a357056a324f437b">emlabcpp::pose_distance::dist</a>, and <a class="el" href="namespaceemlabcpp.html#a8c784ba1275978f98555df83478109c8">max()</a>.</p>
 
 </div>
@@ -8727,6 +8760,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Point A is rotated based on 'transformation' orientation and than moved based on 'transformation' position. </p>
+
 <p class="reference">References <a class="el" href="structemlabcpp_1_1pose.html#a91718e2267586a129cfe03c3e67641f9">emlabcpp::pose::orientation</a>, <a class="el" href="structemlabcpp_1_1pose.html#a61e29575c2f82392bb0ad93a9d80e576">emlabcpp::pose::position</a>, <a class="el" href="namespaceemlabcpp.html#a585ac88872a7d3a671951eba53e721de">rotate()</a>, and <a class="el" href="namespaceemlabcpp.html#a3cfa63f3a0229b43ff56952dbb4e191f">vector_cast()</a>.</p>
 
 </div>
@@ -8764,6 +8799,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Pose X is rotated based on 'transformation' orientation and than moved based on 'transformation' position. </p>
 
 <p class="reference">References <a class="el" href="structemlabcpp_1_1pose.html#a91718e2267586a129cfe03c3e67641f9">emlabcpp::pose::orientation</a>, <a class="el" href="structemlabcpp_1_1pose.html#a61e29575c2f82392bb0ad93a9d80e576">emlabcpp::pose::position</a>, and <a class="el" href="namespaceemlabcpp.html#a0cc504832a0c2ee50c85b216971c170a">transform()</a>.</p>
 
@@ -10304,7 +10341,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Mon Mar 13 2023 20:07:12 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 13 2023 20:43:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

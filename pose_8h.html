@@ -108,8 +108,10 @@ $(document).ready(function(){initNavTree('pose_8h.html',''); initResizable(); })
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:structemlabcpp_1_1pose__distance"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1pose__distance">emlabcpp::pose_distance</a></td></tr>
+<tr class="memdesc:structemlabcpp_1_1pose__distance"><td class="mdescLeft">&#160;</td><td class="mdescRight">distance between two poses in space, represented as 'space distance' and 'angular distance'  <a href="namespaceemlabcpp.html#structemlabcpp_1_1pose__distance">More...</a><br /></td></tr>
 <tr class="separator:structemlabcpp_1_1pose__distance"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pose.html">emlabcpp::pose</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">represents orientation and position in 3D space  <a href="structemlabcpp_1_1pose.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -121,26 +123,34 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a95b7c5f71b2d2128143bbd09bc6cb341"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a95b7c5f71b2d2128143bbd09bc6cb341">emlabcpp::steps</a> (pose_distance dist, float dist_step, float angle_step)</td></tr>
+<tr class="memdesc:a95b7c5f71b2d2128143bbd09bc6cb341"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns steps necessary for linear interpolation of distance between poses 'dis', such that:  <a href="namespaceemlabcpp.html#a95b7c5f71b2d2128143bbd09bc6cb341">More...</a><br /></td></tr>
 <tr class="separator:a95b7c5f71b2d2128143bbd09bc6cb341"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b460db38cf4162f2102f01e6f42616c"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0b460db38cf4162f2102f01e6f42616c">emlabcpp::operator&lt;</a> (const pose &amp;x, const pose &amp;y)</td></tr>
 <tr class="separator:a0b460db38cf4162f2102f01e6f42616c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae905e83f27246077252ae1308f0fda07"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae905e83f27246077252ae1308f0fda07">emlabcpp::operator==</a> (const pose &amp;x, const pose &amp;y)</td></tr>
+<tr class="memdesc:ae905e83f27246077252ae1308f0fda07"><td class="mdescLeft">&#160;</td><td class="mdescRight">compares poses on their position and orientation  <a href="namespaceemlabcpp.html#ae905e83f27246077252ae1308f0fda07">More...</a><br /></td></tr>
 <tr class="separator:ae905e83f27246077252ae1308f0fda07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45f2745b15d83802490aa46fc8e25102"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a45f2745b15d83802490aa46fc8e25102">emlabcpp::operator!=</a> (const pose &amp;x, const pose &amp;y)</td></tr>
+<tr class="memdesc:a45f2745b15d83802490aa46fc8e25102"><td class="mdescLeft">&#160;</td><td class="mdescRight">negation of operator== between poses  <a href="namespaceemlabcpp.html#a45f2745b15d83802490aa46fc8e25102">More...</a><br /></td></tr>
 <tr class="separator:a45f2745b15d83802490aa46fc8e25102"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac081ada5ee8e130abc77d8471f570661"><td class="memItemLeft" align="right" valign="top">constexpr pose_distance&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac081ada5ee8e130abc77d8471f570661">emlabcpp::distance_of</a> (const pose &amp;x, const pose &amp;y)</td></tr>
+<tr class="memdesc:ac081ada5ee8e130abc77d8471f570661"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns PoseDistance between provided poses  <a href="namespaceemlabcpp.html#ac081ada5ee8e130abc77d8471f570661">More...</a><br /></td></tr>
 <tr class="separator:ac081ada5ee8e130abc77d8471f570661"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a130ed4c792c2efaf92b76eb607a433c3"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a130ed4c792c2efaf92b76eb607a433c3">emlabcpp::almost_equal</a> (const pose &amp;x, const pose &amp;y, float eps=default_epsilon)</td></tr>
+<tr class="memdesc:a130ed4c792c2efaf92b76eb607a433c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">two poses are almost equal when their orientations and positions are almost equal  <a href="namespaceemlabcpp.html#a130ed4c792c2efaf92b76eb607a433c3">More...</a><br /></td></tr>
 <tr class="separator:a130ed4c792c2efaf92b76eb607a433c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fe90ef4b53557e6198f75e4e3f0e86f"><td class="memItemLeft" align="right" valign="top">constexpr pose&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1fe90ef4b53557e6198f75e4e3f0e86f">emlabcpp::lin_interp</a> (const pose &amp;from, const pose &amp;goal, float factor)</td></tr>
+<tr class="memdesc:a1fe90ef4b53557e6198f75e4e3f0e86f"><td class="mdescLeft">&#160;</td><td class="mdescRight">linear interpolation between base se and goal pose, with factor 0 'base' is returned, with factor 1 'goal' is returned.  <a href="namespaceemlabcpp.html#a1fe90ef4b53557e6198f75e4e3f0e86f">More...</a><br /></td></tr>
 <tr class="separator:a1fe90ef4b53557e6198f75e4e3f0e86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa68ddb76ca74c38e8582a5fa4180da7b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; pose &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa68ddb76ca74c38e8582a5fa4180da7b">emlabcpp::lineary_interpolate_path</a> (const std::vector&lt; pose &gt; &amp;ipath, float d_step, float a_step)</td></tr>
 <tr class="separator:aa68ddb76ca74c38e8582a5fa4180da7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cc504832a0c2ee50c85b216971c170a"><td class="memItemLeft" align="right" valign="top">constexpr point&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0cc504832a0c2ee50c85b216971c170a">emlabcpp::transform</a> (const point&lt; 3 &gt; &amp;a, const pose &amp;transformation)</td></tr>
+<tr class="memdesc:a0cc504832a0c2ee50c85b216971c170a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Point A is rotated based on 'transformation' orientation and than moved based on 'transformation' position.  <a href="namespaceemlabcpp.html#a0cc504832a0c2ee50c85b216971c170a">More...</a><br /></td></tr>
 <tr class="separator:a0cc504832a0c2ee50c85b216971c170a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61331372de6b7c1f226a19df31b820bc"><td class="memItemLeft" align="right" valign="top">constexpr vector&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a61331372de6b7c1f226a19df31b820bc">emlabcpp::transform</a> (const vector&lt; 3 &gt; &amp;v, const pose &amp;transformation)</td></tr>
 <tr class="separator:a61331372de6b7c1f226a19df31b820bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6416b91bd33ea2a47540c131ba789fe"><td class="memItemLeft" align="right" valign="top">constexpr pose&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae6416b91bd33ea2a47540c131ba789fe">emlabcpp::transform</a> (const pose &amp;x, const pose &amp;transformation)</td></tr>
+<tr class="memdesc:ae6416b91bd33ea2a47540c131ba789fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pose X is rotated based on 'transformation' orientation and than moved based on 'transformation' position.  <a href="namespaceemlabcpp.html#ae6416b91bd33ea2a47540c131ba789fe">More...</a><br /></td></tr>
 <tr class="separator:ae6416b91bd33ea2a47540c131ba789fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fdc7d913ad6f5537d3c78d1fe0518dd"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0fdc7d913ad6f5537d3c78d1fe0518dd"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0fdc7d913ad6f5537d3c78d1fe0518dd">emlabcpp::transform</a> (const min_max&lt; T &gt; &amp;mm, const pose &amp;transformation)</td></tr>
@@ -151,6 +161,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ae9b509189c2527a5023267e866b85d68"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae9b509189c2527a5023267e866b85d68">emlabcpp::inverse_transform</a> (const T &amp;item, const pose &amp;transformation)</td></tr>
 <tr class="separator:ae9b509189c2527a5023267e866b85d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a585ac88872a7d3a671951eba53e721de"><td class="memItemLeft" align="right" valign="top">constexpr pose&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a585ac88872a7d3a671951eba53e721de">emlabcpp::rotate</a> (const pose &amp;x, const quaternion &amp;quat)</td></tr>
+<tr class="memdesc:a585ac88872a7d3a671951eba53e721de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pose X is rotated based on quaternion 'quad'.  <a href="namespaceemlabcpp.html#a585ac88872a7d3a671951eba53e721de">More...</a><br /></td></tr>
 <tr class="separator:a585ac88872a7d3a671951eba53e721de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
@@ -165,7 +176,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><table class="fieldtable">
+<div class="textblock"><p>distance between two poses in space, represented as 'space distance' and 'angular distance' </p>
+</div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
 <a id="a86cfd1cc45e85428b1d42ea979b19b7e"></a>float</td>
@@ -189,7 +201,7 @@ dist</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_3ae5028df88b3fc471a247e16af56915.html">geom</a></li><li class="navelem"><a class="el" href="pose_8h.html">pose.h</a></li>
-    <li class="footer">Generated on Mon Mar 13 2023 20:07:12 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 13 2023 20:43:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
