@@ -1,13 +1,15 @@
 <map id="include/emlabcpp/pmr/stack_resource.h" name="include/emlabcpp/pmr/stack_resource.h">
-<area shape="rect" id="node1" title=" " alt="" coords="525,5,692,47"/>
-<area shape="rect" id="node2" href="$logging_8h.html" title=" " alt="" coords="132,95,309,136"/>
-<area shape="rect" id="node6" href="$memory__resource_8h.html" title=" " alt="" coords="333,95,508,136"/>
-<area shape="rect" id="node8" href="$pmr_2util_8h.html" title=" " alt="" coords="532,102,685,129"/>
-<area shape="rect" id="node10" title=" " alt="" coords="710,102,766,129"/>
-<area shape="rect" id="node11" title=" " alt="" coords="790,102,857,129"/>
-<area shape="rect" id="node3" href="$pretty__printer_8h.html" title=" " alt="" coords="5,184,183,225"/>
-<area shape="rect" id="node4" href="$match_8h.html" title=" " alt="" coords="85,273,228,300"/>
-<area shape="rect" id="node5" title=" " alt="" coords="259,191,356,218"/>
-<area shape="rect" id="node7" title=" " alt="" coords="433,191,504,218"/>
-<area shape="rect" id="node9" title=" " alt="" coords="575,191,642,218"/>
+<area shape="rect" id="node1" title=" " alt="" coords="613,5,780,47"/>
+<area shape="rect" id="node2" href="$logging_8h.html" title=" " alt="" coords="220,95,397,136"/>
+<area shape="rect" id="node9" href="$memory__resource_8h.html" title=" " alt="" coords="421,95,596,136"/>
+<area shape="rect" id="node10" href="$pmr_2util_8h.html" title=" " alt="" coords="620,102,773,129"/>
+<area shape="rect" id="node12" title=" " alt="" coords="798,102,854,129"/>
+<area shape="rect" id="node13" title=" " alt="" coords="878,102,945,129"/>
+<area shape="rect" id="node3" href="$pretty__printer_8h.html" title=" " alt="" coords="53,184,231,225"/>
+<area shape="rect" id="node4" href="$match_8h.html" title=" " alt="" coords="5,273,148,300"/>
+<area shape="rect" id="node5" title=" " alt="" coords="203,273,271,300"/>
+<area shape="rect" id="node6" title=" " alt="" coords="515,191,585,218"/>
+<area shape="rect" id="node7" title=" " alt="" coords="307,191,404,218"/>
+<area shape="rect" id="node8" title=" " alt="" coords="428,191,491,218"/>
+<area shape="rect" id="node11" title=" " alt="" coords="663,191,730,218"/>
 </map>

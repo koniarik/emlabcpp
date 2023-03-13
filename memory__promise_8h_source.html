@@ -88,69 +88,68 @@ $(document).ready(function(){initNavTree('memory__promise_8h_source.html',''); i
 </div><!--header-->
 <div class="contents">
 <a href="memory__promise_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging_8h.html">emlabcpp/experimental/logging.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memory__resource_8h.html">emlabcpp/pmr/memory_resource.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="throw__bad__alloc_8h.html">emlabcpp/pmr/throw_bad_alloc.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1coro.html">   27</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1coro.html">emlabcpp::coro</a></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> PromiseType &gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1coro_1_1memory__promise.html">   31</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html">memory_promise</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74">   33</a></span>&#160;        <span class="keyword">static</span> constexpr std::size_t <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74">ptr_size</a> = <span class="keyword">sizeof</span>( <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>* );</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1coro_1_1memory__promise.html#aa5df7963db5ed1dec491c634158bc0d4">   35</a></span>&#160;        <span class="keywordtype">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>( <span class="keyword">const</span> std::size_t sz, <span class="keyword">auto</span>&amp;, <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>&amp; <a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a>, <span class="keyword">auto</span>&amp;&amp;... )</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9">alloc</a>( sz, <a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a> );</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1coro_1_1memory__promise.html#a6ea5b474dc9886738f23c9ef40016752">   40</a></span>&#160;        <span class="keywordtype">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>( <span class="keyword">const</span> std::size_t sz, <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>&amp; <a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a>, <span class="keyword">auto</span>&amp;&amp;... )</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9">alloc</a>( sz, <a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a> );</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9">   45</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span>* <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9">alloc</a>( std::size_t sz, <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>&amp; <a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a> )</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                sz += <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74">ptr_size</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordtype">void</span>* <span class="keyword">const</span> vp = <a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a>.allocate( sz, <span class="keyword">alignof</span>( PromiseType ) );</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keyword">auto</span> p = <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>** <span class="keyword">&gt;</span>( vp );</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                *p = &amp;<a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                p++;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">return</span> p;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1coro_1_1memory__promise.html#aac7842c7528e91d7817528daa145e04a">   59</a></span>&#160;        <span class="keywordtype">void</span> <span class="keyword">operator</span> <span class="keyword">delete</span>( <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr, <span class="keyword">const</span> std::size_t size )</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keyword">auto</span> p = <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>** <span class="keyword">&gt;</span>( ptr );</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                p--;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">bool</span> succeeded =</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                    ( *p )-&gt;<a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html#ad15c362e662a63d44e8bc01076450730">deallocate</a>( p, size + <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74">ptr_size</a>, <span class="keyword">alignof</span>( PromiseType ) );</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">if</span> ( !succeeded ) {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        <a class="code" href="namespaceemlabcpp_1_1pmr.html#a0db595500c9bd8f5a2b7a52d4f137a9a">pmr::throw_bad_alloc</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}  <span class="comment">// namespace emlabcpp::coro</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging_8h.html">emlabcpp/experimental/logging.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memory__resource_8h.html">emlabcpp/pmr/memory_resource.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="throw__bad__alloc_8h.html">emlabcpp/pmr/throw_bad_alloc.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1coro.html">   26</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1coro.html">emlabcpp::coro</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> PromiseType &gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1coro_1_1memory__promise.html">   30</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html">memory_promise</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74">   32</a></span>&#160;        <span class="keyword">static</span> constexpr std::size_t <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74">ptr_size</a> = <span class="keyword">sizeof</span>( <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>* );</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1coro_1_1memory__promise.html#aa5df7963db5ed1dec491c634158bc0d4">   34</a></span>&#160;        <span class="keywordtype">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>( <span class="keyword">const</span> std::size_t sz, <span class="keyword">auto</span>&amp;, <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>&amp; <a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a>, <span class="keyword">auto</span>&amp;&amp;... )</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9">alloc</a>( sz, <a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a> );</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1coro_1_1memory__promise.html#a6ea5b474dc9886738f23c9ef40016752">   39</a></span>&#160;        <span class="keywordtype">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>( <span class="keyword">const</span> std::size_t sz, <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>&amp; <a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a>, <span class="keyword">auto</span>&amp;&amp;... )</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9">alloc</a>( sz, <a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a> );</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9">   44</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span>* <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9">alloc</a>( std::size_t sz, <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>&amp; <a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a> )</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                sz += <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74">ptr_size</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordtype">void</span>* <span class="keyword">const</span> vp = <a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a>.allocate( sz, <span class="keyword">alignof</span>( PromiseType ) );</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keyword">auto</span> p = <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>** <span class="keyword">&gt;</span>( vp );</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                *p = &amp;<a class="code" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                p++;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">return</span> p;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1coro_1_1memory__promise.html#aac7842c7528e91d7817528daa145e04a">   58</a></span>&#160;        <span class="keywordtype">void</span> <span class="keyword">operator</span> <span class="keyword">delete</span>( <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr, <span class="keyword">const</span> std::size_t size )</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keyword">auto</span> p = <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>** <span class="keyword">&gt;</span>( ptr );</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                p--;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">bool</span> succeeded =</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    ( *p )-&gt;<a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html#ad15c362e662a63d44e8bc01076450730">deallocate</a>( p, size + <a class="code" href="structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74">ptr_size</a>, <span class="keyword">alignof</span>( PromiseType ) );</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">if</span> ( !succeeded ) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        <a class="code" href="namespaceemlabcpp_1_1pmr.html#a0db595500c9bd8f5a2b7a52d4f137a9a">pmr::throw_bad_alloc</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}  <span class="comment">// namespace emlabcpp::coro</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1pmr_1_1memory__resource_html"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1memory__resource.html">emlabcpp::pmr::memory_resource</a></div><div class="ttdef"><b>Definition:</b> memory_resource.h:27</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1pmr_1_1memory__resource_html_ad15c362e662a63d44e8bc01076450730"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1memory__resource.html#ad15c362e662a63d44e8bc01076450730">emlabcpp::pmr::memory_resource::deallocate</a></div><div class="ttdeci">virtual bool deallocate(void *ptr, std::size_t bytes, std::size_t alignment)=0</div></div>
 <div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div></div>
 <div class="ttc" id="amemory__resource_8h_html"><div class="ttname"><a href="memory__resource_8h.html">memory_resource.h</a></div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1coro_html"><div class="ttname"><a href="namespaceemlabcpp_1_1coro.html">emlabcpp::coro</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> memory_promise.h:28</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1coro_html"><div class="ttname"><a href="namespaceemlabcpp_1_1coro.html">emlabcpp::coro</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> memory_promise.h:27</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a0db595500c9bd8f5a2b7a52d4f137a9a"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a0db595500c9bd8f5a2b7a52d4f137a9a">emlabcpp::pmr::throw_bad_alloc</a></div><div class="ttdeci">void throw_bad_alloc()</div><div class="ttdef"><b>Definition:</b> throw_bad_alloc.h:28</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a7cac9e89744ae1ec8ad817df33d291f1"><div class="ttname"><a href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">emlabcpp::pi</a></div><div class="ttdeci">constexpr angle pi</div><div class="ttdoc">Constants of units that are relevant for us.</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:101</div></div>
-<div class="ttc" id="astructemlabcpp_1_1coro_1_1memory__promise_html"><div class="ttname"><a href="structemlabcpp_1_1coro_1_1memory__promise.html">emlabcpp::coro::memory_promise</a></div><div class="ttdef"><b>Definition:</b> memory_promise.h:32</div></div>
-<div class="ttc" id="astructemlabcpp_1_1coro_1_1memory__promise_html_a9964a94d362e20572812a6d8a1d31f74"><div class="ttname"><a href="structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74">emlabcpp::coro::memory_promise::ptr_size</a></div><div class="ttdeci">static constexpr std::size_t ptr_size</div><div class="ttdef"><b>Definition:</b> memory_promise.h:33</div></div>
-<div class="ttc" id="astructemlabcpp_1_1coro_1_1memory__promise_html_adfee689a82f018366c5b7d0cb35970f9"><div class="ttname"><a href="structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9">emlabcpp::coro::memory_promise::alloc</a></div><div class="ttdeci">static void * alloc(std::size_t sz, pmr::memory_resource &amp;pi)</div><div class="ttdef"><b>Definition:</b> memory_promise.h:45</div></div>
+<div class="ttc" id="astructemlabcpp_1_1coro_1_1memory__promise_html"><div class="ttname"><a href="structemlabcpp_1_1coro_1_1memory__promise.html">emlabcpp::coro::memory_promise</a></div><div class="ttdef"><b>Definition:</b> memory_promise.h:31</div></div>
+<div class="ttc" id="astructemlabcpp_1_1coro_1_1memory__promise_html_a9964a94d362e20572812a6d8a1d31f74"><div class="ttname"><a href="structemlabcpp_1_1coro_1_1memory__promise.html#a9964a94d362e20572812a6d8a1d31f74">emlabcpp::coro::memory_promise::ptr_size</a></div><div class="ttdeci">static constexpr std::size_t ptr_size</div><div class="ttdef"><b>Definition:</b> memory_promise.h:32</div></div>
+<div class="ttc" id="astructemlabcpp_1_1coro_1_1memory__promise_html_adfee689a82f018366c5b7d0cb35970f9"><div class="ttname"><a href="structemlabcpp_1_1coro_1_1memory__promise.html#adfee689a82f018366c5b7d0cb35970f9">emlabcpp::coro::memory_promise::alloc</a></div><div class="ttdeci">static void * alloc(std::size_t sz, pmr::memory_resource &amp;pi)</div><div class="ttdef"><b>Definition:</b> memory_promise.h:44</div></div>
 <div class="ttc" id="athrow__bad__alloc_8h_html"><div class="ttname"><a href="throw__bad__alloc_8h.html">throw_bad_alloc.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -158,7 +157,7 @@ $(document).ready(function(){initNavTree('memory__promise_8h_source.html',''); i
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_124696910e1f6c10a38401e63d4996f0.html">coro</a></li><li class="navelem"><a class="el" href="memory__promise_8h.html">memory_promise.h</a></li>
-    <li class="footer">Generated on Mon Mar 13 2023 19:14:42 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 13 2023 20:05:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -88,39 +88,38 @@ $(document).ready(function(){initNavTree('access__view_8h_source.html',''); init
 </div><!--header-->
 <div class="contents">
 <a href="access__view_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="access_8h.html">emlabcpp/iterators/access.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html">   25</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Container, <span class="keyword">typename</span> AccessCallable &gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<a class="code" href="classemlabcpp_1_1view.html">view&lt; iterators::access_iterator&lt; iterator_of_t&lt; Container &gt;</a>, AccessCallable &gt; &gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#adcc04a8c30d4e666197002f7bdf037eb">   32</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#adcc04a8c30d4e666197002f7bdf037eb">access_view</a>( Container&amp;&amp; cont, AccessCallable&amp;&amp; <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> )</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classemlabcpp_1_1view.html">view</a>{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <a class="code" href="classemlabcpp_1_1iterators_1_1access__iterator.html">iterators::access_iterator&lt; iterator_of_t&lt; Container &gt;</a>, AccessCallable &gt;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                cont.begin(), <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> },</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <a class="code" href="classemlabcpp_1_1iterators_1_1access__iterator.html">iterators::access_iterator&lt; iterator_of_t&lt; Container &gt;</a>, AccessCallable &gt;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                cont.end(), <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> } };</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="access_8h.html">emlabcpp/iterators/access.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html">   24</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Container, <span class="keyword">typename</span> AccessCallable &gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="classemlabcpp_1_1view.html">view&lt; iterators::access_iterator&lt; iterator_of_t&lt; Container &gt;</a>, AccessCallable &gt; &gt;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#adcc04a8c30d4e666197002f7bdf037eb">   31</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#adcc04a8c30d4e666197002f7bdf037eb">access_view</a>( Container&amp;&amp; cont, AccessCallable&amp;&amp; <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> )</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classemlabcpp_1_1view.html">view</a>{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <a class="code" href="classemlabcpp_1_1iterators_1_1access__iterator.html">iterators::access_iterator&lt; iterator_of_t&lt; Container &gt;</a>, AccessCallable &gt;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                cont.begin(), <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> },</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <a class="code" href="classemlabcpp_1_1iterators_1_1access__iterator.html">iterators::access_iterator&lt; iterator_of_t&lt; Container &gt;</a>, AccessCallable &gt;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                cont.end(), <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> } };</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aaccess_8h_html"><div class="ttname"><a href="access_8h.html">access.h</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1iterators_1_1access__iterator_html"><div class="ttname"><a href="classemlabcpp_1_1iterators_1_1access__iterator.html">emlabcpp::iterators::access_iterator</a></div><div class="ttdoc">access_iterator provides access to a reference of value stored in the Iterator.</div><div class="ttdef"><b>Definition:</b> access.h:52</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1view_html"><div class="ttname"><a href="classemlabcpp_1_1view.html">emlabcpp::view</a></div><div class="ttdoc">Generic class to represent view of some container.</div><div class="ttdef"><b>Definition:</b> view.h:35</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> access_view.h:26</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> access_view.h:25</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:154</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_adcc04a8c30d4e666197002f7bdf037eb"><div class="ttname"><a href="namespaceemlabcpp.html#adcc04a8c30d4e666197002f7bdf037eb">emlabcpp::access_view</a></div><div class="ttdeci">view&lt; iterators::access_iterator&lt; iterator_of_t&lt; Container &gt;, AccessCallable &gt; &gt; access_view(Container &amp;&amp;cont, AccessCallable &amp;&amp;f)</div><div class="ttdoc">Creates view ver container cont with AccessCallable f.</div><div class="ttdef"><b>Definition:</b> access_view.h:32</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_adcc04a8c30d4e666197002f7bdf037eb"><div class="ttname"><a href="namespaceemlabcpp.html#adcc04a8c30d4e666197002f7bdf037eb">emlabcpp::access_view</a></div><div class="ttdeci">view&lt; iterators::access_iterator&lt; iterator_of_t&lt; Container &gt;, AccessCallable &gt; &gt; access_view(Container &amp;&amp;cont, AccessCallable &amp;&amp;f)</div><div class="ttdoc">Creates view ver container cont with AccessCallable f.</div><div class="ttdef"><b>Definition:</b> access_view.h:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="access__view_8h.html">access_view.h</a></li>
-    <li class="footer">Generated on Mon Mar 13 2023 19:14:42 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 13 2023 20:05:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

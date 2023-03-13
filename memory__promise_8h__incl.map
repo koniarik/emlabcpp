@@ -1,12 +1,14 @@
 <map id="include/emlabcpp/experimental/coro/memory_promise.h" name="include/emlabcpp/experimental/coro/memory_promise.h">
-<area shape="rect" id="node1" title=" " alt="" coords="307,5,535,47"/>
-<area shape="rect" id="node2" href="$logging_8h.html" title=" " alt="" coords="132,95,309,136"/>
-<area shape="rect" id="node6" href="$memory__resource_8h.html" title=" " alt="" coords="333,95,508,136"/>
-<area shape="rect" id="node8" href="$throw__bad__alloc_8h.html" title=" " alt="" coords="533,95,690,136"/>
-<area shape="rect" id="node3" href="$pretty__printer_8h.html" title=" " alt="" coords="5,184,183,225"/>
-<area shape="rect" id="node4" href="$match_8h.html" title=" " alt="" coords="85,273,228,300"/>
-<area shape="rect" id="node5" title=" " alt="" coords="259,191,356,218"/>
-<area shape="rect" id="node7" title=" " alt="" coords="385,191,456,218"/>
-<area shape="rect" id="node9" title=" " alt="" coords="539,191,604,218"/>
-<area shape="rect" id="node10" title=" " alt="" coords="628,191,677,218"/>
+<area shape="rect" id="node1" title=" " alt="" coords="436,5,664,47"/>
+<area shape="rect" id="node2" href="$logging_8h.html" title=" " alt="" coords="261,95,439,136"/>
+<area shape="rect" id="node9" href="$memory__resource_8h.html" title=" " alt="" coords="463,95,637,136"/>
+<area shape="rect" id="node10" href="$throw__bad__alloc_8h.html" title=" " alt="" coords="662,95,819,136"/>
+<area shape="rect" id="node3" href="$pretty__printer_8h.html" title=" " alt="" coords="53,184,231,225"/>
+<area shape="rect" id="node4" href="$match_8h.html" title=" " alt="" coords="5,273,148,300"/>
+<area shape="rect" id="node5" title=" " alt="" coords="203,273,271,300"/>
+<area shape="rect" id="node6" title=" " alt="" coords="515,191,585,218"/>
+<area shape="rect" id="node7" title=" " alt="" coords="307,191,404,218"/>
+<area shape="rect" id="node8" title=" " alt="" coords="428,191,491,218"/>
+<area shape="rect" id="node11" title=" " alt="" coords="668,191,733,218"/>
+<area shape="rect" id="node12" title=" " alt="" coords="757,191,807,218"/>
 </map>
