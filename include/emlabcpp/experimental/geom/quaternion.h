@@ -24,7 +24,7 @@
 namespace emlabcpp
 {
 
-// API and behavior of this is inspired by tf::Quaternion
+/// API and behavior of this is inspired by tf::Quaternion
 class quaternion
 {
         using container   = std::array< float, 4 >;

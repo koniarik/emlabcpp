@@ -33,7 +33,6 @@
 
 #include <array>
 #include <bit>
-#include <stdint.h>
 #include <variant>
 
 #pragma once

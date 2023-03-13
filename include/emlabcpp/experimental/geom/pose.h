@@ -27,17 +27,17 @@
 namespace emlabcpp
 {
 
-// distance between two poses in space, represented as 'space distance' and 'angular distance'
+/// distance between two poses in space, represented as 'space distance' and 'angular distance'
 struct pose_distance
 {
         float dist;
         float angle_dist;
 };
 
-// returns steps necessary for linear interpolation of distance between poses 'dis', such that:
-//  - the number of steps is minimized
-//  - space distance between interpolated poses is smaller than dist_step
-//  - angle distance between interpolated poses is smaller than angle_step
+/// returns steps necessary for linear interpolation of distance between poses 'dis', such that:
+///  - the number of steps is minimized
+///  - space distance between interpolated poses is smaller than dist_step
+///  - angle distance between interpolated poses is smaller than angle_step
 
 constexpr std::size_t steps( pose_distance dist, float dist_step, float angle_step )
 {
@@ -46,7 +46,7 @@ constexpr std::size_t steps( pose_distance dist, float dist_step, float angle_st
         return std::max( d_steps, a_steps );
 }
 
-// represents orientation and position in 3D space
+/// represents orientation and position in 3D space
 struct pose
 {
 
@@ -86,19 +86,19 @@ constexpr bool operator<( const pose& x, const pose& y )
         return x.position < y.position;
 }
 
-// compares poses on their position and orientation
+/// compares poses on their position and orientation
 constexpr bool operator==( const pose& x, const pose& y )
 {
         return x.position == y.position && x.orientation == y.orientation;
 }
 
-// negation of operator== between poses
+/// negation of operator== between poses
 constexpr bool operator!=( const pose& x, const pose& y )
 {
         return !( x == y );
 }
 
-// returns PoseDistance between provided poses
+/// returns PoseDistance between provided poses
 constexpr pose_distance distance_of( const pose& x, const pose& y )
 {
         return {
@@ -106,15 +106,15 @@ constexpr pose_distance distance_of( const pose& x, const pose& y )
             angle_shortest_path( x.orientation, y.orientation ) };
 }
 
-// two poses are almost equal when their orientations and positions are almost equal
+/// two poses are almost equal when their orientations and positions are almost equal
 constexpr bool almost_equal( const pose& x, const pose& y, float eps = default_epsilon )
 {
         return almost_equal( x.orientation, y.orientation, eps ) &&
                almost_equal( x.position, y.position, eps );
 }
 
-// linear interpolation between base se and goal pose, with factor 0 'base' is returned, with factor
-// 1 'goal' is returned. With factor 0.5, pose between 'base' and 'goal' pose is returned
+/// linear interpolation between base se and goal pose, with factor 0 'base' is returned, with
+/// factor 1 'goal' is returned. With factor 0.5, pose between 'base' and 'goal' pose is returned
 constexpr pose lin_interp( const pose& from, const pose& goal, float factor )
 {
         return pose{
@@ -141,8 +141,8 @@ lineary_interpolate_path( const std::vector< pose >& ipath, float d_step, float 
         return res;
 }
 
-// Point A is rotated based on 'transformation' orientation and than moved based on 'transformation'
-// position
+/// Point A is rotated based on 'transformation' orientation and than moved based on
+/// 'transformation' position
 constexpr point< 3 > transform( const point< 3 >& a, const pose& transformation )
 {
         return rotate( a, transformation.orientation ) + vector_cast( transformation.position );
@@ -152,8 +152,8 @@ constexpr vector< 3 > transform( const vector< 3 >& v, const pose& transformatio
         return rotate( v, transformation.orientation ) + vector_cast( transformation.position );
 }
 
-// Pose X is rotated based on 'transformation' orientation and than moved based on 'transformation'
-// position
+/// Pose X is rotated based on 'transformation' orientation and than moved based on 'transformation'
+/// position
 constexpr pose transform( const pose& x, const pose& transformation )
 {
         return pose{
@@ -177,7 +177,7 @@ constexpr auto inverse_transform( const T& item, const pose& transformation )
         return transform( item, inverse( transformation ) );
 }
 
-// Pose X is rotated based on quaternion 'quad'
+/// Pose X is rotated based on quaternion 'quad'
 constexpr pose rotate( const pose& x, const quaternion& quat )
 {
         return pose{ rotate( x.position, quat ), quat * x.orientation };

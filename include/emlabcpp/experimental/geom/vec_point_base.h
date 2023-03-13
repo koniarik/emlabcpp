@@ -136,8 +136,8 @@ concept vec_point_derived = requires( T val )
         detail::vec_point_derived_test( val );
 };
 
-/** Multiplies each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic
- */
+/// Multiplies each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic
+///
 template <
     typename Derived,
     std::size_t N,
@@ -151,16 +151,16 @@ constexpr Derived operator*( const vec_point_base< Derived, N >& a, T s )
         }
         return res;
 }
-/** Multiplies each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic
- */
+/// Multiplies each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic
+///
 template < typename Derived, std::size_t N, typename T >
 constexpr Derived operator*( T s, const vec_point_base< Derived, N >& a )
 {
         return a * s;
 }
 
-/** Divides each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic
- */
+/// Divides each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic
+///
 template <
     typename Derived,
     std::size_t N,
@@ -174,8 +174,8 @@ constexpr Derived operator/( const vec_point_base< Derived, N >& a, T s )
         }
         return res;
 }
-/** Calculates the dot product between A and B
- */
+/// Calculates the dot product between A and B
+///
 template < typename Derived, std::size_t N >
 constexpr float dot( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& b )
 {
@@ -184,9 +184,9 @@ constexpr float dot( const vec_point_base< Derived, N >& a, const vec_point_base
         } );
 }
 
-/** Returns squared distance of A from [0,0,0], this is a squared length of vector represented
- ** by A
- */
+/// Returns squared distance of A from [0,0,0], this is a squared length of vector represented
+/// by A
+///
 template < typename Derived, std::size_t N >
 constexpr auto length2_of( const vec_point_base< Derived, N >& a )
 {
@@ -196,24 +196,24 @@ constexpr auto length2_of( const vec_point_base< Derived, N >& a )
         return float( res );
 }
 
-/** Returns distance of A from [0,0,0], this is a length of vector represented by A
- */
+/// Returns distance of A from [0,0,0], this is a length of vector represented by A
+///
 template < typename Derived, std::size_t N >
 constexpr float length_of( const vec_point_base< Derived, N >& a )
 {
         return std::sqrt( length2_of( a ) );
 }
 
-/** Calculates normalized version of A, this means that length(A) equals to 1
- */
+/// Calculates normalized version of A, this means that length(A) equals to 1
+///
 template < typename Derived, std::size_t N >
 constexpr Derived normalized( const vec_point_base< Derived, N >& a )
 {
         return a / length_of( a );
 }
 
-/** Creates absolute version of A - removing signs on all dimensions
- */
+/// Creates absolute version of A - removing signs on all dimensions
+///
 template < typename Derived, std::size_t N >
 constexpr Derived abs( const vec_point_base< Derived, N >& a )
 {
@@ -223,9 +223,9 @@ constexpr Derived abs( const vec_point_base< Derived, N >& a )
         }
         return res;
 }
-/** Checks if A and B are equal within specified tolerance, this means that difference of all
- * coordinates of A and B has to be within that epsilon
- */
+/// Checks if A and B are equal within specified tolerance, this means that difference of all
+/// coordinates of A and B has to be within that epsilon
+///
 template < vec_point_derived Derived >
 constexpr bool almost_equal( const Derived& a, const Derived& b, float eps = default_epsilon )
 {
@@ -248,8 +248,8 @@ min( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& 
 {
         return Derived{ a < b ? *a : *b };
 }
-/** Calculates a C, where C[i] = max(A[i], B[i]) holds for 0 <= i < N
- */
+/// Calculates a C, where C[i] = max(A[i], B[i]) holds for 0 <= i < N
+///
 template < typename Derived, std::size_t N >
 constexpr Derived
 dimensional_max( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& b )
@@ -261,8 +261,8 @@ dimensional_max( const vec_point_base< Derived, N >& a, const vec_point_base< De
         return res;
 }
 
-/** Calculates a C, where C[i] = min(A[i], B[i]) holds for 0 <= i < N
- */
+/// Calculates a C, where C[i] = min(A[i], B[i]) holds for 0 <= i < N
+///
 template < typename Derived, std::size_t N >
 constexpr Derived
 dimensional_min( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& b )

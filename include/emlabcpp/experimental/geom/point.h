@@ -26,16 +26,14 @@
 namespace emlabcpp
 {
 
-/** Class implementing multidimensional point in coordinate system of dimension N
- */
+/// Class implementing multidimensional point in coordinate system of dimension N
 template < std::size_t N >
 class point : public vec_point_base< point< N >, N >
 {
 public:
         using vec_point_base< point, N >::vec_point_base;
 
-        /** += operator adds value of 'i'th coordinate from 'other' to 'this', for all 0 <= i < N
-         */
+        /// += operator adds value of 'i'th coordinate from 'other' to 'this', for all 0 <= i < N
         constexpr point< N >& operator+=( const vector< N >& other )
         {
                 for ( std::size_t i : range( N ) ) {
@@ -44,9 +42,8 @@ public:
                 return *this;
         }
 
-        /** -= operator subtracts value of 'i'th coordinate of 'other' from 'this', for all 0 <= i <
-         * N
-         */
+        /// -= operator subtracts value of 'i'th coordinate of 'other' from 'this', for all 0 <= i <
+        /// N
         constexpr point< N >& operator-=( const vector< N >& other )
         {
                 for ( std::size_t i : range( N ) ) {
@@ -70,8 +67,7 @@ constexpr vector< N > vector_cast( const point< N >& p )
         return vector< N >{ *p };
 }
 
-/** Multiplication of points multiplies each coordinate of A by coordinate of B on same dimension
- */
+/// Multiplication of points multiplies each coordinate of A by coordinate of B on same dimension
 template < std::size_t N >
 [[deprecated]] constexpr point< N > operator*( point< N > a, const point< N >& b )
 {
@@ -81,8 +77,8 @@ template < std::size_t N >
         return a;
 }
 
-/** Returns a result of subtraction of A from B, viz -= operator
- */
+/// Returns a result of subtraction of A from B, viz -= operator
+///
 template < std::size_t N >
 constexpr vector< N > operator-( point< N > a, const point< N >& b )
 {
@@ -90,8 +86,8 @@ constexpr vector< N > operator-( point< N > a, const point< N >& b )
         return vector< N >{ *a };
 }
 
-/** Returns a result of addition a to b, viz += operator
- */
+/// Returns a result of addition a to b, viz += operator
+///
 template < std::size_t N >
 constexpr point< N > operator+( point< N > a, const vector< N >& b )
 {
@@ -99,8 +95,8 @@ constexpr point< N > operator+( point< N > a, const vector< N >& b )
         return a;
 }
 
-/** Returns a result of subtraction a to b, viz += operator
- */
+/// Returns a result of subtraction a to b, viz += operator
+///
 template < std::size_t N >
 constexpr point< N > operator-( point< N > a, const vector< N >& b )
 {
@@ -108,8 +104,8 @@ constexpr point< N > operator-( point< N > a, const vector< N >& b )
         return a;
 }
 
-/** Returns euclidian distance of point A from point B
- */
+/// Returns euclidian distance of point A from point B
+///
 template < std::size_t N >
 constexpr float distance_of( const point< N >& a, const point< N >& b )
 {
@@ -146,10 +142,10 @@ lineary_interpolate_path( const std::vector< point< N > >& ipath, float d_step )
         return res;
 }
 
-/** Function to calculate distance of projection of point A. That point is projected on axis defined
- * only by it's direction - 'axis_direction'. The distance of that projection from the [0,0,0]
- * coordinate is returned.
- */
+/// Function to calculate distance of projection of point A. That point is projected on axis defined
+/// only by it's direction - 'axis_direction'. The distance of that projection from the [0,0,0]
+/// coordinate is returned.
+///
 template < std::size_t N >
 constexpr float axis_projection_distance( const point< N >& a, const vector< N >& axis_direction )
 {
