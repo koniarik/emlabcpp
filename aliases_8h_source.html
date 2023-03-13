@@ -87,66 +87,67 @@ $(document).ready(function(){initNavTree('aliases_8h_source.html',''); initResiz
 <div class="title">aliases.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="aliases_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="allocator_8h.html">emlabcpp/pmr/allocator.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;deque&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html">   12</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pmr_1_1deleter.html">   15</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1pmr_1_1deleter.html">deleter</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pmr_1_1deleter.html#a7aafa52a964556f26bc8f9eb5520e9eb">   17</a></span>&#160;        std::reference_wrapper&lt; pmr::memory_resource &gt; <a class="code" href="structemlabcpp_1_1pmr_1_1deleter.html#a7aafa52a964556f26bc8f9eb5520e9eb">res</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pmr_1_1deleter.html#ab53bf3dbbd80691adbded88bd54ac70f">   20</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pmr_1_1deleter.html#ab53bf3dbbd80691adbded88bd54ac70f">operator()</a>( T* item )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                std::destroy_at( item );</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <a class="code" href="structemlabcpp_1_1pmr_1_1deleter.html#a7aafa52a964556f26bc8f9eb5520e9eb">res</a>.get().deallocate( item, <span class="keyword">sizeof</span>( T ), <span class="keyword">alignof</span>( T ) );</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#a4d3aad97ead0641249958a7b0e7b9416">   28</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1pmr.html#a4d3aad97ead0641249958a7b0e7b9416">unique_ptr</a> = std::unique_ptr&lt; T, deleter &gt;;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#a425c25e733351df6fc74a961a350c268">   31</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1pmr.html#a425c25e733351df6fc74a961a350c268">vector</a> = std::vector&lt; T, allocator&lt; T &gt; &gt;;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#aa9e0710702363605288c47c26736ea5f">   33</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1pmr.html#aa9e0710702363605288c47c26736ea5f">list</a> = std::list&lt; T, allocator&lt; T &gt; &gt;;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#aef87401a043f0f719b2c416b43643ff0">   35</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1pmr.html#aef87401a043f0f719b2c416b43643ff0">set</a> = std::set&lt; T, allocator&lt; T &gt; &gt;;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#afb6624d9cbb77fc5417e36cf287c559f">   37</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1pmr.html#afb6624d9cbb77fc5417e36cf287c559f">deque</a> = std::deque&lt; T, allocator&lt; T &gt; &gt;;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Key, <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#abad2b32174c8ecf62cfcd1cd63f47808">   39</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1pmr.html#abad2b32174c8ecf62cfcd1cd63f47808">map</a> = std::map&lt; Key, T, std::less&lt; Key &gt;, <a class="code" href="classemlabcpp_1_1pmr_1_1allocator.html">allocator&lt; std::pair&lt; const Key, T &gt;</a> &gt; &gt;;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}  <span class="comment">// namespace emlabcpp::pmr</span></div>
+<a href="aliases_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="allocator_8h.html">emlabcpp/pmr/allocator.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;deque&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html">   31</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pmr_1_1deleter.html">   34</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1pmr_1_1deleter.html">deleter</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pmr_1_1deleter.html#a7aafa52a964556f26bc8f9eb5520e9eb">   36</a></span>&#160;        std::reference_wrapper&lt; pmr::memory_resource &gt; <a class="code" href="structemlabcpp_1_1pmr_1_1deleter.html#a7aafa52a964556f26bc8f9eb5520e9eb">res</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pmr_1_1deleter.html#ab53bf3dbbd80691adbded88bd54ac70f">   39</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pmr_1_1deleter.html#ab53bf3dbbd80691adbded88bd54ac70f">operator()</a>( T* item )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                std::destroy_at( item );</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <a class="code" href="structemlabcpp_1_1pmr_1_1deleter.html#a7aafa52a964556f26bc8f9eb5520e9eb">res</a>.get().deallocate( item, <span class="keyword">sizeof</span>( T ), <span class="keyword">alignof</span>( T ) );</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#a4d3aad97ead0641249958a7b0e7b9416">   47</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1pmr.html#a4d3aad97ead0641249958a7b0e7b9416">unique_ptr</a> = std::unique_ptr&lt; T, deleter &gt;;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#a425c25e733351df6fc74a961a350c268">   50</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1pmr.html#a425c25e733351df6fc74a961a350c268">vector</a> = std::vector&lt; T, allocator&lt; T &gt; &gt;;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#aa9e0710702363605288c47c26736ea5f">   52</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1pmr.html#aa9e0710702363605288c47c26736ea5f">list</a> = std::list&lt; T, allocator&lt; T &gt; &gt;;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#aef87401a043f0f719b2c416b43643ff0">   54</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1pmr.html#aef87401a043f0f719b2c416b43643ff0">set</a> = std::set&lt; T, allocator&lt; T &gt; &gt;;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#afb6624d9cbb77fc5417e36cf287c559f">   56</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1pmr.html#afb6624d9cbb77fc5417e36cf287c559f">deque</a> = std::deque&lt; T, allocator&lt; T &gt; &gt;;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Key, <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#abad2b32174c8ecf62cfcd1cd63f47808">   58</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1pmr.html#abad2b32174c8ecf62cfcd1cd63f47808">map</a> = std::map&lt; Key, T, std::less&lt; Key &gt;, <a class="code" href="classemlabcpp_1_1pmr_1_1allocator.html">allocator&lt; std::pair&lt; const Key, T &gt;</a> &gt; &gt;;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}  <span class="comment">// namespace emlabcpp::pmr</span></div>
 <div class="ttc" id="aallocator_8h_html"><div class="ttname"><a href="allocator_8h.html">allocator.h</a></div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1allocator_html"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1allocator.html">emlabcpp::pmr::allocator</a></div><div class="ttdef"><b>Definition:</b> allocator.h:13</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></div><div class="ttdef"><b>Definition:</b> aliases.h:13</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a425c25e733351df6fc74a961a350c268"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a425c25e733351df6fc74a961a350c268">emlabcpp::pmr::vector</a></div><div class="ttdeci">std::vector&lt; T, allocator&lt; T &gt; &gt; vector</div><div class="ttdef"><b>Definition:</b> aliases.h:31</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a4d3aad97ead0641249958a7b0e7b9416"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a4d3aad97ead0641249958a7b0e7b9416">emlabcpp::pmr::unique_ptr</a></div><div class="ttdeci">std::unique_ptr&lt; T, deleter &gt; unique_ptr</div><div class="ttdef"><b>Definition:</b> aliases.h:28</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_aa9e0710702363605288c47c26736ea5f"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#aa9e0710702363605288c47c26736ea5f">emlabcpp::pmr::list</a></div><div class="ttdeci">std::list&lt; T, allocator&lt; T &gt; &gt; list</div><div class="ttdef"><b>Definition:</b> aliases.h:33</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_abad2b32174c8ecf62cfcd1cd63f47808"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#abad2b32174c8ecf62cfcd1cd63f47808">emlabcpp::pmr::map</a></div><div class="ttdeci">std::map&lt; Key, T, std::less&lt; Key &gt;, allocator&lt; std::pair&lt; const Key, T &gt; &gt; &gt; map</div><div class="ttdef"><b>Definition:</b> aliases.h:39</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_aef87401a043f0f719b2c416b43643ff0"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#aef87401a043f0f719b2c416b43643ff0">emlabcpp::pmr::set</a></div><div class="ttdeci">std::set&lt; T, allocator&lt; T &gt; &gt; set</div><div class="ttdef"><b>Definition:</b> aliases.h:35</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_afb6624d9cbb77fc5417e36cf287c559f"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#afb6624d9cbb77fc5417e36cf287c559f">emlabcpp::pmr::deque</a></div><div class="ttdeci">std::deque&lt; T, allocator&lt; T &gt; &gt; deque</div><div class="ttdef"><b>Definition:</b> aliases.h:37</div></div>
-<div class="ttc" id="astructemlabcpp_1_1pmr_1_1deleter_html"><div class="ttname"><a href="structemlabcpp_1_1pmr_1_1deleter.html">emlabcpp::pmr::deleter</a></div><div class="ttdef"><b>Definition:</b> aliases.h:16</div></div>
-<div class="ttc" id="astructemlabcpp_1_1pmr_1_1deleter_html_a7aafa52a964556f26bc8f9eb5520e9eb"><div class="ttname"><a href="structemlabcpp_1_1pmr_1_1deleter.html#a7aafa52a964556f26bc8f9eb5520e9eb">emlabcpp::pmr::deleter::res</a></div><div class="ttdeci">std::reference_wrapper&lt; pmr::memory_resource &gt; res</div><div class="ttdef"><b>Definition:</b> aliases.h:17</div></div>
-<div class="ttc" id="astructemlabcpp_1_1pmr_1_1deleter_html_ab53bf3dbbd80691adbded88bd54ac70f"><div class="ttname"><a href="structemlabcpp_1_1pmr_1_1deleter.html#ab53bf3dbbd80691adbded88bd54ac70f">emlabcpp::pmr::deleter::operator()</a></div><div class="ttdeci">void operator()(T *item) const</div><div class="ttdef"><b>Definition:</b> aliases.h:20</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1allocator_html"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1allocator.html">emlabcpp::pmr::allocator</a></div><div class="ttdef"><b>Definition:</b> allocator.h:32</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> aliases.h:32</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a425c25e733351df6fc74a961a350c268"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a425c25e733351df6fc74a961a350c268">emlabcpp::pmr::vector</a></div><div class="ttdeci">std::vector&lt; T, allocator&lt; T &gt; &gt; vector</div><div class="ttdef"><b>Definition:</b> aliases.h:50</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a4d3aad97ead0641249958a7b0e7b9416"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a4d3aad97ead0641249958a7b0e7b9416">emlabcpp::pmr::unique_ptr</a></div><div class="ttdeci">std::unique_ptr&lt; T, deleter &gt; unique_ptr</div><div class="ttdef"><b>Definition:</b> aliases.h:47</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_aa9e0710702363605288c47c26736ea5f"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#aa9e0710702363605288c47c26736ea5f">emlabcpp::pmr::list</a></div><div class="ttdeci">std::list&lt; T, allocator&lt; T &gt; &gt; list</div><div class="ttdef"><b>Definition:</b> aliases.h:52</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_abad2b32174c8ecf62cfcd1cd63f47808"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#abad2b32174c8ecf62cfcd1cd63f47808">emlabcpp::pmr::map</a></div><div class="ttdeci">std::map&lt; Key, T, std::less&lt; Key &gt;, allocator&lt; std::pair&lt; const Key, T &gt; &gt; &gt; map</div><div class="ttdef"><b>Definition:</b> aliases.h:58</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_aef87401a043f0f719b2c416b43643ff0"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#aef87401a043f0f719b2c416b43643ff0">emlabcpp::pmr::set</a></div><div class="ttdeci">std::set&lt; T, allocator&lt; T &gt; &gt; set</div><div class="ttdef"><b>Definition:</b> aliases.h:54</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_afb6624d9cbb77fc5417e36cf287c559f"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#afb6624d9cbb77fc5417e36cf287c559f">emlabcpp::pmr::deque</a></div><div class="ttdeci">std::deque&lt; T, allocator&lt; T &gt; &gt; deque</div><div class="ttdef"><b>Definition:</b> aliases.h:56</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pmr_1_1deleter_html"><div class="ttname"><a href="structemlabcpp_1_1pmr_1_1deleter.html">emlabcpp::pmr::deleter</a></div><div class="ttdef"><b>Definition:</b> aliases.h:35</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pmr_1_1deleter_html_a7aafa52a964556f26bc8f9eb5520e9eb"><div class="ttname"><a href="structemlabcpp_1_1pmr_1_1deleter.html#a7aafa52a964556f26bc8f9eb5520e9eb">emlabcpp::pmr::deleter::res</a></div><div class="ttdeci">std::reference_wrapper&lt; pmr::memory_resource &gt; res</div><div class="ttdef"><b>Definition:</b> aliases.h:36</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pmr_1_1deleter_html_ab53bf3dbbd80691adbded88bd54ac70f"><div class="ttname"><a href="structemlabcpp_1_1pmr_1_1deleter.html#ab53bf3dbbd80691adbded88bd54ac70f">emlabcpp::pmr::deleter::operator()</a></div><div class="ttdeci">void operator()(T *item) const</div><div class="ttdef"><b>Definition:</b> aliases.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_231aac52433e25ed4b5ea5619bdfd3e1.html">pmr</a></li><li class="navelem"><a class="el" href="aliases_8h.html">aliases.h</a></li>
-    <li class="footer">Generated on Mon Mar 13 2023 12:46:29 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 13 2023 19:01:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

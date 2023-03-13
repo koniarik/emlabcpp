@@ -87,78 +87,79 @@ $(document).ready(function(){initNavTree('experimental_2logging_2util_8h_source.
 <div class="title">util.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="experimental_2logging_2util_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging_8h.html">emlabcpp/experimental/logging.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="experimental_2logging_2util_8h.html#aab0b47cd656c869fc0714a3d1c5b3dc7">    5</a></span>&#160;<span class="preprocessor">#define EMLACBPP_VA_ARGS_SIZE( ... ) std::tuple_size_v&lt; decltype( std::make_tuple( __VA_ARGS__ ) ) &gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1logging.html">    7</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1logging.html">emlabcpp::logging</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">template</span> &lt; std::size_t N, std::size_t... Ids &gt;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1logging.html#a6243454a964ef93f684c446f807b777a">   11</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp_1_1logging.html#a6243454a964ef93f684c446f807b777a">generate_vars_log_tuple</a>(</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    std::index_sequence&lt; Ids... &gt;,</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">const</span> std::array&lt; std::string_view, N &gt;&amp; names,</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span>&amp;                              args )</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        static_assert( 4 * N == <span class="keyword">sizeof</span>...( Ids ) );</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> = [&amp;]&lt; std::size_t i &gt; {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <span class="keywordflow">if</span> constexpr ( i % 4 == 0 ) {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                        <span class="keywordflow">return</span> names[i / 4];</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr ( i % 4 == 1 ) {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                        <span class="keywordflow">return</span> std::string_view{ <span class="stringliteral">&quot; = &quot;</span> };</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr ( i % 4 == 2 ) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                        <span class="keywordflow">return</span> std::get&lt; i / 4 &gt;( args );</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                        <span class="keywordflow">return</span> std::string_view{ <span class="stringliteral">&quot;;\t&quot;</span> };</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        };</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> std::make_tuple( <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>.template <span class="keyword">operator</span>()&lt; Ids &gt;()... );</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1logging.html#a04248a323e06ff3779b3b3a86f1d2a43">   34</a></span>&#160;std::array&lt; std::string_view, N &gt; <a class="code" href="namespaceemlabcpp_1_1logging.html#a04248a323e06ff3779b3b3a86f1d2a43">expand_var_names</a>( std::string_view sv )</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        std::array&lt; std::string_view, N &gt; names;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i = 0; i &lt; N; i++ ) {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                std::size_t p = sv.find( <span class="stringliteral">&quot;,&quot;</span> );</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                names[i]      = sv.substr( 0, p );</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                sv            = sv.substr( p + 1 );</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">return</span> names;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}  <span class="comment">// namespace emlabcpp::logging</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="experimental_2logging_2util_8h.html#a34d7d2336fd44b97109ebbccc3569c41">   47</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INFO_LOG_VARS( ... )                                                  \</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">        {                                                                              \</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">                static constexpr std::size_t N = EMLACBPP_VA_ARGS_SIZE( __VA_ARGS__ ); \</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">                std::apply(                                                            \</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">                    [&amp;]( const auto&amp;... items ) {                                      \</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">                            EMLABCPP_LOG_IMPL(                                         \</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">                                emlabcpp::INFO_LOGGER, __FILE__, __LINE__, items... ); \</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">                    },                                                                 \</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">                    emlabcpp::logging::generate_vars_log_tuple(                        \</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">                        std::make_index_sequence&lt; 4 * N &gt;{},                           \</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">                        emlabcpp::logging::expand_var_names&lt; N &gt;( #__VA_ARGS__ ),      \</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">                        std::forward_as_tuple( __VA_ARGS__ ) ) );                      \</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">        }                                                                              \</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">        while ( false )</span></div>
+<a href="experimental_2logging_2util_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging_8h.html">emlabcpp/experimental/logging.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="experimental_2logging_2util_8h.html#aab0b47cd656c869fc0714a3d1c5b3dc7">   24</a></span>&#160;<span class="preprocessor">#define EMLACBPP_VA_ARGS_SIZE( ... ) std::tuple_size_v&lt; decltype( std::make_tuple( __VA_ARGS__ ) ) &gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1logging.html">   26</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1logging.html">emlabcpp::logging</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span> &lt; std::size_t N, std::size_t... Ids &gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1logging.html#a6243454a964ef93f684c446f807b777a">   30</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp_1_1logging.html#a6243454a964ef93f684c446f807b777a">generate_vars_log_tuple</a>(</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::index_sequence&lt; Ids... &gt;,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">const</span> std::array&lt; std::string_view, N &gt;&amp; names,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span>&amp;                              args )</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        static_assert( 4 * N == <span class="keyword">sizeof</span>...( Ids ) );</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> = [&amp;]&lt; std::size_t i &gt; {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keywordflow">if</span> constexpr ( i % 4 == 0 ) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                        <span class="keywordflow">return</span> names[i / 4];</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr ( i % 4 == 1 ) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                        <span class="keywordflow">return</span> std::string_view{ <span class="stringliteral">&quot; = &quot;</span> };</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr ( i % 4 == 2 ) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        <span class="keywordflow">return</span> std::get&lt; i / 4 &gt;( args );</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        <span class="keywordflow">return</span> std::string_view{ <span class="stringliteral">&quot;;\t&quot;</span> };</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        };</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> std::make_tuple( <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>.template <span class="keyword">operator</span>()&lt; Ids &gt;()... );</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1logging.html#a04248a323e06ff3779b3b3a86f1d2a43">   53</a></span>&#160;std::array&lt; std::string_view, N &gt; <a class="code" href="namespaceemlabcpp_1_1logging.html#a04248a323e06ff3779b3b3a86f1d2a43">expand_var_names</a>( std::string_view sv )</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        std::array&lt; std::string_view, N &gt; names;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i = 0; i &lt; N; i++ ) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                std::size_t p = sv.find( <span class="stringliteral">&quot;,&quot;</span> );</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                names[i]      = sv.substr( 0, p );</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                sv            = sv.substr( p + 1 );</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> names;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}  <span class="comment">// namespace emlabcpp::logging</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="experimental_2logging_2util_8h.html#a34d7d2336fd44b97109ebbccc3569c41">   66</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INFO_LOG_VARS( ... )                                                  \</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">        {                                                                              \</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">                static constexpr std::size_t N = EMLACBPP_VA_ARGS_SIZE( __VA_ARGS__ ); \</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">                std::apply(                                                            \</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">                    [&amp;]( const auto&amp;... items ) {                                      \</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">                            EMLABCPP_LOG_IMPL(                                         \</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">                                emlabcpp::INFO_LOGGER, __FILE__, __LINE__, items... ); \</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">                    },                                                                 \</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">                    emlabcpp::logging::generate_vars_log_tuple(                        \</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">                        std::make_index_sequence&lt; 4 * N &gt;{},                           \</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">                        emlabcpp::logging::expand_var_names&lt; N &gt;( #__VA_ARGS__ ),      \</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">                        std::forward_as_tuple( __VA_ARGS__ ) ) );                      \</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">        }                                                                              \</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">        while ( false )</span></div>
 <div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1logging_html"><div class="ttname"><a href="namespaceemlabcpp_1_1logging.html">emlabcpp::logging</a></div><div class="ttdef"><b>Definition:</b> util.h:8</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1logging_html_a04248a323e06ff3779b3b3a86f1d2a43"><div class="ttname"><a href="namespaceemlabcpp_1_1logging.html#a04248a323e06ff3779b3b3a86f1d2a43">emlabcpp::logging::expand_var_names</a></div><div class="ttdeci">std::array&lt; std::string_view, N &gt; expand_var_names(std::string_view sv)</div><div class="ttdef"><b>Definition:</b> util.h:34</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1logging_html_a6243454a964ef93f684c446f807b777a"><div class="ttname"><a href="namespaceemlabcpp_1_1logging.html#a6243454a964ef93f684c446f807b777a">emlabcpp::logging::generate_vars_log_tuple</a></div><div class="ttdeci">auto generate_vars_log_tuple(std::index_sequence&lt; Ids... &gt;, const std::array&lt; std::string_view, N &gt; &amp;names, const auto &amp;args)</div><div class="ttdef"><b>Definition:</b> util.h:11</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:157</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1logging_html"><div class="ttname"><a href="namespaceemlabcpp_1_1logging.html">emlabcpp::logging</a></div><div class="ttdef"><b>Definition:</b> util.h:27</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1logging_html_a04248a323e06ff3779b3b3a86f1d2a43"><div class="ttname"><a href="namespaceemlabcpp_1_1logging.html#a04248a323e06ff3779b3b3a86f1d2a43">emlabcpp::logging::expand_var_names</a></div><div class="ttdeci">std::array&lt; std::string_view, N &gt; expand_var_names(std::string_view sv)</div><div class="ttdef"><b>Definition:</b> util.h:53</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1logging_html_a6243454a964ef93f684c446f807b777a"><div class="ttname"><a href="namespaceemlabcpp_1_1logging.html#a6243454a964ef93f684c446f807b777a">emlabcpp::logging::generate_vars_log_tuple</a></div><div class="ttdeci">auto generate_vars_log_tuple(std::index_sequence&lt; Ids... &gt;, const std::array&lt; std::string_view, N &gt; &amp;names, const auto &amp;args)</div><div class="ttdef"><b>Definition:</b> util.h:30</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:154</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_7be96e89c84803827e352320bc015c84.html">logging</a></li><li class="navelem"><a class="el" href="experimental_2logging_2util_8h.html">util.h</a></li>
-    <li class="footer">Generated on Mon Mar 13 2023 12:46:29 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 13 2023 19:01:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

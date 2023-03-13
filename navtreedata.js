@@ -86,19 +86,19 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"classemlabcpp_1_1derived__storage.html#aba98e3a547a8b75125f7cb806f7f1810",
-"classemlabcpp_1_1protocol_1_1register__map.html",
-"classemlabcpp_1_1static__vector.html#afd91aab0a09749958a8874872b36b311",
-"concepts_8h.html#af124e29aa89adc5fce430ee7fdda3cc4",
-"functions_vars_v.html",
-"namespaceemlabcpp.html#a78453f63bffe0ddbe927529c68875dc4",
-"namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5",
-"parameters_8h.html#abb07fe9541c63a9babdb6f577489443a",
-"structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#a24cccaac3e4cee8782143ae94315d6aa",
-"structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#aac6b814c02228411f51bd3251d1bd456",
-"structemlabcpp_1_1protocol_1_1register__handler.html",
-"structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1access__iterator_3_01Iterator_00_01AccessCallable_01_4_01_4.html#a1e46ef712393376b1afc97e218053ceb"
+"access_8h.html",
+"classemlabcpp_1_1derived__storage.html#ad0c25ca45df18da054d50d12339857e4",
+"classemlabcpp_1_1protocol_1_1register__map.html#a069dc3bd6089aa6ba6759ea9f3d94d11",
+"classemlabcpp_1_1tagged__quantity.html",
+"concepts_8h.html#afc8fd33adfcfe872f4402d4b61b41113",
+"functions_vars_w.html",
+"namespaceemlabcpp.html#a7a8e644a62f8747e59e7766ba811037a",
+"namespaceemlabcpp_1_1protocol.html#ab89b3fc5cca94d25cbc305c9ec90084c",
+"parameters_8h.html#abb07fe9541c63a9babdb6f577489443aa3624918944d320b7cc07f4ca99a99b91",
+"structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#a2509e7196ccd1b94dce7b7961101dc5d",
+"structemlabcpp_1_1protocol_1_1converter_3_01sizeless__message_3_01N_01_4_00_01Endianess_01_4.html#aae0d90c824f9e119ed5bc6c7e16a6a7e",
+"structemlabcpp_1_1protocol_1_1register__handler.html#a0d9d4ca50fd8333d4bb62d52b6755e47",
+"structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1access__iterator_3_01Iterator_00_01AccessCallable_01_4_01_4.html#a5789fa91220f9b2f614932c848867fae"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

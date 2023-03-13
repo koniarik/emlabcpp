@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"classemlabcpp_1_1static__vector.html#afd91aab0a09749958a8874872b36b311":[3,0,0,86,3],
 "classemlabcpp_1_1tagged__quantity.html":[3,0,0,81],
 "classemlabcpp_1_1tagged__quantity.html#a9a120960136067ec36c419f6ff7a2b73":[3,0,0,81,0],
 "classemlabcpp_1_1testing_1_1collect__awaiter.html":[3,0,0,7,4],
@@ -249,5 +248,6 @@ var NAVTREEINDEX3 =
 "concepts_8h.html#ac6a5e3253aa7ea8bcd6574b3274c74b6":[4,0,0,0,10,5],
 "concepts_8h.html#ad5b78b4d7a2e426170153951069c76cf":[4,0,0,0,10,14],
 "concepts_8h.html#adb54eee14fc87e50de7f6ed35ad1aba0":[4,0,0,0,10,9],
-"concepts_8h.html#ae70f5be4da9ac6f367034af1f5028827":[4,0,0,0,10,13]
+"concepts_8h.html#ae70f5be4da9ac6f367034af1f5028827":[4,0,0,0,10,13],
+"concepts_8h.html#af124e29aa89adc5fce430ee7fdda3cc4":[4,0,0,0,10,18]
 };

@@ -87,50 +87,51 @@ $(document).ready(function(){initNavTree('experimental_2contiguous__tree_2base_8
 <div class="title">base.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="experimental_2contiguous__tree_2base_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="either_8h.html">emlabcpp/either.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fd">   11</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fd">contiguous_tree_type</a> : uint8_t</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fdaecc2e9c313faddb07e7da223c1dc5c3f">VALUE</a>  = 1,</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fda8eee8e217391199668cbac89472ace53">OBJECT</a> = 2,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fdacb4fb1757fb37c43cded35d3eb857c43">ARRAY</a>  = 3</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eeca">   18</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eeca">contiguous_container_type</a> : uint8_t</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eecaacb4fb1757fb37c43cded35d3eb857c43">ARRAY</a>  = 1,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eecaa8eee8e217391199668cbac89472ace53">OBJECT</a> = 2</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10">   24</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10">contiguous_request_adapter_errors</a> : uint8_t</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10a7e94d60ca52c8bf6da26a0a479f08d21">MISSING_NODE</a>  = 1,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10a9bf67e4befa0dcd99caa7f01f2c9b714">WRONG_TYPE</a>    = 2,</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10a3396545d99c2f2d78dd20411b4a66ad2">CHILD_MISSING</a> = 3,</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10aba7de5bc6888294e5884b024a4c894f1">FULL</a>          = 4</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<a href="experimental_2contiguous__tree_2base_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="either_8h.html">emlabcpp/either.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fd">   30</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fd">contiguous_tree_type</a> : uint8_t</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fdaecc2e9c313faddb07e7da223c1dc5c3f">VALUE</a>  = 1,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fda8eee8e217391199668cbac89472ace53">OBJECT</a> = 2,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fdacb4fb1757fb37c43cded35d3eb857c43">ARRAY</a>  = 3</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eeca">   37</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eeca">contiguous_container_type</a> : uint8_t</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eecaacb4fb1757fb37c43cded35d3eb857c43">ARRAY</a>  = 1,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eecaa8eee8e217391199668cbac89472ace53">OBJECT</a> = 2</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10">   43</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10">contiguous_request_adapter_errors</a> : uint8_t</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10a7e94d60ca52c8bf6da26a0a479f08d21">MISSING_NODE</a>  = 1,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10a9bf67e4befa0dcd99caa7f01f2c9b714">WRONG_TYPE</a>    = 2,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10a3396545d99c2f2d78dd20411b4a66ad2">CHILD_MISSING</a> = 3,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10aba7de5bc6888294e5884b024a4c894f1">FULL</a>          = 4</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aeither_8h_html"><div class="ttname"><a href="either_8h.html">either.h</a></div></div>
-<div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> access_view.h:7</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a453799fa0ff8d942480b0bcc3dbf7f10"><div class="ttname"><a href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10">emlabcpp::contiguous_request_adapter_errors</a></div><div class="ttdeci">contiguous_request_adapter_errors</div><div class="ttdef"><b>Definition:</b> base.h:25</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> access_view.h:26</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a453799fa0ff8d942480b0bcc3dbf7f10"><div class="ttname"><a href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10">emlabcpp::contiguous_request_adapter_errors</a></div><div class="ttdeci">contiguous_request_adapter_errors</div><div class="ttdef"><b>Definition:</b> base.h:44</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a453799fa0ff8d942480b0bcc3dbf7f10a3396545d99c2f2d78dd20411b4a66ad2"><div class="ttname"><a href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10a3396545d99c2f2d78dd20411b4a66ad2">emlabcpp::contiguous_request_adapter_errors::CHILD_MISSING</a></div><div class="ttdeci">@ CHILD_MISSING</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a453799fa0ff8d942480b0bcc3dbf7f10a7e94d60ca52c8bf6da26a0a479f08d21"><div class="ttname"><a href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10a7e94d60ca52c8bf6da26a0a479f08d21">emlabcpp::contiguous_request_adapter_errors::MISSING_NODE</a></div><div class="ttdeci">@ MISSING_NODE</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a453799fa0ff8d942480b0bcc3dbf7f10a9bf67e4befa0dcd99caa7f01f2c9b714"><div class="ttname"><a href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10a9bf67e4befa0dcd99caa7f01f2c9b714">emlabcpp::contiguous_request_adapter_errors::WRONG_TYPE</a></div><div class="ttdeci">@ WRONG_TYPE</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a453799fa0ff8d942480b0bcc3dbf7f10aba7de5bc6888294e5884b024a4c894f1"><div class="ttname"><a href="namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10aba7de5bc6888294e5884b024a4c894f1">emlabcpp::contiguous_request_adapter_errors::FULL</a></div><div class="ttdeci">@ FULL</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a98cc8be30884776ff941bb6ae93946fd"><div class="ttname"><a href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fd">emlabcpp::contiguous_tree_type</a></div><div class="ttdeci">contiguous_tree_type</div><div class="ttdef"><b>Definition:</b> base.h:12</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a98cc8be30884776ff941bb6ae93946fd"><div class="ttname"><a href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fd">emlabcpp::contiguous_tree_type</a></div><div class="ttdeci">contiguous_tree_type</div><div class="ttdef"><b>Definition:</b> base.h:31</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a98cc8be30884776ff941bb6ae93946fda8eee8e217391199668cbac89472ace53"><div class="ttname"><a href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fda8eee8e217391199668cbac89472ace53">emlabcpp::contiguous_tree_type::OBJECT</a></div><div class="ttdeci">@ OBJECT</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a98cc8be30884776ff941bb6ae93946fdacb4fb1757fb37c43cded35d3eb857c43"><div class="ttname"><a href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fdacb4fb1757fb37c43cded35d3eb857c43">emlabcpp::contiguous_tree_type::ARRAY</a></div><div class="ttdeci">@ ARRAY</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a98cc8be30884776ff941bb6ae93946fdaecc2e9c313faddb07e7da223c1dc5c3f"><div class="ttname"><a href="namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fdaecc2e9c313faddb07e7da223c1dc5c3f">emlabcpp::contiguous_tree_type::VALUE</a></div><div class="ttdeci">@ VALUE</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_aa815694613f8d89e804ac10b1395eeca"><div class="ttname"><a href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eeca">emlabcpp::contiguous_container_type</a></div><div class="ttdeci">contiguous_container_type</div><div class="ttdef"><b>Definition:</b> base.h:19</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_aa815694613f8d89e804ac10b1395eeca"><div class="ttname"><a href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eeca">emlabcpp::contiguous_container_type</a></div><div class="ttdeci">contiguous_container_type</div><div class="ttdef"><b>Definition:</b> base.h:38</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aa815694613f8d89e804ac10b1395eecaa8eee8e217391199668cbac89472ace53"><div class="ttname"><a href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eecaa8eee8e217391199668cbac89472ace53">emlabcpp::contiguous_container_type::OBJECT</a></div><div class="ttdeci">@ OBJECT</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aa815694613f8d89e804ac10b1395eecaacb4fb1757fb37c43cded35d3eb857c43"><div class="ttname"><a href="namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eecaacb4fb1757fb37c43cded35d3eb857c43">emlabcpp::contiguous_container_type::ARRAY</a></div><div class="ttdeci">@ ARRAY</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -139,7 +140,7 @@ $(document).ready(function(){initNavTree('experimental_2contiguous__tree_2base_8
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_15f8cd90f3890d7a65699de4188dbb27.html">contiguous_tree</a></li><li class="navelem"><a class="el" href="experimental_2contiguous__tree_2base_8h.html">base.h</a></li>
-    <li class="footer">Generated on Mon Mar 13 2023 12:46:28 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 13 2023 19:01:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

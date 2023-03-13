@@ -87,142 +87,143 @@ $(document).ready(function(){initNavTree('stack__resource_8h_source.html',''); i
 <div class="title">stack_resource.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="stack__resource_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging_8h.html">emlabcpp/experimental/logging.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memory__resource_8h.html">emlabcpp/pmr/memory_resource.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pmr_2util_8h.html">emlabcpp/pmr/util.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> Capacity &gt;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a> final : <span class="keyword">public</span> <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">struct </span>node</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* prev_ptr;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* next_ptr;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        };</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">static</span> constexpr std::size_t node_size = <span class="keyword">sizeof</span>( node );</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">using</span> buffer                           = std::array&lt; std::byte, Capacity &gt;;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a611061bb91a992c7d39242cbebcb67e6">   26</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a611061bb91a992c7d39242cbebcb67e6">stack_resource</a>()</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                top_ = buff_.data() + node_size;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                set_node( top_, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span> );</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<a href="stack__resource_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging_8h.html">emlabcpp/experimental/logging.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memory__resource_8h.html">emlabcpp/pmr/memory_resource.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pmr_2util_8h.html">emlabcpp/pmr/util.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#ab4a6e7a842093378cb68c122701124b9">   32</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#ab4a6e7a842093378cb68c122701124b9">stack_resource</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a>&amp; )            = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#afb4bf0b2da675d5b7ef7c8a72d82d765">   33</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#afb4bf0b2da675d5b7ef7c8a72d82d765">stack_resource</a>( <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a>&amp;&amp; )                 = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#af4799380f87d002b60ae5ec784a201ac">   34</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a>&amp; <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#af4799380f87d002b60ae5ec784a201ac">operator=</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a>&amp; ) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a89097ca0f493ef0d1c00223ab56c5856">   35</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a>&amp; <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a89097ca0f493ef0d1c00223ab56c5856">operator=</a>( <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a>&amp;&amp; )      = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        [[nodiscard]] <span class="keywordtype">void</span>*</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a5a6b1ef1e6ccacc68aa1983a291f6b46">   38</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a5a6b1ef1e6ccacc68aa1983a291f6b46">allocate</a>( <span class="keyword">const</span> std::size_t bytes, <span class="keyword">const</span> std::size_t alignment )<span class="keyword"> override</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <a class="code" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a>( <span class="stringliteral">&quot;Top is &quot;</span>, top_, <span class="stringliteral">&quot; and start of buffer is &quot;</span>, buff_.data() );</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* prev_ptr  = top_;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                node       prev_node = get_node( prev_ptr );</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keyword">auto</span>* <span class="keyword">const</span> p = <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( <a class="code" href="namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263">align</a>( top_, alignment ) );</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                top_ = p + bytes + node_size;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                set_node( top_, prev_ptr, <span class="keyword">nullptr</span> );</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                set_node( prev_ptr, prev_node.prev_ptr, top_ );</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <a class="code" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a>( <span class="stringliteral">&quot;Allocating &quot;</span>, p, <span class="stringliteral">&quot; for &quot;</span>, bytes, <span class="stringliteral">&quot; bytes&quot;</span> );</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">return</span> p;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#aa536fb4972cabcb7490695e145b2c92e">   58</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#aa536fb4972cabcb7490695e145b2c92e">deallocate</a>( <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr, <span class="keyword">const</span> std::size_t bytes, <span class="keyword">const</span> std::size_t )<span class="keyword"> override</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <a class="code" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a>( <span class="stringliteral">&quot;Deallocating &quot;</span>, ptr, <span class="stringliteral">&quot; with &quot;</span>, bytes, <span class="stringliteral">&quot; bytes&quot;</span> );</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* node_ptr = <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( ptr ) + bytes + node_size;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keyword">auto</span> [prev_ptr, next_ptr] = get_node( node_ptr );</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> Capacity &gt;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a> final : <span class="keyword">public</span> <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">struct </span>node</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* prev_ptr;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* next_ptr;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        };</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">static</span> constexpr std::size_t node_size = <span class="keyword">sizeof</span>( node );</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">using</span> buffer                           = std::array&lt; std::byte, Capacity &gt;;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a611061bb91a992c7d39242cbebcb67e6">   45</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a611061bb91a992c7d39242cbebcb67e6">stack_resource</a>()</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                top_ = buff_.data() + node_size;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                set_node( top_, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span> );</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#ab4a6e7a842093378cb68c122701124b9">   51</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#ab4a6e7a842093378cb68c122701124b9">stack_resource</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a>&amp; )            = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#afb4bf0b2da675d5b7ef7c8a72d82d765">   52</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#afb4bf0b2da675d5b7ef7c8a72d82d765">stack_resource</a>( <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a>&amp;&amp; )                 = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#af4799380f87d002b60ae5ec784a201ac">   53</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a>&amp; <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#af4799380f87d002b60ae5ec784a201ac">operator=</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a>&amp; ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a89097ca0f493ef0d1c00223ab56c5856">   54</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a>&amp; <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a89097ca0f493ef0d1c00223ab56c5856">operator=</a>( <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a>&amp;&amp; )      = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        [[nodiscard]] <span class="keywordtype">void</span>*</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a5a6b1ef1e6ccacc68aa1983a291f6b46">   57</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a5a6b1ef1e6ccacc68aa1983a291f6b46">allocate</a>( <span class="keyword">const</span> std::size_t bytes, <span class="keyword">const</span> std::size_t alignment )<span class="keyword"> override</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <a class="code" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a>( <span class="stringliteral">&quot;Top is &quot;</span>, top_, <span class="stringliteral">&quot; and start of buffer is &quot;</span>, buff_.data() );</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* prev_ptr  = top_;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                node       prev_node = get_node( prev_ptr );</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keyword">auto</span> [prev_prev_ptr, prev_next_ptr] = get_node( prev_ptr );</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                set_node( prev_ptr, prev_prev_ptr, next_ptr );</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">if</span> ( next_ptr == <span class="keyword">nullptr</span> ) {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        top_ = prev_ptr;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                        <span class="keyword">auto</span> [next_prev_ptr, next_next_ptr] = get_node( next_ptr );</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        set_node( next_ptr, prev_ptr, next_next_ptr );</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#ada13dc63336cce04cb0977675346f86a">   77</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#ada13dc63336cce04cb0977675346f86a">is_equal</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>&amp; other ) <span class="keyword">const</span> noexcept <span class="keyword">override</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">this</span> == &amp;other;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a187b022b324477af1af32bc1f74aa9b1">   82</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a187b022b324477af1af32bc1f74aa9b1">is_full</a>()<span class="keyword"> const override</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">return</span> top_ == buff_.end();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#adbf0a1856d42903c57af4b26305648cf">   87</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#adbf0a1856d42903c57af4b26305648cf">~stack_resource</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        node get_node( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* ptr )</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <a class="code" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a>( <span class="stringliteral">&quot;Reading from &quot;</span>, ptr );</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                ptr -= <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* );</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* prev = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                std::memcpy( &amp;prev, ptr, <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* ) );</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                ptr -= <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* );</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* next = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                std::memcpy( &amp;next, ptr, <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* ) );</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">return</span> { prev, next };</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        };</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">void</span> set_node( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* ptr, <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">const</span> prev, <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">const</span> next )</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <a class="code" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a>( <span class="stringliteral">&quot;Storing at &quot;</span>, ptr );</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                ptr -= <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* );</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                std::memcpy( ptr, &amp;prev, <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* ) );</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                ptr -= <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* );</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                std::memcpy( ptr, &amp;next, <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* ) );</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keyword">auto</span>* <span class="keyword">const</span> p = <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( <a class="code" href="namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263">align</a>( top_, alignment ) );</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                top_ = p + bytes + node_size;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                set_node( top_, prev_ptr, <span class="keyword">nullptr</span> );</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                set_node( prev_ptr, prev_node.prev_ptr, top_ );</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a>( <span class="stringliteral">&quot;Allocating &quot;</span>, p, <span class="stringliteral">&quot; for &quot;</span>, bytes, <span class="stringliteral">&quot; bytes&quot;</span> );</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">return</span> p;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#aa536fb4972cabcb7490695e145b2c92e">   77</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#aa536fb4972cabcb7490695e145b2c92e">deallocate</a>( <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr, <span class="keyword">const</span> std::size_t bytes, <span class="keyword">const</span> std::size_t )<span class="keyword"> override</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <a class="code" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a>( <span class="stringliteral">&quot;Deallocating &quot;</span>, ptr, <span class="stringliteral">&quot; with &quot;</span>, bytes, <span class="stringliteral">&quot; bytes&quot;</span> );</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* node_ptr = <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( ptr ) + bytes + node_size;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keyword">auto</span> [prev_ptr, next_ptr] = get_node( node_ptr );</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keyword">auto</span> [prev_prev_ptr, prev_next_ptr] = get_node( prev_ptr );</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                set_node( prev_ptr, prev_prev_ptr, next_ptr );</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">if</span> ( next_ptr == <span class="keyword">nullptr</span> ) {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        top_ = prev_ptr;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        <span class="keyword">auto</span> [next_prev_ptr, next_next_ptr] = get_node( next_ptr );</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                        set_node( next_ptr, prev_ptr, next_next_ptr );</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#ada13dc63336cce04cb0977675346f86a">   96</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#ada13dc63336cce04cb0977675346f86a">is_equal</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>&amp; other ) <span class="keyword">const</span> noexcept <span class="keyword">override</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">this</span> == &amp;other;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a187b022b324477af1af32bc1f74aa9b1">  101</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a187b022b324477af1af32bc1f74aa9b1">is_full</a>()<span class="keyword"> const override</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordflow">return</span> top_ == buff_.end();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#adbf0a1856d42903c57af4b26305648cf">  106</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#adbf0a1856d42903c57af4b26305648cf">~stack_resource</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        node get_node( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* ptr )</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <a class="code" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a>( <span class="stringliteral">&quot;Reading from &quot;</span>, ptr );</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                ptr -= <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* );</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* top_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        buffer     buff_{};</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;};</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}  <span class="comment">// namespace emlabcpp::pmr</span></div>
-<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1memory__resource_html"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1memory__resource.html">emlabcpp::pmr::memory_resource</a></div><div class="ttdef"><b>Definition:</b> memory_resource.h:8</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html">emlabcpp::pmr::stack_resource</a></div><div class="ttdef"><b>Definition:</b> stack_resource.h:15</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_a187b022b324477af1af32bc1f74aa9b1"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#a187b022b324477af1af32bc1f74aa9b1">emlabcpp::pmr::stack_resource::is_full</a></div><div class="ttdeci">bool is_full() const override</div><div class="ttdef"><b>Definition:</b> stack_resource.h:82</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_a5a6b1ef1e6ccacc68aa1983a291f6b46"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#a5a6b1ef1e6ccacc68aa1983a291f6b46">emlabcpp::pmr::stack_resource::allocate</a></div><div class="ttdeci">void * allocate(const std::size_t bytes, const std::size_t alignment) override</div><div class="ttdef"><b>Definition:</b> stack_resource.h:38</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_a611061bb91a992c7d39242cbebcb67e6"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#a611061bb91a992c7d39242cbebcb67e6">emlabcpp::pmr::stack_resource::stack_resource</a></div><div class="ttdeci">stack_resource()</div><div class="ttdef"><b>Definition:</b> stack_resource.h:26</div></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* prev = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                std::memcpy( &amp;prev, ptr, <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* ) );</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                ptr -= <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* );</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* next = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                std::memcpy( &amp;next, ptr, <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* ) );</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordflow">return</span> { prev, next };</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        };</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordtype">void</span> set_node( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* ptr, <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">const</span> prev, <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">const</span> next )</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                <a class="code" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a>( <span class="stringliteral">&quot;Storing at &quot;</span>, ptr );</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                ptr -= <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* );</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                std::memcpy( ptr, &amp;prev, <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* ) );</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                ptr -= <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* );</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                std::memcpy( ptr, &amp;next, <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* ) );</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* top_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        buffer     buff_{};</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;};</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}  <span class="comment">// namespace emlabcpp::pmr</span></div>
+<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1memory__resource_html"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1memory__resource.html">emlabcpp::pmr::memory_resource</a></div><div class="ttdef"><b>Definition:</b> memory_resource.h:27</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html">emlabcpp::pmr::stack_resource</a></div><div class="ttdef"><b>Definition:</b> stack_resource.h:34</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_a187b022b324477af1af32bc1f74aa9b1"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#a187b022b324477af1af32bc1f74aa9b1">emlabcpp::pmr::stack_resource::is_full</a></div><div class="ttdeci">bool is_full() const override</div><div class="ttdef"><b>Definition:</b> stack_resource.h:101</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_a5a6b1ef1e6ccacc68aa1983a291f6b46"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#a5a6b1ef1e6ccacc68aa1983a291f6b46">emlabcpp::pmr::stack_resource::allocate</a></div><div class="ttdeci">void * allocate(const std::size_t bytes, const std::size_t alignment) override</div><div class="ttdef"><b>Definition:</b> stack_resource.h:57</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_a611061bb91a992c7d39242cbebcb67e6"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#a611061bb91a992c7d39242cbebcb67e6">emlabcpp::pmr::stack_resource::stack_resource</a></div><div class="ttdeci">stack_resource()</div><div class="ttdef"><b>Definition:</b> stack_resource.h:45</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_a89097ca0f493ef0d1c00223ab56c5856"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#a89097ca0f493ef0d1c00223ab56c5856">emlabcpp::pmr::stack_resource::operator=</a></div><div class="ttdeci">stack_resource &amp; operator=(stack_resource &amp;&amp;)=delete</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_aa536fb4972cabcb7490695e145b2c92e"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#aa536fb4972cabcb7490695e145b2c92e">emlabcpp::pmr::stack_resource::deallocate</a></div><div class="ttdeci">bool deallocate(void *const ptr, const std::size_t bytes, const std::size_t) override</div><div class="ttdef"><b>Definition:</b> stack_resource.h:58</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_aa536fb4972cabcb7490695e145b2c92e"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#aa536fb4972cabcb7490695e145b2c92e">emlabcpp::pmr::stack_resource::deallocate</a></div><div class="ttdeci">bool deallocate(void *const ptr, const std::size_t bytes, const std::size_t) override</div><div class="ttdef"><b>Definition:</b> stack_resource.h:77</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_ab4a6e7a842093378cb68c122701124b9"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#ab4a6e7a842093378cb68c122701124b9">emlabcpp::pmr::stack_resource::stack_resource</a></div><div class="ttdeci">stack_resource(const stack_resource &amp;)=delete</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_ada13dc63336cce04cb0977675346f86a"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#ada13dc63336cce04cb0977675346f86a">emlabcpp::pmr::stack_resource::is_equal</a></div><div class="ttdeci">bool is_equal(const pmr::memory_resource &amp;other) const noexcept override</div><div class="ttdef"><b>Definition:</b> stack_resource.h:77</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_ada13dc63336cce04cb0977675346f86a"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#ada13dc63336cce04cb0977675346f86a">emlabcpp::pmr::stack_resource::is_equal</a></div><div class="ttdeci">bool is_equal(const pmr::memory_resource &amp;other) const noexcept override</div><div class="ttdef"><b>Definition:</b> stack_resource.h:96</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_adbf0a1856d42903c57af4b26305648cf"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#adbf0a1856d42903c57af4b26305648cf">emlabcpp::pmr::stack_resource::~stack_resource</a></div><div class="ttdeci">~stack_resource() override=default</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_af4799380f87d002b60ae5ec784a201ac"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#af4799380f87d002b60ae5ec784a201ac">emlabcpp::pmr::stack_resource::operator=</a></div><div class="ttdeci">stack_resource &amp; operator=(const stack_resource &amp;)=delete</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1pmr_1_1stack__resource_html_afb4bf0b2da675d5b7ef7c8a72d82d765"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1stack__resource.html#afb4bf0b2da675d5b7ef7c8a72d82d765">emlabcpp::pmr::stack_resource::stack_resource</a></div><div class="ttdeci">stack_resource(stack_resource &amp;&amp;)=delete</div></div>
 <div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div></div>
-<div class="ttc" id="alogging_8h_html_a5fedc1f7cb2ad93b9469d7189195ee36"><div class="ttname"><a href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a></div><div class="ttdeci">#define EMLABCPP_INFO_LOG(...)</div><div class="ttdef"><b>Definition:</b> logging.h:213</div></div>
+<div class="ttc" id="alogging_8h_html_a5fedc1f7cb2ad93b9469d7189195ee36"><div class="ttname"><a href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a></div><div class="ttdeci">#define EMLABCPP_INFO_LOG(...)</div><div class="ttdef"><b>Definition:</b> logging.h:232</div></div>
 <div class="ttc" id="amemory__resource_8h_html"><div class="ttname"><a href="memory__resource_8h.html">memory_resource.h</a></div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></div><div class="ttdef"><b>Definition:</b> aliases.h:13</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a1b56b352c8ba06335f92e0118ab2f263"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263">emlabcpp::pmr::align</a></div><div class="ttdeci">void * align(void *const ptr, const std::size_t alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:33</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:88</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> aliases.h:32</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a1b56b352c8ba06335f92e0118ab2f263"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263">emlabcpp::pmr::align</a></div><div class="ttdeci">void * align(void *const ptr, const std::size_t alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:30</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:85</div></div>
 <div class="ttc" id="apmr_2util_8h_html"><div class="ttname"><a href="pmr_2util_8h.html">util.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -230,7 +231,7 @@ $(document).ready(function(){initNavTree('stack__resource_8h_source.html',''); i
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_231aac52433e25ed4b5ea5619bdfd3e1.html">pmr</a></li><li class="navelem"><a class="el" href="stack__resource_8h.html">stack_resource.h</a></li>
-    <li class="footer">Generated on Mon Mar 13 2023 12:46:29 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 13 2023 19:01:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
