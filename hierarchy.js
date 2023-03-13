@@ -204,6 +204,8 @@ var hierarchy =
     [ "emlabcpp::pid< TimeType >", "classemlabcpp_1_1pid.html", null ],
     [ "emlabcpp::pid_coefficients", "namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients", null ],
     [ "emlabcpp::pid_config", "namespaceemlabcpp.html#structemlabcpp_1_1pid__config", null ],
+    [ "emlabcpp::pose", "structemlabcpp_1_1pose.html", null ],
+    [ "emlabcpp::pose_distance", "namespaceemlabcpp.html#structemlabcpp_1_1pose__distance", null ],
     [ "emlabcpp::pretty_printer< T >", "namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer", null ],
     [ "emlabcpp::pretty_printer< bool >", "structemlabcpp_1_1pretty__printer_3_01bool_01_4.html", null ],
     [ "emlabcpp::pretty_printer< char >", "structemlabcpp_1_1pretty__printer_3_01char_01_4.html", null ],
@@ -266,6 +268,7 @@ var hierarchy =
     [ "emlabcpp::quantity< tagged_quantity< Tag, float >, float >", "classemlabcpp_1_1quantity.html", [
       [ "emlabcpp::tagged_quantity< Tag, ValueType >", "classemlabcpp_1_1tagged__quantity.html", null ]
     ] ],
+    [ "emlabcpp::quaternion", "classemlabcpp_1_1quaternion.html", null ],
     [ "emlabcpp::rpc::reactor< CallDefs >", "classemlabcpp_1_1rpc_1_1reactor.html", null ],
     [ "emlabcpp::testing::reactor", "classemlabcpp_1_1testing_1_1reactor.html", null ],
     [ "emlabcpp::rpc::reactor_error", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1reactor__error", null ],
@@ -279,6 +282,7 @@ var hierarchy =
     [ "emlabcpp::protocol::register_pair< Key, D >", "structemlabcpp_1_1protocol_1_1register__pair.html", null ],
     [ "emlabcpp::rpc::reply_error", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1reply__error", null ],
     [ "emlabcpp::coro::request_reply< RequestType, ReplyType >", "classemlabcpp_1_1coro_1_1request__reply.html", null ],
+    [ "emlabcpp::rowcol_submatrix< Matrix, I, J >", "classemlabcpp_1_1rowcol__submatrix.html", null ],
     [ "emlabcpp::select_utype< size_t >", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
     [ "emlabcpp::protocol::sequencer< Def >", "classemlabcpp_1_1protocol_1_1sequencer.html", null ],
     [ "emlabcpp::protocol::packet< Def, Payload >::sequencer_def", "structemlabcpp_1_1protocol_1_1packet_1_1sequencer__def.html", null ],
@@ -291,6 +295,7 @@ var hierarchy =
       [ "emlabcpp::signature_of< ReturnType(Class::*)(Args...) const >", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01const_01_4.html", null ]
     ] ],
     [ "emlabcpp::simple_stream< WriteCallable >", "classemlabcpp_1_1simple__stream.html", null ],
+    [ "emlabcpp::simplex< Item, N >", "classemlabcpp_1_1simplex.html", null ],
     [ "emlabcpp::protocol::sized_buffer< CounterDef, D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer", null ],
     [ "emlabcpp::static_circular_buffer< T, N >", "classemlabcpp_1_1static__circular__buffer.html", null ],
     [ "emlabcpp::static_circular_buffer< uint8_t, Def::message_type::max_size *2 >", "classemlabcpp_1_1static__circular__buffer.html", null ],
@@ -360,6 +365,14 @@ var hierarchy =
     [ "emlabcpp::testing::value_type_converter_getter< T >", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", null ],
     [ "emlabcpp::testing::value_type_converter_getter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", [
       [ "emlabcpp::testing::value_type_converter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html", null ]
+    ] ],
+    [ "emlabcpp::vec_point_base< Derived, N >", "classemlabcpp_1_1vec__point__base.html", null ],
+    [ "emlabcpp::vec_point_base< point< N >, N >", "classemlabcpp_1_1vec__point__base.html", [
+      [ "emlabcpp::point< 3 >", "classemlabcpp_1_1point.html", null ],
+      [ "emlabcpp::point< N >", "classemlabcpp_1_1point.html", null ]
+    ] ],
+    [ "emlabcpp::vec_point_base< vector< N >, N >", "classemlabcpp_1_1vec__point__base.html", [
+      [ "emlabcpp::vector< N >", "classemlabcpp_1_1vector.html", null ]
     ] ],
     [ "emlabcpp::view< Iterator >", "classemlabcpp_1_1view.html", [
       [ "emlabcpp::bounded_view< Iterator, SizeType >", "classemlabcpp_1_1bounded__view.html", null ]

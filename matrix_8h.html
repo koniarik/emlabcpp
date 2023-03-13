@@ -113,6 +113,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1identity__matrix.html">emlabcpp::identity_matrix&lt; N, T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rowcol__submatrix.html">emlabcpp::rowcol_submatrix&lt; Matrix, I, J &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -130,6 +132,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac4ee7e0f160b1450636b4a460f27e18a"><td class="memTemplParams" colspan="2">template&lt;matrix_like M&gt; </td></tr>
 <tr class="memitem:ac4ee7e0f160b1450636b4a460f27e18a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac4ee7e0f160b1450636b4a460f27e18a">emlabcpp::requires</a> (M::rows==2 &amp;&amp;M::cols==2) const expr auto determinant(const M &amp;m)</td></tr>
 <tr class="separator:ac4ee7e0f160b1450636b4a460f27e18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82d48e74c20cfcb88f46dd2ba5688b9"><td class="memTemplParams" colspan="2">template&lt;matrix_like M&gt; </td></tr>
+<tr class="memitem:af82d48e74c20cfcb88f46dd2ba5688b9"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af82d48e74c20cfcb88f46dd2ba5688b9">emlabcpp::requires</a> (M::rows &gt; 2 &amp;&amp;M::cols==M::rows) const expr auto determinant(const M &amp;m)</td></tr>
+<tr class="separator:af82d48e74c20cfcb88f46dd2ba5688b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9679354218890ed9c289c674a125378"><td class="memTemplParams" colspan="2">template&lt;matrix_like M&gt; </td></tr>
 <tr class="memitem:ae9679354218890ed9c289c674a125378"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">emlabcpp::requires</a> (M::rows==1 &amp;&amp;M::cols==1) const expr matrix&lt; M</td></tr>
 <tr class="separator:ae9679354218890ed9c289c674a125378"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,7 +151,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="matrix_8h.html">matrix.h</a></li>
-    <li class="footer">Generated on Sat Mar 11 2023 22:24:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 13 2023 12:46:29 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

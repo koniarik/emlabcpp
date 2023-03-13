@@ -163,7 +163,7 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    } );</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">void</span> log_header( <span class="keyword">const</span> timelog&amp; tl, <span class="keyword">const</span> std::string_view file, <span class="keyword">const</span> <span class="keywordtype">int</span> line )</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">void</span> log_header( <span class="keyword">const</span> timelog&amp; tl, <span class="keyword">const</span> std::string_view file, <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a> )</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                set_color( colors_.time );</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                write( tl );</div>
@@ -174,7 +174,7 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                set_color( colors_.line );</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                write( <span class="charliteral">&#39;:&#39;</span> );</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                write( line );</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                write( <a class="code" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a> );</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span>... Args &gt;</div>
@@ -307,6 +307,7 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="ttc" id="acolor_8h_html"><div class="ttname"><a href="color_8h.html">color.h</a></div></div>
 <div class="ttc" id="amatch_8h_html"><div class="ttname"><a href="match_8h.html">match.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdef"><b>Definition:</b> access_view.h:7</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a068a535d76f319e21113bceb0fdb8fbe"><div class="ttname"><a href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">emlabcpp::line</a></div><div class="ttdeci">std::array&lt; point&lt; N &gt;, 2 &gt; line</div><div class="ttdef"><b>Definition:</b> line.h:14</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a57181a407fd6f29a50664f8ba4cb44cd"><div class="ttname"><a href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match</a></div><div class="ttdeci">decltype(auto) match(Variant &amp;&amp;var, Callables &amp;&amp;... cals)</div><div class="ttdef"><b>Definition:</b> match.h:54</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a620a32406486ae5b889d41d446c4a8b0"><div class="ttname"><a href="namespaceemlabcpp.html#a620a32406486ae5b889d41d446c4a8b0">emlabcpp::reset_color</a></div><div class="ttdeci">consteval std::string_view reset_color()</div><div class="ttdef"><b>Definition:</b> color.h:31</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a69c59e260f99791d626a9665243323d0"><div class="ttname"><a href="namespaceemlabcpp.html#a69c59e260f99791d626a9665243323d0">emlabcpp::stem_of</a></div><div class="ttdeci">consteval std::string_view stem_of(const std::string_view file)</div><div class="ttdef"><b>Definition:</b> logging.h:10</div></div>
@@ -321,7 +322,7 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="logging_8h.html">logging.h</a></li>
-    <li class="footer">Generated on Sat Mar 11 2023 22:24:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 13 2023 12:46:29 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
