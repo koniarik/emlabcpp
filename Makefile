@@ -1,6 +1,6 @@
 
 # conditionally enables sanitizers
-CXX_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) )  -O0 -fno-inline -g -fconcepts-diagnostics-depth=6 -fcoroutines
+CXX_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) )  -O0 -fno-inline -g
 LINKER_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) ) -O0 -fno-inline -g
 GENERATOR:=$(shell if [ -x "$$(which ninja)" ]; then echo "Ninja"; else echo "Unix Makefiles"; fi)
 
@@ -10,30 +10,32 @@ EXTRAARGS=-DCMAKE_CXX_FLAGS="$(CXX_FLAGS)" -DCMAKE_EXE_LINKER_FLAGS="$(LINKER_FL
 .PHONY: clean build_test exec_test test
 
 test: build_test
-	cd build && ctest -T Test --output-on-failure
+	cd build/norm && ctest -T Test --output-on-failure
 
 clean:
-	rm -rf ./ctidy_build
 	rm -rf ./build
 
 build_test:
-	cmake -Bbuild $(EXTRAARGS)
-	cmake --build build
+	cmake -Bbuild/norm $(EXTRAARGS)
+	cmake --build build/norm
 
 build_coverage:
-	cmake -Bbuild $(EXTRAARGS) -DEMLABCPP_COVERAGE_ENABLED=ON
-	cmake --build build
+	cmake -Bbuild/cov $(EXTRAARGS) -DEMLABCPP_COVERAGE_ENABLED=ON
+	cmake --build build/cov
 
 run_coverage: build_coverage
-	cd build && ctest -T Test
+	cd build/norm && ctest -T Test
 
 coverage: run_coverage
 	gcovr -r . --html -o index.html
 
+include-what-you-use:
+	CC=clang CXX=clang++ cmake -Bbuild/iwyu $(EXTRAARGS) -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE="include-what-you-use;-w;-Xiwyu;--no_comments;-Xiwyu;--keep=\"gtest/*\";-Xiwyu;--no_fwd_decls;-Xiwyu;--keep=\"nlohmann/*\";-Xiwyu;--cxx17ns;"
+	cmake --build build/iwyu
 
 clang-tidy:
-	cmake -Bctidy_build -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy 
-	cmake --build ctidy_build
+	cmake -Bbuild/clang-tidy -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy 
+	cmake --build build/clang-tidy
 
 clang-format:
 	find ./ \( -iname "*.h" -o -iname "*.cpp" \) | xargs clang-format -i
