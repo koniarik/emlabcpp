@@ -1,0 +1,89 @@
+#include "emlabcpp/experimental/geom/point.h"
+
+#include "emlabcpp/experimental/geom/json.h"
+#include "point_test.h"
+
+#include <gtest/gtest.h>
+
+using namespace emlabcpp;
+
+TEST( Point, dot )
+{
+        point< 3 > a{ 0, 1, 0 };
+        point< 3 > b{ -0.5, -0.5, 0 };
+        point< 3 > c{ 1, 1, 0 };
+
+        ASSERT_EQ( dot( a, b ), -0.5f );
+        ASSERT_EQ( dot( c, b ), -1.f );
+}
+
+TYPED_TEST( PointTest, operators )
+{
+        static constexpr unsigned n = TypeParam::value;
+
+        ASSERT_EQ( -this->dim_p_, this->neg_dim_p_ );
+
+        point< n > cpy = this->unit_p_;
+        cpy += vector_cast( this->unit_p_ );
+        auto two_p = point< n >::make_filled_with( 2.f );
+        ASSERT_EQ( cpy, two_p );
+
+        cpy = this->unit_p_;
+        cpy -= vector_cast( this->unit_p_ );
+        ASSERT_EQ( cpy, this->zero_p_ );
+
+        ASSERT_LE( this->zero_p_, this->unit_p_ );
+
+        cpy        = this->zero_p_;
+        cpy[n - 1] = 1.f;
+        ASSERT_LE( this->zero_p_, cpy );
+
+        ASSERT_EQ( this->unit_p_ * float( n ), this->dim_p_ );
+
+        ASSERT_EQ( this->dim_p_ / float( n ), this->unit_p_ );
+
+        auto bigger = max( this->zero_p_, this->dim_p_ );
+        ASSERT_EQ( bigger, this->dim_p_ );
+}
+
+TYPED_TEST( PointTest, length )
+{
+        static constexpr unsigned n = TypeParam::value;
+        ASSERT_EQ( length_of( this->zero_p_ ), 0.f );
+
+        ASSERT_NEAR( length_of( this->unit_p_ ), sqrt( n ), 1e-6 );
+        ASSERT_NEAR( length_of( this->dim_p_ ), sqrt( n * n * n ), 1e-6 );
+}
+
+TYPED_TEST( PointTest, normalized )
+{
+        ASSERT_NEAR(
+            length_of( normalized( this->dim_p_ ) ),
+            length_of( normalized( this->unit_p_ ) ),
+            1e-6 );
+}
+
+TYPED_TEST( PointTest, json )
+{
+        static constexpr unsigned n = TypeParam::value;
+
+        nlohmann::json zero_p_j = nlohmann::json( this->zero_p_ );
+        nlohmann::json unit_p_j = nlohmann::json( this->unit_p_ );
+        nlohmann::json dim_p_j  = nlohmann::json( this->dim_p_ );
+
+        using t = point< n >;
+
+        ASSERT_EQ( zero_p_j.get< t >(), this->zero_p_ );
+        ASSERT_EQ( unit_p_j.get< t >(), this->unit_p_ );
+        ASSERT_EQ( dim_p_j.get< t >(), this->dim_p_ );
+}
+
+// TODO: move this out
+TEST( VecTestSimple, crossProduct )
+{
+        vector< 3 > a{ 10, 255, 1 };
+        vector< 3 > b{ -22, 0, 4 };
+
+        ASSERT_EQ( dot( cross_product( a, b ), a ), 0.f );
+        ASSERT_EQ( dot( cross_product( a, b ), b ), 0.f );
+}

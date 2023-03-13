@@ -174,6 +174,58 @@ concept matrix_like = requires( M m, std::size_t i, std::size_t j )
                 m[i][j]
                 } -> std::convertible_to< typename M::value_type >;
 };
+
+template < matrix_like Matrix, std::size_t I, std::size_t J >
+class rowcol_submatrix
+{
+        template < typename Matrix2 >
+        class stub
+        {
+        public:
+                stub( std::size_t i, Matrix2& m )
+                  : i_( i )
+                  , m_( m )
+                {
+                }
+                constexpr const auto& operator[]( std::size_t j ) const
+                {
+                        return m_[i_][j < J ? j : j + 1];
+                }
+
+                constexpr auto& operator[]( std::size_t j )
+                {
+                        return m_[i_][j < J ? j : j + 1];
+                }
+
+        private:
+                std::size_t i_;
+                Matrix2&    m_;
+        };
+
+public:
+        using value_type                  = typename Matrix::value_type;
+        static constexpr std::size_t rows = Matrix::rows - 1;
+        static constexpr std::size_t cols = Matrix::cols - 1;
+
+        constexpr rowcol_submatrix( Matrix& m )
+          : m_( m )
+        {
+        }
+
+        constexpr stub< const Matrix > operator[]( std::size_t i ) const
+        {
+                return { i < I ? i : i + 1, m_ };
+        }
+
+        constexpr stub< Matrix > operator[]( std::size_t i )
+        {
+                return { i < I ? i : i + 1, m_ };
+        }
+
+private:
+        Matrix& m_;
+};
+
 template < ostreamlike Stream, matrix_like Matrix >
 auto& operator<<( Stream& os, const Matrix& m )
 {
@@ -282,6 +334,19 @@ template < matrix_like M >
 requires( M::rows == 2 && M::cols == 2 ) constexpr auto determinant( const M& m )
 {
         return m[0][0] * m[1][1] - m[0][1] * m[1][0];
+}
+
+template < matrix_like M >
+requires( M::rows > 2 && M::cols == M::rows ) constexpr auto determinant( const M& m )
+{
+        // TODO: tests!
+        constexpr std::size_t N   = M::rows;
+        float                 res = 0.f;
+        for_each_index< N >( [&]< std::size_t i > {
+                rowcol_submatrix< const M, i, 0 > submatrix{ m };
+                res += ( i % 2 == 0 ? 1 : -1 ) * m[i][0] * determinant( submatrix );
+        } );
+        return res;
 }
 
 template < matrix_like M >

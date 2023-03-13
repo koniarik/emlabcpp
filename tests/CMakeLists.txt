@@ -86,6 +86,11 @@ add_emlabcpp_test(testing_reactor_test)
 add_emlabcpp_test(types_test)
 add_emlabcpp_test(visit_test)
 add_emlabcpp_test(zip_test)
+add_emlabcpp_test(line_test)
+add_emlabcpp_test(point_test)
+add_emlabcpp_test(pose_test)
+add_emlabcpp_test(quaternion_test)
+add_emlabcpp_test(simplex_test)
 
 # file(GLOB_RECURSE HEADER_FILES "${PROJECT_SOURCE_DIR}/include/*.h" )
 # add_format_test( TARGET emlabcpp_format WORKING_DIRECTORY

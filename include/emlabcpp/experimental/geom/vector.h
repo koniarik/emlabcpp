@@ -1,0 +1,66 @@
+
+#include "emlabcpp/experimental/geom/vec_point_base.h"
+
+#pragma once
+
+namespace emlabcpp
+{
+
+template < std::size_t N >
+class vector : public vec_point_base< vector< N >, N >
+{
+public:
+        using vec_point_base< vector, N >::vec_point_base;
+
+        constexpr vector< N >& operator+=( const vector< N >& other )
+        {
+                for ( std::size_t i : range( N ) ) {
+                        ( *this )[i] += other[i];
+                }
+                return *this;
+        }
+
+        constexpr vector< N >& operator-=( const vector< N >& other )
+        {
+                for ( std::size_t i : range( N ) ) {
+                        ( *this )[i] -= other[i];
+                }
+                return *this;
+        }
+};
+
+/** instances of constants in the code for X/Y/Z axis
+ */
+constexpr vector< 3 > x_axis{ 1, 0, 0 };
+constexpr vector< 3 > y_axis{ 0, 1, 0 };
+constexpr vector< 3 > z_axis{ 0, 0, 1 };
+
+template < std::size_t N >
+constexpr vector< N > operator+( vector< N > lh, const vector< N >& rh )
+{
+        return lh += rh;
+}
+
+/** Calculates cross product between points A and B
+ */
+constexpr vector< 3 > cross_product( const vector< 3 >& a, const vector< 3 >& b )
+{
+        return vector< 3 >(
+            a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0] );
+}
+
+/** Returns a normal to a point A in two dimensions
+ */
+constexpr vector< 2 > normal_of( const vector< 2 >& a )
+{
+        return vector< 2 >( a[1], -a[0] );
+}
+
+template < std::size_t N >
+constexpr float vector_angle( const vector< N >& a, const vector< N >& b )
+{
+        auto s = sqrt( length2_of( a ) * length2_of( b ) );
+        return acosf( float( dot( a, b ) ) / *s );
+}
+
+}  // namespace emlabcpp
