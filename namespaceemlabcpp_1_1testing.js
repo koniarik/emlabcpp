@@ -25,6 +25,7 @@ var namespaceemlabcpp_1_1testing =
     [ "test_interface", "classemlabcpp_1_1testing_1_1test__interface.html", "classemlabcpp_1_1testing_1_1test__interface" ],
     [ "test_unit", "classemlabcpp_1_1testing_1_1test__unit.html", "classemlabcpp_1_1testing_1_1test__unit" ],
     [ "test_callable", "classemlabcpp_1_1testing_1_1test__callable.html", "classemlabcpp_1_1testing_1_1test__callable" ],
+    [ "test_linked_callable", "classemlabcpp_1_1testing_1_1test__linked__callable.html", "classemlabcpp_1_1testing_1_1test__linked__callable" ],
     [ "param_value_request", "structemlabcpp_1_1testing_1_1param__value__request.html", "structemlabcpp_1_1testing_1_1param__value__request" ],
     [ "param_value_reply", "structemlabcpp_1_1testing_1_1param__value__reply.html", "structemlabcpp_1_1testing_1_1param__value__reply" ],
     [ "param_value_key_request", "structemlabcpp_1_1testing_1_1param__value__key__request.html", "structemlabcpp_1_1testing_1_1param__value__key__request" ],

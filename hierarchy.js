@@ -333,7 +333,8 @@ var hierarchy =
     [ "emlabcpp::testing::test_finished", "structemlabcpp_1_1testing_1_1test__finished.html", null ],
     [ "emlabcpp::testing::test_info", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info", null ],
     [ "emlabcpp::testing::test_interface", "classemlabcpp_1_1testing_1_1test__interface.html", [
-      [ "emlabcpp::testing::test_callable< Callable >", "classemlabcpp_1_1testing_1_1test__callable.html", null ]
+      [ "emlabcpp::testing::test_callable< Callable >", "classemlabcpp_1_1testing_1_1test__callable.html", null ],
+      [ "emlabcpp::testing::test_linked_callable< Callable >", "classemlabcpp_1_1testing_1_1test__linked__callable.html", null ]
     ] ],
     [ "emlabcpp::testing::test_result", "structemlabcpp_1_1testing_1_1test__result.html", null ],
     [ "emlabcpp::testing::test_unit< T >", "classemlabcpp_1_1testing_1_1test__unit.html", null ],
