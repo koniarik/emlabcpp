@@ -71,10 +71,18 @@ public:
                 reac.register_test( node_ );
         }
 
+        test_unit( test_unit&& other ) noexcept
+          : item_( std::move( other.item_ ) )
+          , node_( std::move( other.node_ ) )
+        {
+                *node_ = &item_;
+        }
+
+        // TODO: implement
+        test_unit& operator=( test_unit&& ) = delete;
+
         test_unit( const test_unit& )            = delete;
-        test_unit( test_unit&& )                 = delete;
         test_unit& operator=( const test_unit& ) = delete;
-        test_unit& operator=( test_unit&& )      = delete;
 
         T& operator*()
         {
@@ -125,6 +133,44 @@ public:
 private:
         name_buffer name_;
         Callable    cb_;
+};
+
+template < valid_test_callable Callable >
+class test_linked_callable : public test_interface
+{
+public:
+        test_linked_callable( auto& reactor, const std::string_view name, Callable cb )
+          : name_( name_to_buffer( name ) )
+          , cb_( std::move( cb ) )
+          , node_( this )
+        {
+                reactor.register_test( node_ );
+        }
+
+        test_linked_callable( test_linked_callable&& other ) noexcept
+          : name_( std::move( other.name_ ) )
+          , cb_( std::move( other.cb_ ) )
+          , node_( std::move( other.node_ ) )
+        {
+                *node_ = this;
+        }
+        // TODO: implement
+        test_linked_callable& operator=( test_linked_callable&& ) noexcept = delete;
+
+        [[nodiscard]] std::string_view get_name() const override
+        {
+                return std::string_view{ name_.data(), name_.size() };
+        }
+
+        test_coroutine run( pmr::memory_resource& mem_resource, record& rec ) final
+        {
+                return cb_( mem_resource, rec );
+        }
+
+private:
+        name_buffer  name_;
+        Callable     cb_;
+        test_ll_node node_;
 };
 
 }  // namespace emlabcpp::testing
