@@ -24,7 +24,7 @@ build_coverage:
 	cmake --build build/cov
 
 run_coverage: build_coverage
-	cd build/norm && ctest -T Test
+	cd build/cov && ctest -T Test
 
 coverage: run_coverage
 	gcovr -r . --html -o index.html
