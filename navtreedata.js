@@ -86,14 +86,14 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"classemlabcpp_1_1derived__storage.html#aba98e3a547a8b75125f7cb806f7f1810",
-"classemlabcpp_1_1protocol_1_1register__map.html",
-"classemlabcpp_1_1static__vector.html#afd91aab0a09749958a8874872b36b311",
-"concepts_8h.html#aa70c87fb6240fb7ebbfbb27d7b25b999",
-"functions_vars_o.html",
-"namespaceemlabcpp.html#a71244dcc912784b08768c6ae041c37bc",
-"namespaceemlabcpp_1_1protocol.html#a986f53c6ddc39b9b91e4bc40d744e569",
+"access_8h.html",
+"classemlabcpp_1_1derived__storage.html#ad0c25ca45df18da054d50d12339857e4",
+"classemlabcpp_1_1protocol_1_1register__map.html#a069dc3bd6089aa6ba6759ea9f3d94d11",
+"classemlabcpp_1_1tagged__quantity.html",
+"concepts_8h.html#abeb742c691973ef2d34b0ace4d8eef15",
+"functions_vars_p.html",
+"namespaceemlabcpp.html#a746c782172b5cd06a357056a324f437b",
+"namespaceemlabcpp_1_1protocol.html#a9c27fc5576f6e7894b809016d7d5cbdc",
 "parameters_8h.html#a658300b4027d2a6149d265aa1f86c4e8",
 "structemlabcpp_1_1coro_1_1request__reply_1_1awaiter.html",
 "structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#ac12eaa8047da248a963f99a9b48a6a7a",
