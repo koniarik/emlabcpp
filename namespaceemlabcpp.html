@@ -273,9 +273,10 @@ Classes</h2></td></tr>
 <tr class="memitem:structemlabcpp_1_1pid__coefficients"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients">pid_coefficients</a></td></tr>
 <tr class="separator:structemlabcpp_1_1pid__coefficients"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1pid__config"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1pid__config">pid_config</a></td></tr>
+<tr class="memdesc:structemlabcpp_1_1pid__config"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to configure the pid regulator.  <a href="namespaceemlabcpp.html#structemlabcpp_1_1pid__config">More...</a><br /></td></tr>
 <tr class="separator:structemlabcpp_1_1pid__config"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html">pid</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of PID regulator, the object should be constructed and populated with pid&lt;T&gt;::conf structure with configuration values (p,i,d coeficients, min/max output vals).  <a href="classemlabcpp_1_1pid.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pid.html">pid</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of PID regulator, the object should be constructed and populated with pid&lt;T&gt;::conf structure with configuration values (p,i,d coeficients, min/max output vals).  <a href="structemlabcpp_1_1pid.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pretty__printer_3_01protocol_1_1message_3_01N_01_4_01_4.html">pretty_printer&lt; protocol::message&lt; N &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -938,6 +939,16 @@ Functions</h2></td></tr>
 <tr class="memitem:a62ac04b965c5f1f4ddc49c801a0f01b3"><td class="memTemplParams" colspan="2">template&lt;ostreamlike Stream, int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte&gt; </td></tr>
 <tr class="memitem:a62ac04b965c5f1f4ddc49c801a0f01b3"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a62ac04b965c5f1f4ddc49c801a0f01b3">operator&lt;&lt;</a> (Stream &amp;os, const <a class="el" href="structemlabcpp_1_1physical__quantity.html">physical_quantity</a>&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt; &amp;q)</td></tr>
 <tr class="separator:a62ac04b965c5f1f4ddc49c801a0f01b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc080f9334a6fec6101a6d803f7cb28"><td class="memTemplParams" colspan="2">template&lt;typename TimeType &gt; </td></tr>
+<tr class="memitem:aadc080f9334a6fec6101a6d803f7cb28"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aadc080f9334a6fec6101a6d803f7cb28">update_limits</a> (<a class="el" href="structemlabcpp_1_1pid.html">pid</a>&lt; TimeType &gt; &amp;<a class="el" href="structemlabcpp_1_1pid.html">pid</a>, <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; float &gt; lim)</td></tr>
+<tr class="separator:aadc080f9334a6fec6101a6d803f7cb28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac578d4bcbce0973184093fa8cce2da33"><td class="memTemplParams" colspan="2">template&lt;typename TimeType &gt; </td></tr>
+<tr class="memitem:ac578d4bcbce0973184093fa8cce2da33"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac578d4bcbce0973184093fa8cce2da33">update_output</a> (<a class="el" href="structemlabcpp_1_1pid.html">pid</a>&lt; TimeType &gt; &amp;<a class="el" href="structemlabcpp_1_1pid.html">pid</a>, float output)</td></tr>
+<tr class="separator:ac578d4bcbce0973184093fa8cce2da33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bb8b8ced9bb2a501cc61ced29e7801d"><td class="memTemplParams" colspan="2">template&lt;typename TimeType &gt; </td></tr>
+<tr class="memitem:a7bb8b8ced9bb2a501cc61ced29e7801d"><td class="memTemplItemLeft" align="right" valign="top">float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7bb8b8ced9bb2a501cc61ced29e7801d">update</a> (<a class="el" href="structemlabcpp_1_1pid.html">pid</a>&lt; TimeType &gt; &amp;<a class="el" href="structemlabcpp_1_1pid.html">pid</a>, TimeType now, float measured, float desired)</td></tr>
+<tr class="memdesc:a7bb8b8ced9bb2a501cc61ced29e7801d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this reularly, the meaning of time value 'now' is up to you, just be consistent.  <a href="namespaceemlabcpp.html#a7bb8b8ced9bb2a501cc61ced29e7801d">More...</a><br /></td></tr>
+<tr class="separator:a7bb8b8ced9bb2a501cc61ced29e7801d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37fb61edcdf95a5c2fc63e29d2431946"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
 <tr class="memitem:a37fb61edcdf95a5c2fc63e29d2431946"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a37fb61edcdf95a5c2fc63e29d2431946">operator+</a> (<a class="el" href="classemlabcpp_1_1quantity.html">quantity</a>&lt; Derived, ValueType &gt; lhs, const <a class="el" href="classemlabcpp_1_1quantity.html">quantity</a>&lt; Derived, ValueType &gt; rhs)</td></tr>
 <tr class="memdesc:a37fb61edcdf95a5c2fc63e29d2431946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of quantities with same Derived and value_type.  <a href="namespaceemlabcpp.html#a37fb61edcdf95a5c2fc63e29d2431946">More...</a><br /></td></tr>
@@ -1460,7 +1471,8 @@ coeficients </td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+<div class="textblock"><p>Structure to configure the pid regulator. </p>
+</div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::pid_config:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
@@ -1481,7 +1493,7 @@ coefficients</td>
 <td class="fieldname">
 limits</td>
 <td class="fielddoc">
-sets this properly, otherwise the pid won't work for corner cases </td></tr>
+limits the output of the pid regulator and internal anti-windup mechanism </td></tr>
 </table>
 
 </div>
@@ -8994,6 +9006,121 @@ template&lt;std::size_t i, typename PredicateCallable &gt; </div>
 
 </div>
 </div>
+<a id="a7bb8b8ced9bb2a501cc61ced29e7801d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bb8b8ced9bb2a501cc61ced29e7801d">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TimeType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">float emlabcpp::update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1pid.html">pid</a>&lt; TimeType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeType&#160;</td>
+          <td class="paramname"><em>now</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>measured</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>desired</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Call this reularly, the meaning of time value 'now' is up to you, just be consistent. </p>
+<p>Algorithm changes it's internal value output to the value that should be set to a 'thing' that controls measured_ value. It tries to control the 'thing' so the measured eventually converges to 'desired' value</p>
+<p>improvements from naive PID:</p><ul>
+<li>we work with derivation of measured, not error (error jumps in case you change desired value a lot)</li>
+<li>we store i_sum entirely (i * sum_) instead of just the sum_, makes it easier to change the scale of i (imagine what happens when you store sum_, use i*sum_ in the formula nad change i from 1 to 100) </li>
+</ul>
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1pid.html#ac81be85280e2268e736ade9acbb90620">emlabcpp::pid&lt; TimeType &gt;::cfg</a>, <a class="el" href="namespaceemlabcpp.html#a096dcb0c9bf6af343c832bebada97419">emlabcpp::pid_config::coefficients</a>, <a class="el" href="namespaceemlabcpp.html#a655b9d57207a6513eefd69f5099fdae2">emlabcpp::pid_coefficients::d</a>, <a class="el" href="namespaceemlabcpp.html#a99ba17ee27bed7c782d9364b7b614eae">emlabcpp::pid_coefficients::i</a>, <a class="el" href="structemlabcpp_1_1pid.html#aea36c0fe6d20f767789035378d57fb44">emlabcpp::pid&lt; TimeType &gt;::i_sum</a>, <a class="el" href="structemlabcpp_1_1pid.html#aaeebf0506e1b2d30502abdfa3e33073a">emlabcpp::pid&lt; TimeType &gt;::last_measured</a>, <a class="el" href="structemlabcpp_1_1pid.html#ab22ac70cb2ecdfe8cdd3d4498695ab10">emlabcpp::pid&lt; TimeType &gt;::last_time</a>, <a class="el" href="namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c">emlabcpp::pid_config::limits</a>, <a class="el" href="structemlabcpp_1_1min__max.html#a8b3d9b948aeacf4261611ee2fc26eb64">emlabcpp::min_max&lt; T &gt;::max</a>, <a class="el" href="structemlabcpp_1_1min__max.html#ac4cc0b5a0f2485f3524e3cf74500407a">emlabcpp::min_max&lt; T &gt;::min</a>, <a class="el" href="structemlabcpp_1_1pid.html#ab5e5a22b5a3441963e207390ef66eb8e">emlabcpp::pid&lt; TimeType &gt;::output</a>, and <a class="el" href="namespaceemlabcpp.html#ac0b0048d94d97cc9884974fe74898b69">emlabcpp::pid_coefficients::p</a>.</p>
+
+</div>
+</div>
+<a id="aadc080f9334a6fec6101a6d803f7cb28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc080f9334a6fec6101a6d803f7cb28">&#9670;&nbsp;</a></span>update_limits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TimeType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void emlabcpp::update_limits </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1pid.html">pid</a>&lt; TimeType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; float &gt;&#160;</td>
+          <td class="paramname"><em>lim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1pid.html#ac81be85280e2268e736ade9acbb90620">emlabcpp::pid&lt; TimeType &gt;::cfg</a>, <a class="el" href="structemlabcpp_1_1pid.html#aea36c0fe6d20f767789035378d57fb44">emlabcpp::pid&lt; TimeType &gt;::i_sum</a>, <a class="el" href="namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c">emlabcpp::pid_config::limits</a>, <a class="el" href="structemlabcpp_1_1min__max.html#a8b3d9b948aeacf4261611ee2fc26eb64">emlabcpp::min_max&lt; T &gt;::max</a>, <a class="el" href="structemlabcpp_1_1min__max.html#ac4cc0b5a0f2485f3524e3cf74500407a">emlabcpp::min_max&lt; T &gt;::min</a>, and <a class="el" href="structemlabcpp_1_1pid.html#ab5e5a22b5a3441963e207390ef66eb8e">emlabcpp::pid&lt; TimeType &gt;::output</a>.</p>
+
+</div>
+</div>
+<a id="ac578d4bcbce0973184093fa8cce2da33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac578d4bcbce0973184093fa8cce2da33">&#9670;&nbsp;</a></span>update_output()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TimeType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void emlabcpp::update_output </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1pid.html">pid</a>&lt; TimeType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>output</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1pid.html#ac81be85280e2268e736ade9acbb90620">emlabcpp::pid&lt; TimeType &gt;::cfg</a>, <a class="el" href="namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c">emlabcpp::pid_config::limits</a>, <a class="el" href="structemlabcpp_1_1min__max.html#a8b3d9b948aeacf4261611ee2fc26eb64">emlabcpp::min_max&lt; T &gt;::max</a>, <a class="el" href="structemlabcpp_1_1min__max.html#ac4cc0b5a0f2485f3524e3cf74500407a">emlabcpp::min_max&lt; T &gt;::min</a>, and <a class="el" href="structemlabcpp_1_1pid.html#ab5e5a22b5a3441963e207390ef66eb8e">emlabcpp::pid&lt; TimeType &gt;::output</a>.</p>
+
+</div>
+</div>
 <a id="a76870aafe8a72795ca80143c32313532"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a76870aafe8a72795ca80143c32313532">&#9670;&nbsp;</a></span>variance()</h2>
 
@@ -10341,7 +10468,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Thu Mar 16 2023 21:05:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 17 2023 23:00:57 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

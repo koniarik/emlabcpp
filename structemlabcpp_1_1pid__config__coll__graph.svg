@@ -12,7 +12,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Structure to configure the pid regulator.">
 <polygon fill="#bfbfbf" stroke="black" points="90.5,-0.5 90.5,-19.5 210.5,-19.5 210.5,-0.5 90.5,-0.5"/>
 <text text-anchor="middle" x="150.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::pid_config</text>
 </a>

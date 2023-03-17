@@ -201,7 +201,7 @@ var hierarchy =
     [ "emlabcpp::testing::param_value_request", "structemlabcpp_1_1testing_1_1param__value__request.html", null ],
     [ "emlabcpp::testing::parameters", "classemlabcpp_1_1testing_1_1parameters.html", null ],
     [ "emlabcpp::testing::parameters_server", "classemlabcpp_1_1testing_1_1parameters__server.html", null ],
-    [ "emlabcpp::pid< TimeType >", "classemlabcpp_1_1pid.html", null ],
+    [ "emlabcpp::pid< TimeType >", "structemlabcpp_1_1pid.html", null ],
     [ "emlabcpp::pid_coefficients", "namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients", null ],
     [ "emlabcpp::pid_config", "namespaceemlabcpp.html#structemlabcpp_1_1pid__config", null ],
     [ "emlabcpp::pose", "structemlabcpp_1_1pose.html", null ],

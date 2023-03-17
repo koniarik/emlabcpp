@@ -22,18 +22,7 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     ] ],
     [ "match.h", "match_8h.html", "match_8h" ],
     [ "physical_quantity.h", "physical__quantity_8h.html", "physical__quantity_8h" ],
-    [ "pid.h", "pid_8h.html", [
-      [ "pid_coefficients", "namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients", [
-        [ "d", "namespaceemlabcpp.html#a655b9d57207a6513eefd69f5099fdae2", null ],
-        [ "i", "namespaceemlabcpp.html#a99ba17ee27bed7c782d9364b7b614eae", null ],
-        [ "p", "namespaceemlabcpp.html#ac0b0048d94d97cc9884974fe74898b69", null ]
-      ] ],
-      [ "pid_config", "namespaceemlabcpp.html#structemlabcpp_1_1pid__config", [
-        [ "coefficients", "namespaceemlabcpp.html#a096dcb0c9bf6af343c832bebada97419", null ],
-        [ "limits", "namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c", null ]
-      ] ],
-      [ "pid", "classemlabcpp_1_1pid.html", "classemlabcpp_1_1pid" ]
-    ] ],
+    [ "pid.h", "pid_8h.html", "pid_8h" ],
     [ "protocol.h", "protocol_8h.html", null ],
     [ "quantity.h", "quantity_8h.html", "quantity_8h" ],
     [ "range.h", "range_8h.html", "range_8h" ],

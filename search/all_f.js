@@ -64,7 +64,7 @@ var searchData=
   ['physical_5fquantity_724',['physical_quantity',['../structemlabcpp_1_1physical__quantity.html',1,'emlabcpp']]],
   ['physical_5fquantity_2eh_725',['physical_quantity.h',['../physical__quantity_8h.html',1,'']]],
   ['pi_726',['pi',['../namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1',1,'emlabcpp']]],
-  ['pid_727',['pid',['../classemlabcpp_1_1pid.html',1,'emlabcpp::pid&lt; TimeType &gt;'],['../classemlabcpp_1_1pid.html#a2e8ac73e4a93e33e6368af4ce0bbd369',1,'emlabcpp::pid::pid()']]],
+  ['pid_727',['pid',['../structemlabcpp_1_1pid.html',1,'emlabcpp::pid&lt; TimeType &gt;'],['../structemlabcpp_1_1pid.html#af6f210cfe5bab04a26f32165a9e2dd80',1,'emlabcpp::pid::pid()']]],
   ['pid_2eh_728',['pid.h',['../pid_8h.html',1,'']]],
   ['pid_5fcoefficients_729',['pid_coefficients',['../namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients',1,'emlabcpp']]],
   ['pid_5fconfig_730',['pid_config',['../namespaceemlabcpp.html#structemlabcpp_1_1pid__config',1,'emlabcpp']]],

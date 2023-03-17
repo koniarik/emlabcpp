@@ -1,0 +1,6 @@
+<map id="emlabcpp::pid&lt; TimeType &gt;" name="emlabcpp::pid&lt; TimeType &gt;">
+<area shape="rect" id="node1" title="Implementation of PID regulator, the object should be constructed and populated with pid&lt;T&gt;::conf str..." alt="" coords="103,199,309,225"/>
+<area shape="rect" id="node2" href="$namespaceemlabcpp.html#structemlabcpp_1_1pid__config" title="Structure to configure the pid regulator." alt="" coords="126,109,286,136"/>
+<area shape="rect" id="node3" href="$namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients" title=" " alt="" coords="5,13,201,39"/>
+<area shape="rect" id="node4" href="$structemlabcpp_1_1min__max.html" title=" " alt="" coords="225,5,392,47"/>
+</map>

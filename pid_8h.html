@@ -85,7 +85,8 @@ $(document).ready(function(){initNavTree('pid_8h.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">pid.h File Reference</div>  </div>
 </div><!--header-->
@@ -107,9 +108,10 @@ Classes</h2></td></tr>
 <tr class="memitem:structemlabcpp_1_1pid__coefficients"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients">emlabcpp::pid_coefficients</a></td></tr>
 <tr class="separator:structemlabcpp_1_1pid__coefficients"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1pid__config"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1pid__config">emlabcpp::pid_config</a></td></tr>
+<tr class="memdesc:structemlabcpp_1_1pid__config"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to configure the pid regulator.  <a href="namespaceemlabcpp.html#structemlabcpp_1_1pid__config">More...</a><br /></td></tr>
 <tr class="separator:structemlabcpp_1_1pid__config"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pid.html">emlabcpp::pid&lt; TimeType &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of PID regulator, the object should be constructed and populated with pid&lt;T&gt;::conf structure with configuration values (p,i,d coeficients, min/max output vals).  <a href="classemlabcpp_1_1pid.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pid.html">emlabcpp::pid&lt; TimeType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of PID regulator, the object should be constructed and populated with pid&lt;T&gt;::conf structure with configuration values (p,i,d coeficients, min/max output vals).  <a href="structemlabcpp_1_1pid.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -117,6 +119,19 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceemlabcpp"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></td></tr>
 <tr class="memdesc:namespaceemlabcpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copyright (C) 2020 Jan Veverak Koniarik. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aadc080f9334a6fec6101a6d803f7cb28"><td class="memTemplParams" colspan="2">template&lt;typename TimeType &gt; </td></tr>
+<tr class="memitem:aadc080f9334a6fec6101a6d803f7cb28"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aadc080f9334a6fec6101a6d803f7cb28">emlabcpp::update_limits</a> (pid&lt; TimeType &gt; &amp;pid, min_max&lt; float &gt; lim)</td></tr>
+<tr class="separator:aadc080f9334a6fec6101a6d803f7cb28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac578d4bcbce0973184093fa8cce2da33"><td class="memTemplParams" colspan="2">template&lt;typename TimeType &gt; </td></tr>
+<tr class="memitem:ac578d4bcbce0973184093fa8cce2da33"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac578d4bcbce0973184093fa8cce2da33">emlabcpp::update_output</a> (pid&lt; TimeType &gt; &amp;pid, float output)</td></tr>
+<tr class="separator:ac578d4bcbce0973184093fa8cce2da33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bb8b8ced9bb2a501cc61ced29e7801d"><td class="memTemplParams" colspan="2">template&lt;typename TimeType &gt; </td></tr>
+<tr class="memitem:a7bb8b8ced9bb2a501cc61ced29e7801d"><td class="memTemplItemLeft" align="right" valign="top">float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7bb8b8ced9bb2a501cc61ced29e7801d">emlabcpp::update</a> (pid&lt; TimeType &gt; &amp;pid, TimeType now, float measured, float desired)</td></tr>
+<tr class="memdesc:a7bb8b8ced9bb2a501cc61ced29e7801d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this reularly, the meaning of time value 'now' is up to you, just be consistent.  <a href="namespaceemlabcpp.html#a7bb8b8ced9bb2a501cc61ced29e7801d">More...</a><br /></td></tr>
+<tr class="separator:a7bb8b8ced9bb2a501cc61ced29e7801d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="structemlabcpp_1_1pid__coefficients" id="structemlabcpp_1_1pid__coefficients"></a>
@@ -165,7 +180,8 @@ coeficients </td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+<div class="textblock"><p>Structure to configure the pid regulator. </p>
+</div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::pid_config:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
@@ -186,7 +202,7 @@ coefficients</td>
 <td class="fieldname">
 limits</td>
 <td class="fielddoc">
-sets this properly, otherwise the pid won't work for corner cases </td></tr>
+limits the output of the pid regulator and internal anti-windup mechanism </td></tr>
 </table>
 
 </div>
@@ -197,7 +213,7 @@ sets this properly, otherwise the pid won't work for corner cases </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="pid_8h.html">pid.h</a></li>
-    <li class="footer">Generated on Thu Mar 16 2023 21:05:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 17 2023 23:00:57 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
