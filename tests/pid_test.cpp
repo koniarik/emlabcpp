@@ -30,7 +30,7 @@ TEST( PID, base )
         tpid::config conf;
         tpid         my_pid{ float{ 0 }, conf };
 
-        EXPECT_EQ( my_pid.get_output(), 0 );
+        EXPECT_EQ( my_pid.output, 0 );
 }
 
 TEST( PID, simple )
@@ -50,9 +50,8 @@ TEST( PID, simple )
         float desired = 100.f;
 
         for ( std::size_t i = 0; i < 1000; i++ ) {
-                my_pid.update( static_cast< float >( i ), val, desired );
-                val = my_pid.get_output();
+                val = update( my_pid, static_cast< float >( i ), val, desired );
         }
 
-        EXPECT_NEAR( my_pid.get_output(), desired, 0.1f );
+        EXPECT_NEAR( my_pid.output, desired, 0.1f );
 }
