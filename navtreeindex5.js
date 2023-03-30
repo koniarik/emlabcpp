@@ -1,8 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"hierarchy.html":[3,2],
-"impl_8h.html":[4,0,0,0,0,0],
-"impl_8h.html#a502794f0cc63c9d3399dfcedd60bd48e":[4,0,0,0,0,0,2],
 "impl_8h.html#a6bbd605bf9a833a4c88a3862dbf50d5f":[4,0,0,0,0,0,5],
 "impl_8h.html#a9282cb9e137c842eef92467c1a0a504a":[4,0,0,0,0,0,3],
 "impl_8h.html#aa391ac6fa79be363f91ee9cbe2e4c578":[4,0,0,0,0,0,4],
@@ -249,5 +246,8 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp.html#a7dff36c03e0407491a4acf6b85b3f86e":[2,0,0,270],
 "namespaceemlabcpp.html#a7e53b3be429836ebe9e7cdecc239f7d8":[4,0,0,0,26,2,0],
 "namespaceemlabcpp.html#a7ec5f53bd49815db80874c10f4742f92":[2,0,0,249],
-"namespaceemlabcpp.html#a7f88dc78162817fe61981e2ccb4542ef":[2,0,0,263]
+"namespaceemlabcpp.html#a7f88dc78162817fe61981e2ccb4542ef":[2,0,0,263],
+"namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53":[2,0,0,135],
+"namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5":[2,0,0,386],
+"namespaceemlabcpp.html#a81d4ae07c2d875b52377456faf19fe92":[2,0,0,349]
 };

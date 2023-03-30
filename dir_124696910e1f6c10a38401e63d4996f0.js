@@ -6,6 +6,7 @@ var dir_124696910e1f6c10a38401e63d4996f0 =
     [ "owning_coroutine_handle.h", "owning__coroutine__handle_8h.html", [
       [ "owning_coroutine_handle", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", "classemlabcpp_1_1coro_1_1owning__coroutine__handle" ]
     ] ],
+    [ "recursive.h", "recursive_8h.html", "recursive_8h" ],
     [ "request_reply.h", "request__reply_8h.html", [
       [ "request_reply", "classemlabcpp_1_1coro_1_1request__reply.html", "classemlabcpp_1_1coro_1_1request__reply" ],
       [ "awaiter", "structemlabcpp_1_1coro_1_1request__reply_1_1awaiter.html", "structemlabcpp_1_1coro_1_1request__reply_1_1awaiter" ],

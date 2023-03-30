@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">struct </span>initializing_state</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <a class="code" href="classemlabcpp_1_1testing_1_1test__coroutine.html">test_coroutine</a> coro;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html">test_coroutine</a> coro;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        };</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">struct </span>test_running_state</div>
@@ -169,7 +169,7 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1controller.html#ac31b601cfd7a5c661a4ff5a00a4890fb">   98</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing_1_1controller.html#ac31b601cfd7a5c661a4ff5a00a4890fb">tick</a>();</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="classemlabcpp_1_1testing_1_1test__coroutine.html">test_coroutine</a> initialize( <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>&amp; mem_res );</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html">test_coroutine</a> initialize( <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>&amp; mem_res );</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a> channel_;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        states                 state_ = initializing_state{};</div>
@@ -185,6 +185,7 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}  <span class="comment">// namespace emlabcpp::testing</span></div>
 <div class="ttc" id="aaliases_8h_html"><div class="ttname"><a href="aliases_8h.html">aliases.h</a></div></div>
 <div class="ttc" id="aassert_8h_html_a1be190c4e600e598cc284808298bde75"><div class="ttname"><a href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a></div><div class="ttdeci">#define EMLABCPP_ASSERT(cond)</div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> assert.h:32</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1coro_1_1recursive__coroutine_html"><div class="ttname"><a href="classemlabcpp_1_1coro_1_1recursive__coroutine.html">emlabcpp::coro::recursive_coroutine&lt; void &gt;</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1pmr_1_1memory__resource_html"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1memory__resource.html">emlabcpp::pmr::memory_resource</a></div><div class="ttdef"><b>Definition:</b> memory_resource.h:27</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html">emlabcpp::static_vector&lt; char, 32 &gt;</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a3aa21b589fbecd34ed3f487ba81c4534"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">emlabcpp::static_vector::begin</a></div><div class="ttdeci">iterator begin()</div><div class="ttdef"><b>Definition:</b> static_vector.h:131</div></div>
@@ -203,7 +204,6 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1controller_html_ac31b601cfd7a5c661a4ff5a00a4890fb"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1controller.html#ac31b601cfd7a5c661a4ff5a00a4890fb">emlabcpp::testing::controller::tick</a></div><div class="ttdeci">void tick()</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1controller_html_aee7b7a2d8a877a53daff3063fa9611b2"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1controller.html#aee7b7a2d8a877a53daff3063fa9611b2">emlabcpp::testing::controller::on_msg</a></div><div class="ttdeci">void on_msg(const std::span&lt; const uint8_t &gt; data)</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1controller_html_afb9201703a16476201ccf93d4418fc13"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1controller.html#afb9201703a16476201ccf93d4418fc13">emlabcpp::testing::controller::on_msg</a></div><div class="ttdeci">void on_msg(const reactor_controller_variant &amp;)</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing_1_1test__coroutine_html"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1test__coroutine.html">emlabcpp::testing::test_coroutine</a></div><div class="ttdef"><b>Definition:</b> coroutine.h:50</div></div>
 <div class="ttc" id="acontroller__interface__adapter_8h_html"><div class="ttname"><a href="controller__interface__adapter_8h.html">controller_interface_adapter.h</a></div></div>
 <div class="ttc" id="acoroutine_8h_html"><div class="ttname"><a href="coroutine_8h.html">coroutine.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_abad2b32174c8ecf62cfcd1cd63f47808"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#abad2b32174c8ecf62cfcd1cd63f47808">emlabcpp::pmr::map</a></div><div class="ttdeci">std::map&lt; Key, T, std::less&lt; Key &gt;, allocator&lt; std::pair&lt; const Key, T &gt; &gt; &gt; map</div><div class="ttdef"><b>Definition:</b> aliases.h:58</div></div>
@@ -220,7 +220,7 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="controller_8h.html">controller.h</a></li>
-    <li class="footer">Generated on Fri Mar 17 2023 23:00:57 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Mar 30 2023 08:08:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

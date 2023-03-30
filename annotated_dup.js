@@ -4,6 +4,10 @@ var annotated_dup =
       [ "coro", "namespaceemlabcpp_1_1coro.html", [
         [ "memory_promise", "structemlabcpp_1_1coro_1_1memory__promise.html", "structemlabcpp_1_1coro_1_1memory__promise" ],
         [ "owning_coroutine_handle", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", "classemlabcpp_1_1coro_1_1owning__coroutine__handle" ],
+        [ "wait_interface", "classemlabcpp_1_1coro_1_1wait__interface.html", "classemlabcpp_1_1coro_1_1wait__interface" ],
+        [ "data_promise", "structemlabcpp_1_1coro_1_1data__promise.html", "structemlabcpp_1_1coro_1_1data__promise" ],
+        [ "data_promise< void >", "structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4.html", "structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4" ],
+        [ "recursive_coroutine", "classemlabcpp_1_1coro_1_1recursive__coroutine.html", "classemlabcpp_1_1coro_1_1recursive__coroutine" ],
         [ "request_reply", "classemlabcpp_1_1coro_1_1request__reply.html", "classemlabcpp_1_1coro_1_1request__reply" ]
       ] ],
       [ "detail", "namespaceemlabcpp_1_1detail.html", [
@@ -148,8 +152,6 @@ var annotated_dup =
         [ "value_type_converter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html", null ],
         [ "value_type_converter< std::string_view >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4" ],
         [ "value_type_converter< std::chrono::duration< Rep, Ratio > >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4" ],
-        [ "test_awaiter_interface", "classemlabcpp_1_1testing_1_1test__awaiter__interface.html", "classemlabcpp_1_1testing_1_1test__awaiter__interface" ],
-        [ "test_coroutine", "classemlabcpp_1_1testing_1_1test__coroutine.html", "classemlabcpp_1_1testing_1_1test__coroutine" ],
         [ "reactor_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1reactor__protocol__error_dup" ],
         [ "controller_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__protocol__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1controller__protocol__error_dup" ],
         [ "internal_reactor_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1internal__reactor__error_dup" ],

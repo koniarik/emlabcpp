@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['contiguous_5fcontainer_5ftype_2417',['contiguous_container_type',['../namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eeca',1,'emlabcpp']]],
-  ['contiguous_5frequest_5fadapter_5ferrors_2418',['contiguous_request_adapter_errors',['../namespaceemlabcpp.html#a453799fa0ff8d942480b0bcc3dbf7f10',1,'emlabcpp']]],
-  ['contiguous_5ftree_5ftype_2419',['contiguous_tree_type',['../namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fd',1,'emlabcpp']]]
+  ['error_5fenum_2432',['error_enum',['../namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76',1,'emlabcpp::testing']]]
 ];

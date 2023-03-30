@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['static_5ffunction_5foperations_2425',['static_function_operations',['../namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79e',1,'emlabcpp::detail']]]
+  ['wait_5fstate_2438',['wait_state',['../namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90',1,'emlabcpp::coro']]]
 ];

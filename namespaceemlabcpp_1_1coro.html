@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('namespaceemlabcpp_1_1coro.html',''); i
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">emlabcpp::coro Namespace Reference</div>  </div>
@@ -100,8 +101,28 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1coro_1_1owning__coroutine__handle.html">owning_coroutine_handle</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1coro_1_1wait__interface.html">wait_interface</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1coro_1_1data__promise.html">data_promise</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4.html">data_promise&lt; void &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html">recursive_coroutine</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1coro_1_1request__reply.html">request_reply</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:afb2acc7f50eb3babda185eae41c67d90"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90">wait_state</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90a1869d56535e8b1449a6da54ff5e11f50">WAITING</a>
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90a2baa69eafc7204f3bd8648eba580c489">READY</a>
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90add0f1fac7b1452a7c98db1c15fa9b7bb">ERRORED</a>
+<br />
+ }</td></tr>
+<tr class="separator:afb2acc7f50eb3babda185eae41c67d90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -114,7 +135,35 @@ Functions</h2></td></tr>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="afb2acc7f50eb3babda185eae41c67d90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb2acc7f50eb3babda185eae41c67d90">&#9670;&nbsp;</a></span>wait_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90">emlabcpp::coro::wait_state</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afb2acc7f50eb3babda185eae41c67d90a1869d56535e8b1449a6da54ff5e11f50"></a>WAITING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afb2acc7f50eb3babda185eae41c67d90a2baa69eafc7204f3bd8648eba580c489"></a>READY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afb2acc7f50eb3babda185eae41c67d90add0f1fac7b1452a7c98db1c15fa9b7bb"></a>ERRORED&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="ab378dfed00f70195082f524f3b4a5c00"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab378dfed00f70195082f524f3b4a5c00">&#9670;&nbsp;</a></span>round_robin_run()</h2>
 
@@ -153,7 +202,7 @@ template&lt;typename Container &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1coro.html">coro</a></li>
-    <li class="footer">Generated on Fri Mar 17 2023 23:00:58 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Mar 30 2023 08:08:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

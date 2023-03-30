@@ -22,10 +22,10 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classemlabcpp_1_1testing_1_1test__awaiter__interface.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="19.5,-67.5 19.5,-97.5 145.5,-97.5 145.5,-67.5 19.5,-67.5"/>
-<text text-anchor="start" x="27.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::testing::</text>
-<text text-anchor="middle" x="82.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">test_awaiter_interface</text>
+<g id="a_node2"><a xlink:href="classemlabcpp_1_1coro_1_1wait__interface.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="black" points="23,-67.5 23,-97.5 142,-97.5 142,-67.5 23,-67.5"/>
+<text text-anchor="start" x="31" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::coro::wait</text>
+<text text-anchor="middle" x="82.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">_interface</text>
 </a>
 </g>
 </g>

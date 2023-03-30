@@ -1,8 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53":[2,0,0,135],
-"namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5":[2,0,0,386],
-"namespaceemlabcpp.html#a81d4ae07c2d875b52377456faf19fe92":[2,0,0,349],
 "namespaceemlabcpp.html#a82bc958527847885bdfc4005b22271e6":[2,0,0,212],
 "namespaceemlabcpp.html#a8345b253a90bb775245754b4e6307216":[2,0,0,283],
 "namespaceemlabcpp.html#a845bc83f874f1d97f649fbe0137c913c":[2,0,0,136],
@@ -162,7 +159,11 @@ var NAVTREEINDEX6 =
 "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4":[4,0,0,0,26,2],
 "namespaceemlabcpp.html#structemlabcpp_1_1type__tag":[4,0,0,0,26,3],
 "namespaceemlabcpp_1_1coro.html":[2,0,0,0],
-"namespaceemlabcpp_1_1coro.html#ab378dfed00f70195082f524f3b4a5c00":[2,0,0,0,3],
+"namespaceemlabcpp_1_1coro.html#ab378dfed00f70195082f524f3b4a5c00":[2,0,0,0,8],
+"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90":[2,0,0,0,7],
+"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90a1869d56535e8b1449a6da54ff5e11f50":[2,0,0,0,7,0],
+"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90a2baa69eafc7204f3bd8648eba580c489":[2,0,0,0,7,1],
+"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90add0f1fac7b1452a7c98db1c15fa9b7bb":[2,0,0,0,7,2],
 "namespaceemlabcpp_1_1detail.html":[2,0,0,1],
 "namespaceemlabcpp_1_1detail.html#a10e61621464f2e4cc1316387d1b70b19":[2,0,0,1,5],
 "namespaceemlabcpp_1_1detail.html#a250124b6fbc599bf8e1df28d585353fe":[2,0,0,1,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "namespaceemlabcpp_1_1protocol.html#abcf7387198936360e4c0741160b98700":[2,0,0,6,91],
 "namespaceemlabcpp_1_1protocol.html#ac45b34ffbd63c8c942cea66c9b489c16":[2,0,0,6,119],
 "namespaceemlabcpp_1_1protocol.html#ac625ba8fcce291f5064a3ec8b5177cd5":[2,0,0,6,113],
-"namespaceemlabcpp_1_1protocol.html#ac9952af57257a4c508414c5724c85458":[2,0,0,6,123],
-"namespaceemlabcpp_1_1protocol.html#ad59eb23d0894bb19357c216f48ec4b2d":[4,0,0,0,4,0,2,0]
+"namespaceemlabcpp_1_1protocol.html#ac9952af57257a4c508414c5724c85458":[2,0,0,6,123]
 };

@@ -15,8 +15,6 @@ var namespaceemlabcpp_1_1testing =
     [ "value_type_converter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html", null ],
     [ "value_type_converter< std::string_view >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4" ],
     [ "value_type_converter< std::chrono::duration< Rep, Ratio > >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4" ],
-    [ "test_awaiter_interface", "classemlabcpp_1_1testing_1_1test__awaiter__interface.html", "classemlabcpp_1_1testing_1_1test__awaiter__interface" ],
-    [ "test_coroutine", "classemlabcpp_1_1testing_1_1test__coroutine.html", "classemlabcpp_1_1testing_1_1test__coroutine" ],
     [ "reactor_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1reactor__protocol__error_dup" ],
     [ "controller_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__protocol__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1controller__protocol__error_dup" ],
     [ "internal_reactor_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1internal__reactor__error_dup" ],
@@ -118,14 +116,10 @@ var namespaceemlabcpp_1_1testing =
     [ "reactor_transmit_callback", "namespaceemlabcpp_1_1testing.html#a3d7fc89f8bbae48cdec10678721ae5ca", null ],
     [ "run_id", "namespaceemlabcpp_1_1testing.html#a515587622310ad47ccc8d4f76961c585", null ],
     [ "string_buffer", "namespaceemlabcpp_1_1testing.html#ae36d07470ad020d80dd3d3eade16fcb5", null ],
+    [ "test_coroutine", "namespaceemlabcpp_1_1testing.html#ab483e63e21c94cad2a607a2cabb534fe", null ],
     [ "test_id", "namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca", null ],
     [ "test_ll_node", "namespaceemlabcpp_1_1testing.html#a7fe568da44b931c7d52e1e9dca0bbed8", null ],
     [ "value_type", "namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f", null ],
-    [ "await_state", "namespaceemlabcpp_1_1testing.html#a4084b1334bacda756131a06297cbe4df", [
-      [ "WAITING", "namespaceemlabcpp_1_1testing.html#a4084b1334bacda756131a06297cbe4dfa1869d56535e8b1449a6da54ff5e11f50", null ],
-      [ "READY", "namespaceemlabcpp_1_1testing.html#a4084b1334bacda756131a06297cbe4dfa2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "ERRORED", "namespaceemlabcpp_1_1testing.html#a4084b1334bacda756131a06297cbe4dfadd0f1fac7b1452a7c98db1c15fa9b7bb", null ]
-    ] ],
     [ "error_enum", "namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76", [
       [ "TEST_IS_RUNING_E", "namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a5b46f431ec657038f11b2f0e2d80230e", null ],
       [ "TEST_NOT_FOUND_E", "namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a67c99f2dfafe76b0d59cd48e6dfe9060", null ],
