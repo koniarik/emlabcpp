@@ -38,12 +38,12 @@ void collect_awaiter::await_suspend( const std::coroutine_handle< test_coroutine
                     var,
                     [this]( const collect_reply& rpl ) {
                             res   = rpl.nid;
-                            state = await_state::READY;
+                            state = coro::wait_state::READY;
                     },
                     [this]( const tree_error_reply& err ) {
                             std::ignore = err;
                             EMLABCPP_ERROR_LOG( "Got an error: ", err );
-                            state = await_state::ERRORED;
+                            state = coro::wait_state::ERRORED;
                     } );
         } );
 }

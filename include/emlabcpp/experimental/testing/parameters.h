@@ -160,11 +160,11 @@ using params_server_transmit_callback =
 class parameters;
 
 template < typename Processor >
-struct [[nodiscard]] params_awaiter : public test_awaiter_interface
+struct [[nodiscard]] params_awaiter : public coro::wait_interface
 {
-        Processor   proc;
-        await_state state = await_state::WAITING;
-        parameters& params;
+        Processor        proc;
+        coro::wait_state state = coro::wait_state::WAITING;
+        parameters&      params;
 
         using request_type = decltype( proc.req );
 
@@ -174,9 +174,13 @@ struct [[nodiscard]] params_awaiter : public test_awaiter_interface
         {
         }
 
-        [[nodiscard]] await_state get_state() const override
+        [[nodiscard]] coro::wait_state get_state() const override
         {
                 return state;
+        }
+
+        void tick() override
+        {
         }
 
         [[nodiscard]] bool await_ready() const
@@ -184,7 +188,8 @@ struct [[nodiscard]] params_awaiter : public test_awaiter_interface
                 return false;
         }
 
-        void await_suspend( std::coroutine_handle< test_coroutine::promise_type > );
+        template < typename PromiseType >
+        void await_suspend( std::coroutine_handle< PromiseType > );
 
         decltype( auto ) await_resume()
         {
@@ -333,8 +338,8 @@ private:
 };
 
 template < typename Processor >
-void params_awaiter< Processor >::await_suspend(
-    const std::coroutine_handle< test_coroutine::promise_type > h )
+template < typename PromiseType >
+void params_awaiter< Processor >::await_suspend( const std::coroutine_handle< PromiseType > h )
 {
         h.promise().iface = this;
         params.exchange( proc.req, [this]( const params_server_client_variant& var ) {
@@ -342,9 +347,9 @@ void params_awaiter< Processor >::await_suspend(
                         params.send( param_error{
                             string_to_buffer( "failed to process parameter value" ) } );
                         EMLABCPP_ERROR_LOG( "Setting value to processor errored" );
-                        state = await_state::ERRORED;
+                        state = coro::wait_state::ERRORED;
                 } else {
-                        state = await_state::READY;
+                        state = coro::wait_state::READY;
                 }
         } );
 }

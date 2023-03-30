@@ -60,19 +60,23 @@ using collect_server_transmit_callback =
 
 class collector;
 
-class [[nodiscard]] collect_awaiter : public test_awaiter_interface
+class [[nodiscard]] collect_awaiter : public coro::wait_interface
 {
 public:
-        collect_request req;
-        node_id         res{};
-        await_state     state = await_state::WAITING;
-        collector&      col;
+        collect_request  req;
+        node_id          res{};
+        coro::wait_state state = coro::wait_state::WAITING;
+        collector&       col;
 
         collect_awaiter( collect_request req, collector& coll );
 
-        [[nodiscard]] await_state get_state() const override
+        [[nodiscard]] coro::wait_state get_state() const override
         {
                 return state;
+        }
+
+        void tick() override
+        {
         }
 
         [[nodiscard]] bool await_ready() const

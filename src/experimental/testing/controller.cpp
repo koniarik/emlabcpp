@@ -27,10 +27,10 @@ namespace emlabcpp::testing
 {
 
 template < typename T >
-struct msg_awaiter : public test_awaiter_interface
+struct msg_awaiter : public coro::wait_interface
 {
         T                          reply;
-        await_state                state = await_state::WAITING;
+        coro::wait_state           state = coro::wait_state::WAITING;
         controller_reactor_variant request;
 
         controller_interface_adapter& iface;
@@ -41,9 +41,13 @@ struct msg_awaiter : public test_awaiter_interface
         {
         }
 
-        [[nodiscard]] await_state get_state() const override
+        [[nodiscard]] coro::wait_state get_state() const override
         {
                 return state;
+        }
+
+        void tick() override
+        {
         }
 
         [[nodiscard]] bool await_ready() const
@@ -57,10 +61,10 @@ struct msg_awaiter : public test_awaiter_interface
                 iface.set_reply_cb( [this]( const reactor_controller_variant& var ) {
                         const T* val_ptr = std::get_if< T >( &var );
                         if ( val_ptr == nullptr ) {
-                                state = await_state::ERRORED;
+                                state = coro::wait_state::ERRORED;
                                 return false;
                         }
-                        state = await_state::READY;
+                        state = coro::wait_state::READY;
                         reply = *val_ptr;
                         return true;
                 } );
