@@ -346,6 +346,8 @@ void params_awaiter< Processor >::await_suspend( const std::coroutine_handle< Pr
                 if ( !proc.set_value( var ) ) {
                         params.send( param_error{
                             string_to_buffer( "failed to process parameter value" ) } );
+                        params.send(
+                            param_error{ string_to_buffer( pretty_type_name< Processor >() ) } );
                         EMLABCPP_ERROR_LOG( "Setting value to processor errored" );
                         state = coro::wait_state::ERRORED;
                 } else {

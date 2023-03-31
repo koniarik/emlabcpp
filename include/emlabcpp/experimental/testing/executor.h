@@ -73,7 +73,11 @@ public:
                                 break;
                         }
                         if ( rec_.errored() ) {
+                                EMLABCPP_ERROR_LOG( "setup errored" );
                                 failed_ = true;
+                                coro_   = test_coroutine();
+                                phas_   = phase::FINISHED;
+                                break;
                         }
                         coro_ = test_coroutine();
                         coro_ = test_.run( mem_, rec_ );
@@ -94,6 +98,7 @@ public:
                                 break;
                         }
                         if ( rec_.errored() ) {
+                                EMLABCPP_ERROR_LOG( "teardown errored" );
                                 errored_ = true;
                         }
                         phas_ = phase::FINISHED;
