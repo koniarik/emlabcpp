@@ -5,7 +5,9 @@ var dir_833cf07299c67ab119396183470d94f1 =
     [ "geom", "dir_3ae5028df88b3fc471a247e16af56915.html", "dir_3ae5028df88b3fc471a247e16af56915" ],
     [ "logging", "dir_7be96e89c84803827e352320bc015c84.html", "dir_7be96e89c84803827e352320bc015c84" ],
     [ "testing", "dir_539f3c5103b46bf50615f61463de2f53.html", "dir_539f3c5103b46bf50615f61463de2f53" ],
-    [ "bounded_view.h", "bounded__view_8h.html", "bounded__view_8h" ],
+    [ "bounded_view.h", "bounded__view_8h.html", [
+      [ "bounded_view", "classemlabcpp_1_1bounded__view.html", "classemlabcpp_1_1bounded__view" ]
+    ] ],
     [ "decompose.h", "decompose_8h.html", "decompose_8h" ],
     [ "derived_storage.h", "derived__storage_8h.html", [
       [ "derived_storage", "classemlabcpp_1_1derived__storage.html", "classemlabcpp_1_1derived__storage" ]

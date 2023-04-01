@@ -172,14 +172,7 @@ $(document).ready(function(){initNavTree('bounded__view_8h_source.html',''); ini
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">template</span> &lt; ostreamlike Stream, <span class="keyword">typename</span> Iterator, bounded_derived SizeType &gt;</div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a6d9dc3aa5b82dc99dd38f0d03d521deb">  105</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( Stream&amp; os, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1bounded__view.html">bounded_view&lt; Iterator, SizeType &gt;</a>&amp; bv )</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1view.html">view&lt; Iterator &gt;</a>&amp; v = bv;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; v;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="abounded_8h_html"><div class="ttname"><a href="bounded_8h.html">bounded.h</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1bounded__view_html"><div class="ttname"><a href="classemlabcpp_1_1bounded__view.html">emlabcpp::bounded_view</a></div><div class="ttdef"><b>Definition:</b> bounded_view.h:29</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1bounded__view_html_a027286649e9db2af8aaff9a5a5e709cb"><div class="ttname"><a href="classemlabcpp_1_1bounded__view.html#a027286649e9db2af8aaff9a5a5e709cb">emlabcpp::bounded_view::requires</a></div><div class="ttdeci">requires(range_container&lt; Container &gt; &amp;&amp;static_sized&lt; Container &gt; &amp;&amp;std::tuple_size_v&lt; Container &gt;&lt;=max &amp;&amp;std::tuple_size_v&lt; Container &gt; &gt;=min) explicit bounded_view(Container &amp;cont)</div><div class="ttdef"><b>Definition:</b> bounded_view.h:55</div></div>
@@ -201,7 +194,6 @@ $(document).ready(function(){initNavTree('bounded__view_8h_source.html',''); ini
 <div class="ttc" id="aclassemlabcpp_1_1view_html_a30a11defa5a206b6355bee7a540ab795"><div class="ttname"><a href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">emlabcpp::view::end</a></div><div class="ttdeci">constexpr Iterator end() const</div><div class="ttdoc">Past the end iterator.</div><div class="ttdef"><b>Definition:</b> view.h:84</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1view_html_a465e78169e53ecff3e2377283787a2e9"><div class="ttname"><a href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view::begin</a></div><div class="ttdeci">constexpr Iterator begin() const</div><div class="ttdoc">Start of the dataset iterator.</div><div class="ttdef"><b>Definition:</b> view.h:78</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> access_view.h:25</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a2f10b2ff6c20f2e8057487e521275521"><div class="ttname"><a href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">auto &amp; operator&lt;&lt;(Stream &amp;os, const bounded&lt; T, MinVal, MaxVal &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> bounded.h:181</div></div>
 <div class="ttc" id="aview_8h_html"><div class="ttname"><a href="view_8h.html">view.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -209,7 +201,7 @@ $(document).ready(function(){initNavTree('bounded__view_8h_source.html',''); ini
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="bounded__view_8h.html">bounded_view.h</a></li>
-    <li class="footer">Generated on Fri Mar 31 2023 22:16:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Apr 1 2023 10:38:12 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -316,154 +316,156 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        Matrix&amp; m_;</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;};</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="keyword">template</span> &lt; ostreamlike Stream, matrix_like Matrix &gt;</div>
-<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a951e2e116200e84ad4b8161d399c2362">  249</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( Stream&amp; os, <span class="keyword">const</span> Matrix&amp; m )</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;{</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( Matrix::rows ) ) {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( Matrix::cols ) ) {</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                        os &lt;&lt; m[i][j] &lt;&lt; <span class="charliteral">&#39;\t&#39;</span>;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                }</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                os &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;}</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="keyword">template</span> &lt; matrix_like LH, matrix_like RH &gt;</div>
-<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a512f1fd6d6a6aa3d5094088865158e23">  261</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( LH::rows == RH::rows &amp;&amp; LH::cols == RH::cols ) constexpr <span class="keyword">auto</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<a class="code" href="namespaceemlabcpp.html#ae905e83f27246077252ae1308f0fda07">operator==</a>( <span class="keyword">const</span> LH&amp; lh, <span class="keyword">const</span> RH&amp; rh )</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;{</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::rows ) ) {</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::cols ) ) {</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                        <span class="keywordflow">if</span> ( lh[i][j] != rh[i][j] ) {</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                        }</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                }</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        }</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;}</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keyword">template</span> &lt; matrix_like LH, matrix_like RH, <span class="keyword">typename</span> T = <span class="keyword">typename</span> LH::value_type &gt;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( LH::cols == RH::rows ) constexpr matrix&lt; LH::rows, RH::cols, T &gt;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<a class="code" href="namespaceemlabcpp.html#a63fe2550fd1fae3aab0b4791d8e58efa">operator*</a>( <span class="keyword">const</span> LH&amp; lh, <span class="keyword">const</span> RH&amp; rh )</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;{</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        matrix&lt; LH::rows, RH::cols, T &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::rows ) ) {</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( RH::cols ) ) {</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                        T v{};</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                        <span class="keywordflow">for</span> ( std::size_t k : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::cols ) ) {</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                                v += lh[i][k] * rh[k][j];</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                        }</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[i][j] = v;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                }</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        }</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;}</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="keyword">template</span> &lt; matrix_like LH &gt;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;constexpr matrix&lt; LH::rows, LH::cols, typename LH::value_type &gt;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<a class="code" href="namespaceemlabcpp.html#a63fe2550fd1fae3aab0b4791d8e58efa">operator*</a>( <span class="keyword">const</span> LH&amp; lh, <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">LH::value_type</a>&amp; val )</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;{</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = lh;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::rows ) ) {</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::cols ) ) {</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[i][j] *= val;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                }</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        }</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;}</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keyword">template</span> &lt; matrix_like LH &gt;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;constexpr matrix&lt; LH::rows, LH::cols, typename LH::value_type &gt;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<a class="code" href="namespaceemlabcpp.html#a63fe2550fd1fae3aab0b4791d8e58efa">operator*</a>( <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">LH::value_type</a>&amp; val, <span class="keyword">const</span> LH&amp; lh )</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;{</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="keywordflow">return</span> lh * val;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;}</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="keyword">template</span> &lt; matrix_like LH, matrix_like RH, <span class="keyword">typename</span> T = <span class="keyword">typename</span> LH::value_type &gt;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( LH::cols == RH::cols &amp;&amp; LH::rows == RH::rows ) constexpr matrix&lt; LH::rows, LH::cols, T &gt;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<a class="code" href="namespaceemlabcpp.html#a57aae6e5cd5a893e35a12622960dc79b">operator+</a>( <span class="keyword">const</span> LH&amp; lh, <span class="keyword">const</span> RH&amp; rh )</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;{</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        matrix&lt; LH::rows, LH::cols, T &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>{};</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::rows ) ) {</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::cols ) ) {</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;                        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[i][j] = lh[i][j] + rh[i][j];</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                }</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        }</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;}</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="keyword">template</span> &lt; matrix_like LH, matrix_like RH, <span class="keyword">typename</span> T = <span class="keyword">typename</span> LH::value_type &gt;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( LH::cols == RH::cols &amp;&amp; LH::rows == RH::rows ) constexpr matrix&lt; LH::rows, LH::cols, T &gt;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<a class="code" href="namespaceemlabcpp.html#a65d491045b619755db02e72cfa69e772">operator-</a>( <span class="keyword">const</span> LH&amp; lh, <span class="keyword">const</span> RH&amp; rh )</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;{</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        matrix&lt; LH::rows, LH::cols, T &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>{};</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::rows ) ) {</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::cols ) ) {</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[i][j] = lh[i][j] - rh[i][j];</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                }</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        }</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;}</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;constexpr transposed_matrix&lt; M &gt; transpose( M&amp; m )</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;{</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">return</span> { m };</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;}</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;constexpr matrix&lt; M::cols, M::rows, typename M::value_type &gt; transpose( M&amp;&amp; m )</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;{</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <span class="keywordflow">return</span> transpose( m );</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;};</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
-<div class="line"><a name="l00353"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ac4ee7e0f160b1450636b4a460f27e18a">  353</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( M::rows == 2 &amp;&amp; M::cols == 2 ) constexpr auto determinant( const M&amp; m )</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;{</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keywordflow">return</span> m[0][0] * m[1][1] - m[0][1] * m[1][0];</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;}</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
-<div class="line"><a name="l00359"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#af82d48e74c20cfcb88f46dd2ba5688b9">  359</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( M::rows &gt; 2 &amp;&amp; M::cols == M::rows ) constexpr <span class="keyword">auto</span> determinant( <span class="keyword">const</span> M&amp; m )</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;{</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="comment">// TODO: tests!</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        constexpr std::size_t N   = M::rows;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="keywordtype">float</span>                 <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = 0.f;</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        for_each_index&lt; N &gt;( [&amp;]&lt; std::size_t i &gt; {</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                <a class="code" href="classemlabcpp_1_1rowcol__submatrix.html">rowcol_submatrix&lt; const M, i, 0 &gt;</a> submatrix{ m };</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> += ( i % 2 == 0 ? 1 : -1 ) * m[i][0] * determinant( submatrix );</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        } );</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;}</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
-<div class="line"><a name="l00372"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">  372</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>(</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    M::rows == 1 &amp;&amp;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    M::cols ==</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        1 ) constexpr <a class="code" href="classemlabcpp_1_1matrix.html">matrix</a>&lt; M::rows, M::cols, typename M::<a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt; <a class="code" href="namespaceemlabcpp.html#a116807f9c41ac80621918fff7446c987">inverse</a>( const M&amp; m )</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;{</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <a class="code" href="classemlabcpp_1_1matrix.html">matrix&lt; M::rows, M::cols, typename M::value_type &gt;</a> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[0][0] = 1.f / m[0][0];</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;}</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>(</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    M::rows == 2 &amp;&amp;</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    M::cols ==</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        2 ) constexpr matrix&lt; M::rows, M::cols, typename M::<a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt; <a class="code" href="namespaceemlabcpp.html#a116807f9c41ac80621918fff7446c987">inverse</a>( const M&amp; m )</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;{</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="keyword">auto</span>                                               v = 1.f / determinant( m );</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        matrix&lt; M::rows, M::cols, typename M::value_type &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[0] = { m[1][1], -m[0][1] };</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[1] = { -m[1][0], m[0][0] };</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordflow">return</span> v * <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;}</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_OSTREAM</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="keyword">template</span> &lt; matrix_like Matrix &gt;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;std::ostream&amp; operator&lt;&lt;( std::ostream&amp; os, <span class="keyword">const</span> Matrix&amp; m )</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;{</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( Matrix::rows ) ) {</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( Matrix::cols ) ) {</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                        os &lt;&lt; m[i][j] &lt;&lt; <span class="charliteral">&#39;\t&#39;</span>;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                }</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                os &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        }</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;}</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="keyword">template</span> &lt; matrix_like LH, matrix_like RH &gt;</div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a512f1fd6d6a6aa3d5094088865158e23">  263</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( LH::rows == RH::rows &amp;&amp; LH::cols == RH::cols ) constexpr <span class="keyword">auto</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<a class="code" href="namespaceemlabcpp.html#ae905e83f27246077252ae1308f0fda07">operator==</a>( <span class="keyword">const</span> LH&amp; lh, <span class="keyword">const</span> RH&amp; rh )</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;{</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::rows ) ) {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::cols ) ) {</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                        <span class="keywordflow">if</span> ( lh[i][j] != rh[i][j] ) {</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                        }</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        }</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;}</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="keyword">template</span> &lt; matrix_like LH, matrix_like RH, <span class="keyword">typename</span> T = <span class="keyword">typename</span> LH::value_type &gt;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( LH::cols == RH::rows ) constexpr matrix&lt; LH::rows, RH::cols, T &gt;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<a class="code" href="namespaceemlabcpp.html#a63fe2550fd1fae3aab0b4791d8e58efa">operator*</a>( <span class="keyword">const</span> LH&amp; lh, <span class="keyword">const</span> RH&amp; rh )</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;{</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        matrix&lt; LH::rows, RH::cols, T &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::rows ) ) {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( RH::cols ) ) {</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                        T v{};</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                        <span class="keywordflow">for</span> ( std::size_t k : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::cols ) ) {</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                                v += lh[i][k] * rh[k][j];</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                        }</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;                        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[i][j] = v;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                }</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        }</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;}</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="keyword">template</span> &lt; matrix_like LH &gt;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;constexpr matrix&lt; LH::rows, LH::cols, typename LH::value_type &gt;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<a class="code" href="namespaceemlabcpp.html#a63fe2550fd1fae3aab0b4791d8e58efa">operator*</a>( <span class="keyword">const</span> LH&amp; lh, <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">LH::value_type</a>&amp; val )</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;{</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = lh;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::rows ) ) {</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::cols ) ) {</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[i][j] *= val;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                }</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        }</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;}</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="keyword">template</span> &lt; matrix_like LH &gt;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;constexpr matrix&lt; LH::rows, LH::cols, typename LH::value_type &gt;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<a class="code" href="namespaceemlabcpp.html#a63fe2550fd1fae3aab0b4791d8e58efa">operator*</a>( <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">LH::value_type</a>&amp; val, <span class="keyword">const</span> LH&amp; lh )</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;{</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keywordflow">return</span> lh * val;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;}</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="keyword">template</span> &lt; matrix_like LH, matrix_like RH, <span class="keyword">typename</span> T = <span class="keyword">typename</span> LH::value_type &gt;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( LH::cols == RH::cols &amp;&amp; LH::rows == RH::rows ) constexpr matrix&lt; LH::rows, LH::cols, T &gt;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<a class="code" href="namespaceemlabcpp.html#a57aae6e5cd5a893e35a12622960dc79b">operator+</a>( <span class="keyword">const</span> LH&amp; lh, <span class="keyword">const</span> RH&amp; rh )</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;{</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        matrix&lt; LH::rows, LH::cols, T &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>{};</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::rows ) ) {</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::cols ) ) {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;                        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[i][j] = lh[i][j] + rh[i][j];</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        }</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;}</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="keyword">template</span> &lt; matrix_like LH, matrix_like RH, <span class="keyword">typename</span> T = <span class="keyword">typename</span> LH::value_type &gt;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( LH::cols == RH::cols &amp;&amp; LH::rows == RH::rows ) constexpr matrix&lt; LH::rows, LH::cols, T &gt;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<a class="code" href="namespaceemlabcpp.html#a65d491045b619755db02e72cfa69e772">operator-</a>( <span class="keyword">const</span> LH&amp; lh, <span class="keyword">const</span> RH&amp; rh )</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;{</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        matrix&lt; LH::rows, LH::cols, T &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>{};</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::rows ) ) {</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                <span class="keywordflow">for</span> ( std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( LH::cols ) ) {</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[i][j] = lh[i][j] - rh[i][j];</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                }</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        }</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;}</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;constexpr transposed_matrix&lt; M &gt; transpose( M&amp; m )</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;{</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        <span class="keywordflow">return</span> { m };</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;}</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;constexpr matrix&lt; M::cols, M::rows, typename M::value_type &gt; transpose( M&amp;&amp; m )</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;{</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keywordflow">return</span> transpose( m );</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;};</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
+<div class="line"><a name="l00355"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ac4ee7e0f160b1450636b4a460f27e18a">  355</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( M::rows == 2 &amp;&amp; M::cols == 2 ) constexpr auto determinant( const M&amp; m )</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;{</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="keywordflow">return</span> m[0][0] * m[1][1] - m[0][1] * m[1][0];</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;}</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
+<div class="line"><a name="l00361"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#af82d48e74c20cfcb88f46dd2ba5688b9">  361</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( M::rows &gt; 2 &amp;&amp; M::cols == M::rows ) constexpr <span class="keyword">auto</span> determinant( <span class="keyword">const</span> M&amp; m )</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;{</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="comment">// TODO: tests!</span></div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        constexpr std::size_t N   = M::rows;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        <span class="keywordtype">float</span>                 <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = 0.f;</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        for_each_index&lt; N &gt;( [&amp;]&lt; std::size_t i &gt; {</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                <a class="code" href="classemlabcpp_1_1rowcol__submatrix.html">rowcol_submatrix&lt; const M, i, 0 &gt;</a> submatrix{ m };</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> += ( i % 2 == 0 ? 1 : -1 ) * m[i][0] * determinant( submatrix );</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        } );</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;}</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
+<div class="line"><a name="l00374"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">  374</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>(</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    M::rows == 1 &amp;&amp;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    M::cols ==</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        1 ) constexpr <a class="code" href="classemlabcpp_1_1matrix.html">matrix</a>&lt; M::rows, M::cols, typename M::<a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt; <a class="code" href="namespaceemlabcpp.html#a116807f9c41ac80621918fff7446c987">inverse</a>( const M&amp; m )</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;{</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        <a class="code" href="classemlabcpp_1_1matrix.html">matrix&lt; M::rows, M::cols, typename M::value_type &gt;</a> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[0][0] = 1.f / m[0][0];</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;}</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="keyword">template</span> &lt; matrix_like M &gt;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>(</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    M::rows == 2 &amp;&amp;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    M::cols ==</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        2 ) constexpr matrix&lt; M::rows, M::cols, typename M::<a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt; <a class="code" href="namespaceemlabcpp.html#a116807f9c41ac80621918fff7446c987">inverse</a>( const M&amp; m )</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;{</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        <span class="keyword">auto</span>                                               v = 1.f / determinant( m );</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        matrix&lt; M::rows, M::cols, typename M::value_type &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[0] = { m[1][1], -m[0][1] };</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[1] = { -m[1][0], m[0][0] };</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        <span class="keywordflow">return</span> v * <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;}</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aalgorithm_8h_html"><div class="ttname"><a href="algorithm_8h.html">algorithm.h</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1identity__matrix_html"><div class="ttname"><a href="classemlabcpp_1_1identity__matrix.html">emlabcpp::identity_matrix</a></div><div class="ttdef"><b>Definition:</b> matrix.h:142</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1identity__matrix_html_a13c27238fdf8505cec89b6bbd428353b"><div class="ttname"><a href="classemlabcpp_1_1identity__matrix.html#a13c27238fdf8505cec89b6bbd428353b">emlabcpp::identity_matrix::cols</a></div><div class="ttdeci">static constexpr std::size_t cols</div><div class="ttdef"><b>Definition:</b> matrix.h:162</div></div>
@@ -501,7 +503,6 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:47</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> access_view.h:25</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a116807f9c41ac80621918fff7446c987"><div class="ttname"><a href="namespaceemlabcpp.html#a116807f9c41ac80621918fff7446c987">emlabcpp::inverse</a></div><div class="ttdeci">constexpr pose inverse(const pose &amp;x)</div><div class="ttdef"><b>Definition:</b> pose.h:169</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a2f10b2ff6c20f2e8057487e521275521"><div class="ttname"><a href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">auto &amp; operator&lt;&lt;(Stream &amp;os, const bounded&lt; T, MinVal, MaxVal &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> bounded.h:181</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a57aae6e5cd5a893e35a12622960dc79b"><div class="ttname"><a href="namespaceemlabcpp.html#a57aae6e5cd5a893e35a12622960dc79b">emlabcpp::operator+</a></div><div class="ttdeci">constexpr point&lt; N &gt; operator+(point&lt; N &gt; a, const vector&lt; N &gt; &amp;b)</div><div class="ttdoc">Returns a result of addition a to b, viz += operator.</div><div class="ttdef"><b>Definition:</b> point.h:92</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a63fe2550fd1fae3aab0b4791d8e58efa"><div class="ttname"><a href="namespaceemlabcpp.html#a63fe2550fd1fae3aab0b4791d8e58efa">emlabcpp::operator*</a></div><div class="ttdeci">constexpr point&lt; N &gt; operator*(point&lt; N &gt; a, const point&lt; N &gt; &amp;b)</div><div class="ttdoc">Multiplication of points multiplies each coordinate of A by coordinate of B on same dimension.</div><div class="ttdef"><b>Definition:</b> point.h:72</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a65d491045b619755db02e72cfa69e772"><div class="ttname"><a href="namespaceemlabcpp.html#a65d491045b619755db02e72cfa69e772">emlabcpp::operator-</a></div><div class="ttdeci">constexpr vector&lt; N &gt; operator-(point&lt; N &gt; a, const point&lt; N &gt; &amp;b)</div><div class="ttdoc">Returns a result of subtraction of A from B, viz -= operator.</div><div class="ttdef"><b>Definition:</b> point.h:83</div></div>
@@ -517,7 +518,7 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="matrix_8h.html">matrix.h</a></li>
-    <li class="footer">Generated on Fri Mar 31 2023 22:16:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Apr 1 2023 10:38:12 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

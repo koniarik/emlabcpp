@@ -289,70 +289,72 @@ $(document).ready(function(){initNavTree('quantity_8h_source.html',''); initResi
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keywordflow">return</span> val / *q;</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;}</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="keyword">template</span> &lt; ostreamlike Stream, <span class="keyword">typename</span> T, <span class="keyword">typename</span> ValueType &gt;</div>
-<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ae1c80290d135d19a201c0f04b47eb665">  269</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>( Stream&amp; os, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1quantity.html">quantity&lt; T, ValueType &gt;</a>&amp; q )</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;{</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; *q &lt;&lt; T::get_unit();</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;}</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_OSTREAM</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, <span class="keyword">typename</span> ValueType &gt;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;std::ostream&amp; operator&lt;&lt;( std::ostream&amp; os, <span class="keyword">const</span> quantity&lt; T, ValueType &gt;&amp; q )</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;{</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; *q &lt;&lt; T::get_unit();</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;}</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="keyword">template</span> &lt; emlabcpp::quantity_derived T &gt;</div>
-<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html">  279</a></span>&#160;<span class="keyword">struct </span>std::numeric_limits&lt; T &gt;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;{</div>
-<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html#ac12f5340dbb260e6cb9486a7a00f3a4c">  281</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="structstd_1_1numeric__limits_3_01T_01_4.html#ac12f5340dbb260e6cb9486a7a00f3a4c">value_type</a> = <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a>;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
-<div class="line"><a name="l00283"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html#ab2251fa06cfdeeb61d213db89ad08554">  283</a></span>&#160;        constexpr <span class="keyword">static</span> T <a class="code" href="structstd_1_1numeric__limits_3_01T_01_4.html#ab2251fa06cfdeeb61d213db89ad08554">lowest</a>()</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                <span class="keywordflow">return</span> T{ std::numeric_limits&lt; value_type &gt;::lowest() };</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        }</div>
-<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html#aaf3813d74473b315e623f3d3c29b5705">  287</a></span>&#160;        constexpr <span class="keyword">static</span> T <a class="code" href="structstd_1_1numeric__limits_3_01T_01_4.html#aaf3813d74473b315e623f3d3c29b5705">min</a>()</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        {</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                <span class="keywordflow">return</span> T{ <a class="code" href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">std::numeric_limits&lt; value_type &gt;::min</a>() };</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        }</div>
-<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html#a8ae742a780408401061ef9d81ec99a25">  291</a></span>&#160;        constexpr <span class="keyword">static</span> T <a class="code" href="structstd_1_1numeric__limits_3_01T_01_4.html#a8ae742a780408401061ef9d81ec99a25">max</a>()</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        {</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                <span class="keywordflow">return</span> T{ <a class="code" href="namespaceemlabcpp.html#a82bc958527847885bdfc4005b22271e6">std::numeric_limits&lt; value_type &gt;::max</a>() };</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        }</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;};</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="keyword">template</span> &lt; emlabcpp::quantity_derived T &gt;</div>
-<div class="line"><a name="l00299"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01T_01_4.html">  299</a></span>&#160;<span class="keyword">struct </span>std::hash&lt; T &gt;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;{</div>
-<div class="line"><a name="l00301"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01T_01_4.html#a6c6da25b29fc596a626051ec33f9954e">  301</a></span>&#160;        std::size_t <a class="code" href="structstd_1_1hash_3_01T_01_4.html#a6c6da25b29fc596a626051ec33f9954e">operator()</a>( T q )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                <span class="keyword">const</span> std::string unit = T::get_unit();</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                <span class="keywordflow">return</span> std::hash&lt; typename T::value_type &gt;()( *q ) ^</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                       std::hash&lt; std::string &gt;()( unit );</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        }</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;};</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_NLOHMANN_JSON</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="keyword">template</span> &lt; emlabcpp::quantity_derived T &gt;</div>
+<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html">  281</a></span>&#160;<span class="keyword">struct </span>std::numeric_limits&lt; T &gt;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;{</div>
+<div class="line"><a name="l00283"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html#ac12f5340dbb260e6cb9486a7a00f3a4c">  283</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="structstd_1_1numeric__limits_3_01T_01_4.html#ac12f5340dbb260e6cb9486a7a00f3a4c">value_type</a> = <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a>;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html#ab2251fa06cfdeeb61d213db89ad08554">  285</a></span>&#160;        constexpr <span class="keyword">static</span> T <a class="code" href="structstd_1_1numeric__limits_3_01T_01_4.html#ab2251fa06cfdeeb61d213db89ad08554">lowest</a>()</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        {</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                <span class="keywordflow">return</span> T{ std::numeric_limits&lt; value_type &gt;::lowest() };</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        }</div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html#aaf3813d74473b315e623f3d3c29b5705">  289</a></span>&#160;        constexpr <span class="keyword">static</span> T <a class="code" href="structstd_1_1numeric__limits_3_01T_01_4.html#aaf3813d74473b315e623f3d3c29b5705">min</a>()</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        {</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                <span class="keywordflow">return</span> T{ <a class="code" href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">std::numeric_limits&lt; value_type &gt;::min</a>() };</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        }</div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="structstd_1_1numeric__limits_3_01T_01_4.html#a8ae742a780408401061ef9d81ec99a25">  293</a></span>&#160;        constexpr <span class="keyword">static</span> T <a class="code" href="structstd_1_1numeric__limits_3_01T_01_4.html#a8ae742a780408401061ef9d81ec99a25">max</a>()</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        {</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                <span class="keywordflow">return</span> T{ <a class="code" href="namespaceemlabcpp.html#a82bc958527847885bdfc4005b22271e6">std::numeric_limits&lt; value_type &gt;::max</a>() };</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        }</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;};</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="keyword">template</span> &lt; emlabcpp::quantity_derived T &gt;</div>
+<div class="line"><a name="l00301"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01T_01_4.html">  301</a></span>&#160;<span class="keyword">struct </span>std::hash&lt; T &gt;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;{</div>
+<div class="line"><a name="l00303"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01T_01_4.html#a6c6da25b29fc596a626051ec33f9954e">  303</a></span>&#160;        std::size_t <a class="code" href="structstd_1_1hash_3_01T_01_4.html#a6c6da25b29fc596a626051ec33f9954e">operator()</a>( T q )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                <span class="keyword">const</span> std::string unit = T::get_unit();</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                <span class="keywordflow">return</span> std::hash&lt; typename T::value_type &gt;()( *q ) ^</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                       std::hash&lt; std::string &gt;()( unit );</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        }</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;};</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="keyword">template</span> &lt; emlabcpp::quantity_derived T &gt;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="keyword">struct </span>nlohmann::adl_serializer&lt; T &gt;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;{</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> to_json( nlohmann::json&amp; j, <span class="keyword">const</span> T q )</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        {</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                <span class="keywordflow">if</span> ( T::get_unit().empty() ) {</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                        j = *q;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;                        j[T::get_unit()] = *q;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                }</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        }</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keyword">static</span> T from_json( <span class="keyword">const</span> nlohmann::json&amp; j )</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        {</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                <span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> = <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a>;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                <span class="keywordflow">if</span> ( T::get_unit().empty() ) {</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                        <span class="keywordflow">return</span> T{ j.get&lt; <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt;() };</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                }</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                <span class="keywordflow">return</span> T{ j[T::get_unit()].template get&lt; value_type &gt;() };</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        }</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;};</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_NLOHMANN_JSON</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="keyword">template</span> &lt; emlabcpp::quantity_derived T &gt;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="keyword">struct </span>nlohmann::adl_serializer&lt; T &gt;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;{</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> to_json( nlohmann::json&amp; j, <span class="keyword">const</span> T q )</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        {</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;                <span class="keywordflow">if</span> ( T::get_unit().empty() ) {</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;                        j = *q;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;                        j[T::get_unit()] = *q;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        }</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keyword">static</span> T from_json( <span class="keyword">const</span> nlohmann::json&amp; j )</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        {</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                <span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> = <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a>;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                <span class="keywordflow">if</span> ( T::get_unit().empty() ) {</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                        <span class="keywordflow">return</span> T{ j.get&lt; <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt;() };</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                }</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                <span class="keywordflow">return</span> T{ j[T::get_unit()].template get&lt; value_type &gt;() };</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        }</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;};</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1quantity_html"><div class="ttname"><a href="classemlabcpp_1_1quantity.html">emlabcpp::quantity</a></div><div class="ttdoc">Class representing generic quantity.</div><div class="ttdef"><b>Definition:</b> quantity.h:59</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1quantity_html_a0ee13d5b17495128116f9f17ce59df66"><div class="ttname"><a href="classemlabcpp_1_1quantity.html#a0ee13d5b17495128116f9f17ce59df66">emlabcpp::quantity::operator*</a></div><div class="ttdeci">constexpr ValueType operator*() const noexcept</div><div class="ttdoc">Const reference to the internal value.</div><div class="ttdef"><b>Definition:</b> quantity.h:87</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1quantity_html_a1b1015431c7b7bc367a59b18e6e2fe60"><div class="ttname"><a href="classemlabcpp_1_1quantity.html#a1b1015431c7b7bc367a59b18e6e2fe60">emlabcpp::quantity::operator/=</a></div><div class="ttdeci">constexpr Derived &amp; operator/=(const arithmetic auto val) noexcept</div><div class="ttdoc">Divides quantity by it's value type.</div><div class="ttdef"><b>Definition:</b> quantity.h:107</div></div>
@@ -371,7 +373,6 @@ $(document).ready(function(){initNavTree('quantity_8h_source.html',''); initResi
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:47</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> access_view.h:25</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a0b460db38cf4162f2102f01e6f42616c"><div class="ttname"><a href="namespaceemlabcpp.html#a0b460db38cf4162f2102f01e6f42616c">emlabcpp::operator&lt;</a></div><div class="ttdeci">constexpr bool operator&lt;(const pose &amp;x, const pose &amp;y)</div><div class="ttdef"><b>Definition:</b> pose.h:81</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a2f10b2ff6c20f2e8057487e521275521"><div class="ttname"><a href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">auto &amp; operator&lt;&lt;(Stream &amp;os, const bounded&lt; T, MinVal, MaxVal &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> bounded.h:181</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a306420110ac2a2a1ecc364e0053c1e30"><div class="ttname"><a href="namespaceemlabcpp.html#a306420110ac2a2a1ecc364e0053c1e30">emlabcpp::abs</a></div><div class="ttdeci">constexpr Derived abs(const vec_point_base&lt; Derived, N &gt; &amp;a)</div><div class="ttdoc">Creates absolute version of A - removing signs on all dimensions.</div><div class="ttdef"><b>Definition:</b> vec_point_base.h:218</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a364f72aef7b46ed76b90e1f7a054fc32"><div class="ttname"><a href="namespaceemlabcpp.html#a364f72aef7b46ed76b90e1f7a054fc32">emlabcpp::cos</a></div><div class="ttdeci">constexpr auto cos(const quantity&lt; Derived, ValueType &gt; u)</div><div class="ttdoc">Returns cosinus of the quantity as scalar.</div><div class="ttdef"><b>Definition:</b> quantity.h:225</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a5098342c4801b4a7d9ec75b1143f7801"><div class="ttname"><a href="namespaceemlabcpp.html#a5098342c4801b4a7d9ec75b1143f7801">emlabcpp::min</a></div><div class="ttdeci">constexpr const Derived &amp; min(const vec_point_base&lt; Derived, N &gt; &amp;a, const vec_point_base&lt; Derived, N &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> vec_point_base.h:247</div></div>
@@ -387,18 +388,18 @@ $(document).ready(function(){initNavTree('quantity_8h_source.html',''); initResi
 <div class="ttc" id="anamespaceemlabcpp_html_ab4db09819cc4cc5a21ed238dd2e30d6a"><div class="ttname"><a href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">emlabcpp::min</a></div><div class="ttdeci">constexpr Derived min(const quantity&lt; Derived, ValueType &gt; lh, const quantity&lt; Derived, ValueType &gt; rh)</div><div class="ttdoc">Quantity with minimum value of one of the quantities.</div><div class="ttdef"><b>Definition:</b> quantity.h:248</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ad8bf364734336953acece2da91f7cd5a"><div class="ttname"><a href="namespaceemlabcpp.html#ad8bf364734336953acece2da91f7cd5a">emlabcpp::operator/</a></div><div class="ttdeci">constexpr Derived operator/(const vec_point_base&lt; Derived, N &gt; &amp;a, T s)</div><div class="ttdoc">Divides each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic.</div><div class="ttdef"><b>Definition:</b> vec_point_base.h:169</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ad94cfee3e6e80c1e90bc767e6ace9f7e"><div class="ttname"><a href="namespaceemlabcpp.html#ad94cfee3e6e80c1e90bc767e6ace9f7e">emlabcpp::abs</a></div><div class="ttdeci">constexpr Derived abs(const quantity&lt; Derived, ValueType &gt; q)</div><div class="ttdoc">Quantity with absolute value of internal value.</div><div class="ttdef"><b>Definition:</b> quantity.h:218</div></div>
-<div class="ttc" id="astructstd_1_1hash_3_01T_01_4_html_a6c6da25b29fc596a626051ec33f9954e"><div class="ttname"><a href="structstd_1_1hash_3_01T_01_4.html#a6c6da25b29fc596a626051ec33f9954e">std::hash&lt; T &gt;::operator()</a></div><div class="ttdeci">std::size_t operator()(T q) const</div><div class="ttdef"><b>Definition:</b> quantity.h:301</div></div>
-<div class="ttc" id="astructstd_1_1numeric__limits_3_01T_01_4_html_a8ae742a780408401061ef9d81ec99a25"><div class="ttname"><a href="structstd_1_1numeric__limits_3_01T_01_4.html#a8ae742a780408401061ef9d81ec99a25">std::numeric_limits&lt; T &gt;::max</a></div><div class="ttdeci">constexpr static T max()</div><div class="ttdef"><b>Definition:</b> quantity.h:291</div></div>
-<div class="ttc" id="astructstd_1_1numeric__limits_3_01T_01_4_html_aaf3813d74473b315e623f3d3c29b5705"><div class="ttname"><a href="structstd_1_1numeric__limits_3_01T_01_4.html#aaf3813d74473b315e623f3d3c29b5705">std::numeric_limits&lt; T &gt;::min</a></div><div class="ttdeci">constexpr static T min()</div><div class="ttdef"><b>Definition:</b> quantity.h:287</div></div>
-<div class="ttc" id="astructstd_1_1numeric__limits_3_01T_01_4_html_ab2251fa06cfdeeb61d213db89ad08554"><div class="ttname"><a href="structstd_1_1numeric__limits_3_01T_01_4.html#ab2251fa06cfdeeb61d213db89ad08554">std::numeric_limits&lt; T &gt;::lowest</a></div><div class="ttdeci">constexpr static T lowest()</div><div class="ttdef"><b>Definition:</b> quantity.h:283</div></div>
-<div class="ttc" id="astructstd_1_1numeric__limits_3_01T_01_4_html_ac12f5340dbb260e6cb9486a7a00f3a4c"><div class="ttname"><a href="structstd_1_1numeric__limits_3_01T_01_4.html#ac12f5340dbb260e6cb9486a7a00f3a4c">std::numeric_limits&lt; T &gt;::value_type</a></div><div class="ttdeci">typename T::value_type value_type</div><div class="ttdef"><b>Definition:</b> quantity.h:281</div></div>
+<div class="ttc" id="astructstd_1_1hash_3_01T_01_4_html_a6c6da25b29fc596a626051ec33f9954e"><div class="ttname"><a href="structstd_1_1hash_3_01T_01_4.html#a6c6da25b29fc596a626051ec33f9954e">std::hash&lt; T &gt;::operator()</a></div><div class="ttdeci">std::size_t operator()(T q) const</div><div class="ttdef"><b>Definition:</b> quantity.h:303</div></div>
+<div class="ttc" id="astructstd_1_1numeric__limits_3_01T_01_4_html_a8ae742a780408401061ef9d81ec99a25"><div class="ttname"><a href="structstd_1_1numeric__limits_3_01T_01_4.html#a8ae742a780408401061ef9d81ec99a25">std::numeric_limits&lt; T &gt;::max</a></div><div class="ttdeci">constexpr static T max()</div><div class="ttdef"><b>Definition:</b> quantity.h:293</div></div>
+<div class="ttc" id="astructstd_1_1numeric__limits_3_01T_01_4_html_aaf3813d74473b315e623f3d3c29b5705"><div class="ttname"><a href="structstd_1_1numeric__limits_3_01T_01_4.html#aaf3813d74473b315e623f3d3c29b5705">std::numeric_limits&lt; T &gt;::min</a></div><div class="ttdeci">constexpr static T min()</div><div class="ttdef"><b>Definition:</b> quantity.h:289</div></div>
+<div class="ttc" id="astructstd_1_1numeric__limits_3_01T_01_4_html_ab2251fa06cfdeeb61d213db89ad08554"><div class="ttname"><a href="structstd_1_1numeric__limits_3_01T_01_4.html#ab2251fa06cfdeeb61d213db89ad08554">std::numeric_limits&lt; T &gt;::lowest</a></div><div class="ttdeci">constexpr static T lowest()</div><div class="ttdef"><b>Definition:</b> quantity.h:285</div></div>
+<div class="ttc" id="astructstd_1_1numeric__limits_3_01T_01_4_html_ac12f5340dbb260e6cb9486a7a00f3a4c"><div class="ttname"><a href="structstd_1_1numeric__limits_3_01T_01_4.html#ac12f5340dbb260e6cb9486a7a00f3a4c">std::numeric_limits&lt; T &gt;::value_type</a></div><div class="ttdeci">typename T::value_type value_type</div><div class="ttdef"><b>Definition:</b> quantity.h:283</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="quantity_8h.html">quantity.h</a></li>
-    <li class="footer">Generated on Fri Mar 31 2023 22:16:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Apr 1 2023 10:38:12 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

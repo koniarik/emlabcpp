@@ -26,7 +26,12 @@ var dir_d020062af5803c7b3279d0fbd1610b13 =
     [ "register_map.h", "register__map_8h.html", "register__map_8h" ],
     [ "sequencer.h", "sequencer_8h.html", "sequencer_8h" ],
     [ "serializer.h", "serializer_8h.html", "serializer_8h" ],
-    [ "streams.h", "streams_8h.html", "streams_8h" ],
+    [ "streams.h", "streams_8h.html", [
+      [ "pretty_printer< protocol::message< N > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1message_3_01N_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1message_3_01N_01_4_01_4" ],
+      [ "pretty_printer< protocol::sizeless_message< N > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1sizeless__message_3_01N_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1sizeless__message_3_01N_01_4_01_4" ],
+      [ "pretty_printer< protocol::mark >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1mark_01_4.html", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1mark_01_4" ],
+      [ "pretty_printer< protocol::error_record >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1error__record_01_4.html", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1error__record_01_4" ]
+    ] ],
     [ "traits.h", "traits_8h.html", "traits_8h" ],
     [ "tuple.h", "tuple_8h.html", [
       [ "tuple", "structemlabcpp_1_1protocol_1_1tuple.html", "structemlabcpp_1_1protocol_1_1tuple" ]

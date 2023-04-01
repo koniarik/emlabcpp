@@ -25,7 +25,6 @@ var physical__quantity_8h =
     [ "volume", "physical__quantity_8h.html#a5f05bc39f7d9b7332f437d5a7b19156c", null ],
     [ "operator*", "physical__quantity_8h.html#a384e4bb5a921ff231358ff63aeecbe77", null ],
     [ "operator/", "physical__quantity_8h.html#a1fdcd2bf6efc13dd21e3298c777d4982", null ],
-    [ "operator<<", "physical__quantity_8h.html#a62ac04b965c5f1f4ddc49c801a0f01b3", null ],
     [ "pow", "physical__quantity_8h.html#a9b9eb800885b61e8071ef11e69debdf6", null ],
     [ "sqrt", "physical__quantity_8h.html#a5519896c5f0324265089711b6a020642", null ],
     [ "pi", "physical__quantity_8h.html#a7cac9e89744ae1ec8ad817df33d291f1", null ]

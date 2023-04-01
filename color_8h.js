@@ -8,7 +8,6 @@ var color_8h =
     [ "log_color_stub", "namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub", [
       [ "c", "namespaceemlabcpp.html#a947ae8250161b2045cebbac076cbb06f", null ]
     ] ],
-    [ "operator<<", "color_8h.html#a09706de4f199476ac440fe166eb063f8", null ],
     [ "reset_color", "color_8h.html#a620a32406486ae5b889d41d446c4a8b0", null ],
     [ "DEBUG_LOGGER_COLORS", "color_8h.html#a040c9fa2d6c0e4a28649479052ad8f8d", null ],
     [ "ERROR_LOGGER_COLORS", "color_8h.html#aa04c4ddd773c5ae47bf78d051770a30a", null ],

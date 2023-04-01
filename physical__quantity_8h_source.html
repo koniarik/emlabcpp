@@ -263,32 +263,22 @@ $(document).ready(function(){initNavTree('physical__quantity_8h_source.html','')
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            Byte * Power &gt;{ <span class="keyword">static_cast&lt;</span> <span class="keywordtype">float</span> <span class="keyword">&gt;</span>( <a class="code" href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">std::pow</a>( *val, Power ) ) };</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;}</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <a class="code" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a> Stream,</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordtype">int</span>         Len,</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordtype">int</span>         Mass,</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordtype">int</span>         Time,</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordtype">int</span>         Current,</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordtype">int</span>         Temp,</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordtype">int</span>         Mol,</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">int</span>         Li,</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordtype">int</span>         Angle,</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordtype">int</span>         Byte &gt;</div>
-<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a62ac04b965c5f1f4ddc49c801a0f01b3">  239</a></span>&#160;<span class="keyword">auto</span>&amp; <a class="code" href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">operator&lt;&lt;</a>(</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    Stream&amp;                                                                          os,</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1physical__quantity.html">physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt;</a>&amp; q )</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;{</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; *q</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                  &lt;&lt; <a class="code" href="structemlabcpp_1_1physical__quantity.html#a97a58186293ee42d1daf3288a376536d">physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt;::</a></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<a class="code" href="structemlabcpp_1_1physical__quantity.html#a97a58186293ee42d1daf3288a376536d">                         get_unit</a>();</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;}</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_OSTREAM</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="keyword">template</span> &lt; <span class="keywordtype">int</span> Len, <span class="keywordtype">int</span> Mass, <span class="keywordtype">int</span> Time, <span class="keywordtype">int</span> Current, <span class="keywordtype">int</span> Temp, <span class="keywordtype">int</span> Mol, <span class="keywordtype">int</span> Li, <span class="keywordtype">int</span> Angle, <span class="keywordtype">int</span> Byte &gt;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;std::ostream&amp; operator&lt;&lt;(</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    std::ostream&amp;                                                                    os,</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">const</span> physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt;&amp; q )</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;{</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; *q</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                  &lt;&lt; <a class="code" href="structemlabcpp_1_1physical__quantity.html#a97a58186293ee42d1daf3288a376536d">physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt;::</a></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<a class="code" href="structemlabcpp_1_1physical__quantity.html#a97a58186293ee42d1daf3288a376536d">                         get_unit</a>();</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;}</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1quantity_html"><div class="ttname"><a href="classemlabcpp_1_1quantity.html">emlabcpp::quantity</a></div><div class="ttdoc">Class representing generic quantity.</div><div class="ttdef"><b>Definition:</b> quantity.h:59</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1quantity_html_a31e5c06d7f46de5bcd9767cfd954a161"><div class="ttname"><a href="classemlabcpp_1_1quantity.html#a31e5c06d7f46de5bcd9767cfd954a161">emlabcpp::quantity&lt; physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt;, float &gt;::quantity</a></div><div class="ttdeci">constexpr quantity() noexcept</div><div class="ttdef"><b>Definition:</b> quantity.h:74</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> access_view.h:25</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a27325f314502897567307b29b2b03776"><div class="ttname"><a href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">emlabcpp::ostreamlike</a></div><div class="ttdeci">concept ostreamlike</div><div class="ttdef"><b>Definition:</b> concepts.h:135</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a2f10b2ff6c20f2e8057487e521275521"><div class="ttname"><a href="namespaceemlabcpp.html#a2f10b2ff6c20f2e8057487e521275521">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">auto &amp; operator&lt;&lt;(Stream &amp;os, const bounded&lt; T, MinVal, MaxVal &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> bounded.h:181</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a458a21111b267fd6b9727f821974f859"><div class="ttname"><a href="namespaceemlabcpp.html#a458a21111b267fd6b9727f821974f859">emlabcpp::length</a></div><div class="ttdeci">physical_quantity&lt; 1, 0, 0, 0, 0, 0, 0, 0, 0 &gt; length</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:77</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a5519896c5f0324265089711b6a020642"><div class="ttname"><a href="namespaceemlabcpp.html#a5519896c5f0324265089711b6a020642">emlabcpp::sqrt</a></div><div class="ttdeci">constexpr auto sqrt(physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt; val)</div><div class="ttdoc">Square root of physical quantity is square root of it's value and the exponents are divided in half.</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:182</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a63fe2550fd1fae3aab0b4791d8e58efa"><div class="ttname"><a href="namespaceemlabcpp.html#a63fe2550fd1fae3aab0b4791d8e58efa">emlabcpp::operator*</a></div><div class="ttdeci">constexpr point&lt; N &gt; operator*(point&lt; N &gt; a, const point&lt; N &gt; &amp;b)</div><div class="ttdoc">Multiplication of points multiplies each coordinate of A by coordinate of B on same dimension.</div><div class="ttdef"><b>Definition:</b> point.h:72</div></div>
@@ -304,7 +294,7 @@ $(document).ready(function(){initNavTree('physical__quantity_8h_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="physical__quantity_8h.html">physical_quantity.h</a></li>
-    <li class="footer">Generated on Fri Mar 31 2023 22:16:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Apr 1 2023 10:38:12 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

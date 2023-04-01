@@ -34,18 +34,18 @@
 <path fill="none" stroke="midnightblue" d="M309.07,-123.4C299.63,-114.49 287.42,-102.95 277.67,-93.74"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="279.84,-90.98 270.17,-86.66 275.03,-96.07 279.84,-90.98"/>
 </g>
-<!-- Node22 -->
+<!-- Node23 -->
 <g id="node7" class="node">
-<title>Node22</title>
+<title>Node23</title>
 <g id="a_node7"><a xlink:href="view_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="red" points="338.5,-67.5 338.5,-86.5 437.5,-86.5 437.5,-67.5 338.5,-67.5"/>
 <text text-anchor="middle" x="388" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp/view.h</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node22 -->
+<!-- Node1&#45;&gt;Node23 -->
 <g id="edge6" class="edge">
-<title>Node1&#45;&gt;Node22</title>
+<title>Node1&#45;&gt;Node23</title>
 <path fill="none" stroke="midnightblue" d="M339.17,-123.4C348.75,-114.49 361.16,-102.95 371.07,-93.74"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="373.75,-96.03 378.69,-86.66 368.98,-90.9 373.75,-96.03"/>
 </g>
@@ -80,18 +80,18 @@
 <path fill="none" stroke="midnightblue" d="M252.98,-67.48C245.75,-59.79 234.81,-48.17 225.2,-37.96"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="227.6,-35.41 218.2,-30.52 222.5,-40.2 227.6,-35.41"/>
 </g>
-<!-- Node27 -->
+<!-- Node31 -->
 <g id="node5" class="node">
-<title>Node27</title>
+<title>Node31</title>
 <g id="a_node5"><a xlink:title=" ">
 <polygon fill="white" stroke="#bfbfbf" points="290,-6 290,-25 346,-25 346,-6 290,-6"/>
 <text text-anchor="middle" x="318" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">optional</text>
 </a>
 </g>
 </g>
-<!-- Node2&#45;&gt;Node27 -->
+<!-- Node2&#45;&gt;Node31 -->
 <g id="edge4" class="edge">
-<title>Node2&#45;&gt;Node27</title>
+<title>Node2&#45;&gt;Node31</title>
 <path fill="none" stroke="midnightblue" d="M269.17,-67.48C277.89,-58.37 291.9,-43.74 302.69,-32.48"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="305.46,-34.65 309.85,-25.01 300.4,-29.81 305.46,-34.65"/>
 </g>

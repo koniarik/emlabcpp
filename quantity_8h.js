@@ -17,7 +17,6 @@ var quantity_8h =
     [ "operator/", "quantity_8h.html#a0176bf0d3582d8fa997f2ae98869d099", null ],
     [ "operator<", "quantity_8h.html#a1c42d6c592410c5073ecfb18431a4d04", null ],
     [ "operator<", "quantity_8h.html#a49a18ed069c328b94893a379a85d855f", null ],
-    [ "operator<<", "quantity_8h.html#ae1c80290d135d19a201c0f04b47eb665", null ],
     [ "quantity_derived_test", "quantity_8h.html#a8be65555da61958326df0b50c6ee2bd8", null ],
     [ "sin", "quantity_8h.html#aa3d3eb598a75856181b79136ed06dbd8", null ],
     [ "quantity_derived", "quantity_8h.html#a869ab03f1bd49e1adc49de513ad86ba4", null ]
