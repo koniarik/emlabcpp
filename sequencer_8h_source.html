@@ -154,7 +154,7 @@ $(document).ready(function(){initNavTree('sequencer_8h_source.html',''); initRes
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1sequencer__read__request.html">sequencer_read_request</a>{ <a class="code" href="classemlabcpp_1_1protocol_1_1sequencer.html#ab3b5f22f4ef35dd403e7be03baf90acb">fixed_size</a> };</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                std::size_t bsize = buffer_.<a class="code" href="classemlabcpp_1_1static__circular__buffer.html#a4a90f093a980231b0156e8ed33c6e1f1">size</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keyword">const</span> std::size_t bsize = buffer_.<a class="code" href="classemlabcpp_1_1static__circular__buffer.html#a4a90f093a980231b0156e8ed33c6e1f1">size</a>();</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <a class="code" href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a>( bsize &gt;= <a class="code" href="classemlabcpp_1_1protocol_1_1sequencer.html#a7972bfcdd7aa34f5cb9ed1c3e2d6e889">prefix</a>.size() );</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
@@ -162,7 +162,7 @@ $(document).ready(function(){initNavTree('sequencer_8h_source.html',''); initRes
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1sequencer__read__request.html">sequencer_read_request</a>{ <a class="code" href="classemlabcpp_1_1protocol_1_1sequencer.html#ab3b5f22f4ef35dd403e7be03baf90acb">fixed_size</a> - bsize };</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                std::size_t desired_size = Def::get_size( buffer_ );</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keyword">const</span> std::size_t desired_size = Def::get_size( buffer_ );</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="keywordflow">if</span> ( bsize &lt; desired_size ) {</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1protocol_1_1sequencer__read__request.html">sequencer_read_request</a>{ desired_size - bsize };</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                }</div>
@@ -241,7 +241,7 @@ $(document).ready(function(){initNavTree('sequencer_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="sequencer_8h.html">sequencer.h</a></li>
-    <li class="footer">Generated on Sat Apr 1 2023 10:38:12 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Apr 1 2023 13:15:02 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

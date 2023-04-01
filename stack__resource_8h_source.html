@@ -130,7 +130,7 @@ $(document).ready(function(){initNavTree('stack__resource_8h_source.html',''); i
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <a class="code" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a>( <span class="stringliteral">&quot;Top is &quot;</span>, top_, <span class="stringliteral">&quot; and start of buffer is &quot;</span>, buff_.data() );</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* prev_ptr  = top_;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                node       prev_node = get_node( prev_ptr );</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keyword">const</span> node prev_node = get_node( prev_ptr );</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keyword">auto</span>* <span class="keyword">const</span> p = <span class="keyword">reinterpret_cast&lt;</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( <a class="code" href="namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263">align</a>( top_, alignment ) );</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
@@ -231,7 +231,7 @@ $(document).ready(function(){initNavTree('stack__resource_8h_source.html',''); i
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_231aac52433e25ed4b5ea5619bdfd3e1.html">pmr</a></li><li class="navelem"><a class="el" href="stack__resource_8h.html">stack_resource.h</a></li>
-    <li class="footer">Generated on Sat Apr 1 2023 10:38:12 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Apr 1 2023 13:15:02 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
