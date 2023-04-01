@@ -19,7 +19,6 @@
 
 #include "emlabcpp/experimental/testing/reactor_interface_adapter.h"
 
-
 namespace emlabcpp::testing
 {
 
