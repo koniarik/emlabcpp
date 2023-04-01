@@ -27,15 +27,15 @@ using tpid = pid< float >;
 
 TEST( PID, base )
 {
-        tpid::config conf;
-        tpid         my_pid{ float{ 0 }, conf };
+        const tpid::config conf;
+        const tpid         my_pid{ float{ 0 }, conf };
 
         EXPECT_EQ( my_pid.output, 0 );
 }
 
 TEST( PID, simple )
 {
-        tpid::config conf{
+        const tpid::config conf{
             .coefficients{
                 .p = 0.2f,
                 .i = 0.01f,
@@ -46,8 +46,8 @@ TEST( PID, simple )
 
         tpid my_pid{ float{ 0 }, conf };
 
-        float val     = 0.f;
-        float desired = 100.f;
+        float       val     = 0.f;
+        const float desired = 100.f;
 
         for ( std::size_t i = 0; i < 1000; i++ ) {
                 val = update( my_pid, static_cast< float >( i ), val, desired );

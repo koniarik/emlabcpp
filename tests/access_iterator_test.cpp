@@ -34,7 +34,7 @@ TEST( access_iterator, basic )
                 return vec[i];
         } );
 
-        bool are_equal = equal( vec, a_view );
+        const bool are_equal = equal( vec, a_view );
 
         ASSERT_TRUE( are_equal );
 }

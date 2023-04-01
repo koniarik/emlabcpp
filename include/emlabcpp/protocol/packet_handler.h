@@ -49,7 +49,7 @@ struct packet_handler
                 message_type msg = sub_handler::serialize(
                     std::make_tuple( Packet::prefix, val, checksum_type{} ) );
 
-                checksum_type chcksm =
+                const checksum_type chcksm =
                     Packet::get_checksum( view_n( msg.begin(), msg.size() - checksum_size ) );
 
                 serializer< checksum_type, endianess >::serialize_at(
@@ -64,9 +64,9 @@ struct packet_handler
                 return sub_handler::extract( msg ).bind_left(
                     [&msg]( std::tuple< prefix_type, value_type, checksum_type > pack )
                         -> either< value_type, error_record > {
-                            checksum_type     present_checksum = std::get< 2 >( pack );
+                            const checksum_type     present_checksum = std::get< 2 >( pack );
                             const std::size_t checksum_pos     = msg.size() - checksum_size;
-                            checksum_type     calculated_checksum =
+                            const checksum_type     calculated_checksum =
                                 Packet::get_checksum( view_n( msg.begin(), checksum_pos ) );
                             if ( present_checksum != calculated_checksum ) {
                                     EMLABCPP_ERROR_LOG(

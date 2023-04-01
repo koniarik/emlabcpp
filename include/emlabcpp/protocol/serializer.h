@@ -50,7 +50,7 @@ struct serializer
         static constexpr T deserialize( const std::span< const uint8_t, max_size >& buffer )
         {
                 T res{};
-                for ( std::size_t i : range( max_size ) ) {
+                for ( const std::size_t i : range( max_size ) ) {
                         res = static_cast< T >( res << 8 );
                         res = static_cast< T >( res | bget( buffer, i ) );
                 }

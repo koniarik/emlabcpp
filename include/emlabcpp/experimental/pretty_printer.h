@@ -447,7 +447,7 @@ struct pretty_printer< std::bitset< N > >
         template < typename Writer >
         static void print( Writer&& w, const std::bitset< N >& b )
         {
-                for ( std::size_t i : range( N ) ) {
+                for ( const std::size_t i : range( N ) ) {
                         w( b[i] ? '1' : '0' );
                 }
         }

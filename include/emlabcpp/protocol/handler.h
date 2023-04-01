@@ -42,7 +42,7 @@ struct handler
         {
                 std::array< uint8_t, def::max_size > buffer{};
 
-                bounded used = def::serialize_at( buffer, val );
+                const bounded used = def::serialize_at( buffer, val );
                 EMLABCPP_ASSERT( *used <= def::max_size );
                 return *message_type::make( view_n( buffer.begin(), *used ) );
         };

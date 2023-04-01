@@ -30,23 +30,23 @@ using complex_view = function_view< float( int, const std::string& ) >;
 // NOLINTNEXTLINE
 TEST( FunctionView, call_view_pointer )
 {
-        auto       lb = []( int ) -> void {};
-        basic_view bf{ lb };
+        auto             lb = []( int ) -> void {};
+        const basic_view bf{ lb };
         bf( 42 );
 
         auto lr = []( int val ) -> std::string {
                 return std::to_string( val );
         };
-        return_view rf{ lr };
-        std::string sub_res = rf( 42 );
+        const return_view rf{ lr };
+        const std::string sub_res = rf( 42 );
         EXPECT_EQ( sub_res, "42" );
 
         auto lc = []( int val, const std::string& sval ) -> float {
                 return static_cast< float >( val * std::stoi( sval ) );
         };
         static_assert( with_signature< decltype( lc ), float( int, const std::string& ) > );
-        complex_view cf{ lc };
-        float        val = cf( 42, "2" );
+        const complex_view cf{ lc };
+        const float        val = cf( 42, "2" );
         EXPECT_EQ( val, 84 );
 }
 
@@ -57,7 +57,7 @@ TEST( FunctionView, call_callable )
         auto lf         = [&]( int val ) -> void {
                 test_value = val;
         };
-        basic_view bf{ lf };
+        const basic_view bf{ lf };
         bf( 42 );
         EXPECT_EQ( test_value, 42 );
         bf( 666 );
@@ -68,7 +68,7 @@ TEST( FunctionView, call_callable )
                 test_value = val;
                 return std::to_string( val );
         };
-        return_view rf{ lr };
+        const return_view rf{ lr };
         std::string test_sres = rf( 42 );
         EXPECT_EQ( test_value, 42 );
         EXPECT_EQ( test_sres, "42" );
@@ -81,7 +81,7 @@ TEST( FunctionView, call_callable )
                 test_value = val;
                 return static_cast< float >( std::stoi( sval ) );
         };
-        complex_view cf{ lc };
+        const complex_view cf{ lc };
         float        test_fres = cf( 42, "12" );
         EXPECT_EQ( test_value, 42 );
         EXPECT_EQ( test_fres, 12.f );

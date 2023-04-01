@@ -59,7 +59,7 @@ public:
                 EMLABCPP_INFO_LOG( "Top is ", top_, " and start of buffer is ", buff_.data() );
 
                 std::byte* prev_ptr  = top_;
-                node       prev_node = get_node( prev_ptr );
+                const node prev_node = get_node( prev_ptr );
 
                 auto* const p = reinterpret_cast< std::byte* >( align( top_, alignment ) );
 

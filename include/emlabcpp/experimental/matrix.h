@@ -123,8 +123,8 @@ public:
         operator matrix< rows, cols, value_type >()
         {
                 matrix< rows, cols, value_type > res;
-                for ( std::size_t i : range( rows ) ) {
-                        for ( std::size_t j : range( cols ) ) {
+                for ( const std::size_t i : range( rows ) ) {
+                        for ( const std::size_t j : range( cols ) ) {
                                 res[i][j] = m_[j][i];
                         }
                 }
@@ -171,8 +171,8 @@ public:
         operator matrix< rows, cols, value_type >()
         {
                 matrix< rows, cols, value_type > res;
-                for ( std::size_t i : range( rows ) ) {
-                        for ( std::size_t j : range( cols ) ) {
+                for ( const std::size_t i : range( rows ) ) {
+                        for ( const std::size_t j : range( cols ) ) {
                                 res[i][j] = i == j ? 1 : 0;
                         }
                 }
@@ -249,8 +249,8 @@ private:
 template < matrix_like Matrix >
 std::ostream& operator<<( std::ostream& os, const Matrix& m )
 {
-        for ( std::size_t i : range( Matrix::rows ) ) {
-                for ( std::size_t j : range( Matrix::cols ) ) {
+        for ( const std::size_t i : range( Matrix::rows ) ) {
+                for ( const std::size_t j : range( Matrix::cols ) ) {
                         os << m[i][j] << '\t';
                 }
                 os << '\n';
@@ -263,8 +263,8 @@ template < matrix_like LH, matrix_like RH >
 requires( LH::rows == RH::rows && LH::cols == RH::cols ) constexpr auto
 operator==( const LH& lh, const RH& rh )
 {
-        for ( std::size_t i : range( LH::rows ) ) {
-                for ( std::size_t j : range( LH::cols ) ) {
+        for ( const std::size_t i : range( LH::rows ) ) {
+                for ( const std::size_t j : range( LH::cols ) ) {
                         if ( lh[i][j] != rh[i][j] ) {
                                 return false;
                         }
@@ -279,10 +279,10 @@ operator*( const LH& lh, const RH& rh )
 {
         matrix< LH::rows, RH::cols, T > res;
 
-        for ( std::size_t i : range( LH::rows ) ) {
-                for ( std::size_t j : range( RH::cols ) ) {
+        for ( const std::size_t i : range( LH::rows ) ) {
+                for ( const std::size_t j : range( RH::cols ) ) {
                         T v{};
-                        for ( std::size_t k : range( LH::cols ) ) {
+                        for ( const std::size_t k : range( LH::cols ) ) {
                                 v += lh[i][k] * rh[k][j];
                         }
                         res[i][j] = v;
@@ -318,8 +318,8 @@ requires( LH::cols == RH::cols && LH::rows == RH::rows ) constexpr matrix< LH::r
 operator+( const LH& lh, const RH& rh )
 {
         matrix< LH::rows, LH::cols, T > res{};
-        for ( std::size_t i : range( LH::rows ) ) {
-                for ( std::size_t j : range( LH::cols ) ) {
+        for ( const std::size_t i : range( LH::rows ) ) {
+                for ( const std::size_t j : range( LH::cols ) ) {
                         res[i][j] = lh[i][j] + rh[i][j];
                 }
         }

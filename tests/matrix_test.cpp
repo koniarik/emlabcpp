@@ -35,7 +35,7 @@ TEST( Matrix, mult )
         B[1] = { 1.f, 100.f };
         B[2] = { 0.f, 10.f };
 
-        matrix< 2, 2 > C = A * B;
+        const matrix< 2, 2 > C = A * B;
 
         matrix< 2, 2 > expected;
         expected[0] = { 3, 2340 };
@@ -54,7 +54,7 @@ TEST( Matrix, sum )
         expected[0] = { 4.f, 6.f, 8.f };
         expected[1] = { 2.f, 0.f, 0.f };
 
-        matrix< 2, 3 > B = A + A;
+        const matrix< 2, 3 > B = A + A;
 
         EXPECT_EQ( B, expected );
 }

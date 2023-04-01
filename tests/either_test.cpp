@@ -29,10 +29,10 @@ static_assert( std::regular< test_either > );
 // NOLINTNEXTLINE
 TEST( Either, init )
 {
-        test_either eth{ 0 };
-        test_either eth2{ std::string{ "wololo" } };
+        const test_either eth{ 0 };
+        const test_either eth2{ std::string{ "wololo" } };
 
-        either< int, int > val{ 42 };
+        const either< int, int > val{ 42 };
 }
 
 // NOLINTNEXTLINE
@@ -52,7 +52,7 @@ TEST( Either, assignment )
 // NOLINTNEXTLINE
 TEST( Either, convert )
 {
-        test_either eth{ 0 };
+        const test_either eth{ 0 };
 
         EXPECT_TRUE( eth.convert_left( [&]( const std::string& ) {
                                 return 0;
@@ -83,7 +83,7 @@ TEST( Either, assemble_left_collect_right )
 {
         using test_either_2 = either< float, int >;
 
-        either< std::tuple< std::string, std::string, float >, static_vector< int, 3 > >
+        const either< std::tuple< std::string, std::string, float >, static_vector< int, 3 > >
             assemble_either = assemble_left_collect_right(
                 test_either{ "wolololo" }, test_either{ "nope" }, test_either_2{ 0.f } );
 

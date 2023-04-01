@@ -86,7 +86,7 @@ public:
                         return sequencer_read_request{ fixed_size };
                 }
 
-                std::size_t bsize = buffer_.size();
+                const std::size_t bsize = buffer_.size();
 
                 /// This is implied by the fact that we should have full match at the start of
                 /// buffer
@@ -96,7 +96,7 @@ public:
                         return sequencer_read_request{ fixed_size - bsize };
                 }
 
-                std::size_t desired_size = Def::get_size( buffer_ );
+                const std::size_t desired_size = Def::get_size( buffer_ );
                 if ( bsize < desired_size ) {
                         return sequencer_read_request{ desired_size - bsize };
                 }

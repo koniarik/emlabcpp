@@ -131,10 +131,10 @@ struct converter< std::array< D, N >, Endianess >
                 auto iter = buffer.begin();
 
                 for ( const std::size_t i : range( N ) ) {
-                        std::span< uint8_t, sub_converter::max_size > sub_view{
+                        const std::span< uint8_t, sub_converter::max_size > sub_view{
                             iter, sub_converter::max_size };
 
-                        bounded bused = sub_converter::serialize_at( sub_view, item[i] );
+                        const bounded bused = sub_converter::serialize_at( sub_view, item[i] );
 
                         std::advance( iter, *bused );
                 }
@@ -155,7 +155,7 @@ struct converter< std::array< D, N >, Endianess >
                         if ( offset > buffer.size() ) {
                                 return { offset, &SIZE_ERR };
                         }
-                        std::span subspan = buffer.subspan( offset );
+                        const std::span subspan = buffer.subspan( offset );
 
                         auto sres = sub_converter::deserialize( subspan, value[i] );
                         if ( sres.has_error() ) {
@@ -187,10 +187,10 @@ struct converter< std::tuple< Ds... >, Endianess >
                         using sub_converter =
                             converter_for< std::tuple_element_t< i, def_type >, Endianess >;
 
-                        std::span< uint8_t, sub_converter::max_size > sub_view{
+                        const std::span< uint8_t, sub_converter::max_size > sub_view{
                             iter, sub_converter::max_size };
 
-                        bounded bused =
+                        const bounded bused =
                             sub_converter::serialize_at( sub_view, std::get< i >( item ) );
 
                         std::advance( iter, *bused );
@@ -218,7 +218,7 @@ struct converter< std::tuple< Ds... >, Endianess >
                                     err = &SIZE_ERR;
                                     return true;
                             }
-                            std::span subspan = buffer.subspan( offset );
+                            const std::span subspan = buffer.subspan( offset );
 
                             auto sres =
                                 nth_converter< i >::deserialize( subspan, std::get< i >( value ) );
@@ -379,7 +379,7 @@ struct converter< std::optional< T >, Endianess >
                         return subres;
                 }
 
-                std::span subspan = buffer.subspan( presence_size );
+                const std::span subspan = buffer.subspan( presence_size );
 
                 auto res = sub_converter::deserialize( subspan, value.emplace() );
                 res.used += subres.used;
@@ -893,10 +893,10 @@ struct converter< static_vector< T, N >, Endianess >
                 /// TODO: this duplicates std::array, generalize?
                 auto iter = buffer.begin() + counter_size;
                 for ( const std::size_t i : range( item.size() ) ) {
-                        std::span< uint8_t, sub_converter::max_size > sub_view{
+                        const std::span< uint8_t, sub_converter::max_size > sub_view{
                             iter, sub_converter::max_size };
 
-                        bounded sub_bused = sub_converter::serialize_at( sub_view, item[i] );
+                        const bounded sub_bused = sub_converter::serialize_at( sub_view, item[i] );
 
                         std::advance( iter, *sub_bused );
                 }
@@ -923,7 +923,7 @@ struct converter< static_vector< T, N >, Endianess >
                         if ( offset > buffer.size() ) {
                                 return { offset, &SIZE_ERR };
                         }
-                        std::span subspan = buffer.subspan( offset );
+                        const std::span subspan = buffer.subspan( offset );
                         value.emplace_back();
 
                         auto itemres = sub_converter::deserialize( subspan, value.back() );
@@ -953,7 +953,7 @@ struct backup_converter< T, Endianess >
         static constexpr size_type
         serialize_at( std::span< uint8_t, max_size > buffer, const value_type& item )
         {
-                tuple_type tpl = decompose( item );
+                const tuple_type tpl = decompose( item );
                 return sub_converter::serialize_at( buffer, tpl );
         }
 
