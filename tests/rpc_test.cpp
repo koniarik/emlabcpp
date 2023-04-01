@@ -97,10 +97,8 @@ TEST( rpc, basic )
         con::call< CALL_3 >( exchange_messages_f, 42 )
             .match(
                 [&]( rpc::void_return_type ) {},
-                [&]( rpc::error err ) {
-                        std::stringstream ss;
-                        pretty_stream_write( ss, err );
-                        FAIL() << ss.str();
+                [&]( rpc::error ) {
+                        FAIL() << "test errored";
                 } );
 }
 
@@ -151,9 +149,7 @@ TEST( rpc, bind )
         con::call< CALL_3 >( exchange_messages_f, 42 )
             .match(
                 [&]( rpc::void_return_type ) {},
-                [&]( rpc::error err ) {
-                        std::stringstream ss;
-                        pretty_stream_write( ss, err );
-                        FAIL() << ss.str();
+                [&]( rpc::error ) {
+                        FAIL() << "errored";
                 } );
 }

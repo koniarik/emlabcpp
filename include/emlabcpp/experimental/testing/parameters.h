@@ -203,6 +203,8 @@ struct param_value_processor
         T                   reply;
         param_value_request req;
 
+        void log_error( parameters& params );
+
         [[nodiscard]] bool set_value( const params_server_client_variant& var )
         {
                 const auto* const val_ptr = std::get_if< param_value_reply >( &var );
@@ -224,6 +226,8 @@ struct param_value_key_processor
 {
         T                       reply;
         param_value_key_request req;
+
+        void log_error( parameters& params );
 
         [[nodiscard]] bool set_value( const params_server_client_variant& var )
         {
@@ -247,6 +251,10 @@ struct param_type_processor
         param_type_request req;
         using reply_type = param_type_reply;
 
+        void log_error( parameters& )
+        {
+        }
+
         [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
 using param_type_awaiter = params_awaiter< param_type_processor >;
@@ -256,6 +264,10 @@ struct param_child_processor
 {
         node_id             reply;
         param_child_request req;
+
+        void log_error( parameters& )
+        {
+        }
 
         [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
@@ -267,6 +279,10 @@ struct param_child_count_processor
         child_count               reply;
         param_child_count_request req;
 
+        void log_error( parameters& )
+        {
+        }
+
         [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
 using param_child_count_awaiter = params_awaiter< param_child_count_processor >;
@@ -276,6 +292,10 @@ struct param_key_processor
 {
         key_type          reply;
         param_key_request req;
+
+        void log_error( parameters& )
+        {
+        }
 
         [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
@@ -337,6 +357,20 @@ private:
         params_client_transmit_callback send_cb_;
 };
 
+template < typename T >
+void param_value_processor< T >::log_error( parameters& params )
+{
+        params.send( param_error{ string_to_buffer( "for value of type:" ) } );
+        params.send( param_error{ string_to_buffer( pretty_type_name< T >() ) } );
+}
+
+template < typename T >
+void param_value_key_processor< T >::log_error( parameters& params )
+{
+        params.send( param_error{ string_to_buffer( "for keyvalue of type:" ) } );
+        params.send( param_error{ string_to_buffer( pretty_type_name< T >() ) } );
+}
+
 template < typename Processor >
 template < typename PromiseType >
 void params_awaiter< Processor >::await_suspend( const std::coroutine_handle< PromiseType > h )
@@ -345,10 +379,8 @@ void params_awaiter< Processor >::await_suspend( const std::coroutine_handle< Pr
         params.exchange( proc.req, [this]( const params_server_client_variant& var ) {
                 if ( !proc.set_value( var ) ) {
                         params.send( param_error{
-                            string_to_buffer( "failed to process parameter value" ) } );
-                        params.send(
-                            param_error{ string_to_buffer( pretty_type_name< Processor >() ) } );
-                        EMLABCPP_ERROR_LOG( "Setting value to processor errored" );
+                            string_to_buffer( "failed to process parameter awaiter" ) } );
+                        proc.log_error( params );
                         state = coro::wait_state::ERRORED;
                 } else {
                         state = coro::wait_state::READY;

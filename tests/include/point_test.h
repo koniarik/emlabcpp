@@ -49,6 +49,6 @@ using test_types = ::testing::Types<
     std::integral_constant< unsigned, 4 >,
     std::integral_constant< unsigned, 8 > >;
 
-TYPED_TEST_CASE( PointTest, test_types );
+TYPED_TEST_SUITE( PointTest, test_types );
 
 }  // namespace emlabcpp

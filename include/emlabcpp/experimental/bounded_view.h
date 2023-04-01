@@ -101,11 +101,4 @@ public:
         }
 };
 
-template < ostreamlike Stream, typename Iterator, bounded_derived SizeType >
-auto& operator<<( Stream& os, const bounded_view< Iterator, SizeType >& bv )
-{
-        const view< Iterator >& v = bv;
-        return os << v;
-}
-
 }  // namespace emlabcpp

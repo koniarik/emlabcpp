@@ -131,14 +131,18 @@ void controller::on_msg( const reactor_controller_variant& var )
             state_,
             [this, &var]( const initializing_state& ) -> opt_state {
                     if ( !iface_.on_msg_with_cb( var ) ) {
-                            EMLABCPP_ERROR_LOG( "Got wrong message: ", var );
+                            // TODO: var shall be logged
+                            std::ignore = var;
+                            EMLABCPP_ERROR_LOG( "Got wrong message: ", "" );
                     }
                     return std::nullopt;
             },
             [this, &var]( test_running_state& rs ) -> opt_state {
                     const auto& tf_ptr = std::get_if< test_finished >( &var );
                     if ( tf_ptr == nullptr ) {
-                            EMLABCPP_ERROR_LOG( "Got wrong message: ", var );
+                            // TODO: var shall be logged
+                            std::ignore = var;
+                            EMLABCPP_ERROR_LOG( "Got wrong message: ", "" );
                     }
 
                     rs.context.failed  = tf_ptr->failed;

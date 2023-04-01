@@ -73,8 +73,8 @@ struct tag
         friend constexpr auto operator<=>( const tag&, const tag& ) = default;
 };
 
-template < ostreamlike Stream, auto ID >
-auto& operator<<( Stream& os, tag< ID > )
+template < auto ID >
+std::ostream& operator<<( std::ostream& os, tag< ID > )
 {
         return os << ID;
 }

@@ -245,8 +245,8 @@ private:
         Matrix& m_;
 };
 
-template < ostreamlike Stream, matrix_like Matrix >
-auto& operator<<( Stream& os, const Matrix& m )
+template < matrix_like Matrix >
+std::ostream& operator<<( std::ostream& os, const Matrix& m )
 {
         for ( std::size_t i : range( Matrix::rows ) ) {
                 for ( std::size_t j : range( Matrix::cols ) ) {

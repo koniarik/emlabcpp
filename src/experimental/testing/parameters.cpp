@@ -34,7 +34,7 @@ bool param_type_processor::set_value( const params_server_client_variant& var )
         reply = val_ptr->type;
         return true;
 }
-template class params_awaiter< param_type_processor >;
+template struct params_awaiter< param_type_processor >;
 
 [[nodiscard]] bool param_child_processor::set_value( const params_server_client_variant& var )
 {
@@ -45,7 +45,7 @@ template class params_awaiter< param_type_processor >;
         reply = val_ptr->chid;
         return true;
 }
-template class params_awaiter< param_child_processor >;
+template struct params_awaiter< param_child_processor >;
 
 [[nodiscard]] bool param_child_count_processor::set_value( const params_server_client_variant& var )
 {
@@ -56,7 +56,7 @@ template class params_awaiter< param_child_processor >;
         reply = val_ptr->count;
         return true;
 }
-template class params_awaiter< param_child_count_processor >;
+template struct params_awaiter< param_child_count_processor >;
 
 [[nodiscard]] bool param_key_processor::set_value( const params_server_client_variant& var )
 {
@@ -67,7 +67,7 @@ template class params_awaiter< param_child_count_processor >;
         reply = val_ptr->key;
         return true;
 }
-template class params_awaiter< param_key_processor >;
+template struct params_awaiter< param_key_processor >;
 
 parameters::parameters(
     const protocol::channel_type    chann,
@@ -199,7 +199,7 @@ void parameters_server::on_req( const param_value_key_request& req )
         const contiguous_request_adapter harn{ tree_ };
 
         harn.get_child( req.nid, req.key )
-            .bind_left( [this, &req, &harn]( const child_id chid ) {
+            .bind_left( [&harn]( const child_id chid ) {
                     return harn.get_value( chid );
             } )
             .match(

@@ -99,12 +99,6 @@ void T::set_power(bounded<float, -1.f, 1.f>)
 
 A set of C++ concepts designed for implementing a checks inside the library.
 
-For example `ostreamlike` can be implement to write more generic ostream operators:
-
-```cpp
-auto& operator<<(emlabcpp::ostreamlike auto & os, const static_vector<T,N>&vec);
-```
-
 ### defer.h
 
 Simple utility class to setup code segments executed after the end of scope:

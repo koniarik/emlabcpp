@@ -21,9 +21,11 @@
 #include "emlabcpp/enum.h"
 #include "emlabcpp/experimental/decompose.h"
 #include "emlabcpp/match.h"
+#include "emlabcpp/range.h"
 #include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
 
+#include <bitset>
 #include <charconv>
 #include <chrono>
 #include <filesystem>
@@ -118,6 +120,12 @@ auto& pretty_stream_write( ostreamlike auto& os, const Ts&... item )
               item ),
           ... );
         return os;
+};
+
+template < typename T >
+concept pretty_printable = requires( const T& v )
+{
+        pretty_printer< T >::print( []( std::string_view ) {}, v );
 };
 
 template < std::size_t N, typename... Ts >
@@ -433,6 +441,18 @@ struct pretty_printer< std::chrono::duration< Rep, Period > >
         }
 };
 
+template < std::size_t N >
+struct pretty_printer< std::bitset< N > >
+{
+        template < typename Writer >
+        static void print( Writer&& w, const std::bitset< N >& b )
+        {
+                for ( std::size_t i : range( N ) ) {
+                        w( b[i] ? '1' : '0' );
+                }
+        }
+};
+
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 
 template <>
@@ -447,16 +467,5 @@ struct pretty_printer< nlohmann::json >
 };
 
 #endif
-
-template < decomposable T >
-struct pretty_printer< T >
-{
-        template < typename Writer >
-        static void print( Writer&& w, const T& item )
-        {
-                w( pretty_type_name< T >() );
-                w( decompose( item ) );
-        }
-};
 
 }  // namespace emlabcpp

@@ -211,15 +211,14 @@ void string_serialize_view( auto&& w, const view< Iterator >& output )
         }
 }
 
-/// Output operator for the view, uses comma to separate the items in the view.
-template < ostreamlike Stream, typename Iterator >
-auto& operator<<( Stream& os, const view< Iterator >& output )
+template < typename Iterator >
+std::ostream& operator<<( std::ostream& os, const view< Iterator >& iter )
 {
         string_serialize_view(
-            [&os]( const auto& item ) {
+            [&]( const auto& item ) {
                     os << item;
             },
-            output );
+            iter );
         return os;
 }
 

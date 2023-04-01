@@ -42,7 +42,7 @@ void collect_awaiter::await_suspend( const std::coroutine_handle< test_coroutine
                     },
                     [this]( const tree_error_reply& err ) {
                             std::ignore = err;
-                            EMLABCPP_ERROR_LOG( "Got an error: ", err );
+                            EMLABCPP_ERROR_LOG( "Got an error: ", decompose( err ) );
                             state = coro::wait_state::ERRORED;
                     } );
         } );

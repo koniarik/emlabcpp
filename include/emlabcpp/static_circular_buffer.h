@@ -343,8 +343,8 @@ operator!=( const static_circular_buffer< T, N >& lh, const static_circular_buff
 }
 
 /// Output operator for the view, uses comma to separate the items in the view.
-template < ostreamlike Stream, typename T, std::size_t N >
-auto& operator<<( Stream& os, const static_circular_buffer< T, N >& cb )
+template <  typename T, std::size_t N >
+std::ostream& operator<<( std::ostream& os, const static_circular_buffer< T, N >& cb )
 {
         return os << view{ cb };
 }

@@ -57,25 +57,25 @@ using error_variant = std::variant<
     internal_reactor_error,
     controller_internal_error >;
 
-auto& operator<<( ostreamlike auto& os, const reactor_protocol_error& e )
+inline std::ostream& operator<<( std::ostream& os, const reactor_protocol_error& e )
 {
         return os << e.rec;
 }
 
-auto& operator<<( ostreamlike auto& os, const controller_protocol_error& e )
+inline std::ostream& operator<<( std::ostream& os, const controller_protocol_error& e )
 {
         return os << e.rec;
 }
 
-auto& operator<<( ostreamlike auto& os, const internal_reactor_error& e )
+inline std::ostream& operator<<( std::ostream& os, const internal_reactor_error& e )
 {
-        match( e.val, [&os, &e]< typename T >( const T& ) {
+        match( e.val, [&os]< typename T >( const T& ) {
                 os << T::id;
         } );
         return os;
 }
 
-auto& operator<<( ostreamlike auto& os, const controller_internal_error& e )
+inline std::ostream& operator<<( std::ostream& os, const controller_internal_error& e )
 {
 #ifdef EMLABCPP_USE_MAGIC_ENUM
         return os << convert_enum( e.msg_id );
@@ -83,10 +83,10 @@ auto& operator<<( ostreamlike auto& os, const controller_internal_error& e )
         return os << e.msg_id;
 }
 
-auto& operator<<( ostreamlike auto& os, const error_variant& var )
+inline std::ostream& operator<<( std::ostream& os, const error_variant& var )
 {
         emlabcpp::visit(
-            [&os, &var]( const auto& item ) {
+            [&os]( const auto& item ) {
                     os << item;
             },
             var );

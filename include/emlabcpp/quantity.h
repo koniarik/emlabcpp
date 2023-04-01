@@ -265,8 +265,8 @@ constexpr ValueType operator/( const ValueType val, const quantity< Derived, Val
         return val / *q;
 }
 
-template < ostreamlike Stream, typename T, typename ValueType >
-auto& operator<<( Stream& os, const quantity< T, ValueType >& q )
+template < typename T, typename ValueType >
+std::ostream& operator<<( std::ostream& os, const quantity< T, ValueType >& q )
 {
         return os << *q << T::get_unit();
 }

@@ -113,8 +113,8 @@ private:
         object_type* obj_;
 };
 
-template < ostreamlike Stream, typename ObjectType >
-auto& operator<<( Stream& os, const contiguous_object_handle< ObjectType >& oh )
+template < typename ObjectType >
+std::ostream& operator<<( std::ostream& os, const contiguous_object_handle< ObjectType >& oh )
 {
         for ( const auto& [key, nid] : oh ) {
                 os << key << ":" << nid << ",";
@@ -181,8 +181,8 @@ public:
 private:
         array_type* arr_;
 };
-template < ostreamlike Stream, typename ArrayType >
-auto& operator<<( Stream& os, const contiguous_array_handle< ArrayType >& ah )
+template < typename ArrayType >
+std::ostream& operator<<( std::ostream& os, const contiguous_array_handle< ArrayType >& ah )
 {
         for ( const auto& [chid, nid] : ah ) {
                 os << chid << ":" << nid << ",";
@@ -268,8 +268,8 @@ private:
         content_type content_;
 };
 
-template < ostreamlike Stream, typename Key, typename Value >
-auto& operator<<( Stream& os, const contiguous_node< Key, Value >& node )
+template < typename Key, typename Value >
+std::ostream& operator<<( std::ostream& os, const contiguous_node< Key, Value >& node )
 {
         visit(
             [&os]( const auto& val ) {
@@ -412,8 +412,8 @@ private:
         std::reference_wrapper< pmr::memory_resource > mem_res_;
 };
 
-template < ostreamlike Stream, typename Key, typename Value >
-auto& operator<<( Stream& os, const contiguous_tree< Key, Value >& tree )
+template < typename Key, typename Value >
+std::ostream& operator<<( std::ostream& os, const contiguous_tree< Key, Value >& tree )
 {
         for ( const auto& [nid, node] : tree ) {
                 os << nid << ":" << node << "\n";

@@ -104,22 +104,22 @@ struct pretty_printer< protocol::error_record >
 namespace protocol
 {
         template < std::size_t N >
-        auto& operator<<( ostreamlike auto& os, const message< N >& m )
+        inline std::ostream& operator<<( std::ostream& os, const message< N >& m )
         {
                 return pretty_stream_write( os, m );
         }
 
-        auto& operator<<( ostreamlike auto& os, const mark& m )
+        inline std::ostream& operator<<( std::ostream& os, const mark& m )
         {
                 return pretty_stream_write( os, m );
         }
 
-        auto& operator<<( ostreamlike auto& os, const error_record& rec )
+        inline std::ostream& operator<<( std::ostream& os, const error_record& rec )
         {
                 return pretty_stream_write( os, rec );
         }
 
-        auto& operator<<( ostreamlike auto& os, const std::endian& val )
+        inline std::ostream& operator<<( std::ostream& os, const std::endian& val )
         {
                 switch ( val ) {
                 case std::endian::big:

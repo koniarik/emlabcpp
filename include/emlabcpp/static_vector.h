@@ -321,8 +321,8 @@ void swap( const static_vector< T, N >& lh, const static_vector< T, N >& rh ) no
 }
 
 /// Output operator for the view, uses comma to separate the items in the view.
-template < ostreamlike Stream, typename T, std::size_t N >
-auto& operator<<( Stream& os, const static_vector< T, N >& vec )
+template < typename T, std::size_t N >
+std::ostream& operator<<( std::ostream& os, const static_vector< T, N >& vec )
 {
         return os << view{ vec };
 }

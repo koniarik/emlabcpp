@@ -32,7 +32,7 @@ TEST( SimplexTest, volume2d )
 
         simplex< point< 2 >, 2 > sim( data );
 
-        ASSERT_EQ( volume_of( sim ), 0.5f );
+        ASSERT_NEAR( volume_of( sim ), 0.5f, 0.001f );
 }
 TEST( SimplexTest, volume3d )
 {

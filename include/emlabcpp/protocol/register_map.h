@@ -137,14 +137,14 @@ public:
 
         static constexpr std::size_t register_size( register_index i )
         {
-                return select_index( i, [&i]< std::size_t j >() {
+                return select_index( i, []< std::size_t j >() {
                         return std::tuple_element_t< j, registers_tuple >::size;
                 } );
         }
 
         static constexpr key_type register_key( register_index i )
         {
-                return select_index( i, [&i]< std::size_t j >() {
+                return select_index( i, []< std::size_t j >() {
                         return std::tuple_element_t< j, registers_tuple >::key;
                 } );
         }
@@ -209,8 +209,8 @@ void for_each_register( const Map& m, UnaryCallable&& f )
         } );
 }
 
-template < ostreamlike Stream, std::endian Endianess, typename... Regs >
-auto& operator<<( Stream& os, const register_map< Endianess, Regs... >& m )
+template < std::endian Endianess, typename... Regs >
+std::ostream& operator<<( std::ostream& os, const register_map< Endianess, Regs... >& m )
 {
         for_each_register(
             m, [&os]< auto key, typename T >( const T& val ) {  

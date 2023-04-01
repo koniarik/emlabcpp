@@ -177,8 +177,18 @@ concept bounded_derived = requires( T val )
         detail::bounded_derived_test( val );
 };
 
-template < ostreamlike Stream, typename T, T MinVal, T MaxVal >
-auto& operator<<( Stream& os, const bounded< T, MinVal, MaxVal >& b )
+template < typename T, T MinVal, T MaxVal >
+struct pretty_printer< bounded< T, MinVal, MaxVal > >
+{
+        template < typename Writer >
+        static void print( Writer&& w, const bounded< T, MinVal, MaxVal >& b )
+        {
+                pretty_printer< T >::print( w, *b );
+        }
+};
+
+template < typename T, T MinVal, T MaxVal >
+std::ostream& operator<<( std::ostream& os, const bounded< T, MinVal, MaxVal >& b )
 {
         return os << *b;
 }

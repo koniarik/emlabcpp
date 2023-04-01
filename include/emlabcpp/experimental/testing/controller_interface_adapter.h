@@ -82,23 +82,31 @@ public:
                 match(
                     var,
                     []( const reactor_protocol_error& e ) {
-                            EMLABCPP_ERROR_LOG( "Protocol error reported from reactor: ", e );
+                            EMLABCPP_ERROR_LOG(
+                                "Protocol error reported from reactor: ", decompose( e ) );
                     },
                     []( const controller_protocol_error& e ) {
-                            EMLABCPP_ERROR_LOG( "Protocol error reported from controller: ", e );
+                            EMLABCPP_ERROR_LOG(
+                                "Protocol error reported from controller: ", decompose( e ) );
                     },
                     []( const internal_reactor_error& e ) {
-                            EMLABCPP_ERROR_LOG( "Internal error from reactor: ", e );
+                            visit(
+                                [&]( auto& item ) {
+                                        EMLABCPP_ERROR_LOG(
+                                            "Internal error from reactor: ", decompose( item ) );
+                                },
+                                e.val );
                     },
                     []( const controller_internal_error& e ) {
-                            EMLABCPP_ERROR_LOG( "Wrong message arrived to controller: ", e );
+                            EMLABCPP_ERROR_LOG(
+                                "Wrong message arrived to controller: ", decompose( e ) );
                     } );
                 const auto* const internal_ptr = std::get_if< internal_reactor_error >( &var );
 
                 if ( internal_ptr != nullptr ) {
                         match(
                             internal_ptr->val,
-                            [this]( const wrong_type_error& ) {},
+                            []( const wrong_type_error& ) {},
                             []( const auto& ) {} );
                 }
         }
