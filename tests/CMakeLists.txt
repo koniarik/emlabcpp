@@ -4,14 +4,13 @@ find_package(GTest REQUIRED)
 
 target_compile_options(
   emlabcpp
-  PRIVATE -DEMLABCPP_USE_NLOHMANN_JSON -DEMLABCPP_ASSERT_NATIVE
+  PUBLIC -DEMLABCPP_USE_NLOHMANN_JSON -DEMLABCPP_ASSERT_NATIVE
           -DEMLABCPP_USE_MAGIC_ENUM -DEMLABCPP_USE_GTEST -DEMLABCPP_USE_LOGGING
-          -DEMLABCPP_USE_DEMANGLING)
-target_include_directories(emlabcpp SYSTEM PRIVATE third-party/)
+          -DEMLABCPP_USE_DEMANGLING -DEMLABCPP_USE_OSTREAM)
+target_include_directories(emlabcpp SYSTEM PUBLIC third-party/)
 
 function(emlabcpp_setup_test target)
   target_include_directories(${target} PRIVATE include/)
-  target_include_directories(${target} SYSTEM PRIVATE third-party/)
   target_link_libraries(${target} emlabcpp)
   # gtest_discover_tests(${target})
   add_test(NAME ${target}_test COMMAND ${target})
@@ -92,6 +91,3 @@ add_emlabcpp_test(pose_test)
 add_emlabcpp_test(quaternion_test)
 add_emlabcpp_test(simplex_test)
 
-# file(GLOB_RECURSE HEADER_FILES "${PROJECT_SOURCE_DIR}/include/*.h" )
-# add_format_test( TARGET emlabcpp_format WORKING_DIRECTORY
-# ${PROJECT_SOURCE_DIR} FILES ${HEADER_FILES})

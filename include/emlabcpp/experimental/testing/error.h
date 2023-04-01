@@ -57,6 +57,7 @@ using error_variant = std::variant<
     internal_reactor_error,
     controller_internal_error >;
 
+#ifdef EMLABCPP_USE_OSTREAM
 inline std::ostream& operator<<( std::ostream& os, const reactor_protocol_error& e )
 {
         return os << e.rec;
@@ -92,5 +93,6 @@ inline std::ostream& operator<<( std::ostream& os, const error_variant& var )
             var );
         return os;
 }
+#endif
 
 }  // namespace emlabcpp::testing

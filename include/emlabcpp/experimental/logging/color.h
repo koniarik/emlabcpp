@@ -42,10 +42,12 @@ struct log_color_stub
         std::string_view c;
 };
 
+#ifdef EMLABCPP_USE_OSTREAM
 inline std::ostream& operator<<( std::ostream& os, const log_color_stub& c )
 {
         return os << "\033[38;5;" << c.c << "m";
 }
+#endif
 
 consteval std::string_view reset_color()
 {

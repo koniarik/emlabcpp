@@ -187,10 +187,12 @@ struct pretty_printer< bounded< T, MinVal, MaxVal > >
         }
 };
 
+#ifdef EMLABCPP_USE_OSTREAM
 template < typename T, T MinVal, T MaxVal >
 std::ostream& operator<<( std::ostream& os, const bounded< T, MinVal, MaxVal >& b )
 {
         return os << *b;
 }
+#endif
 
 }  // namespace emlabcpp

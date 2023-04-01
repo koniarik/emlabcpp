@@ -113,6 +113,7 @@ private:
         object_type* obj_;
 };
 
+#ifdef EMLABCPP_USE_OSTREAM
 template < typename ObjectType >
 std::ostream& operator<<( std::ostream& os, const contiguous_object_handle< ObjectType >& oh )
 {
@@ -121,6 +122,7 @@ std::ostream& operator<<( std::ostream& os, const contiguous_object_handle< Obje
         }
         return os;
 }
+#endif
 
 template < typename ArrayType >
 class contiguous_array_handle
@@ -181,6 +183,8 @@ public:
 private:
         array_type* arr_;
 };
+
+#ifdef EMLABCPP_USE_OSTREAM
 template < typename ArrayType >
 std::ostream& operator<<( std::ostream& os, const contiguous_array_handle< ArrayType >& ah )
 {
@@ -189,6 +193,7 @@ std::ostream& operator<<( std::ostream& os, const contiguous_array_handle< Array
         }
         return os;
 }
+#endif
 
 template < typename Key, typename Value >
 class contiguous_node
@@ -268,6 +273,7 @@ private:
         content_type content_;
 };
 
+#ifdef EMLABCPP_USE_OSTREAM
 template < typename Key, typename Value >
 std::ostream& operator<<( std::ostream& os, const contiguous_node< Key, Value >& node )
 {
@@ -278,6 +284,7 @@ std::ostream& operator<<( std::ostream& os, const contiguous_node< Key, Value >&
             node.get_container_handle() );
         return os;
 }
+#endif
 
 template < typename Key, typename Value >
 class contiguous_tree
@@ -412,6 +419,7 @@ private:
         std::reference_wrapper< pmr::memory_resource > mem_res_;
 };
 
+#ifdef EMLABCPP_USE_OSTREAM
 template < typename Key, typename Value >
 std::ostream& operator<<( std::ostream& os, const contiguous_tree< Key, Value >& tree )
 {
@@ -420,5 +428,6 @@ std::ostream& operator<<( std::ostream& os, const contiguous_tree< Key, Value >&
         }
         return os;
 }
+#endif
 
 }  // namespace emlabcpp

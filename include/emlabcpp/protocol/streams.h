@@ -103,6 +103,7 @@ struct pretty_printer< protocol::error_record >
 
 namespace protocol
 {
+#ifdef EMLABCPP_USE_OSTREAM
         template < std::size_t N >
         inline std::ostream& operator<<( std::ostream& os, const message< N >& m )
         {
@@ -129,5 +130,6 @@ namespace protocol
                 }
                 return os;
         }
+#endif
 }  // namespace protocol
 }  // namespace emlabcpp

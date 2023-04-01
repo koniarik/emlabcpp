@@ -342,12 +342,14 @@ operator!=( const static_circular_buffer< T, N >& lh, const static_circular_buff
         return !( lh == rh );
 }
 
+#ifdef EMLABCPP_USE_OSTREAM
 /// Output operator for the view, uses comma to separate the items in the view.
-template <  typename T, std::size_t N >
+template < typename T, std::size_t N >
 std::ostream& operator<<( std::ostream& os, const static_circular_buffer< T, N >& cb )
 {
         return os << view{ cb };
 }
+#endif
 
 }  // namespace emlabcpp
 

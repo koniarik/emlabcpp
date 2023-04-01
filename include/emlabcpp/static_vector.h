@@ -320,12 +320,14 @@ void swap( const static_vector< T, N >& lh, const static_vector< T, N >& rh ) no
         lh.swap( rh );
 }
 
+#ifdef EMLABCPP_USE_OSTREAM
 /// Output operator for the view, uses comma to separate the items in the view.
 template < typename T, std::size_t N >
 std::ostream& operator<<( std::ostream& os, const static_vector< T, N >& vec )
 {
         return os << view{ vec };
 }
+#endif
 
 template < typename T, std::size_t N >
 struct pretty_printer< static_vector< T, N > >

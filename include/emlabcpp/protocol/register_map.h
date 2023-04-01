@@ -209,6 +209,7 @@ void for_each_register( const Map& m, UnaryCallable&& f )
         } );
 }
 
+#ifdef EMLABCPP_USE_OSTREAM
 template < std::endian Endianess, typename... Regs >
 std::ostream& operator<<( std::ostream& os, const register_map< Endianess, Regs... >& m )
 {
@@ -219,5 +220,6 @@ std::ostream& operator<<( std::ostream& os, const register_map< Endianess, Regs.
 
         return os;
 }
+#endif
 
 }  // namespace emlabcpp::protocol

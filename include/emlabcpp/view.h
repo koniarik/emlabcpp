@@ -211,6 +211,7 @@ void string_serialize_view( auto&& w, const view< Iterator >& output )
         }
 }
 
+#ifdef EMLABCPP_USE_OSTREAM
 template < typename Iterator >
 std::ostream& operator<<( std::ostream& os, const view< Iterator >& iter )
 {
@@ -221,5 +222,6 @@ std::ostream& operator<<( std::ostream& os, const view< Iterator >& iter )
             iter );
         return os;
 }
+#endif
 
 }  // namespace emlabcpp

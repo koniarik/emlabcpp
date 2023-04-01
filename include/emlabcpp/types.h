@@ -73,11 +73,13 @@ struct tag
         friend constexpr auto operator<=>( const tag&, const tag& ) = default;
 };
 
+#ifdef EMLABCPP_USE_OSTREAM
 template < auto ID >
 std::ostream& operator<<( std::ostream& os, tag< ID > )
 {
         return os << ID;
 }
+#endif
 
 /// ------------------------------------------------------------------------------------------------
 //// central function for returning name of type that can demangle if necessary

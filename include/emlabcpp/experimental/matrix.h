@@ -245,6 +245,7 @@ private:
         Matrix& m_;
 };
 
+#ifdef EMLABCPP_USE_OSTREAM
 template < matrix_like Matrix >
 std::ostream& operator<<( std::ostream& os, const Matrix& m )
 {
@@ -256,6 +257,7 @@ std::ostream& operator<<( std::ostream& os, const Matrix& m )
         }
         return os;
 }
+#endif
 
 template < matrix_like LH, matrix_like RH >
 requires( LH::rows == RH::rows && LH::cols == RH::cols ) constexpr auto
