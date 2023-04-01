@@ -84,7 +84,7 @@ struct operations_counter_fixture : ::testing::Test
 
         void SetUp() override
         {
-                for ( std::size_t i : range( n ) ) {
+                for ( const std::size_t i : range( n ) ) {
                         std::ignore = i;
                         cont.emplace_back();
                 }

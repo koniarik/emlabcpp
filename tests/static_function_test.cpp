@@ -30,13 +30,13 @@ using complex_function = static_function< float( int, std::string ), 42 >;
 // NOLINTNEXTLINE
 TEST( StaticFunction, empty )
 {
-        basic_function bf;
+        const basic_function bf;
         EXPECT_FALSE( bf );
 
-        return_function rf;
+        const return_function rf;
         EXPECT_FALSE( rf );
 
-        complex_function cf;
+        const complex_function cf;
         EXPECT_FALSE( cf );
 }
 
@@ -74,14 +74,14 @@ TEST( StaticFunction, call_function_pointer )
                 return std::to_string( val );
         };
         EXPECT_TRUE( rf );
-        std::string sub_res = rf( 42 );
+        const std::string sub_res = rf( 42 );
         EXPECT_EQ( sub_res, "42" );
 
         complex_function cf = []( int val, const std::string& sval ) -> float {
                 return static_cast< float >( val * std::stoi( sval ) );
         };
         EXPECT_TRUE( cf );
-        float val = cf( 42, "2" );
+        const float val = cf( 42, "2" );
         EXPECT_EQ( val, 84 );
 }
 

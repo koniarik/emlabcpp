@@ -118,7 +118,7 @@ struct valid_test_case : protocol_test_fixture
         void TestBody() final
         {
                 auto msg      = handler::serialize( val );
-                bool is_equal = equal( msg, expected_buffer );
+                const bool is_equal = equal( msg, expected_buffer );
                 EXPECT_TRUE( is_equal )
                     << "msg: " << convert_view< int >( msg ) << "\n"
                     << "expected: " << convert_view< int >( expected_buffer ) << "\n";
@@ -153,7 +153,7 @@ int main( int argc, char** argv )
 {
         testing::InitGoogleTest( &argc, argv );
 
-        std::vector< std::function< protocol_test_fixture*() > > tests = {
+        const std::vector< std::function< protocol_test_fixture*() > > tests = {
             make_valid_test_case< simple_group >(
                 simple_group::make_val< FOO >( 42u, 666u ), { 12, 0, 0, 0, 42, 0, 0, 2, 154 } ),
             make_valid_test_case< simple_group >(

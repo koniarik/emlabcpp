@@ -63,7 +63,7 @@ TEST( protocol_seq, basic )
                     FAIL();
             },
             [&]( auto msg ) {
-                    bool are_equal = equal( msg, data );
+                    const bool are_equal = equal( msg, data );
                     EXPECT_TRUE( are_equal );
             } );
 }
@@ -89,7 +89,7 @@ TEST( protocol_seq, noise_at_start )
                     FAIL();
             },
             [&]( auto msg ) {
-                    bool are_equal = equal( msg, tail( data ) );
+                    const bool are_equal = equal( msg, tail( data ) );
                     EXPECT_TRUE( are_equal ) << msg;
             } );
 }
@@ -110,7 +110,7 @@ TEST( protocol_seq, multi_msg )
                     FAIL();
             },
             [&]( auto msg ) {
-                    bool are_equal = equal( msg, msg1 );
+                    const bool are_equal = equal( msg, msg1 );
                     EXPECT_TRUE( are_equal );
             } );
 
@@ -120,7 +120,7 @@ TEST( protocol_seq, multi_msg )
                     FAIL();
             },
             [&]( auto msg ) {
-                    bool are_equal = equal( msg, msg2 );
+                    const bool are_equal = equal( msg, msg2 );
                     EXPECT_TRUE( are_equal );
             } );
 }

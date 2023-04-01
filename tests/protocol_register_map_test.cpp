@@ -70,9 +70,9 @@ struct valid_test_case : protocol_test_fixture
                 test_map m;
 
                 std::array< uint8_t, max_size > buffer;
-                bounded                         used = pitem::serialize_at(
+                const bounded                   used = pitem::serialize_at(
                     std::span< uint8_t, pitem::max_size >( buffer.begin(), pitem::max_size ), val );
-                auto source_msg = *message_type::make( view_n( buffer.begin(), *used ) );
+                const auto source_msg = *message_type::make( view_n( buffer.begin(), *used ) );
                 test_handler::extract< Key >( source_msg )
                     .match(
                         [&]( auto val ) {
@@ -82,7 +82,7 @@ struct valid_test_case : protocol_test_fixture
                                 FAIL() << err;
                         } );
 
-                value_type stored = m.get_val< Key >();
+                const value_type stored = m.get_val< Key >();
 
                 EXPECT_EQ( val, stored );
 
@@ -122,7 +122,7 @@ int main( int argc, char** argv )
 {
         testing::InitGoogleTest( &argc, argv );
 
-        std::vector< std::function< protocol_test_fixture*() > > tests = {
+        const std::vector< std::function< protocol_test_fixture*() > > tests = {
             make_valid_test_case< FOO >( 6663434u ),
             make_valid_test_case< WOO >( 6663434u ),
             make_valid_test_case< TOO >( 42u ),

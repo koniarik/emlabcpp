@@ -89,7 +89,7 @@ TEST( static_vector_test, emplace_back )
         EXPECT_EQ( tbuff.back(), 42 );
 
         // This is special constructor of std::string
-        std::size_t i = 5;
+        const std::size_t i = 5;
         obuff.emplace_back( i, 'c' );
         EXPECT_EQ( obuff.back(), "ccccc" );
 }
@@ -113,7 +113,7 @@ TEST( static_vector_test, usage )
 TEST( static_vector_test, copy_trivial )
 {
         trivial_buffer tbuff;
-        for ( int i : { 1, 2, 3, 4, 5 } ) {
+        for ( const int i : { 1, 2, 3, 4, 5 } ) {
                 tbuff.push_back( i );
         }
 
@@ -139,12 +139,12 @@ TEST( static_vector_test, copy_trivial )
 TEST( static_vector_test, copy_object )
 {
         obj_buffer obuff;
-        for ( std::string s :
+        for ( const std::string s :
               { "Pack", "my", "box", "with", "five", "dozen", "liquor", "jugs." } ) {
                 obuff.push_back( s );
         }
 
-        obj_buffer cpy{ obuff };
+        const obj_buffer cpy{ obuff };
         EXPECT_EQ( obuff, cpy );
 
         obj_buffer cpy2;
@@ -155,11 +155,11 @@ TEST( static_vector_test, copy_object )
 TEST( static_vector_test, move_trivial )
 {
         trivial_buffer tbuff;
-        for ( int i : { 1, 2, 3, 4, 5 } ) {
+        for ( const int i : { 1, 2, 3, 4, 5 } ) {
                 tbuff.push_back( i );
         }
 
-        trivial_buffer cpy{ tbuff };
+        const trivial_buffer cpy{ tbuff };
         trivial_buffer moved{ std::move( tbuff ) };
 
         EXPECT_EQ( cpy, moved );
@@ -173,12 +173,12 @@ TEST( static_vector_test, move_trivial )
 TEST( static_vector_test, move_object )
 {
         obj_buffer obuff;
-        for ( std::string s :
+        for ( const std::string s :
               { "Pack", "my", "box", "with", "five", "dozen", "liquor", "jugs." } ) {
                 obuff.push_back( s );
         }
 
-        obj_buffer cpy{ obuff };
+        const obj_buffer cpy{ obuff };
         obj_buffer moved{ std::move( obuff ) };
 
         EXPECT_EQ( cpy, moved );

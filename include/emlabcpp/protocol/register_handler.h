@@ -52,7 +52,7 @@ struct register_handler
 
                 std::array< uint8_t, max_size > buffer;
                 static_assert( def::size_type::max_val <= max_size );
-                bounded used = def::serialize_at(
+                const bounded used = def::serialize_at(
                     std::span< uint8_t, def::size_type::max_val >(
                         buffer.begin(), def::size_type::max_val ),
                     val );

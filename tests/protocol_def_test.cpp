@@ -46,9 +46,9 @@ struct valid_test_case : protocol_test_fixture
         void TestBody() final
         {
                 std::array< uint8_t, pitem::max_size > buffer{};
-                std::span                              bspan{ buffer };
+                const std::span                        bspan{ buffer };
 
-                bounded used =
+                const bounded used =
                     pitem::serialize_at( bspan.template first< pitem::max_size >(), val );
 
                 EXPECT_EQ( *used, expected_buffer.size() );
@@ -171,7 +171,7 @@ int main( int argc, char** argv )
 {
         testing::InitGoogleTest( &argc, argv );
 
-        std::vector< std::function< protocol_test_fixture*() > > tests = {
+        const std::vector< std::function< protocol_test_fixture*() > > tests = {
             // basic types
             make_valid_test_case< std::endian::little >( uint8_t{ 42 }, { 42 } ),
             make_valid_test_case< std::endian::big >( uint8_t{ 42 }, { 42 } ),
