@@ -30,13 +30,13 @@ using complex_function = static_function< float( int, std::string ), 42 >;
 // NOLINTNEXTLINE
 TEST( StaticFunction, empty )
 {
-        const basic_function bf;
+        const basic_function bf{};
         EXPECT_FALSE( bf );
 
-        const return_function rf;
+        const return_function rf{};
         EXPECT_FALSE( rf );
 
-        const complex_function cf;
+        const complex_function cf{};
         EXPECT_FALSE( cf );
 }
 
