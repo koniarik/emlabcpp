@@ -117,7 +117,7 @@ struct valid_test_case : protocol_test_fixture
 
         void TestBody() final
         {
-                auto msg      = handler::serialize( val );
+                auto       msg      = handler::serialize( val );
                 const bool is_equal = equal( msg, expected_buffer );
                 EXPECT_TRUE( is_equal )
                     << "msg: " << convert_view< int >( msg ) << "\n"

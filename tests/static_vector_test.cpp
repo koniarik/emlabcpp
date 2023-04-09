@@ -160,7 +160,7 @@ TEST( static_vector_test, move_trivial )
         }
 
         const trivial_buffer cpy{ tbuff };
-        trivial_buffer moved{ std::move( tbuff ) };
+        trivial_buffer       moved{ std::move( tbuff ) };
 
         EXPECT_EQ( cpy, moved );
 
@@ -179,7 +179,7 @@ TEST( static_vector_test, move_object )
         }
 
         const obj_buffer cpy{ obuff };
-        obj_buffer moved{ std::move( obuff ) };
+        obj_buffer       moved{ std::move( obuff ) };
 
         EXPECT_EQ( cpy, moved );
 

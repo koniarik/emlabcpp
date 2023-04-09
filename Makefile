@@ -34,7 +34,7 @@ include-what-you-use:
 	cmake --build build/iwyu
 
 clang-tidy:
-	cmake -Bbuild/clang-tidy -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy 
+	cmake -Bbuild/clang-tidy -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy
 	cmake --build build/clang-tidy
 
 clang-format:

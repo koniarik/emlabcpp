@@ -16,7 +16,7 @@ There are multiple motivations for avoiding exceptions that might arise:
  - The opinion that they might lead to less stable/robust system, compared to explicit error handling
  - Implementation of exceptions might use dynamic memory
 
-And there are corner case problems, such as: 
+And there are corner case problems, such as:
 In case exceptions are used, the system has to have default exception handler for std::terminate which might by called by exceptions. `gcc-arm-none-eabi` provides default handler that brings in C++ type name demangling capability, which results in +-30kbytes of code in the binary. (Which is a LOT for embedded)
 The way to avoid is to override the function that gcc uses for this, which is not optimal.
 

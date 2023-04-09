@@ -69,7 +69,7 @@ TEST( FunctionView, call_callable )
                 return std::to_string( val );
         };
         const return_view rf{ lr };
-        std::string test_sres = rf( 42 );
+        std::string       test_sres = rf( 42 );
         EXPECT_EQ( test_value, 42 );
         EXPECT_EQ( test_sres, "42" );
         test_sres = rf( 666 );
@@ -82,7 +82,7 @@ TEST( FunctionView, call_callable )
                 return static_cast< float >( std::stoi( sval ) );
         };
         const complex_view cf{ lc };
-        float        test_fres = cf( 42, "12" );
+        float              test_fres = cf( 42, "12" );
         EXPECT_EQ( test_value, 42 );
         EXPECT_EQ( test_fres, 12.f );
         test_fres = cf( 666, "13" );

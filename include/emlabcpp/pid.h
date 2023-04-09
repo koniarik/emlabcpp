@@ -115,8 +115,8 @@ float update( pid< TimeType >& pid, TimeType now, float measured, float desired 
         pid.i_sum = std::clamp( pid.i_sum, pid.cfg.limits.min, pid.cfg.limits.max );
 
         const float measured_diff = ( measured - pid.last_measured ) / t_diff;
-        pid.output          = coeff.p * error + pid.i_sum - coeff.d * measured_diff;
-        pid.output          = std::clamp( pid.output, pid.cfg.limits.min, pid.cfg.limits.max );
+        pid.output                = coeff.p * error + pid.i_sum - coeff.d * measured_diff;
+        pid.output = std::clamp( pid.output, pid.cfg.limits.min, pid.cfg.limits.max );
 
         pid.last_measured = measured;
         pid.last_time     = now;

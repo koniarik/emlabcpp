@@ -19,7 +19,7 @@ Library still can use techniques outside of the defined limits, but all that usa
 For the extra facilities, the library can use of two approaches to avoid affecting standard usage:
  - Make the concrete functionality conditional with usage of preprocessor defines (for example: EMLABCPP_USE_DEMANGLING define allows usage of demangling facility of the compiler)
  - Clearly separate the extra functionality into separate file (library provides custom allocator/memory_resource concept, one of the memory resources uses new/delete and is in separate file)
- 
+
 In case preprocessor defines are used:
  - The functionality is disabled by default
  - The preprocessor define enables the functionality if defined, disabled otherwise
@@ -29,7 +29,7 @@ The exact limitations should be defined in other ADR records.
 
 ## Consequences
 
-The benefit of this decision is that the "standard usage" of the library should be compatible with wide spectrum of embedded environments/setup. 
+The benefit of this decision is that the "standard usage" of the library should be compatible with wide spectrum of embedded environments/setup.
 
 In case it is wanted by the user, there is still abillity to provide/use the advanced capabilities, user just has to explicitly enable it.
 

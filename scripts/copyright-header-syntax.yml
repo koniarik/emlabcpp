@@ -115,7 +115,7 @@ java:
     open:   '/*\n'
     close:  ' */\n\n'
     prefix: ' * '
-    
+
 kotlin:
   ext: ['.kt']
   comment:

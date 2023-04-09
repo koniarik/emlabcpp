@@ -4,9 +4,13 @@ find_package(GTest REQUIRED)
 
 target_compile_options(
   emlabcpp
-  PUBLIC -DEMLABCPP_USE_NLOHMANN_JSON -DEMLABCPP_ASSERT_NATIVE
-          -DEMLABCPP_USE_MAGIC_ENUM -DEMLABCPP_USE_GTEST -DEMLABCPP_USE_LOGGING
-          -DEMLABCPP_USE_DEMANGLING -DEMLABCPP_USE_OSTREAM)
+  PUBLIC -DEMLABCPP_USE_NLOHMANN_JSON
+         -DEMLABCPP_ASSERT_NATIVE
+         -DEMLABCPP_USE_MAGIC_ENUM
+         -DEMLABCPP_USE_GTEST
+         -DEMLABCPP_USE_LOGGING
+         -DEMLABCPP_USE_DEMANGLING
+         -DEMLABCPP_USE_OSTREAM)
 target_include_directories(emlabcpp SYSTEM PUBLIC third-party/)
 
 function(emlabcpp_setup_test target)
@@ -90,4 +94,3 @@ add_emlabcpp_test(point_test)
 add_emlabcpp_test(pose_test)
 add_emlabcpp_test(quaternion_test)
 add_emlabcpp_test(simplex_test)
-

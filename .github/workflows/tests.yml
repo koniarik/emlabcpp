@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
     test:
-        runs-on: ubuntu-22.04	
+        runs-on: ubuntu-22.04
 
         defaults:
             run:
@@ -13,7 +13,7 @@ jobs:
         env:
             CC: gcc-11
             CXX: g++-11
-        
+
         steps:
             - uses: actions/checkout@v2
 
@@ -22,9 +22,9 @@ jobs:
 
             - name: Test
               run: make test
-            
+
             - name: Test under address sanitizer
               run: make test SANITIZER=address
-            
+
             - name: Test under undefined sanitizer
               run: make test SANITIZER=undefined

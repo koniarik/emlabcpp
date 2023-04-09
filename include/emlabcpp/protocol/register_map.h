@@ -104,7 +104,7 @@ public:
           : registers_( Regs{ args }... )
         {
         }
-        
+
         constexpr explicit register_map( const Regs&... regs )
           : registers_( regs... )
         {
@@ -162,7 +162,7 @@ public:
         {
                 return with_register_impl(*this, key, std::forward<UnaryCallable>(f));
         }
-        
+
         template < typename UnaryCallable > constexpr auto with_register( key_type key, UnaryCallable&& f )
         {
                 return with_register_impl(*this, key, std::forward<UnaryCallable>(f));
@@ -214,7 +214,7 @@ template < std::endian Endianess, typename... Regs >
 std::ostream& operator<<( std::ostream& os, const register_map< Endianess, Regs... >& m )
 {
         for_each_register(
-            m, [&os]< auto key, typename T >( const T& val ) {  
+            m, [&os]< auto key, typename T >( const T& val ) {
                     os << key << "\t" << val << "\n";
             } );
 

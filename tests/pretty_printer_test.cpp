@@ -47,7 +47,7 @@ TEST( pretty_printer, recursive_writer )
 TEST( pretty_printer, pretty_stream_write )
 {
         std::stringstream ss;
-        const int               i = 42;
+        const int         i = 42;
 
         pretty_stream_write( ss, i );
 

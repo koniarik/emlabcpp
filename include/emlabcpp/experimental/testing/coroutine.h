@@ -30,6 +30,6 @@
 namespace emlabcpp::testing
 {
 
-using test_coroutine = coro::recursive_coroutine<void>;
+using test_coroutine = coro::recursive_coroutine< void >;
 
 }  // namespace emlabcpp::testing

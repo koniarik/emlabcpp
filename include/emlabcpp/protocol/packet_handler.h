@@ -64,9 +64,9 @@ struct packet_handler
                 return sub_handler::extract( msg ).bind_left(
                     [&msg]( std::tuple< prefix_type, value_type, checksum_type > pack )
                         -> either< value_type, error_record > {
-                            const checksum_type     present_checksum = std::get< 2 >( pack );
-                            const std::size_t checksum_pos     = msg.size() - checksum_size;
-                            const checksum_type     calculated_checksum =
+                            const checksum_type present_checksum = std::get< 2 >( pack );
+                            const std::size_t   checksum_pos     = msg.size() - checksum_size;
+                            const checksum_type calculated_checksum =
                                 Packet::get_checksum( view_n( msg.begin(), checksum_pos ) );
                             if ( present_checksum != calculated_checksum ) {
                                     EMLABCPP_ERROR_LOG(

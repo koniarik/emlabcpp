@@ -4,7 +4,7 @@
 [![Tests](https://github.com/koniarik/emlabcpp/actions/workflows/tests.yml/badge.svg)](https://github.com/koniarik/emlabcpp/actions/workflows/tests.yml)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nlohmann/json/master/LICENSE.MIT)
 
-An opinionated C++20 library focusing on embedded development. 
+An opinionated C++20 library focusing on embedded development.
 It provides a wide set of tools, from complex mechanisms (protocol library) to simple utilites (view).
 More details in [Documentation](https://koniarik.github.io/emlabcpp/index.html)
 
@@ -31,7 +31,7 @@ More details in [Documentation](https://koniarik.github.io/emlabcpp/index.html)
     - [zip.h](#ziph)
 
 ## Installation
-Repository is at https://github.com/koniarik/emlabcpp 
+Repository is at https://github.com/koniarik/emlabcpp
 The prefered of getting the library for now is via fetchcontent:
 
 ```cmake
@@ -48,7 +48,7 @@ The library can be view as a set of components.
 These are organized based on the root header file for the said component.
 
 ### algorithm.h
-Contains a set of algorithms similar to \<algorithm\> standard library, with a major change. 
+Contains a set of algorithms similar to \<algorithm\> standard library, with a major change.
 Functions take as an argument a container itself, rather than iterators.
 Most of the functions are also able to work with `std::tuple`.
 This is expanded with other short functions representing simple algorithms.
@@ -162,7 +162,7 @@ Outputs `FOO` if `magic_enum` is enabled and `0` otherwise.
 
 ### iterator.h
 
-Contains `generic_iterator<Derived>` CRTP baseclass. 
+Contains `generic_iterator<Derived>` CRTP baseclass.
 This simplifies implementation of custom iterators, as most of the methods/operators we expect of iterators can be implemented based on a small set of functions. (operator+, operator++(int), operator++ can be implemetned with operator+=)
 
 For implementing iterator, you only provide the basic subset for this class and it takes care of the rest.
@@ -207,7 +207,7 @@ struct foo{
 std::vector<foo> vec_data;
 
 auto acview = access_view(vec_data,
-                          [](const foo& item) -> const std::string& { 
+                          [](const foo& item) -> const std::string& {
                             return item.attr;
                           });
 
