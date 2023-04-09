@@ -116,7 +116,7 @@ var namespaceemlabcpp_1_1testing =
     [ "reactor_transmit_callback", "namespaceemlabcpp_1_1testing.html#a3d7fc89f8bbae48cdec10678721ae5ca", null ],
     [ "run_id", "namespaceemlabcpp_1_1testing.html#a515587622310ad47ccc8d4f76961c585", null ],
     [ "string_buffer", "namespaceemlabcpp_1_1testing.html#ae36d07470ad020d80dd3d3eade16fcb5", null ],
-    [ "test_coroutine", "namespaceemlabcpp_1_1testing.html#ab483e63e21c94cad2a607a2cabb534fe", null ],
+    [ "test_coroutine", "namespaceemlabcpp_1_1testing.html#ae00c5ff4f8236a54f34ac13a2d74ca1c", null ],
     [ "test_id", "namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca", null ],
     [ "test_ll_node", "namespaceemlabcpp_1_1testing.html#a7fe568da44b931c7d52e1e9dca0bbed8", null ],
     [ "value_type", "namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f", null ],
