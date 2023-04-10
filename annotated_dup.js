@@ -234,6 +234,7 @@ var annotated_dup =
       [ "transposed_matrix", "classemlabcpp_1_1transposed__matrix.html", "classemlabcpp_1_1transposed__matrix" ],
       [ "identity_matrix", "classemlabcpp_1_1identity__matrix.html", "classemlabcpp_1_1identity__matrix" ],
       [ "rowcol_submatrix", "classemlabcpp_1_1rowcol__submatrix.html", "classemlabcpp_1_1rowcol__submatrix" ],
+      [ "pretty_printer< T >", "structemlabcpp_1_1pretty__printer_3_01T_01_4.html", "structemlabcpp_1_1pretty__printer_3_01T_01_4" ],
       [ "pretty_printer", "namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer", null ],
       [ "buffer_writer", "structemlabcpp_1_1buffer__writer.html", "structemlabcpp_1_1buffer__writer" ],
       [ "recursive_writer", "structemlabcpp_1_1recursive__writer.html", "structemlabcpp_1_1recursive__writer" ],

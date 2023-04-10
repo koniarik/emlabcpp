@@ -240,6 +240,7 @@ var hierarchy =
     [ "emlabcpp::pretty_printer< std::unordered_map< K, T > >", "structemlabcpp_1_1pretty__printer_3_01std_1_1unordered__map_3_01K_00_01T_01_4_01_4.html", null ],
     [ "emlabcpp::pretty_printer< std::variant< Ts... > >", "structemlabcpp_1_1pretty__printer_3_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::pretty_printer< std::vector< T > >", "structemlabcpp_1_1pretty__printer_3_01std_1_1vector_3_01T_01_4_01_4.html", null ],
+    [ "emlabcpp::pretty_printer< T >", "structemlabcpp_1_1pretty__printer_3_01T_01_4.html", null ],
     [ "emlabcpp::pretty_printer< timelog >", "structemlabcpp_1_1pretty__printer_3_01timelog_01_4.html", null ],
     [ "emlabcpp::pretty_printer< unsigned >", "structemlabcpp_1_1pretty__printer_3_01unsigned_01_4.html", null ],
     [ "emlabcpp::pretty_printer< unsigned char >", "structemlabcpp_1_1pretty__printer_3_01unsigned_01char_01_4.html", null ],
