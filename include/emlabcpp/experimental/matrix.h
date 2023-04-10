@@ -18,6 +18,7 @@
 ///
 
 #include "emlabcpp/algorithm.h"
+#include "emlabcpp/experimental/pretty_printer.h"
 #include "emlabcpp/range.h"
 
 #pragma once
@@ -387,11 +388,31 @@ requires(
     M::cols ==
         2 ) constexpr matrix< M::rows, M::cols, typename M::value_type > inverse( const M& m )
 {
-        auto                                               v = 1.f / determinant( m );
+        auto v = 1.f / determinant( m );
+
         matrix< M::rows, M::cols, typename M::value_type > res;
         res[0] = { m[1][1], -m[0][1] };
         res[1] = { -m[1][0], m[0][0] };
         return v * res;
 }
+
+template < matrix_like T >
+struct pretty_printer< T >
+{
+        template < typename Writer >
+        static void print( Writer&& w, const T& m )
+        {
+                w('[');
+                for ( const std::size_t i : range( T::rows ) ) {
+                        w('[');
+                        for ( const std::size_t j : range( T::cols ) ) {
+                                w( m[i][j] );
+                                w( ',' );
+                        }
+                        w( ']' );
+                }
+                w(']');
+        }
+};
 
 }  // namespace emlabcpp
