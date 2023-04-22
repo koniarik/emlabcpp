@@ -19,11 +19,7 @@
 
 #include "emlabcpp/concepts.h"
 #include "emlabcpp/experimental/pretty_printer.h"
-#include "emlabcpp/iterator.h"
-
-#include <new>
-#include <type_traits>
-#include <utility>
+#include "emlabcpp/static_storage.h"
 
 #pragma once
 
@@ -34,9 +30,6 @@ namespace emlabcpp
 template < typename T, std::size_t N >
 class static_vector
 {
-
-        /// type for storage of one item
-        using storage_type = std::aligned_storage_t< sizeof( T ) * N, alignof( T ) >;
 
 public:
         static constexpr std::size_t capacity = N;
@@ -98,19 +91,19 @@ public:
                 const size_type shared_n = std::min( size(), other.size() );
 
                 for ( size_type i = 0; i < shared_n; ++i ) {
-                        swap( ref_item( i ), other.ref_item( i ) );
+                        swap( storage_[i], other.storage_[i] );
                 }
 
                 if ( size() > other.size() ) {
                         for ( size_type i = shared_n; i < size(); ++i ) {
-                                other.emplace_back( std::move( ref_item( i ) ) );
+                                other.emplace_back( std::move( storage_[i] ) );
                         }
                         while ( shared_n != size() ) {
                                 pop_back();
                         }
                 } else if ( size() < other.size() ) {
                         for ( size_type i = shared_n; i < other.size(); ++i ) {
-                                emplace_back( std::move( other.ref_item( i ) ) );
+                                emplace_back( std::move( other.storage_[i] ) );
                         }
                         while ( shared_n != other.size() ) {
                                 other.pop_back();
@@ -120,12 +113,12 @@ public:
 
         [[nodiscard]] T* data()
         {
-                return reinterpret_cast< T* >( &data_ );
+                return storage_.data();
         }
 
         [[nodiscard]] const T* data() const
         {
-                return reinterpret_cast< const T* >( &data_ );
+                return storage_.data();
         }
 
         [[nodiscard]] iterator begin()
@@ -150,12 +143,12 @@ public:
 
         [[nodiscard]] reference front()
         {
-                return ref_item( 0 );
+                return storage_[0];
         }
 
         [[nodiscard]] const_reference front() const
         {
-                return ref_item( 0 );
+                return storage_[0];
         }
 
         void push_back( T item )
@@ -166,7 +159,7 @@ public:
         template < typename... Args >
         void emplace_back( Args&&... args )
         {
-                emplace_item( size_, std::forward< Args >( args )... );
+                storage_.emplace_item( size_, std::forward< Args >( args )... );
                 size_ += 1;
         }
 
@@ -179,17 +172,17 @@ public:
 
         void pop_back()
         {
-                delete_item( size_ - 1 );
+                storage_.delete_item( size_ - 1 );
                 size_ -= 1;
         }
 
         [[nodiscard]] reference back()
         {
-                return ref_item( size_ - 1 );
+                return storage_[size_ - 1];
         }
         [[nodiscard]] const_reference back() const
         {
-                return ref_item( size_ - 1 );
+                return storage_[size_ - 1];
         }
 
         /// other methods
@@ -216,11 +209,11 @@ public:
 
         const_reference operator[]( size_type i ) const
         {
-                return ref_item( i );
+                return storage_[i];
         }
         reference operator[]( size_type i )
         {
-                return ref_item( i );
+                return storage_[i];
         }
 
         void clear()
@@ -237,21 +230,8 @@ private:
         /// private attributes
         /// --------------------------------------------------------------------------------
 
-        storage_type data_;      /// storage of the entire dataset
-        size_type    size_ = 0;  /// count of items
-
-        /// private methods
-        /// --------------------------------------------------------------------------------
-        void delete_item( size_type i )
-        {
-                std::destroy_at( std::addressof( ref_item( i ) ) );
-        }
-
-        template < typename... Args >
-        void emplace_item( const size_type i, Args&&... args )
-        {
-                std::construct_at( begin() + i, std::forward< Args >( args )... );
-        }
+        static_storage< T, N > storage_;
+        size_type              size_ = 0;  /// count of items
 
         template < typename Container >
         void copy_from( const Container& cont )
@@ -265,16 +245,6 @@ private:
         {
                 size_ = std::size( cont );
                 std::uninitialized_move( std::begin( cont ), std::end( cont ), begin() );
-        }
-
-        /// Reference to the item in data_storage.
-        [[nodiscard]] reference ref_item( const size_type i )
-        {
-                return *( begin() + i );
-        }
-        [[nodiscard]] const_reference ref_item( const size_type i ) const
-        {
-                return *( begin() + i );
         }
 
         /// Cleans entire buffer from items.

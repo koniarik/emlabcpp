@@ -18,12 +18,7 @@
 ///
 
 #include "emlabcpp/iterator.h"
-
-#include <cstdint>
-#include <limits>
-#include <new>
-#include <type_traits>
-#include <utility>
+#include "emlabcpp/static_storage.h"
 
 #pragma once
 
@@ -49,8 +44,6 @@ class static_circular_buffer
 {
         /// We need real_size of the buffer to be +1 bigger than number of items
         static constexpr std::size_t real_size = N + 1;
-        /// type for storage of one item
-        using storage_type = std::aligned_storage_t< sizeof( T ) * real_size, alignof( T ) >;
 
 public:
         static constexpr std::size_t capacity = N;
@@ -118,11 +111,11 @@ public:
 
         [[nodiscard]] reference front()
         {
-                return ref_item( from_ );
+                return storage_[from_];
         }
         [[nodiscard]] const_reference front() const
         {
-                return ref_item( from_ );
+                return storage_[from_];
         }
 
         [[nodiscard]] T take_front()
@@ -134,7 +127,7 @@ public:
 
         void pop_front()
         {
-                delete_item( from_ );
+                storage_.delete_item( from_ );
                 from_ = next( from_ );
         }
 
@@ -160,11 +153,11 @@ public:
 
         [[nodiscard]] reference back()
         {
-                return ref_item( prev( to_ ) );
+                return storage_[ prev( to_ ) ];
         }
         [[nodiscard]] const_reference back() const
         {
-                return ref_item( prev( to_ ) );
+                return storage_[ prev( to_ ) ];
         }
 
         void push_back( T item )
@@ -175,7 +168,7 @@ public:
         template < typename... Args >
         void emplace_back( Args&&... args )
         {
-                emplace_item( to_, std::forward< Args >( args )... );
+                storage_.emplace_item( to_, std::forward< Args >( args )... );
                 to_ = next( to_ );
         }
 
@@ -206,11 +199,11 @@ public:
 
         const_reference operator[]( const size_type i ) const
         {
-                return ref_item( ( from_ + i ) % real_size );
+                return storage_[( from_ + i ) % real_size];
         }
         reference operator[]( const size_type i )
         {
-                return ref_item( ( from_ + i ) % real_size );
+                return storage_[( from_ + i ) % real_size];
         }
 
         void clear()
@@ -227,9 +220,9 @@ private:
         /// private attributes
         /// --------------------------------------------------------------------------------
 
-        storage_type data_ = { { 0 } };  /// storage of the entire dataset
-        size_type    from_ = 0;          /// index of the first item
-        size_type    to_   = 0;          /// index past the last item
+        static_storage< T, real_size > storage_;
+        size_type                      from_ = 0;  /// index of the first item
+        size_type                      to_   = 0;  /// index past the last item
 
         /// from_ == to_ means empty
         /// to_ + 1 == from_ is full
@@ -237,45 +230,6 @@ private:
         /// private methods
         /// --------------------------------------------------------------------------------
         //
-        /// Set of [delete,init,emplace]_item methods is necessary as data_ is not array of T, but
-        /// array of byte-like-type that can store T -> T does not have to be initialized there. We
-        /// want to fully support T objects - their constructors/destructors are correctly called
-        /// and we do not require default constructor. This implies that data_ has some slots
-        /// un-initialized, some are initialized and we have to handle them correctly.
-        //
-        /// All three methods are used to handle this part of the objects in this scenario, that
-        /// requires features of C++ we do not want to replicate and it's bettter to hide them in
-        /// methods.
-
-        [[nodiscard]] T* data()
-        {
-                return reinterpret_cast< T* >( std::addressof( data_ ) );
-        }
-        [[nodiscard]] const T* data() const
-        {
-                return reinterpret_cast< const T* >( std::addressof( data_ ) );
-        }
-
-        void delete_item( size_type i )
-        {
-                std::destroy_at( std::addressof( ref_item( i ) ) );
-        }
-
-        template < typename... Args >
-        void emplace_item( const size_type i, Args&&... args )
-        {
-                std::construct_at( data() + i, std::forward< Args >( args )... );
-        }
-
-        /// Reference to the item in data_storage.
-        [[nodiscard]] reference ref_item( const size_type i )
-        {
-                return *( data() + i );
-        }
-        [[nodiscard]] const_reference ref_item( const size_type i ) const
-        {
-                return *( data() + i );
-        }
 
         /// Cleans entire buffer from items.
         void purge()
@@ -288,13 +242,13 @@ private:
         void copy_from( const static_circular_buffer& other )
         {
                 to_ = other.size();
-                std::uninitialized_copy( other.begin(), other.end(), data() );
+                std::uninitialized_copy( other.begin(), other.end(), storage_.data() );
         }
 
         void move_from( static_circular_buffer& other )
         {
                 to_ = other.size();
-                std::uninitialized_move( other.begin(), other.end(), data() );
+                std::uninitialized_move( other.begin(), other.end(), storage_.data() );
         }
 
         /// Use this only when moving the indexes in the circular buffer - bullet-proof.
@@ -397,12 +351,12 @@ public:
 
         reference operator*() noexcept
         {
-                return cont_.get().ref_item( i_ );
+                return cont_.get().storage_[i_];
         }
 
         reference operator*() const noexcept
         {
-                return cont_.get().ref_item( i_ );
+                return cont_.get().storage_[i_];
         }
 
         static_circular_buffer_iterator& operator+=( difference_type j ) noexcept
