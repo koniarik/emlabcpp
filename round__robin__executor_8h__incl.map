@@ -1,20 +1,16 @@
 <map id="include/emlabcpp/experimental/coro/round_robin_executor.h" name="include/emlabcpp/experimental/coro/round_robin_executor.h">
-<area shape="rect" id="node1" title=" " alt="" coords="483,5,711,47"/>
-<area shape="rect" id="node2" href="$algorithm_8h.html" title=" " alt="" coords="157,184,323,211"/>
-<area shape="rect" id="node11" href="$memory__resource_8h.html" title=" " alt="" coords="805,95,979,136"/>
-<area shape="rect" id="node13" href="$static__circular__buffer_8h.html" title=" " alt="" coords="507,95,688,136"/>
-<area shape="rect" id="node3" href="$impl_8h.html" title=" " alt="" coords="202,259,355,300"/>
-<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="324,348,463,375"/>
-<area shape="rect" id="node5" title=" " alt="" coords="103,348,158,375"/>
-<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="431,266,590,293"/>
-<area shape="rect" id="node8" href="$view_8h.html" title=" " alt="" coords="614,266,746,293"/>
-<area shape="rect" id="node9" title=" " alt="" coords="26,266,89,293"/>
-<area shape="rect" id="node10" title=" " alt="" coords="113,266,178,293"/>
-<area shape="rect" id="node7" title=" " alt="" coords="617,348,709,375"/>
-<area shape="rect" id="node12" title=" " alt="" coords="903,184,974,211"/>
-<area shape="rect" id="node14" href="$iterator_8h.html" title=" " alt="" coords="605,184,755,211"/>
-<area shape="rect" id="node15" title=" " alt="" coords="432,184,499,211"/>
-<area shape="rect" id="node16" title=" " alt="" coords="523,184,581,211"/>
-<area shape="rect" id="node17" title=" " alt="" coords="830,184,879,211"/>
-<area shape="rect" id="node18" title=" " alt="" coords="347,184,407,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="549,5,777,47"/>
+<area shape="rect" id="node2" href="$algorithm_8h.html" title=" " alt="" coords="315,184,480,211"/>
+<area shape="rect" id="node10" href="$memory__resource_8h.html" title=" " alt="" coords="842,95,1017,136"/>
+<area shape="rect" id="node12" href="$static__circular__buffer_8h.html" title=" " alt="" coords="572,95,754,136"/>
+<area shape="rect" id="node3" href="$impl_8h.html" title=" " alt="" coords="388,259,541,300"/>
+<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="510,348,648,375"/>
+<area shape="rect" id="node5" title=" " alt="" coords="197,348,252,375"/>
+<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="29,266,188,293"/>
+<area shape="rect" id="node7" href="$view_8h.html" title=" " alt="" coords="617,266,749,293"/>
+<area shape="rect" id="node8" title=" " alt="" coords="212,266,274,293"/>
+<area shape="rect" id="node9" title=" " alt="" coords="298,266,364,293"/>
+<area shape="rect" id="node11" title=" " alt="" coords="860,266,930,293"/>
+<area shape="rect" id="node13" href="$iterator_8h.html" title=" " alt="" coords="556,184,706,211"/>
+<area shape="rect" id="node14" href="$static__storage_8h.html" title=" " alt="" coords="730,184,924,211"/>
 </map>

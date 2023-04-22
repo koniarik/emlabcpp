@@ -1,13 +1,12 @@
 <map id="include/emlabcpp/either.h" name="include/emlabcpp/either.h">
-<area shape="rect" id="node1" title=" " alt="" coords="679,5,870,32"/>
-<area shape="rect" id="node2" href="$static__vector_8h.html" title=" " alt="" coords="462,80,647,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="474,5,665,32"/>
+<area shape="rect" id="node2" href="$static__vector_8h.html" title=" " alt="" coords="211,80,397,107"/>
 <area shape="rect" id="node5" href="$types_8h.html" title=" " alt="" coords="5,244,144,271"/>
-<area shape="rect" id="node6" title=" " alt="" coords="589,244,664,271"/>
-<area shape="rect" id="node7" title=" " alt="" coords="833,244,887,271"/>
-<area shape="rect" id="node10" title=" " alt="" coords="667,162,759,189"/>
-<area shape="rect" id="node11" title=" " alt="" coords="783,162,843,189"/>
+<area shape="rect" id="node6" title=" " alt="" coords="359,244,433,271"/>
+<area shape="rect" id="node7" title=" " alt="" coords="485,244,539,271"/>
+<area shape="rect" id="node9" title=" " alt="" coords="577,244,637,271"/>
+<area shape="rect" id="node10" title=" " alt="" coords="793,80,885,107"/>
 <area shape="rect" id="node3" href="$concepts_8h.html" title=" " alt="" coords="101,319,261,345"/>
-<area shape="rect" id="node4" href="$pretty__printer_8h.html" title=" " alt="" coords="466,155,643,196"/>
-<area shape="rect" id="node8" href="$iterator_8h.html" title=" " alt="" coords="219,162,368,189"/>
-<area shape="rect" id="node9" title=" " alt="" coords="393,162,442,189"/>
+<area shape="rect" id="node4" href="$pretty__printer_8h.html" title=" " alt="" coords="219,155,397,196"/>
+<area shape="rect" id="node8" href="$static__storage_8h.html" title=" " alt="" coords="472,162,667,189"/>
 </map>
