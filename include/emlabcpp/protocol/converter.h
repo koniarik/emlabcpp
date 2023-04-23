@@ -19,9 +19,6 @@
 
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/assert.h"
-#include "emlabcpp/either.h"
-#include "emlabcpp/iterators/numeric.h"
-#include "emlabcpp/match.h"
 #include "emlabcpp/protocol/serializer.h"
 #include "emlabcpp/protocol/traits.h"
 

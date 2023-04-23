@@ -207,10 +207,10 @@ static constexpr protocol::channel_type core_channel = 1;
 
 struct packet_def
 {
-        static constexpr std::endian            endianess = std::endian::big;
-        static constexpr protocol::message< 4 > prefix{ 0x42, 0x42, 0x42, 0x42 };
-        using size_type     = uint16_t;
-        using checksum_type = std::byte;
+        static constexpr std::endian                endianess = std::endian::big;
+        static constexpr std::array< std::byte, 4 > prefix    = bytes( 0x42, 0x42, 0x42, 0x42 );
+        using size_type                                       = uint16_t;
+        using checksum_type                                   = std::byte;
 
         static constexpr checksum_type get_checksum( const view< const std::byte* > msg )
         {

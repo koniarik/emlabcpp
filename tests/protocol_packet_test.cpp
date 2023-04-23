@@ -27,10 +27,10 @@ using namespace emlabcpp;
 
 struct packet_test_def
 {
-        static constexpr std::endian            endianess = std::endian::big;
-        static constexpr protocol::message< 4 > prefix{ 0x91, 0x19, 0x91, 0x19 };
-        using size_type     = uint16_t;
-        using checksum_type = uint16_t;
+        static constexpr std::endian                endianess = std::endian::big;
+        static constexpr std::array< std::byte, 4 > prefix    = bytes( 0x91, 0x19, 0x91, 0x19 );
+        using size_type                                       = uint16_t;
+        using checksum_type                                   = uint16_t;
 
         static constexpr checksum_type get_checksum( const view< const std::byte* > )
         {
@@ -50,7 +50,8 @@ TEST( Packet, simple )
         message_type                             res(
             0x91, 0x19, 0x91, 0x19, 0x00, 0x06, 0x43, 0x43, 0x43, 0x43, 0x08, 0x16, 0x00, 0x00 );
 
-        EXPECT_EQ( msg, res );
+        EXPECT_EQ( msg, res ) << "msg: " << msg << "\n"
+                              << "res: " << res;
 
         handler::extract( msg ).match(
             [&]( std::tuple< uint32_t, uint8_t, uint8_t > pack ) {

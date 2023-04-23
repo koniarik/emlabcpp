@@ -103,8 +103,9 @@ using simple_tag_group_var = typename protocol::traits_for< simple_tag_group >::
 template < typename Group >
 struct valid_test_case : protocol_test_fixture
 {
-        using handler    = protocol::handler< Group >;
-        using value_type = typename handler::value_type;
+        using handler      = protocol::handler< Group >;
+        using value_type   = typename handler::value_type;
+        using message_type = typename handler::message_type;
 
         value_type               val;
         std::vector< std::byte > expected_buffer;
@@ -120,8 +121,8 @@ struct valid_test_case : protocol_test_fixture
                 auto       msg      = handler::serialize( val );
                 const bool is_equal = equal( msg, expected_buffer );
                 EXPECT_TRUE( is_equal )
-                    << "msg: " << convert_view< int >( msg ) << "\n"
-                    << "expected: " << convert_view< int >( expected_buffer ) << "\n";
+                    << "msg: " << msg << "\n"
+                    << "expected: " << message_type( data_view( expected_buffer ) ) << "\n";
 
                 handler::extract( msg ).match(
                     [&]( auto var ) {
@@ -144,8 +145,8 @@ std::function< protocol_test_fixture*() > make_valid_test_case(
     typename protocol::traits_for< Group >::value_type val,
     const std::vector< int >&                          buff )
 {
-        auto cview = convert_view< std::byte >( buff );
         return [=]() {
+                auto cview = convert_view< std::byte >( buff );
                 return new valid_test_case< Group >(
                     val, std::vector< std::byte >{ cview.begin(), cview.end() } );
         };

@@ -562,6 +562,12 @@ constexpr void select_index( IndexType i, const Callable& f )
         } );
 }
 
+template < typename... Args, std::size_t N = sizeof...( Args ) >
+constexpr std::array< std::byte, N > bytes( const Args&... args )
+{
+        return std::array< std::byte, N >{ static_cast< std::byte >( args )... };
+}
+
 }  // namespace emlabcpp
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON

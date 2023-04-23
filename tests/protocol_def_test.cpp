@@ -136,7 +136,7 @@ struct invalid_test_case : protocol_test_fixture
         void generate_name( std::ostream& os ) const final
         {
                 pretty_stream_write( os, "invalid test for: ", pretty_name< T >(), ";" );
-                pretty_stream_write( os, " input: ", inpt, ";" );
+                pretty_stream_write( os, " input: ", convert_view< int >( inpt ), ";" );
                 pretty_stream_write( os, " expected error: ", expected_rec, ";" );
         }
 };
@@ -145,8 +145,8 @@ template < typename T >
 std::function< protocol_test_fixture*() >
 make_invalid_test_case( const std::vector< uint8_t >& buff, const protocol::error_record& rec )
 {
-        auto cview = convert_view< std::byte >( buff );
         return [=]() {
+                auto cview = convert_view< std::byte >( buff );
                 return new invalid_test_case< T >(
                     std::vector< std::byte >{ cview.begin(), cview.end() }, rec );
         };

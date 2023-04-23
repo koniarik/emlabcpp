@@ -59,7 +59,7 @@ struct handler
                             "Failed to extract protocol def ",
                             pretty_type_name< T >(),
                             " from message ",
-                            msg,
+                            message_type( msg ),
                             ", error is: ",
                             *mark,
                             " with ",
