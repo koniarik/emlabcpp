@@ -111,7 +111,7 @@ void controller::start_test( const test_id tid )
         iface_.send( exec_request{ .rid = rid_, .tid = tid } );
 }
 
-void controller::on_msg( const std::span< const uint8_t > data )
+void controller::on_msg( const std::span< const std::byte > data )
 {
         using h = protocol::handler< reactor_controller_group >;
         h::extract( view_n( data.data(), data.size() ) )

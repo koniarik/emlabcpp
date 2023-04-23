@@ -40,14 +40,16 @@ struct handler
 
         static message_type serialize( const value_type& val )
         {
-                std::array< uint8_t, def::max_size > buffer{};
+                message_type res{ def::max_size };
 
-                const bounded used = def::serialize_at( buffer, val );
+                const bounded used =
+                    def::serialize_at( std::span< std::byte, def::max_size >{ res }, val );
                 EMLABCPP_ASSERT( *used <= def::max_size );
-                return *message_type::make( view_n( buffer.begin(), *used ) );
+                res.resize( *used );
+                return res;
         };
 
-        static either< value_type, error_record > extract( const view< const uint8_t* >& msg )
+        static either< value_type, error_record > extract( const view< const std::byte* >& msg )
         {
                 value_type val;
                 auto       res = def::deserialize( msg, val );

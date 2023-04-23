@@ -106,10 +106,10 @@ struct valid_test_case : protocol_test_fixture
         using handler    = protocol::handler< Group >;
         using value_type = typename handler::value_type;
 
-        value_type             val;
-        std::vector< uint8_t > expected_buffer;
+        value_type               val;
+        std::vector< std::byte > expected_buffer;
 
-        valid_test_case( value_type v, std::vector< uint8_t > buff )
+        valid_test_case( value_type v, std::vector< std::byte > buff )
           : val( std::move( v ) )
           , expected_buffer( std::move( buff ) )
         {
@@ -142,10 +142,12 @@ struct valid_test_case : protocol_test_fixture
 template < typename Group >
 std::function< protocol_test_fixture*() > make_valid_test_case(
     typename protocol::traits_for< Group >::value_type val,
-    const std::vector< uint8_t >&                      buff )
+    const std::vector< int >&                          buff )
 {
+        auto cview = convert_view< std::byte >( buff );
         return [=]() {
-                return new valid_test_case< Group >( val, buff );
+                return new valid_test_case< Group >(
+                    val, std::vector< std::byte >{ cview.begin(), cview.end() } );
         };
 }
 
@@ -179,8 +181,7 @@ int main( int argc, char** argv )
                 complex_group::make_val< CE >( std::bitset< 13 >{ 42 } ), { 0, 13, 1, 42, 0 } ),
             make_valid_test_case< complex_group >(
                 complex_group::make_val< CF >(
-                    666u,
-                    *protocol::sizeless_message< 16 >::make( std::vector{ 1, 2, 3, 4, 5, 6 } ) ),
+                    666u, protocol::sizeless_message< 16 >( 1, 2, 3, 4, 5, 6 ) ),
                 { 0, 15, 0, 0, 2, 154, 1, 2, 3, 4, 5, 6 } ),
             make_valid_test_case< complex_group >(
                 complex_group::make_val< CG >( 23456u, static_cast< uint8_t >( 8 ) ),
@@ -191,8 +192,7 @@ int main( int argc, char** argv )
                 { 0, 22, 140, 2, 129, 246, 2, 154 } ),
             make_valid_test_case< complex_group >(
                 complex_group::make_val< CI >(
-                    *protocol::sizeless_message< 8 >::make( std::vector{ 1, 2, 3, 4, 5 } ),
-                    39439483u ),
+                    protocol::sizeless_message< 8 >( 1, 2, 3, 4, 5 ), 39439483u ),
                 { 0, 23, 5, 1, 2, 3, 4, 5, 2, 89, 204, 123 } ),
             make_valid_test_case< complex_group >(
                 complex_group::make_val< CJ >( static_cast< uint32_t >( 666 ) ),

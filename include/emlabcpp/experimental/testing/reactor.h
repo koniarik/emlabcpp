@@ -62,7 +62,7 @@ public:
                 return channel_;
         }
 
-        void on_msg( std::span< const uint8_t > buffer );
+        void on_msg( std::span< const std::byte > buffer );
         void on_msg( const controller_reactor_variant& var );
 
         void register_test( linked_list_node< test_interface* >& test )

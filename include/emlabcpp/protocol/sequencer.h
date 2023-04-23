@@ -42,7 +42,7 @@ public:
         static constexpr std::size_t fixed_size = Def::fixed_size;
 
 private:
-        static_circular_buffer< uint8_t, Def::message_type::max_size * 2 > buffer_;
+        static_circular_buffer< std::byte, Def::message_type::capacity * 2 > buffer_;
 
 public:
         using message_type = typename Def::message_type;
@@ -101,15 +101,15 @@ public:
                         return sequencer_read_request{ desired_size - bsize };
                 }
 
-                auto opt_msg = message_type::make( view_n( buffer_.begin(), desired_size ) );
-                EMLABCPP_ASSERT( opt_msg );
+                message_type res( desired_size );
+                copy( view_n( buffer_.begin(), desired_size ), res.begin() );
 
                 /// clean up only the matched message
                 for ( std::size_t i = desired_size; i > 0; i-- ) {
                         buffer_.pop_front();
                 }
 
-                return *opt_msg;
+                return res;
         }
 };
 

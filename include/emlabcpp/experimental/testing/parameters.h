@@ -312,7 +312,7 @@ public:
                 return channel_;
         }
 
-        void on_msg( std::span< const uint8_t > data );
+        void on_msg( std::span< const std::byte > data );
         void on_msg( const params_server_client_variant& req );
 
         param_type_awaiter get_type( node_id nid );
@@ -401,7 +401,7 @@ public:
                 return channel_;
         }
 
-        void on_msg( std::span< const uint8_t > data );
+        void on_msg( std::span< const std::byte > data );
         void on_msg( const params_client_server_variant& req );
 
 private:

@@ -59,7 +59,7 @@ class reactor_interface
 public:
         static std::vector< testing::reactor_controller_variant > msgs;
 
-        void operator()( auto, std::span< const uint8_t > msg )
+        void operator()( auto, std::span< const std::byte > msg )
         {
                 using h = protocol::handler< testing::reactor_controller_group >;
                 h::extract( view_n( msg.data(), msg.size() ) )

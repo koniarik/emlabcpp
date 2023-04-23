@@ -53,11 +53,11 @@ public:
 
         T operator*()
         {
-                return T{ *iter_ };
+                return static_cast< T >( *iter_ );
         }
         T operator*() const
         {
-                return T{ *iter_ };
+                return static_cast< T >( *iter_ );
         }
 
         convert_iterator& operator+=( std::ptrdiff_t offset )

@@ -38,7 +38,7 @@ void reactor::tick()
                 opt_exec_.reset();
         }
 }
-void reactor::on_msg( const std::span< const uint8_t > buffer )
+void reactor::on_msg( const std::span< const std::byte > buffer )
 {
         using h = protocol::handler< controller_reactor_group >;
         h::extract( view_n( buffer.data(), buffer.size() ) )

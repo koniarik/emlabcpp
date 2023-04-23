@@ -90,7 +90,7 @@ public:
                 return tests_;
         }
 
-        void on_msg( const std::span< const uint8_t > data );
+        void on_msg( const std::span< const std::byte > data );
         void on_msg( const reactor_controller_variant& );
 
         void start_test( const test_id tid );

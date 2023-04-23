@@ -30,13 +30,13 @@ struct sequencer_def
 {
         using message_type = protocol::message< 16 >;
 
-        static constexpr std::array< uint8_t, 2 > prefix      = { 0x44, 0x44 };
-        static constexpr std::size_t              fixed_size  = 3;
-        static constexpr std::size_t              buffer_size = message_type::max_size * 2;
+        static constexpr protocol::message< 2 > prefix{ 0x44, 0x44 };
+        static constexpr std::size_t            fixed_size  = 3;
+        static constexpr std::size_t            buffer_size = message_type::capacity * 2;
 
         static constexpr std::size_t get_size( const auto& bview )
         {
-                return bview[2] + fixed_size;
+                return std::to_integer< std::size_t >( bview[2] ) + fixed_size;
         }
 };
 
@@ -44,7 +44,7 @@ using sequencer = protocol::sequencer< sequencer_def >;
 
 TEST( protocol_seq, basic )
 {
-        std::array< uint8_t, 6 > data = { 0x44, 0x44, 0x03, 0x02, 0x03, 0xe8 };
+        protocol::message< 6 > data{ 0x44, 0x44, 0x03, 0x02, 0x03, 0xe8 };
 
         sequencer seq;
 
@@ -70,7 +70,7 @@ TEST( protocol_seq, basic )
 
 TEST( protocol_seq, noise_at_start )
 {
-        std::array< uint8_t, 7 > data = { 0x32, 0x44, 0x44, 0x03, 0x02, 0x03, 0xe8 };
+        protocol::message< 7 > data{ 0x32, 0x44, 0x44, 0x03, 0x02, 0x03, 0xe8 };
 
         sequencer seq;
 
@@ -96,8 +96,7 @@ TEST( protocol_seq, noise_at_start )
 
 TEST( protocol_seq, multi_msg )
 {
-        std::array< uint8_t, 10 > data = {
-            0x32, 0x44, 0x44, 0x01, 0x42, 0x4, 0x44, 0x44, 0x01, 0x34 };
+        protocol::message< 10 > data{ 0x32, 0x44, 0x44, 0x01, 0x42, 0x4, 0x44, 0x44, 0x01, 0x34 };
 
         auto msg1 = view_n( data.begin() + 1, 4 );
         auto msg2 = view_n( data.begin() + 6, 4 );

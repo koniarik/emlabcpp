@@ -111,8 +111,8 @@ struct host_items
                     send( chan, data );
             } };
 
-        std::function< void( std::span< const uint8_t > ) > cb;
-        testing::endpoint                                   ep;
+        std::function< void( std::span< const std::byte > ) > cb;
+        testing::endpoint                                     ep;
 
         template < std::size_t N >
         void send( protocol::channel_type channel, const protocol::message< N >& data )
@@ -120,7 +120,7 @@ struct host_items
                 cb( ep.serialize( channel, data ) );
         }
 
-        void on_msg( const std::span< const uint8_t > data )
+        void on_msg( const std::span< const std::byte > data )
         {
                 ep.insert( data );
                 ep.dispatch_value( cont, col_serv, param_serv );
@@ -139,8 +139,8 @@ struct dev_items
                                            send( chan, data );
                                    } };
 
-        std::function< void( std::span< const uint8_t > ) > cb;
-        testing::endpoint                                   ep;
+        std::function< void( std::span< const std::byte > ) > cb;
+        testing::endpoint                                     ep;
 
         template < std::size_t N >
         void send( protocol::channel_type channel, const protocol::message< N >& data )
@@ -148,7 +148,7 @@ struct dev_items
                 cb( ep.serialize( channel, data ) );
         }
 
-        void on_msg( const std::span< const uint8_t > data )
+        void on_msg( const std::span< const std::byte > data )
         {
                 ep.insert( data );
                 ep.dispatch_value( reac, coll, params );

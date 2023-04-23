@@ -109,7 +109,7 @@ public:
                 return channel_;
         }
 
-        void on_msg( const std::span< const uint8_t >& msg );
+        void on_msg( const std::span< const std::byte >& msg );
         void on_msg( const collect_server_client_group& var );
 
         collect_awaiter
@@ -152,7 +152,7 @@ public:
                 return channel_;
         }
 
-        void on_msg( std::span< const uint8_t > data );
+        void on_msg( std::span< const std::byte > data );
         void on_msg( const collect_request& req );
 
         void clear()

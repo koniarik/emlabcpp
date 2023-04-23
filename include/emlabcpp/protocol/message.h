@@ -18,12 +18,7 @@
 ///
 
 #include "emlabcpp/concepts.h"
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/view.h"
-
-#include <array>
-#include <optional>
-#include <span>
 
 #pragma once
 
@@ -35,144 +30,133 @@ namespace emlabcpp::protocol
 template < std::size_t N >
 class message
 {
-
 public:
-        using value_type     = uint8_t;
-        using iterator       = uint8_t*;
-        using const_iterator = const uint8_t*;
+        using value_type     = std::byte;
+        using reference      = std::byte&;
+        using pointer        = std::byte*;
+        using const_pointer  = const std::byte*;
+        using iterator       = std::byte*;
+        using const_iterator = const std::byte*;
+        using size_type      = std::size_t;
 
-        // TODO: mark this deprecated
-        static constexpr std::size_t max_size = N;
-        static constexpr std::size_t capacity = N;
+        static constexpr size_type capacity = N;
 
-        static std::optional< message > make( const range_container auto& cont )
+        constexpr message() = default;
+
+        constexpr explicit message( size_type n ) noexcept
+          : used_( n )
         {
-                if ( std::size( cont ) > N ) {
-                        EMLABCPP_INFO_LOG(
-                            "Failed to construct protocol message, bigger than limit: ",
-                            std::size( cont ),
-                            " > ",
-                            N );
-                        return {};
-                }
-                return { message( std::begin( cont ), std::end( cont ) ) };
         }
 
-        message() = default;
+        constexpr explicit message( const view< const_iterator >& v ) noexcept
+          : used_( v.size() )
+        {
+                std::copy( v.begin(), v.end(), std::data( data_ ) );
+        }
 
-        template < std::size_t M >
-        explicit message( const message< M >& other ) noexcept
-          : message( other.begin(), other.end() )
+        template < size_type M >
+        constexpr explicit message( const message< M >& other ) noexcept
+          : message( view{ other } )
         {
                 static_assert( M <= N );
         }
 
-        template < std::size_t M >
-        explicit message( const std::array< uint8_t, M >& inpt ) noexcept
-          : message( inpt.begin(), inpt.begin() + M )
+        template < size_type M >
+        constexpr explicit message( const std::array< value_type, M >& inpt ) noexcept
+          : message( view{ inpt } )
         {
                 static_assert( M <= N );
         }
 
         template < std::convertible_to< uint8_t >... Ts >
-        explicit message( Ts... inpt ) noexcept
-          : data_{ static_cast< uint8_t >( inpt )... }
+        constexpr explicit message( Ts... inpt )
+          : data_{ static_cast< value_type >( inpt )... }
           , used_( sizeof...( Ts ) )
         {
         }
 
-        [[nodiscard]] const uint8_t* data() const
+        [[nodiscard]] constexpr const_pointer data() const noexcept
         {
                 return &data_[0];
         }
 
-        [[nodiscard]] uint8_t* data()
+        [[nodiscard]] constexpr pointer data() noexcept
         {
                 return &data_[0];
         }
 
-        [[nodiscard]] std::size_t size() const
+        [[nodiscard]] constexpr size_type size() const noexcept
         {
                 return used_;
         }
 
-        [[nodiscard]] uint8_t front() const
+        [[nodiscard]] constexpr value_type front() const noexcept
         {
                 return data_[0];
         }
 
-        [[nodiscard]] uint8_t& front()
+        [[nodiscard]] constexpr reference front() noexcept
         {
                 return data_[0];
         }
 
-        [[nodiscard]] uint8_t back() const
+        [[nodiscard]] constexpr value_type back() const noexcept
         {
                 return data_[used_ - 1];
         }
 
-        [[nodiscard]] uint8_t& back()
+        [[nodiscard]] constexpr reference back() noexcept
         {
                 return data_[used_ - 1];
         }
 
-        [[nodiscard]] const_iterator begin() const
+        [[nodiscard]] constexpr const_iterator begin() const noexcept
         {
                 return &data_[0];
         }
 
-        [[nodiscard]] iterator begin()
+        [[nodiscard]] constexpr iterator begin() noexcept
         {
                 return &data_[0];
         }
 
-        [[nodiscard]] const_iterator end() const
+        [[nodiscard]] constexpr const_iterator end() const noexcept
         {
                 return &data_[0] + used_;
         }
 
-        [[nodiscard]] iterator end()
+        [[nodiscard]] constexpr iterator end() noexcept
         {
                 return &data_[0] + used_;
         }
 
-        uint8_t operator[]( const std::size_t i ) const
+        value_type operator[]( const size_type i ) const noexcept
         {
                 return data_[i];
         }
 
-        uint8_t& operator[]( const std::size_t i )
+        reference operator[]( const size_type i ) noexcept
         {
                 return data_[i];
         }
 
-        template < std::size_t M >
-        explicit operator std::array< uint8_t, M >() const
+        void resize( size_type n ) noexcept
         {
-                static_assert( M >= N );
-                std::array< uint8_t, M > res{};
-                std::copy( begin(), end(), res.begin() );
-                std::fill( res.begin() + N, res.end(), 0 );
-                return res;
+                used_ = n;
         }
 
-        friend auto operator==( const message& lh, const message& rh )
+        friend auto operator==( const message& lh, const message& rh ) noexcept
         {
                 return view_n( lh.begin(), lh.used_ ) == view_n( rh.begin(), rh.used_ );
         }
 
 private:
-        uint8_t     data_[N];
-        std::size_t used_ = { 0 };
-
-protected:
-        template < typename Iterator >
-        message( Iterator beg, Iterator end ) noexcept
-          : used_( static_cast< std::size_t >( std::distance( beg, end ) ) )
-        {
-                std::copy( beg, end, begin() );
-        }
+        std::byte data_[N];
+        size_type used_ = { 0 };
 };
+
+template < std::convertible_to< uint8_t >... Ts >
+message( Ts... inpt ) -> message< sizeof...( Ts ) >;
 
 /// Sizeless message is class that behaves in a same way as normal message, however it is
 /// serialized differently. Protocol message stores how many bytes it's made of before the data
@@ -184,26 +168,16 @@ class sizeless_message : public message< N >
 public:
         using message< N >::message;
 
-        static std::optional< sizeless_message > make( const range_container auto& cont )
-        {
-                if ( std::size( cont ) > N ) {
-                        EMLABCPP_INFO_LOG(
-                            "Failed to construct sizeless protocol message, bigger than limit: ",
-                            std::size( cont ),
-                            " > ",
-                            N );
-                        return {};
-                }
-                return { sizeless_message( std::begin( cont ), std::end( cont ) ) };
-        }
-
         template < std::size_t M >
         explicit sizeless_message( const message< M >& other )
-          : message< N >( other.begin(), other.end() )
+          : message< N >( other )
         {
                 static_assert( M <= N );
         }
 };
+
+template < std::convertible_to< uint8_t >... Ts >
+sizeless_message( Ts... inpt ) -> sizeless_message< sizeof...( Ts ) >;
 
 namespace detail
 {

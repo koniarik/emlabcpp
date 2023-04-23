@@ -207,16 +207,16 @@ static constexpr protocol::channel_type core_channel = 1;
 
 struct packet_def
 {
-        static constexpr std::endian              endianess = std::endian::big;
-        static constexpr std::array< uint8_t, 4 > prefix    = { 0x42, 0x42, 0x42, 0x42 };
-        using size_type                                     = uint16_t;
-        using checksum_type                                 = uint8_t;
+        static constexpr std::endian            endianess = std::endian::big;
+        static constexpr protocol::message< 4 > prefix{ 0x42, 0x42, 0x42, 0x42 };
+        using size_type     = uint16_t;
+        using checksum_type = std::byte;
 
-        static constexpr checksum_type get_checksum( const view< const uint8_t* > msg )
+        static constexpr checksum_type get_checksum( const view< const std::byte* > msg )
         {
-                const uint8_t init = 0x0;
+                const std::byte init{ 0x0 };
                 return accumulate(
-                    msg, init, []( const uint8_t accum, const uint8_t val ) -> uint8_t {
+                    msg, init, []( const std::byte accum, const std::byte val ) -> std::byte {
                             return accum ^ val;
                     } );
         }

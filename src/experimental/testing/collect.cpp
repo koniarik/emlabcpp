@@ -54,7 +54,7 @@ collector::collector( const protocol::channel_type chann, collect_client_transmi
 {
 }
 
-void collector::on_msg( const std::span< const uint8_t >& msg )
+void collector::on_msg( const std::span< const std::byte >& msg )
 {
         using h = protocol::handler< collect_server_client_group >;
         h::extract( view_n( msg.data(), msg.size() ) )
@@ -126,7 +126,7 @@ collect_server::collect_server(
 {
 }
 
-void collect_server::on_msg( const std::span< const uint8_t > data )
+void collect_server::on_msg( const std::span< const std::byte > data )
 {
         using h = protocol::handler< collect_request >;
         h::extract( view_n( data.data(), data.size() ) )

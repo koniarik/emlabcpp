@@ -77,7 +77,7 @@ parameters::parameters(
 {
 }
 
-void parameters::on_msg( const std::span< const uint8_t > data )
+void parameters::on_msg( const std::span< const std::byte > data )
 {
         // TODO: this is copy pasta festival from collect...
         using h = protocol::handler< params_server_client_group >;
@@ -151,7 +151,7 @@ parameters_server::parameters_server(
 {
 }
 
-void parameters_server::on_msg( std::span< const uint8_t > data )
+void parameters_server::on_msg( std::span< const std::byte > data )
 {
         // TODO: this is copy pasta festival from collect...
         using h = protocol::handler< params_client_server_group >;

@@ -53,24 +53,27 @@ struct packet_handler
                     Packet::get_checksum( view_n( msg.begin(), msg.size() - checksum_size ) );
 
                 serializer< checksum_type, endianess >::serialize_at(
-                    std::span< uint8_t, checksum_size >{ msg.end() - checksum_size, checksum_size },
+                    std::span< std::byte, checksum_size >{
+                        msg.end() - checksum_size, checksum_size },
                     chcksm );
 
                 return msg;
         }
 
-        static either< value_type, error_record > extract( const view< const uint8_t* >& msg )
+        static either< value_type, error_record > extract( const view< const std::byte* >& msg )
         {
                 return sub_handler::extract( msg ).bind_left(
                     [&msg]( std::tuple< prefix_type, value_type, checksum_type > pack )
                         -> either< value_type, error_record > {
                             const checksum_type present_checksum = std::get< 2 >( pack );
                             const std::size_t   checksum_pos     = msg.size() - checksum_size;
-                            const checksum_type calculated_checksum =
-                                Packet::get_checksum( view_n( msg.begin(), checksum_pos ) );
+                            const view< const std::byte* > area =
+                                view_n( msg.begin(), checksum_pos );
+                            const checksum_type calculated_checksum = Packet::get_checksum( area );
+
                             if ( present_checksum != calculated_checksum ) {
                                     EMLABCPP_ERROR_LOG(
-                                        "Problematic message: ", *message_type::make( msg ) );
+                                        "Problematic message: ", message_type( msg ) );
                                     EMLABCPP_ERROR_LOG(
                                         "Checksum failed, calculated: ",
                                         int( calculated_checksum ),
@@ -78,6 +81,7 @@ struct packet_handler
                                         int( present_checksum ) );
                                     return error_record{ CHECKSUM_ERR, checksum_pos };
                             }
+
                             return std::get< 1 >( pack );
                     } );
         }
