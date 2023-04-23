@@ -559,26 +559,32 @@ $(document).ready(function(){initNavTree('algorithm_8h_source.html',''); initRes
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;        } );</div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;}</div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160; </div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160; </div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_NLOHMANN_JSON</span></div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160; </div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="keyword">struct </span>nlohmann::adl_serializer&lt; <a class="code" href="namespaceemlabcpp.html">emlabcpp</a>::min_max&lt; T &gt; &gt;</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;{</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> to_json( nlohmann::json&amp; j, <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1min__max.html">emlabcpp::min_max&lt; T &gt;</a>&amp; mm )</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        {</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                j[<span class="stringliteral">&quot;min&quot;</span>] = mm.<a class="code" href="structemlabcpp_1_1min__max.html#ac4cc0b5a0f2485f3524e3cf74500407a">min</a>;</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;                j[<span class="stringliteral">&quot;max&quot;</span>] = mm.<a class="code" href="structemlabcpp_1_1min__max.html#a8b3d9b948aeacf4261611ee2fc26eb64">max</a>;</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        }</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160; </div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        <span class="keyword">static</span> <a class="code" href="structemlabcpp_1_1min__max.html">emlabcpp::min_max&lt; T &gt;</a> from_json( <span class="keyword">const</span> nlohmann::json&amp; j )</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span>... Args, std::size_t N = <span class="keyword">sizeof</span>...( Args ) &gt;</div>
+<div class="line"><a name="l00566"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">  566</a></span>&#160;constexpr std::array&lt; std::byte, N &gt; <a class="code" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">bytes</a>( <span class="keyword">const</span> Args&amp;... args )</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;{</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;        <span class="keywordflow">return</span> std::array&lt; std::byte, N &gt;{ <span class="keyword">static_cast&lt;</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> <span class="keyword">&gt;</span>( args )... };</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;}</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160; </div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160; </div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_NLOHMANN_JSON</span></div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160; </div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="keyword">struct </span>nlohmann::adl_serializer&lt; emlabcpp::min_max&lt; T &gt; &gt;</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;{</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> to_json( nlohmann::json&amp; j, <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1min__max.html">emlabcpp::min_max&lt; T &gt;</a>&amp; mm )</div>
 <div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        {</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1min__max.html">emlabcpp::min_max&lt; T &gt;</a>{ j[<span class="stringliteral">&quot;min&quot;</span>], j[<span class="stringliteral">&quot;max&quot;</span>] };</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        }</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;};</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;                j[<span class="stringliteral">&quot;min&quot;</span>] = mm.<a class="code" href="structemlabcpp_1_1min__max.html#ac4cc0b5a0f2485f3524e3cf74500407a">min</a>;</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;                j[<span class="stringliteral">&quot;max&quot;</span>] = mm.<a class="code" href="structemlabcpp_1_1min__max.html#a8b3d9b948aeacf4261611ee2fc26eb64">max</a>;</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;        }</div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160; </div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        <span class="keyword">static</span> <a class="code" href="structemlabcpp_1_1min__max.html">emlabcpp::min_max&lt; T &gt;</a> from_json( <span class="keyword">const</span> nlohmann::json&amp; j )</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;        {</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1min__max.html">emlabcpp::min_max&lt; T &gt;</a>{ j[<span class="stringliteral">&quot;min&quot;</span>], j[<span class="stringliteral">&quot;max&quot;</span>] };</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        }</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;};</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160; </div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="abounded_8h_html"><div class="ttname"><a href="bounded_8h.html">bounded.h</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1view_html"><div class="ttname"><a href="classemlabcpp_1_1view.html">emlabcpp::view</a></div><div class="ttdoc">Generic class to represent view of some container.</div><div class="ttdef"><b>Definition:</b> view.h:35</div></div>
 <div class="ttc" id="aimpl_8h_html"><div class="ttname"><a href="impl_8h.html">impl.h</a></div></div>
@@ -625,11 +631,13 @@ $(document).ready(function(){initNavTree('algorithm_8h_source.html',''); initRes
 <div class="ttc" id="anamespaceemlabcpp_html_ad5fde2ce524bee976e0c6c74c0be2917"><div class="ttname"><a href="namespaceemlabcpp.html#ad5fde2ce524bee976e0c6c74c0be2917">emlabcpp::sum</a></div><div class="ttdeci">constexpr T sum(const Container &amp;cont, UnaryCallable &amp;&amp;f=std::identity(), T init={})</div><div class="ttdoc">Applies f(x) to each item of container 'cont', returns the sum of all the return values of each call ...</div><div class="ttdef"><b>Definition:</b> algorithm.h:265</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_adad2aaee725330a629c1fa9af8cf7e37"><div class="ttname"><a href="namespaceemlabcpp.html#adad2aaee725330a629c1fa9af8cf7e37">emlabcpp::find_if</a></div><div class="ttdeci">constexpr auto find_if(Container &amp;&amp;cont, PredicateCallable &amp;&amp;f=std::identity())</div><div class="ttdoc">Returns iterator for first item, for which call to predicate f(*iter) holds true.</div><div class="ttdef"><b>Definition:</b> algorithm.h:103</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_adb54eee14fc87e50de7f6ed35ad1aba0"><div class="ttname"><a href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">emlabcpp::gettable_container</a></div><div class="ttdeci">concept gettable_container</div><div class="ttdef"><b>Definition:</b> concepts.h:64</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ae2f187ac1e10327a8c941d80b3b6b1e4"><div class="ttname"><a href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">emlabcpp::bytes</a></div><div class="ttdeci">constexpr std::array&lt; std::byte, N &gt; bytes(const Args &amp;... args)</div><div class="ttdef"><b>Definition:</b> algorithm.h:566</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ae6a73bbed8b818abff4ab4e7c2b9af68"><div class="ttname"><a href="namespaceemlabcpp.html#ae6a73bbed8b818abff4ab4e7c2b9af68">emlabcpp::find</a></div><div class="ttdeci">constexpr auto find(Container &amp;&amp;cont, const T &amp;item)</div><div class="ttdoc">Finds first item in container 'cont' that is equal to 'item', returns iterator for container,...</div><div class="ttdef"><b>Definition:</b> algorithm.h:132</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ae8555060e43c2b8cdd8d91bb248b9a6d"><div class="ttname"><a href="namespaceemlabcpp.html#ae8555060e43c2b8cdd8d91bb248b9a6d">emlabcpp::map_f</a></div><div class="ttdeci">ResultContainer map_f(Container &amp;&amp;cont, UnaryCallable &amp;&amp;f=std::identity())</div><div class="ttdoc">Calls callable f(x) for each item in container 'cont' (or tuple) and stores result in 'ResultContaine...</div><div class="ttdef"><b>Definition:</b> algorithm.h:406</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aeb03fae2e4aecd67b1f163e1ab523e89"><div class="ttname"><a href="namespaceemlabcpp.html#aeb03fae2e4aecd67b1f163e1ab523e89">emlabcpp::avg</a></div><div class="ttdeci">constexpr T avg(const Container &amp;cont, UnaryCallable &amp;&amp;f=std::identity())</div><div class="ttdoc">Applies callable 'f(x)' to each element of container 'cont' and returns the average value of each cal...</div><div class="ttdef"><b>Definition:</b> algorithm.h:290</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_af4898d31a822e25963cab32a985e89f4"><div class="ttname"><a href="namespaceemlabcpp.html#af4898d31a822e25963cab32a985e89f4">emlabcpp::almost_equal</a></div><div class="ttdeci">constexpr bool almost_equal(const T &amp;lh, const T &amp;rh, const float eps=default_epsilon)</div><div class="ttdoc">Two items 'lh' and 'rh' are almost equal if their difference is smaller than value 'eps'.</div><div class="ttdef"><b>Definition:</b> algorithm.h:78</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_af85136552afa4d0a86dd1fb078223cdd"><div class="ttname"><a href="namespaceemlabcpp.html#af85136552afa4d0a86dd1fb078223cdd">emlabcpp::copy</a></div><div class="ttdeci">void copy(const Container &amp;cont, Iterator iter)</div><div class="ttdef"><b>Definition:</b> algorithm.h:485</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:85</div></div>
 <div class="ttc" id="astructemlabcpp_1_1convert__to_html"><div class="ttname"><a href="structemlabcpp_1_1convert__to.html">emlabcpp::convert_to</a></div><div class="ttdoc">Object with operator() that constructs object of type Tout of passed-in value.</div><div class="ttdef"><b>Definition:</b> algorithm.h:455</div></div>
 <div class="ttc" id="astructemlabcpp_1_1convert__to_html_aff02285b9ccedce02c2cb00263df93d8"><div class="ttname"><a href="structemlabcpp_1_1convert__to.html#aff02285b9ccedce02c2cb00263df93d8">emlabcpp::convert_to::operator()</a></div><div class="ttdeci">constexpr T operator()(U &amp;&amp;src) const noexcept(noexcept(T{ std::forward&lt; U &gt;(src) }))</div><div class="ttdef"><b>Definition:</b> algorithm.h:457</div></div>
 <div class="ttc" id="astructemlabcpp_1_1min__max_html"><div class="ttname"><a href="structemlabcpp_1_1min__max.html">emlabcpp::min_max</a></div><div class="ttdoc">Helper structure for finding the smallest and the largest item in some container, contains min/max at...</div><div class="ttdef"><b>Definition:</b> algorithm.h:175</div></div>
@@ -647,7 +655,7 @@ $(document).ready(function(){initNavTree('algorithm_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="algorithm_8h.html">algorithm.h</a></li>
-    <li class="footer">Generated on Sat Apr 22 2023 12:41:14 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 23 2023 20:19:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

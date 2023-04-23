@@ -304,7 +304,7 @@ var hierarchy =
     [ "emlabcpp::simplex< Item, N >", "classemlabcpp_1_1simplex.html", null ],
     [ "emlabcpp::protocol::sized_buffer< CounterDef, D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer", null ],
     [ "emlabcpp::static_circular_buffer< T, N >", "classemlabcpp_1_1static__circular__buffer.html", null ],
-    [ "emlabcpp::static_circular_buffer< uint8_t, Def::message_type::max_size *2 >", "classemlabcpp_1_1static__circular__buffer.html", null ],
+    [ "emlabcpp::static_circular_buffer< std::byte, Def::message_type::capacity *2 >", "classemlabcpp_1_1static__circular__buffer.html", null ],
     [ "emlabcpp::static_function_base< CallableType, Capacity, Align >", "namespaceemlabcpp.html#classemlabcpp_1_1static__function__base", null ],
     [ "emlabcpp::static_function_base< bool(const controller_reactor_variant &), 16 >", "namespaceemlabcpp.html#namespaceemlabcpp", null ],
     [ "emlabcpp::static_function_base< bool(const reactor_controller_variant &), 32 >", "namespaceemlabcpp.html#namespaceemlabcpp", null ],

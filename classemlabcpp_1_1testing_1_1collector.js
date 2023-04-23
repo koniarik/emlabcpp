@@ -9,7 +9,7 @@ var classemlabcpp_1_1testing_1_1collector =
     [ "exchange", "classemlabcpp_1_1testing_1_1collector.html#a94296965c3da3a9b51027f8fbe8e6e24", null ],
     [ "get_channel", "classemlabcpp_1_1testing_1_1collector.html#a1f2cd5645422eba1dd9fde649429d768", null ],
     [ "on_msg", "classemlabcpp_1_1testing_1_1collector.html#aa81ae66f1a652cd89573fcf3bcccb9c2", null ],
-    [ "on_msg", "classemlabcpp_1_1testing_1_1collector.html#a189b2448d093ee90eba6a084a8614eec", null ],
+    [ "on_msg", "classemlabcpp_1_1testing_1_1collector.html#a2eccc260f0adfa7d7056572d43030691", null ],
     [ "operator=", "classemlabcpp_1_1testing_1_1collector.html#a8fcd2798a410566564b8b1743854ab41", null ],
     [ "operator=", "classemlabcpp_1_1testing_1_1collector.html#ac618a80781118aafea257b4030f886d4", null ],
     [ "set", "classemlabcpp_1_1testing_1_1collector.html#a9ef53ff70e944282e00e2f8b65114e0b", null ],

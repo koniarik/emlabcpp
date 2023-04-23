@@ -7,6 +7,7 @@ var algorithm_8h =
     [ "almost_equal", "algorithm_8h.html#af4898d31a822e25963cab32a985e89f4", null ],
     [ "any_of", "algorithm_8h.html#a2d80507cffdd192a333f6bd9c272e97a", null ],
     [ "avg", "algorithm_8h.html#aeb03fae2e4aecd67b1f163e1ab523e89", null ],
+    [ "bytes", "algorithm_8h.html#ae2f187ac1e10327a8c941d80b3b6b1e4", null ],
     [ "cont_size", "algorithm_8h.html#a631eb361805aa7459b944503f7538951", null ],
     [ "contains", "algorithm_8h.html#a6b36ab023620ad0de3855f2f892d400f", null ],
     [ "copy", "algorithm_8h.html#af85136552afa4d0a86dd1fb078223cdd", null ],

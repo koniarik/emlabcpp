@@ -618,6 +618,9 @@ Functions</h2></td></tr>
 <tr class="separator:a8d77f50ca9dd31e43365e38debbd42fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1e2e3e15b0c77fff6674ed7e6e1f67e"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab1e2e3e15b0c77fff6674ed7e6e1f67e">select_index</a> (IndexType i, const Callable &amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>)</td></tr>
 <tr class="separator:ab1e2e3e15b0c77fff6674ed7e6e1f67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="memTemplParams" colspan="2">template&lt;typename... Args, std::size_t N = sizeof...( Args )&gt; </td></tr>
+<tr class="memitem:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::array&lt; std::byte, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">bytes</a> (const Args &amp;... args)</td></tr>
+<tr class="separator:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51bc55ba3cb21b9294e89cdda68b1f98"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Container , typename Iterator  = iterator_of_t&lt; Container &gt;&gt; </td></tr>
 <tr class="memitem:a51bc55ba3cb21b9294e89cdda68b1f98"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; <a class="el" href="classemlabcpp_1_1iterators_1_1convert__iterator.html">iterators::convert_iterator</a>&lt; T, Iterator &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a51bc55ba3cb21b9294e89cdda68b1f98">convert_view</a> (Container &amp;&amp;cont)</td></tr>
 <tr class="separator:a51bc55ba3cb21b9294e89cdda68b1f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2921,6 +2924,34 @@ template&lt;std::size_t N&gt; </div>
 <p>That point is projected on axis defined only by it's direction - 'axis_direction'. The distance of that projection from the [0,0,0] coordinate is returned. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a8e3cab8faa406c3fc0e6c197d7663f12">dot()</a>, and <a class="el" href="namespaceemlabcpp.html#a3cfa63f3a0229b43ff56952dbb4e191f">vector_cast()</a>.</p>
+
+</div>
+</div>
+<a id="ae2f187ac1e10327a8c941d80b3b6b1e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2f187ac1e10327a8c941d80b3b6b1e4">&#9670;&nbsp;</a></span>bytes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args, std::size_t N = sizeof...( Args )&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::array&lt; std::byte, N &gt; emlabcpp::bytes </td>
+          <td>(</td>
+          <td class="paramtype">const Args &amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -10022,7 +10053,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sat Apr 22 2023 12:41:14 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 23 2023 20:19:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

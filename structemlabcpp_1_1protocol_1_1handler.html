@@ -110,8 +110,8 @@ Public Types</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab94ed6e95e60af5a0353af4340e989dc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a628acb0d52c7124cd132c5a7cd99f1e1">message_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#ab94ed6e95e60af5a0353af4340e989dc">serialize</a> (const <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aaf8e1e4018585b862e3e46a5f69684fd">value_type</a> &amp;val)</td></tr>
 <tr class="separator:ab94ed6e95e60af5a0353af4340e989dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a4e9b8c20d7122816fa978d0b6121cb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aaf8e1e4018585b862e3e46a5f69684fd">value_type</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a4a4e9b8c20d7122816fa978d0b6121cb">extract</a> (const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const uint8_t * &gt; &amp;msg)</td></tr>
-<tr class="separator:a4a4e9b8c20d7122816fa978d0b6121cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9145281f20ad6017cec3a6c5576c8191"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aaf8e1e4018585b862e3e46a5f69684fd">value_type</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a9145281f20ad6017cec3a6c5576c8191">extract</a> (const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const std::byte * &gt; &amp;msg)</td></tr>
+<tr class="separator:a9145281f20ad6017cec3a6c5576c8191"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;convertible T&gt;<br />
@@ -169,8 +169,8 @@ template&lt;convertible T&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4a4e9b8c20d7122816fa978d0b6121cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a4e9b8c20d7122816fa978d0b6121cb">&#9670;&nbsp;</a></span>extract()</h2>
+<a id="a9145281f20ad6017cec3a6c5576c8191"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9145281f20ad6017cec3a6c5576c8191">&#9670;&nbsp;</a></span>extract()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -183,7 +183,7 @@ template&lt;convertible T&gt; </div>
         <tr>
           <td class="memname">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aaf8e1e4018585b862e3e46a5f69684fd">value_type</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt; <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">emlabcpp::protocol::handler</a>&lt; T &gt;::extract </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const uint8_t * &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const std::byte * &gt; &amp;&#160;</td>
           <td class="paramname"><em>msg</em></td><td>)</td>
           <td></td>
         </tr>
@@ -195,7 +195,7 @@ template&lt;convertible T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0701dca20c652d3a679faf875aeb50cd">emlabcpp::protocol::deserialize()</a>, <a class="el" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">emlabcpp::protocol::deserialize()</a>, <a class="el" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>.</p>
 
 </div>
 </div>
@@ -225,7 +225,7 @@ template&lt;convertible T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1message.html#a64606ee225a66213b5299c6614505b3f">emlabcpp::protocol::message&lt; N &gt;::make()</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a610df3e9a914f315a30ae8a9d8c8fe">emlabcpp::protocol::serialize_at()</a>, and <a class="el" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">emlabcpp::view_n()</a>.</p>
+<p class="reference">References <a class="el" href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>, and <a class="el" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">emlabcpp::protocol::serialize_at()</a>.</p>
 
 </div>
 </div>
@@ -238,7 +238,7 @@ template&lt;convertible T&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">handler</a></li>
-    <li class="footer">Generated on Sat Apr 22 2023 12:41:14 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 23 2023 20:19:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

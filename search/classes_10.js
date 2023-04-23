@@ -18,7 +18,7 @@ var searchData=
   ['stack_5fresource_1478',['stack_resource',['../classemlabcpp_1_1pmr_1_1stack__resource.html',1,'emlabcpp::pmr']]],
   ['stack_5fresource_3c_201024_20_3e_1479',['stack_resource&lt; 1024 &gt;',['../classemlabcpp_1_1pmr_1_1stack__resource.html',1,'emlabcpp::pmr']]],
   ['static_5fcircular_5fbuffer_1480',['static_circular_buffer',['../classemlabcpp_1_1static__circular__buffer.html',1,'emlabcpp']]],
-  ['static_5fcircular_5fbuffer_3c_20uint8_5ft_2c_20def_3a_3amessage_5ftype_3a_3amax_5fsize_20_2a2_20_3e_1481',['static_circular_buffer&lt; uint8_t, Def::message_type::max_size *2 &gt;',['../classemlabcpp_1_1static__circular__buffer.html',1,'emlabcpp']]],
+  ['static_5fcircular_5fbuffer_3c_20std_3a_3abyte_2c_20def_3a_3amessage_5ftype_3a_3acapacity_20_2a2_20_3e_1481',['static_circular_buffer&lt; std::byte, Def::message_type::capacity *2 &gt;',['../classemlabcpp_1_1static__circular__buffer.html',1,'emlabcpp']]],
   ['static_5fcircular_5fbuffer_5fiterator_1482',['static_circular_buffer_iterator',['../classemlabcpp_1_1static__circular__buffer__iterator.html',1,'emlabcpp']]],
   ['static_5ffunction_5fbase_1483',['static_function_base',['../namespaceemlabcpp.html#classemlabcpp_1_1static__function__base',1,'emlabcpp']]],
   ['static_5ffunction_5fbase_3c_20bool_28const_20controller_5freactor_5fvariant_20_26_29_2c_2016_20_3e_1484',['static_function_base&lt; bool(const controller_reactor_variant &amp;), 16 &gt;',['../namespaceemlabcpp.html#namespaceemlabcpp',1,'emlabcpp']]],

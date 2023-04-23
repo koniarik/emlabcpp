@@ -116,8 +116,8 @@ Public Types</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad8c65f469b04b2946320dba77b816c5a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#addf9484ed35a5a111f4ce0c49debef1f">message_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#ad8c65f469b04b2946320dba77b816c5a">serialize</a> (const <a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#ae3f2e336789a870f706edb2eced24fd6">value_type</a> &amp;val)</td></tr>
 <tr class="separator:ad8c65f469b04b2946320dba77b816c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a911f1f752d8eae2f2b527e0b043d6145"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#ae3f2e336789a870f706edb2eced24fd6">value_type</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#a911f1f752d8eae2f2b527e0b043d6145">extract</a> (const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const uint8_t * &gt; &amp;msg)</td></tr>
-<tr class="separator:a911f1f752d8eae2f2b527e0b043d6145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7300d2355320436615f3c4a13691b3a5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#ae3f2e336789a870f706edb2eced24fd6">value_type</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#a7300d2355320436615f3c4a13691b3a5">extract</a> (const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const std::byte * &gt; &amp;msg)</td></tr>
+<tr class="separator:a7300d2355320436615f3c4a13691b3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -244,8 +244,8 @@ template&lt;typename Packet &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a911f1f752d8eae2f2b527e0b043d6145"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a911f1f752d8eae2f2b527e0b043d6145">&#9670;&nbsp;</a></span>extract()</h2>
+<a id="a7300d2355320436615f3c4a13691b3a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7300d2355320436615f3c4a13691b3a5">&#9670;&nbsp;</a></span>extract()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -258,7 +258,7 @@ template&lt;typename Packet &gt; </div>
         <tr>
           <td class="memname">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#ae3f2e336789a870f706edb2eced24fd6">value_type</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html">emlabcpp::protocol::packet_handler</a>&lt; Packet &gt;::extract </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const uint8_t * &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const std::byte * &gt; &amp;&#160;</td>
           <td class="paramname"><em>msg</em></td><td>)</td>
           <td></td>
         </tr>
@@ -270,7 +270,7 @@ template&lt;typename Packet &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0eb2445c490b6ad98bd006097c7b4296">emlabcpp::protocol::CHECKSUM_ERR</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#a86060b19d1a17ee4701125f29f9b18dc">emlabcpp::protocol::packet_handler&lt; Packet &gt;::checksum_size</a>, <a class="el" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a4a4e9b8c20d7122816fa978d0b6121cb">emlabcpp::protocol::handler&lt; T &gt;::extract()</a>, <a class="el" href="classemlabcpp_1_1view.html#aaa812fd178fc993e11fbbbc5894fb3c3">emlabcpp::view&lt; Iterator &gt;::size()</a>, and <a class="el" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">emlabcpp::view_n()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0eb2445c490b6ad98bd006097c7b4296">emlabcpp::protocol::CHECKSUM_ERR</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#a86060b19d1a17ee4701125f29f9b18dc">emlabcpp::protocol::packet_handler&lt; Packet &gt;::checksum_size</a>, <a class="el" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a9145281f20ad6017cec3a6c5576c8191">emlabcpp::protocol::handler&lt; T &gt;::extract()</a>, <a class="el" href="classemlabcpp_1_1view.html#aaa812fd178fc993e11fbbbc5894fb3c3">emlabcpp::view&lt; Iterator &gt;::size()</a>, and <a class="el" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">emlabcpp::view_n()</a>.</p>
 
 </div>
 </div>
@@ -300,7 +300,7 @@ template&lt;typename Packet &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#a86060b19d1a17ee4701125f29f9b18dc">emlabcpp::protocol::packet_handler&lt; Packet &gt;::checksum_size</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#ab94ed6e95e60af5a0353af4340e989dc">emlabcpp::protocol::handler&lt; T &gt;::serialize()</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1serializer.html#a3f19e847096f522a1eac68acca3f870a">emlabcpp::protocol::serializer&lt; T, Endianess &gt;::serialize_at()</a>, and <a class="el" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">emlabcpp::view_n()</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html#a86060b19d1a17ee4701125f29f9b18dc">emlabcpp::protocol::packet_handler&lt; Packet &gt;::checksum_size</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#ab94ed6e95e60af5a0353af4340e989dc">emlabcpp::protocol::handler&lt; T &gt;::serialize()</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1serializer.html#a8ad82c3eadda0af33afb10db9fdca52d">emlabcpp::protocol::serializer&lt; T, Endianess &gt;::serialize_at()</a>, and <a class="el" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">emlabcpp::view_n()</a>.</p>
 
 </div>
 </div>
@@ -410,7 +410,7 @@ template&lt;typename Packet &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1packet__handler.html">packet_handler</a></li>
-    <li class="footer">Generated on Sat Apr 22 2023 12:41:14 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 23 2023 20:19:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

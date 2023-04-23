@@ -333,6 +333,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a2bdbb330d80ae9da95fad5ea75a882be"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a> (const char(&amp;msg)[<a class="el" href="namespaceemlabcpp_1_1protocol.html#a52a436aee08af672045226b734de0cc5">mark_size</a>+1])</td></tr>
 <tr class="memdesc:a2bdbb330d80ae9da95fad5ea75a882be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates mark from simple string literal.  <a href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">More...</a><br /></td></tr>
 <tr class="separator:a2bdbb330d80ae9da95fad5ea75a882be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7cf453765253654adcf697d7810d1b6"><td class="memTemplParams" colspan="2">template&lt;std::convertible_to&lt; uint8_t &gt;... Ts&gt; </td></tr>
+<tr class="memitem:ad7cf453765253654adcf697d7810d1b6"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ad7cf453765253654adcf697d7810d1b6">message</a> (Ts... inpt) -&gt; <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; sizeof...(Ts) &gt;</td></tr>
+<tr class="separator:ad7cf453765253654adcf697d7810d1b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28cabc33555007426b8995bfbf036ae5"><td class="memTemplParams" colspan="2">template&lt;std::convertible_to&lt; uint8_t &gt;... Ts&gt; </td></tr>
+<tr class="memitem:a28cabc33555007426b8995bfbf036ae5"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a28cabc33555007426b8995bfbf036ae5">sizeless_message</a> (Ts... inpt) -&gt; <a class="el" href="classemlabcpp_1_1protocol_1_1sizeless__message.html">sizeless_message</a>&lt; sizeof...(Ts) &gt;</td></tr>
+<tr class="separator:a28cabc33555007426b8995bfbf036ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25417e5baf4dcb0a348bb0e6e5ea83a2"><td class="memTemplParams" colspan="2">template&lt;typename Map , typename UnaryCallable &gt; </td></tr>
 <tr class="memitem:a25417e5baf4dcb0a348bb0e6e5ea83a2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a25417e5baf4dcb0a348bb0e6e5ea83a2">for_each_register</a> (const Map &amp;m, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>)</td></tr>
 <tr class="separator:a25417e5baf4dcb0a348bb0e6e5ea83a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -342,10 +348,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a380711490896b7090b370d91691adb69"><td class="memTemplParams" colspan="2">template&lt;base_type T, std::endian Endianess&gt; </td></tr>
 <tr class="memitem:a380711490896b7090b370d91691adb69"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a380711490896b7090b370d91691adb69">requires</a> (std::is_enum_v&lt; T &gt;) struct <a class="el" href="structemlabcpp_1_1protocol_1_1serializer.html">serializer</a>&lt; T</td></tr>
 <tr class="separator:a380711490896b7090b370d91691adb69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a610df3e9a914f315a30ae8a9d8c8fe"><td class="memItemLeft" align="right" valign="top">static constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a610df3e9a914f315a30ae8a9d8c8fe">serialize_at</a> (std::span&lt; uint8_t, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a> &gt; buffer, T item)</td></tr>
-<tr class="separator:a3a610df3e9a914f315a30ae8a9d8c8fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0701dca20c652d3a679faf875aeb50cd"><td class="memItemLeft" align="right" valign="top">static constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0701dca20c652d3a679faf875aeb50cd">deserialize</a> (const std::span&lt; const uint8_t, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a> &gt; &amp;buffer)</td></tr>
-<tr class="separator:a0701dca20c652d3a679faf875aeb50cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a3eae750f39fcca3a1bf989dc31beac"><td class="memItemLeft" align="right" valign="top">static constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">serialize_at</a> (std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a> &gt; buffer, T item)</td></tr>
+<tr class="separator:a5a3eae750f39fcca3a1bf989dc31beac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6cb8eed0d3dbf831466baeae0b0501d"><td class="memItemLeft" align="right" valign="top">static constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">deserialize</a> (const std::span&lt; const std::byte, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a> &gt; &amp;buffer)</td></tr>
+<tr class="separator:ab6cb8eed0d3dbf831466baeae0b0501d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c27fc5576f6e7894b809016d7d5cbdc"><td class="memTemplParams" colspan="2">template&lt;typename D &gt; </td></tr>
 <tr class="memitem:a9c27fc5576f6e7894b809016d7d5cbdc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a9c27fc5576f6e7894b809016d7d5cbdc">traits_for_impl</a> ()</td></tr>
 <tr class="separator:a9c27fc5576f6e7894b809016d7d5cbdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -890,8 +896,8 @@ template&lt;typename D , std::endian E&gt; </div>
 
 </div>
 </div>
-<a id="a0701dca20c652d3a679faf875aeb50cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0701dca20c652d3a679faf875aeb50cd">&#9670;&nbsp;</a></span>deserialize()</h2>
+<a id="ab6cb8eed0d3dbf831466baeae0b0501d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6cb8eed0d3dbf831466baeae0b0501d">&#9670;&nbsp;</a></span>deserialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -902,7 +908,7 @@ template&lt;typename D , std::endian E&gt; </div>
         <tr>
           <td class="memname">static constexpr T emlabcpp::protocol::deserialize </td>
           <td>(</td>
-          <td class="paramtype">const std::span&lt; const uint8_t, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::span&lt; const std::byte, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
           <td></td>
         </tr>
@@ -914,7 +920,7 @@ template&lt;typename D , std::endian E&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1serializer.html#a1c8d955f74be142328d0cb1c57a11e01">emlabcpp::protocol::serializer&lt; T, Endianess &gt;::deserialize()</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1serializer.html#a44f0671ea6b8b95505474371b84d9c11">emlabcpp::protocol::serializer&lt; T, Endianess &gt;::deserialize()</a>.</p>
 
 </div>
 </div>
@@ -952,7 +958,7 @@ template&lt;std::size_t N, typename BinaryCallable , typename MsgCallable &gt; <
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a4a4e9b8c20d7122816fa978d0b6121cb">emlabcpp::protocol::handler&lt; T &gt;::extract()</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#ac45b34ffbd63c8c942cea66c9b489c16">multiplexer_service_id</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafad7cee373ed46d900f608c5970cdfe643">PORT_MATCH_ERROR</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafa89fc9790558c285c0664b57f3251ebc1">PROTOCOL_ERROR</a>, and <a class="el" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">emlabcpp::view_n()</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a9145281f20ad6017cec3a6c5576c8191">emlabcpp::protocol::handler&lt; T &gt;::extract()</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#ac45b34ffbd63c8c942cea66c9b489c16">multiplexer_service_id</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafad7cee373ed46d900f608c5970cdfe643">PORT_MATCH_ERROR</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafa89fc9790558c285c0664b57f3251ebc1">PROTOCOL_ERROR</a>, and <a class="el" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">emlabcpp::view_n()</a>.</p>
 
 </div>
 </div>
@@ -1017,6 +1023,26 @@ template&lt;typename Map , typename UnaryCallable &gt; </div>
 <p>note: do not try to fix the argument type, this is correct approach.</p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>.</p>
+
+</div>
+</div>
+<a id="ad7cf453765253654adcf697d7810d1b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7cf453765253654adcf697d7810d1b6">&#9670;&nbsp;</a></span>message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::convertible_to&lt; uint8_t &gt;... Ts&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1protocol_1_1message.html">emlabcpp::protocol::message</a> </td>
+          <td>(</td>
+          <td class="paramtype">Ts...&#160;</td>
+          <td class="paramname"><em>inpt</em></td><td>)</td>
+          <td> -&gt;  <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; sizeof...(Ts) &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1110,8 +1136,8 @@ template&lt;typename Sequencer , typename ReadCallback &gt; </div>
 
 </div>
 </div>
-<a id="a3a610df3e9a914f315a30ae8a9d8c8fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a610df3e9a914f315a30ae8a9d8c8fe">&#9670;&nbsp;</a></span>serialize_at()</h2>
+<a id="a5a3eae750f39fcca3a1bf989dc31beac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a3eae750f39fcca3a1bf989dc31beac">&#9670;&nbsp;</a></span>serialize_at()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1122,7 +1148,7 @@ template&lt;typename Sequencer , typename ReadCallback &gt; </div>
         <tr>
           <td class="memname">static constexpr void emlabcpp::protocol::serialize_at </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; uint8_t, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a> &gt;&#160;</td>
+          <td class="paramtype">std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a> &gt;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -1144,7 +1170,7 @@ template&lt;typename Sequencer , typename ReadCallback &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1serializer.html#a3f19e847096f522a1eac68acca3f870a">emlabcpp::protocol::serializer&lt; T, Endianess &gt;::serialize_at()</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1serializer.html#a8ad82c3eadda0af33afb10db9fdca52d">emlabcpp::protocol::serializer&lt; T, Endianess &gt;::serialize_at()</a>.</p>
 
 </div>
 </div>
@@ -1177,6 +1203,26 @@ template&lt;std::size_t N&gt; </div>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#ab94ed6e95e60af5a0353af4340e989dc">emlabcpp::protocol::handler&lt; T &gt;::serialize()</a>.</p>
+
+</div>
+</div>
+<a id="a28cabc33555007426b8995bfbf036ae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28cabc33555007426b8995bfbf036ae5">&#9670;&nbsp;</a></span>sizeless_message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::convertible_to&lt; uint8_t &gt;... Ts&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1protocol_1_1sizeless__message.html">emlabcpp::protocol::sizeless_message</a> </td>
+          <td>(</td>
+          <td class="paramtype">Ts...&#160;</td>
+          <td class="paramname"><em>inpt</em></td><td>)</td>
+          <td> -&gt;  <a class="el" href="classemlabcpp_1_1protocol_1_1sizeless__message.html">sizeless_message</a>&lt; sizeof...(Ts) &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1337,20 +1383,20 @@ template&lt;typename T &gt; </div>
 <div class="line">        <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a>;</div>
 <div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> bounded_derived&lt; typename T::size_type &gt;;</div>
 <div class="line">}</div>
-<div class="line">&amp;&amp;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( std::span&lt; uint8_t, T::max_size &gt; buff, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> item )</div>
+<div class="line">&amp;&amp;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( std::span&lt; std::byte, T::max_size &gt; buff, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> item )</div>
 <div class="line">{</div>
 <div class="line">        {</div>
-<div class="line">                <a class="code" href="namespaceemlabcpp_1_1protocol.html#a3a610df3e9a914f315a30ae8a9d8c8fe">T::serialize_at</a>( buff, item )</div>
+<div class="line">                <a class="code" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">T::serialize_at</a>( buff, item )</div>
 <div class="line">                } -&gt; std::same_as&lt; typename T::size_type &gt;;</div>
 <div class="line">}</div>
-<div class="line">&amp;&amp;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( std::span&lt; const uint8_t &gt; buff, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> item )</div>
+<div class="line">&amp;&amp;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( std::span&lt; const std::byte &gt; buff, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> item )</div>
 <div class="line">{</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1protocol.html#a0701dca20c652d3a679faf875aeb50cd">T::deserialize</a>( buff, item );</div>
+<div class="line">        <a class="code" href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">T::deserialize</a>( buff, item );</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:78</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a0701dca20c652d3a679faf875aeb50cd"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a0701dca20c652d3a679faf875aeb50cd">emlabcpp::protocol::deserialize</a></div><div class="ttdeci">static constexpr T deserialize(const std::span&lt; const uint8_t, max_size &gt; &amp;buffer)</div><div class="ttdef"><b>Definition:</b> serializer.h:73</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a3a610df3e9a914f315a30ae8a9d8c8fe"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a3a610df3e9a914f315a30ae8a9d8c8fe">emlabcpp::protocol::serialize_at</a></div><div class="ttdeci">static constexpr void serialize_at(std::span&lt; uint8_t, max_size &gt; buffer, T item)</div><div class="ttdef"><b>Definition:</b> serializer.h:69</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a5a3eae750f39fcca3a1bf989dc31beac"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">emlabcpp::protocol::serialize_at</a></div><div class="ttdeci">static constexpr void serialize_at(std::span&lt; std::byte, max_size &gt; buffer, T item)</div><div class="ttdef"><b>Definition:</b> serializer.h:69</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a9dfeb95ba0e6684fbc02d537318ac8da"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> serializer.h:66</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_ab6cb8eed0d3dbf831466baeae0b0501d"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">emlabcpp::protocol::deserialize</a></div><div class="ttdeci">static constexpr T deserialize(const std::span&lt; const std::byte, max_size &gt; &amp;buffer)</div><div class="ttdef"><b>Definition:</b> serializer.h:73</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:47</div></div>
 </div><!-- fragment -->
 <p>converter_check&lt;T&gt; concept verifies that 'T' is valid overload of converter. </p>
@@ -1531,7 +1577,7 @@ template&lt;typename T &gt; </div>
 <div class="line">{</div>
 <div class="line">        <a class="code" href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">detail::message_derived_test</a>( val );</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_1_1detail_html_aba82f9bdb1604d0b12a5f9ce21d48376"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">emlabcpp::protocol::detail::message_derived_test</a></div><div class="ttdeci">constexpr bool message_derived_test(const message&lt; N &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> message.h:211</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_1_1detail_html_aba82f9bdb1604d0b12a5f9ce21d48376"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">emlabcpp::protocol::detail::message_derived_test</a></div><div class="ttdeci">constexpr bool message_derived_test(const message&lt; N &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> message.h:185</div></div>
 </div><!-- fragment -->
 <p>concept matches any type that is message or derives from it. </p>
 
@@ -1655,7 +1701,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Sat Apr 22 2023 12:41:14 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 23 2023 20:19:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
