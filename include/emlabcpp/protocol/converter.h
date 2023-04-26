@@ -106,6 +106,48 @@ struct converter< D, Endianess >
         }
 };
 
+template < typename D, std::endian E, typename T >
+std::size_t serialize_range( std::span< std::byte > buffer, const view< const T* >& data )
+{
+        auto iter                             = buffer.begin();
+        using sub_converter                   = converter_for< D, E >;
+        static constexpr std::size_t max_size = sub_converter::max_size;
+        for ( const auto& item : data ) {
+                const std::span< std::byte, max_size > sub_view{ iter, max_size };
+
+                const bounded sub_bused = sub_converter::serialize_at( sub_view, item );
+
+                std::advance( iter, *sub_bused );
+        }
+        auto used = static_cast< std::size_t >( std::distance( buffer.begin(), iter ) );
+        return used;
+}
+
+template < typename D, std::endian E, typename T >
+conversion_result
+deserialize_range( const std::span< const std::byte >& buffer, const view< T* >& data )
+{
+        using sub_converter = converter_for< D, E >;
+
+        std::size_t offset = 0;
+
+        for ( const std::size_t i : range( data.size() ) ) {
+                if ( offset > buffer.size() ) {
+                        return { offset, &SIZE_ERR };
+                }
+                const std::span subspan = buffer.subspan( offset );
+
+                auto sres = sub_converter::deserialize( subspan, data[i] );
+                if ( sres.has_error() ) {
+                        sres.used += offset;
+                        return sres;
+                }
+                offset += sres.used;
+        }
+
+        return conversion_result{ offset };
+}
+
 template < convertible D, std::size_t N, std::endian Endianess >
 struct converter< std::array< D, N >, Endianess >
 {
@@ -125,19 +167,8 @@ struct converter< std::array< D, N >, Endianess >
         static constexpr size_type
         serialize_at( std::span< std::byte, max_size > buffer, const value_type& item )
         {
-                auto iter = buffer.begin();
-
-                for ( const std::size_t i : range( N ) ) {
-                        const std::span< std::byte, sub_converter::max_size > sub_view{
-                            iter, sub_converter::max_size };
-
-                        const bounded bused = sub_converter::serialize_at( sub_view, item[i] );
-
-                        std::advance( iter, *bused );
-                }
-
-                auto used      = std::distance( buffer.begin(), iter );
-                auto opt_bused = size_type::make( used );
+                std::size_t used      = serialize_range< D, Endianess >( buffer, view{ item } );
+                auto        opt_bused = size_type::make( used );
                 EMLABCPP_ASSERT( opt_bused );
                 return *opt_bused;
         }
@@ -145,23 +176,7 @@ struct converter< std::array< D, N >, Endianess >
         static constexpr conversion_result
         deserialize( const std::span< const std::byte >& buffer, value_type& value )
         {
-
-                std::size_t offset = 0;
-
-                for ( const std::size_t i : range( N ) ) {
-                        if ( offset > buffer.size() ) {
-                                return { offset, &SIZE_ERR };
-                        }
-                        const std::span subspan = buffer.subspan( offset );
-
-                        auto sres = sub_converter::deserialize( subspan, value[i] );
-                        if ( sres.has_error() ) {
-                                return sres;
-                        }
-                        offset += sres.used;
-                }
-
-                return conversion_result{ offset };
+                return deserialize_range< D, Endianess >( buffer, view{ value } );
         }
 };
 
@@ -448,9 +463,8 @@ struct converter< message< N >, Endianess >
                     buffer.template first< msg_size_size >(),
                     static_cast< msg_size_type >( item.size() ) );
 
-                for ( const std::size_t i : range( item.size() ) ) {
-                        buffer[i + msg_size_size] = item[i];
-                }
+                std::copy( item.begin(), item.end(), buffer.begin() + msg_size_size );
+
                 /// The size of protocol::message should always be within the 0...N range
                 auto opt_bused = size_type::make( item.size() + *used );
                 EMLABCPP_ASSERT( opt_bused );
@@ -468,12 +482,12 @@ struct converter< message< N >, Endianess >
                 if ( buffer.size() < subres.used + size ) {
                         return { subres.used, &SIZE_ERR };
                 }
-                if ( size > max_size ) {
+                if ( size > N ) {
                         return { subres.used, &BIGSIZE_ERR };
                 }
                 value.resize( size );
                 std::copy(
-                    std::next( buffer.begin(), static_cast< long int >( subres.used ) ),
+                    buffer.begin() + static_cast< std::ptrdiff_t >( subres.used ),
                     buffer.end(),
                     value.begin() );
 
@@ -806,30 +820,58 @@ struct converter< D, Endianess > : converter_for< typename D::def_type, Endianes
 {
 };
 
-template < std::endian Endianess >
-struct converter< mark, Endianess >
+template < std::size_t N, std::endian Endianess >
+struct converter< string_buffer< N >, Endianess >
 {
-        using value_type                      = typename traits_for< mark >::value_type;
-        static constexpr std::size_t max_size = traits_for< mark >::max_size;
+        using value_type = typename traits_for< string_buffer< N > >::value_type;
+        static constexpr std::size_t max_size = traits_for< string_buffer< N > >::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
+
+        using counter_type                        = uint16_t;  // TODO: bad place
+        using counter_converter                   = converter_for< counter_type, Endianess >;
+        static constexpr std::size_t counter_size = counter_converter::max_size;
+
+        using sub_converter = converter_for< typename value_type::base_type, Endianess >;
 
         static constexpr size_type
         serialize_at( const std::span< std::byte, max_size > buffer, const value_type& item )
         {
-                copy( item, reinterpret_cast< uint8_t* >( buffer.data() ) );
-                return size_type{};
+                counter_converter::serialize_at(
+                    buffer.template first< counter_size >(),
+                    static_cast< counter_type >( item.size() ) );
+
+                std::copy(
+                    item.begin(),
+                    item.end(),
+                    reinterpret_cast< char* >( buffer.data() + counter_size ) );
+
+                auto opt_bused = size_type::make( item.size() + counter_size );
+                EMLABCPP_ASSERT( opt_bused );
+                return *opt_bused;
         }
+
+        /// TODO: duplication between this, messages, and static_vector
 
         static constexpr conversion_result
         deserialize( const std::span< const std::byte >& buffer, value_type& value )
         {
-                if ( buffer.size() < max_size ) {
-                        return { 0, &SIZE_ERR };
+                counter_type size;
+                auto         subres = counter_converter::deserialize( buffer, size );
+                if ( subres.has_error() ) {
+                        return subres;
                 }
-                copy(
-                    view_n( buffer.begin(), max_size ),
-                    reinterpret_cast< std::byte* >( value.data() ) );
-                return conversion_result{ max_size };
+                if ( buffer.size() < subres.used + size ) {
+                        return { subres.used, &SIZE_ERR };
+                }
+                if ( size > N ) {
+                        return { subres.used, &BIGSIZE_ERR };
+                }
+                std::copy(
+                    buffer.begin() + static_cast< std::ptrdiff_t >( subres.used ),
+                    buffer.end(),
+                    reinterpret_cast< std::byte* >( value.begin() ) );
+
+                return conversion_result{ subres.used + size };
         }
 };
 
@@ -844,7 +886,7 @@ struct converter< error_record, Endianess >
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
         static constexpr size_type
-        serialize_at( std::span< std::byte, max_size > buffer, value_type item )
+        serialize_at( std::span< std::byte, max_size > buffer, const value_type& item )
         {
                 mark_converter::serialize_at(
                     buffer.first< mark_converter::max_size >(), item.error_mark );
@@ -886,25 +928,15 @@ struct converter< static_vector< T, N >, Endianess >
         using size_type                       = bounded< std::size_t, min_size, max_size >;
 
         static constexpr size_type
-        serialize_at( std::span< std::byte, max_size > buffer, value_type item )
+        serialize_at( std::span< std::byte, max_size > buffer, const value_type& item )
         {
-
                 counter_converter::serialize_at(
                     buffer.template first< counter_size >(),
                     static_cast< counter_type >( item.size() ) );
 
-                /// TODO: this duplicates std::array, generalize?
-                auto iter = buffer.begin() + counter_size;
-                for ( const std::size_t i : range( item.size() ) ) {
-                        const std::span< std::byte, sub_converter::max_size > sub_view{
-                            iter, sub_converter::max_size };
-
-                        const bounded sub_bused = sub_converter::serialize_at( sub_view, item[i] );
-
-                        std::advance( iter, *sub_bused );
-                }
-
-                auto used = static_cast< std::size_t >( std::distance( buffer.begin(), iter ) );
+                std::size_t used =
+                    serialize_range< T, Endianess >( buffer.subspan( counter_size ), view{ item } );
+                used += counter_size;
                 auto opt_bused = size_type::make( used );
                 EMLABCPP_ASSERT( opt_bused );
 
@@ -915,28 +947,17 @@ struct converter< static_vector< T, N >, Endianess >
         deserialize( const std::span< const std::byte >& buffer, value_type& value )
         {
                 counter_type count;
-                auto         subres = counter_converter::deserialize( buffer, count );
+                const auto   subres = counter_converter::deserialize( buffer, count );
                 if ( subres.has_error() ) {
                         return subres;
                 }
-                std::size_t offset = subres.used;
-
-                for ( const std::size_t i : range( count ) ) {
-                        std::ignore = i;
-                        if ( offset > buffer.size() ) {
-                                return { offset, &SIZE_ERR };
-                        }
-                        const std::span subspan = buffer.subspan( offset );
+                while ( value.size() != count && value.size() < value.max_size() ) {
                         value.emplace_back();
-
-                        auto itemres = sub_converter::deserialize( subspan, value.back() );
-                        offset += itemres.used;
-                        if ( itemres.has_error() ) {
-                                return { offset, itemres.get_error() };
-                        }
                 }
-
-                return conversion_result{ offset };
+                conversion_result res = deserialize_range< T, Endianess >(
+                    buffer.subspan( counter_size ), view{ value } );
+                res.used += counter_size;
+                return res;
         }
 };
 
@@ -983,7 +1004,7 @@ struct memcpy_converter
         using size_type                       = bounded< std::size_t, min_size, max_size >;
 
         static constexpr size_type
-        serialize_at( std::span< std::byte, max_size > buffer, value_type item )
+        serialize_at( std::span< std::byte, max_size > buffer, const value_type& item )
         {
                 std::memcpy( buffer.begin(), &item, sizeof( value_type ) );
         }

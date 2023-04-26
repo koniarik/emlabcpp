@@ -88,7 +88,7 @@ struct value_type_converter< std::string_view >
 {
         static value_type to_value( const std::string_view& item )
         {
-                return string_to_buffer( item );
+                return string_buffer( item );
         }
 };
 

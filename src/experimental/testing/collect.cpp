@@ -79,7 +79,7 @@ collector::set( const node_id parent, const std::string_view key, contiguous_con
             collect_request{
                 .parent        = parent,
                 .expects_reply = true,
-                .opt_key       = key_type_to_buffer( key ),
+                .opt_key       = key_type( key ),
                 .value         = t },
             *this };
 }
@@ -95,7 +95,7 @@ void collector::set( const node_id parent, const std::string_view key, const val
         send( collect_request{
             .parent        = parent,
             .expects_reply = false,
-            .opt_key       = key_type_to_buffer( key ),
+            .opt_key       = key_type( key ),
             .value         = val } );
 }
 void collector::append( const node_id parent, const value_type& val )

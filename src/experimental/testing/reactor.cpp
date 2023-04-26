@@ -59,11 +59,11 @@ void reactor::on_msg( const controller_reactor_variant& var )
 
 void reactor::handle_message( const get_property< SUITE_NAME > )
 {
-        iface_.reply( get_suite_name_reply{ name_to_buffer( suite_name_ ) } );
+        iface_.reply( get_suite_name_reply{ name_buffer( suite_name_ ) } );
 }
 void reactor::handle_message( const get_property< SUITE_DATE > )
 {
-        iface_.reply( get_suite_date_reply{ name_to_buffer( suite_date_ ) } );
+        iface_.reply( get_suite_date_reply{ name_buffer( suite_date_ ) } );
 }
 void reactor::handle_message( const get_property< COUNT > )
 {
@@ -78,7 +78,7 @@ void reactor::handle_message( const get_test_name_request req )
                 return;
         }
         test_interface* const test_ptr = **node_ptr;
-        iface_.reply( get_test_name_reply{ name_to_buffer( test_ptr->get_name() ) } );
+        iface_.reply( get_test_name_reply{ name_buffer( test_ptr->get_name() ) } );
 }
 
 void reactor::handle_message( const exec_request req )

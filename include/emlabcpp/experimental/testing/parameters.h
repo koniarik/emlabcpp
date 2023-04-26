@@ -333,15 +333,9 @@ public:
         {
                 return param_value_key_awaiter< T >{ param_value_key_request{ node, k }, *this };
         }
-        template < typename T >
-        param_value_key_awaiter< T > get_value( const node_id node, const std::string_view k )
-        {
-                return get_value< T >( node, key_type_to_buffer( k ) );
-        }
 
         param_child_awaiter get_child( node_id nid, child_id chid );
         param_child_awaiter get_child( node_id nid, const key_type& key );
-        param_child_awaiter get_child( node_id nid, std::string_view key );
 
         param_child_count_awaiter get_child_count( const node_id nid );
 
@@ -360,15 +354,15 @@ private:
 template < typename T >
 void param_value_processor< T >::log_error( parameters& params )
 {
-        params.send( param_error{ string_to_buffer( "for value of type:" ) } );
-        params.send( param_error{ string_to_buffer( pretty_type_name< T >() ) } );
+        params.send( param_error{ string_buffer( "for value of type:" ) } );
+        params.send( param_error{ string_buffer( pretty_type_name< T >() ) } );
 }
 
 template < typename T >
 void param_value_key_processor< T >::log_error( parameters& params )
 {
-        params.send( param_error{ string_to_buffer( "for keyvalue of type:" ) } );
-        params.send( param_error{ string_to_buffer( pretty_type_name< T >() ) } );
+        params.send( param_error{ string_buffer( "for keyvalue of type:" ) } );
+        params.send( param_error{ string_buffer( pretty_type_name< T >() ) } );
 }
 
 template < typename Processor >
@@ -378,8 +372,8 @@ void params_awaiter< Processor >::await_suspend( const std::coroutine_handle< Pr
         h.promise().iface = this;
         params.exchange( proc.req, [this]( const params_server_client_variant& var ) {
                 if ( !proc.set_value( var ) ) {
-                        params.send( param_error{
-                            string_to_buffer( "failed to process parameter awaiter" ) } );
+                        params.send(
+                            param_error{ string_buffer( "failed to process param awaiter" ) } );
                         proc.log_error( params );
                         state = coro::wait_state::ERRORED;
                 } else {

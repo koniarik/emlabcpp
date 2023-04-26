@@ -37,23 +37,23 @@ struct conversion_result
         std::size_t used  = 0;
         const mark* error = nullptr;
 
-        conversion_result() = default;
-        explicit conversion_result( const std::size_t u )
+        constexpr conversion_result() = default;
+        explicit constexpr conversion_result( const std::size_t u )
           : used( u )
         {
         }
-        conversion_result( const std::size_t u, const mark* const m )
+        constexpr conversion_result( const std::size_t u, const mark* const m )
           : used( u )
           , error( m )
         {
         }
 
-        [[nodiscard]] bool has_error() const
+        [[nodiscard]] constexpr bool has_error() const
         {
                 return error != nullptr;
         }
 
-        [[nodiscard]] const mark* get_error() const
+        [[nodiscard]] constexpr const mark* get_error() const
         {
                 return error;
         }

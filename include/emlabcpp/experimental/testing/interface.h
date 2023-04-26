@@ -112,7 +112,7 @@ class test_callable : public test_interface
 {
 public:
         test_callable( const std::string_view name, Callable cb )
-          : name_( name_to_buffer( name ) )
+          : name_( name )
           , cb_( std::move( cb ) )
         {
         }
@@ -140,7 +140,7 @@ class test_linked_callable : public test_interface
 {
 public:
         test_linked_callable( auto& reactor, const std::string_view name, Callable cb )
-          : name_( name_to_buffer( name ) )
+          : name_( name )
           , cb_( std::move( cb ) )
           , node_( this )
         {

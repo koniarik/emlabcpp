@@ -39,7 +39,7 @@ std::optional< value_type > json_to_value_type( const nlohmann::json& j )
         case value_t::number_float:
                 return j.get< float >();
         case value_t::string:
-                return string_to_buffer( j.get< std::string >() );
+                return string_buffer( j.get< std::string >() );
         default:
                 break;
         }
@@ -63,7 +63,7 @@ nlohmann::json value_type_to_json( const value_type& tv )
 
 key_type json_to_key_type( const nlohmann::json& j )
 {
-        return key_type_to_buffer( j.get< std::string_view >() );
+        return j.get< std::string_view >();
 }
 
 std::optional< data_tree >

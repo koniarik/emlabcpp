@@ -17,6 +17,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#include "emlabcpp/experimental/string_buffer.h"
 #include <algorithm>
 #include <array>
 
@@ -25,17 +26,9 @@
 namespace emlabcpp::protocol
 {
 
-/// Error handling in protocol works with marks. Mark is a string made of eight characters that
-/// represents label. Each error is labeled by namespace specific for the source project and by name
-/// unique in that namespace, part of the error is also index of byte that caused the problem. These
-/// can be easily sent with the protocol lib itself.
-
 static constexpr std::size_t mark_size = 16;
 
-struct mark : std::array< char, mark_size >
-{
-        using base_type = std::array< char, mark_size >;
-};
+using mark = string_buffer< mark_size >;
 
 struct error_record
 {
@@ -43,30 +36,20 @@ struct error_record
         std::size_t offset;
 };
 
-/// Creates mark from simple string literal.
-/// NOLINTNEXTLINE(modernize-avoid-c-arrays)
-constexpr mark make_mark( const char ( &msg )[mark_size + 1] )
-{
-        /// note: do not try to fix the argument type, this is correct approach.
-        mark res;
-        std::copy_n( msg, res.size(), res.begin() );
-        return res;
-}
-
-static constexpr auto SIZE_ERR = make_mark( "EMLABCPPSIZE    " );
+static constexpr auto SIZE_ERR = mark( "EMLABCPPSIZE" );
 /// not enough bytes left in the message for the item
-static constexpr auto LOWSIZE_ERR = make_mark( "EMLABCPPLOWSIZE " );
+static constexpr auto LOWSIZE_ERR = mark( "EMLABCPPLOWSIZE" );
 /// too much bytes left in the message for the item
-static constexpr auto BIGSIZE_ERR = make_mark( "EMLABCPPBIGSIZE " );
+static constexpr auto BIGSIZE_ERR = mark( "EMLABCPPBIGSIZE" );
 /// value in the message is outside of the range of bounded type
-static constexpr auto BOUNDS_ERR = make_mark( "EMLABCPPBOUNDS  " );
+static constexpr auto BOUNDS_ERR = mark( "EMLABCPPBOUNDS" );
 /// variant id is outside of the range for defined variant
-static constexpr auto UNDEFVAR_ERR = make_mark( "EMLABCPPUNDEFVAR" );
+static constexpr auto UNDEFVAR_ERR = mark( "EMLABCPPUNDEVAR" );
 /// parsed value is not correct, such as constant
-static constexpr auto BADVAL_ERR = make_mark( "EMLABCPPBADVAL  " );
+static constexpr auto BADVAL_ERR = mark( "EMLABCPPBADVAL" );
 /// no item of group matched the content of message
-static constexpr auto GROUP_ERR = make_mark( "EMLABCPPGRPMATCH" );
+static constexpr auto GROUP_ERR = mark( "EMLABCPPGRPMTCH" );
 /// wrong checksum in the protocol
-static constexpr auto CHECKSUM_ERR = make_mark( "EMLABCPPCHECKSUM" );
+static constexpr auto CHECKSUM_ERR = mark( "EMLABCPPCHECKSM" );
 
 }  // namespace emlabcpp::protocol

@@ -114,11 +114,6 @@ param_child_awaiter parameters::get_child( const node_id nid, const key_type& ke
         return param_child_awaiter{ param_child_request{ nid, key }, *this };
 }
 
-param_child_awaiter parameters::get_child( const node_id nid, const std::string_view key )
-{
-        return get_child( nid, key_type_to_buffer( key ) );
-}
-
 param_child_count_awaiter parameters::get_child_count( const node_id nid )
 {
         return param_child_count_awaiter{ param_child_count_request{ .parent = nid }, *this };

@@ -19,8 +19,8 @@
 
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/experimental/contiguous_tree/tree.h"
+#include "emlabcpp/experimental/string_buffer.h"
 #include "emlabcpp/static_function.h"
-#include "emlabcpp/static_vector.h"
 
 #include <algorithm>
 #include <map>
@@ -32,14 +32,14 @@
 namespace emlabcpp::testing
 {
 
-using name_buffer     = static_vector< char, 32 >;
-using key_type_buffer = static_vector< char, 16 >;
+using name_buffer     = string_buffer< 32 >;
+using key_type_buffer = string_buffer< 32 >;
 
 using node_id        = uint32_t;
 using child_count    = uint32_t;
 using child_id       = uint32_t;
 using node_type_enum = contiguous_tree_type;
-using string_buffer  = static_vector< char, 32 >;
+using string_buffer  = string_buffer< 32 >;
 using key_type       = key_type_buffer;
 
 // TODO: this breaks stuff as it has nlohmann::json serialization overload which is _not a good
@@ -58,31 +58,6 @@ struct test_info
 {
         name_buffer name;
 };
-
-/// TODO: maybe make a function in static_vector namespace?
-template < typename T >
-T string_to_buffer( const std::string_view sview )
-{
-        T tmp;
-        std::copy_n(
-            sview.begin(), std::min( sview.size(), T::capacity ), std::back_inserter( tmp ) );
-        return tmp;
-}
-
-inline name_buffer name_to_buffer( const std::string_view sview )
-{
-        return string_to_buffer< name_buffer >( sview );
-}
-
-inline key_type_buffer key_type_to_buffer( const std::string_view key )
-{
-        return string_to_buffer< key_type_buffer >( key );
-}
-
-inline string_buffer string_to_buffer( const std::string_view st )
-{
-        return string_to_buffer< string_buffer >( st );
-}
 
 class reactor_interface_adapter;
 

@@ -238,11 +238,11 @@ struct proto_traits< D > : traits_for< typename D::def_type >
 {
 };
 
-template <>
-struct proto_traits< mark >
+template < std::size_t N >
+struct proto_traits< string_buffer< N > >
 {
-        using value_type                      = mark;
-        static constexpr std::size_t max_size = mark{}.max_size();
+        using value_type                      = string_buffer< N >;
+        static constexpr std::size_t max_size = N;
         static constexpr std::size_t min_size = max_size;
 };
 

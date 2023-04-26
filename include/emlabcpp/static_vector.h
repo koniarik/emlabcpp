@@ -305,11 +305,7 @@ struct pretty_printer< static_vector< T, N > >
         template < typename W >
         static void print( W&& w, const static_vector< T, N >& vec )
         {
-                if constexpr ( std::same_as< T, char > ) {
-                        w( std::string_view{ vec.data(), vec.size() } );
-                } else {
-                        w( view{ vec } );
-                }
+                w( view{ vec } );
         }
 };
 
