@@ -1,5 +1,7 @@
 <map id="include/emlabcpp/protocol/error.h" name="include/emlabcpp/protocol/error.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,200,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="13,95,99,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="123,95,179,121"/>
+<area shape="rect" id="node1" title=" " alt="" coords="107,5,301,47"/>
+<area shape="rect" id="node2" href="$string__buffer_8h.html" title=" " alt="" coords="115,95,293,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,191,91,218"/>
+<area shape="rect" id="node5" title=" " alt="" coords="317,191,373,218"/>
+<area shape="rect" id="node3" href="$pretty__printer_8h.html" title=" " alt="" coords="115,184,293,225"/>
 </map>

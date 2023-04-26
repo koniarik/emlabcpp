@@ -1,11 +1,10 @@
 var protocol_2error_8h =
 [
-    [ "mark", "structemlabcpp_1_1protocol_1_1mark.html", "structemlabcpp_1_1protocol_1_1mark" ],
     [ "error_record", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record", [
       [ "error_mark", "namespaceemlabcpp_1_1protocol.html#a53258509ef594ffcca73ea55a640dd63", null ],
       [ "offset", "namespaceemlabcpp_1_1protocol.html#a7996dad74892867782224e252a6e8d53", null ]
     ] ],
-    [ "make_mark", "protocol_2error_8h.html#a2bdbb330d80ae9da95fad5ea75a882be", null ],
+    [ "mark", "protocol_2error_8h.html#a95639c060b8e7d62ecc9dffcfb00236b", null ],
     [ "BADVAL_ERR", "protocol_2error_8h.html#ae7f63810880ec41008ee91a908c63148", null ],
     [ "BIGSIZE_ERR", "protocol_2error_8h.html#a0e98558caf268e368b4544533cb43055", null ],
     [ "BOUNDS_ERR", "protocol_2error_8h.html#a925029d9c13ebc476b462499b5fae534", null ],

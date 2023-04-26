@@ -15,7 +15,7 @@ var traits_8h =
     [ "proto_traits< group< Ds... > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01group_3_01Ds_8_8_8_01_4_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01group_3_01Ds_8_8_8_01_4_01_4" ],
     [ "proto_traits< tag_group< Ds... > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01tag__group_3_01Ds_8_8_8_01_4_01_4" ],
     [ "proto_traits< endianess_wrapper< Endianess, D > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_01_4.html", null ],
-    [ "proto_traits< mark >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01mark_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01mark_01_4" ],
+    [ "proto_traits< string_buffer< N > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01string__buffer_3_01N_01_4_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01string__buffer_3_01N_01_4_01_4" ],
     [ "proto_traits< error_record >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4" ],
     [ "proto_traits< static_vector< T, N > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01static__vector_3_01T_00_01N_01_4_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01static__vector_3_01T_00_01N_01_4_01_4" ],
     [ "proto_traits< std::optional< T > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1optional_3_01T_01_4_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1optional_3_01T_01_4_01_4" ],

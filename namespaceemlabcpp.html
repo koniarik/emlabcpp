@@ -266,6 +266,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1simple__stream.html">simple_stream</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4.html">pretty_printer&lt; string_buffer&lt; N &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is a class using CRTP to ease implementation of custom iterators.  <a href="classemlabcpp_1_1generic__iterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -898,6 +902,9 @@ Functions</h2></td></tr>
 <tr class="memitem:abed05683098f9a93c5b694ff9b9f3c16"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:abed05683098f9a93c5b694ff9b9f3c16"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abed05683098f9a93c5b694ff9b9f3c16">requires</a> (std::is_enum_v&lt; T &gt;) struct <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; T &gt;</td></tr>
 <tr class="separator:abed05683098f9a93c5b694ff9b9f3c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add7921925c77c6350a91d55d9471bdc1"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:add7921925c77c6350a91d55d9471bdc1"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; N &gt; &amp;sb)</td></tr>
+<tr class="separator:add7921925c77c6350a91d55d9471bdc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab077da8cbabe4cc68820537ddc602b91"><td class="memTemplParams" colspan="2">template&lt;typename... Callables&gt; </td></tr>
 <tr class="memitem:ab077da8cbabe4cc68820537ddc602b91"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab077da8cbabe4cc68820537ddc602b91">matcher</a> (Callables &amp;&amp;...) -&gt; <a class="el" href="structemlabcpp_1_1matcher.html">matcher</a>&lt; std::decay_t&lt; Callables &gt;... &gt;</td></tr>
 <tr class="separator:ab077da8cbabe4cc68820537ddc602b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -6541,6 +6548,36 @@ template&lt;typename Item , std::size_t N&gt; </div>
 
 </div>
 </div>
+<a id="add7921925c77c6350a91d55d9471bdc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add7921925c77c6350a91d55d9471bdc1">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; emlabcpp::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>sb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="add2749663d773cccf70a46c26fafb132"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#add2749663d773cccf70a46c26fafb132">&#9670;&nbsp;</a></span>operator&lt;=()</h2>
 
@@ -10053,7 +10090,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sun Apr 23 2023 20:19:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 26 2023 07:07:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

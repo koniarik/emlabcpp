@@ -138,12 +138,12 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
 <div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1controller.html#a13cb1ec084bf30a1c01b215bd3ced2dd">   68</a></span>&#160;        [[nodiscard]] std::string_view <a class="code" href="classemlabcpp_1_1testing_1_1controller.html#a13cb1ec084bf30a1c01b215bd3ced2dd">suite_name</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">return</span> { name_.<a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>(), name_.<a class="code" href="classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb">end</a>() };</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">return</span> { name_.begin(), name_.end() };</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1controller.html#a7cc69eb10c3986c3ebe2b671738b30bb">   73</a></span>&#160;        [[nodiscard]] std::string_view <a class="code" href="classemlabcpp_1_1testing_1_1controller.html#a7cc69eb10c3986c3ebe2b671738b30bb">suite_date</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">return</span> { date_.<a class="code" href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">begin</a>(), date_.<a class="code" href="classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb">end</a>() };</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">return</span> { date_.begin(), date_.end() };</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1controller.html#a3b7b6bb77d95919d27b96c5b3a79084e">   78</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1testing_1_1controller.html#a3b7b6bb77d95919d27b96c5b3a79084e">is_initializing</a>()<span class="keyword"> const</span></div>
@@ -177,8 +177,8 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        std::reference_wrapper&lt; pmr::memory_resource &gt; mem_res_;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="classemlabcpp_1_1testing_1_1controller__interface__adapter.html">controller_interface_adapter</a>                   iface_;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1pmr.html#abad2b32174c8ecf62cfcd1cd63f47808">pmr::map&lt; test_id, test_info &gt;</a>                 tests_;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="classemlabcpp_1_1static__vector.html">name_buffer</a>                                    name_;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <a class="code" href="classemlabcpp_1_1static__vector.html">name_buffer</a>                                    date_;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="structemlabcpp_1_1string__buffer.html">name_buffer</a>                                    name_;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <a class="code" href="structemlabcpp_1_1string__buffer.html">name_buffer</a>                                    date_;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1testing.html#a515587622310ad47ccc8d4f76961c585">run_id</a>                                         rid_ = 0;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
@@ -187,9 +187,6 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div class="ttc" id="aassert_8h_html_a1be190c4e600e598cc284808298bde75"><div class="ttname"><a href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a></div><div class="ttdeci">#define EMLABCPP_ASSERT(cond)</div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> assert.h:32</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1coro_1_1recursive__coroutine_html"><div class="ttname"><a href="classemlabcpp_1_1coro_1_1recursive__coroutine.html">emlabcpp::coro::recursive_coroutine&lt; void &gt;</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1pmr_1_1memory__resource_html"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1memory__resource.html">emlabcpp::pmr::memory_resource</a></div><div class="ttdef"><b>Definition:</b> memory_resource.h:27</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1static__vector_html"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html">emlabcpp::static_vector&lt; char, 32 &gt;</a></div></div>
-<div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a3aa21b589fbecd34ed3f487ba81c4534"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534">emlabcpp::static_vector::begin</a></div><div class="ttdeci">iterator begin()</div><div class="ttdef"><b>Definition:</b> static_vector.h:124</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1static__vector_html_a5ff32c8ea013a8be31e716d472f84bbb"><div class="ttname"><a href="classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb">emlabcpp::static_vector::end</a></div><div class="ttdeci">iterator end()</div><div class="ttdef"><b>Definition:</b> static_vector.h:129</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1controller__interface__adapter_html"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1controller__interface__adapter.html">emlabcpp::testing::controller_interface_adapter</a></div><div class="ttdef"><b>Definition:</b> controller_interface_adapter.h:29</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1controller__interface_html"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1controller__interface.html">emlabcpp::testing::controller_interface</a></div><div class="ttdef"><b>Definition:</b> controller_interface.h:29</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1controller_html"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1controller.html">emlabcpp::testing::controller</a></div><div class="ttdef"><b>Definition:</b> controller.h:30</div></div>
@@ -213,14 +210,15 @@ $(document).ready(function(){initNavTree('controller_8h_source.html',''); initRe
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a515587622310ad47ccc8d4f76961c585"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a515587622310ad47ccc8d4f76961c585">emlabcpp::testing::run_id</a></div><div class="ttdeci">uint32_t run_id</div><div class="ttdef"><b>Definition:</b> base.h:49</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_ab013b23e3c03b3fc9202b93e14cd8d11"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#ab013b23e3c03b3fc9202b93e14cd8d11">emlabcpp::testing::reactor_controller_variant</a></div><div class="ttdeci">typename protocol::traits_for&lt; reactor_controller_group &gt;::value_type reactor_controller_variant</div><div class="ttdef"><b>Definition:</b> protocol.h:192</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_classemlabcpp_1_1static__function__base"><div class="ttname"><a href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">emlabcpp::static_function_base</a></div><div class="ttdef"><b>Definition:</b> static_function.h:105</div></div>
-<div class="ttc" id="astructemlabcpp_1_1testing_1_1test__result_html"><div class="ttname"><a href="structemlabcpp_1_1testing_1_1test__result.html">emlabcpp::testing::test_result</a></div><div class="ttdef"><b>Definition:</b> base.h:90</div></div>
+<div class="ttc" id="astructemlabcpp_1_1string__buffer_html"><div class="ttname"><a href="structemlabcpp_1_1string__buffer.html">emlabcpp::string_buffer&lt; 32 &gt;</a></div></div>
+<div class="ttc" id="astructemlabcpp_1_1testing_1_1test__result_html"><div class="ttname"><a href="structemlabcpp_1_1testing_1_1test__result.html">emlabcpp::testing::test_result</a></div><div class="ttdef"><b>Definition:</b> base.h:65</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="controller_8h.html">controller.h</a></li>
-    <li class="footer">Generated on Sun Apr 23 2023 20:19:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 26 2023 07:07:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

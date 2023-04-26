@@ -12,15 +12,12 @@ var experimental_2testing_2base_8h =
     [ "data_object_handle", "experimental_2testing_2base_8h.html#a7e08805379404a1461a71ef34f603b27", null ],
     [ "data_tree", "experimental_2testing_2base_8h.html#a80cf237e6f45884843dd60ad60c4a33f", null ],
     [ "key_type", "experimental_2testing_2base_8h.html#a55dce13b513939f69f3700556ffee4f1", null ],
-    [ "key_type_buffer", "experimental_2testing_2base_8h.html#a031df5ed250c31b1ec9d4b11a149660c", null ],
-    [ "name_buffer", "experimental_2testing_2base_8h.html#ae5199fc97a7274203e42e578b9fe8399", null ],
+    [ "key_type_buffer", "experimental_2testing_2base_8h.html#a464b811c2cba9ccead080b0c2a7b8038", null ],
+    [ "name_buffer", "experimental_2testing_2base_8h.html#a59928859cb189f10f51aaaec49aba7e0", null ],
     [ "node_id", "experimental_2testing_2base_8h.html#a2cd11b9ad2da9a2055df3782718ee549", null ],
     [ "node_type_enum", "experimental_2testing_2base_8h.html#ace52aae1880a8e3ab02b4b65a298c1b3", null ],
     [ "run_id", "experimental_2testing_2base_8h.html#a515587622310ad47ccc8d4f76961c585", null ],
-    [ "string_buffer", "experimental_2testing_2base_8h.html#ae36d07470ad020d80dd3d3eade16fcb5", null ],
+    [ "string_buffer", "experimental_2testing_2base_8h.html#ac06330bea00374bed360e30a9cbf0fb2", null ],
     [ "test_id", "experimental_2testing_2base_8h.html#a00b8f081e11fc3a56f298674ec89a8ca", null ],
-    [ "value_type", "experimental_2testing_2base_8h.html#a7eba021904701a30cd427b798483dc5f", null ],
-    [ "key_type_to_buffer", "experimental_2testing_2base_8h.html#a62549c075763c5dbed5462d5d4603817", null ],
-    [ "name_to_buffer", "experimental_2testing_2base_8h.html#adf747ac69a0bba3819fe10f84b0f8761", null ],
-    [ "string_to_buffer", "experimental_2testing_2base_8h.html#ad633f76356e096e700a03f89c593dca8", null ]
+    [ "value_type", "experimental_2testing_2base_8h.html#a7eba021904701a30cd427b798483dc5f", null ]
 ];

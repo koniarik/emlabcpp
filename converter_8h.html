@@ -142,7 +142,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_00_01ParentEndianess_01_4.html">emlabcpp::protocol::converter&lt; endianess_wrapper&lt; Endianess, D &gt;, ParentEndianess &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01mark_00_01Endianess_01_4.html">emlabcpp::protocol::converter&lt; mark, Endianess &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01string__buffer_3_01N_01_4_00_01Endianess_01_4.html">emlabcpp::protocol::converter&lt; string_buffer&lt; N &gt;, Endianess &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html">emlabcpp::protocol::converter&lt; error_record, Endianess &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,6 +173,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E&gt; </td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9">emlabcpp::protocol::converter_for_impl</a> ()</td></tr>
 <tr class="separator:a8a42ec62524b9afc0195ff5f102300f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dce2894c272d9a0c81d1da217ed6181"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E, typename T &gt; </td></tr>
+<tr class="memitem:a2dce2894c272d9a0c81d1da217ed6181"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a2dce2894c272d9a0c81d1da217ed6181">emlabcpp::protocol::serialize_range</a> (std::span&lt; std::byte &gt; buffer, const view&lt; const T * &gt; &amp;data)</td></tr>
+<tr class="separator:a2dce2894c272d9a0c81d1da217ed6181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa390c4e4ac21589780d1561635052074"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E, typename T &gt; </td></tr>
+<tr class="memitem:aa390c4e4ac21589780d1561635052074"><td class="memTemplItemLeft" align="right" valign="top">conversion_result&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aa390c4e4ac21589780d1561635052074">emlabcpp::protocol::deserialize_range</a> (const std::span&lt; const std::byte &gt; &amp;buffer, const view&lt; T * &gt; &amp;data)</td></tr>
+<tr class="separator:aa390c4e4ac21589780d1561635052074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -187,7 +193,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="converter_8h.html">converter.h</a></li>
-    <li class="footer">Generated on Sun Apr 23 2023 20:19:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 26 2023 07:07:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

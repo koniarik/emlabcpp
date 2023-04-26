@@ -25,5 +25,6 @@ var dir_833cf07299c67ab119396183470d94f1 =
     [ "rpc.h", "rpc_8h.html", "rpc_8h" ],
     [ "simple_stream.h", "simple__stream_8h.html", [
       [ "simple_stream", "classemlabcpp_1_1simple__stream.html", "classemlabcpp_1_1simple__stream" ]
-    ] ]
+    ] ],
+    [ "string_buffer.h", "string__buffer_8h.html", "string__buffer_8h" ]
 ];

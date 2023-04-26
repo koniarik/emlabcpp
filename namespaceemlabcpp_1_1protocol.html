@@ -171,7 +171,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_00_01ParentEndianess_01_4.html">converter&lt; endianess_wrapper&lt; Endianess, D &gt;, ParentEndianess &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01mark_00_01Endianess_01_4.html">converter&lt; mark, Endianess &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01string__buffer_3_01N_01_4_00_01Endianess_01_4.html">converter&lt; string_buffer&lt; N &gt;, Endianess &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html">converter&lt; error_record, Endianess &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,8 +184,6 @@ Classes</h2></td></tr>
 <tr class="memitem:structemlabcpp_1_1protocol_1_1endpoint__load__error"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error">endpoint_load_error</a></td></tr>
 <tr class="separator:structemlabcpp_1_1protocol_1_1endpoint__load__error"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1endpoint.html">endpoint</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1protocol_1_1error__record"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a></td></tr>
 <tr class="separator:structemlabcpp_1_1protocol_1_1error__record"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -256,7 +254,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_01_4.html">proto_traits&lt; endianess_wrapper&lt; Endianess, D &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01mark_01_4.html">proto_traits&lt; mark &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01string__buffer_3_01N_01_4_01_4.html">proto_traits&lt; string_buffer&lt; N &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html">proto_traits&lt; error_record &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -295,6 +293,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:aba2818d17e2b2cc369733e18839ba19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a604e8244fbc16988fb4681dbc2d7bc6e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">endpoint_error</a> = std::variant&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error">endpoint_load_error</a> &gt;</td></tr>
 <tr class="separator:a604e8244fbc16988fb4681dbc2d7bc6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95639c060b8e7d62ecc9dffcfb00236b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a> = <a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a52a436aee08af672045226b734de0cc5">mark_size</a> &gt;</td></tr>
+<tr class="separator:a95639c060b8e7d62ecc9dffcfb00236b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6029ae0351da35ad86920e1e3a9a9d16"><td class="memTemplParams" colspan="2">template&lt;typename Def , typename Payload &gt; </td></tr>
 <tr class="memitem:a6029ae0351da35ad86920e1e3a9a9d16"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a6029ae0351da35ad86920e1e3a9a9d16">packet_base</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">tuple</a>&lt; Def::endianess, std::decay_t&lt; decltype(Def::prefix) &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer">sized_buffer</a>&lt; typename Def::size_type, Payload &gt;, typename Def::checksum_type &gt;</td></tr>
 <tr class="separator:a6029ae0351da35ad86920e1e3a9a9d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -330,9 +330,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E&gt; </td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9">converter_for_impl</a> ()</td></tr>
 <tr class="separator:a8a42ec62524b9afc0195ff5f102300f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bdbb330d80ae9da95fad5ea75a882be"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a> (const char(&amp;msg)[<a class="el" href="namespaceemlabcpp_1_1protocol.html#a52a436aee08af672045226b734de0cc5">mark_size</a>+1])</td></tr>
-<tr class="memdesc:a2bdbb330d80ae9da95fad5ea75a882be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates mark from simple string literal.  <a href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">More...</a><br /></td></tr>
-<tr class="separator:a2bdbb330d80ae9da95fad5ea75a882be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dce2894c272d9a0c81d1da217ed6181"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E, typename T &gt; </td></tr>
+<tr class="memitem:a2dce2894c272d9a0c81d1da217ed6181"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a2dce2894c272d9a0c81d1da217ed6181">serialize_range</a> (std::span&lt; std::byte &gt; buffer, const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const T * &gt; &amp;data)</td></tr>
+<tr class="separator:a2dce2894c272d9a0c81d1da217ed6181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa390c4e4ac21589780d1561635052074"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E, typename T &gt; </td></tr>
+<tr class="memitem:aa390c4e4ac21589780d1561635052074"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aa390c4e4ac21589780d1561635052074">deserialize_range</a> (const std::span&lt; const std::byte &gt; &amp;buffer, const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; T * &gt; &amp;data)</td></tr>
+<tr class="separator:aa390c4e4ac21589780d1561635052074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7cf453765253654adcf697d7810d1b6"><td class="memTemplParams" colspan="2">template&lt;std::convertible_to&lt; uint8_t &gt;... Ts&gt; </td></tr>
 <tr class="memitem:ad7cf453765253654adcf697d7810d1b6"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ad7cf453765253654adcf697d7810d1b6">message</a> (Ts... inpt) -&gt; <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; sizeof...(Ts) &gt;</td></tr>
 <tr class="separator:ad7cf453765253654adcf697d7810d1b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -369,29 +372,28 @@ Variables</h2></td></tr>
 <tr class="memdesc:af7b9659a2e1fe1042e7ada0c5797599c"><td class="mdescLeft">&#160;</td><td class="mdescRight">converter_check&lt;T&gt; concept verifies that 'T' is valid overload of converter.  <a href="namespaceemlabcpp_1_1protocol.html#af7b9659a2e1fe1042e7ada0c5797599c">More...</a><br /></td></tr>
 <tr class="separator:af7b9659a2e1fe1042e7ada0c5797599c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52a436aee08af672045226b734de0cc5"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a52a436aee08af672045226b734de0cc5">mark_size</a> = 16</td></tr>
-<tr class="memdesc:a52a436aee08af672045226b734de0cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error handling in protocol works with marks.  <a href="namespaceemlabcpp_1_1protocol.html#a52a436aee08af672045226b734de0cc5">More...</a><br /></td></tr>
 <tr class="separator:a52a436aee08af672045226b734de0cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75075a1ed102c600dfd1f1894c1fc93b"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a75075a1ed102c600dfd1f1894c1fc93b">SIZE_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPSIZE &quot; )</td></tr>
+<tr class="memitem:a75075a1ed102c600dfd1f1894c1fc93b"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a75075a1ed102c600dfd1f1894c1fc93b">SIZE_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPSIZE&quot; )</td></tr>
 <tr class="separator:a75075a1ed102c600dfd1f1894c1fc93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cc152a369eaf93310e8db07084d7c1b"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0cc152a369eaf93310e8db07084d7c1b">LOWSIZE_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPLOWSIZE &quot; )</td></tr>
+<tr class="memitem:a0cc152a369eaf93310e8db07084d7c1b"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0cc152a369eaf93310e8db07084d7c1b">LOWSIZE_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPLOWSIZE&quot; )</td></tr>
 <tr class="memdesc:a0cc152a369eaf93310e8db07084d7c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">not enough bytes left in the message for the item  <a href="namespaceemlabcpp_1_1protocol.html#a0cc152a369eaf93310e8db07084d7c1b">More...</a><br /></td></tr>
 <tr class="separator:a0cc152a369eaf93310e8db07084d7c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e98558caf268e368b4544533cb43055"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0e98558caf268e368b4544533cb43055">BIGSIZE_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPBIGSIZE &quot; )</td></tr>
+<tr class="memitem:a0e98558caf268e368b4544533cb43055"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0e98558caf268e368b4544533cb43055">BIGSIZE_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPBIGSIZE&quot; )</td></tr>
 <tr class="memdesc:a0e98558caf268e368b4544533cb43055"><td class="mdescLeft">&#160;</td><td class="mdescRight">too much bytes left in the message for the item  <a href="namespaceemlabcpp_1_1protocol.html#a0e98558caf268e368b4544533cb43055">More...</a><br /></td></tr>
 <tr class="separator:a0e98558caf268e368b4544533cb43055"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a925029d9c13ebc476b462499b5fae534"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a925029d9c13ebc476b462499b5fae534">BOUNDS_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPBOUNDS &quot; )</td></tr>
+<tr class="memitem:a925029d9c13ebc476b462499b5fae534"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a925029d9c13ebc476b462499b5fae534">BOUNDS_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPBOUNDS&quot; )</td></tr>
 <tr class="memdesc:a925029d9c13ebc476b462499b5fae534"><td class="mdescLeft">&#160;</td><td class="mdescRight">value in the message is outside of the range of bounded type  <a href="namespaceemlabcpp_1_1protocol.html#a925029d9c13ebc476b462499b5fae534">More...</a><br /></td></tr>
 <tr class="separator:a925029d9c13ebc476b462499b5fae534"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9952af57257a4c508414c5724c85458"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ac9952af57257a4c508414c5724c85458">UNDEFVAR_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPUNDEFVAR&quot; )</td></tr>
+<tr class="memitem:ac9952af57257a4c508414c5724c85458"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ac9952af57257a4c508414c5724c85458">UNDEFVAR_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPUNDEVAR&quot; )</td></tr>
 <tr class="memdesc:ac9952af57257a4c508414c5724c85458"><td class="mdescLeft">&#160;</td><td class="mdescRight">variant id is outside of the range for defined variant  <a href="namespaceemlabcpp_1_1protocol.html#ac9952af57257a4c508414c5724c85458">More...</a><br /></td></tr>
 <tr class="separator:ac9952af57257a4c508414c5724c85458"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7f63810880ec41008ee91a908c63148"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ae7f63810880ec41008ee91a908c63148">BADVAL_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPBADVAL &quot; )</td></tr>
+<tr class="memitem:ae7f63810880ec41008ee91a908c63148"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ae7f63810880ec41008ee91a908c63148">BADVAL_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPBADVAL&quot; )</td></tr>
 <tr class="memdesc:ae7f63810880ec41008ee91a908c63148"><td class="mdescLeft">&#160;</td><td class="mdescRight">parsed value is not correct, such as constant  <a href="namespaceemlabcpp_1_1protocol.html#ae7f63810880ec41008ee91a908c63148">More...</a><br /></td></tr>
 <tr class="separator:ae7f63810880ec41008ee91a908c63148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d666fa48e88a04569954408cc678126"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0d666fa48e88a04569954408cc678126">GROUP_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPGRPMATCH&quot; )</td></tr>
+<tr class="memitem:a0d666fa48e88a04569954408cc678126"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0d666fa48e88a04569954408cc678126">GROUP_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPGRPMTCH&quot; )</td></tr>
 <tr class="memdesc:a0d666fa48e88a04569954408cc678126"><td class="mdescLeft">&#160;</td><td class="mdescRight">no item of group matched the content of message  <a href="namespaceemlabcpp_1_1protocol.html#a0d666fa48e88a04569954408cc678126">More...</a><br /></td></tr>
 <tr class="separator:a0d666fa48e88a04569954408cc678126"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0eb2445c490b6ad98bd006097c7b4296"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0eb2445c490b6ad98bd006097c7b4296">CHECKSUM_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPCHECKSUM&quot; )</td></tr>
+<tr class="memitem:a0eb2445c490b6ad98bd006097c7b4296"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0eb2445c490b6ad98bd006097c7b4296">CHECKSUM_ERR</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPCHECKSM&quot; )</td></tr>
 <tr class="memdesc:a0eb2445c490b6ad98bd006097c7b4296"><td class="mdescLeft">&#160;</td><td class="mdescRight">wrong checksum in the protocol  <a href="namespaceemlabcpp_1_1protocol.html#a0eb2445c490b6ad98bd006097c7b4296">More...</a><br /></td></tr>
 <tr class="separator:a0eb2445c490b6ad98bd006097c7b4296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72532ac9192b8549e819b0cfb65c3faa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -601,13 +603,13 @@ struct emlabcpp::protocol::backup_converter&lt; typename, endian &gt;</h3>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1protocol_1_1error__record__coll__graph.svg" width="162" height="232"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1protocol_1_1error__record__coll__graph.svg" width="187" height="232"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a53258509ef594ffcca73ea55a640dd63"></a><a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a></td>
+<a id="a53258509ef594ffcca73ea55a640dd63"></a><a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a></td>
 <td class="fieldname">
 error_mark</td>
 <td class="fielddoc">
@@ -697,6 +699,20 @@ template&lt;typename D , std::endian E&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e">emlabcpp::protocol::endpoint_error</a> = typedef std::variant&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error">endpoint_load_error</a> &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95639c060b8e7d62ecc9dffcfb00236b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95639c060b8e7d62ecc9dffcfb00236b">&#9670;&nbsp;</a></span>mark</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">emlabcpp::protocol::mark</a> = typedef <a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a52a436aee08af672045226b734de0cc5">mark_size</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -924,6 +940,38 @@ template&lt;typename D , std::endian E&gt; </div>
 
 </div>
 </div>
+<a id="aa390c4e4ac21589780d1561635052074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa390c4e4ac21589780d1561635052074">&#9670;&nbsp;</a></span>deserialize_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename D , std::endian E, typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a> emlabcpp::protocol::deserialize_range </td>
+          <td>(</td>
+          <td class="paramtype">const std::span&lt; const std::byte &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; T * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">deserialize()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">emlabcpp::range()</a>, <a class="el" href="classemlabcpp_1_1view.html#aaa812fd178fc993e11fbbbc5894fb3c3">emlabcpp::view&lt; Iterator &gt;::size()</a>, and <a class="el" href="namespaceemlabcpp_1_1protocol.html#a75075a1ed102c600dfd1f1894c1fc93b">SIZE_ERR</a>.</p>
+
+</div>
+</div>
 <a id="abcf7387198936360e4c0741160b98700"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abcf7387198936360e4c0741160b98700">&#9670;&nbsp;</a></span>extract_multiplexed()</h2>
 
@@ -991,38 +1039,6 @@ template&lt;typename Map , typename UnaryCallable &gt; </div>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a>.</p>
-
-</div>
-</div>
-<a id="a2bdbb330d80ae9da95fad5ea75a882be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bdbb330d80ae9da95fad5ea75a882be">&#9670;&nbsp;</a></span>make_mark()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1mark.html">mark</a> emlabcpp::protocol::make_mark </td>
-          <td>(</td>
-          <td class="paramtype">const char(&amp;)&#160;</td>
-          <td class="paramname"><em>msg</em>[mark_size+1]</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates mark from simple string literal. </p>
-<p>NOLINTNEXTLINE(modernize-avoid-c-arrays) </p>
-<p>note: do not try to fix the argument type, this is correct approach.</p>
-
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>.</p>
 
 </div>
 </div>
@@ -1206,6 +1222,38 @@ template&lt;std::size_t N&gt; </div>
 
 </div>
 </div>
+<a id="a2dce2894c272d9a0c81d1da217ed6181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dce2894c272d9a0c81d1da217ed6181">&#9670;&nbsp;</a></span>serialize_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename D , std::endian E, typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t emlabcpp::protocol::serialize_range </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; std::byte &gt;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const T * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a>, and <a class="el" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">serialize_at()</a>.</p>
+
+</div>
+</div>
 <a id="a28cabc33555007426b8995bfbf036ae5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a28cabc33555007426b8995bfbf036ae5">&#9670;&nbsp;</a></span>sizeless_message()</h2>
 
@@ -1258,7 +1306,7 @@ template&lt;typename D &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::protocol::BADVAL_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPBADVAL &quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::protocol::BADVAL_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPBADVAL&quot; )</td>
         </tr>
       </table>
   </td>
@@ -1300,7 +1348,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::protocol::BIGSIZE_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPBIGSIZE &quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::protocol::BIGSIZE_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPBIGSIZE&quot; )</td>
         </tr>
       </table>
   </td>
@@ -1324,7 +1372,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::protocol::BOUNDS_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPBOUNDS &quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::protocol::BOUNDS_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPBOUNDS&quot; )</td>
         </tr>
       </table>
   </td>
@@ -1348,7 +1396,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::protocol::CHECKSUM_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPCHECKSUM&quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::protocol::CHECKSUM_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPCHECKSM&quot; )</td>
         </tr>
       </table>
   </td>
@@ -1475,7 +1523,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::protocol::GROUP_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPGRPMATCH&quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::protocol::GROUP_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPGRPMTCH&quot; )</td>
         </tr>
       </table>
   </td>
@@ -1499,7 +1547,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::protocol::LOWSIZE_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPLOWSIZE &quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::protocol::LOWSIZE_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPLOWSIZE&quot; )</td>
         </tr>
       </table>
   </td>
@@ -1532,9 +1580,6 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Error handling in protocol works with marks. </p>
-<p>Mark is a string made of eight characters that represents label. Each error is labeled by namespace specific for the source project and by name unique in that namespace, part of the error is also index of byte that caused the problem. These can be easily sent with the protocol lib itself. </p>
 
 </div>
 </div>
@@ -1659,7 +1704,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::protocol::SIZE_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPSIZE &quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::protocol::SIZE_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPSIZE&quot; )</td>
         </tr>
       </table>
   </td>
@@ -1681,7 +1726,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::protocol::UNDEFVAR_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a2bdbb330d80ae9da95fad5ea75a882be">make_mark</a>( &quot;EMLABCPPUNDEFVAR&quot; )</td>
+          <td class="memname">constexpr auto emlabcpp::protocol::UNDEFVAR_ERR = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>( &quot;EMLABCPPUNDEVAR&quot; )</td>
         </tr>
       </table>
   </td>
@@ -1701,7 +1746,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Sun Apr 23 2023 20:19:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 26 2023 07:07:52 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

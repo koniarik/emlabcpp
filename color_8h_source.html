@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('color_8h_source.html',''); initResizab
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_OSTREAM</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">inline</span> std::ostream&amp; operator&lt;&lt;( std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub">log_color_stub</a>&amp; c )</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">operator&lt;&lt;</a>( std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub">log_color_stub</a>&amp; c )</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;\033[38;5;&quot;</span> &lt;&lt; c.<a class="code" href="namespaceemlabcpp.html#a947ae8250161b2045cebbac076cbb06f">c</a> &lt;&lt; <span class="stringliteral">&quot;m&quot;</span>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
@@ -134,6 +134,7 @@ $(document).ready(function(){initNavTree('color_8h_source.html',''); initResizab
 <div class="ttc" id="anamespaceemlabcpp_html_a620a32406486ae5b889d41d446c4a8b0"><div class="ttname"><a href="namespaceemlabcpp.html#a620a32406486ae5b889d41d446c4a8b0">emlabcpp::reset_color</a></div><div class="ttdeci">consteval std::string_view reset_color()</div><div class="ttdef"><b>Definition:</b> color.h:52</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a947ae8250161b2045cebbac076cbb06f"><div class="ttname"><a href="namespaceemlabcpp.html#a947ae8250161b2045cebbac076cbb06f">emlabcpp::log_color_stub::c</a></div><div class="ttdeci">std::string_view c</div><div class="ttdef"><b>Definition:</b> color.h:42</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aa04c4ddd773c5ae47bf78d051770a30a"><div class="ttname"><a href="namespaceemlabcpp.html#aa04c4ddd773c5ae47bf78d051770a30a">emlabcpp::ERROR_LOGGER_COLORS</a></div><div class="ttdeci">static constexpr log_colors ERROR_LOGGER_COLORS</div><div class="ttdef"><b>Definition:</b> color.h:38</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_add7921925c77c6350a91d55d9471bdc1"><div class="ttname"><a href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const string_buffer&lt; N &gt; &amp;sb)</div><div class="ttdef"><b>Definition:</b> string_buffer.h:40</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_af175fa386686fa863a3f581d48e05167"><div class="ttname"><a href="namespaceemlabcpp.html#af175fa386686fa863a3f581d48e05167">emlabcpp::log_colors::time</a></div><div class="ttdeci">std::string_view time</div><div class="ttdef"><b>Definition:</b> color.h:31</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1log__color__stub"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub">emlabcpp::log_color_stub</a></div><div class="ttdef"><b>Definition:</b> color.h:41</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1log__colors"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1log__colors">emlabcpp::log_colors</a></div><div class="ttdef"><b>Definition:</b> color.h:30</div></div>
@@ -143,7 +144,7 @@ $(document).ready(function(){initNavTree('color_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_7be96e89c84803827e352320bc015c84.html">logging</a></li><li class="navelem"><a class="el" href="color_8h.html">color.h</a></li>
-    <li class="footer">Generated on Sun Apr 23 2023 20:19:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 26 2023 07:07:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
