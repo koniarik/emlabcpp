@@ -52,7 +52,7 @@ nlohmann::json value_type_to_json( const value_type& tv )
         nlohmann::json res = match(
             tv,
             []( const string_buffer& buff ) {
-                    return nlohmann::json{ std::string_view{ buff.begin(), buff.size() } };
+                    return nlohmann::json{ std::string_view{ buff } };
             },
             []( const auto& item ) {
                     return nlohmann::json{ item };
@@ -147,7 +147,7 @@ nlohmann::json data_tree_to_json( const data_tree& tree )
                     [&f]( const data_const_object_handle oh ) {
                             nlohmann::json j;
                             for ( const auto& [key, chid] : oh ) {
-                                    const std::string k{ key.begin(), key.size() };
+                                    const std::string k{ std::string_view(key) };
                                     j[k] = f( chid );
                             }
                             return j;

@@ -45,14 +45,14 @@ struct collector_test_fixture : public testing::test_interface
         testing::test_coroutine run( pmr::memory_resource&, testing::record& ) override
         {
                 coll.set( 0, "key1", 42 );
-                EMLABCPP_ERROR_LOG( "Collected key1" );
+                EMLABCPP_INFO_LOG( "Collected key1" );
                 testing::node_id nid =
                     co_await coll.set( 0, "key2", contiguous_container_type::ARRAY );
-                EMLABCPP_ERROR_LOG( "Collected key2" );
+                EMLABCPP_INFO_LOG( "Collected key2" );
                 coll.append( nid, 52 );
-                EMLABCPP_ERROR_LOG( "Collected 52" );
+                EMLABCPP_INFO_LOG( "Collected 52" );
                 coll.append( nid, 666 );
-                EMLABCPP_ERROR_LOG( "Collected 666" );
+                EMLABCPP_INFO_LOG( "Collected 666" );
 
                 checkpoint_reached = true;
 
@@ -64,6 +64,7 @@ struct collector_test_fixture : public testing::test_interface
 
 TEST( collect, base )
 {
+
         testing::collector*      col_ptr;
         testing::collect_server* server_ptr;
 

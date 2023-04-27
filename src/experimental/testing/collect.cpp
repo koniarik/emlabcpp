@@ -77,10 +77,7 @@ collector::set( const node_id parent, const std::string_view key, contiguous_con
 {
         return collect_awaiter{
             collect_request{
-                .parent        = parent,
-                .expects_reply = true,
-                .opt_key       = key_type( key ),
-                .value         = t },
+                .parent = parent, .expects_reply = true, .opt_key = key_type( key ), .value = t },
             *this };
 }
 collect_awaiter collector::append( const node_id parent, contiguous_container_type t )
@@ -92,11 +89,10 @@ collect_awaiter collector::append( const node_id parent, contiguous_container_ty
 }
 void collector::set( const node_id parent, const std::string_view key, const value_type& val )
 {
+        EMLABCPP_DEBUG_LOG(
+            "Sending collect request for parent ", parent, " key: ", key, " value: ", val );
         send( collect_request{
-            .parent        = parent,
-            .expects_reply = false,
-            .opt_key       = key_type( key ),
-            .value         = val } );
+            .parent = parent, .expects_reply = false, .opt_key = key_type( key ), .value = val } );
 }
 void collector::append( const node_id parent, const value_type& val )
 {
@@ -129,6 +125,7 @@ collect_server::collect_server(
 void collect_server::on_msg( const std::span< const std::byte > data )
 {
         using h = protocol::handler< collect_request >;
+        EMLABCPP_DEBUG_LOG("got msg: ", collect_client_server_message{data_view(data)});
         h::extract( view_n( data.data(), data.size() ) )
             .match(
                 [this]( const collect_request& req ) {
@@ -142,6 +139,7 @@ void collect_server::on_msg( const std::span< const std::byte > data )
 
 void collect_server::on_msg( const collect_request& req )
 {
+        EMLABCPP_DEBUG_LOG( "got request: ", decompose( req ) );
         // TODO: this may be a bad idea ...
         if ( tree_.empty() ) {
                 if ( req.opt_key ) {
