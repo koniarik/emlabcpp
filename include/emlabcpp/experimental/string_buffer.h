@@ -14,25 +14,29 @@ struct string_buffer : std::array< char, N >
 {
         using base_type = std::array< char, N >;
 
-        constexpr string_buffer() = default;
-
-        constexpr string_buffer( std::string_view sv )
+        constexpr string_buffer()
           : base_type{}
         {
-                std::copy_n( sv.begin(), std::min( sv.size(), N ), this->begin() );
+                std::fill_n(this->data(), N, '\0');
+        }
+
+        constexpr string_buffer( std::string_view sv )
+          : string_buffer()
+        {
+                std::copy_n( sv.begin(), std::min( sv.size(), N - 1 ), this->begin() );
         }
 
         template < std::size_t M >
         constexpr string_buffer( const char ( &msg )[M] )
-          : base_type{}
+          : string_buffer()
         {
-                static_assert( M <= N );
+                static_assert( M < N );
                 std::copy_n( msg, M, this->begin() );
         }
 
         operator std::string_view() const
         {
-                return std::string_view( this->data(), this->size() );
+                return std::string_view( this->data(), strlen(this->data()) );
         }
 };
 
