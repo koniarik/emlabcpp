@@ -152,6 +152,24 @@ struct pretty_stream
 };
 
 template <>
+struct pretty_printer< std::byte >
+{
+        template < typename Writer >
+        static void print( Writer&& w, std::byte b )
+        {
+                // TODO: duplicates pretty_print_serialize_basic
+                std::array< char, 2 > buffer{};
+                auto [ptr, ec] = std::to_chars(
+                    buffer.data(), buffer.data() + buffer.size(), static_cast< uint8_t >( b ), 16 );
+                if ( ec != std::errc() ) {
+                        return;
+                }
+                w( std::string_view{
+                    buffer.data(), static_cast< std::size_t >( ptr - buffer.data() ) } );
+        }
+};
+
+template <>
 struct pretty_printer< signed char >
 {
         template < typename Writer >
@@ -344,6 +362,20 @@ struct pretty_printer< std::filesystem::path >
 };
 
 template < typename T >
+struct pretty_printer< std::optional< T > >
+{
+        template < typename Writer >
+        static void print( Writer&& w, const std::optional< T >& opt_val )
+        {
+                if ( opt_val.has_value() ) {
+                        w( *opt_val );
+                } else {
+                        w( "nothing" );
+                }
+        }
+};
+
+template < typename T >
 struct pretty_printer< std::vector< T > >
 {
         template < typename Writer >
@@ -412,6 +444,7 @@ struct pretty_printer< std::tuple< Ts... > >
                 for_each( tpl, [&]( const auto& item ) {
                         w( delim );
                         w( item );
+                        delim = ',';
                 } );
                 w( ')' );
         }
