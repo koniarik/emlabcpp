@@ -18,6 +18,7 @@
 ///
 
 #include "emlabcpp/experimental/string_buffer.h"
+
 #include <algorithm>
 #include <array>
 
@@ -36,20 +37,20 @@ struct error_record
         std::size_t offset;
 };
 
-static constexpr auto SIZE_ERR = mark( "EMLABCPPSIZE" );
+static constexpr auto SIZE_ERR = mark( "EMCPPSIZE" );
 /// not enough bytes left in the message for the item
-static constexpr auto LOWSIZE_ERR = mark( "EMLABCPPLOWSIZE" );
+static constexpr auto LOWSIZE_ERR = mark( "EMCPPLOWSIZE" );
 /// too much bytes left in the message for the item
-static constexpr auto BIGSIZE_ERR = mark( "EMLABCPPBIGSIZE" );
+static constexpr auto BIGSIZE_ERR = mark( "EMCPPBIGSIZE" );
 /// value in the message is outside of the range of bounded type
-static constexpr auto BOUNDS_ERR = mark( "EMLABCPPBOUNDS" );
+static constexpr auto BOUNDS_ERR = mark( "EMCPPBOUNDS" );
 /// variant id is outside of the range for defined variant
-static constexpr auto UNDEFVAR_ERR = mark( "EMLABCPPUNDEVAR" );
+static constexpr auto UNDEFVAR_ERR = mark( "EMCPPUNDEFVAR" );
 /// parsed value is not correct, such as constant
-static constexpr auto BADVAL_ERR = mark( "EMLABCPPBADVAL" );
+static constexpr auto BADVAL_ERR = mark( "EMCPPBADVAL" );
 /// no item of group matched the content of message
-static constexpr auto GROUP_ERR = mark( "EMLABCPPGRPMTCH" );
+static constexpr auto GROUP_ERR = mark( "EMCPPGRPMTCH" );
 /// wrong checksum in the protocol
-static constexpr auto CHECKSUM_ERR = mark( "EMLABCPPCHECKSM" );
+static constexpr auto CHECKSUM_ERR = mark( "EMCPPCHECKSM" );
 
 }  // namespace emlabcpp::protocol
