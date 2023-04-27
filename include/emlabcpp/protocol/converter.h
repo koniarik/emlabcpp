@@ -220,7 +220,6 @@ struct converter< std::tuple< Ds... >, Endianess >
         static constexpr conversion_result
         deserialize( const std::span< const std::byte >& buffer, value_type& value )
         {
-
                 std::size_t offset = 0;
                 const mark* err    = nullptr;
 
@@ -823,11 +822,13 @@ struct converter< D, Endianess > : converter_for< typename D::def_type, Endianes
 template < std::size_t N, std::endian Endianess >
 struct converter< string_buffer< N >, Endianess >
 {
-        using value_type = typename traits_for< string_buffer< N > >::value_type;
-        static constexpr std::size_t max_size = traits_for< string_buffer< N > >::max_size;
-        using size_type                       = bounded< std::size_t, max_size, max_size >;
+        using traits = traits_for< string_buffer< N > >;
 
-        using counter_type                        = uint16_t;  // TODO: bad place
+        using value_type                      = typename traits::value_type;
+        static constexpr std::size_t max_size = traits::max_size;
+        using size_type                       = bounded< std::size_t, traits::min_size, max_size >;
+
+        using counter_type                        = typename traits::counter_type;
         using counter_converter                   = converter_for< counter_type, Endianess >;
         static constexpr std::size_t counter_size = counter_converter::max_size;
 
@@ -836,16 +837,15 @@ struct converter< string_buffer< N >, Endianess >
         static constexpr size_type
         serialize_at( const std::span< std::byte, max_size > buffer, const value_type& item )
         {
+                const std::size_t size = strlen( item.data() );
+
                 counter_converter::serialize_at(
-                    buffer.template first< counter_size >(),
-                    static_cast< counter_type >( item.size() ) );
+                    buffer.template first< counter_size >(), static_cast< counter_type >( size ) );
 
-                std::copy(
-                    item.begin(),
-                    item.end(),
-                    reinterpret_cast< char* >( buffer.data() + counter_size ) );
+                std::copy_n(
+                    item.begin(), size, reinterpret_cast< char* >( buffer.data() + counter_size ) );
 
-                auto opt_bused = size_type::make( item.size() + counter_size );
+                auto opt_bused = size_type::make( size + counter_size );
                 EMLABCPP_ASSERT( opt_bused );
                 return *opt_bused;
         }
@@ -863,12 +863,12 @@ struct converter< string_buffer< N >, Endianess >
                 if ( buffer.size() < subres.used + size ) {
                         return { subres.used, &SIZE_ERR };
                 }
-                if ( size > N ) {
+                if ( size >= N ) {
                         return { subres.used, &BIGSIZE_ERR };
                 }
-                std::copy(
+                std::copy_n(
                     buffer.begin() + static_cast< std::ptrdiff_t >( subres.used ),
-                    buffer.end(),
+                    size,
                     reinterpret_cast< std::byte* >( value.begin() ) );
 
                 return conversion_result{ subres.used + size };

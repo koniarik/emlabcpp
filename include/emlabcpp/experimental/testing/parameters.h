@@ -373,7 +373,7 @@ void params_awaiter< Processor >::await_suspend( const std::coroutine_handle< Pr
         params.exchange( proc.req, [this]( const params_server_client_variant& var ) {
                 if ( !proc.set_value( var ) ) {
                         params.send(
-                            param_error{ string_buffer( "failed to process param awaiter" ) } );
+                            param_error{ string_buffer( "failed to proces param awaiter" ) } );
                         proc.log_error( params );
                         state = coro::wait_state::ERRORED;
                 } else {
