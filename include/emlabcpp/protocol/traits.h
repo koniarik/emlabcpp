@@ -241,9 +241,11 @@ struct proto_traits< D > : traits_for< typename D::def_type >
 template < std::size_t N >
 struct proto_traits< string_buffer< N > >
 {
+        using counter_type                    = uint16_t;
+        using counter_traits                  = traits_for< counter_type >;
         using value_type                      = string_buffer< N >;
-        static constexpr std::size_t max_size = N;
-        static constexpr std::size_t min_size = max_size;
+        static constexpr std::size_t max_size = N + counter_traits::max_size;
+        static constexpr std::size_t min_size = 0 + counter_traits::min_size;
 };
 
 template <>
