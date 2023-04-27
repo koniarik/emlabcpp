@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"namespaceemlabcpp_1_1protocol.html#af6a2b6db86c30d95881fe0346b567f8b":[2,0,0,6,119],
 "namespaceemlabcpp_1_1protocol.html#af7b9659a2e1fe1042e7ada0c5797599c":[2,0,0,6,108],
 "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1command__group_3_01Endianess_01_4":[4,0,0,0,4,1,2],
 "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error":[4,0,0,0,4,3,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX7 =
 "physical__quantity_8h.html#a4eca5b22a706c436b22c929c45b773ef":[4,0,0,0,17,5],
 "physical__quantity_8h.html#a5519896c5f0324265089711b6a020642":[4,0,0,0,17,26],
 "physical__quantity_8h.html#a5c5e1be68f8469a0ef8388b17b94406e":[4,0,0,0,17,12],
-"physical__quantity_8h.html#a5f05bc39f7d9b7332f437d5a7b19156c":[4,0,0,0,17,22]
+"physical__quantity_8h.html#a5f05bc39f7d9b7332f437d5a7b19156c":[4,0,0,0,17,22],
+"physical__quantity_8h.html#a620d7b1d1801843cd1a7356bcc341e3e":[4,0,0,0,17,13]
 };
