@@ -75,7 +75,8 @@ template <
     gettable_container Container,
     typename UnaryCallable,
     std::size_t... Is >
-requires( !range_container< Container > ) [[nodiscard]] std::array< T, N > map_f_to_a_impl(
+requires( !range_container< Container > )
+[[nodiscard]] std::array< T, N > map_f_to_a_impl(
     Container&&          cont,
     const UnaryCallable& f,
     std::integer_sequence< std::size_t, Is... > )
@@ -101,10 +102,7 @@ struct map_f_collector< T >
 };
 
 template < typename T >
-requires requires( T a, typename T::value_type b )
-{
-        a.insert( b );
-}
+requires requires( T a, typename T::value_type b ) { a.insert( b ); }
 struct map_f_collector< T >
 {
         void collect( T& res, typename T::value_type val ) const
@@ -126,9 +124,8 @@ struct map_f_collector< std::array< T, N > >
 };
 
 template < typename T >
-concept map_f_collectable = requires( T item, typename T::value_type val )
-{
-        map_f_collector< T >{}.collect( item, std::move( val ) );
-};
+concept map_f_collectable = requires( T item, typename T::value_type val ) {
+                                    map_f_collector< T >{}.collect( item, std::move( val ) );
+                            };
 
 }  // namespace emlabcpp::impl

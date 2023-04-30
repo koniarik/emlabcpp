@@ -38,10 +38,12 @@ struct conversion_result
         const mark* error = nullptr;
 
         constexpr conversion_result() = default;
+
         explicit constexpr conversion_result( const std::size_t u )
           : used( u )
         {
         }
+
         constexpr conversion_result( const std::size_t u, const mark* const m )
           : used( u )
           , error( m )

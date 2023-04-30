@@ -68,6 +68,7 @@ class generic_iterator
         {
                 return static_cast< Derived& >( *this );
         }
+
         [[nodiscard]] constexpr Derived const& impl() const
         {
                 return static_cast< Derived const& >( *this );
@@ -122,6 +123,7 @@ public:
         {
                 return impl() <=> other.impl();
         }
+
         constexpr bool operator==( const generic_iterator< Derived >& other ) const
         {
                 return impl() == other.impl();

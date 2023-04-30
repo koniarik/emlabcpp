@@ -38,6 +38,7 @@ void reactor::tick()
                 opt_exec_.reset();
         }
 }
+
 void reactor::on_msg( const std::span< const std::byte > buffer )
 {
         using h = protocol::handler< controller_reactor_group >;
@@ -50,6 +51,7 @@ void reactor::on_msg( const std::span< const std::byte > buffer )
                         iface_.report_failure( input_message_protocol_error{ rec } );
                 } );
 }
+
 void reactor::on_msg( const controller_reactor_variant& var )
 {
         match( var, [this]( const auto& item ) {
@@ -61,15 +63,18 @@ void reactor::handle_message( const get_property< SUITE_NAME > )
 {
         iface_.reply( get_suite_name_reply{ name_buffer( suite_name_ ) } );
 }
+
 void reactor::handle_message( const get_property< SUITE_DATE > )
 {
         iface_.reply( get_suite_date_reply{ name_buffer( suite_date_ ) } );
 }
+
 void reactor::handle_message( const get_property< COUNT > )
 {
         const std::size_t c = root_node_.count_next();
         iface_.reply( get_count_reply{ static_cast< test_id >( c ) } );
 }
+
 void reactor::handle_message( const get_test_name_request req )
 {
         test_ll_node* const node_ptr = root_node_.get_next( req.tid + 1 );

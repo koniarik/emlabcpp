@@ -147,7 +147,7 @@ nlohmann::json data_tree_to_json( const data_tree& tree )
                     [&f]( const data_const_object_handle oh ) {
                             nlohmann::json j;
                             for ( const auto& [key, chid] : oh ) {
-                                    const std::string k{ std::string_view(key) };
+                                    const std::string k{ std::string_view( key ) };
                                     j[k] = f( chid );
                             }
                             return j;

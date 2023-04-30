@@ -132,6 +132,7 @@ template <>
 struct nlohmann::adl_serializer< emlabcpp::pid_coefficients >
 {
         using cfg_type = emlabcpp::pid_coefficients;
+
         static void to_json( nlohmann::json& j, const cfg_type& cfg )
         {
                 j["p"] = cfg.p;
@@ -153,6 +154,7 @@ template <>
 struct nlohmann::adl_serializer< emlabcpp::pid_config >
 {
         using cfg_type = emlabcpp::pid_config;
+
         static void to_json( nlohmann::json& j, const cfg_type& cfg )
         {
                 j["coefficients"] = cfg.coefficients;

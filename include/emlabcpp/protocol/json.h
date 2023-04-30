@@ -81,6 +81,7 @@ struct nlohmann::adl_serializer< emlabcpp::protocol::proto_traits< D > >
         proto_traits_adl_serializer< D, emlabcpp::protocol::traits_json_serializer< D > >
 {
 };
+
 template < emlabcpp::protocol::convertible D >
 struct nlohmann::adl_serializer< emlabcpp::protocol::backup_proto_traits< D > >
   : emlabcpp::protocol::
@@ -95,88 +96,108 @@ template <>
 struct traits_json_serializer< uint8_t > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "uint8_t";
-        static std::string                get_name()
+
+        static std::string get_name()
         {
                 return std::string{ type_name };
         }
 };
+
 template <>
 struct traits_json_serializer< uint16_t > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "uint16_t";
-        static std::string                get_name()
+
+        static std::string get_name()
         {
                 return std::string{ type_name };
         }
 };
+
 template <>
 struct traits_json_serializer< uint32_t > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "uint32_t";
-        static std::string                get_name()
+
+        static std::string get_name()
         {
                 return std::string{ type_name };
         }
 };
+
 template <>
 struct traits_json_serializer< uint64_t > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "uint64_t";
-        static std::string                get_name()
+
+        static std::string get_name()
         {
                 return std::string{ type_name };
         }
 };
+
 template <>
 struct traits_json_serializer< int8_t > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "int8_t";
-        static std::string                get_name()
+
+        static std::string get_name()
         {
                 return std::string{ type_name };
         }
 };
+
 template <>
 struct traits_json_serializer< int16_t > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "int16_t";
-        static std::string                get_name()
+
+        static std::string get_name()
         {
                 return std::string{ type_name };
         }
 };
+
 template <>
 struct traits_json_serializer< int32_t > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "int32_t";
-        static std::string                get_name()
+
+        static std::string get_name()
         {
                 return std::string{ type_name };
         }
 };
+
 template <>
 struct traits_json_serializer< int64_t > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "int64_t";
-        static std::string                get_name()
+
+        static std::string get_name()
         {
                 return std::string{ type_name };
         }
 };
+
 template <>
 struct traits_json_serializer< float > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "float";
-        static std::string                get_name()
+
+        static std::string get_name()
         {
                 return std::string{ type_name };
         }
 };
+
 template < convertible T >
-requires( std::is_enum_v< T > ) struct traits_json_serializer< T > : traits_json_serializer_base
+requires( std::is_enum_v< T > )
+struct traits_json_serializer< T > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "enum";
-        static std::string                get_name()
+
+        static std::string get_name()
         {
                 return pretty_type_name< T >();
         }
@@ -300,7 +321,8 @@ struct traits_json_serializer< value_offset< D, Offset > > : traits_json_seriali
 };
 
 template < quantity_derived D >
-requires( convertible< D > ) struct traits_json_serializer< D > : traits_json_serializer_base
+requires( convertible< D > )
+struct traits_json_serializer< D > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "quantity";
 
@@ -412,8 +434,8 @@ struct traits_json_serializer< endianess_wrapper< Endianess, D > > : traits_json
 };
 
 template < std::derived_from< converter_def_type_base > D >
-requires( convertible< D > ) struct traits_json_serializer< D >
-  : traits_json_serializer< typename D::def_type >
+requires( convertible< D > )
+struct traits_json_serializer< D > : traits_json_serializer< typename D::def_type >
 {
         static std::string get_name()
         {
@@ -425,7 +447,8 @@ template <>
 struct traits_json_serializer< mark > : traits_json_serializer_base
 {
         static constexpr std::string_view type_name = "mark";
-        static std::string                get_name()
+
+        static std::string get_name()
         {
                 return std::string{ type_name };
         }

@@ -123,10 +123,8 @@ auto& pretty_stream_write( ostreamlike auto& os, const Ts&... item )
 };
 
 template < typename T >
-concept pretty_printable = requires( const T& v )
-{
-        pretty_printer< T >::print( []( std::string_view ) {}, v );
-};
+concept pretty_printable =
+    requires( const T& v ) { pretty_printer< T >::print( []( std::string_view ) {}, v ); };
 
 template < std::size_t N, typename... Ts >
 buffer_writer< N > pretty_print_buffer( const Ts&... item )
@@ -301,7 +299,8 @@ struct pretty_printer< bool >
 };
 
 template < typename T >
-requires( std::is_pointer_v< T > ) struct pretty_printer< T >
+requires( std::is_pointer_v< T > )
+struct pretty_printer< T >
 {
         template < typename Writer >
         static void print( Writer&& w, T val )
@@ -312,7 +311,8 @@ requires( std::is_pointer_v< T > ) struct pretty_printer< T >
 };
 
 template < typename T >
-requires( std::is_enum_v< T > ) struct pretty_printer< T >
+requires( std::is_enum_v< T > )
+struct pretty_printer< T >
 {
         template < typename Writer >
         static void print( Writer&& w, T val )

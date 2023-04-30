@@ -117,7 +117,8 @@ template <
 template <
     gettable_container               Container,
     container_invocable< Container > PredicateCallable = std::identity >
-requires( !range_container< Container > ) [[nodiscard]] constexpr std::size_t
+requires( !range_container< Container > )
+[[nodiscard]] constexpr std::size_t
     find_if( Container&& t, PredicateCallable&& f = std::identity() )
 {
         return impl::find_if_impl(
@@ -149,8 +150,8 @@ template < container Container, typename T >
 
 /// Applies unary callable 'f' to each element of container 'cont'
 template < gettable_container Container, container_invocable< Container > UnaryCallable >
-requires(
-    !range_container< Container > ) constexpr void for_each( Container&& cont, UnaryCallable&& f )
+requires( !range_container< Container > )
+constexpr void for_each( Container&& cont, UnaryCallable&& f )
 {
         std::apply(
             [&f]< typename... Items >( Items&&... items ) {
@@ -179,6 +180,7 @@ struct min_max
         T max{};
 
         min_max() = default;
+
         min_max( T min_i, T max_i )
           : min( std::move( min_i ) )
           , max( std::move( max_i ) )
@@ -421,9 +423,8 @@ template <
     range_container                  Container,
     container_invocable< Container > UnaryCallable = std::identity,
     typename T = std::decay_t< mapped_t< Container, UnaryCallable > > >
-[[nodiscard]] std::array< T, N > map_f_to_a(
-    Container&&     cont,
-    UnaryCallable&& f = std::identity() ) requires( !static_sized< Container > )
+[[nodiscard]] std::array< T, N > map_f_to_a( Container&& cont, UnaryCallable&& f = std::identity() )
+requires( !static_sized< Container > )
 {
         return impl::map_f_to_a_impl< T, N >(
             std::forward< Container >( cont ),
@@ -438,9 +439,8 @@ template <
     std::size_t                      N = std::tuple_size< std::decay_t< Container > >::value,
     container_invocable< Container > UnaryCallable = std::identity,
     typename T = std::decay_t< mapped_t< Container, UnaryCallable > > >
-[[nodiscard]] std::array< T, N > map_f_to_a(
-    Container&&     cont,
-    UnaryCallable&& f = std::identity() ) requires static_sized< Container >
+[[nodiscard]] std::array< T, N > map_f_to_a( Container&& cont, UnaryCallable&& f = std::identity() )
+requires static_sized< Container >
 {
         return impl::map_f_to_a_impl< T, N >(
             std::forward< Container >( cont ),
@@ -531,10 +531,11 @@ constexpr bool until_index( const PredicateCallable& f )
 /// Expectes the bounded value to be valid (that is within the range)
 template < bounded_derived IndexType, typename Callable >
 requires( !requires( Callable f ) {
-        {
-                f.template operator()< 0 >()
-                } -> std::same_as< void >;
-} ) constexpr auto select_index( IndexType i, const Callable& f )
+                   {
+                           f.template operator()< 0 >()
+                           } -> std::same_as< void >;
+           } )
+constexpr auto select_index( IndexType i, const Callable& f )
 {
         using T = std::decay_t< decltype( f.template operator()< 0 >() ) >;
         T res{};
@@ -545,12 +546,11 @@ requires( !requires( Callable f ) {
 }
 
 template < bounded_derived IndexType, typename Callable >
-requires requires( Callable f )
-{
-        {
-                f.template operator()< 0 >()
-                } -> std::same_as< void >;
-}
+requires requires( Callable f ) {
+                 {
+                         f.template operator()< 0 >()
+                         } -> std::same_as< void >;
+         }
 constexpr void select_index( IndexType i, const Callable& f )
 {
         until_index< IndexType::max_val + 1 >( [&i, &f]< std::size_t j >() {

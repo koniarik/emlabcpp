@@ -108,8 +108,8 @@ public:
         /// Creates value of the command group, that is variant with value of the command 'id' that
         /// will receive the appropiate 'args'.
         template < auto id, typename... Args >
-        requires( ( id == Cmds::id ) || ... ) constexpr static value_type
-            make_val( const Args&... args )
+        requires( ( id == Cmds::id ) || ... )
+        constexpr static value_type make_val( const Args&... args )
         {
                 std::optional< value_type > res;
 

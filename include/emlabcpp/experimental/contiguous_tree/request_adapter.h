@@ -243,6 +243,7 @@ private:
         {
                 return get_containers_impl< const_object_handle, const_array_handle >( this, nid );
         }
+
         [[nodiscard]] either< std::variant< object_handle, array_handle >, error_enum >
         get_containers( node_id nid )
         {
@@ -281,14 +282,17 @@ private:
         {
                 return get_handle_impl< const_object_handle >( this, nid );
         };
+
         [[nodiscard]] either< object_handle, error_enum > get_object_handle( node_id nid )
         {
                 return get_handle_impl< object_handle >( this, nid );
         };
+
         [[nodiscard]] either< const_array_handle, error_enum > get_array_handle( node_id nid ) const
         {
                 return get_handle_impl< const_array_handle >( this, nid );
         };
+
         [[nodiscard]] either< array_handle, error_enum > get_array_handle( node_id nid )
         {
                 return get_handle_impl< array_handle >( this, nid );

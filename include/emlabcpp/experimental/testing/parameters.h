@@ -218,6 +218,7 @@ struct param_value_processor
                 return opt_res.has_value();
         }
 };
+
 template < typename T >
 using param_value_awaiter = params_awaiter< param_value_processor< T > >;
 
@@ -242,6 +243,7 @@ struct param_value_key_processor
                 return opt_res.has_value();
         }
 };
+
 template < typename T >
 using param_value_key_awaiter = params_awaiter< param_value_key_processor< T > >;
 
@@ -257,6 +259,7 @@ struct param_type_processor
 
         [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
+
 using param_type_awaiter = params_awaiter< param_type_processor >;
 extern template struct params_awaiter< param_type_processor >;
 
@@ -271,6 +274,7 @@ struct param_child_processor
 
         [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
+
 using param_child_awaiter = params_awaiter< param_child_processor >;
 extern template struct params_awaiter< param_child_processor >;
 
@@ -285,6 +289,7 @@ struct param_child_count_processor
 
         [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
+
 using param_child_count_awaiter = params_awaiter< param_child_count_processor >;
 extern template struct params_awaiter< param_child_count_processor >;
 
@@ -299,6 +304,7 @@ struct param_key_processor
 
         [[nodiscard]] bool set_value( const params_server_client_variant& var );
 };
+
 using param_key_awaiter = params_awaiter< param_key_processor >;
 extern template struct params_awaiter< param_key_processor >;
 
@@ -328,6 +334,7 @@ public:
         {
                 return param_value_key_awaiter< T >{ param_value_key_request{ node, chid }, *this };
         }
+
         template < typename T >
         param_value_key_awaiter< T > get_value( const node_id node, const key_type& k )
         {

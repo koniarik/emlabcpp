@@ -39,6 +39,7 @@ private:
         {
                 return static_cast< Derived& >( *this );
         }
+
         [[nodiscard]] Derived const& impl() const
         {
                 return static_cast< Derived const& >( *this );
@@ -131,10 +132,7 @@ namespace detail
 }  // namespace detail
 
 template < typename T >
-concept vec_point_derived = requires( T val )
-{
-        detail::vec_point_derived_test( val );
-};
+concept vec_point_derived = requires( T val ) { detail::vec_point_derived_test( val ); };
 
 /// Multiplies each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic
 ///
@@ -151,6 +149,7 @@ constexpr Derived operator*( const vec_point_base< Derived, N >& a, T s )
         }
         return res;
 }
+
 /// Multiplies each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic
 ///
 template < typename Derived, std::size_t N, typename T >
@@ -174,6 +173,7 @@ constexpr Derived operator/( const vec_point_base< Derived, N >& a, T s )
         }
         return res;
 }
+
 /// Calculates the dot product between A and B
 ///
 template < typename Derived, std::size_t N >
@@ -223,6 +223,7 @@ constexpr Derived abs( const vec_point_base< Derived, N >& a )
         }
         return res;
 }
+
 /// Checks if A and B are equal within specified tolerance, this means that difference of all
 /// coordinates of A and B has to be within that epsilon
 ///
@@ -248,6 +249,7 @@ min( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& 
 {
         return Derived{ a < b ? *a : *b };
 }
+
 /// Calculates a C, where C[i] = max(A[i], B[i]) holds for 0 <= i < N
 ///
 template < typename Derived, std::size_t N >

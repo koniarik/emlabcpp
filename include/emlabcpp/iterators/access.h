@@ -67,6 +67,7 @@ public:
         {
                 return fun_( *current_ );
         }
+
         constexpr const value_type& operator*() const
         {
                 return fun_( *current_ );
@@ -77,6 +78,7 @@ public:
                 std::advance( current_, offset );
                 return *this;
         }
+
         constexpr access_iterator& operator-=( std::ptrdiff_t offset )
         {
                 std::advance( current_, -offset );
@@ -87,6 +89,7 @@ public:
         {
                 return current_ <=> other.current_;
         }
+
         constexpr bool operator==( const access_iterator& other ) const
         {
                 return current_ == other.current_;

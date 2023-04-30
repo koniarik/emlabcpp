@@ -109,6 +109,7 @@ param_child_awaiter parameters::get_child( const node_id nid, const child_id chi
 {
         return param_child_awaiter{ param_child_request{ nid, chid }, *this };
 }
+
 param_child_awaiter parameters::get_child( const node_id nid, const key_type& key )
 {
         return param_child_awaiter{ param_child_request{ nid, key }, *this };
@@ -189,6 +190,7 @@ void parameters_server::on_req( const param_value_request& req )
                     reply_node_error( err, req.nid );
             } );
 }
+
 void parameters_server::on_req( const param_value_key_request& req )
 {
         const contiguous_request_adapter harn{ tree_ };
@@ -205,6 +207,7 @@ void parameters_server::on_req( const param_value_key_request& req )
                         reply_node_error( err, req.nid );
                 } );
 }
+
 void parameters_server::on_req( const param_child_request& req )
 {
         const contiguous_request_adapter harn{ tree_ };
@@ -218,6 +221,7 @@ void parameters_server::on_req( const param_child_request& req )
                         reply_node_error( err, req.parent );
                 } );
 }
+
 void parameters_server::on_req( const param_child_count_request& req )
 {
         const contiguous_request_adapter harn{ tree_ };
@@ -231,6 +235,7 @@ void parameters_server::on_req( const param_child_count_request& req )
                         reply_node_error( err, req.parent );
                 } );
 }
+
 void parameters_server::on_req( const param_key_request& req )
 {
         const contiguous_request_adapter harn{ tree_ };
@@ -244,6 +249,7 @@ void parameters_server::on_req( const param_key_request& req )
                         reply_node_error( err, req.nid );
                 } );
 }
+
 void parameters_server::on_req( const param_type_request& req )
 {
         const contiguous_request_adapter harn{ tree_ };

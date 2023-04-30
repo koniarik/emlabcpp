@@ -32,6 +32,7 @@ struct data_promise
         {
                 value = std::forward< U >( val );
         }
+
         T value;
 };
 
@@ -58,6 +59,7 @@ public:
                 {
                         return {};
                 }
+
                 [[nodiscard]] std::suspend_always final_suspend() const noexcept
                 {
                         return {};

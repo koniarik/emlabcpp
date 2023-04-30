@@ -55,6 +55,7 @@ public:
         {
                 return static_cast< T >( *iter_ );
         }
+
         T operator*() const
         {
                 return static_cast< T >( *iter_ );

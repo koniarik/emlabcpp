@@ -61,15 +61,18 @@ public:
         /// public methods
         /// --------------------------------------------------------------------------------
         static_circular_buffer() = default;
+
         static_circular_buffer( const static_circular_buffer& other )
         {
                 copy_from( other );
         }
+
         static_circular_buffer( static_circular_buffer&& other ) noexcept
         {
                 move_from( other );
                 other.clear();
         }
+
         static_circular_buffer& operator=( const static_circular_buffer& other )
         {
                 if ( this == &other ) {
@@ -79,6 +82,7 @@ public:
                 copy_from( other );
                 return *this;
         }
+
         static_circular_buffer& operator=( static_circular_buffer&& other ) noexcept
         {
                 if ( this == &other ) {
@@ -89,12 +93,14 @@ public:
                 other.clear();
                 return *this;
         }
+
         /// methods for handling the front side of the circular buffer
 
         [[nodiscard]] iterator begin()
         {
                 return iterator{ *this, from_ };
         }
+
         [[nodiscard]] const_iterator begin() const
         {
                 return const_iterator{ *this, from_ };
@@ -104,6 +110,7 @@ public:
         {
                 return std::make_reverse_iterator( end() );
         };
+
         [[nodiscard]] std::reverse_iterator< const_iterator > rbegin() const
         {
                 return std::make_reverse_iterator( end() );
@@ -113,6 +120,7 @@ public:
         {
                 return storage_[from_];
         }
+
         [[nodiscard]] const_reference front() const
         {
                 return storage_[from_];
@@ -137,6 +145,7 @@ public:
         {
                 return iterator{ *this, to_ };
         }
+
         [[nodiscard]] const_iterator end() const
         {
                 return const_iterator{ *this, to_ };
@@ -146,6 +155,7 @@ public:
         {
                 return std::make_reverse_iterator( begin() );
         };
+
         [[nodiscard]] std::reverse_iterator< const_iterator > rend() const
         {
                 return std::make_reverse_iterator( begin() );
@@ -153,11 +163,12 @@ public:
 
         [[nodiscard]] reference back()
         {
-                return storage_[ prev( to_ ) ];
+                return storage_[prev( to_ )];
         }
+
         [[nodiscard]] const_reference back() const
         {
-                return storage_[ prev( to_ ) ];
+                return storage_[prev( to_ )];
         }
 
         void push_back( T item )
@@ -201,6 +212,7 @@ public:
         {
                 return storage_[( from_ + i ) % real_size];
         }
+
         reference operator[]( const size_type i )
         {
                 return storage_[( from_ + i ) % real_size];
@@ -256,6 +268,7 @@ private:
         {
                 return ( i + 1 ) % real_size;
         }
+
         [[nodiscard]] constexpr auto prev( const size_type i ) const
         {
                 return i == 0 ? real_size - 1 : i - 1;

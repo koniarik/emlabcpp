@@ -46,16 +46,16 @@ public:
 
         template < bounded_derived OtherSize >
         requires( OtherSize::min_val >= min && OtherSize::max_val <= max )
-            bounded_view( const bounded_view< Iterator, OtherSize >& other )
+        bounded_view( const bounded_view< Iterator, OtherSize >& other )
           : bounded_view( std::begin( other ), std::end( other ) )
         {
         }
 
         template < typename Container >
         requires(
-            range_container< Container >&& static_sized< Container >&&
-                                           std::tuple_size_v< Container > <= max &&
-            std::tuple_size_v< Container > >= min ) explicit bounded_view( Container& cont )
+            range_container< Container > && static_sized< Container > &&
+            std::tuple_size_v< Container > <= max && std::tuple_size_v< Container > >= min )
+        explicit bounded_view( Container& cont )
           : bounded_view( std::begin( cont ), std::end( cont ) )
         {
         }
@@ -73,15 +73,15 @@ public:
 
         template < std::size_t n >
         requires( n <= min )
-            [[nodiscard]] bounded_view< iterator, bounded< std::size_t, n, n > > first() const
+        [[nodiscard]] bounded_view< iterator, bounded< std::size_t, n, n > > first() const
         {
                 return { this->begin(), this->begin() + n };
         }
 
         template < std::size_t n >
-        requires( n <= min ) [[nodiscard]] bounded_view<
-            iterator,
-            bounded< std::size_t, min - n, max - n > > offset() const
+        requires( n <= min )
+        [[nodiscard]] bounded_view< iterator, bounded< std::size_t, min - n, max - n > > offset()
+            const
         {
                 return { this->begin() + n, this->end() };
         }

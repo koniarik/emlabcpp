@@ -128,6 +128,7 @@ public:
                     .join();
         }
 };
+
 template < typename CallDefs >
 static constexpr std::size_t get_call_index( auto id )
 {

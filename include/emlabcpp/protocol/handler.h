@@ -34,17 +34,18 @@ namespace emlabcpp::protocol
 template < convertible T >
 struct handler
 {
-        using def          = converter_for< T, std::endian::big >;
-        using value_type   = typename def::value_type;
-        using message_type = message< def::max_size >;
+        using def                             = converter_for< T, std::endian::big >;
+        static constexpr std::size_t max_size = def::max_size;
+        using value_type                      = typename def::value_type;
+        using message_type                    = message< max_size >;
 
         static message_type serialize( const value_type& val )
         {
-                message_type res{ def::max_size };
+                message_type res{ max_size };
 
                 const bounded used =
-                    def::serialize_at( std::span< std::byte, def::max_size >{ res }, val );
-                EMLABCPP_ASSERT( *used <= def::max_size );
+                    def::serialize_at( std::span< std::byte, max_size >{ res }, val );
+                EMLABCPP_ASSERT( *used <= max_size );
                 res.resize( *used );
                 return res;
         };

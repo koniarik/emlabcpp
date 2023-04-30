@@ -147,6 +147,7 @@ constexpr point< 3 > transform( const point< 3 >& a, const pose& transformation 
 {
         return rotate( a, transformation.orientation ) + vector_cast( transformation.position );
 }
+
 constexpr vector< 3 > transform( const vector< 3 >& v, const pose& transformation )
 {
         return rotate( v, transformation.orientation ) + vector_cast( transformation.position );

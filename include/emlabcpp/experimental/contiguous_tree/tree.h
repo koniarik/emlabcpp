@@ -55,6 +55,7 @@ public:
         {
                 return obj_->begin();
         }
+
         [[nodiscard]] iterator end()
         {
                 return obj_->end();
@@ -64,6 +65,7 @@ public:
         {
                 return obj_->begin();
         }
+
         [[nodiscard]] const_iterator end() const
         {
                 return obj_->end();
@@ -143,10 +145,12 @@ public:
           : arr_( arr )
         {
         }
+
         [[nodiscard]] iterator begin()
         {
                 return arr_->begin();
         }
+
         [[nodiscard]] iterator end()
         {
                 return arr_->end();
@@ -156,6 +160,7 @@ public:
         {
                 return arr_->begin();
         }
+
         [[nodiscard]] const_iterator end() const
         {
                 return arr_->end();
@@ -332,6 +337,7 @@ public:
                 }
                 return &iter->second;
         }
+
         [[nodiscard]] node_type* get_node( node_id nid )
         {
                 auto iter = data_.find( nid );
@@ -345,6 +351,7 @@ public:
         {
                 return data_.begin();
         }
+
         [[nodiscard]] iterator end()
         {
                 return data_.end();
@@ -354,6 +361,7 @@ public:
         {
                 return data_.begin();
         }
+
         [[nodiscard]] const_iterator end() const
         {
                 return data_.end();

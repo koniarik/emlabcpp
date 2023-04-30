@@ -190,9 +190,6 @@ namespace detail
 
 /// concept matches any type that is message or derives from it.
 template < typename T >
-concept message_derived = requires( T val )
-{
-        detail::message_derived_test( val );
-};
+concept message_derived = requires( T val ) { detail::message_derived_test( val ); };
 
 }  // namespace emlabcpp::protocol

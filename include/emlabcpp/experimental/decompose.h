@@ -47,6 +47,7 @@ namespace detail
                 out = sizeof...( I ) + 1;
                 return nullptr;
         }
+
         template < class T, std::size_t... I >
         constexpr void* decompose_count_impl( int& out, std::index_sequence< I... > )
         {
@@ -73,8 +74,8 @@ namespace detail
 }  // namespace detail
 
 template < typename T >
-concept decomposable = std::is_class_v< std::decay_t< T > > && !gettable_container< T > &&
-                       ( detail::decompose_count< T >() >= 0 );
+concept decomposable = std::is_class_v< std::decay_t< T > > && !
+gettable_container< T > && ( detail::decompose_count< T >() >= 0 );
 
 #define EMLABCPP_GENERATE_DECOMPOSE( ID, ... )                                                    \
         template < typename T >                                                                   \
@@ -93,7 +94,7 @@ concept decomposable = std::is_class_v< std::decay_t< T > > && !gettable_contain
         }
 
 template < typename T >
-concept decomposable_0 = decomposable< T > &&( detail::decompose_count< T >() == 0 );
+concept decomposable_0 = decomposable< T > && ( detail::decompose_count< T >() == 0 );
 
 template < decomposable_0 T >
 constexpr std::tuple<> decompose( T&& )

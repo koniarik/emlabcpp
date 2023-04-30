@@ -55,6 +55,7 @@ enum compl_ids : uint16_t
         CJ = 24
 };
 using test_quantity = tagged_quantity< struct vtag, uint32_t >;
+
 // TODO: test changed endinaess in one subitem
 // TODO: add subprotocol
 struct complex_group

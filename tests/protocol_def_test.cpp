@@ -87,6 +87,7 @@ make_valid_test_case( T val, const std::vector< uint8_t >& buff )
                 return new valid_test_case< Endianess, T >( val, buff );
         };
 }
+
 template < std::endian Endianess, typename T >
 std::function< protocol_test_fixture*() > make_specific_valid_test_case(
     typename protocol::converter_for< T, Endianess >::value_type val,

@@ -224,8 +224,8 @@ struct signature_of< ReturnType( Args... ) >
 };
 
 template < typename Callable >
-requires( requires() { &Callable::operator(); } ) struct signature_of< Callable >
-  : signature_of< decltype( &Callable::operator() ) >
+requires( requires() { &Callable::operator(); } )
+struct signature_of< Callable > : signature_of< decltype( &Callable::operator() ) >
 {
 };
 

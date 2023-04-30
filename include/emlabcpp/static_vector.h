@@ -46,25 +46,31 @@ public:
         /// public methods
         /// --------------------------------------------------------------------------------
         static_vector() = default;
+
         static_vector( const static_vector& other )
         {
                 copy_from( other );
         }
+
         static_vector( static_vector&& other ) noexcept
         {
                 move_from( other );
                 other.clear();
         }
+
         static_vector( std::size_t M, const T& item )
         {
                 M = std::max( M, N );
                 std::uninitialized_fill( begin(), begin() + M, item );
         }
+
         template < std::size_t M >
-        requires( M <= N ) explicit static_vector( std::array< T, M > data )
+        requires( M <= N )
+        explicit static_vector( std::array< T, M > data )
         {
                 move_from( data );
         }
+
         static_vector& operator=( const static_vector& other )
         {
                 if ( this == &other ) {
@@ -74,6 +80,7 @@ public:
                 copy_from( other );
                 return *this;
         }
+
         static_vector& operator=( static_vector&& other ) noexcept
         {
                 if ( this == &other ) {
@@ -180,6 +187,7 @@ public:
         {
                 return storage_[size_ - 1];
         }
+
         [[nodiscard]] const_reference back() const
         {
                 return storage_[size_ - 1];
@@ -211,6 +219,7 @@ public:
         {
                 return storage_[i];
         }
+
         reference operator[]( size_type i )
         {
                 return storage_[i];

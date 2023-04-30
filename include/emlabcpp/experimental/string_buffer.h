@@ -17,7 +17,7 @@ struct string_buffer : std::array< char, N >
         constexpr string_buffer()
           : base_type{}
         {
-                std::fill_n(this->data(), N, '\0');
+                std::fill_n( this->data(), N, '\0' );
         }
 
         constexpr string_buffer( std::string_view sv )
@@ -36,7 +36,7 @@ struct string_buffer : std::array< char, N >
 
         operator std::string_view() const
         {
-                return std::string_view( this->data(), strlen(this->data()) );
+                return std::string_view( this->data(), strlen( this->data() ) );
         }
 };
 

@@ -123,6 +123,7 @@ public:
         {
                 set( parent, key, value_type_converter< Arg >::to_value( arg ) );
         }
+
         template < typename Arg >
         void append( node_id parent, const Arg& arg )
         {

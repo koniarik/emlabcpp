@@ -45,7 +45,8 @@ template < typename Container, typename UnaryCallable >
 struct mapped;
 
 template < gettable_container Container, typename UnaryCallable >
-requires( !range_container< Container > ) struct mapped< Container, UnaryCallable >
+requires( !range_container< Container > )
+struct mapped< Container, UnaryCallable >
 {
         using type = decltype( std::declval< UnaryCallable >()(
             std::get< 0 >( std::declval< Container >() ) ) );
@@ -108,22 +109,29 @@ template < std::size_t >
 struct select_utype;
 
 template < std::size_t N >
-requires( sizeof( uint8_t ) == N ) struct select_utype< N >
+requires( sizeof( uint8_t ) == N )
+struct select_utype< N >
 {
         using type = uint8_t;
 };
+
 template < std::size_t N >
-requires( sizeof( uint16_t ) == N ) struct select_utype< N >
+requires( sizeof( uint16_t ) == N )
+struct select_utype< N >
 {
         using type = uint16_t;
 };
+
 template < std::size_t N >
-requires( sizeof( uint32_t ) == N ) struct select_utype< N >
+requires( sizeof( uint32_t ) == N )
+struct select_utype< N >
 {
         using type = uint32_t;
 };
+
 template < std::size_t N >
-requires( sizeof( uint64_t ) == N ) struct select_utype< N >
+requires( sizeof( uint64_t ) == N )
+struct select_utype< N >
 {
         using type = uint64_t;
 };

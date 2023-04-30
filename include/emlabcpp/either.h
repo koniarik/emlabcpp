@@ -31,8 +31,8 @@ namespace emlabcpp
 {
 
 template < typename T, typename LH, typename RH >
-concept either_uniquely_right_item =
-    std::same_as< std::decay_t< T >, RH > && !std::same_as< LH, RH >;
+concept either_uniquely_right_item = std::same_as< std::decay_t< T >, RH > && !
+std::same_as< LH, RH >;
 
 /// Either is heterogenous structure that holds one of the two types specified.
 /// This is stored as union, so the memory requirement of either is always the size of the bigger
@@ -65,7 +65,9 @@ public:
         using left_item  = LH;
         using right_item = RH;
 
-        either() requires std::default_initializable< LH > : either( LH{} )
+        either()
+        requires std::default_initializable< LH >
+          : either( LH{} )
         {
         }
 
@@ -141,6 +143,7 @@ public:
                 std::construct_at( &left_, other );
                 return *this;
         }
+
         either& operator=( left_item&& other )
         {
                 destruct();
@@ -250,7 +253,8 @@ public:
         }
 
         template < typename U = left_item, typename K = right_item >
-        requires( std::same_as< U, K > ) [[nodiscard]] left_item join() &&
+        requires( std::same_as< U, K > )
+        [[nodiscard]] left_item join() &&
         {
                 if ( id_ == item::LEFT ) {
                         return std::move( left_ );
@@ -258,8 +262,10 @@ public:
 
                 return std::move( right_ );
         }
+
         template < typename U = left_item, typename K = right_item >
-        requires( std::same_as< U, K > ) [[nodiscard]] left_item join() const&
+        requires( std::same_as< U, K > )
+        [[nodiscard]] left_item join() const&
         {
                 if ( id_ == item::LEFT ) {
                         return left_;
@@ -410,10 +416,12 @@ either< std::tuple< Ts... >, empty_assembly_tag > assemble_optionals( std::optio
 /// left, / and their errors on the right. It either returns all values or the errors that happend.
 
 template < typename FirstE, typename... Eithers >
-auto assemble_left_collect_right( FirstE&& first, Eithers&&... others ) requires(
+auto assemble_left_collect_right( FirstE&& first, Eithers&&... others )
+requires(
     std::same_as<
         typename std::decay_t< FirstE >::right_item,
-        typename std::decay_t< Eithers >::right_item >&&... )
+        typename std::decay_t< Eithers >::right_item > &&
+    ... )
 {
 
         using right_type               = typename std::decay_t< FirstE >::right_item;

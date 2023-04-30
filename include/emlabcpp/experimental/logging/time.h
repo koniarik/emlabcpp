@@ -37,6 +37,7 @@ struct timelog
           : tp( tp_ )
         {
         }
+
         timelog() = default;
 };
 

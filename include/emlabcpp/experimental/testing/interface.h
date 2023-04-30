@@ -52,12 +52,11 @@ public:
 using test_ll_node = linked_list_node< test_interface* >;
 
 template < typename T >
-concept valid_test_callable = requires( T t, pmr::memory_resource& mem_resource, record& rec )
-{
-        {
-                t( mem_resource, rec )
-                } -> std::same_as< test_coroutine >;
-};
+concept valid_test_callable = requires( T t, pmr::memory_resource& mem_resource, record& rec ) {
+                                      {
+                                              t( mem_resource, rec )
+                                              } -> std::same_as< test_coroutine >;
+                              };
 
 template < std::derived_from< test_interface > T >
 class test_unit
@@ -88,6 +87,7 @@ public:
         {
                 return item_;
         }
+
         const T& operator*() const
         {
                 return item_;
@@ -97,6 +97,7 @@ public:
         {
                 return &item_;
         }
+
         const T* operator->() const
         {
                 return &item_;
@@ -154,6 +155,7 @@ public:
         {
                 *node_ = this;
         }
+
         // TODO: implement
         test_linked_callable& operator=( test_linked_callable&& ) noexcept = delete;
 

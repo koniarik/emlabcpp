@@ -63,6 +63,7 @@ class quantity
         {
                 return static_cast< Derived& >( *this );
         }
+
         [[nodiscard]] Derived const& impl() const
         {
                 return static_cast< Derived const& >( *this );
@@ -143,10 +144,7 @@ namespace detail
 
 /// Concept satisfies any type `T` that inherits from any form of `quantity<U>`.
 template < typename T >
-concept quantity_derived = requires( T val )
-{
-        detail::quantity_derived_test( val );
-};
+concept quantity_derived = requires( T val ) { detail::quantity_derived_test( val ); };
 
 /// Class represents a quantity that uses `tags` to distinguish quantities instead of inheritance.
 ///
@@ -258,6 +256,7 @@ constexpr Derived operator*( const ValueType val, const quantity< Derived, Value
 {
         return q * val;
 }
+
 /// Division of value_type by quantity returns quantity
 template < typename Derived, typename ValueType >
 constexpr ValueType operator/( const ValueType val, const quantity< Derived, ValueType > q )
@@ -286,10 +285,12 @@ struct std::numeric_limits< T >
         {
                 return T{ std::numeric_limits< value_type >::lowest() };
         }
+
         constexpr static T min()
         {
                 return T{ std::numeric_limits< value_type >::min() };
         }
+
         constexpr static T max()
         {
                 return T{ std::numeric_limits< value_type >::max() };

@@ -43,6 +43,7 @@ public:
         {
                 *this = std::move( other );
         }
+
         linked_list_node& operator=( linked_list_node&& other ) noexcept
         {
                 item_ = std::move( other.item_ );
@@ -77,14 +78,17 @@ public:
         {
                 return item_;
         }
+
         const T& operator*() const
         {
                 return item_;
         }
+
         T* operator->()
         {
                 return item_;
         }
+
         const T* operator->() const
         {
                 return item_;

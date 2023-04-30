@@ -63,6 +63,7 @@ public:
         {
                 return val_;
         }
+
         constexpr const T& operator*() const
         {
                 return val_;
@@ -73,6 +74,7 @@ public:
                 val_ += static_cast< T >( offset );
                 return *this;
         }
+
         constexpr numeric_iterator& operator-=( std::ptrdiff_t offset )
         {
                 val_ -= static_cast< T >( offset );
@@ -83,6 +85,7 @@ public:
         {
                 return val_ <=> other.val_;
         }
+
         constexpr bool operator==( const numeric_iterator< T >& other ) const
         {
                 return val_ == other.val_;

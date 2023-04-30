@@ -66,6 +66,7 @@ decltype( auto ) apply_on_visit( Visitor&& vis, Variant&& var )
             },
             std::forward< Variant >( var ) );
 }
+
 namespace detail
 {
         template < std::size_t N, typename Callable >

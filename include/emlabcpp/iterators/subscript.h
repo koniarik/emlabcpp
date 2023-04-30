@@ -70,6 +70,7 @@ public:
         {
                 return cont_[i_];
         }
+
         const reference operator*() const
         {
                 return cont_[i_];
@@ -80,6 +81,7 @@ public:
                 i_ += i;
                 return *this;
         }
+
         subscript_iterator& operator-=( std::size_t i )
         {
                 i_ -= i;
@@ -90,6 +92,7 @@ public:
         {
                 return i_ <=> other.i_;
         }
+
         bool operator==( const subscript_iterator& other ) const
         {
                 return i_ == other.i_ && &cont_ == &other.cont_;

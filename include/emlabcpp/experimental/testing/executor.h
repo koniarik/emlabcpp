@@ -50,6 +50,7 @@ public:
         {
                 return errored_;
         }
+
         [[nodiscard]] bool failed() const
         {
                 return failed_;

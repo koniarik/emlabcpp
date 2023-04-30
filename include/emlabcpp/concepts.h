@@ -29,30 +29,36 @@ namespace emlabcpp
 {
 
 template < typename T >
-concept arithmetic_operators = requires( T a, T b )
-{
-        {
-                a + b
-                } -> std::convertible_to< T >;
-        {
-                a - b
-                } -> std::convertible_to< T >;
-        {
-                a / b
-                } -> std::convertible_to< T >;
-        {
-                a* b
-                } -> std::convertible_to< T >;
-};
+concept arithmetic_operators = requires( T a, T b ) {
+                                       {
+                                               a + b
+                                               } -> std::convertible_to< T >;
+                                       {
+                                               a - b
+                                               } -> std::convertible_to< T >;
+                                       {
+                                               a / b
+                                               } -> std::convertible_to< T >;
+                                       {
+                                               a* b
+                                               } -> std::convertible_to< T >;
+                               };
 
 template < typename T >
-concept arithmetic_assignment = requires( T a, T b )
-{
-        { a += b };
-        { a -= b };
-        { a /= b };
-        { a *= b };
-};
+concept arithmetic_assignment = requires( T a, T b ) {
+                                        {
+                                                a += b
+                                        };
+                                        {
+                                                a -= b
+                                        };
+                                        {
+                                                a /= b
+                                        };
+                                        {
+                                                a *= b
+                                        };
+                                };
 
 template < typename T >
 concept arithmetic_like = arithmetic_operators< T > && arithmetic_assignment< T >;
@@ -61,12 +67,11 @@ template < typename T >
 concept arithmetic = std::integral< T > || std::floating_point< T >;
 
 template < typename T >
-concept gettable_container = requires( T a )
-{
-        {
-                std::tuple_size< std::decay_t< T > >::value
-                } -> std::convertible_to< std::size_t >;
-};
+concept gettable_container = requires( T a ) {
+                                     {
+                                             std::tuple_size< std::decay_t< T > >::value
+                                             } -> std::convertible_to< std::size_t >;
+                             };
 
 /// so, std::ranges::range is meh because it expects return of begin() being input_output_iterator,
 /// which has to be def.constructible
@@ -83,69 +88,58 @@ concept container = range_container< T > || gettable_container< T >;
 
 template < typename T >
 concept referenceable_container = is_view< T >::value ||
-    ( range_container< T > && !std::is_rvalue_reference_v< T > );
+                                  ( range_container< T > && !std::is_rvalue_reference_v< T > );
 
 template < typename T, typename ValueType >
 concept range_container_with =
     range_container< T > && std::same_as< typename T::value_type, ValueType >;
 
 template < typename T >
-concept static_sized = requires( T a )
-{
-        {
-                std::tuple_size< std::decay_t< T > >::value
-                } -> std::convertible_to< std::size_t >;
-};
+concept static_sized = requires( T a ) {
+                               {
+                                       std::tuple_size< std::decay_t< T > >::value
+                                       } -> std::convertible_to< std::size_t >;
+                       };
 
 template < typename UnaryCallable, typename Container >
-concept container_invocable = requires( Container cont, UnaryCallable f )
-{
-        f( *cont.begin() );
-}
-|| requires( Container cont )
-{
-        std::tuple_size< std::decay_t< Container > >::value == 0;
-}
-|| requires( Container cont, UnaryCallable f )
-{
-        /// this has to come after the size check, as gcc 10.2 will faill to compile the code
-        /// using this concept otherwise. If container is std::tuple<> and this check comes
-        /// before the size one, it fails on std::get<0> being not compailable.
-        f( std::get< 0 >( cont ) );
-};
+concept container_invocable =
+    requires( Container cont, UnaryCallable f ) { f( *cont.begin() ); } ||
+    requires( Container cont ) { std::tuple_size< std::decay_t< Container > >::value == 0; } ||
+    requires( Container cont, UnaryCallable f ) {
+            /// this has to come after the size check, as gcc 10.2 will faill to compile the code
+            /// using this concept otherwise. If container is std::tuple<> and this check comes
+            /// before the size one, it fails on std::get<0> being not compailable.
+            f( std::get< 0 >( cont ) );
+    };
 
 template < typename UnaryCallable, typename ReturnValue, typename... Args >
-concept invocable_returning = requires( UnaryCallable f, Args... args )
-{
-        {
-                f( args... )
-                } -> std::same_as< ReturnValue >;
-};
+concept invocable_returning = requires( UnaryCallable f, Args... args ) {
+                                      {
+                                              f( args... )
+                                              } -> std::same_as< ReturnValue >;
+                              };
 
 namespace detail
 {
         template < typename Stream, typename T >
-        concept directly_streamable_for = requires( Stream os, T val )
-        {
-                os.operator<<( val );
-        };
+        concept directly_streamable_for = requires( Stream os, T val ) { os.operator<<( val ); };
 }  // namespace detail
 
 template < typename T >
-concept ostreamlike = !std::is_array_v< T > && requires( T val )
-{
-        requires detail::directly_streamable_for< T, uint8_t >;
-        requires detail::directly_streamable_for< T, uint16_t >;
-        requires detail::directly_streamable_for< T, uint32_t >;
-        requires detail::directly_streamable_for< T, int8_t >;
-        requires detail::directly_streamable_for< T, int16_t >;
-        requires detail::directly_streamable_for< T, int32_t >;
-        requires detail::directly_streamable_for< T, float >;
-        requires detail::directly_streamable_for< T, double >;
-        requires detail::directly_streamable_for< T, bool >;
-        requires detail::directly_streamable_for< T, const void* >;
-        requires detail::directly_streamable_for< T, std::nullptr_t >;
-};
+concept ostreamlike = !
+std::is_array_v< T >&& requires( T val ) {
+                               requires detail::directly_streamable_for< T, uint8_t >;
+                               requires detail::directly_streamable_for< T, uint16_t >;
+                               requires detail::directly_streamable_for< T, uint32_t >;
+                               requires detail::directly_streamable_for< T, int8_t >;
+                               requires detail::directly_streamable_for< T, int16_t >;
+                               requires detail::directly_streamable_for< T, int32_t >;
+                               requires detail::directly_streamable_for< T, float >;
+                               requires detail::directly_streamable_for< T, double >;
+                               requires detail::directly_streamable_for< T, bool >;
+                               requires detail::directly_streamable_for< T, const void* >;
+                               requires detail::directly_streamable_for< T, std::nullptr_t >;
+                       };
 
 /// Thanks for the solution goes to PJBoy@libera
 template < typename T, typename Variant >
@@ -159,18 +153,13 @@ concept element_of = []< typename... Ts >( std::tuple< Ts... >* ) {
 }( static_cast< Tuple* >( nullptr ) );
 
 template < typename T >
-concept with_value_type = requires
-{
-        typename T::value_type;
-};
+concept with_value_type = requires { typename T::value_type; };
 
 template < typename T, typename Signature >
 concept with_signature = std::same_as< typename signature_of< T >::signature, Signature >;
 
 template < typename T >
-concept with_push_back = requires( T a, typename T::value_type b )
-{
-        a.push_back( std::move( b ) );
-};
+concept with_push_back =
+    requires( T a, typename T::value_type b ) { a.push_back( std::move( b ) ); };
 
 }  // namespace emlabcpp

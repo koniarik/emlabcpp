@@ -47,14 +47,18 @@ public:
         constexpr view() = default;
 
         /// constructor from Container, uses begin/end of the container
-        constexpr view( range_container auto& cont )
+        template < range_container Cont >
+        requires( std::convertible_to< iterator_of_t< Cont >, iterator > )
+        constexpr view( Cont& cont )
           : begin_( std::begin( cont ) )
           , end_( std::end( cont ) )
         {
         }
 
         /// constructor from Container, uses begin/end of the container
-        constexpr view( const range_container auto& cont )
+        template < range_container Cont >
+        requires( std::convertible_to< iterator_of_t< Cont >, iterator > )
+        constexpr view( const Cont& cont )
           : begin_( std::begin( cont ) )
           , end_( std::end( cont ) )
         {

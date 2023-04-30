@@ -40,6 +40,7 @@ struct serializer
         {
                 return buffer[is_big_endian ? i : max_size - 1 - i];
         }
+
         static constexpr void serialize_at( std::span< std::byte, max_size > buffer, T item )
         {
                 for ( const std::size_t i : range( max_size ) ) {
@@ -47,6 +48,7 @@ struct serializer
                         item                             = static_cast< T >( item >> 8 );
                 }
         }
+
         static constexpr T deserialize( const std::span< const std::byte, max_size >& buffer )
         {
                 T res{};
@@ -59,7 +61,8 @@ struct serializer
 };
 
 template < base_type T, std::endian Endianess >
-requires( std::is_enum_v< T > ) struct serializer< T, Endianess >
+requires( std::is_enum_v< T > )
+struct serializer< T, Endianess >
 {
         using utype                           = std::underlying_type_t< T >;
         using userializer                     = serializer< utype, Endianess >;
@@ -70,6 +73,7 @@ requires( std::is_enum_v< T > ) struct serializer< T, Endianess >
         {
                 userializer::serialize_at( buffer, static_cast< utype >( item ) );
         }
+
         static constexpr T deserialize( const std::span< const std::byte, max_size >& buffer )
         {
                 return static_cast< T >( userializer::deserialize( buffer ) );
@@ -113,6 +117,7 @@ struct serializer< bool, Endianess >
         {
                 buffer[0] = v ? std::byte{ 0x1 } : std::byte{ 0x0 };
         }
+
         static constexpr bool deserialize( const std::span< const std::byte, max_size >& buffer )
         {
                 return buffer[0] == std::byte{ 0x1 };

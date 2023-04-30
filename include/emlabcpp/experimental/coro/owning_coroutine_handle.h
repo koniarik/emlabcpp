@@ -39,12 +39,14 @@ public:
         }
 
         owning_coroutine_handle( const owning_coroutine_handle& ) = delete;
+
         owning_coroutine_handle( owning_coroutine_handle&& other ) noexcept
         {
                 *this = std::move( other );
         }
 
         owning_coroutine_handle& operator=( const owning_coroutine_handle& ) = delete;
+
         owning_coroutine_handle& operator=( owning_coroutine_handle&& other ) noexcept
         {
                 std::swap( h_, other.h_ );
@@ -65,6 +67,7 @@ public:
         {
                 return h_.done();
         }
+
         [[nodiscard]] constexpr void* address() const
         {
                 return h_.address();

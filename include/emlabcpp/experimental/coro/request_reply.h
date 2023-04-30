@@ -46,9 +46,11 @@ public:
                 {
                         return false;
                 }
+
                 void await_suspend( std::coroutine_handle<> )
                 {
                 }
+
                 const ReplyType& await_resume()
                 {
                         return *prom_->reply;
@@ -64,10 +66,12 @@ public:
                 {
                         return { handle::from_promise( *this ) };
                 }
+
                 std::suspend_never initial_suspend()
                 {
                         return {};
                 }
+
                 std::suspend_always final_suspend() noexcept
                 {
                         return {};

@@ -67,6 +67,7 @@ void collector::on_msg( const std::span< const std::byte >& msg )
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                 } );
 }
+
 void collector::on_msg( const collect_server_client_group& var )
 {
         reply_callback_( var );
@@ -80,6 +81,7 @@ collector::set( const node_id parent, const std::string_view key, contiguous_con
                 .parent = parent, .expects_reply = true, .opt_key = key_type( key ), .value = t },
             *this };
 }
+
 collect_awaiter collector::append( const node_id parent, contiguous_container_type t )
 {
         return collect_awaiter{
@@ -87,6 +89,7 @@ collect_awaiter collector::append( const node_id parent, contiguous_container_ty
                 .parent = parent, .expects_reply = true, .opt_key = std::nullopt, .value = t },
             *this };
 }
+
 void collector::set( const node_id parent, const std::string_view key, const value_type& val )
 {
         EMLABCPP_DEBUG_LOG(
@@ -94,6 +97,7 @@ void collector::set( const node_id parent, const std::string_view key, const val
         send( collect_request{
             .parent = parent, .expects_reply = false, .opt_key = key_type( key ), .value = val } );
 }
+
 void collector::append( const node_id parent, const value_type& val )
 {
         send( collect_request{
@@ -125,7 +129,7 @@ collect_server::collect_server(
 void collect_server::on_msg( const std::span< const std::byte > data )
 {
         using h = protocol::handler< collect_request >;
-        EMLABCPP_DEBUG_LOG("got msg: ", collect_client_server_message{data_view(data)});
+        EMLABCPP_DEBUG_LOG( "got msg: ", collect_client_server_message{ data_view( data ) } );
         h::extract( view_n( data.data(), data.size() ) )
             .match(
                 [this]( const collect_request& req ) {

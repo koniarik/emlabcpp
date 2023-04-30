@@ -60,19 +60,20 @@ using traits_for = decltype( traits_for_impl< D >() );
 /// taken by the serialized value in the message. traits_for::min_size should contain minimal
 /// size used.
 template < typename D >
-concept convertible = requires( D val )
-{
-        {
-                traits_for< D >::max_size
-                } -> std::convertible_to< std::size_t >;
-        {
-                traits_for< D >::min_size
-                } -> std::convertible_to< std::size_t >;
-        requires std::default_initializable< typename traits_for< D >::value_type >;
-};
+concept convertible =
+    requires( D val ) {
+            {
+                    traits_for< D >::max_size
+                    } -> std::convertible_to< std::size_t >;
+            {
+                    traits_for< D >::min_size
+                    } -> std::convertible_to< std::size_t >;
+            requires std::default_initializable< typename traits_for< D >::value_type >;
+    };
 
 template < typename T >
-concept fixedly_sized = traits_for< T >::min_size == traits_for< T >::max_size;
+concept fixedly_sized = traits_for< T >::min_size ==
+traits_for< T >::max_size;
 
 template < base_type D >
 struct proto_traits< D >

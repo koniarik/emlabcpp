@@ -36,6 +36,7 @@ struct controller_iface : testing::controller_interface
         void on_result( const testing::test_result& ) override
         {
         }
+
         void on_error( const testing::error_variant& ) override
         {
         }
@@ -83,6 +84,7 @@ struct complex_controller_iface : testing::controller_interface
         void on_result( const testing::test_result& ) override
         {
         }
+
         void on_error( const testing::error_variant& ) override
         {
         }

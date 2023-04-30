@@ -65,6 +65,7 @@ public:
         {
                 return channel_;
         }
+
         [[nodiscard]] std::string_view suite_name() const
         {
                 return { name_.begin(), name_.end() };

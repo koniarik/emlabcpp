@@ -53,6 +53,7 @@ public:
         {
                 return data_.begin();
         }
+
         [[nodiscard]] constexpr auto end() const
         {
                 return data_.end();
@@ -86,6 +87,7 @@ class transposed_matrix
                   , m_( m )
                 {
                 }
+
                 constexpr const auto& operator[]( std::size_t j ) const
                 {
                         return m_[j][i_];
@@ -148,6 +150,7 @@ class identity_matrix
                   : i_( i )
                 {
                 }
+
                 constexpr T operator[]( std::size_t j ) const
                 {
                         return i_ == j ? 1 : 0;
@@ -182,18 +185,17 @@ public:
 };
 
 template < typename M >
-concept matrix_like = requires( M m, std::size_t i, std::size_t j )
-{
-        {
-                M::rows
-                } -> std::convertible_to< std::size_t >;
-        {
-                M::cols
-                } -> std::convertible_to< std::size_t >;
-        {
-                m[i][j]
-                } -> std::convertible_to< typename M::value_type >;
-};
+concept matrix_like = requires( M m, std::size_t i, std::size_t j ) {
+                              {
+                                      M::rows
+                                      } -> std::convertible_to< std::size_t >;
+                              {
+                                      M::cols
+                                      } -> std::convertible_to< std::size_t >;
+                              {
+                                      m[i][j]
+                                      } -> std::convertible_to< typename M::value_type >;
+                      };
 
 template < matrix_like Matrix, std::size_t I, std::size_t J >
 class rowcol_submatrix
@@ -207,6 +209,7 @@ class rowcol_submatrix
                   , m_( m )
                 {
                 }
+
                 constexpr const auto& operator[]( std::size_t j ) const
                 {
                         return m_[i_][j < J ? j : j + 1];
@@ -261,8 +264,8 @@ std::ostream& operator<<( std::ostream& os, const Matrix& m )
 #endif
 
 template < matrix_like LH, matrix_like RH >
-requires( LH::rows == RH::rows && LH::cols == RH::cols ) constexpr auto
-operator==( const LH& lh, const RH& rh )
+requires( LH::rows == RH::rows && LH::cols == RH::cols )
+constexpr auto operator==( const LH& lh, const RH& rh )
 {
         for ( const std::size_t i : range( LH::rows ) ) {
                 for ( const std::size_t j : range( LH::cols ) ) {
@@ -275,8 +278,8 @@ operator==( const LH& lh, const RH& rh )
 }
 
 template < matrix_like LH, matrix_like RH, typename T = typename LH::value_type >
-requires( LH::cols == RH::rows ) constexpr matrix< LH::rows, RH::cols, T >
-operator*( const LH& lh, const RH& rh )
+requires( LH::cols == RH::rows )
+constexpr matrix< LH::rows, RH::cols, T > operator*( const LH& lh, const RH& rh )
 {
         matrix< LH::rows, RH::cols, T > res;
 
@@ -315,8 +318,8 @@ operator*( const typename LH::value_type& val, const LH& lh )
 }
 
 template < matrix_like LH, matrix_like RH, typename T = typename LH::value_type >
-requires( LH::cols == RH::cols && LH::rows == RH::rows ) constexpr matrix< LH::rows, LH::cols, T >
-operator+( const LH& lh, const RH& rh )
+requires( LH::cols == RH::cols && LH::rows == RH::rows )
+constexpr matrix< LH::rows, LH::cols, T > operator+( const LH& lh, const RH& rh )
 {
         matrix< LH::rows, LH::cols, T > res{};
         for ( const std::size_t i : range( LH::rows ) ) {
@@ -328,8 +331,8 @@ operator+( const LH& lh, const RH& rh )
 }
 
 template < matrix_like LH, matrix_like RH, typename T = typename LH::value_type >
-requires( LH::cols == RH::cols && LH::rows == RH::rows ) constexpr matrix< LH::rows, LH::cols, T >
-operator-( const LH& lh, const RH& rh )
+requires( LH::cols == RH::cols && LH::rows == RH::rows )
+constexpr matrix< LH::rows, LH::cols, T > operator-( const LH& lh, const RH& rh )
 {
         matrix< LH::rows, LH::cols, T > res{};
         for ( std::size_t i : range( LH::rows ) ) {
@@ -353,13 +356,15 @@ constexpr matrix< M::cols, M::rows, typename M::value_type > transpose( M&& m )
 };
 
 template < matrix_like M >
-requires( M::rows == 2 && M::cols == 2 ) constexpr auto determinant( const M& m )
+requires( M::rows == 2 && M::cols == 2 )
+constexpr auto determinant( const M& m )
 {
         return m[0][0] * m[1][1] - m[0][1] * m[1][0];
 }
 
 template < matrix_like M >
-requires( M::rows > 2 && M::cols == M::rows ) constexpr auto determinant( const M& m )
+requires( M::rows > 2 && M::cols == M::rows )
+constexpr auto determinant( const M& m )
 {
         // TODO: tests!
         constexpr std::size_t N   = M::rows;
@@ -372,10 +377,8 @@ requires( M::rows > 2 && M::cols == M::rows ) constexpr auto determinant( const 
 }
 
 template < matrix_like M >
-requires(
-    M::rows == 1 &&
-    M::cols ==
-        1 ) constexpr matrix< M::rows, M::cols, typename M::value_type > inverse( const M& m )
+requires( M::rows == 1 && M::cols == 1 )
+constexpr matrix< M::rows, M::cols, typename M::value_type > inverse( const M& m )
 {
         matrix< M::rows, M::cols, typename M::value_type > res;
         res[0][0] = 1.f / m[0][0];
@@ -383,10 +386,8 @@ requires(
 }
 
 template < matrix_like M >
-requires(
-    M::rows == 2 &&
-    M::cols ==
-        2 ) constexpr matrix< M::rows, M::cols, typename M::value_type > inverse( const M& m )
+requires( M::rows == 2 && M::cols == 2 )
+constexpr matrix< M::rows, M::cols, typename M::value_type > inverse( const M& m )
 {
         auto v = 1.f / determinant( m );
 
@@ -402,16 +403,16 @@ struct pretty_printer< T >
         template < typename Writer >
         static void print( Writer&& w, const T& m )
         {
-                w('[');
+                w( '[' );
                 for ( const std::size_t i : range( T::rows ) ) {
-                        w('[');
+                        w( '[' );
                         for ( const std::size_t j : range( T::cols ) ) {
                                 w( m[i][j] );
                                 w( ',' );
                         }
                         w( ']' );
                 }
-                w(']');
+                w( ']' );
         }
 };
 

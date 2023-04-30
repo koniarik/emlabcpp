@@ -51,15 +51,14 @@ struct value_type_converter< int64_t > : value_type_converter_getter< int64_t >
 };
 
 template < typename T >
-requires( alternative_of< T, value_type > ) struct value_type_converter< T >
-  : value_type_converter_getter< T >
+requires( alternative_of< T, value_type > )
+struct value_type_converter< T > : value_type_converter_getter< T >
 {
 };
 
 template < typename T >
-requires(
-    !std::same_as< T, int64_t > && std::is_integral_v< T > &&
-    !std::same_as< T, bool > ) struct value_type_converter< T >
+requires( !std::same_as< T, int64_t > && std::is_integral_v< T > && !std::same_as< T, bool > )
+struct value_type_converter< T >
 {
         static std::optional< T > from_value( const value_type& var )
         {

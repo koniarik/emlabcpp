@@ -59,8 +59,9 @@ public:
 
         template < typename U, U OtherMin, U OtherMax >
         requires(
-            std::is_integral_v< U >&& std::is_integral_v< T >&& min_val <= OtherMin &&
-            OtherMax <= max_val ) constexpr bounded( bounded< U, OtherMin, OtherMax > other )
+            std::is_integral_v< U > && std::is_integral_v< T > && min_val <= OtherMin &&
+            OtherMax <= max_val )
+        constexpr bounded( bounded< U, OtherMin, OtherMax > other )
           : val_( static_cast< T >( *other ) )
         {
         }
@@ -172,10 +173,7 @@ namespace detail
 
 /// Concept that matchestype deriving from bounded
 template < typename T >
-concept bounded_derived = requires( T val )
-{
-        detail::bounded_derived_test( val );
-};
+concept bounded_derived = requires( T val ) { detail::bounded_derived_test( val ); };
 
 template < typename T, T MinVal, T MaxVal >
 struct pretty_printer< bounded< T, MinVal, MaxVal > >

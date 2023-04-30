@@ -34,6 +34,7 @@ TEST( SimplexTest, volume2d )
 
         ASSERT_NEAR( volume_of( sim ), 0.5f, 0.001f );
 }
+
 TEST( SimplexTest, volume3d )
 {
         std::array< point< 3 >, 4 > data{

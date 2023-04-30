@@ -124,6 +124,7 @@ void controller::on_msg( const std::span< const std::byte > data )
                         EMLABCPP_ERROR_LOG( "Failed to extract incoming msg: ", rec );
                 } );
 }
+
 void controller::on_msg( const reactor_controller_variant& var )
 {
         using opt_state     = std::optional< states >;

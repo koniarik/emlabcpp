@@ -75,6 +75,7 @@ public:
                         } );
         }
 };
+
 std::vector< testing::reactor_controller_variant > reactor_interface::msgs{};
 
 template < typename T >

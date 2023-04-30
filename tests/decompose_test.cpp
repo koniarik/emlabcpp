@@ -27,11 +27,13 @@ struct one_item
 {
         int i;
 };
+
 struct two_item
 {
         int         i;
         std::string s;
 };
+
 struct three_item
 {
         int         i;

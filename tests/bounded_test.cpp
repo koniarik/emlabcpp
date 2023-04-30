@@ -97,6 +97,7 @@ static_assert( bounded_derived< test_bounded > );
 struct bounded_derived_test : test_bounded
 {
 };
+
 static_assert( bounded_derived< bounded_derived_test > );
 
 // NOLINTNEXTLINE
