@@ -125,37 +125,43 @@ $(document).ready(function(){initNavTree('string__buffer_8h_source.html',''); in
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1string__buffer.html#a0ac3cf0deb5ceeaee22d586246f0ae7f">   37</a></span>&#160;        <span class="keyword">operator</span> std::string_view()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keywordflow">return</span> std::string_view( this-&gt;data(), strlen( this-&gt;data() ) );</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keywordflow">return</span> std::string_view( this-&gt;data() );</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">   44</a></span>&#160;std::ostream&amp; <a class="code" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">operator&lt;&lt;</a>( std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer&lt; N &gt;</a>&amp; sb )</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; std::string_view( sb );</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4.html">   50</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; <a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; N &gt; &gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4.html#a1fd50a57e0ce424af6c907ffeb2305b5">   53</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4.html#a1fd50a57e0ce424af6c907ffeb2305b5">print</a>( W&amp;&amp; w, <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer&lt; N &gt;</a>&amp; buff )</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                w( std::string_view( buff ) );</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1string__buffer.html#aaba924cefd60952221e2dc805d010bbb">   42</a></span>&#160;        [[nodiscard]] constexpr std::size_t <a class="code" href="structemlabcpp_1_1string__buffer.html#aaba924cefd60952221e2dc805d010bbb">size</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">return</span> strlen(this-&gt;data());</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">   49</a></span>&#160;std::ostream&amp; <a class="code" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">operator&lt;&lt;</a>( std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer&lt; N &gt;</a>&amp; sb )</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; std::string_view( sb );</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4.html">   55</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer</a>&lt; <a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; N &gt; &gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> W &gt;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4.html#a1fd50a57e0ce424af6c907ffeb2305b5">   58</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4.html#a1fd50a57e0ce424af6c907ffeb2305b5">print</a>( W&amp;&amp; w, <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer&lt; N &gt;</a>&amp; buff )</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                w( std::string_view( buff ) );</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> access_view.h:25</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a5098342c4801b4a7d9ec75b1143f7801"><div class="ttname"><a href="namespaceemlabcpp.html#a5098342c4801b4a7d9ec75b1143f7801">emlabcpp::min</a></div><div class="ttdeci">constexpr const Derived &amp; min(const vec_point_base&lt; Derived, N &gt; &amp;a, const vec_point_base&lt; Derived, N &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> vec_point_base.h:248</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_add7921925c77c6350a91d55d9471bdc1"><div class="ttname"><a href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const string_buffer&lt; N &gt; &amp;sb)</div><div class="ttdef"><b>Definition:</b> string_buffer.h:44</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_add7921925c77c6350a91d55d9471bdc1"><div class="ttname"><a href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const string_buffer&lt; N &gt; &amp;sb)</div><div class="ttdef"><b>Definition:</b> string_buffer.h:49</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1pretty__printer"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">emlabcpp::pretty_printer</a></div><div class="ttdef"><b>Definition:</b> pretty_printer.h:50</div></div>
 <div class="ttc" id="apretty__printer_8h_html"><div class="ttname"><a href="pretty__printer_8h.html">pretty_printer.h</a></div></div>
-<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4_html_a1fd50a57e0ce424af6c907ffeb2305b5"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4.html#a1fd50a57e0ce424af6c907ffeb2305b5">emlabcpp::pretty_printer&lt; string_buffer&lt; N &gt; &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, const string_buffer&lt; N &gt; &amp;buff)</div><div class="ttdef"><b>Definition:</b> string_buffer.h:53</div></div>
+<div class="ttc" id="astructemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4_html_a1fd50a57e0ce424af6c907ffeb2305b5"><div class="ttname"><a href="structemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4.html#a1fd50a57e0ce424af6c907ffeb2305b5">emlabcpp::pretty_printer&lt; string_buffer&lt; N &gt; &gt;::print</a></div><div class="ttdeci">static void print(W &amp;&amp;w, const string_buffer&lt; N &gt; &amp;buff)</div><div class="ttdef"><b>Definition:</b> string_buffer.h:58</div></div>
 <div class="ttc" id="astructemlabcpp_1_1string__buffer_html"><div class="ttname"><a href="structemlabcpp_1_1string__buffer.html">emlabcpp::string_buffer</a></div><div class="ttdef"><b>Definition:</b> string_buffer.h:14</div></div>
 <div class="ttc" id="astructemlabcpp_1_1string__buffer_html_a05678105fc78a50c00fb6d342c66aa1f"><div class="ttname"><a href="structemlabcpp_1_1string__buffer.html#a05678105fc78a50c00fb6d342c66aa1f">emlabcpp::string_buffer::string_buffer</a></div><div class="ttdeci">constexpr string_buffer(const char(&amp;msg)[M])</div><div class="ttdef"><b>Definition:</b> string_buffer.h:30</div></div>
 <div class="ttc" id="astructemlabcpp_1_1string__buffer_html_a06a29350e1009e407fd3461492cf8a14"><div class="ttname"><a href="structemlabcpp_1_1string__buffer.html#a06a29350e1009e407fd3461492cf8a14">emlabcpp::string_buffer::string_buffer</a></div><div class="ttdeci">constexpr string_buffer(std::string_view sv)</div><div class="ttdef"><b>Definition:</b> string_buffer.h:23</div></div>
 <div class="ttc" id="astructemlabcpp_1_1string__buffer_html_a517e3fda66d5d5e319cfc6bc89e84600"><div class="ttname"><a href="structemlabcpp_1_1string__buffer.html#a517e3fda66d5d5e319cfc6bc89e84600">emlabcpp::string_buffer::base_type</a></div><div class="ttdeci">std::array&lt; char, N &gt; base_type</div><div class="ttdef"><b>Definition:</b> string_buffer.h:15</div></div>
+<div class="ttc" id="astructemlabcpp_1_1string__buffer_html_aaba924cefd60952221e2dc805d010bbb"><div class="ttname"><a href="structemlabcpp_1_1string__buffer.html#aaba924cefd60952221e2dc805d010bbb">emlabcpp::string_buffer::size</a></div><div class="ttdeci">constexpr std::size_t size() const</div><div class="ttdef"><b>Definition:</b> string_buffer.h:42</div></div>
 <div class="ttc" id="astructemlabcpp_1_1string__buffer_html_ab8e62fc48d59f60062a17163a6d21c1e"><div class="ttname"><a href="structemlabcpp_1_1string__buffer.html#ab8e62fc48d59f60062a17163a6d21c1e">emlabcpp::string_buffer::string_buffer</a></div><div class="ttdeci">constexpr string_buffer()</div><div class="ttdef"><b>Definition:</b> string_buffer.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -163,7 +169,7 @@ $(document).ready(function(){initNavTree('string__buffer_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="string__buffer_8h.html">string_buffer.h</a></li>
-    <li class="footer">Generated on Sun Apr 30 2023 08:18:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 08:31:42 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -891,7 +891,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;        <span class="keyword">static</span> constexpr <a class="code" href="classemlabcpp_1_1bounded.html">size_type</a></div>
 <div class="line"><a name="l00834"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1protocol_1_1converter_3_01string__buffer_3_01N_01_4_00_01Endianess_01_4.html#a953b7479d4386199e6d724e384405187">  834</a></span>&#160;        <a class="code" href="structemlabcpp_1_1protocol_1_1converter_3_01string__buffer_3_01N_01_4_00_01Endianess_01_4.html#a953b7479d4386199e6d724e384405187">serialize_at</a>( <span class="keyword">const</span> std::span&lt; std::byte, max_size &gt; buffer, <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1protocol_1_1converter_3_01string__buffer_3_01N_01_4_00_01Endianess_01_4.html#af1da0d43def0b16a9065314f826dc096">value_type</a>&amp; item )</div>
 <div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;        {</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;                <span class="keyword">const</span> std::size_t size = strlen( item.data() );</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;                <span class="keyword">const</span> std::size_t size = item.size();</div>
 <div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160; </div>
 <div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;                <a class="code" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">counter_converter::serialize_at</a>(</div>
 <div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;                    buffer.template first&lt; counter_size &gt;(), <span class="keyword">static_cast&lt;</span> <a class="code" href="structemlabcpp_1_1protocol_1_1converter_3_01string__buffer_3_01N_01_4_00_01Endianess_01_4.html#a473d2a432a6bf2a39868085395d7a982">counter_type</a> <span class="keyword">&gt;</span>( size ) );</div>
@@ -1256,7 +1256,7 @@ $(document).ready(function(){initNavTree('converter_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="converter_8h.html">converter.h</a></li>
-    <li class="footer">Generated on Sun Apr 30 2023 08:18:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 08:31:42 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,6 @@
 var NAVTREEINDEX11 =
 {
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1bitset_3_01N_01_4_01_4.html#af29756831b60ccd7baa35d8191d9ebf1":[3,0,0,6,57,1],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1monostate_01_4.html":[3,0,0,6,56],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1monostate_01_4.html#a5b6f0e7b65d241fdcf6dd940036a49f9":[3,0,0,6,56,1],
 "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1monostate_01_4.html#a7f91517c4ba46c0e5556a55ebc9766b7":[3,0,0,6,56,2],
@@ -134,6 +135,7 @@ var NAVTREEINDEX11 =
 "structemlabcpp_1_1string__buffer.html#a06a29350e1009e407fd3461492cf8a14":[3,0,0,75,2],
 "structemlabcpp_1_1string__buffer.html#a0ac3cf0deb5ceeaee22d586246f0ae7f":[3,0,0,75,4],
 "structemlabcpp_1_1string__buffer.html#a517e3fda66d5d5e319cfc6bc89e84600":[3,0,0,75,0],
+"structemlabcpp_1_1string__buffer.html#aaba924cefd60952221e2dc805d010bbb":[3,0,0,75,5],
 "structemlabcpp_1_1string__buffer.html#ab8e62fc48d59f60062a17163a6d21c1e":[3,0,0,75,1],
 "structemlabcpp_1_1tag.html":[3,0,0,113],
 "structemlabcpp_1_1tag.html#a3c9caf900810ddd8b770de401efc5e09":[3,0,0,113,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX11 =
 "structemlabcpp_1_1testing_1_1param__value__request.html":[3,0,0,8,24],
 "structemlabcpp_1_1testing_1_1param__value__request.html#a1fb2d1b517e2129e75b76b694026a4fa":[3,0,0,8,24,1],
 "structemlabcpp_1_1testing_1_1param__value__request.html#ac287909ccc3ef811d8350cb26ad79fd3":[3,0,0,8,24,0],
-"structemlabcpp_1_1testing_1_1params__awaiter.html":[3,0,0,8,37],
-"structemlabcpp_1_1testing_1_1params__awaiter.html#a6e5107752a7578cd8c127e6a865fd3a5":[3,0,0,8,37,1],
-"structemlabcpp_1_1testing_1_1params__awaiter.html#a72efca07977788206d0449a9d7393d9e":[3,0,0,8,37,4]
+"structemlabcpp_1_1testing_1_1params__awaiter.html":[3,0,0,8,37]
 };
