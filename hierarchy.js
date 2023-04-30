@@ -136,8 +136,10 @@ var hierarchy =
     [ "emlabcpp::testing::get_test_name_reply", "structemlabcpp_1_1testing_1_1get__test__name__reply.html", null ],
     [ "emlabcpp::testing::get_test_name_request", "structemlabcpp_1_1testing_1_1get__test__name__request.html", null ],
     [ "emlabcpp::protocol::group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group", null ],
+    [ "emlabcpp::cfg::handler< HeaderPayload, Field >", "structemlabcpp_1_1cfg_1_1handler.html", null ],
     [ "emlabcpp::protocol::handler< T >", "structemlabcpp_1_1protocol_1_1handler.html", null ],
     [ "std::hash< T >", "structstd_1_1hash_3_01T_01_4.html", null ],
+    [ "emlabcpp::cfg::header< Payload >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header", null ],
     [ "emlabcpp::identity_matrix< N, T >", "classemlabcpp_1_1identity__matrix.html", null ],
     [ "emlabcpp::index_of< T, Variant >", "namespaceemlabcpp.html#structemlabcpp_1_1index__of", null ],
     [ "emlabcpp::testing::input_message_protocol_error", "structemlabcpp_1_1testing_1_1input__message__protocol__error.html", null ],
@@ -300,6 +302,7 @@ var hierarchy =
     [ "emlabcpp::protocol::serializer< T, Endianess >", "structemlabcpp_1_1protocol_1_1serializer.html", null ],
     [ "emlabcpp::protocol::serializer< bool, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol::serializer< float, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html", null ],
+    [ "emlabcpp::cfg::signature", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1signature", null ],
     [ "emlabcpp::signature_of< Signature >", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of", null ],
     [ "emlabcpp::signature_of< ReturnType(Args...) >", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of_3_01ReturnType_07Args_8_8_8_08_01_4", null ],
     [ "emlabcpp::signature_of< ReturnType(Class::*)(Args...) >", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4.html", [

@@ -102,16 +102,17 @@ $(document).ready(function(){initNavTree('enum_8h_source.html',''); initResizabl
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Enum &gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a39bdb9e4992c495c755d900b23435840">   35</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( std::is_enum_v&lt; Enum &gt; ) <span class="keyword">auto</span> convert_enum( Enum val )</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_MAGIC_ENUM</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> magic_enum::enum_name( val );</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> std::to_string( <span class="keyword">static_cast&lt;</span> std::underlying_type_t&lt; Enum &gt; <span class="keyword">&gt;</span>( val ) );</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a39bdb9e4992c495c755d900b23435840">   35</a></span>&#160;<a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( std::is_enum_v&lt; Enum &gt; )</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">auto</span> convert_enum( Enum val )</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_MAGIC_ENUM</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> magic_enum::enum_name( val );</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> std::to_string( <span class="keyword">static_cast&lt;</span> std::underlying_type_t&lt; Enum &gt; <span class="keyword">&gt;</span>( val ) );</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> access_view.h:25</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aab6fd32a8b3335eec93b94331d4293b0"><div class="ttname"><a href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">emlabcpp::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) const expr std</div><div class="ttdoc">Returns index of an element in tuple 't', for which call to predicate f(x) holds true,...</div><div class="ttdef"><b>Definition:</b> algorithm.h:120</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -120,7 +121,7 @@ $(document).ready(function(){initNavTree('enum_8h_source.html',''); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="enum_8h.html">enum.h</a></li>
-    <li class="footer">Generated on Thu Apr 27 2023 06:49:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 08:18:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

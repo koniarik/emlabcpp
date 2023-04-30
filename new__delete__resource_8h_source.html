@@ -98,12 +98,12 @@ $(document).ready(function(){initNavTree('new__delete__resource_8h_source.html',
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html#ae0c4b429b3c0ba02b77530b5d0fd5702">   28</a></span>&#160;        <span class="keywordtype">void</span>* <a class="code" href="structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html#ae0c4b429b3c0ba02b77530b5d0fd5702">allocate</a>( std::size_t <a class="code" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">bytes</a>, std::size_t alignment )<span class="keyword"> override</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                return ::operator <span class="keyword">new</span> ( <a class="code" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">bytes</a>, std::align_val_t{ alignment } );</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                return ::operator <span class="keyword">new</span>( <a class="code" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">bytes</a>, std::align_val_t{ alignment } );</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        };</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html#a6fa8d7fa8ebb37939a29a81c68957531">   33</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html#a6fa8d7fa8ebb37939a29a81c68957531">deallocate</a>( <span class="keywordtype">void</span>* p, std::size_t, std::size_t alignment )<span class="keyword"> override</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                ::operator <span class="keyword">delete</span> ( p, std::align_val_t{ alignment } );</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                ::operator <span class="keyword">delete</span>( p, std::align_val_t{ alignment } );</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        };</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
@@ -140,7 +140,7 @@ $(document).ready(function(){initNavTree('new__delete__resource_8h_source.html',
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_231aac52433e25ed4b5ea5619bdfd3e1.html">pmr</a></li><li class="navelem"><a class="el" href="new__delete__resource_8h.html">new_delete_resource.h</a></li>
-    <li class="footer">Generated on Thu Apr 27 2023 06:49:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 08:18:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -397,7 +397,7 @@ Variables</h2></td></tr>
 <tr class="memdesc:a0eb2445c490b6ad98bd006097c7b4296"><td class="mdescLeft">&#160;</td><td class="mdescRight">wrong checksum in the protocol  <a href="namespaceemlabcpp_1_1protocol.html#a0eb2445c490b6ad98bd006097c7b4296">More...</a><br /></td></tr>
 <tr class="separator:a0eb2445c490b6ad98bd006097c7b4296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72532ac9192b8549e819b0cfb65c3faa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a72532ac9192b8549e819b0cfb65c3faa"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a72532ac9192b8549e819b0cfb65c3faa">message_derived</a></td></tr>
+<tr class="memitem:a72532ac9192b8549e819b0cfb65c3faa"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a72532ac9192b8549e819b0cfb65c3faa">message_derived</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a380711490896b7090b370d91691adb69">requires</a>( T val ) { <a class="el" href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">detail::message_derived_test</a>( val ); }</td></tr>
 <tr class="memdesc:a72532ac9192b8549e819b0cfb65c3faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">concept matches any type that is message or derives from it.  <a href="namespaceemlabcpp_1_1protocol.html#a72532ac9192b8549e819b0cfb65c3faa">More...</a><br /></td></tr>
 <tr class="separator:a72532ac9192b8549e819b0cfb65c3faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fe4054075187b3f230763da6fdd12d1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -415,7 +415,7 @@ Variables</h2></td></tr>
 <tr class="memdesc:aabf37dc4e5c925a68b635522ef9567a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This concepts limits types to types that can be declared, that is the overload of 'traits_for' is fully defined: traits_for::value_type contains definition of value produced by the declaration, traits_for::max_size contains estimated maximal size in bytes taken by the serialized value in the message.  <a href="namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5">More...</a><br /></td></tr>
 <tr class="separator:aabf37dc4e5c925a68b635522ef9567a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac625ba8fcce291f5064a3ec8b5177cd5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac625ba8fcce291f5064a3ec8b5177cd5"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ac625ba8fcce291f5064a3ec8b5177cd5">fixedly_sized</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a>&lt; T &gt;::min_size == <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a>&lt; T &gt;::<a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a></td></tr>
+<tr class="memitem:ac625ba8fcce291f5064a3ec8b5177cd5"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ac625ba8fcce291f5064a3ec8b5177cd5">fixedly_sized</a></td></tr>
 <tr class="separator:ac625ba8fcce291f5064a3ec8b5177cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -1423,28 +1423,24 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>()</div>
-<div class="line">{</div>
-<div class="line">        {</div>
-<div class="line">                <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">T::max_size</a></div>
-<div class="line">                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
-<div class="line">        <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a>;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> bounded_derived&lt; typename T::size_type &gt;;</div>
-<div class="line">}</div>
-<div class="line">&amp;&amp;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( std::span&lt; std::byte, T::max_size &gt; buff, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> item )</div>
-<div class="line">{</div>
-<div class="line">        {</div>
-<div class="line">                <a class="code" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">T::serialize_at</a>( buff, item )</div>
-<div class="line">                } -&gt; std::same_as&lt; typename T::size_type &gt;;</div>
-<div class="line">}</div>
-<div class="line">&amp;&amp;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( std::span&lt; const std::byte &gt; buff, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> item )</div>
-<div class="line">{</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">T::deserialize</a>( buff, item );</div>
-<div class="line">}</div>
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>() {</div>
+<div class="line">            {</div>
+<div class="line">                    <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">T::max_size</a></div>
+<div class="line">                    } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
+<div class="line">            <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a>;</div>
+<div class="line">            <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> bounded_derived&lt; typename T::size_type &gt;;</div>
+<div class="line">    } &amp;&amp; <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( std::span&lt; std::byte, T::max_size &gt; buff, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> item ) {</div>
+<div class="line">                 {</div>
+<div class="line">                         <a class="code" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">T::serialize_at</a>( buff, item )</div>
+<div class="line">                         } -&gt; std::same_as&lt; typename T::size_type &gt;;</div>
+<div class="line">         } &amp;&amp; <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( std::span&lt; const std::byte &gt; buff, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> item ) {</div>
+<div class="line">                      <a class="code" href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">T::deserialize</a>( buff, item );</div>
+<div class="line">              }</div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:78</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a5a3eae750f39fcca3a1bf989dc31beac"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">emlabcpp::protocol::serialize_at</a></div><div class="ttdeci">static constexpr void serialize_at(std::span&lt; std::byte, max_size &gt; buffer, T item)</div><div class="ttdef"><b>Definition:</b> serializer.h:69</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a9dfeb95ba0e6684fbc02d537318ac8da"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> serializer.h:66</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_ab6cb8eed0d3dbf831466baeae0b0501d"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">emlabcpp::protocol::deserialize</a></div><div class="ttdeci">static constexpr T deserialize(const std::span&lt; const std::byte, max_size &gt; &amp;buffer)</div><div class="ttdef"><b>Definition:</b> serializer.h:73</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a5a3eae750f39fcca3a1bf989dc31beac"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">emlabcpp::protocol::serialize_at</a></div><div class="ttdeci">static constexpr void serialize_at(std::span&lt; std::byte, max_size &gt; buffer, T item)</div><div class="ttdef"><b>Definition:</b> serializer.h:72</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a9dfeb95ba0e6684fbc02d537318ac8da"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> serializer.h:69</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_ab6cb8eed0d3dbf831466baeae0b0501d"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">emlabcpp::protocol::deserialize</a></div><div class="ttdeci">static constexpr T deserialize(const std::span&lt; const std::byte, max_size &gt; &amp;buffer)</div><div class="ttdef"><b>Definition:</b> serializer.h:77</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:47</div></div>
 </div><!-- fragment -->
 <p>converter_check&lt;T&gt; concept verifies that 'T' is valid overload of converter. </p>
@@ -1465,16 +1461,16 @@ template&lt;typename D &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( D val )</div>
-<div class="line">{</div>
-<div class="line">        {</div>
-<div class="line">                <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">traits_for&lt; D &gt;::max_size</a></div>
-<div class="line">                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
-<div class="line">        {</div>
-<div class="line">                traits_for&lt; D &gt;::min_size</div>
-<div class="line">                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">std::default_initializable&lt; typename traits_for&lt; D &gt;::value_type</a> &gt;;</div>
-<div class="line">}</div>
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( D val ) {</div>
+<div class="line">            {</div>
+<div class="line">                    <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">traits_for&lt; D &gt;::max_size</a></div>
+<div class="line">                    } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
+<div class="line">            {</div>
+<div class="line">                    traits_for&lt; D &gt;::min_size</div>
+<div class="line">                    } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
+<div class="line">            <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">std::default_initializable&lt; typename traits_for&lt; D &gt;::value_type</a> &gt;;</div>
+<div class="line">    }</div>
 </div><!-- fragment -->
 <p>This concepts limits types to types that can be declared, that is the overload of 'traits_for' is fully defined: traits_for::value_type contains definition of value produced by the declaration, traits_for::max_size contains estimated maximal size in bytes taken by the serialized value in the message. </p>
 <p>traits_for::min_size should contain minimal size used. </p>
@@ -1506,11 +1502,13 @@ template&lt;typename D &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept emlabcpp::protocol::fixedly_sized = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a>&lt; T &gt;::min_size == <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a>&lt; T &gt;::<a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a></td>
+          <td class="memname">concept emlabcpp::protocol::fixedly_sized</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Initial value:</b><div class="fragment"><div class="line">= traits_for&lt; T &gt;::min_size ==</div>
+<div class="line"><a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">traits_for&lt; T &gt;::max_size</a></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a0d666fa48e88a04569954408cc678126"></a>
@@ -1614,16 +1612,11 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept emlabcpp::protocol::message_derived</td>
+          <td class="memname">concept emlabcpp::protocol::message_derived = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a380711490896b7090b370d91691adb69">requires</a>( T val ) { <a class="el" href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">detail::message_derived_test</a>( val ); }</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T val )</div>
-<div class="line">{</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">detail::message_derived_test</a>( val );</div>
-<div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_1_1detail_html_aba82f9bdb1604d0b12a5f9ce21d48376"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376">emlabcpp::protocol::detail::message_derived_test</a></div><div class="ttdeci">constexpr bool message_derived_test(const message&lt; N &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> message.h:185</div></div>
-</div><!-- fragment -->
+
 <p>concept matches any type that is message or derives from it. </p>
 
 </div>
@@ -1663,15 +1656,14 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T t )</div>
-<div class="line">{</div>
-<div class="line">        {</div>
-<div class="line">                T::endianess</div>
-<div class="line">                } -&gt; std::convertible_to&lt; std::endian &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp.html#a1d463be90e36b5d5be447e407fca17bf">is_std_array_v</a>&lt; std::decay_t&lt; decltype( T::prefix ) &gt; &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> convertible&lt; typename T::size_type &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> convertible&lt; typename T::checksum_type &gt;;</div>
-<div class="line">}</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T t ) {</div>
+<div class="line">                             {</div>
+<div class="line">                                     T::endianess</div>
+<div class="line">                                     } -&gt; std::convertible_to&lt; std::endian &gt;;</div>
+<div class="line">                             <a class="code" href="namespaceemlabcpp.html#a1d463be90e36b5d5be447e407fca17bf">is_std_array_v</a>&lt; std::decay_t&lt; decltype( T::prefix ) &gt; &gt;;</div>
+<div class="line">                             <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> convertible&lt; typename T::size_type &gt;;</div>
+<div class="line">                             <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> convertible&lt; typename T::checksum_type &gt;;</div>
+<div class="line">                     }</div>
 <div class="ttc" id="anamespaceemlabcpp_html_a1d463be90e36b5d5be447e407fca17bf"><div class="ttname"><a href="namespaceemlabcpp.html#a1d463be90e36b5d5be447e407fca17bf">emlabcpp::is_std_array_v</a></div><div class="ttdeci">constexpr bool is_std_array_v</div><div class="ttdef"><b>Definition:</b> base.h:143</div></div>
 </div><!-- fragment -->
 </div>
@@ -1746,7 +1738,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Thu Apr 27 2023 06:49:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 08:18:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1protocol_1_1handler.
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="structemlabcpp_1_1protocol_1_1handler-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">emlabcpp::protocol::handler&lt; T &gt; Struct Template Reference</div>  </div>
@@ -95,7 +96,7 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1protocol_1_1handler.
 <p>handler&lt; T &gt; should be used to execute actual serialization and deserealization of protocol definition.  
  <a href="structemlabcpp_1_1protocol_1_1handler.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="handler_8h_source.html">handler.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="protocol_2handler_8h_source.html">handler.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -103,15 +104,20 @@ Public Types</h2></td></tr>
 <tr class="separator:a70c4f05b47d09918e6bc13ce95aecb31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf8e1e4018585b862e3e46a5f69684fd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aaf8e1e4018585b862e3e46a5f69684fd">value_type</a> = typename def::value_type</td></tr>
 <tr class="separator:aaf8e1e4018585b862e3e46a5f69684fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a628acb0d52c7124cd132c5a7cd99f1e1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a628acb0d52c7124cd132c5a7cd99f1e1">message_type</a> = <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; def::max_size &gt;</td></tr>
-<tr class="separator:a628acb0d52c7124cd132c5a7cd99f1e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecd36f5a80dcd26215c4088d88490771"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aecd36f5a80dcd26215c4088d88490771">message_type</a> = <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a82eeb953e3a49696cbffb635d154ed32">max_size</a> &gt;</td></tr>
+<tr class="separator:aecd36f5a80dcd26215c4088d88490771"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ab94ed6e95e60af5a0353af4340e989dc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a628acb0d52c7124cd132c5a7cd99f1e1">message_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#ab94ed6e95e60af5a0353af4340e989dc">serialize</a> (const <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aaf8e1e4018585b862e3e46a5f69684fd">value_type</a> &amp;val)</td></tr>
+<tr class="memitem:ab94ed6e95e60af5a0353af4340e989dc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aecd36f5a80dcd26215c4088d88490771">message_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#ab94ed6e95e60af5a0353af4340e989dc">serialize</a> (const <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aaf8e1e4018585b862e3e46a5f69684fd">value_type</a> &amp;val)</td></tr>
 <tr class="separator:ab94ed6e95e60af5a0353af4340e989dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9145281f20ad6017cec3a6c5576c8191"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classemlabcpp_1_1either.html">either</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aaf8e1e4018585b862e3e46a5f69684fd">value_type</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record">error_record</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a9145281f20ad6017cec3a6c5576c8191">extract</a> (const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const std::byte * &gt; &amp;msg)</td></tr>
 <tr class="separator:a9145281f20ad6017cec3a6c5576c8191"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a82eeb953e3a49696cbffb635d154ed32"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a82eeb953e3a49696cbffb635d154ed32">max_size</a> = def::max_size</td></tr>
+<tr class="separator:a82eeb953e3a49696cbffb635d154ed32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;convertible T&gt;<br />
@@ -136,8 +142,8 @@ template&lt;convertible T&gt; </div>
 
 </div>
 </div>
-<a id="a628acb0d52c7124cd132c5a7cd99f1e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a628acb0d52c7124cd132c5a7cd99f1e1">&#9670;&nbsp;</a></span>message_type</h2>
+<a id="aecd36f5a80dcd26215c4088d88490771"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecd36f5a80dcd26215c4088d88490771">&#9670;&nbsp;</a></span>message_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,7 +151,7 @@ template&lt;convertible T&gt; </div>
 template&lt;convertible T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">emlabcpp::protocol::handler</a>&lt; T &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a628acb0d52c7124cd132c5a7cd99f1e1">message_type</a> =  <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; def::max_size &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">emlabcpp::protocol::handler</a>&lt; T &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aecd36f5a80dcd26215c4088d88490771">message_type</a> =  <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a82eeb953e3a49696cbffb635d154ed32">max_size</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -211,7 +217,7 @@ template&lt;convertible T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a628acb0d52c7124cd132c5a7cd99f1e1">message_type</a> <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">emlabcpp::protocol::handler</a>&lt; T &gt;::serialize </td>
+          <td class="memname">static <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aecd36f5a80dcd26215c4088d88490771">message_type</a> <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">emlabcpp::protocol::handler</a>&lt; T &gt;::serialize </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#aaf8e1e4018585b862e3e46a5f69684fd">value_type</a> &amp;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
@@ -225,12 +231,37 @@ template&lt;convertible T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>, and <a class="el" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">emlabcpp::protocol::serialize_at()</a>.</p>
+<p class="reference">References <a class="el" href="assert_8h.html#a1be190c4e600e598cc284808298bde75">EMLABCPP_ASSERT</a>, <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a82eeb953e3a49696cbffb635d154ed32">emlabcpp::protocol::handler&lt; T &gt;::max_size</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>, and <a class="el" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">emlabcpp::protocol::serialize_at()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a82eeb953e3a49696cbffb635d154ed32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82eeb953e3a49696cbffb635d154ed32">&#9670;&nbsp;</a></span>max_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;convertible T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::size_t <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">emlabcpp::protocol::handler</a>&lt; T &gt;::max_size = def::max_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/emlabcpp/protocol/<a class="el" href="handler_8h_source.html">handler.h</a></li>
+<li>include/emlabcpp/protocol/<a class="el" href="protocol_2handler_8h_source.html">handler.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -238,7 +269,7 @@ template&lt;convertible T&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">handler</a></li>
-    <li class="footer">Generated on Thu Apr 27 2023 06:49:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 08:18:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

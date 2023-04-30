@@ -99,7 +99,7 @@
 <!-- Node51 -->
 <g id="node17" class="node">
 <title>Node51</title>
-<g id="a_node17"><a xlink:href="handler_8h.html" target="_top" xlink:title=" ">
+<g id="a_node17"><a xlink:href="protocol_2handler_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="red" points="213.5,-330 213.5,-349 368.5,-349 368.5,-330 213.5,-330"/>
 <text text-anchor="middle" x="291" y="-337" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp/protocol/handler.h</text>
 </a>

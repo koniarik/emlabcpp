@@ -1,5 +1,6 @@
 var namespaceemlabcpp =
 [
+    [ "cfg", "namespaceemlabcpp_1_1cfg.html", "namespaceemlabcpp_1_1cfg" ],
     [ "coro", "namespaceemlabcpp_1_1coro.html", "namespaceemlabcpp_1_1coro" ],
     [ "detail", "namespaceemlabcpp_1_1detail.html", "namespaceemlabcpp_1_1detail" ],
     [ "impl", "namespaceemlabcpp_1_1impl.html", "namespaceemlabcpp_1_1impl" ],

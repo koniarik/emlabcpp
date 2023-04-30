@@ -141,7 +141,7 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a2f551e44c5e38047b5051df9803ab03a"><td class="memTemplParams" colspan="2">template&lt;typename Stream , typename T &gt; </td></tr>
-<tr class="memitem:a2f551e44c5e38047b5051df9803ab03a"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a">directly_streamable_for</a></td></tr>
+<tr class="memitem:a2f551e44c5e38047b5051df9803ab03a"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#a2f551e44c5e38047b5051df9803ab03a">directly_streamable_for</a> = <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( Stream os, T val ) { os.operator&lt;&lt;( val ); }</td></tr>
 <tr class="separator:a2f551e44c5e38047b5051df9803ab03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e4034afb24c305fe50b620f99e7491b"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#a5e4034afb24c305fe50b620f99e7491b">max_decompose_count</a> = 16</td></tr>
 <tr class="separator:a5e4034afb24c305fe50b620f99e7491b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -404,16 +404,11 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 template&lt;typename Stream , typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept emlabcpp::detail::directly_streamable_for</td>
+          <td class="memname">concept emlabcpp::detail::directly_streamable_for = <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( Stream os, T val ) { os.operator&lt;&lt;( val ); }</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( Stream os, T val )</div>
-<div class="line">        {</div>
-<div class="line">                os.operator&lt;&lt;( val );</div>
-<div class="line">        }</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:78</div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a5e4034afb24c305fe50b620f99e7491b"></a>
@@ -444,7 +439,7 @@ template&lt;typename Stream , typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1detail.html">detail</a></li>
-    <li class="footer">Generated on Thu Apr 27 2023 06:49:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 08:18:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

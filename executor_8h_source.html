@@ -121,92 +121,93 @@ $(document).ready(function(){initNavTree('executor_8h_source.html',''); initResi
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">return</span> errored_;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1executor.html#a1bb310b8390f2f1f56d5fa9e9127b5d0">   53</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1testing_1_1executor.html#a1bb310b8390f2f1f56d5fa9e9127b5d0">failed</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">return</span> failed_;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1executor.html#a2be1ca24ed28543299a5453db58ce902">   58</a></span>&#160;        [[nodiscard]] <a class="code" href="namespaceemlabcpp_1_1testing.html#a515587622310ad47ccc8d4f76961c585">run_id</a> <a class="code" href="classemlabcpp_1_1testing_1_1executor.html#a2be1ca24ed28543299a5453db58ce902">get_run_id</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">return</span> rid_;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1executor.html#ab6c217cf2b1ae899fe2997d3cf62f31b">   63</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing_1_1executor.html#ab6c217cf2b1ae899fe2997d3cf62f31b">tick</a>()</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordflow">switch</span> ( phas_ ) {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">case</span> phase::INIT:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        coro_ = test_.<a class="code" href="classemlabcpp_1_1testing_1_1test__interface.html#af30b93bbc4de751b7cc70796a0a710dc">setup</a>( mem_, rec_ );</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        phas_ = phase::SETUP;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">case</span> phase::SETUP:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        <span class="keywordflow">if</span> ( !coro_.<a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a7076c256a770682cdfe47d493a416faf">done</a>() ) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                coro_.<a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a19fbcd43168aea49da83517268fab0eb">tick</a>();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                        <span class="keywordflow">if</span> ( rec_.<a class="code" href="classemlabcpp_1_1testing_1_1record.html#a236441ad710327794f198aed6f6f366b">errored</a>() ) {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                <a class="code" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>( <span class="stringliteral">&quot;setup errored&quot;</span> );</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                failed_ = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                                coro_   = <a class="code" href="namespaceemlabcpp_1_1testing.html#ae00c5ff4f8236a54f34ac13a2d74ca1c">test_coroutine</a>();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                phas_   = phase::FINISHED;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        coro_ = <a class="code" href="namespaceemlabcpp_1_1testing.html#ae00c5ff4f8236a54f34ac13a2d74ca1c">test_coroutine</a>();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        coro_ = test_.<a class="code" href="classemlabcpp_1_1testing_1_1test__interface.html#ac43f94dcd599108d5d8586982f7646ae">run</a>( mem_, rec_ );</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        phas_ = phase::RUN;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">case</span> phase::RUN:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        <span class="keywordflow">if</span> ( !coro_.<a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a7076c256a770682cdfe47d493a416faf">done</a>() ) {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                coro_.<a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a19fbcd43168aea49da83517268fab0eb">tick</a>();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                        }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                        coro_ = <a class="code" href="namespaceemlabcpp_1_1testing.html#ae00c5ff4f8236a54f34ac13a2d74ca1c">test_coroutine</a>();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        coro_ = test_.<a class="code" href="classemlabcpp_1_1testing_1_1test__interface.html#aa8c3a0807b94cdabc31313f9aeefe058">teardown</a>( mem_, rec_ );</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        phas_ = phase::TEARDOWN;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">case</span> phase::TEARDOWN:</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        <span class="keywordflow">if</span> ( !coro_.<a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a7076c256a770682cdfe47d493a416faf">done</a>() ) {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                                coro_.<a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a19fbcd43168aea49da83517268fab0eb">tick</a>();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        <span class="keywordflow">if</span> ( rec_.<a class="code" href="classemlabcpp_1_1testing_1_1record.html#a236441ad710327794f198aed6f6f366b">errored</a>() ) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                <a class="code" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>( <span class="stringliteral">&quot;teardown errored&quot;</span> );</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                errored_ = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        phas_ = phase::FINISHED;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordflow">case</span> phase::FINISHED:</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1executor.html#ac2e3ea552738d3a822986444188f7166">  111</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1testing_1_1executor.html#ac2e3ea552738d3a822986444188f7166">finished</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordflow">return</span> phas_ == phase::FINISHED;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1testing.html#a515587622310ad47ccc8d4f76961c585">run_id</a>                rid_;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordtype">bool</span>                  errored_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordtype">bool</span>                  failed_  = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>&amp; mem_;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <a class="code" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a>&amp;       test_;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="classemlabcpp_1_1testing_1_1record.html">record</a>                rec_;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html">test_coroutine</a>        coro_;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        phase                 phas_{ phase::INIT };</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;};</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}  <span class="comment">// namespace emlabcpp::testing</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1executor.html#a1bb310b8390f2f1f56d5fa9e9127b5d0">   54</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1testing_1_1executor.html#a1bb310b8390f2f1f56d5fa9e9127b5d0">failed</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">return</span> failed_;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1executor.html#a2be1ca24ed28543299a5453db58ce902">   59</a></span>&#160;        [[nodiscard]] <a class="code" href="namespaceemlabcpp_1_1testing.html#a515587622310ad47ccc8d4f76961c585">run_id</a> <a class="code" href="classemlabcpp_1_1testing_1_1executor.html#a2be1ca24ed28543299a5453db58ce902">get_run_id</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">return</span> rid_;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1executor.html#ab6c217cf2b1ae899fe2997d3cf62f31b">   64</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing_1_1executor.html#ab6c217cf2b1ae899fe2997d3cf62f31b">tick</a>()</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">switch</span> ( phas_ ) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">case</span> phase::INIT:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        coro_ = test_.<a class="code" href="classemlabcpp_1_1testing_1_1test__interface.html#af30b93bbc4de751b7cc70796a0a710dc">setup</a>( mem_, rec_ );</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        phas_ = phase::SETUP;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">case</span> phase::SETUP:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        <span class="keywordflow">if</span> ( !coro_.<a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a7076c256a770682cdfe47d493a416faf">done</a>() ) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                coro_.<a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a19fbcd43168aea49da83517268fab0eb">tick</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                        }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        <span class="keywordflow">if</span> ( rec_.<a class="code" href="classemlabcpp_1_1testing_1_1record.html#a236441ad710327794f198aed6f6f366b">errored</a>() ) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                <a class="code" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>( <span class="stringliteral">&quot;setup errored&quot;</span> );</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                                failed_ = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                coro_   = <a class="code" href="namespaceemlabcpp_1_1testing.html#ae00c5ff4f8236a54f34ac13a2d74ca1c">test_coroutine</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                phas_   = phase::FINISHED;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        coro_ = <a class="code" href="namespaceemlabcpp_1_1testing.html#ae00c5ff4f8236a54f34ac13a2d74ca1c">test_coroutine</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        coro_ = test_.<a class="code" href="classemlabcpp_1_1testing_1_1test__interface.html#ac43f94dcd599108d5d8586982f7646ae">run</a>( mem_, rec_ );</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        phas_ = phase::RUN;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">case</span> phase::RUN:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                        <span class="keywordflow">if</span> ( !coro_.<a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a7076c256a770682cdfe47d493a416faf">done</a>() ) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                                coro_.<a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a19fbcd43168aea49da83517268fab0eb">tick</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                        }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        coro_ = <a class="code" href="namespaceemlabcpp_1_1testing.html#ae00c5ff4f8236a54f34ac13a2d74ca1c">test_coroutine</a>();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        coro_ = test_.<a class="code" href="classemlabcpp_1_1testing_1_1test__interface.html#aa8c3a0807b94cdabc31313f9aeefe058">teardown</a>( mem_, rec_ );</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        phas_ = phase::TEARDOWN;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">case</span> phase::TEARDOWN:</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        <span class="keywordflow">if</span> ( !coro_.<a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a7076c256a770682cdfe47d493a416faf">done</a>() ) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                coro_.<a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a19fbcd43168aea49da83517268fab0eb">tick</a>();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                        <span class="keywordflow">if</span> ( rec_.<a class="code" href="classemlabcpp_1_1testing_1_1record.html#a236441ad710327794f198aed6f6f366b">errored</a>() ) {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                <a class="code" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>( <span class="stringliteral">&quot;teardown errored&quot;</span> );</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                errored_ = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        phas_ = phase::FINISHED;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">case</span> phase::FINISHED:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1executor.html#ac2e3ea552738d3a822986444188f7166">  112</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1testing_1_1executor.html#ac2e3ea552738d3a822986444188f7166">finished</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">return</span> phas_ == phase::FINISHED;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1testing.html#a515587622310ad47ccc8d4f76961c585">run_id</a>                rid_;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordtype">bool</span>                  errored_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordtype">bool</span>                  failed_  = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a>&amp; mem_;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a>&amp;       test_;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <a class="code" href="classemlabcpp_1_1testing_1_1record.html">record</a>                rec_;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <a class="code" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html">test_coroutine</a>        coro_;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        phase                 phas_{ phase::INIT };</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;};</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}  <span class="comment">// namespace emlabcpp::testing</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1coro_1_1recursive__coroutine_html"><div class="ttname"><a href="classemlabcpp_1_1coro_1_1recursive__coroutine.html">emlabcpp::coro::recursive_coroutine&lt; void &gt;</a></div></div>
-<div class="ttc" id="aclassemlabcpp_1_1coro_1_1recursive__coroutine_html_a19fbcd43168aea49da83517268fab0eb"><div class="ttname"><a href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a19fbcd43168aea49da83517268fab0eb">emlabcpp::coro::recursive_coroutine::tick</a></div><div class="ttdeci">void tick() override</div><div class="ttdef"><b>Definition:</b> recursive.h:117</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1coro_1_1recursive__coroutine_html_a7076c256a770682cdfe47d493a416faf"><div class="ttname"><a href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a7076c256a770682cdfe47d493a416faf">emlabcpp::coro::recursive_coroutine::done</a></div><div class="ttdeci">bool done() const</div><div class="ttdef"><b>Definition:</b> recursive.h:83</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1coro_1_1recursive__coroutine_html_a19fbcd43168aea49da83517268fab0eb"><div class="ttname"><a href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a19fbcd43168aea49da83517268fab0eb">emlabcpp::coro::recursive_coroutine::tick</a></div><div class="ttdeci">void tick() override</div><div class="ttdef"><b>Definition:</b> recursive.h:119</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1coro_1_1recursive__coroutine_html_a7076c256a770682cdfe47d493a416faf"><div class="ttname"><a href="classemlabcpp_1_1coro_1_1recursive__coroutine.html#a7076c256a770682cdfe47d493a416faf">emlabcpp::coro::recursive_coroutine::done</a></div><div class="ttdeci">bool done() const</div><div class="ttdef"><b>Definition:</b> recursive.h:85</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1pmr_1_1memory__resource_html"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1memory__resource.html">emlabcpp::pmr::memory_resource</a></div><div class="ttdef"><b>Definition:</b> memory_resource.h:27</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1executor_html"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1executor.html">emlabcpp::testing::executor</a></div><div class="ttdef"><b>Definition:</b> executor.h:29</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing_1_1executor_html_a1bb310b8390f2f1f56d5fa9e9127b5d0"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1executor.html#a1bb310b8390f2f1f56d5fa9e9127b5d0">emlabcpp::testing::executor::failed</a></div><div class="ttdeci">bool failed() const</div><div class="ttdef"><b>Definition:</b> executor.h:53</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing_1_1executor_html_a2be1ca24ed28543299a5453db58ce902"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1executor.html#a2be1ca24ed28543299a5453db58ce902">emlabcpp::testing::executor::get_run_id</a></div><div class="ttdeci">run_id get_run_id() const</div><div class="ttdef"><b>Definition:</b> executor.h:58</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1testing_1_1executor_html_a1bb310b8390f2f1f56d5fa9e9127b5d0"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1executor.html#a1bb310b8390f2f1f56d5fa9e9127b5d0">emlabcpp::testing::executor::failed</a></div><div class="ttdeci">bool failed() const</div><div class="ttdef"><b>Definition:</b> executor.h:54</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1testing_1_1executor_html_a2be1ca24ed28543299a5453db58ce902"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1executor.html#a2be1ca24ed28543299a5453db58ce902">emlabcpp::testing::executor::get_run_id</a></div><div class="ttdeci">run_id get_run_id() const</div><div class="ttdef"><b>Definition:</b> executor.h:59</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1executor_html_a7d24b7cf92199d23cac7dbffd549cff0"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1executor.html#a7d24b7cf92199d23cac7dbffd549cff0">emlabcpp::testing::executor::errored</a></div><div class="ttdeci">bool errored() const</div><div class="ttdef"><b>Definition:</b> executor.h:49</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1executor_html_a7e266a7c08b1c2b7288900b6f70a06bc"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1executor.html#a7e266a7c08b1c2b7288900b6f70a06bc">emlabcpp::testing::executor::executor</a></div><div class="ttdeci">executor(const run_id rid, pmr::memory_resource &amp;mem, test_interface &amp;test)</div><div class="ttdef"><b>Definition:</b> executor.h:40</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing_1_1executor_html_ab6c217cf2b1ae899fe2997d3cf62f31b"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1executor.html#ab6c217cf2b1ae899fe2997d3cf62f31b">emlabcpp::testing::executor::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> executor.h:63</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing_1_1executor_html_ac2e3ea552738d3a822986444188f7166"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1executor.html#ac2e3ea552738d3a822986444188f7166">emlabcpp::testing::executor::finished</a></div><div class="ttdeci">bool finished() const</div><div class="ttdef"><b>Definition:</b> executor.h:111</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1testing_1_1executor_html_ab6c217cf2b1ae899fe2997d3cf62f31b"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1executor.html#ab6c217cf2b1ae899fe2997d3cf62f31b">emlabcpp::testing::executor::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> executor.h:64</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1testing_1_1executor_html_ac2e3ea552738d3a822986444188f7166"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1executor.html#ac2e3ea552738d3a822986444188f7166">emlabcpp::testing::executor::finished</a></div><div class="ttdeci">bool finished() const</div><div class="ttdef"><b>Definition:</b> executor.h:112</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1record_html"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1record.html">emlabcpp::testing::record</a></div><div class="ttdef"><b>Definition:</b> record.h:31</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1record_html_a236441ad710327794f198aed6f6f366b"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1record.html#a236441ad710327794f198aed6f6f366b">emlabcpp::testing::record::errored</a></div><div class="ttdeci">bool errored() const</div><div class="ttdef"><b>Definition:</b> record.h:35</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1test__interface_html"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1test__interface.html">emlabcpp::testing::test_interface</a></div><div class="ttdef"><b>Definition:</b> interface.h:34</div></div>
@@ -226,7 +227,7 @@ $(document).ready(function(){initNavTree('executor_8h_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="executor_8h.html">executor.h</a></li>
-    <li class="footer">Generated on Thu Apr 27 2023 06:49:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 08:18:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

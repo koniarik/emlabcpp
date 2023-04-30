@@ -100,6 +100,8 @@ $(document).ready(function(){initNavTree('namespaceemlabcpp.html',''); initResiz
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
+<tr class="memitem:namespaceemlabcpp_1_1cfg"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html">cfg</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceemlabcpp_1_1coro"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1coro.html">coro</a></td></tr>
 <tr class="memdesc:namespaceemlabcpp_1_1coro"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copyright (C) 2020 Jan Veverak Koniarik. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1119,7 +1121,7 @@ Variables</h2></td></tr>
 <tr class="memdesc:a7b5a68de4881301e46697c48654d8477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple type alias for bounded index constants.  <a href="namespaceemlabcpp.html#a7b5a68de4881301e46697c48654d8477">More...</a><br /></td></tr>
 <tr class="separator:a7b5a68de4881301e46697c48654d8477"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add79493bcf07bd4c54afffe3a0f3ee00"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:add79493bcf07bd4c54afffe3a0f3ee00"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#add79493bcf07bd4c54afffe3a0f3ee00">bounded_derived</a></td></tr>
+<tr class="memitem:add79493bcf07bd4c54afffe3a0f3ee00"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#add79493bcf07bd4c54afffe3a0f3ee00">bounded_derived</a> = <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T val ) { <a class="el" href="namespaceemlabcpp_1_1detail.html#aa15d5c022409d351cd45334d7501dc72">detail::bounded_derived_test</a>( val ); }</td></tr>
 <tr class="memdesc:add79493bcf07bd4c54afffe3a0f3ee00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that matchestype deriving from bounded.  <a href="namespaceemlabcpp.html#add79493bcf07bd4c54afffe3a0f3ee00">More...</a><br /></td></tr>
 <tr class="separator:add79493bcf07bd4c54afffe3a0f3ee00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94924279b38cf1803ee0f01cb4889b24"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -1170,7 +1172,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a3895ca2fd367021e74c1915f724c0242"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3895ca2fd367021e74c1915f724c0242">element_of</a></td></tr>
 <tr class="separator:a3895ca2fd367021e74c1915f724c0242"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af124e29aa89adc5fce430ee7fdda3cc4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af124e29aa89adc5fce430ee7fdda3cc4"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4">with_value_type</a></td></tr>
+<tr class="memitem:af124e29aa89adc5fce430ee7fdda3cc4"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af124e29aa89adc5fce430ee7fdda3cc4">with_value_type</a> = <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a> { typename T::value_type; }</td></tr>
 <tr class="separator:af124e29aa89adc5fce430ee7fdda3cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc8fd33adfcfe872f4402d4b61b41113"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Signature &gt; </td></tr>
 <tr class="memitem:afc8fd33adfcfe872f4402d4b61b41113"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#afc8fd33adfcfe872f4402d4b61b41113">with_signature</a> = std::same_as&lt; typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1signature__of">signature_of</a>&lt; T &gt;::signature, Signature &gt;</td></tr>
@@ -1185,12 +1187,12 @@ Variables</h2></td></tr>
 <tr class="memitem:a771ceb5d56ed0208c7974b576c6dadc0"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a771ceb5d56ed0208c7974b576c6dadc0">decomposable</a></td></tr>
 <tr class="separator:a771ceb5d56ed0208c7974b576c6dadc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6adfccd266cb01c6cfd376ea222c110"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad6adfccd266cb01c6cfd376ea222c110"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad6adfccd266cb01c6cfd376ea222c110">decomposable_0</a> = <a class="el" href="namespaceemlabcpp.html#a771ceb5d56ed0208c7974b576c6dadc0">decomposable</a>&lt; T &gt; &amp;&amp;( <a class="el" href="namespaceemlabcpp_1_1detail.html#a10e61621464f2e4cc1316387d1b70b19">detail::decompose_count</a>&lt; T &gt;() == 0 )</td></tr>
+<tr class="memitem:ad6adfccd266cb01c6cfd376ea222c110"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad6adfccd266cb01c6cfd376ea222c110">decomposable_0</a> = <a class="el" href="namespaceemlabcpp.html#a771ceb5d56ed0208c7974b576c6dadc0">decomposable</a>&lt; T &gt; &amp;&amp; ( <a class="el" href="namespaceemlabcpp_1_1detail.html#a10e61621464f2e4cc1316387d1b70b19">detail::decompose_count</a>&lt; T &gt;() == 0 )</td></tr>
 <tr class="separator:ad6adfccd266cb01c6cfd376ea222c110"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b7fdeaa7689b2455a087e965cbc7b3d"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1quaternion.html">quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5b7fdeaa7689b2455a087e965cbc7b3d">neutral_quat</a> { 0.<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>, 0.<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>, 0.<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>, 1.<a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> }</td></tr>
 <tr class="separator:a5b7fdeaa7689b2455a087e965cbc7b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a183135aadf6bd4c3bd69d06b05b50407"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a183135aadf6bd4c3bd69d06b05b50407"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a183135aadf6bd4c3bd69d06b05b50407">vec_point_derived</a></td></tr>
+<tr class="memitem:a183135aadf6bd4c3bd69d06b05b50407"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a183135aadf6bd4c3bd69d06b05b50407">vec_point_derived</a> = <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T val ) { <a class="el" href="namespaceemlabcpp_1_1detail.html#a8ca7a3c5bc16d1b3a13b068bf7a7c8be">detail::vec_point_derived_test</a>( val ); }</td></tr>
 <tr class="separator:a183135aadf6bd4c3bd69d06b05b50407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3933e60ced207f516b389cc37ab278de"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3933e60ced207f516b389cc37ab278de">x_axis</a> { 1, 0, 0 }</td></tr>
 <tr class="memdesc:a3933e60ced207f516b389cc37ab278de"><td class="mdescLeft">&#160;</td><td class="mdescRight">instances of constants in the code for X/Y/Z axis  <a href="namespaceemlabcpp.html#a3933e60ced207f516b389cc37ab278de">More...</a><br /></td></tr>
@@ -1215,7 +1217,7 @@ Variables</h2></td></tr>
 <tr class="memdesc:a7cac9e89744ae1ec8ad817df33d291f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constants of units that are relevant for us.  <a href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">More...</a><br /></td></tr>
 <tr class="separator:a7cac9e89744ae1ec8ad817df33d291f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a869ab03f1bd49e1adc49de513ad86ba4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a869ab03f1bd49e1adc49de513ad86ba4"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a869ab03f1bd49e1adc49de513ad86ba4">quantity_derived</a></td></tr>
+<tr class="memitem:a869ab03f1bd49e1adc49de513ad86ba4"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a869ab03f1bd49e1adc49de513ad86ba4">quantity_derived</a> = <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T val ) { <a class="el" href="namespaceemlabcpp_1_1detail.html#a8be65555da61958326df0b50c6ee2bd8">detail::quantity_derived_test</a>( val ); }</td></tr>
 <tr class="memdesc:a869ab03f1bd49e1adc49de513ad86ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept satisfies any type <code>T</code> that inherits from any form of <code>quantity&lt;U&gt;</code>.  <a href="namespaceemlabcpp.html#a869ab03f1bd49e1adc49de513ad86ba4">More...</a><br /></td></tr>
 <tr class="separator:a869ab03f1bd49e1adc49de513ad86ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff43a196db9cecc357e6f4452638b32f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -9131,13 +9133,20 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, T b )</div>
-<div class="line">{</div>
-<div class="line">        { a += b };</div>
-<div class="line">        { a -= b };</div>
-<div class="line">        { a /= b };</div>
-<div class="line">        { a *= b };</div>
-<div class="line">}</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, T b ) {</div>
+<div class="line">                                        {</div>
+<div class="line">                                                a += b</div>
+<div class="line">                                        };</div>
+<div class="line">                                        {</div>
+<div class="line">                                                a -= b</div>
+<div class="line">                                        };</div>
+<div class="line">                                        {</div>
+<div class="line">                                                a /= b</div>
+<div class="line">                                        };</div>
+<div class="line">                                        {</div>
+<div class="line">                                                a *= b</div>
+<div class="line">                                        };</div>
+<div class="line">                                }</div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:78</div></div>
 </div><!-- fragment -->
 </div>
@@ -9171,21 +9180,20 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, T b )</div>
-<div class="line">{</div>
-<div class="line">        {</div>
-<div class="line">                a + b</div>
-<div class="line">                } -&gt; std::convertible_to&lt; T &gt;;</div>
-<div class="line">        {</div>
-<div class="line">                a - b</div>
-<div class="line">                } -&gt; std::convertible_to&lt; T &gt;;</div>
-<div class="line">        {</div>
-<div class="line">                a / b</div>
-<div class="line">                } -&gt; std::convertible_to&lt; T &gt;;</div>
-<div class="line">        {</div>
-<div class="line">                a* b</div>
-<div class="line">                } -&gt; std::convertible_to&lt; T &gt;;</div>
-<div class="line">}</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, T b ) {</div>
+<div class="line">                                       {</div>
+<div class="line">                                               a + b</div>
+<div class="line">                                               } -&gt; std::convertible_to&lt; T &gt;;</div>
+<div class="line">                                       {</div>
+<div class="line">                                               a - b</div>
+<div class="line">                                               } -&gt; std::convertible_to&lt; T &gt;;</div>
+<div class="line">                                       {</div>
+<div class="line">                                               a / b</div>
+<div class="line">                                               } -&gt; std::convertible_to&lt; T &gt;;</div>
+<div class="line">                                       {</div>
+<div class="line">                                               a* b</div>
+<div class="line">                                               } -&gt; std::convertible_to&lt; T &gt;;</div>
+<div class="line">                               }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9224,16 +9232,11 @@ template&lt;std::size_t N&gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept emlabcpp::bounded_derived</td>
+          <td class="memname">concept emlabcpp::bounded_derived = <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T val ) { <a class="el" href="namespaceemlabcpp_1_1detail.html#aa15d5c022409d351cd45334d7501dc72">detail::bounded_derived_test</a>( val ); }</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T val )</div>
-<div class="line">{</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1detail.html#aa15d5c022409d351cd45334d7501dc72">detail::bounded_derived_test</a>( val );</div>
-<div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1detail_html_aa15d5c022409d351cd45334d7501dc72"><div class="ttname"><a href="namespaceemlabcpp_1_1detail.html#aa15d5c022409d351cd45334d7501dc72">emlabcpp::detail::bounded_derived_test</a></div><div class="ttdeci">constexpr bool bounded_derived_test(const bounded&lt; T, MinVal, MaxVal &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> bounded.h:167</div></div>
-</div><!-- fragment -->
+
 <p>Concept that matchestype deriving from bounded. </p>
 
 </div>
@@ -9267,21 +9270,15 @@ template&lt;typename UnaryCallable , typename Container &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( Container cont, <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> )</div>
-<div class="line">{</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>( *cont.begin() );</div>
-<div class="line">}</div>
-<div class="line">|| <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( Container cont )</div>
-<div class="line">{</div>
-<div class="line">        std::tuple_size&lt; std::decay_t&lt; Container &gt; &gt;::value == 0;</div>
-<div class="line">}</div>
-<div class="line">|| <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( Container cont, <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> )</div>
-<div class="line">{</div>
-<div class="line">        </div>
-<div class="line">        <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>( std::get&lt; 0 &gt;( cont ) );</div>
-<div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:154</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_ac1cdce6706f4b40d478521925ca85f8a"><div class="ttname"><a href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">emlabcpp::UnaryCallable</a></div><div class="ttdeci">UnaryCallable</div><div class="ttdef"><b>Definition:</b> types.h:49</div></div>
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( Container cont, <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> ) { <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>( *cont.begin() ); } ||</div>
+<div class="line">    <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( Container cont ) { std::tuple_size&lt; std::decay_t&lt; Container &gt; &gt;::value == 0; } ||</div>
+<div class="line">    <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( Container cont, <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> ) {</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>( std::get&lt; 0 &gt;( cont ) );</div>
+<div class="line">    }</div>
+<div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:155</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ac1cdce6706f4b40d478521925ca85f8a"><div class="ttname"><a href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">emlabcpp::UnaryCallable</a></div><div class="ttdeci">UnaryCallable</div><div class="ttdef"><b>Definition:</b> types.h:50</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9320,8 +9317,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= std::is_class_v&lt; std::decay_t&lt; T &gt; &gt; &amp;&amp; !gettable_container&lt; T &gt; &amp;&amp;</div>
-<div class="line">                       ( detail::decompose_count&lt; T &gt;() &gt;= 0 )</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= std::is_class_v&lt; std::decay_t&lt; T &gt; &gt; &amp;&amp; !</div>
+<div class="line">gettable_container&lt; T &gt; &amp;&amp; ( detail::decompose_count&lt; T &gt;() &gt;= 0 )</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9334,7 +9331,7 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept emlabcpp::decomposable_0 = <a class="el" href="namespaceemlabcpp.html#a771ceb5d56ed0208c7974b576c6dadc0">decomposable</a>&lt; T &gt; &amp;&amp;( <a class="el" href="namespaceemlabcpp_1_1detail.html#a10e61621464f2e4cc1316387d1b70b19">detail::decompose_count</a>&lt; T &gt;() == 0 )</td>
+          <td class="memname">concept emlabcpp::decomposable_0 = <a class="el" href="namespaceemlabcpp.html#a771ceb5d56ed0208c7974b576c6dadc0">decomposable</a>&lt; T &gt; &amp;&amp; ( <a class="el" href="namespaceemlabcpp_1_1detail.html#a10e61621464f2e4cc1316387d1b70b19">detail::decompose_count</a>&lt; T &gt;() == 0 )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -9376,8 +9373,8 @@ template&lt;typename T , typename LH , typename RH &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">    std::same_as&lt; std::decay_t&lt; T &gt;, RH &gt; &amp;&amp; !std::same_as&lt; LH, RH &gt;</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= std::same_as&lt; std::decay_t&lt; T &gt;, RH &gt; &amp;&amp; !</div>
+<div class="line">std::same_as&lt; LH, RH &gt;</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9455,12 +9452,11 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a )</div>
-<div class="line">{</div>
-<div class="line">        {</div>
-<div class="line">                std::tuple_size&lt; std::decay_t&lt; T &gt; &gt;::value</div>
-<div class="line">                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
-<div class="line">}</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) {</div>
+<div class="line">                                     {</div>
+<div class="line">                                             std::tuple_size&lt; std::decay_t&lt; T &gt; &gt;::value</div>
+<div class="line">                                             } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
+<div class="line">                             }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9525,12 +9521,11 @@ template&lt;typename UnaryCallable , typename ReturnValue , typename... Args&gt;
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>, Args... args )</div>
-<div class="line">{</div>
-<div class="line">        {</div>
-<div class="line">                <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>( args... )</div>
-<div class="line">                } -&gt; std::same_as&lt; ReturnValue &gt;;</div>
-<div class="line">}</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>, Args... args ) {</div>
+<div class="line">                                      {</div>
+<div class="line">                                              <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>( args... )</div>
+<div class="line">                                              } -&gt; std::same_as&lt; ReturnValue &gt;;</div>
+<div class="line">                              }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9643,19 +9638,18 @@ template&lt;typename M &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">requires</a>( M m, std::size_t i, std::size_t j )</div>
-<div class="line">{</div>
-<div class="line">        {</div>
-<div class="line">                M::rows</div>
-<div class="line">                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
-<div class="line">        {</div>
-<div class="line">                M::cols</div>
-<div class="line">                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
-<div class="line">        {</div>
-<div class="line">                m[i][j]</div>
-<div class="line">                } -&gt; std::convertible_to&lt; typename M::value_type &gt;;</div>
-<div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_html_ae9679354218890ed9c289c674a125378"><div class="ttname"><a href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">emlabcpp::requires</a></div><div class="ttdeci">requires(M::rows==1 &amp;&amp;M::cols==1) const expr matrix&lt; M</div><div class="ttdef"><b>Definition:</b> matrix.h:375</div></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">requires</a>( M m, std::size_t i, std::size_t j ) {</div>
+<div class="line">                              {</div>
+<div class="line">                                      M::rows</div>
+<div class="line">                                      } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
+<div class="line">                              {</div>
+<div class="line">                                      M::cols</div>
+<div class="line">                                      } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
+<div class="line">                              {</div>
+<div class="line">                                      m[i][j]</div>
+<div class="line">                                      } -&gt; std::convertible_to&lt; typename M::value_type &gt;;</div>
+<div class="line">                      }</div>
+<div class="ttc" id="anamespaceemlabcpp_html_ae9679354218890ed9c289c674a125378"><div class="ttname"><a href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">emlabcpp::requires</a></div><div class="ttdeci">requires(M::rows==1 &amp;&amp;M::cols==1) const expr matrix&lt; M</div><div class="ttdef"><b>Definition:</b> matrix.h:380</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9694,20 +9688,20 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= !std::is_array_v&lt; T &gt; &amp;&amp; <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T val )</div>
-<div class="line">{</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, uint8_t &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, uint16_t &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, uint32_t &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, int8_t &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, int16_t &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, int32_t &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, float &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, double &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, bool &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, const void* &gt;;</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, std::nullptr_t &gt;;</div>
-<div class="line">}</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= !</div>
+<div class="line">std::is_array_v&lt; T &gt;&amp;&amp; <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T val ) {</div>
+<div class="line">                               <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, uint8_t &gt;;</div>
+<div class="line">                               <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, uint16_t &gt;;</div>
+<div class="line">                               <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, uint32_t &gt;;</div>
+<div class="line">                               <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, int8_t &gt;;</div>
+<div class="line">                               <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, int16_t &gt;;</div>
+<div class="line">                               <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, int32_t &gt;;</div>
+<div class="line">                               <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, float &gt;;</div>
+<div class="line">                               <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, double &gt;;</div>
+<div class="line">                               <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, bool &gt;;</div>
+<div class="line">                               <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, const void* &gt;;</div>
+<div class="line">                               <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> detail::directly_streamable_for&lt; T, std::nullptr_t &gt;;</div>
+<div class="line">                       }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9748,11 +9742,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp.html#abed05683098f9a93c5b694ff9b9f3c16">requires</a>( <span class="keyword">const</span> T&amp; v )</div>
-<div class="line">{</div>
-<div class="line">        pretty_printer&lt; T &gt;::print( []( std::string_view ) {}, v );</div>
-<div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_html_abed05683098f9a93c5b694ff9b9f3c16"><div class="ttname"><a href="namespaceemlabcpp.html#abed05683098f9a93c5b694ff9b9f3c16">emlabcpp::requires</a></div><div class="ttdeci">requires(std::is_enum_v&lt; T &gt;) struct pretty_printer&lt; T &gt;</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:315</div></div>
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    <a class="code" href="namespaceemlabcpp.html#abed05683098f9a93c5b694ff9b9f3c16">requires</a>( <span class="keyword">const</span> T&amp; v ) { pretty_printer&lt; T &gt;::print( []( std::string_view ) {}, v ); }</div>
+<div class="ttc" id="anamespaceemlabcpp_html_abed05683098f9a93c5b694ff9b9f3c16"><div class="ttname"><a href="namespaceemlabcpp.html#abed05683098f9a93c5b694ff9b9f3c16">emlabcpp::requires</a></div><div class="ttdeci">requires(std::is_enum_v&lt; T &gt;) struct pretty_printer&lt; T &gt;</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:314</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9765,16 +9757,11 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept emlabcpp::quantity_derived</td>
+          <td class="memname">concept emlabcpp::quantity_derived = <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T val ) { <a class="el" href="namespaceemlabcpp_1_1detail.html#a8be65555da61958326df0b50c6ee2bd8">detail::quantity_derived_test</a>( val ); }</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T val )</div>
-<div class="line">{</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1detail.html#a8be65555da61958326df0b50c6ee2bd8">detail::quantity_derived_test</a>( val );</div>
-<div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1detail_html_a8be65555da61958326df0b50c6ee2bd8"><div class="ttname"><a href="namespaceemlabcpp_1_1detail.html#a8be65555da61958326df0b50c6ee2bd8">emlabcpp::detail::quantity_derived_test</a></div><div class="ttdeci">constexpr bool quantity_derived_test(const quantity&lt; Derived, ValueType &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> quantity.h:138</div></div>
-</div><!-- fragment -->
+
 <p>Concept satisfies any type <code>T</code> that inherits from any form of <code>quantity&lt;U&gt;</code>. </p>
 
 </div>
@@ -9835,7 +9822,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= is_view&lt; T &gt;::value ||</div>
-<div class="line">    ( range_container&lt; T &gt; &amp;&amp; !std::is_rvalue_reference_v&lt; T &gt; )</div>
+<div class="line">                                  ( range_container&lt; T &gt; &amp;&amp; !std::is_rvalue_reference_v&lt; T &gt; )</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9892,12 +9879,11 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a )</div>
-<div class="line">{</div>
-<div class="line">        {</div>
-<div class="line">                std::tuple_size&lt; std::decay_t&lt; T &gt; &gt;::value</div>
-<div class="line">                } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
-<div class="line">}</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) {</div>
+<div class="line">                               {</div>
+<div class="line">                                       std::tuple_size&lt; std::decay_t&lt; T &gt; &gt;::value</div>
+<div class="line">                                       } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
+<div class="line">                       }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9951,16 +9937,11 @@ template&lt;typename T , typename... Us&gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept emlabcpp::vec_point_derived</td>
+          <td class="memname">concept emlabcpp::vec_point_derived = <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T val ) { <a class="el" href="namespaceemlabcpp_1_1detail.html#a8ca7a3c5bc16d1b3a13b068bf7a7c8be">detail::vec_point_derived_test</a>( val ); }</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T val )</div>
-<div class="line">{</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1detail.html#a8ca7a3c5bc16d1b3a13b068bf7a7c8be">detail::vec_point_derived_test</a>( val );</div>
-<div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1detail_html_a8ca7a3c5bc16d1b3a13b068bf7a7c8be"><div class="ttname"><a href="namespaceemlabcpp_1_1detail.html#a8ca7a3c5bc16d1b3a13b068bf7a7c8be">emlabcpp::detail::vec_point_derived_test</a></div><div class="ttdeci">constexpr bool vec_point_derived_test(const vec_point_base&lt; Derived, N &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> vec_point_base.h:127</div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a24f6b4dc0a35260a281aa436f5401cce"></a>
@@ -9976,10 +9957,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> b )</div>
-<div class="line">{</div>
-<div class="line">        a.push_back( std::move( b ) );</div>
-<div class="line">}</div>
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> b ) { a.push_back( std::move( b ) ); }</div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:47</div></div>
 </div><!-- fragment -->
 </div>
@@ -10009,15 +9988,11 @@ template&lt;typename T , typename Signature &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept emlabcpp::with_value_type</td>
+          <td class="memname">concept emlabcpp::with_value_type = <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a> { typename T::value_type; }</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a></div>
-<div class="line">{</div>
-<div class="line">        <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a>;</div>
-<div class="line">}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a3933e60ced207f516b389cc37ab278de"></a>
@@ -10094,7 +10069,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Thu Apr 27 2023 06:49:59 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Apr 30 2023 08:18:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
