@@ -36,7 +36,12 @@ struct string_buffer : std::array< char, N >
 
         operator std::string_view() const
         {
-                return std::string_view( this->data(), strlen( this->data() ) );
+                return std::string_view( this->data() );
+        }
+
+        [[nodiscard]] constexpr std::size_t size() const
+        {
+                return strlen(this->data());
         }
 };
 

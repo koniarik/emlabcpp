@@ -833,7 +833,7 @@ struct converter< string_buffer< N >, Endianess >
         static constexpr size_type
         serialize_at( const std::span< std::byte, max_size > buffer, const value_type& item )
         {
-                const std::size_t size = strlen( item.data() );
+                const std::size_t size = item.size();
 
                 counter_converter::serialize_at(
                     buffer.template first< counter_size >(), static_cast< counter_type >( size ) );

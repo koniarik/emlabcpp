@@ -6,7 +6,12 @@
 namespace emlabcpp
 {
 
-using kval    = std::tuple< int, int >;
+struct kval
+{
+        int key;
+        int val;
+};
+
 using handler = cfg::handler< int, kval >;
 
 TEST( CFG, store )
