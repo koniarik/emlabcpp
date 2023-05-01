@@ -84,23 +84,21 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1cfg_1_1handler.html'
 
 <div class="header">
   <div class="headertitle">
-<div class="title">emlabcpp::cfg::handler&lt; HeaderPayload, Field &gt; Member List</div>  </div>
+<div class="title">emlabcpp::cfg::handler&lt; Payload, Field, Endianess &gt; Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler&lt; HeaderPayload, Field &gt;</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler&lt; Payload, Field, Endianess &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#a45a88bcd24b5d0aaa124878e7ad914d0">field</a> typedef</td><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler&lt; HeaderPayload, Field &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#ac562b149341ba4fbe4a83a8dd2f861eb">header_payload</a> typedef</td><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler&lt; HeaderPayload, Field &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#a32d9ef4a0996a7b7f3968e9cdb7a7bf3">sig_handler</a> typedef</td><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler&lt; HeaderPayload, Field &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#a45d1ca55b5de18965a47800a5b78d814">signature_checksum</a>(record_id id, checksum header_chck, checksum fields_chck, ChecksumFunction &amp;&amp;chcksm_f)</td><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler&lt; HeaderPayload, Field &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#afb1da97bbf0cea1afa4ac7e02ebc2d2a">store</a>(std::span&lt; std::byte &gt; target_buffer, uint32_t id, const HeaderPayload &amp;pl, view&lt; const Field * &gt; fields, ChecksumFunction &amp;&amp;chcksm_f)</td><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler&lt; HeaderPayload, Field &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#a2e4cffa890b344de5884f98f862f23eb">chcksum_conv</a> typedef</td><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler&lt; Payload, Field, Endianess &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#a95f0caf6956ef4f8815bcdb5ccdba73b">load</a>(std::span&lt; std::byte &gt; source, PayloadFunction &amp;&amp;pl_f, FieldFunction &amp;&amp;field_f, ChecksumFunction &amp;&amp;chcksm_f)</td><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler&lt; Payload, Field, Endianess &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#ad2bd65906f89abfa56b2910e41154079">store</a>(std::span&lt; std::byte &gt; target_buffer, const Payload &amp;pl, view&lt; const Field * &gt; fields, ChecksumFunction &amp;&amp;chcksm_f)</td><td class="entry"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler&lt; Payload, Field, Endianess &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Apr 30 2023 08:31:42 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon May 1 2023 20:27:47 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

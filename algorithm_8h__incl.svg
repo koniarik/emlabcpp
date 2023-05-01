@@ -83,7 +83,7 @@
 <g id="node10" class="node">
 <title>Node26</title>
 <g id="a_node10"><a xlink:href="view_8h.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="15.64,-129 15.64,-148 114.64,-148 114.64,-129 15.64,-129"/>
+<polygon fill="white" stroke="red" points="15.64,-129 15.64,-148 114.64,-148 114.64,-129 15.64,-129"/>
 <text text-anchor="middle" x="65.14" y="-136" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp/view.h</text>
 </a>
 </g>
@@ -173,18 +173,18 @@
 <path fill="none" stroke="midnightblue" d="M360.09,-128.73C356.19,-120.29 350.13,-107.14 344.84,-95.68"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="348.01,-94.2 340.64,-86.59 341.65,-97.14 348.01,-94.2"/>
 </g>
-<!-- Node32 -->
+<!-- Node33 -->
 <g id="node8" class="node">
-<title>Node32</title>
+<title>Node33</title>
 <g id="a_node8"><a xlink:title=" ">
 <polygon fill="white" stroke="#bfbfbf" points="419.14,-62 419.14,-81 475.14,-81 475.14,-62 419.14,-62"/>
 <text text-anchor="middle" x="447.14" y="-69" font-family="Helvetica,sans-Serif" font-size="10.00">optional</text>
 </a>
 </g>
 </g>
-<!-- Node16&#45;&gt;Node32 -->
+<!-- Node16&#45;&gt;Node33 -->
 <g id="edge8" class="edge">
-<title>Node16&#45;&gt;Node32</title>
+<title>Node16&#45;&gt;Node33</title>
 <path fill="none" stroke="midnightblue" d="M375.33,-128.73C388.77,-118.21 411.54,-100.38 427.83,-87.62"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="430.41,-90.05 436.12,-81.13 426.09,-84.54 430.41,-90.05"/>
 </g>

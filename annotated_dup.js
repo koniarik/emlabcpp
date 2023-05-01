@@ -2,7 +2,6 @@ var annotated_dup =
 [
     [ "emlabcpp", "namespaceemlabcpp.html", [
       [ "cfg", "namespaceemlabcpp_1_1cfg.html", [
-        [ "signature", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1signature", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1signature_dup" ],
         [ "header", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1header_dup" ],
         [ "handler", "structemlabcpp_1_1cfg_1_1handler.html", "structemlabcpp_1_1cfg_1_1handler" ]
       ] ],

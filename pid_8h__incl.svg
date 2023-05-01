@@ -98,7 +98,7 @@
 <g id="node7" class="node">
 <title>Node27</title>
 <g id="a_node7"><a xlink:href="view_8h.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="0,-62 0,-81 99,-81 99,-62 0,-62"/>
+<polygon fill="white" stroke="red" points="0,-62 0,-81 99,-81 99,-62 0,-62"/>
 <text text-anchor="middle" x="49.5" y="-69" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp/view.h</text>
 </a>
 </g>

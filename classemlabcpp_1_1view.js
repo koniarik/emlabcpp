@@ -13,6 +13,7 @@ var classemlabcpp_1_1view =
     [ "empty", "classemlabcpp_1_1view.html#ae1df38d7a444c80a11321be7c6a2cc11", null ],
     [ "end", "classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795", null ],
     [ "front", "classemlabcpp_1_1view.html#a617f51d3aa75acbb7ed6fce27af75bc2", null ],
+    [ "operator std::span< value_type >", "classemlabcpp_1_1view.html#afc9470e31ac05dfa836a5c4c435863ea", null ],
     [ "rbegin", "classemlabcpp_1_1view.html#a8fdd836a77a7b1218f8785739715eaef", null ],
     [ "rend", "classemlabcpp_1_1view.html#a0a549012c992a9582b6998578a69a042", null ],
     [ "requires", "classemlabcpp_1_1view.html#a17d1a17a43003f2567f2a964762d4590", null ],

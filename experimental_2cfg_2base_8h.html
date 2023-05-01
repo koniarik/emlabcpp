@@ -86,7 +86,8 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2base_8h.html',''); 
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">base.h File Reference</div>  </div>
 </div><!--header-->
@@ -105,9 +106,7 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2base_8h.html',''); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:structemlabcpp_1_1cfg_1_1signature"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1signature">emlabcpp::cfg::signature</a></td></tr>
-<tr class="separator:structemlabcpp_1_1cfg_1_1signature"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:structemlabcpp_1_1cfg_1_1header"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header">emlabcpp::cfg::header&lt; Payload &gt;</a></td></tr>
+<tr class="memitem:structemlabcpp_1_1cfg_1_1header"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header">emlabcpp::cfg::header</a></td></tr>
 <tr class="separator:structemlabcpp_1_1cfg_1_1header"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -121,53 +120,23 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:abc7e2ad89ecd40087cb01e4d7f2481eb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#abc7e2ad89ecd40087cb01e4d7f2481eb">emlabcpp::cfg::checksum</a> = uint32_t</td></tr>
-<tr class="memdesc:abc7e2ad89ecd40087cb01e4d7f2481eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">one set of configuration stored in memory is called <code>record</code>, it is composed of following sections (stored in memory as displayed):  <a href="namespaceemlabcpp_1_1cfg.html#abc7e2ad89ecd40087cb01e4d7f2481eb">More...</a><br /></td></tr>
 <tr class="separator:abc7e2ad89ecd40087cb01e4d7f2481eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f75757b6dd3bce9c54dc9cad57241af"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a0f75757b6dd3bce9c54dc9cad57241af">emlabcpp::cfg::record_id</a> = uint32_t</td></tr>
 <tr class="separator:a0f75757b6dd3bce9c54dc9cad57241af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a7aec13dbf2caeca273b78f943c348117"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117">emlabcpp::cfg::load_result</a> { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117ad0749aaba8b833466dfcbb0428e4f89c">emlabcpp::cfg::SUCCESS</a>
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117aaf7685d125c5b33467c4f7783cb22e29">emlabcpp::cfg::DESERIALIZATION_ERROR</a>
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117a3c626b7887de56122df69a972b5516b0">emlabcpp::cfg::PAYLOAD_REFUSED</a>
+<br />
+ }</td></tr>
+<tr class="separator:a7aec13dbf2caeca273b78f943c348117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
-<a name="structemlabcpp_1_1cfg_1_1signature" id="structemlabcpp_1_1cfg_1_1signature"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1cfg_1_1signature">&#9670;&nbsp;</a></span>emlabcpp::cfg::signature</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct emlabcpp::cfg::signature</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="textblock"></div><table class="fieldtable">
-<tr><th colspan="3">Class Members</th></tr>
-<tr><td class="fieldtype">
-<a id="a08e3ba02295728943626e00ea497e081"></a><a class="el" href="namespaceemlabcpp_1_1cfg.html#abc7e2ad89ecd40087cb01e4d7f2481eb">checksum</a></td>
-<td class="fieldname">
-fields_chck</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a1c797db132a98f41463020bf1315c1bc"></a><a class="el" href="namespaceemlabcpp_1_1cfg.html#abc7e2ad89ecd40087cb01e4d7f2481eb">checksum</a></td>
-<td class="fieldname">
-header_chck</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="aa614c2f1cf00045df06a3b4b6001ab14"></a><a class="el" href="namespaceemlabcpp_1_1cfg.html#a0f75757b6dd3bce9c54dc9cad57241af">record_id</a></td>
-<td class="fieldname">
-id</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="aa66d2b0976e3cc20d4b32be993265da4"></a><a class="el" href="namespaceemlabcpp_1_1cfg.html#abc7e2ad89ecd40087cb01e4d7f2481eb">checksum</a></td>
-<td class="fieldname">
-sig_chck</td>
-<td class="fielddoc">
-</td></tr>
-</table>
-
-</div>
-</div>
 <a name="structemlabcpp_1_1cfg_1_1header" id="structemlabcpp_1_1cfg_1_1header"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1cfg_1_1header">&#9670;&nbsp;</a></span>emlabcpp::cfg::header</h2>
 
@@ -179,21 +148,12 @@ sig_chck</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><h3>template&lt;typename Payload&gt;<br />
-struct emlabcpp::cfg::header&lt; Payload &gt;</h3>
-
-</div><table class="fieldtable">
+<div class="textblock"></div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a5adfa4cffe9f6a5c8652cb2a10d10c14"></a>uint32_t</td>
+<a id="a697b50cd6be1964f6d2c3f74354076f8"></a>uint32_t</td>
 <td class="fieldname">
 field_count</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a31b286ff72d7f2e7b4fd2d429b34ad96"></a>Payload</td>
-<td class="fieldname">
-pl</td>
 <td class="fielddoc">
 </td></tr>
 </table>
@@ -206,7 +166,7 @@ pl</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_b8d3940418ab59971bff71afaa8cab2b.html">cfg</a></li><li class="navelem"><a class="el" href="experimental_2cfg_2base_8h.html">base.h</a></li>
-    <li class="footer">Generated on Sun Apr 30 2023 08:31:42 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon May 1 2023 20:27:47 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

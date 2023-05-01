@@ -4,5 +4,6 @@ var dir_b8d3940418ab59971bff71afaa8cab2b =
     [ "handler.h", "experimental_2cfg_2handler_8h.html", [
       [ "handler", "structemlabcpp_1_1cfg_1_1handler.html", "structemlabcpp_1_1cfg_1_1handler" ]
     ] ],
+    [ "load.h", "load_8h.html", "load_8h" ],
     [ "store.h", "store_8h.html", "store_8h" ]
 ];

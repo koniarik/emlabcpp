@@ -1,11 +1,12 @@
 <map id="include/emlabcpp/experimental/cfg/store.h" name="include/emlabcpp/experimental/cfg/store.h">
-<area shape="rect" id="node1" title=" " alt="" coords="352,5,580,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="256,5,484,47"/>
 <area shape="rect" id="node2" href="$experimental_2cfg_2base_8h.html" title=" " alt="" coords="5,95,183,136"/>
-<area shape="rect" id="node4" href="$protocol_2handler_8h.html" title=" " alt="" coords="248,102,455,129"/>
-<area shape="rect" id="node7" title=" " alt="" coords="412,259,467,285"/>
-<area shape="rect" id="node9" title=" " alt="" coords="619,102,673,129"/>
-<area shape="rect" id="node3" title=" " alt="" coords="19,184,86,211"/>
-<area shape="rect" id="node5" href="$either_8h.html" title=" " alt="" coords="161,184,299,211"/>
-<area shape="rect" id="node6" href="$types_8h.html" title=" " alt="" coords="107,259,246,285"/>
-<area shape="rect" id="node8" href="$converter_8h.html" title=" " alt="" coords="324,184,544,211"/>
+<area shape="rect" id="node4" href="$converter_8h.html" title=" " alt="" coords="409,102,629,129"/>
+<area shape="rect" id="node6" title=" " alt="" coords="253,259,308,285"/>
+<area shape="rect" id="node9" title=" " alt="" coords="881,259,934,285"/>
+<area shape="rect" id="node3" title=" " alt="" coords="61,184,127,211"/>
+<area shape="rect" id="node5" href="$algorithm_8h.html" title=" " alt="" coords="258,184,423,211"/>
+<area shape="rect" id="node7" href="$assert_8h.html" title=" " alt="" coords="448,184,591,211"/>
+<area shape="rect" id="node8" href="$serializer_8h.html" title=" " alt="" coords="615,184,834,211"/>
+<area shape="rect" id="node10" href="$traits_8h.html" title=" " alt="" coords="859,184,1052,211"/>
 </map>
