@@ -1,3 +1,4 @@
+#include "emlabcpp/experimental/cfg/load.h"
 #include "emlabcpp/experimental/cfg/store.h"
 
 #pragma once
@@ -46,29 +47,6 @@ struct handler
                 return success;
         }
 
-        template < typename T, typename ChecksumFunction >
-        static std::tuple< bool, T, std::span< std::byte > >
-        load_impl( std::span< std::byte > buffer, ChecksumFunction&& chcksm_f )
-        {
-                using sig_conv = protocol::converter_for< checksum, Endianess >;
-                using conv     = protocol::converter_for< T, Endianess >;
-                checksum chcksm;
-                sig_conv::deserialize( buffer, chcksm );
-
-                T                           result;
-                protocol::conversion_result cres =
-                    conv::deserialize( buffer.subspan( sig_conv::max_size ), result );
-
-                std::span< std::byte > data = buffer.subspan( sig_conv::max_size, cres.used );
-
-                bool chcksum_matches = chcksm_f( data ) == chcksm;
-
-                return {
-                    !cres.has_error() && chcksum_matches,
-                    result,
-                    buffer.subspan( sig_conv::max_size + cres.used ) };
-        }
-
         template < typename PayloadFunction, typename FieldFunction, typename ChecksumFunction >
         static load_result load(
             std::span< std::byte > source,
@@ -80,13 +58,15 @@ struct handler
                 bool                   success;
 
                 header head;
-                std::tie( success, head, buffer ) = load_impl< header >( buffer, chcksm_f );
+                std::tie( success, head, buffer ) =
+                    load_impl< header, Endianess >( buffer, chcksm_f );
                 if ( !success ) {
                         return load_result::DESERIALIZATION_ERROR;
                 }
 
                 Payload pl;
-                std::tie( success, pl, buffer ) = load_impl< Payload >( buffer, chcksm_f );
+                std::tie( success, pl, buffer ) =
+                    load_impl< Payload, Endianess >( buffer, chcksm_f );
                 if ( !success ) {
                         return load_result::DESERIALIZATION_ERROR;
                 }
@@ -97,7 +77,8 @@ struct handler
 
                 for ( std::size_t i : range( head.field_count ) ) {
                         Field f;
-                        std::tie( success, f, buffer ) = load_impl< Field >( buffer, chcksm_f );
+                        std::tie( success, f, buffer ) =
+                            load_impl< Field, Endianess >( buffer, chcksm_f );
                         if ( !success ) {
                                 return load_result::DESERIALIZATION_ERROR;
                         }
