@@ -36,7 +36,7 @@ public:
         /// += operator adds value of 'i'th coordinate from 'other' to 'this', for all 0 <= i < N
         constexpr point< N >& operator+=( const vector< N >& other )
         {
-                for ( std::size_t i : range( N ) ) {
+                for ( const std::size_t i : range( N ) ) {
                         ( *this )[i] += other[i];
                 }
                 return *this;
@@ -46,7 +46,7 @@ public:
         /// N
         constexpr point< N >& operator-=( const vector< N >& other )
         {
-                for ( std::size_t i : range( N ) ) {
+                for ( const std::size_t i : range( N ) ) {
                         ( *this )[i] -= other[i];
                 }
                 return *this;
@@ -71,7 +71,7 @@ constexpr vector< N > vector_cast( const point< N >& p )
 template < std::size_t N >
 [[deprecated]] constexpr point< N > operator*( point< N > a, const point< N >& b )
 {
-        for ( std::size_t i : range( N ) ) {
+        for ( const std::size_t i : range( N ) ) {
                 a[i] *= b[i];
         }
         return a;
@@ -133,8 +133,8 @@ lineary_interpolate_path( const std::vector< point< N > >& ipath, float d_step )
                 const point< N >& from = ipath[i];
                 const point< N >& to   = ipath[i + 1];
 
-                std::size_t seg_steps = std::size_t{ distance_of( from, to ) / d_step };
-                for ( std::size_t j : range( seg_steps ) ) {
+                const std::size_t seg_steps = std::size_t{ distance_of( from, to ) / d_step };
+                for ( const std::size_t j : range( seg_steps ) ) {
                         res.push_back( lin_interp( from, to, float( j ) / float( seg_steps ) ) );
                 }
         }

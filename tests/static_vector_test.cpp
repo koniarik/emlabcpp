@@ -191,18 +191,18 @@ TEST( static_vector_test, move_object )
 
 TEST( static_vector_test, iterators )
 {
-        trivial_buffer     tbuff;
-        std::vector< int > data = { 1, 2, 3, 4, 5 };
-        for ( int i : data ) {
+        trivial_buffer           tbuff;
+        const std::vector< int > data = { 1, 2, 3, 4, 5 };
+        for ( const int i : data ) {
                 tbuff.push_back( i );
         }
 
         std::vector< int > res;
-        for ( int i : tbuff ) {
+        for ( const int i : tbuff ) {
                 res.push_back( i );
         }
 
-        bool are_equal = equal( data, res );
+        const bool are_equal = equal( data, res );
         EXPECT_TRUE( are_equal );
 
         trivial_iterator beg = tbuff.begin();
@@ -215,8 +215,8 @@ TEST( static_vector_test, swap )
         obj_buffer vec1{ std::array{ "1"s, "2"s, "3"s, "4"s, "5"s } };
         obj_buffer vec2{ std::array{ "a"s, "b"s, "c"s } };
 
-        obj_buffer vec1c = vec1;
-        obj_buffer vec2c = vec2;
+        const obj_buffer vec1c = vec1;
+        const obj_buffer vec2c = vec2;
 
         EXPECT_EQ( vec1.size(), 5 );
         EXPECT_EQ( vec2.size(), 3 );

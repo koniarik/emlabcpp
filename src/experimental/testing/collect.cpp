@@ -25,7 +25,7 @@ namespace emlabcpp::testing
 {
 
 collect_awaiter::collect_awaiter( collect_request req, collector& coll )
-  : req( std::move( req ) )
+  : req( req )
   , col( coll )
 {
 }

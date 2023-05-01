@@ -90,7 +90,7 @@ TEST( params, base )
         testing::parameters coll{ 0, col_send_f };
         col_ptr = &coll;
 
-        nlohmann::json jsn{
+        const nlohmann::json jsn{
             { "pi", 3.141 },
             { "happy", true },
             { "name", "Niels" },

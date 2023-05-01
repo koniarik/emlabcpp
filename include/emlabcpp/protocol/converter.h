@@ -163,8 +163,8 @@ struct converter< std::array< D, N >, Endianess >
         static constexpr size_type
         serialize_at( std::span< std::byte, max_size > buffer, const value_type& item )
         {
-                std::size_t used      = serialize_range< D, Endianess >( buffer, view{ item } );
-                auto        opt_bused = size_type::make( used );
+                const std::size_t used = serialize_range< D, Endianess >( buffer, view{ item } );
+                auto              opt_bused = size_type::make( used );
                 EMLABCPP_ASSERT( opt_bused );
                 return *opt_bused;
         }

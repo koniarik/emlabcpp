@@ -47,7 +47,7 @@ TEST( Packet, simple )
 {
         std::tuple< uint32_t, uint8_t, uint8_t > val{ 0x43434343, 0x8, 0x16 };
         message_type                             msg = handler::serialize( val );
-        message_type                             res(
+        const message_type                       res(
             0x91, 0x19, 0x91, 0x19, 0x00, 0x06, 0x43, 0x43, 0x43, 0x43, 0x08, 0x16, 0x00, 0x00 );
 
         EXPECT_EQ( msg, res ) << "msg: " << msg << "\n"

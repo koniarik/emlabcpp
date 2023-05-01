@@ -36,8 +36,8 @@ using line = std::array< point< N >, 2 >;
 template < std::size_t N >
 constexpr float distance_of( const line< N >& l, const point< N >& p )
 {
-        vector< N > direction      = l[1] - l[0];
-        float       length_squared = length2_of( direction );
+        const vector< N > direction      = l[1] - l[0];
+        const float       length_squared = length2_of( direction );
         if ( length_squared == 0.f ) {
                 return distance_of( p, l[0] );
         }
@@ -45,7 +45,7 @@ constexpr float distance_of( const line< N >& l, const point< N >& p )
         projection_dist /= length_squared;
         projection_dist = std::clamp( projection_dist, 0.f, 1.f );
 
-        point< N > closest_p = l[0] + projection_dist * direction;
+        const point< N > closest_p = l[0] + projection_dist * direction;
 
         return distance_of( closest_p, p );
 }

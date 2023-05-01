@@ -172,7 +172,7 @@ TEST( testing_combined, complex )
                 host.on_msg( data );
         };
 
-        testing::test_unit< simple_test_fixture > tf{ dev.reac };
+        const testing::test_unit< simple_test_fixture > tf{ dev.reac };
 
         while ( host.cont.is_initializing() ) {
                 dev.reac.tick();

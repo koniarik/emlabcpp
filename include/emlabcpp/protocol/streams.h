@@ -59,7 +59,7 @@ struct pretty_printer< protocol::message< N > >
                         if ( i % 4 == 0 ) {
                                 l = '|';
                         }
-                        const uint8_t val = std::to_integer< uint8_t >( msg[i] );
+                        const auto val = std::to_integer< uint8_t >( msg[i] );
                         w( l );
                         w( hex_chars[val / 16] );
                         w( hex_chars[val % 16] );

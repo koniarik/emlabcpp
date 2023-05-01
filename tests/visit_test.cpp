@@ -30,7 +30,7 @@ TEST( visit, vis )
 
         visit(
             [&]< typename T >( T ) {
-                    bool is_int = std::is_same_v< T, int >;
+                    const bool is_int = std::is_same_v< T, int >;
                     EXPECT_TRUE( is_int );
 
                     fired = true;
@@ -43,7 +43,7 @@ TEST( visit, vis )
 
         visit(
             [&]< typename T >( T ) {
-                    bool is_string = std::is_same_v< T, std::string >;
+                    const bool is_string = std::is_same_v< T, std::string >;
                     EXPECT_TRUE( is_string );
 
                     fired = true;

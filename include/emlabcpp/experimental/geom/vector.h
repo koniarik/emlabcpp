@@ -32,7 +32,7 @@ public:
 
         constexpr vector< N >& operator+=( const vector< N >& other )
         {
-                for ( std::size_t i : range( N ) ) {
+                for ( const std::size_t i : range( N ) ) {
                         ( *this )[i] += other[i];
                 }
                 return *this;
@@ -40,7 +40,7 @@ public:
 
         constexpr vector< N >& operator-=( const vector< N >& other )
         {
-                for ( std::size_t i : range( N ) ) {
+                for ( const std::size_t i : range( N ) ) {
                         ( *this )[i] -= other[i];
                 }
                 return *this;

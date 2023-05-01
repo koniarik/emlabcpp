@@ -240,7 +240,7 @@ TEST( static_circular_buffer_test, iterators )
 {
         trivial_buffer           tbuff;
         const std::vector< int > data = { 1, 2, 3, 4, 5 };
-        for ( int i : data ) {
+        for ( const int i : data ) {
                 tbuff.push_back( i );
         }
 
