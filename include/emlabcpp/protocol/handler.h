@@ -52,8 +52,8 @@ struct handler
 
         static either< value_type, error_record > extract( const view< const std::byte* >& msg )
         {
-                value_type val;
-                auto       res = def::deserialize( msg, val );
+                value_type        val;
+                conversion_result res = def::deserialize( msg, val );
                 if ( res.has_error() ) {
                         const mark* const mark = res.get_error();
                         EMLABCPP_ERROR_LOG(

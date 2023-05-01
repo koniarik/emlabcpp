@@ -17,6 +17,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#include <span>
 #include "emlabcpp/types.h"
 
 #pragma once
@@ -131,6 +132,11 @@ public:
         [[nodiscard]] constexpr const value_type& back() const
         {
                 return *std::prev( end_ );
+        }
+
+        operator std::span< value_type >()
+        {
+                return std::span{ begin(), end() };
         }
 };
 

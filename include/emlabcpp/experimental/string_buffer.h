@@ -1,8 +1,8 @@
-
 #include "emlabcpp/experimental/pretty_printer.h"
 
 #include <algorithm>
 #include <array>
+#include <string.h>
 
 #pragma once
 
@@ -41,7 +41,7 @@ struct string_buffer : std::array< char, N >
 
         [[nodiscard]] constexpr std::size_t size() const
         {
-                return strlen(this->data());
+                return strlen( this->data() );
         }
 };
 
