@@ -19,7 +19,7 @@ load_impl( std::span< std::byte > buffer, ChecksumFunction&& chcksm_f )
         checksum chcksm;
         sig_conv::deserialize( buffer, chcksm );
 
-        T                           result;
+        T                           result{};
         protocol::conversion_result cres =
             conv::deserialize( buffer.subspan( sig_conv::max_size ), result );
 

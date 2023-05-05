@@ -11,11 +11,12 @@ struct handler
 {
         using chcksum_conv = protocol::converter_for< checksum, Endianess >;
 
-        template < typename ChecksumFunction >
+        template < typename FieldFunction, typename ChecksumFunction >
         static bool store(
             std::span< std::byte > target_buffer,
             const Payload&         pl,
-            view< const Field* >   fields,
+            std::size_t            field_count,
+            FieldFunction&&         field_f,
             ChecksumFunction&&     chcksm_f )
         {
                 bool                   success;
@@ -24,7 +25,7 @@ struct handler
                 std::tie( success, buffer ) = store_impl< Endianess >(
                     buffer,
                     header{
-                        .field_count = static_cast< uint32_t >( fields.size() ),
+                        .field_count = static_cast< uint32_t >( field_count ),
                     },
                     chcksm_f );
                 if ( !success ) {
@@ -36,7 +37,8 @@ struct handler
                         return false;
                 }
 
-                for ( const Field& fp : fields ) {
+                for ( std::size_t i : range( field_count ) ) {
+                        const Field fp = field_f( i );
                         std::tie( success, buffer ) =
                             store_impl< Endianess >( buffer, fp, chcksm_f );
                         if ( !success ) {
@@ -75,7 +77,8 @@ struct handler
                         return load_result::PAYLOAD_REFUSED;
                 }
 
-                for ( std::size_t i : range( head.field_count ) ) {
+                for ( const std::size_t i : range( head.field_count ) ) {
+                        std::ignore = i;
                         Field f;
                         std::tie( success, f, buffer ) =
                             load_impl< Field, Endianess >( buffer, chcksm_f );

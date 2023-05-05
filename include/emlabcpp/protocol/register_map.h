@@ -158,12 +158,14 @@ public:
                 } );
         }
 
-        template < typename UnaryCallable > constexpr auto with_register( key_type key, UnaryCallable&& f ) const
+        template < typename UnaryCallable >
+        constexpr auto with_register( key_type key, UnaryCallable&& f ) const
         {
                 return with_register_impl(*this, key, std::forward<UnaryCallable>(f));
         }
 
-        template < typename UnaryCallable > constexpr auto with_register( key_type key, UnaryCallable&& f )
+        template < typename UnaryCallable >
+        constexpr auto with_register( key_type key, UnaryCallable&& f )
         {
                 return with_register_impl(*this, key, std::forward<UnaryCallable>(f));
         }
