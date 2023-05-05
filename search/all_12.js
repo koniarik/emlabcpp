@@ -95,7 +95,7 @@ var searchData=
   ['stem_5fof_1040',['stem_of',['../namespaceemlabcpp.html#a69c59e260f99791d626a9665243323d0',1,'emlabcpp']]],
   ['steps_1041',['steps',['../namespaceemlabcpp.html#a95b7c5f71b2d2128143bbd09bc6cb341',1,'emlabcpp']]],
   ['storage_5ftype_1042',['storage_type',['../classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_01_4.html#ab91eef123d1fa5dfb93bd2f3690303ab',1,'emlabcpp::static_function_base&lt; ReturnType(ArgTypes...), Capacity, Align &gt;::storage_type()'],['../classemlabcpp_1_1derived__storage.html#a7830e5c1d8e1d81e4c4c7035539cea5e',1,'emlabcpp::derived_storage::storage_type()']]],
-  ['store_1043',['store',['../structemlabcpp_1_1cfg_1_1handler.html#ad2bd65906f89abfa56b2910e41154079',1,'emlabcpp::cfg::handler']]],
+  ['store_1043',['store',['../structemlabcpp_1_1cfg_1_1handler.html#a8763dc80e9361c0c3a15cbc79996ff98',1,'emlabcpp::cfg::handler']]],
   ['store_2eh_1044',['store.h',['../store_8h.html',1,'']]],
   ['store_5fimpl_1045',['store_impl',['../namespaceemlabcpp_1_1cfg.html#a7980f440577d53560bbe5adb7af1ed2e',1,'emlabcpp::cfg']]],
   ['store_5freply_1046',['store_reply',['../classemlabcpp_1_1coro_1_1request__reply.html#ae33c072689f18d6b207d5f96312b2b38',1,'emlabcpp::coro::request_reply']]],
