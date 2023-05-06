@@ -7,23 +7,29 @@ jobs:
         uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
         with:
             cmd: make test -j 4
+            delay: 0
     gcc_test_undefined:
         uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
         with:
             cmd: make test -j 4 SANITIZER=undefined
+            delay: 0
     gcc_test_address:
         uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
         with:
             cmd: make test -j 4 SANITIZER=address
+            delay: 5
     clang_test:
         uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
         with:
             cmd: CXX=clang++ CC=clang make test -j 4
+            delay: 5
     clang_test_undefined:
         uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
         with:
             cmd: CXX=clang++ CC=clang make test -j 4 SANITIZER=undefined
+            delay: 10
     clang_test_address:
         uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
         with:
             cmd: CXX=clang++ CC=clang make test -j 4 SANITIZER=address
+            delay: 10

@@ -5,6 +5,9 @@ on:
       cmd:
         required: true
         type: string
+      delay:
+        required: true
+        type: int
 
 jobs:
   install_base:
@@ -12,7 +15,9 @@ jobs:
     container: archlinux:latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Delay
+        run: sleep ${{ inputs.delay }}
       - name: Install dependencies
         run: pacman -Sy cmake gcc clang make gtest nlohmann-json --noconfirm
       - name: Execute
