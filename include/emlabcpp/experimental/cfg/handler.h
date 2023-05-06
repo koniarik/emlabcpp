@@ -11,12 +11,29 @@ struct handler
 {
         using chcksum_conv = protocol::converter_for< checksum, Endianess >;
 
+        template < typename ChecksumFunction >
+        static bool store(
+            std::span< std::byte > target_buffer,
+            const Payload&         pl,
+            view< const Field* >   fields,
+            ChecksumFunction&&     chcksm_f )
+        {
+                return store(
+                    target_buffer,
+                    pl,
+                    fields.size(),
+                    [&]( std::size_t i ) {
+                            return fields[i];
+                    },
+                    chcksm_f );
+        }
+
         template < typename FieldFunction, typename ChecksumFunction >
         static bool store(
             std::span< std::byte > target_buffer,
             const Payload&         pl,
             std::size_t            field_count,
-            FieldFunction&&         field_f,
+            FieldFunction&&        field_f,
             ChecksumFunction&&     chcksm_f )
         {
                 bool                   success;
