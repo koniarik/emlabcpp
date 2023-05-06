@@ -121,7 +121,7 @@ private:
                 return { prev, next };
         };
 
-        void set_node( std::byte* ptr, std::byte* const prev, std::byte* const next )
+        void set_node( std::byte* ptr, std::byte* const prev, std::byte* const next ) const
         {
                 EMLABCPP_INFO_LOG( "Storing at ", ptr );
                 ptr -= sizeof( std::byte* );

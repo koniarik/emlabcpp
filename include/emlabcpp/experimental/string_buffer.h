@@ -57,7 +57,7 @@ struct pretty_printer< string_buffer< N > >
         template < typename W >
         static void print( W&& w, const string_buffer< N >& buff )
         {
-                w( std::string_view( buff ) );
+                w( std::string_view{ buff } );
         }
 };
 

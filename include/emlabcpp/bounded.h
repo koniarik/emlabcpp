@@ -181,7 +181,7 @@ struct pretty_printer< bounded< T, MinVal, MaxVal > >
         template < typename Writer >
         static void print( Writer&& w, const bounded< T, MinVal, MaxVal >& b )
         {
-                pretty_printer< T >::print( w, *b );
+                pretty_printer< T >::print( std::forward< Writer >( w ), *b );
         }
 };
 

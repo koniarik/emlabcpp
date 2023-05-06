@@ -17,6 +17,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#include <bit>
 #include <cstddef>
 #include <cstdint>
 
@@ -29,7 +30,7 @@ namespace emlabcpp::pmr
 inline void* align( void* const ptr, const std::size_t alignment )
 {
         // note: based on tips from sarah@#include discord
-        const auto iptr         = reinterpret_cast< std::uintptr_t >( ptr );
+        const auto iptr         = std::bit_cast< std::uintptr_t >( ptr );
         const auto low_bit_mask = alignment - 1;
         const auto aligned      = ( iptr + low_bit_mask ) & ~low_bit_mask;
         return static_cast< std::byte* >( ptr ) + ( aligned - iptr );

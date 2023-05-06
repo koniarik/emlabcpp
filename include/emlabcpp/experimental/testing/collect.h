@@ -68,7 +68,7 @@ public:
         coro::wait_state state = coro::wait_state::WAITING;
         collector&       col;
 
-        collect_awaiter( collect_request req, collector& coll );
+        collect_awaiter( const collect_request& req, collector& coll );
 
         [[nodiscard]] coro::wait_state get_state() const override
         {

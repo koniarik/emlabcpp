@@ -69,8 +69,8 @@ public:
         deallocate( void* const ptr, const std::size_t, const std::size_t ) override
         {
 
-                const auto pval = reinterpret_cast< std::size_t >( ptr );
-                const auto bval = reinterpret_cast< std::size_t >( &pools_ );
+                const auto pval = std::bit_cast< std::size_t >( ptr );
+                const auto bval = std::bit_cast< std::size_t >( &pools_ );
 
                 const std::size_t spot_i = ( pval - bval ) / PoolSize;
 

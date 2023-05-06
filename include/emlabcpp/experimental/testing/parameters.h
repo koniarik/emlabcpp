@@ -203,7 +203,7 @@ struct param_value_processor
         T                   reply;
         param_value_request req;
 
-        void log_error( parameters& params );
+        void log_error( parameters& params ) const;
 
         [[nodiscard]] bool set_value( const params_server_client_variant& var )
         {
@@ -228,7 +228,7 @@ struct param_value_key_processor
         T                       reply;
         param_value_key_request req;
 
-        void log_error( parameters& params );
+        void log_error( parameters& params ) const;
 
         [[nodiscard]] bool set_value( const params_server_client_variant& var )
         {
@@ -253,7 +253,7 @@ struct param_type_processor
         param_type_request req;
         using reply_type = param_type_reply;
 
-        void log_error( parameters& )
+        void log_error( const parameters& ) const
         {
         }
 
@@ -268,7 +268,7 @@ struct param_child_processor
         node_id             reply;
         param_child_request req;
 
-        void log_error( parameters& )
+        void log_error( const parameters& ) const
         {
         }
 
@@ -283,7 +283,7 @@ struct param_child_count_processor
         child_count               reply;
         param_child_count_request req;
 
-        void log_error( parameters& )
+        void log_error( const parameters& ) const
         {
         }
 
@@ -298,7 +298,7 @@ struct param_key_processor
         key_type          reply;
         param_key_request req;
 
-        void log_error( parameters& )
+        void log_error( const parameters& ) const
         {
         }
 
@@ -359,14 +359,14 @@ private:
 };
 
 template < typename T >
-void param_value_processor< T >::log_error( parameters& params )
+void param_value_processor< T >::log_error( parameters& params ) const
 {
         params.send( param_error{ string_buffer( "for value of type:" ) } );
         params.send( param_error{ string_buffer( pretty_type_name< T >() ) } );
 }
 
 template < typename T >
-void param_value_key_processor< T >::log_error( parameters& params )
+void param_value_key_processor< T >::log_error( parameters& params ) const
 {
         params.send( param_error{ string_buffer( "for keyvalue of type:" ) } );
         params.send( param_error{ string_buffer( pretty_type_name< T >() ) } );
@@ -393,7 +393,7 @@ class parameters_server
 {
 public:
         parameters_server(
-            protocol::channel_type          chann,
+            const protocol::channel_type    chann,
             data_tree                       tree,
             params_server_transmit_callback send_cb );
 
@@ -402,11 +402,11 @@ public:
                 return channel_;
         }
 
-        void on_msg( std::span< const std::byte > data );
+        void on_msg( const std::span< const std::byte > data );
         void on_msg( const params_client_server_variant& req );
 
 private:
-        void on_req( const param_error& req );
+        void on_req( const param_error& req ) const;
         void on_req( const param_value_request& req );
         void on_req( const param_value_key_request& req );
         void on_req( const param_child_request& req );

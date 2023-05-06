@@ -124,7 +124,7 @@ auto& pretty_stream_write( ostreamlike auto& os, const Ts&... item )
 
 template < typename T >
 concept pretty_printable =
-    requires( const T& v ) { pretty_printer< T >::print( []( std::string_view ) {}, v ); };
+    requires( const T& v ) { pretty_printer< T >::print( []( const std::string_view ) {}, v ); };
 
 template < std::size_t N, typename... Ts >
 buffer_writer< N > pretty_print_buffer( const Ts&... item )
@@ -153,11 +153,11 @@ template <>
 struct pretty_printer< std::byte >
 {
         template < typename Writer >
-        static void print( Writer&& w, std::byte b )
+        static void print( Writer&& w, const std::byte b )
         {
                 // TODO: duplicates pretty_print_serialize_basic
                 std::array< char, 2 > buffer{};
-                auto [ptr, ec] = std::to_chars(
+                const auto [ptr, ec] = std::to_chars(
                     buffer.data(), buffer.data() + buffer.size(), static_cast< uint8_t >( b ), 16 );
                 if ( ec != std::errc() ) {
                         return;
@@ -470,7 +470,7 @@ struct pretty_printer< std::chrono::duration< Rep, Period > >
         template < typename Writer >
         static void print( Writer&& w, const std::chrono::duration< Rep, Period >& d )
         {
-                pretty_printer< Rep >::print( w, d.count() );
+                pretty_printer< Rep >::print( std::forward< Writer >( w ), d.count() );
         }
 };
 

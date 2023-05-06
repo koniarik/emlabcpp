@@ -103,7 +103,7 @@ struct converter< D, Endianess >
 };
 
 template < typename D, std::endian E, typename T >
-std::size_t serialize_range( std::span< std::byte > buffer, const view< const T* >& data )
+std::size_t serialize_range( const std::span< std::byte > buffer, const view< const T* >& data )
 {
         auto iter                             = buffer.begin();
         using sub_converter                   = converter_for< D, E >;
@@ -115,7 +115,7 @@ std::size_t serialize_range( std::span< std::byte > buffer, const view< const T*
 
                 std::advance( iter, *sub_bused );
         }
-        auto used = static_cast< std::size_t >( std::distance( buffer.begin(), iter ) );
+        const auto used = static_cast< std::size_t >( std::distance( buffer.begin(), iter ) );
         return used;
 }
 
@@ -331,7 +331,7 @@ struct converter< std::monostate, Endianess >
         }
 
         static constexpr conversion_result
-        deserialize( const std::span< const std::byte >&, value_type& )
+        deserialize( const std::span< const std::byte >&, const value_type& )
         {
                 return conversion_result{ 0 };
         }

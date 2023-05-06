@@ -138,7 +138,7 @@ void parameters::send( const params_client_server_variant& val )
 }
 
 parameters_server::parameters_server(
-    protocol::channel_type          chann,
+    const protocol::channel_type    chann,
     data_tree                       tree,
     params_server_transmit_callback send_cb )
   : channel_( chann )
@@ -147,7 +147,7 @@ parameters_server::parameters_server(
 {
 }
 
-void parameters_server::on_msg( std::span< const std::byte > data )
+void parameters_server::on_msg( const std::span< const std::byte > data )
 {
         // TODO: this is copy pasta festival from collect...
         using h = protocol::handler< params_client_server_group >;
@@ -162,7 +162,7 @@ void parameters_server::on_msg( std::span< const std::byte > data )
                 } );
 }
 
-void parameters_server::on_req( const param_error& req )
+void parameters_server::on_req( const param_error& req ) const
 {
         std::ignore = req;
         EMLABCPP_ERROR_LOG(

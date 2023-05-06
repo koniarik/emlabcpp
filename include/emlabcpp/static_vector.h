@@ -215,12 +215,12 @@ public:
                 return size_ == N;
         }
 
-        const_reference operator[]( size_type i ) const
+        const_reference operator[]( const size_type i ) const
         {
                 return storage_[i];
         }
 
-        reference operator[]( size_type i )
+        reference operator[]( const size_type i )
         {
                 return storage_[i];
         }

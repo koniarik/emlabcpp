@@ -39,7 +39,7 @@ struct data_promise
 template <>
 struct data_promise< void >
 {
-        void return_void()
+        void return_void() const
         {
         }
 };

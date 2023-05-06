@@ -43,7 +43,7 @@ public:
 
         constexpr message() = default;
 
-        constexpr explicit message( size_type n ) noexcept
+        constexpr explicit message( const size_type n ) noexcept
           : used_( n )
         {
         }
@@ -140,7 +140,7 @@ public:
                 return data_[i];
         }
 
-        void resize( size_type n ) noexcept
+        void resize( const size_type n ) noexcept
         {
                 used_ = n;
         }

@@ -91,7 +91,7 @@ public:
                     },
                     []( const internal_reactor_error& e ) {
                             visit(
-                                [&]( auto& item ) {
+                                []( auto& item ) {
                                         EMLABCPP_ERROR_LOG(
                                             "Internal error from reactor: ", decompose( item ) );
                                 },

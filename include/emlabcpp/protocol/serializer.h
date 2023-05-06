@@ -92,17 +92,14 @@ struct serializer< float, Endianess >
         static constexpr void
         serialize_at( std::span< std::byte, max_size > buffer, const float item )
         {
-                uint32_t v = 0;
-                std::memcpy( &v, &item, sizeof( float ) );
+                const auto v = std::bit_cast< uint32_t >( item );
                 sub_serializer::serialize_at( buffer, v );
         }
 
         static constexpr float deserialize( const std::span< const std::byte, max_size >& buffer )
         {
-                const uint32_t v   = sub_serializer::deserialize( buffer );
-                float          res = 0;
-                std::memcpy( &res, &v, sizeof( float ) );
-                return res;
+                const uint32_t v = sub_serializer::deserialize( buffer );
+                return std::bit_cast< float >( v );
         }
 };
 

@@ -227,7 +227,7 @@ template < typename Iterator >
 std::ostream& operator<<( std::ostream& os, const view< Iterator >& iter )
 {
         string_serialize_view(
-            [&]( const auto& item ) {
+            [&os]( const auto& item ) {
                     os << item;
             },
             iter );

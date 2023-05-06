@@ -24,7 +24,7 @@
 namespace emlabcpp::testing
 {
 
-collect_awaiter::collect_awaiter( collect_request req, collector& coll )
+collect_awaiter::collect_awaiter( const collect_request& req, collector& coll )
   : req( req )
   , col( coll )
 {
