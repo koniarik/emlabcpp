@@ -5,8 +5,5 @@ on: [push]
 jobs:
     test:
         uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
-        steps:
-            - uses: actions/checkout@v2
-
-            - name: Run
-              run: make test -j 4
+        with:
+            cmd: make test -j 4

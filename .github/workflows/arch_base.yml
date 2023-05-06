@@ -6,5 +6,8 @@ jobs:
   install_base:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Install dependencies
         run: pacman -Sy cmake gcc clang make gtest nlohmann-json --noconfirm
+      - name: Execute
+        run: ${{ inputs.cmd }}
