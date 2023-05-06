@@ -54,7 +54,7 @@ struct handler
                         return false;
                 }
 
-                for ( std::size_t i : range( field_count ) ) {
+                for ( const std::size_t i : range( field_count ) ) {
                         const Field fp = field_f( i );
                         std::tie( success, buffer ) =
                             store_impl< Endianess >( buffer, fp, chcksm_f );

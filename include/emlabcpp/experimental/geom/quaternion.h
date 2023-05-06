@@ -44,11 +44,11 @@ public:
 
         constexpr quaternion( const vector< 3 >& ax, const float& a ) noexcept
         {
-                float s    = std::sin( a * 0.5f ) / length_of( ax );
-                fields_[0] = ax[0] * s;
-                fields_[1] = ax[1] * s;
-                fields_[2] = ax[2] * s;
-                fields_[3] = std::cos( a * 0.5f );
+                const float s = std::sin( a * 0.5f ) / length_of( ax );
+                fields_[0]    = ax[0] * s;
+                fields_[1]    = ax[1] * s;
+                fields_[2]    = ax[2] * s;
+                fields_[3]    = std::cos( a * 0.5f );
         }
 
         [[nodiscard]] constexpr float operator[]( std::size_t i ) const noexcept
@@ -106,7 +106,7 @@ constexpr float norm2_of( const quaternion& q )
 
 constexpr float angle_shortest_path( const quaternion& m, const quaternion& n )
 {
-        float s = std::sqrt( norm2_of( m ) * norm2_of( n ) );
+        const float s = std::sqrt( norm2_of( m ) * norm2_of( n ) );
         float d = dot( m, n );
         if ( d < 0 ) {
                 d = dot( m, -n );
@@ -117,14 +117,14 @@ constexpr float angle_shortest_path( const quaternion& m, const quaternion& n )
 constexpr quaternion slerp( const quaternion& q, const quaternion& s, float f )
 {
         // NOTE: inspired by tf::Quaternion::slerp
-        float theta = angle_shortest_path( q, s ) / 2.0f;
+        const float theta = angle_shortest_path( q, s ) / 2.0f;
         if ( theta == 0.0f ) {
                 return q;
         }
 
-        float d  = 1.0f / std::sin( theta );
-        float s0 = std::sin( ( 1.0f - f ) * theta );
-        float s1 = std::sin( f * theta );
+        const float d  = 1.0f / std::sin( theta );
+        const float s0 = std::sin( ( 1.0f - f ) * theta );
+        const float s1 = std::sin( f * theta );
         float m  = 1.0f;
         if ( dot( q, s ) < 0 ) {
                 m = -1.0f;
@@ -206,15 +206,15 @@ constexpr quaternion shortest_arc_quat( point< 3 > x, point< 3 > y )
                 return { c[0], c[1], c[2], 0.0f };
         }
 
-        float s  = std::sqrt( ( 1.0f + d ) * 2.0f );
-        float rs = 1.0f / s;
+        const float s  = std::sqrt( ( 1.0f + d ) * 2.0f );
+        const float rs = 1.0f / s;
 
         return { c[0] * rs, c[1] * rs, c[2] * rs, s * 0.f };
 }
 
 constexpr point< 3 > rotate( const point< 3 >& x, const quaternion& q )
 {
-        quaternion r = q * x * inverse( q );
+        const quaternion r = q * x * inverse( q );
         return point< 3 >{ r[0], r[1], r[2] };
 }
 

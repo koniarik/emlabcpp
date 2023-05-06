@@ -109,7 +109,7 @@ template < std::size_t N >
 constexpr float volume_of( const simplex< point< N >, N >& simplex )
 {
         matrix< N, N > m;
-        for ( std::size_t i : range( simplex.size() - 1 ) ) {
+        for ( const std::size_t i : range( simplex.size() - 1 ) ) {
                 auto diff = simplex[i + 1] - simplex[0];
                 std::copy( diff.begin(), diff.end(), &m[i][0] );
         }

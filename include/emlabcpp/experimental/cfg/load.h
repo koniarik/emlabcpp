@@ -19,13 +19,13 @@ load_impl( std::span< std::byte > buffer, ChecksumFunction&& chcksm_f )
         checksum chcksm;
         sig_conv::deserialize( buffer, chcksm );
 
-        T                           result{};
-        protocol::conversion_result cres =
+        T                                 result{};
+        const protocol::conversion_result cres =
             conv::deserialize( buffer.subspan( sig_conv::max_size ), result );
 
-        std::span< std::byte > data = buffer.subspan( sig_conv::max_size, cres.used );
+        const std::span< std::byte > data = buffer.subspan( sig_conv::max_size, cres.used );
 
-        bool chcksum_matches = chcksm_f( data ) == chcksm;
+        const bool chcksum_matches = chcksm_f( data ) == chcksm;
 
         return {
             !cres.has_error() && chcksum_matches,

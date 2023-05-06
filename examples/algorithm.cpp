@@ -40,7 +40,7 @@ int main( int, char*[] )
 
         std::tuple< int, std::string > tpl_data{ 42, "wololo" };
         std::vector< int >             vec_data{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0 };
-        std::list< int >               list_data{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0 };
+        const std::list< int >         list_data{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0 };
 
         // ---------------------------------------------------------------------------------------
         // `for_each(cont, f)` simply executes lambda `f`  over each item in container `cont`, the
@@ -60,7 +60,7 @@ int main( int, char*[] )
         // `f`. This returns index of item for std::tuple-like items and iterator for begin/end
         // containers.
 
-        std::size_t index = em::find_if( tpl_data, [&]( auto item ) {
+        const std::size_t index = em::find_if( tpl_data, [&]( auto item ) {
                 return std::is_same_v< decltype( item ), std::string >;
         } );
         std::cout << "Item with std::string type is at position: " << index << '\n';
@@ -76,7 +76,7 @@ int main( int, char*[] )
         // used to either explicitly control flow based on the sign or use it to propagate the sign
         // into a computation. Note that we consider 0 as a separate case.
 
-        int sign_rand_val = ( std::rand() % 3 ) - 1;
+        const int sign_rand_val = ( std::rand() % 3 ) - 1;
         switch ( em::sign( sign_rand_val ) ) {
         case -1:
                 std::cout << "sign_rand_val is negative\n";
@@ -94,7 +94,7 @@ int main( int, char*[] )
         // Let's say your light sensor returns values in range 0-255 which actually just represents
         // 0-100% intensity.
 
-        float mapped = em::map_range( 42, 0, 255, 0.0f, 1.0f );
+        const float mapped = em::map_range( 42, 0, 255, 0.0f, 1.0f );
         std::cout << "42 mapped from range 0-255 to range 0-1, is: " << mapped << '\n';
 
         // ---------------------------------------------------------------------------------------
@@ -110,7 +110,7 @@ int main( int, char*[] )
         // `tail(cont)` returns a view over provided container without the first item, handy for the
         // code that handles first item differently.
 
-        for ( int i : em::tail( vec_data ) ) {
+        for ( const int i : em::tail( vec_data ) ) {
                 std::cout << i << '\n';  // note that `1` from the container is ignored
         }
 
@@ -118,7 +118,7 @@ int main( int, char*[] )
         // `init(cont)` returns a view over provided container without the last item, handy for the
         // code that handles last item differently.
 
-        for ( int i : em::init( vec_data ) ) {
+        for ( const int i : em::init( vec_data ) ) {
                 std::cout << i << '\n';  // note that `0` from the container is ignored
         }
 
@@ -129,7 +129,7 @@ int main( int, char*[] )
         //
         // There also exists `min_elem` and `max_elem`.
 
-        em::min_max< int > mm_res = em::min_max_elem( vec_data, []( int val ) {
+        const em::min_max< int > mm_res = em::min_max_elem( vec_data, []( int val ) {
                 return std::abs( val );
         } );
         std::cout << "Minimal absolute value of vec_data is " << mm_res.min << " and maximum is "
@@ -139,7 +139,7 @@ int main( int, char*[] )
         // `sum(cont, f)` returns sum of result of `f` applied over container `cont`, useful to
         // mirror sum in mathematical sense.
 
-        int squared_sum = em::sum( vec_data, []( int val ) {
+        const int squared_sum = em::sum( vec_data, []( int val ) {
                 return val * val;
         } );
         std::cout << "Squared sum of values from vector is: " << squared_sum << '\n';
@@ -149,7 +149,7 @@ int main( int, char*[] )
         // value being 's', this forms `f(f(f(f(s,c[0]),c[1]),c[2])...` chain. Useful for for
         // implementing `sum` or doing multiplication instead.
 
-        int multiplied_vec = em::accumulate( vec_data, 1, []( int base, int val ) {
+        const int multiplied_vec = em::accumulate( vec_data, 1, []( int base, int val ) {
                 return base * val;
         } );
         std::cout << "Value of all values in vector multiplied together is: " << multiplied_vec
@@ -159,7 +159,7 @@ int main( int, char*[] )
         // `avg(cont, f)` can be used to calculate average value of items, with function
         // pre-processing them.
 
-        float avg_vec = em::avg( vec_data, [&]( int val ) {
+        const float avg_vec = em::avg( vec_data, [&]( int val ) {
                 return static_cast< float >( val );
         } );
         std::cout << "Average value of items in vec_data is: " << avg_vec << '\n';
@@ -177,7 +177,7 @@ int main( int, char*[] )
         // the container. This can be used for checking various properties over container, there is
         // also `none_of(cont, f)` and `all_of(cont, f)`
 
-        bool has_zero_val = em::any_of( vec_data, []( int val ) {
+        const bool has_zero_val = em::any_of( vec_data, []( int val ) {
                 return val == 0;
         } );
         if ( has_zero_val ) {
@@ -188,7 +188,7 @@ int main( int, char*[] )
         // `equal(cont1, cont2)` compares content of containers for equality, this avoids the need
         // for same types of containers or values.
 
-        bool content_is_equal = em::equal( vec_data, list_data );
+        const bool content_is_equal = em::equal( vec_data, list_data );
         std::cout << "The statement that vec_data and list_data has equal content is: "
                   << ( content_is_equal ? "true" : "false" ) << '\n';
 
@@ -204,13 +204,14 @@ int main( int, char*[] )
         auto mapped_vec = em::map_f< std::vector< int > >( vec_data, []( int val ) {
                 return -val;
         } );
-        for ( int v : mapped_vec ) {
+        for ( const int v : mapped_vec ) {
                 std::cout << "mapped val: " << v << '\n';
         }
 
-        std::array< std::string, 11 > mapped_arr = em::map_f_to_a< 11 >( vec_data, []( auto item ) {
-                return std::to_string( item );
-        } );
+        const std::array< std::string, 11 > mapped_arr =
+            em::map_f_to_a< 11 >( vec_data, []( auto item ) {
+                    return std::to_string( item );
+            } );
         for ( const std::string& s : mapped_arr ) {
                 std::cout << "mapped arr val: " << s << '\n';
         }
@@ -227,14 +228,14 @@ int main( int, char*[] )
         auto mapped_struct_vec =
             em::map_f< std::vector< foo_conv > >( vec_data, em::convert_to< foo_conv >{} );
 
-        for ( foo_conv v : mapped_struct_vec ) {
+        for ( const foo_conv v : mapped_struct_vec ) {
                 std::cout << "mapped float val: " << v.i << '\n';
         }
 
         // ---------------------------------------------------------------------------------------
         // `joined` is used for example to join strings with an delimiter
 
-        std::vector< std::string > string_data{ "a", "b", "c", "d", "e" };
+        const std::vector< std::string > string_data{ "a", "b", "c", "d", "e" };
 
         std::cout << "joined string data: " << em::joined( string_data, std::string{ "," } )
                   << '\n';

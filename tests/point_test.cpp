@@ -28,9 +28,9 @@ using namespace emlabcpp;
 
 TEST( Point, dot )
 {
-        point< 3 > a{ 0, 1, 0 };
-        point< 3 > b{ -0.5, -0.5, 0 };
-        point< 3 > c{ 1, 1, 0 };
+        const point< 3 > a{ 0, 1, 0 };
+        const point< 3 > b{ -0.5, -0.5, 0 };
+        const point< 3 > c{ 1, 1, 0 };
 
         ASSERT_EQ( dot( a, b ), -0.5f );
         ASSERT_EQ( dot( c, b ), -1.f );
@@ -86,9 +86,9 @@ TYPED_TEST( PointTest, json )
 {
         static constexpr unsigned n = TypeParam::value;
 
-        nlohmann::json zero_p_j = nlohmann::json( this->zero_p_ );
-        nlohmann::json unit_p_j = nlohmann::json( this->unit_p_ );
-        nlohmann::json dim_p_j  = nlohmann::json( this->dim_p_ );
+        const nlohmann::json zero_p_j = nlohmann::json( this->zero_p_ );
+        const nlohmann::json unit_p_j = nlohmann::json( this->unit_p_ );
+        const nlohmann::json dim_p_j  = nlohmann::json( this->dim_p_ );
 
         using t = point< n >;
 
@@ -100,8 +100,8 @@ TYPED_TEST( PointTest, json )
 // TODO: move this out
 TEST( VecTestSimple, crossProduct )
 {
-        vector< 3 > a{ 10, 255, 1 };
-        vector< 3 > b{ -22, 0, 4 };
+        const vector< 3 > a{ 10, 255, 1 };
+        const vector< 3 > b{ -22, 0, 4 };
 
         ASSERT_EQ( dot( cross_product( a, b ), a ), 0.f );
         ASSERT_EQ( dot( cross_product( a, b ), b ), 0.f );

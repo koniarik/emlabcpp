@@ -129,11 +129,11 @@ lineary_interpolate_path( const std::vector< pose >& ipath, float d_step, float 
         if ( ipath.empty() ) {
                 return res;
         }
-        for ( std::size_t i : range( ipath.size() - 1 ) ) {
+        for ( const std::size_t i : range( ipath.size() - 1 ) ) {
                 const pose& from      = ipath[i];
                 const pose& to        = ipath[i + 1];
-                std::size_t seg_steps = steps( distance_of( to, from ), d_step, a_step );
-                for ( std::size_t j : range( seg_steps ) ) {
+                const std::size_t seg_steps = steps( distance_of( to, from ), d_step, a_step );
+                for (const  std::size_t j : range( seg_steps ) ) {
                         res.push_back( lin_interp( from, to, float( j ) / float( seg_steps ) ) );
                 }
         }

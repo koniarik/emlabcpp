@@ -81,7 +81,7 @@ std::vector< testing::reactor_controller_variant > reactor_interface::msgs{};
 template < typename T >
 void executor_test_run( T& tf )
 {
-        for ( std::size_t i : range( 1u, 8u ) ) {
+        for ( const std::size_t i : range( 1u, 8u ) ) {
                 testing::executor exec{
                     static_cast< testing::test_id >( i ), pmr::new_delete_resource(), tf };
 
@@ -130,7 +130,7 @@ TEST( reactor, reactor_simple )
 
         rec.on_msg( testing::exec_request{ .rid = 0, .tid = 0 } );
 
-        for ( std::size_t i : range( 20u ) ) {
+        for ( const std::size_t i : range( 20u ) ) {
                 std::ignore = i;
                 rec.tick();
         }

@@ -370,7 +370,7 @@ constexpr auto determinant( const M& m )
         constexpr std::size_t N   = M::rows;
         float                 res = 0.f;
         for_each_index< N >( [&]< std::size_t i > {
-                rowcol_submatrix< const M, i, 0 > submatrix{ m };
+                const rowcol_submatrix< const M, i, 0 > submatrix{ m };
                 res += ( i % 2 == 0 ? 1 : -1 ) * m[i][0] * determinant( submatrix );
         } );
         return res;

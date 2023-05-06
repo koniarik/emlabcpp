@@ -66,10 +66,10 @@ public:
 
 inline void register_gtests( controller& cont )
 {
-        std::string suite_name = std::string{ cont.suite_name() };
+        const std::string suite_name = std::string{ cont.suite_name() };
         for ( auto [tid, tinfo] : cont.get_tests() ) {
-                std::string name{ tinfo.name.begin(), tinfo.name.end() };
-                test_id     test_id = tid;
+                const std::string name{ tinfo.name.begin(), tinfo.name.end() };
+                const test_id     test_id = tid;
                 ::testing::RegisterTest(
                     suite_name.c_str(),
                     name.c_str(),
