@@ -1,0 +1,10 @@
+
+on:
+  workflow_call:
+
+jobs:
+  install_base:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: pacman -Sy cmake gcc clang make gtest nlohmann-json --noconfirm

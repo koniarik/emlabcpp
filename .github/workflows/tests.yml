@@ -4,20 +4,9 @@ on: [push]
 
 jobs:
     test:
-        runs-on: ubuntu-22.04
-        container: archlinux:latest
-
+        uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
         steps:
             - uses: actions/checkout@v2
 
-            - name: Install dependencies
-              run: pacman -Sy cmake gcc clang make gtest nlohmann-json --noconfirm
-
-            - name: Test
-              run: make test
-
-            - name: Test under address sanitizer
-              run: make test SANITIZER=address
-
-            - name: Test under undefined sanitizer
-              run: make test SANITIZER=undefined
+            - name: Run
+              run: make test -j 4
