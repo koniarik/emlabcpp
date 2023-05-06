@@ -7,7 +7,7 @@ on:
         type: string
       delay:
         required: true
-        type: int
+        type: string
 
 jobs:
   install_base:
