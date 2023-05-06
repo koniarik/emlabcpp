@@ -330,9 +330,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E&gt; </td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9">converter_for_impl</a> ()</td></tr>
 <tr class="separator:a8a42ec62524b9afc0195ff5f102300f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dce2894c272d9a0c81d1da217ed6181"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E, typename T &gt; </td></tr>
-<tr class="memitem:a2dce2894c272d9a0c81d1da217ed6181"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a2dce2894c272d9a0c81d1da217ed6181">serialize_range</a> (std::span&lt; std::byte &gt; buffer, const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const T * &gt; &amp;data)</td></tr>
-<tr class="separator:a2dce2894c272d9a0c81d1da217ed6181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a025c3ab4f51bf2f567f9ad6dd9440355"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E, typename T &gt; </td></tr>
+<tr class="memitem:a025c3ab4f51bf2f567f9ad6dd9440355"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a025c3ab4f51bf2f567f9ad6dd9440355">serialize_range</a> (const std::span&lt; std::byte &gt; buffer, const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const T * &gt; &amp;data)</td></tr>
+<tr class="separator:a025c3ab4f51bf2f567f9ad6dd9440355"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa390c4e4ac21589780d1561635052074"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E, typename T &gt; </td></tr>
 <tr class="memitem:aa390c4e4ac21589780d1561635052074"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aa390c4e4ac21589780d1561635052074">deserialize_range</a> (const std::span&lt; const std::byte &gt; &amp;buffer, const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; T * &gt; &amp;data)</td></tr>
 <tr class="separator:aa390c4e4ac21589780d1561635052074"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1222,8 +1222,8 @@ template&lt;std::size_t N&gt; </div>
 
 </div>
 </div>
-<a id="a2dce2894c272d9a0c81d1da217ed6181"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2dce2894c272d9a0c81d1da217ed6181">&#9670;&nbsp;</a></span>serialize_range()</h2>
+<a id="a025c3ab4f51bf2f567f9ad6dd9440355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a025c3ab4f51bf2f567f9ad6dd9440355">&#9670;&nbsp;</a></span>serialize_range()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1233,7 +1233,7 @@ template&lt;typename D , std::endian E, typename T &gt; </div>
         <tr>
           <td class="memname">std::size_t emlabcpp::protocol::serialize_range </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; std::byte &gt;&#160;</td>
+          <td class="paramtype">const std::span&lt; std::byte &gt;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -1738,7 +1738,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Sat May 6 2023 10:11:49 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat May 6 2023 11:16:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

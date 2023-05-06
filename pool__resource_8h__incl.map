@@ -1,13 +1,14 @@
 <map id="include/emlabcpp/pmr/pool_resource.h" name="include/emlabcpp/pmr/pool_resource.h">
-<area shape="rect" id="node1" title=" " alt="" coords="308,5,475,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="341,5,508,47"/>
 <area shape="rect" id="node2" href="$memory__resource_8h.html" title=" " alt="" coords="5,95,180,136"/>
 <area shape="rect" id="node4" href="$pmr_2util_8h.html" title=" " alt="" coords="204,102,357,129"/>
-<area shape="rect" id="node6" href="$range_8h.html" title=" " alt="" coords="667,273,806,300"/>
-<area shape="rect" id="node8" href="$static__vector_8h.html" title=" " alt="" coords="396,102,581,129"/>
-<area shape="rect" id="node3" title=" " alt="" coords="108,273,179,300"/>
-<area shape="rect" id="node5" title=" " alt="" coords="181,191,247,218"/>
-<area shape="rect" id="node7" href="$numeric_8h.html" title=" " alt="" coords="664,348,809,389"/>
-<area shape="rect" id="node9" href="$concepts_8h.html" title=" " alt="" coords="443,273,603,300"/>
-<area shape="rect" id="node10" href="$pretty__printer_8h.html" title=" " alt="" coords="541,184,719,225"/>
-<area shape="rect" id="node11" href="$static__storage_8h.html" title=" " alt="" coords="271,191,466,218"/>
+<area shape="rect" id="node7" href="$range_8h.html" title=" " alt="" coords="733,273,871,300"/>
+<area shape="rect" id="node9" href="$static__vector_8h.html" title=" " alt="" coords="429,102,615,129"/>
+<area shape="rect" id="node3" title=" " alt="" coords="109,273,180,300"/>
+<area shape="rect" id="node5" title=" " alt="" coords="183,191,221,218"/>
+<area shape="rect" id="node6" title=" " alt="" coords="246,191,313,218"/>
+<area shape="rect" id="node8" href="$numeric_8h.html" title=" " alt="" coords="729,348,875,389"/>
+<area shape="rect" id="node10" href="$concepts_8h.html" title=" " alt="" coords="509,273,669,300"/>
+<area shape="rect" id="node11" href="$pretty__printer_8h.html" title=" " alt="" coords="607,184,784,225"/>
+<area shape="rect" id="node12" href="$static__storage_8h.html" title=" " alt="" coords="337,191,531,218"/>
 </map>

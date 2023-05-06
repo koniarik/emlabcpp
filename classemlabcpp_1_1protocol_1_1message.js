@@ -8,7 +8,7 @@ var classemlabcpp_1_1protocol_1_1message =
     [ "size_type", "classemlabcpp_1_1protocol_1_1message.html#aa19ca00e9db1ecb08f7416f2cad74da0", null ],
     [ "value_type", "classemlabcpp_1_1protocol_1_1message.html#aad888e2d0e97fa5bb4fc3839886e43e6", null ],
     [ "message", "classemlabcpp_1_1protocol_1_1message.html#af0f330ca867f01e21cc495e14f880ff5", null ],
-    [ "message", "classemlabcpp_1_1protocol_1_1message.html#a3af4b250256bf1036ef2b7cebcca202a", null ],
+    [ "message", "classemlabcpp_1_1protocol_1_1message.html#aca2940f71d98612a837cbf50ec63caa9", null ],
     [ "message", "classemlabcpp_1_1protocol_1_1message.html#a86fb664e427aa25123bab33afe6ee054", null ],
     [ "message", "classemlabcpp_1_1protocol_1_1message.html#afae56949a8faf879bbef2181e129e3be", null ],
     [ "message", "classemlabcpp_1_1protocol_1_1message.html#a91059341345e69e220e760ab9e7c3060", null ],
@@ -25,7 +25,7 @@ var classemlabcpp_1_1protocol_1_1message =
     [ "front", "classemlabcpp_1_1protocol_1_1message.html#aff2b258b50b119df31446868886d9e14", null ],
     [ "operator[]", "classemlabcpp_1_1protocol_1_1message.html#af09f10c984479619049520bc28d626cb", null ],
     [ "operator[]", "classemlabcpp_1_1protocol_1_1message.html#a8acaf9218f8a73b700951fc48069b83e", null ],
-    [ "resize", "classemlabcpp_1_1protocol_1_1message.html#afea4154be4d56c0253e0635593e0ca68", null ],
+    [ "resize", "classemlabcpp_1_1protocol_1_1message.html#a1aeba025057b408f954854ac614f7efa", null ],
     [ "size", "classemlabcpp_1_1protocol_1_1message.html#a86c7be85eba571133db0d3247c006d8e", null ],
     [ "operator==", "classemlabcpp_1_1protocol_1_1message.html#a4f421240c1f3fece8b5f70b80e6b6522", null ],
     [ "capacity", "classemlabcpp_1_1protocol_1_1message.html#a5875845d17d03b1db64f95f35756dd4f", null ]

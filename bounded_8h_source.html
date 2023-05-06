@@ -231,7 +231,7 @@ $(document).ready(function(){initNavTree('bounded_8h_source.html',''); initResiz
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> Writer &gt;</div>
 <div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1pretty__printer_3_01bounded_3_01T_00_01MinVal_00_01MaxVal_01_4_01_4.html#a5ab6b27016e554530e37216c3f7d011d">  182</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1pretty__printer_3_01bounded_3_01T_00_01MinVal_00_01MaxVal_01_4_01_4.html#a5ab6b27016e554530e37216c3f7d011d">print</a>( Writer&amp;&amp; w, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1bounded.html">bounded&lt; T, MinVal, MaxVal &gt;</a>&amp; b )</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        {</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer&lt; T &gt;::print</a>( w, *b );</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1pretty__printer">pretty_printer&lt; T &gt;::print</a>( std::forward&lt; Writer &gt;( w ), *b );</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        }</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;};</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
@@ -280,7 +280,7 @@ $(document).ready(function(){initNavTree('bounded_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="bounded_8h.html">bounded.h</a></li>
-    <li class="footer">Generated on Sat May 6 2023 10:11:49 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat May 6 2023 11:16:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
