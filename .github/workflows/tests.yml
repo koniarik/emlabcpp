@@ -5,31 +5,17 @@ on: [push]
 jobs:
     gcc_test:
         uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
-        concurrency: gcc
         with:
             cmd: make test -j 4
     gcc_test_undefined:
         uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
-        concurrency: gcc
         with:
             cmd: make test -j 4 SANITIZER=undefined
     gcc_test_address:
         uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
-        concurrency: gcc
         with:
             cmd: make test -j 4 SANITIZER=address
     clang_test:
         uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
-        concurrency: clang
         with:
             cmd: CXX=clang++ CC=clang make test -j 4
-    clang_test_undefined:
-        uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
-        concurrency: clang
-        with:
-            cmd: CXX=clang++ CC=clang make test -j 4 SANITIZER=undefined
-    clang_test_address:
-        uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
-        concurrency: clang
-        with:
-            cmd: CXX=clang++ CC=clang make test -j 4 SANITIZER=address
