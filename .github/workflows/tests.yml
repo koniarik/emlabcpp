@@ -5,7 +5,7 @@ on: [push]
 jobs:
     test:
         runs-on: ubuntu-22.04
-        contianer: archlinux:latest
+        container: archlinux:latest
 
         steps:
             - uses: actions/checkout@v2
