@@ -1,6 +1,10 @@
 
 on:
   workflow_call:
+    inputs:
+      cmd:
+        required: true
+        type: string
 
 jobs:
   install_base:
