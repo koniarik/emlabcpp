@@ -180,7 +180,7 @@ $(document).ready(function(){initNavTree('simplex_8h_source.html',''); initResiz
 <div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a6189ac849a51ae66a922cd84c9af8254">  109</a></span>&#160;constexpr <span class="keywordtype">float</span> <a class="code" href="namespaceemlabcpp.html#a6189ac849a51ae66a922cd84c9af8254">volume_of</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="code" href="classemlabcpp_1_1point.html">point&lt; N &gt;</a>, N &gt;&amp; <a class="code" href="classemlabcpp_1_1simplex.html">simplex</a> )</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="classemlabcpp_1_1matrix.html">matrix&lt; N, N &gt;</a> m;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">for</span> ( std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( <a class="code" href="classemlabcpp_1_1simplex.html">simplex</a>.<a class="code" href="classemlabcpp_1_1simplex.html#a1d4f76faf3b981d25919fdfd3f7c21da">size</a>() - 1 ) ) {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">for</span> ( <span class="keyword">const</span> std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( <a class="code" href="classemlabcpp_1_1simplex.html">simplex</a>.<a class="code" href="classemlabcpp_1_1simplex.html#a1d4f76faf3b981d25919fdfd3f7c21da">size</a>() - 1 ) ) {</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keyword">auto</span> diff = <a class="code" href="classemlabcpp_1_1simplex.html">simplex</a>[i + 1] - <a class="code" href="classemlabcpp_1_1simplex.html">simplex</a>[0];</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <a class="code" href="namespaceemlabcpp.html#af85136552afa4d0a86dd1fb078223cdd">std::copy</a>( diff.begin(), diff.end(), &amp;m[i][0] );</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
@@ -273,7 +273,7 @@ $(document).ready(function(){initNavTree('simplex_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_3ae5028df88b3fc471a247e16af56915.html">geom</a></li><li class="navelem"><a class="el" href="simplex_8h.html">simplex.h</a></li>
-    <li class="footer">Generated on Sat May 6 2023 09:24:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat May 6 2023 10:03:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

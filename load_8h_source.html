@@ -108,13 +108,13 @@ $(document).ready(function(){initNavTree('load_8h_source.html',''); initResizabl
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1cfg.html#abc7e2ad89ecd40087cb01e4d7f2481eb">checksum</a> chcksm;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">sig_conv::deserialize</a>( buffer, chcksm );</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        T                           result{};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html">protocol::conversion_result</a> cres =</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        T                                 result{};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html">protocol::conversion_result</a> cres =</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">conv::deserialize</a>( buffer.subspan( <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">sig_conv::max_size</a> ), result );</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::span&lt; std::byte &gt; data = buffer.subspan( <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">sig_conv::max_size</a>, cres.<a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html#abebfeb3f7864ea1c89b7cf7409fcfd07">used</a> );</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">const</span> std::span&lt; std::byte &gt; data = buffer.subspan( <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">sig_conv::max_size</a>, cres.<a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html#abebfeb3f7864ea1c89b7cf7409fcfd07">used</a> );</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">bool</span> chcksum_matches = chcksm_f( data ) == chcksm;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span> chcksum_matches = chcksm_f( data ) == chcksm;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            !cres.<a class="code" href="structemlabcpp_1_1protocol_1_1conversion__result.html#a211f8db3075240f4a0d591c8d43b7e12">has_error</a>() &amp;&amp; chcksum_matches,</div>
@@ -140,7 +140,7 @@ $(document).ready(function(){initNavTree('load_8h_source.html',''); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_b8d3940418ab59971bff71afaa8cab2b.html">cfg</a></li><li class="navelem"><a class="el" href="load_8h.html">load.h</a></li>
-    <li class="footer">Generated on Sat May 6 2023 09:24:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat May 6 2023 10:03:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
