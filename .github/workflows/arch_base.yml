@@ -9,6 +9,8 @@ on:
 jobs:
   install_base:
     runs-on: ubuntu-latest
+    container: archlinux:latest
+
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
