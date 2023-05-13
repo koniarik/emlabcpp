@@ -40,6 +40,14 @@ TEST( Algorithm, sign )
         EXPECT_EQ( sign( i ), 1 );
 }
 
+TEST( Algorithm, ceil_to )
+{
+        EXPECT_EQ( ceil_to( 1, 5 ), 5 );
+        EXPECT_EQ( ceil_to( 2, 5 ), 5 );
+        EXPECT_EQ( ceil_to( 4, 5 ), 5 );
+        EXPECT_EQ( ceil_to( 5, 5 ), 5 );
+}
+
 // NOLINTNEXTLINE
 TEST( Algorithm, map_range )
 {

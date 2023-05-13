@@ -51,6 +51,17 @@ constexpr int sign( const T& val )
         return 0;
 }
 
+/// takes an value `val` and rounds it up to nearest multiply of `base`
+template < typename T >
+[[nodiscard]] constexpr T ceil_to( T val, T base )
+{
+        auto m = val % base;
+        if ( m == 0 ) {
+                return val;
+        }
+        return val + base - m;
+}
+
 /// maps input value 'input' from input range to equivalent value in output range
 template < arithmetic_operators T, arithmetic_operators U >
 [[nodiscard]] constexpr U map_range( T input, T from_min, T from_max, U to_min, U to_max )
