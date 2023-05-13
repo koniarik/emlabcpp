@@ -23,7 +23,6 @@ store_impl( std::span< std::byte > buffer, const T& item, ChecksumFunction&& chc
         const bounded used  = conv::serialize_at( data.subspan< 0, conv::max_size >(), item );
         data                = data.first( *used );
         const checksum chck = chcksm_f( data );
-
         sig_conv::serialize_at( buffer.subspan< 0, sig_conv::max_size >(), chck );
         return { true, buffer.subspan( sig_conv::max_size + data.size() ) };
 }

@@ -46,6 +46,10 @@ public:
 
         linked_list_node& operator=( linked_list_node&& other ) noexcept
         {
+                if ( &other == this ) {
+                        return *this;
+                }
+
                 item_ = std::move( other.item_ );
 
                 prev_ = other.prev_;

@@ -39,6 +39,8 @@ struct register_pair
         static constexpr std::size_t size = traits::max_size;
 
         value_type value;
+
+        friend constexpr auto operator<=>(const register_pair&, const register_pair&) = default;
 };
 
 template < typename UnaryCallable, typename Registers >
@@ -169,6 +171,8 @@ public:
         {
                 return with_register_impl(*this, key, std::forward<UnaryCallable>(f));
         }
+
+        friend constexpr auto operator<=>(const register_map&, const register_map&) = default;
 private:
         template < typename Class, typename UnaryCallable >
         requires(

@@ -48,7 +48,6 @@ struct handler
                 if ( !success ) {
                         return false;
                 }
-
                 std::tie( success, buffer ) = store_impl< Endianess >( buffer, pl, chcksm_f );
                 if ( !success ) {
                         return false;

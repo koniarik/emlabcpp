@@ -26,7 +26,6 @@ load_impl( std::span< std::byte > buffer, ChecksumFunction&& chcksm_f )
         const std::span< std::byte > data = buffer.subspan( sig_conv::max_size, cres.used );
 
         const bool chcksum_matches = chcksm_f( data ) == chcksm;
-
         return {
             !cres.has_error() && chcksum_matches,
             result,
