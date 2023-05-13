@@ -20,6 +20,7 @@ var classemlabcpp_1_1protocol_1_1register__map =
     [ "setup_register", "classemlabcpp_1_1protocol_1_1register__map.html#a62410c195ed948480339d60e9ef756a8", null ],
     [ "with_register", "classemlabcpp_1_1protocol_1_1register__map.html#af48d4d383f0cd62c837b3a4aa18a5d27", null ],
     [ "with_register", "classemlabcpp_1_1protocol_1_1register__map.html#a069dc3bd6089aa6ba6759ea9f3d94d11", null ],
+    [ "operator<=>", "classemlabcpp_1_1protocol_1_1register__map.html#afc4e0de3c3df4e6efc4260ae12272f17", null ],
     [ "contains_key", "classemlabcpp_1_1protocol_1_1register__map.html#ad94eab5cd02340f4e09d15e08d7ee91a", null ],
     [ "endianess", "classemlabcpp_1_1protocol_1_1register__map.html#a186d6906563c747f46ff7b429532f5c4", null ],
     [ "key_index", "classemlabcpp_1_1protocol_1_1register__map.html#a2999eaaf7666321cf01acb68b684ce70", null ],

@@ -192,6 +192,7 @@ var namespaceemlabcpp =
     [ "avg", "namespaceemlabcpp.html#aeb03fae2e4aecd67b1f163e1ab523e89", null ],
     [ "axis_projection_distance", "namespaceemlabcpp.html#aaf2a3b65521b77f85095c0130ef945fe", null ],
     [ "bytes", "namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4", null ],
+    [ "ceil_to", "namespaceemlabcpp.html#a3a3ff32c2bf0005fcdbab5763193f239", null ],
     [ "center_of", "namespaceemlabcpp.html#a8c868b270298a6e752372a1809dc03d0", null ],
     [ "compose", "namespaceemlabcpp.html#a5e72f5ad9fec2b8f70d4f8e0e5ec0d23", null ],
     [ "cont_size", "namespaceemlabcpp.html#a631eb361805aa7459b944503f7538951", null ],
