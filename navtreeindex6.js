@@ -1,6 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"namespaceemlabcpp.html#a78453f63bffe0ddbe927529c68875dc4":[2,0,0,279],
 "namespaceemlabcpp.html#a7a8e644a62f8747e59e7766ba811037a":[2,0,0,202],
 "namespaceemlabcpp.html#a7b0c8873bbc692d1700c0f3a5603d620":[2,0,0,281],
 "namespaceemlabcpp.html#a7b5a68de4881301e46697c48654d8477":[2,0,0,353],
@@ -249,5 +248,6 @@ var NAVTREEINDEX6 =
 "namespaceemlabcpp_1_1protocol.html#a72532ac9192b8549e819b0cfb65c3faa":[2,0,0,7,116],
 "namespaceemlabcpp_1_1protocol.html#a75075a1ed102c600dfd1f1894c1fc93b":[2,0,0,7,120],
 "namespaceemlabcpp_1_1protocol.html#a7996dad74892867782224e252a6e8d53":[4,0,0,0,4,4,0,1],
-"namespaceemlabcpp_1_1protocol.html#a81042a6c1a100c96f3c81c1a901fdcd7":[2,0,0,7,82]
+"namespaceemlabcpp_1_1protocol.html#a81042a6c1a100c96f3c81c1a901fdcd7":[2,0,0,7,82],
+"namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9":[2,0,0,7,89]
 };
