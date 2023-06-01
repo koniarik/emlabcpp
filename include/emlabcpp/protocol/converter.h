@@ -481,9 +481,9 @@ struct converter< message< N >, Endianess >
                         return { subres.used, &BIGSIZE_ERR };
                 }
                 value.resize( size );
-                std::copy(
+                std::copy_n(
                     buffer.begin() + static_cast< std::ptrdiff_t >( subres.used ),
-                    buffer.end(),
+                    size,
                     value.begin() );
 
                 return conversion_result{ subres.used + value.size() };
@@ -679,7 +679,7 @@ struct converter< tag< V >, Endianess >
         static constexpr conversion_result
         deserialize( const std::span< const std::byte >& buffer, value_type& )
         {
-                decltype( V ) val;
+                decltype( V ) val{};
                 auto          subres = sub_converter::deserialize( buffer, val );
                 if ( subres.has_error() ) {
                         return subres;

@@ -16,10 +16,15 @@ load_impl( std::span< std::byte > buffer, ChecksumFunction&& chcksm_f )
 {
         using sig_conv = protocol::converter_for< checksum, Endianess >;
         using conv     = protocol::converter_for< T, Endianess >;
-        checksum chcksm;
-        sig_conv::deserialize( buffer, chcksm );
 
-        T                                 result{};
+        T result{};
+
+        checksum                          chcksm;
+        const protocol::conversion_result sres = sig_conv::deserialize( buffer, chcksm );
+        if ( sres.has_error() ) {
+                return { false, result, buffer };
+        }
+
         const protocol::conversion_result cres =
             conv::deserialize( buffer.subspan( sig_conv::max_size ), result );
 

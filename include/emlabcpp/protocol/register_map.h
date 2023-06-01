@@ -130,7 +130,7 @@ public:
         }
 
         template < key_type Key >
-        void set_val( reg_value_type< Key > val )
+        constexpr void set_val( reg_value_type< Key > val )
         {
                 static_assert( contains_key< Key > );
                 reg_type< Key >& reg = std::get< key_index< Key > >( registers_ );
