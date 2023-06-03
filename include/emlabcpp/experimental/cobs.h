@@ -8,7 +8,12 @@
 namespace emlabcpp
 {
 
-std::tuple< bool, view< std::byte* > >
+/// TODO: make this no inline
+
+/// Encodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS)
+/// encoding, returns bool indicating whenever conversion succeeded and subview used for conversion
+/// from target buffer. Note that this does not store 0 at the end.
+inline std::tuple< bool, view< std::byte* > >
 encode_cobs( view< std::byte* > source, view< std::byte* > target )
 {
         std::byte* last_tok       = target.begin();
@@ -35,7 +40,10 @@ encode_cobs( view< std::byte* > source, view< std::byte* > target )
         return { true, { target.begin(), target_current } };
 }
 
-std::tuple< bool, view< std::byte* > >
+/// Decodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS)
+/// encoding, returns bool indicating whenever conversion succeeded and subview used for conversion
+/// from target buffer. Note that this does not expect 0 at the end.
+inline std::tuple< bool, view< std::byte* > >
 decode_cobs( view< std::byte* > source, view< std::byte* > target )
 {
 
