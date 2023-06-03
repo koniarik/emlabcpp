@@ -55,7 +55,6 @@ function(add_emlabcpp_test name)
   emlabcpp_setup_test(${name})
 endfunction()
 
-add_emlabcpp_test(access_iterator_test)
 add_emlabcpp_test(algorithm_test)
 add_emlabcpp_test(bounded_test)
 add_emlabcpp_test(concepts_test)
