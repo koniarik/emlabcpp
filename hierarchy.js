@@ -114,9 +114,6 @@ var hierarchy =
     [ "emlabcpp::function_view< Signature >", "namespaceemlabcpp.html#classemlabcpp_1_1function__view", null ],
     [ "emlabcpp::function_view< ReturnType(ArgTypes...) >", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html", null ],
     [ "emlabcpp::generic_iterator< Derived >", "classemlabcpp_1_1generic__iterator.html", null ],
-    [ "emlabcpp::generic_iterator< access_iterator< Iterator, AccessCallable > >", "classemlabcpp_1_1generic__iterator.html", [
-      [ "emlabcpp::iterators::access_iterator< Iterator, AccessCallable >", "classemlabcpp_1_1iterators_1_1access__iterator.html", null ]
-    ] ],
     [ "emlabcpp::generic_iterator< convert_iterator< T, Iterator > >", "classemlabcpp_1_1generic__iterator.html", [
       [ "emlabcpp::iterators::convert_iterator< T, Iterator >", "classemlabcpp_1_1iterators_1_1convert__iterator.html", null ]
     ] ],
@@ -148,7 +145,6 @@ var hierarchy =
     ] ],
     [ "emlabcpp::testing::internal_reactor_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error", null ],
     [ "emlabcpp::iterator_of< Container >", "namespaceemlabcpp.html#structemlabcpp_1_1iterator__of", null ],
-    [ "std::iterator_traits< emlabcpp::iterators::access_iterator< Iterator, AccessCallable > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1access__iterator_3_01Iterator_00_01AccessCallable_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::iterators::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::iterators::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::iterators::subscript_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html", null ],

@@ -243,7 +243,7 @@ iterators/access.h</h3>
 <div class="line"> </div>
 <div class="line">std::vector&lt;foo&gt; vec_data;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">auto</span> acview = <a class="code" href="namespaceemlabcpp.html#adcc04a8c30d4e666197002f7bdf037eb">access_view</a>(vec_data,</div>
+<div class="line"><span class="keyword">auto</span> acview = access_view(vec_data,</div>
 <div class="line">                          [](<span class="keyword">const</span> foo&amp; item) -&gt; <span class="keyword">const</span> std::string&amp; {</div>
 <div class="line">                            <span class="keywordflow">return</span> item.attr;</div>
 <div class="line">                          });</div>
@@ -252,7 +252,6 @@ iterators/access.h</h3>
 <div class="line">{</div>
 <div class="line">    std::cout &lt;&lt; item &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_html_adcc04a8c30d4e666197002f7bdf037eb"><div class="ttname"><a href="namespaceemlabcpp.html#adcc04a8c30d4e666197002f7bdf037eb">emlabcpp::access_view</a></div><div class="ttdeci">view&lt; iterators::access_iterator&lt; iterator_of_t&lt; Container &gt;, AccessCallable &gt; &gt; access_view(Container &amp;&amp;cont, AccessCallable &amp;&amp;f)</div><div class="ttdoc">Creates view ver container cont with AccessCallable f.</div><div class="ttdef"><b>Definition:</b> access_view.h:31</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md22"></a>
 match.h</h2>
 <p>Match is mechanism similar to <code>std::visit(Callable,Variant)</code>, but one that changes the order of arguments and allows mutliple callables. The signature is along the lines of: <code>match(Variant,Callable...)</code>. The implementation composes callables together and let's method resolution pick the appropaite callable for alternative present in the variant.</p>
@@ -406,7 +405,7 @@ zip.h</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Jun 3 2023 09:22:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jun 3 2023 19:18:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

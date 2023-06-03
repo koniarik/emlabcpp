@@ -423,7 +423,7 @@ $(document).ready(function(){initNavTree('algorithm_8h_source.html',''); initRes
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                <span class="keywordflow">if</span> ( !<a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>( item, *rbeg ) ) {</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                }</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                rbeg++;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                ++rbeg;</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        }</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;}</div>
@@ -602,7 +602,7 @@ $(document).ready(function(){initNavTree('algorithm_8h_source.html',''); initRes
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa4539ae7694e16e3a1749e3089a36e2f"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f">emlabcpp::impl::map_f_collectable</a></div><div class="ttdeci">concept map_f_collectable</div><div class="ttdef"><b>Definition:</b> impl.h:127</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_structemlabcpp_1_1impl_1_1map__f__collector"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector">emlabcpp::impl::map_f_collector</a></div><div class="ttdef"><b>Definition:</b> impl.h:93</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:47</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> access_view.h:25</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> impl.h:27</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a0abef993d302d6b6d93fe877ca62491c"><div class="ttname"><a href="namespaceemlabcpp.html#a0abef993d302d6b6d93fe877ca62491c">emlabcpp::map_range</a></div><div class="ttdeci">constexpr U map_range(T input, T from_min, T from_max, U to_min, U to_max)</div><div class="ttdoc">maps input value 'input' from input range to equivalent value in output range</div><div class="ttdef"><b>Definition:</b> algorithm.h:67</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a1377f84042c48380be9118421fb97e6f"><div class="ttname"><a href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">emlabcpp::count</a></div><div class="ttdeci">constexpr std::size_t count(const Container &amp;cont, UnaryCallable &amp;&amp;f=std::identity())</div><div class="ttdoc">Applies the predicate 'f(x)' to each element of container 'cont' and returns the count of items,...</div><div class="ttdef"><b>Definition:</b> algorithm.h:260</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a1911a0fc83869772cacfc4d21772268f"><div class="ttname"><a href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">emlabcpp::map_f_to_a</a></div><div class="ttdeci">std::array&lt; T, N &gt; map_f_to_a(Container &amp;&amp;cont, UnaryCallable &amp;&amp;f=std::identity()) requires(!static_sized&lt; Container &gt;)</div><div class="ttdoc">Calls callable f(cont[i]) for i = 0...N and stores the result in array of an size N.</div><div class="ttdef"><b>Definition:</b> algorithm.h:437</div></div>
@@ -666,7 +666,7 @@ $(document).ready(function(){initNavTree('algorithm_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="algorithm_8h.html">algorithm.h</a></li>
-    <li class="footer">Generated on Sat Jun 3 2023 09:22:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jun 3 2023 19:18:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
