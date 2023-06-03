@@ -32,11 +32,11 @@ namespace emlabcpp
 ///
 /// Note: is_view_v<T> can be used to detect if T is view<I>
 ///
-template < typename Iterator >
+template < typename Iterator, typename EndIterator = Iterator >
 class view
 {
-        Iterator begin_;
-        Iterator end_;
+        Iterator    begin_;
+        EndIterator end_;
 
 public:
         /// standard public usings for container
@@ -67,14 +67,16 @@ public:
         }
 
         /// constructor from the iterators that should internally be stored
-        constexpr view( Iterator begin, Iterator end )
+        constexpr view( Iterator begin, EndIterator end )
           : begin_( std::move( begin ) )
           , end_( std::move( end ) )
         {
         }
 
-        template < std::convertible_to< Iterator > OtherIterator >
-        constexpr view( view< OtherIterator > other )
+        template <
+            std::convertible_to< Iterator >    OtherIterator,
+            std::convertible_to< EndIterator > OtherEndIterator >
+        constexpr view( view< OtherIterator, OtherEndIterator > other )
           : begin_( other.begin() )
           , end_( other.end() )
         {
@@ -87,7 +89,7 @@ public:
         }
 
         /// Past the end iterator
-        [[nodiscard]] constexpr Iterator end() const
+        [[nodiscard]] constexpr EndIterator end() const
         {
                 return end_;
         }
@@ -111,10 +113,10 @@ public:
                 return reverse_iterator{ begin_ };
         }
 
-        /// Size of the view over dataset uses std::distance() to tell the size
+        /// Size of the view over dataset uses std::ranges::distance() to tell the size
         [[nodiscard]] constexpr size_type size() const
         {
-                return static_cast< std::size_t >( std::distance( begin(), end() ) );
+                return static_cast< std::size_t >( std::ranges::distance( begin(), end() ) );
         }
 
         /// View is empty if both iterators are equal
@@ -208,8 +210,8 @@ constexpr auto reversed( referenceable_container auto& container )
         return { std::rbegin( container ), std::rend( container ) };
 }
 
-template < typename Iterator >
-void string_serialize_view( auto&& w, const view< Iterator >& output )
+template < typename Iterator, typename EndIterator >
+void string_serialize_view( auto&& w, const view< Iterator, EndIterator >& output )
 {
         using value_type = typename std::iterator_traits< Iterator >::value_type;
         bool first       = true;
@@ -223,8 +225,8 @@ void string_serialize_view( auto&& w, const view< Iterator >& output )
 }
 
 #ifdef EMLABCPP_USE_OSTREAM
-template < typename Iterator >
-std::ostream& operator<<( std::ostream& os, const view< Iterator >& iter )
+template < typename Iterator, typename EndIterator >
+std::ostream& operator<<( std::ostream& os, const view< Iterator, EndIterator >& iter )
 {
         string_serialize_view(
             [&os]( const auto& item ) {
