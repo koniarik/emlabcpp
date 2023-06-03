@@ -31,13 +31,7 @@ encode_cobs( view< std::byte* > source, view< std::byte* > target )
                         return { false, target };
                 }
         }
-        if ( target_current != target.end() ) {
-                *last_tok       = std::byte{ count };
-                *target_current = std::byte{ 0 };
-                target_current += 1;
-        } else {
-                return { false, target };
-        }
+        *last_tok = std::byte{ count };
         return { true, { target.begin(), target_current } };
 }
 
@@ -48,7 +42,7 @@ decode_cobs( view< std::byte* > source, view< std::byte* > target )
         std::byte* target_current = target.begin();
         uint8_t    count          = static_cast< uint8_t >( *source.begin() );
 
-        for ( const std::byte b : tail( init( source ) ) ) {
+        for ( const std::byte b : tail( source ) ) {
                 count -= 1;
                 if ( count == 0 ) {
                         count           = static_cast< uint8_t >( b );
