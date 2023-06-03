@@ -30,6 +30,15 @@ std::vector< std::byte > v( auto&&... args )
 
 using p = std::pair< std::vector< std::byte >, std::vector< std::byte > >;
 
+std::vector< p > get_data()
+{
+        return {
+            p( v( 0x00 ), v( 0x01, 0x01 ) ),
+            p( v( 0x00, 0x11, 0x00 ), v( 0x01, 0x02, 0x11, 0x01 ) ),
+            p( v( 0x11, 0x22, 0x33, 0x44 ), v( 0x05, 0x11, 0x22, 0x33, 0x44 ) ),
+            p( v( 0x11, 0x22, 0x00, 0x33 ), v( 0x03, 0x11, 0x22, 0x02, 0x33 ) ) };
+}
+
 namespace std
 {
 // TODO: this sucks hard
@@ -39,13 +48,9 @@ std::ostream& operator<<( std::ostream& os, std::byte b )
 }
 }  // namespace std
 
-TEST( COBS, simple )
+TEST( COBS, encode )
 {
-        for ( auto [raw, encod] :
-              { p( v( 0x00 ), v( 0x01, 0x01 ) ),
-                p( v( 0x00, 0x11, 0x00 ), v( 0x01, 0x02, 0x11, 0x01 ) ),
-                p( v( 0x11, 0x22, 0x33, 0x44 ), v( 0x05, 0x11, 0x22, 0x33, 0x44 ) ),
-                p( v( 0x11, 0x22, 0x00, 0x33 ), v( 0x03, 0x11, 0x22, 0x02, 0x33 ) ) } ) {
+        for ( auto [raw, encod] : get_data() ) {
 
                 std::vector< std::byte > tmp( 1024, std::byte{ 0x00 } );
 
@@ -55,14 +60,33 @@ TEST( COBS, simple )
                 bool are_eq = used == data_view( encod );
                 EXPECT_TRUE( are_eq ) << "outpt: " << used << "\n"
                                       << "expected: " << data_view( encod );
+        }
+}
+
+TEST( COBS, decode )
+{
+        for ( auto [raw, encod] : get_data() ) {
 
                 std::vector< std::byte > dtmp( 1024, std::byte{ 0x00 } );
 
-                auto [dres, dused] = decode_cobs( used, data_view( dtmp ) );
+                // test decode
+                auto [dres, dused] = decode_cobs( data_view( encod ), data_view( dtmp ) );
                 EXPECT_TRUE( dres );
 
-                are_eq = dused == data_view( raw );
+                bool are_eq = dused == data_view( raw );
                 EXPECT_TRUE( are_eq ) << "outpt: " << dused << "\n"
+                                      << "expected: " << data_view( raw );
+        }
+}
+
+TEST( COBS, decode_iter )
+{
+        for ( auto [raw, encod] : get_data() ) {
+
+                auto cview = cobs_decode_view( view{ encod } );
+
+                bool are_eq = equal( raw, cview );
+                EXPECT_TRUE( are_eq ) << "output: " << cview << "\n"
                                       << "expected: " << data_view( raw );
         }
 }
