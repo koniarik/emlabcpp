@@ -212,6 +212,8 @@ var annotated_dup =
       [ "either", "classemlabcpp_1_1either.html", "classemlabcpp_1_1either" ],
       [ "empty_assembly_tag", "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag", null ],
       [ "bounded_view", "classemlabcpp_1_1bounded__view.html", "classemlabcpp_1_1bounded__view" ],
+      [ "decode_cobs_iter", "classemlabcpp_1_1decode__cobs__iter.html", "classemlabcpp_1_1decode__cobs__iter" ],
+      [ "decode_cobs_sentinel", "namespaceemlabcpp.html#classemlabcpp_1_1decode__cobs__sentinel", null ],
       [ "contiguous_request_adapter", "classemlabcpp_1_1contiguous__request__adapter.html", "classemlabcpp_1_1contiguous__request__adapter" ],
       [ "contiguous_object_handle", "classemlabcpp_1_1contiguous__object__handle.html", "classemlabcpp_1_1contiguous__object__handle" ],
       [ "contiguous_array_handle", "classemlabcpp_1_1contiguous__array__handle.html", "classemlabcpp_1_1contiguous__array__handle" ],
@@ -319,6 +321,7 @@ var annotated_dup =
       [ "zip_iterator", "classemlabcpp_1_1zip__iterator.html", "classemlabcpp_1_1zip__iterator" ]
     ] ],
     [ "std", null, [
+      [ "iterator_traits< emlabcpp::decode_cobs_iter< Iter > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1decode__cobs__iter_3_01Iter_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1decode__cobs__iter_3_01Iter_01_4_01_4" ],
       [ "iterator_traits< emlabcpp::iterators::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4" ],
       [ "iterator_traits< emlabcpp::iterators::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4" ],
       [ "iterator_traits< emlabcpp::iterators::subscript_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4" ],

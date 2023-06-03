@@ -74,6 +74,7 @@ var hierarchy =
       [ "emlabcpp::coro::recursive_coroutine< T >::promise_type", "structemlabcpp_1_1coro_1_1recursive__coroutine_1_1promise__type.html", null ]
     ] ],
     [ "emlabcpp::coro::data_promise< void >", "structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4.html", null ],
+    [ "emlabcpp::decode_cobs_sentinel", "namespaceemlabcpp.html#classemlabcpp_1_1decode__cobs__sentinel", null ],
     [ "emlabcpp::detail::decompose_anything< size_t >", "structemlabcpp_1_1detail_1_1decompose__anything.html", null ],
     [ "emlabcpp::defer< Callable >", "classemlabcpp_1_1defer.html", null ],
     [ "emlabcpp::pmr::deleter", "structemlabcpp_1_1pmr_1_1deleter.html", null ],
@@ -117,6 +118,9 @@ var hierarchy =
     [ "emlabcpp::generic_iterator< convert_iterator< T, Iterator > >", "classemlabcpp_1_1generic__iterator.html", [
       [ "emlabcpp::iterators::convert_iterator< T, Iterator >", "classemlabcpp_1_1iterators_1_1convert__iterator.html", null ]
     ] ],
+    [ "emlabcpp::generic_iterator< decode_cobs_iter< Iter > >", "classemlabcpp_1_1generic__iterator.html", [
+      [ "emlabcpp::decode_cobs_iter< Iter >", "classemlabcpp_1_1decode__cobs__iter.html", null ]
+    ] ],
     [ "emlabcpp::generic_iterator< numeric_iterator< T > >", "classemlabcpp_1_1generic__iterator.html", [
       [ "emlabcpp::iterators::numeric_iterator< T >", "classemlabcpp_1_1iterators_1_1numeric__iterator.html", null ]
     ] ],
@@ -145,6 +149,7 @@ var hierarchy =
     ] ],
     [ "emlabcpp::testing::internal_reactor_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error", null ],
     [ "emlabcpp::iterator_of< Container >", "namespaceemlabcpp.html#structemlabcpp_1_1iterator__of", null ],
+    [ "std::iterator_traits< emlabcpp::decode_cobs_iter< Iter > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1decode__cobs__iter_3_01Iter_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::iterators::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::iterators::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::iterators::subscript_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html", null ],
@@ -381,9 +386,10 @@ var hierarchy =
     [ "emlabcpp::vec_point_base< vector< N >, N >", "classemlabcpp_1_1vec__point__base.html", [
       [ "emlabcpp::vector< N >", "classemlabcpp_1_1vector.html", null ]
     ] ],
-    [ "emlabcpp::view< Iterator >", "classemlabcpp_1_1view.html", [
+    [ "emlabcpp::view< Iterator, EndIterator >", "classemlabcpp_1_1view.html", [
       [ "emlabcpp::bounded_view< Iterator, SizeType >", "classemlabcpp_1_1bounded__view.html", null ]
     ] ],
+    [ "emlabcpp::view< Iter >", "classemlabcpp_1_1view.html", null ],
     [ "emlabcpp::rpc::void_return_type", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1void__return__type", null ],
     [ "emlabcpp::coro::wait_interface", "classemlabcpp_1_1coro_1_1wait__interface.html", [
       [ "emlabcpp::coro::recursive_coroutine< void >", "classemlabcpp_1_1coro_1_1recursive__coroutine.html", null ],

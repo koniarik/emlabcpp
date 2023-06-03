@@ -152,6 +152,10 @@ Classes</h2></td></tr>
 <tr class="separator:structemlabcpp_1_1empty__assembly__tag"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1decode__cobs__iter.html">decode_cobs_iter</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:classemlabcpp_1_1decode__cobs__sentinel"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1decode__cobs__sentinel">decode_cobs_sentinel</a></td></tr>
+<tr class="separator:classemlabcpp_1_1decode__cobs__sentinel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1contiguous__request__adapter.html">contiguous_request_adapter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1contiguous__object__handle.html">contiguous_object_handle</a></td></tr>
@@ -655,6 +659,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a287862121b428bfa9cc668e1f774e2d5"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a287862121b428bfa9cc668e1f774e2d5">decode_cobs</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; source, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; target)</td></tr>
 <tr class="memdesc:a287862121b428bfa9cc668e1f774e2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer.  <a href="namespaceemlabcpp.html#a287862121b428bfa9cc668e1f774e2d5">More...</a><br /></td></tr>
 <tr class="separator:a287862121b428bfa9cc668e1f774e2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5226a975f8e2ca599162ac0f426fa25e"><td class="memTemplParams" colspan="2">template&lt;typename Iter &gt; </td></tr>
+<tr class="memitem:a5226a975f8e2ca599162ac0f426fa25e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; <a class="el" href="classemlabcpp_1_1decode__cobs__iter.html">decode_cobs_iter</a>&lt; Iter &gt;, <a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1decode__cobs__sentinel">decode_cobs_sentinel</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5226a975f8e2ca599162ac0f426fa25e">cobs_decode_view</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iter &gt; data)</td></tr>
+<tr class="separator:a5226a975f8e2ca599162ac0f426fa25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afecb966a998ea6497e7b378bca2681c8"><td class="memTemplParams" colspan="2">template&lt;decomposable_0 T&gt; </td></tr>
 <tr class="memitem:afecb966a998ea6497e7b378bca2681c8"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::tuple&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8">decompose</a> (T &amp;&amp;)</td></tr>
 <tr class="separator:afecb966a998ea6497e7b378bca2681c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1079,9 +1086,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a2fe2d2bf491db344cf04e4c2b9d799b8"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2fe2d2bf491db344cf04e4c2b9d799b8">reversed</a> (<a class="el" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">referenceable_container</a> auto &amp;<a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a>) -&gt; <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; decltype(std::rbegin(<a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a>)) &gt;</td></tr>
 <tr class="memdesc:a2fe2d2bf491db344cf04e4c2b9d799b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns view to the Container in reverse order.  <a href="namespaceemlabcpp.html#a2fe2d2bf491db344cf04e4c2b9d799b8">More...</a><br /></td></tr>
 <tr class="separator:a2fe2d2bf491db344cf04e4c2b9d799b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a888c42312b3da5697607239f222025bf"><td class="memTemplParams" colspan="2">template&lt;typename Iterator &gt; </td></tr>
-<tr class="memitem:a888c42312b3da5697607239f222025bf"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a888c42312b3da5697607239f222025bf">string_serialize_view</a> (auto &amp;&amp;w, const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iterator &gt; &amp;output)</td></tr>
-<tr class="separator:a888c42312b3da5697607239f222025bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5a26f7af9b55c2f2728eb7c5687b2c1"><td class="memTemplParams" colspan="2">template&lt;typename Iterator , typename EndIterator &gt; </td></tr>
+<tr class="memitem:ad5a26f7af9b55c2f2728eb7c5687b2c1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad5a26f7af9b55c2f2728eb7c5687b2c1">string_serialize_view</a> (auto &amp;&amp;w, const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iterator, EndIterator &gt; &amp;output)</td></tr>
+<tr class="separator:ad5a26f7af9b55c2f2728eb7c5687b2c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b8d699d3167f848b3eb1e6d49dd2d20"><td class="memTemplParams" colspan="2">template&lt;typename Visitor , typename Variant &gt; </td></tr>
 <tr class="memitem:a1b8d699d3167f848b3eb1e6d49dd2d20"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1b8d699d3167f848b3eb1e6d49dd2d20">visit_index</a> (Visitor &amp;&amp;vis, const Variant &amp;var)</td></tr>
 <tr class="separator:a1b8d699d3167f848b3eb1e6d49dd2d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1274,6 +1281,20 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <div class="textblock"><p>Marks empty assembly. </p>
 </div>
+</div>
+</div>
+<a name="classemlabcpp_1_1decode__cobs__sentinel" id="classemlabcpp_1_1decode__cobs__sentinel"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#classemlabcpp_1_1decode__cobs__sentinel">&#9670;&nbsp;</a></span>emlabcpp::decode_cobs_sentinel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class emlabcpp::decode_cobs_sentinel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div>
 </div>
 </div>
 <a name="classemlabcpp_1_1function__view" id="classemlabcpp_1_1function__view"></a>
@@ -3009,6 +3030,26 @@ template&lt;std::size_t N, std::size_t U&gt; </div>
 
 </div>
 </div>
+<a id="a5226a975f8e2ca599162ac0f426fa25e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5226a975f8e2ca599162ac0f426fa25e">&#9670;&nbsp;</a></span>cobs_decode_view()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Iter &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; <a class="el" href="classemlabcpp_1_1decode__cobs__iter.html">decode_cobs_iter</a>&lt; Iter &gt;, <a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1decode__cobs__sentinel">decode_cobs_sentinel</a> &gt; emlabcpp::cobs_decode_view </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iter &gt;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5e72f5ad9fec2b8f70d4f8e0e5ec0d23"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5e72f5ad9fec2b8f70d4f8e0e5ec0d23">&#9670;&nbsp;</a></span>compose()</h2>
 
@@ -3376,7 +3417,7 @@ template&lt;typename Container &gt; </div>
 <p>Decodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer. </p>
 <p>Note that this does not expect 0 at the end. </p>
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">count()</a>, <a class="el" href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">emlabcpp::view&lt; Iterator &gt;::end()</a>, and <a class="el" href="namespaceemlabcpp.html#a254ed4de50fc497ac961253ac3625040">tail()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a35373b7ecce53b42f2b93316496708e1">emlabcpp::view&lt; Iterator, EndIterator &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">count()</a>, <a class="el" href="classemlabcpp_1_1view.html#a307e340890bedc068c2cac28e2f86896">emlabcpp::view&lt; Iterator, EndIterator &gt;::end()</a>, and <a class="el" href="namespaceemlabcpp.html#a254ed4de50fc497ac961253ac3625040">tail()</a>.</p>
 
 </div>
 </div>
@@ -3925,7 +3966,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 <p>TODO: make this no inline. </p>
 <p>Encodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer. Note that this does not store 0 at the end. </p>
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">count()</a>, and <a class="el" href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">emlabcpp::view&lt; Iterator &gt;::end()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a35373b7ecce53b42f2b93316496708e1">emlabcpp::view&lt; Iterator, EndIterator &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">count()</a>, and <a class="el" href="classemlabcpp_1_1view.html#a307e340890bedc068c2cac28e2f86896">emlabcpp::view&lt; Iterator, EndIterator &gt;::end()</a>.</p>
 
 </div>
 </div>
@@ -6991,7 +7032,7 @@ template&lt;typename IteratorLh , typename IteratorRh &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">emlabcpp::view&lt; Iterator &gt;::end()</a>, and <a class="el" href="classemlabcpp_1_1view.html#aaa812fd178fc993e11fbbbc5894fb3c3">emlabcpp::view&lt; Iterator &gt;::size()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a35373b7ecce53b42f2b93316496708e1">emlabcpp::view&lt; Iterator, EndIterator &gt;::begin()</a>, <a class="el" href="classemlabcpp_1_1view.html#a307e340890bedc068c2cac28e2f86896">emlabcpp::view&lt; Iterator, EndIterator &gt;::end()</a>, and <a class="el" href="classemlabcpp_1_1view.html#af2e8f0748de03d25eb586ef4fbe0bb13">emlabcpp::view&lt; Iterator, EndIterator &gt;::size()</a>.</p>
 
 </div>
 </div>
@@ -8224,13 +8265,13 @@ template&lt;int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li,
 
 </div>
 </div>
-<a id="a888c42312b3da5697607239f222025bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a888c42312b3da5697607239f222025bf">&#9670;&nbsp;</a></span>string_serialize_view()</h2>
+<a id="ad5a26f7af9b55c2f2728eb7c5687b2c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5a26f7af9b55c2f2728eb7c5687b2c1">&#9670;&nbsp;</a></span>string_serialize_view()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Iterator &gt; </div>
+template&lt;typename Iterator , typename EndIterator &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void emlabcpp::string_serialize_view </td>
@@ -8241,7 +8282,7 @@ template&lt;typename Iterator &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iterator &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iterator, EndIterator &gt; &amp;&#160;</td>
           <td class="paramname"><em>output</em>&#160;</td>
         </tr>
         <tr>
@@ -10162,7 +10203,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sat Jun 3 2023 19:18:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jun 3 2023 19:20:14 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

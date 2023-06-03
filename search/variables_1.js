@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['badval_5ferr_2075',['BADVAL_ERR',['../namespaceemlabcpp_1_1protocol.html#ae7f63810880ec41008ee91a908c63148',1,'emlabcpp::protocol']]],
-  ['base_5ftype_2076',['base_type',['../namespaceemlabcpp_1_1protocol.html#aa86d1c4c148d71e70716484056a293c0',1,'emlabcpp::protocol']]],
-  ['bigsize_5ferr_2077',['BIGSIZE_ERR',['../namespaceemlabcpp_1_1protocol.html#a0e98558caf268e368b4544533cb43055',1,'emlabcpp::protocol']]],
-  ['bounded_2078',['bounded',['../classemlabcpp_1_1bounded.html#acd88470b057f4b5ea757588fee16fd1f',1,'emlabcpp::bounded']]],
-  ['bounded_5fconstant_2079',['bounded_constant',['../namespaceemlabcpp.html#a7b5a68de4881301e46697c48654d8477',1,'emlabcpp']]],
-  ['bounded_5fderived_2080',['bounded_derived',['../namespaceemlabcpp.html#add79493bcf07bd4c54afffe3a0f3ee00',1,'emlabcpp']]],
-  ['bounds_5ferr_2081',['BOUNDS_ERR',['../namespaceemlabcpp_1_1protocol.html#a925029d9c13ebc476b462499b5fae534',1,'emlabcpp::protocol']]],
-  ['buffer_2082',['buffer',['../structemlabcpp_1_1buffer__writer.html#aab603d512c52b24e8d35ca36d3ccb91b',1,'emlabcpp::buffer_writer']]]
+  ['badval_5ferr_2088',['BADVAL_ERR',['../namespaceemlabcpp_1_1protocol.html#ae7f63810880ec41008ee91a908c63148',1,'emlabcpp::protocol']]],
+  ['base_5ftype_2089',['base_type',['../namespaceemlabcpp_1_1protocol.html#aa86d1c4c148d71e70716484056a293c0',1,'emlabcpp::protocol']]],
+  ['bigsize_5ferr_2090',['BIGSIZE_ERR',['../namespaceemlabcpp_1_1protocol.html#a0e98558caf268e368b4544533cb43055',1,'emlabcpp::protocol']]],
+  ['bounded_2091',['bounded',['../classemlabcpp_1_1bounded.html#acd88470b057f4b5ea757588fee16fd1f',1,'emlabcpp::bounded']]],
+  ['bounded_5fconstant_2092',['bounded_constant',['../namespaceemlabcpp.html#a7b5a68de4881301e46697c48654d8477',1,'emlabcpp']]],
+  ['bounded_5fderived_2093',['bounded_derived',['../namespaceemlabcpp.html#add79493bcf07bd4c54afffe3a0f3ee00',1,'emlabcpp']]],
+  ['bounds_5ferr_2094',['BOUNDS_ERR',['../namespaceemlabcpp_1_1protocol.html#a925029d9c13ebc476b462499b5fae534',1,'emlabcpp::protocol']]],
+  ['buffer_2095',['buffer',['../structemlabcpp_1_1buffer__writer.html#aab603d512c52b24e8d35ca36d3ccb91b',1,'emlabcpp::buffer_writer']]]
 ];

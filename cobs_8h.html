@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('cobs_8h.html',''); initResizable(); })
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -104,6 +105,15 @@ $(document).ready(function(){initNavTree('cobs_8h.html',''); initResizable(); })
 </div>
 <p><a href="cobs_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1iterator__traits_3_01emlabcpp_1_1decode__cobs__iter_3_01Iter_01_4_01_4.html">std::iterator_traits&lt; emlabcpp::decode_cobs_iter&lt; Iter &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:classemlabcpp_1_1decode__cobs__sentinel"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1decode__cobs__sentinel">emlabcpp::decode_cobs_sentinel</a></td></tr>
+<tr class="separator:classemlabcpp_1_1decode__cobs__sentinel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1decode__cobs__iter.html">emlabcpp::decode_cobs_iter&lt; Iter &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceemlabcpp"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></td></tr>
@@ -118,14 +128,32 @@ Functions</h2></td></tr>
 <tr class="memitem:a287862121b428bfa9cc668e1f774e2d5"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, view&lt; std::byte * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a287862121b428bfa9cc668e1f774e2d5">emlabcpp::decode_cobs</a> (view&lt; std::byte * &gt; source, view&lt; std::byte * &gt; target)</td></tr>
 <tr class="memdesc:a287862121b428bfa9cc668e1f774e2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer.  <a href="namespaceemlabcpp.html#a287862121b428bfa9cc668e1f774e2d5">More...</a><br /></td></tr>
 <tr class="separator:a287862121b428bfa9cc668e1f774e2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5226a975f8e2ca599162ac0f426fa25e"><td class="memTemplParams" colspan="2">template&lt;typename Iter &gt; </td></tr>
+<tr class="memitem:a5226a975f8e2ca599162ac0f426fa25e"><td class="memTemplItemLeft" align="right" valign="top">view&lt; decode_cobs_iter&lt; Iter &gt;, decode_cobs_sentinel &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5226a975f8e2ca599162ac0f426fa25e">emlabcpp::cobs_decode_view</a> (view&lt; Iter &gt; data)</td></tr>
+<tr class="separator:a5226a975f8e2ca599162ac0f426fa25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="classemlabcpp_1_1decode__cobs__sentinel" id="classemlabcpp_1_1decode__cobs__sentinel"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#classemlabcpp_1_1decode__cobs__sentinel">&#9670;&nbsp;</a></span>emlabcpp::decode_cobs_sentinel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class emlabcpp::decode_cobs_sentinel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"></div>
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="cobs_8h.html">cobs.h</a></li>
-    <li class="footer">Generated on Sat Jun 3 2023 19:18:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jun 3 2023 19:20:14 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
