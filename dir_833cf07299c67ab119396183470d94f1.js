@@ -9,6 +9,7 @@ var dir_833cf07299c67ab119396183470d94f1 =
     [ "bounded_view.h", "bounded__view_8h.html", [
       [ "bounded_view", "classemlabcpp_1_1bounded__view.html", "classemlabcpp_1_1bounded__view" ]
     ] ],
+    [ "cobs.h", "cobs_8h.html", "cobs_8h" ],
     [ "decompose.h", "decompose_8h.html", "decompose_8h" ],
     [ "derived_storage.h", "derived__storage_8h.html", [
       [ "derived_storage", "classemlabcpp_1_1derived__storage.html", "classemlabcpp_1_1derived__storage" ]

@@ -653,6 +653,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a39bdb9e4992c495c755d900b23435840"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a39bdb9e4992c495c755d900b23435840">requires</a> (std::is_enum_v&lt; Enum &gt;) auto convert_enum(Enum val)</td></tr>
 <tr class="memdesc:a39bdb9e4992c495c755d900b23435840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string-like name of the enum value <code>val</code>  <a href="namespaceemlabcpp.html#a39bdb9e4992c495c755d900b23435840">More...</a><br /></td></tr>
 <tr class="separator:a39bdb9e4992c495c755d900b23435840"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66eda67f0ba6fe671bc52b639616ef97"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a66eda67f0ba6fe671bc52b639616ef97">encode_cobs</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; source, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; target)</td></tr>
+<tr class="separator:a66eda67f0ba6fe671bc52b639616ef97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a287862121b428bfa9cc668e1f774e2d5"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a287862121b428bfa9cc668e1f774e2d5">decode_cobs</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; source, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; target)</td></tr>
+<tr class="separator:a287862121b428bfa9cc668e1f774e2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afecb966a998ea6497e7b378bca2681c8"><td class="memTemplParams" colspan="2">template&lt;decomposable_0 T&gt; </td></tr>
 <tr class="memitem:afecb966a998ea6497e7b378bca2681c8"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::tuple&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8">decompose</a> (T &amp;&amp;)</td></tr>
 <tr class="separator:afecb966a998ea6497e7b378bca2681c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3372,6 +3376,36 @@ template&lt;typename Container &gt; </div>
 
 </div>
 </div>
+<a id="a287862121b428bfa9cc668e1f774e2d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a287862121b428bfa9cc668e1f774e2d5">&#9670;&nbsp;</a></span>decode_cobs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt; bool, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte* &gt; &gt; emlabcpp::decode_cobs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt;&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">count()</a>, <a class="el" href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">emlabcpp::view&lt; Iterator &gt;::end()</a>, <a class="el" href="namespaceemlabcpp.html#a4b323693e8d1a33bad5c12c63709fe3b">init()</a>, and <a class="el" href="namespaceemlabcpp.html#a254ed4de50fc497ac961253ac3625040">tail()</a>.</p>
+
+</div>
+</div>
 <a id="afecb966a998ea6497e7b378bca2681c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afecb966a998ea6497e7b378bca2681c8">&#9670;&nbsp;</a></span>decompose()</h2>
 
@@ -3877,6 +3911,36 @@ template&lt;typename Derived , std::size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a66eda67f0ba6fe671bc52b639616ef97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66eda67f0ba6fe671bc52b639616ef97">&#9670;&nbsp;</a></span>encode_cobs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt; bool, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte* &gt; &gt; emlabcpp::encode_cobs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt;&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a465e78169e53ecff3e2377283787a2e9">emlabcpp::view&lt; Iterator &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">count()</a>, and <a class="el" href="classemlabcpp_1_1view.html#a30a11defa5a206b6355bee7a540ab795">emlabcpp::view&lt; Iterator &gt;::end()</a>.</p>
 
 </div>
 </div>
@@ -10113,7 +10177,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Thu Jun 1 2023 20:30:01 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jun 3 2023 09:01:23 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
