@@ -46,6 +46,8 @@ class convert_iterator : public generic_iterator< convert_iterator< T, Iterator 
         Iterator iter_;
 
 public:
+        convert_iterator() = default;
+
         explicit convert_iterator( Iterator iter )
           : iter_( std::move( iter ) )
         {
