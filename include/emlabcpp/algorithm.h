@@ -400,7 +400,7 @@ template <
                 if ( !f( item, *rbeg ) ) {
                         return false;
                 }
-                rbeg++;
+                ++rbeg;
         }
         return true;
 }
