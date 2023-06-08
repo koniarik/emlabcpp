@@ -213,7 +213,6 @@ var annotated_dup =
       [ "empty_assembly_tag", "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag", null ],
       [ "bounded_view", "classemlabcpp_1_1bounded__view.html", "classemlabcpp_1_1bounded__view" ],
       [ "decode_cobs_iter", "classemlabcpp_1_1decode__cobs__iter.html", "classemlabcpp_1_1decode__cobs__iter" ],
-      [ "decode_cobs_sentinel", "namespaceemlabcpp.html#classemlabcpp_1_1decode__cobs__sentinel", null ],
       [ "contiguous_request_adapter", "classemlabcpp_1_1contiguous__request__adapter.html", "classemlabcpp_1_1contiguous__request__adapter" ],
       [ "contiguous_object_handle", "classemlabcpp_1_1contiguous__object__handle.html", "classemlabcpp_1_1contiguous__object__handle" ],
       [ "contiguous_array_handle", "classemlabcpp_1_1contiguous__array__handle.html", "classemlabcpp_1_1contiguous__array__handle" ],

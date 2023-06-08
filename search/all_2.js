@@ -27,7 +27,7 @@ var searchData=
   ['cmd_5fvalue_5ftype_99',['cmd_value_type',['../structemlabcpp_1_1protocol_1_1command__group.html#a593b01753fdf6997d7bdfb6814398c93',1,'emlabcpp::protocol::command_group']]],
   ['cmds_5ftype_100',['cmds_type',['../structemlabcpp_1_1protocol_1_1command__group.html#aee70b3ca4c17585253944194322f7bee',1,'emlabcpp::protocol::command_group']]],
   ['cobs_2eh_101',['cobs.h',['../cobs_8h.html',1,'']]],
-  ['cobs_5fdecode_5fview_102',['cobs_decode_view',['../namespaceemlabcpp.html#a5226a975f8e2ca599162ac0f426fa25e',1,'emlabcpp']]],
+  ['cobs_5fdecode_5fview_102',['cobs_decode_view',['../namespaceemlabcpp.html#a1eb69734e95cc40cd53e2f01531183d7',1,'emlabcpp']]],
   ['coefficients_103',['coefficients',['../namespaceemlabcpp.html#a096dcb0c9bf6af343c832bebada97419',1,'emlabcpp::pid_config']]],
   ['col_104',['col',['../classemlabcpp_1_1testing_1_1collect__awaiter.html#a0925755fdf1a1d5298e61e53ae30aaed',1,'emlabcpp::testing::collect_awaiter']]],
   ['collect_105',['collect',['../structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e',1,'emlabcpp::impl::map_f_collector&lt; T &gt;::collect(T &amp;res, typename T::value_type val) const'],['../structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e',1,'emlabcpp::impl::map_f_collector&lt; T &gt;::collect(T &amp;res, typename T::value_type val) const'],['../structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html#a2598d2f2f9a7631a0cb44384c4b0e463',1,'emlabcpp::impl::map_f_collector&lt; std::array&lt; T, N &gt; &gt;::collect()']]],

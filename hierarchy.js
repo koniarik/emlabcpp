@@ -74,7 +74,6 @@ var hierarchy =
       [ "emlabcpp::coro::recursive_coroutine< T >::promise_type", "structemlabcpp_1_1coro_1_1recursive__coroutine_1_1promise__type.html", null ]
     ] ],
     [ "emlabcpp::coro::data_promise< void >", "structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4.html", null ],
-    [ "emlabcpp::decode_cobs_sentinel", "namespaceemlabcpp.html#classemlabcpp_1_1decode__cobs__sentinel", null ],
     [ "emlabcpp::detail::decompose_anything< size_t >", "structemlabcpp_1_1detail_1_1decompose__anything.html", null ],
     [ "emlabcpp::defer< Callable >", "classemlabcpp_1_1defer.html", null ],
     [ "emlabcpp::pmr::deleter", "structemlabcpp_1_1pmr_1_1deleter.html", null ],
@@ -389,7 +388,6 @@ var hierarchy =
     [ "emlabcpp::view< Iterator, EndIterator >", "classemlabcpp_1_1view.html", [
       [ "emlabcpp::bounded_view< Iterator, SizeType >", "classemlabcpp_1_1bounded__view.html", null ]
     ] ],
-    [ "emlabcpp::view< Iter >", "classemlabcpp_1_1view.html", null ],
     [ "emlabcpp::rpc::void_return_type", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1void__return__type", null ],
     [ "emlabcpp::coro::wait_interface", "classemlabcpp_1_1coro_1_1wait__interface.html", [
       [ "emlabcpp::coro::recursive_coroutine< void >", "classemlabcpp_1_1coro_1_1recursive__coroutine.html", null ],
