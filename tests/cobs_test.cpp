@@ -85,7 +85,7 @@ TEST( COBS, decode_iter )
 
                 auto cview = cobs_decode_view( view{ encod } );
 
-                bool are_eq = equal( raw, cview );
+                bool are_eq = std::equal( raw.begin(), raw.end(), cview.begin() );
                 EXPECT_TRUE( are_eq ) << "output: " << cview << "\n"
                                       << "expected: " << data_view( raw );
         }

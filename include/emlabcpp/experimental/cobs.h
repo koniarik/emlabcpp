@@ -85,16 +85,12 @@ struct std::iterator_traits< emlabcpp::decode_cobs_iter< Iter > >
 namespace emlabcpp
 {
 
-class decode_cobs_sentinel
-{
-};
-
 template < typename Iter >
 class decode_cobs_iter : public generic_iterator< decode_cobs_iter< Iter > >
 {
 public:
-        decode_cobs_iter( view< Iter > data )
-          : data_( data )
+        decode_cobs_iter( Iter iter )
+          : iter_( iter )
         {
         }
 
@@ -103,20 +99,17 @@ public:
                 if ( offset_ == 0 ) {
                         return std::byte{ 0 };
                 }
-                return data_.front();
+                return *iter_;
         }
 
         decode_cobs_iter& operator++()
         {
-                if ( data_.empty() ) {
-                        return *this;
-                }
                 if ( offset_ == 0 ) {
-                        offset_ = static_cast< uint8_t >( data_.front() ) - 1;
+                        offset_ = static_cast< uint8_t >( *iter_ ) - 1;
                 } else {
                         offset_--;
                 }
-                data_ = view( data_.begin() + 1, data_.end() );
+                ++iter_;
                 return *this;
         }
 
@@ -129,28 +122,20 @@ public:
 
         bool operator==( const decode_cobs_iter& other ) const
         {
-                return data_ == other.data_;
-        }
-
-        bool operator==( const decode_cobs_sentinel& ) const
-        {
-                return data_.empty() || data_.front() == std::byte{ 0 };
-        }
-
-        bool operator-( const decode_cobs_sentinel& ) const
-        {
-                return data_.size();
+                return iter_ == other.iter_;
         }
 
 private:
-        uint8_t      offset_ = 0;
-        view< Iter > data_;
+        uint8_t offset_ = 0;
+        Iter    iter_;
 };
 
 template < typename Iter >
-view< decode_cobs_iter< Iter >, decode_cobs_sentinel > cobs_decode_view( view< Iter > data )
+view< decode_cobs_iter< Iter >, decode_cobs_iter< Iter > > cobs_decode_view( view< Iter > data )
 {
-        return { ++decode_cobs_iter< Iter >{ data }, decode_cobs_sentinel{} };
+        return {
+            ++decode_cobs_iter< Iter >{ data.begin() },
+            decode_cobs_iter< Iter >{ find( data, std::byte{ 0 } ) } };
 }
 
 }  // namespace emlabcpp
