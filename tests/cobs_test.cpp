@@ -74,7 +74,8 @@ TEST( COBS, decode )
                 EXPECT_TRUE( dres );
 
                 bool are_eq = dused == data_view( raw );
-                EXPECT_TRUE( are_eq ) << "outpt: " << dused << "\n"
+                EXPECT_TRUE( are_eq ) << "inpt: " << data_view( encod ) << "\n"
+                                      << "outpt: " << dused << "\n"
                                       << "expected: " << data_view( raw );
         }
 }

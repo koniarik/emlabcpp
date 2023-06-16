@@ -40,6 +40,35 @@ encode_cobs( view< std::byte* > source, view< std::byte* > target )
         return { true, { target.begin(), target_current } };
 }
 
+struct cobs_decoder
+{
+        std::byte get( std::byte inpt ) const
+        {
+                if ( offset == 0 ) {
+                        return std::byte{ 0 };
+                }
+                return inpt;
+        }
+
+        void advance( std::byte inpt )
+        {
+                if ( offset == 0 ) {
+                        offset = static_cast< uint8_t >( inpt ) - 1;
+                } else {
+                        offset--;
+                }
+        }
+
+        std::byte iter( std::byte inpt )
+        {
+                std::byte b = get( inpt );
+                advance( inpt );
+                return b;
+        }
+
+        uint8_t offset = 0;
+};
+
 /// Decodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS)
 /// encoding, returns bool indicating whenever conversion succeeded and subview used for conversion
 /// from target buffer. Note that this does not expect 0 at the end.
@@ -47,18 +76,15 @@ inline std::tuple< bool, view< std::byte* > >
 decode_cobs( view< std::byte* > source, view< std::byte* > target )
 {
 
-        std::byte* target_current = target.begin();
-        uint8_t    count          = static_cast< uint8_t >( *source.begin() );
+        std::byte*   target_current = target.begin();
+        cobs_decoder dec;
+        dec.advance( source.front() );
 
         for ( const std::byte b : tail( source ) ) {
-                count -= 1;
-                if ( count == 0 ) {
-                        count           = static_cast< uint8_t >( b );
-                        *target_current = std::byte{ 0 };
-                } else {
-                        *target_current = b;
-                }
+
+                *target_current = dec.iter( b );
                 target_current += 1;
+
                 if ( target_current == target.end() ) {
                         return { false, target };
                 }
@@ -96,19 +122,12 @@ public:
 
         std::byte operator*() const
         {
-                if ( offset_ == 0 ) {
-                        return std::byte{ 0 };
-                }
-                return *iter_;
+                return dec_.get( *iter_ );
         }
 
         decode_cobs_iter& operator++()
         {
-                if ( offset_ == 0 ) {
-                        offset_ = static_cast< uint8_t >( *iter_ ) - 1;
-                } else {
-                        offset_--;
-                }
+                dec_.advance( *iter_ );
                 ++iter_;
                 return *this;
         }
@@ -126,8 +145,8 @@ public:
         }
 
 private:
-        uint8_t offset_ = 0;
-        Iter    iter_;
+        cobs_decoder dec_;
+        Iter         iter_;
 };
 
 template < typename Iter >
