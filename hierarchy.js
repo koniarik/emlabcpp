@@ -17,6 +17,7 @@ var hierarchy =
     [ "emlabcpp::bounded< T, MinVal, MaxVal >", "classemlabcpp_1_1bounded.html", null ],
     [ "emlabcpp::buffer_writer< N >", "structemlabcpp_1_1buffer__writer.html", null ],
     [ "emlabcpp::rpc::class_wrapper< Class, Bindings >", "classemlabcpp_1_1rpc_1_1class__wrapper.html", null ],
+    [ "emlabcpp::cobs_decoder", "structemlabcpp_1_1cobs__decoder.html", null ],
     [ "emlabcpp::testing::collect_reply", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__reply", null ],
     [ "emlabcpp::testing::collect_request", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__request", null ],
     [ "emlabcpp::testing::collect_server", "classemlabcpp_1_1testing_1_1collect__server.html", null ],
