@@ -28,6 +28,7 @@ var classemlabcpp_1_1static__circular__buffer =
     [ "operator[]", "classemlabcpp_1_1static__circular__buffer.html#ae5279460b68fa5d69c23cb330a077672", null ],
     [ "operator[]", "classemlabcpp_1_1static__circular__buffer.html#ab02b62a0f5afc5765cd3e74aa2074f90", null ],
     [ "pop_front", "classemlabcpp_1_1static__circular__buffer.html#aae5cd5d7d9d58ff118bf646e4fd26972", null ],
+    [ "pop_front", "classemlabcpp_1_1static__circular__buffer.html#a53067f71382f07dc1dd0068643d99004", null ],
     [ "push_back", "classemlabcpp_1_1static__circular__buffer.html#add5ec3d89fed5dc891d2b2607413c90e", null ],
     [ "rbegin", "classemlabcpp_1_1static__circular__buffer.html#a1a3182539f45d95b3a81fc9fcae83114", null ],
     [ "rbegin", "classemlabcpp_1_1static__circular__buffer.html#a82621c5507fded59f3f57d1998fc2caa", null ],
