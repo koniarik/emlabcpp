@@ -139,6 +139,13 @@ public:
                 from_ = next( from_ );
         }
 
+        void pop_front( std::size_t n )
+        {
+                for ( std::size_t i = 0; i < n; i++ ) {
+                        pop_front();
+                }
+        }
+
         /// methods for handling the back side of the circular buffer
 
         [[nodiscard]] iterator end()
