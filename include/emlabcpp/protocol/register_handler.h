@@ -61,8 +61,8 @@ struct register_handler
         // TODO: what happens if the key is bad?
         static message_type select( const map_type& m, key_type key )
         {
-                return m.with_register( key, [&]< typename reg_type >( const reg_type& reg ) {
-                        return serialize< reg_type::key >( reg.value );
+                return m.with_register( key, [&]< typename RegType >( const RegType& reg ) {
+                        return serialize< RegType::key >( reg.value );
                 } );
         }
 
@@ -89,8 +89,8 @@ struct register_handler
         insert( map_type& m, key_type key, const view< const std::byte* >& buff )
         {
                 std::optional< error_record > res;
-                m.with_register( key, [&]< typename reg_type >( reg_type& reg ) {
-                        extract< reg_type::key >( buff ).match(
+                m.with_register( key, [&]< typename RegType >( RegType& reg ) {
+                        extract< RegType::key >( buff ).match(
                             [&]( const auto& val ) {
                                     reg.value = val;
                             },
