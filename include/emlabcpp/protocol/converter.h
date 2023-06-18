@@ -710,12 +710,12 @@ struct converter< tag_group< Ds... >, Endianess >
                             auto tag_used = nth_tag_converter< i >::serialize_at(
                                 buffer.template subspan< 0, nth_tag_converter< i >::max_size >(),
                                 nth_tag< i >{} );
-                            auto& val  = std::get< i >( item );
-                            auto  used = nth_converter< i >::serialize_at(
+                            auto* val_ptr = std::get_if< i >( &item );
+                            auto  used    = nth_converter< i >::serialize_at(
                                 buffer.template subspan<
                                     nth_tag_converter< i >::max_size,
                                     nth_converter< i >::max_size >(),
-                                val );
+                                *val_ptr );
                             return tag_used + used;
                     },
                     item );
