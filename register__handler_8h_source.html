@@ -128,8 +128,8 @@ $(document).ready(function(){initNavTree('register__handler_8h_source.html','');
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">// TODO: what happens if the key is bad?</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1protocol_1_1register__handler.html#a6eca43a0364af243a7792b2cb07c866b">   62</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="structemlabcpp_1_1protocol_1_1register__handler.html#ade0f640d0f738ad6b0da1ed612335e56">message_type</a> <a class="code" href="structemlabcpp_1_1protocol_1_1register__handler.html#a6eca43a0364af243a7792b2cb07c866b">select</a>( <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1protocol_1_1register__handler.html#ac94dd880c63207f834a3b792d4d27559">map_type</a>&amp; m, <a class="code" href="structemlabcpp_1_1protocol_1_1register__handler.html#a2f0dbd2bef460875e42538319b1d58a0">key_type</a> key )</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span> m.with_register( key, [&amp;]&lt; <span class="keyword">typename</span> reg_type &gt;( <span class="keyword">const</span> reg_type&amp; reg ) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        <span class="keywordflow">return</span> serialize&lt; reg_type::key &gt;( reg.value );</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span> m.with_register( key, [&amp;]&lt; <span class="keyword">typename</span> RegType &gt;( <span class="keyword">const</span> RegType&amp; reg ) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        <span class="keywordflow">return</span> serialize&lt; RegType::key &gt;( reg.value );</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                } );</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
@@ -156,8 +156,8 @@ $(document).ready(function(){initNavTree('register__handler_8h_source.html','');
 <div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1protocol_1_1register__handler.html#a36b905d0a6076cf94703d970de3d76a0">   89</a></span>&#160;        <a class="code" href="structemlabcpp_1_1protocol_1_1register__handler.html#a36b905d0a6076cf94703d970de3d76a0">insert</a>( <a class="code" href="structemlabcpp_1_1protocol_1_1register__handler.html#ac94dd880c63207f834a3b792d4d27559">map_type</a>&amp; m, <a class="code" href="structemlabcpp_1_1protocol_1_1register__handler.html#a2f0dbd2bef460875e42538319b1d58a0">key_type</a> key, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1view.html">view&lt; const std::byte* &gt;</a>&amp; buff )</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        {</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                std::optional&lt; error_record &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                m.with_register( key, [&amp;]&lt; <span class="keyword">typename</span> reg_type &gt;( reg_type&amp; reg ) {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        extract&lt; reg_type::key &gt;( buff ).match(</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                m.with_register( key, [&amp;]&lt; <span class="keyword">typename</span> RegType &gt;( RegType&amp; reg ) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        extract&lt; RegType::key &gt;( buff ).match(</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                            [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; val ) {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                                    reg.value = val;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                            },</div>
@@ -206,7 +206,7 @@ $(document).ready(function(){initNavTree('register__handler_8h_source.html','');
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="register__handler_8h.html">register_handler.h</a></li>
-    <li class="footer">Generated on Fri Jun 16 2023 16:55:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Jun 18 2023 17:34:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
