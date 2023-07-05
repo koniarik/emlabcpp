@@ -568,7 +568,7 @@ TEST( Algorithm, select_index )
 {
         std::vector< std::size_t > idata{ 1, 2, 3, 4 };
         for ( const std::size_t i : idata ) {
-                const bounded     b = *bounded< std::size_t, 0, 3 >::make( i - 1 );
+                const bounded     b = bounded< std::size_t, 0, 3 >::make( i - 1 ).value();
                 const std::size_t j = select_index( b, [&]< std::size_t i >() -> std::size_t {
                         return idata[i];
                 } );

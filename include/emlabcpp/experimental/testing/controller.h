@@ -55,8 +55,7 @@ public:
           , iface_( channel_, iface, std::move( send_cb ) )
           , tests_( mem_res )
         {
-                initializing_state* const i_state_ptr =
-                    std::get_if< initializing_state >( &state_ );
+                auto* const i_state_ptr = std::get_if< initializing_state >( &state_ );
                 EMLABCPP_ASSERT( i_state_ptr != nullptr );
                 i_state_ptr->coro = initialize( mem_res );
         }

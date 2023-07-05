@@ -38,9 +38,9 @@ TEST( Bounded, get )
 // NOLINTNEXTLINE
 TEST( Bounded, make )
 {
-        EXPECT_EQ( **test_bounded::make( 0 ), 0 );
-        EXPECT_EQ( **test_bounded::make( 1 ), 1 );
-        EXPECT_EQ( **test_bounded::make( -1 ), -1 );
+        EXPECT_EQ( *test_bounded::make( 0 ).value(), 0 );
+        EXPECT_EQ( *test_bounded::make( 1 ).value(), 1 );
+        EXPECT_EQ( *test_bounded::make( -1 ).value(), -1 );
 
         EXPECT_FALSE( test_bounded::make( 2 ).has_value() );
         EXPECT_FALSE( test_bounded::make( -2 ).has_value() );

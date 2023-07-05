@@ -264,11 +264,11 @@ private:
                                 AHandle >
                                 cont = node.get_container_handle();
 
-                            AHandle* ah_ptr = std::get_if< AHandle >( &cont );
+                            auto* ah_ptr = std::get_if< AHandle >( &cont );
                             if ( ah_ptr != nullptr ) {
                                     return var_type{ *ah_ptr };
                             }
-                            OHandle* oh_ptr = std::get_if< OHandle >( &cont );
+                            auto* oh_ptr = std::get_if< OHandle >( &cont );
                             if ( oh_ptr != nullptr ) {
                                     return var_type{ *oh_ptr };
                             }
