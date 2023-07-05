@@ -125,7 +125,7 @@ struct invalid_test_case : protocol_test_fixture
                 EXPECT_TRUE( opt_view );
 
                 value_type item;
-                auto [used, err] = pitem::deserialize( *opt_view, item );
+                auto [used, err] = pitem::deserialize( opt_view.value(), item );
                 if ( err != nullptr ) {
                         EXPECT_EQ( expected_rec.error_mark, *err );
                         EXPECT_EQ( expected_rec.offset, used );

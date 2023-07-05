@@ -110,12 +110,14 @@ TEST( protocol_map, runtime_access )
 {
         std::vector< test_keys > keys{ FOO, WOO, TOO, SOO, KOO };
         for ( auto [i, k] : enumerate( keys ) ) {
-                EXPECT_EQ( test_map::register_key( *test_map::register_index::make( i ) ), k );
+                EXPECT_EQ(
+                    test_map::register_key( test_map::register_index::make( i ).value() ), k );
         }
 
         std::vector< std::size_t > sizes{ 4, 4, 1, 1, 4 };
         for ( auto [i, s] : enumerate( sizes ) ) {
-                EXPECT_EQ( test_map::register_size( *test_map::register_index::make( i ) ), s );
+                EXPECT_EQ(
+                    test_map::register_size( test_map::register_index::make( i ).value() ), s );
         }
 }
 
