@@ -335,11 +335,11 @@ $(document).ready(function(){initNavTree('request__adapter_8h_source.html',''); 
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                                AHandle &gt;</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                                cont = node.get_container_handle();</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                            AHandle* ah_ptr = std::get_if&lt; AHandle &gt;( &amp;cont );</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                            <span class="keyword">auto</span>* ah_ptr = std::get_if&lt; AHandle &gt;( &amp;cont );</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                            <span class="keywordflow">if</span> ( ah_ptr != <span class="keyword">nullptr</span> ) {</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                                    <span class="keywordflow">return</span> var_type{ *ah_ptr };</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                            }</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                            OHandle* oh_ptr = std::get_if&lt; OHandle &gt;( &amp;cont );</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                            <span class="keyword">auto</span>* oh_ptr = std::get_if&lt; OHandle &gt;( &amp;cont );</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                            <span class="keywordflow">if</span> ( oh_ptr != <span class="keyword">nullptr</span> ) {</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                                    <span class="keywordflow">return</span> var_type{ *oh_ptr };</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                            }</div>
@@ -429,7 +429,7 @@ $(document).ready(function(){initNavTree('request__adapter_8h_source.html',''); 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_15f8cd90f3890d7a65699de4188dbb27.html">contiguous_tree</a></li><li class="navelem"><a class="el" href="request__adapter_8h.html">request_adapter.h</a></li>
-    <li class="footer">Generated on Thu Jun 22 2023 20:30:27 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Jul 5 2023 20:31:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
