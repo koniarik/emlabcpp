@@ -468,7 +468,7 @@ $(document).ready(function(){initNavTree('tree_8h_source.html',''); initResizabl
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                }</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                <span class="keyword">auto</span> [nid, iter] = *opt_val;</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                <span class="keyword">auto</span> var         = iter-&gt;second.get_container_handle();</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                <span class="keywordflow">return</span> std::make_pair( nid, std::get&lt; array_handle &gt;( var ) );</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                <span class="keywordflow">return</span> std::make_pair( nid, *std::get_if&lt; array_handle &gt;( &amp;var ) );</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        }</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
 <div class="line"><a name="l00403"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1contiguous__tree.html#a9cc3542f0bf23ac985c768c3afac0198">  403</a></span>&#160;        std::optional&lt; std::pair&lt; node_id, object_handle &gt; &gt; <a class="code" href="classemlabcpp_1_1contiguous__tree.html#a9cc3542f0bf23ac985c768c3afac0198">make_object_node</a>()</div>
@@ -480,7 +480,7 @@ $(document).ready(function(){initNavTree('tree_8h_source.html',''); initResizabl
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;                }</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;                <span class="keyword">auto</span> [nid, iter] = *opt_val;</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;                <span class="keyword">auto</span> var         = iter-&gt;second.get_container_handle();</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                <span class="keywordflow">return</span> std::make_pair( nid, std::get&lt; object_handle &gt;( var ) );</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                <span class="keywordflow">return</span> std::make_pair( nid, *std::get_if&lt; object_handle &gt;( &amp;var ) );</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        }</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="keyword">private</span>:</div>
@@ -605,7 +605,7 @@ $(document).ready(function(){initNavTree('tree_8h_source.html',''); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_15f8cd90f3890d7a65699de4188dbb27.html">contiguous_tree</a></li><li class="navelem"><a class="el" href="tree_8h.html">tree.h</a></li>
-    <li class="footer">Generated on Wed Jul 5 2023 20:35:32 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Jul 6 2023 08:43:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
