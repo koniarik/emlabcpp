@@ -280,7 +280,7 @@ struct converter< std::variant< Ds... >, Endianess >
                                        buffer.template subspan<
                                            id_converter::max_size,
                                            sub_converter::max_size >(),
-                                       std::get< i >( item ) );
+                                       *std::get_if< i >( &item ) );
                     },
                     item );
         }

@@ -397,7 +397,7 @@ public:
                 }
                 auto [nid, iter] = *opt_val;
                 auto var         = iter->second.get_container_handle();
-                return std::make_pair( nid, std::get< array_handle >( var ) );
+                return std::make_pair( nid, *std::get_if< array_handle >( &var ) );
         }
 
         std::optional< std::pair< node_id, object_handle > > make_object_node()
@@ -409,7 +409,7 @@ public:
                 }
                 auto [nid, iter] = *opt_val;
                 auto var         = iter->second.get_container_handle();
-                return std::make_pair( nid, std::get< object_handle >( var ) );
+                return std::make_pair( nid, *std::get_if< object_handle >( &var ) );
         }
 
 private:
