@@ -112,7 +112,7 @@ public:
         {
         }
 
-        [[nodiscard]] std::array<key_type, registers_count> get_keys() const {
+        [[nodiscard]] constexpr std::array<key_type, registers_count> get_keys() const {
                 return {Regs::key...};
         }
 
