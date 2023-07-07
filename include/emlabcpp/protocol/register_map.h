@@ -101,6 +101,8 @@ public:
         template < key_type Key >
         using reg_def_type = typename reg_type< Key >::def_type;
 
+	static constexpr std::array<key_type, registers_count > keys = {Regs::key...};
+
         register_map() = default;
         explicit register_map( typename Regs::value_type&... args )
           : registers_( Regs{ args }... )
@@ -110,10 +112,6 @@ public:
         constexpr explicit register_map( const Regs&... regs )
           : registers_( regs... )
         {
-        }
-
-        [[nodiscard]] constexpr std::array<key_type, registers_count> get_keys() const {
-                return {Regs::key...};
         }
 
         [[nodiscard]] constexpr bool contains( key_type key ) const
