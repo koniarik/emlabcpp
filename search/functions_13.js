@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['unhandled_5fexception_2047',['unhandled_exception',['../structemlabcpp_1_1coro_1_1recursive__coroutine_1_1promise__type.html#a3088659edd0decb091d4aee6688d53d7',1,'emlabcpp::coro::recursive_coroutine::promise_type::unhandled_exception()'],['../structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#a24cccaac3e4cee8782143ae94315d6aa',1,'emlabcpp::coro::request_reply::promise_type::unhandled_exception()']]],
-  ['until_5findex_2048',['until_index',['../namespaceemlabcpp.html#aced106ff9e1a26187bb4872197cc1a7c',1,'emlabcpp']]],
-  ['update_2049',['update',['../namespaceemlabcpp.html#a7bb8b8ced9bb2a501cc61ced29e7801d',1,'emlabcpp']]],
-  ['update_5flimits_2050',['update_limits',['../namespaceemlabcpp.html#aadc080f9334a6fec6101a6d803f7cb28',1,'emlabcpp']]],
-  ['update_5foutput_2051',['update_output',['../namespaceemlabcpp.html#ac578d4bcbce0973184093fa8cce2da33',1,'emlabcpp']]]
+  ['unhandled_5fexception_2048',['unhandled_exception',['../structemlabcpp_1_1coro_1_1recursive__coroutine_1_1promise__type.html#a3088659edd0decb091d4aee6688d53d7',1,'emlabcpp::coro::recursive_coroutine::promise_type::unhandled_exception()'],['../structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#a24cccaac3e4cee8782143ae94315d6aa',1,'emlabcpp::coro::request_reply::promise_type::unhandled_exception()']]],
+  ['until_5findex_2049',['until_index',['../namespaceemlabcpp.html#aced106ff9e1a26187bb4872197cc1a7c',1,'emlabcpp']]],
+  ['update_2050',['update',['../namespaceemlabcpp.html#a7bb8b8ced9bb2a501cc61ced29e7801d',1,'emlabcpp']]],
+  ['update_5flimits_2051',['update_limits',['../namespaceemlabcpp.html#aadc080f9334a6fec6101a6d803f7cb28',1,'emlabcpp']]],
+  ['update_5foutput_2052',['update_output',['../namespaceemlabcpp.html#ac578d4bcbce0973184093fa8cce2da33',1,'emlabcpp']]]
 ];
