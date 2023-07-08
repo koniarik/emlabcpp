@@ -32,12 +32,14 @@ using p = std::pair< std::vector< std::byte >, std::vector< std::byte > >;
 
 std::vector< p > get_data()
 {
+        // raw, encoded
         return {
             p( v( 0x00 ), v( 0x01, 0x01 ) ),
             p( v( 0x00, 0x11, 0x00 ), v( 0x01, 0x02, 0x11, 0x01 ) ),
             p( v( 0x11, 0x22, 0x33, 0x44 ), v( 0x05, 0x11, 0x22, 0x33, 0x44 ) ),
             p( v( 0x11, 0x22, 0x00, 0x33 ), v( 0x03, 0x11, 0x22, 0x02, 0x33 ) ),
-            p( v( 22, 2, 8, 1 ), v( 5, 22, 2, 8, 1 ) ) };
+            p( v( 22, 2, 8, 1 ), v( 5, 22, 2, 8, 1 ) ),
+            p( v( 0x1a, 0x2, 0x50, 0x0 ), v( 0x04, 0x1a, 0x2, 0x50, 0x01 ) ) };
 }
 
 namespace std
@@ -59,7 +61,7 @@ TEST( COBS, encode )
                 EXPECT_TRUE( res );
 
                 bool are_eq = used == data_view( encod );
-                EXPECT_TRUE( are_eq ) << "outpt: " << used << "\n"
+                EXPECT_TRUE( are_eq ) << "output: " << used << "\n"
                                       << "expected: " << data_view( encod );
         }
 }
@@ -76,7 +78,7 @@ TEST( COBS, decode )
 
                 bool are_eq = dused == data_view( raw );
                 EXPECT_TRUE( are_eq ) << "inpt: " << data_view( encod ) << "\n"
-                                      << "outpt: " << dused << "\n"
+                                      << "output: " << dused << "\n"
                                       << "expected: " << data_view( raw );
         }
 }

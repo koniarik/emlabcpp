@@ -67,6 +67,13 @@ struct cobs_decoder
         }
 
         uint8_t offset = 0;
+
+        cobs_decoder() = default;
+
+        cobs_decoder( std::byte b )
+          : offset( static_cast< uint8_t >( b ) - 1 )
+        {
+        }
 };
 
 /// Decodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS)
@@ -77,8 +84,7 @@ decode_cobs( view< std::byte* > source, view< std::byte* > target )
 {
 
         std::byte*   target_current = target.begin();
-        cobs_decoder dec;
-        dec.advance( source.front() );
+        cobs_decoder dec( source.front() );
 
         for ( const std::byte b : tail( source ) ) {
 
