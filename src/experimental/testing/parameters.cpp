@@ -210,6 +210,7 @@ void parameters_server::on_req( const param_value_key_request& req )
 
 void parameters_server::on_req( const param_child_request& req )
 {
+        EMLABCPP_DEBUG_LOG( "got request: ", decompose( req ) );
         const contiguous_request_adapter harn{ tree_ };
 
         harn.get_child( req.parent, req.chid )
@@ -224,6 +225,7 @@ void parameters_server::on_req( const param_child_request& req )
 
 void parameters_server::on_req( const param_child_count_request& req )
 {
+        EMLABCPP_DEBUG_LOG( "got request: ", decompose( req ) );
         const contiguous_request_adapter harn{ tree_ };
 
         harn.get_child_count( req.parent )

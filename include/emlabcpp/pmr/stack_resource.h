@@ -56,19 +56,24 @@ public:
         [[nodiscard]] void*
         allocate( const std::size_t bytes, const std::size_t alignment ) override
         {
-                EMLABCPP_INFO_LOG( "Top is ", top_, " and start of buffer is ", buff_.data() );
 
                 std::byte* prev_ptr  = top_;
                 const node prev_node = get_node( prev_ptr );
 
                 auto* const p = reinterpret_cast< std::byte* >( align( top_, alignment ) );
 
-                top_ = p + bytes + node_size;
+                std::byte* new_top = p + bytes + node_size;
+
+                if ( new_top + node_size > buff_.end() ) {
+                        return nullptr;
+                }
+
+                top_ = new_top;
 
                 set_node( top_, prev_ptr, nullptr );
                 set_node( prev_ptr, prev_node.prev_ptr, top_ );
 
-                EMLABCPP_INFO_LOG( "Allocating ", p, " for ", bytes, " bytes" );
+                EMLABCPP_DEBUG_LOG( "Allocating ", p, " for ", bytes, " bytes" );
 
                 return p;
         }
@@ -76,7 +81,7 @@ public:
         [[nodiscard]] bool
         deallocate( void* const ptr, const std::size_t bytes, const std::size_t ) override
         {
-                EMLABCPP_INFO_LOG( "Deallocating ", ptr, " with ", bytes, " bytes" );
+                EMLABCPP_DEBUG_LOG( "Deallocating ", ptr, " with ", bytes, " bytes" );
                 std::byte* node_ptr = reinterpret_cast< std::byte* >( ptr ) + bytes + node_size;
                 auto [prev_ptr, next_ptr] = get_node( node_ptr );
 
@@ -108,7 +113,6 @@ public:
 private:
         node get_node( std::byte* ptr )
         {
-                EMLABCPP_INFO_LOG( "Reading from ", ptr );
                 ptr -= sizeof( std::byte* );
 
                 std::byte* prev = nullptr;
@@ -123,7 +127,6 @@ private:
 
         void set_node( std::byte* ptr, std::byte* const prev, std::byte* const next ) const
         {
-                EMLABCPP_INFO_LOG( "Storing at ", ptr );
                 ptr -= sizeof( std::byte* );
                 std::memcpy( ptr, &prev, sizeof( std::byte* ) );
                 ptr -= sizeof( std::byte* );
