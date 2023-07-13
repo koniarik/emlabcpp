@@ -1,4 +1,3 @@
-
 #include "emlabcpp/experimental/coro/memory_promise.h"
 #include "emlabcpp/experimental/coro/owning_coroutine_handle.h"
 
@@ -50,6 +49,11 @@ class recursive_coroutine : public wait_interface
 public:
         struct promise_type : data_promise< T >, memory_promise< promise_type >
         {
+                static recursive_coroutine get_return_object_on_allocation_failure()
+                {
+                        return recursive_coroutine{};
+                }
+
                 [[nodiscard]] recursive_coroutine get_return_object()
                 {
                         return recursive_coroutine{ handle::from_promise( *this ) };
