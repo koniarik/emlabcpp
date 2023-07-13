@@ -31,12 +31,13 @@ struct memory_promise
 {
         static constexpr std::size_t ptr_size = sizeof( pmr::memory_resource* );
 
-        void* operator new( const std::size_t sz, auto&, pmr::memory_resource& pi, auto&&... )
+        void*
+        operator new( const std::size_t sz, auto&, pmr::memory_resource& pi, auto&&... ) noexcept
         {
                 return alloc( sz, pi );
         }
 
-        void* operator new( const std::size_t sz, pmr::memory_resource& pi, auto&&... )
+        void* operator new( const std::size_t sz, pmr::memory_resource& pi, auto&&... ) noexcept
         {
                 return alloc( sz, pi );
         }

@@ -62,6 +62,11 @@ public:
                 std::optional< RequestType > request;
                 std::optional< ReplyType >   reply;
 
+                static request_reply get_return_object_on_allocation_failure()
+                {
+                        return {};
+                }
+
                 request_reply get_return_object()
                 {
                         return { handle::from_promise( *this ) };
@@ -94,6 +99,8 @@ public:
 
         using handle        = std::coroutine_handle< promise_type >;
         using owning_handle = owning_coroutine_handle< promise_type >;
+
+        request_reply() = default;
 
         request_reply( const handle cor )
           : h_( cor )
