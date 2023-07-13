@@ -6,6 +6,7 @@ var classemlabcpp_1_1coro_1_1request__reply =
     [ "owning_handle", "classemlabcpp_1_1coro_1_1request__reply.html#ad725e9f35f4e4d99799ca8d79574adc0", null ],
     [ "reply_type", "classemlabcpp_1_1coro_1_1request__reply.html#a8f13290a688cb1d8d6dad725f826654b", null ],
     [ "request_type", "classemlabcpp_1_1coro_1_1request__reply.html#a76fe68185e44223f5846f693e4d5dfb3", null ],
+    [ "request_reply", "classemlabcpp_1_1coro_1_1request__reply.html#a19a2589c92f165963dbc8e182dc1c760", null ],
     [ "request_reply", "classemlabcpp_1_1coro_1_1request__reply.html#aee14548d36b9d6a8ecb2229535cb8a16", null ],
     [ "request_reply", "classemlabcpp_1_1coro_1_1request__reply.html#a925fcf1c04158b7715dc93f9f7e4514b", null ],
     [ "request_reply", "classemlabcpp_1_1coro_1_1request__reply.html#a4fb64b46103f9af7dc39325ccd5e8722", null ],
