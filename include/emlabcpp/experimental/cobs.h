@@ -42,7 +42,7 @@ encode_cobs( view< std::byte* > source, view< std::byte* > target )
 
 struct cobs_decoder
 {
-        std::byte get( std::byte inpt ) const
+        [[nodiscard]] std::byte get( std::byte inpt ) const
         {
                 if ( offset == 0 ) {
                         return std::byte{ 0 };
@@ -59,9 +59,9 @@ struct cobs_decoder
                 }
         }
 
-        std::byte iter( std::byte inpt )
+        [[nodiscard]] std::byte iter( std::byte inpt )
         {
-                std::byte b = get( inpt );
+                const std::byte b = get( inpt );
                 advance( inpt );
                 return b;
         }

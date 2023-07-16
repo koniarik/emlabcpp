@@ -301,8 +301,8 @@ constexpr matrix< LH::rows, LH::cols, typename LH::value_type >
 operator*( const LH& lh, const typename LH::value_type& val )
 {
         auto res = lh;
-        for ( std::size_t i : range( LH::rows ) ) {
-                for ( std::size_t j : range( LH::cols ) ) {
+        for ( const std::size_t i : range( LH::rows ) ) {
+                for ( const std::size_t j : range( LH::cols ) ) {
                         res[i][j] *= val;
                 }
         }
@@ -335,8 +335,8 @@ requires( LH::cols == RH::cols && LH::rows == RH::rows )
 constexpr matrix< LH::rows, LH::cols, T > operator-( const LH& lh, const RH& rh )
 {
         matrix< LH::rows, LH::cols, T > res{};
-        for ( std::size_t i : range( LH::rows ) ) {
-                for ( std::size_t j : range( LH::cols ) ) {
+        for ( const std::size_t i : range( LH::rows ) ) {
+                for ( const std::size_t j : range( LH::cols ) ) {
                         res[i][j] = lh[i][j] - rh[i][j];
                 }
         }
