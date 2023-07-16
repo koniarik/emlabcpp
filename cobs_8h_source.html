@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('cobs_8h_source.html',''); initResizabl
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cobs__decoder.html">   43</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1cobs__decoder.html">cobs_decoder</a></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cobs__decoder.html#a509ae5a97a990836622095e66d6904cd">   45</a></span>&#160;        <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> <a class="code" href="structemlabcpp_1_1cobs__decoder.html#a509ae5a97a990836622095e66d6904cd">get</a>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> inpt )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cobs__decoder.html#a509ae5a97a990836622095e66d6904cd">   45</a></span>&#160;        [[nodiscard]] <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> <a class="code" href="structemlabcpp_1_1cobs__decoder.html#a509ae5a97a990836622095e66d6904cd">get</a>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> inpt )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">if</span> ( <a class="code" href="structemlabcpp_1_1cobs__decoder.html#a9631f392f9ff5a3ed605afd9a4165b7f">offset</a> == 0 ) {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>{ 0 };</div>
@@ -144,9 +144,9 @@ $(document).ready(function(){initNavTree('cobs_8h_source.html',''); initResizabl
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cobs__decoder.html#a5e5580278c364e7c388983570a73646c">   62</a></span>&#160;        <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> <a class="code" href="structemlabcpp_1_1cobs__decoder.html#a5e5580278c364e7c388983570a73646c">iter</a>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> inpt )</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cobs__decoder.html#a5e5580278c364e7c388983570a73646c">   62</a></span>&#160;        [[nodiscard]] <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> <a class="code" href="structemlabcpp_1_1cobs__decoder.html#a5e5580278c364e7c388983570a73646c">iter</a>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> inpt )</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> b = <a class="code" href="structemlabcpp_1_1cobs__decoder.html#a509ae5a97a990836622095e66d6904cd">get</a>( inpt );</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> b = <a class="code" href="structemlabcpp_1_1cobs__decoder.html#a509ae5a97a990836622095e66d6904cd">get</a>( inpt );</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <a class="code" href="structemlabcpp_1_1cobs__decoder.html#a3fd5dfc4338f1a8a405fcec27a49f8b3">advance</a>( inpt );</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">return</span> b;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
@@ -287,7 +287,7 @@ $(document).ready(function(){initNavTree('cobs_8h_source.html',''); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="cobs_8h.html">cobs.h</a></li>
-    <li class="footer">Generated on Thu Jul 13 2023 19:32:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Jul 16 2023 22:45:24 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
