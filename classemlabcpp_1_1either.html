@@ -145,13 +145,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9e51e35517b6d142f1b3202cb54416d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3afbc8f2920b4bdb2345d17ec946206a"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#a3afbc8f2920b4bdb2345d17ec946206a">convert_right</a> (auto &amp;&amp;right_f) &amp;&amp;</td></tr>
 <tr class="separator:a3afbc8f2920b4bdb2345d17ec946206a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a128ed8c69beed3c6f572b2d1ad92e7e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#a128ed8c69beed3c6f572b2d1ad92e7e9">match</a> (auto &amp;&amp;left_f, auto &amp;&amp;right_f) &amp;</td></tr>
-<tr class="memdesc:a128ed8c69beed3c6f572b2d1ad92e7e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: return std::invocable concept for the callable functions here problems: for some reason, with the concepts wrong overload kept selected, have to figure this out.  <a href="classemlabcpp_1_1either.html#a128ed8c69beed3c6f572b2d1ad92e7e9">More...</a><br /></td></tr>
-<tr class="separator:a128ed8c69beed3c6f572b2d1ad92e7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5058c79da378013d08673069babc9ee0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#a5058c79da378013d08673069babc9ee0">match</a> (auto &amp;&amp;left_f, auto &amp;&amp;right_f) const &amp;</td></tr>
-<tr class="separator:a5058c79da378013d08673069babc9ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b3ccb6729518414bf15e1697a69af26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#a7b3ccb6729518414bf15e1697a69af26">match</a> (auto &amp;&amp;left_f, auto &amp;&amp;right_f) &amp;&amp;</td></tr>
-<tr class="separator:a7b3ccb6729518414bf15e1697a69af26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada20cf807b761e52ca3ff1222231e94a"><td class="memTemplParams" colspan="2">template&lt;typename U  = left_item, typename K  = right_item&gt; </td></tr>
 <tr class="memitem:ada20cf807b761e52ca3ff1222231e94a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1either.html#ada20cf807b761e52ca3ff1222231e94a">requires</a> (std::same_as&lt; U, K &gt;) <a class="el" href="classemlabcpp_1_1either.html#acdbfa3b0c267b283d1df22be04558b6a">left_item</a> join() &amp;&amp;</td></tr>
 <tr class="separator:ada20cf807b761e52ca3ff1222231e94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -794,122 +787,6 @@ template&lt;typename LH , typename RH &gt; </div>
 
 </div>
 </div>
-<a id="a128ed8c69beed3c6f572b2d1ad92e7e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a128ed8c69beed3c6f572b2d1ad92e7e9">&#9670;&nbsp;</a></span>match() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LH , typename RH &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classemlabcpp_1_1either.html">emlabcpp::either</a>&lt; LH, RH &gt;::match </td>
-          <td>(</td>
-          <td class="paramtype">auto &amp;&amp;&#160;</td>
-          <td class="paramname"><em>left_f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">auto &amp;&amp;&#160;</td>
-          <td class="paramname"><em>right_f</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> &amp;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>TODO: return std::invocable concept for the callable functions here problems: for some reason, with the concepts wrong overload kept selected, have to figure this out. </p>
-
-</div>
-</div>
-<a id="a7b3ccb6729518414bf15e1697a69af26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b3ccb6729518414bf15e1697a69af26">&#9670;&nbsp;</a></span>match() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LH , typename RH &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classemlabcpp_1_1either.html">emlabcpp::either</a>&lt; LH, RH &gt;::match </td>
-          <td>(</td>
-          <td class="paramtype">auto &amp;&amp;&#160;</td>
-          <td class="paramname"><em>left_f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">auto &amp;&amp;&#160;</td>
-          <td class="paramname"><em>right_f</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> &amp;&amp;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5058c79da378013d08673069babc9ee0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5058c79da378013d08673069babc9ee0">&#9670;&nbsp;</a></span>match() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LH , typename RH &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classemlabcpp_1_1either.html">emlabcpp::either</a>&lt; LH, RH &gt;::match </td>
-          <td>(</td>
-          <td class="paramtype">auto &amp;&amp;&#160;</td>
-          <td class="paramname"><em>left_f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">auto &amp;&amp;&#160;</td>
-          <td class="paramname"><em>right_f</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const &amp;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ac158ff6ac47fa2f1f9245f798a5e682c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac158ff6ac47fa2f1f9245f798a5e682c">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/6]</span></h2>
 
@@ -1190,7 +1067,7 @@ template&lt;typename LH , typename RH &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1either.html">either</a></li>
-    <li class="footer">Generated on Sun Jul 16 2023 22:45:24 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Jul 17 2023 07:34:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -14,7 +14,7 @@ var searchData=
   ['deallocate_228',['deallocate',['../classemlabcpp_1_1pmr_1_1memory__resource.html#ad15c362e662a63d44e8bc01076450730',1,'emlabcpp::pmr::memory_resource::deallocate()'],['../classemlabcpp_1_1pmr_1_1pool__resource.html#a2a644bc27d027b41e99c84068542efe1',1,'emlabcpp::pmr::pool_resource::deallocate()'],['../classemlabcpp_1_1pmr_1_1stack__resource.html#aa536fb4972cabcb7490695e145b2c92e',1,'emlabcpp::pmr::stack_resource::deallocate()'],['../structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html#a6fa8d7fa8ebb37939a29a81c68957531',1,'emlabcpp::pmr::new_delete_resource_impl::deallocate()'],['../classemlabcpp_1_1pmr_1_1allocator.html#ace60242c3db3bc4b708dc89930233c8a',1,'emlabcpp::pmr::allocator::deallocate()']]],
   ['debug_229',['DEBUG',['../namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55adc30ec20708ef7b0f641ef78b7880a15',1,'emlabcpp']]],
   ['debug_5flogger_5fcolors_230',['DEBUG_LOGGER_COLORS',['../namespaceemlabcpp.html#a040c9fa2d6c0e4a28649479052ad8f8d',1,'emlabcpp']]],
-  ['decode_5fcobs_231',['decode_cobs',['../namespaceemlabcpp.html#a287862121b428bfa9cc668e1f774e2d5',1,'emlabcpp']]],
+  ['decode_5fcobs_231',['decode_cobs',['../namespaceemlabcpp.html#aa636b3f8449e9bac7a6d8aa8ffdeec3a',1,'emlabcpp']]],
   ['decode_5fcobs_5fiter_232',['decode_cobs_iter',['../classemlabcpp_1_1decode__cobs__iter.html#aed20c61580154f797d8f9c4227850939',1,'emlabcpp::decode_cobs_iter::decode_cobs_iter()'],['../classemlabcpp_1_1decode__cobs__iter.html',1,'emlabcpp::decode_cobs_iter&lt; Iter &gt;']]],
   ['decomposable_233',['decomposable',['../namespaceemlabcpp.html#a771ceb5d56ed0208c7974b576c6dadc0',1,'emlabcpp']]],
   ['decomposable_5f0_234',['decomposable_0',['../namespaceemlabcpp.html#ad6adfccd266cb01c6cfd376ea222c110',1,'emlabcpp']]],

@@ -1,8 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"functions_vars_r.html":[3,3,2,14],
-"functions_vars_s.html":[3,3,2,15],
-"functions_vars_t.html":[3,3,2,16],
 "functions_vars_u.html":[3,3,2,17],
 "functions_vars_v.html":[3,3,2,18],
 "functions_vars_w.html":[3,3,2,19],
@@ -158,7 +155,6 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp.html#a254ed4de50fc497ac961253ac3625040":[2,0,0,329],
 "namespaceemlabcpp.html#a26e570f89d7f0975b1cff5b2ec8cd7e3":[2,0,0,219],
 "namespaceemlabcpp.html#a27325f314502897567307b29b2b03776":[2,0,0,379],
-"namespaceemlabcpp.html#a287862121b428bfa9cc668e1f774e2d5":[2,0,0,188],
 "namespaceemlabcpp.html#a2acb59e904f4530e0e8d42e98f67bcaa":[2,0,0,304],
 "namespaceemlabcpp.html#a2d80507cffdd192a333f6bd9c272e97a":[2,0,0,167],
 "namespaceemlabcpp.html#a2e849ebc932caa63f7e1e6c67d0c2f7b":[2,0,0,387],
@@ -238,7 +234,6 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp.html#a655b9d57207a6513eefd69f5099fdae2":[4,0,0,0,17,0,0],
 "namespaceemlabcpp.html#a65d491045b619755db02e72cfa69e772":[2,0,0,261],
 "namespaceemlabcpp.html#a66b48062894b569667fa98dbf5ceeeae":[2,0,0,328],
-"namespaceemlabcpp.html#a66eda67f0ba6fe671bc52b639616ef97":[2,0,0,200],
 "namespaceemlabcpp.html#a670099942b8cdd3d2cc28760b1717d7c":[2,0,0,295],
 "namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9":[2,0,0,207],
 "namespaceemlabcpp.html#a69c59e260f99791d626a9665243323d0":[2,0,0,323],
@@ -249,5 +244,10 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp.html#a71244dcc912784b08768c6ae041c37bc":[2,0,0,377],
 "namespaceemlabcpp.html#a746c782172b5cd06a357056a324f437b":[4,0,0,0,1,3,3,0,1],
 "namespaceemlabcpp.html#a75cf44a6df8173ea7a46979f57546332":[2,0,0,169],
-"namespaceemlabcpp.html#a76870aafe8a72795ca80143c32313532":[2,0,0,341]
+"namespaceemlabcpp.html#a76870aafe8a72795ca80143c32313532":[2,0,0,341],
+"namespaceemlabcpp.html#a771ceb5d56ed0208c7974b576c6dadc0":[2,0,0,362],
+"namespaceemlabcpp.html#a7721009a36753730f1afa6be47dbf28b":[2,0,0,198],
+"namespaceemlabcpp.html#a78453f63bffe0ddbe927529c68875dc4":[2,0,0,283],
+"namespaceemlabcpp.html#a7a8e644a62f8747e59e7766ba811037a":[2,0,0,206],
+"namespaceemlabcpp.html#a7b0c8873bbc692d1700c0f3a5603d620":[2,0,0,285]
 };
