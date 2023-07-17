@@ -77,27 +77,30 @@ parameters::parameters(
 {
 }
 
-void parameters::on_msg( const std::span< const std::byte > data )
+bool parameters::on_msg( const std::span< const std::byte > data )
 {
         // TODO: this is copy pasta festival from collect...
         using h = protocol::handler< params_server_client_group >;
-        h::extract( view_n( data.data(), data.size() ) )
+        return h::extract( view_n( data.data(), data.size() ) )
             .match(
                 [this]( const params_server_client_variant& req ) {
-                        on_msg( req );
+                        return on_msg( req );
                 },
                 []( const auto& err ) {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
+                        return false;
                 } );
 }
 
-void parameters::on_msg( const params_server_client_variant& req )
+bool parameters::on_msg( const params_server_client_variant& req )
 {
         if ( !reply_cb_ ) {
-                return;
+                return false;
         }
         reply_cb_( req );
+        // TODO: maybe better error hndling can be done?
+        return true;
 }
 
 param_type_awaiter parameters::get_type( const node_id nid )
@@ -131,10 +134,10 @@ void parameters::exchange( const params_client_server_variant& req, params_reply
         send( req );
 }
 
-void parameters::send( const params_client_server_variant& val )
+bool parameters::send( const params_client_server_variant& val )
 {
         using h = protocol::handler< params_client_server_group >;
-        send_cb_( channel_, h::serialize( val ) );
+        return send_cb_( channel_, h::serialize( val ) );
 }
 
 parameters_server::parameters_server(
@@ -147,18 +150,19 @@ parameters_server::parameters_server(
 {
 }
 
-void parameters_server::on_msg( const std::span< const std::byte > data )
+bool parameters_server::on_msg( const std::span< const std::byte > data )
 {
         // TODO: this is copy pasta festival from collect...
         using h = protocol::handler< params_client_server_group >;
-        h::extract( view_n( data.data(), data.size() ) )
+        return h::extract( view_n( data.data(), data.size() ) )
             .match(
                 [this]( const params_client_server_variant& req ) {
-                        on_msg( req );
+                        return on_msg( req );
                 },
                 []( const auto& err ) {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
+                        return false;
                 } );
 }
 
@@ -169,13 +173,14 @@ void parameters_server::on_req( const param_error& req ) const
             "Params errored: ", std::string_view{ req.error.data(), req.error.size() } );
 }
 
-void parameters_server::on_msg( const params_client_server_variant& req )
+bool parameters_server::on_msg( const params_client_server_variant& req )
 {
         visit(
             [this]( const auto& item ) {
                     on_req( item );
             },
             req );
+        return true;  // is there some error checking that can be done?
 }
 
 void parameters_server::on_req( const param_value_request& req )
@@ -281,10 +286,10 @@ void parameters_server::reply_node_error(
         send( tree_error_reply{ .err = err, .nid = nid } );
 }
 
-void parameters_server::send( const params_server_client_variant& var )
+bool parameters_server::send( const params_server_client_variant& var )
 {
         using h = protocol::handler< params_server_client_group >;
-        send_cb_( channel_, h::serialize( var ) );
+        return send_cb_( channel_, h::serialize( var ) );
 }
 
 };  // namespace emlabcpp::testing

@@ -69,10 +69,10 @@ TEST( collect, base )
         testing::collect_server* server_ptr;
 
         auto col_send_f = [&]( auto, auto data ) {
-                server_ptr->on_msg( data );
+                return server_ptr->on_msg( data );
         };
         auto server_send_f = [&]( auto, auto data ) {
-                col_ptr->on_msg( data );
+                return col_ptr->on_msg( data );
         };
 
         testing::collector coll{ 0, col_send_f };

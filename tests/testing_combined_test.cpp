@@ -47,10 +47,10 @@ TEST( testing_combined, base )
         testing::controller* con_ptr;
         testing::reactor*    reac_ptr;
         auto                 reactor_send_f = [&]( auto, const auto& data ) {
-                con_ptr->on_msg( data );
+                return con_ptr->on_msg( data );
         };
         auto contr_send_f = [&]( auto, const auto& data ) {
-                reac_ptr->on_msg( data );
+                return reac_ptr->on_msg( data );
         };
 
         testing::reactor reac{ 0, "reac", reactor_send_f };
@@ -98,62 +98,62 @@ struct host_items
             pmr::new_delete_resource(),
             ciface,
             [&]( auto chan, const auto& data ) {
-                    send( chan, data );
+                    return send( chan, data );
             } };
         testing::collect_server col_serv{
             testing::collect_channel,
             pmr::new_delete_resource(),
             [&]( auto chan, const auto& data ) {
-                    send( chan, data );
+                    return send( chan, data );
             } };
         testing::parameters_server param_serv{
             testing::params_channel,
             testing::data_tree{ pmr::new_delete_resource() },
             [&]( auto chan, const auto& data ) {
-                    send( chan, data );
+                    return send( chan, data );
             } };
 
-        std::function< void( std::span< const std::byte > ) > cb;
+        std::function< bool( std::span< const std::byte > ) > cb;
         testing::endpoint                                     ep;
 
         template < std::size_t N >
-        void send( protocol::channel_type channel, const protocol::message< N >& data )
+        bool send( protocol::channel_type channel, const protocol::message< N >& data )
         {
-                cb( ep.serialize( channel, data ) );
+                return cb( ep.serialize( channel, data ) );
         }
 
-        void on_msg( const std::span< const std::byte > data )
+        bool on_msg( const std::span< const std::byte > data )
         {
                 ep.insert( data );
-                ep.dispatch_value( cont, col_serv, param_serv );
+                return ep.dispatch_value( cont, col_serv, param_serv );
         }
 };
 
 struct dev_items
 {
         testing::reactor   reac{ testing::core_channel, "reac", [&]( auto chan, const auto& data ) {
-                                      send( chan, data );
+                                      return send( chan, data );
                               } };
         testing::collector coll{ testing::collect_channel, [&]( auto chan, const auto& data ) {
-                                        send( chan, data );
+                                        return send( chan, data );
                                 } };
         testing::parameters params{ testing::params_channel, [&]( auto chan, const auto& data ) {
-                                           send( chan, data );
+                                           return send( chan, data );
                                    } };
 
-        std::function< void( std::span< const std::byte > ) > cb;
+        std::function< bool( std::span< const std::byte > ) > cb;
         testing::endpoint                                     ep;
 
         template < std::size_t N >
-        void send( protocol::channel_type channel, const protocol::message< N >& data )
+        bool send( protocol::channel_type channel, const protocol::message< N >& data )
         {
-                cb( ep.serialize( channel, data ) );
+                return cb( ep.serialize( channel, data ) );
         }
 
-        void on_msg( const std::span< const std::byte > data )
+        bool on_msg( const std::span< const std::byte > data )
         {
                 ep.insert( data );
-                ep.dispatch_value( reac, coll, params );
+                return ep.dispatch_value( reac, coll, params );
         }
 };
 
@@ -165,11 +165,11 @@ TEST( testing_combined, complex )
 
         host.cb = [&]( auto data ) {
                 EMLABCPP_INFO_LOG( "to dev: ", data );
-                dev.on_msg( data );
+                return dev.on_msg( data );
         };
         dev.cb = [&]( auto data ) {
                 EMLABCPP_INFO_LOG( "to host: ", data );
-                host.on_msg( data );
+                return host.on_msg( data );
         };
 
         const testing::test_unit< simple_test_fixture > tf{ dev.reac };

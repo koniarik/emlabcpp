@@ -14,7 +14,7 @@ namespace emlabcpp
 /// encoding, returns bool indicating whenever conversion succeeded and subview used for conversion
 /// from target buffer. Note that this does not store 0 at the end.
 inline std::tuple< bool, view< std::byte* > >
-encode_cobs( view< std::byte* > source, view< std::byte* > target )
+encode_cobs( view< const std::byte* > source, view< std::byte* > target )
 {
         std::byte* last_tok       = target.begin();
         std::byte* target_current = last_tok;
@@ -80,7 +80,7 @@ struct cobs_decoder
 /// encoding, returns bool indicating whenever conversion succeeded and subview used for conversion
 /// from target buffer. Note that this does not expect 0 at the end.
 inline std::tuple< bool, view< std::byte* > >
-decode_cobs( view< std::byte* > source, view< std::byte* > target )
+decode_cobs( view< const std::byte* > source, view< std::byte* > target )
 {
 
         std::byte*   target_current = target.begin();

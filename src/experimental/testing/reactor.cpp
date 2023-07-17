@@ -39,24 +39,26 @@ void reactor::tick()
         }
 }
 
-void reactor::on_msg( const std::span< const std::byte > buffer )
+bool reactor::on_msg( const std::span< const std::byte > buffer )
 {
         using h = protocol::handler< controller_reactor_group >;
-        h::extract( view_n( buffer.data(), buffer.size() ) )
+        return h::extract( view_n( buffer.data(), buffer.size() ) )
             .match(
                 [this]( const controller_reactor_variant& var ) {
-                        on_msg( var );
+                        return on_msg( var );
                 },
                 [this]( const protocol::error_record& rec ) {
                         iface_.report_failure( input_message_protocol_error{ rec } );
+                        return false;
                 } );
 }
 
-void reactor::on_msg( const controller_reactor_variant& var )
+bool reactor::on_msg( const controller_reactor_variant& var )
 {
         match( var, [this]( const auto& item ) {
                 handle_message( item );
         } );
+        return false;  // maybe better error handling can be done?
 }
 
 void reactor::handle_message( const get_property< SUITE_NAME > )

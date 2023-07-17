@@ -153,9 +153,9 @@ using params_server_client_message =
 
 using params_reply_callback = static_function< void( const params_server_client_variant& ), 32 >;
 using params_client_transmit_callback =
-    static_function< void( protocol::channel_type, const params_client_server_message& ), 32 >;
+    static_function< bool( protocol::channel_type, const params_client_server_message& ), 32 >;
 using params_server_transmit_callback =
-    static_function< void( protocol::channel_type, const params_server_client_message& ), 32 >;
+    static_function< bool( protocol::channel_type, const params_server_client_message& ), 32 >;
 
 class parameters;
 
@@ -318,8 +318,8 @@ public:
                 return channel_;
         }
 
-        void on_msg( std::span< const std::byte > data );
-        void on_msg( const params_server_client_variant& req );
+        bool on_msg( std::span< const std::byte > data );
+        bool on_msg( const params_server_client_variant& req );
 
         param_type_awaiter get_type( node_id nid );
 
@@ -350,7 +350,7 @@ public:
 
         void exchange( const params_client_server_variant& req, params_reply_callback reply_cb );
 
-        void send( const params_client_server_variant& val );
+        bool send( const params_client_server_variant& val );
 
 private:
         protocol::channel_type          channel_;
@@ -402,8 +402,8 @@ public:
                 return channel_;
         }
 
-        void on_msg( const std::span< const std::byte > data );
-        void on_msg( const params_client_server_variant& req );
+        bool on_msg( const std::span< const std::byte > data );
+        bool on_msg( const params_client_server_variant& req );
 
 private:
         void on_req( const param_error& req ) const;
@@ -414,7 +414,7 @@ private:
         void on_req( const param_key_request& req );
         void on_req( const param_type_request& req );
         void reply_node_error( const contiguous_request_adapter_errors err, const node_id nid );
-        void send( const params_server_client_variant& var );
+        bool send( const params_server_client_variant& var );
 
         protocol::channel_type          channel_;
         data_tree                       tree_;

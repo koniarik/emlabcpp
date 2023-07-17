@@ -111,21 +111,22 @@ void controller::start_test( const test_id tid )
         iface_.send( exec_request{ .rid = rid_, .tid = tid } );
 }
 
-void controller::on_msg( const std::span< const std::byte > data )
+bool controller::on_msg( const std::span< const std::byte > data )
 {
         using h = protocol::handler< reactor_controller_group >;
-        h::extract( view_n( data.data(), data.size() ) )
+        return h::extract( view_n( data.data(), data.size() ) )
             .match(
                 [this]( const reactor_controller_variant& var ) {
-                        on_msg( var );
+                        return on_msg( var );
                 },
                 []( const protocol::error_record& rec ) {
                         std::ignore = rec;
                         EMLABCPP_ERROR_LOG( "Failed to extract incoming msg: ", rec );
+                        return false;
                 } );
 }
 
-void controller::on_msg( const reactor_controller_variant& var )
+bool controller::on_msg( const reactor_controller_variant& var )
 {
         using opt_state     = std::optional< states >;
         opt_state new_state = match(
@@ -157,6 +158,9 @@ void controller::on_msg( const reactor_controller_variant& var )
         if ( new_state ) {
                 state_ = std::move( *new_state );
         }
+
+        // TODO: maybe better error handling? or maybe none at all?
+        return true;
 }
 
 void controller::tick()

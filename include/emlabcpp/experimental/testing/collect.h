@@ -54,9 +54,9 @@ using collect_client_server_message = typename protocol::handler< collect_reques
 
 using collect_reply_callback = static_function< void( const collect_server_client_group& ), 32 >;
 using collect_client_transmit_callback =
-    static_function< void( protocol::channel_type, const collect_client_server_message& ), 32 >;
+    static_function< bool( protocol::channel_type, const collect_client_server_message& ), 32 >;
 using collect_server_transmit_callback =
-    static_function< void( protocol::channel_type, const collect_server_client_message& ), 32 >;
+    static_function< bool( protocol::channel_type, const collect_server_client_message& ), 32 >;
 
 class collector;
 
@@ -109,31 +109,31 @@ public:
                 return channel_;
         }
 
-        void on_msg( const std::span< const std::byte >& msg );
-        void on_msg( const collect_server_client_group& var );
+        bool on_msg( const std::span< const std::byte >& msg );
+        bool on_msg( const collect_server_client_group& var );
 
         collect_awaiter
         set( const node_id parent, std::string_view key, contiguous_container_type t );
         collect_awaiter append( const node_id parent, contiguous_container_type t );
-        void            set( const node_id parent, std::string_view key, const value_type& val );
-        void            append( const node_id parent, const value_type& val );
+        bool            set( const node_id parent, std::string_view key, const value_type& val );
+        bool            append( const node_id parent, const value_type& val );
 
         template < typename Arg >
-        void set( node_id parent, std::string_view key, const Arg& arg )
+        bool set( node_id parent, std::string_view key, const Arg& arg )
         {
-                set( parent, key, value_type_converter< Arg >::to_value( arg ) );
+                return set( parent, key, value_type_converter< Arg >::to_value( arg ) );
         }
 
         template < typename Arg >
-        void append( node_id parent, const Arg& arg )
+        bool append( node_id parent, const Arg& arg )
         {
-                append( parent, value_type_converter< Arg >::to_value( arg ) );
+                return append( parent, value_type_converter< Arg >::to_value( arg ) );
         }
 
-        void exchange( const collect_request& req, collect_reply_callback cb );
+        bool exchange( const collect_request& req, collect_reply_callback cb );
 
 private:
-        void send( const collect_request& req );
+        bool send( const collect_request& req );
 
         protocol::channel_type           channel_;
         collect_reply_callback           reply_callback_;
@@ -153,8 +153,8 @@ public:
                 return channel_;
         }
 
-        void on_msg( std::span< const std::byte > data );
-        void on_msg( const collect_request& req );
+        bool on_msg( std::span< const std::byte > data );
+        bool on_msg( const collect_request& req );
 
         void clear()
         {
@@ -167,7 +167,7 @@ public:
         }
 
 private:
-        void send( const collect_server_client_group& val );
+        bool send( const collect_server_client_group& val );
 
         protocol::channel_type           channel_;
         data_tree                        tree_;

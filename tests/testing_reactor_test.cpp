@@ -59,19 +59,20 @@ class reactor_interface
 public:
         static std::vector< testing::reactor_controller_variant > msgs;
 
-        void operator()( auto, std::span< const std::byte > msg )
+        bool operator()( auto, std::span< const std::byte > msg )
         {
                 using h = protocol::handler< testing::reactor_controller_group >;
-                h::extract( view_n( msg.data(), msg.size() ) )
+                return h::extract( view_n( msg.data(), msg.size() ) )
                     .match(
                         [&]( const auto& var ) {
                                 // TODO: var shall be logged
                                 EMLABCPP_INFO_LOG( "Got a msg: ", "" );
                                 msgs.push_back( var );
+                                return true;
                         },
                         [&]( const auto& err ) {
                                 EMLABCPP_ERROR_LOG( "Got an error: ", err );
-                                FAIL();
+                                return false;
                         } );
         }
 };

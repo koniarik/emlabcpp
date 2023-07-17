@@ -54,23 +54,29 @@ collector::collector( const protocol::channel_type chann, collect_client_transmi
 {
 }
 
-void collector::on_msg( const std::span< const std::byte >& msg )
+bool collector::on_msg( const std::span< const std::byte >& msg )
 {
         using h = protocol::handler< collect_server_client_group >;
-        h::extract( view_n( msg.data(), msg.size() ) )
+        return h::extract( view_n( msg.data(), msg.size() ) )
             .match(
                 [this]( const collect_server_client_group& req ) {
-                        on_msg( req );
+                        return on_msg( req );
                 },
                 []( const auto& err ) {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
+                        return false;
                 } );
 }
 
-void collector::on_msg( const collect_server_client_group& var )
+bool collector::on_msg( const collect_server_client_group& var )
 {
-        reply_callback_( var );
+        if ( reply_callback_ ) {
+                reply_callback_( var );
+                return true;
+        } else {
+                return false;
+        }
 }
 
 collect_awaiter
@@ -90,30 +96,30 @@ collect_awaiter collector::append( const node_id parent, contiguous_container_ty
             *this };
 }
 
-void collector::set( const node_id parent, const std::string_view key, const value_type& val )
+bool collector::set( const node_id parent, const std::string_view key, const value_type& val )
 {
         EMLABCPP_DEBUG_LOG(
             "Sending collect request for parent ", parent, " key: ", key, " value: ", val );
-        send( collect_request{
+        return send( collect_request{
             .parent = parent, .expects_reply = false, .opt_key = key_type( key ), .value = val } );
 }
 
-void collector::append( const node_id parent, const value_type& val )
+bool collector::append( const node_id parent, const value_type& val )
 {
-        send( collect_request{
+        return send( collect_request{
             .parent = parent, .expects_reply = false, .opt_key = std::nullopt, .value = val } );
 }
 
-void collector::exchange( const collect_request& req, collect_reply_callback cb )
+bool collector::exchange( const collect_request& req, collect_reply_callback cb )
 {
         reply_callback_ = std::move( cb );
-        send( req );
+        return send( req );
 }
 
-void collector::send( const collect_request& req )
+bool collector::send( const collect_request& req )
 {
         using h = protocol::handler< collect_request >;
-        send_cb_( channel_, h::serialize( req ) );
+        return send_cb_( channel_, h::serialize( req ) );
 }
 
 collect_server::collect_server(
@@ -126,22 +132,23 @@ collect_server::collect_server(
 {
 }
 
-void collect_server::on_msg( const std::span< const std::byte > data )
+bool collect_server::on_msg( const std::span< const std::byte > data )
 {
         using h = protocol::handler< collect_request >;
         EMLABCPP_DEBUG_LOG( "got msg: ", collect_client_server_message{ data_view( data ) } );
-        h::extract( view_n( data.data(), data.size() ) )
+        return h::extract( view_n( data.data(), data.size() ) )
             .match(
                 [this]( const collect_request& req ) {
-                        on_msg( req );
+                        return on_msg( req );
                 },
                 []( const auto& err ) {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
+                        return false;
                 } );
 }
 
-void collect_server::on_msg( const collect_request& req )
+bool collect_server::on_msg( const collect_request& req )
 {
         EMLABCPP_DEBUG_LOG( "got request: ", decompose( req ) );
         // TODO: this may be a bad idea ...
@@ -160,22 +167,22 @@ void collect_server::on_msg( const collect_request& req )
         either< node_id, contiguous_request_adapter_errors > res =
             req.opt_key ? harn.insert( req.parent, *req.opt_key, req.value ) :
                           harn.insert( req.parent, req.value );
-        res.match(
+        return res.match(
             [this, &req]( const node_id nid ) {
                     if ( !req.expects_reply ) {
-                            return;
+                            return false;
                     }
-                    this->send( collect_reply{ nid } );
+                    return this->send( collect_reply{ nid } );
             },
             [this, &req]( const contiguous_request_adapter_errors err ) {
-                    this->send( tree_error_reply{ err, req.parent } );
+                    return this->send( tree_error_reply{ err, req.parent } );
             } );
 }
 
-void collect_server::send( const collect_server_client_group& val )
+bool collect_server::send( const collect_server_client_group& val )
 {
         using h = protocol::handler< collect_server_client_group >;
-        send_cb_( channel_, h::serialize( val ) );
+        return send_cb_( channel_, h::serialize( val ) );
 }
 
 }  // namespace emlabcpp::testing

@@ -225,30 +225,30 @@ public:
         ///  problems: for some reason, with the concepts wrong overload kept selected, have to
         ///  figure this out
 
-        void match( auto&& left_f, auto&& right_f ) &
+        decltype( auto ) match( auto&& left_f, auto&& right_f ) &
         {
                 if ( id_ == item::LEFT ) {
-                        left_f( left_ );
+                        return left_f( left_ );
                 } else {
-                        right_f( right_ );
+                        return right_f( right_ );
                 }
         }
 
-        void match( auto&& left_f, auto&& right_f ) const&
+        decltype( auto ) match( auto&& left_f, auto&& right_f ) const&
         {
                 if ( id_ == item::LEFT ) {
-                        left_f( left_ );
+                        return left_f( left_ );
                 } else {
-                        right_f( right_ );
+                        return right_f( right_ );
                 }
         }
 
-        void match( auto&& left_f, auto&& right_f ) &&
+        decltype( auto ) match( auto&& left_f, auto&& right_f ) &&
         {
                 if ( id_ == item::LEFT ) {
-                        left_f( std::move( left_ ) );
+                        return left_f( std::move( left_ ) );
                 } else {
-                        right_f( std::move( right_ ) );
+                        return right_f( std::move( right_ ) );
                 }
         }
 
