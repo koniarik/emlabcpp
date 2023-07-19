@@ -55,14 +55,15 @@ using multiplexer_service_msg      = typename handler< multiplexer_service_proto
 template < std::size_t N >
 multiplexer_message< N > serialize_multiplexed( channel_type channel, const message< N >& m )
 {
-        return multiplexer_handler< N >::serialize( std::make_tuple( channel, m ) );
+        return multiplexer_handler< N >::serialize(
+            std::make_tuple( channel, sizeless_message< N >( m ) ) );
 }
 
 template < std::size_t N, typename BinaryCallable, typename MsgCallable >
 bool extract_multiplexed(
-    const std::span< const uint8_t >& msg,
-    BinaryCallable&&                  handle_cb,
-    MsgCallable&&                     msg_cb )
+    const std::span< const std::byte >& msg,
+    BinaryCallable&&                    handle_cb,
+    MsgCallable&&                       msg_cb )
 {
         return multiplexer_handler< N >::extract( view_n( msg.data(), msg.size() ) )
             .convert_left( [&handle_cb, &msg_cb]( const auto& pack ) {

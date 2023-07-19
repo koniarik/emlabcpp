@@ -118,8 +118,9 @@ bool collector::exchange( const collect_request& req, collect_reply_callback cb 
 
 bool collector::send( const collect_request& req )
 {
-        using h = protocol::handler< collect_request >;
-        return send_cb_( channel_, h::serialize( req ) );
+        using h  = protocol::handler< collect_request >;
+        auto msg = h::serialize( req );
+        return send_cb_( channel_, msg );
 }
 
 collect_server::collect_server(
@@ -150,7 +151,7 @@ bool collect_server::on_msg( const std::span< const std::byte > data )
 
 bool collect_server::on_msg( const collect_request& req )
 {
-        EMLABCPP_DEBUG_LOG( "got request: ", decompose( req ) );
+        EMLABCPP_DEBUG_LOG( "got collect request: ", decompose( req ) );
         // TODO: this may be a bad idea ...
         if ( tree_.empty() ) {
                 if ( req.opt_key ) {

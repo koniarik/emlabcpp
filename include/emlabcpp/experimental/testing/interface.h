@@ -49,7 +49,7 @@ public:
         virtual ~test_interface() = default;
 };
 
-using test_ll_node = linked_list_node< test_interface* >;
+using test_ll_node = linked_list_node_base< test_interface >;
 
 template < typename T >
 concept valid_test_callable = requires( T t, pmr::memory_resource& mem_resource, record& rec ) {
@@ -58,55 +58,8 @@ concept valid_test_callable = requires( T t, pmr::memory_resource& mem_resource,
                                               } -> std::same_as< test_coroutine >;
                               };
 
-template < std::derived_from< test_interface > T >
-class test_unit
-{
-public:
-        template < typename... Args >
-        test_unit( auto& reac, Args&&... args )
-          : item_( std::forward< Args >( args )... )
-          , node_( &item_ )
-        {
-                reac.register_test( node_ );
-        }
-
-        test_unit( test_unit&& other ) noexcept
-          : item_( std::move( other.item_ ) )
-          , node_( std::move( other.node_ ) )
-        {
-                *node_ = &item_;
-        }
-
-        // TODO: implement
-        test_unit& operator=( test_unit&& ) = delete;
-
-        test_unit( const test_unit& )            = delete;
-        test_unit& operator=( const test_unit& ) = delete;
-
-        T& operator*()
-        {
-                return item_;
-        }
-
-        const T& operator*() const
-        {
-                return item_;
-        }
-
-        T* operator->()
-        {
-                return &item_;
-        }
-
-        const T* operator->() const
-        {
-                return &item_;
-        }
-
-private:
-        T            item_;
-        test_ll_node node_;
-};
+template < typename T >
+using test_unit = linked_list_node< T, test_interface >;
 
 template < valid_test_callable Callable >
 class test_callable : public test_interface
@@ -136,43 +89,50 @@ private:
         Callable    cb_;
 };
 
-template < valid_test_callable Callable >
-class test_linked_callable : public test_interface
+struct empty_node_impl : test_interface
 {
-public:
-        test_linked_callable( auto& reactor, const std::string_view name, Callable cb )
-          : name_( name )
-          , cb_( std::move( cb ) )
-          , node_( this )
+        std::string_view get_name() const
         {
-                reactor.register_test( node_ );
+                return "";
         }
 
-        test_linked_callable( test_linked_callable&& other ) noexcept
-          : name_( std::move( other.name_ ) )
-          , cb_( std::move( other.cb_ ) )
-          , node_( std::move( other.node_ ) )
+        test_coroutine run( pmr::memory_resource&, record& ) override
         {
-                *node_ = this;
+                co_return;
         }
-
-        // TODO: implement
-        test_linked_callable& operator=( test_linked_callable&& ) noexcept = delete;
-
-        [[nodiscard]] std::string_view get_name() const override
-        {
-                return std::string_view{ name_.data(), name_.size() };
-        }
-
-        test_coroutine run( pmr::memory_resource& mem_resource, record& rec ) final
-        {
-                return cb_( mem_resource, rec );
-        }
-
-private:
-        name_buffer  name_;
-        Callable     cb_;
-        test_ll_node node_;
 };
+
+using empty_node = test_unit< empty_node_impl >;
+
+template < valid_test_callable Callable >
+using test_linked_callable = test_unit< test_callable< Callable > >;
+
+// TODO: the sad thing is that they won't be deallocated this way /o\...
+template < typename Unit, typename Reactor, typename... Args >
+bool construct_test_unit( pmr::memory_resource& mem_res, Reactor& reactor, Args&&... args )
+{
+        using unode = test_unit< Unit >;
+        void* p     = mem_res.allocate( sizeof( unode ), alignof( unode ) );
+        if ( p == nullptr ) {
+                return false;
+        }
+        unode* node =
+            std::construct_at( reinterpret_cast< unode* >( p ), std::forward< Args >( args )... );
+
+        reactor.register_test( *node );
+
+        return true;
+}
+
+template < typename Callable, typename Reactor >
+bool construct_test_callable(
+    pmr::memory_resource& mem_res,
+    Reactor&              reactor,
+    std::string_view      name,
+    Callable              callable )
+{
+        return construct_test_unit< test_callable< Callable > >(
+            mem_res, reactor, name, std::move( callable ) );
+}
 
 }  // namespace emlabcpp::testing

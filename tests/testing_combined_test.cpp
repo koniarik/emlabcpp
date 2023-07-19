@@ -60,7 +60,8 @@ TEST( testing_combined, base )
         testing::controller cont{ 0, pmr::new_delete_resource(), ciface, contr_send_f };
         con_ptr = &cont;
 
-        testing::test_unit< simple_test_fixture > tf{ reac };
+        testing::test_unit< simple_test_fixture > tf{};
+        reac.register_test( tf );
 
         while ( cont.is_initializing() ) {
                 reac.tick();
@@ -74,9 +75,9 @@ TEST( testing_combined, base )
                 cont.tick();
         }
 
-        EXPECT_EQ( tf->setup_count, 1 );
-        EXPECT_EQ( tf->run_count, 1 );
-        EXPECT_EQ( tf->teardown_count, 1 );
+        EXPECT_EQ( tf.get().setup_count, 1 );
+        EXPECT_EQ( tf.get().run_count, 1 );
+        EXPECT_EQ( tf.get().teardown_count, 1 );
 }
 
 struct complex_controller_iface : testing::controller_interface
@@ -172,7 +173,8 @@ TEST( testing_combined, complex )
                 return host.on_msg( data );
         };
 
-        const testing::test_unit< simple_test_fixture > tf{ dev.reac };
+        testing::test_unit< simple_test_fixture > tf{};
+        dev.reac.register_test( tf );
 
         while ( host.cont.is_initializing() ) {
                 dev.reac.tick();

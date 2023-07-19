@@ -84,8 +84,8 @@ void reactor::handle_message( const get_test_name_request req )
                 iface_.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
         }
-        test_interface* const test_ptr = **node_ptr;
-        iface_.reply( get_test_name_reply{ name_buffer( test_ptr->get_name() ) } );
+        const test_interface& test = **node_ptr;
+        iface_.reply( get_test_name_reply{ name_buffer( test.get_name() ) } );
 }
 
 void reactor::handle_message( const exec_request req )
@@ -100,7 +100,7 @@ void reactor::handle_message( const exec_request req )
                 iface_.report_failure( error< BAD_TEST_ID_E >{} );
                 return;
         }
-        test_interface* const test_ptr = **node_ptr;
-        opt_exec_.emplace( req.rid, mem_, *test_ptr );
+        test_interface& test = **node_ptr;
+        opt_exec_.emplace( req.rid, mem_, test );
 }
 }  // namespace emlabcpp::testing

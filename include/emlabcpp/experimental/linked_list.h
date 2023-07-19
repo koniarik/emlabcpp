@@ -24,33 +24,25 @@
 namespace emlabcpp
 {
 
-template < typename T >
-class linked_list_node
+template < typename Base >
+class linked_list_node_base
 {
 public:
-        linked_list_node() = default;
+        linked_list_node_base() = default;
 
-        template < typename... Args >
-        explicit linked_list_node( Args&&... args )
-          : item_( std::forward< Args >( args )... )
-        {
-        }
+        linked_list_node_base( const linked_list_node_base& )            = delete;
+        linked_list_node_base& operator=( const linked_list_node_base& ) = delete;
 
-        linked_list_node( const linked_list_node& )            = delete;
-        linked_list_node& operator=( const linked_list_node& ) = delete;
-
-        linked_list_node( linked_list_node&& other ) noexcept
+        linked_list_node_base( linked_list_node_base&& other ) noexcept
         {
                 *this = std::move( other );
         }
 
-        linked_list_node& operator=( linked_list_node&& other ) noexcept
+        linked_list_node_base& operator=( linked_list_node_base&& other ) noexcept
         {
                 if ( &other == this ) {
                         return *this;
                 }
-
-                item_ = std::move( other.item_ );
 
                 prev_ = other.prev_;
                 if ( prev_ != nullptr ) {
@@ -67,7 +59,7 @@ public:
                 return *this;
         }
 
-        void link_as_next( linked_list_node< T >& node )
+        void link_as_next( linked_list_node_base< Base >& node )
         {
                 node.next_ = next_;
                 if ( next_ != nullptr ) {
@@ -78,32 +70,18 @@ public:
                 next_      = &node;
         }
 
-        T& operator*()
-        {
-                return item_;
-        }
+        virtual Base&       operator*()       = 0;
+        virtual const Base& operator*() const = 0;
 
-        const T& operator*() const
-        {
-                return item_;
-        }
+        virtual Base*       operator->()       = 0;
+        virtual const Base* operator->() const = 0;
 
-        T* operator->()
-        {
-                return item_;
-        }
-
-        const T* operator->() const
-        {
-                return item_;
-        }
-
-        [[nodiscard]] linked_list_node* get_next()
+        [[nodiscard]] linked_list_node_base* get_next()
         {
                 return next_;
         }
 
-        [[nodiscard]] linked_list_node* get_next( std::size_t id )
+        [[nodiscard]] linked_list_node_base* get_next( std::size_t id )
         {
                 auto* n = this;
                 while ( n != nullptr ) {
@@ -127,12 +105,12 @@ public:
                 return i;
         }
 
-        [[nodiscard]] linked_list_node* get_prev()
+        [[nodiscard]] linked_list_node_base* get_prev()
         {
                 return prev_;
         }
 
-        [[nodiscard]] linked_list_node* get_prev( const std::size_t id )
+        [[nodiscard]] linked_list_node_base* get_prev( const std::size_t id )
         {
                 if ( id == 0 ) {
                         return this;
@@ -143,7 +121,7 @@ public:
                 return prev_->get_prev( id - 1 );
         }
 
-        ~linked_list_node()
+        virtual ~linked_list_node_base()
         {
                 if ( prev_ != nullptr ) {
                         prev_->next_ = next_;
@@ -154,9 +132,58 @@ public:
         }
 
 private:
-        T                 item_;
-        linked_list_node* next_ = nullptr;
-        linked_list_node* prev_ = nullptr;
+        linked_list_node_base* next_ = nullptr;
+        linked_list_node_base* prev_ = nullptr;
+};
+
+template < typename T, typename Base >
+class linked_list_node : public linked_list_node_base< Base >
+{
+public:
+        linked_list_node() = default;
+
+        template < typename... Args >
+        explicit linked_list_node( Args&&... args )
+          : item_( std::forward< Args >( args )... )
+        {
+        }
+
+        T& get()
+        {
+                return item_;
+        }
+
+        const T& get() const
+        {
+                return item_;
+        }
+
+        Base& operator*() override
+        {
+                return item_;
+        }
+
+        const Base& operator*() const override
+        {
+                return item_;
+        }
+
+        Base* operator->() override
+        {
+                return &item_;
+        }
+
+        const Base* operator->() const override
+        {
+                return &item_;
+        }
+
+        linked_list_node( linked_list_node&& other ) noexcept = default;
+
+        linked_list_node& operator=( linked_list_node&& other ) noexcept = default;
+
+private:
+        T item_;
 };
 
 }  // namespace emlabcpp

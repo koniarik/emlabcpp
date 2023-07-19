@@ -24,7 +24,7 @@
 namespace emlabcpp
 {
 
-using test_node = linked_list_node< int >;
+using test_node = linked_list_node< int, int >;
 
 TEST( LinkedList, base )
 {

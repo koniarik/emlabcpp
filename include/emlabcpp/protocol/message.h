@@ -75,6 +75,14 @@ public:
         {
         }
 
+        template < size_type M >
+        constexpr message& operator=( const message< M >& other ) noexcept
+        {
+                used_ = other.size();
+                std::copy( other.begin(), other.end(), std::data( data_ ) );
+                return *this;
+        }
+
         [[nodiscard]] constexpr const_pointer data() const noexcept
         {
                 return &data_[0];
