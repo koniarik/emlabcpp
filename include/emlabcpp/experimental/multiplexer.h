@@ -89,7 +89,8 @@ bool multiplexed_dispatch( channel_type chann, const auto& data, Slotted&... slo
         // TODO: assert that channels are unique
         auto f = [&]< typename T >( T& item ) -> bool {
                 if ( chann == item.get_channel() ) {
-                        return item.on_msg( data );
+                        std::ignore = item.on_msg( data );
+                        return true;
                 }
                 return false;
         };

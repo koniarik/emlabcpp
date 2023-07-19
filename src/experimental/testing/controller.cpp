@@ -140,11 +140,25 @@ bool controller::on_msg( const reactor_controller_variant& var )
                     return std::nullopt;
             },
             [this, &var]( test_running_state& rs ) -> opt_state {
-                    const auto& tf_ptr = std::get_if< test_finished >( &var );
+                    const auto* err_ptr = std::get_if< reactor_internal_error_report >( &var );
+                    if ( err_ptr != nullptr ) {
+                            visit(
+                                [&]< typename T >( const T& err ) {
+                                        std::ignore = err;
+                                        EMLABCPP_ERROR_LOG(
+                                            "Got an error from reactor: ",
+                                            T::id,
+                                            decompose( err ) );
+                                },
+                                err_ptr->var );
+                            return std::nullopt;
+                    }
+                    const auto* tf_ptr = std::get_if< test_finished >( &var );
                     if ( tf_ptr == nullptr ) {
                             // TODO: var shall be logged
                             std::ignore = var;
-                            EMLABCPP_ERROR_LOG( "Got wrong message: ", "" );
+                            EMLABCPP_ERROR_LOG( "Got wrong message: ", var.index() );
+                            return std::nullopt;
                     }
 
                     rs.context.failed  = tf_ptr->failed;
