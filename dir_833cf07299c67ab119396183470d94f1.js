@@ -18,6 +18,7 @@ var dir_833cf07299c67ab119396183470d94f1 =
       [ "function_view< ReturnType(ArgTypes...) >", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4" ]
     ] ],
     [ "linked_list.h", "linked__list_8h.html", [
+      [ "linked_list_node_base", "classemlabcpp_1_1linked__list__node__base.html", "classemlabcpp_1_1linked__list__node__base" ],
       [ "linked_list_node", "classemlabcpp_1_1linked__list__node.html", "classemlabcpp_1_1linked__list__node" ]
     ] ],
     [ "logging.h", "logging_8h.html", "logging_8h" ],

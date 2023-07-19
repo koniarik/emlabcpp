@@ -38,6 +38,7 @@ var namespaceemlabcpp =
     [ "simplex", "classemlabcpp_1_1simplex.html", "classemlabcpp_1_1simplex" ],
     [ "vec_point_base", "classemlabcpp_1_1vec__point__base.html", "classemlabcpp_1_1vec__point__base" ],
     [ "vector", "classemlabcpp_1_1vector.html", "classemlabcpp_1_1vector" ],
+    [ "linked_list_node_base", "classemlabcpp_1_1linked__list__node__base.html", "classemlabcpp_1_1linked__list__node__base" ],
     [ "linked_list_node", "classemlabcpp_1_1linked__list__node.html", "classemlabcpp_1_1linked__list__node" ],
     [ "log_colors", "namespaceemlabcpp.html#structemlabcpp_1_1log__colors", "namespaceemlabcpp_structemlabcpp_1_1log__colors_dup" ],
     [ "log_color_stub", "namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub", "namespaceemlabcpp_structemlabcpp_1_1log__color__stub_dup" ],

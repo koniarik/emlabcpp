@@ -23,6 +23,7 @@ var classemlabcpp_1_1protocol_1_1message =
     [ "end", "classemlabcpp_1_1protocol_1_1message.html#ab72263147814cfaddc15b2ed493f9abc", null ],
     [ "front", "classemlabcpp_1_1protocol_1_1message.html#af0121cb908d3b94eeb424d624bf2c622", null ],
     [ "front", "classemlabcpp_1_1protocol_1_1message.html#aff2b258b50b119df31446868886d9e14", null ],
+    [ "operator=", "classemlabcpp_1_1protocol_1_1message.html#ae5703c883fe5ce62a6e2bd9bb4190418", null ],
     [ "operator[]", "classemlabcpp_1_1protocol_1_1message.html#af09f10c984479619049520bc28d626cb", null ],
     [ "operator[]", "classemlabcpp_1_1protocol_1_1message.html#a8acaf9218f8a73b700951fc48069b83e", null ],
     [ "resize", "classemlabcpp_1_1protocol_1_1message.html#a1aeba025057b408f954854ac614f7efa", null ],

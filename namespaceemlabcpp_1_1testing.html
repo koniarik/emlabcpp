@@ -141,11 +141,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__unit.html">test_unit</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__callable.html">test_callable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1test__linked__callable.html">test_linked_callable</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1empty__node__impl.html">empty_node_impl</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1param__value__request.html">param_value_request</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -282,8 +280,16 @@ Typedefs</h2></td></tr>
 <tr class="separator:ae00c5ff4f8236a54f34ac13a2d74ca1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21c567b7200acbb97782be90bdf747b4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a21c567b7200acbb97782be90bdf747b4">error_variant</a> = std::variant&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error">reactor_protocol_error</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__protocol__error">controller_protocol_error</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error">internal_reactor_error</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__internal__error">controller_internal_error</a> &gt;</td></tr>
 <tr class="separator:a21c567b7200acbb97782be90bdf747b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fe568da44b931c7d52e1e9dca0bbed8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a7fe568da44b931c7d52e1e9dca0bbed8">test_ll_node</a> = <a class="el" href="classemlabcpp_1_1linked__list__node.html">linked_list_node</a>&lt; <a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a> * &gt;</td></tr>
-<tr class="separator:a7fe568da44b931c7d52e1e9dca0bbed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097cc8cba998203818d645f127a04e66"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a097cc8cba998203818d645f127a04e66">test_ll_node</a> = <a class="el" href="classemlabcpp_1_1linked__list__node__base.html">linked_list_node_base</a>&lt; <a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a> &gt;</td></tr>
+<tr class="separator:a097cc8cba998203818d645f127a04e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa96e3a9abc101b459294ca9df2d4fcea"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa96e3a9abc101b459294ca9df2d4fcea"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#aa96e3a9abc101b459294ca9df2d4fcea">test_unit</a> = <a class="el" href="classemlabcpp_1_1linked__list__node.html">linked_list_node</a>&lt; T, <a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a> &gt;</td></tr>
+<tr class="separator:aa96e3a9abc101b459294ca9df2d4fcea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eb00cf4e66c7b9a7d648db6c598514c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a5eb00cf4e66c7b9a7d648db6c598514c">empty_node</a> = <a class="el" href="namespaceemlabcpp_1_1testing.html#aa96e3a9abc101b459294ca9df2d4fcea">test_unit</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1empty__node__impl.html">empty_node_impl</a> &gt;</td></tr>
+<tr class="separator:a5eb00cf4e66c7b9a7d648db6c598514c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67c99e06ba75db3ebeb96ae8eadfdc5c"><td class="memTemplParams" colspan="2">template&lt;valid_test_callable Callable&gt; </td></tr>
+<tr class="memitem:a67c99e06ba75db3ebeb96ae8eadfdc5c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a67c99e06ba75db3ebeb96ae8eadfdc5c">test_linked_callable</a> = <a class="el" href="namespaceemlabcpp_1_1testing.html#aa96e3a9abc101b459294ca9df2d4fcea">test_unit</a>&lt; <a class="el" href="classemlabcpp_1_1testing_1_1test__callable.html">test_callable</a>&lt; Callable &gt; &gt;</td></tr>
+<tr class="separator:a67c99e06ba75db3ebeb96ae8eadfdc5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a320b735cd3fe21581ad5d8aa602b9841"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a320b735cd3fe21581ad5d8aa602b9841">params_client_server_group</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group">protocol::tag_group</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1param__value__request.html">param_value_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__child__request.html">param_child_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__child__count__request.html">param_child_count_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__key__request.html">param_key_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__type__request.html">param_type_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__value__key__request.html">param_value_key_request</a>, <a class="el" href="structemlabcpp_1_1testing_1_1param__error.html">param_error</a> &gt;</td></tr>
 <tr class="separator:a320b735cd3fe21581ad5d8aa602b9841"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3764dee64fdda404c0993a3ea42600ce"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a3764dee64fdda404c0993a3ea42600ce">params_client_server_variant</a> = typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">protocol::traits_for</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#a320b735cd3fe21581ad5d8aa602b9841">params_client_server_group</a> &gt;::<a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a></td></tr>
@@ -414,6 +420,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a5f51ceea4b512a1852bf7beca4837fb9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a5f51ceea4b512a1852bf7beca4837fb9"><td class="memTemplItemLeft" align="right" valign="top">requires(<a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a5f51ceea4b512a1852bf7beca4837fb9">requires</a> (!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;</td></tr>
 <tr class="separator:a5f51ceea4b512a1852bf7beca4837fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fb0516b91140c19e6aa50a284d53569"><td class="memTemplParams" colspan="2">template&lt;typename Unit , typename Reactor , typename... Args&gt; </td></tr>
+<tr class="memitem:a3fb0516b91140c19e6aa50a284d53569"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a3fb0516b91140c19e6aa50a284d53569">construct_test_unit</a> (<a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;mem_res, Reactor &amp;<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a>, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a3fb0516b91140c19e6aa50a284d53569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38e5db55669d6a19e4a1dcd478929be5"><td class="memTemplParams" colspan="2">template&lt;typename Callable , typename Reactor &gt; </td></tr>
+<tr class="memitem:a38e5db55669d6a19e4a1dcd478929be5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a38e5db55669d6a19e4a1dcd478929be5">construct_test_callable</a> (<a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;mem_res, Reactor &amp;<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a>, std::string_view name, Callable callable)</td></tr>
+<tr class="separator:a38e5db55669d6a19e4a1dcd478929be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -920,6 +932,20 @@ msg_id</td>
 
 </div>
 </div>
+<a id="a5eb00cf4e66c7b9a7d648db6c598514c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eb00cf4e66c7b9a7d648db6c598514c">&#9670;&nbsp;</a></span>empty_node</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a5eb00cf4e66c7b9a7d648db6c598514c">emlabcpp::testing::empty_node</a> = typedef <a class="el" href="namespaceemlabcpp_1_1testing.html#aa96e3a9abc101b459294ca9df2d4fcea">test_unit</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1empty__node__impl.html">empty_node_impl</a> &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a55d4f7bfdfdf4dd54d5763c8a95775c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55d4f7bfdfdf4dd54d5763c8a95775c0">&#9670;&nbsp;</a></span>endpoint</h2>
 
@@ -1400,14 +1426,46 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a7fe568da44b931c7d52e1e9dca0bbed8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fe568da44b931c7d52e1e9dca0bbed8">&#9670;&nbsp;</a></span>test_ll_node</h2>
+<a id="a67c99e06ba75db3ebeb96ae8eadfdc5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67c99e06ba75db3ebeb96ae8eadfdc5c">&#9670;&nbsp;</a></span>test_linked_callable</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;valid_test_callable Callable&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a67c99e06ba75db3ebeb96ae8eadfdc5c">emlabcpp::testing::test_linked_callable</a> = typedef <a class="el" href="namespaceemlabcpp_1_1testing.html#aa96e3a9abc101b459294ca9df2d4fcea">test_unit</a>&lt; <a class="el" href="classemlabcpp_1_1testing_1_1test__callable.html">test_callable</a>&lt; Callable &gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a097cc8cba998203818d645f127a04e66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a097cc8cba998203818d645f127a04e66">&#9670;&nbsp;</a></span>test_ll_node</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a7fe568da44b931c7d52e1e9dca0bbed8">emlabcpp::testing::test_ll_node</a> = typedef <a class="el" href="classemlabcpp_1_1linked__list__node.html">linked_list_node</a>&lt; <a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a>* &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a097cc8cba998203818d645f127a04e66">emlabcpp::testing::test_ll_node</a> = typedef <a class="el" href="classemlabcpp_1_1linked__list__node__base.html">linked_list_node_base</a>&lt; <a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a> &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa96e3a9abc101b459294ca9df2d4fcea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa96e3a9abc101b459294ca9df2d4fcea">&#9670;&nbsp;</a></span>test_unit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#aa96e3a9abc101b459294ca9df2d4fcea">emlabcpp::testing::test_unit</a> = typedef <a class="el" href="classemlabcpp_1_1linked__list__node.html">linked_list_node</a>&lt; T, <a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1505,6 +1563,86 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a38e5db55669d6a19e4a1dcd478929be5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38e5db55669d6a19e4a1dcd478929be5">&#9670;&nbsp;</a></span>construct_test_callable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable , typename Reactor &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool emlabcpp::testing::construct_test_callable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;&#160;</td>
+          <td class="paramname"><em>mem_res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Reactor &amp;&#160;</td>
+          <td class="paramname"><em>reactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable&#160;</td>
+          <td class="paramname"><em>callable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3fb0516b91140c19e6aa50a284d53569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fb0516b91140c19e6aa50a284d53569">&#9670;&nbsp;</a></span>construct_test_unit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Unit , typename Reactor , typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool emlabcpp::testing::construct_test_unit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;&#160;</td>
+          <td class="paramname"><em>mem_res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Reactor &amp;&#160;</td>
+          <td class="paramname"><em>reactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#a0550bae04778b8ce6ce9c333788e3a6e">emlabcpp::pmr::memory_resource::allocate()</a>, and <a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#a24e294c263a01f78dc3b45b94767909a">emlabcpp::testing::reactor::register_test()</a>.</p>
+
+</div>
+</div>
 <a id="a5f51ceea4b512a1852bf7beca4837fb9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f51ceea4b512a1852bf7beca4837fb9">&#9670;&nbsp;</a></span>requires()</h2>
 
@@ -1620,7 +1758,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Mon Jul 17 2023 07:34:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Jul 19 2023 06:06:03 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

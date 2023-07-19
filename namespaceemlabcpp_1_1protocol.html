@@ -321,9 +321,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3e625c3d79c1b8ca3bc23f0ac23d00cd"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
 <tr class="memitem:a3e625c3d79c1b8ca3bc23f0ac23d00cd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aecf6971020e07eaf0c7f0f3b373d5df8">multiplexer_message</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a3e625c3d79c1b8ca3bc23f0ac23d00cd">serialize_multiplexed</a> (<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a> channel, const <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; N &gt; &amp;m)</td></tr>
 <tr class="separator:a3e625c3d79c1b8ca3bc23f0ac23d00cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcf7387198936360e4c0741160b98700"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename BinaryCallable , typename MsgCallable &gt; </td></tr>
-<tr class="memitem:abcf7387198936360e4c0741160b98700"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#abcf7387198936360e4c0741160b98700">extract_multiplexed</a> (const std::span&lt; const uint8_t &gt; &amp;msg, BinaryCallable &amp;&amp;handle_cb, MsgCallable &amp;&amp;msg_cb)</td></tr>
-<tr class="separator:abcf7387198936360e4c0741160b98700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120fd9ad89dfd718d5f3b3c3e53d39d3"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename BinaryCallable , typename MsgCallable &gt; </td></tr>
+<tr class="memitem:a120fd9ad89dfd718d5f3b3c3e53d39d3"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a120fd9ad89dfd718d5f3b3c3e53d39d3">extract_multiplexed</a> (const std::span&lt; const std::byte &gt; &amp;msg, BinaryCallable &amp;&amp;handle_cb, MsgCallable &amp;&amp;msg_cb)</td></tr>
+<tr class="separator:a120fd9ad89dfd718d5f3b3c3e53d39d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5474a4187292ed9f9d50b1a5a63547c3"><td class="memTemplParams" colspan="2">template&lt;typename... Slotted&gt; </td></tr>
 <tr class="memitem:a5474a4187292ed9f9d50b1a5a63547c3"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a5474a4187292ed9f9d50b1a5a63547c3">multiplexed_dispatch</a> (<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a> chann, const auto &amp;data, Slotted &amp;... slotted)</td></tr>
 <tr class="separator:a5474a4187292ed9f9d50b1a5a63547c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -972,8 +972,8 @@ template&lt;typename D , std::endian E, typename T &gt; </div>
 
 </div>
 </div>
-<a id="abcf7387198936360e4c0741160b98700"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcf7387198936360e4c0741160b98700">&#9670;&nbsp;</a></span>extract_multiplexed()</h2>
+<a id="a120fd9ad89dfd718d5f3b3c3e53d39d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a120fd9ad89dfd718d5f3b3c3e53d39d3">&#9670;&nbsp;</a></span>extract_multiplexed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -983,7 +983,7 @@ template&lt;std::size_t N, typename BinaryCallable , typename MsgCallable &gt; <
         <tr>
           <td class="memname">bool emlabcpp::protocol::extract_multiplexed </td>
           <td>(</td>
-          <td class="paramtype">const std::span&lt; const uint8_t &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::span&lt; const std::byte &gt; &amp;&#160;</td>
           <td class="paramname"><em>msg</em>, </td>
         </tr>
         <tr>
@@ -1738,7 +1738,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Mon Jul 17 2023 07:34:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Jul 19 2023 06:06:03 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
