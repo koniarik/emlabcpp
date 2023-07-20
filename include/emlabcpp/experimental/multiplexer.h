@@ -59,28 +59,18 @@ multiplexer_message< N > serialize_multiplexed( channel_type channel, const mess
             std::make_tuple( channel, sizeless_message< N >( m ) ) );
 }
 
-template < std::size_t N, typename BinaryCallable, typename MsgCallable >
-bool extract_multiplexed(
-    const std::span< const std::byte >& msg,
-    BinaryCallable&&                    handle_cb,
-    MsgCallable&&                       msg_cb )
+template < typename BinaryCallable >
+bool extract_multiplexed( const std::span< const std::byte >& msg, BinaryCallable&& handle_cb )
 {
-        return multiplexer_handler< N >::extract( view_n( msg.data(), msg.size() ) )
-            .convert_left( [&handle_cb, &msg_cb]( const auto& pack ) {
-                    auto [id, submsg] = pack;
-                    bool success      = handle_cb( id, submsg );
-                    if ( !success ) {
-                            message< N > errmsg{ PORT_MATCH_ERROR };
-                            msg_cb( serialize_multiplexed< N >( multiplexer_service_id, errmsg ) );
-                    }
-                    return success;
-            } )
-            .convert_right( [&msg_cb]( const auto& ) {
-                    message< N > errmsg{ PROTOCOL_ERROR };
-                    msg_cb( serialize_multiplexed< N >( multiplexer_service_id, errmsg ) );
-                    return false;
-            } )
-            .join();
+        using chan_ser = protocol::serializer< channel_type, std::endian::little >;
+        if ( msg.size() < chan_ser::max_size ) {
+                return false;
+        }
+        channel_type id = chan_ser::deserialize( msg.subspan< 0, chan_ser::max_size >() );
+
+        // TODO: there might be a better way than callback?
+        bool success = handle_cb( id, msg.subspan( chan_ser::max_size ) );
+        return success;
 }
 
 template < typename... Slotted >
