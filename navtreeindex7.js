@@ -1,7 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"namespaceemlabcpp_1_1protocol.html#a925029d9c13ebc476b462499b5fae534":[2,0,0,7,106],
-"namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b":[2,0,0,7,77],
 "namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37daf":[2,0,0,7,88],
 "namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafa89fc9790558c285c0664b57f3251ebc1":[2,0,0,7,88,1],
 "namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafad7cee373ed46d900f608c5970cdfe643":[2,0,0,7,88,0],
@@ -27,6 +25,7 @@ var NAVTREEINDEX7 =
 "namespaceemlabcpp_1_1protocol.html#aecf6971020e07eaf0c7f0f3b373d5df8":[2,0,0,7,79],
 "namespaceemlabcpp_1_1protocol.html#af6a2b6db86c30d95881fe0346b567f8b":[2,0,0,7,119],
 "namespaceemlabcpp_1_1protocol.html#af7b9659a2e1fe1042e7ada0c5797599c":[2,0,0,7,108],
+"namespaceemlabcpp_1_1protocol.html#afa8962e6b7f560aff5aa47ba364f5005":[2,0,0,7,92],
 "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1command__group_3_01Endianess_01_4":[4,0,0,0,4,1,2],
 "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error":[4,0,0,0,4,3,0],
 "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record":[4,0,0,0,4,4,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX7 =
 "parameters_8h.html#a4b21c1cb1bf857fce1a8e7667bd6eb0c":[4,0,0,0,1,5,12,25],
 "parameters_8h.html#a516c0c88f12703f7e9284e8b2c07b4b1":[4,0,0,0,1,5,12,36],
 "parameters_8h.html#a52150ddab57cf2908546e0774a72e0f7":[4,0,0,0,1,5,12,31],
-"parameters_8h.html#a5e58a267cd3278f4420c1437eaf179d6":[4,0,0,0,1,5,12,33]
+"parameters_8h.html#a5e58a267cd3278f4420c1437eaf179d6":[4,0,0,0,1,5,12,33],
+"parameters_8h.html#a7e1f933b19818e29bac91fbe5811f8d5":[4,0,0,0,1,5,12,34]
 };

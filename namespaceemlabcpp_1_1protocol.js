@@ -97,7 +97,7 @@ var namespaceemlabcpp_1_1protocol =
     [ "converter_for_impl", "namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9", null ],
     [ "deserialize", "namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d", null ],
     [ "deserialize_range", "namespaceemlabcpp_1_1protocol.html#aa390c4e4ac21589780d1561635052074", null ],
-    [ "extract_multiplexed", "namespaceemlabcpp_1_1protocol.html#a120fd9ad89dfd718d5f3b3c3e53d39d3", null ],
+    [ "extract_multiplexed", "namespaceemlabcpp_1_1protocol.html#afa8962e6b7f560aff5aa47ba364f5005", null ],
     [ "for_each_register", "namespaceemlabcpp_1_1protocol.html#a25417e5baf4dcb0a348bb0e6e5ea83a2", null ],
     [ "message", "namespaceemlabcpp_1_1protocol.html#ad7cf453765253654adcf697d7810d1b6", null ],
     [ "multiplexed_dispatch", "namespaceemlabcpp_1_1protocol.html#a5474a4187292ed9f9d50b1a5a63547c3", null ],
