@@ -79,6 +79,7 @@ struct handler
                 std::tie( success, head, buffer ) =
                     load_impl< header, Endianess >( buffer, chcksm_f );
                 if ( !success ) {
+                        EMLABCPP_DEBUG_LOG( "Failed to deserialize header" );
                         return load_result::DESERIALIZATION_ERROR;
                 }
 
@@ -86,6 +87,7 @@ struct handler
                 std::tie( success, pl, buffer ) =
                     load_impl< Payload, Endianess >( buffer, chcksm_f );
                 if ( !success ) {
+                        EMLABCPP_DEBUG_LOG( "Failed to deserialize payload" );
                         return load_result::DESERIALIZATION_ERROR;
                 }
 
@@ -99,6 +101,7 @@ struct handler
                         std::tie( success, f, buffer ) =
                             load_impl< Field, Endianess >( buffer, chcksm_f );
                         if ( !success ) {
+                                EMLABCPP_DEBUG_LOG( "Failed to deserialize subitem" );
                                 return load_result::DESERIALIZATION_ERROR;
                         }
                         field_f( std::as_const( f ) );
