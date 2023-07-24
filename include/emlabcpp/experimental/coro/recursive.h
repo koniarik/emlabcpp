@@ -136,6 +136,8 @@ public:
                                 EMLABCPP_ERROR_LOG( "Coroutine errored, killing it" );
                                 h_ = owning_handle();
                                 return;
+                        } else {
+                                // Intentionally does nothing
                         }
                 }
                 if ( !h_.done() ) {

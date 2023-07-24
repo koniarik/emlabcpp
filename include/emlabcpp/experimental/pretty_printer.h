@@ -123,8 +123,13 @@ auto& pretty_stream_write( ostreamlike auto& os, const Ts&... item )
 };
 
 template < typename T >
-concept pretty_printable =
-    requires( const T& v ) { pretty_printer< T >::print( []( const std::string_view ) {}, v ); };
+concept pretty_printable = requires( const T& v ) {
+                                   pretty_printer< T >::print(
+                                       []( const std::string_view ) {
+                                               // empty intentionally
+                                       },
+                                       v );
+                           };
 
 template < std::size_t N, typename... Ts >
 buffer_writer< N > pretty_print_buffer( const Ts&... item )

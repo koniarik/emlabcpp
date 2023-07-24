@@ -69,7 +69,7 @@ bool extract_multiplexed( const std::span< const std::byte >& msg, BinaryCallabl
         channel_type id = chan_ser::deserialize( msg.subspan< 0, chan_ser::max_size >() );
 
         // TODO: there might be a better way than callback?
-        bool success = handle_cb( id, msg.subspan( chan_ser::max_size ) );
+        const bool success = handle_cb( id, msg.subspan( chan_ser::max_size ) );
         return success;
 }
 
@@ -77,7 +77,7 @@ template < typename... Slotted >
 bool multiplexed_dispatch( channel_type chann, const auto& data, Slotted&... slotted )
 {
         // TODO: assert that channels are unique
-        auto f = [&]< typename T >( T& item ) -> bool {
+        auto f = [&]< typename T >( T& item ) {
                 if ( chann == item.get_channel() ) {
                         std::ignore = item.on_msg( data );
                         return true;

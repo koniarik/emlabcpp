@@ -2,7 +2,7 @@
 
 #include <algorithm>
 #include <array>
-#include <string.h>
+#include <cstring>
 
 #pragma once
 
