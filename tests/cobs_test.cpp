@@ -23,23 +23,76 @@
 
 using namespace emlabcpp;
 
+namespace std
+{
+
+template < typename T >
+vector< T > operator+( vector< T > lh, const vector< T >& rh )
+{
+        lh.insert( lh.end(), rh.begin(), rh.end() );
+        return lh;
+}
+
+}  // namespace std
+
 std::vector< std::byte > v( auto&&... args )
 {
         return { static_cast< std::byte >( args )... };
 }
 
-using p = std::pair< std::vector< std::byte >, std::vector< std::byte > >;
+struct p
+{
+        std::vector< std::byte > raw;
+        std::vector< std::byte > encoded;
+};
 
 std::vector< p > get_data()
 {
-        // raw, encoded
         return {
-            p( v( 0x00 ), v( 0x01, 0x01 ) ),
-            p( v( 0x00, 0x11, 0x00 ), v( 0x01, 0x02, 0x11, 0x01 ) ),
-            p( v( 0x11, 0x22, 0x33, 0x44 ), v( 0x05, 0x11, 0x22, 0x33, 0x44 ) ),
-            p( v( 0x11, 0x22, 0x00, 0x33 ), v( 0x03, 0x11, 0x22, 0x02, 0x33 ) ),
-            p( v( 22, 2, 8, 1 ), v( 5, 22, 2, 8, 1 ) ),
-            p( v( 0x1a, 0x2, 0x50, 0x0 ), v( 0x04, 0x1a, 0x2, 0x50, 0x01 ) ) };
+            p{
+                .raw     = v( 0x00 ),
+                .encoded = v( 0x01, 0x01 ),
+            },
+            p{
+                .raw     = v( 0x00, 0x11, 0x00 ),
+                .encoded = v( 0x01, 0x02, 0x11, 0x01 ),
+            },
+            p{
+                .raw     = v( 0x11, 0x22, 0x33, 0x44 ),
+                .encoded = v( 0x05, 0x11, 0x22, 0x33, 0x44 ),
+            },
+            p{
+                .raw     = v( 0x11, 0x22, 0x00, 0x33 ),
+                .encoded = v( 0x03, 0x11, 0x22, 0x02, 0x33 ),
+            },
+            p{
+                .raw     = v( 22, 2, 8, 1 ),
+                .encoded = v( 5, 22, 2, 8, 1 ),
+            },
+            p{
+                .raw     = v( 0x1a, 0x2, 0x50, 0x0 ),
+                .encoded = v( 0x04, 0x1a, 0x2, 0x50, 0x01 ),
+            },
+            p{
+                .raw     = std::vector( 254, std::byte{ 0x42 } ),
+                .encoded = v( 0xff ) + std::vector( 254, std::byte{ 0x42 } ) + v( 0x1 ),
+            },
+            p{
+                .raw     = std::vector( 254, std::byte{ 0x42 } ) + v( 0x00 ),
+                .encoded = v( 0xff ) + std::vector( 254, std::byte{ 0x42 } ) + v( 0x1, 0x01 ),
+            },
+            p{
+                .raw = std::vector( 254, std::byte{ 0x42 } ) + v( 0x22, 0x00, 0x33 ),
+                .encoded =
+                    v( 0xff ) + std::vector( 254, std::byte{ 0x42 } ) + v( 0x2, 0x22, 0x02, 0x33 ),
+            },
+            p{
+                .raw     = std::vector( 512, std::byte{ 0x42 } ),
+                .encoded = v( 0xff ) + std::vector( 254, std::byte{ 0x42 } ) +  //
+                           v( 0xff ) + std::vector( 254, std::byte{ 0x42 } ) +  //
+                           v( 0x5 ) + std::vector( 4, std::byte{ 0x42 } ),
+            },
+        };
 }
 
 namespace std
@@ -77,8 +130,8 @@ TEST( COBS, decode )
                 EXPECT_TRUE( dres );
 
                 bool are_eq = dused == view{ raw };
-                EXPECT_TRUE( are_eq ) << "inpt: " << view{ encod } << "\n"
-                                      << "output: " << dused << "\n"
+                EXPECT_TRUE( are_eq ) << "inpt:     " << view{ encod } << "\n"
+                                      << "output:   " << dused << "\n"
                                       << "expected: " << view{ raw };
         }
 }
@@ -90,7 +143,7 @@ TEST( COBS, decode_iter )
                 auto cview = cobs_decode_view( view{ encod } );
 
                 bool are_eq = std::equal( raw.begin(), raw.end(), cview.begin() );
-                EXPECT_TRUE( are_eq ) << "output: " << cview << "\n"
+                EXPECT_TRUE( are_eq ) << "output:   " << cview << "\n"
                                       << "expected: " << view{ raw };
         }
 }

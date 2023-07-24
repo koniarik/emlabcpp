@@ -21,19 +21,30 @@ encode_cobs( view< const std::byte* > source, view< std::byte* > target )
         target_current++;
         uint8_t count = 1;
         for ( const std::byte b : source ) {
-                if ( b == std::byte{ 0 } ) {
+
+                if ( b != std::byte{ 0 } ) {
+                        count += 1;
+                        *target_current = b;
+                } else {
                         *last_tok = std::byte{ count };
                         count     = 1;
                         last_tok  = target_current;
-                } else {
-                        count += 1;
-                        *target_current = b;
                 }
 
                 target_current += 1;
-
                 if ( target_current == target.end() ) {
                         return { false, target };
+                }
+
+                if ( count == 255 ) {
+                        *last_tok = std::byte{ 255 };
+                        count     = 1;
+                        last_tok  = target_current;
+
+                        target_current += 1;
+                        if ( target_current == target.end() ) {
+                                return { false, target };
+                        }
                 }
         }
         *last_tok = std::byte{ count };
@@ -42,36 +53,48 @@ encode_cobs( view< const std::byte* > source, view< std::byte* > target )
 
 struct cobs_decoder
 {
-        [[nodiscard]] std::byte get( std::byte inpt ) const
+        [[nodiscard]] std::optional< std::byte > get( std::byte inpt ) const
         {
-                if ( offset == 0 ) {
-                        return std::byte{ 0 };
+                if ( offset == 1 ) {
+                        if ( nonzero ) {
+                                return std::nullopt;
+                        } else {
+                                return std::byte{ 0 };
+                        }
                 }
                 return inpt;
         }
 
+        bool non_value_byte()
+        {
+                return offset == 1 && nonzero;
+        }
+
         void advance( std::byte inpt )
         {
-                if ( offset == 0 ) {
-                        offset = static_cast< uint8_t >( inpt ) - 1;
+                if ( offset == 1 ) {
+                        nonzero = inpt == std::byte{ 255 };
+                        offset  = static_cast< uint8_t >( inpt );
                 } else {
                         offset--;
                 }
         }
 
-        [[nodiscard]] std::byte iter( std::byte inpt )
+        [[nodiscard]] std::optional< std::byte > iter( std::byte inpt )
         {
-                const std::byte b = get( inpt );
+                const std::optional< std::byte > b = get( inpt );
                 advance( inpt );
                 return b;
         }
 
-        uint8_t offset = 0;
+        bool    nonzero = false;
+        uint8_t offset  = 1;
 
         cobs_decoder() = default;
 
         cobs_decoder( std::byte b )
-          : offset( static_cast< uint8_t >( b ) - 1 )
+          : nonzero( b == std::byte{ 255 } )
+          , offset( static_cast< uint8_t >( b ) )
         {
         }
 };
@@ -88,7 +111,12 @@ decode_cobs( view< const std::byte* > source, view< std::byte* > target )
 
         for ( const std::byte b : tail( source ) ) {
 
-                *target_current = dec.iter( b );
+                std::optional< std::byte > val = dec.iter( b );
+
+                if ( !val.has_value() ) {
+                        continue;
+                }
+                *target_current = *val;
                 target_current += 1;
 
                 if ( target_current == target.end() ) {
@@ -128,13 +156,18 @@ public:
 
         std::byte operator*() const
         {
-                return dec_.get( *iter_ );
+                // note: we do assume that iterator skips places without value
+                return *dec_.get( *iter_ );
         }
 
         decode_cobs_iter& operator++()
         {
                 dec_.advance( *iter_ );
                 ++iter_;
+                if ( dec_.non_value_byte() ) {
+                        dec_.advance( *iter_ );
+                        ++iter_;
+                }
                 return *this;
         }
 
