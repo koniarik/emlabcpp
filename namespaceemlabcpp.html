@@ -331,6 +331,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1iterator__of"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1iterator__of">iterator_of</a></td></tr>
 <tr class="separator:structemlabcpp_1_1iterator__of"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1data__iterator__of"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of">data_iterator_of</a></td></tr>
+<tr class="separator:structemlabcpp_1_1data__iterator__of"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1is__view.html">is_view</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1are__same"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1are__same">are_same</a></td></tr>
@@ -398,6 +400,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a98ab53b012e339a9621604b203df856e"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
 <tr class="memitem:a98ab53b012e339a9621604b203df856e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a98ab53b012e339a9621604b203df856e">iterator_of_t</a> = typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1iterator__of">iterator_of</a>&lt; Container &gt;::type</td></tr>
 <tr class="separator:a98ab53b012e339a9621604b203df856e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11d2d1e467ceff8661e40aa2f34b24ae"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
+<tr class="memitem:a11d2d1e467ceff8661e40aa2f34b24ae"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a11d2d1e467ceff8661e40aa2f34b24ae">data_iterator_of_t</a> = typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of">data_iterator_of</a>&lt; Container &gt;::type</td></tr>
+<tr class="separator:a11d2d1e467ceff8661e40aa2f34b24ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf111745a0eec5119748333b9640afca"><td class="memTemplParams" colspan="2">template&lt;typename Container , typename UnaryCallable &gt; </td></tr>
 <tr class="memitem:abf111745a0eec5119748333b9640afca"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abf111745a0eec5119748333b9640afca">mapped_t</a> = typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1mapped">mapped</a>&lt; Container, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &gt;::type</td></tr>
 <tr class="separator:abf111745a0eec5119748333b9640afca"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1078,7 +1083,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a57c2da6250c29d0cf3d6a0cfecaa1e45"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iter &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">view_n</a> (Iter begin, const std::size_t n)</td></tr>
 <tr class="memdesc:a57c2da6250c29d0cf3d6a0cfecaa1e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates view over 'n' items of dataset starting at 'begin' This does not check validity of the range!  <a href="namespaceemlabcpp.html#a57c2da6250c29d0cf3d6a0cfecaa1e45">More...</a><br /></td></tr>
 <tr class="separator:a57c2da6250c29d0cf3d6a0cfecaa1e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dcf3cf10bd4814024f7177751b63c26"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
+<tr class="memitem:a7dcf3cf10bd4814024f7177751b63c26"><td class="memTemplParams" colspan="2">template&lt;data_container Container&gt; </td></tr>
 <tr class="memitem:a7dcf3cf10bd4814024f7177751b63c26"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7dcf3cf10bd4814024f7177751b63c26">data_view</a> (Container &amp;cont)</td></tr>
 <tr class="separator:a7dcf3cf10bd4814024f7177751b63c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd8a44534f893fb67e883a5a8b396ef4"><td class="memTemplParams" colspan="2">template&lt;range_container Container&gt; </td></tr>
@@ -1158,8 +1163,11 @@ Variables</h2></td></tr>
 <tr class="memitem:a904e4439ee5b6a29ec1c9a5a6d404c55"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a></td></tr>
 <tr class="memdesc:a904e4439ee5b6a29ec1c9a5a6d404c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">so, std::ranges::range is meh because it expects return of begin() being input_output_iterator, which has to be def.constructible  <a href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">More...</a><br /></td></tr>
 <tr class="separator:a904e4439ee5b6a29ec1c9a5a6d404c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d100afeb63e0735bf1abe40e8f1dda3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6d100afeb63e0735bf1abe40e8f1dda3"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6d100afeb63e0735bf1abe40e8f1dda3">data_container</a></td></tr>
+<tr class="separator:a6d100afeb63e0735bf1abe40e8f1dda3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6a5e3253aa7ea8bcd6574b3274c74b6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac6a5e3253aa7ea8bcd6574b3274c74b6"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a> = <a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a>&lt; T &gt; || <a class="el" href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">gettable_container</a>&lt; T &gt;</td></tr>
+<tr class="memitem:ac6a5e3253aa7ea8bcd6574b3274c74b6"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">container</a> = <a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a>&lt; T &gt; || <a class="el" href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">gettable_container</a>&lt; T &gt; || <a class="el" href="namespaceemlabcpp.html#a6d100afeb63e0735bf1abe40e8f1dda3">data_container</a>&lt; T &gt;</td></tr>
 <tr class="separator:ac6a5e3253aa7ea8bcd6574b3274c74b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5b78b4d7a2e426170153951069c76cf"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad5b78b4d7a2e426170153951069c76cf"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">referenceable_container</a></td></tr>
@@ -1167,6 +1175,15 @@ Variables</h2></td></tr>
 <tr class="memitem:ae70f5be4da9ac6f367034af1f5028827"><td class="memTemplParams" colspan="2">template&lt;typename T , typename ValueType &gt; </td></tr>
 <tr class="memitem:ae70f5be4da9ac6f367034af1f5028827"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae70f5be4da9ac6f367034af1f5028827">range_container_with</a></td></tr>
 <tr class="separator:ae70f5be4da9ac6f367034af1f5028827"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac04004185c5cfd085f40f3ab99321b5c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Iterator &gt; </td></tr>
+<tr class="memitem:ac04004185c5cfd085f40f3ab99321b5c"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac04004185c5cfd085f40f3ab99321b5c">range_container_with_iter</a></td></tr>
+<tr class="separator:ac04004185c5cfd085f40f3ab99321b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ebf6dfb3da372e9238ce6f14be53edd"><td class="memTemplParams" colspan="2">template&lt;typename T , typename ValueType &gt; </td></tr>
+<tr class="memitem:a5ebf6dfb3da372e9238ce6f14be53edd"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5ebf6dfb3da372e9238ce6f14be53edd">data_container_with</a></td></tr>
+<tr class="separator:a5ebf6dfb3da372e9238ce6f14be53edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ec222a8d7edb4ed19a7049e9ad809d0"><td class="memTemplParams" colspan="2">template&lt;typename T , typename DataIterator &gt; </td></tr>
+<tr class="memitem:a3ec222a8d7edb4ed19a7049e9ad809d0"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3ec222a8d7edb4ed19a7049e9ad809d0">data_container_with_iter</a></td></tr>
+<tr class="separator:a3ec222a8d7edb4ed19a7049e9ad809d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8114b1d4bc758992dd14a1d64bd454c5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a8114b1d4bc758992dd14a1d64bd454c5"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">static_sized</a></td></tr>
 <tr class="separator:a8114b1d4bc758992dd14a1d64bd454c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1195,6 +1212,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a24f6b4dc0a35260a281aa436f5401cce"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a24f6b4dc0a35260a281aa436f5401cce"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a24f6b4dc0a35260a281aa436f5401cce">with_push_back</a></td></tr>
 <tr class="separator:a24f6b4dc0a35260a281aa436f5401cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa360bfc94fbbd8ed260477cbc7016b27"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa360bfc94fbbd8ed260477cbc7016b27"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa360bfc94fbbd8ed260477cbc7016b27">ostreamable</a></td></tr>
+<tr class="separator:aa360bfc94fbbd8ed260477cbc7016b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a459242c17dfd40402115fe8a63d21622"><td class="memTemplParams" colspan="2">template&lt;typename T , typename LH , typename RH &gt; </td></tr>
 <tr class="memitem:a459242c17dfd40402115fe8a63d21622"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a459242c17dfd40402115fe8a63d21622">either_uniquely_right_item</a></td></tr>
 <tr class="separator:a459242c17dfd40402115fe8a63d21622"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1541,6 +1561,34 @@ type</td>
 
 </div>
 </div>
+<a name="structemlabcpp_1_1data__iterator__of" id="structemlabcpp_1_1data__iterator__of"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1data__iterator__of">&#9670;&nbsp;</a></span>emlabcpp::data_iterator_of</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::data_iterator_of</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;typename Container&gt;<br />
+struct emlabcpp::data_iterator_of&lt; Container &gt;</h3>
+
+<hr  />
+<p> <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of">data_iterator_of</a> is structure where <a class="el" href="namespaceemlabcpp.html#aab22100d2e622b09fff3d5d67d72fe48">data_iterator_of&lt;Container&gt;::type</a> returns type of pointer that is returned by cont.data(); </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="aab22100d2e622b09fff3d5d67d72fe48"></a>typedef decltype(data(declval&lt; add_lvalue_reference_t&lt; Container &gt; &gt;()))</td>
+<td class="fieldname">
+type</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
 <a name="structemlabcpp_1_1are__same" id="structemlabcpp_1_1are__same"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1are__same">&#9670;&nbsp;</a></span>emlabcpp::are_same</h2>
 
@@ -1854,6 +1902,22 @@ struct emlabcpp::index_of&lt; T, Variant &gt;</h3>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp.html#ae2eceaa8b0d9ceb67162be01c8a803f7">emlabcpp::current</a> = typedef <a class="el" href="structemlabcpp_1_1physical__quantity.html">physical_quantity</a>&lt; 0, 0, 0, 1, 0, 0, 0, 0, 0 &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11d2d1e467ceff8661e40aa2f34b24ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11d2d1e467ceff8661e40aa2f34b24ae">&#9670;&nbsp;</a></span>data_iterator_of_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Container &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a11d2d1e467ceff8661e40aa2f34b24ae">emlabcpp::data_iterator_of_t</a> = typedef typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of">data_iterator_of</a>&lt; Container &gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3348,7 +3412,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;data_container Container&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -9376,7 +9440,7 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept emlabcpp::container = <a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a>&lt; T &gt; || <a class="el" href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">gettable_container</a>&lt; T &gt;</td>
+          <td class="memname">concept emlabcpp::container = <a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a>&lt; T &gt; || <a class="el" href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">gettable_container</a>&lt; T &gt; || <a class="el" href="namespaceemlabcpp.html#a6d100afeb63e0735bf1abe40e8f1dda3">data_container</a>&lt; T &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -9405,6 +9469,64 @@ template&lt;typename UnaryCallable , typename Container &gt; </div>
 <div class="line">    }</div>
 <div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:166</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ac1cdce6706f4b40d478521925ca85f8a"><div class="ttname"><a href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">emlabcpp::UnaryCallable</a></div><div class="ttdeci">UnaryCallable</div><div class="ttdef"><b>Definition:</b> types.h:50</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6d100afeb63e0735bf1abe40e8f1dda3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d100afeb63e0735bf1abe40e8f1dda3">&#9670;&nbsp;</a></span>data_container</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::data_container</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= (</div>
+<div class="line">                             <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { data( a ); } ||</div>
+<div class="line">                             <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { std::data( a ); } ) &amp;&amp;</div>
+<div class="line">                         (</div>
+<div class="line">                             <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { size( a ); } ||</div>
+<div class="line">                             <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { std::size( a ); } )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5ebf6dfb3da372e9238ce6f14be53edd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ebf6dfb3da372e9238ce6f14be53edd">&#9670;&nbsp;</a></span>data_container_with</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename ValueType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::data_container_with</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    data_container&lt; T &gt; &amp;&amp; std::same_as&lt; typename T::value_type, ValueType &gt;</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3ec222a8d7edb4ed19a7049e9ad809d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ec222a8d7edb4ed19a7049e9ad809d0">&#9670;&nbsp;</a></span>data_container_with_iter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename DataIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::data_container_with_iter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    data_container&lt; T &gt; &amp;&amp; std::convertible_to&lt; data_iterator_of_t&lt; T &gt;, DataIterator &gt;</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9801,6 +9923,27 @@ template&lt;typename M &gt; </div>
 
 </div>
 </div>
+<a id="aa360bfc94fbbd8ed260477cbc7016b27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa360bfc94fbbd8ed260477cbc7016b27">&#9670;&nbsp;</a></span>ostreamable</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::ostreamable</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( std::ostream&amp; os, T item ) {</div>
+<div class="line">                              {</div>
+<div class="line">                                      os &lt;&lt; item</div>
+<div class="line">                                      } -&gt; std::convertible_to&lt; std::ostream&amp; &gt;;</div>
+<div class="line">                      }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a27325f314502897567307b29b2b03776"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a27325f314502897567307b29b2b03776">&#9670;&nbsp;</a></span>ostreamlike</h2>
 
@@ -9931,6 +10074,24 @@ template&lt;typename T , typename ValueType &gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">    range_container&lt; T &gt; &amp;&amp; std::same_as&lt; typename T::value_type, ValueType &gt;</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac04004185c5cfd085f40f3ab99321b5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac04004185c5cfd085f40f3ab99321b5c">&#9670;&nbsp;</a></span>range_container_with_iter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Iterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::range_container_with_iter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    range_container&lt; T &gt; &amp;&amp; std::convertible_to&lt; iterator_of_t&lt; T &gt;, Iterator &gt;</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -10195,7 +10356,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Thu Jul 20 2023 06:32:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Jul 24 2023 04:34:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

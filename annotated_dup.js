@@ -294,6 +294,7 @@ var annotated_dup =
       [ "static_vector", "classemlabcpp_1_1static__vector.html", "classemlabcpp_1_1static__vector" ],
       [ "pretty_printer< static_vector< T, N > >", "structemlabcpp_1_1pretty__printer_3_01static__vector_3_01T_00_01N_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01static__vector_3_01T_00_01N_01_4_01_4" ],
       [ "iterator_of", "namespaceemlabcpp.html#structemlabcpp_1_1iterator__of", "namespaceemlabcpp_structemlabcpp_1_1iterator__of_dup" ],
+      [ "data_iterator_of", "namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of", "namespaceemlabcpp_structemlabcpp_1_1data__iterator__of_dup" ],
       [ "is_view", "structemlabcpp_1_1is__view.html", null ],
       [ "are_same", "namespaceemlabcpp.html#structemlabcpp_1_1are__same", null ],
       [ "are_same< T, Ts... >", "structemlabcpp_1_1are__same_3_01T_00_01Ts_8_8_8_01_4.html", null ],

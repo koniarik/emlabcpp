@@ -6,6 +6,8 @@ var classemlabcpp_1_1view =
     [ "size_type", "classemlabcpp_1_1view.html#a0ab6df26dba21041865a93ee012f06ff", null ],
     [ "value_type", "classemlabcpp_1_1view.html#ad0b49d90b1d144e0621f4f6ebb68fba4", null ],
     [ "view", "classemlabcpp_1_1view.html#ab442e90b28b7c19e214a587936a564c9", null ],
+    [ "view", "classemlabcpp_1_1view.html#aad78af029091df2d88734be8e6e3a2cb", null ],
+    [ "view", "classemlabcpp_1_1view.html#a442cb73e0da5b2046e8afb6c99e32242", null ],
     [ "view", "classemlabcpp_1_1view.html#abd4ce3a6af6d016c645b0502eeb2b088", null ],
     [ "view", "classemlabcpp_1_1view.html#a9ea3a995bfdc64d6fa63b67976a7b884", null ],
     [ "back", "classemlabcpp_1_1view.html#a20e97ebad3af34ee4b72960a1c258504", null ],
@@ -16,7 +18,7 @@ var classemlabcpp_1_1view =
     [ "operator std::span< value_type >", "classemlabcpp_1_1view.html#a114623886f501619e8fa3039aa6dad55", null ],
     [ "rbegin", "classemlabcpp_1_1view.html#ad08d7fbe190023493d9255cea6ee5ae9", null ],
     [ "rend", "classemlabcpp_1_1view.html#aba6ebd4151dc1327dc7213dc24025549", null ],
-    [ "requires", "classemlabcpp_1_1view.html#ae51a07173abc6a85610bfc31a37ec8bb", null ],
-    [ "requires", "classemlabcpp_1_1view.html#a84020b1d0c401f110f5127d064bb557d", null ],
+    [ "requires", "classemlabcpp_1_1view.html#aa93d0a5b7d23adbecbe1cd12144c62c7", null ],
+    [ "requires", "classemlabcpp_1_1view.html#a917bb4032dda100469207490b1089764", null ],
     [ "size", "classemlabcpp_1_1view.html#af2e8f0748de03d25eb586ef4fbe0bb13", null ]
 ];

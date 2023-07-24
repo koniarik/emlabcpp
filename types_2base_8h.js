@@ -3,6 +3,9 @@ var types_2base_8h =
     [ "iterator_of", "namespaceemlabcpp.html#structemlabcpp_1_1iterator__of", [
       [ "type", "namespaceemlabcpp.html#abb6468ad7836780268a9d6ed31b017bc", null ]
     ] ],
+    [ "data_iterator_of", "namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of", [
+      [ "type", "namespaceemlabcpp.html#aab22100d2e622b09fff3d5d67d72fe48", null ]
+    ] ],
     [ "is_view", "structemlabcpp_1_1impl_1_1is__view.html", null ],
     [ "is_view< T >", "structemlabcpp_1_1impl_1_1is__view_3_01T_01_4.html", null ],
     [ "is_view", "structemlabcpp_1_1is__view.html", null ],
@@ -28,6 +31,7 @@ var types_2base_8h =
       [ "return_type", "namespaceemlabcpp.html#aaf6b1e41353c5010a20ce6ae5543a98d", null ],
       [ "signature", "namespaceemlabcpp.html#a04896856a5012f04869873b5f6431cf8", null ]
     ] ],
+    [ "data_iterator_of_t", "types_2base_8h.html#a11d2d1e467ceff8661e40aa2f34b24ae", null ],
     [ "iterator_of_t", "types_2base_8h.html#a98ab53b012e339a9621604b203df856e", null ],
     [ "are_same_v", "types_2base_8h.html#ae5e4923a149af384640fe5d3759dcc9a", null ],
     [ "is_std_array_v", "types_2base_8h.html#a1d463be90e36b5d5be447e407fca17bf", null ],

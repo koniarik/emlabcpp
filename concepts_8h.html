@@ -134,8 +134,11 @@ Variables</h2></td></tr>
 <tr class="memitem:a904e4439ee5b6a29ec1c9a5a6d404c55"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">emlabcpp::range_container</a></td></tr>
 <tr class="memdesc:a904e4439ee5b6a29ec1c9a5a6d404c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">so, std::ranges::range is meh because it expects return of begin() being input_output_iterator, which has to be def.constructible  <a href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">More...</a><br /></td></tr>
 <tr class="separator:a904e4439ee5b6a29ec1c9a5a6d404c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d100afeb63e0735bf1abe40e8f1dda3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6d100afeb63e0735bf1abe40e8f1dda3"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6d100afeb63e0735bf1abe40e8f1dda3">emlabcpp::data_container</a></td></tr>
+<tr class="separator:a6d100afeb63e0735bf1abe40e8f1dda3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6a5e3253aa7ea8bcd6574b3274c74b6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac6a5e3253aa7ea8bcd6574b3274c74b6"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">emlabcpp::container</a> = range_container&lt; T &gt; || gettable_container&lt; T &gt;</td></tr>
+<tr class="memitem:ac6a5e3253aa7ea8bcd6574b3274c74b6"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">emlabcpp::container</a> = range_container&lt; T &gt; || gettable_container&lt; T &gt; || data_container&lt; T &gt;</td></tr>
 <tr class="separator:ac6a5e3253aa7ea8bcd6574b3274c74b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5b78b4d7a2e426170153951069c76cf"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad5b78b4d7a2e426170153951069c76cf"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad5b78b4d7a2e426170153951069c76cf">emlabcpp::referenceable_container</a></td></tr>
@@ -143,6 +146,15 @@ Variables</h2></td></tr>
 <tr class="memitem:ae70f5be4da9ac6f367034af1f5028827"><td class="memTemplParams" colspan="2">template&lt;typename T , typename ValueType &gt; </td></tr>
 <tr class="memitem:ae70f5be4da9ac6f367034af1f5028827"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae70f5be4da9ac6f367034af1f5028827">emlabcpp::range_container_with</a></td></tr>
 <tr class="separator:ae70f5be4da9ac6f367034af1f5028827"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac04004185c5cfd085f40f3ab99321b5c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Iterator &gt; </td></tr>
+<tr class="memitem:ac04004185c5cfd085f40f3ab99321b5c"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac04004185c5cfd085f40f3ab99321b5c">emlabcpp::range_container_with_iter</a></td></tr>
+<tr class="separator:ac04004185c5cfd085f40f3ab99321b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ebf6dfb3da372e9238ce6f14be53edd"><td class="memTemplParams" colspan="2">template&lt;typename T , typename ValueType &gt; </td></tr>
+<tr class="memitem:a5ebf6dfb3da372e9238ce6f14be53edd"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5ebf6dfb3da372e9238ce6f14be53edd">emlabcpp::data_container_with</a></td></tr>
+<tr class="separator:a5ebf6dfb3da372e9238ce6f14be53edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ec222a8d7edb4ed19a7049e9ad809d0"><td class="memTemplParams" colspan="2">template&lt;typename T , typename DataIterator &gt; </td></tr>
+<tr class="memitem:a3ec222a8d7edb4ed19a7049e9ad809d0"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3ec222a8d7edb4ed19a7049e9ad809d0">emlabcpp::data_container_with_iter</a></td></tr>
+<tr class="separator:a3ec222a8d7edb4ed19a7049e9ad809d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8114b1d4bc758992dd14a1d64bd454c5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a8114b1d4bc758992dd14a1d64bd454c5"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">emlabcpp::static_sized</a></td></tr>
 <tr class="separator:a8114b1d4bc758992dd14a1d64bd454c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,6 +186,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a24f6b4dc0a35260a281aa436f5401cce"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a24f6b4dc0a35260a281aa436f5401cce"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a24f6b4dc0a35260a281aa436f5401cce">emlabcpp::with_push_back</a></td></tr>
 <tr class="separator:a24f6b4dc0a35260a281aa436f5401cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa360bfc94fbbd8ed260477cbc7016b27"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa360bfc94fbbd8ed260477cbc7016b27"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa360bfc94fbbd8ed260477cbc7016b27">emlabcpp::ostreamable</a></td></tr>
+<tr class="separator:aa360bfc94fbbd8ed260477cbc7016b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -181,7 +196,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="concepts_8h.html">concepts.h</a></li>
-    <li class="footer">Generated on Thu Jul 20 2023 06:32:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Jul 24 2023 04:34:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

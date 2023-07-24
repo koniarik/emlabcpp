@@ -71,6 +71,7 @@ var hierarchy =
       [ "emlabcpp::protocol::converter< D, Endianess >", "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html", null ],
       [ "emlabcpp::protocol::converter< endianess_wrapper< Endianess, D >, ParentEndianess >", "structemlabcpp_1_1protocol_1_1converter_3_01endianess__wrapper_3_01Endianess_00_01D_01_4_00_01ParentEndianess_01_4.html", null ]
     ] ],
+    [ "emlabcpp::data_iterator_of< Container >", "namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of", null ],
     [ "emlabcpp::coro::data_promise< T >", "structemlabcpp_1_1coro_1_1data__promise.html", [
       [ "emlabcpp::coro::recursive_coroutine< T >::promise_type", "structemlabcpp_1_1coro_1_1recursive__coroutine_1_1promise__type.html", null ]
     ] ],
