@@ -1,14 +1,9 @@
 <map id="include/emlabcpp/experimental/contiguous_tree/request_adapter.h" name="include/emlabcpp/experimental/contiguous_tree/request_adapter.h">
-<area shape="rect" id="node1" title=" " alt="" coords="305,5,533,61"/>
-<area shape="rect" id="node2" href="$experimental_2contiguous__tree_2base_8h.html" title=" " alt="" coords="163,109,341,151"/>
-<area shape="rect" id="node6" href="$logging_8h.html" title=" " alt="" coords="549,109,726,151"/>
-<area shape="rect" id="node3" href="$either_8h.html" title=" " alt="" coords="5,206,144,233"/>
-<area shape="rect" id="node4" title=" " alt="" coords="168,206,235,233"/>
-<area shape="rect" id="node5" title=" " alt="" coords="259,206,346,233"/>
-<area shape="rect" id="node7" href="$pretty__printer_8h.html" title=" " alt="" coords="422,199,599,240"/>
-<area shape="rect" id="node8" href="$match_8h.html" title=" " alt="" coords="374,288,517,315"/>
-<area shape="rect" id="node9" title=" " alt="" coords="571,288,639,315"/>
-<area shape="rect" id="node10" title=" " alt="" coords="675,206,746,233"/>
-<area shape="rect" id="node11" title=" " alt="" coords="770,206,867,233"/>
-<area shape="rect" id="node12" title=" " alt="" coords="891,206,954,233"/>
+<area shape="rect" id="node1" title=" " alt="" coords="195,5,423,61"/>
+<area shape="rect" id="node2" href="$experimental_2contiguous__tree_2base_8h.html" title=" " alt="" coords="121,109,298,151"/>
+<area shape="rect" id="node6" href="$logging_8h.html" title=" " alt="" coords="326,109,503,151"/>
+<area shape="rect" id="node3" href="$either_8h.html" title=" " alt="" coords="5,199,144,225"/>
+<area shape="rect" id="node4" title=" " alt="" coords="168,199,235,225"/>
+<area shape="rect" id="node5" title=" " alt="" coords="259,199,346,225"/>
+<area shape="rect" id="node7" title=" " alt="" coords="370,199,467,225"/>
 </map>

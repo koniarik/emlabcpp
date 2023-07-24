@@ -1,13 +1,13 @@
 <map id="include/emlabcpp/experimental/matrix.h" name="include/emlabcpp/experimental/matrix.h">
-<area shape="rect" id="node1" title=" " alt="" coords="130,5,358,47"/>
-<area shape="rect" id="node2" href="$algorithm_8h.html" title=" " alt="" coords="561,102,727,129"/>
-<area shape="rect" id="node10" href="$pretty__printer_8h.html" title=" " alt="" coords="155,95,333,136"/>
-<area shape="rect" id="node11" href="$range_8h.html" title=" " alt="" coords="5,191,144,218"/>
-<area shape="rect" id="node3" href="$impl_8h.html" title=" " alt="" coords="478,184,631,225"/>
-<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="268,273,407,300"/>
-<area shape="rect" id="node5" title=" " alt="" coords="527,273,582,300"/>
-<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="655,191,814,218"/>
-<area shape="rect" id="node7" href="$view_8h.html" title=" " alt="" coords="219,191,351,218"/>
-<area shape="rect" id="node8" title=" " alt="" coords="838,191,901,218"/>
-<area shape="rect" id="node9" title=" " alt="" coords="925,191,990,218"/>
+<area shape="rect" id="node1" title=" " alt="" coords="596,5,824,47"/>
+<area shape="rect" id="node2" href="$algorithm_8h.html" title=" " alt="" coords="278,95,443,121"/>
+<area shape="rect" id="node7" href="$pretty__printer_8h.html" title=" " alt="" coords="513,244,691,285"/>
+<area shape="rect" id="node8" href="$range_8h.html" title=" " alt="" coords="659,333,798,360"/>
+<area shape="rect" id="node3" href="$impl_8h.html" title=" " alt="" coords="5,244,159,285"/>
+<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="291,408,430,435"/>
+<area shape="rect" id="node5" title=" " alt="" coords="155,333,209,360"/>
+<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="513,169,672,196"/>
+<area shape="rect" id="node9" href="$view_8h.html" title=" " alt="" coords="409,333,541,360"/>
+<area shape="rect" id="node10" title=" " alt="" coords="285,169,348,196"/>
+<area shape="rect" id="node11" title=" " alt="" coords="372,169,437,196"/>
 </map>

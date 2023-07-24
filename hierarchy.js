@@ -84,6 +84,7 @@ var hierarchy =
     [ "std::disjunction", null, [
       [ "emlabcpp::tuple_has_type< T, std::tuple< Us... > >", "structemlabcpp_1_1tuple__has__type_3_01T_00_01std_1_1tuple_3_01Us_8_8_8_01_4_01_4.html", null ]
     ] ],
+    [ "emlabcpp::eabi_logger", "classemlabcpp_1_1eabi__logger.html", null ],
     [ "emlabcpp::either< LH, RH >", "classemlabcpp_1_1either.html", null ],
     [ "emlabcpp::empty_assembly_tag", "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag", null ],
     [ "emlabcpp::protocol::endianess_wrapper< Endianess, D >", "structemlabcpp_1_1protocol_1_1endianess__wrapper.html", null ],
@@ -187,6 +188,7 @@ var hierarchy =
     [ "emlabcpp::min_max< float >", "structemlabcpp_1_1min__max.html", null ],
     [ "emlabcpp::protocol::multiplexed_endpoint< Packet >", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", null ],
     [ "emlabcpp::testing::no_response_error", "structemlabcpp_1_1testing_1_1no__response__error.html", null ],
+    [ "emlabcpp::noneabi_logger", "classemlabcpp_1_1noneabi__logger.html", null ],
     [ "std::numeric_limits< T >", "structstd_1_1numeric__limits_3_01T_01_4.html", null ],
     [ "emlabcpp::coro::owning_coroutine_handle< PromiseType >", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", null ],
     [ "emlabcpp::coro::owning_coroutine_handle< promise_type >", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", null ],
@@ -306,6 +308,9 @@ var hierarchy =
     [ "emlabcpp::protocol::serializer< T, Endianess >", "structemlabcpp_1_1protocol_1_1serializer.html", null ],
     [ "emlabcpp::protocol::serializer< bool, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol::serializer< float, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html", null ],
+    [ "emlabcpp::set_ostream", "namespaceemlabcpp.html#structemlabcpp_1_1set__ostream", null ],
+    [ "emlabcpp::set_stderr", "namespaceemlabcpp.html#structemlabcpp_1_1set__stderr", null ],
+    [ "emlabcpp::set_stdout", "namespaceemlabcpp.html#structemlabcpp_1_1set__stdout", null ],
     [ "emlabcpp::signature_of< Signature >", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of", null ],
     [ "emlabcpp::signature_of< ReturnType(Args...) >", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of_3_01ReturnType_07Args_8_8_8_08_01_4", null ],
     [ "emlabcpp::signature_of< ReturnType(Class::*)(Args...) >", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4.html", [

@@ -1,14 +1,15 @@
 <map id="include/emlabcpp/algorithm.h" name="include/emlabcpp/algorithm.h">
-<area shape="rect" id="node1" title=" " alt="" coords="266,5,482,32"/>
-<area shape="rect" id="node2" href="$impl_8h.html" title=" " alt="" coords="182,80,336,121"/>
-<area shape="rect" id="node3" href="$types_8h.html" title=" " alt="" coords="46,177,184,203"/>
-<area shape="rect" id="node5" title=" " alt="" coords="232,177,286,203"/>
-<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="412,87,570,114"/>
-<area shape="rect" id="node10" href="$view_8h.html" title=" " alt="" coords="26,87,158,114"/>
-<area shape="rect" id="node11" title=" " alt="" coords="594,87,657,114"/>
-<area shape="rect" id="node12" title=" " alt="" coords="681,87,746,114"/>
-<area shape="rect" id="node4" href="$concepts_8h.html" title=" " alt="" coords="128,259,288,285"/>
-<area shape="rect" id="node7" href="$logging_8h.html" title=" " alt="" coords="362,169,540,211"/>
-<area shape="rect" id="node8" title=" " alt="" coords="564,177,639,203"/>
-<area shape="rect" id="node9" title=" " alt="" coords="664,177,756,203"/>
+<area shape="rect" id="node1" title=" " alt="" coords="162,5,378,32"/>
+<area shape="rect" id="node2" href="$impl_8h.html" title=" " alt="" coords="28,155,181,196"/>
+<area shape="rect" id="node3" href="$types_8h.html" title=" " alt="" coords="323,319,462,345"/>
+<area shape="rect" id="node5" title=" " alt="" coords="192,244,246,271"/>
+<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="370,80,529,107"/>
+<area shape="rect" id="node9" href="$view_8h.html" title=" " alt="" coords="326,244,458,271"/>
+<area shape="rect" id="node12" title=" " alt="" coords="553,80,616,107"/>
+<area shape="rect" id="node13" title=" " alt="" coords="640,80,705,107"/>
+<area shape="rect" id="node4" href="$concepts_8h.html" title=" " alt="" coords="634,393,794,420"/>
+<area shape="rect" id="node7" href="$logging_8h.html" title=" " alt="" coords="424,155,601,196"/>
+<area shape="rect" id="node8" href="$pretty__printer_8h.html" title=" " alt="" coords="625,155,802,196"/>
+<area shape="rect" id="node10" title=" " alt="" coords="766,244,840,271"/>
+<area shape="rect" id="node11" title=" " alt="" coords="308,162,400,189"/>
 </map>

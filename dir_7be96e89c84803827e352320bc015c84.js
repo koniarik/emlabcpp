@@ -1,6 +1,8 @@
 var dir_7be96e89c84803827e352320bc015c84 =
 [
     [ "color.h", "color_8h.html", "color_8h" ],
+    [ "eabi_logger.h", "eabi__logger_8h.html", "eabi__logger_8h" ],
+    [ "noneabi_logger.h", "noneabi__logger_8h.html", "noneabi__logger_8h" ],
     [ "severity.h", "severity_8h.html", "severity_8h" ],
     [ "time.h", "time_8h.html", [
       [ "timelog", "structemlabcpp_1_1timelog.html", "structemlabcpp_1_1timelog" ],
