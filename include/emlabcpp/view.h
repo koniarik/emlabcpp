@@ -225,7 +225,9 @@ void string_serialize_view( auto&& w, const view< Iterator, EndIterator >& outpu
 }
 
 #ifdef EMLABCPP_USE_OSTREAM
+
 template < typename Iterator, typename EndIterator >
+requires( ostreamable< typename std::iterator_traits< Iterator >::value_type > )
 std::ostream& operator<<( std::ostream& os, const view< Iterator, EndIterator >& iter )
 {
         string_serialize_view(

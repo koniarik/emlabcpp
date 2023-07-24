@@ -162,4 +162,11 @@ template < typename T >
 concept with_push_back =
     requires( T a, typename T::value_type b ) { a.push_back( std::move( b ) ); };
 
+template < typename T >
+concept ostreamable = requires( std::ostream& os, T item ) {
+                              {
+                                      os << item
+                                      } -> std::convertible_to< std::ostream& >;
+                      };
+
 }  // namespace emlabcpp
