@@ -3473,7 +3473,7 @@ template&lt;data_container Container&gt; </div>
 <p>Decodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer. </p>
 <p>Note that this does not expect 0 at the end. </p>
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a35373b7ecce53b42f2b93316496708e1">emlabcpp::view&lt; Iterator, EndIterator &gt;::begin()</a>, <a class="el" href="classemlabcpp_1_1view.html#a307e340890bedc068c2cac28e2f86896">emlabcpp::view&lt; Iterator, EndIterator &gt;::end()</a>, <a class="el" href="classemlabcpp_1_1view.html#aa3f0ea5c04b558312cdb77c20664fd7f">emlabcpp::view&lt; Iterator, EndIterator &gt;::front()</a>, <a class="el" href="structemlabcpp_1_1cobs__decoder.html#a5e5580278c364e7c388983570a73646c">emlabcpp::cobs_decoder::iter()</a>, and <a class="el" href="namespaceemlabcpp.html#a254ed4de50fc497ac961253ac3625040">tail()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a35373b7ecce53b42f2b93316496708e1">emlabcpp::view&lt; Iterator, EndIterator &gt;::begin()</a>, <a class="el" href="classemlabcpp_1_1view.html#a307e340890bedc068c2cac28e2f86896">emlabcpp::view&lt; Iterator, EndIterator &gt;::end()</a>, <a class="el" href="classemlabcpp_1_1view.html#aa3f0ea5c04b558312cdb77c20664fd7f">emlabcpp::view&lt; Iterator, EndIterator &gt;::front()</a>, <a class="el" href="structemlabcpp_1_1cobs__decoder.html#a6d8da3062959c10c473656800f1adef9">emlabcpp::cobs_decoder::iter()</a>, and <a class="el" href="namespaceemlabcpp.html#a254ed4de50fc497ac961253ac3625040">tail()</a>.</p>
 
 </div>
 </div>
@@ -10018,9 +10018,14 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">    <a class="code" href="namespaceemlabcpp.html#abed05683098f9a93c5b694ff9b9f3c16">requires</a>( <span class="keyword">const</span> T&amp; v ) { pretty_printer&lt; T &gt;::print( []( <span class="keyword">const</span> std::string_view ) {}, v ); }</div>
-<div class="ttc" id="anamespaceemlabcpp_html_abed05683098f9a93c5b694ff9b9f3c16"><div class="ttname"><a href="namespaceemlabcpp.html#abed05683098f9a93c5b694ff9b9f3c16">emlabcpp::requires</a></div><div class="ttdeci">requires(std::is_enum_v&lt; T &gt;) struct pretty_printer&lt; T &gt;</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:314</div></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp.html#abed05683098f9a93c5b694ff9b9f3c16">requires</a>( <span class="keyword">const</span> T&amp; v ) {</div>
+<div class="line">                                   pretty_printer&lt; T &gt;::print(</div>
+<div class="line">                                       []( <span class="keyword">const</span> std::string_view ) {</div>
+<div class="line">                                               </div>
+<div class="line">                                       },</div>
+<div class="line">                                       v );</div>
+<div class="line">                           }</div>
+<div class="ttc" id="anamespaceemlabcpp_html_abed05683098f9a93c5b694ff9b9f3c16"><div class="ttname"><a href="namespaceemlabcpp.html#abed05683098f9a93c5b694ff9b9f3c16">emlabcpp::requires</a></div><div class="ttdeci">requires(std::is_enum_v&lt; T &gt;) struct pretty_printer&lt; T &gt;</div><div class="ttdef"><b>Definition:</b> pretty_printer.h:319</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -10363,7 +10368,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Mon Jul 24 2023 04:39:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Jul 24 2023 05:43:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

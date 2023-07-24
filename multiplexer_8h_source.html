@@ -140,7 +140,7 @@ $(document).ready(function(){initNavTree('multiplexer_8h_source.html',''); initR
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a> <span class="keywordtype">id</span> = <a class="code" href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">chan_ser::deserialize</a>( msg.subspan&lt; 0, <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">chan_ser::max_size</a> &gt;() );</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment">// TODO: there might be a better way than callback?</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">bool</span> success = handle_cb( <span class="keywordtype">id</span>, msg.subspan( <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">chan_ser::max_size</a> ) );</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span> success = handle_cb( <span class="keywordtype">id</span>, msg.subspan( <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">chan_ser::max_size</a> ) );</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> success;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
@@ -148,7 +148,7 @@ $(document).ready(function(){initNavTree('multiplexer_8h_source.html',''); initR
 <div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html#a5474a4187292ed9f9d50b1a5a63547c3">   77</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#a5474a4187292ed9f9d50b1a5a63547c3">multiplexed_dispatch</a>( <a class="code" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a> chann, <span class="keyword">const</span> <span class="keyword">auto</span>&amp; data, Slotted&amp;... slotted )</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment">// TODO: assert that channels are unique</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> = [&amp;]&lt; <span class="keyword">typename</span> T &gt;( T&amp; item ) -&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> = [&amp;]&lt; <span class="keyword">typename</span> T &gt;( T&amp; item ) {</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">if</span> ( chann == item.get_channel() ) {</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        std::ignore = item.on_msg( data );</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -273,7 +273,7 @@ $(document).ready(function(){initNavTree('multiplexer_8h_source.html',''); initR
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="multiplexer_8h.html">multiplexer.h</a></li>
-    <li class="footer">Generated on Mon Jul 24 2023 04:39:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Jul 24 2023 05:43:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
