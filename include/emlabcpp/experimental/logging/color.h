@@ -21,6 +21,10 @@
 
 #include <string_view>
 
+#ifdef EMLABCPP_USE_OSTREAM
+#include <iostream>
+#endif
+
 #pragma once
 
 namespace emlabcpp

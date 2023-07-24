@@ -68,7 +68,7 @@ std::array< std::string_view, N > expand_var_names( std::string_view sv )
                 static constexpr std::size_t N = EMLACBPP_VA_ARGS_SIZE( __VA_ARGS__ ); \
                 std::apply(                                                            \
                     [&]( const auto&... items ) {                                      \
-                            EMLABCPP_LOG_IMPL(                                         \
+                            EMLABCPP_EABI_LOG_IMPL(                                    \
                                 emlabcpp::INFO_LOGGER, __FILE__, __LINE__, items... ); \
                     },                                                                 \
                     emlabcpp::logging::generate_vars_log_tuple(                        \

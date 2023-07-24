@@ -19,6 +19,7 @@
 
 #include "emlabcpp/concepts.h"
 #include "emlabcpp/experimental/logging.h"
+#include "emlabcpp/experimental/pretty_printer.h"
 
 #include <optional>
 #include <type_traits>
