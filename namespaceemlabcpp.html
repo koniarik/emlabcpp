@@ -1196,6 +1196,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a27325f314502897567307b29b2b03776"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a27325f314502897567307b29b2b03776"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a27325f314502897567307b29b2b03776">ostreamlike</a></td></tr>
 <tr class="separator:a27325f314502897567307b29b2b03776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa360bfc94fbbd8ed260477cbc7016b27"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa360bfc94fbbd8ed260477cbc7016b27"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa360bfc94fbbd8ed260477cbc7016b27">ostreamable</a></td></tr>
+<tr class="separator:aa360bfc94fbbd8ed260477cbc7016b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a66cad0d4226d39ffd692e16bcfc076"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Variant &gt; </td></tr>
 <tr class="memitem:a5a66cad0d4226d39ffd692e16bcfc076"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a></td></tr>
 <tr class="memdesc:a5a66cad0d4226d39ffd692e16bcfc076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thanks for the solution goes to PJBoy@libera.  <a href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">More...</a><br /></td></tr>
@@ -1212,9 +1215,6 @@ Variables</h2></td></tr>
 <tr class="memitem:a24f6b4dc0a35260a281aa436f5401cce"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a24f6b4dc0a35260a281aa436f5401cce"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a24f6b4dc0a35260a281aa436f5401cce">with_push_back</a></td></tr>
 <tr class="separator:a24f6b4dc0a35260a281aa436f5401cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa360bfc94fbbd8ed260477cbc7016b27"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aa360bfc94fbbd8ed260477cbc7016b27"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa360bfc94fbbd8ed260477cbc7016b27">ostreamable</a></td></tr>
-<tr class="separator:aa360bfc94fbbd8ed260477cbc7016b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a459242c17dfd40402115fe8a63d21622"><td class="memTemplParams" colspan="2">template&lt;typename T , typename LH , typename RH &gt; </td></tr>
 <tr class="memitem:a459242c17dfd40402115fe8a63d21622"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a459242c17dfd40402115fe8a63d21622">either_uniquely_right_item</a></td></tr>
 <tr class="separator:a459242c17dfd40402115fe8a63d21622"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -9267,7 +9267,8 @@ template&lt;typename T , typename Variant &gt; </div>
 <div class="line">}( <span class="keyword">static_cast&lt;</span> Variant* <span class="keyword">&gt;</span>( nullptr ) )</div>
 </div><!-- fragment -->
 <p>Thanks for the solution goes to PJBoy@libera. </p>
-
+<hr  />
+ 
 </div>
 </div>
 <a id="ae5e4923a149af384640fe5d3759dcc9a"></a>
@@ -9384,7 +9385,9 @@ template&lt;typename T &gt; </div>
 <div class="line">                                               a* b</div>
 <div class="line">                                               } -&gt; std::convertible_to&lt; T &gt;;</div>
 <div class="line">                               }</div>
-</div><!-- fragment -->
+</div><!-- fragment --><hr  />
+<p> arithmetic related concepts </p>
+
 </div>
 </div>
 <a id="a7b5a68de4881301e46697c48654d8477"></a>
@@ -9469,7 +9472,9 @@ template&lt;typename UnaryCallable , typename Container &gt; </div>
 <div class="line">    }</div>
 <div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:166</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ac1cdce6706f4b40d478521925ca85f8a"><div class="ttname"><a href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">emlabcpp::UnaryCallable</a></div><div class="ttdeci">UnaryCallable</div><div class="ttdef"><b>Definition:</b> types.h:50</div></div>
-</div><!-- fragment -->
+</div><!-- fragment --><hr  />
+<p> invocable related concepts </p>
+
 </div>
 </div>
 <a id="a6d100afeb63e0735bf1abe40e8f1dda3"></a>
@@ -9705,7 +9710,9 @@ template&lt;typename T &gt; </div>
 <div class="line">                                             std::tuple_size&lt; std::decay_t&lt; T &gt; &gt;::value</div>
 <div class="line">                                             } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
 <div class="line">                             }</div>
-</div><!-- fragment -->
+</div><!-- fragment --><hr  />
+<p> container related concepts </p>
+
 </div>
 </div>
 <a id="adaca063c7275419f3999bd854c88de3d"></a>
@@ -10356,7 +10363,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Mon Jul 24 2023 04:34:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Jul 24 2023 04:39:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
