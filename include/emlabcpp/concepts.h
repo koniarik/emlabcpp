@@ -28,6 +28,9 @@
 namespace emlabcpp
 {
 
+/// ------------------------------------------------------------------------------------------------
+/// arithmetic related concepts
+
 template < typename T >
 concept arithmetic_operators = requires( T a, T b ) {
                                        {
@@ -65,6 +68,9 @@ concept arithmetic_like = arithmetic_operators< T > && arithmetic_assignment< T 
 
 template < typename T >
 concept arithmetic = std::integral< T > || std::floating_point< T >;
+
+/// ------------------------------------------------------------------------------------------------
+/// container related concepts
 
 template < typename T >
 concept gettable_container = requires( T a ) {
@@ -121,6 +127,9 @@ concept static_sized = requires( T a ) {
                                        } -> std::convertible_to< std::size_t >;
                        };
 
+/// ------------------------------------------------------------------------------------------------
+/// invocable related concepts
+
 template < typename UnaryCallable, typename Container >
 concept container_invocable =
     requires( Container cont, UnaryCallable f ) { f( *cont.begin() ); } ||
@@ -138,6 +147,9 @@ concept invocable_returning = requires( UnaryCallable f, Args... args ) {
                                               f( args... )
                                               } -> std::same_as< ReturnValue >;
                               };
+
+/// ------------------------------------------------------------------------------------------------
+/// stream related concepts
 
 namespace detail
 {
@@ -161,6 +173,15 @@ std::is_array_v< T >&& requires( T val ) {
                                requires detail::directly_streamable_for< T, std::nullptr_t >;
                        };
 
+template < typename T >
+concept ostreamable = requires( std::ostream& os, T item ) {
+                              {
+                                      os << item
+                                      } -> std::convertible_to< std::ostream& >;
+                      };
+
+/// ------------------------------------------------------------------------------------------------
+
 /// Thanks for the solution goes to PJBoy@libera
 template < typename T, typename Variant >
 concept alternative_of = []< typename... Ts >( std::variant< Ts... >* ) {
@@ -181,12 +202,5 @@ concept with_signature = std::same_as< typename signature_of< T >::signature, Si
 template < typename T >
 concept with_push_back =
     requires( T a, typename T::value_type b ) { a.push_back( std::move( b ) ); };
-
-template < typename T >
-concept ostreamable = requires( std::ostream& os, T item ) {
-                              {
-                                      os << item
-                                      } -> std::convertible_to< std::ostream& >;
-                      };
 
 }  // namespace emlabcpp
