@@ -49,8 +49,7 @@ public:
         constexpr view() = default;
 
         /// constructor from Container, uses begin/end of the container
-        template < range_container Cont >
-        requires( std::convertible_to< iterator_of_t< Cont >, iterator > )
+        template < range_container_with_iter< iterator > Cont >
         constexpr view( Cont& cont )
           : begin_( std::begin( cont ) )
           , end_( std::end( cont ) )
@@ -58,11 +57,26 @@ public:
         }
 
         /// constructor from Container, uses begin/end of the container
-        template < range_container Cont >
-        requires( std::convertible_to< iterator_of_t< Cont >, iterator > )
+        template < range_container_with_iter< iterator > Cont >
         constexpr view( const Cont& cont )
           : begin_( std::begin( cont ) )
           , end_( std::end( cont ) )
+        {
+        }
+
+        template < data_container_with_iter< iterator > Cont >
+        requires( !range_container_with_iter< Cont, iterator > )
+        constexpr view( Cont& cont )
+          : begin_( std::data( cont ) )
+          , end_( begin_ + std::size( cont ) )
+        {
+        }
+
+        template < data_container_with_iter< iterator > Cont >
+        requires( !range_container_with_iter< Cont, iterator > )
+        constexpr view( const Cont& cont )
+          : begin_( std::data( cont ) )
+          , end_( begin_ + std::size( cont ) )
         {
         }
 
@@ -187,8 +201,8 @@ constexpr view< Iter > view_n( Iter begin, const std::size_t n )
         return view< Iter >{ std::move( begin ), end };
 }
 
-template < typename Container >
-constexpr auto data_view( Container& cont )
+template < data_container Container >
+[[deprecated]] constexpr auto data_view( Container& cont )
 {
         return view_n( std::data( cont ), std::size( cont ) );
 }

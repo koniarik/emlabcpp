@@ -136,7 +136,7 @@ collect_server::collect_server(
 bool collect_server::on_msg( const std::span< const std::byte > data )
 {
         using h = protocol::handler< collect_request >;
-        EMLABCPP_DEBUG_LOG( "got msg: ", collect_client_server_message{ data_view( data ) } );
+        EMLABCPP_DEBUG_LOG( "got msg: ", collect_client_server_message{ data } );
         return h::extract( view_n( data.data(), data.size() ) )
             .match(
                 [this]( const collect_request& req ) {

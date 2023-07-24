@@ -57,12 +57,12 @@ TEST( COBS, encode )
 
                 std::vector< std::byte > tmp( 1024, std::byte{ 0x00 } );
 
-                auto [res, used] = encode_cobs( data_view( raw ), data_view( tmp ) );
+                auto [res, used] = encode_cobs( raw, tmp );
                 EXPECT_TRUE( res );
 
-                bool are_eq = used == data_view( encod );
+                bool are_eq = used == view{ encod };
                 EXPECT_TRUE( are_eq ) << "output: " << used << "\n"
-                                      << "expected: " << data_view( encod );
+                                      << "expected: " << view{ encod };
         }
 }
 
@@ -73,13 +73,13 @@ TEST( COBS, decode )
                 std::vector< std::byte > dtmp( 1024, std::byte{ 0x00 } );
 
                 // test decode
-                auto [dres, dused] = decode_cobs( data_view( encod ), data_view( dtmp ) );
+                auto [dres, dused] = decode_cobs( encod, dtmp );
                 EXPECT_TRUE( dres );
 
-                bool are_eq = dused == data_view( raw );
-                EXPECT_TRUE( are_eq ) << "inpt: " << data_view( encod ) << "\n"
+                bool are_eq = dused == view{ raw };
+                EXPECT_TRUE( are_eq ) << "inpt: " << view{ encod } << "\n"
                                       << "output: " << dused << "\n"
-                                      << "expected: " << data_view( raw );
+                                      << "expected: " << view{ raw };
         }
 }
 
@@ -91,6 +91,6 @@ TEST( COBS, decode_iter )
 
                 bool are_eq = std::equal( raw.begin(), raw.end(), cview.begin() );
                 EXPECT_TRUE( are_eq ) << "output: " << cview << "\n"
-                                      << "expected: " << data_view( raw );
+                                      << "expected: " << view{ raw };
         }
 }

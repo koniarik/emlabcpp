@@ -42,6 +42,19 @@ template < typename Container >
 using iterator_of_t = typename iterator_of< Container >::type;
 
 /// ------------------------------------------------------------------------------------------------
+/// data_iterator_of is structure where data_iterator_of<Container>::type returns type of pointer
+/// that is returned by cont.data();
+template < typename Container >
+struct data_iterator_of
+{
+        using type =
+            decltype( std::data( std::declval< std::add_lvalue_reference_t< Container > >() ) );
+};
+
+template < typename Container >
+using data_iterator_of_t = typename data_iterator_of< Container >::type;
+
+/// ------------------------------------------------------------------------------------------------
 /// is_view<T>::value marks whenever is some type of temporary view - not owning of the data
 namespace impl
 {

@@ -121,9 +121,8 @@ struct valid_test_case : protocol_test_fixture
         {
                 auto       msg      = handler::serialize( val );
                 const bool is_equal = equal( msg, expected_buffer );
-                EXPECT_TRUE( is_equal )
-                    << "msg: " << msg << "\n"
-                    << "expected: " << message_type( data_view( expected_buffer ) ) << "\n";
+                EXPECT_TRUE( is_equal ) << "msg: " << msg << "\n"
+                                        << "expected: " << message_type( expected_buffer ) << "\n";
 
                 handler::extract( msg ).match(
                     [&]( auto var ) {

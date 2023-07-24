@@ -84,7 +84,15 @@ concept range_container =
     std::is_bounded_array_v< T >;
 
 template < typename T >
-concept container = range_container< T > || gettable_container< T >;
+concept data_container = (
+                             requires( T a ) { data( a ); } ||
+                             requires( T a ) { std::data( a ); } ) &&
+                         (
+                             requires( T a ) { size( a ); } ||
+                             requires( T a ) { std::size( a ); } );
+
+template < typename T >
+concept container = range_container< T > || gettable_container< T > || data_container< T >;
 
 template < typename T >
 concept referenceable_container = is_view< T >::value ||
@@ -93,6 +101,18 @@ concept referenceable_container = is_view< T >::value ||
 template < typename T, typename ValueType >
 concept range_container_with =
     range_container< T > && std::same_as< typename T::value_type, ValueType >;
+
+template < typename T, typename Iterator >
+concept range_container_with_iter =
+    range_container< T > && std::convertible_to< iterator_of_t< T >, Iterator >;
+
+template < typename T, typename ValueType >
+concept data_container_with =
+    data_container< T > && std::same_as< typename T::value_type, ValueType >;
+
+template < typename T, typename DataIterator >
+concept data_container_with_iter =
+    data_container< T > && std::convertible_to< data_iterator_of_t< T >, DataIterator >;
 
 template < typename T >
 concept static_sized = requires( T a ) {

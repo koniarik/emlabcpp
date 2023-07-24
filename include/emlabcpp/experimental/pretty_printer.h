@@ -337,7 +337,7 @@ struct pretty_printer< std::span< T, N > >
         template < typename Writer >
         static void print( Writer&& w, const std::span< T, N >& sp )
         {
-                string_serialize_view( std::forward< Writer >( w ), data_view( sp ) );
+                string_serialize_view( std::forward< Writer >( w ), view{ sp } );
         }
 };
 
@@ -347,7 +347,7 @@ struct pretty_printer< std::array< T, N > >
         template < typename Writer >
         static void print( Writer&& w, const std::array< T, N >& arr )
         {
-                string_serialize_view( std::forward< Writer >( w ), data_view( arr ) );
+                string_serialize_view( std::forward< Writer >( w ), arr );
         }
 };
 
