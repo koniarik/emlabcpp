@@ -1,6 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"namespacemembers_q.html":[2,1,0,16],
 "namespacemembers_r.html":[2,1,0,17],
 "namespacemembers_s.html":[2,1,0,18],
 "namespacemembers_t.html":[2,1,0,19],
@@ -249,5 +248,6 @@ var NAVTREEINDEX8 =
 "simplex_8h.html":[4,0,0,0,1,3,5],
 "simplex_8h.html#a37668b1023850f199c917bcf2131523c":[4,0,0,0,1,3,5,3],
 "simplex_8h.html#a6189ac849a51ae66a922cd84c9af8254":[4,0,0,0,1,3,5,8],
-"simplex_8h.html#a78453f63bffe0ddbe927529c68875dc4":[4,0,0,0,1,3,5,6]
+"simplex_8h.html#a78453f63bffe0ddbe927529c68875dc4":[4,0,0,0,1,3,5,6],
+"simplex_8h.html#a8345b253a90bb775245754b4e6307216":[4,0,0,0,1,3,5,7]
 };

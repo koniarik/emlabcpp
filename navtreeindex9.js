@@ -1,6 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"simplex_8h.html#a8345b253a90bb775245754b4e6307216":[4,0,0,0,1,3,5,7],
 "simplex_8h.html#a8c868b270298a6e752372a1809dc03d0":[4,0,0,0,1,3,5,1],
 "simplex_8h.html#aa32193fca8f431c8887d0a5402866074":[4,0,0,0,1,3,5,5],
 "simplex_8h.html#ac7a44460972cfa981d6af54caba9f8b2":[4,0,0,0,1,3,5,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX9 =
 "structemlabcpp_1_1protocol_1_1backup__converter_3_01T_00_01Endianess_01_4.html#abeb8f9ba1310a760473ff0ba0b8dc0a6":[3,0,0,6,32,2],
 "structemlabcpp_1_1protocol_1_1backup__converter_3_01T_00_01Endianess_01_4.html#ad760c8af5bbbc759b9a2ef8e58d90cbe":[3,0,0,6,32,6],
 "structemlabcpp_1_1protocol_1_1backup__converter_3_01T_00_01Endianess_01_4.html#ada9ccaf973fa1416d585bd320cec65f9":[3,0,0,6,32,3],
-"structemlabcpp_1_1protocol_1_1backup__converter_3_01T_00_01Endianess_01_4.html#af8999a4069a0e081de37c48420e7147e":[3,0,0,6,32,8]
+"structemlabcpp_1_1protocol_1_1backup__converter_3_01T_00_01Endianess_01_4.html#af8999a4069a0e081de37c48420e7147e":[3,0,0,6,32,8],
+"structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4.html":[3,0,0,6,71]
 };
