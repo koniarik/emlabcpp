@@ -91,7 +91,7 @@ private:
 
 struct empty_node_impl : test_interface
 {
-        std::string_view get_name() const
+        [[nodiscard]] std::string_view get_name() const
         {
                 return "";
         }

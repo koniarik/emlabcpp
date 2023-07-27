@@ -148,12 +148,12 @@ public:
         {
         }
 
-        T& get()
+        [[nodiscard]] T& get()
         {
                 return item_;
         }
 
-        const T& get() const
+        [[nodiscard]] const T& get() const
         {
                 return item_;
         }
