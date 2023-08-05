@@ -132,8 +132,8 @@ int main( int, char*[] )
         const em::min_max< int > mm_res = em::min_max_elem( vec_data, []( int val ) {
                 return std::abs( val );
         } );
-        std::cout << "Minimal absolute value of vec_data is " << mm_res.min << " and maximum is "
-                  << mm_res.max << '\n';
+        std::cout << "Minimal absolute value of vec_data is " << mm_res.min() << " and maximum is "
+                  << mm_res.max() << '\n';
 
         // ---------------------------------------------------------------------------------------
         // `sum(cont, f)` returns sum of result of `f` applied over container `cont`, useful to

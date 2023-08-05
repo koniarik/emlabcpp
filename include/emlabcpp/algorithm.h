@@ -183,18 +183,34 @@ constexpr void for_each( Container&& cont, UnaryCallable&& f )
 /// Helper structure for finding the smallest and the largest item in some
 /// container, contains min/max attributes representing such elements.
 template < typename T >
-struct min_max
+struct min_max : std::array< T, 2 >
 {
         using value_type = T;
 
-        T min{};
-        T max{};
+        T& min()
+        {
+                return this->operator[]( 0 );
+        }
+
+        const T& min() const
+        {
+                return this->operator[]( 0 );
+        }
+
+        T& max()
+        {
+                return this->operator[]( 1 );
+        }
+
+        const T& max() const
+        {
+                return this->operator[]( 1 );
+        }
 
         min_max() = default;
 
-        min_max( T min_i, T max_i )
-          : min( std::move( min_i ) )
-          , max( std::move( max_i ) )
+        min_max( T lh, T rh )
+          : std::array< T, 2 >{ std::move( lh ), std::move( rh ) }
         {
         }
 };
@@ -210,13 +226,13 @@ template <
 min_max_elem( const Container& cont, UnaryCallable&& f = std::identity() )
 {
         min_max< T > res;
-        res.max = std::numeric_limits< T >::lowest();
-        res.min = std::numeric_limits< T >::max();
+        res.max() = std::numeric_limits< T >::lowest();
+        res.min() = std::numeric_limits< T >::max();
 
         for_each( cont, [&]( const auto& item ) {
-                auto val = f( item );
-                res.max  = std::max( res.max, val );
-                res.min  = std::min( res.min, val );
+                auto val  = f( item );
+                res.max() = std::max( res.max(), val );
+                res.min() = std::min( res.min(), val );
         } );
         return res;
 }
@@ -591,8 +607,8 @@ struct nlohmann::adl_serializer< emlabcpp::min_max< T > >
 {
         static void to_json( nlohmann::json& j, const emlabcpp::min_max< T >& mm )
         {
-                j["min"] = mm.min;
-                j["max"] = mm.max;
+                j["min"] = mm.min();
+                j["max"] = mm.max();
         }
 
         static emlabcpp::min_max< T > from_json( const nlohmann::json& j )

@@ -181,8 +181,8 @@ TEST( Algorithm, for_each )
 TEST( Algorithm, min_max )
 {
         const min_max< int > mm{ 0, 1 };
-        EXPECT_EQ( mm.min, 0 );
-        EXPECT_EQ( mm.max, 1 );
+        EXPECT_EQ( mm.min(), 0 );
+        EXPECT_EQ( mm.max(), 1 );
 }
 
 // NOLINTNEXTLINE
@@ -191,13 +191,13 @@ TEST( Algorithm, min_max_elem )
         min_max< int > res = min_max_elem( std::vector< int >{ 1, 2, 3 }, [&]( int i ) {
                 return i * 2;
         } );
-        EXPECT_EQ( res.min, 2 );
-        EXPECT_EQ( res.max, 6 );
+        EXPECT_EQ( res.min(), 2 );
+        EXPECT_EQ( res.max(), 6 );
         res = min_max_elem( std::tuple< int, int, int >{ 1, 2, 3 }, [&]( int i ) {
                 return i * 2;
         } );
-        EXPECT_EQ( res.min, 2 );
-        EXPECT_EQ( res.max, 6 );
+        EXPECT_EQ( res.min(), 2 );
+        EXPECT_EQ( res.max(), 6 );
 }
 
 // NOLINTNEXTLINE
