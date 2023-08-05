@@ -124,6 +124,13 @@ float update( pid< TimeType >& pid, TimeType now, float measured, float desired 
         return pid.output;
 }
 
+template < typename TimeType >
+void reset( pid< TimeType >& pid, TimeType now, float last_measured )
+{
+        pid.last_time     = now;
+        pid.last_measured = last_measured;
+}
+
 }  // namespace emlabcpp
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
