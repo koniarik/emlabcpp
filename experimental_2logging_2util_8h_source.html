@@ -101,23 +101,23 @@ $(document).ready(function(){initNavTree('experimental_2logging_2util_8h_source.
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1logging.html#a6243454a964ef93f684c446f807b777a">   30</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp_1_1logging.html#a6243454a964ef93f684c446f807b777a">generate_vars_log_tuple</a>(</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::index_sequence&lt; Ids... &gt;,</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">const</span> std::array&lt; std::string_view, N &gt;&amp; names,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span>&amp;                              args )</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span>&amp;                              <a class="code" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a> )</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        static_assert( 4 * N == <span class="keyword">sizeof</span>...( Ids ) );</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a> = [&amp;]&lt; std::size_t i &gt; {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> = [&amp;]&lt; std::size_t i &gt; {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keywordflow">if</span> constexpr ( i % 4 == 0 ) {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                        <span class="keywordflow">return</span> names[i / 4];</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr ( i % 4 == 1 ) {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                        <span class="keywordflow">return</span> std::string_view{ <span class="stringliteral">&quot; = &quot;</span> };</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr ( i % 4 == 2 ) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        <span class="keywordflow">return</span> std::get&lt; i / 4 &gt;( args );</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        <span class="keywordflow">return</span> std::get&lt; i / 4 &gt;( <a class="code" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a> );</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        <span class="keywordflow">return</span> std::string_view{ <span class="stringliteral">&quot;;\t&quot;</span> };</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                }</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        };</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> std::make_tuple( <a class="code" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f</a>.template <span class="keyword">operator</span>()&lt; Ids &gt;()... );</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> std::make_tuple( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>.template <span class="keyword">operator</span>()&lt; Ids &gt;()... );</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
@@ -152,14 +152,15 @@ $(document).ready(function(){initNavTree('experimental_2logging_2util_8h_source.
 <div class="ttc" id="anamespaceemlabcpp_1_1logging_html"><div class="ttname"><a href="namespaceemlabcpp_1_1logging.html">emlabcpp::logging</a></div><div class="ttdef"><b>Definition:</b> util.h:27</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1logging_html_a04248a323e06ff3779b3b3a86f1d2a43"><div class="ttname"><a href="namespaceemlabcpp_1_1logging.html#a04248a323e06ff3779b3b3a86f1d2a43">emlabcpp::logging::expand_var_names</a></div><div class="ttdeci">std::array&lt; std::string_view, N &gt; expand_var_names(std::string_view sv)</div><div class="ttdef"><b>Definition:</b> util.h:53</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1logging_html_a6243454a964ef93f684c446f807b777a"><div class="ttname"><a href="namespaceemlabcpp_1_1logging.html#a6243454a964ef93f684c446f807b777a">emlabcpp::logging::generate_vars_log_tuple</a></div><div class="ttdeci">auto generate_vars_log_tuple(std::index_sequence&lt; Ids... &gt;, const std::array&lt; std::string_view, N &gt; &amp;names, const auto &amp;args)</div><div class="ttdef"><b>Definition:</b> util.h:30</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a6aa7db523ecb529a3835ce0f1175fb4c"><div class="ttname"><a href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:166</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ad867ea735e282b26f2876295d58f90b3"><div class="ttname"><a href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">emlabcpp::args</a></div><div class="ttdeci">const Args &amp; args</div><div class="ttdef"><b>Definition:</b> min_max.h:63</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ae863a37ceeaded64e65fc9ac024f70d9"><div class="ttname"><a href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:163</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_7be96e89c84803827e352320bc015c84.html">logging</a></li><li class="navelem"><a class="el" href="experimental_2logging_2util_8h.html">util.h</a></li>
-    <li class="footer">Generated on Sat Aug 5 2023 14:50:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 5 2023 16:10:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

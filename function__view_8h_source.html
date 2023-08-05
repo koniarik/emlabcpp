@@ -117,23 +117,23 @@ $(document).ready(function(){initNavTree('function__view_8h_source.html',''); in
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html#ab9af4e7a46c4f4da4045c05cdd57ddf6">   49</a></span>&#160;        ReturnType <a class="code" href="classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html#ab9af4e7a46c4f4da4045c05cdd57ddf6">operator()</a>( ArgTypes... args )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html#ab9af4e7a46c4f4da4045c05cdd57ddf6">   49</a></span>&#160;        ReturnType <a class="code" href="classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html#ab9af4e7a46c4f4da4045c05cdd57ddf6">operator()</a>( ArgTypes... <a class="code" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a> )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">return</span> handler_( obj_, std::forward&lt; ArgTypes &gt;( args )... );</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">return</span> handler_( obj_, std::forward&lt; ArgTypes &gt;( <a class="code" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a> )... );</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> Callable &gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">static</span> ReturnType CallableHandler( <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr, ArgTypes... args )</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">static</span> ReturnType CallableHandler( <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr, ArgTypes... <a class="code" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a> )</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keyword">auto</span>* cb_ptr = <span class="keyword">reinterpret_cast&lt;</span> Callable* <span class="keyword">&gt;</span>( ptr );</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">return</span> ( *cb_ptr )( std::forward&lt; ArgTypes &gt;( args )... );</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">return</span> ( *cb_ptr )( std::forward&lt; ArgTypes &gt;( <a class="code" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a> )... );</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">static</span> ReturnType FunctionHandler( <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr, ArgTypes... args )</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">static</span> ReturnType FunctionHandler( <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr, ArgTypes... <a class="code" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a> )</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keyword">auto</span> f_ptr = <span class="keyword">reinterpret_cast&lt;</span> signature* <span class="keyword">&gt;</span>( ptr );</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordflow">return</span> f_ptr( args... );</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordflow">return</span> f_ptr( <a class="code" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a>... );</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">using</span> handler = ReturnType( <span class="keywordtype">void</span>*, ArgTypes... );</div>
@@ -149,6 +149,7 @@ $(document).ready(function(){initNavTree('function__view_8h_source.html',''); in
 <div class="ttc" id="aclassemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4_html_ae6e5332e6b4180c1b7dd008fb0bb6d70"><div class="ttname"><a href="classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html#ae6e5332e6b4180c1b7dd008fb0bb6d70">emlabcpp::function_view&lt; ReturnType(ArgTypes...) &gt;::function_view</a></div><div class="ttdeci">function_view(signature *fun)</div><div class="ttdef"><b>Definition:</b> function_view.h:36</div></div>
 <div class="ttc" id="aconcepts_8h_html"><div class="ttname"><a href="concepts_8h.html">concepts.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> impl.h:27</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ad867ea735e282b26f2876295d58f90b3"><div class="ttname"><a href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">emlabcpp::args</a></div><div class="ttdeci">const Args &amp; args</div><div class="ttdef"><b>Definition:</b> min_max.h:63</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_classemlabcpp_1_1function__view"><div class="ttname"><a href="namespaceemlabcpp.html#classemlabcpp_1_1function__view">emlabcpp::function_view</a></div><div class="ttdef"><b>Definition:</b> function_view.h:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -156,7 +157,7 @@ $(document).ready(function(){initNavTree('function__view_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="function__view_8h.html">function_view.h</a></li>
-    <li class="footer">Generated on Sat Aug 5 2023 14:50:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 5 2023 16:10:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

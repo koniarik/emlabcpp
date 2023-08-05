@@ -177,8 +177,8 @@ $(document).ready(function(){initNavTree('decompose_8h_source.html',''); initRes
 <div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a5e72f5ad9fec2b8f70d4f8e0e5ec0d23">  106</a></span>&#160;constexpr T <a class="code" href="namespaceemlabcpp.html#a5e72f5ad9fec2b8f70d4f8e0e5ec0d23">compose</a>( Tuple tpl )</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> std::apply(</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            []&lt; <span class="keyword">typename</span>... Args &gt;( Args&amp;&amp;... args ) {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    <span class="keywordflow">return</span> T{ std::forward&lt; Args &gt;( args )... };</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            []&lt; <span class="keyword">typename</span>... Args &gt;( Args&amp;&amp;... <a class="code" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a> ) {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    <span class="keywordflow">return</span> T{ std::forward&lt; Args &gt;( <a class="code" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a> )... };</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            },</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            std::move( tpl ) );</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
@@ -230,6 +230,7 @@ $(document).ready(function(){initNavTree('decompose_8h_source.html',''); initRes
 <div class="ttc" id="anamespaceemlabcpp_html_a771ceb5d56ed0208c7974b576c6dadc0"><div class="ttname"><a href="namespaceemlabcpp.html#a771ceb5d56ed0208c7974b576c6dadc0">emlabcpp::decomposable</a></div><div class="ttdeci">concept decomposable</div><div class="ttdef"><b>Definition:</b> decompose.h:77</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ab124463ea669779e32ea4428088a01c4"><div class="ttname"><a href="namespaceemlabcpp.html#ab124463ea669779e32ea4428088a01c4">emlabcpp::EMLABCPP_GENERATE_DECOMPOSE</a></div><div class="ttdeci">EMLABCPP_GENERATE_DECOMPOSE(16, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15) template&lt; typename T &gt; using decomposed_type</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ad6adfccd266cb01c6cfd376ea222c110"><div class="ttname"><a href="namespaceemlabcpp.html#ad6adfccd266cb01c6cfd376ea222c110">emlabcpp::decomposable_0</a></div><div class="ttdeci">concept decomposable_0</div><div class="ttdef"><b>Definition:</b> decompose.h:97</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ad867ea735e282b26f2876295d58f90b3"><div class="ttname"><a href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">emlabcpp::args</a></div><div class="ttdeci">const Args &amp; args</div><div class="ttdef"><b>Definition:</b> min_max.h:63</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afecb966a998ea6497e7b378bca2681c8"><div class="ttname"><a href="namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8">emlabcpp::decompose</a></div><div class="ttdeci">constexpr std::tuple decompose(T &amp;&amp;)</div><div class="ttdef"><b>Definition:</b> decompose.h:100</div></div>
 <div class="ttc" id="astructemlabcpp_1_1detail_1_1decompose__anything_html"><div class="ttname"><a href="structemlabcpp_1_1detail_1_1decompose__anything.html">emlabcpp::detail::decompose_anything</a></div><div class="ttdef"><b>Definition:</b> decompose.h:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -238,7 +239,7 @@ $(document).ready(function(){initNavTree('decompose_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="decompose_8h.html">decompose.h</a></li>
-    <li class="footer">Generated on Sat Aug 5 2023 14:50:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 5 2023 16:10:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

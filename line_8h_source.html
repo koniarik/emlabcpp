@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('line_8h_source.html',''); initResizabl
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">float</span> projection_dist = <a class="code" href="namespaceemlabcpp.html#a8e3cab8faa406c3fc0e6c197d7663f12">dot</a>( p - l[0], direction );</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        projection_dist /= length_squared;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        projection_dist = std::clamp( projection_dist, 0.f, 1.f );</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        projection_dist = <a class="code" href="namespaceemlabcpp.html#a82f5ea92342357353dd1e048dc0b106f">std::clamp</a>( projection_dist, 0.f, 1.f );</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1point.html">point&lt; N &gt;</a> closest_p = l[0] + projection_dist * direction;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
@@ -134,6 +134,7 @@ $(document).ready(function(){initNavTree('line_8h_source.html',''); initResizabl
 <div class="ttc" id="anamespaceemlabcpp_html_a01057565d5ebaf62d92c2a45cfdde65b"><div class="ttname"><a href="namespaceemlabcpp.html#a01057565d5ebaf62d92c2a45cfdde65b">emlabcpp::length2_of</a></div><div class="ttdeci">constexpr auto length2_of(const vec_point_base&lt; Derived, N &gt; &amp;a)</div><div class="ttdoc">Returns squared distance of A from [0,0,0], this is a squared length of vector represented by A.</div><div class="ttdef"><b>Definition:</b> vec_point_base.h:191</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a068a535d76f319e21113bceb0fdb8fbe"><div class="ttname"><a href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">emlabcpp::line</a></div><div class="ttdeci">std::array&lt; point&lt; N &gt;, 2 &gt; line</div><div class="ttdef"><b>Definition:</b> line.h:33</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a51181e92ac66d2a113b7c0e5b9a2718e"><div class="ttname"><a href="namespaceemlabcpp.html#a51181e92ac66d2a113b7c0e5b9a2718e">emlabcpp::distance_of</a></div><div class="ttdeci">constexpr float distance_of(const line&lt; N &gt; &amp;l, const point&lt; N &gt; &amp;p)</div><div class="ttdef"><b>Definition:</b> line.h:37</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a82f5ea92342357353dd1e048dc0b106f"><div class="ttname"><a href="namespaceemlabcpp.html#a82f5ea92342357353dd1e048dc0b106f">emlabcpp::clamp</a></div><div class="ttdeci">const T &amp; clamp(const T &amp;x, const min_max&lt; T &gt; &amp;mm, Compare &amp;&amp;comp)</div><div class="ttdef"><b>Definition:</b> min_max.h:49</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a8e3cab8faa406c3fc0e6c197d7663f12"><div class="ttname"><a href="namespaceemlabcpp.html#a8e3cab8faa406c3fc0e6c197d7663f12">emlabcpp::dot</a></div><div class="ttdeci">constexpr float dot(const quaternion &amp;q, const quaternion &amp;s)</div><div class="ttdef"><b>Definition:</b> quaternion.h:97</div></div>
 <div class="ttc" id="apoint_8h_html"><div class="ttname"><a href="point_8h.html">point.h</a></div></div>
 <div class="ttc" id="avector_8h_html"><div class="ttname"><a href="vector_8h.html">vector.h</a></div></div>
@@ -143,7 +144,7 @@ $(document).ready(function(){initNavTree('line_8h_source.html',''); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_3ae5028df88b3fc471a247e16af56915.html">geom</a></li><li class="navelem"><a class="el" href="line_8h.html">line.h</a></li>
-    <li class="footer">Generated on Sat Aug 5 2023 14:50:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 5 2023 16:10:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

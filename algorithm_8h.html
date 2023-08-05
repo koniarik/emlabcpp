@@ -94,6 +94,7 @@ $(document).ready(function(){initNavTree('algorithm_8h.html',''); initResizable(
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="impl_8h_source.html">emlabcpp/algorithm/impl.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bounded_8h_source.html">emlabcpp/bounded.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="min__max_8h_source.html">emlabcpp/min_max.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="types_8h_source.html">emlabcpp/types.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="view_8h_source.html">emlabcpp/view.h</a>&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
@@ -104,7 +105,7 @@ $(document).ready(function(){initNavTree('algorithm_8h.html',''); initResizable(
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="algorithm_8h__incl.svg" width="872" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="algorithm_8h__incl.svg" width="1091" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -112,9 +113,6 @@ $(document).ready(function(){initNavTree('algorithm_8h.html',''); initResizable(
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1min__max.html">emlabcpp::min_max&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper structure for finding the smallest and the largest item in some container, contains min/max attributes representing such elements.  <a href="structemlabcpp_1_1min__max.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1convert__to.html">emlabcpp::convert_to&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object with <code>operator()</code> that constructs object of type <code>T</code>out of passed-in value.  <a href="structemlabcpp_1_1convert__to.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -248,15 +246,15 @@ Functions</h2></td></tr>
 <tr class="separator:af85136552afa4d0a86dd1fb078223cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92a263e4623147eea2c226d8b9bcafc7"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename NullCallable &gt; </td></tr>
 <tr class="memitem:a92a263e4623147eea2c226d8b9bcafc7"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a92a263e4623147eea2c226d8b9bcafc7">emlabcpp::for_each_index</a> (const NullCallable &amp;f)</td></tr>
-<tr class="memdesc:a92a263e4623147eea2c226d8b9bcafc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N.  <a href="namespaceemlabcpp.html#a92a263e4623147eea2c226d8b9bcafc7">More...</a><br /></td></tr>
+<tr class="memdesc:a92a263e4623147eea2c226d8b9bcafc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N.  <a href="namespaceemlabcpp.html#a92a263e4623147eea2c226d8b9bcafc7">More...</a><br /></td></tr>
 <tr class="separator:a92a263e4623147eea2c226d8b9bcafc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae434316a87fef12fc4d05dd543dddf7"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename PredicateCallable &gt; </td></tr>
 <tr class="memitem:aae434316a87fef12fc4d05dd543dddf7"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aae434316a87fef12fc4d05dd543dddf7">emlabcpp::find_if_index</a> (const PredicateCallable &amp;f)</td></tr>
-<tr class="memdesc:aae434316a87fef12fc4d05dd543dddf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N until first call that returns true.  <a href="namespaceemlabcpp.html#aae434316a87fef12fc4d05dd543dddf7">More...</a><br /></td></tr>
+<tr class="memdesc:aae434316a87fef12fc4d05dd543dddf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N until first call that returns true.  <a href="namespaceemlabcpp.html#aae434316a87fef12fc4d05dd543dddf7">More...</a><br /></td></tr>
 <tr class="separator:aae434316a87fef12fc4d05dd543dddf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aced106ff9e1a26187bb4872197cc1a7c"><td class="memTemplParams" colspan="2">template&lt;std::size_t i, typename PredicateCallable &gt; </td></tr>
 <tr class="memitem:aced106ff9e1a26187bb4872197cc1a7c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aced106ff9e1a26187bb4872197cc1a7c">emlabcpp::until_index</a> (const PredicateCallable &amp;f)</td></tr>
-<tr class="memdesc:aced106ff9e1a26187bb4872197cc1a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes predicate <code><a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to i until first call that returns true.  <a href="namespaceemlabcpp.html#aced106ff9e1a26187bb4872197cc1a7c">More...</a><br /></td></tr>
+<tr class="memdesc:aced106ff9e1a26187bb4872197cc1a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes predicate <code><a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to i until first call that returns true.  <a href="namespaceemlabcpp.html#aced106ff9e1a26187bb4872197cc1a7c">More...</a><br /></td></tr>
 <tr class="separator:aced106ff9e1a26187bb4872197cc1a7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35de9105fe961a808d8e0f3a2cb58bf2"><td class="memTemplParams" colspan="2">template&lt;bounded_derived IndexType, typename Callable &gt; </td></tr>
 <tr class="memitem:a35de9105fe961a808d8e0f3a2cb58bf2"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a35de9105fe961a808d8e0f3a2cb58bf2">emlabcpp::requires</a> (!requires(Callable f) { { f.template operator()&lt; 0 &gt;() } -&gt; std::same_as&lt; void &gt;;}) const expr auto select_index(IndexType i</td></tr>
@@ -277,8 +275,8 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a20db02f115d34db629106a39c5194e18"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a20db02f115d34db629106a39c5194e18">emlabcpp::default_epsilon</a> = 1.19e-07f</td></tr>
 <tr class="separator:a20db02f115d34db629106a39c5194e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aa7db523ecb529a3835ce0f1175fb4c"><td class="memItemLeft" align="right" valign="top">UnaryCallable &amp;&amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6aa7db523ecb529a3835ce0f1175fb4c">emlabcpp::f</a></td></tr>
-<tr class="separator:a6aa7db523ecb529a3835ce0f1175fb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae863a37ceeaded64e65fc9ac024f70d9"><td class="memItemLeft" align="right" valign="top">UnaryCallable &amp;&amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a></td></tr>
+<tr class="separator:ae863a37ceeaded64e65fc9ac024f70d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f3571963bbe0982f9987b78b111c626"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a> {}</td></tr>
 <tr class="separator:a9f3571963bbe0982f9987b78b111c626"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -288,7 +286,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="algorithm_8h.html">algorithm.h</a></li>
-    <li class="footer">Generated on Sat Aug 5 2023 14:50:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 5 2023 16:10:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

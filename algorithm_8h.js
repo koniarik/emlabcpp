@@ -1,6 +1,5 @@
 var algorithm_8h =
 [
-    [ "min_max", "structemlabcpp_1_1min__max.html", "structemlabcpp_1_1min__max" ],
     [ "convert_to", "structemlabcpp_1_1convert__to.html", "structemlabcpp_1_1convert__to" ],
     [ "accumulate", "algorithm_8h.html#a234414158becfed39f1b4958c694a8d9", null ],
     [ "all_of", "algorithm_8h.html#aab724dd793953a308bea8dba2118aade", null ],
@@ -41,6 +40,6 @@ var algorithm_8h =
     [ "until_index", "algorithm_8h.html#aced106ff9e1a26187bb4872197cc1a7c", null ],
     [ "variance", "algorithm_8h.html#a76870aafe8a72795ca80143c32313532", null ],
     [ "default_epsilon", "algorithm_8h.html#a20db02f115d34db629106a39c5194e18", null ],
-    [ "f", "algorithm_8h.html#a6aa7db523ecb529a3835ce0f1175fb4c", null ],
+    [ "f", "algorithm_8h.html#ae863a37ceeaded64e65fc9ac024f70d9", null ],
     [ "res", "algorithm_8h.html#a9f3571963bbe0982f9987b78b111c626", null ]
 ];

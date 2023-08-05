@@ -20,6 +20,7 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
       [ "generic_iterator", "classemlabcpp_1_1generic__iterator.html", "classemlabcpp_1_1generic__iterator" ]
     ] ],
     [ "match.h", "match_8h.html", "match_8h" ],
+    [ "min_max.h", "min__max_8h.html", "min__max_8h" ],
     [ "physical_quantity.h", "physical__quantity_8h.html", "physical__quantity_8h" ],
     [ "pid.h", "pid_8h.html", "pid_8h" ],
     [ "protocol.h", "protocol_8h.html", null ],

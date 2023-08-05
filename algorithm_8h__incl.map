@@ -1,15 +1,16 @@
 <map id="include/emlabcpp/algorithm.h" name="include/emlabcpp/algorithm.h">
-<area shape="rect" id="node1" title=" " alt="" coords="162,5,378,32"/>
-<area shape="rect" id="node2" href="$impl_8h.html" title=" " alt="" coords="28,155,181,196"/>
-<area shape="rect" id="node3" href="$types_8h.html" title=" " alt="" coords="323,319,462,345"/>
-<area shape="rect" id="node5" title=" " alt="" coords="192,244,246,271"/>
-<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="370,80,529,107"/>
-<area shape="rect" id="node9" href="$view_8h.html" title=" " alt="" coords="326,244,458,271"/>
-<area shape="rect" id="node12" title=" " alt="" coords="553,80,616,107"/>
-<area shape="rect" id="node13" title=" " alt="" coords="640,80,705,107"/>
-<area shape="rect" id="node4" href="$concepts_8h.html" title=" " alt="" coords="634,393,794,420"/>
-<area shape="rect" id="node7" href="$logging_8h.html" title=" " alt="" coords="424,155,601,196"/>
-<area shape="rect" id="node8" href="$pretty__printer_8h.html" title=" " alt="" coords="625,155,802,196"/>
-<area shape="rect" id="node10" title=" " alt="" coords="766,244,840,271"/>
-<area shape="rect" id="node11" title=" " alt="" coords="308,162,400,189"/>
+<area shape="rect" id="node1" title=" " alt="" coords="328,5,544,32"/>
+<area shape="rect" id="node2" href="$impl_8h.html" title=" " alt="" coords="30,155,184,196"/>
+<area shape="rect" id="node3" href="$types_8h.html" title=" " alt="" coords="296,319,435,345"/>
+<area shape="rect" id="node5" title=" " alt="" coords="194,244,249,271"/>
+<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="584,80,742,107"/>
+<area shape="rect" id="node9" href="$min__max_8h.html" title=" " alt="" coords="743,244,906,271"/>
+<area shape="rect" id="node10" href="$view_8h.html" title=" " alt="" coords="300,244,432,271"/>
+<area shape="rect" id="node13" title=" " alt="" coords="933,80,996,107"/>
+<area shape="rect" id="node14" title=" " alt="" coords="1020,80,1085,107"/>
+<area shape="rect" id="node4" href="$concepts_8h.html" title=" " alt="" coords="520,393,680,420"/>
+<area shape="rect" id="node7" href="$logging_8h.html" title=" " alt="" coords="310,155,488,196"/>
+<area shape="rect" id="node8" href="$pretty__printer_8h.html" title=" " alt="" coords="512,155,689,196"/>
+<area shape="rect" id="node11" title=" " alt="" coords="640,244,715,271"/>
+<area shape="rect" id="node12" title=" " alt="" coords="765,162,857,189"/>
 </map>

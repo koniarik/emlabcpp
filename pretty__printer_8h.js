@@ -31,6 +31,7 @@ var pretty__printer_8h =
     [ "pretty_printer< std::pair< LH, RH > >", "structemlabcpp_1_1pretty__printer_3_01std_1_1pair_3_01LH_00_01RH_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01std_1_1pair_3_01LH_00_01RH_01_4_01_4" ],
     [ "pretty_printer< std::chrono::duration< Rep, Period > >", "structemlabcpp_1_1pretty__printer_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Period_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Period_01_4_01_4" ],
     [ "pretty_printer< std::bitset< N > >", "structemlabcpp_1_1pretty__printer_3_01std_1_1bitset_3_01N_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01std_1_1bitset_3_01N_01_4_01_4" ],
+    [ "pretty_printer< min_max< T > >", "structemlabcpp_1_1pretty__printer_3_01min__max_3_01T_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01min__max_3_01T_01_4_01_4" ],
     [ "pretty_print_buffer", "pretty__printer_8h.html#a8bf06ccbfbc6633b4244c7295fdc98cf", null ],
     [ "pretty_print_serialize_basic", "pretty__printer_8h.html#aea91805d160a2eda9dfc9f0f29477351", null ],
     [ "pretty_stream_write", "pretty__printer_8h.html#afcb43f873b880adf7247a54e0d0b4a03", null ],

@@ -1,12 +1,13 @@
 <map id="include/emlabcpp/experimental/cobs.h" name="include/emlabcpp/experimental/cobs.h">
-<area shape="rect" id="node1" title=" " alt="" coords="518,5,746,47"/>
-<area shape="rect" id="node2" href="$algorithm_8h.html" title=" " alt="" coords="380,95,545,121"/>
-<area shape="rect" id="node7" href="$view_8h.html" title=" " alt="" coords="615,177,747,203"/>
-<area shape="rect" id="node10" title=" " alt="" coords="670,95,740,121"/>
-<area shape="rect" id="node3" href="$impl_8h.html" title=" " alt="" coords="27,169,180,211"/>
-<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="508,259,646,285"/>
+<area shape="rect" id="node1" title=" " alt="" coords="683,5,911,47"/>
+<area shape="rect" id="node2" href="$algorithm_8h.html" title=" " alt="" coords="524,95,689,121"/>
+<area shape="rect" id="node8" href="$view_8h.html" title=" " alt="" coords="803,177,935,203"/>
+<area shape="rect" id="node11" title=" " alt="" coords="835,95,906,121"/>
+<area shape="rect" id="node3" href="$impl_8h.html" title=" " alt="" coords="27,169,181,211"/>
+<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="696,259,835,285"/>
 <area shape="rect" id="node5" title=" " alt="" coords="19,259,74,285"/>
-<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="204,177,363,203"/>
-<area shape="rect" id="node8" title=" " alt="" coords="387,177,450,203"/>
-<area shape="rect" id="node9" title=" " alt="" coords="474,177,539,203"/>
+<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="205,177,363,203"/>
+<area shape="rect" id="node7" href="$min__max_8h.html" title=" " alt="" coords="388,177,551,203"/>
+<area shape="rect" id="node9" title=" " alt="" coords="575,177,638,203"/>
+<area shape="rect" id="node10" title=" " alt="" coords="662,177,727,203"/>
 </map>

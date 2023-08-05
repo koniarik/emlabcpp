@@ -421,7 +421,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a5f51ceea4b512a1852bf7beca4837fb9"><td class="memTemplItemLeft" align="right" valign="top">requires(<a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a5f51ceea4b512a1852bf7beca4837fb9">requires</a> (!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;</td></tr>
 <tr class="separator:a5f51ceea4b512a1852bf7beca4837fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fb0516b91140c19e6aa50a284d53569"><td class="memTemplParams" colspan="2">template&lt;typename Unit , typename Reactor , typename... Args&gt; </td></tr>
-<tr class="memitem:a3fb0516b91140c19e6aa50a284d53569"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a3fb0516b91140c19e6aa50a284d53569">construct_test_unit</a> (<a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;mem_res, Reactor &amp;<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a>, Args &amp;&amp;... args)</td></tr>
+<tr class="memitem:a3fb0516b91140c19e6aa50a284d53569"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a3fb0516b91140c19e6aa50a284d53569">construct_test_unit</a> (<a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;mem_res, Reactor &amp;<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a>, Args &amp;&amp;... <a class="el" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a>)</td></tr>
 <tr class="separator:a3fb0516b91140c19e6aa50a284d53569"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38e5db55669d6a19e4a1dcd478929be5"><td class="memTemplParams" colspan="2">template&lt;typename Callable , typename Reactor &gt; </td></tr>
 <tr class="memitem:a38e5db55669d6a19e4a1dcd478929be5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a38e5db55669d6a19e4a1dcd478929be5">construct_test_callable</a> (<a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;mem_res, Reactor &amp;<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a>, std::string_view name, Callable callable)</td></tr>
@@ -1639,7 +1639,7 @@ template&lt;typename Unit , typename Reactor , typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#a0550bae04778b8ce6ce9c333788e3a6e">emlabcpp::pmr::memory_resource::allocate()</a>, and <a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#a24e294c263a01f78dc3b45b94767909a">emlabcpp::testing::reactor::register_test()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#a0550bae04778b8ce6ce9c333788e3a6e">emlabcpp::pmr::memory_resource::allocate()</a>, <a class="el" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">emlabcpp::args</a>, and <a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#a24e294c263a01f78dc3b45b94767909a">emlabcpp::testing::reactor::register_test()</a>.</p>
 
 </div>
 </div>
@@ -1758,7 +1758,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Sat Aug 5 2023 14:50:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 5 2023 16:10:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

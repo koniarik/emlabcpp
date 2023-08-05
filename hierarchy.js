@@ -3,8 +3,10 @@ var hierarchy =
     [ "emlabcpp::pmr::allocator< T >", "classemlabcpp_1_1pmr_1_1allocator.html", null ],
     [ "emlabcpp::are_same<... >", "namespaceemlabcpp.html#structemlabcpp_1_1are__same", null ],
     [ "std::array< T >", null, [
+      [ "emlabcpp::min_max< float >", "structemlabcpp_1_1min__max.html", null ],
       [ "emlabcpp::string_buffer< 32 >", "structemlabcpp_1_1string__buffer.html", null ],
       [ "emlabcpp::string_buffer< mark_size >", "structemlabcpp_1_1string__buffer.html", null ],
+      [ "emlabcpp::min_max< T >", "structemlabcpp_1_1min__max.html", null ],
       [ "emlabcpp::string_buffer< N >", "structemlabcpp_1_1string__buffer.html", null ]
     ] ],
     [ "emlabcpp::coro::request_reply< RequestType, ReplyType >::awaiter", "structemlabcpp_1_1coro_1_1request__reply_1_1awaiter.html", null ],
@@ -147,7 +149,8 @@ var hierarchy =
     [ "emlabcpp::index_of< T, Variant >", "namespaceemlabcpp.html#structemlabcpp_1_1index__of", null ],
     [ "emlabcpp::testing::input_message_protocol_error", "structemlabcpp_1_1testing_1_1input__message__protocol__error.html", null ],
     [ "std::integral_constant", null, [
-      [ "emlabcpp::index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", null ]
+      [ "emlabcpp::index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", null ],
+      [ "std::tuple_size< emlabcpp::min_max< T > >", "structstd_1_1tuple__size_3_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html", null ]
     ] ],
     [ "emlabcpp::testing::internal_reactor_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error", null ],
     [ "emlabcpp::iterator_of< Container >", "namespaceemlabcpp.html#structemlabcpp_1_1iterator__of", null ],
@@ -184,8 +187,6 @@ var hierarchy =
     [ "emlabcpp::protocol::message< N >", "classemlabcpp_1_1protocol_1_1message.html", [
       [ "emlabcpp::protocol::sizeless_message< N >", "classemlabcpp_1_1protocol_1_1sizeless__message.html", null ]
     ] ],
-    [ "emlabcpp::min_max< T >", "structemlabcpp_1_1min__max.html", null ],
-    [ "emlabcpp::min_max< float >", "structemlabcpp_1_1min__max.html", null ],
     [ "emlabcpp::protocol::multiplexed_endpoint< Packet >", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", null ],
     [ "emlabcpp::testing::no_response_error", "structemlabcpp_1_1testing_1_1no__response__error.html", null ],
     [ "emlabcpp::noneabi_logger", "classemlabcpp_1_1noneabi__logger.html", null ],
@@ -229,6 +230,7 @@ var hierarchy =
     [ "emlabcpp::pretty_printer< int >", "structemlabcpp_1_1pretty__printer_3_01int_01_4.html", null ],
     [ "emlabcpp::pretty_printer< long int >", "structemlabcpp_1_1pretty__printer_3_01long_01int_01_4.html", null ],
     [ "emlabcpp::pretty_printer< long unsigned >", "structemlabcpp_1_1pretty__printer_3_01long_01unsigned_01_4.html", null ],
+    [ "emlabcpp::pretty_printer< min_max< T > >", "structemlabcpp_1_1pretty__printer_3_01min__max_3_01T_01_4_01_4.html", null ],
     [ "emlabcpp::pretty_printer< protocol::error_record >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1error__record_01_4.html", null ],
     [ "emlabcpp::pretty_printer< protocol::mark >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1mark_01_4.html", null ],
     [ "emlabcpp::pretty_printer< protocol::message< N > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1message_3_01N_01_4_01_4.html", null ],
@@ -373,6 +375,7 @@ var hierarchy =
       [ "emlabcpp::impl::is_view< T >", "structemlabcpp_1_1impl_1_1is__view_3_01T_01_4.html", null ],
       [ "emlabcpp::impl::is_view< view< Iter > >", "structemlabcpp_1_1impl_1_1is__view_3_01view_3_01Iter_01_4_01_4.html", null ]
     ] ],
+    [ "std::tuple_element< I, emlabcpp::min_max< T > >", "structstd_1_1tuple__element_3_01I_00_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html", null ],
     [ "emlabcpp::tuple_has_type< T, Tuple >", "namespaceemlabcpp.html#structemlabcpp_1_1tuple__has__type", null ],
     [ "emlabcpp::type_map< typename, class >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map", null ],
     [ "emlabcpp::type_map< std::tuple< Ts... >, Fun >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4", null ],

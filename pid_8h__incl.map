@@ -1,11 +1,6 @@
 <map id="include/emlabcpp/pid.h" name="include/emlabcpp/pid.h">
-<area shape="rect" id="node1" title=" " alt="" coords="383,5,557,32"/>
-<area shape="rect" id="node2" href="$algorithm_8h.html" title=" " alt="" coords="387,80,553,107"/>
-<area shape="rect" id="node3" href="$impl_8h.html" title=" " alt="" coords="213,155,367,196"/>
-<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="106,244,245,271"/>
-<area shape="rect" id="node5" title=" " alt="" coords="415,244,469,271"/>
-<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="391,162,549,189"/>
-<area shape="rect" id="node7" href="$view_8h.html" title=" " alt="" coords="5,162,137,189"/>
-<area shape="rect" id="node8" title=" " alt="" coords="625,162,688,189"/>
-<area shape="rect" id="node9" title=" " alt="" coords="712,162,777,189"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,179,32"/>
+<area shape="rect" id="node2" href="$min__max_8h.html" title=" " alt="" coords="11,80,173,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="16,155,72,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="97,155,183,181"/>
 </map>

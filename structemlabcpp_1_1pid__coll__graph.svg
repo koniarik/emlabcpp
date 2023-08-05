@@ -54,7 +54,7 @@
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:href="structemlabcpp_1_1min__max.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="black" points="165,-134.5 165,-164.5 290,-164.5 290,-134.5 165,-134.5"/>
+<polygon fill="white" stroke="red" points="165,-134.5 165,-164.5 290,-164.5 290,-134.5 165,-134.5"/>
 <text text-anchor="start" x="173" y="-152.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::min_max&lt;</text>
 <text text-anchor="middle" x="227.5" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00"> float &gt;</text>
 </a>
