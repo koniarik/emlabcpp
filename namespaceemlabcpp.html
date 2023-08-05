@@ -958,17 +958,23 @@ Functions</h2></td></tr>
 <tr class="memitem:a63a6aaa5fc338d3d342d90a14225fe82"><td class="memTemplParams" colspan="2">template&lt;typename Variant , typename... Callables&gt; </td></tr>
 <tr class="memitem:a63a6aaa5fc338d3d342d90a14225fe82"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a63a6aaa5fc338d3d342d90a14225fe82">apply_on_match</a> (Variant &amp;&amp;var, Callables &amp;&amp;... cals)</td></tr>
 <tr class="separator:a63a6aaa5fc338d3d342d90a14225fe82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82f5ea92342357353dd1e048dc0b106f"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Compare &gt; </td></tr>
-<tr class="memitem:a82f5ea92342357353dd1e048dc0b106f"><td class="memTemplItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a82f5ea92342357353dd1e048dc0b106f">clamp</a> (const T &amp;x, const <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &amp;mm, Compare &amp;&amp;comp)</td></tr>
-<tr class="separator:a82f5ea92342357353dd1e048dc0b106f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac756714f8b5802f386d7d216e86f940b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac756714f8b5802f386d7d216e86f940b"><td class="memTemplItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac756714f8b5802f386d7d216e86f940b">clamp</a> (const T &amp;x, const <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &amp;mm)</td></tr>
-<tr class="separator:ac756714f8b5802f386d7d216e86f940b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80c1f7b5fd02381de7d05e8ecdfc5409"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
-<tr class="memitem:a80c1f7b5fd02381de7d05e8ecdfc5409"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a80c1f7b5fd02381de7d05e8ecdfc5409">requires</a> (std::same_as&lt; Args, <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &gt; &amp;&amp;...) <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; intersection(const <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &amp;head</td></tr>
-<tr class="separator:a80c1f7b5fd02381de7d05e8ecdfc5409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2da1407a1e254388b1a233e1044b3df6"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Compare &gt; </td></tr>
+<tr class="memitem:a2da1407a1e254388b1a233e1044b3df6"><td class="memTemplItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2da1407a1e254388b1a233e1044b3df6">clamp</a> (const T &amp;x, const <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &amp;mm, Compare &amp;&amp;comp)</td></tr>
+<tr class="separator:a2da1407a1e254388b1a233e1044b3df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d0721f27a017d892fe4243e1712394f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9d0721f27a017d892fe4243e1712394f"><td class="memTemplItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a9d0721f27a017d892fe4243e1712394f">clamp</a> (const T &amp;x, const <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &amp;mm)</td></tr>
+<tr class="separator:a9d0721f27a017d892fe4243e1712394f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a389444df6dd335e341611b38f240a119"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
+<tr class="memitem:a389444df6dd335e341611b38f240a119"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a389444df6dd335e341611b38f240a119">requires</a> (std::same_as&lt; Args, <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &gt; &amp;&amp;...) const expr <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; intersection(const <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &amp;head</td></tr>
+<tr class="separator:a389444df6dd335e341611b38f240a119"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76527f9e9f64c2786307e3cbc9153c73"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a76527f9e9f64c2786307e3cbc9153c73">f</a> (<a class="el" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a>)</td></tr>
 <tr class="separator:a76527f9e9f64c2786307e3cbc9153c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d2aba3fa6c4af883bce5ea2a06bd72b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6d2aba3fa6c4af883bce5ea2a06bd72b"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6d2aba3fa6c4af883bce5ea2a06bd72b">expand</a> (const <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &amp;mm, const T &amp;val)</td></tr>
+<tr class="separator:a6d2aba3fa6c4af883bce5ea2a06bd72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96e5197d7e3aadb0643d614d5c915a7e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a96e5197d7e3aadb0643d614d5c915a7e"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a96e5197d7e3aadb0643d614d5c915a7e">contains</a> (const <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &amp;mm, const T &amp;val)</td></tr>
+<tr class="separator:a96e5197d7e3aadb0643d614d5c915a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a384e4bb5a921ff231358ff63aeecbe77"><td class="memTemplParams" colspan="2">template&lt;int Len0, int Mass0, int Time0, int Current0, int Temp0, int Mol0, int Li0, int Angle0, int Byte0, int Len1, int Mass1, int Time1, int Current1, int Temp1, int Mol1, int Li1, int Angle1, int Byte1&gt; </td></tr>
 <tr class="memitem:a384e4bb5a921ff231358ff63aeecbe77"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a384e4bb5a921ff231358ff63aeecbe77">operator*</a> (<a class="el" href="structemlabcpp_1_1physical__quantity.html">physical_quantity</a>&lt; Len0, Mass0, Time0, Current0, Temp0, Mol0, Li0, Angle0, Byte0 &gt; lh, <a class="el" href="structemlabcpp_1_1physical__quantity.html">physical_quantity</a>&lt; Len1, Mass1, Time1, Current1, Temp1, Mol1, Li1, Angle1, Byte1 &gt; rh)</td></tr>
 <tr class="memdesc:a384e4bb5a921ff231358ff63aeecbe77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplication of <a class="el" href="structemlabcpp_1_1physical__quantity.html" title="physical_quantity represents all physical units defined using the International System of Units and m...">physical_quantity</a> multiplies the internal values and the result is a type, where the exponents of each side of the multiplication are added together.  <a href="namespaceemlabcpp.html#a384e4bb5a921ff231358ff63aeecbe77">More...</a><br /></td></tr>
@@ -3209,16 +3215,19 @@ template&lt;std::size_t N, std::size_t U&gt; </div>
 
 </div>
 </div>
-<a id="ac756714f8b5802f386d7d216e86f940b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac756714f8b5802f386d7d216e86f940b">&#9670;&nbsp;</a></span>clamp() <span class="overload">[1/2]</span></h2>
+<a id="a9d0721f27a017d892fe4243e1712394f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d0721f27a017d892fe4243e1712394f">&#9670;&nbsp;</a></span>clamp() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const T&amp; emlabcpp::clamp </td>
+          <td class="memname">constexpr const T&amp; emlabcpp::clamp </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -3235,22 +3244,30 @@ template&lt;typename T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a82f5ea92342357353dd1e048dc0b106f">clamp()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a2da1407a1e254388b1a233e1044b3df6">clamp()</a>.</p>
 
 </div>
 </div>
-<a id="a82f5ea92342357353dd1e048dc0b106f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82f5ea92342357353dd1e048dc0b106f">&#9670;&nbsp;</a></span>clamp() <span class="overload">[2/2]</span></h2>
+<a id="a2da1407a1e254388b1a233e1044b3df6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2da1407a1e254388b1a233e1044b3df6">&#9670;&nbsp;</a></span>clamp() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T , typename Compare &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const T&amp; emlabcpp::clamp </td>
+          <td class="memname">constexpr const T&amp; emlabcpp::clamp </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -3273,9 +3290,14 @@ template&lt;typename T , typename Compare &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structemlabcpp_1_1min__max.html#aa0bd179686830bccfec6490c34b9a307">emlabcpp::min_max&lt; T &gt;::max()</a>, and <a class="el" href="structemlabcpp_1_1min__max.html#acdd0aef962239de1a392ffd4d72523f9">emlabcpp::min_max&lt; T &gt;::min()</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1min__max.html#a90498ad87fa97accc4466641e268ff51">emlabcpp::min_max&lt; T &gt;::max()</a>, and <a class="el" href="structemlabcpp_1_1min__max.html#a9019878a5c7b00b869912bf4903f4909">emlabcpp::min_max&lt; T &gt;::min()</a>.</p>
 
 </div>
 </div>
@@ -3362,7 +3384,7 @@ template&lt;container Container&gt; </div>
 </div>
 </div>
 <a id="a6b36ab023620ad0de3855f2f892d400f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b36ab023620ad0de3855f2f892d400f">&#9670;&nbsp;</a></span>contains()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b36ab023620ad0de3855f2f892d400f">&#9670;&nbsp;</a></span>contains() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3400,6 +3422,46 @@ template&lt;container Container, typename T &gt; </div>
 <p>Checks if container <code>cont</code> contains at least one occurence of <code>item</code>, returns true/false. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a631eb361805aa7459b944503f7538951">cont_size()</a>, and <a class="el" href="namespaceemlabcpp.html#ae6a73bbed8b818abff4ab4e7c2b9af68">find()</a>.</p>
+
+</div>
+</div>
+<a id="a96e5197d7e3aadb0643d614d5c915a7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96e5197d7e3aadb0643d614d5c915a7e">&#9670;&nbsp;</a></span>contains() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool emlabcpp::contains </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1min__max.html#a90498ad87fa97accc4466641e268ff51">emlabcpp::min_max&lt; T &gt;::max()</a>, and <a class="el" href="structemlabcpp_1_1min__max.html#a9019878a5c7b00b869912bf4903f4909">emlabcpp::min_max&lt; T &gt;::min()</a>.</p>
 
 </div>
 </div>
@@ -3862,7 +3924,7 @@ template&lt;std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a82f5ea92342357353dd1e048dc0b106f">clamp()</a>, <a class="el" href="namespaceemlabcpp.html#a8e3cab8faa406c3fc0e6c197d7663f12">dot()</a>, and <a class="el" href="namespaceemlabcpp.html#a01057565d5ebaf62d92c2a45cfdde65b">length2_of()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a2da1407a1e254388b1a233e1044b3df6">clamp()</a>, <a class="el" href="namespaceemlabcpp.html#a8e3cab8faa406c3fc0e6c197d7663f12">dot()</a>, and <a class="el" href="namespaceemlabcpp.html#a01057565d5ebaf62d92c2a45cfdde65b">length2_of()</a>.</p>
 
 </div>
 </div>
@@ -4291,6 +4353,46 @@ template&lt;range_container LhContainer, range_container RhContainer, typename B
 
 <p>Returns true if containers 'lh' and 'rh' has same size and calls to predicate <code>f</code> - <code>f(lh[i],rh[i])</code> return true for each item. </p>
 <p>Default callable is equality. all 0 &lt;= i &lt; size() </p>
+
+</div>
+</div>
+<a id="a6d2aba3fa6c4af883bce5ea2a06bd72b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d2aba3fa6c4af883bce5ea2a06bd72b">&#9670;&nbsp;</a></span>expand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; emlabcpp::expand </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1min__max.html#a90498ad87fa97accc4466641e268ff51">emlabcpp::min_max&lt; T &gt;::max()</a>, and <a class="el" href="structemlabcpp_1_1min__max.html#a9019878a5c7b00b869912bf4903f4909">emlabcpp::min_max&lt; T &gt;::min()</a>.</p>
 
 </div>
 </div>
@@ -8022,8 +8124,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a80c1f7b5fd02381de7d05e8ecdfc5409"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80c1f7b5fd02381de7d05e8ecdfc5409">&#9670;&nbsp;</a></span>requires() <span class="overload">[16/16]</span></h2>
+<a id="a389444df6dd335e341611b38f240a119"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a389444df6dd335e341611b38f240a119">&#9670;&nbsp;</a></span>requires() <span class="overload">[16/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -8841,7 +8943,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structemlabcpp_1_1min__max.html#aa0bd179686830bccfec6490c34b9a307">emlabcpp::min_max&lt; T &gt;::max()</a>, <a class="el" href="structemlabcpp_1_1min__max.html#acdd0aef962239de1a392ffd4d72523f9">emlabcpp::min_max&lt; T &gt;::min()</a>, and <a class="el" href="namespaceemlabcpp.html#a0cc504832a0c2ee50c85b216971c170a">transform()</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1min__max.html#a90498ad87fa97accc4466641e268ff51">emlabcpp::min_max&lt; T &gt;::max()</a>, <a class="el" href="structemlabcpp_1_1min__max.html#a9019878a5c7b00b869912bf4903f4909">emlabcpp::min_max&lt; T &gt;::min()</a>, and <a class="el" href="namespaceemlabcpp.html#a0cc504832a0c2ee50c85b216971c170a">transform()</a>.</p>
 
 </div>
 </div>
@@ -9160,7 +9262,7 @@ template&lt;typename TimeType &gt; </div>
 <li>we store i_sum entirely (i * sum_) instead of just the sum_, makes it easier to change the scale of i (imagine what happens when you store sum_, use i*sum_ in the formula nad change i from 1 to 100) </li>
 </ul>
 
-<p class="reference">References <a class="el" href="structemlabcpp_1_1pid.html#ac81be85280e2268e736ade9acbb90620">emlabcpp::pid&lt; TimeType &gt;::cfg</a>, <a class="el" href="namespaceemlabcpp.html#a82f5ea92342357353dd1e048dc0b106f">clamp()</a>, <a class="el" href="namespaceemlabcpp.html#a096dcb0c9bf6af343c832bebada97419">emlabcpp::pid_config::coefficients</a>, <a class="el" href="namespaceemlabcpp.html#a655b9d57207a6513eefd69f5099fdae2">emlabcpp::pid_coefficients::d</a>, <a class="el" href="namespaceemlabcpp.html#a99ba17ee27bed7c782d9364b7b614eae">emlabcpp::pid_coefficients::i</a>, <a class="el" href="structemlabcpp_1_1pid.html#aea36c0fe6d20f767789035378d57fb44">emlabcpp::pid&lt; TimeType &gt;::i_sum</a>, <a class="el" href="structemlabcpp_1_1pid.html#aaeebf0506e1b2d30502abdfa3e33073a">emlabcpp::pid&lt; TimeType &gt;::last_measured</a>, <a class="el" href="structemlabcpp_1_1pid.html#ab22ac70cb2ecdfe8cdd3d4498695ab10">emlabcpp::pid&lt; TimeType &gt;::last_time</a>, <a class="el" href="namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c">emlabcpp::pid_config::limits</a>, <a class="el" href="structemlabcpp_1_1pid.html#ab5e5a22b5a3441963e207390ef66eb8e">emlabcpp::pid&lt; TimeType &gt;::output</a>, and <a class="el" href="namespaceemlabcpp.html#ac0b0048d94d97cc9884974fe74898b69">emlabcpp::pid_coefficients::p</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1pid.html#ac81be85280e2268e736ade9acbb90620">emlabcpp::pid&lt; TimeType &gt;::cfg</a>, <a class="el" href="namespaceemlabcpp.html#a2da1407a1e254388b1a233e1044b3df6">clamp()</a>, <a class="el" href="namespaceemlabcpp.html#a096dcb0c9bf6af343c832bebada97419">emlabcpp::pid_config::coefficients</a>, <a class="el" href="namespaceemlabcpp.html#a655b9d57207a6513eefd69f5099fdae2">emlabcpp::pid_coefficients::d</a>, <a class="el" href="namespaceemlabcpp.html#a99ba17ee27bed7c782d9364b7b614eae">emlabcpp::pid_coefficients::i</a>, <a class="el" href="structemlabcpp_1_1pid.html#aea36c0fe6d20f767789035378d57fb44">emlabcpp::pid&lt; TimeType &gt;::i_sum</a>, <a class="el" href="structemlabcpp_1_1pid.html#aaeebf0506e1b2d30502abdfa3e33073a">emlabcpp::pid&lt; TimeType &gt;::last_measured</a>, <a class="el" href="structemlabcpp_1_1pid.html#ab22ac70cb2ecdfe8cdd3d4498695ab10">emlabcpp::pid&lt; TimeType &gt;::last_time</a>, <a class="el" href="namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c">emlabcpp::pid_config::limits</a>, <a class="el" href="structemlabcpp_1_1pid.html#ab5e5a22b5a3441963e207390ef66eb8e">emlabcpp::pid&lt; TimeType &gt;::output</a>, and <a class="el" href="namespaceemlabcpp.html#ac0b0048d94d97cc9884974fe74898b69">emlabcpp::pid_coefficients::p</a>.</p>
 
 </div>
 </div>
@@ -9192,7 +9294,7 @@ template&lt;typename TimeType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structemlabcpp_1_1pid.html#ac81be85280e2268e736ade9acbb90620">emlabcpp::pid&lt; TimeType &gt;::cfg</a>, <a class="el" href="namespaceemlabcpp.html#a82f5ea92342357353dd1e048dc0b106f">clamp()</a>, <a class="el" href="structemlabcpp_1_1pid.html#aea36c0fe6d20f767789035378d57fb44">emlabcpp::pid&lt; TimeType &gt;::i_sum</a>, <a class="el" href="namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c">emlabcpp::pid_config::limits</a>, and <a class="el" href="structemlabcpp_1_1pid.html#ab5e5a22b5a3441963e207390ef66eb8e">emlabcpp::pid&lt; TimeType &gt;::output</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1pid.html#ac81be85280e2268e736ade9acbb90620">emlabcpp::pid&lt; TimeType &gt;::cfg</a>, <a class="el" href="namespaceemlabcpp.html#a2da1407a1e254388b1a233e1044b3df6">clamp()</a>, <a class="el" href="structemlabcpp_1_1pid.html#aea36c0fe6d20f767789035378d57fb44">emlabcpp::pid&lt; TimeType &gt;::i_sum</a>, <a class="el" href="namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c">emlabcpp::pid_config::limits</a>, and <a class="el" href="structemlabcpp_1_1pid.html#ab5e5a22b5a3441963e207390ef66eb8e">emlabcpp::pid&lt; TimeType &gt;::output</a>.</p>
 
 </div>
 </div>
@@ -9224,7 +9326,7 @@ template&lt;typename TimeType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structemlabcpp_1_1pid.html#ac81be85280e2268e736ade9acbb90620">emlabcpp::pid&lt; TimeType &gt;::cfg</a>, <a class="el" href="namespaceemlabcpp.html#a82f5ea92342357353dd1e048dc0b106f">clamp()</a>, <a class="el" href="namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c">emlabcpp::pid_config::limits</a>, and <a class="el" href="structemlabcpp_1_1pid.html#ab5e5a22b5a3441963e207390ef66eb8e">emlabcpp::pid&lt; TimeType &gt;::output</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1pid.html#ac81be85280e2268e736ade9acbb90620">emlabcpp::pid&lt; TimeType &gt;::cfg</a>, <a class="el" href="namespaceemlabcpp.html#a2da1407a1e254388b1a233e1044b3df6">clamp()</a>, <a class="el" href="namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c">emlabcpp::pid_config::limits</a>, and <a class="el" href="structemlabcpp_1_1pid.html#ab5e5a22b5a3441963e207390ef66eb8e">emlabcpp::pid&lt; TimeType &gt;::output</a>.</p>
 
 </div>
 </div>
@@ -10696,7 +10798,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sat Aug 5 2023 16:10:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 5 2023 17:01:22 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

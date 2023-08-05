@@ -1,5 +1,9 @@
 var NAVTREEINDEX13 =
 {
+"vec__point__base_8h.html#a7721009a36753730f1afa6be47dbf28b":[4,0,0,0,1,3,7,6],
+"vec__point__base_8h.html#a8c784ba1275978f98555df83478109c8":[4,0,0,0,1,3,7,10],
+"vec__point__base_8h.html#a8ca7a3c5bc16d1b3a13b068bf7a7c8be":[4,0,0,0,1,3,7,16],
+"vec__point__base_8h.html#aa2c6dcc7bdeae73e7695e529b2a542c9":[4,0,0,0,1,3,7,14],
 "vec__point__base_8h.html#aa85dd86813ed16ef311a88daac50792d":[4,0,0,0,1,3,7,5],
 "vec__point__base_8h.html#aab2416235ee550b6758f4e804d71d612":[4,0,0,0,1,3,7,12],
 "vec__point__base_8h.html#ac81ee08c08bd405c0e3def37de64f126":[4,0,0,0,1,3,7,3],

@@ -1,10 +1,10 @@
 var structemlabcpp_1_1min__max =
 [
     [ "value_type", "structemlabcpp_1_1min__max.html#acba95668bfcd892dcd2fdca507bdc621", null ],
-    [ "min_max", "structemlabcpp_1_1min__max.html#a29ff465434eadb6dd1db7286ed98366e", null ],
-    [ "min_max", "structemlabcpp_1_1min__max.html#a32bb090e5227dda83961f4807ac705f1", null ],
-    [ "max", "structemlabcpp_1_1min__max.html#aa0bd179686830bccfec6490c34b9a307", null ],
-    [ "max", "structemlabcpp_1_1min__max.html#adbe17e5352cfbd9d025027e6d2069f96", null ],
-    [ "min", "structemlabcpp_1_1min__max.html#acdd0aef962239de1a392ffd4d72523f9", null ],
-    [ "min", "structemlabcpp_1_1min__max.html#a4bc9100c02545551fe4a8bce5bd6e63b", null ]
+    [ "min_max", "structemlabcpp_1_1min__max.html#ad956207256d61768c0e634dc029a83d6", null ],
+    [ "min_max", "structemlabcpp_1_1min__max.html#a14a6afc107c3e498d3f4a8e54e4fd5a3", null ],
+    [ "max", "structemlabcpp_1_1min__max.html#a90498ad87fa97accc4466641e268ff51", null ],
+    [ "max", "structemlabcpp_1_1min__max.html#af158a2d3598c29af6400a3c0ed2fdd4f", null ],
+    [ "min", "structemlabcpp_1_1min__max.html#a9019878a5c7b00b869912bf4903f4909", null ],
+    [ "min", "structemlabcpp_1_1min__max.html#af5d4af768610d1109a6d75705682c391", null ]
 ];
