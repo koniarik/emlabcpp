@@ -10,6 +10,7 @@ var pid_8h =
       [ "limits", "namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c", null ]
     ] ],
     [ "pid", "structemlabcpp_1_1pid.html", "structemlabcpp_1_1pid" ],
+    [ "reset", "pid_8h.html#a802d2ec172423fb3984b1e88336f6233", null ],
     [ "update", "pid_8h.html#a7bb8b8ced9bb2a501cc61ced29e7801d", null ],
     [ "update_limits", "pid_8h.html#aadc080f9334a6fec6101a6d803f7cb28", null ],
     [ "update_output", "pid_8h.html#ac578d4bcbce0973184093fa8cce2da33", null ]

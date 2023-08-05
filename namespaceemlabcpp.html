@@ -982,6 +982,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a7bb8b8ced9bb2a501cc61ced29e7801d"><td class="memTemplItemLeft" align="right" valign="top">float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7bb8b8ced9bb2a501cc61ced29e7801d">update</a> (<a class="el" href="structemlabcpp_1_1pid.html">pid</a>&lt; TimeType &gt; &amp;<a class="el" href="structemlabcpp_1_1pid.html">pid</a>, TimeType now, float measured, float desired)</td></tr>
 <tr class="memdesc:a7bb8b8ced9bb2a501cc61ced29e7801d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this reularly, the meaning of time value 'now' is up to you, just be consistent.  <a href="namespaceemlabcpp.html#a7bb8b8ced9bb2a501cc61ced29e7801d">More...</a><br /></td></tr>
 <tr class="separator:a7bb8b8ced9bb2a501cc61ced29e7801d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a802d2ec172423fb3984b1e88336f6233"><td class="memTemplParams" colspan="2">template&lt;typename TimeType &gt; </td></tr>
+<tr class="memitem:a802d2ec172423fb3984b1e88336f6233"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a802d2ec172423fb3984b1e88336f6233">reset</a> (<a class="el" href="structemlabcpp_1_1pid.html">pid</a>&lt; TimeType &gt; &amp;<a class="el" href="structemlabcpp_1_1pid.html">pid</a>, TimeType now, float last_measured)</td></tr>
+<tr class="separator:a802d2ec172423fb3984b1e88336f6233"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37fb61edcdf95a5c2fc63e29d2431946"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
 <tr class="memitem:a37fb61edcdf95a5c2fc63e29d2431946"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a37fb61edcdf95a5c2fc63e29d2431946">operator+</a> (<a class="el" href="classemlabcpp_1_1quantity.html">quantity</a>&lt; Derived, ValueType &gt; lhs, const <a class="el" href="classemlabcpp_1_1quantity.html">quantity</a>&lt; Derived, ValueType &gt; rhs)</td></tr>
 <tr class="memdesc:a37fb61edcdf95a5c2fc63e29d2431946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of quantities with same Derived and value_type.  <a href="namespaceemlabcpp.html#a37fb61edcdf95a5c2fc63e29d2431946">More...</a><br /></td></tr>
@@ -7912,6 +7915,44 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a802d2ec172423fb3984b1e88336f6233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a802d2ec172423fb3984b1e88336f6233">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TimeType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void emlabcpp::reset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1pid.html">pid</a>&lt; TimeType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeType&#160;</td>
+          <td class="paramname"><em>now</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>last_measured</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1pid.html#aaeebf0506e1b2d30502abdfa3e33073a">emlabcpp::pid&lt; TimeType &gt;::last_measured</a>, and <a class="el" href="structemlabcpp_1_1pid.html#ab22ac70cb2ecdfe8cdd3d4498695ab10">emlabcpp::pid&lt; TimeType &gt;::last_time</a>.</p>
+
+</div>
+</div>
 <a id="a620a32406486ae5b889d41d446c4a8b0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a620a32406486ae5b889d41d446c4a8b0">&#9670;&nbsp;</a></span>reset_color()</h2>
 
@@ -10510,7 +10551,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Thu Jul 27 2023 21:33:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 5 2023 14:50:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

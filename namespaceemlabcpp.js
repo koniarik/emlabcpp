@@ -338,6 +338,7 @@ var namespaceemlabcpp =
     [ "requires", "namespaceemlabcpp.html#a39bdb9e4992c495c755d900b23435840", null ],
     [ "requires", "namespaceemlabcpp.html#abed05683098f9a93c5b694ff9b9f3c16", null ],
     [ "requires", "namespaceemlabcpp.html#a53a54421dadf3639047daa6aab4fc470", null ],
+    [ "reset", "namespaceemlabcpp.html#a802d2ec172423fb3984b1e88336f6233", null ],
     [ "reset_color", "namespaceemlabcpp.html#a620a32406486ae5b889d41d446c4a8b0", null ],
     [ "reversed", "namespaceemlabcpp.html#a2fe2d2bf491db344cf04e4c2b9d799b8", null ],
     [ "rotate", "namespaceemlabcpp.html#a8f930afac742df6f8f0ace5d9c220508", null ],

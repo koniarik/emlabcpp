@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"concepts_8h.html#a6d100afeb63e0735bf1abe40e8f1dda3":[4,0,0,0,9,7],
 "concepts_8h.html#a8114b1d4bc758992dd14a1d64bd454c5":[4,0,0,0,9,20],
 "concepts_8h.html#a904e4439ee5b6a29ec1c9a5a6d404c55":[4,0,0,0,9,16],
 "concepts_8h.html#a94924279b38cf1803ee0f01cb4889b24":[4,0,0,0,9,4],
@@ -247,7 +248,6 @@ var NAVTREEINDEX4 =
 "functions_type_w.html":[3,3,3,17],
 "functions_u.html":[3,3,0,19],
 "functions_v.html":[3,3,0,20],
-"functions_vars.html":[3,3,2],
 "functions_vars.html":[3,3,2,0],
-"functions_vars_b.html":[3,3,2,1]
+"functions_vars.html":[3,3,2]
 };
