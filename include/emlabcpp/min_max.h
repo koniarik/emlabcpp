@@ -17,49 +17,49 @@ struct min_max : std::array< T, 2 >
 {
         using value_type = T;
 
-        T& min()
+        constexpr T& min()
         {
                 return this->operator[]( 0 );
         }
 
-        const T& min() const
+        constexpr const T& min() const
         {
                 return this->operator[]( 0 );
         }
 
-        T& max()
+        constexpr T& max()
         {
                 return this->operator[]( 1 );
         }
 
-        const T& max() const
+        constexpr const T& max() const
         {
                 return this->operator[]( 1 );
         }
 
-        min_max() = default;
+        constexpr min_max() = default;
 
-        min_max( T lh, T rh )
+        constexpr min_max( T lh, T rh )
           : std::array< T, 2 >{ std::move( lh ), std::move( rh ) }
         {
         }
 };
 
 template < typename T, typename Compare >
-const T& clamp( const T& x, const min_max< T >& mm, Compare&& comp )
+constexpr const T& clamp( const T& x, const min_max< T >& mm, Compare&& comp )
 {
         return comp( x, mm.min() ) ? mm.min() : comp( mm.max(), x ) ? mm.max() : x;
 }
 
 template < typename T >
-const T& clamp( const T& x, const min_max< T >& mm )
+constexpr const T& clamp( const T& x, const min_max< T >& mm )
 {
         return clamp( x, mm, std::less{} );
 }
 
 template < typename T, typename... Args >
 requires( std::same_as< Args, min_max< T > > && ... )
-min_max< T > intersection( const min_max< T >& head, const Args&... args )
+constexpr min_max< T > intersection( const min_max< T >& head, const Args&... args )
 {
         min_max< T > res{ head };
         auto         f = [&]( const min_max< T >& other ) {
@@ -69,6 +69,24 @@ min_max< T > intersection( const min_max< T >& head, const Args&... args )
         ( f( args ), ... );
 
         return res;
+}
+
+template < typename T >
+constexpr min_max< T > expand( const min_max< T >& mm, const T& val )
+{
+        if ( val < mm.min() ) {
+                return { val, mm.max() };
+        } else if ( val > mm.max() ) {
+                return { mm.min(), val };
+        } else {
+                return mm;
+        }
+}
+
+template < typename T >
+constexpr bool contains( const min_max< T >& mm, const T& val )
+{
+        return mm.min() <= val && val <= mm.max();
 }
 
 }  // namespace emlabcpp
