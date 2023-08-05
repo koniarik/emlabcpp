@@ -17,7 +17,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
-#include "emlabcpp/algorithm.h"
+#include "emlabcpp/min_max.h"
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 #include <nlohmann/json.hpp>
@@ -67,7 +67,7 @@ struct pid
         pid( time_type now, const config& conf = config{} )
           : cfg( conf )
           , last_time( now )
-          , output( std::clamp( 0.f, cfg.limits.min(), cfg.limits.max() ) )
+          , output( clamp( 0.f, cfg.limits ) )
         {
         }
 };
@@ -76,14 +76,14 @@ template < typename TimeType >
 void update_limits( pid< TimeType >& pid, min_max< float > lim )
 {
         pid.cfg.limits = lim;
-        pid.output     = std::clamp( pid.output, pid.cfg.limits.min, pid.cfg.limits.max );
-        pid.i_sum      = std::clamp( pid.i_sum, pid.cfg.limits.min, pid.cfg.limits.max );
+        pid.output     = clamp( pid.output, pid.cfg.limits );
+        pid.i_sum      = clamp( pid.i_sum, pid.cfg.limits );
 }
 
 template < typename TimeType >
 void update_output( pid< TimeType >& pid, float output )
 {
-        pid.output = std::clamp( output, pid.cfg.limits.min, pid.cfg.limits.max );
+        pid.output = clamp( output, pid.cfg.limits );
 }
 
 /// Call this reularly, the meaning of time value 'now' is up to you, just be consistent.
@@ -112,11 +112,11 @@ float update( pid< TimeType >& pid, TimeType now, float measured, float desired 
 
         const float error = desired - measured;
         pid.i_sum += coeff.i * ( error * t_diff );
-        pid.i_sum = std::clamp( pid.i_sum, pid.cfg.limits.min(), pid.cfg.limits.max() );
+        pid.i_sum = clamp( pid.i_sum, pid.cfg.limits );
 
         const float measured_diff = ( measured - pid.last_measured ) / t_diff;
         pid.output                = coeff.p * error + pid.i_sum - coeff.d * measured_diff;
-        pid.output = std::clamp( pid.output, pid.cfg.limits.min(), pid.cfg.limits.max() );
+        pid.output                = clamp( pid.output, pid.cfg.limits );
 
         pid.last_measured = measured;
         pid.last_time     = now;

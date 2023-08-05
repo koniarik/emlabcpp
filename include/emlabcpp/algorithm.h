@@ -19,16 +19,13 @@
 
 #include "emlabcpp/algorithm/impl.h"
 #include "emlabcpp/bounded.h"
+#include "emlabcpp/min_max.h"
 #include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
 
 #include <cmath>
 #include <cstdlib>
 #include <tuple>
-
-#ifdef EMLABCPP_USE_NLOHMANN_JSON
-#include <nlohmann/json.hpp>
-#endif
 
 #pragma once
 
@@ -179,41 +176,6 @@ constexpr void for_each( Container&& cont, UnaryCallable&& f )
                 f( std::forward< decltype( item ) >( item ) );
         }
 }
-
-/// Helper structure for finding the smallest and the largest item in some
-/// container, contains min/max attributes representing such elements.
-template < typename T >
-struct min_max : std::array< T, 2 >
-{
-        using value_type = T;
-
-        T& min()
-        {
-                return this->operator[]( 0 );
-        }
-
-        const T& min() const
-        {
-                return this->operator[]( 0 );
-        }
-
-        T& max()
-        {
-                return this->operator[]( 1 );
-        }
-
-        const T& max() const
-        {
-                return this->operator[]( 1 );
-        }
-
-        min_max() = default;
-
-        min_max( T lh, T rh )
-          : std::array< T, 2 >{ std::move( lh ), std::move( rh ) }
-        {
-        }
-};
 
 /// Applies unary callable 'f(x)' to each element of container 'cont', returns
 /// the largest and the smallest return value. of 'f(x)' calls. Returns the
@@ -599,22 +561,3 @@ constexpr std::array< std::byte, N > bytes( const Args&... args )
 }
 
 }  // namespace emlabcpp
-
-#ifdef EMLABCPP_USE_NLOHMANN_JSON
-
-template < typename T >
-struct nlohmann::adl_serializer< emlabcpp::min_max< T > >
-{
-        static void to_json( nlohmann::json& j, const emlabcpp::min_max< T >& mm )
-        {
-                j["min"] = mm.min();
-                j["max"] = mm.max();
-        }
-
-        static emlabcpp::min_max< T > from_json( const nlohmann::json& j )
-        {
-                return emlabcpp::min_max< T >{ j["min"], j["max"] };
-        }
-};
-
-#endif

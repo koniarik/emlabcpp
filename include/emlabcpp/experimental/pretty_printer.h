@@ -21,6 +21,7 @@
 #include "emlabcpp/enum.h"
 #include "emlabcpp/experimental/decompose.h"
 #include "emlabcpp/match.h"
+#include "emlabcpp/min_max.h"
 #include "emlabcpp/range.h"
 #include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
@@ -352,7 +353,7 @@ struct pretty_printer< std::array< T, N > >
         template < typename Writer >
         static void print( Writer&& w, const std::array< T, N >& arr )
         {
-                string_serialize_view( std::forward< Writer >( w ), arr );
+                string_serialize_view( std::forward< Writer >( w ), view{ arr } );
         }
 };
 
@@ -488,6 +489,16 @@ struct pretty_printer< std::bitset< N > >
                 for ( const std::size_t i : range( N ) ) {
                         w( b[i] ? '1' : '0' );
                 }
+        }
+};
+
+template < typename T >
+struct pretty_printer< min_max< T > >
+{
+        template < typename Writer >
+        static void print( Writer&& w, const min_max< T >& mm )
+        {
+                string_serialize_view( std::forward< Writer >( w ), view{ mm } );
         }
 };
 

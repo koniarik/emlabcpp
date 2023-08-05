@@ -178,14 +178,6 @@ TEST( Algorithm, for_each )
 }
 
 // NOLINTNEXTLINE
-TEST( Algorithm, min_max )
-{
-        const min_max< int > mm{ 0, 1 };
-        EXPECT_EQ( mm.min(), 0 );
-        EXPECT_EQ( mm.max(), 1 );
-}
-
-// NOLINTNEXTLINE
 TEST( Algorithm, min_max_elem )
 {
         min_max< int > res = min_max_elem( std::vector< int >{ 1, 2, 3 }, [&]( int i ) {

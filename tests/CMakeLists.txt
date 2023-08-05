@@ -56,6 +56,7 @@ function(add_emlabcpp_test name)
 endfunction()
 
 add_emlabcpp_test(algorithm_test)
+add_emlabcpp_test(min_max_test)
 add_emlabcpp_test(bounded_test)
 add_emlabcpp_test(concepts_test)
 add_emlabcpp_test(decompose_test)
