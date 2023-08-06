@@ -14,6 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
-        run: pacman -Sy cmake gcc clang make gtest nlohmann-json which --noconfirm
+        run: pacman -Sy cmake gcc clang make ninja gtest nlohmann-json which --noconfirm
       - name: Execute
         run: ${{ inputs.cmd }}
