@@ -185,13 +185,13 @@ template <
     container_invocable< Container > UnaryCallable = std::identity,
     typename T = std::decay_t< mapped_t< Container, UnaryCallable > > >
 [[nodiscard]] constexpr min_max< T >
-min_max_elem( const Container& cont, UnaryCallable&& f = std::identity() )
+min_max_elem( Container&& cont, UnaryCallable&& f = std::identity() )
 {
         min_max< T > res;
         res.max() = std::numeric_limits< T >::lowest();
         res.min() = std::numeric_limits< T >::max();
 
-        for_each( cont, [&]( const auto& item ) {
+        for_each( cont, [&]( auto& item ) {
                 auto val  = f( item );
                 res.max() = std::max( res.max(), val );
                 res.min() = std::min( res.min(), val );
@@ -206,10 +206,10 @@ template <
     container                        Container,
     container_invocable< Container > UnaryCallable = std::identity,
     typename T = std::decay_t< mapped_t< Container, UnaryCallable > > >
-[[nodiscard]] constexpr T max_elem( const Container& cont, UnaryCallable&& f = std::identity() )
+[[nodiscard]] constexpr T max_elem( Container&& cont, UnaryCallable&& f = std::identity() )
 {
         T val = std::numeric_limits< T >::lowest();
-        for_each( cont, [&]( const auto& item ) {
+        for_each( cont, [&]( auto& item ) {
                 val = std::max( f( item ), val );
         } );
         return val;
@@ -222,10 +222,10 @@ template <
     container                        Container,
     container_invocable< Container > UnaryCallable = std::identity,
     typename T = std::decay_t< mapped_t< Container, UnaryCallable > > >
-[[nodiscard]] constexpr T min_elem( const Container& cont, UnaryCallable&& f = std::identity() )
+[[nodiscard]] constexpr T min_elem( Container&& cont, UnaryCallable&& f = std::identity() )
 {
         T val = std::numeric_limits< T >::max();
-        for_each( cont, [&]( const auto& item ) {
+        for_each( cont, [&]( auto& item ) {
                 val = std::min( f( item ), val );
         } );
         return val;
@@ -234,11 +234,10 @@ template <
 /// Applies the predicate 'f(x)' to each element of container 'cont' and
 /// returns the count of items, for which f(x) returned 'true'
 template < container Container, container_invocable< Container > UnaryCallable = std::identity >
-[[nodiscard]] constexpr std::size_t
-count( const Container& cont, UnaryCallable&& f = std::identity() )
+[[nodiscard]] constexpr std::size_t count( Container&& cont, UnaryCallable&& f = std::identity() )
 {
         std::size_t res = 0;
-        for_each( cont, [&]( const auto& item ) {
+        for_each( cont, [&]( auto& item ) {
                 if ( f( item ) ) {
                         res += 1;
                 }
@@ -252,10 +251,9 @@ template <
     container                        Container,
     container_invocable< Container > UnaryCallable = std::identity,
     typename T = std::decay_t< mapped_t< Container, UnaryCallable > > >
-[[nodiscard]] constexpr T
-sum( const Container& cont, UnaryCallable&& f = std::identity(), T init = {} )
+[[nodiscard]] constexpr T sum( Container&& cont, UnaryCallable&& f = std::identity(), T init = {} )
 {
-        for_each( cont, [&]( const auto& item ) {
+        for_each( cont, [&]( auto& item ) {
                 init += f( item );
         } );
         return init;
@@ -264,9 +262,9 @@ sum( const Container& cont, UnaryCallable&& f = std::identity(), T init = {} )
 /// Applies callable 'f(init,x)' to each element of container 'x' and actual
 /// value of 'init' in iteration, returns a result of last application.
 template < container Container, typename T, typename BinaryCallable >
-[[nodiscard]] constexpr T accumulate( const Container& cont, T init, BinaryCallable&& f )
+[[nodiscard]] constexpr T accumulate( Container&& cont, T init, BinaryCallable&& f )
 {
-        for_each( cont, [&]( const auto& item ) {
+        for_each( cont, [&]( auto& item ) {
                 init = f( std::move( init ), item );  /// NOLINT(bugprone-use-after-move)
         } );
         return init;
@@ -278,10 +276,10 @@ template <
     container                        Container,
     container_invocable< Container > UnaryCallable = std::identity,
     typename T = std::decay_t< mapped_t< Container, UnaryCallable > > >
-[[nodiscard]] constexpr T avg( const Container& cont, UnaryCallable&& f = std::identity() )
+[[nodiscard]] constexpr T avg( Container&& cont, UnaryCallable&& f = std::identity() )
 {
         T res{};
-        for_each( cont, [&]( const auto& item ) {
+        for_each( cont, [&]( auto& item ) {
                 res += f( item );
         } );
         if constexpr ( std::is_arithmetic_v< T > ) {
@@ -297,11 +295,11 @@ template <
     container                        Container,
     container_invocable< Container > UnaryCallable = std::identity,
     typename T = std::decay_t< mapped_t< Container, UnaryCallable > > >
-[[nodiscard]] constexpr T variance( const Container& cont, UnaryCallable&& f = std::identity() )
+[[nodiscard]] constexpr T variance( Container&& cont, UnaryCallable&& f = std::identity() )
 {
         T u = avg( cont, f );
 
-        T res = sum( cont, [&f, &u]( const auto& val ) {
+        T res = sum( cont, [&f, &u]( auto& val ) {
                 auto v = f( val ) - u;
                 return v * v;
         } );
@@ -315,11 +313,10 @@ template <
 /// Applies binary callable 'f(x,y)' to each combination of items `x` from `lh_cont`
 /// and `y` from `rh_cont`
 template < container LhContainer, container RhContainer, typename BinaryCallable >
-constexpr void
-for_cross_joint( const LhContainer& lh_cont, const RhContainer& rh_cont, BinaryCallable&& f )
+constexpr void for_cross_joint( LhContainer&& lh_cont, RhContainer&& rh_cont, BinaryCallable&& f )
 {
-        for_each( lh_cont, [&]( const auto& lh_item ) {
-                for_each( rh_cont, [&]( const auto& rh_item ) {
+        for_each( lh_cont, [&]( auto& lh_item ) {
+                for_each( rh_cont, [&]( auto& rh_item ) {
                         f( lh_item, rh_item );
                 } );
         } );
@@ -328,13 +325,12 @@ for_cross_joint( const LhContainer& lh_cont, const RhContainer& rh_cont, BinaryC
 /// Returns true if call to predicate 'f(x)' returns true for at least one item `x` in
 /// 'cont'
 template < container Container, container_invocable< Container > PredicateCallable = std::identity >
-[[nodiscard]] constexpr bool
-any_of( const Container& cont, PredicateCallable&& f = std::identity() )
+[[nodiscard]] constexpr bool any_of( Container&& cont, PredicateCallable&& f = std::identity() )
 {
         auto res = find_if( cont, std::forward< PredicateCallable >( f ) );
 
         if constexpr ( is_std_tuple_v< Container > ) {
-                return res != std::tuple_size_v< Container >;
+                return res != std::tuple_size_v< std::decay_t< Container > >;
         } else {
                 return res != cont.end();
         }
@@ -343,18 +339,16 @@ any_of( const Container& cont, PredicateCallable&& f = std::identity() )
 /// Returns true if call to predicate 'f(x)' returns false for all items in
 /// 'cont'.
 template < container Container, container_invocable< Container > PredicateCallable = std::identity >
-[[nodiscard]] constexpr bool
-none_of( const Container& cont, PredicateCallable&& f = std::identity() )
+[[nodiscard]] constexpr bool none_of( Container&& cont, PredicateCallable&& f = std::identity() )
 {
         return !any_of( cont, std::forward< PredicateCallable >( f ) );
 }
 
 /// Returns true if call to predicate 'f(x)' returns true for all items in 'cont'
 template < container Container, container_invocable< Container > PredicateCallable = std::identity >
-[[nodiscard]] constexpr bool
-all_of( const Container& cont, PredicateCallable&& f = std::identity() )
+[[nodiscard]] constexpr bool all_of( Container&& cont, PredicateCallable&& f = std::identity() )
 {
-        return !any_of( cont, [&]( const auto& item ) {
+        return !any_of( cont, [&]( auto& item ) {
                 return !f( item );
         } );
 }
@@ -365,16 +359,14 @@ template <
     range_container LhContainer,
     range_container RhContainer,
     typename BinaryPredicateCallable = std::equal_to< void > >
-[[nodiscard]] constexpr bool equal(
-    const LhContainer&        lh,
-    const RhContainer&        rh,
-    BinaryPredicateCallable&& f = std::equal_to< void >{} )
+[[nodiscard]] constexpr bool
+equal( LhContainer&& lh, RhContainer&& rh, BinaryPredicateCallable&& f = std::equal_to< void >{} )
 {
         if ( cont_size( lh ) != cont_size( rh ) ) {
                 return false;
         }
         auto rbeg = std::begin( rh );
-        for ( const auto& item : lh ) {
+        for ( auto& item : lh ) {
                 if ( !f( item, *rbeg ) ) {
                         return false;
                 }
@@ -458,22 +450,22 @@ template <
     typename T,
     container_invocable< Container > UnaryCallable = std::identity >
 [[nodiscard]] constexpr T
-joined( const Container& cont, const T& val, UnaryCallable&& f = std::identity() )
+joined( Container&& cont, const T& val, UnaryCallable&& f = std::identity() )
 {
         if ( cont.empty() ) {
                 return T{};
         }
         T res = f( *std::begin( cont ) );
-        for ( const auto& item : tail( cont ) ) {
+        for ( auto& item : tail( cont ) ) {
                 res += val + f( item );
         }
         return res;
 }
 
 template < container Container, typename Iterator >
-void copy( const Container& cont, Iterator iter )
+void copy( Container&& cont, Iterator iter )
 {
-        for_each( cont, [&]( const auto& item ) {
+        for_each( cont, [&]( auto& item ) {
                 *iter = item;
                 ++iter;
         } );
@@ -482,7 +474,7 @@ void copy( const Container& cont, Iterator iter )
 /// Executes unary callable `f()` with template argument of type 'std::size_t', which ranges from 0
 /// to N.
 template < std::size_t N, typename NullCallable >
-constexpr void for_each_index( const NullCallable& f )
+constexpr void for_each_index( NullCallable&& f )
 {
         if constexpr ( N != 0 ) {
                 for_each_index< N - 1 >( f );
@@ -494,7 +486,7 @@ constexpr void for_each_index( const NullCallable& f )
 /// to N until first call that returns true. Function returns the index on which predicate returned
 /// true.
 template < std::size_t N, typename PredicateCallable >
-constexpr std::size_t find_if_index( const PredicateCallable& f )
+constexpr std::size_t find_if_index( PredicateCallable&& f )
 {
         std::size_t res = N;
         until_index< N >( [&f, &res]< std::size_t i >() {
@@ -507,7 +499,7 @@ constexpr std::size_t find_if_index( const PredicateCallable& f )
 /// Executes predicate `f()` with template argument of type 'std::size_t', which ranges from 0
 /// to i until first call that returns true. Function returns whenever the `f` was called or not.
 template < std::size_t i, typename PredicateCallable >
-constexpr bool until_index( const PredicateCallable& f )
+constexpr bool until_index( PredicateCallable&& f )
 {
         if constexpr ( i != 0 ) {
                 return until_index< i - 1 >( f ) || f.template operator()< i - 1 >();
@@ -527,7 +519,7 @@ requires( !requires( Callable f ) {
                            f.template operator()< 0 >()
                            } -> std::same_as< void >;
            } )
-constexpr auto select_index( IndexType i, const Callable& f )
+constexpr auto select_index( IndexType i, Callable&& f )
 {
         using T = std::decay_t< decltype( f.template operator()< 0 >() ) >;
         T res{};
@@ -543,7 +535,7 @@ requires requires( Callable f ) {
                          f.template operator()< 0 >()
                          } -> std::same_as< void >;
          }
-constexpr void select_index( IndexType i, const Callable& f )
+constexpr void select_index( IndexType i, Callable&& f )
 {
         until_index< IndexType::max_val + 1 >( [&i, &f]< std::size_t j >() {
                 if ( *i == j ) {
