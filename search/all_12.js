@@ -3,7 +3,7 @@ var searchData=
   ['end_988',['end',['../classemlabcpp_1_1bounded__view.html#aca9935a986c9268c9b89e1aab44fb3cb',1,'emlabcpp::bounded_view']]],
   ['scale_989',['scale',['../namespaceemlabcpp.html#abdcc7c52513935a9585f1b633244cd4c',1,'emlabcpp']]],
   ['select_990',['select',['../structemlabcpp_1_1protocol_1_1register__handler.html#a6eca43a0364af243a7792b2cb07c866b',1,'emlabcpp::protocol::register_handler']]],
-  ['select_5findex_991',['select_index',['../namespaceemlabcpp.html#a22bdba517ae1cfa5e6b4f2e54e407bb1',1,'emlabcpp::select_index(i, [&amp;res, &amp;f]&lt; std::size_t i &gt;() { res=f.template operator()&lt; i &gt;();})'],['../namespaceemlabcpp.html#ab1e2e3e15b0c77fff6674ed7e6e1f67e',1,'emlabcpp::select_index(IndexType i, const Callable &amp;f)']]],
+  ['select_5findex_991',['select_index',['../namespaceemlabcpp.html#a22bdba517ae1cfa5e6b4f2e54e407bb1',1,'emlabcpp::select_index(i, [&amp;res, &amp;f]&lt; std::size_t i &gt;() { res=f.template operator()&lt; i &gt;();})'],['../namespaceemlabcpp.html#a505109612442935cc682cf92a9d2296c',1,'emlabcpp::select_index(IndexType i, Callable &amp;&amp;f)']]],
   ['select_5futype_992',['select_utype',['../namespaceemlabcpp.html#structemlabcpp_1_1select__utype',1,'emlabcpp']]],
   ['select_5futype_5ft_993',['select_utype_t',['../namespaceemlabcpp.html#ac223240cfaa32fcb48f0daa06c78a9e2',1,'emlabcpp']]],
   ['send_994',['send',['../classemlabcpp_1_1testing_1_1controller__interface__adapter.html#a2da614a44f504c0d8fb095ce5e03b58f',1,'emlabcpp::testing::controller_interface_adapter::send()'],['../classemlabcpp_1_1testing_1_1parameters.html#a76aef26b3f5b2268cf67a11685e61d4d',1,'emlabcpp::testing::parameters::send()']]],
@@ -127,7 +127,7 @@ var searchData=
   ['suite_5fdate_1112',['SUITE_DATE',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca50e315ea9fe571c82325de10302c70a0',1,'emlabcpp::testing']]],
   ['suite_5fname_1113',['suite_name',['../classemlabcpp_1_1testing_1_1controller.html#a13cb1ec084bf30a1c01b215bd3ced2dd',1,'emlabcpp::testing::controller']]],
   ['suite_5fname_1114',['SUITE_NAME',['../namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca80d3c264bc9a5f0a15ef3335f6a4d754',1,'emlabcpp::testing']]],
-  ['sum_1115',['sum',['../namespaceemlabcpp.html#ad5fde2ce524bee976e0c6c74c0be2917',1,'emlabcpp']]],
+  ['sum_1115',['sum',['../namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae',1,'emlabcpp']]],
   ['sv_1116',['sv',['../structemlabcpp_1_1buffer__writer.html#abf453ad0b941a5e676d1cea2e8182f6c',1,'emlabcpp::buffer_writer']]],
   ['swap_1117',['swap',['../namespaceemlabcpp.html#a66b48062894b569667fa98dbf5ceeeae',1,'emlabcpp::swap()'],['../classemlabcpp_1_1static__vector.html#a11c991e4b126a5539dfe7bffa814d001',1,'emlabcpp::static_vector::swap()']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['variance_2120',['variance',['../namespaceemlabcpp.html#a76870aafe8a72795ca80143c32313532',1,'emlabcpp']]],
+  ['variance_2120',['variance',['../namespaceemlabcpp.html#a50045da8445468706c19455b429cdfcc',1,'emlabcpp']]],
   ['vec_5fpoint_5fbase_2121',['vec_point_base',['../classemlabcpp_1_1vec__point__base.html#a437e33ee7b66a436a15be895ed7a66e6',1,'emlabcpp::vec_point_base::vec_point_base(container cont) noexcept'],['../classemlabcpp_1_1vec__point__base.html#aedade9106cae73cd5ebbb95d7394bfb6',1,'emlabcpp::vec_point_base::vec_point_base(T... t)'],['../classemlabcpp_1_1vec__point__base.html#a18caf28c0e74083a1c2271682f75ed5a',1,'emlabcpp::vec_point_base::vec_point_base() noexcept=default']]],
   ['vec_5fpoint_5fderived_5ftest_2122',['vec_point_derived_test',['../namespaceemlabcpp_1_1detail.html#a8ca7a3c5bc16d1b3a13b068bf7a7c8be',1,'emlabcpp::detail']]],
   ['vector_5fangle_2123',['vector_angle',['../namespaceemlabcpp.html#af1646f426f259ab7e7f8d4ebbb1f5a4f',1,'emlabcpp']]],

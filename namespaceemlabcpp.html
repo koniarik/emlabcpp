@@ -563,58 +563,58 @@ Functions</h2></td></tr>
 <tr class="memitem:a685395cc470dfed697a40d2c718af4e9"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">for_each</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
 <tr class="memdesc:a685395cc470dfed697a40d2c718af4e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies unary callable 'f' to each element of container 'cont'.  <a href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">More...</a><br /></td></tr>
 <tr class="separator:a685395cc470dfed697a40d2c718af4e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a516fc25d05dfa6a69f022964b2a6a807"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
-<tr class="memitem:a516fc25d05dfa6a69f022964b2a6a807"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a516fc25d05dfa6a69f022964b2a6a807">min_max_elem</a> (const Container &amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
-<tr class="memdesc:a516fc25d05dfa6a69f022964b2a6a807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies unary callable 'f(x)' to each element of container 'cont', returns the largest and the smallest return value.  <a href="namespaceemlabcpp.html#a516fc25d05dfa6a69f022964b2a6a807">More...</a><br /></td></tr>
-<tr class="separator:a516fc25d05dfa6a69f022964b2a6a807"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa144487d11d6484b636482caa35a1cf1"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
-<tr class="memitem:aa144487d11d6484b636482caa35a1cf1"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa144487d11d6484b636482caa35a1cf1">max_elem</a> (const Container &amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
-<tr class="memdesc:aa144487d11d6484b636482caa35a1cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies unary callable 'f(x)' to each element of container 'cont', returns the largest return value of 'f(x)' calls.  <a href="namespaceemlabcpp.html#aa144487d11d6484b636482caa35a1cf1">More...</a><br /></td></tr>
-<tr class="separator:aa144487d11d6484b636482caa35a1cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaffd06a15a35e011691274cc98d14767"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
-<tr class="memitem:aaffd06a15a35e011691274cc98d14767"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aaffd06a15a35e011691274cc98d14767">min_elem</a> (const Container &amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
-<tr class="memdesc:aaffd06a15a35e011691274cc98d14767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies unary callable 'f(x) to each element of container 'cont&lsquo;, returns the smallest return value of 'f(x)&rsquo; calls.  <a href="namespaceemlabcpp.html#aaffd06a15a35e011691274cc98d14767">More...</a><br /></td></tr>
-<tr class="separator:aaffd06a15a35e011691274cc98d14767"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1377f84042c48380be9118421fb97e6f"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity&gt; </td></tr>
-<tr class="memitem:a1377f84042c48380be9118421fb97e6f"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">count</a> (const Container &amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
-<tr class="memdesc:a1377f84042c48380be9118421fb97e6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the predicate 'f(x)' to each element of container 'cont' and returns the count of items, for which f(x) returned 'true'.  <a href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">More...</a><br /></td></tr>
-<tr class="separator:a1377f84042c48380be9118421fb97e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5fde2ce524bee976e0c6c74c0be2917"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
-<tr class="memitem:ad5fde2ce524bee976e0c6c74c0be2917"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad5fde2ce524bee976e0c6c74c0be2917">sum</a> (const Container &amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity(), T <a class="el" href="namespaceemlabcpp.html#a4b323693e8d1a33bad5c12c63709fe3b">init</a>={})</td></tr>
-<tr class="memdesc:ad5fde2ce524bee976e0c6c74c0be2917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies f(x) to each item of container 'cont', returns the sum of all the return values of each call to 'f(x)' and 'init' item.  <a href="namespaceemlabcpp.html#ad5fde2ce524bee976e0c6c74c0be2917">More...</a><br /></td></tr>
-<tr class="separator:ad5fde2ce524bee976e0c6c74c0be2917"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a234414158becfed39f1b4958c694a8d9"><td class="memTemplParams" colspan="2">template&lt;container Container, typename T , typename BinaryCallable &gt; </td></tr>
-<tr class="memitem:a234414158becfed39f1b4958c694a8d9"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a234414158becfed39f1b4958c694a8d9">accumulate</a> (const Container &amp;cont, T <a class="el" href="namespaceemlabcpp.html#a4b323693e8d1a33bad5c12c63709fe3b">init</a>, BinaryCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
-<tr class="memdesc:a234414158becfed39f1b4958c694a8d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies callable 'f(init,x)' to each element of container 'x' and actual value of 'init' in iteration, returns a result of last application.  <a href="namespaceemlabcpp.html#a234414158becfed39f1b4958c694a8d9">More...</a><br /></td></tr>
-<tr class="separator:a234414158becfed39f1b4958c694a8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb03fae2e4aecd67b1f163e1ab523e89"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
-<tr class="memitem:aeb03fae2e4aecd67b1f163e1ab523e89"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aeb03fae2e4aecd67b1f163e1ab523e89">avg</a> (const Container &amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
-<tr class="memdesc:aeb03fae2e4aecd67b1f163e1ab523e89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies callable 'f(x)' to each element of container 'cont' and returns the average value of each call.  <a href="namespaceemlabcpp.html#aeb03fae2e4aecd67b1f163e1ab523e89">More...</a><br /></td></tr>
-<tr class="separator:aeb03fae2e4aecd67b1f163e1ab523e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76870aafe8a72795ca80143c32313532"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
-<tr class="memitem:a76870aafe8a72795ca80143c32313532"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a76870aafe8a72795ca80143c32313532">variance</a> (const Container &amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
-<tr class="memdesc:a76870aafe8a72795ca80143c32313532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies callable 'f(x)' to each element of container 'cont' and returns the variance of values returned from the call.  <a href="namespaceemlabcpp.html#a76870aafe8a72795ca80143c32313532">More...</a><br /></td></tr>
-<tr class="separator:a76870aafe8a72795ca80143c32313532"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a8e644a62f8747e59e7766ba811037a"><td class="memTemplParams" colspan="2">template&lt;container LhContainer, container RhContainer, typename BinaryCallable &gt; </td></tr>
-<tr class="memitem:a7a8e644a62f8747e59e7766ba811037a"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7a8e644a62f8747e59e7766ba811037a">for_cross_joint</a> (const LhContainer &amp;lh_cont, const RhContainer &amp;rh_cont, BinaryCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
-<tr class="memdesc:a7a8e644a62f8747e59e7766ba811037a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies binary callable 'f(x,y)' to each combination of items <code>x</code> from <code>lh_cont</code> and <code>y</code> from <code>rh_cont</code>  <a href="namespaceemlabcpp.html#a7a8e644a62f8747e59e7766ba811037a">More...</a><br /></td></tr>
-<tr class="separator:a7a8e644a62f8747e59e7766ba811037a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d80507cffdd192a333f6bd9c272e97a"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; PredicateCallable = std::identity&gt; </td></tr>
-<tr class="memitem:a2d80507cffdd192a333f6bd9c272e97a"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2d80507cffdd192a333f6bd9c272e97a">any_of</a> (const Container &amp;cont, PredicateCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
-<tr class="memdesc:a2d80507cffdd192a333f6bd9c272e97a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if call to predicate 'f(x)' returns true for at least one item <code>x</code> in 'cont'.  <a href="namespaceemlabcpp.html#a2d80507cffdd192a333f6bd9c272e97a">More...</a><br /></td></tr>
-<tr class="separator:a2d80507cffdd192a333f6bd9c272e97a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a638fe803e243841625659a697eb71463"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; PredicateCallable = std::identity&gt; </td></tr>
-<tr class="memitem:a638fe803e243841625659a697eb71463"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a638fe803e243841625659a697eb71463">none_of</a> (const Container &amp;cont, PredicateCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
-<tr class="memdesc:a638fe803e243841625659a697eb71463"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if call to predicate 'f(x)' returns false for all items in 'cont'.  <a href="namespaceemlabcpp.html#a638fe803e243841625659a697eb71463">More...</a><br /></td></tr>
-<tr class="separator:a638fe803e243841625659a697eb71463"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab724dd793953a308bea8dba2118aade"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; PredicateCallable = std::identity&gt; </td></tr>
-<tr class="memitem:aab724dd793953a308bea8dba2118aade"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aab724dd793953a308bea8dba2118aade">all_of</a> (const Container &amp;cont, PredicateCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
-<tr class="memdesc:aab724dd793953a308bea8dba2118aade"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if call to predicate 'f(x)' returns true for all items in 'cont'.  <a href="namespaceemlabcpp.html#aab724dd793953a308bea8dba2118aade">More...</a><br /></td></tr>
-<tr class="separator:aab724dd793953a308bea8dba2118aade"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1e0fe9ab6b7190faf578ec3e5f72301"><td class="memTemplParams" colspan="2">template&lt;range_container LhContainer, range_container RhContainer, typename BinaryPredicateCallable  = std::equal_to&lt; void &gt;&gt; </td></tr>
-<tr class="memitem:ac1e0fe9ab6b7190faf578ec3e5f72301"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac1e0fe9ab6b7190faf578ec3e5f72301">equal</a> (const LhContainer &amp;lh, const RhContainer &amp;rh, BinaryPredicateCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::equal_to&lt; void &gt;{})</td></tr>
-<tr class="memdesc:ac1e0fe9ab6b7190faf578ec3e5f72301"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if containers 'lh' and 'rh' has same size and calls to predicate <code>f</code> - <code>f(lh[i],rh[i])</code> return true for each item.  <a href="namespaceemlabcpp.html#ac1e0fe9ab6b7190faf578ec3e5f72301">More...</a><br /></td></tr>
-<tr class="separator:ac1e0fe9ab6b7190faf578ec3e5f72301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5e56e63d61e9a15632f19d5cfc1f6b5"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
+<tr class="memitem:ab5e56e63d61e9a15632f19d5cfc1f6b5"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab5e56e63d61e9a15632f19d5cfc1f6b5">min_max_elem</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
+<tr class="memdesc:ab5e56e63d61e9a15632f19d5cfc1f6b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies unary callable 'f(x)' to each element of container 'cont', returns the largest and the smallest return value.  <a href="namespaceemlabcpp.html#ab5e56e63d61e9a15632f19d5cfc1f6b5">More...</a><br /></td></tr>
+<tr class="separator:ab5e56e63d61e9a15632f19d5cfc1f6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a3a1cce893154570d1d004eff0eae44"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
+<tr class="memitem:a3a3a1cce893154570d1d004eff0eae44"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3a3a1cce893154570d1d004eff0eae44">max_elem</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
+<tr class="memdesc:a3a3a1cce893154570d1d004eff0eae44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies unary callable 'f(x)' to each element of container 'cont', returns the largest return value of 'f(x)' calls.  <a href="namespaceemlabcpp.html#a3a3a1cce893154570d1d004eff0eae44">More...</a><br /></td></tr>
+<tr class="separator:a3a3a1cce893154570d1d004eff0eae44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0854cc8f63fb866604cdba86751aa661"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
+<tr class="memitem:a0854cc8f63fb866604cdba86751aa661"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0854cc8f63fb866604cdba86751aa661">min_elem</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
+<tr class="memdesc:a0854cc8f63fb866604cdba86751aa661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies unary callable 'f(x) to each element of container 'cont&lsquo;, returns the smallest return value of 'f(x)&rsquo; calls.  <a href="namespaceemlabcpp.html#a0854cc8f63fb866604cdba86751aa661">More...</a><br /></td></tr>
+<tr class="separator:a0854cc8f63fb866604cdba86751aa661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a036ecd2b344a56d6473500952c3c9db8"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity&gt; </td></tr>
+<tr class="memitem:a036ecd2b344a56d6473500952c3c9db8"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a036ecd2b344a56d6473500952c3c9db8">count</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
+<tr class="memdesc:a036ecd2b344a56d6473500952c3c9db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the predicate 'f(x)' to each element of container 'cont' and returns the count of items, for which f(x) returned 'true'.  <a href="namespaceemlabcpp.html#a036ecd2b344a56d6473500952c3c9db8">More...</a><br /></td></tr>
+<tr class="separator:a036ecd2b344a56d6473500952c3c9db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ae5bc0fd1be635cd2666c78c8d69fae"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
+<tr class="memitem:a3ae5bc0fd1be635cd2666c78c8d69fae"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">sum</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity(), T <a class="el" href="namespaceemlabcpp.html#a4b323693e8d1a33bad5c12c63709fe3b">init</a>={})</td></tr>
+<tr class="memdesc:a3ae5bc0fd1be635cd2666c78c8d69fae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies f(x) to each item of container 'cont', returns the sum of all the return values of each call to 'f(x)' and 'init' item.  <a href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">More...</a><br /></td></tr>
+<tr class="separator:a3ae5bc0fd1be635cd2666c78c8d69fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a246f1fc9cb6dd2ad9332499ff4574d81"><td class="memTemplParams" colspan="2">template&lt;container Container, typename T , typename BinaryCallable &gt; </td></tr>
+<tr class="memitem:a246f1fc9cb6dd2ad9332499ff4574d81"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a246f1fc9cb6dd2ad9332499ff4574d81">accumulate</a> (Container &amp;&amp;cont, T <a class="el" href="namespaceemlabcpp.html#a4b323693e8d1a33bad5c12c63709fe3b">init</a>, BinaryCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
+<tr class="memdesc:a246f1fc9cb6dd2ad9332499ff4574d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies callable 'f(init,x)' to each element of container 'x' and actual value of 'init' in iteration, returns a result of last application.  <a href="namespaceemlabcpp.html#a246f1fc9cb6dd2ad9332499ff4574d81">More...</a><br /></td></tr>
+<tr class="separator:a246f1fc9cb6dd2ad9332499ff4574d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51a3dac72157f60685dedced4c681643"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
+<tr class="memitem:a51a3dac72157f60685dedced4c681643"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a51a3dac72157f60685dedced4c681643">avg</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
+<tr class="memdesc:a51a3dac72157f60685dedced4c681643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies callable 'f(x)' to each element of container 'cont' and returns the average value of each call.  <a href="namespaceemlabcpp.html#a51a3dac72157f60685dedced4c681643">More...</a><br /></td></tr>
+<tr class="separator:a51a3dac72157f60685dedced4c681643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50045da8445468706c19455b429cdfcc"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
+<tr class="memitem:a50045da8445468706c19455b429cdfcc"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a50045da8445468706c19455b429cdfcc">variance</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
+<tr class="memdesc:a50045da8445468706c19455b429cdfcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies callable 'f(x)' to each element of container 'cont' and returns the variance of values returned from the call.  <a href="namespaceemlabcpp.html#a50045da8445468706c19455b429cdfcc">More...</a><br /></td></tr>
+<tr class="separator:a50045da8445468706c19455b429cdfcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9671d53ec08de7c34437cf24d07aee0c"><td class="memTemplParams" colspan="2">template&lt;container LhContainer, container RhContainer, typename BinaryCallable &gt; </td></tr>
+<tr class="memitem:a9671d53ec08de7c34437cf24d07aee0c"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a9671d53ec08de7c34437cf24d07aee0c">for_cross_joint</a> (LhContainer &amp;&amp;lh_cont, RhContainer &amp;&amp;rh_cont, BinaryCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
+<tr class="memdesc:a9671d53ec08de7c34437cf24d07aee0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies binary callable 'f(x,y)' to each combination of items <code>x</code> from <code>lh_cont</code> and <code>y</code> from <code>rh_cont</code>  <a href="namespaceemlabcpp.html#a9671d53ec08de7c34437cf24d07aee0c">More...</a><br /></td></tr>
+<tr class="separator:a9671d53ec08de7c34437cf24d07aee0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59476e1a770a7c69e3ec745f031f50c5"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; PredicateCallable = std::identity&gt; </td></tr>
+<tr class="memitem:a59476e1a770a7c69e3ec745f031f50c5"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a59476e1a770a7c69e3ec745f031f50c5">any_of</a> (Container &amp;&amp;cont, PredicateCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
+<tr class="memdesc:a59476e1a770a7c69e3ec745f031f50c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if call to predicate 'f(x)' returns true for at least one item <code>x</code> in 'cont'.  <a href="namespaceemlabcpp.html#a59476e1a770a7c69e3ec745f031f50c5">More...</a><br /></td></tr>
+<tr class="separator:a59476e1a770a7c69e3ec745f031f50c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37c8cfdb013071f0e1eb609c257eb9d0"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; PredicateCallable = std::identity&gt; </td></tr>
+<tr class="memitem:a37c8cfdb013071f0e1eb609c257eb9d0"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a37c8cfdb013071f0e1eb609c257eb9d0">none_of</a> (Container &amp;&amp;cont, PredicateCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
+<tr class="memdesc:a37c8cfdb013071f0e1eb609c257eb9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if call to predicate 'f(x)' returns false for all items in 'cont'.  <a href="namespaceemlabcpp.html#a37c8cfdb013071f0e1eb609c257eb9d0">More...</a><br /></td></tr>
+<tr class="separator:a37c8cfdb013071f0e1eb609c257eb9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39882ff8249fe71fbd0a6a3658c692bb"><td class="memTemplParams" colspan="2">template&lt;container Container, container_invocable&lt; Container &gt; PredicateCallable = std::identity&gt; </td></tr>
+<tr class="memitem:a39882ff8249fe71fbd0a6a3658c692bb"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb">all_of</a> (Container &amp;&amp;cont, PredicateCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
+<tr class="memdesc:a39882ff8249fe71fbd0a6a3658c692bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if call to predicate 'f(x)' returns true for all items in 'cont'.  <a href="namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb">More...</a><br /></td></tr>
+<tr class="separator:a39882ff8249fe71fbd0a6a3658c692bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a504dbf8012c154e4c54aae3af67e08c9"><td class="memTemplParams" colspan="2">template&lt;range_container LhContainer, range_container RhContainer, typename BinaryPredicateCallable  = std::equal_to&lt; void &gt;&gt; </td></tr>
+<tr class="memitem:a504dbf8012c154e4c54aae3af67e08c9"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a504dbf8012c154e4c54aae3af67e08c9">equal</a> (LhContainer &amp;&amp;lh, RhContainer &amp;&amp;rh, BinaryPredicateCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::equal_to&lt; void &gt;{})</td></tr>
+<tr class="memdesc:a504dbf8012c154e4c54aae3af67e08c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if containers 'lh' and 'rh' has same size and calls to predicate <code>f</code> - <code>f(lh[i],rh[i])</code> return true for each item.  <a href="namespaceemlabcpp.html#a504dbf8012c154e4c54aae3af67e08c9">More...</a><br /></td></tr>
+<tr class="separator:a504dbf8012c154e4c54aae3af67e08c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8555060e43c2b8cdd8d91bb248b9a6d"><td class="memTemplParams" colspan="2">template&lt;impl::map_f_collectable ResultContainer, container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity&gt; </td></tr>
 <tr class="memitem:ae8555060e43c2b8cdd8d91bb248b9a6d"><td class="memTemplItemLeft" align="right" valign="top">ResultContainer&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae8555060e43c2b8cdd8d91bb248b9a6d">map_f</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
 <tr class="memdesc:ae8555060e43c2b8cdd8d91bb248b9a6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls callable <code>f(x)</code> for each item in container 'cont' (or tuple) and stores result in 'ResultContainer', which is returned.  <a href="namespaceemlabcpp.html#ae8555060e43c2b8cdd8d91bb248b9a6d">More...</a><br /></td></tr>
@@ -623,25 +623,25 @@ Functions</h2></td></tr>
 <tr class="memitem:a1911a0fc83869772cacfc4d21772268f"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">map_f_to_a</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity()) <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>(!<a class="el" href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">static_sized</a>&lt; Container &gt;)</td></tr>
 <tr class="memdesc:a1911a0fc83869772cacfc4d21772268f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls callable <code>f(cont[i])</code> for i = 0...N and stores the result in array of an size N.  <a href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">More...</a><br /></td></tr>
 <tr class="separator:a1911a0fc83869772cacfc4d21772268f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31c1cbc5b728494acb47daebb913fd96"><td class="memTemplParams" colspan="2">template&lt;range_container Container, typename T , container_invocable&lt; Container &gt; UnaryCallable = std::identity&gt; </td></tr>
-<tr class="memitem:a31c1cbc5b728494acb47daebb913fd96"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a31c1cbc5b728494acb47daebb913fd96">joined</a> (const Container &amp;cont, const T &amp;val, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
-<tr class="memdesc:a31c1cbc5b728494acb47daebb913fd96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function applies callable <code>f</code> to each item in container <code>cont</code> and contacts results with operator+, <code>val</code> is used as a separator between the items.  <a href="namespaceemlabcpp.html#a31c1cbc5b728494acb47daebb913fd96">More...</a><br /></td></tr>
-<tr class="separator:a31c1cbc5b728494acb47daebb913fd96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af85136552afa4d0a86dd1fb078223cdd"><td class="memTemplParams" colspan="2">template&lt;container Container, typename Iterator &gt; </td></tr>
-<tr class="memitem:af85136552afa4d0a86dd1fb078223cdd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af85136552afa4d0a86dd1fb078223cdd">copy</a> (const Container &amp;cont, Iterator iter)</td></tr>
-<tr class="separator:af85136552afa4d0a86dd1fb078223cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92a263e4623147eea2c226d8b9bcafc7"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename NullCallable &gt; </td></tr>
-<tr class="memitem:a92a263e4623147eea2c226d8b9bcafc7"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a92a263e4623147eea2c226d8b9bcafc7">for_each_index</a> (const NullCallable &amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
-<tr class="memdesc:a92a263e4623147eea2c226d8b9bcafc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N.  <a href="namespaceemlabcpp.html#a92a263e4623147eea2c226d8b9bcafc7">More...</a><br /></td></tr>
-<tr class="separator:a92a263e4623147eea2c226d8b9bcafc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae434316a87fef12fc4d05dd543dddf7"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename PredicateCallable &gt; </td></tr>
-<tr class="memitem:aae434316a87fef12fc4d05dd543dddf7"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aae434316a87fef12fc4d05dd543dddf7">find_if_index</a> (const PredicateCallable &amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
-<tr class="memdesc:aae434316a87fef12fc4d05dd543dddf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N until first call that returns true.  <a href="namespaceemlabcpp.html#aae434316a87fef12fc4d05dd543dddf7">More...</a><br /></td></tr>
-<tr class="separator:aae434316a87fef12fc4d05dd543dddf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aced106ff9e1a26187bb4872197cc1a7c"><td class="memTemplParams" colspan="2">template&lt;std::size_t i, typename PredicateCallable &gt; </td></tr>
-<tr class="memitem:aced106ff9e1a26187bb4872197cc1a7c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aced106ff9e1a26187bb4872197cc1a7c">until_index</a> (const PredicateCallable &amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
-<tr class="memdesc:aced106ff9e1a26187bb4872197cc1a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes predicate <code><a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to i until first call that returns true.  <a href="namespaceemlabcpp.html#aced106ff9e1a26187bb4872197cc1a7c">More...</a><br /></td></tr>
-<tr class="separator:aced106ff9e1a26187bb4872197cc1a7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad24d670cd02b9255601622cf2494417e"><td class="memTemplParams" colspan="2">template&lt;range_container Container, typename T , container_invocable&lt; Container &gt; UnaryCallable = std::identity&gt; </td></tr>
+<tr class="memitem:ad24d670cd02b9255601622cf2494417e"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad24d670cd02b9255601622cf2494417e">joined</a> (Container &amp;&amp;cont, const T &amp;val, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity())</td></tr>
+<tr class="memdesc:ad24d670cd02b9255601622cf2494417e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function applies callable <code>f</code> to each item in container <code>cont</code> and contacts results with operator+, <code>val</code> is used as a separator between the items.  <a href="namespaceemlabcpp.html#ad24d670cd02b9255601622cf2494417e">More...</a><br /></td></tr>
+<tr class="separator:ad24d670cd02b9255601622cf2494417e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54b28822529dd798c4e0f74f6d38f7fb"><td class="memTemplParams" colspan="2">template&lt;container Container, typename Iterator &gt; </td></tr>
+<tr class="memitem:a54b28822529dd798c4e0f74f6d38f7fb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">copy</a> (Container &amp;&amp;cont, Iterator iter)</td></tr>
+<tr class="separator:a54b28822529dd798c4e0f74f6d38f7fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5214a69e44441c91729255e5934ce985"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename NullCallable &gt; </td></tr>
+<tr class="memitem:a5214a69e44441c91729255e5934ce985"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5214a69e44441c91729255e5934ce985">for_each_index</a> (NullCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
+<tr class="memdesc:a5214a69e44441c91729255e5934ce985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N.  <a href="namespaceemlabcpp.html#a5214a69e44441c91729255e5934ce985">More...</a><br /></td></tr>
+<tr class="separator:a5214a69e44441c91729255e5934ce985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23af197a97477d855276e1d81578cace"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename PredicateCallable &gt; </td></tr>
+<tr class="memitem:a23af197a97477d855276e1d81578cace"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a23af197a97477d855276e1d81578cace">find_if_index</a> (PredicateCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
+<tr class="memdesc:a23af197a97477d855276e1d81578cace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N until first call that returns true.  <a href="namespaceemlabcpp.html#a23af197a97477d855276e1d81578cace">More...</a><br /></td></tr>
+<tr class="separator:a23af197a97477d855276e1d81578cace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35f12faf6930621f03dcddf5e18a16b1"><td class="memTemplParams" colspan="2">template&lt;std::size_t i, typename PredicateCallable &gt; </td></tr>
+<tr class="memitem:a35f12faf6930621f03dcddf5e18a16b1"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a35f12faf6930621f03dcddf5e18a16b1">until_index</a> (PredicateCallable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
+<tr class="memdesc:a35f12faf6930621f03dcddf5e18a16b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes predicate <code><a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to i until first call that returns true.  <a href="namespaceemlabcpp.html#a35f12faf6930621f03dcddf5e18a16b1">More...</a><br /></td></tr>
+<tr class="separator:a35f12faf6930621f03dcddf5e18a16b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35de9105fe961a808d8e0f3a2cb58bf2"><td class="memTemplParams" colspan="2">template&lt;bounded_derived IndexType, typename Callable &gt; </td></tr>
 <tr class="memitem:a35de9105fe961a808d8e0f3a2cb58bf2"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a35de9105fe961a808d8e0f3a2cb58bf2">requires</a> (!requires(Callable <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>) { { f.template operator()&lt; 0 &gt;() } -&gt; std::same_as&lt; void &gt;;}) const expr auto <a class="el" href="namespaceemlabcpp.html#a22bdba517ae1cfa5e6b4f2e54e407bb1">select_index</a>(IndexType i</td></tr>
 <tr class="memdesc:a35de9105fe961a808d8e0f3a2cb58bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function expectes bounded value as index input and callable.  <a href="namespaceemlabcpp.html#a35de9105fe961a808d8e0f3a2cb58bf2">More...</a><br /></td></tr>
@@ -651,8 +651,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a8d77f50ca9dd31e43365e38debbd42fa"><td class="memTemplParams" colspan="2">template&lt;bounded_derived IndexType, typename Callable &gt; </td></tr>
 <tr class="memitem:a8d77f50ca9dd31e43365e38debbd42fa"><td class="memTemplItemLeft" align="right" valign="top">requires&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a8d77f50ca9dd31e43365e38debbd42fa">requires</a> (Callable <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
 <tr class="separator:a8d77f50ca9dd31e43365e38debbd42fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1e2e3e15b0c77fff6674ed7e6e1f67e"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab1e2e3e15b0c77fff6674ed7e6e1f67e">select_index</a> (IndexType i, const Callable &amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
-<tr class="separator:ab1e2e3e15b0c77fff6674ed7e6e1f67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a505109612442935cc682cf92a9d2296c"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a505109612442935cc682cf92a9d2296c">select_index</a> (IndexType i, Callable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
+<tr class="separator:a505109612442935cc682cf92a9d2296c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="memTemplParams" colspan="2">template&lt;typename... Args, std::size_t N = sizeof...( Args )&gt; </td></tr>
 <tr class="memitem:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::array&lt; std::byte, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">bytes</a> (const Args &amp;... <a class="el" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a>)</td></tr>
 <tr class="separator:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2549,8 +2549,8 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 
 </div>
 </div>
-<a id="a234414158becfed39f1b4958c694a8d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a234414158becfed39f1b4958c694a8d9">&#9670;&nbsp;</a></span>accumulate()</h2>
+<a id="a246f1fc9cb6dd2ad9332499ff4574d81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a246f1fc9cb6dd2ad9332499ff4574d81">&#9670;&nbsp;</a></span>accumulate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2563,7 +2563,7 @@ template&lt;container Container, typename T , typename BinaryCallable &gt; </div
         <tr>
           <td class="memname">constexpr T emlabcpp::accumulate </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -2598,8 +2598,8 @@ template&lt;container Container, typename T , typename BinaryCallable &gt; </div
 
 </div>
 </div>
-<a id="aab724dd793953a308bea8dba2118aade"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab724dd793953a308bea8dba2118aade">&#9670;&nbsp;</a></span>all_of()</h2>
+<a id="a39882ff8249fe71fbd0a6a3658c692bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39882ff8249fe71fbd0a6a3658c692bb">&#9670;&nbsp;</a></span>all_of()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2612,7 +2612,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; Predicat
         <tr>
           <td class="memname">constexpr bool emlabcpp::all_of </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -2636,7 +2636,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; Predicat
 
 <p>Returns true if call to predicate 'f(x)' returns true for all items in 'cont'. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a2d80507cffdd192a333f6bd9c272e97a">any_of()</a>, and <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a59476e1a770a7c69e3ec745f031f50c5">any_of()</a>, and <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>.</p>
 
 </div>
 </div>
@@ -2684,7 +2684,7 @@ template&lt;vec_point_derived Derived&gt; </div>
 
 <p>Checks if A and B are equal within specified tolerance, this means that difference of all coordinates of A and B has to be within that epsilon. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aab724dd793953a308bea8dba2118aade">all_of()</a>, <a class="el" href="namespaceemlabcpp.html#af4898d31a822e25963cab32a985e89f4">almost_equal()</a>, and <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb">all_of()</a>, <a class="el" href="namespaceemlabcpp.html#af4898d31a822e25963cab32a985e89f4">almost_equal()</a>, and <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>.</p>
 
 </div>
 </div>
@@ -2774,7 +2774,7 @@ template&lt;vec_point_derived Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aab724dd793953a308bea8dba2118aade">all_of()</a>, and <a class="el" href="namespaceemlabcpp.html#af4898d31a822e25963cab32a985e89f4">almost_equal()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb">all_of()</a>, and <a class="el" href="namespaceemlabcpp.html#af4898d31a822e25963cab32a985e89f4">almost_equal()</a>.</p>
 
 </div>
 </div>
@@ -2864,8 +2864,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a2d80507cffdd192a333f6bd9c272e97a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d80507cffdd192a333f6bd9c272e97a">&#9670;&nbsp;</a></span>any_of()</h2>
+<a id="a59476e1a770a7c69e3ec745f031f50c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59476e1a770a7c69e3ec745f031f50c5">&#9670;&nbsp;</a></span>any_of()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2878,7 +2878,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; Predicat
         <tr>
           <td class="memname">constexpr bool emlabcpp::any_of </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -3030,8 +3030,8 @@ template&lt;typename... Ts&gt; </div>
 
 </div>
 </div>
-<a id="aeb03fae2e4aecd67b1f163e1ab523e89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb03fae2e4aecd67b1f163e1ab523e89">&#9670;&nbsp;</a></span>avg()</h2>
+<a id="a51a3dac72157f60685dedced4c681643"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51a3dac72157f60685dedced4c681643">&#9670;&nbsp;</a></span>avg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3044,7 +3044,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
         <tr>
           <td class="memname">constexpr T emlabcpp::avg </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -3211,7 +3211,7 @@ template&lt;std::size_t N, std::size_t U&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aeb03fae2e4aecd67b1f163e1ab523e89">avg()</a>, <a class="el" href="namespaceemlabcpp.html#a1806b61b0659c26b8a0a53288ecfa313">point_cast()</a>, <a class="el" href="namespaceemlabcpp.html#ad5fde2ce524bee976e0c6c74c0be2917">sum()</a>, and <a class="el" href="namespaceemlabcpp.html#a3cfa63f3a0229b43ff56952dbb4e191f">vector_cast()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a51a3dac72157f60685dedced4c681643">avg()</a>, <a class="el" href="namespaceemlabcpp.html#a1806b61b0659c26b8a0a53288ecfa313">point_cast()</a>, <a class="el" href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">sum()</a>, and <a class="el" href="namespaceemlabcpp.html#a3cfa63f3a0229b43ff56952dbb4e191f">vector_cast()</a>.</p>
 
 </div>
 </div>
@@ -3525,8 +3525,8 @@ template&lt;typename T , typename Iterator &gt; </div>
 
 </div>
 </div>
-<a id="af85136552afa4d0a86dd1fb078223cdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af85136552afa4d0a86dd1fb078223cdd">&#9670;&nbsp;</a></span>copy()</h2>
+<a id="a54b28822529dd798c4e0f74f6d38f7fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54b28822529dd798c4e0f74f6d38f7fb">&#9670;&nbsp;</a></span>copy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3536,7 +3536,7 @@ template&lt;container Container, typename Iterator &gt; </div>
         <tr>
           <td class="memname">void emlabcpp::copy </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -3587,8 +3587,8 @@ template&lt;typename Derived , typename ValueType &gt; </div>
 
 </div>
 </div>
-<a id="a1377f84042c48380be9118421fb97e6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1377f84042c48380be9118421fb97e6f">&#9670;&nbsp;</a></span>count()</h2>
+<a id="a036ecd2b344a56d6473500952c3c9db8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a036ecd2b344a56d6473500952c3c9db8">&#9670;&nbsp;</a></span>count()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3601,7 +3601,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
         <tr>
           <td class="memname">constexpr std::size_t emlabcpp::count </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -3966,7 +3966,7 @@ template&lt;std::size_t N&gt; </div>
 
 <p>Returns euclidian distance of point A from point B. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">pow()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, <a class="el" href="namespaceemlabcpp.html#a5519896c5f0324265089711b6a020642">sqrt()</a>, and <a class="el" href="namespaceemlabcpp.html#ad5fde2ce524bee976e0c6c74c0be2917">sum()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">pow()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, <a class="el" href="namespaceemlabcpp.html#a5519896c5f0324265089711b6a020642">sqrt()</a>, and <a class="el" href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">sum()</a>.</p>
 
 </div>
 </div>
@@ -4124,7 +4124,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 
 <p>Calculates the dot product between A and B. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#ad5fde2ce524bee976e0c6c74c0be2917">sum()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">sum()</a>.</p>
 
 </div>
 </div>
@@ -4283,7 +4283,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 <p>TODO: make this no inline. </p>
 <p>Encodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer. Note that this does not store 0 at the end. </p>
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a35373b7ecce53b42f2b93316496708e1">emlabcpp::view&lt; Iterator, EndIterator &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f">count()</a>, and <a class="el" href="classemlabcpp_1_1view.html#a307e340890bedc068c2cac28e2f86896">emlabcpp::view&lt; Iterator, EndIterator &gt;::end()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a35373b7ecce53b42f2b93316496708e1">emlabcpp::view&lt; Iterator, EndIterator &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp.html#a036ecd2b344a56d6473500952c3c9db8">count()</a>, and <a class="el" href="classemlabcpp_1_1view.html#a307e340890bedc068c2cac28e2f86896">emlabcpp::view&lt; Iterator, EndIterator &gt;::end()</a>.</p>
 
 </div>
 </div>
@@ -4309,8 +4309,8 @@ template&lt;typename Container &gt; </div>
 
 </div>
 </div>
-<a id="ac1e0fe9ab6b7190faf578ec3e5f72301"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1e0fe9ab6b7190faf578ec3e5f72301">&#9670;&nbsp;</a></span>equal()</h2>
+<a id="a504dbf8012c154e4c54aae3af67e08c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a504dbf8012c154e4c54aae3af67e08c9">&#9670;&nbsp;</a></span>equal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4323,13 +4323,13 @@ template&lt;range_container LhContainer, range_container RhContainer, typename B
         <tr>
           <td class="memname">constexpr bool emlabcpp::equal </td>
           <td>(</td>
-          <td class="paramtype">const LhContainer &amp;&#160;</td>
+          <td class="paramtype">LhContainer &amp;&amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const RhContainer &amp;&#160;</td>
+          <td class="paramtype">RhContainer &amp;&amp;&#160;</td>
           <td class="paramname"><em>rh</em>, </td>
         </tr>
         <tr>
@@ -4499,8 +4499,8 @@ template&lt;range_container Container, container_invocable&lt; Container &gt; Pr
 
 </div>
 </div>
-<a id="aae434316a87fef12fc4d05dd543dddf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae434316a87fef12fc4d05dd543dddf7">&#9670;&nbsp;</a></span>find_if_index()</h2>
+<a id="a23af197a97477d855276e1d81578cace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23af197a97477d855276e1d81578cace">&#9670;&nbsp;</a></span>find_if_index()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4513,7 +4513,7 @@ template&lt;std::size_t N, typename PredicateCallable &gt; </div>
         <tr>
           <td class="memname">constexpr std::size_t emlabcpp::find_if_index </td>
           <td>(</td>
-          <td class="paramtype">const PredicateCallable &amp;&#160;</td>
+          <td class="paramtype">PredicateCallable &amp;&amp;&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4532,8 +4532,8 @@ template&lt;std::size_t N, typename PredicateCallable &gt; </div>
 
 </div>
 </div>
-<a id="a7a8e644a62f8747e59e7766ba811037a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a8e644a62f8747e59e7766ba811037a">&#9670;&nbsp;</a></span>for_cross_joint()</h2>
+<a id="a9671d53ec08de7c34437cf24d07aee0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9671d53ec08de7c34437cf24d07aee0c">&#9670;&nbsp;</a></span>for_cross_joint()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4546,13 +4546,13 @@ template&lt;container LhContainer, container RhContainer, typename BinaryCallabl
         <tr>
           <td class="memname">constexpr void emlabcpp::for_cross_joint </td>
           <td>(</td>
-          <td class="paramtype">const LhContainer &amp;&#160;</td>
+          <td class="paramtype">LhContainer &amp;&amp;&#160;</td>
           <td class="paramname"><em>lh_cont</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const RhContainer &amp;&#160;</td>
+          <td class="paramtype">RhContainer &amp;&amp;&#160;</td>
           <td class="paramname"><em>rh_cont</em>, </td>
         </tr>
         <tr>
@@ -4622,8 +4622,8 @@ template&lt;range_container Container, container_invocable&lt; Container &gt; Un
 
 </div>
 </div>
-<a id="a92a263e4623147eea2c226d8b9bcafc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92a263e4623147eea2c226d8b9bcafc7">&#9670;&nbsp;</a></span>for_each_index()</h2>
+<a id="a5214a69e44441c91729255e5934ce985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5214a69e44441c91729255e5934ce985">&#9670;&nbsp;</a></span>for_each_index()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4636,7 +4636,7 @@ template&lt;std::size_t N, typename NullCallable &gt; </div>
         <tr>
           <td class="memname">constexpr void emlabcpp::for_each_index </td>
           <td>(</td>
-          <td class="paramtype">const NullCallable &amp;&#160;</td>
+          <td class="paramtype">NullCallable &amp;&amp;&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4816,8 +4816,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a31c1cbc5b728494acb47daebb913fd96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31c1cbc5b728494acb47daebb913fd96">&#9670;&nbsp;</a></span>joined()</h2>
+<a id="ad24d670cd02b9255601622cf2494417e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad24d670cd02b9255601622cf2494417e">&#9670;&nbsp;</a></span>joined()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4830,7 +4830,7 @@ template&lt;range_container Container, typename T , container_invocable&lt; Cont
         <tr>
           <td class="memname">constexpr T emlabcpp::joined </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -4893,7 +4893,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 
 <p>Returns squared distance of A from [0,0,0], this is a squared length of vector represented by A. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">pow()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>, and <a class="el" href="namespaceemlabcpp.html#ad5fde2ce524bee976e0c6c74c0be2917">sum()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">pow()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>, and <a class="el" href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">sum()</a>.</p>
 
 </div>
 </div>
@@ -5370,8 +5370,8 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 
 </div>
 </div>
-<a id="aa144487d11d6484b636482caa35a1cf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa144487d11d6484b636482caa35a1cf1">&#9670;&nbsp;</a></span>max_elem()</h2>
+<a id="a3a3a1cce893154570d1d004eff0eae44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a3a1cce893154570d1d004eff0eae44">&#9670;&nbsp;</a></span>max_elem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5384,7 +5384,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
         <tr>
           <td class="memname">constexpr T emlabcpp::max_elem </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -5491,8 +5491,8 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 
 </div>
 </div>
-<a id="aaffd06a15a35e011691274cc98d14767"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaffd06a15a35e011691274cc98d14767">&#9670;&nbsp;</a></span>min_elem()</h2>
+<a id="a0854cc8f63fb866604cdba86751aa661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0854cc8f63fb866604cdba86751aa661">&#9670;&nbsp;</a></span>min_elem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5505,7 +5505,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
         <tr>
           <td class="memname">constexpr T emlabcpp::min_elem </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -5534,8 +5534,8 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
 
 </div>
 </div>
-<a id="a516fc25d05dfa6a69f022964b2a6a807"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a516fc25d05dfa6a69f022964b2a6a807">&#9670;&nbsp;</a></span>min_max_elem()</h2>
+<a id="ab5e56e63d61e9a15632f19d5cfc1f6b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5e56e63d61e9a15632f19d5cfc1f6b5">&#9670;&nbsp;</a></span>min_max_elem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5548,7 +5548,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
         <tr>
           <td class="memname">constexpr <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; emlabcpp::min_max_elem </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -5577,8 +5577,8 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
 
 </div>
 </div>
-<a id="a638fe803e243841625659a697eb71463"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a638fe803e243841625659a697eb71463">&#9670;&nbsp;</a></span>none_of()</h2>
+<a id="a37c8cfdb013071f0e1eb609c257eb9d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37c8cfdb013071f0e1eb609c257eb9d0">&#9670;&nbsp;</a></span>none_of()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5591,7 +5591,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; Predicat
         <tr>
           <td class="memname">constexpr bool emlabcpp::none_of </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -5615,7 +5615,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; Predicat
 
 <p>Returns true if call to predicate 'f(x)' returns false for all items in 'cont'. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a2d80507cffdd192a333f6bd9c272e97a">any_of()</a>, and <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a59476e1a770a7c69e3ec745f031f50c5">any_of()</a>, and <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>.</p>
 
 </div>
 </div>
@@ -7340,7 +7340,7 @@ template&lt;typename Item , std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ac1e0fe9ab6b7190faf578ec3e5f72301">equal()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a504dbf8012c154e4c54aae3af67e08c9">equal()</a>.</p>
 
 </div>
 </div>
@@ -8452,8 +8452,8 @@ template&lt;std::size_t N&gt; </div>
 
 </div>
 </div>
-<a id="ab1e2e3e15b0c77fff6674ed7e6e1f67e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1e2e3e15b0c77fff6674ed7e6e1f67e">&#9670;&nbsp;</a></span>select_index() <span class="overload">[2/2]</span></h2>
+<a id="a505109612442935cc682cf92a9d2296c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a505109612442935cc682cf92a9d2296c">&#9670;&nbsp;</a></span>select_index() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -8470,7 +8470,7 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const Callable &amp;&#160;</td>
+          <td class="paramtype">Callable &amp;&amp;&#160;</td>
           <td class="paramname"><em>f</em>&#160;</td>
         </tr>
         <tr>
@@ -8783,8 +8783,8 @@ template&lt;typename Container &gt; </div>
 
 </div>
 </div>
-<a id="ad5fde2ce524bee976e0c6c74c0be2917"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5fde2ce524bee976e0c6c74c0be2917">&#9670;&nbsp;</a></span>sum()</h2>
+<a id="a3ae5bc0fd1be635cd2666c78c8d69fae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ae5bc0fd1be635cd2666c78c8d69fae">&#9670;&nbsp;</a></span>sum()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -8797,7 +8797,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
         <tr>
           <td class="memname">constexpr T emlabcpp::sum </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -9182,8 +9182,8 @@ template&lt;typename TuplesTuple , std::size_t... ItemIndexes, std::size_t... Tu
 
 </div>
 </div>
-<a id="aced106ff9e1a26187bb4872197cc1a7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aced106ff9e1a26187bb4872197cc1a7c">&#9670;&nbsp;</a></span>until_index()</h2>
+<a id="a35f12faf6930621f03dcddf5e18a16b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35f12faf6930621f03dcddf5e18a16b1">&#9670;&nbsp;</a></span>until_index()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -9196,7 +9196,7 @@ template&lt;std::size_t i, typename PredicateCallable &gt; </div>
         <tr>
           <td class="memname">constexpr bool emlabcpp::until_index </td>
           <td>(</td>
-          <td class="paramtype">const PredicateCallable &amp;&#160;</td>
+          <td class="paramtype">PredicateCallable &amp;&amp;&#160;</td>
           <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
@@ -9330,8 +9330,8 @@ template&lt;typename TimeType &gt; </div>
 
 </div>
 </div>
-<a id="a76870aafe8a72795ca80143c32313532"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76870aafe8a72795ca80143c32313532">&#9670;&nbsp;</a></span>variance()</h2>
+<a id="a50045da8445468706c19455b429cdfcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50045da8445468706c19455b429cdfcc">&#9670;&nbsp;</a></span>variance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -9344,7 +9344,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
         <tr>
           <td class="memname">constexpr T emlabcpp::variance </td>
           <td>(</td>
-          <td class="paramtype">const Container &amp;&#160;</td>
+          <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
         </tr>
         <tr>
@@ -9369,7 +9369,7 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
 <p>Applies callable 'f(x)' to each element of container 'cont' and returns the variance of values returned from the call. </p>
 <p>The <code>f</code> is applied twice to each element. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aeb03fae2e4aecd67b1f163e1ab523e89">avg()</a>, <a class="el" href="namespaceemlabcpp.html#a631eb361805aa7459b944503f7538951">cont_size()</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>, and <a class="el" href="namespaceemlabcpp.html#ad5fde2ce524bee976e0c6c74c0be2917">sum()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a51a3dac72157f60685dedced4c681643">avg()</a>, <a class="el" href="namespaceemlabcpp.html#a631eb361805aa7459b944503f7538951">cont_size()</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>, and <a class="el" href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">sum()</a>.</p>
 
 </div>
 </div>
@@ -9596,7 +9596,7 @@ template&lt;std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a306420110ac2a2a1ecc364e0053c1e30">abs()</a>, <a class="el" href="namespaceemlabcpp.html#af85136552afa4d0a86dd1fb078223cdd">copy()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="classemlabcpp_1_1simplex.html#a1d4f76faf3b981d25919fdfd3f7c21da">emlabcpp::simplex&lt; Item, N &gt;::size()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a306420110ac2a2a1ecc364e0053c1e30">abs()</a>, <a class="el" href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">copy()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="classemlabcpp_1_1simplex.html#a1d4f76faf3b981d25919fdfd3f7c21da">emlabcpp::simplex&lt; Item, N &gt;::size()</a>.</p>
 
 </div>
 </div>
@@ -9720,7 +9720,7 @@ template&lt;typename... Ts&gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
 <div class="line">        min_max&lt; T &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>{ head }</div>
-<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:533</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:525</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -10798,7 +10798,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sun Aug 6 2023 08:09:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Aug 9 2023 20:26:58 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

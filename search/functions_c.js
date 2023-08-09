@@ -2,7 +2,7 @@ var searchData=
 [
   ['new_5fdelete_5fresource_1954',['new_delete_resource',['../namespaceemlabcpp_1_1pmr.html#a52bf0aa428dd57cda666f487d3f2582d',1,'emlabcpp::pmr']]],
   ['non_5fvalue_5fbyte_1955',['non_value_byte',['../structemlabcpp_1_1cobs__decoder.html#ade7031f5024520c9a3c905e717147f36',1,'emlabcpp::cobs_decoder']]],
-  ['none_5fof_1956',['none_of',['../namespaceemlabcpp.html#a638fe803e243841625659a697eb71463',1,'emlabcpp']]],
+  ['none_5fof_1956',['none_of',['../namespaceemlabcpp.html#a37c8cfdb013071f0e1eb609c257eb9d0',1,'emlabcpp']]],
   ['noneabi_5flog_5fend_1957',['noneabi_log_end',['../namespaceemlabcpp.html#abc3034d1cbdc8f57b66c8fdb1875f5a5',1,'emlabcpp']]],
   ['noneabi_5flog_5fwrite_1958',['noneabi_log_write',['../namespaceemlabcpp.html#a17bf222ded1132ffa8aca958be89b986',1,'emlabcpp']]],
   ['norm2_5fof_1959',['norm2_of',['../namespaceemlabcpp.html#af6fc2eeaf683b868d3ec7eed8fe6f69a',1,'emlabcpp']]],

@@ -14,7 +14,7 @@ var searchData=
   ['value_5ftype_5fconverter_5fgetter_1206',['value_type_converter_getter',['../structemlabcpp_1_1testing_1_1value__type__converter__getter.html',1,'emlabcpp::testing']]],
   ['value_5ftype_5fconverter_5fgetter_3c_20int64_5ft_20_3e_1207',['value_type_converter_getter&lt; int64_t &gt;',['../structemlabcpp_1_1testing_1_1value__type__converter__getter.html',1,'emlabcpp::testing']]],
   ['var_1208',['var',['../structemlabcpp_1_1testing_1_1reactor__internal__error__report.html#ae064730873d48cb3f99fab1e4ff0c37f',1,'emlabcpp::testing::reactor_internal_error_report']]],
-  ['variance_1209',['variance',['../namespaceemlabcpp.html#a76870aafe8a72795ca80143c32313532',1,'emlabcpp']]],
+  ['variance_1209',['variance',['../namespaceemlabcpp.html#a50045da8445468706c19455b429cdfcc',1,'emlabcpp']]],
   ['vec_5fpoint_5fbase_1210',['vec_point_base',['../classemlabcpp_1_1vec__point__base.html',1,'emlabcpp::vec_point_base&lt; Derived, N &gt;'],['../classemlabcpp_1_1vec__point__base.html#a18caf28c0e74083a1c2271682f75ed5a',1,'emlabcpp::vec_point_base::vec_point_base() noexcept=default'],['../classemlabcpp_1_1vec__point__base.html#a437e33ee7b66a436a15be895ed7a66e6',1,'emlabcpp::vec_point_base::vec_point_base(container cont) noexcept'],['../classemlabcpp_1_1vec__point__base.html#aedade9106cae73cd5ebbb95d7394bfb6',1,'emlabcpp::vec_point_base::vec_point_base(T... t)']]],
   ['vec_5fpoint_5fbase_2eh_1211',['vec_point_base.h',['../vec__point__base_8h.html',1,'']]],
   ['vec_5fpoint_5fbase_3c_20point_3c_20n_20_3e_2c_20n_20_3e_1212',['vec_point_base&lt; point&lt; N &gt;, N &gt;',['../classemlabcpp_1_1vec__point__base.html',1,'emlabcpp']]],

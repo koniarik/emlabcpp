@@ -92,7 +92,7 @@ var NAVTREEINDEX =
 "classemlabcpp_1_1static__vector.html#a50f2fc816dd0ccf72292e0986f1ccf20",
 "concepts_8h.html#a6d100afeb63e0735bf1abe40e8f1dda3",
 "functions_vars_b.html",
-"namespaceemlabcpp.html#a5b7fdeaa7689b2455a087e965cbc7b3d",
+"namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb",
 "namespaceemlabcpp_1_1detail.html#a8ca7a3c5bc16d1b3a13b068bf7a7c8be",
 "namespacemembers_func_q.html",
 "serializer_8h.html#a43423655ad145f4437a23bcad9e551d3",

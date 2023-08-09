@@ -34,9 +34,9 @@ var searchData=
   ['convert_5fview_1804',['convert_view',['../namespaceemlabcpp.html#a51bc55ba3cb21b9294e89cdda68b1f98',1,'emlabcpp']]],
   ['convert_5fview_5fn_1805',['convert_view_n',['../namespaceemlabcpp.html#a8a7d1590aa2cb61d0e710f02fea01474',1,'emlabcpp']]],
   ['converter_5ffor_5fimpl_1806',['converter_for_impl',['../namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9',1,'emlabcpp::protocol']]],
-  ['copy_1807',['copy',['../namespaceemlabcpp.html#af85136552afa4d0a86dd1fb078223cdd',1,'emlabcpp']]],
+  ['copy_1807',['copy',['../namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb',1,'emlabcpp']]],
   ['cos_1808',['cos',['../namespaceemlabcpp.html#a364f72aef7b46ed76b90e1f7a054fc32',1,'emlabcpp']]],
-  ['count_1809',['count',['../namespaceemlabcpp.html#a1377f84042c48380be9118421fb97e6f',1,'emlabcpp']]],
+  ['count_1809',['count',['../namespaceemlabcpp.html#a036ecd2b344a56d6473500952c3c9db8',1,'emlabcpp']]],
   ['count_5fnext_1810',['count_next',['../classemlabcpp_1_1linked__list__node__base.html#a4d410fc8280ed506888d9fd660198b56',1,'emlabcpp::linked_list_node_base']]],
   ['cross_5fproduct_1811',['cross_product',['../namespaceemlabcpp.html#aefc03fbfa97fbe6458f075c4be65ce33',1,'emlabcpp']]]
 ];

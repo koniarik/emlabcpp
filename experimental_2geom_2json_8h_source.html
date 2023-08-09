@@ -146,7 +146,7 @@ $(document).ready(function(){initNavTree('experimental_2geom_2json_8h_source.htm
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Item, std::<span class="keywordtype">size_t</span> N &gt;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> to_json( nlohmann::json&amp; j, <span class="keyword">const</span> simplex&lt; Item, N &gt;&amp; sim )</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="namespaceemlabcpp.html#af85136552afa4d0a86dd1fb078223cdd">std::copy</a>( sim.begin(), sim.end(), std::back_inserter( j ) );</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">std::copy</a>( sim.begin(), sim.end(), std::back_inserter( j ) );</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Item, std::<span class="keywordtype">size_t</span> N &gt;</div>
@@ -162,8 +162,8 @@ $(document).ready(function(){initNavTree('experimental_2geom_2json_8h_source.htm
 <div class="ttc" id="aclassemlabcpp_1_1vec__point__base_html_ab3a09fad0e05159f08d74782d48e5a7f"><div class="ttname"><a href="classemlabcpp_1_1vec__point__base.html#ab3a09fad0e05159f08d74782d48e5a7f">emlabcpp::vec_point_base&lt; point&lt; N &gt;, N &gt;::container</a></div><div class="ttdeci">std::array&lt; float, N &gt; container</div><div class="ttdef"><b>Definition:</b> vec_point_base.h:33</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> impl.h:27</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a4b726ddab4f550f3e186f177243cb09b"><div class="ttname"><a href="namespaceemlabcpp.html#a4b726ddab4f550f3e186f177243cb09b">emlabcpp::view</a></div><div class="ttdeci">view(Container &amp;cont) -&gt; view&lt; iterator_of_t&lt; Container &gt; &gt;</div><div class="ttdoc">The container deduction guide uses iterator_of_t.</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a54b28822529dd798c4e0f74f6d38f7fb"><div class="ttname"><a href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">emlabcpp::copy</a></div><div class="ttdeci">void copy(Container &amp;&amp;cont, Iterator iter)</div><div class="ttdef"><b>Definition:</b> algorithm.h:466</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ac6a5e3253aa7ea8bcd6574b3274c74b6"><div class="ttname"><a href="namespaceemlabcpp.html#ac6a5e3253aa7ea8bcd6574b3274c74b6">emlabcpp::container</a></div><div class="ttdeci">concept container</div><div class="ttdef"><b>Definition:</b> concepts.h:101</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_af85136552afa4d0a86dd1fb078223cdd"><div class="ttname"><a href="namespaceemlabcpp.html#af85136552afa4d0a86dd1fb078223cdd">emlabcpp::copy</a></div><div class="ttdeci">void copy(const Container &amp;cont, Iterator iter)</div><div class="ttdef"><b>Definition:</b> algorithm.h:474</div></div>
 <div class="ttc" id="apoint_8h_html"><div class="ttname"><a href="point_8h.html">point.h</a></div></div>
 <div class="ttc" id="apose_8h_html"><div class="ttname"><a href="pose_8h.html">pose.h</a></div></div>
 <div class="ttc" id="aquaternion_8h_html"><div class="ttname"><a href="quaternion_8h.html">quaternion.h</a></div></div>
@@ -174,7 +174,7 @@ $(document).ready(function(){initNavTree('experimental_2geom_2json_8h_source.htm
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_3ae5028df88b3fc471a247e16af56915.html">geom</a></li><li class="navelem"><a class="el" href="experimental_2geom_2json_8h.html">json.h</a></li>
-    <li class="footer">Generated on Sun Aug 6 2023 08:09:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Aug 9 2023 20:26:58 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
