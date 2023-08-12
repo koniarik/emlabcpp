@@ -110,4 +110,14 @@ struct value_type_converter< std::chrono::duration< Rep, Ratio > >
         }
 };
 
+template < typename T >
+concept value_type_convertible = requires( const T& item, const value_type& val ) {
+                                         {
+                                                 value_type_converter< T >::to_value( item )
+                                                 } -> std::convertible_to< value_type >;
+                                         {
+                                                 value_type_converter< T >::from_value( val )
+                                                 } -> std::convertible_to< std::optional< T > >;
+                                 };
+
 }  // namespace emlabcpp::testing

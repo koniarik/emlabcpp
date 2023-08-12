@@ -23,6 +23,32 @@ public:
         virtual ~wait_interface()                          = default;
 };
 
+struct noop_awaiter : public wait_interface
+{
+        wait_state get_state() const override
+        {
+                return wait_state::READY;
+        }
+
+        void tick() override
+        {
+        }
+
+        [[nodiscard]] bool await_ready() const
+        {
+                return false;
+        }
+
+        template < typename T >
+        void await_suspend( std::coroutine_handle< T > )
+        {
+        }
+
+        void await_resume() const
+        {
+        }
+};
+
 template < typename T >
 struct data_promise
 {
@@ -117,6 +143,13 @@ public:
         {
                 if constexpr ( !std::is_void_v< T > ) {
                         return h_.promise().value;
+                }
+        }
+
+        void run()
+        {
+                while ( !done() ) {
+                        tick();
                 }
         }
 
