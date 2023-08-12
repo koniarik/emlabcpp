@@ -1,6 +1,7 @@
 var recursive_8h =
 [
     [ "wait_interface", "classemlabcpp_1_1coro_1_1wait__interface.html", "classemlabcpp_1_1coro_1_1wait__interface" ],
+    [ "noop_awaiter", "structemlabcpp_1_1coro_1_1noop__awaiter.html", "structemlabcpp_1_1coro_1_1noop__awaiter" ],
     [ "data_promise", "structemlabcpp_1_1coro_1_1data__promise.html", "structemlabcpp_1_1coro_1_1data__promise" ],
     [ "data_promise< void >", "structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4.html", "structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4" ],
     [ "recursive_coroutine", "classemlabcpp_1_1coro_1_1recursive__coroutine.html", "classemlabcpp_1_1coro_1_1recursive__coroutine" ],

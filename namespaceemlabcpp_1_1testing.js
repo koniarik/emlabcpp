@@ -160,5 +160,6 @@ var namespaceemlabcpp_1_1testing =
     [ "collect_channel", "namespaceemlabcpp_1_1testing.html#a99f1151dbb3866e17e7c5d4b51f8a090", null ],
     [ "core_channel", "namespaceemlabcpp_1_1testing.html#ac454345521b3303995ab9d0afe40c98b", null ],
     [ "params_channel", "namespaceemlabcpp_1_1testing.html#ac9a51928f91d086811c026bf7c0c6798", null ],
-    [ "valid_test_callable", "namespaceemlabcpp_1_1testing.html#ad7a2a6759ff6cb8d4ee8777b7c33db2f", null ]
+    [ "valid_test_callable", "namespaceemlabcpp_1_1testing.html#ad7a2a6759ff6cb8d4ee8777b7c33db2f", null ],
+    [ "value_type_convertible", "namespaceemlabcpp_1_1testing.html#ad2555bf321e83b853a729cab30d39ccd", null ]
 ];

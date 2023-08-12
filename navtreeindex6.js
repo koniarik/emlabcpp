@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"namespaceemlabcpp.html#a541f323f095107eec70dbb1db1387711":[2,0,0,299],
+"namespaceemlabcpp.html#a5494e6f6f24a2fd7e7ccfaecb31944b3":[2,0,0,375],
 "namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb":[2,0,0,196],
 "namespaceemlabcpp.html#a5519896c5f0324265089711b6a020642":[2,0,0,341],
 "namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd":[2,0,0,239],
@@ -235,11 +237,11 @@ var NAVTREEINDEX6 =
 "namespaceemlabcpp_1_1cfg.html#abc7e2ad89ecd40087cb01e4d7f2481eb":[2,0,0,0,2],
 "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header":[4,0,0,0,1,0,0,0],
 "namespaceemlabcpp_1_1coro.html":[2,0,0,1],
-"namespaceemlabcpp_1_1coro.html#ab378dfed00f70195082f524f3b4a5c00":[2,0,0,1,8],
-"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90":[2,0,0,1,7],
-"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90a1869d56535e8b1449a6da54ff5e11f50":[2,0,0,1,7,0],
-"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90a2baa69eafc7204f3bd8648eba580c489":[2,0,0,1,7,1],
-"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90add0f1fac7b1452a7c98db1c15fa9b7bb":[2,0,0,1,7,2],
+"namespaceemlabcpp_1_1coro.html#ab378dfed00f70195082f524f3b4a5c00":[2,0,0,1,9],
+"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90":[2,0,0,1,8],
+"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90a1869d56535e8b1449a6da54ff5e11f50":[2,0,0,1,8,0],
+"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90a2baa69eafc7204f3bd8648eba580c489":[2,0,0,1,8,1],
+"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90add0f1fac7b1452a7c98db1c15fa9b7bb":[2,0,0,1,8,2],
 "namespaceemlabcpp_1_1detail.html":[2,0,0,2],
 "namespaceemlabcpp_1_1detail.html#a10e61621464f2e4cc1316387d1b70b19":[2,0,0,2,5],
 "namespaceemlabcpp_1_1detail.html#a250124b6fbc599bf8e1df28d585353fe":[2,0,0,2,7],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79e":[2,0,0,2,3],
 "namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eac39aa6dbe619bb8ef8187b00b686df6a":[2,0,0,2,3,2],
 "namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eae8606d021da140a92c7eba8d9b8af84f":[2,0,0,2,3,0],
-"namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eaf7f93635f8e193a924ae4a691bb66b8f":[2,0,0,2,3,1],
-"namespaceemlabcpp_1_1detail.html#a5e4034afb24c305fe50b620f99e7491b":[2,0,0,2,12],
-"namespaceemlabcpp_1_1detail.html#a8be65555da61958326df0b50c6ee2bd8":[2,0,0,2,9]
+"namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eaf7f93635f8e193a924ae4a691bb66b8f":[2,0,0,2,3,1]
 };

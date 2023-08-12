@@ -431,6 +431,9 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a99f1151dbb3866e17e7c5d4b51f8a090"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a99f1151dbb3866e17e7c5d4b51f8a090">collect_channel</a> = 2</td></tr>
 <tr class="separator:a99f1151dbb3866e17e7c5d4b51f8a090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2555bf321e83b853a729cab30d39ccd"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad2555bf321e83b853a729cab30d39ccd"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ad2555bf321e83b853a729cab30d39ccd">value_type_convertible</a></td></tr>
+<tr class="separator:ad2555bf321e83b853a729cab30d39ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7a2a6759ff6cb8d4ee8777b7c33db2f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad7a2a6759ff6cb8d4ee8777b7c33db2f"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ad7a2a6759ff6cb8d4ee8777b7c33db2f">valid_test_callable</a></td></tr>
 <tr class="separator:ad7a2a6759ff6cb8d4ee8777b7c33db2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1752,13 +1755,39 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="ad2555bf321e83b853a729cab30d39ccd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2555bf321e83b853a729cab30d39ccd">&#9670;&nbsp;</a></span>value_type_convertible</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::testing::value_type_convertible</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1testing.html#a5f51ceea4b512a1852bf7beca4837fb9">requires</a>( <span class="keyword">const</span> T&amp; item, <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a>&amp; val ) {</div>
+<div class="line">                                         {</div>
+<div class="line">                                                 value_type_converter&lt; T &gt;::to_value( item )</div>
+<div class="line">                                                 } -&gt; std::convertible_to&lt; value_type &gt;;</div>
+<div class="line">                                         {</div>
+<div class="line">                                                 value_type_converter&lt; T &gt;::from_value( val )</div>
+<div class="line">                                                 } -&gt; std::convertible_to&lt; std::optional&lt; T &gt; &gt;;</div>
+<div class="line">                                 }</div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a5f51ceea4b512a1852bf7beca4837fb9"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a5f51ceea4b512a1852bf7beca4837fb9">emlabcpp::testing::requires</a></div><div class="ttdeci">requires(alternative_of&lt; T, value_type &gt;) struct value_type_converter&lt; T &gt; requires(!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;) struct value_type_converter&lt; T &gt;</div><div class="ttdef"><b>Definition:</b> convert.h:60</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:47</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Thu Aug 10 2023 05:44:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 12 2023 20:06:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

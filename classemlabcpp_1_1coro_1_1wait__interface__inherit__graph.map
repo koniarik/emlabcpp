@@ -1,7 +1,8 @@
 <map id="emlabcpp::coro::wait_interface" name="emlabcpp::coro::wait_interface">
-<area shape="rect" id="node1" title=" " alt="" coords="5,104,164,145"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,136,164,177"/>
 <area shape="rect" id="node2" href="$classemlabcpp_1_1coro_1_1recursive__coroutine.html" title=" " alt="" coords="227,5,417,47"/>
-<area shape="rect" id="node3" href="$classemlabcpp_1_1coro_1_1recursive__coroutine.html" title=" " alt="" coords="227,71,417,112"/>
-<area shape="rect" id="node4" href="$classemlabcpp_1_1testing_1_1collect__awaiter.html" title=" " alt="" coords="249,136,395,177"/>
-<area shape="rect" id="node5" href="$structemlabcpp_1_1testing_1_1params__awaiter.html" title=" " alt="" coords="212,201,432,243"/>
+<area shape="rect" id="node3" href="$structemlabcpp_1_1coro_1_1noop__awaiter.html" title=" " alt="" coords="241,71,403,112"/>
+<area shape="rect" id="node4" href="$classemlabcpp_1_1coro_1_1recursive__coroutine.html" title=" " alt="" coords="227,136,417,177"/>
+<area shape="rect" id="node5" href="$classemlabcpp_1_1testing_1_1collect__awaiter.html" title=" " alt="" coords="249,201,395,243"/>
+<area shape="rect" id="node6" href="$structemlabcpp_1_1testing_1_1params__awaiter.html" title=" " alt="" coords="212,267,432,308"/>
 </map>

@@ -402,6 +402,7 @@ var hierarchy =
     [ "emlabcpp::rpc::void_return_type", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1void__return__type", null ],
     [ "emlabcpp::coro::wait_interface", "classemlabcpp_1_1coro_1_1wait__interface.html", [
       [ "emlabcpp::coro::recursive_coroutine< void >", "classemlabcpp_1_1coro_1_1recursive__coroutine.html", null ],
+      [ "emlabcpp::coro::noop_awaiter", "structemlabcpp_1_1coro_1_1noop__awaiter.html", null ],
       [ "emlabcpp::coro::recursive_coroutine< T >", "classemlabcpp_1_1coro_1_1recursive__coroutine.html", null ],
       [ "emlabcpp::testing::collect_awaiter", "classemlabcpp_1_1testing_1_1collect__awaiter.html", null ],
       [ "emlabcpp::testing::params_awaiter< Processor >", "structemlabcpp_1_1testing_1_1params__awaiter.html", null ]
