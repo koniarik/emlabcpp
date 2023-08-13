@@ -149,12 +149,6 @@ auto zip( Ts&&... cont )
         return view( zip_iterator( std::begin( cont )... ), zip_iterator( std::end( cont )... ) );
 }
 
-template < typename Container >
-auto enumerate( Container&& cont )
-{
-        return zip( range( cont.size() ), cont );
-}
-
 template < typename TuplesTuple, std::size_t... ItemIndexes, std::size_t... TupleIndexes >
 auto tuple_zip_impl(
     TuplesTuple&& tpls,
