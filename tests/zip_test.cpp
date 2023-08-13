@@ -19,6 +19,8 @@
 
 #include "emlabcpp/zip.h"
 
+#include "emlabcpp/enumerate.h"
+
 #include <gtest/gtest.h>
 
 using namespace emlabcpp;

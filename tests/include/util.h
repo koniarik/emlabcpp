@@ -18,8 +18,8 @@
 ///
 
 #include "emlabcpp/algorithm.h"
+#include "emlabcpp/enumerate.h"
 #include "emlabcpp/static_vector.h"
-#include "emlabcpp/zip.h"
 
 #include <deque>
 #include <gtest/gtest.h>
