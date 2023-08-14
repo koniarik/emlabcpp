@@ -76,15 +76,25 @@ bool extract_multiplexed( const std::span< const std::byte >& msg, BinaryCallabl
 template < typename... Slotted >
 bool multiplexed_dispatch( channel_type chann, const auto& data, Slotted&... slotted )
 {
+
+        bool succ = true;
+
         // TODO: assert that channels are unique
         auto f = [&]< typename T >( T& item ) {
-                if ( chann == item.get_channel() ) {
-                        std::ignore = item.on_msg( data );
-                        return true;
+                if ( chann != item.get_channel() ) {
+                        return false;
                 }
-                return false;
+                succ = item.on_msg( data );
+                if ( !succ ) {
+                        EMLABCPP_ERROR_LOG( "Slot returned an error for message" );
+                }
+                return true;
         };
-        return ( f( slotted ) || ... || false );
+        if ( !( f( slotted ) || ... || false ) ) {
+                EMLABCPP_ERROR_LOG( "Failed to match channel: ", chann );
+                succ = false;
+        }
+        return succ;
 }
 
 template < typename Packet >

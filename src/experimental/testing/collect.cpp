@@ -149,9 +149,19 @@ bool collect_server::on_msg( const std::span< const std::byte > data )
                 } );
 }
 
+// TODO: the bool return type is kinda too vague, as it is not clear what it should symbolize /o\..
+
 bool collect_server::on_msg( const collect_request& req )
 {
-        EMLABCPP_DEBUG_LOG( "got collect request: ", decompose( req ) );
+        EMLABCPP_DEBUG_LOG(
+            "got collect request: parent:",
+            req.parent,
+            " reply:",
+            req.expects_reply,
+            " opt_key:",
+            req.opt_key,
+            " value:",
+            req.value );
         // TODO: this may be a bad idea ...
         if ( tree_.empty() ) {
                 if ( req.opt_key ) {
@@ -171,7 +181,7 @@ bool collect_server::on_msg( const collect_request& req )
         return res.match(
             [this, &req]( const node_id nid ) {
                     if ( !req.expects_reply ) {
-                            return false;
+                            return true;
                     }
                     return this->send( collect_reply{ nid } );
             },

@@ -119,9 +119,9 @@ bool controller::on_msg( const std::span< const std::byte > data )
                 [this]( const reactor_controller_variant& var ) {
                         return on_msg( var );
                 },
-                []( const protocol::error_record& rec ) {
-                        std::ignore = rec;
+                [this]( const protocol::error_record& rec ) {
                         EMLABCPP_ERROR_LOG( "Failed to extract incoming msg: ", rec );
+                        iface_.report_error( controller_protocol_error{ rec } );
                         return false;
                 } );
 }
@@ -133,33 +133,39 @@ bool controller::on_msg( const reactor_controller_variant& var )
             state_,
             [this, &var]( const initializing_state& ) -> opt_state {
                     if ( !iface_.on_msg_with_cb( var ) ) {
-                            // TODO: var shall be logged
-                            std::ignore = var;
-                            EMLABCPP_ERROR_LOG( "Got wrong message: ", "" );
+                            EMLABCPP_ERROR_LOG( "Got wrong message: ", var.index() );
+                            visit(
+                                [&]< typename T >( T& ) {
+                                        iface_.report_error( controller_internal_error{ T::id } );
+                                },
+                                var );
                     }
                     return std::nullopt;
             },
             [this, &var]( test_running_state& rs ) -> opt_state {
                     const auto* err_ptr = std::get_if< reactor_internal_error_report >( &var );
                     if ( err_ptr != nullptr ) {
-                            visit(
-                                [&]< typename T >( const T& err ) {
-                                        std::ignore = err;
-                                        EMLABCPP_ERROR_LOG(
-                                            "Got an error from reactor: ",
-                                            T::id,
-                                            decompose( err ) );
-                                },
-                                err_ptr->var );
+                            iface_.report_error( internal_reactor_error{ err_ptr->var } );
                             return std::nullopt;
                     }
+
                     const auto* tf_ptr = std::get_if< test_finished >( &var );
                     if ( tf_ptr == nullptr ) {
-                            // TODO: var shall be logged
-                            std::ignore = var;
-                            EMLABCPP_ERROR_LOG( "Got wrong message: ", var.index() );
+                            visit(
+                                [&]< typename T >( T& ) {
+                                        iface_.report_error( controller_internal_error{ T::id } );
+                                },
+                                var );
                             return std::nullopt;
                     }
+
+                    EMLABCPP_INFO_LOG(
+                        "Test finished, rid: ",
+                        tf_ptr->rid,
+                        " errored: ",
+                        tf_ptr->errored,
+                        " failed: ",
+                        tf_ptr->failed );
 
                     rs.context.failed  = tf_ptr->failed;
                     rs.context.errored = tf_ptr->errored;

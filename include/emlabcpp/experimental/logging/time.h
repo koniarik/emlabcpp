@@ -49,17 +49,17 @@ struct pretty_printer< timelog >
         {
                 const std::time_t t   = std::chrono::system_clock::to_time_t( lg.tp );
                 const auto        dur = lg.tp.time_since_epoch();
-                const auto ms = std::chrono::duration_cast< std::chrono::milliseconds >( dur ) %
+                const auto us = std::chrono::duration_cast< std::chrono::microseconds >( dur ) %
                                 std::chrono::seconds{ 1 };
 
                 std::array< char, 42 > data;
 
                 std::tm           tmval;
                 const std::size_t i =
-                    std::strftime( data.data(), data.size(), "%T.", localtime_r( &t, &tmval ) );
+                    std::strftime( data.data(), data.size(), "%F %T.", localtime_r( &t, &tmval ) );
                 w( std::string_view{ data.data(), i } );
 
-                std::snprintf( data.begin(), data.size(), "%.3li", ms.count() );
+                std::snprintf( data.begin(), data.size(), "%.6li", us.count() );
                 w( std::string_view{ data.data() } );
         }
 };

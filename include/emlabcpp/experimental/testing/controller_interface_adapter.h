@@ -91,9 +91,12 @@ public:
                     },
                     []( const internal_reactor_error& e ) {
                             visit(
-                                []( auto& item ) {
+                                []< typename T >( T& item ) {
                                         EMLABCPP_ERROR_LOG(
-                                            "Internal error from reactor: ", decompose( item ) );
+                                            "Internal error from reactor: ",
+                                            T::id,
+                                            ":",
+                                            decompose( item ) );
                                 },
                                 e.val );
                     },
@@ -101,14 +104,6 @@ public:
                             EMLABCPP_ERROR_LOG(
                                 "Wrong message arrived to controller: ", decompose( e ) );
                     } );
-                const auto* const internal_ptr = std::get_if< internal_reactor_error >( &var );
-
-                if ( internal_ptr != nullptr ) {
-                        match(
-                            internal_ptr->val,
-                            []( const wrong_type_error& ) {},
-                            []( const auto& ) {} );
-                }
         }
 #else
         void log_error( const error_variant& )
