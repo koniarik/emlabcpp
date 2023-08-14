@@ -95,6 +95,7 @@ private:
                 if ( filestream_ != nullptr ) {
                         filestream_->write(
                             sv.data(), static_cast< std::streamsize >( sv.size() ) );
+                        filestream_->flush();
                 }
         }
 
