@@ -184,43 +184,44 @@ $(document).ready(function(){initNavTree('eabi__logger_8h_source.html',''); init
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">if</span> ( filestream_ != <span class="keyword">nullptr</span> ) {</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        filestream_-&gt;write(</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                            sv.data(), <span class="keyword">static_cast&lt;</span> std::streamsize <span class="keyword">&gt;</span>( sv.size() ) );</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordtype">void</span> set_color( <span class="keyword">const</span> std::string_view c )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                write_std_streams( <span class="stringliteral">&quot;\033[38;5;&quot;</span> );</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                write_std_streams( c );</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                write_std_streams( <span class="stringliteral">&quot;m&quot;</span> );</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">void</span> write_std_streams( <span class="keyword">const</span> std::string_view sv )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">if</span> ( use_stdout_ ) {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                        std::cout.write( sv.data(), <span class="keyword">static_cast&lt;</span> std::streamsize <span class="keyword">&gt;</span>( sv.size() ) );</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordflow">if</span> ( use_stderr_ ) {</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                        std::cerr.write( sv.data(), <span class="keyword">static_cast&lt;</span> std::streamsize <span class="keyword">&gt;</span>( sv.size() ) );</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        log_colors colors_{};</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordtype">bool</span>          use_stdout_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordtype">bool</span>          use_stderr_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        std::ostream* filestream_;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;};</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="eabi__logger_8h.html#a0b0d93fa24bbdaf6f88a7428417459b1">  127</a></span>&#160;<span class="preprocessor">#define EMLABCPP_EABI_LOG_IMPL( logger, file, line, ... )                  \</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">        do {                                                               \</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">                ( logger ).log_header(                                     \</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">                    emlabcpp::timelog( std::chrono::system_clock::now() ), \</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">                    emlabcpp::stem_of( ( file ) ),                         \</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="preprocessor">                    ( line ) );                                            \</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">                ( logger ).log( __VA_ARGS__, &#39;\n&#39; );                       \</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">        } while ( false )</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                        filestream_-&gt;flush();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">void</span> set_color( <span class="keyword">const</span> std::string_view c )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                write_std_streams( <span class="stringliteral">&quot;\033[38;5;&quot;</span> );</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                write_std_streams( c );</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                write_std_streams( <span class="stringliteral">&quot;m&quot;</span> );</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">void</span> write_std_streams( <span class="keyword">const</span> std::string_view sv )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordflow">if</span> ( use_stdout_ ) {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                        std::cout.write( sv.data(), <span class="keyword">static_cast&lt;</span> std::streamsize <span class="keyword">&gt;</span>( sv.size() ) );</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">if</span> ( use_stderr_ ) {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                        std::cerr.write( sv.data(), <span class="keyword">static_cast&lt;</span> std::streamsize <span class="keyword">&gt;</span>( sv.size() ) );</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        log_colors colors_{};</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordtype">bool</span>          use_stdout_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordtype">bool</span>          use_stderr_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        std::ostream* filestream_;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;};</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="eabi__logger_8h.html#a0b0d93fa24bbdaf6f88a7428417459b1">  128</a></span>&#160;<span class="preprocessor">#define EMLABCPP_EABI_LOG_IMPL( logger, file, line, ... )                  \</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">        do {                                                               \</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">                ( logger ).log_header(                                     \</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">                    emlabcpp::timelog( std::chrono::system_clock::now() ), \</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="preprocessor">                    emlabcpp::stem_of( ( file ) ),                         \</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">                    ( line ) );                                            \</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">                ( logger ).log( __VA_ARGS__, &#39;\n&#39; );                       \</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">        } while ( false )</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1eabi__logger_html"><div class="ttname"><a href="classemlabcpp_1_1eabi__logger.html">emlabcpp::eabi_logger</a></div><div class="ttdef"><b>Definition:</b> eabi_logger.h:30</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1eabi__logger_html_a38ae4616724cbe9a3f3d7ada8a431eae"><div class="ttname"><a href="classemlabcpp_1_1eabi__logger.html#a38ae4616724cbe9a3f3d7ada8a431eae">emlabcpp::eabi_logger::log</a></div><div class="ttdeci">void log(const Args &amp;... args)</div><div class="ttdef"><b>Definition:</b> eabi_logger.h:72</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1eabi__logger_html_ab2fce0a07e67ce1c58356874b5980130"><div class="ttname"><a href="classemlabcpp_1_1eabi__logger.html#ab2fce0a07e67ce1c58356874b5980130">emlabcpp::eabi_logger::eabi_logger</a></div><div class="ttdeci">eabi_logger(const std::vector&lt; logging_option &gt; &amp;opts)</div><div class="ttdef"><b>Definition:</b> eabi_logger.h:32</div></div>
@@ -256,7 +257,7 @@ $(document).ready(function(){initNavTree('eabi__logger_8h_source.html',''); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_7be96e89c84803827e352320bc015c84.html">logging</a></li><li class="navelem"><a class="el" href="eabi__logger_8h.html">eabi_logger.h</a></li>
-    <li class="footer">Generated on Sun Aug 13 2023 08:39:49 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Aug 14 2023 22:09:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
