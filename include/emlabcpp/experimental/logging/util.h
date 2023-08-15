@@ -54,9 +54,9 @@ std::array< std::string_view, N > expand_var_names( std::string_view sv )
 {
         std::array< std::string_view, N > names;
         for ( std::size_t i = 0; i < N; i++ ) {
-                std::size_t p = sv.find( "," );
-                names[i]      = sv.substr( 0, p );
-                sv            = sv.substr( p + 1 );
+                const std::size_t p = sv.find( ',' );
+                names[i]            = sv.substr( 0, p );
+                sv                  = sv.substr( p + 1 );
         }
         return names;
 }

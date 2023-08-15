@@ -20,6 +20,7 @@
 #include "emlabcpp/pmr/util.h"
 
 #include <concepts>
+#include <memory>
 
 #pragma once
 

@@ -20,6 +20,7 @@
 #include "emlabcpp/pmr/memory_resource.h"
 
 #include <cstddef>
+#include <new>
 
 #pragma once
 
