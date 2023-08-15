@@ -25,7 +25,7 @@ public:
 
 struct noop_awaiter : public wait_interface
 {
-        wait_state get_state() const override
+        [[nodiscard]] wait_state get_state() const override
         {
                 return wait_state::READY;
         }
@@ -51,7 +51,7 @@ struct noop_awaiter : public wait_interface
 
 struct error_awaiter : public wait_interface
 {
-        wait_state get_state() const override
+        [[nodiscard]] wait_state get_state() const override
         {
                 return wait_state::ERRORED;
         }

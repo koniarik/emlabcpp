@@ -53,6 +53,7 @@ public:
 
                 const ReplyType& await_resume()
                 {
+                        // NOLINTNEXTLINE
                         return *prom_->reply;
                 }
         };
@@ -119,11 +120,12 @@ public:
                         EMLABCPP_ERROR_LOG( "Can't extract request from empty handle" );
                         return nullptr;
                 }
-                if ( !h_.promise().request.has_value() ) {
+                std::optional< RequestType >& opt_val = h_.promise().request;
+                if ( !opt_val.has_value() ) {
                         EMLABCPP_ERROR_LOG( "No request in coroutine at ", &h_.promise().request );
                         return nullptr;
                 }
-                return &*h_.promise().request;
+                return &*opt_val;
         }
 
         bool has_reply()

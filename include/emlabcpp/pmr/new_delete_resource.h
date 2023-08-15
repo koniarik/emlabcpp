@@ -19,6 +19,8 @@
 
 #include "emlabcpp/pmr/memory_resource.h"
 
+#include <cstddef>
+
 #pragma once
 
 namespace emlabcpp::pmr

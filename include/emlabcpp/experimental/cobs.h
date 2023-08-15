@@ -157,6 +157,7 @@ public:
         std::byte operator*() const
         {
                 // note: we do assume that iterator skips places without value
+                // NOLINTNEXLINE
                 return *dec_.get( *iter_ );
         }
 

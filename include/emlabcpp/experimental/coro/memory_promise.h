@@ -42,6 +42,8 @@ struct memory_promise
                 return alloc( sz, pi );
         }
 
+        void* operator new( const std::size_t sz, auto&&... ) noexcept = delete;
+
         static void* alloc( std::size_t sz, pmr::memory_resource& pi )
         {
                 sz += ptr_size;

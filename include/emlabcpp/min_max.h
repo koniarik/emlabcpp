@@ -17,22 +17,22 @@ struct min_max : std::array< T, 2 >
 {
         using value_type = T;
 
-        constexpr T& min()
+        [[nodiscard]] constexpr T& min()
         {
                 return this->operator[]( 0 );
         }
 
-        constexpr const T& min() const
+        [[nodiscard]] constexpr const T& min() const
         {
                 return this->operator[]( 0 );
         }
 
-        constexpr T& max()
+        [[nodiscard]] constexpr T& max()
         {
                 return this->operator[]( 1 );
         }
 
-        constexpr const T& max() const
+        [[nodiscard]] constexpr const T& max() const
         {
                 return this->operator[]( 1 );
         }

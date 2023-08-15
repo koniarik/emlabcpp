@@ -113,7 +113,7 @@ TEST( COBS, encode )
                 auto [res, used] = encode_cobs( raw, tmp );
                 EXPECT_TRUE( res );
 
-                bool are_eq = used == view{ encod };
+                const bool are_eq = used == view{ encod };
                 EXPECT_TRUE( are_eq ) << "output: " << used << "\n"
                                       << "expected: " << view{ encod };
         }
@@ -129,7 +129,7 @@ TEST( COBS, decode )
                 auto [dres, dused] = decode_cobs( encod, dtmp );
                 EXPECT_TRUE( dres );
 
-                bool are_eq = dused == view{ raw };
+                const bool are_eq = dused == view{ raw };
                 EXPECT_TRUE( are_eq ) << "inpt:     " << view{ encod } << "\n"
                                       << "output:   " << dused << "\n"
                                       << "expected: " << view{ raw };
@@ -142,7 +142,7 @@ TEST( COBS, decode_iter )
 
                 auto cview = cobs_decode_view( view{ encod } );
 
-                bool are_eq = std::equal( raw.begin(), raw.end(), cview.begin() );
+                const bool are_eq = std::equal( raw.begin(), raw.end(), cview.begin() );
                 EXPECT_TRUE( are_eq ) << "output:   " << cview << "\n"
                                       << "expected: " << view{ raw };
         }

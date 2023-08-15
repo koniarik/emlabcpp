@@ -20,6 +20,7 @@
 #include "emlabcpp/experimental/geom/point.h"
 #include "emlabcpp/experimental/geom/pose.h"
 #include "emlabcpp/experimental/geom/simplex.h"
+#include "emlabcpp/experimental/geom/vector.h"
 
 #pragma once
 
@@ -31,13 +32,13 @@ using triangle = simplex< point< N >, 2 >;
 
 inline point< 3 > get_triangle_sphere_center( const triangle< 3 >& tri )
 {
-        vec< 3 > ab     = tri[0] - tri[1];
-        vec< 3 > ac     = tri[0] - tri[2];
-        vec< 3 > normal = normalized( cross_product( ab, ac ) );
-        vec< 3 > p_ab   = cross_product( normal, ab );
-        vec< 3 > p_ac   = cross_product( normal, ac );
-        vec< 3 > c_ac   = ( vector_cast( tri[0] ) + vector_cast( tri[2] ) ) / 2;
-        vec< 3 > c_ab   = ( vector_cast( tri[0] ) + vector_cast( tri[1] ) ) / 2;
+        vector< 3 > ab     = tri[0] - tri[1];
+        vector< 3 > ac     = tri[0] - tri[2];
+        vector< 3 > normal = normalized( cross_product( ab, ac ) );
+        vector< 3 > p_ab   = cross_product( normal, ab );
+        vector< 3 > p_ac   = cross_product( normal, ac );
+        vector< 3 > c_ac   = ( vector_cast( tri[0] ) + vector_cast( tri[2] ) ) / 2;
+        vector< 3 > c_ab   = ( vector_cast( tri[0] ) + vector_cast( tri[1] ) ) / 2;
 
         float k;
 
@@ -48,7 +49,7 @@ inline point< 3 > get_triangle_sphere_center( const triangle< 3 >& tri )
         return point_cast( c_ac + k * p_ac );
 }
 
-constexpr vec< 3 > normal_of( const triangle< 3 >& tri )
+constexpr vector< 3 > normal_of( const triangle< 3 >& tri )
 {
         return cross_product( tri[0] - tri[1], tri[0] - tri[2] );
 }

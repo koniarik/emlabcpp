@@ -76,7 +76,7 @@ int main( int, char*[] )
         // used to either explicitly control flow based on the sign or use it to propagate the sign
         // into a computation. Note that we consider 0 as a separate case.
 
-        const int sign_rand_val = ( std::rand() % 3 ) - 1;
+        const int sign_rand_val = -1;
         switch ( em::sign( sign_rand_val ) ) {
         case -1:
                 std::cout << "sign_rand_val is negative\n";
