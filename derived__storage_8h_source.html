@@ -91,106 +91,107 @@ $(document).ready(function(){initNavTree('derived__storage_8h_source.html',''); 
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pmr_2util_8h.html">emlabcpp/pmr/util.h</a>&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;concepts&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        static_assert(</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            std::has_virtual_destructor_v&lt; T &gt;,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="stringliteral">&quot;Type stored in derived_storage has to have a virtual destructor&quot;</span> );</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a7830e5c1d8e1d81e4c4c7035539cea5e">   37</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1derived__storage.html#a7830e5c1d8e1d81e4c4c7035539cea5e">storage_type</a> = <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>[N];</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a5c629657dbd12d5e42cd481da334843f">   39</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1derived__storage.html#a5c629657dbd12d5e42cd481da334843f">base_type</a> = T;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a1ad560d197b23939a15bc113bd9a7b64">   41</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#a1ad560d197b23939a15bc113bd9a7b64">derived_storage</a>()</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;          : ptr_( nullptr )</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">template</span> &lt; std::derived_from&lt; T &gt; U &gt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#ae08919b3a4de3ca69486efd68d082578">   47</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#ae08919b3a4de3ca69486efd68d082578">derived_storage</a>( U&amp;&amp; item )</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;          : ptr_( &amp;storage_ )</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                static_assert( is_storable_with_align&lt; U &gt;( N ) );</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                ptr_ = <a class="code" href="namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263">align</a>( ptr_, <span class="keyword">alignof</span>( U ) );</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                std::construct_at( ptr_, std::forward&lt; U &gt;( item ) );</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#aa70d852ce6c8cf35abe0b903943e79a9">   55</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#aa70d852ce6c8cf35abe0b903943e79a9">derived_storage</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp; ) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#ad0c25ca45df18da054d50d12339857e4">   56</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#ad0c25ca45df18da054d50d12339857e4">derived_storage</a>( <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp;&amp; )      = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#aba98e3a547a8b75125f7cb806f7f1810">   58</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#aba98e3a547a8b75125f7cb806f7f1810">operator=</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp; ) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#aa0537232b8a231342945a2a89aaeb710">   59</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#aa0537232b8a231342945a2a89aaeb710">operator=</a>( <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp;&amp; )      = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a40ff040c80d6ed5d7c5541414f9f3830">   61</a></span>&#160;        T&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#a40ff040c80d6ed5d7c5541414f9f3830">operator*</a>()</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">return</span> *ptr_;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a4124d8075ded2871445294b454da0a31">   66</a></span>&#160;        <span class="keyword">const</span> T&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#a4124d8075ded2871445294b454da0a31">operator*</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">return</span> *ptr_;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a076f58c424d7290dd62c18c223872b9f">   71</a></span>&#160;        T* <a class="code" href="classemlabcpp_1_1derived__storage.html#a076f58c424d7290dd62c18c223872b9f">operator-&gt;</a>()</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">return</span> ptr_;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a21d75c879e3ab79315192a85ea5b19d0">   76</a></span>&#160;        <span class="keyword">const</span> T* <a class="code" href="classemlabcpp_1_1derived__storage.html#a21d75c879e3ab79315192a85ea5b19d0">operator-&gt;</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">return</span> ptr_;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a735eb75f7d53b32206ade3b8b92a9fa4">   81</a></span>&#160;        <span class="keyword">operator</span> bool()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordflow">return</span> ptr_ != <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#ad92cb33b920170156532bda3ae94810a">   86</a></span>&#160;        T&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#ad92cb33b920170156532bda3ae94810a">get</a>()</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">return</span> *ptr_;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a36435a2868f31fd9e7ae3beb870b0854">   91</a></span>&#160;        <span class="keyword">const</span> T&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#a36435a2868f31fd9e7ae3beb870b0854">get</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keywordflow">return</span> *ptr_;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a3cc3295a5d4d2bbee0f96d8ba5a8f3ce">   96</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#a3cc3295a5d4d2bbee0f96d8ba5a8f3ce">~derived_storage</a>()</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                std::destroy_at( ptr_ );</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        T*           ptr_;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#a7830e5c1d8e1d81e4c4c7035539cea5e">storage_type</a> storage_;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
-<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html">emlabcpp::derived_storage</a></div><div class="ttdef"><b>Definition:</b> derived_storage.h:31</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a076f58c424d7290dd62c18c223872b9f"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a076f58c424d7290dd62c18c223872b9f">emlabcpp::derived_storage::operator-&gt;</a></div><div class="ttdeci">T * operator-&gt;()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:71</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a1ad560d197b23939a15bc113bd9a7b64"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a1ad560d197b23939a15bc113bd9a7b64">emlabcpp::derived_storage::derived_storage</a></div><div class="ttdeci">derived_storage()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:41</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a21d75c879e3ab79315192a85ea5b19d0"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a21d75c879e3ab79315192a85ea5b19d0">emlabcpp::derived_storage::operator-&gt;</a></div><div class="ttdeci">const T * operator-&gt;() const</div><div class="ttdef"><b>Definition:</b> derived_storage.h:76</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a36435a2868f31fd9e7ae3beb870b0854"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a36435a2868f31fd9e7ae3beb870b0854">emlabcpp::derived_storage::get</a></div><div class="ttdeci">const T &amp; get() const</div><div class="ttdef"><b>Definition:</b> derived_storage.h:91</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a3cc3295a5d4d2bbee0f96d8ba5a8f3ce"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a3cc3295a5d4d2bbee0f96d8ba5a8f3ce">emlabcpp::derived_storage::~derived_storage</a></div><div class="ttdeci">~derived_storage()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:96</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a40ff040c80d6ed5d7c5541414f9f3830"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a40ff040c80d6ed5d7c5541414f9f3830">emlabcpp::derived_storage::operator*</a></div><div class="ttdeci">T &amp; operator*()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:61</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a4124d8075ded2871445294b454da0a31"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a4124d8075ded2871445294b454da0a31">emlabcpp::derived_storage::operator*</a></div><div class="ttdeci">const T &amp; operator*() const</div><div class="ttdef"><b>Definition:</b> derived_storage.h:66</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a5c629657dbd12d5e42cd481da334843f"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a5c629657dbd12d5e42cd481da334843f">emlabcpp::derived_storage::base_type</a></div><div class="ttdeci">T base_type</div><div class="ttdef"><b>Definition:</b> derived_storage.h:39</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a7830e5c1d8e1d81e4c4c7035539cea5e"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a7830e5c1d8e1d81e4c4c7035539cea5e">emlabcpp::derived_storage::storage_type</a></div><div class="ttdeci">std::byte[N] storage_type</div><div class="ttdef"><b>Definition:</b> derived_storage.h:37</div></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        static_assert(</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            std::has_virtual_destructor_v&lt; T &gt;,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="stringliteral">&quot;Type stored in derived_storage has to have a virtual destructor&quot;</span> );</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a7830e5c1d8e1d81e4c4c7035539cea5e">   38</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1derived__storage.html#a7830e5c1d8e1d81e4c4c7035539cea5e">storage_type</a> = <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>[N];</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a5c629657dbd12d5e42cd481da334843f">   40</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1derived__storage.html#a5c629657dbd12d5e42cd481da334843f">base_type</a> = T;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a1ad560d197b23939a15bc113bd9a7b64">   42</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#a1ad560d197b23939a15bc113bd9a7b64">derived_storage</a>()</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;          : ptr_( nullptr )</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">template</span> &lt; std::derived_from&lt; T &gt; U &gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#ae08919b3a4de3ca69486efd68d082578">   48</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#ae08919b3a4de3ca69486efd68d082578">derived_storage</a>( U&amp;&amp; item )</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;          : ptr_( &amp;storage_ )</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                static_assert( is_storable_with_align&lt; U &gt;( N ) );</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                ptr_ = <a class="code" href="namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263">align</a>( ptr_, <span class="keyword">alignof</span>( U ) );</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                std::construct_at( ptr_, std::forward&lt; U &gt;( item ) );</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#aa70d852ce6c8cf35abe0b903943e79a9">   56</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#aa70d852ce6c8cf35abe0b903943e79a9">derived_storage</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp; ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#ad0c25ca45df18da054d50d12339857e4">   57</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#ad0c25ca45df18da054d50d12339857e4">derived_storage</a>( <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp;&amp; )      = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#aba98e3a547a8b75125f7cb806f7f1810">   59</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#aba98e3a547a8b75125f7cb806f7f1810">operator=</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp; ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#aa0537232b8a231342945a2a89aaeb710">   60</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#aa0537232b8a231342945a2a89aaeb710">operator=</a>( <a class="code" href="classemlabcpp_1_1derived__storage.html">derived_storage</a>&amp;&amp; )      = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a40ff040c80d6ed5d7c5541414f9f3830">   62</a></span>&#160;        T&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#a40ff040c80d6ed5d7c5541414f9f3830">operator*</a>()</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span> *ptr_;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a4124d8075ded2871445294b454da0a31">   67</a></span>&#160;        <span class="keyword">const</span> T&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#a4124d8075ded2871445294b454da0a31">operator*</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordflow">return</span> *ptr_;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a076f58c424d7290dd62c18c223872b9f">   72</a></span>&#160;        T* <a class="code" href="classemlabcpp_1_1derived__storage.html#a076f58c424d7290dd62c18c223872b9f">operator-&gt;</a>()</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">return</span> ptr_;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a21d75c879e3ab79315192a85ea5b19d0">   77</a></span>&#160;        <span class="keyword">const</span> T* <a class="code" href="classemlabcpp_1_1derived__storage.html#a21d75c879e3ab79315192a85ea5b19d0">operator-&gt;</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">return</span> ptr_;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a735eb75f7d53b32206ade3b8b92a9fa4">   82</a></span>&#160;        <span class="keyword">operator</span> bool()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">return</span> ptr_ != <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#ad92cb33b920170156532bda3ae94810a">   87</a></span>&#160;        T&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#ad92cb33b920170156532bda3ae94810a">get</a>()</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordflow">return</span> *ptr_;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a36435a2868f31fd9e7ae3beb870b0854">   92</a></span>&#160;        <span class="keyword">const</span> T&amp; <a class="code" href="classemlabcpp_1_1derived__storage.html#a36435a2868f31fd9e7ae3beb870b0854">get</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordflow">return</span> *ptr_;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1derived__storage.html#a3cc3295a5d4d2bbee0f96d8ba5a8f3ce">   97</a></span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#a3cc3295a5d4d2bbee0f96d8ba5a8f3ce">~derived_storage</a>()</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                std::destroy_at( ptr_ );</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        T*           ptr_;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <a class="code" href="classemlabcpp_1_1derived__storage.html#a7830e5c1d8e1d81e4c4c7035539cea5e">storage_type</a> storage_;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html">emlabcpp::derived_storage</a></div><div class="ttdef"><b>Definition:</b> derived_storage.h:32</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a076f58c424d7290dd62c18c223872b9f"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a076f58c424d7290dd62c18c223872b9f">emlabcpp::derived_storage::operator-&gt;</a></div><div class="ttdeci">T * operator-&gt;()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:72</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a1ad560d197b23939a15bc113bd9a7b64"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a1ad560d197b23939a15bc113bd9a7b64">emlabcpp::derived_storage::derived_storage</a></div><div class="ttdeci">derived_storage()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:42</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a21d75c879e3ab79315192a85ea5b19d0"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a21d75c879e3ab79315192a85ea5b19d0">emlabcpp::derived_storage::operator-&gt;</a></div><div class="ttdeci">const T * operator-&gt;() const</div><div class="ttdef"><b>Definition:</b> derived_storage.h:77</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a36435a2868f31fd9e7ae3beb870b0854"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a36435a2868f31fd9e7ae3beb870b0854">emlabcpp::derived_storage::get</a></div><div class="ttdeci">const T &amp; get() const</div><div class="ttdef"><b>Definition:</b> derived_storage.h:92</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a3cc3295a5d4d2bbee0f96d8ba5a8f3ce"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a3cc3295a5d4d2bbee0f96d8ba5a8f3ce">emlabcpp::derived_storage::~derived_storage</a></div><div class="ttdeci">~derived_storage()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:97</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a40ff040c80d6ed5d7c5541414f9f3830"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a40ff040c80d6ed5d7c5541414f9f3830">emlabcpp::derived_storage::operator*</a></div><div class="ttdeci">T &amp; operator*()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:62</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a4124d8075ded2871445294b454da0a31"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a4124d8075ded2871445294b454da0a31">emlabcpp::derived_storage::operator*</a></div><div class="ttdeci">const T &amp; operator*() const</div><div class="ttdef"><b>Definition:</b> derived_storage.h:67</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a5c629657dbd12d5e42cd481da334843f"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a5c629657dbd12d5e42cd481da334843f">emlabcpp::derived_storage::base_type</a></div><div class="ttdeci">T base_type</div><div class="ttdef"><b>Definition:</b> derived_storage.h:40</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_a7830e5c1d8e1d81e4c4c7035539cea5e"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#a7830e5c1d8e1d81e4c4c7035539cea5e">emlabcpp::derived_storage::storage_type</a></div><div class="ttdeci">std::byte[N] storage_type</div><div class="ttdef"><b>Definition:</b> derived_storage.h:38</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_aa0537232b8a231342945a2a89aaeb710"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#aa0537232b8a231342945a2a89aaeb710">emlabcpp::derived_storage::operator=</a></div><div class="ttdeci">derived_storage &amp; operator=(derived_storage &amp;&amp;)=delete</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_aa70d852ce6c8cf35abe0b903943e79a9"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#aa70d852ce6c8cf35abe0b903943e79a9">emlabcpp::derived_storage::derived_storage</a></div><div class="ttdeci">derived_storage(const derived_storage &amp;)=delete</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_aba98e3a547a8b75125f7cb806f7f1810"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#aba98e3a547a8b75125f7cb806f7f1810">emlabcpp::derived_storage::operator=</a></div><div class="ttdeci">derived_storage &amp; operator=(const derived_storage &amp;)=delete</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_ad0c25ca45df18da054d50d12339857e4"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#ad0c25ca45df18da054d50d12339857e4">emlabcpp::derived_storage::derived_storage</a></div><div class="ttdeci">derived_storage(derived_storage &amp;&amp;)=delete</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_ad92cb33b920170156532bda3ae94810a"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#ad92cb33b920170156532bda3ae94810a">emlabcpp::derived_storage::get</a></div><div class="ttdeci">T &amp; get()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:86</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_ae08919b3a4de3ca69486efd68d082578"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#ae08919b3a4de3ca69486efd68d082578">emlabcpp::derived_storage::derived_storage</a></div><div class="ttdeci">derived_storage(U &amp;&amp;item)</div><div class="ttdef"><b>Definition:</b> derived_storage.h:47</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_ad92cb33b920170156532bda3ae94810a"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#ad92cb33b920170156532bda3ae94810a">emlabcpp::derived_storage::get</a></div><div class="ttdeci">T &amp; get()</div><div class="ttdef"><b>Definition:</b> derived_storage.h:87</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1derived__storage_html_ae08919b3a4de3ca69486efd68d082578"><div class="ttname"><a href="classemlabcpp_1_1derived__storage.html#ae08919b3a4de3ca69486efd68d082578">emlabcpp::derived_storage::derived_storage</a></div><div class="ttdeci">derived_storage(U &amp;&amp;item)</div><div class="ttdef"><b>Definition:</b> derived_storage.h:48</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a1b56b352c8ba06335f92e0118ab2f263"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263">emlabcpp::pmr::align</a></div><div class="ttdeci">void * align(void *const ptr, const std::size_t alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:30</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> impl.h:27</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:85</div></div>
@@ -201,7 +202,7 @@ $(document).ready(function(){initNavTree('derived__storage_8h_source.html',''); 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="derived__storage_8h.html">derived_storage.h</a></li>
-    <li class="footer">Generated on Tue Aug 15 2023 16:56:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Aug 15 2023 18:23:33 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
