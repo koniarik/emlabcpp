@@ -318,7 +318,6 @@ var hierarchy =
     [ "emlabcpp::signature_of< ReturnType(Class::*)(Args...) >", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4.html", [
       [ "emlabcpp::signature_of< ReturnType(Class::*)(Args...) const >", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01const_01_4.html", null ]
     ] ],
-    [ "emlabcpp::simple_stream< WriteCallable >", "classemlabcpp_1_1simple__stream.html", null ],
     [ "emlabcpp::simplex< Item, N >", "classemlabcpp_1_1simplex.html", null ],
     [ "emlabcpp::protocol::sized_buffer< CounterDef, D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer", null ],
     [ "emlabcpp::static_circular_buffer< T, N >", "classemlabcpp_1_1static__circular__buffer.html", null ],

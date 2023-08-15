@@ -104,22 +104,22 @@ $(document).ready(function(){initNavTree('min__max_8h_source.html',''); initResi
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1min__max.html#acba95668bfcd892dcd2fdca507bdc621">   18</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="structemlabcpp_1_1min__max.html#acba95668bfcd892dcd2fdca507bdc621">value_type</a> = T;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1min__max.html#a9019878a5c7b00b869912bf4903f4909">   20</a></span>&#160;        constexpr T&amp; <a class="code" href="structemlabcpp_1_1min__max.html#a9019878a5c7b00b869912bf4903f4909">min</a>()</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1min__max.html#a9019878a5c7b00b869912bf4903f4909">   20</a></span>&#160;        [[nodiscard]] constexpr T&amp; <a class="code" href="structemlabcpp_1_1min__max.html#a9019878a5c7b00b869912bf4903f4909">min</a>()</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keywordflow">return</span> this-&gt;operator[]( 0 );</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1min__max.html#af5d4af768610d1109a6d75705682c391">   25</a></span>&#160;        constexpr <span class="keyword">const</span> T&amp; <a class="code" href="structemlabcpp_1_1min__max.html#af5d4af768610d1109a6d75705682c391">min</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1min__max.html#af5d4af768610d1109a6d75705682c391">   25</a></span>&#160;        [[nodiscard]] constexpr <span class="keyword">const</span> T&amp; <a class="code" href="structemlabcpp_1_1min__max.html#af5d4af768610d1109a6d75705682c391">min</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="keywordflow">return</span> this-&gt;operator[]( 0 );</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1min__max.html#a90498ad87fa97accc4466641e268ff51">   30</a></span>&#160;        constexpr T&amp; <a class="code" href="structemlabcpp_1_1min__max.html#a90498ad87fa97accc4466641e268ff51">max</a>()</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1min__max.html#a90498ad87fa97accc4466641e268ff51">   30</a></span>&#160;        [[nodiscard]] constexpr T&amp; <a class="code" href="structemlabcpp_1_1min__max.html#a90498ad87fa97accc4466641e268ff51">max</a>()</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordflow">return</span> this-&gt;operator[]( 1 );</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1min__max.html#af158a2d3598c29af6400a3c0ed2fdd4f">   35</a></span>&#160;        constexpr <span class="keyword">const</span> T&amp; <a class="code" href="structemlabcpp_1_1min__max.html#af158a2d3598c29af6400a3c0ed2fdd4f">max</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1min__max.html#af158a2d3598c29af6400a3c0ed2fdd4f">   35</a></span>&#160;        [[nodiscard]] constexpr <span class="keyword">const</span> T&amp; <a class="code" href="structemlabcpp_1_1min__max.html#af158a2d3598c29af6400a3c0ed2fdd4f">max</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">return</span> this-&gt;operator[]( 1 );</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
@@ -235,7 +235,7 @@ $(document).ready(function(){initNavTree('min__max_8h_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="min__max_8h.html">min_max.h</a></li>
-    <li class="footer">Generated on Mon Aug 14 2023 22:09:47 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Aug 15 2023 16:56:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

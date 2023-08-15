@@ -278,7 +278,6 @@ var annotated_dup =
       [ "pretty_printer< std::chrono::duration< Rep, Period > >", "structemlabcpp_1_1pretty__printer_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Period_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Period_01_4_01_4" ],
       [ "pretty_printer< std::bitset< N > >", "structemlabcpp_1_1pretty__printer_3_01std_1_1bitset_3_01N_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01std_1_1bitset_3_01N_01_4_01_4" ],
       [ "pretty_printer< min_max< T > >", "structemlabcpp_1_1pretty__printer_3_01min__max_3_01T_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01min__max_3_01T_01_4_01_4" ],
-      [ "simple_stream", "classemlabcpp_1_1simple__stream.html", "classemlabcpp_1_1simple__stream" ],
       [ "string_buffer", "structemlabcpp_1_1string__buffer.html", "structemlabcpp_1_1string__buffer" ],
       [ "pretty_printer< string_buffer< N > >", "structemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4" ],
       [ "generic_iterator", "classemlabcpp_1_1generic__iterator.html", "classemlabcpp_1_1generic__iterator" ],

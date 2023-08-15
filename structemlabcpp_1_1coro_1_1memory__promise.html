@@ -101,6 +101,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7cadd53f1a8568cff1322ff57b8887b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab579f62361045df142f39f92f795227d"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1coro_1_1memory__promise.html#ab579f62361045df142f39f92f795227d">operator new</a> (const std::size_t sz, <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;<a class="el" href="namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1">pi</a>, auto &amp;&amp;...) noexcept</td></tr>
 <tr class="separator:ab579f62361045df142f39f92f795227d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af044446c3e85a466cdf0cf2611a6f1e4"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1coro_1_1memory__promise.html#af044446c3e85a466cdf0cf2611a6f1e4">operator new</a> (const std::size_t sz, auto &amp;&amp;...) noexcept=delete</td></tr>
+<tr class="separator:af044446c3e85a466cdf0cf2611a6f1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac7842c7528e91d7817528daa145e04a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1coro_1_1memory__promise.html#aac7842c7528e91d7817528daa145e04a">operator delete</a> (void *const ptr, const std::size_t size)</td></tr>
 <tr class="separator:aac7842c7528e91d7817528daa145e04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -195,8 +197,46 @@ template&lt;typename PromiseType &gt; </div>
 
 </div>
 </div>
+<a id="af044446c3e85a466cdf0cf2611a6f1e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af044446c3e85a466cdf0cf2611a6f1e4">&#9670;&nbsp;</a></span>operator new() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PromiseType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* <a class="el" href="structemlabcpp_1_1coro_1_1memory__promise.html">emlabcpp::coro::memory_promise</a>&lt; PromiseType &gt;::operator new </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t&#160;</td>
+          <td class="paramname"><em>sz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7cadd53f1a8568cff1322ff57b8887b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cadd53f1a8568cff1322ff57b8887b0">&#9670;&nbsp;</a></span>operator new() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cadd53f1a8568cff1322ff57b8887b0">&#9670;&nbsp;</a></span>operator new() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -248,7 +288,7 @@ template&lt;typename PromiseType &gt; </div>
 </div>
 </div>
 <a id="ab579f62361045df142f39f92f795227d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab579f62361045df142f39f92f795227d">&#9670;&nbsp;</a></span>operator new() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab579f62361045df142f39f92f795227d">&#9670;&nbsp;</a></span>operator new() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -327,7 +367,7 @@ template&lt;typename PromiseType &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1coro.html">coro</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1coro_1_1memory__promise.html">memory_promise</a></li>
-    <li class="footer">Generated on Mon Aug 14 2023 22:09:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Aug 15 2023 16:56:18 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
