@@ -33,13 +33,19 @@ class function_view< ReturnType( ArgTypes... ) >
 public:
         using signature = ReturnType( ArgTypes... );
 
+        function_view( function_view& )                      = default;
+        function_view( const function_view& )                = default;
+        function_view( function_view&& ) noexcept            = default;
+        function_view& operator=( const function_view& )     = default;
+        function_view& operator=( function_view&& ) noexcept = default;
+
         function_view( signature* fun )
           : obj_( reinterpret_cast< void* >( fun ) )
           , handler_( &FunctionHandler )
         {
         }
 
-        template < typename Callable >
+        template < std::invocable< ArgTypes... > Callable >
         function_view( Callable& cb )
           : obj_( &cb )
           , handler_( &CallableHandler< Callable > )
