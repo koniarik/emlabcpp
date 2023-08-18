@@ -17,9 +17,9 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
-#include "emlabcpp/iterators/convert.h"
-
 #pragma once
+
+#include "emlabcpp/iterators/convert.h"
 
 namespace emlabcpp
 {

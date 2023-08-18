@@ -17,6 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/experimental/contiguous_tree/base.h"
 #include "emlabcpp/experimental/multiplexer.h"
@@ -34,8 +36,6 @@
 #include <array>
 #include <bit>
 #include <variant>
-
-#pragma once
 
 namespace emlabcpp::testing
 {

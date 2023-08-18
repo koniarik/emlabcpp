@@ -1,11 +1,10 @@
+#pragma once
 
 #include "emlabcpp/experimental/cfg/base.h"
 #include "emlabcpp/protocol/converter.h"
 
 #include <span>
 #include <tuple>
-
-#pragma once
 
 namespace emlabcpp::cfg
 {

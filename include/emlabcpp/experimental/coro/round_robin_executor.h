@@ -17,11 +17,11 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include <emlabcpp/algorithm.h>
 #include <emlabcpp/pmr/memory_resource.h>
 #include <emlabcpp/static_circular_buffer.h>
-
-#pragma once
 
 namespace emlabcpp::coro
 {

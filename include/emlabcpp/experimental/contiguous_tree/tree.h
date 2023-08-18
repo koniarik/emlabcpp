@@ -17,6 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/contiguous_tree/base.h"
 #include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/match.h"
@@ -25,8 +27,6 @@
 #include "emlabcpp/static_vector.h"
 
 #include <map>
-
-#pragma once
 
 namespace emlabcpp
 {

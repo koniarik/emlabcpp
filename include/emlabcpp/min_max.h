@@ -1,11 +1,11 @@
+#pragma once
+
 #include <array>
 #include <functional>
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 #include <nlohmann/json.hpp>
 #endif
-
-#pragma once
 
 namespace emlabcpp
 {

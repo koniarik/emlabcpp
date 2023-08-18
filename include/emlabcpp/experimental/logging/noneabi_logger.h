@@ -1,8 +1,8 @@
+#pragma once
+
 #include "emlabcpp/experimental/pretty_printer.h"
 
 #include <string_view>
-
-#pragma once
 
 namespace emlabcpp
 {

@@ -17,13 +17,13 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/multiplexer.h"
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/static_function.h"
 
 #include <utility>
-
-#pragma once
 
 namespace emlabcpp::testing
 {

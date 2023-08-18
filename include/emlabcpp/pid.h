@@ -17,13 +17,13 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/min_max.h"
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 #include <nlohmann/json.hpp>
 #endif
-
-#pragma once
 
 namespace emlabcpp
 {

@@ -17,6 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/pmr/allocator.h"
 
 #include <deque>
@@ -25,8 +27,6 @@
 #include <memory>
 #include <set>
 #include <vector>
-
-#pragma once
 
 namespace emlabcpp::pmr
 {

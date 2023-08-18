@@ -17,6 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/algorithm/impl.h"
 #include "emlabcpp/bounded.h"
 #include "emlabcpp/min_max.h"
@@ -26,8 +28,6 @@
 #include <cmath>
 #include <cstdlib>
 #include <tuple>
-
-#pragma once
 
 namespace emlabcpp
 {

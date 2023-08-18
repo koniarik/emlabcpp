@@ -17,11 +17,11 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/quantity.h"
 
 #include <string>
-
-#pragma once
 
 namespace emlabcpp
 {

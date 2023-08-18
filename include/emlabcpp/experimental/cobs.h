@@ -1,9 +1,9 @@
+#pragma once
+
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/view.h"
 
 #include <cstddef>
-
-#pragma once
 
 namespace emlabcpp
 {

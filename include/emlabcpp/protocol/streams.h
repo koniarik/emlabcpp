@@ -17,14 +17,14 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/enum.h"
 #include "emlabcpp/protocol/base.h"
 #include "emlabcpp/protocol/register_map.h"
 #include "emlabcpp/range.h"
 
 #include <iomanip>
-
-#pragma once
 
 namespace emlabcpp
 {

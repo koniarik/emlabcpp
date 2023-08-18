@@ -17,9 +17,9 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/geom/vec_point_base.h"
-
 #pragma once
+
+#include "emlabcpp/experimental/geom/vec_point_base.h"
 
 namespace emlabcpp
 {

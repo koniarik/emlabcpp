@@ -17,6 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/bounded.h"
 #include "emlabcpp/protocol/error.h"
 
@@ -25,8 +27,6 @@
 #include <cstring>
 #include <type_traits>
 #include <variant>
-
-#pragma once
 
 namespace emlabcpp::protocol
 {

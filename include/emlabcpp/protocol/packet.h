@@ -17,11 +17,11 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/protocol/sequencer.h"
 #include "emlabcpp/protocol/serializer.h"
 #include "emlabcpp/protocol/tuple.h"
-
-#pragma once
 
 namespace emlabcpp::protocol
 {

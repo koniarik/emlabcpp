@@ -1,11 +1,11 @@
+#pragma once
+
 #include "emlabcpp/experimental/logging/color.h"
 #include "emlabcpp/experimental/logging/time.h"
 #include "emlabcpp/experimental/pretty_printer.h"
 #include "emlabcpp/match.h"
 
 #include <iostream>
-
-#pragma once
 
 namespace emlabcpp
 {

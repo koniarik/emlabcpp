@@ -17,12 +17,12 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/testing/executor.h"
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/pmr/stack_resource.h"
 #include "emlabcpp/protocol/endpoint.h"
-
-#pragma once
 
 namespace emlabcpp::testing
 {

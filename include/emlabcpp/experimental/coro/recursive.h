@@ -1,9 +1,9 @@
+#pragma once
+
 #include "emlabcpp/experimental/coro/memory_promise.h"
 #include "emlabcpp/experimental/coro/owning_coroutine_handle.h"
 
 #include <coroutine>
-
-#pragma once
 
 namespace emlabcpp::coro
 {

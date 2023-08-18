@@ -17,6 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/experimental/contiguous_tree/tree.h"
 #include "emlabcpp/experimental/string_buffer.h"
@@ -26,8 +28,6 @@
 #include <map>
 #include <memory_resource>
 #include <variant>
-
-#pragma once
 
 namespace emlabcpp::testing
 {

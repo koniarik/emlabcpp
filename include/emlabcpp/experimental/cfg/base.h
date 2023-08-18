@@ -1,6 +1,6 @@
-#include <cstdint>
-
 #pragma once
+
+#include <cstdint>
 
 namespace emlabcpp::cfg
 {

@@ -17,14 +17,14 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/pretty_printer.h"
 
 #include <array>
 #include <chrono>
 #include <ctime>
 #include <string_view>
-
-#pragma once
 
 namespace emlabcpp
 {

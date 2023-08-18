@@ -17,14 +17,14 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/concepts.h"
 #include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/experimental/pretty_printer.h"
 
 #include <optional>
 #include <type_traits>
-
-#pragma once
 
 namespace emlabcpp
 {

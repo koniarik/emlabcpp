@@ -17,9 +17,9 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/testing/base.h"
-
 #pragma once
+
+#include "emlabcpp/experimental/testing/base.h"
 
 namespace emlabcpp::testing
 {

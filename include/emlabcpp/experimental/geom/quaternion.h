@@ -17,9 +17,9 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/geom/point.h"
-
 #pragma once
+
+#include "emlabcpp/experimental/geom/point.h"
 
 namespace emlabcpp
 {
@@ -107,7 +107,7 @@ constexpr float norm2_of( const quaternion& q )
 constexpr float angle_shortest_path( const quaternion& m, const quaternion& n )
 {
         const float s = std::sqrt( norm2_of( m ) * norm2_of( n ) );
-        float d = dot( m, n );
+        float       d = dot( m, n );
         if ( d < 0 ) {
                 d = dot( m, -n );
         }
@@ -125,7 +125,7 @@ constexpr quaternion slerp( const quaternion& q, const quaternion& s, float f )
         const float d  = 1.0f / std::sin( theta );
         const float s0 = std::sin( ( 1.0f - f ) * theta );
         const float s1 = std::sin( f * theta );
-        float m  = 1.0f;
+        float       m  = 1.0f;
         if ( dot( q, s ) < 0 ) {
                 m = -1.0f;
         }

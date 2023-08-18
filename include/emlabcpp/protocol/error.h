@@ -17,12 +17,12 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/string_buffer.h"
 
 #include <algorithm>
 #include <array>
-
-#pragma once
 
 namespace emlabcpp::protocol
 {

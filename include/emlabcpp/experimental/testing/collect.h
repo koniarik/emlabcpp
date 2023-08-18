@@ -17,14 +17,14 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/contiguous_tree/request_adapter.h"
 #include "emlabcpp/experimental/function_view.h"
 #include "emlabcpp/experimental/testing/convert.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/static_function.h"
-
-#pragma once
 
 namespace emlabcpp::testing
 {

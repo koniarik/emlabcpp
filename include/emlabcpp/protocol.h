@@ -17,8 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/protocol/command_group.h"
 #include "emlabcpp/protocol/traits.h"
 #include "emlabcpp/protocol/tuple.h"
-
-#pragma once

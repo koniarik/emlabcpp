@@ -17,6 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/decompose.h"
 #include "emlabcpp/protocol/base.h"
 #include "emlabcpp/protocol/error.h"
@@ -27,8 +29,6 @@
 
 #include <optional>
 #include <variant>
-
-#pragma once
 
 namespace emlabcpp::protocol
 {

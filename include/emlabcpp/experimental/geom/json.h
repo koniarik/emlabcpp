@@ -17,6 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/geom/point.h"
 #include "emlabcpp/experimental/geom/pose.h"
 #include "emlabcpp/experimental/geom/quaternion.h"
@@ -25,8 +27,6 @@
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 #include <nlohmann/json.hpp>
 #endif
-
-#pragma once
 
 namespace emlabcpp
 {

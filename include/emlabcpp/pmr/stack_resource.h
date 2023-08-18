@@ -17,14 +17,14 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/pmr/memory_resource.h"
 #include "emlabcpp/pmr/util.h"
 
 #include <array>
 #include <cstring>
-
-#pragma once
 
 namespace emlabcpp::pmr
 {

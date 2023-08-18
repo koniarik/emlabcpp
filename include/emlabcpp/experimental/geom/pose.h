@@ -17,12 +17,12 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/geom/point.h"
 #include "emlabcpp/experimental/geom/quaternion.h"
 
 #include <utility>
-
-#pragma once
 
 namespace emlabcpp
 {
@@ -130,10 +130,10 @@ lineary_interpolate_path( const std::vector< pose >& ipath, float d_step, float 
                 return res;
         }
         for ( const std::size_t i : range( ipath.size() - 1 ) ) {
-                const pose& from      = ipath[i];
-                const pose& to        = ipath[i + 1];
+                const pose&       from      = ipath[i];
+                const pose&       to        = ipath[i + 1];
                 const std::size_t seg_steps = steps( distance_of( to, from ), d_step, a_step );
-                for (const  std::size_t j : range( seg_steps ) ) {
+                for ( const std::size_t j : range( seg_steps ) ) {
                         res.push_back( lin_interp( from, to, float( j ) / float( seg_steps ) ) );
                 }
         }

@@ -17,6 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/experimental/geom/point.h"
 #include "emlabcpp/experimental/matrix.h"
@@ -24,8 +26,6 @@
 #include <algorithm>
 #include <array>
 #include <vector>
-
-#pragma once
 
 namespace emlabcpp
 {

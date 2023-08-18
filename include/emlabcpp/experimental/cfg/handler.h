@@ -1,7 +1,7 @@
+#pragma once
+
 #include "emlabcpp/experimental/cfg/load.h"
 #include "emlabcpp/experimental/cfg/store.h"
-
-#pragma once
 
 namespace emlabcpp::cfg
 {

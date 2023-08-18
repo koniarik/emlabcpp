@@ -17,11 +17,11 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/testing/controller_interface_adapter.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/pmr/aliases.h"
-
-#pragma once
 
 namespace emlabcpp::testing
 {

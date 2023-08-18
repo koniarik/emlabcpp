@@ -1,10 +1,10 @@
+#pragma once
+
 #include "emlabcpp/experimental/pretty_printer.h"
 
 #include <algorithm>
 #include <array>
 #include <cstring>
-
-#pragma once
 
 namespace emlabcpp
 {

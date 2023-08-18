@@ -17,14 +17,14 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/bounded_view.h"
 #include "emlabcpp/protocol/base.h"
 #include "emlabcpp/range.h"
 
 #include <bit>
 #include <span>
-
-#pragma once
 
 namespace emlabcpp::protocol
 {

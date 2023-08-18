@@ -17,11 +17,11 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/experimental/pretty_printer.h"
 #include "emlabcpp/range.h"
-
-#pragma once
 
 namespace emlabcpp
 {

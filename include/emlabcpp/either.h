@@ -17,6 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/static_vector.h"
 #include "emlabcpp/types.h"
 
@@ -24,8 +26,6 @@
 #include <tuple>
 #include <type_traits>
 #include <utility>
-
-#pragma once
 
 namespace emlabcpp
 {

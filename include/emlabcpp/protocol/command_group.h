@@ -17,12 +17,12 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/assert.h"
 #include "emlabcpp/protocol/traits.h"
 #include "emlabcpp/types.h"
-
-#pragma once
 
 namespace emlabcpp::protocol
 {

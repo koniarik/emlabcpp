@@ -17,9 +17,9 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/logging.h"
-
 #pragma once
+
+#include "emlabcpp/experimental/logging.h"
 
 #define EMLACBPP_VA_ARGS_SIZE( ... ) std::tuple_size_v< decltype( std::make_tuple( __VA_ARGS__ ) ) >
 

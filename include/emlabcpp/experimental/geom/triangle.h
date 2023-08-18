@@ -17,12 +17,12 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/geom/point.h"
 #include "emlabcpp/experimental/geom/pose.h"
 #include "emlabcpp/experimental/geom/simplex.h"
 #include "emlabcpp/experimental/geom/vector.h"
-
-#pragma once
 
 namespace emlabcpp
 {

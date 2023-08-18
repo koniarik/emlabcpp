@@ -17,11 +17,11 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/either.h"
 #include "emlabcpp/protocol/converter.h"
 #include "emlabcpp/types.h"
-
-#pragma once
 
 namespace emlabcpp::protocol
 {
@@ -52,7 +52,7 @@ struct handler
 
         static either< value_type, error_record > extract( const view< const std::byte* >& msg )
         {
-                value_type        val;
+                value_type              val;
                 const conversion_result res = def::deserialize( msg, val );
                 if ( res.has_error() ) {
                         const mark* const mark = res.get_error();

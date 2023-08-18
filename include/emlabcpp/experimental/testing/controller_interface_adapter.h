@@ -17,10 +17,10 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/experimental/testing/controller_interface.h"
 #include "emlabcpp/static_function.h"
-
-#pragma once
 
 namespace emlabcpp::testing
 {

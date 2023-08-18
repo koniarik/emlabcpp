@@ -17,6 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 #include <nlohmann/json.hpp>
 #endif
@@ -28,8 +30,6 @@
 #include "emlabcpp/algorithm.h"
 #include "emlabcpp/enum.h"
 #include "emlabcpp/protocol/traits.h"
-
-#pragma once
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 

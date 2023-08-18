@@ -17,11 +17,11 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/protocol/handler.h"
 #include "emlabcpp/protocol/streams.h"
 #include "emlabcpp/static_function.h"
-
-#pragma once
 
 namespace emlabcpp::rpc
 {

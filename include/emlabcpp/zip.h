@@ -17,13 +17,13 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #include "emlabcpp/range.h"
 #include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
 
 #include <tuple>
-
-#pragma once
 
 namespace emlabcpp
 {

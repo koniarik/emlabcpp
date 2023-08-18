@@ -17,6 +17,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
+#pragma once
+
 #ifdef EMLABCPP_USE_MAGIC_ENUM
 #include "emlabcpp/enum.h"
 #endif
@@ -25,8 +27,6 @@
 #include "emlabcpp/visit.h"
 
 #include <variant>
-
-#pragma once
 
 namespace emlabcpp::testing
 {
