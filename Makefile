@@ -27,11 +27,7 @@ run_coverage: build_coverage
 	cd build/cov && ctest -T Test
 
 coverage: run_coverage
-	gcovr -r . --html -o index.html
-
-include-what-you-use:
-	CC=clang CXX=clang++ cmake -Bbuild/iwyu $(EXTRAARGS) -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE="include-what-you-use;-w;-Xiwyu;--no_comments;-Xiwyu;--keep=\"gtest/*\";-Xiwyu;--no_fwd_decls;-Xiwyu;--keep=\"nlohmann/*\";-Xiwyu;--cxx17ns;"
-	cmake --build build/iwyu
+	gcovr --decisions --calls -p --html-details -o build/cov/index.html -r .
 
 clang-tidy:
 	cmake -Bbuild/clang-tidy -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy
