@@ -109,8 +109,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad15c362e662a63d44e8bc01076450730"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf42a9f70fdaa20919c22474fcdfee9d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#aaf42a9f70fdaa20919c22474fcdfee9d">is_equal</a> (const <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">memory_resource</a> &amp;other) const noexcept=0</td></tr>
 <tr class="separator:aaf42a9f70fdaa20919c22474fcdfee9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4a1325475c06c7a340698d9a497950c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#ac4a1325475c06c7a340698d9a497950c">is_full</a> () const =0</td></tr>
-<tr class="separator:ac4a1325475c06c7a340698d9a497950c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abef67a35c4d3bdcf68bea546d12840b9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#abef67a35c4d3bdcf68bea546d12840b9">is_full</a> () const noexcept=0</td></tr>
+<tr class="separator:abef67a35c4d3bdcf68bea546d12840b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6823defb80bf2e988f1e906cf1a614e9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#a6823defb80bf2e988f1e906cf1a614e9">~memory_resource</a> ()=default</td></tr>
 <tr class="separator:a6823defb80bf2e988f1e906cf1a614e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -251,8 +251,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac4a1325475c06c7a340698d9a497950c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4a1325475c06c7a340698d9a497950c">&#9670;&nbsp;</a></span>is_full()</h2>
+<a id="abef67a35c4d3bdcf68bea546d12840b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abef67a35c4d3bdcf68bea546d12840b9">&#9670;&nbsp;</a></span>is_full()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -269,12 +269,12 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a187b022b324477af1af32bc1f74aa9b1">emlabcpp::pmr::stack_resource&lt; Capacity &gt;</a>, <a class="el" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a187b022b324477af1af32bc1f74aa9b1">emlabcpp::pmr::stack_resource&lt; 1024+512 &gt;</a>, <a class="el" href="classemlabcpp_1_1pmr_1_1pool__resource.html#acc093a45bac4a96ebd804deda9e20de6">emlabcpp::pmr::pool_resource&lt; PoolSize, PoolCount &gt;</a>, and <a class="el" href="structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html#a3943e63f1a51cb1e3505af80f46bd938">emlabcpp::pmr::new_delete_resource_impl</a>.</p>
+<p>Implemented in <a class="el" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a05ad07ac1f2c0e6b7d171f7839733fd0">emlabcpp::pmr::stack_resource&lt; Capacity &gt;</a>, <a class="el" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a05ad07ac1f2c0e6b7d171f7839733fd0">emlabcpp::pmr::stack_resource&lt; 1024+512 &gt;</a>, <a class="el" href="classemlabcpp_1_1pmr_1_1pool__resource.html#ac694323b3f44398c0f9d69ac8b4cd2db">emlabcpp::pmr::pool_resource&lt; PoolSize, PoolCount &gt;</a>, and <a class="el" href="structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html#a6bd69e925c1d854d7cdde05e0d870760">emlabcpp::pmr::new_delete_resource_impl</a>.</p>
 
 </div>
 </div>
@@ -287,7 +287,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1pmr.html">pmr</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">memory_resource</a></li>
-    <li class="footer">Generated on Fri Aug 18 2023 14:25:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 18 2023 16:32:27 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

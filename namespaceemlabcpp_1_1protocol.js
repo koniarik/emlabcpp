@@ -107,7 +107,7 @@ var namespaceemlabcpp_1_1protocol =
     [ "serialize_multiplexed", "namespaceemlabcpp_1_1protocol.html#a3e625c3d79c1b8ca3bc23f0ac23d00cd", null ],
     [ "serialize_range", "namespaceemlabcpp_1_1protocol.html#a025c3ab4f51bf2f567f9ad6dd9440355", null ],
     [ "sizeless_message", "namespaceemlabcpp_1_1protocol.html#a28cabc33555007426b8995bfbf036ae5", null ],
-    [ "traits_for_impl", "namespaceemlabcpp_1_1protocol.html#a9c27fc5576f6e7894b809016d7d5cbdc", null ],
+    [ "traits_for_impl", "namespaceemlabcpp_1_1protocol.html#a8e118c9ad4e33ebcc00f167a469b770a", null ],
     [ "BADVAL_ERR", "namespaceemlabcpp_1_1protocol.html#ae7f63810880ec41008ee91a908c63148", null ],
     [ "base_type", "namespaceemlabcpp_1_1protocol.html#aa86d1c4c148d71e70716484056a293c0", null ],
     [ "BIGSIZE_ERR", "namespaceemlabcpp_1_1protocol.html#a0e98558caf268e368b4544533cb43055", null ],

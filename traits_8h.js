@@ -21,7 +21,7 @@ var traits_8h =
     [ "proto_traits< std::optional< T > >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1optional_3_01T_01_4_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1optional_3_01T_01_4_01_4" ],
     [ "backup_proto_traits< T >", "structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4.html", "structemlabcpp_1_1protocol_1_1backup__proto__traits_3_01T_01_4" ],
     [ "traits_for", "traits_8h.html#a3a34c38f8477e0d13ec03adfde561549", null ],
-    [ "traits_for_impl", "traits_8h.html#a9c27fc5576f6e7894b809016d7d5cbdc", null ],
+    [ "traits_for_impl", "traits_8h.html#a8e118c9ad4e33ebcc00f167a469b770a", null ],
     [ "convertible", "traits_8h.html#aabf37dc4e5c925a68b635522ef9567a5", null ],
     [ "fixedly_sized", "traits_8h.html#ac625ba8fcce291f5064a3ec8b5177cd5", null ]
 ];

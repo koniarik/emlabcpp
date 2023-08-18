@@ -303,7 +303,7 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a5a83d4c1eb315aa43105c840fd9e2799"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a5a83d4c1eb315aa43105c840fd9e2799">size_type</a> = <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a> &gt;</td></tr>
 <tr class="separator:a5a83d4c1eb315aa43105c840fd9e2799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a34c38f8477e0d13ec03adfde561549"><td class="memTemplParams" colspan="2">template&lt;typename D &gt; </td></tr>
-<tr class="memitem:a3a34c38f8477e0d13ec03adfde561549"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a> = decltype(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a9c27fc5576f6e7894b809016d7d5cbdc">traits_for_impl</a>&lt; D &gt;())</td></tr>
+<tr class="memitem:a3a34c38f8477e0d13ec03adfde561549"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a> = decltype(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a8e118c9ad4e33ebcc00f167a469b770a">traits_for_impl</a>&lt; D &gt;())</td></tr>
 <tr class="separator:a3a34c38f8477e0d13ec03adfde561549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -355,9 +355,9 @@ Functions</h2></td></tr>
 <tr class="separator:a5a3eae750f39fcca3a1bf989dc31beac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6cb8eed0d3dbf831466baeae0b0501d"><td class="memItemLeft" align="right" valign="top">static constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d">deserialize</a> (const std::span&lt; const std::byte, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a> &gt; &amp;buffer)</td></tr>
 <tr class="separator:ab6cb8eed0d3dbf831466baeae0b0501d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c27fc5576f6e7894b809016d7d5cbdc"><td class="memTemplParams" colspan="2">template&lt;typename D &gt; </td></tr>
-<tr class="memitem:a9c27fc5576f6e7894b809016d7d5cbdc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a9c27fc5576f6e7894b809016d7d5cbdc">traits_for_impl</a> ()</td></tr>
-<tr class="separator:a9c27fc5576f6e7894b809016d7d5cbdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e118c9ad4e33ebcc00f167a469b770a"><td class="memTemplParams" colspan="2">template&lt;typename D &gt; </td></tr>
+<tr class="memitem:a8e118c9ad4e33ebcc00f167a469b770a"><td class="memTemplItemLeft" align="right" valign="top">consteval auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a8e118c9ad4e33ebcc00f167a469b770a">traits_for_impl</a> ()</td></tr>
+<tr class="separator:a8e118c9ad4e33ebcc00f167a469b770a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -850,7 +850,7 @@ template&lt;typename Def , typename Payload &gt; </div>
 template&lt;typename D &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">emlabcpp::protocol::traits_for</a> = typedef decltype( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9c27fc5576f6e7894b809016d7d5cbdc">traits_for_impl</a>&lt; D &gt;() )</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">emlabcpp::protocol::traits_for</a> = typedef decltype( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a8e118c9ad4e33ebcc00f167a469b770a">traits_for_impl</a>&lt; D &gt;() )</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1268,8 +1268,8 @@ template&lt;std::convertible_to&lt; uint8_t &gt;... Ts&gt; </div>
 
 </div>
 </div>
-<a id="a9c27fc5576f6e7894b809016d7d5cbdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c27fc5576f6e7894b809016d7d5cbdc">&#9670;&nbsp;</a></span>traits_for_impl()</h2>
+<a id="a8e118c9ad4e33ebcc00f167a469b770a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e118c9ad4e33ebcc00f167a469b770a">&#9670;&nbsp;</a></span>traits_for_impl()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1277,7 +1277,7 @@ template&lt;std::convertible_to&lt; uint8_t &gt;... Ts&gt; </div>
 template&lt;typename D &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">auto emlabcpp::protocol::traits_for_impl </td>
+          <td class="memname">consteval auto emlabcpp::protocol::traits_for_impl </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1732,7 +1732,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Fri Aug 18 2023 14:25:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 18 2023 16:32:27 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

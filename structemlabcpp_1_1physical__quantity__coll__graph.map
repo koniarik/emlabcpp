@@ -1,4 +1,6 @@
 <map id="emlabcpp::physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt;" name="emlabcpp::physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt;">
-<area shape="rect" id="node1" title="physical_quantity represents all physical units defined using the International System of Units and m..." alt="" coords="256,13,423,83"/>
-<area shape="rect" id="node2" href="$classemlabcpp_1_1quantity.html" title=" " alt="" coords="5,5,208,91"/>
+<area shape="rect" id="node1" title="physical_quantity represents all physical units defined using the International System of Units and m..." alt="" coords="484,53,651,123"/>
+<area shape="rect" id="node2" href="$classemlabcpp_1_1quantity.html" title=" " alt="" coords="157,5,360,91"/>
+<area shape="rect" id="node3" title=" " alt="" coords="197,115,320,141"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,115,44,141"/>
 </map>
