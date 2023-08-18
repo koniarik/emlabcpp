@@ -552,4 +552,31 @@ constexpr std::array< std::byte, N > bytes( const Args&... args )
         return std::array< std::byte, N >{ static_cast< std::byte >( args )... };
 }
 
+template < std::size_t I, typename T >
+constexpr auto get_ith_item_from_arrays( T& arr, auto&... arrays )
+{
+        constexpr std::size_t first_size = std::tuple_size_v< T >;
+        if constexpr ( I >= first_size ) {
+                return get_ith_item_from_arrays< I - first_size >( arrays... );
+        } else {
+                return arr[I];
+        }
+}
+
+template < typename Arr, typename... Arrs >
+constexpr auto merge_arrays( Arr&& first, Arrs&&... arrs )
+{
+        using value_type = typename std::decay_t< Arr >::value_type;
+        constexpr std::size_t size =
+            ( std::tuple_size_v< std::decay_t< Arrs > > + ... +
+              std::tuple_size_v< std::decay_t< Arr > > );
+
+        auto f = [&]< std::size_t... Is >( std::index_sequence< Is... > )
+        {
+                return std::array< value_type, size >{
+                    get_ith_item_from_arrays< Is >( first, arrs... )... };
+        };
+        return f( std::make_index_sequence< size >{} );
+}
+
 }  // namespace emlabcpp

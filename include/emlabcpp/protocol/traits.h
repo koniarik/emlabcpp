@@ -42,7 +42,7 @@ template < typename D >
 struct backup_proto_traits;
 
 template < typename D >
-auto traits_for_impl()
+consteval auto traits_for_impl()
 {
         if constexpr ( with_value_type< proto_traits< D > > ) {
                 return proto_traits< D >{};

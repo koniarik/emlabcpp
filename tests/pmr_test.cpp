@@ -22,7 +22,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 TEST( PMR, stack_resource_list )
 {
@@ -54,3 +55,36 @@ TEST( PMR, stack_resource_list_complex )
         EXPECT_EQ( l.front(), "wololo" );
         EXPECT_EQ( l.back(), "kololo" );
 }
+
+struct : pmr::memory_resource
+{
+        void* allocate( std::size_t, std::size_t )
+        {
+                return nullptr;
+        }
+
+        bool deallocate( void*, std::size_t, std::size_t )
+        {
+                return false;
+        }
+
+        bool is_equal( const memory_resource& ) const noexcept
+        {
+                return true;
+        };
+
+        bool is_full() const noexcept
+        {
+                return true;
+        }
+} FAILING_RESOURCE;
+
+TEST( PMR, allocator_throws )
+{
+        pmr::allocator< float > alloc{ FAILING_RESOURCE };
+
+        EXPECT_THROW( { alloc.allocate( 42 ); }, std::bad_alloc );
+        EXPECT_THROW( { alloc.deallocate( nullptr, 42 ); }, std::bad_alloc );
+}
+
+}  // namespace emlabcpp

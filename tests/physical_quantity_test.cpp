@@ -21,7 +21,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 // NOLINTNEXTLINE
 TEST( physical_quantity_test, basic )
@@ -59,3 +60,20 @@ TEST( physical_quantity_test, specializations )
         EXPECT_EQ( *std::numeric_limits< unitless >::min(), std::numeric_limits< float >::min() );
         EXPECT_EQ( *std::numeric_limits< unitless >::max(), std::numeric_limits< float >::max() );
 }
+
+TEST( physical_quantity_test, units )
+{
+        EXPECT_EQ( unitless::get_unit(), "" );
+        EXPECT_EQ( length::get_unit(), "m" );
+        EXPECT_EQ( mass::get_unit(), "kg" );
+        EXPECT_EQ( timeq::get_unit(), "s" );
+        EXPECT_EQ( current::get_unit(), "A" );
+        EXPECT_EQ( temp::get_unit(), "K" );
+        EXPECT_EQ( amount_of_substance::get_unit(), "mol" );
+        EXPECT_EQ( luminous_intensity::get_unit(), "cd" );
+        EXPECT_EQ( angle::get_unit(), "rad" );
+        EXPECT_EQ( byte::get_unit(), "B" );
+        EXPECT_EQ( resistance::get_unit(), "m^2kgs^-3A^-2" );
+}
+
+}  // namespace emlabcpp

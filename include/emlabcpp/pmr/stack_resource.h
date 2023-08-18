@@ -103,7 +103,7 @@ public:
                 return this == &other;
         }
 
-        [[nodiscard]] bool is_full() const override
+        [[nodiscard]] bool is_full() const noexcept override
         {
                 return top_ == buff_.end();
         }

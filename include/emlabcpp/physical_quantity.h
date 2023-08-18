@@ -19,6 +19,7 @@
 
 #pragma once
 
+#include "emlabcpp/algorithm.h"
 #include "emlabcpp/quantity.h"
 
 #include <string>
@@ -54,20 +55,48 @@ struct physical_quantity
             physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte >,
             float >::quantity;
 
-        static std::string get_unit()
+        template < int Exp, char... Unit >
+        static consteval auto get_single_unit()
         {
-                auto seg = []( std::string unit, int i ) -> std::string {
-                        if ( i == 0 ) {
-                                return "";
+                static_assert( Exp > -10 && Exp < 10 );
+                constexpr std::size_t unit_n = sizeof...( Unit );
+
+                if constexpr ( Exp == 0 ) {
+                        return std::array< char, 0 >{};
+                } else if constexpr ( Exp == 1 ) {
+                        return std::array< char, unit_n >{ Unit... };
+                } else {
+                        constexpr std::size_t      char_n = unit_n + 1 + ( Exp > 0 ? 1 : 2 );
+                        std::array< char, char_n > buffer{ Unit... };
+                        std::size_t                n = sizeof...( Unit );
+                        buffer[n++]                  = '^';
+                        if ( Exp < 0 ) {
+                                buffer[n++] = '-';
+                                buffer[n++] = -Exp + '0';
+                        } else {
+                                buffer[n++] = Exp + '0';
                         }
-                        if ( i == 1 ) {
-                                return unit;
-                        }
-                        return unit + "^" + std::to_string( i );
-                };
-                return seg( "m", Len ) + seg( "g", Mass ) + seg( "s", Time ) + seg( "A", Current ) +
-                       seg( "K", Temp ) + seg( "mol", Mol ) + seg( "cd", Li ) +
-                       seg( "rad", Angle ) + seg( "B", Byte );
+                        return buffer;
+                }
+        }
+
+        template < int Exp, char... Unit >
+        static constexpr std::array single_unit = get_single_unit< Exp, Unit... >();
+
+        static constexpr std::array unit = merge_arrays(
+            single_unit< Len, 'm' >,
+            single_unit< Mass, 'k', 'g' >,
+            single_unit< Time, 's' >,
+            single_unit< Current, 'A' >,
+            single_unit< Temp, 'K' >,
+            single_unit< Mol, 'm', 'o', 'l' >,
+            single_unit< Li, 'c', 'd' >,
+            single_unit< Angle, 'r', 'a', 'd' >,
+            single_unit< Byte, 'B' > );
+
+        static std::string_view get_unit()
+        {
+                return { unit.data(), unit.size() };
         }
 };
 
