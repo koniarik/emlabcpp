@@ -195,9 +195,21 @@ $(document).ready(function(){initNavTree('impl_8h_source.html',''); initResizabl
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                                    <a class="code" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html">map_f_collector&lt; T &gt;</a>{}.<a class="code" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">collect</a>( item, std::move( val ) );</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                            };</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}  <span class="comment">// namespace emlabcpp::impl</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> I, <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">  132</a></span>&#160;constexpr <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">get_ith_item_from_arrays</a>( T&amp; arr, <span class="keyword">auto</span>&amp;... arrays )</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        constexpr std::size_t first_size = std::tuple_size_v&lt; std::decay_t&lt; T &gt; &gt;;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">if</span> constexpr ( I &gt;= first_size ) {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">get_ith_item_from_arrays</a>&lt; I - first_size &gt;( arrays... );</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                <span class="keywordflow">return</span> arr[I];</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;}</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;}  <span class="comment">// namespace emlabcpp::impl</span></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html">emlabcpp::impl</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> impl.h:27</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a502794f0cc63c9d3399dfcedd60bd48e"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a502794f0cc63c9d3399dfcedd60bd48e">emlabcpp::impl::find_if_impl</a></div><div class="ttdeci">constexpr std::size_t find_if_impl(const std::tuple&lt; Args... &gt; &amp;t, UnaryPredicate &amp;&amp;f, std::index_sequence&lt; Idx... &gt;)</div><div class="ttdef"><b>Definition:</b> impl.h:31</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a5b47b8b6ec7073426834aee07b4a749c"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">emlabcpp::impl::get_ith_item_from_arrays</a></div><div class="ttdeci">constexpr auto get_ith_item_from_arrays(T &amp;arr, auto &amp;... arrays)</div><div class="ttdef"><b>Definition:</b> impl.h:132</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a9282cb9e137c842eef92467c1a0a504a"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a">emlabcpp::impl::map_f_to_a_impl</a></div><div class="ttdeci">std::array&lt; T, N &gt; map_f_to_a_impl(Container &amp;&amp;cont, UnaryCallable &amp;&amp;f, std::integer_sequence&lt; std::size_t, Is... &gt;)</div><div class="ttdef"><b>Definition:</b> impl.h:54</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:78</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa4539ae7694e16e3a1749e3089a36e2f"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f">emlabcpp::impl::map_f_collectable</a></div><div class="ttdeci">concept map_f_collectable</div><div class="ttdef"><b>Definition:</b> impl.h:127</div></div>
@@ -218,7 +230,7 @@ $(document).ready(function(){initNavTree('impl_8h_source.html',''); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_cd2498770f46874251cd2a7d2270663c.html">algorithm</a></li><li class="navelem"><a class="el" href="impl_8h.html">impl.h</a></li>
-    <li class="footer">Generated on Fri Aug 18 2023 16:32:27 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 18 2023 16:47:20 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

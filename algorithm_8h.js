@@ -19,7 +19,6 @@ var algorithm_8h =
     [ "for_cross_joint", "algorithm_8h.html#a9671d53ec08de7c34437cf24d07aee0c", null ],
     [ "for_each", "algorithm_8h.html#a685395cc470dfed697a40d2c718af4e9", null ],
     [ "for_each_index", "algorithm_8h.html#a5214a69e44441c91729255e5934ce985", null ],
-    [ "get_ith_item_from_arrays", "algorithm_8h.html#a57330d861a1d63956f70ab902ffeceb5", null ],
     [ "init", "algorithm_8h.html#a4b323693e8d1a33bad5c12c63709fe3b", null ],
     [ "joined", "algorithm_8h.html#ad24d670cd02b9255601622cf2494417e", null ],
     [ "map_f", "algorithm_8h.html#ae8555060e43c2b8cdd8d91bb248b9a6d", null ],

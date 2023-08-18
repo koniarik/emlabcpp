@@ -241,7 +241,6 @@ var namespaceemlabcpp =
     [ "for_cross_joint", "namespaceemlabcpp.html#a9671d53ec08de7c34437cf24d07aee0c", null ],
     [ "for_each", "namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9", null ],
     [ "for_each_index", "namespaceemlabcpp.html#a5214a69e44441c91729255e5934ce985", null ],
-    [ "get_ith_item_from_arrays", "namespaceemlabcpp.html#a57330d861a1d63956f70ab902ffeceb5", null ],
     [ "get_triangle_sphere_center", "namespaceemlabcpp.html#a070cde263f31325ae8cece3af6e7d23a", null ],
     [ "init", "namespaceemlabcpp.html#a4b323693e8d1a33bad5c12c63709fe3b", null ],
     [ "inverse", "namespaceemlabcpp.html#a116807f9c41ac80621918fff7446c987", null ],

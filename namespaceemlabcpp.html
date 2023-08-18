@@ -653,12 +653,11 @@ Functions</h2></td></tr>
 <tr class="separator:a505109612442935cc682cf92a9d2296c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="memTemplParams" colspan="2">template&lt;typename... Args, std::size_t N = sizeof...( Args )&gt; </td></tr>
 <tr class="memitem:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::array&lt; std::byte, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">bytes</a> (const Args &amp;... <a class="el" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a>)</td></tr>
+<tr class="memdesc:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conveft the provided arguments into array of std::byte.  <a href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">More...</a><br /></td></tr>
 <tr class="separator:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57330d861a1d63956f70ab902ffeceb5"><td class="memTemplParams" colspan="2">template&lt;std::size_t I, typename T &gt; </td></tr>
-<tr class="memitem:a57330d861a1d63956f70ab902ffeceb5"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a57330d861a1d63956f70ab902ffeceb5">get_ith_item_from_arrays</a> (T &amp;arr, auto &amp;... arrays)</td></tr>
-<tr class="separator:a57330d861a1d63956f70ab902ffeceb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad798db07be925b58001fd00feb4f721d"><td class="memTemplParams" colspan="2">template&lt;typename Arr , typename... Arrs&gt; </td></tr>
 <tr class="memitem:ad798db07be925b58001fd00feb4f721d"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad798db07be925b58001fd00feb4f721d">merge_arrays</a> (Arr &amp;&amp;first, Arrs &amp;&amp;... arrs)</td></tr>
+<tr class="memdesc:ad798db07be925b58001fd00feb4f721d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expects multiple std::arrays on input, and merges all together into one std::array instance.  <a href="namespaceemlabcpp.html#ad798db07be925b58001fd00feb4f721d">More...</a><br /></td></tr>
 <tr class="separator:ad798db07be925b58001fd00feb4f721d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51bc55ba3cb21b9294e89cdda68b1f98"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Container , typename Iterator  = iterator_of_t&lt; Container &gt;&gt; </td></tr>
 <tr class="memitem:a51bc55ba3cb21b9294e89cdda68b1f98"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; <a class="el" href="classemlabcpp_1_1iterators_1_1convert__iterator.html">iterators::convert_iterator</a>&lt; T, Iterator &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a51bc55ba3cb21b9294e89cdda68b1f98">convert_view</a> (Container &amp;&amp;cont)</td></tr>
@@ -3145,6 +3144,8 @@ template&lt;typename... Args, std::size_t N = sizeof...( Args )&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Conveft the provided arguments into array of std::byte. </p>
+
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a>.</p>
 
 </div>
@@ -4658,44 +4659,6 @@ template&lt;std::size_t N, typename NullCallable &gt; </div>
 
 </div>
 </div>
-<a id="a57330d861a1d63956f70ab902ffeceb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57330d861a1d63956f70ab902ffeceb5">&#9670;&nbsp;</a></span>get_ith_item_from_arrays()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::size_t I, typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto emlabcpp::get_ith_item_from_arrays </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;&#160;</td>
-          <td class="paramname"><em>arr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">auto &amp;...&#160;</td>
-          <td class="paramname"><em>arrays</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a070cde263f31325ae8cece3af6e7d23a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a070cde263f31325ae8cece3af6e7d23a">&#9670;&nbsp;</a></span>get_triangle_sphere_center()</h2>
 
@@ -5490,6 +5453,8 @@ template&lt;typename Arr , typename... Arrs&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Expects multiple std::arrays on input, and merges all together into one std::array instance. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>.</p>
 
@@ -10880,7 +10845,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Fri Aug 18 2023 16:32:27 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 18 2023 16:47:21 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
