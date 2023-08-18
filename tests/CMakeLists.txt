@@ -95,3 +95,18 @@ add_emlabcpp_test(quaternion_test)
 add_emlabcpp_test(simplex_test)
 add_emlabcpp_test(cfg_test)
 add_emlabcpp_test(cobs_test)
+
+file(
+  GLOB_RECURSE EMLABCPP_HEADERS
+  RELATIVE ${CMAKE_SOURCE_DIR}/include/
+  ../include/*.h)
+set(EMLABCPP_HEADERS_CPP_FILES "")
+foreach(FILE ${EMLABCPP_HEADERS})
+  set(CPP_FILE ${CMAKE_CURRENT_BINARY_DIR}/hcpp/${FILE}.cpp)
+  file(WRITE ${CPP_FILE} "#include \"${FILE}\"")
+  list(APPEND EMLABCPP_HEADERS_CPP_FILES ${CPP_FILE})
+endforeach()
+
+add_executable(headers_test ${EMLABCPP_HEADERS_CPP_FILES})
+target_link_libraries(headers_test GTest::GTest GTest::Main)
+emlabcpp_setup_test(headers_test)
