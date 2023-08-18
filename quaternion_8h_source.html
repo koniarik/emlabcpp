@@ -88,9 +88,9 @@ $(document).ready(function(){initNavTree('quaternion_8h_source.html',''); initRe
 </div><!--header-->
 <div class="contents">
 <a href="quaternion_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="point_8h.html">emlabcpp/experimental/geom/point.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="point_8h.html">emlabcpp/experimental/geom/point.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
@@ -177,7 +177,7 @@ $(document).ready(function(){initNavTree('quaternion_8h_source.html',''); initRe
 <div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#aa86203b42f9478701d1f52443d5729a3">  107</a></span>&#160;constexpr <span class="keywordtype">float</span> <a class="code" href="namespaceemlabcpp.html#aa86203b42f9478701d1f52443d5729a3">angle_shortest_path</a>( <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1quaternion.html">quaternion</a>&amp; m, <span class="keyword">const</span> <a class="code" href="classemlabcpp_1_1quaternion.html">quaternion</a>&amp; n )</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> s = <a class="code" href="namespaceemlabcpp.html#a5519896c5f0324265089711b6a020642">std::sqrt</a>( <a class="code" href="namespaceemlabcpp.html#af6fc2eeaf683b868d3ec7eed8fe6f69a">norm2_of</a>( m ) * <a class="code" href="namespaceemlabcpp.html#af6fc2eeaf683b868d3ec7eed8fe6f69a">norm2_of</a>( n ) );</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordtype">float</span> d = <a class="code" href="namespaceemlabcpp.html#a8e3cab8faa406c3fc0e6c197d7663f12">dot</a>( m, n );</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordtype">float</span>       d = <a class="code" href="namespaceemlabcpp.html#a8e3cab8faa406c3fc0e6c197d7663f12">dot</a>( m, n );</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">if</span> ( d &lt; 0 ) {</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                d = <a class="code" href="namespaceemlabcpp.html#a8e3cab8faa406c3fc0e6c197d7663f12">dot</a>( m, -n );</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
@@ -195,7 +195,7 @@ $(document).ready(function(){initNavTree('quaternion_8h_source.html',''); initRe
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> d  = 1.0f / <a class="code" href="namespaceemlabcpp.html#aa3d3eb598a75856181b79136ed06dbd8">std::sin</a>( theta );</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> s0 = <a class="code" href="namespaceemlabcpp.html#aa3d3eb598a75856181b79136ed06dbd8">std::sin</a>( ( 1.0f - <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> ) * theta );</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> s1 = <a class="code" href="namespaceemlabcpp.html#aa3d3eb598a75856181b79136ed06dbd8">std::sin</a>( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> * theta );</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordtype">float</span> m  = 1.0f;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordtype">float</span>       m  = 1.0f;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="namespaceemlabcpp.html#a8e3cab8faa406c3fc0e6c197d7663f12">dot</a>( q, s ) &lt; 0 ) {</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                m = -1.0f;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        }</div>
@@ -349,7 +349,7 @@ $(document).ready(function(){initNavTree('quaternion_8h_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_3ae5028df88b3fc471a247e16af56915.html">geom</a></li><li class="navelem"><a class="el" href="quaternion_8h.html">quaternion.h</a></li>
-    <li class="footer">Generated on Wed Aug 16 2023 21:10:07 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 18 2023 14:25:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

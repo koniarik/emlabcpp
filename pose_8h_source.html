@@ -88,12 +88,12 @@ $(document).ready(function(){initNavTree('pose_8h_source.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 <a href="pose_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="point_8h.html">emlabcpp/experimental/geom/point.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="quaternion_8h.html">emlabcpp/experimental/geom/quaternion.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="point_8h.html">emlabcpp/experimental/geom/point.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="quaternion_8h.html">emlabcpp/experimental/geom/quaternion.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
@@ -189,10 +189,10 @@ $(document).ready(function(){initNavTree('pose_8h_source.html',''); initResizabl
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        }</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">for</span> ( <span class="keyword">const</span> std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( ipath.size() - 1 ) ) {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1pose.html">pose</a>&amp; from      = ipath[i];</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1pose.html">pose</a>&amp; to        = ipath[i + 1];</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1pose.html">pose</a>&amp;       from      = ipath[i];</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1pose.html">pose</a>&amp;       to        = ipath[i + 1];</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="keyword">const</span> std::size_t seg_steps = <a class="code" href="namespaceemlabcpp.html#a95b7c5f71b2d2128143bbd09bc6cb341">steps</a>( <a class="code" href="namespaceemlabcpp.html#a51181e92ac66d2a113b7c0e5b9a2718e">distance_of</a>( to, from ), d_step, a_step );</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span>  std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( seg_steps ) ) {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                <span class="keywordflow">for</span> ( <span class="keyword">const</span> std::size_t j : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( seg_steps ) ) {</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.push_back( <a class="code" href="namespaceemlabcpp.html#a1fe90ef4b53557e6198f75e4e3f0e86f">lin_interp</a>( from, to, <span class="keywordtype">float</span>( j ) / <span class="keywordtype">float</span>( seg_steps ) ) );</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                }</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        }</div>
@@ -284,7 +284,7 @@ $(document).ready(function(){initNavTree('pose_8h_source.html',''); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_3ae5028df88b3fc471a247e16af56915.html">geom</a></li><li class="navelem"><a class="el" href="pose_8h.html">pose.h</a></li>
-    <li class="footer">Generated on Wed Aug 16 2023 21:10:07 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 18 2023 14:25:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
