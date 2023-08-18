@@ -21,7 +21,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 using basic_function   = static_function< void( int ), 42 >;
 using return_function  = static_function< std::string( int ), 42 >;
@@ -124,3 +125,5 @@ TEST( StaticFunction, call_callable )
         EXPECT_EQ( test_value, 666 );
         EXPECT_EQ( test_fres, 13.f );
 }
+
+}  // namespace emlabcpp

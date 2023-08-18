@@ -24,7 +24,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 using namespace std::literals;
 
 static constexpr std::size_t buffer_size = 7;
@@ -315,3 +316,5 @@ INSTANTIATE_TYPED_TEST_SUITE_P(
     operations_counter_circular_buffer_fixture,
     operations_counter_fixture,
     types );
+
+}  // namespace emlabcpp

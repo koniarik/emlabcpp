@@ -21,7 +21,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 using basic_view   = function_view< void( int ) >;
 using return_view  = function_view< std::string( int ) >;
@@ -89,3 +90,5 @@ TEST( FunctionView, call_callable )
         EXPECT_EQ( test_value, 666 );
         EXPECT_EQ( test_fres, 13.f );
 }
+
+}  // namespace emlabcpp

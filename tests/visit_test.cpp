@@ -21,7 +21,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 TEST( visit, vis )
 {
@@ -79,3 +80,5 @@ TEST( visit, vis_apply )
 
         EXPECT_TRUE( fired );
 }
+
+}  // namespace emlabcpp

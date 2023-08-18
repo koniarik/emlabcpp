@@ -21,8 +21,6 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
-
 namespace std
 {
 
@@ -33,7 +31,16 @@ vector< T > operator+( vector< T > lh, const vector< T >& rh )
         return lh;
 }
 
+// TODO: this sucks hard
+ostream& operator<<( ostream& os, byte b )
+{
+        return os << int( b );
+}
+
 }  // namespace std
+
+namespace emlabcpp
+{
 
 std::vector< std::byte > v( auto&&... args )
 {
@@ -95,15 +102,6 @@ std::vector< p > get_data()
         };
 }
 
-namespace std
-{
-// TODO: this sucks hard
-std::ostream& operator<<( std::ostream& os, std::byte b )
-{
-        return os << int( b );
-}
-}  // namespace std
-
 TEST( COBS, encode )
 {
         for ( auto [raw, encod] : get_data() ) {
@@ -147,3 +145,5 @@ TEST( COBS, decode_iter )
                                       << "expected: " << view{ raw };
         }
 }
+
+}  // namespace emlabcpp

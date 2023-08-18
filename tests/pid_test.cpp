@@ -21,7 +21,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 using tpid = pid< float >;
 
@@ -55,3 +56,4 @@ TEST( PID, simple )
 
         EXPECT_NEAR( my_pid.output, desired, 0.1f );
 }
+}  // namespace emlabcpp

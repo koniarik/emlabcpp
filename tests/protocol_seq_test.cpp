@@ -24,7 +24,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 struct sequencer_def
 {
@@ -123,3 +124,5 @@ TEST( protocol_seq, multi_msg )
                     EXPECT_TRUE( are_equal );
             } );
 }
+
+}  // namespace emlabcpp

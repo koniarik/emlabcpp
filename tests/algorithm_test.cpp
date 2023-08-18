@@ -25,7 +25,8 @@
 #include <gtest/gtest.h>
 #include <list>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 // NOLINTNEXTLINE
 TEST( Algorithm, sign )
@@ -567,3 +568,5 @@ TEST( Algorithm, select_index )
                 EXPECT_EQ( i, j ) << "bounded val: " << b;
         }
 }
+
+}  // namespace emlabcpp

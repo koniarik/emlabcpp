@@ -24,7 +24,8 @@
 #include <cmath>
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 TYPED_TEST( PointTest, line_point_distance )
 {
@@ -55,3 +56,5 @@ TYPED_TEST( PointTest, perpendicular )
         ASSERT_NEAR( distance_of( diag_line, zero_p ), diag_dist, 1e-6 );
         ASSERT_NEAR( distance_of( diag_line, unit_p ), diag_dist, 1e-6 );
 }
+
+}  // namespace emlabcpp

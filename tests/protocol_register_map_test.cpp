@@ -24,7 +24,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 enum test_keys
 {
@@ -121,9 +122,13 @@ TEST( protocol_map, runtime_access )
         }
 }
 
+}  // namespace emlabcpp
+
 int main( int argc, char** argv )
 {
         testing::InitGoogleTest( &argc, argv );
+
+        using namespace emlabcpp;
 
         const std::vector< std::function< protocol_test_fixture*() > > tests = {
             make_valid_test_case< FOO >( 6663434u ),

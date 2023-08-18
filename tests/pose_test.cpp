@@ -21,7 +21,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 float sum_distance( pose_distance pd )
 {
@@ -60,3 +61,5 @@ TEST( Pose, interp )
         ASSERT_TRUE( almost_equal(
             lin_interp( neutral, offseted, 0.5 ), half_offseted, default_epsilon * 2 ) );
 }
+
+}  // namespace emlabcpp

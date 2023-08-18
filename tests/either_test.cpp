@@ -21,7 +21,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 using test_either = either< std::string, int >;
 
 static_assert( std::regular< test_either > );
@@ -94,3 +95,5 @@ TEST( Either, assemble_left_collect_right )
 
         EXPECT_FALSE( assemble_either_2.is_left() );
 }
+
+}  // namespace emlabcpp

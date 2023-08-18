@@ -2,7 +2,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 // NOLINTNEXTLINE
 TEST( MinMax, min_max )
@@ -25,3 +26,5 @@ TEST( MinMax, clamp )
         EXPECT_EQ( clamp( -2.0f, mm ), -1.f );
         EXPECT_EQ( clamp( 2.0f, mm ), 1.f );
 }
+
+}  // namespace emlabcpp

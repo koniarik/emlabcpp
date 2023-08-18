@@ -23,7 +23,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 struct packet_test_def
 {
@@ -80,3 +81,5 @@ TEST( Packet, seq )
                     EXPECT_EQ( newmsg, msg );
             } );
 }
+
+}  // namespace emlabcpp

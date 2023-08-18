@@ -27,7 +27,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 enum ids : uint8_t
 {
@@ -152,9 +153,13 @@ std::function< protocol_test_fixture*() > make_valid_test_case(
         };
 }
 
+}  // namespace emlabcpp
+
 int main( int argc, char** argv )
 {
         testing::InitGoogleTest( &argc, argv );
+
+        using namespace emlabcpp;
 
         const std::vector< std::function< protocol_test_fixture*() > > tests = {
             make_valid_test_case< simple_group >(

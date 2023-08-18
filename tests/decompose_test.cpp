@@ -21,7 +21,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 struct one_item
 {
@@ -80,3 +81,5 @@ TEST( Decompose, tricky )
         EXPECT_EQ( std::get< 0 >( tov ), to.i );
         EXPECT_EQ( std::get< 1 >( tov ), to.opt_string );
 }
+
+}  // namespace emlabcpp

@@ -21,7 +21,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 // NOLINTNEXTLINE
 TEST( match, vis )
@@ -105,3 +106,5 @@ TEST( match, referecing )
                     s = "pololo";
             } );
 }
+
+}  // namespace emlabcpp

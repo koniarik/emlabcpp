@@ -23,7 +23,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 using test_bounded = bounded< int, -1, 1 >;
 
@@ -107,3 +108,5 @@ TEST( Bounded, ostream )
 
         EXPECT_EQ( to_string( v ), "42" );
 }
+
+}  // namespace emlabcpp

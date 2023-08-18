@@ -23,7 +23,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 TEST( Quaternion, global_constants )
 {
@@ -39,3 +40,5 @@ TEST( Quaternion, rotation )
         const point< 3 > desired{ 0.70710678118f, 0, -0.70710678118f };
         EXPECT_TRUE( almost_equal( res_p, desired ) );
 }
+
+}  // namespace emlabcpp

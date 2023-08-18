@@ -22,7 +22,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 // NOLINTNEXTLINE
 TEST( numeric_iterator, basic )
@@ -42,3 +43,5 @@ TEST( numeric_iterator, operators )
 
         EXPECT_EQ( r.begin() + 10, r.end() );
 }
+
+}  // namespace emlabcpp

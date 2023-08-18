@@ -24,7 +24,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 TEST( Point, dot )
 {
@@ -70,8 +71,8 @@ TYPED_TEST( PointTest, length )
         static constexpr unsigned n = TypeParam::value;
         ASSERT_EQ( length_of( this->zero_p_ ), 0.f );
 
-        ASSERT_NEAR( length_of( this->unit_p_ ), sqrt( n ), 1e-6 );
-        ASSERT_NEAR( length_of( this->dim_p_ ), sqrt( n * n * n ), 1e-6 );
+        ASSERT_NEAR( length_of( this->unit_p_ ), std::sqrt( n ), 1e-6 );
+        ASSERT_NEAR( length_of( this->dim_p_ ), std::sqrt( n * n * n ), 1e-6 );
 }
 
 TYPED_TEST( PointTest, normalized )
@@ -106,3 +107,5 @@ TEST( VecTestSimple, crossProduct )
         ASSERT_EQ( dot( cross_product( a, b ), a ), 0.f );
         ASSERT_EQ( dot( cross_product( a, b ), b ), 0.f );
 }
+
+}  // namespace emlabcpp

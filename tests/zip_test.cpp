@@ -23,7 +23,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 TEST( zip, simple )
 {
@@ -33,3 +34,5 @@ TEST( zip, simple )
                 EXPECT_EQ( lh, rh );
         }
 }
+
+}  // namespace emlabcpp

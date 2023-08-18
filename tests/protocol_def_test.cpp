@@ -24,7 +24,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 template < std::endian Endianess, typename T >
 struct valid_test_case : protocol_test_fixture
@@ -166,9 +167,13 @@ struct simple_struct
         friend auto operator<=>( const simple_struct< T >&, const simple_struct< T >& ) = default;
 };
 
+}  // namespace emlabcpp
+
 int main( int argc, char** argv )
 {
         testing::InitGoogleTest( &argc, argv );
+
+        using namespace emlabcpp;
 
         const std::vector< std::function< protocol_test_fixture*() > > tests = {
             // basic types

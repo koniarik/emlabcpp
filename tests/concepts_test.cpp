@@ -22,7 +22,8 @@
 #include <gtest/gtest.h>
 #include <ostream>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 static_assert( arithmetic_like< float > );
 static_assert( arithmetic_like< int > );
@@ -46,3 +47,5 @@ static_assert( !ostreamlike< const char[10] > );
 
 static_assert( alternative_of< int, std::variant< int, float > > );
 static_assert( !alternative_of< std::string, std::variant< int, float > > );
+
+}  // namespace emlabcpp

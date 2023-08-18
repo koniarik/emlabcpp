@@ -23,7 +23,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 TEST( SimplexTest, volume2d )
 {
@@ -63,3 +64,5 @@ TEST( SimplexTest, json )
         const nlohmann::json simplex_j = nlohmann::json( sim );
         ASSERT_EQ( simplex_j.get< simplex_type >(), sim );
 }
+
+}  // namespace emlabcpp

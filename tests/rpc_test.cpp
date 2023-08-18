@@ -23,7 +23,8 @@
 
 #include <gtest/gtest.h>
 
-using namespace emlabcpp;
+namespace emlabcpp
+{
 
 enum foo_ids : uint8_t
 {
@@ -153,3 +154,5 @@ TEST( rpc, bind )
                         FAIL() << "errored";
                 } );
 }
+
+}  // namespace emlabcpp
