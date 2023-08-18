@@ -128,4 +128,15 @@ concept map_f_collectable = requires( T item, typename T::value_type val ) {
                                     map_f_collector< T >{}.collect( item, std::move( val ) );
                             };
 
+template < std::size_t I, typename T >
+constexpr auto get_ith_item_from_arrays( T& arr, auto&... arrays )
+{
+        constexpr std::size_t first_size = std::tuple_size_v< std::decay_t< T > >;
+        if constexpr ( I >= first_size ) {
+                return get_ith_item_from_arrays< I - first_size >( arrays... );
+        } else {
+                return arr[I];
+        }
+}
+
 }  // namespace emlabcpp::impl
