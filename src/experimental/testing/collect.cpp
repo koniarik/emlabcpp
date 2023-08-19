@@ -54,7 +54,7 @@ collector::collector( const protocol::channel_type chann, collect_client_transmi
 {
 }
 
-bool collector::on_msg( const std::span< const std::byte >& msg )
+outcome collector::on_msg( const std::span< const std::byte >& msg )
 {
         using h = protocol::handler< collect_server_client_group >;
         return h::extract( view_n( msg.data(), msg.size() ) )
@@ -62,20 +62,20 @@ bool collector::on_msg( const std::span< const std::byte >& msg )
                 [this]( const collect_server_client_group& req ) {
                         return on_msg( req );
                 },
-                []( const auto& err ) {
+                []( const auto& err ) -> outcome {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
-                        return false;
+                        return ERROR;
                 } );
 }
 
-bool collector::on_msg( const collect_server_client_group& var )
+outcome collector::on_msg( const collect_server_client_group& var )
 {
         if ( reply_callback_ ) {
                 reply_callback_( var );
-                return true;
+                return SUCCESS;
         } else {
-                return false;
+                return ERROR;
         }
 }
 
@@ -101,22 +101,28 @@ bool collector::set( const node_id parent, const std::string_view key, const val
         EMLABCPP_DEBUG_LOG(
             "Sending collect request for parent ", parent, " key: ", key, " value: ", val );
         return send( collect_request{
-            .parent = parent, .expects_reply = false, .opt_key = key_type( key ), .value = val } );
+                   .parent        = parent,
+                   .expects_reply = false,
+                   .opt_key       = key_type( key ),
+                   .value         = val } ) == SUCCESS;
 }
 
 bool collector::append( const node_id parent, const value_type& val )
 {
         return send( collect_request{
-            .parent = parent, .expects_reply = false, .opt_key = std::nullopt, .value = val } );
+                   .parent        = parent,
+                   .expects_reply = false,
+                   .opt_key       = std::nullopt,
+                   .value         = val } ) == SUCCESS;
 }
 
 bool collector::exchange( const collect_request& req, collect_reply_callback cb )
 {
         reply_callback_ = std::move( cb );
-        return send( req );
+        return send( req ) == SUCCESS;
 }
 
-bool collector::send( const collect_request& req )
+result collector::send( const collect_request& req )
 {
         using h  = protocol::handler< collect_request >;
         auto msg = h::serialize( req );
@@ -133,7 +139,7 @@ collect_server::collect_server(
 {
 }
 
-bool collect_server::on_msg( const std::span< const std::byte > data )
+outcome collect_server::on_msg( const std::span< const std::byte > data )
 {
         using h = protocol::handler< collect_request >;
         EMLABCPP_DEBUG_LOG( "got msg: ", collect_client_server_message{ data } );
@@ -142,16 +148,14 @@ bool collect_server::on_msg( const std::span< const std::byte > data )
                 [this]( const collect_request& req ) {
                         return on_msg( req );
                 },
-                []( const auto& err ) {
+                []( const auto& err ) -> outcome {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
-                        return false;
+                        return ERROR;
                 } );
 }
 
-// TODO: the bool return type is kinda too vague, as it is not clear what it should symbolize /o\..
-
-bool collect_server::on_msg( const collect_request& req )
+outcome collect_server::on_msg( const collect_request& req )
 {
         EMLABCPP_DEBUG_LOG(
             "got collect request: parent:",
@@ -179,9 +183,9 @@ bool collect_server::on_msg( const collect_request& req )
             req.opt_key ? harn.insert( req.parent, *req.opt_key, req.value ) :
                           harn.insert( req.parent, req.value );
         return res.match(
-            [this, &req]( const node_id nid ) {
+            [this, &req]( const node_id nid ) -> result {
                     if ( !req.expects_reply ) {
-                            return true;
+                            return SUCCESS;
                     }
                     return this->send( collect_reply{ nid } );
             },
@@ -190,7 +194,7 @@ bool collect_server::on_msg( const collect_request& req )
             } );
 }
 
-bool collect_server::send( const collect_server_client_group& val )
+result collect_server::send( const collect_server_client_group& val )
 {
         using h = protocol::handler< collect_server_client_group >;
         return send_cb_( channel_, h::serialize( val ) );

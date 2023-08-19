@@ -40,7 +40,7 @@
 namespace emlabcpp::testing
 {
 
-enum messages_enum : uint8_t
+enum class msgid : uint8_t
 {
         EXEC           = 0x1,
         COUNT          = 0x2,
@@ -55,7 +55,7 @@ enum messages_enum : uint8_t
         TREE_ERROR     = 0xf2,
 };
 
-template < messages_enum ID >
+template < msgid ID >
 struct get_property
 {
         static constexpr auto id = ID;
@@ -63,44 +63,44 @@ struct get_property
 
 struct get_count_reply
 {
-        static constexpr auto id = COUNT;
+        static constexpr auto id = msgid::COUNT;
         test_id               count;
 };
 
 struct get_suite_name_reply
 {
-        static constexpr auto id = SUITE_NAME;
+        static constexpr auto id = msgid::SUITE_NAME;
         name_buffer           name;
 };
 
 struct get_suite_date_reply
 {
-        static constexpr auto id = SUITE_DATE;
+        static constexpr auto id = msgid::SUITE_DATE;
         name_buffer           date;
 };
 
 struct get_test_name_request
 {
-        static constexpr auto id = NAME;
+        static constexpr auto id = msgid::NAME;
         test_id               tid;
 };
 
 struct get_test_name_reply
 {
-        static constexpr auto id = NAME;
+        static constexpr auto id = msgid::NAME;
         name_buffer           name;
 };
 
 struct tree_error_reply
 {
-        static constexpr auto             id = TREE_ERROR;
+        static constexpr auto             id = msgid::TREE_ERROR;
         contiguous_request_adapter_errors err;
         node_id                           nid;
 };
 
 struct test_finished
 {
-        static constexpr auto id = FINISHED;
+        static constexpr auto id = msgid::FINISHED;
         run_id                rid;
         bool                  errored;
         bool                  failed;
@@ -108,15 +108,15 @@ struct test_finished
 
 struct exec_request
 {
-        static constexpr auto id = EXEC;
+        static constexpr auto id = msgid::EXEC;
         run_id                rid;
         test_id               tid;
 };
 
 using controller_reactor_group = protocol::tag_group<
-    get_property< SUITE_NAME >,
-    get_property< SUITE_DATE >,
-    get_property< COUNT >,
+    get_property< msgid::SUITE_NAME >,
+    get_property< msgid::SUITE_DATE >,
+    get_property< msgid::COUNT >,
     get_test_name_request,
     exec_request >;
 
@@ -147,7 +147,7 @@ struct error
 struct no_response_error
 {
         static constexpr auto id = NO_RESPONSE_E;
-        messages_enum         msg;
+        msgid                 msg;
 };
 
 struct wrong_type_error
@@ -176,7 +176,7 @@ using reactor_error_variant = std::variant<
 
 struct reactor_internal_error_report
 {
-        static constexpr auto id = INTERNAL_ERROR;
+        static constexpr auto id = msgid::INTERNAL_ERROR;
         reactor_error_variant var;
 };
 
@@ -194,9 +194,9 @@ using reactor_controller_message =
     typename protocol::handler< reactor_controller_group >::message_type;
 
 using reactor_transmit_callback =
-    static_function< bool( protocol::channel_type, const reactor_controller_message& ), 32 >;
+    static_function< result( protocol::channel_type, const reactor_controller_message& ), 32 >;
 using controller_transmit_callback =
-    static_function< bool( protocol::channel_type, const controller_reactor_message& ), 32 >;
+    static_function< result( protocol::channel_type, const controller_reactor_message& ), 32 >;
 
 using packet_payload = protocol::multiplexer_payload< 80 >;
 // TODO: this needs rethinking /o\ entire multiplexer needs redesign?

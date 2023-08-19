@@ -44,8 +44,8 @@ public:
         {
         }
 
-        void reply( const reactor_controller_variant& );
+        result reply( const reactor_controller_variant& );
 
-        void report_failure( const reactor_error_variant& );
+        result report_failure( const reactor_error_variant& );
 };
 }  // namespace emlabcpp::testing

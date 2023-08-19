@@ -77,7 +77,7 @@ parameters::parameters(
 {
 }
 
-bool parameters::on_msg( const std::span< const std::byte > data )
+outcome parameters::on_msg( const std::span< const std::byte > data )
 {
         // TODO: this is copy pasta festival from collect...
         using h = protocol::handler< params_server_client_group >;
@@ -86,21 +86,21 @@ bool parameters::on_msg( const std::span< const std::byte > data )
                 [this]( const params_server_client_variant& req ) {
                         return on_msg( req );
                 },
-                []( const auto& err ) {
+                []( const auto& err ) -> outcome {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
-                        return false;
+                        return ERROR;
                 } );
 }
 
-bool parameters::on_msg( const params_server_client_variant& req )
+outcome parameters::on_msg( const params_server_client_variant& req )
 {
         if ( !reply_cb_ ) {
-                return false;
+                return ERROR;
         }
         reply_cb_( req );
         // TODO: maybe better error hndling can be done?
-        return true;
+        return SUCCESS;
 }
 
 param_type_awaiter parameters::get_type( const node_id nid )
@@ -131,10 +131,11 @@ param_key_awaiter parameters::get_key( const node_id nid, const child_id chid )
 void parameters::exchange( const params_client_server_variant& req, params_reply_callback reply_cb )
 {
         reply_cb_ = std::move( reply_cb );
-        send( req );
+        // TODO: the ignore is meh
+        std::ignore = send( req );
 }
 
-bool parameters::send( const params_client_server_variant& val )
+result parameters::send( const params_client_server_variant& val )
 {
         using h = protocol::handler< params_client_server_group >;
         return send_cb_( channel_, h::serialize( val ) );
@@ -150,7 +151,7 @@ parameters_server::parameters_server(
 {
 }
 
-bool parameters_server::on_msg( const std::span< const std::byte > data )
+outcome parameters_server::on_msg( const std::span< const std::byte > data )
 {
         // TODO: this is copy pasta festival from collect...
         using h = protocol::handler< params_client_server_group >;
@@ -159,118 +160,118 @@ bool parameters_server::on_msg( const std::span< const std::byte > data )
                 [this]( const params_client_server_variant& req ) {
                         return on_msg( req );
                 },
-                []( const auto& err ) {
+                []( const auto& err ) -> outcome {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
-                        return false;
+                        return ERROR;
                 } );
 }
 
-void parameters_server::on_req( const param_error& req ) const
+outcome parameters_server::on_msg( const params_client_server_variant& req )
+{
+        return visit(
+            [this]( const auto& item ) {
+                    return on_req( item );
+            },
+            req );
+}
+
+outcome parameters_server::on_req( const param_error& req ) const
 {
         std::ignore = req;
         EMLABCPP_ERROR_LOG(
             "Params errored: ", std::string_view{ req.error.data(), req.error.size() } );
+        return FAILURE;
 }
 
-bool parameters_server::on_msg( const params_client_server_variant& req )
-{
-        visit(
-            [this]( const auto& item ) {
-                    on_req( item );
-            },
-            req );
-        return true;  // is there some error checking that can be done?
-}
-
-void parameters_server::on_req( const param_value_request& req )
+outcome parameters_server::on_req( const param_value_request& req )
 {
         const contiguous_request_adapter harn{ tree_ };
 
-        harn.get_value( req.nid ).match(
-            [this]( const value_type& val ) {
-                    send( param_value_reply{ val } );
+        return harn.get_value( req.nid ).match(
+            [this]( const value_type& val ) -> outcome {
+                    return send( param_value_reply{ val } );
             },
-            [this, &req]( const contiguous_request_adapter_errors err ) {
-                    reply_node_error( err, req.nid );
+            [this, &req]( const contiguous_request_adapter_errors err ) -> outcome {
+                    return worst_of( reply_node_error( err, req.nid ), FAILURE );
             } );
 }
 
-void parameters_server::on_req( const param_value_key_request& req )
+outcome parameters_server::on_req( const param_value_key_request& req )
 {
         const contiguous_request_adapter harn{ tree_ };
 
-        harn.get_child( req.nid, req.key )
+        return harn.get_child( req.nid, req.key )
             .bind_left( [&harn]( const child_id chid ) {
                     return harn.get_value( chid );
             } )
             .match(
-                [this]( const value_type& val ) {
-                        send( param_value_key_reply{ val } );
+                [this]( const value_type& val ) -> outcome {
+                        return send( param_value_key_reply{ val } );
                 },
-                [this, &req]( const contiguous_request_adapter_errors err ) {
-                        reply_node_error( err, req.nid );
+                [this, &req]( const contiguous_request_adapter_errors err ) -> outcome {
+                        return worst_of( reply_node_error( err, req.nid ), FAILURE );
                 } );
 }
 
-void parameters_server::on_req( const param_child_request& req )
+outcome parameters_server::on_req( const param_child_request& req )
 {
         EMLABCPP_DEBUG_LOG( "got request: ", decompose( req ) );
         const contiguous_request_adapter harn{ tree_ };
 
-        harn.get_child( req.parent, req.chid )
+        return harn.get_child( req.parent, req.chid )
             .match(
-                [this]( const node_id child ) {
-                        send( param_child_reply{ child } );
+                [this]( const node_id child ) -> outcome {
+                        return send( param_child_reply{ child } );
                 },
-                [this, &req]( const contiguous_request_adapter_errors err ) {
-                        reply_node_error( err, req.parent );
+                [this, &req]( const contiguous_request_adapter_errors err ) -> outcome {
+                        return worst_of( reply_node_error( err, req.parent ), FAILURE );
                 } );
 }
 
-void parameters_server::on_req( const param_child_count_request& req )
+outcome parameters_server::on_req( const param_child_count_request& req )
 {
         EMLABCPP_DEBUG_LOG( "got request: ", decompose( req ) );
         const contiguous_request_adapter harn{ tree_ };
 
-        harn.get_child_count( req.parent )
+        return harn.get_child_count( req.parent )
             .match(
-                [this]( const child_id count ) {
-                        send( param_child_count_reply{ count } );
+                [this]( const child_id count ) -> outcome {
+                        return send( param_child_count_reply{ count } );
                 },
-                [this, &req]( const contiguous_request_adapter_errors err ) {
-                        reply_node_error( err, req.parent );
+                [this, &req]( const contiguous_request_adapter_errors err ) -> outcome {
+                        return worst_of( reply_node_error( err, req.parent ), FAILURE );
                 } );
 }
 
-void parameters_server::on_req( const param_key_request& req )
+outcome parameters_server::on_req( const param_key_request& req )
 {
         const contiguous_request_adapter harn{ tree_ };
 
-        harn.get_key( req.nid, req.chid )
+        return harn.get_key( req.nid, req.chid )
             .match(
-                [this]( const key_type& key ) {
-                        send( param_key_reply{ key } );
+                [this]( const key_type& key ) -> outcome {
+                        return send( param_key_reply{ key } );
                 },
-                [this, &req]( const contiguous_request_adapter_errors err ) {
-                        reply_node_error( err, req.nid );
+                [this, &req]( const contiguous_request_adapter_errors err ) -> outcome {
+                        return worst_of( reply_node_error( err, req.nid ), FAILURE );
                 } );
 }
 
-void parameters_server::on_req( const param_type_request& req )
+outcome parameters_server::on_req( const param_type_request& req )
 {
         const contiguous_request_adapter harn{ tree_ };
 
-        harn.get_type( req.nid ).match(
-            [this]( const contiguous_tree_type type ) {
-                    send( param_type_reply{ type } );
+        return harn.get_type( req.nid ).match(
+            [this]( const contiguous_tree_type type ) -> outcome {
+                    return send( param_type_reply{ type } );
             },
-            [this, &req]( const contiguous_request_adapter_errors err ) {
-                    reply_node_error( err, req.nid );
+            [this, &req]( const contiguous_request_adapter_errors err ) -> outcome {
+                    return worst_of( reply_node_error( err, req.nid ), FAILURE );
             } );
 }
 
-void parameters_server::reply_node_error(
+outcome parameters_server::reply_node_error(
     const contiguous_request_adapter_errors err,
     const node_id                           nid )
 {
@@ -283,10 +284,10 @@ void parameters_server::reply_node_error(
         } else if ( err == contiguous_request_adapter_errors::CHILD_MISSING ) {
                 EMLABCPP_ERROR_LOG( "Tree node child ", nid, " is missing " );
         }
-        send( tree_error_reply{ .err = err, .nid = nid } );
+        return send( tree_error_reply{ .err = err, .nid = nid } );
 }
 
-bool parameters_server::send( const params_server_client_variant& var )
+result parameters_server::send( const params_server_client_variant& var )
 {
         using h = protocol::handler< params_server_client_group >;
         return send_cb_( channel_, h::serialize( var ) );

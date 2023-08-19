@@ -44,11 +44,11 @@ public:
         {
         }
 
-        void send( const controller_reactor_variant& var )
+        result send( const controller_reactor_variant& var )
         {
                 using h        = protocol::handler< controller_reactor_group >;
                 const auto msg = h::serialize( var );
-                send_cb_( channel_, msg );
+                return send_cb_( channel_, msg );
         }
 
         controller_interface* operator->()

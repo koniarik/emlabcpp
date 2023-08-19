@@ -55,9 +55,9 @@ public:
 
         void deallocate( T* const p, const std::size_t n ) const
         {
-                const bool succeeded = resource_.get().deallocate(
+                const result res = resource_.get().deallocate(
                     reinterpret_cast< void* >( p ), n * sizeof( T ), alignof( T ) );
-                if ( !succeeded ) {
+                if ( res == ERROR ) {
                         throw_bad_alloc();
                 }
         }

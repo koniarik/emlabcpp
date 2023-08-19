@@ -23,6 +23,7 @@
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/pmr/stack_resource.h"
 #include "emlabcpp/protocol/endpoint.h"
+#include "emlabcpp/result.h"
 
 namespace emlabcpp::testing
 {
@@ -62,8 +63,8 @@ public:
                 return channel_;
         }
 
-        bool on_msg( std::span< const std::byte > buffer );
-        bool on_msg( const controller_reactor_variant& var );
+        outcome on_msg( std::span< const std::byte > buffer );
+        outcome on_msg( const controller_reactor_variant& var );
 
         void register_test( linked_list_node_base< test_interface >& test )
         {
@@ -73,11 +74,11 @@ public:
         void tick();
 
 private:
-        void handle_message( get_property< SUITE_NAME > );
-        void handle_message( get_property< SUITE_DATE > );
-        void handle_message( get_property< COUNT > );
-        void handle_message( get_test_name_request );
-        void handle_message( exec_request );
+        outcome handle_message( get_property< msgid::SUITE_NAME > );
+        outcome handle_message( get_property< msgid::SUITE_DATE > );
+        outcome handle_message( get_property< msgid::COUNT > );
+        outcome handle_message( get_test_name_request );
+        outcome handle_message( exec_request );
 };
 
 }  // namespace emlabcpp::testing

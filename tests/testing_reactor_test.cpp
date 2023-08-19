@@ -59,20 +59,20 @@ class reactor_interface
 public:
         static std::vector< testing::reactor_controller_variant > msgs;
 
-        bool operator()( auto, std::span< const std::byte > msg )
+        result operator()( auto, std::span< const std::byte > msg )
         {
                 using h = protocol::handler< testing::reactor_controller_group >;
                 return h::extract( view_n( msg.data(), msg.size() ) )
                     .match(
-                        [&]( const auto& var ) {
+                        [&]( const auto& var ) -> result {
                                 // TODO: var shall be logged
                                 EMLABCPP_INFO_LOG( "Got a msg: ", "" );
                                 msgs.push_back( var );
-                                return true;
+                                return SUCCESS;
                         },
-                        [&]( const auto& err ) {
+                        [&]( const auto& err ) -> result {
                                 EMLABCPP_ERROR_LOG( "Got an error: ", err );
-                                return false;
+                                return ERROR;
                         } );
         }
 };
@@ -131,7 +131,7 @@ TEST( reactor, reactor_simple )
         testing::test_unit< simple_test_fixture > tf2{};
         rec.register_test( tf2 );
 
-        rec.on_msg( testing::exec_request{ .rid = 0, .tid = 0 } );
+        std::ignore = rec.on_msg( testing::exec_request{ .rid = 0, .tid = 0 } );
 
         for ( const std::size_t i : range( 20u ) ) {
                 std::ignore = i;

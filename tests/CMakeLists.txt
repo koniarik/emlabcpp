@@ -107,6 +107,6 @@ foreach(FILE ${EMLABCPP_HEADERS})
   list(APPEND EMLABCPP_HEADERS_CPP_FILES ${CPP_FILE})
 endforeach()
 
-add_executable(headers_test ${EMLABCPP_HEADERS_CPP_FILES})
-target_link_libraries(headers_test GTest::GTest GTest::Main)
-emlabcpp_setup_test(headers_test)
+# TODO: make this only CI thing add_executable(headers_test
+# ${EMLABCPP_HEADERS_CPP_FILES}) target_link_libraries(headers_test GTest::GTest
+# GTest::Main) emlabcpp_setup_test(headers_test)

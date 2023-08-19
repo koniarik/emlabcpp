@@ -24,6 +24,7 @@
 #include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/experimental/testing/record.h"
 #include "emlabcpp/protocol/packet_handler.h"
+#include "emlabcpp/result.h"
 
 #include <span>
 
@@ -109,23 +110,23 @@ using test_linked_callable = test_unit< test_callable< Callable > >;
 
 // TODO: the sad thing is that they won't be deallocated this way /o\...
 template < typename Unit, typename Reactor, typename... Args >
-bool construct_test_unit( pmr::memory_resource& mem_res, Reactor& reactor, Args&&... args )
+result construct_test_unit( pmr::memory_resource& mem_res, Reactor& reactor, Args&&... args )
 {
         using unode = test_unit< Unit >;
         void* p     = mem_res.allocate( sizeof( unode ), alignof( unode ) );
         if ( p == nullptr ) {
-                return false;
+                return ERROR;
         }
         unode* node =
             std::construct_at( reinterpret_cast< unode* >( p ), std::forward< Args >( args )... );
 
         reactor.register_test( *node );
 
-        return true;
+        return SUCCESS;
 }
 
 template < typename Callable, typename Reactor >
-bool construct_test_callable(
+result construct_test_callable(
     pmr::memory_resource& mem_res,
     Reactor&              reactor,
     std::string_view      name,

@@ -22,6 +22,7 @@
 #include "emlabcpp/experimental/testing/controller_interface_adapter.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/pmr/aliases.h"
+#include "emlabcpp/result.h"
 
 namespace emlabcpp::testing
 {
@@ -90,8 +91,8 @@ public:
                 return tests_;
         }
 
-        bool on_msg( const std::span< const std::byte > data );
-        bool on_msg( const reactor_controller_variant& );
+        outcome on_msg( const std::span< const std::byte > data );
+        outcome on_msg( const reactor_controller_variant& );
 
         void start_test( const test_id tid );
 

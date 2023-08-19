@@ -68,7 +68,8 @@ struct msg_awaiter : public coro::wait_interface
                         reply = *val_ptr;
                         return true;
                 } );
-                iface.send( request );
+                // TODO: this hsould not be ignored
+                std::ignore = iface.send( request );
         }
 
         T await_resume()
@@ -80,14 +81,15 @@ struct msg_awaiter : public coro::wait_interface
 test_coroutine controller::initialize( pmr::memory_resource& )
 {
 
-        name_ =
-            ( co_await msg_awaiter< get_suite_name_reply >( get_property< SUITE_NAME >{}, iface_ ) )
-                .name;
-        date_ =
-            ( co_await msg_awaiter< get_suite_date_reply >( get_property< SUITE_DATE >{}, iface_ ) )
-                .date;
+        name_ = ( co_await msg_awaiter< get_suite_name_reply >(
+                      get_property< msgid::SUITE_NAME >{}, iface_ ) )
+                    .name;
+        date_ = ( co_await msg_awaiter< get_suite_date_reply >(
+                      get_property< msgid::SUITE_DATE >{}, iface_ ) )
+                    .date;
         const test_id count =
-            ( co_await msg_awaiter< get_count_reply >( get_property< COUNT >{}, iface_ ) ).count;
+            ( co_await msg_awaiter< get_count_reply >( get_property< msgid::COUNT >{}, iface_ ) )
+                .count;
 
         for ( const test_id i : range( count ) ) {
                 const auto name_reply = co_await msg_awaiter< get_test_name_reply >(
@@ -108,10 +110,11 @@ void controller::start_test( const test_id tid )
 
         state_ = test_running_state{ .context = { tid, rid_ } };
 
-        iface_.send( exec_request{ .rid = rid_, .tid = tid } );
+        // TODO: this hsould be propagated
+        std::ignore = iface_.send( exec_request{ .rid = rid_, .tid = tid } );
 }
 
-bool controller::on_msg( const std::span< const std::byte > data )
+outcome controller::on_msg( const std::span< const std::byte > data )
 {
         using h = protocol::handler< reactor_controller_group >;
         return h::extract( view_n( data.data(), data.size() ) )
@@ -119,19 +122,20 @@ bool controller::on_msg( const std::span< const std::byte > data )
                 [this]( const reactor_controller_variant& var ) {
                         return on_msg( var );
                 },
-                [this]( const protocol::error_record& rec ) {
+                [this]( const protocol::error_record& rec ) -> outcome {
                         EMLABCPP_ERROR_LOG( "Failed to extract incoming msg: ", rec );
                         iface_.report_error( controller_protocol_error{ rec } );
-                        return false;
+                        return ERROR;
                 } );
 }
 
-bool controller::on_msg( const reactor_controller_variant& var )
+outcome controller::on_msg( const reactor_controller_variant& var )
 {
         using opt_state     = std::optional< states >;
+        outcome   res       = ERROR;
         opt_state new_state = match(
             state_,
-            [this, &var]( const initializing_state& ) -> opt_state {
+            [this, &var, &res]( const initializing_state& ) -> opt_state {
                     if ( !iface_.on_msg_with_cb( var ) ) {
                             EMLABCPP_ERROR_LOG( "Got wrong message: ", var.index() );
                             visit(
@@ -139,10 +143,12 @@ bool controller::on_msg( const reactor_controller_variant& var )
                                         iface_.report_error( controller_internal_error{ T::id } );
                                 },
                                 var );
+                    } else {
+                            res = SUCCESS;
                     }
                     return std::nullopt;
             },
-            [this, &var]( test_running_state& rs ) -> opt_state {
+            [this, &var, &res]( test_running_state& rs ) -> opt_state {
                     const auto* err_ptr = std::get_if< reactor_internal_error_report >( &var );
                     if ( err_ptr != nullptr ) {
                             iface_.report_error( internal_reactor_error{ err_ptr->var } );
@@ -170,9 +176,12 @@ bool controller::on_msg( const reactor_controller_variant& var )
                     rs.context.failed  = tf_ptr->failed;
                     rs.context.errored = tf_ptr->errored;
                     iface_->on_result( rs.context );
+
+                    res = SUCCESS;
                     return states{ idle_state{} };
             },
-            []( const idle_state ) -> opt_state {
+            [&res]( const idle_state ) -> opt_state {
+                    res = SUCCESS;
                     return std::nullopt;
             } );
         if ( new_state ) {
@@ -180,7 +189,7 @@ bool controller::on_msg( const reactor_controller_variant& var )
         }
 
         // TODO: maybe better error handling? or maybe none at all?
-        return true;
+        return res;
 }
 
 void controller::tick()

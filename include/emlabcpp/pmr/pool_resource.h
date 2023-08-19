@@ -66,7 +66,7 @@ public:
                 return p;
         }
 
-        [[nodiscard]] bool
+        [[nodiscard]] result
         deallocate( void* const ptr, const std::size_t, const std::size_t ) override
         {
 
@@ -77,10 +77,10 @@ public:
 
                 if ( spot_i >= PoolCount ) {
                         EMLABCPP_ERROR_LOG( "Failed to deallocate" );
-                        return false;
+                        return ERROR;
                 }
                 free_.push_back( static_cast< uint16_t >( spot_i ) );
-                return true;
+                return SUCCESS;
         }
 
         [[nodiscard]] bool is_equal( const pmr::memory_resource& other ) const noexcept override

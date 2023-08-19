@@ -19,6 +19,8 @@
 
 #pragma once
 
+#include "emlabcpp/result.h"
+
 #include <cstddef>
 
 namespace emlabcpp::pmr
@@ -27,7 +29,7 @@ class memory_resource
 {
 public:
         [[nodiscard]] virtual void* allocate( std::size_t bytes, std::size_t alignment ) = 0;
-        [[nodiscard]] virtual bool
+        [[nodiscard]] virtual result
         deallocate( void* ptr, std::size_t bytes, std::size_t alignment )                  = 0;
         [[nodiscard]] virtual bool is_equal( const memory_resource& other ) const noexcept = 0;
         [[nodiscard]] virtual bool is_full() const noexcept                                = 0;

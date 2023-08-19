@@ -47,10 +47,10 @@ TEST( testing_combined, base )
         testing::controller* con_ptr;
         testing::reactor*    reac_ptr;
         auto                 reactor_send_f = [&]( auto, const auto& data ) {
-                return con_ptr->on_msg( data );
+                return con_ptr->on_msg( data ).has_errored_result();
         };
         auto contr_send_f = [&]( auto, const auto& data ) {
-                return reac_ptr->on_msg( data );
+                return reac_ptr->on_msg( data ).has_errored_result();
         };
 
         testing::reactor reac{ 0, "reac", reactor_send_f };
@@ -114,19 +114,19 @@ struct host_items
                     return send( chan, data );
             } };
 
-        std::function< bool( std::span< const std::byte > ) > cb;
-        testing::endpoint                                     ep;
+        std::function< result( std::span< const std::byte > ) > cb;
+        testing::endpoint                                       ep;
 
         template < std::size_t N >
-        bool send( protocol::channel_type channel, const protocol::message< N >& data )
+        result send( protocol::channel_type channel, const protocol::message< N >& data )
         {
                 return cb( ep.serialize( channel, data ) );
         }
 
-        bool on_msg( const std::span< const std::byte > data )
+        result on_msg( const std::span< const std::byte > data )
         {
                 ep.insert( data );
-                return ep.dispatch_value( cont, col_serv, param_serv );
+                return ep.dispatch_value( cont, col_serv, param_serv ).has_errored_result();
         }
 };
 
@@ -142,19 +142,19 @@ struct dev_items
                                            return send( chan, data );
                                    } };
 
-        std::function< bool( std::span< const std::byte > ) > cb;
-        testing::endpoint                                     ep;
+        std::function< result( std::span< const std::byte > ) > cb;
+        testing::endpoint                                       ep;
 
         template < std::size_t N >
-        bool send( protocol::channel_type channel, const protocol::message< N >& data )
+        result send( protocol::channel_type channel, const protocol::message< N >& data )
         {
                 return cb( ep.serialize( channel, data ) );
         }
 
-        bool on_msg( const std::span< const std::byte > data )
+        result on_msg( const std::span< const std::byte > data )
         {
                 ep.insert( data );
-                return ep.dispatch_value( reac, coll, params );
+                return ep.dispatch_value( reac, coll, params ).has_errored_result();
         }
 };
 

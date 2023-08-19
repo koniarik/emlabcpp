@@ -31,7 +31,8 @@ void reactor::tick()
         }
         opt_exec_->tick();
         if ( opt_exec_->finished() ) {
-                iface_.reply( test_finished{
+                // TODO: this should not be ignored
+                std::ignore = iface_.reply( test_finished{
                     .rid     = opt_exec_->get_run_id(),
                     .errored = opt_exec_->errored(),
                     .failed  = opt_exec_->failed() } );
@@ -39,7 +40,7 @@ void reactor::tick()
         }
 }
 
-bool reactor::on_msg( const std::span< const std::byte > buffer )
+outcome reactor::on_msg( const std::span< const std::byte > buffer )
 {
         using h = protocol::handler< controller_reactor_group >;
         return h::extract( view_n( buffer.data(), buffer.size() ) )
@@ -47,60 +48,61 @@ bool reactor::on_msg( const std::span< const std::byte > buffer )
                 [this]( const controller_reactor_variant& var ) {
                         return on_msg( var );
                 },
-                [this]( const protocol::error_record& rec ) {
-                        iface_.report_failure( input_message_protocol_error{ rec } );
-                        return false;
+                [this]( const protocol::error_record& rec ) -> outcome {
+                        // error is returned anyway
+                        std::ignore = iface_.report_failure( input_message_protocol_error{ rec } );
+                        return ERROR;
                 } );
 }
 
-bool reactor::on_msg( const controller_reactor_variant& var )
+outcome reactor::on_msg( const controller_reactor_variant& var )
 {
-        match( var, [this]( const auto& item ) {
-                handle_message( item );
+        return match( var, [this]( const auto& item ) {
+                return handle_message( item );
         } );
-        return false;  // maybe better error handling can be done?
 }
 
-void reactor::handle_message( const get_property< SUITE_NAME > )
+outcome reactor::handle_message( const get_property< msgid::SUITE_NAME > )
 {
-        iface_.reply( get_suite_name_reply{ name_buffer( suite_name_ ) } );
+        return iface_.reply( get_suite_name_reply{ name_buffer( suite_name_ ) } );
 }
 
-void reactor::handle_message( const get_property< SUITE_DATE > )
+outcome reactor::handle_message( const get_property< msgid::SUITE_DATE > )
 {
-        iface_.reply( get_suite_date_reply{ name_buffer( suite_date_ ) } );
+        return iface_.reply( get_suite_date_reply{ name_buffer( suite_date_ ) } );
 }
 
-void reactor::handle_message( const get_property< COUNT > )
+outcome reactor::handle_message( const get_property< msgid::COUNT > )
 {
         const std::size_t c = root_node_.count_next();
-        iface_.reply( get_count_reply{ static_cast< test_id >( c ) } );
+        return iface_.reply( get_count_reply{ static_cast< test_id >( c ) } );
 }
 
-void reactor::handle_message( const get_test_name_request req )
+outcome reactor::handle_message( const get_test_name_request req )
 {
         test_ll_node* const node_ptr = root_node_.get_next( req.tid + 1 );
         if ( node_ptr == nullptr ) {
-                iface_.report_failure( error< BAD_TEST_ID_E >{} );
-                return;
+                std::ignore = iface_.report_failure( error< BAD_TEST_ID_E >{} );
+                return FAILURE;
         }
         const test_interface& test = **node_ptr;
-        iface_.reply( get_test_name_reply{ name_buffer( test.get_name() ) } );
+        return iface_.reply( get_test_name_reply{ name_buffer( test.get_name() ) } );
 }
 
-void reactor::handle_message( const exec_request req )
+outcome reactor::handle_message( const exec_request req )
 {
         if ( opt_exec_ ) {
-                iface_.report_failure( error< TEST_IS_RUNING_E >{} );
-                return;
+                std::ignore = iface_.report_failure( error< TEST_IS_RUNING_E >{} );
+                return FAILURE;
         }
 
         test_ll_node* const node_ptr = root_node_.get_next( req.tid + 1 );
         if ( node_ptr == nullptr ) {
-                iface_.report_failure( error< BAD_TEST_ID_E >{} );
-                return;
+                std::ignore = iface_.report_failure( error< BAD_TEST_ID_E >{} );
+                return FAILURE;
         }
         test_interface& test = **node_ptr;
         opt_exec_.emplace( req.rid, mem_, test );
+        return SUCCESS;
 }
 }  // namespace emlabcpp::testing

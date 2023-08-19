@@ -78,7 +78,7 @@ public:
                 return p;
         }
 
-        [[nodiscard]] bool
+        [[nodiscard]] result
         deallocate( void* const ptr, const std::size_t bytes, const std::size_t ) override
         {
                 EMLABCPP_DEBUG_LOG( "Deallocating ", ptr, " with ", bytes, " bytes" );
@@ -95,7 +95,7 @@ public:
                         set_node( next_ptr, prev_ptr, next_next_ptr );
                 }
 
-                return true;
+                return SUCCESS;
         }
 
         [[nodiscard]] bool is_equal( const pmr::memory_resource& other ) const noexcept override

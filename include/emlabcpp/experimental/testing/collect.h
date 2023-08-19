@@ -54,9 +54,9 @@ using collect_client_server_message = typename protocol::handler< collect_reques
 
 using collect_reply_callback = static_function< void( const collect_server_client_group& ), 32 >;
 using collect_client_transmit_callback =
-    static_function< bool( protocol::channel_type, const collect_client_server_message& ), 32 >;
+    static_function< result( protocol::channel_type, const collect_client_server_message& ), 32 >;
 using collect_server_transmit_callback =
-    static_function< bool( protocol::channel_type, const collect_server_client_message& ), 32 >;
+    static_function< result( protocol::channel_type, const collect_server_client_message& ), 32 >;
 
 class collector;
 
@@ -109,8 +109,8 @@ public:
                 return channel_;
         }
 
-        bool on_msg( const std::span< const std::byte >& msg );
-        bool on_msg( const collect_server_client_group& var );
+        outcome on_msg( const std::span< const std::byte >& msg );
+        outcome on_msg( const collect_server_client_group& var );
 
         collect_awaiter
         set( const node_id parent, std::string_view key, contiguous_container_type t );
@@ -133,7 +133,7 @@ public:
         bool exchange( const collect_request& req, collect_reply_callback cb );
 
 private:
-        bool send( const collect_request& req );
+        result send( const collect_request& req );
 
         protocol::channel_type           channel_;
         collect_reply_callback           reply_callback_;
@@ -153,8 +153,8 @@ public:
                 return channel_;
         }
 
-        bool on_msg( std::span< const std::byte > data );
-        bool on_msg( const collect_request& req );
+        outcome on_msg( std::span< const std::byte > data );
+        outcome on_msg( const collect_request& req );
 
         void clear()
         {
@@ -167,7 +167,7 @@ public:
         }
 
 private:
-        bool send( const collect_server_client_group& val );
+        result send( const collect_server_client_group& val );
 
         protocol::channel_type           channel_;
         data_tree                        tree_;

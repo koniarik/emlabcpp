@@ -80,11 +80,11 @@ TEST( params, base )
         testing::parameters*        col_ptr;
         testing::parameters_server* server_ptr;
 
-        auto col_send_f = [&]( auto, auto data ) {
-                return server_ptr->on_msg( data );
+        auto col_send_f = [&]( auto, auto data ) -> result {
+                return server_ptr->on_msg( data ).has_errored_result();
         };
-        auto server_send_f = [&]( auto, auto data ) {
-                return col_ptr->on_msg( data );
+        auto server_send_f = [&]( auto, auto data ) -> result {
+                return col_ptr->on_msg( data ).has_errored_result();
         };
 
         testing::parameters coll{ 0, col_send_f };

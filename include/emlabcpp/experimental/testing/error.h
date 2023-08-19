@@ -48,7 +48,7 @@ struct internal_reactor_error
 
 struct controller_internal_error
 {
-        messages_enum msg_id;
+        msgid msg_id;
 };
 
 using error_variant = std::variant<
@@ -71,7 +71,11 @@ inline std::ostream& operator<<( std::ostream& os, const controller_protocol_err
 inline std::ostream& operator<<( std::ostream& os, const internal_reactor_error& e )
 {
         match( e.val, [&os]< typename T >( const T& ) {
-                os << T::id;
+#ifdef EMLABCPP_USE_MAGIC_ENUM
+                os << convert_enum( T::id );
+#else
+                os << static_cast<std::underlying_type_t<T>>(T::id);
+#endif
         } );
         return os;
 }
@@ -80,8 +84,9 @@ inline std::ostream& operator<<( std::ostream& os, const controller_internal_err
 {
 #ifdef EMLABCPP_USE_MAGIC_ENUM
         return os << convert_enum( e.msg_id );
-#endif
+#else
         return os << e.msg_id;
+#endif
 }
 
 inline std::ostream& operator<<( std::ostream& os, const error_variant& var )

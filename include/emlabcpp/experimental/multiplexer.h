@@ -19,6 +19,7 @@
 
 #pragma once
 
+#include "emlabcpp/outcome.h"
 #include "emlabcpp/protocol/endpoint.h"
 #include "emlabcpp/protocol/handler.h"
 #include "emlabcpp/protocol/tuple.h"
@@ -60,41 +61,39 @@ multiplexer_message< N > serialize_multiplexed( channel_type channel, const mess
 }
 
 template < typename BinaryCallable >
-bool extract_multiplexed( const std::span< const std::byte >& msg, BinaryCallable&& handle_cb )
+outcome extract_multiplexed( const std::span< const std::byte >& msg, BinaryCallable handle_cb )
 {
         using chan_ser = protocol::serializer< channel_type, std::endian::little >;
         if ( msg.size() < chan_ser::max_size ) {
-                return false;
+                return ERROR;
         }
         channel_type id = chan_ser::deserialize( msg.subspan< 0, chan_ser::max_size >() );
 
         // TODO: there might be a better way than callback?
-        const bool success = handle_cb( id, msg.subspan( chan_ser::max_size ) );
-        return success;
+        return handle_cb( id, msg.subspan( chan_ser::max_size ) );
 }
 
 template < typename... Slotted >
-bool multiplexed_dispatch( channel_type chann, const auto& data, Slotted&... slotted )
+outcome multiplexed_dispatch( channel_type chann, const auto& data, Slotted&... slotted )
 {
-
-        bool succ = true;
+        outcome res = SUCCESS;
 
         // TODO: assert that channels are unique
         auto f = [&]< typename T >( T& item ) {
                 if ( chann != item.get_channel() ) {
                         return false;
                 }
-                succ = item.on_msg( data );
-                if ( !succ ) {
+                res = item.on_msg( data );
+                if ( res == ERROR ) {
                         EMLABCPP_ERROR_LOG( "Slot returned an error for message" );
                 }
                 return true;
         };
         if ( !( f( slotted ) || ... || false ) ) {
                 EMLABCPP_ERROR_LOG( "Failed to match channel: ", chann );
-                succ = false;
+                res = ERROR;
         }
-        return succ;
+        return res;
 }
 
 template < typename Packet >
@@ -143,19 +142,19 @@ public:
         }
 
         template < typename... Slotted >
-        bool dispatch_value( Slotted&... slotted )
+        outcome dispatch_value( Slotted&... slotted )
         {
                 return match(
                     ep.get_value(),
-                    []( const std::size_t ) {
-                            return true;
+                    []( const std::size_t ) -> outcome {
+                            return SUCCESS;
                     },
                     [&slotted...]( const std::tuple< channel_type, payload_message >& payload ) {
                             const auto& [id, data] = payload;
                             return multiplexed_dispatch( id, data, slotted... );
                     },
-                    []( const error_record& ) {
-                            return false;
+                    []( const error_record& ) -> outcome {
+                            return ERROR;
                     } );
         }
 

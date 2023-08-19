@@ -153,9 +153,9 @@ using params_server_client_message =
 
 using params_reply_callback = static_function< void( const params_server_client_variant& ), 32 >;
 using params_client_transmit_callback =
-    static_function< bool( protocol::channel_type, const params_client_server_message& ), 32 >;
+    static_function< result( protocol::channel_type, const params_client_server_message& ), 32 >;
 using params_server_transmit_callback =
-    static_function< bool( protocol::channel_type, const params_server_client_message& ), 32 >;
+    static_function< result( protocol::channel_type, const params_server_client_message& ), 32 >;
 
 class parameters;
 
@@ -318,8 +318,8 @@ public:
                 return channel_;
         }
 
-        bool on_msg( std::span< const std::byte > data );
-        bool on_msg( const params_server_client_variant& req );
+        outcome on_msg( std::span< const std::byte > data );
+        outcome on_msg( const params_server_client_variant& req );
 
         param_type_awaiter get_type( node_id nid );
 
@@ -350,7 +350,7 @@ public:
 
         void exchange( const params_client_server_variant& req, params_reply_callback reply_cb );
 
-        bool send( const params_client_server_variant& val );
+        result send( const params_client_server_variant& val );
 
 private:
         protocol::channel_type          channel_;
@@ -361,15 +361,17 @@ private:
 template < typename T >
 void param_value_processor< T >::log_error( parameters& params ) const
 {
-        params.send( param_error{ string_buffer( "for value of type:" ) } );
-        params.send( param_error{ string_buffer( pretty_type_name< T >() ) } );
+        // TODO: this should not be ignored
+        std::ignore = params.send( param_error{ string_buffer( "for value of type:" ) } );
+        std::ignore = params.send( param_error{ string_buffer( pretty_type_name< T >() ) } );
 }
 
 template < typename T >
 void param_value_key_processor< T >::log_error( parameters& params ) const
 {
-        params.send( param_error{ string_buffer( "for keyvalue of type:" ) } );
-        params.send( param_error{ string_buffer( pretty_type_name< T >() ) } );
+        // TODO: this should not be ignored
+        std::ignore = params.send( param_error{ string_buffer( "for keyvalue of type:" ) } );
+        std::ignore = params.send( param_error{ string_buffer( pretty_type_name< T >() ) } );
 }
 
 template < typename Processor >
@@ -379,7 +381,8 @@ void params_awaiter< Processor >::await_suspend( const std::coroutine_handle< Pr
         h.promise().iface = this;
         params.exchange( proc.req, [this]( const params_server_client_variant& var ) {
                 if ( !proc.set_value( var ) ) {
-                        params.send(
+                        // TODO: this should not be ignored
+                        std::ignore = params.send(
                             param_error{ string_buffer( "failed to proces param awaiter" ) } );
                         proc.log_error( params );
                         state = coro::wait_state::ERRORED;
@@ -402,19 +405,19 @@ public:
                 return channel_;
         }
 
-        bool on_msg( const std::span< const std::byte > data );
-        bool on_msg( const params_client_server_variant& req );
+        outcome on_msg( const std::span< const std::byte > data );
+        outcome on_msg( const params_client_server_variant& req );
 
 private:
-        void on_req( const param_error& req ) const;
-        void on_req( const param_value_request& req );
-        void on_req( const param_value_key_request& req );
-        void on_req( const param_child_request& req );
-        void on_req( const param_child_count_request& req );
-        void on_req( const param_key_request& req );
-        void on_req( const param_type_request& req );
-        void reply_node_error( const contiguous_request_adapter_errors err, const node_id nid );
-        bool send( const params_server_client_variant& var );
+        outcome on_req( const param_error& req ) const;
+        outcome on_req( const param_value_request& req );
+        outcome on_req( const param_value_key_request& req );
+        outcome on_req( const param_child_request& req );
+        outcome on_req( const param_child_count_request& req );
+        outcome on_req( const param_key_request& req );
+        outcome on_req( const param_type_request& req );
+        outcome reply_node_error( const contiguous_request_adapter_errors err, const node_id nid );
+        result  send( const params_server_client_variant& var );
 
         protocol::channel_type          channel_;
         data_tree                       tree_;
