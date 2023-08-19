@@ -1,6 +1,6 @@
 var classemlabcpp_1_1testing_1_1reactor__interface__adapter =
 [
     [ "reactor_interface_adapter", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#a44a46040d4bbe9d44c4ef2effd111bfb", null ],
-    [ "reply", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#a4f170e1258b4f3bd567131be12221dea", null ],
-    [ "report_failure", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#aad4d3ae42e1e7893b9467a1d9b71f488", null ]
+    [ "reply", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#ac4244d0e4177ce2e0c761000fa72fa73", null ],
+    [ "report_failure", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html#adf9b4b2181bb5a69627c97a8e8e2bc50", null ]
 ];

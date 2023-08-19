@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('experimental_2testing_2protocol_8h.htm
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="experimental_2testing_2protocol_8h__incl.svg" width="2366" height="663"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="experimental_2testing_2protocol_8h__incl.svg" width="2398" height="663"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -167,8 +167,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ac7c99fb03ea6f3d53c46930404b1cfc1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ac7c99fb03ea6f3d53c46930404b1cfc1">emlabcpp::testing::controller_reactor_group</a> = protocol::tag_group&lt; get_property&lt; SUITE_NAME &gt;, get_property&lt; SUITE_DATE &gt;, get_property&lt; COUNT &gt;, get_test_name_request, exec_request &gt;</td></tr>
-<tr class="separator:ac7c99fb03ea6f3d53c46930404b1cfc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f07be351243a51500a6297ea17c850"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ae1f07be351243a51500a6297ea17c850">emlabcpp::testing::controller_reactor_group</a> = protocol::tag_group&lt; get_property&lt; msgid::SUITE_NAME &gt;, get_property&lt; msgid::SUITE_DATE &gt;, get_property&lt; msgid::COUNT &gt;, get_test_name_request, exec_request &gt;</td></tr>
+<tr class="separator:ae1f07be351243a51500a6297ea17c850"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7990a2783b0090e4fb21f6af5916c99c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a7990a2783b0090e4fb21f6af5916c99c">emlabcpp::testing::controller_reactor_variant</a> = typename protocol::traits_for&lt; controller_reactor_group &gt;::value_type</td></tr>
 <tr class="separator:a7990a2783b0090e4fb21f6af5916c99c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a525a178b0ea7ef8fa80c45e9ae80e4f2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a525a178b0ea7ef8fa80c45e9ae80e4f2">emlabcpp::testing::controller_reactor_message</a> = typename protocol::handler&lt; controller_reactor_group &gt;::message_type</td></tr>
@@ -181,10 +181,10 @@ Typedefs</h2></td></tr>
 <tr class="separator:ab013b23e3c03b3fc9202b93e14cd8d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2a18ebb255c16f47e08d5f8f8d8a9f6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#af2a18ebb255c16f47e08d5f8f8d8a9f6">emlabcpp::testing::reactor_controller_message</a> = typename protocol::handler&lt; reactor_controller_group &gt;::message_type</td></tr>
 <tr class="separator:af2a18ebb255c16f47e08d5f8f8d8a9f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4e37e912ddd410e6bc24740f127bc45"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ad4e37e912ddd410e6bc24740f127bc45">emlabcpp::testing::reactor_transmit_callback</a> = static_function&lt; bool(protocol::channel_type, const reactor_controller_message &amp;), 32 &gt;</td></tr>
-<tr class="separator:ad4e37e912ddd410e6bc24740f127bc45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16287fc498bcca18d392af3d32a04cfa"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a16287fc498bcca18d392af3d32a04cfa">emlabcpp::testing::controller_transmit_callback</a> = static_function&lt; bool(protocol::channel_type, const controller_reactor_message &amp;), 32 &gt;</td></tr>
-<tr class="separator:a16287fc498bcca18d392af3d32a04cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab33c48d89ae78a99c4eb79400fd167f4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ab33c48d89ae78a99c4eb79400fd167f4">emlabcpp::testing::reactor_transmit_callback</a> = static_function&lt; result(protocol::channel_type, const reactor_controller_message &amp;), 32 &gt;</td></tr>
+<tr class="separator:ab33c48d89ae78a99c4eb79400fd167f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a8223f005c481689aa17053c1cee569"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a8a8223f005c481689aa17053c1cee569">emlabcpp::testing::controller_transmit_callback</a> = static_function&lt; result(protocol::channel_type, const controller_reactor_message &amp;), 32 &gt;</td></tr>
+<tr class="separator:a8a8223f005c481689aa17053c1cee569"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae95f1f2b1e2c322deddf351d84509915"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ae95f1f2b1e2c322deddf351d84509915">emlabcpp::testing::packet_payload</a> = protocol::multiplexer_payload&lt; 80 &gt;</td></tr>
 <tr class="separator:ae95f1f2b1e2c322deddf351d84509915"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1552bd84b510ee082c62d4e8cb609f63"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a1552bd84b510ee082c62d4e8cb609f63">emlabcpp::testing::packet</a> = protocol::packet&lt; packet_def, packet_payload &gt;</td></tr>
@@ -196,31 +196,31 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a293ec7de85094a09f0cf5d840eaa2e6c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6c">emlabcpp::testing::messages_enum</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cac701d4251538d4cb8c79b9ba788e8ace">emlabcpp::testing::EXEC</a> = 0x1
+<tr class="memitem:a9a994539be0b8174f39b99382de81459"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459">emlabcpp::testing::msgid</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459af28b3aad7d43b371527fde69de8d93ff">emlabcpp::testing::EXEC</a> = 0x1
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca571ceccb1432379bef8cf37f562bded3">emlabcpp::testing::COUNT</a> = 0x2
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459a4905ac9d6a22bdfc1ae096094ce6248d">emlabcpp::testing::COUNT</a> = 0x2
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cadf66c2be6d30627ea47dbc3ac894e646">emlabcpp::testing::NAME</a> = 0x3
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459aad32e604e17467fc435538334fbddf3e">emlabcpp::testing::NAME</a> = 0x3
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca80d3c264bc9a5f0a15ef3335f6a4d754">emlabcpp::testing::SUITE_NAME</a> = 0x6
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459a06dded09e92ac892c09b9559b6d14d95">emlabcpp::testing::SUITE_NAME</a> = 0x6
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca50e315ea9fe571c82325de10302c70a0">emlabcpp::testing::SUITE_DATE</a> = 0x7
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459a69726e0276af375acbb10c838284059c">emlabcpp::testing::SUITE_DATE</a> = 0x7
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca12d0cc9212a1a22db9ce472105aba2f5">emlabcpp::testing::FINISHED</a> = 0x9
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459a2c616b2713e2e0aed04b4c4752c88133">emlabcpp::testing::FINISHED</a> = 0x9
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca877f69177a47fe79578e054501efe224">emlabcpp::testing::ERROR</a> = 0xa
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459abb1ca97ec761fc37101737ba0aa2e7c5">emlabcpp::testing::ERROR</a> = 0xa
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca3841712339181fdbe54aa09a1eefba23">emlabcpp::testing::FAILURE</a> = 0xb
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459a36fc6065a3e970bc3e6b2e59da52bf2a">emlabcpp::testing::FAILURE</a> = 0xb
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca94ed7dad64766a32cea41354f0b3f318">emlabcpp::testing::INTERNAL_ERROR</a> = 0xf0
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459ae8c0c70879b5895c615677261d64a1ee">emlabcpp::testing::INTERNAL_ERROR</a> = 0xf0
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6ca7b6f85de641381d0c1dd2ebf429a90cd">emlabcpp::testing::PROTOCOL_ERROR</a> = 0xf1
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459a23f149f0f9ae9ed9e0119e7209178a5d">emlabcpp::testing::PROTOCOL_ERROR</a> = 0xf1
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a293ec7de85094a09f0cf5d840eaa2e6cabf57942bad0597ed207985ac546776c3">emlabcpp::testing::TREE_ERROR</a> = 0xf2
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459a20ba3a1827f89d549dd66c28540de382">emlabcpp::testing::TREE_ERROR</a> = 0xf2
 <br />
  }</td></tr>
-<tr class="separator:a293ec7de85094a09f0cf5d840eaa2e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a9a994539be0b8174f39b99382de81459"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acaa3eb138817e4e8e0040cb830a35d76"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76">emlabcpp::testing::error_enum</a> : uint8_t { <br />
 &#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a5b46f431ec657038f11b2f0e2d80230e">emlabcpp::testing::TEST_IS_RUNING_E</a> = 0x1
 , <br />
@@ -254,7 +254,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="experimental_2testing_2protocol_8h.html">protocol.h</a></li>
-    <li class="footer">Generated on Fri Aug 18 2023 18:59:06 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 19 2023 20:06:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

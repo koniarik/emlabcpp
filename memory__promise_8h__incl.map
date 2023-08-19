@@ -2,9 +2,10 @@
 <area shape="rect" id="node1" title=" " alt="" coords="180,5,408,47"/>
 <area shape="rect" id="node2" href="$logging_8h.html" title=" " alt="" coords="5,95,183,136"/>
 <area shape="rect" id="node4" href="$memory__resource_8h.html" title=" " alt="" coords="207,95,381,136"/>
-<area shape="rect" id="node6" href="$throw__bad__alloc_8h.html" title=" " alt="" coords="406,95,563,136"/>
+<area shape="rect" id="node7" href="$throw__bad__alloc_8h.html" title=" " alt="" coords="406,95,563,136"/>
 <area shape="rect" id="node3" title=" " alt="" coords="45,184,143,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="259,184,329,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="411,184,476,211"/>
-<area shape="rect" id="node8" title=" " alt="" coords="500,184,549,211"/>
+<area shape="rect" id="node5" href="$result_8h.html" title=" " alt="" coords="181,184,319,211"/>
+<area shape="rect" id="node6" title=" " alt="" coords="344,184,415,211"/>
+<area shape="rect" id="node8" title=" " alt="" coords="445,184,511,211"/>
+<area shape="rect" id="node9" title=" " alt="" coords="535,184,584,211"/>
 </map>

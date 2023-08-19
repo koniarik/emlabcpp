@@ -22,11 +22,13 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     ] ],
     [ "match.h", "match_8h.html", "match_8h" ],
     [ "min_max.h", "min__max_8h.html", "min__max_8h" ],
+    [ "outcome.h", "outcome_8h.html", "outcome_8h" ],
     [ "physical_quantity.h", "physical__quantity_8h.html", "physical__quantity_8h" ],
     [ "pid.h", "pid_8h.html", "pid_8h" ],
     [ "protocol.h", "protocol_8h.html", null ],
     [ "quantity.h", "quantity_8h.html", "quantity_8h" ],
     [ "range.h", "range_8h.html", "range_8h" ],
+    [ "result.h", "result_8h.html", "result_8h" ],
     [ "static_circular_buffer.h", "static__circular__buffer_8h.html", "static__circular__buffer_8h" ],
     [ "static_function.h", "static__function_8h.html", "static__function_8h" ],
     [ "static_storage.h", "static__storage_8h.html", [

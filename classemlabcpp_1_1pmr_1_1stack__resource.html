@@ -124,8 +124,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a89097ca0f493ef0d1c00223ab56c5856"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a6b1ef1e6ccacc68aa1983a291f6b46"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a5a6b1ef1e6ccacc68aa1983a291f6b46">allocate</a> (const std::size_t <a class="el" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">bytes</a>, const std::size_t alignment) override</td></tr>
 <tr class="separator:a5a6b1ef1e6ccacc68aa1983a291f6b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa536fb4972cabcb7490695e145b2c92e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1stack__resource.html#aa536fb4972cabcb7490695e145b2c92e">deallocate</a> (void *const ptr, const std::size_t <a class="el" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">bytes</a>, const std::size_t) override</td></tr>
-<tr class="separator:aa536fb4972cabcb7490695e145b2c92e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae83f3a1ffc8ed746c2b08f6d2fff23fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1result.html">result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1stack__resource.html#ae83f3a1ffc8ed746c2b08f6d2fff23fb">deallocate</a> (void *const ptr, const std::size_t <a class="el" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">bytes</a>, const std::size_t) override</td></tr>
+<tr class="separator:ae83f3a1ffc8ed746c2b08f6d2fff23fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada13dc63336cce04cb0977675346f86a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1stack__resource.html#ada13dc63336cce04cb0977675346f86a">is_equal</a> (const <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;other) const noexcept override</td></tr>
 <tr class="separator:ada13dc63336cce04cb0977675346f86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05ad07ac1f2c0e6b7d171f7839733fd0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a05ad07ac1f2c0e6b7d171f7839733fd0">is_full</a> () const noexcept override</td></tr>
@@ -290,8 +290,8 @@ template&lt;std::size_t Capacity&gt; </div>
 
 </div>
 </div>
-<a id="aa536fb4972cabcb7490695e145b2c92e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa536fb4972cabcb7490695e145b2c92e">&#9670;&nbsp;</a></span>deallocate()</h2>
+<a id="ae83f3a1ffc8ed746c2b08f6d2fff23fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae83f3a1ffc8ed746c2b08f6d2fff23fb">&#9670;&nbsp;</a></span>deallocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -302,7 +302,7 @@ template&lt;std::size_t Capacity&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classemlabcpp_1_1pmr_1_1stack__resource.html">emlabcpp::pmr::stack_resource</a>&lt; Capacity &gt;::deallocate </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1result.html">result</a> <a class="el" href="classemlabcpp_1_1pmr_1_1stack__resource.html">emlabcpp::pmr::stack_resource</a>&lt; Capacity &gt;::deallocate </td>
           <td>(</td>
           <td class="paramtype">void *const&#160;</td>
           <td class="paramname"><em>ptr</em>, </td>
@@ -332,9 +332,9 @@ template&lt;std::size_t Capacity&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#ad15c362e662a63d44e8bc01076450730">emlabcpp::pmr::memory_resource</a>.</p>
+<p>Implements <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#a3e71b0ffbc6f163b5376ce8a10166bb7">emlabcpp::pmr::memory_resource</a>.</p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">emlabcpp::bytes()</a>, and <a class="el" href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">EMLABCPP_DEBUG_LOG</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">emlabcpp::bytes()</a>, <a class="el" href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">EMLABCPP_DEBUG_LOG</a>, and <a class="el" href="namespaceemlabcpp.html#afe02e91acaaf63457009e5300a68becd">emlabcpp::SUCCESS</a>.</p>
 
 </div>
 </div>
@@ -462,7 +462,7 @@ template&lt;std::size_t Capacity&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1pmr.html">pmr</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1pmr_1_1stack__resource.html">stack_resource</a></li>
-    <li class="footer">Generated on Fri Aug 18 2023 18:59:06 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 19 2023 20:06:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

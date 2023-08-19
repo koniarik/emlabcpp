@@ -6,6 +6,6 @@ var classemlabcpp_1_1testing_1_1controller__interface__adapter =
     [ "operator*", "classemlabcpp_1_1testing_1_1controller__interface__adapter.html#a3a7eca3338059276df28df71c410cbd5", null ],
     [ "operator->", "classemlabcpp_1_1testing_1_1controller__interface__adapter.html#a71b460f7987ac74b25703b4006dce425", null ],
     [ "report_error", "classemlabcpp_1_1testing_1_1controller__interface__adapter.html#acac34668997e82777d183b6dc76eff61", null ],
-    [ "send", "classemlabcpp_1_1testing_1_1controller__interface__adapter.html#a2da614a44f504c0d8fb095ce5e03b58f", null ],
+    [ "send", "classemlabcpp_1_1testing_1_1controller__interface__adapter.html#a88517e597467c9d660140d98cdc2c781", null ],
     [ "set_reply_cb", "classemlabcpp_1_1testing_1_1controller__interface__adapter.html#a98470de89e86ee13fbd5bea4835f130b", null ]
 ];

@@ -123,8 +123,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a96c98acdb8669f38e2c7969e30e5eb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91a135a31692d62ee0858d80573a55b7"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1pool__resource.html#a91a135a31692d62ee0858d80573a55b7">allocate</a> (const std::size_t <a class="el" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">bytes</a>, const std::size_t alignment) override</td></tr>
 <tr class="separator:a91a135a31692d62ee0858d80573a55b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a644bc27d027b41e99c84068542efe1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1pool__resource.html#a2a644bc27d027b41e99c84068542efe1">deallocate</a> (void *const ptr, const std::size_t, const std::size_t) override</td></tr>
-<tr class="separator:a2a644bc27d027b41e99c84068542efe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a93b84566c0d02f4372928918ac34ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1result.html">result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1pool__resource.html#a5a93b84566c0d02f4372928918ac34ed">deallocate</a> (void *const ptr, const std::size_t, const std::size_t) override</td></tr>
+<tr class="separator:a5a93b84566c0d02f4372928918ac34ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12e6e8deea4f736e308c71133bf118c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1pool__resource.html#a12e6e8deea4f736e308c71133bf118c1">is_equal</a> (const <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;other) const noexcept override</td></tr>
 <tr class="separator:a12e6e8deea4f736e308c71133bf118c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac694323b3f44398c0f9d69ac8b4cd2db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1pmr_1_1pool__resource.html#ac694323b3f44398c0f9d69ac8b4cd2db">is_full</a> () const noexcept override</td></tr>
@@ -291,8 +291,8 @@ template&lt;std::size_t PoolSize, uint16_t PoolCount&gt; </div>
 
 </div>
 </div>
-<a id="a2a644bc27d027b41e99c84068542efe1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a644bc27d027b41e99c84068542efe1">&#9670;&nbsp;</a></span>deallocate()</h2>
+<a id="a5a93b84566c0d02f4372928918ac34ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a93b84566c0d02f4372928918ac34ed">&#9670;&nbsp;</a></span>deallocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,7 +303,7 @@ template&lt;std::size_t PoolSize, uint16_t PoolCount&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classemlabcpp_1_1pmr_1_1pool__resource.html">emlabcpp::pmr::pool_resource</a>&lt; PoolSize, PoolCount &gt;::deallocate </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1result.html">result</a> <a class="el" href="classemlabcpp_1_1pmr_1_1pool__resource.html">emlabcpp::pmr::pool_resource</a>&lt; PoolSize, PoolCount &gt;::deallocate </td>
           <td>(</td>
           <td class="paramtype">void *const&#160;</td>
           <td class="paramname"><em>ptr</em>, </td>
@@ -333,9 +333,9 @@ template&lt;std::size_t PoolSize, uint16_t PoolCount&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#ad15c362e662a63d44e8bc01076450730">emlabcpp::pmr::memory_resource</a>.</p>
+<p>Implements <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#a3e71b0ffbc6f163b5376ce8a10166bb7">emlabcpp::pmr::memory_resource</a>.</p>
 
-<p class="reference">References <a class="el" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>, and <a class="el" href="classemlabcpp_1_1static__vector.html#a51ee7dc6f9be615d0762635ecab58cd5">emlabcpp::static_vector&lt; T, N &gt;::push_back()</a>.</p>
+<p class="reference">References <a class="el" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>, <a class="el" href="namespaceemlabcpp.html#a4daa9ae3a8263bbce72728fc136c3121">emlabcpp::ERROR</a>, <a class="el" href="classemlabcpp_1_1static__vector.html#a51ee7dc6f9be615d0762635ecab58cd5">emlabcpp::static_vector&lt; T, N &gt;::push_back()</a>, and <a class="el" href="namespaceemlabcpp.html#afe02e91acaaf63457009e5300a68becd">emlabcpp::SUCCESS</a>.</p>
 
 </div>
 </div>
@@ -465,7 +465,7 @@ template&lt;std::size_t PoolSize, uint16_t PoolCount&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1pmr.html">pmr</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1pmr_1_1pool__resource.html">pool_resource</a></li>
-    <li class="footer">Generated on Fri Aug 18 2023 18:59:06 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Aug 19 2023 20:06:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
