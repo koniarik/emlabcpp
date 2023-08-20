@@ -56,7 +56,7 @@ public:
 
         /// Returns current state of the outcome as numerical id, this corresponds to
         /// success_type::id, failure_type::id, error_type::id respectively
-        constexpr uint8_t get_state() const
+        [[nodiscard]] constexpr uint8_t get_state() const
         {
                 return state_;
         }
