@@ -595,7 +595,7 @@ struct converter< bounded< D, Min, Max >, Endianess >
         static constexpr conversion_result
         deserialize( const std::span< const std::byte >& buffer, value_type& value )
         {
-                D    sub_val;
+                D    sub_val{};
                 auto subres = sub_converter::deserialize( buffer, sub_val );
                 if ( subres.has_error() ) {
                         return subres;
@@ -851,7 +851,7 @@ struct converter< string_buffer< N >, Endianess >
         static constexpr conversion_result
         deserialize( const std::span< const std::byte >& buffer, value_type& value )
         {
-                counter_type size;
+                counter_type size   = 0;
                 auto         subres = counter_converter::deserialize( buffer, size );
                 if ( subres.has_error() ) {
                         return subres;
