@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"quaternion_8h.html#af502c46ab09d85973cfcaaf05be835ac":[4,0,0,0,1,3,4,17],
+"quaternion_8h.html#af6fc2eeaf683b868d3ec7eed8fe6f69a":[4,0,0,0,1,3,4,5],
 "quaternion_8h.html#af9602763edb5f01eed83307c5c63ad73":[4,0,0,0,1,3,4,15],
 "quaternion_8h_source.html":[4,0,0,0,1,3,4],
 "range_8h.html":[4,0,0,0,23],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html":[3,0,0,5,3],
 "structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html#a6bd69e925c1d854d7cdde05e0d870760":[3,0,0,5,3,3],
 "structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html#a843b0cdb1f46048730a608fc763f20f2":[3,0,0,5,3,2],
-"structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html#abea9c67f254bb19b90901ee5c28f5cb4":[3,0,0,5,3,1],
-"structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html#ae0c4b429b3c0ba02b77530b5d0fd5702":[3,0,0,5,3,0],
-"structemlabcpp_1_1pose.html":[3,0,0,28]
+"structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html#abea9c67f254bb19b90901ee5c28f5cb4":[3,0,0,5,3,1]
 };

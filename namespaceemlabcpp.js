@@ -455,6 +455,7 @@ var namespaceemlabcpp =
     [ "result_like", "namespaceemlabcpp.html#a66f8e38a0e1ddf05756a003a85be1efd", null ],
     [ "result_native_constant", "namespaceemlabcpp.html#a53bb9ab6abee8fc7151e92dd9fefdb58", null ],
     [ "result_value", "namespaceemlabcpp.html#aa2cc38a2ca173cdd7e30e1ccc1f4fe54", null ],
+    [ "some", "namespaceemlabcpp.html#a5e65fd6d417642b969b05ca5af4a6d8a", null ],
     [ "static_size_v", "namespaceemlabcpp.html#a2e849ebc932caa63f7e1e6c67d0c2f7b", null ],
     [ "static_sized", "namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5", null ],
     [ "SUCCESS", "namespaceemlabcpp.html#afe02e91acaaf63457009e5300a68becd", null ],
