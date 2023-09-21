@@ -768,9 +768,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ac081ada5ee8e130abc77d8471f570661"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1pose__distance">pose_distance</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac081ada5ee8e130abc77d8471f570661">distance_of</a> (const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;x, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;y)</td></tr>
 <tr class="memdesc:ac081ada5ee8e130abc77d8471f570661"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns PoseDistance between provided poses  <a href="namespaceemlabcpp.html#ac081ada5ee8e130abc77d8471f570661">More...</a><br /></td></tr>
 <tr class="separator:ac081ada5ee8e130abc77d8471f570661"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a130ed4c792c2efaf92b76eb607a433c3"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a130ed4c792c2efaf92b76eb607a433c3">almost_equal</a> (const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;x, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;y, float eps=<a class="el" href="namespaceemlabcpp.html#a20db02f115d34db629106a39c5194e18">default_epsilon</a>)</td></tr>
-<tr class="memdesc:a130ed4c792c2efaf92b76eb607a433c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">two poses are almost equal when their orientations and positions are almost equal  <a href="namespaceemlabcpp.html#a130ed4c792c2efaf92b76eb607a433c3">More...</a><br /></td></tr>
-<tr class="separator:a130ed4c792c2efaf92b76eb607a433c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fe90ef4b53557e6198f75e4e3f0e86f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1pose.html">pose</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1fe90ef4b53557e6198f75e4e3f0e86f">lin_interp</a> (const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;from, const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;goal, float factor)</td></tr>
 <tr class="memdesc:a1fe90ef4b53557e6198f75e4e3f0e86f"><td class="mdescLeft">&#160;</td><td class="mdescRight">linear interpolation between base se and goal pose, with factor 0 'base' is returned, with factor 1 'goal' is returned.  <a href="namespaceemlabcpp.html#a1fe90ef4b53557e6198f75e4e3f0e86f">More...</a><br /></td></tr>
 <tr class="separator:a1fe90ef4b53557e6198f75e4e3f0e86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -896,10 +893,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a306420110ac2a2a1ecc364e0053c1e30"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a306420110ac2a2a1ecc364e0053c1e30">abs</a> (const <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; &amp;a)</td></tr>
 <tr class="memdesc:a306420110ac2a2a1ecc364e0053c1e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates absolute version of A - removing signs on all dimensions.  <a href="namespaceemlabcpp.html#a306420110ac2a2a1ecc364e0053c1e30">More...</a><br /></td></tr>
 <tr class="separator:a306420110ac2a2a1ecc364e0053c1e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30565e3c9f95b08ee5cd25294bc375d7"><td class="memTemplParams" colspan="2">template&lt;vec_point_derived Derived&gt; </td></tr>
-<tr class="memitem:a30565e3c9f95b08ee5cd25294bc375d7"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a30565e3c9f95b08ee5cd25294bc375d7">almost_equal</a> (const Derived &amp;a, const Derived &amp;b, float eps=<a class="el" href="namespaceemlabcpp.html#a20db02f115d34db629106a39c5194e18">default_epsilon</a>)</td></tr>
-<tr class="memdesc:a30565e3c9f95b08ee5cd25294bc375d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if A and B are equal within specified tolerance, this means that difference of all coordinates of A and B has to be within that epsilon.  <a href="namespaceemlabcpp.html#a30565e3c9f95b08ee5cd25294bc375d7">More...</a><br /></td></tr>
-<tr class="separator:a30565e3c9f95b08ee5cd25294bc375d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c784ba1275978f98555df83478109c8"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N&gt; </td></tr>
 <tr class="memitem:a8c784ba1275978f98555df83478109c8"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a8c784ba1275978f98555df83478109c8">max</a> (const <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; &amp;a, const <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; &amp;b)</td></tr>
 <tr class="separator:a8c784ba1275978f98555df83478109c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2732,102 +2725,8 @@ template&lt;container Container, container_invocable&lt; Container &gt; Predicat
 
 </div>
 </div>
-<a id="a30565e3c9f95b08ee5cd25294bc375d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30565e3c9f95b08ee5cd25294bc375d7">&#9670;&nbsp;</a></span>almost_equal() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;vec_point_derived Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool emlabcpp::almost_equal </td>
-          <td>(</td>
-          <td class="paramtype">const Derived &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Derived &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>eps</em> = <code><a class="el" href="namespaceemlabcpp.html#a20db02f115d34db629106a39c5194e18">default_epsilon</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if A and B are equal within specified tolerance, this means that difference of all coordinates of A and B has to be within that epsilon. </p>
-
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb">all_of()</a>, <a class="el" href="namespaceemlabcpp.html#af4898d31a822e25963cab32a985e89f4">almost_equal()</a>, and <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>.</p>
-
-</div>
-</div>
-<a id="a130ed4c792c2efaf92b76eb607a433c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a130ed4c792c2efaf92b76eb607a433c3">&#9670;&nbsp;</a></span>almost_equal() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool emlabcpp::almost_equal </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structemlabcpp_1_1pose.html">pose</a> &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>eps</em> = <code><a class="el" href="namespaceemlabcpp.html#a20db02f115d34db629106a39c5194e18">default_epsilon</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>two poses are almost equal when their orientations and positions are almost equal </p>
-
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#af4898d31a822e25963cab32a985e89f4">almost_equal()</a>, <a class="el" href="structemlabcpp_1_1pose.html#a91718e2267586a129cfe03c3e67641f9">emlabcpp::pose::orientation</a>, and <a class="el" href="structemlabcpp_1_1pose.html#a61e29575c2f82392bb0ad93a9d80e576">emlabcpp::pose::position</a>.</p>
-
-</div>
-</div>
 <a id="a0d682324e6ca417852d4bcaecb77db23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d682324e6ca417852d4bcaecb77db23">&#9670;&nbsp;</a></span>almost_equal() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d682324e6ca417852d4bcaecb77db23">&#9670;&nbsp;</a></span>almost_equal() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2871,7 +2770,7 @@ template&lt;vec_point_derived Derived&gt; </div>
 </div>
 </div>
 <a id="af4898d31a822e25963cab32a985e89f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4898d31a822e25963cab32a985e89f4">&#9670;&nbsp;</a></span>almost_equal() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af4898d31a822e25963cab32a985e89f4">&#9670;&nbsp;</a></span>almost_equal() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -11635,7 +11534,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sun Sep 17 2023 20:31:29 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Sep 21 2023 19:26:46 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

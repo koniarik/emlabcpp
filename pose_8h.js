@@ -5,7 +5,6 @@ var pose_8h =
       [ "dist", "namespaceemlabcpp.html#a746c782172b5cd06a357056a324f437b", null ]
     ] ],
     [ "pose", "structemlabcpp_1_1pose.html", "structemlabcpp_1_1pose" ],
-    [ "almost_equal", "pose_8h.html#a130ed4c792c2efaf92b76eb607a433c3", null ],
     [ "distance_of", "pose_8h.html#ac081ada5ee8e130abc77d8471f570661", null ],
     [ "inverse", "pose_8h.html#a116807f9c41ac80621918fff7446c987", null ],
     [ "inverse_transform", "pose_8h.html#ae9b509189c2527a5023267e866b85d68", null ],

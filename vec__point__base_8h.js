@@ -2,7 +2,6 @@ var vec__point__base_8h =
 [
     [ "vec_point_base", "classemlabcpp_1_1vec__point__base.html", "classemlabcpp_1_1vec__point__base" ],
     [ "abs", "vec__point__base_8h.html#a306420110ac2a2a1ecc364e0053c1e30", null ],
-    [ "almost_equal", "vec__point__base_8h.html#a30565e3c9f95b08ee5cd25294bc375d7", null ],
     [ "dimensional_max", "vec__point__base_8h.html#ac81ee08c08bd405c0e3def37de64f126", null ],
     [ "dimensional_min", "vec__point__base_8h.html#a5d9345d163bdab63d39dec5d99354c81", null ],
     [ "dimensional_min_max_elem", "vec__point__base_8h.html#aa85dd86813ed16ef311a88daac50792d", null ],

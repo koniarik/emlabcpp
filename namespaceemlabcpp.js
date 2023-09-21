@@ -194,8 +194,6 @@ var namespaceemlabcpp =
     [ "abs", "namespaceemlabcpp.html#a306420110ac2a2a1ecc364e0053c1e30", null ],
     [ "accumulate", "namespaceemlabcpp.html#a246f1fc9cb6dd2ad9332499ff4574d81", null ],
     [ "all_of", "namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb", null ],
-    [ "almost_equal", "namespaceemlabcpp.html#a30565e3c9f95b08ee5cd25294bc375d7", null ],
-    [ "almost_equal", "namespaceemlabcpp.html#a130ed4c792c2efaf92b76eb607a433c3", null ],
     [ "almost_equal", "namespaceemlabcpp.html#a0d682324e6ca417852d4bcaecb77db23", null ],
     [ "almost_equal", "namespaceemlabcpp.html#af4898d31a822e25963cab32a985e89f4", null ],
     [ "angle_shortest_path", "namespaceemlabcpp.html#aa86203b42f9478701d1f52443d5729a3", null ],
