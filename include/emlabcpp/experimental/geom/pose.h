@@ -106,13 +106,6 @@ constexpr pose_distance distance_of( const pose& x, const pose& y )
             angle_shortest_path( x.orientation, y.orientation ) };
 }
 
-/// two poses are almost equal when their orientations and positions are almost equal
-constexpr bool almost_equal( const pose& x, const pose& y, float eps = default_epsilon )
-{
-        return almost_equal( x.orientation, y.orientation, eps ) &&
-               almost_equal( x.position, y.position, eps );
-}
-
 /// linear interpolation between base se and goal pose, with factor 0 'base' is returned, with
 /// factor 1 'goal' is returned. With factor 0.5, pose between 'base' and 'goal' pose is returned
 constexpr pose lin_interp( const pose& from, const pose& goal, float factor )

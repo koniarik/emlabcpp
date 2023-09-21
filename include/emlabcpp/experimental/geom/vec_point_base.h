@@ -224,18 +224,6 @@ constexpr Derived abs( const vec_point_base< Derived, N >& a )
         return res;
 }
 
-/// Checks if A and B are equal within specified tolerance, this means that difference of all
-/// coordinates of A and B has to be within that epsilon
-///
-template < vec_point_derived Derived >
-constexpr bool almost_equal( const Derived& a, const Derived& b, float eps = default_epsilon )
-{
-        constexpr std::size_t N = Derived::dimensions;
-        return all_of( range( N ), [&]( std::size_t i ) {
-                return almost_equal( a[i], b[i], eps );
-        } );
-}
-
 template < typename Derived, std::size_t N >
 constexpr Derived
 max( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& b )

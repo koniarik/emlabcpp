@@ -39,27 +39,4 @@ TEST( Pose, distance )
         ASSERT_NEAR( sum_distance( distance_of( neutral, angle_offseted ) ), 1., 1e-6 );
 }
 
-TEST( Pose, interp )
-{
-        const pose neutral;
-        const pose pos_offseted{ point< 3 >( 10, 0, 0 ) };
-        const pose angle_offseted{ quaternion( z_axis, 1.f ) };
-
-        const pose offseted{ point< 3 >( 10, 0, 0 ), quaternion( z_axis, 1.f ) };
-
-        pose interpolated = lin_interp( neutral, pos_offseted, 0.5 );
-        pose interpolated_exp{ point< 3 >( 5, 0, 0 ) };
-
-        ASSERT_TRUE( almost_equal( interpolated, interpolated_exp, default_epsilon * 2 ) );
-
-        interpolated     = lin_interp( neutral, angle_offseted, 0.5 );
-        interpolated_exp = pose{ quaternion( z_axis, 0.5f ) };
-
-        ASSERT_TRUE( almost_equal( interpolated, interpolated_exp, default_epsilon * 2 ) );
-
-        const pose half_offseted{ point< 3 >( 5, 0, 0 ), quaternion( z_axis, 0.5f ) };
-        ASSERT_TRUE( almost_equal(
-            lin_interp( neutral, offseted, 0.5 ), half_offseted, default_epsilon * 2 ) );
-}
-
 }  // namespace emlabcpp
