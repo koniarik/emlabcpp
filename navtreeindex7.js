@@ -1,6 +1,6 @@
 var NAVTREEINDEX7 =
 {
-"namespaceemlabcpp.html#structemlabcpp_1_1type__tag":[4,0,0,0,30,3],
+"namespaceemlabcpp.html#structemlabcpp_1_1type__tag":[4,0,0,0,31,3],
 "namespaceemlabcpp_1_1cfg.html":[2,0,0,0],
 "namespaceemlabcpp_1_1cfg.html#a00fb1af601631b505a904e3f3b1cd7a8":[2,0,0,0,5],
 "namespaceemlabcpp_1_1cfg.html#a0f75757b6dd3bce9c54dc9cad57241af":[2,0,0,0,3],
