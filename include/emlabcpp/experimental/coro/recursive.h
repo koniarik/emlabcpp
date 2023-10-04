@@ -173,10 +173,19 @@ public:
                 }
         }
 
-        void run()
+        auto get_value()
+        {
+                return h_.promise().value;
+        }
+
+        auto run()
         {
                 while ( !done() ) {
                         tick();
+                }
+
+                if constexpr ( !std::is_void_v< T > ) {
+                        return h_.promise().value;
                 }
         }
 
