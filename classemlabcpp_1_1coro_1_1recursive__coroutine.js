@@ -10,6 +10,7 @@ var classemlabcpp_1_1coro_1_1recursive__coroutine =
     [ "await_suspend", "classemlabcpp_1_1coro_1_1recursive__coroutine.html#a2d217cc5780b81ea48340d6d9cee5a10", null ],
     [ "done", "classemlabcpp_1_1coro_1_1recursive__coroutine.html#a7076c256a770682cdfe47d493a416faf", null ],
     [ "get_state", "classemlabcpp_1_1coro_1_1recursive__coroutine.html#a14863ea862cf1d9d921e3a7cdb0fb31f", null ],
-    [ "run", "classemlabcpp_1_1coro_1_1recursive__coroutine.html#a9c034208408aee8f415097376896c818", null ],
+    [ "get_value", "classemlabcpp_1_1coro_1_1recursive__coroutine.html#ab7399c6a20925fa638eca4258de08dcd", null ],
+    [ "run", "classemlabcpp_1_1coro_1_1recursive__coroutine.html#ab58d6bc302ee986c83e6e6700ef44aa3", null ],
     [ "tick", "classemlabcpp_1_1coro_1_1recursive__coroutine.html#a19fbcd43168aea49da83517268fab0eb", null ]
 ];
