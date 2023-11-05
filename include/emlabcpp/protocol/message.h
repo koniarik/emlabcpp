@@ -22,6 +22,10 @@
 #include "emlabcpp/concepts.h"
 #include "emlabcpp/view.h"
 
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+#include <nlohmann/json.hpp>
+#endif
+
 namespace emlabcpp::protocol
 {
 
@@ -199,5 +203,33 @@ namespace detail
 /// concept matches any type that is message or derives from it.
 template < typename T >
 concept message_derived = requires( T val ) { detail::message_derived_test( val ); };
+
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+
+template < std::size_t N >
+void to_json( nlohmann::json& j, const message< N >& msg )
+{
+        j = nlohmann::json::array();
+        for ( std::byte b : msg ) {
+                j.push_back( b );
+        }
+}
+
+template < std::size_t N >
+void from_json( const nlohmann::json& j, message< N >& msg )
+{
+        if ( j.size() > N ) {
+                throw std::exception{};  // TODO: fix this
+        }
+
+        std::vector< std::byte > tmp;
+        for ( std::byte b : j ) {
+                tmp.push_back( b );
+        }
+
+        msg = message< N >{ view< const std::byte* >( tmp ) };
+}
+
+#endif
 
 }  // namespace emlabcpp::protocol
