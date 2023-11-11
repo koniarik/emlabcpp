@@ -41,6 +41,7 @@ class reactor
         reactor_interface_adapter iface_;
 
         std::optional< executor > opt_exec_;
+        bool                      boot_msg_fired_ = false;
 
 public:
         explicit reactor(

@@ -68,6 +68,9 @@ public:
 
         bool on_msg_with_cb( const reactor_controller_variant& var )
         {
+                if ( !reply_cb_ ) {
+                        return false;
+                }
                 return reply_cb_( var );
         }
 

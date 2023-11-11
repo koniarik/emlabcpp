@@ -50,6 +50,7 @@ enum class msgid : uint8_t
         FINISHED       = 0x9,
         ERROR          = 0xa,
         FAILURE        = 0xb,
+        BOOT           = 0xc,
         INTERNAL_ERROR = 0xf0,
         PROTOCOL_ERROR = 0xf1,
         TREE_ERROR     = 0xf2,
@@ -104,6 +105,11 @@ struct test_finished
         run_id                rid;
         bool                  errored;
         bool                  failed;
+};
+
+struct boot
+{
+        static constexpr auto id = msgid::BOOT;
 };
 
 struct exec_request
@@ -181,6 +187,7 @@ struct reactor_internal_error_report
 };
 
 using reactor_controller_group = protocol::tag_group<
+    boot,
     get_count_reply,
     get_test_name_reply,
     test_finished,

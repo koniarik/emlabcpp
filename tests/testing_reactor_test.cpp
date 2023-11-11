@@ -145,7 +145,7 @@ TEST( reactor, reactor_simple )
         EXPECT_EQ( tf2.get().run_count, 1 );
         EXPECT_EQ( tf2.get().teardown_count, 1 );
 
-        EXPECT_EQ( iface.msgs.size(), 1 );
+        EXPECT_EQ( iface.msgs.size(), 2 );
         EXPECT_TRUE( std::holds_alternative< testing::test_finished >( iface.msgs.back() ) );
 }
 

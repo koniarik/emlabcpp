@@ -136,6 +136,11 @@ outcome controller::on_msg( const reactor_controller_variant& var )
         opt_state new_state = match(
             state_,
             [this, &var, &res]( const initializing_state& ) -> opt_state {
+                    if ( std::holds_alternative< boot >( var ) ) {
+                            EMLABCPP_DEBUG_LOG( "Got boot message" );
+                            res = SUCCESS;
+                            return std::nullopt;
+                    }
                     if ( !iface_.on_msg_with_cb( var ) ) {
                             EMLABCPP_ERROR_LOG( "Got wrong message: ", var.index() );
                             visit(

@@ -26,6 +26,11 @@ namespace emlabcpp::testing
 
 void reactor::tick()
 {
+        if ( !boot_msg_fired_ ) {
+                boot_msg_fired_ = true;
+                std::ignore     = iface_.reply( boot{} );
+        }
+
         if ( !opt_exec_.has_value() ) {
                 return;
         }
