@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"namespaceemlabcpp.html#a4eca5b22a706c436b22c929c45b773ef":[2,0,0,141],
+"namespaceemlabcpp.html#a50045da8445468706c19455b429cdfcc":[2,0,0,375],
 "namespaceemlabcpp.html#a504dbf8012c154e4c54aae3af67e08c9":[2,0,0,217],
 "namespaceemlabcpp.html#a505109612442935cc682cf92a9d2296c":[2,0,0,351],
 "namespaceemlabcpp.html#a5098342c4801b4a7d9ec75b1143f7801":[2,0,0,248],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "namespaceemlabcpp.html#structemlabcpp_1_1pose__distance":[4,0,0,0,1,3,3,0],
 "namespaceemlabcpp.html#structemlabcpp_1_1set__ostream":[4,0,0,0,1,4,1,2],
 "namespaceemlabcpp.html#structemlabcpp_1_1set__stderr":[4,0,0,0,1,4,1,1],
-"namespaceemlabcpp.html#structemlabcpp_1_1set__stdout":[4,0,0,0,1,4,1,0],
-"namespaceemlabcpp.html#structemlabcpp_1_1signature__of_3_01ReturnType_07Args_8_8_8_08_01_4":[4,0,0,0,5,0,22],
-"namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4":[4,0,0,0,31,2]
+"namespaceemlabcpp.html#structemlabcpp_1_1set__stdout":[4,0,0,0,1,4,1,0]
 };
