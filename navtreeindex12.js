@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html#a19005c7e906df87587f52052b9e9891b":[3,0,0,6,48,0],
 "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html#a1c385a2660fee76e5e166b71def6af3d":[3,0,0,6,48,4],
 "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html#a2d7fe902dd0c1dd05efad23f8653fffa":[3,0,0,6,48,2],
 "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html#a81511f84385db70c7f0e7e8ab78a14cb":[3,0,0,6,48,1],
@@ -55,6 +56,7 @@ var NAVTREEINDEX12 =
 "structemlabcpp_1_1string__buffer.html#a517e3fda66d5d5e319cfc6bc89e84600":[3,0,0,82,0],
 "structemlabcpp_1_1string__buffer.html#aaba924cefd60952221e2dc805d010bbb":[3,0,0,82,5],
 "structemlabcpp_1_1string__buffer.html#ab8e62fc48d59f60062a17163a6d21c1e":[3,0,0,82,1],
+"structemlabcpp_1_1string__buffer.html#ad3fb49b9adf76d2a6e5f15041000af70":[3,0,0,82,6],
 "structemlabcpp_1_1success__type.html":[3,0,0,100],
 "structemlabcpp_1_1success__type.html#a3c3bdb8216cec1b1fb9bcc735edf0e6d":[3,0,0,100,0],
 "structemlabcpp_1_1tag.html":[3,0,0,128],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4.html#af356ec1e07785cb5145b3a44876c982f":[4,0,0,0,2,1,0,4],
 "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4.html#afe0e9e54c42b9e4b3adc5aab9ac917cb":[4,0,0,0,2,1,0,0],
 "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html":[4,0,0,0,2,2,0],
-"structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html#a325f197d3e02dd9b04381bd9e624b3da":[4,0,0,0,2,2,0,2],
-"structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html#a504fb438ad131ca8a0284bb02ce96175":[4,0,0,0,2,2,0,0],
-"structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html#a94d14588aa49d382ee1fc26ac7929a97":[4,0,0,0,2,2,0,5]
+"structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html#a325f197d3e02dd9b04381bd9e624b3da":[4,0,0,0,2,2,0,2]
 };

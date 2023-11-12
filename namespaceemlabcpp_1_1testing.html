@@ -421,9 +421,9 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5f51ceea4b512a1852bf7beca4837fb9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5f51ceea4b512a1852bf7beca4837fb9"><td class="memTemplItemLeft" align="right" valign="top">requires(<a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a5f51ceea4b512a1852bf7beca4837fb9">requires</a> (!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;</td></tr>
-<tr class="separator:a5f51ceea4b512a1852bf7beca4837fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68a80d6426bbb9d6709a4af8a28f05e4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a68a80d6426bbb9d6709a4af8a28f05e4"><td class="memTemplItemLeft" align="right" valign="top">requires(N&lt;=<a class="el" href="structemlabcpp_1_1string__buffer.html#ad3fb49b9adf76d2a6e5f15041000af70">string_buffer::capacity</a>) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; emlabcpp requires(<a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4">requires</a> (!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;</td></tr>
+<tr class="separator:a68a80d6426bbb9d6709a4af8a28f05e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26767cbbbbaeb6e03c676f6e343f64a9"><td class="memTemplParams" colspan="2">template&lt;typename Unit , typename Reactor , typename... Args&gt; </td></tr>
 <tr class="memitem:a26767cbbbbaeb6e03c676f6e343f64a9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1result.html">result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a26767cbbbbaeb6e03c676f6e343f64a9">construct_test_unit</a> (<a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;mem_res, Reactor &amp;<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a>, Args &amp;&amp;... <a class="el" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a>)</td></tr>
 <tr class="separator:a26767cbbbbaeb6e03c676f6e343f64a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1659,8 +1659,8 @@ template&lt;typename Unit , typename Reactor , typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="a5f51ceea4b512a1852bf7beca4837fb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f51ceea4b512a1852bf7beca4837fb9">&#9670;&nbsp;</a></span>requires()</h2>
+<a id="a68a80d6426bbb9d6709a4af8a28f05e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68a80d6426bbb9d6709a4af8a28f05e4">&#9670;&nbsp;</a></span>requires()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1668,7 +1668,7 @@ template&lt;typename Unit , typename Reactor , typename... Args&gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">requires ( <a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt; ) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt; emlabcpp::testing::requires </td>
+          <td class="memname">requires ( N &lt;= <a class="el" href="structemlabcpp_1_1string__buffer.html#ad3fb49b9adf76d2a6e5f15041000af70">string_buffer::capacity</a> ) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; emlabcpp requires ( <a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt; ) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt; emlabcpp::testing::requires </td>
           <td>(</td>
           <td class="paramtype">!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1781,15 +1781,15 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1testing.html#a5f51ceea4b512a1852bf7beca4837fb9">requires</a>( <span class="keyword">const</span> T&amp; item, <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a>&amp; val ) {</div>
-<div class="line">                                         {</div>
-<div class="line">                                                 value_type_converter&lt; T &gt;::to_value( item )</div>
-<div class="line">                                                 } -&gt; std::convertible_to&lt; value_type &gt;;</div>
-<div class="line">                                         {</div>
-<div class="line">                                                 value_type_converter&lt; T &gt;::from_value( val )</div>
-<div class="line">                                                 } -&gt; std::convertible_to&lt; std::optional&lt; T &gt; &gt;;</div>
-<div class="line">                                 }</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a5f51ceea4b512a1852bf7beca4837fb9"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a5f51ceea4b512a1852bf7beca4837fb9">emlabcpp::testing::requires</a></div><div class="ttdeci">requires(alternative_of&lt; T, value_type &gt;) struct value_type_converter&lt; T &gt; requires(!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;) struct value_type_converter&lt; T &gt;</div><div class="ttdef"><b>Definition:</b> convert.h:60</div></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4">requires</a>( <span class="keyword">const</span> T&amp; item, <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a>&amp; val ) {</div>
+<div class="line">        {</div>
+<div class="line">                value_type_converter&lt; T &gt;::to_value( item )</div>
+<div class="line">        } -&gt; std::convertible_to&lt; value_type &gt;;</div>
+<div class="line">        {</div>
+<div class="line">                value_type_converter&lt; T &gt;::from_value( val )</div>
+<div class="line">        } -&gt; std::convertible_to&lt; std::optional&lt; T &gt; &gt;;</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a68a80d6426bbb9d6709a4af8a28f05e4"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4">emlabcpp::testing::requires</a></div><div class="ttdeci">requires(N&lt;=string_buffer::capacity) struct value_type_converter&lt; emlabcpp requires(alternative_of&lt; T, value_type &gt;) struct value_type_converter&lt; T &gt; requires(!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;) struct value_type_converter&lt; T &gt;</div><div class="ttdef"><b>Definition:</b> convert.h:81</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:47</div></div>
 </div><!-- fragment -->
 </div>
@@ -1800,7 +1800,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Sun Nov 12 2023 09:14:33 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Nov 12 2023 19:01:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
