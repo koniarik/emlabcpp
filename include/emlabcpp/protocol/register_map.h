@@ -1,25 +1,26 @@
 ///
 /// Copyright (C) 2020 Jan Veverak Koniarik
 ///
-/// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
-/// associated documentation files (the "Software"), to deal in the Software without restriction,
-/// including without limitation the rights to use, copy, modify, merge, publish, distribute,
-/// sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
-/// furnished to do so, subject to the following conditions:
+/// Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+/// and associated documentation files (the "Software"), to deal in the Software without
+/// restriction, including without limitation the rights to use, copy, modify, merge, publish,
+/// distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the
+/// Software is furnished to do so, subject to the following conditions:
 ///
-/// The above copyright notice and this permission notice shall be included in all copies or substantial
-/// portions of the Software.
+/// The above copyright notice and this permission notice shall be included in all copies or
+/// substantial portions of the Software.
 ///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
-/// NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-/// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
-/// OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-/// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+/// BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+/// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+/// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
 #pragma once
 
 #include "emlabcpp/algorithm.h"
+#include "emlabcpp/experimental/pretty_printer.h"
 #include "emlabcpp/protocol/base.h"
 #include "emlabcpp/protocol/traits.h"
 
@@ -40,7 +41,7 @@ struct register_pair
 
         value_type value;
 
-        friend constexpr auto operator<=>(const register_pair&, const register_pair&) = default;
+        friend constexpr auto operator<=>( const register_pair&, const register_pair& ) = default;
 };
 
 template < typename UnaryCallable, typename Registers >
@@ -101,9 +102,10 @@ public:
         template < key_type Key >
         using reg_def_type = typename reg_type< Key >::def_type;
 
-	static constexpr std::array<key_type, registers_count > keys = {Regs::key...};
+        static constexpr std::array< key_type, registers_count > keys = { Regs::key... };
 
         register_map() = default;
+
         explicit register_map( typename Regs::value_type&... args )
           : registers_( Regs{ args }... )
         {
@@ -152,46 +154,44 @@ public:
         template < typename UnaryCallable >
         constexpr void setup_register( key_type key, UnaryCallable&& f )
         {
-                with_register( key, [this, f = std::forward<UnaryCallable>(f)]< typename reg_type >( reg_type& reg) {
-                        reg.value =
-                            f.template operator()< reg_type >();
-                } );
+                with_register(
+                    key,
+                    [this,
+                     f = std::forward< UnaryCallable >( f )]< typename reg_type >( reg_type& reg ) {
+                            reg.value = f.template operator()< reg_type >();
+                    } );
         }
 
         template < typename UnaryCallable >
         constexpr auto with_register( key_type key, UnaryCallable&& f ) const
         {
-                return with_register_impl(*this, key, std::forward<UnaryCallable>(f));
+                return with_register_impl( *this, key, std::forward< UnaryCallable >( f ) );
         }
 
         template < typename UnaryCallable >
         constexpr auto with_register( key_type key, UnaryCallable&& f )
         {
-                return with_register_impl(*this, key, std::forward<UnaryCallable>(f));
+                return with_register_impl( *this, key, std::forward< UnaryCallable >( f ) );
         }
 
-        friend constexpr auto operator<=>(const register_map&, const register_map&) = default;
+        friend constexpr auto operator<=>( const register_map&, const register_map& ) = default;
+
 private:
         template < typename Class, typename UnaryCallable >
-        requires(
-            !register_map_void_returning<
-                UnaryCallable,
-                registers_tuple > ) constexpr auto with_register_impl(Class& obj, key_type key, UnaryCallable&& f ) const
+        requires( !register_map_void_returning< UnaryCallable, registers_tuple > )
+        constexpr auto with_register_impl( Class& obj, key_type key, UnaryCallable&& f ) const
         {
                 using ret_type = decltype( f( std::get< 0 >( registers_ ) ) );
                 ret_type res;
-                with_register_impl(obj, key, [&res, &f]( const auto& reg ) {
+                with_register_impl( obj, key, [&res, &f]( const auto& reg ) {
                         res = f( reg );
                 } );
                 return res;
         }
 
-        template< typename Class, typename UnaryCallable >
-        requires(
-            register_map_void_returning<
-                UnaryCallable,
-                registers_tuple > )
-        static constexpr void with_register_impl(Class& obj, key_type key, UnaryCallable&& f)
+        template < typename Class, typename UnaryCallable >
+        requires( register_map_void_returning< UnaryCallable, registers_tuple > )
+        static constexpr void with_register_impl( Class& obj, key_type key, UnaryCallable&& f )
         {
                 until_index< registers_count >( [&obj, &key, &f]< std::size_t j >() {
                         using reg_type = std::tuple_element_t< j, registers_tuple >;
@@ -207,23 +207,43 @@ private:
 template < typename Map, typename UnaryCallable >
 void for_each_register( const Map& m, UnaryCallable&& f )
 {
-        for_each_index< Map::registers_count >( [&m, f=std::forward<UnaryCallable>(f)]< std::size_t i >() {
-                static constexpr auto key = Map::register_key( bounded_constant< i > );
-                f.template            operator()< key >( m.template get_val< key >() );
-        } );
+        for_each_index< Map::registers_count >(
+            [&m, f = std::forward< UnaryCallable >( f )]< std::size_t i >() {
+                    static constexpr auto key = Map::register_key( bounded_constant< i > );
+                    f.template            operator()< key >( m.template get_val< key >() );
+            } );
 }
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < std::endian Endianess, typename... Regs >
 std::ostream& operator<<( std::ostream& os, const register_map< Endianess, Regs... >& m )
 {
-        for_each_register(
-            m, [&os]< auto key, typename T >( const T& val ) {
-                    os << key << "\t" << val << "\n";
-            } );
+        for_each_register( m, [&os]< auto key, typename T >( const T& val ) {
+                os << key << "\t" << val << "\n";
+        } );
 
         return os;
 }
 #endif
 
 }  // namespace emlabcpp::protocol
+
+namespace emlabcpp
+{
+
+template < std::endian Endianess, typename... Regs >
+struct pretty_printer< protocol::register_map< Endianess, Regs... > >
+{
+        template < typename Writer >
+        static void print( Writer&& w, const protocol::register_map< Endianess, Regs... >& cmap )
+        {
+                protocol::for_each_register( cmap, [&w]< auto key, typename T >( const T& val ) {
+                        w( key );
+                        w( '\t' );
+                        w( val );
+                        w( '\n' );
+                } );
+        }
+};
+
+}  // namespace emlabcpp
