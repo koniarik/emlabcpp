@@ -17,7 +17,8 @@ namespace emlabcpp
 template < std::size_t N >
 struct string_buffer : std::array< char, N >
 {
-        using base_type = std::array< char, N >;
+        static constexpr std::size_t capacity = N;
+        using base_type                       = std::array< char, N >;
 
         constexpr string_buffer()
           : base_type{}

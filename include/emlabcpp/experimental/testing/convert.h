@@ -19,6 +19,7 @@
 
 #pragma once
 
+#include "emlabcpp/experimental/string_buffer.h"
 #include "emlabcpp/experimental/testing/base.h"
 
 namespace emlabcpp::testing
@@ -50,9 +51,29 @@ struct value_type_converter< int64_t > : value_type_converter_getter< int64_t >
 {
 };
 
+template < std::size_t N >
+requires( N <= string_buffer::capacity )
+struct value_type_converter< emlabcpp::string_buffer< N > >
+{
+        static std::optional< emlabcpp::string_buffer< N > > from_value( const value_type& var )
+        {
+                const auto* val_ptr = std::get_if< string_buffer >( &var );
+                if ( val_ptr ) {
+                        return *val_ptr;
+                }
+                return std::nullopt;
+        }
+
+        static value_type to_value( const emlabcpp::string_buffer< N >& item )
+        {
+                return { string_buffer{ item } };
+        }
+};
+
 template < typename T >
 requires( alternative_of< T, value_type > )
 struct value_type_converter< T > : value_type_converter_getter< T >
+
 {
 };
 
@@ -112,12 +133,12 @@ struct value_type_converter< std::chrono::duration< Rep, Ratio > >
 
 template < typename T >
 concept value_type_convertible = requires( const T& item, const value_type& val ) {
-                                         {
-                                                 value_type_converter< T >::to_value( item )
-                                                 } -> std::convertible_to< value_type >;
-                                         {
-                                                 value_type_converter< T >::from_value( val )
-                                                 } -> std::convertible_to< std::optional< T > >;
-                                 };
+        {
+                value_type_converter< T >::to_value( item )
+        } -> std::convertible_to< value_type >;
+        {
+                value_type_converter< T >::from_value( val )
+        } -> std::convertible_to< std::optional< T > >;
+};
 
 }  // namespace emlabcpp::testing
