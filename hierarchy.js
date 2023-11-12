@@ -238,6 +238,7 @@ var hierarchy =
     [ "emlabcpp::pretty_printer< protocol::error_record >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1error__record_01_4.html", null ],
     [ "emlabcpp::pretty_printer< protocol::mark >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1mark_01_4.html", null ],
     [ "emlabcpp::pretty_printer< protocol::message< N > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1message_3_01N_01_4_01_4.html", null ],
+    [ "emlabcpp::pretty_printer< protocol::register_map< Endianess, Regs... > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1register__map_3_01Endianess_00_01Regs_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::pretty_printer< protocol::sizeless_message< N > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1sizeless__message_3_01N_01_4_01_4.html", null ],
     [ "emlabcpp::pretty_printer< short int >", "structemlabcpp_1_1pretty__printer_3_01short_01int_01_4.html", null ],
     [ "emlabcpp::pretty_printer< short unsigned >", "structemlabcpp_1_1pretty__printer_3_01short_01unsigned_01_4.html", null ],

@@ -1,0 +1,4 @@
+var structemlabcpp_1_1pretty__printer_3_01protocol_1_1register__map_3_01Endianess_00_01Regs_8_8_8_01_4_01_4 =
+[
+    [ "print", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1register__map_3_01Endianess_00_01Regs_8_8_8_01_4_01_4.html#a476c90b13e8b06cd94502c0499750395", null ]
+];

@@ -97,6 +97,7 @@ var namespaceemlabcpp =
     [ "pid_coefficients", "namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients", "namespaceemlabcpp_structemlabcpp_1_1pid__coefficients_dup" ],
     [ "pid_config", "namespaceemlabcpp.html#structemlabcpp_1_1pid__config", "namespaceemlabcpp_structemlabcpp_1_1pid__config_dup" ],
     [ "pid", "structemlabcpp_1_1pid.html", "structemlabcpp_1_1pid" ],
+    [ "pretty_printer< protocol::register_map< Endianess, Regs... > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1register__map_3_01Endianess_00_01Regs_8_8_8_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1register__map_3_01Endianess_00_01Regs_8_8_8_01_4_01_4" ],
     [ "pretty_printer< protocol::message< N > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1message_3_01N_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1message_3_01N_01_4_01_4" ],
     [ "pretty_printer< protocol::sizeless_message< N > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1sizeless__message_3_01N_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1sizeless__message_3_01N_01_4_01_4" ],
     [ "pretty_printer< protocol::mark >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1mark_01_4.html", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1mark_01_4" ],
