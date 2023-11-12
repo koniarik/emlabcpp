@@ -5,6 +5,11 @@
 #include <algorithm>
 #include <array>
 #include <cstring>
+#include <string_view>
+
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+#include <nlohmann/json.hpp>
+#endif
 
 namespace emlabcpp
 {
@@ -60,5 +65,22 @@ struct pretty_printer< string_buffer< N > >
                 w( std::string_view{ buff } );
         }
 };
+
+#ifdef EMLABCPP_USE_NLOHMANN_JSON
+
+template < std::size_t N >
+void to_json( nlohmann::json& j, const string_buffer< N >& buffer )
+{
+        j = std::string_view{ buffer };
+}
+
+template < std::size_t N >
+void from_json( const nlohmann::json& j, string_buffer< N >& buffer )
+{
+        std::string s = j;
+        buffer        = string_buffer< N >( std::string_view{ s } );
+}
+
+#endif
 
 }  // namespace emlabcpp
