@@ -175,6 +175,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1param__value__processor.html">param_value_processor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1param__variant__processor.html">param_variant_processor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1param__value__key__processor.html">param_value_key_processor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1param__type__processor.html">param_type_processor</a></td></tr>
@@ -313,6 +315,8 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a3494d4dfdcdba476b36065c37cca9828"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a3494d4dfdcdba476b36065c37cca9828"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a3494d4dfdcdba476b36065c37cca9828">param_value_awaiter</a> = <a class="el" href="structemlabcpp_1_1testing_1_1params__awaiter.html">params_awaiter</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1param__value__processor.html">param_value_processor</a>&lt; T &gt; &gt;</td></tr>
 <tr class="separator:a3494d4dfdcdba476b36065c37cca9828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a468a3c00be93913138fdff394143b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ac5a468a3c00be93913138fdff394143b">param_variant_awaiter</a> = <a class="el" href="structemlabcpp_1_1testing_1_1params__awaiter.html">params_awaiter</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1param__variant__processor.html">param_variant_processor</a> &gt;</td></tr>
+<tr class="separator:ac5a468a3c00be93913138fdff394143b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ff5a12dc5c6c8fcb45e524d4bc45426"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a8ff5a12dc5c6c8fcb45e524d4bc45426"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a8ff5a12dc5c6c8fcb45e524d4bc45426">param_value_key_awaiter</a> = <a class="el" href="structemlabcpp_1_1testing_1_1params__awaiter.html">params_awaiter</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1param__value__key__processor.html">param_value_key_processor</a>&lt; T &gt; &gt;</td></tr>
 <tr class="separator:a8ff5a12dc5c6c8fcb45e524d4bc45426"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1181,6 +1185,20 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="ac5a468a3c00be93913138fdff394143b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5a468a3c00be93913138fdff394143b">&#9670;&nbsp;</a></span>param_variant_awaiter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ac5a468a3c00be93913138fdff394143b">emlabcpp::testing::param_variant_awaiter</a> = typedef <a class="el" href="structemlabcpp_1_1testing_1_1params__awaiter.html">params_awaiter</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1param__variant__processor.html">param_variant_processor</a> &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a320b735cd3fe21581ad5d8aa602b9841"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a320b735cd3fe21581ad5d8aa602b9841">&#9670;&nbsp;</a></span>params_client_server_group</h2>
 
@@ -1789,7 +1807,7 @@ template&lt;typename T &gt; </div>
 <div class="line">                value_type_converter&lt; T &gt;::from_value( val )</div>
 <div class="line">        } -&gt; std::convertible_to&lt; std::optional&lt; T &gt; &gt;;</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a68a80d6426bbb9d6709a4af8a28f05e4"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4">emlabcpp::testing::requires</a></div><div class="ttdeci">requires(N&lt;=string_buffer::capacity) struct value_type_converter&lt; emlabcpp requires(alternative_of&lt; T, value_type &gt;) struct value_type_converter&lt; T &gt; requires(!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;) struct value_type_converter&lt; T &gt;</div><div class="ttdef"><b>Definition:</b> convert.h:81</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a68a80d6426bbb9d6709a4af8a28f05e4"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4">emlabcpp::testing::requires</a></div><div class="ttdeci">requires(N&lt;=string_buffer::capacity) struct value_type_converter&lt; emlabcpp requires(alternative_of&lt; T, value_type &gt;) struct value_type_converter&lt; T &gt; requires(!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;) struct value_type_converter&lt; T &gt;</div><div class="ttdef"><b>Definition:</b> convert.h:80</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:47</div></div>
 </div><!-- fragment -->
 </div>
@@ -1800,7 +1818,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Sun Nov 12 2023 19:01:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Nov 16 2023 20:47:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

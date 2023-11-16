@@ -179,6 +179,7 @@ var annotated_dup =
         [ "param_error", "structemlabcpp_1_1testing_1_1param__error.html", "structemlabcpp_1_1testing_1_1param__error" ],
         [ "params_awaiter", "structemlabcpp_1_1testing_1_1params__awaiter.html", "structemlabcpp_1_1testing_1_1params__awaiter" ],
         [ "param_value_processor", "structemlabcpp_1_1testing_1_1param__value__processor.html", "structemlabcpp_1_1testing_1_1param__value__processor" ],
+        [ "param_variant_processor", "structemlabcpp_1_1testing_1_1param__variant__processor.html", "structemlabcpp_1_1testing_1_1param__variant__processor" ],
         [ "param_value_key_processor", "structemlabcpp_1_1testing_1_1param__value__key__processor.html", "structemlabcpp_1_1testing_1_1param__value__key__processor" ],
         [ "param_type_processor", "structemlabcpp_1_1testing_1_1param__type__processor.html", "structemlabcpp_1_1testing_1_1param__type__processor" ],
         [ "param_child_processor", "structemlabcpp_1_1testing_1_1param__child__processor.html", "structemlabcpp_1_1testing_1_1param__child__processor" ],

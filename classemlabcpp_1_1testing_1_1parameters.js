@@ -11,6 +11,7 @@ var classemlabcpp_1_1testing_1_1parameters =
     [ "get_value", "classemlabcpp_1_1testing_1_1parameters.html#aaad8072f95b7bfcb477d39a9a51f7289", null ],
     [ "get_value", "classemlabcpp_1_1testing_1_1parameters.html#ad002a211dda36b4a7817ebc2e25525b1", null ],
     [ "get_value", "classemlabcpp_1_1testing_1_1parameters.html#adf00d8bdceb97229e6636f1700a986e1", null ],
+    [ "get_value_variant", "classemlabcpp_1_1testing_1_1parameters.html#aab0a7822c7c3bbadc3fb727bc4b9940a", null ],
     [ "on_msg", "classemlabcpp_1_1testing_1_1parameters.html#a952b20538efd335d6518b3f32b5ea556", null ],
     [ "on_msg", "classemlabcpp_1_1testing_1_1parameters.html#ac288503257f5c0596778007eecce5e67", null ],
     [ "send", "classemlabcpp_1_1testing_1_1parameters.html#ade8528d7eaebfd1bc8f51199d9bdbd37", null ]

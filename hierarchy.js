@@ -218,6 +218,7 @@ var hierarchy =
     [ "emlabcpp::testing::param_value_processor< T >", "structemlabcpp_1_1testing_1_1param__value__processor.html", null ],
     [ "emlabcpp::testing::param_value_reply", "structemlabcpp_1_1testing_1_1param__value__reply.html", null ],
     [ "emlabcpp::testing::param_value_request", "structemlabcpp_1_1testing_1_1param__value__request.html", null ],
+    [ "emlabcpp::testing::param_variant_processor", "structemlabcpp_1_1testing_1_1param__variant__processor.html", null ],
     [ "emlabcpp::testing::parameters", "classemlabcpp_1_1testing_1_1parameters.html", null ],
     [ "emlabcpp::testing::parameters_server", "classemlabcpp_1_1testing_1_1parameters__server.html", null ],
     [ "emlabcpp::pid< TimeType >", "structemlabcpp_1_1pid.html", null ],
