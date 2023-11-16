@@ -222,6 +222,28 @@ struct param_value_processor
 template < typename T >
 using param_value_awaiter = params_awaiter< param_value_processor< T > >;
 
+struct param_variant_processor
+{
+        value_type          reply;
+        param_value_request req;
+
+        void log_error( parameters& params ) const
+        {
+        }
+
+        [[nodiscard]] bool set_value( const params_server_client_variant& var )
+        {
+                const auto* const val_ptr = std::get_if< param_value_reply >( &var );
+                if ( val_ptr == nullptr ) {
+                        return false;
+                }
+                reply = val_ptr->value;
+                return true;
+        }
+};
+
+using param_variant_awaiter = params_awaiter< param_variant_processor >;
+
 template < typename T >
 struct param_value_key_processor
 {
@@ -339,6 +361,11 @@ public:
         param_value_key_awaiter< T > get_value( const node_id node, const key_type& k )
         {
                 return param_value_key_awaiter< T >{ param_value_key_request{ node, k }, *this };
+        }
+
+        param_variant_awaiter get_value_variant( const node_id node )
+        {
+                return param_variant_awaiter{ param_value_request{ .nid = node }, *this };
         }
 
         param_child_awaiter get_child( node_id nid, child_id chid );

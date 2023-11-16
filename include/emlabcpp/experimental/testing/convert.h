@@ -73,7 +73,6 @@ struct value_type_converter< emlabcpp::string_buffer< N > >
 template < typename T >
 requires( alternative_of< T, value_type > )
 struct value_type_converter< T > : value_type_converter_getter< T >
-
 {
 };
 
