@@ -227,7 +227,7 @@ struct param_variant_processor
         value_type          reply;
         param_value_request req;
 
-        void log_error( parameters& params ) const
+        void log_error( parameters& ) const
         {
         }
 
