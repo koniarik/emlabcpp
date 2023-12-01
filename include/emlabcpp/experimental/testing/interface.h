@@ -54,10 +54,10 @@ using test_ll_node = linked_list_node_base< test_interface >;
 
 template < typename T >
 concept valid_test_callable = requires( T t, pmr::memory_resource& mem_resource, record& rec ) {
-                                      {
-                                              t( mem_resource, rec )
-                                              } -> std::same_as< test_coroutine >;
-                              };
+        {
+                t( mem_resource, rec )
+        } -> std::same_as< test_coroutine >;
+};
 
 template < typename T >
 using test_unit = linked_list_node< T, test_interface >;
@@ -133,6 +133,21 @@ result construct_test_callable(
     Callable              callable )
 {
         return construct_test_unit< test_callable< Callable > >(
+            mem_res, reactor, name, std::move( callable ) );
+}
+
+template < typename Callable, typename Reactor >
+void construct_test_callable(
+    pmr::memory_resource& mem_res,
+    Reactor&              reactor,
+    std::string_view      name,
+    Callable              callable,
+    result&               res )
+{
+        if ( res != SUCCESS ) {
+                return;
+        }
+        res = construct_test_unit< test_callable< Callable > >(
             mem_res, reactor, name, std::move( callable ) );
 }
 
