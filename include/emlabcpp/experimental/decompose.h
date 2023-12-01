@@ -74,23 +74,23 @@ namespace detail
 }  // namespace detail
 
 template < typename T >
-concept decomposable = std::is_class_v< std::decay_t< T > > && !
-gettable_container< T > && ( detail::decompose_count< T >() >= 0 );
+concept decomposable = std::is_class_v< std::decay_t< T > > && !gettable_container< T > &&
+                       ( detail::decompose_count< T >() >= 0 );
 
-#define EMLABCPP_GENERATE_DECOMPOSE( ID, ... )                                                    \
-        template < typename T >                                                                   \
-        concept decomposable_##ID = decomposable< T >&& detail::decompose_count< T >() == ( ID ); \
-                                                                                                  \
-        template < decomposable_##ID T >                                                          \
-        constexpr auto decompose( T&& item )                                                      \
-        {                                                                                         \
-                if constexpr ( !std::is_lvalue_reference_v< T > ) {                               \
-                        auto&& [__VA_ARGS__] = std::forward< T >( item );                         \
-                        return std::make_tuple( __VA_ARGS__ );                                    \
-                } else {                                                                          \
-                        auto& [__VA_ARGS__] = item;                                               \
-                        return std::tie( __VA_ARGS__ );                                           \
-                }                                                                                 \
+#define EMLABCPP_GENERATE_DECOMPOSE( ID, ... )                                                     \
+        template < typename T >                                                                    \
+        concept decomposable_##ID = decomposable< T > && detail::decompose_count< T >() == ( ID ); \
+                                                                                                   \
+        template < decomposable_##ID T >                                                           \
+        constexpr auto decompose( T&& item )                                                       \
+        {                                                                                          \
+                if constexpr ( !std::is_lvalue_reference_v< T > ) {                                \
+                        auto&& [__VA_ARGS__] = std::forward< T >( item );                          \
+                        return std::make_tuple( __VA_ARGS__ );                                     \
+                } else {                                                                           \
+                        auto& [__VA_ARGS__] = item;                                                \
+                        return std::tie( __VA_ARGS__ );                                            \
+                }                                                                                  \
         }
 
 template < typename T >

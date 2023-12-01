@@ -33,35 +33,35 @@ namespace emlabcpp
 
 template < typename T >
 concept arithmetic_operators = requires( T a, T b ) {
-                                       {
-                                               a + b
-                                               } -> std::convertible_to< T >;
-                                       {
-                                               a - b
-                                               } -> std::convertible_to< T >;
-                                       {
-                                               a / b
-                                               } -> std::convertible_to< T >;
-                                       {
-                                               a* b
-                                               } -> std::convertible_to< T >;
-                               };
+        {
+                a + b
+        } -> std::convertible_to< T >;
+        {
+                a - b
+        } -> std::convertible_to< T >;
+        {
+                a / b
+        } -> std::convertible_to< T >;
+        {
+                a* b
+        } -> std::convertible_to< T >;
+};
 
 template < typename T >
 concept arithmetic_assignment = requires( T a, T b ) {
-                                        {
-                                                a += b
-                                        };
-                                        {
-                                                a -= b
-                                        };
-                                        {
-                                                a /= b
-                                        };
-                                        {
-                                                a *= b
-                                        };
-                                };
+        {
+                a += b
+        };
+        {
+                a -= b
+        };
+        {
+                a /= b
+        };
+        {
+                a *= b
+        };
+};
 
 template < typename T >
 concept arithmetic_like = arithmetic_operators< T > && arithmetic_assignment< T >;
@@ -74,10 +74,10 @@ concept arithmetic = std::integral< T > || std::floating_point< T >;
 
 template < typename T >
 concept gettable_container = requires( T a ) {
-                                     {
-                                             std::tuple_size< std::decay_t< T > >::value
-                                             } -> std::convertible_to< std::size_t >;
-                             };
+        {
+                std::tuple_size< std::decay_t< T > >::value
+        } -> std::convertible_to< std::size_t >;
+};
 
 /// so, std::ranges::range is meh because it expects return of begin() being input_output_iterator,
 /// which has to be def.constructible
@@ -90,19 +90,18 @@ concept range_container =
     std::is_bounded_array_v< T >;
 
 template < typename T >
-concept data_container = (
-                             requires( T a ) { data( a ); } ||
-                             requires( T a ) { std::data( a ); } ) &&
-                         (
-                             requires( T a ) { size( a ); } ||
-                             requires( T a ) { std::size( a ); } );
+concept data_container =
+    (
+        requires( T a ) { data( a ); } || requires( T a ) { std::data( a ); } ) &&
+    (
+        requires( T a ) { size( a ); } || requires( T a ) { std::size( a ); } );
 
 template < typename T >
 concept container = range_container< T > || gettable_container< T > || data_container< T >;
 
 template < typename T >
-concept referenceable_container = is_view< T >::value ||
-                                  ( range_container< T > && !std::is_rvalue_reference_v< T > );
+concept referenceable_container =
+    is_view< T >::value || ( range_container< T > && !std::is_rvalue_reference_v< T > );
 
 template < typename T, typename ValueType >
 concept range_container_with =
@@ -122,10 +121,10 @@ concept data_container_with_iter =
 
 template < typename T >
 concept static_sized = requires( T a ) {
-                               {
-                                       std::tuple_size< std::decay_t< T > >::value
-                                       } -> std::convertible_to< std::size_t >;
-                       };
+        {
+                std::tuple_size< std::decay_t< T > >::value
+        } -> std::convertible_to< std::size_t >;
+};
 
 /// ------------------------------------------------------------------------------------------------
 /// invocable related concepts
@@ -143,10 +142,10 @@ concept container_invocable =
 
 template < typename UnaryCallable, typename ReturnValue, typename... Args >
 concept invocable_returning = requires( UnaryCallable f, Args... args ) {
-                                      {
-                                              f( args... )
-                                              } -> std::same_as< ReturnValue >;
-                              };
+        {
+                f( args... )
+        } -> std::same_as< ReturnValue >;
+};
 
 /// ------------------------------------------------------------------------------------------------
 /// stream related concepts
@@ -158,27 +157,26 @@ namespace detail
 }  // namespace detail
 
 template < typename T >
-concept ostreamlike = !
-std::is_array_v< T >&& requires( T val ) {
-                               requires detail::directly_streamable_for< T, uint8_t >;
-                               requires detail::directly_streamable_for< T, uint16_t >;
-                               requires detail::directly_streamable_for< T, uint32_t >;
-                               requires detail::directly_streamable_for< T, int8_t >;
-                               requires detail::directly_streamable_for< T, int16_t >;
-                               requires detail::directly_streamable_for< T, int32_t >;
-                               requires detail::directly_streamable_for< T, float >;
-                               requires detail::directly_streamable_for< T, double >;
-                               requires detail::directly_streamable_for< T, bool >;
-                               requires detail::directly_streamable_for< T, const void* >;
-                               requires detail::directly_streamable_for< T, std::nullptr_t >;
-                       };
+concept ostreamlike = !std::is_array_v< T > && requires( T val ) {
+        requires detail::directly_streamable_for< T, uint8_t >;
+        requires detail::directly_streamable_for< T, uint16_t >;
+        requires detail::directly_streamable_for< T, uint32_t >;
+        requires detail::directly_streamable_for< T, int8_t >;
+        requires detail::directly_streamable_for< T, int16_t >;
+        requires detail::directly_streamable_for< T, int32_t >;
+        requires detail::directly_streamable_for< T, float >;
+        requires detail::directly_streamable_for< T, double >;
+        requires detail::directly_streamable_for< T, bool >;
+        requires detail::directly_streamable_for< T, const void* >;
+        requires detail::directly_streamable_for< T, std::nullptr_t >;
+};
 
 template < typename T >
 concept ostreamable = requires( std::ostream& os, T item ) {
-                              {
-                                      os << item
-                                      } -> std::convertible_to< std::ostream& >;
-                      };
+        {
+                os << item
+        } -> std::convertible_to< std::ostream& >;
+};
 
 /// ------------------------------------------------------------------------------------------------
 

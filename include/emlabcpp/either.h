@@ -31,8 +31,8 @@ namespace emlabcpp
 {
 
 template < typename T, typename LH, typename RH >
-concept either_uniquely_right_item = std::same_as< std::decay_t< T >, RH > && !
-std::same_as< LH, RH >;
+concept either_uniquely_right_item =
+    std::same_as< std::decay_t< T >, RH > && !std::same_as< LH, RH >;
 
 /// Either is heterogenous structure that holds one of the two types specified.
 /// This is stored as union, so the memory requirement of either is always the size of the bigger

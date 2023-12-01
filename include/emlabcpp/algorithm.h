@@ -127,7 +127,7 @@ template <
     container_invocable< Container > PredicateCallable = std::identity >
 requires( !range_container< Container > )
 [[nodiscard]] constexpr std::size_t
-    find_if( Container&& t, PredicateCallable&& f = std::identity() )
+find_if( Container&& t, PredicateCallable&& f = std::identity() )
 {
         return impl::find_if_impl(
             std::forward< Container >( t ),
@@ -515,10 +515,10 @@ constexpr bool until_index( PredicateCallable&& f )
 /// Expectes the bounded value to be valid (that is within the range)
 template < bounded_derived IndexType, typename Callable >
 requires( !requires( Callable f ) {
-                   {
-                           f.template operator()< 0 >()
-                           } -> std::same_as< void >;
-           } )
+        {
+                f.template operator()< 0 >()
+        } -> std::same_as< void >;
+} )
 constexpr auto select_index( IndexType i, Callable&& f )
 {
         using T = std::decay_t< decltype( f.template operator()< 0 >() ) >;
@@ -531,10 +531,10 @@ constexpr auto select_index( IndexType i, Callable&& f )
 
 template < bounded_derived IndexType, typename Callable >
 requires requires( Callable f ) {
-                 {
-                         f.template operator()< 0 >()
-                         } -> std::same_as< void >;
-         }
+        {
+                f.template operator()< 0 >()
+        } -> std::same_as< void >;
+}
 constexpr void select_index( IndexType i, Callable&& f )
 {
         until_index< IndexType::max_val + 1 >( [&i, &f]< std::size_t j >() {
@@ -568,8 +568,7 @@ constexpr auto merge_arrays( Arr&& first, Arrs&&... arrs )
             ( std::tuple_size_v< std::decay_t< Arrs > > + ... +
               std::tuple_size_v< std::decay_t< Arr > > );
 
-        auto f = [&]< std::size_t... Is >( std::index_sequence< Is... > )
-        {
+        auto f = [&]< std::size_t... Is >( std::index_sequence< Is... > ) {
                 return std::array< value_type, size >{
                     impl::get_ith_item_from_arrays< Is >( first, arrs... )... };
         };

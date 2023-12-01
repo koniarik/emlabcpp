@@ -52,20 +52,19 @@ using converter_for = decltype( converter_for_impl< D, E >() );
 /// converter_check<T> concept verifies that 'T' is valid overload of converter. Use this in
 /// tests of custom converter overloads.
 template < typename T >
-concept converter_check =
-    requires() {
-            {
-                    T::max_size
-                    } -> std::convertible_to< std::size_t >;
-            typename T::value_type;
-            requires bounded_derived< typename T::size_type >;
-    } && requires( std::span< std::byte, T::max_size > buff, typename T::value_type item ) {
-                 {
-                         T::serialize_at( buff, item )
-                         } -> std::same_as< typename T::size_type >;
-         } && requires( std::span< const std::byte > buff, typename T::value_type item ) {
-                      T::deserialize( buff, item );
-              };
+concept converter_check = requires() {
+        {
+                T::max_size
+        } -> std::convertible_to< std::size_t >;
+        typename T::value_type;
+        requires bounded_derived< typename T::size_type >;
+} && requires( std::span< std::byte, T::max_size > buff, typename T::value_type item ) {
+        {
+                T::serialize_at( buff, item )
+        } -> std::same_as< typename T::size_type >;
+} && requires( std::span< const std::byte > buff, typename T::value_type item ) {
+        T::deserialize( buff, item );
+};
 
 template < base_type D, std::endian Endianess >
 struct converter< D, Endianess >

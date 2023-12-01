@@ -101,19 +101,19 @@ constexpr bool operator!=( result_native_constant auto c, const result& res )
 /// other similar types.
 template < typename T >
 concept result_constant = requires() {
-                                  {
-                                          T::id
-                                          } -> std::convertible_to< uint8_t >;
-                          };
+        {
+                T::id
+        } -> std::convertible_to< uint8_t >;
+};
 
 /// Matches types that could be considered a result value, that is result similar types can be
 /// treated the same way.
 template < typename T >
 concept result_value = requires( T item ) {
-                               {
-                                       item.get_state()
-                                       } -> std::convertible_to< uint8_t >;
-                       };
+        {
+                item.get_state()
+        } -> std::convertible_to< uint8_t >;
+};
 
 /// Matches types that are relevant in context of working with result-like objects, be it result
 /// values or result constants. Designed to allow code that can be used with similar types to

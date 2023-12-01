@@ -80,8 +80,8 @@ public:
 
         template < std::size_t n >
         requires( n <= min )
-        [[nodiscard]] bounded_view< iterator, bounded< std::size_t, min - n, max - n > > offset()
-            const
+        [[nodiscard]] bounded_view< iterator, bounded< std::size_t, min - n, max - n > >
+        offset() const
         {
                 return { this->begin() + n, this->end() };
         }

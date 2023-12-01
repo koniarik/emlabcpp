@@ -125,8 +125,8 @@ struct map_f_collector< std::array< T, N > >
 
 template < typename T >
 concept map_f_collectable = requires( T item, typename T::value_type val ) {
-                                    map_f_collector< T >{}.collect( item, std::move( val ) );
-                            };
+        map_f_collector< T >{}.collect( item, std::move( val ) );
+};
 
 template < std::size_t I, typename T >
 constexpr auto get_ith_item_from_arrays( T& arr, auto&... arrays )
