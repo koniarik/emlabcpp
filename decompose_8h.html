@@ -181,19 +181,19 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;                                                                   \</div>
-<div class="line">        concept decomposable_##ID = decomposable&lt; T &gt;&amp;&amp; detail::decompose_count&lt; T &gt;() == ( ID ); \</div>
-<div class="line">                                                                                                  \</div>
-<div class="line">        template &lt; decomposable_##ID T &gt;                                                          \</div>
-<div class="line">        constexpr <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8">decompose</a>( T&amp;&amp; item )                                                      \</div>
-<div class="line">        {                                                                                         \</div>
-<div class="line">                if constexpr ( !std::is_lvalue_reference_v&lt; T &gt; ) {                               \</div>
-<div class="line">                        auto&amp;&amp; [__VA_ARGS__] = std::forward&lt; T &gt;( item );                         \</div>
-<div class="line">                        return std::make_tuple( __VA_ARGS__ );                                    \</div>
-<div class="line">                } <span class="keywordflow">else</span> {                                                                          \</div>
-<div class="line">                        auto&amp; [__VA_ARGS__] = item;                                               \</div>
-<div class="line">                        return std::tie( __VA_ARGS__ );                                           \</div>
-<div class="line">                }                                                                                 \</div>
+<b>Value:</b><div class="fragment"><div class="line">        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;                                                                    \</div>
+<div class="line">        concept decomposable_##ID = decomposable&lt; T &gt; &amp;&amp; detail::decompose_count&lt; T &gt;() == ( ID ); \</div>
+<div class="line">                                                                                                   \</div>
+<div class="line">        template &lt; decomposable_##ID T &gt;                                                           \</div>
+<div class="line">        constexpr <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8">decompose</a>( T&amp;&amp; item )                                                       \</div>
+<div class="line">        {                                                                                          \</div>
+<div class="line">                if constexpr ( !std::is_lvalue_reference_v&lt; T &gt; ) {                                \</div>
+<div class="line">                        auto&amp;&amp; [__VA_ARGS__] = std::forward&lt; T &gt;( item );                          \</div>
+<div class="line">                        return std::make_tuple( __VA_ARGS__ );                                     \</div>
+<div class="line">                } <span class="keywordflow">else</span> {                                                                           \</div>
+<div class="line">                        auto&amp; [__VA_ARGS__] = item;                                                \</div>
+<div class="line">                        return std::tie( __VA_ARGS__ );                                            \</div>
+<div class="line">                }                                                                                  \</div>
 <div class="line">        }</div>
 <div class="ttc" id="anamespaceemlabcpp_html_afecb966a998ea6497e7b378bca2681c8"><div class="ttname"><a href="namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8">emlabcpp::decompose</a></div><div class="ttdeci">constexpr std::tuple decompose(T &amp;&amp;)</div><div class="ttdef"><b>Definition:</b> decompose.h:100</div></div>
 </div><!-- fragment -->
@@ -205,7 +205,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="decompose_8h.html">decompose.h</a></li>
-    <li class="footer">Generated on Fri Dec 1 2023 22:22:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Dec 1 2023 22:28:46 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

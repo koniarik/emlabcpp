@@ -257,16 +257,16 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> M &gt;</div>
 <div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a71244dcc912784b08768c6ae041c37bc">  188</a></span>&#160;concept <a class="code" href="namespaceemlabcpp.html#a71244dcc912784b08768c6ae041c37bc">matrix_like</a> = <a class="code" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( M m, std::size_t i, std::size_t j ) {</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                              {</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                                      M::rows</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                                      } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                              {</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                                      M::cols</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                                      } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                              {</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                                      m[i][j]</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                                      } -&gt; std::convertible_to&lt; typename M::value_type &gt;;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                      };</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        {</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                M::rows</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                M::cols</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        } -&gt; std::convertible_to&lt; std::size_t &gt;;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        {</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                m[i][j]</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        } -&gt; std::convertible_to&lt; typename M::value_type &gt;;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;};</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="keyword">template</span> &lt; matrix_like Matrix, std::<span class="keywordtype">size_t</span> I, std::<span class="keywordtype">size_t</span> J &gt;</div>
 <div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1rowcol__submatrix.html">  201</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemlabcpp_1_1rowcol__submatrix.html">rowcol_submatrix</a></div>
@@ -544,7 +544,7 @@ $(document).ready(function(){initNavTree('matrix_8h_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="matrix_8h.html">matrix.h</a></li>
-    <li class="footer">Generated on Fri Dec 1 2023 22:22:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Dec 1 2023 22:28:46 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
