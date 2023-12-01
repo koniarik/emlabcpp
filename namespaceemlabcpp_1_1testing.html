@@ -434,6 +434,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a798ae63d9a86a525be0c8c0859f02dd0"><td class="memTemplParams" colspan="2">template&lt;typename Callable , typename Reactor &gt; </td></tr>
 <tr class="memitem:a798ae63d9a86a525be0c8c0859f02dd0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1result.html">result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a798ae63d9a86a525be0c8c0859f02dd0">construct_test_callable</a> (<a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;mem_res, Reactor &amp;<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a>, std::string_view name, Callable callable)</td></tr>
 <tr class="separator:a798ae63d9a86a525be0c8c0859f02dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c9eec7e1a987e7ccb1c36ac6fb1d26f"><td class="memTemplParams" colspan="2">template&lt;typename Callable , typename Reactor &gt; </td></tr>
+<tr class="memitem:a0c9eec7e1a987e7ccb1c36ac6fb1d26f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a0c9eec7e1a987e7ccb1c36ac6fb1d26f">construct_test_callable</a> (<a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;mem_res, Reactor &amp;<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a>, std::string_view name, Callable callable, <a class="el" href="classemlabcpp_1_1result.html">result</a> &amp;<a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>)</td></tr>
+<tr class="separator:a0c9eec7e1a987e7ccb1c36ac6fb1d26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -1598,7 +1601,7 @@ template&lt;typename T &gt; </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a798ae63d9a86a525be0c8c0859f02dd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a798ae63d9a86a525be0c8c0859f02dd0">&#9670;&nbsp;</a></span>construct_test_callable()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a798ae63d9a86a525be0c8c0859f02dd0">&#9670;&nbsp;</a></span>construct_test_callable() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1636,6 +1639,56 @@ template&lt;typename Callable , typename Reactor &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c9eec7e1a987e7ccb1c36ac6fb1d26f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c9eec7e1a987e7ccb1c36ac6fb1d26f">&#9670;&nbsp;</a></span>construct_test_callable() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable , typename Reactor &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void emlabcpp::testing::construct_test_callable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;&#160;</td>
+          <td class="paramname"><em>mem_res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Reactor &amp;&#160;</td>
+          <td class="paramname"><em>reactor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable&#160;</td>
+          <td class="paramname"><em>callable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1result.html">result</a> &amp;&#160;</td>
+          <td class="paramname"><em>res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>, and <a class="el" href="namespaceemlabcpp.html#afe02e91acaaf63457009e5300a68becd">emlabcpp::SUCCESS</a>.</p>
 
 </div>
 </div>
@@ -1778,10 +1831,10 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T t, pmr::memory_resource&amp; mem_resource, record&amp; rec ) {</div>
-<div class="line">                                      {</div>
-<div class="line">                                              t( mem_resource, rec )</div>
-<div class="line">                                              } -&gt; std::same_as&lt; test_coroutine &gt;;</div>
-<div class="line">                              }</div>
+<div class="line">        {</div>
+<div class="line">                t( mem_resource, rec )</div>
+<div class="line">        } -&gt; std::same_as&lt; test_coroutine &gt;;</div>
+<div class="line">}</div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:78</div></div>
 </div><!-- fragment -->
 </div>
@@ -1818,7 +1871,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Tue Nov 28 2023 20:47:32 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Dec 1 2023 22:22:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

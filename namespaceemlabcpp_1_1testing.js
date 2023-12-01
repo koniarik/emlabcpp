@@ -159,6 +159,7 @@ var namespaceemlabcpp_1_1testing =
       [ "PARAM_ERROR", "namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aab705bd275e3f4aa8d88067b1c25a8880", null ]
     ] ],
     [ "construct_test_callable", "namespaceemlabcpp_1_1testing.html#a798ae63d9a86a525be0c8c0859f02dd0", null ],
+    [ "construct_test_callable", "namespaceemlabcpp_1_1testing.html#a0c9eec7e1a987e7ccb1c36ac6fb1d26f", null ],
     [ "construct_test_unit", "namespaceemlabcpp_1_1testing.html#a26767cbbbbaeb6e03c676f6e343f64a9", null ],
     [ "requires", "namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4", null ],
     [ "collect_channel", "namespaceemlabcpp_1_1testing.html#a99f1151dbb3866e17e7c5d4b51f8a090", null ],

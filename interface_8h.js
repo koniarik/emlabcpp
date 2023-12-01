@@ -8,6 +8,7 @@ var interface_8h =
     [ "test_ll_node", "interface_8h.html#a097cc8cba998203818d645f127a04e66", null ],
     [ "test_unit", "interface_8h.html#aa96e3a9abc101b459294ca9df2d4fcea", null ],
     [ "construct_test_callable", "interface_8h.html#a798ae63d9a86a525be0c8c0859f02dd0", null ],
+    [ "construct_test_callable", "interface_8h.html#a0c9eec7e1a987e7ccb1c36ac6fb1d26f", null ],
     [ "construct_test_unit", "interface_8h.html#a26767cbbbbaeb6e03c676f6e343f64a9", null ],
     [ "valid_test_callable", "interface_8h.html#ad7a2a6759ff6cb8d4ee8777b7c33db2f", null ]
 ];
