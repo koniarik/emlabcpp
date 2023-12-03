@@ -9,5 +9,6 @@ var searchData=
   ['state_2371',['state',['../classemlabcpp_1_1testing_1_1collect__awaiter.html#a88495290a79f7c972bf6b7f38206f9b3',1,'emlabcpp::testing::collect_awaiter::state()'],['../structemlabcpp_1_1testing_1_1params__awaiter.html#ac8c500eee48040df91879e58f29d9374',1,'emlabcpp::testing::params_awaiter::state()']]],
   ['static_5fsize_5fv_2372',['static_size_v',['../namespaceemlabcpp.html#a2e849ebc932caa63f7e1e6c67d0c2f7b',1,'emlabcpp']]],
   ['static_5fsized_2373',['static_sized',['../namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5',1,'emlabcpp']]],
-  ['success_2374',['SUCCESS',['../namespaceemlabcpp.html#afe02e91acaaf63457009e5300a68becd',1,'emlabcpp']]]
+  ['status_2374',['status',['../structemlabcpp_1_1testing_1_1test__result.html#aa665f90e5089ffb0f7d368c09bc0a09a',1,'emlabcpp::testing::test_result::status()'],['../structemlabcpp_1_1testing_1_1test__finished.html#ac220088c25f0270a3b41e52a33f7b275',1,'emlabcpp::testing::test_finished::status()']]],
+  ['success_2375',['SUCCESS',['../namespaceemlabcpp.html#afe02e91acaaf63457009e5300a68becd',1,'emlabcpp']]]
 ];

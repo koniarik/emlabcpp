@@ -2,7 +2,7 @@ var classemlabcpp_1_1testing_1_1controller =
 [
     [ "controller", "classemlabcpp_1_1testing_1_1controller.html#a7d9a8e2272048102a85fda838f6b4cf5", null ],
     [ "get_channel", "classemlabcpp_1_1testing_1_1controller.html#abc27cc1faf39e91513826d6c49041a52", null ],
-    [ "get_tests", "classemlabcpp_1_1testing_1_1controller.html#a83c9fb2aef69b23cebe97e69b6344c4c", null ],
+    [ "get_tests", "classemlabcpp_1_1testing_1_1controller.html#a700dbf3a6d45c162cb0097b45493f5c5", null ],
     [ "is_initializing", "classemlabcpp_1_1testing_1_1controller.html#a3b7b6bb77d95919d27b96c5b3a79084e", null ],
     [ "is_test_running", "classemlabcpp_1_1testing_1_1controller.html#a07ad22c11e34a13c748b84220b67a2f6", null ],
     [ "on_msg", "classemlabcpp_1_1testing_1_1controller.html#a2e22a7535c5a74c7e7262f15ba9a1aa6", null ],

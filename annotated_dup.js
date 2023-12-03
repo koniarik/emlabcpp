@@ -141,7 +141,6 @@ var annotated_dup =
         [ "bind_wrapper", "classemlabcpp_1_1rpc_1_1bind__wrapper.html", "classemlabcpp_1_1rpc_1_1bind__wrapper" ]
       ] ],
       [ "testing", "namespaceemlabcpp_1_1testing.html", [
-        [ "test_info", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1test__info_dup" ],
         [ "test_result", "structemlabcpp_1_1testing_1_1test__result.html", "structemlabcpp_1_1testing_1_1test__result" ],
         [ "collect_request", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__request", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1collect__request_dup" ],
         [ "collect_reply", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__reply", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1collect__reply_dup" ],

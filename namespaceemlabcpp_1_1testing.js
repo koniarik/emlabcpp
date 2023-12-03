@@ -1,6 +1,5 @@
 var namespaceemlabcpp_1_1testing =
 [
-    [ "test_info", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1test__info_dup" ],
     [ "test_result", "structemlabcpp_1_1testing_1_1test__result.html", "structemlabcpp_1_1testing_1_1test__result" ],
     [ "collect_request", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__request", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1collect__request_dup" ],
     [ "collect_reply", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__reply", "namespaceemlabcpp_1_1testing_structemlabcpp_1_1testing_1_1collect__reply_dup" ],
@@ -158,9 +157,16 @@ var namespaceemlabcpp_1_1testing =
       [ "PARAM_VALUE_KEY", "namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa988a042b19386ddc31b0c9663700abab", null ],
       [ "PARAM_ERROR", "namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aab705bd275e3f4aa8d88067b1c25a8880", null ]
     ] ],
+    [ "test_status", "namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95b", [
+      [ "SUCCESS", "namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95bad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "SKIPPED", "namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95ba203ec08f57cb105eeb2b121ba6503b52", null ],
+      [ "FAILED", "namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95bab9e14d9b2886bcff408b85aefa780419", null ],
+      [ "ERRORED", "namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95badd0f1fac7b1452a7c98db1c15fa9b7bb", null ]
+    ] ],
     [ "construct_test_callable", "namespaceemlabcpp_1_1testing.html#a798ae63d9a86a525be0c8c0859f02dd0", null ],
     [ "construct_test_callable", "namespaceemlabcpp_1_1testing.html#a0c9eec7e1a987e7ccb1c36ac6fb1d26f", null ],
     [ "construct_test_unit", "namespaceemlabcpp_1_1testing.html#a26767cbbbbaeb6e03c676f6e343f64a9", null ],
+    [ "is_problematic", "namespaceemlabcpp_1_1testing.html#ad6d062b71cf62c15572934d7cf66ce32", null ],
     [ "requires", "namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4", null ],
     [ "collect_channel", "namespaceemlabcpp_1_1testing.html#a99f1151dbb3866e17e7c5d4b51f8a090", null ],
     [ "core_channel", "namespaceemlabcpp_1_1testing.html#ac454345521b3303995ab9d0afe40c98b", null ],

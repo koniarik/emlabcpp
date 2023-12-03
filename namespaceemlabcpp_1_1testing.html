@@ -99,8 +99,6 @@ $(document).ready(function(){initNavTree('namespaceemlabcpp_1_1testing.html','')
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:structemlabcpp_1_1testing_1_1test__info"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1test__info">test_info</a></td></tr>
-<tr class="separator:structemlabcpp_1_1testing_1_1test__info"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1test__result.html">test_result</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1testing_1_1collect__request"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__request">collect_request</a></td></tr>
@@ -357,6 +355,17 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
+<tr class="memitem:a137ff616974dc5f715b6fb730d6ff95b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95b">test_status</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95bad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a> = 0x1
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95ba203ec08f57cb105eeb2b121ba6503b52">SKIPPED</a> = 0x2
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95bab9e14d9b2886bcff408b85aefa780419">FAILED</a> = 0x3
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95badd0f1fac7b1452a7c98db1c15fa9b7bb">ERRORED</a> = 0x4
+<br />
+ }</td></tr>
+<tr class="separator:a137ff616974dc5f715b6fb730d6ff95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb07fe9541c63a9babdb6f577489443a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443a">params_enum</a> : uint8_t { <br />
 &#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa5a762008e8eca4531fef87b0164b2cdf">PARAM_VALUE</a> = 0x10
 , <br />
@@ -425,6 +434,8 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ad6d062b71cf62c15572934d7cf66ce32"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ad6d062b71cf62c15572934d7cf66ce32">is_problematic</a> (<a class="el" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95b">test_status</a> stat)</td></tr>
+<tr class="separator:ad6d062b71cf62c15572934d7cf66ce32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68a80d6426bbb9d6709a4af8a28f05e4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a68a80d6426bbb9d6709a4af8a28f05e4"><td class="memTemplItemLeft" align="right" valign="top">requires(N&lt;=<a class="el" href="structemlabcpp_1_1string__buffer.html#ad3fb49b9adf76d2a6e5f15041000af70">string_buffer::capacity</a>) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; emlabcpp requires(<a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4">requires</a> (!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;</td></tr>
 <tr class="separator:a68a80d6426bbb9d6709a4af8a28f05e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -459,37 +470,6 @@ Variables</h2></td></tr>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </p>
 </div><hr/><h2 class="groupheader">Class Documentation</h2>
-<a name="structemlabcpp_1_1testing_1_1test__info" id="structemlabcpp_1_1testing_1_1test__info"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1testing_1_1test__info">&#9670;&nbsp;</a></span>emlabcpp::testing::test_info</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct emlabcpp::testing::test_info</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::testing::test_info:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1testing_1_1test__info__coll__graph.svg" width="187" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="fieldtable">
-<tr><th colspan="3">Class Members</th></tr>
-<tr><td class="fieldtype">
-<a id="a372862c741a12fac7560086849343969"></a><a class="el" href="namespaceemlabcpp_1_1testing.html#a59928859cb189f10f51aaaec49aba7e0">name_buffer</a></td>
-<td class="fieldname">
-name</td>
-<td class="fielddoc">
-</td></tr>
-</table>
-
-</div>
-</div>
 <a name="structemlabcpp_1_1testing_1_1collect__request" id="structemlabcpp_1_1testing_1_1collect__request"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1testing_1_1collect__request">&#9670;&nbsp;</a></span>emlabcpp::testing::collect_request</h2>
 
@@ -582,11 +562,11 @@ struct emlabcpp::testing::value_type_converter&lt; T &gt;</h3>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::testing::reactor_protocol_error:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+<div class="textblock"></div><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::testing::reactor_protocol_error:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1testing_1_1reactor__protocol__error__coll__graph.svg" width="187" height="260"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -613,11 +593,11 @@ rec</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::testing::controller_protocol_error:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<div class="textblock"></div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::testing::controller_protocol_error:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1testing_1_1controller__protocol__error__coll__graph.svg" width="194" height="260"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -1599,6 +1579,34 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a137ff616974dc5f715b6fb730d6ff95b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a137ff616974dc5f715b6fb730d6ff95b">&#9670;&nbsp;</a></span>test_status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95b">emlabcpp::testing::test_status</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a137ff616974dc5f715b6fb730d6ff95bad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a137ff616974dc5f715b6fb730d6ff95ba203ec08f57cb105eeb2b121ba6503b52"></a>SKIPPED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a137ff616974dc5f715b6fb730d6ff95bab9e14d9b2886bcff408b85aefa780419"></a>FAILED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a137ff616974dc5f715b6fb730d6ff95badd0f1fac7b1452a7c98db1c15fa9b7bb"></a>ERRORED&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a798ae63d9a86a525be0c8c0859f02dd0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a798ae63d9a86a525be0c8c0859f02dd0">&#9670;&nbsp;</a></span>construct_test_callable() <span class="overload">[1/2]</span></h2>
@@ -1727,6 +1735,34 @@ template&lt;typename Unit , typename Reactor , typename... Args&gt; </div>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#a0550bae04778b8ce6ce9c333788e3a6e">emlabcpp::pmr::memory_resource::allocate()</a>, <a class="el" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">emlabcpp::args</a>, <a class="el" href="namespaceemlabcpp.html#a4daa9ae3a8263bbce72728fc136c3121">emlabcpp::ERROR</a>, <a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#a24e294c263a01f78dc3b45b94767909a">emlabcpp::testing::reactor::register_test()</a>, and <a class="el" href="namespaceemlabcpp.html#afe02e91acaaf63457009e5300a68becd">emlabcpp::SUCCESS</a>.</p>
+
+</div>
+</div>
+<a id="ad6d062b71cf62c15572934d7cf66ce32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6d062b71cf62c15572934d7cf66ce32">&#9670;&nbsp;</a></span>is_problematic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool emlabcpp::testing::is_problematic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95b">test_status</a>&#160;</td>
+          <td class="paramname"><em>stat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95badd0f1fac7b1452a7c98db1c15fa9b7bb">ERRORED</a>, and <a class="el" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95bab9e14d9b2886bcff408b85aefa780419">FAILED</a>.</p>
 
 </div>
 </div>
@@ -1871,7 +1907,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Fri Dec 1 2023 22:28:47 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Dec 3 2023 22:37:27 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

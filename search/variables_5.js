@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['f_2261',['f',['../namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9',1,'emlabcpp']]],
-  ['failed_2262',['failed',['../structemlabcpp_1_1testing_1_1test__result.html#a74317fc5d68dea540ed5e82d420004ef',1,'emlabcpp::testing::test_result::failed()'],['../structemlabcpp_1_1testing_1_1test__finished.html#a8cdacf54dda2fc323136512191fbc0c0',1,'emlabcpp::testing::test_finished::failed()']]],
+  ['f_2262',['f',['../namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9',1,'emlabcpp']]],
   ['failure_2263',['FAILURE',['../namespaceemlabcpp.html#aeacd3ca34a1bc6927bc31268b483edcf',1,'emlabcpp']]],
   ['field_5fcount_2264',['field_count',['../namespaceemlabcpp_1_1cfg.html#a697b50cd6be1964f6d2c3f74354076f8',1,'emlabcpp::cfg::header']]],
   ['file_2265',['file',['../namespaceemlabcpp.html#a16da217837876e1ca186c4edf83590a1',1,'emlabcpp::log_colors']]],
