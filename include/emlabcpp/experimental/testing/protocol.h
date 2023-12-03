@@ -103,8 +103,7 @@ struct test_finished
 {
         static constexpr auto id = msgid::FINISHED;
         run_id                rid;
-        bool                  errored;
-        bool                  failed;
+        test_status           status;
 };
 
 struct boot

@@ -38,9 +38,7 @@ void reactor::tick()
         if ( opt_exec_->finished() ) {
                 // TODO: this should not be ignored
                 std::ignore = iface_.reply( test_finished{
-                    .rid     = opt_exec_->get_run_id(),
-                    .errored = opt_exec_->errored(),
-                    .failed  = opt_exec_->failed() } );
+                    .rid = opt_exec_->get_run_id(), .status = opt_exec_->status() } );
                 opt_exec_.reset();
         }
 }

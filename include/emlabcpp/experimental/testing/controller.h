@@ -19,6 +19,7 @@
 
 #pragma once
 
+#include "emlabcpp/experimental/testing/base.h"
 #include "emlabcpp/experimental/testing/controller_interface_adapter.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/pmr/aliases.h"
@@ -86,7 +87,7 @@ public:
                 return std::holds_alternative< test_running_state >( state_ );
         }
 
-        [[nodiscard]] const pmr::map< test_id, test_info >& get_tests() const
+        [[nodiscard]] const pmr::map< test_id, name_buffer >& get_tests() const
         {
                 return tests_;
         }
@@ -106,7 +107,7 @@ private:
 
         std::reference_wrapper< pmr::memory_resource > mem_res_;
         controller_interface_adapter                   iface_;
-        pmr::map< test_id, test_info >                 tests_;
+        pmr::map< test_id, name_buffer >               tests_;
         name_buffer                                    name_;
         name_buffer                                    date_;
         run_id                                         rid_ = 0;

@@ -95,7 +95,7 @@ test_coroutine controller::initialize( pmr::memory_resource& )
                 const auto name_reply = co_await msg_awaiter< get_test_name_reply >(
                     get_test_name_request{ .tid = i }, iface_ );
 
-                tests_[i] = test_info{ .name = name_reply.name };
+                tests_[i] = name_reply.name;
         }
 }
 
@@ -171,15 +171,9 @@ outcome controller::on_msg( const reactor_controller_variant& var )
                     }
 
                     EMLABCPP_INFO_LOG(
-                        "Test finished, rid: ",
-                        tf_ptr->rid,
-                        " errored: ",
-                        tf_ptr->errored,
-                        " failed: ",
-                        tf_ptr->failed );
+                        "Test finished, rid: ", tf_ptr->rid, " status: ", tf_ptr->status );
 
-                    rs.context.failed  = tf_ptr->failed;
-                    rs.context.errored = tf_ptr->errored;
+                    rs.context.status = tf_ptr->status;
                     iface_->on_result( rs.context );
 
                     res = SUCCESS;

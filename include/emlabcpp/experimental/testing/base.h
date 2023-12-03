@@ -54,19 +54,24 @@ using data_object_handle       = typename data_tree::object_handle;
 using data_const_array_handle  = typename data_tree::const_array_handle;
 using data_const_object_handle = typename data_tree::const_object_handle;
 
-struct test_info
+enum class test_status : uint8_t
 {
-        name_buffer name;
+        SUCCESS = 0x1,
+        SKIPPED = 0x2,
+        FAILED  = 0x3,
+        ERRORED = 0x4,
 };
 
-class reactor_interface_adapter;
+[[nodiscard]] constexpr bool is_problematic( test_status stat )
+{
+        return stat == test_status::FAILED || stat == test_status::ERRORED;
+}
 
 struct test_result
 {
-        test_id tid;
-        run_id  rid;
-        bool    failed  = false;
-        bool    errored = false;
+        test_id     tid;
+        run_id      rid;
+        test_status status = test_status::ERRORED;
 
         test_result( const test_id ttid, const run_id trid )
           : tid( ttid )

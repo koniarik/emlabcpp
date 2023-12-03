@@ -29,26 +29,26 @@ namespace emlabcpp::testing
 {
 class record
 {
-        bool errored_ = false;
+        test_status status_ = test_status::SUCCESS;
 
 public:
-        [[nodiscard]] bool errored() const
+        [[nodiscard]] test_status status() const
         {
-                return errored_;
+                return status_;
         }
 
         void fail()
         {
-                errored_ = true;
-        }
-
-        void success() const
-        {
+                if ( status_ != test_status::ERRORED ) {
+                        status_ = test_status::FAILED;
+                }
         }
 
         void expect( const bool val )
         {
-                val ? success() : fail();
+                if ( !val ) {
+                        fail();
+                }
         }
 };
 

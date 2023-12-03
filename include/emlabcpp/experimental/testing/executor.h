@@ -46,14 +46,9 @@ public:
         {
         }
 
-        [[nodiscard]] bool errored() const
+        [[nodiscard]] test_status status() const
         {
-                return errored_;
-        }
-
-        [[nodiscard]] bool failed() const
-        {
-                return failed_;
+                return status_;
         }
 
         [[nodiscard]] run_id get_run_id() const
@@ -73,14 +68,12 @@ public:
                                 coro_.tick();
                                 break;
                         }
-                        if ( rec_.errored() ) {
-                                EMLABCPP_ERROR_LOG( "setup errored" );
-                                failed_ = true;
-                                coro_   = test_coroutine();
+                        coro_ = test_coroutine();
+                        if ( rec_.status() != test_status::SUCCESS ) {
+                                status_ = rec_.status();
                                 phas_   = phase::FINISHED;
                                 break;
                         }
-                        coro_ = test_coroutine();
                         coro_ = test_.run( mem_, rec_ );
                         phas_ = phase::RUN;
                         break;
@@ -98,11 +91,9 @@ public:
                                 coro_.tick();
                                 break;
                         }
-                        if ( rec_.errored() ) {
-                                EMLABCPP_ERROR_LOG( "teardown errored" );
-                                errored_ = true;
-                        }
-                        phas_ = phase::FINISHED;
+                        status_ = rec_.status();
+                        coro_   = test_coroutine();
+                        phas_   = phase::FINISHED;
                         break;
                 case phase::FINISHED:
                         break;
@@ -116,8 +107,7 @@ public:
 
 private:
         run_id                rid_;
-        bool                  errored_ = false;
-        bool                  failed_  = false;
+        test_status           status_ = test_status::ERRORED;
         pmr::memory_resource& mem_;
         test_interface&       test_;
         record                rec_;

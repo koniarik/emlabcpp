@@ -19,6 +19,7 @@
 
 #pragma once
 
+#include "emlabcpp/experimental/testing/base.h"
 #include "emlabcpp/experimental/testing/controller.h"
 #include "emlabcpp/experimental/testing/json.h"
 #include "emlabcpp/pmr/new_delete_resource.h"
@@ -34,10 +35,14 @@ inline ::testing::AssertionResult gtest_predicate( const char*, const test_resul
 {
 
         ::testing::AssertionResult res = ::testing::AssertionSuccess();
-        if ( tres.failed ) {
-                res = ::testing::AssertionFailure() << "Test produced a failure, stopping";
-        } else if ( tres.errored ) {
-                res = ::testing::AssertionFailure() << "Test errored";
+        switch ( tres.status ) {
+        case test_status::SUCCESS:
+        case test_status::SKIPPED:
+                return res;
+        case test_status::FAILED:
+                return ::testing::AssertionFailure() << "Test produced a failure, stopping";
+        case test_status::ERRORED:
+                return ::testing::AssertionFailure() << "Test errored";
         }
 
         return res;
@@ -67,12 +72,12 @@ public:
 inline void register_gtests( controller& cont )
 {
         const std::string suite_name = std::string{ cont.suite_name() };
-        for ( auto [tid, tinfo] : cont.get_tests() ) {
-                const std::string name{ tinfo.name.begin(), tinfo.name.end() };
+        for ( auto [tid, name] : cont.get_tests() ) {
+                const std::string sname{ name.begin(), name.end() };
                 const test_id     test_id = tid;
                 ::testing::RegisterTest(
                     suite_name.c_str(),
-                    name.c_str(),
+                    sname.c_str(),
                     nullptr,
                     nullptr,
                     __FILE__,
