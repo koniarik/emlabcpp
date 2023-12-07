@@ -44,6 +44,13 @@ public:
                 }
         }
 
+        void skip()
+        {
+                if ( status_ == test_status::SUCCESS ) {
+                        status_ = test_status::SKIPPED;
+                }
+        }
+
         void expect( const bool val )
         {
                 if ( !val ) {
