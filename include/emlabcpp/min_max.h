@@ -39,8 +39,8 @@ struct min_max : std::array< T, 2 >
 
         constexpr min_max() = default;
 
-        constexpr min_max( T lh, T rh )
-          : std::array< T, 2 >{ std::move( lh ), std::move( rh ) }
+        constexpr min_max( T min, T max )
+          : std::array< T, 2 >{ std::move( min ), std::move( max ) }
         {
         }
 };
