@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"namespaceemlabcpp.html#structemlabcpp_1_1log__colors":[4,0,0,0,1,4,0,0],
 "namespaceemlabcpp.html#structemlabcpp_1_1pid__coefficients":[4,0,0,0,20,0],
 "namespaceemlabcpp.html#structemlabcpp_1_1pid__config":[4,0,0,0,20,1],
 "namespaceemlabcpp.html#structemlabcpp_1_1pose__distance":[4,0,0,0,1,3,3,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX7 =
 "namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a70466f0b748d736102d167b0da2de751":[2,0,0,9,123,5],
 "namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a70e33cdaf6aa8a512fd227a8415c7b98":[2,0,0,9,123,8],
 "namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a7ea0b3234403e2b43fc830dbd901c795":[2,0,0,9,123,7],
-"namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76aa92b7d54a4af0d4a68deaca06f6b5d14":[2,0,0,9,123,3]
+"namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76aa92b7d54a4af0d4a68deaca06f6b5d14":[2,0,0,9,123,3],
+"namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76abc7e642981e78350d9d7576b29082c70":[2,0,0,9,123,2]
 };
