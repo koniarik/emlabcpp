@@ -86,9 +86,10 @@ var NAVTREEINDEX2 =
 "classemlabcpp_1_1quaternion.html#ae0119a50fcd3df7eaf9a620cb4a5443c":[3,0,0,29,7],
 "classemlabcpp_1_1quaternion.html#ae17bd9d0e7c5f5389c7dacccca43be2d":[3,0,0,29,2],
 "classemlabcpp_1_1result.html":[3,0,0,102],
+"classemlabcpp_1_1result.html#a2f586f1e8243af66e9de6fb395f13966":[3,0,0,102,2],
 "classemlabcpp_1_1result.html#a385972a466896b25ed7f3a8ea3c199ef":[3,0,0,102,0],
 "classemlabcpp_1_1result.html#a3f004086aaa75ec9f920ffa2eeed1abe":[3,0,0,102,1],
-"classemlabcpp_1_1result.html#ad9d1840f6a4c3b293d97983ae2a5c62d":[3,0,0,102,2],
+"classemlabcpp_1_1result.html#ad9d1840f6a4c3b293d97983ae2a5c62d":[3,0,0,102,3],
 "classemlabcpp_1_1rowcol__submatrix.html":[3,0,0,47],
 "classemlabcpp_1_1rowcol__submatrix.html#a19563e3706d12cddc426a19c8d8ff790":[3,0,0,47,4],
 "classemlabcpp_1_1rowcol__submatrix.html#a364b520a14e1108f38581a87fccd2e0b":[3,0,0,47,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "classemlabcpp_1_1static__vector.html#a1fd0294ef3ff5be71fd8c70de19f26fa":[3,0,0,108,12],
 "classemlabcpp_1_1static__vector.html#a257c4860fbca99e142184e39bd71e73a":[3,0,0,108,1],
 "classemlabcpp_1_1static__vector.html#a39ce12a1299db38ce04c60d817597cf4":[3,0,0,108,0],
-"classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534":[3,0,0,108,13],
-"classemlabcpp_1_1static__vector.html#a3ac1be4a1a7ca604add992ca39ac0223":[3,0,0,108,22]
+"classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534":[3,0,0,108,13]
 };
