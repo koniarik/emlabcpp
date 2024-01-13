@@ -51,6 +51,14 @@ public:
                 return state_;
         }
 
+        static result from_bool( bool has_succeeded )
+        {
+                if ( has_succeeded ) {
+                        return SUCCESS;
+                }
+                return ERROR;
+        }
+
 private:
         uint8_t state_;
 };
