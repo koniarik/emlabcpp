@@ -101,12 +101,12 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad2bd65906f89abfa56b2910e41154079"><td class="memTemplParams" colspan="2">template&lt;typename ChecksumFunction &gt; </td></tr>
-<tr class="memitem:ad2bd65906f89abfa56b2910e41154079"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#ad2bd65906f89abfa56b2910e41154079">store</a> (std::span&lt; std::byte &gt; target_buffer, const Payload &amp;pl, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const Field * &gt; fields, ChecksumFunction &amp;&amp;chcksm_f)</td></tr>
-<tr class="separator:ad2bd65906f89abfa56b2910e41154079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8763dc80e9361c0c3a15cbc79996ff98"><td class="memTemplParams" colspan="2">template&lt;typename FieldFunction , typename ChecksumFunction &gt; </td></tr>
-<tr class="memitem:a8763dc80e9361c0c3a15cbc79996ff98"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#a8763dc80e9361c0c3a15cbc79996ff98">store</a> (std::span&lt; std::byte &gt; target_buffer, const Payload &amp;pl, std::size_t field_count, FieldFunction &amp;&amp;field_f, ChecksumFunction &amp;&amp;chcksm_f)</td></tr>
-<tr class="separator:a8763dc80e9361c0c3a15cbc79996ff98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae322cd364ee3ee0953d4161081d41c08"><td class="memTemplParams" colspan="2">template&lt;typename ChecksumFunction &gt; </td></tr>
+<tr class="memitem:ae322cd364ee3ee0953d4161081d41c08"><td class="memTemplItemLeft" align="right" valign="top">static std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#ae322cd364ee3ee0953d4161081d41c08">store</a> (std::span&lt; std::byte &gt; target_buffer, const Payload &amp;pl, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const Field * &gt; fields, ChecksumFunction &amp;&amp;chcksm_f)</td></tr>
+<tr class="separator:ae322cd364ee3ee0953d4161081d41c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa98ac6250f37eb63416a7e200831f1f1"><td class="memTemplParams" colspan="2">template&lt;typename FieldFunction , typename ChecksumFunction &gt; </td></tr>
+<tr class="memitem:aa98ac6250f37eb63416a7e200831f1f1"><td class="memTemplItemLeft" align="right" valign="top">static std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#aa98ac6250f37eb63416a7e200831f1f1">store</a> (std::span&lt; std::byte &gt; target_buffer, const Payload &amp;pl, std::size_t field_count, FieldFunction &amp;&amp;field_f, ChecksumFunction &amp;&amp;chcksm_f)</td></tr>
+<tr class="separator:aa98ac6250f37eb63416a7e200831f1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95f0caf6956ef4f8815bcdb5ccdba73b"><td class="memTemplParams" colspan="2">template&lt;typename PayloadFunction , typename FieldFunction , typename ChecksumFunction &gt; </td></tr>
 <tr class="memitem:a95f0caf6956ef4f8815bcdb5ccdba73b"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117">load_result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html#a95f0caf6956ef4f8815bcdb5ccdba73b">load</a> (std::span&lt; std::byte &gt; source, PayloadFunction &amp;&amp;pl_f, FieldFunction &amp;&amp;field_f, ChecksumFunction &amp;&amp;chcksm_f)</td></tr>
 <tr class="separator:a95f0caf6956ef4f8815bcdb5ccdba73b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,8 +183,8 @@ template&lt;typename PayloadFunction , typename FieldFunction , typename Checksu
 
 </div>
 </div>
-<a id="a8763dc80e9361c0c3a15cbc79996ff98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8763dc80e9361c0c3a15cbc79996ff98">&#9670;&nbsp;</a></span>store() <span class="overload">[1/2]</span></h2>
+<a id="aa98ac6250f37eb63416a7e200831f1f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa98ac6250f37eb63416a7e200831f1f1">&#9670;&nbsp;</a></span>store() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +197,7 @@ template&lt;typename FieldFunction , typename ChecksumFunction &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool <a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler</a>&lt; Payload, Field, Endianess &gt;::store </td>
+          <td class="memname">static std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt; <a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler</a>&lt; Payload, Field, Endianess &gt;::store </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; std::byte &gt;&#160;</td>
           <td class="paramname"><em>target_buffer</em>, </td>
@@ -243,8 +243,8 @@ template&lt;typename FieldFunction , typename ChecksumFunction &gt; </div>
 
 </div>
 </div>
-<a id="ad2bd65906f89abfa56b2910e41154079"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2bd65906f89abfa56b2910e41154079">&#9670;&nbsp;</a></span>store() <span class="overload">[2/2]</span></h2>
+<a id="ae322cd364ee3ee0953d4161081d41c08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae322cd364ee3ee0953d4161081d41c08">&#9670;&nbsp;</a></span>store() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -257,7 +257,7 @@ template&lt;typename ChecksumFunction &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool <a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler</a>&lt; Payload, Field, Endianess &gt;::store </td>
+          <td class="memname">static std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt; <a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler</a>&lt; Payload, Field, Endianess &gt;::store </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; std::byte &gt;&#160;</td>
           <td class="paramname"><em>target_buffer</em>, </td>
@@ -306,7 +306,7 @@ template&lt;typename ChecksumFunction &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1cfg.html">cfg</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">handler</a></li>
-    <li class="footer">Generated on Sat Jan 13 2024 18:19:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 13 2024 21:08:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
