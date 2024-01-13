@@ -32,11 +32,12 @@ TEST( CFG, combined )
         std::vector< kval >           fields{ kval{ 1, 42 }, kval{ 2, 666 } };
 
         for ( const std::size_t n : { 1u, 8u, 16u } ) {
-                const bool succ =
+                auto [succ, used] =
                     handler::store( view_n( target_buffer.data(), n ), payload, fields, chcksm_f );
                 EXPECT_FALSE( succ );
+                EXPECT_EQ( used.size(), 0 );
         }
-        const bool succ = handler::store( target_buffer, payload, fields, chcksm_f );
+        auto [succ, used_buffer] = handler::store( target_buffer, payload, fields, chcksm_f );
         EXPECT_TRUE( succ );
 
         const protocol::message< 128 > expected{
