@@ -1,11 +1,12 @@
 from conan import ConanFile
+from conan.tools.scm import Git
 from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout
 from conan.tools.build import check_min_cppstd
 
 
+
 class emlabcppRecipe(ConanFile):
     name = "emlabcpp"
-    version = "1.7"
 
     license = "MIT"
     author = "Veverak squirrelcze@gmail.com"
@@ -15,6 +16,10 @@ class emlabcppRecipe(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
 
     exports_sources = "CMakeLists.txt", "src/*", "include/*", "cmake/*", "tests/*", "examples/*"
+
+    def set_version(self):
+        git = Git(self)
+        self.version = git.run("describe --tags --no-dirty --abbrev=0")[1:]
 
     def validate(self):
         check_min_cppstd(self, "20")
