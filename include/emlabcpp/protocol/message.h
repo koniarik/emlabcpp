@@ -221,7 +221,7 @@ void from_json( const nlohmann::json& j, message< N >& msg )
                 throw std::exception{};  // TODO: fix this
 
         std::vector< std::byte > tmp;
-        for ( std::byte b : j )
+        for ( const std::byte b : j )
                 tmp.push_back( b );
 
         msg = message< N >{ view< const std::byte* >( tmp ) };

@@ -78,8 +78,8 @@ void to_json( nlohmann::json& j, const string_buffer< N >& buffer )
 template < std::size_t N >
 void from_json( const nlohmann::json& j, string_buffer< N >& buffer )
 {
-        std::string s = j;
-        buffer        = string_buffer< N >( std::string_view{ s } );
+        const std::string s = j;
+        buffer              = string_buffer< N >( std::string_view{ s } );
 }
 
 #endif

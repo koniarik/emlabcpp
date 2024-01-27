@@ -15,8 +15,10 @@ test: build_test
 clean:
 	rm -rf ./build
 
-build_test:
+configure:
 	cmake -Bbuild/norm $(EXTRAARGS)
+
+build_test: configure
 	cmake --build build/norm
 
 build_coverage:
@@ -29,9 +31,8 @@ run_coverage: build_coverage
 coverage: run_coverage
 	gcovr --decisions --calls -p --html-details -o build/cov/index.html -r .
 
-clang-tidy:
-	cmake -Bbuild/clang-tidy -DEMLABCPP_TESTS_ENABLED=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_CLANG_TIDY=clang-tidy
-	cmake --build build/clang-tidy
+clang-tidy: configure
+	find src/ include/ \( -iname "*.hpp" -or -iname "*.cpp" \) -print0 | parallel -0 clang-tidy -p build/norm {}
 
 clang-format:
 	find ./ \( -iname "*.h" -o -iname "*.cpp" \) | xargs clang-format -i
