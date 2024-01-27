@@ -142,11 +142,13 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">   74</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INFO_LOG( ... )</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">   75</a></span>&#160;<span class="preprocessor">#define EMLABCPP_DEBUG_LOG( ... )</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">   76</a></span>&#160;<span class="preprocessor">#define EMLABCPP_ERROR_LOG( ... )</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="logging_8h.html#a62a02fa831c59edd331c712ee26fd7ec">   74</a></span>&#160;<span class="preprocessor">#define EMLABCPP_NOOP ( (void) 0 )</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">   76</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INFO_LOG( ... ) EMLABCPP_NOOP</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">   77</a></span>&#160;<span class="preprocessor">#define EMLABCPP_DEBUG_LOG( ... ) EMLABCPP_NOOP</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">   78</a></span>&#160;<span class="preprocessor">#define EMLABCPP_ERROR_LOG( ... ) EMLABCPP_NOOP</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aeabi__logger_8h_html"><div class="ttname"><a href="eabi__logger_8h.html">eabi_logger.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> impl.h:27</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a69c59e260f99791d626a9665243323d0"><div class="ttname"><a href="namespaceemlabcpp.html#a69c59e260f99791d626a9665243323d0">emlabcpp::stem_of</a></div><div class="ttdeci">consteval std::string_view stem_of(const std::string_view file)</div><div class="ttdef"><b>Definition:</b> logging.h:26</div></div>
@@ -158,7 +160,7 @@ $(document).ready(function(){initNavTree('logging_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="logging_8h.html">logging.h</a></li>
-    <li class="footer">Generated on Sat Jan 27 2024 09:04:46 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 27 2024 09:36:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
