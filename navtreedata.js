@@ -86,20 +86,20 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"classemlabcpp_1_1defer.html",
-"classemlabcpp_1_1protocol_1_1message.html#a86fb664e427aa25123bab33afe6ee054",
-"classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534",
-"concepts_8h.html#a5a66cad0d4226d39ffd692e16bcfc076",
-"functions_type_k.html",
-"namespaceemlabcpp.html#a4a90457babf1c49444a526a98007a751",
-"namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub",
-"namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76aa92b7d54a4af0d4a68deaca06f6b5d14",
-"quaternion_8h.html#a027de18cdf34aaf5bf22b05130b6c208",
-"structemlabcpp_1_1physical__quantity.html#a322fae98f9d256a4e20618060c22463a",
-"structemlabcpp_1_1protocol_1_1converter_3_01std_1_1monostate_00_01Endianess_01_4.html#a87eba02125eac1b720fe2bcaa0377841",
-"structemlabcpp_1_1protocol_1_1sequencer__read__request.html#a5726df97402a59605f78a6b2889cff56",
-"structstd_1_1iterator__traits_3_01emlabcpp_1_1decode__cobs__iter_3_01Iter_01_4_01_4.html#ac043dc0c7f2a9e51ca0c1bbc8d851fb8"
+"algorithm_8h.html",
+"classemlabcpp_1_1defer.html#a2fac5182a5be5813537bd523107e375e",
+"classemlabcpp_1_1protocol_1_1message.html#a8acaf9218f8a73b700951fc48069b83e",
+"classemlabcpp_1_1static__vector.html#a3ac1be4a1a7ca604add992ca39ac0223",
+"concepts_8h.html#a5e65fd6d417642b969b05ca5af4a6d8a",
+"functions_type_l.html",
+"namespaceemlabcpp.html#a4b323693e8d1a33bad5c12c63709fe3b",
+"namespaceemlabcpp.html#structemlabcpp_1_1log__colors",
+"namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76abc7e642981e78350d9d7576b29082c70",
+"quaternion_8h.html#a0d682324e6ca417852d4bcaecb77db23",
+"structemlabcpp_1_1physical__quantity.html#a398248b03ff2f045a1d071b1c662ef41",
+"structemlabcpp_1_1protocol_1_1converter_3_01std_1_1monostate_00_01Endianess_01_4.html#a96987374574976067584fb2f1b4621f6",
+"structemlabcpp_1_1protocol_1_1serializer.html",
+"structstd_1_1iterator__traits_3_01emlabcpp_1_1decode__cobs__iter_3_01Iter_01_4_01_4.html#aee2c991ea4171f5750472f257d2eae0a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
