@@ -13,11 +13,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Install dependencies
-        run: pacman -Syu cmake gcc clang make ninja gtest nlohmann-json which parallel python-pip --noconfirm
+      - run: pacman -Syu cmake gcc clang make ninja gtest nlohmann-json which parallel python-pip --noconfirm
       - run: pip install conan --break-system-packages
-      - name: Conan profile
-        run: conan profile detect --force
+      - run: conan profile detect --force
       - run: sed -i 's/cppstd=gnu17/cppstd=20/g' ~/.conan2/profiles/default
-      - name: Execute
-        run: ${{ inputs.cmd }}
+      - run: ${{ inputs.cmd }}
