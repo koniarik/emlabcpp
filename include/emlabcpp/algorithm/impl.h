@@ -56,11 +56,10 @@ map_f_to_a_impl( Container&& cont, UnaryCallable&& f, std::integer_sequence< std
 
         auto iter    = cont.begin();
         auto process = [&]( auto ) {
-                if constexpr ( std::is_reference_v< Container > ) {
+                if constexpr ( std::is_reference_v< Container > )
                         return f( *iter++ );
-                } else {
+                else
                         return f( std::move( *iter++ ) );
-                }
         };
 
         /// https://en.cppreference.com/w/cpp/language/eval_order
@@ -132,11 +131,10 @@ template < std::size_t I, typename T >
 constexpr auto get_ith_item_from_arrays( T& arr, auto&... arrays )
 {
         constexpr std::size_t first_size = std::tuple_size_v< std::decay_t< T > >;
-        if constexpr ( I >= first_size ) {
+        if constexpr ( I >= first_size )
                 return get_ith_item_from_arrays< I - first_size >( arrays... );
-        } else {
+        else
                 return arr[I];
-        }
 }
 
 }  // namespace emlabcpp::impl

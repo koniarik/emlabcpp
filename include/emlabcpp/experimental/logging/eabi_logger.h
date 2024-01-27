@@ -31,9 +31,8 @@ class eabi_logger
 public:
         explicit eabi_logger( const std::vector< logging_option >& opts )
         {
-                for ( const auto& opt : opts ) {
+                for ( const auto& opt : opts )
                         set_option( opt );
-                }
         }
 
         void set_option( const logging_option& opt )
@@ -108,12 +107,10 @@ private:
 
         void write_std_streams( const std::string_view sv ) const
         {
-                if ( use_stdout_ ) {
+                if ( use_stdout_ )
                         std::cout.write( sv.data(), static_cast< std::streamsize >( sv.size() ) );
-                }
-                if ( use_stderr_ ) {
+                if ( use_stderr_ )
                         std::cerr.write( sv.data(), static_cast< std::streamsize >( sv.size() ) );
-                }
         }
 
         log_colors colors_{};

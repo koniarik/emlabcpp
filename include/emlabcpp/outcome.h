@@ -65,9 +65,8 @@ public:
         /// converted to SUCCESS.
         constexpr result has_errored_result() const
         {
-                if ( state_ == error_type::id ) {
+                if ( state_ == error_type::id )
                         return ERROR;
-                }
                 return SUCCESS;
         }
 

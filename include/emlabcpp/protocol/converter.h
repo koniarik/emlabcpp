@@ -39,11 +39,10 @@ struct backup_converter;
 template < typename D, std::endian E >
 auto converter_for_impl()
 {
-        if constexpr ( with_value_type< proto_traits< D > > ) {
+        if constexpr ( with_value_type< proto_traits< D > > )
                 return converter< D, E >{};
-        } else {
+        else
                 return backup_converter< D, E >{};
-        }
 }
 
 template < typename D, std::endian E >
@@ -90,9 +89,8 @@ struct converter< D, Endianess >
         static constexpr conversion_result
         deserialize( const std::span< const std::byte >& buffer, value_type& value )
         {
-                if ( buffer.size() < max_size ) {
+                if ( buffer.size() < max_size )
                         return { 0, &SIZE_ERR };
-                }
 
                 value =
                     serializer< value_type, Endianess >::deserialize( buffer.first< max_size >() );
@@ -127,9 +125,8 @@ deserialize_range( const std::span< const std::byte >& buffer, const view< T* >&
         std::size_t offset = 0;
 
         for ( const std::size_t i : range( data.size() ) ) {
-                if ( offset > buffer.size() ) {
+                if ( offset > buffer.size() )
                         return { offset, &SIZE_ERR };
-                }
                 const std::span subspan = buffer.subspan( offset );
 
                 auto sres = sub_converter::deserialize( subspan, data[i] );
@@ -292,9 +289,8 @@ struct converter< std::variant< Ds... >, Endianess >
         {
                 id_type id;
                 auto    subres = id_converter::deserialize( buffer, id );
-                if ( subres.has_error() ) {
+                if ( subres.has_error() )
                         return subres;
-                }
 
                 auto subspan = buffer.subspan< id_size >();
 
@@ -302,9 +298,8 @@ struct converter< std::variant< Ds... >, Endianess >
 
                 until_index< sizeof...( Ds ) >(
                     [&res, &subres, &subspan, &id, &value]< std::size_t i >() {
-                            if ( id != i ) {
+                            if ( id != i )
                                     return false;
-                            }
 
                             res = nth_converter< i >::deserialize(
                                 subspan, value.template emplace< i >() );
@@ -378,13 +373,11 @@ struct converter< std::optional< T >, Endianess >
                 presence_type is_present_v;
                 auto          subres = presence_converter::deserialize(
                     buffer.first< presence_size >(), is_present_v );
-                if ( subres.has_error() ) {
+                if ( subres.has_error() )
                         return subres;
-                }
 
-                if ( is_present_v == not_present ) {
+                if ( is_present_v == not_present )
                         return subres;
-                }
 
                 const std::span subspan = buffer.subspan( presence_size );
 
@@ -413,9 +406,8 @@ struct converter< std::bitset< N >, Endianess >
         {
                 for ( const std::size_t i : range( max_size ) ) {
                         std::bitset< 8 > byte;
-                        for ( const std::size_t j : range( 8u ) ) {
+                        for ( const std::size_t j : range( 8u ) )
                                 byte[j] = item[i * 8 + j];
-                        }
                         bget( buffer, i ) = static_cast< std::byte >( byte.to_ulong() );
                 }
                 return size_type{};
@@ -424,14 +416,12 @@ struct converter< std::bitset< N >, Endianess >
         static constexpr conversion_result
         deserialize( const std::span< const std::byte >& buffer, value_type& value )
         {
-                if ( buffer.size() < max_size ) {
+                if ( buffer.size() < max_size )
                         return { 0, &SIZE_ERR };
-                }
                 for ( const std::size_t i : range( max_size ) ) {
                         std::bitset< 8 > byte = static_cast< uint8_t >( bget( buffer, i ) );
-                        for ( const std::size_t j : range( 8u ) ) {
+                        for ( const std::size_t j : range( 8u ) )
                                 value[i * 8 + j] = byte[j];
-                        }
                 }
                 return conversion_result{ max_size };
         }
@@ -470,15 +460,12 @@ struct converter< message< N >, Endianess >
         {
                 msg_size_type size;
                 auto          subres = msg_size_converter::deserialize( buffer, size );
-                if ( subres.has_error() ) {
+                if ( subres.has_error() )
                         return subres;
-                }
-                if ( buffer.size() < subres.used + size ) {
+                if ( buffer.size() < subres.used + size )
                         return { subres.used, &SIZE_ERR };
-                }
-                if ( size > N ) {
+                if ( size > N )
                         return { subres.used, &BIGSIZE_ERR };
-                }
                 value.resize( size );
                 std::copy_n(
                     buffer.begin() + static_cast< std::ptrdiff_t >( subres.used ),
@@ -499,9 +486,8 @@ struct converter< sizeless_message< N >, Endianess >
         static constexpr size_type
         serialize_at( std::span< std::byte, max_size > buffer, const value_type& item )
         {
-                for ( const std::size_t i : range( item.size() ) ) {
+                for ( const std::size_t i : range( item.size() ) )
                         buffer[i] = item[i];
-                }
                 /// The size of protocol::message should always be within the 0...N range
                 auto opt_bused = size_type::make( item.size() );
                 EMLABCPP_ASSERT( opt_bused );
@@ -511,9 +497,8 @@ struct converter< sizeless_message< N >, Endianess >
         static constexpr conversion_result
         deserialize( const std::span< const std::byte >& buffer, value_type& value )
         {
-                if ( buffer.size() > N ) {
+                if ( buffer.size() > N )
                         return { 0, &BIGSIZE_ERR };
-                }
                 value.resize( buffer.size() );
                 std::copy( buffer.begin(), buffer.end(), value.begin() );
 
@@ -596,14 +581,12 @@ struct converter< bounded< D, Min, Max >, Endianess >
         {
                 D    sub_val{};
                 auto subres = sub_converter::deserialize( buffer, sub_val );
-                if ( subres.has_error() ) {
+                if ( subres.has_error() )
                         return subres;
-                }
 
                 auto opt_val = value_type::make( sub_val );
-                if ( !opt_val ) {
+                if ( !opt_val )
                         return { 0, &BOUNDS_ERR };
-                }
                 value = *opt_val;
                 return subres;
         }
@@ -646,12 +629,10 @@ struct converter< sized_buffer< CounterDef, D >, Endianess >
         {
                 counter_type size = 0;
                 auto         cres = counter_converter::deserialize( buffer, size );
-                if ( cres.has_error() ) {
+                if ( cres.has_error() )
                         return cres;
-                }
-                if ( buffer.size() < cres.used + size ) {
+                if ( buffer.size() < cres.used + size )
                         return { cres.used, &SIZE_ERR };
-                }
                 auto subres =
                     sub_converter::deserialize( buffer.subspan( counter_size, size ), value );
                 subres.used += cres.used;
@@ -680,12 +661,10 @@ struct converter< tag< V >, Endianess >
         {
                 decltype( V ) val{};
                 auto          subres = sub_converter::deserialize( buffer, val );
-                if ( subres.has_error() ) {
+                if ( subres.has_error() )
                         return subres;
-                }
-                if ( val != V ) {
+                if ( val != V )
                         return { 0, &BADVAL_ERR };
-                }
                 return conversion_result{ subres.used };
         }
 };
@@ -737,9 +716,8 @@ struct converter< tag_group< Ds... >, Endianess >
                 until_index< sizeof...( Ds ) >( [&buffer, &value, &res]< std::size_t i >() -> bool {
                         nth_tag< i > tag;
                         auto         tag_res = nth_tag_converter< i >::deserialize( buffer, tag );
-                        if ( tag_res.has_error() ) {
+                        if ( tag_res.has_error() )
                                 return false;
-                        }
 
                         res = nth_converter< i >::deserialize(
                             buffer.subspan( tag_res.used ), value.template emplace< i >() );
@@ -789,15 +767,13 @@ struct converter< group< Ds... >, Endianess >
                             res = nth_converter< i >::deserialize(
                                 buffer, value.template emplace< i >() );
 
-                            if ( res.used == 0 ) {
+                            if ( res.used == 0 )
                                     return false;
-                            }
                             return true;
                     } );
 
-                if ( got_match ) {
+                if ( got_match )
                         return res;
-                }
 
                 return { 0, &GROUP_ERR };
         }
@@ -852,15 +828,12 @@ struct converter< string_buffer< N >, Endianess >
         {
                 counter_type size   = 0;
                 auto         subres = counter_converter::deserialize( buffer, size );
-                if ( subres.has_error() ) {
+                if ( subres.has_error() )
                         return subres;
-                }
-                if ( buffer.size() < subres.used + size ) {
+                if ( buffer.size() < subres.used + size )
                         return { subres.used, &SIZE_ERR };
-                }
-                if ( size >= N ) {
+                if ( size >= N )
                         return { subres.used, &BIGSIZE_ERR };
-                }
                 std::copy_n(
                     buffer.begin() + static_cast< std::ptrdiff_t >( subres.used ),
                     size,
@@ -895,9 +868,8 @@ struct converter< error_record, Endianess >
         {
 
                 auto subres = mark_converter::deserialize( buffer, value.error_mark );
-                if ( subres.has_error() ) {
+                if ( subres.has_error() )
                         return subres;
-                }
                 return offset_converter::deserialize(
                     buffer.subspan< mark_converter::max_size >(), value.offset );
         }
@@ -943,12 +915,10 @@ struct converter< static_vector< T, N >, Endianess >
         {
                 counter_type count;
                 const auto   subres = counter_converter::deserialize( buffer, count );
-                if ( subres.has_error() ) {
+                if ( subres.has_error() )
                         return subres;
-                }
-                while ( value.size() != count && value.size() < value.max_size() ) {
+                while ( value.size() != count && value.size() < value.max_size() )
                         value.emplace_back();
-                }
                 conversion_result res = deserialize_range< T, Endianess >(
                     buffer.subspan( counter_size ), view{ value } );
                 res.used += counter_size;
@@ -981,9 +951,8 @@ struct backup_converter< T, Endianess >
         {
                 tuple_type val;
                 auto       subres = sub_converter::deserialize( buffer, val );
-                if ( subres.has_error() ) {
+                if ( subres.has_error() )
                         return subres;
-                }
                 value = compose< T >( val );
                 return subres;
         }
@@ -1007,9 +976,8 @@ struct memcpy_converter
         static constexpr conversion_result
         deserialize( const std::span< const std::byte >& buffer, value_type& value )
         {
-                if ( buffer.size() < max_size ) {
+                if ( buffer.size() < max_size )
                         return { 0, &SIZE_ERR };
-                }
 
                 std::memcpy( &value, buffer.begin(), sizeof( value_type ) );
                 return conversion_result{ max_size };

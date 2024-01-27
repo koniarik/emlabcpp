@@ -80,9 +80,8 @@ struct pose
 
 constexpr bool operator<( const pose& x, const pose& y )
 {
-        if ( x.position == y.position ) {
+        if ( x.position == y.position )
                 return x.orientation < y.orientation;
-        }
         return x.position < y.position;
 }
 
@@ -119,16 +118,14 @@ inline std::vector< pose >
 lineary_interpolate_path( const std::vector< pose >& ipath, float d_step, float a_step )
 {
         std::vector< pose > res;
-        if ( ipath.empty() ) {
+        if ( ipath.empty() )
                 return res;
-        }
         for ( const std::size_t i : range( ipath.size() - 1 ) ) {
                 const pose&       from      = ipath[i];
                 const pose&       to        = ipath[i + 1];
                 const std::size_t seg_steps = steps( distance_of( to, from ), d_step, a_step );
-                for ( const std::size_t j : range( seg_steps ) ) {
+                for ( const std::size_t j : range( seg_steps ) )
                         res.push_back( lin_interp( from, to, float( j ) / float( seg_steps ) ) );
-                }
         }
         res.push_back( ipath.back() );
         return res;

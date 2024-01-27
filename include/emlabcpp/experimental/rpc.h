@@ -191,9 +191,8 @@ public:
                     .convert_right( convert_to< error >{} )
                     .bind_left( [&]( const auto& var ) -> either< rt, error > {
                             auto* err_ptr = std::get_if< reactor_error >( &var );
-                            if ( err_ptr != nullptr ) {
+                            if ( err_ptr != nullptr )
                                     return error{ *err_ptr };
-                            }
 
                             auto& reply_var = std::get< 0 >( var );
                             auto* ptr       = std::get_if< call_index< ID > >( &reply_var );

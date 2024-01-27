@@ -114,9 +114,8 @@ TEST( static_vector_test, usage )
 TEST( static_vector_test, copy_trivial )
 {
         trivial_buffer tbuff;
-        for ( const int i : { 1, 2, 3, 4, 5 } ) {
+        for ( const int i : { 1, 2, 3, 4, 5 } )
                 tbuff.push_back( i );
-        }
 
         trivial_buffer cpy{ tbuff };
 
@@ -156,9 +155,8 @@ TEST( static_vector_test, copy_object )
 TEST( static_vector_test, move_trivial )
 {
         trivial_buffer tbuff;
-        for ( const int i : { 1, 2, 3, 4, 5 } ) {
+        for ( const int i : { 1, 2, 3, 4, 5 } )
                 tbuff.push_back( i );
-        }
 
         const trivial_buffer cpy{ tbuff };
         trivial_buffer       moved{ std::move( tbuff ) };
@@ -194,14 +192,12 @@ TEST( static_vector_test, iterators )
 {
         trivial_buffer           tbuff;
         const std::vector< int > data = { 1, 2, 3, 4, 5 };
-        for ( const int i : data ) {
+        for ( const int i : data )
                 tbuff.push_back( i );
-        }
 
         std::vector< int > res;
-        for ( const int i : tbuff ) {
+        for ( const int i : tbuff )
                 res.push_back( i );
-        }
 
         const bool are_equal = equal( data, res );
         EXPECT_TRUE( are_equal );

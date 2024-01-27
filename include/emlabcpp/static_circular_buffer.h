@@ -75,9 +75,8 @@ public:
 
         static_circular_buffer& operator=( const static_circular_buffer& other )
         {
-                if ( this == &other ) {
+                if ( this == &other )
                         return *this;
-                }
                 clear();
                 copy_from( other );
                 return *this;
@@ -85,9 +84,8 @@ public:
 
         static_circular_buffer& operator=( static_circular_buffer&& other ) noexcept
         {
-                if ( this == &other ) {
+                if ( this == &other )
                         return *this;
-                }
                 clear();
                 move_from( other );
                 other.clear();
@@ -141,9 +139,8 @@ public:
 
         void pop_front( std::size_t n )
         {
-                for ( std::size_t i = 0; i < n; i++ ) {
+                for ( std::size_t i = 0; i < n; i++ )
                         pop_front();
-                }
         }
 
         /// methods for handling the back side of the circular buffer
@@ -199,9 +196,8 @@ public:
 
         [[nodiscard]] std::size_t size() const
         {
-                if ( to_ >= from_ ) {
+                if ( to_ >= from_ )
                         return to_ - from_;
-                }
                 return to_ + ( real_size - from_ );
         }
 
@@ -253,9 +249,8 @@ private:
         /// Cleans entire buffer from items.
         void purge()
         {
-                while ( !empty() ) {
+                while ( !empty() )
                         pop_front();
-                }
         }
 
         void copy_from( const static_circular_buffer& other )
@@ -297,15 +292,12 @@ template < typename T, std::size_t N >
 operator==( const static_circular_buffer< T, N >& lh, const static_circular_buffer< T, N >& rh )
 {
         auto size = lh.size();
-        if ( size != rh.size() ) {
+        if ( size != rh.size() )
                 return false;
-        }
 
-        for ( std::size_t i = 0; i < size; ++i ) {
-                if ( lh[i] != rh[i] ) {
+        for ( std::size_t i = 0; i < size; ++i )
+                if ( lh[i] != rh[i] )
                         return false;
-                }
-        }
         return true;
 }
 
@@ -406,13 +398,11 @@ public:
         difference_type operator-( const static_circular_buffer_iterator& other ) const noexcept
         {
                 std::size_t i = i_;
-                if ( i < cont_.get().from_ ) {
+                if ( i < cont_.get().from_ )
                         i += real_size;
-                }
                 std::size_t j = other.i_;
-                if ( j < cont_.get().from_ ) {
+                if ( j < cont_.get().from_ )
                         j += real_size;
-                }
                 return static_cast< difference_type >( i - j );
         }
 

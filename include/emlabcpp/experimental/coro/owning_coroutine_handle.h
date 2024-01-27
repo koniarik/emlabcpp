@@ -85,9 +85,8 @@ public:
 
         ~owning_coroutine_handle()
         {
-                if ( h_ ) {
+                if ( h_ )
                         h_.destroy();
-                }
         }
 
 private:

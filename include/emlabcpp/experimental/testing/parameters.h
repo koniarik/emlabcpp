@@ -208,13 +208,11 @@ struct param_value_processor
         [[nodiscard]] bool set_value( const params_server_client_variant& var )
         {
                 const auto* const val_ptr = std::get_if< param_value_reply >( &var );
-                if ( val_ptr == nullptr ) {
+                if ( val_ptr == nullptr )
                         return false;
-                }
                 auto opt_res = value_type_converter< T >::from_value( val_ptr->value );
-                if ( opt_res ) {
+                if ( opt_res )
                         reply = *opt_res;
-                }
                 return opt_res.has_value();
         }
 };
@@ -234,9 +232,8 @@ struct param_variant_processor
         [[nodiscard]] bool set_value( const params_server_client_variant& var )
         {
                 const auto* const val_ptr = std::get_if< param_value_reply >( &var );
-                if ( val_ptr == nullptr ) {
+                if ( val_ptr == nullptr )
                         return false;
-                }
                 reply = val_ptr->value;
                 return true;
         }
@@ -255,13 +252,11 @@ struct param_value_key_processor
         [[nodiscard]] bool set_value( const params_server_client_variant& var )
         {
                 const auto* const val_ptr = std::get_if< param_value_key_reply >( &var );
-                if ( val_ptr == nullptr ) {
+                if ( val_ptr == nullptr )
                         return false;
-                }
                 auto opt_res = value_type_converter< T >::from_value( val_ptr->value );
-                if ( opt_res ) {
+                if ( opt_res )
                         reply = *opt_res;
-                }
                 return opt_res.has_value();
         }
 };

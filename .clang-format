@@ -188,7 +188,7 @@ RawStringFormats:
     BasedOnStyle:    google
 ReferenceAlignment: Pointer
 ReflowComments:  true
-RemoveBracesLLVM: false
+RemoveBracesLLVM: true
 RequiresClausePosition: OwnLine
 SeparateDefinitionBlocks: Always
 ShortNamespaceLines: 1

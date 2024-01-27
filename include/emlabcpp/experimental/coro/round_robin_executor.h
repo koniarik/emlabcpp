@@ -37,9 +37,8 @@ typename Container::value_type round_robin_run( pmr::memory_resource&, Container
                 i         = ( i + 1 ) % std::size( coros );
 
                 if ( cor.done() ) {
-                        if ( i == 0 && all_of( coros ) ) {
+                        if ( i == 0 && all_of( coros ) )
                                 co_return;
-                        }
                         continue;
                 }
 

@@ -96,9 +96,8 @@ public:
         static_vector< uint8_t, 64 > pop()
         {
                 const std::lock_guard g{ lock_ };
-                if ( buff_.empty() ) {
+                if ( buff_.empty() )
                         return {};
-                }
                 static_vector< uint8_t, 64 > res;
                 copy( buff_.front(), std::back_inserter( res ) );
                 buff_.pop_front();

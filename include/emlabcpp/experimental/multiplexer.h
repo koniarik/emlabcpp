@@ -64,9 +64,8 @@ template < typename BinaryCallable >
 outcome extract_multiplexed( const std::span< const std::byte >& msg, BinaryCallable handle_cb )
 {
         using chan_ser = protocol::serializer< channel_type, std::endian::little >;
-        if ( msg.size() < chan_ser::max_size ) {
+        if ( msg.size() < chan_ser::max_size )
                 return ERROR;
-        }
         channel_type id = chan_ser::deserialize( msg.subspan< 0, chan_ser::max_size >() );
 
         // TODO: there might be a better way than callback?
@@ -80,13 +79,11 @@ outcome multiplexed_dispatch( channel_type chann, const auto& data, Slotted&... 
 
         // TODO: assert that channels are unique
         auto f = [&]< typename T >( T& item ) {
-                if ( chann != item.get_channel() ) {
+                if ( chann != item.get_channel() )
                         return false;
-                }
                 res = item.on_msg( data );
-                if ( res == ERROR ) {
+                if ( res == ERROR )
                         EMLABCPP_ERROR_LOG( "Slot returned an error for message" );
-                }
                 return true;
         };
         if ( !( f( slotted ) || ... || false ) ) {

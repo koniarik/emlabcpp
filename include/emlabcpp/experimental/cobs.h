@@ -32,9 +32,8 @@ encode_cobs( view< const std::byte* > source, view< std::byte* > target )
                 }
 
                 target_current += 1;
-                if ( target_current == target.end() ) {
+                if ( target_current == target.end() )
                         return { false, target };
-                }
 
                 if ( count == 255 ) {
                         *last_tok = std::byte{ 255 };
@@ -42,9 +41,8 @@ encode_cobs( view< const std::byte* > source, view< std::byte* > target )
                         last_tok  = target_current;
 
                         target_current += 1;
-                        if ( target_current == target.end() ) {
+                        if ( target_current == target.end() )
                                 return { false, target };
-                        }
                 }
         }
         *last_tok = std::byte{ count };
@@ -56,11 +54,10 @@ struct cobs_decoder
         [[nodiscard]] std::optional< std::byte > get( std::byte inpt ) const
         {
                 if ( offset == 1 ) {
-                        if ( nonzero ) {
+                        if ( nonzero )
                                 return std::nullopt;
-                        } else {
+                        else
                                 return std::byte{ 0 };
-                        }
                 }
                 return inpt;
         }
@@ -113,15 +110,13 @@ decode_cobs( view< const std::byte* > source, view< std::byte* > target )
 
                 std::optional< std::byte > val = dec.iter( b );
 
-                if ( !val.has_value() ) {
+                if ( !val.has_value() )
                         continue;
-                }
                 *target_current = *val;
                 target_current += 1;
 
-                if ( target_current == target.end() ) {
+                if ( target_current == target.end() )
                         return { false, target };
-                }
         }
         return { true, { target.begin(), target_current } };
 }

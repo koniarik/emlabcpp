@@ -73,9 +73,8 @@ public:
 
         static_vector& operator=( const static_vector& other )
         {
-                if ( this == &other ) {
+                if ( this == &other )
                         return *this;
-                }
                 clear();
                 copy_from( other );
                 return *this;
@@ -83,9 +82,8 @@ public:
 
         static_vector& operator=( static_vector&& other ) noexcept
         {
-                if ( this == &other ) {
+                if ( this == &other )
                         return *this;
-                }
                 clear();
                 move_from( other );
                 other.clear();
@@ -97,24 +95,19 @@ public:
                 using std::swap;
                 const size_type shared_n = std::min( size(), other.size() );
 
-                for ( size_type i = 0; i < shared_n; ++i ) {
+                for ( size_type i = 0; i < shared_n; ++i )
                         swap( storage_[i], other.storage_[i] );
-                }
 
                 if ( size() > other.size() ) {
-                        for ( size_type i = shared_n; i < size(); ++i ) {
+                        for ( size_type i = shared_n; i < size(); ++i )
                                 other.emplace_back( std::move( storage_[i] ) );
-                        }
-                        while ( shared_n != size() ) {
+                        while ( shared_n != size() )
                                 pop_back();
-                        }
                 } else if ( size() < other.size() ) {
-                        for ( size_type i = shared_n; i < other.size(); ++i ) {
+                        for ( size_type i = shared_n; i < other.size(); ++i )
                                 emplace_back( std::move( other.storage_[i] ) );
-                        }
-                        while ( shared_n != other.size() ) {
+                        while ( shared_n != other.size() )
                                 other.pop_back();
-                        }
                 }
         }
 
@@ -275,15 +268,12 @@ template < typename T, std::size_t N >
 [[nodiscard]] bool operator==( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
 {
         auto size = std::size( lh );
-        if ( size != std::size( rh ) ) {
+        if ( size != std::size( rh ) )
                 return false;
-        }
 
-        for ( std::size_t i = 0; i < size; ++i ) {
-                if ( lh[i] != rh[i] ) {
+        for ( std::size_t i = 0; i < size; ++i )
+                if ( lh[i] != rh[i] )
                         return false;
-                }
-        }
         return true;
 }
 

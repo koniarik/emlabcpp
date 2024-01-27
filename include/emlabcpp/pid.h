@@ -102,9 +102,8 @@ void update_output( pid< TimeType >& pid, float output )
 template < typename TimeType >
 float update( pid< TimeType >& pid, TimeType now, float measured, float desired )
 {
-        if ( now == pid.last_time ) {
+        if ( now == pid.last_time )
                 return pid.output;
-        }
 
         auto t_diff = static_cast< float >( now - pid.last_time );
 

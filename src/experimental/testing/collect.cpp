@@ -184,9 +184,8 @@ outcome collect_server::on_msg( const collect_request& req )
                           harn.insert( req.parent, req.value );
         return res.match(
             [this, &req]( const node_id nid ) -> result {
-                    if ( !req.expects_reply ) {
+                    if ( !req.expects_reply )
                             return SUCCESS;
-                    }
                     return this->send( collect_reply{ nid } );
             },
             [this, &req]( const contiguous_request_adapter_errors err ) {

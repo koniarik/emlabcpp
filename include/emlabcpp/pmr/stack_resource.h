@@ -64,9 +64,8 @@ public:
 
                 std::byte* new_top = p + bytes + node_size;
 
-                if ( new_top + node_size > buff_.end() ) {
+                if ( new_top + node_size > buff_.end() )
                         return nullptr;
-                }
 
                 top_ = new_top;
 

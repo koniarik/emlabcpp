@@ -50,9 +50,8 @@ TEST( PID, simple )
         float       val     = 0.f;
         const float desired = 100.f;
 
-        for ( std::size_t i = 0; i < 1000; i++ ) {
+        for ( std::size_t i = 0; i < 1000; i++ )
                 val = update( my_pid, static_cast< float >( i ), val, desired );
-        }
 
         EXPECT_NEAR( my_pid.output, desired, 0.1f );
 }

@@ -74,13 +74,11 @@ namespace detail
         {
                 if constexpr ( N == 0 ) {
                         return std::forward< Callable >( cb ).template operator()< 0 >();
+                } else if ( index == N ) {
+                        return std::forward< Callable >( cb ).template operator()< N >();
                 } else {
-                        if ( index == N ) {
-                                return std::forward< Callable >( cb ).template operator()< N >();
-                        } else {
-                                return linear_index_visit_impl< N - 1 >(
-                                    index, std::forward< Callable >( cb ) );
-                        }
+                        return linear_index_visit_impl< N - 1 >(
+                            index, std::forward< Callable >( cb ) );
                 }
         }
 }  // namespace detail

@@ -55,9 +55,8 @@ void pretty_print_serialize_basic( Writer&& w, const T& val )
 {
         std::array< char, N > buffer{};
         auto [ptr, ec] = std::to_chars( buffer.data(), buffer.data() + buffer.size(), val );
-        if ( ec != std::errc() ) {
+        if ( ec != std::errc() )
                 return;
-        }
         w( std::string_view{ buffer.data(), static_cast< std::size_t >( ptr - buffer.data() ) } );
 }
 
@@ -66,18 +65,16 @@ struct buffer_writer
 {
         void operator()( const char c )
         {
-                if ( size == N ) {
+                if ( size == N )
                         return;
-                }
                 buffer[size] = c;
                 size += 1;
         }
 
         void operator()( const std::string_view sv )
         {
-                for ( char c : sv ) {
+                for ( char c : sv )
                         this->operator()( c );
-                }
         }
 
         std::string_view sv()
@@ -165,9 +162,8 @@ struct pretty_printer< std::byte >
                 std::array< char, 2 > buffer{};
                 const auto [ptr, ec] = std::to_chars(
                     buffer.data(), buffer.data() + buffer.size(), static_cast< uint8_t >( b ), 16 );
-                if ( ec != std::errc() ) {
+                if ( ec != std::errc() )
                         return;
-                }
                 w( std::string_view{
                     buffer.data(), static_cast< std::size_t >( ptr - buffer.data() ) } );
         }
@@ -373,11 +369,10 @@ struct pretty_printer< std::optional< T > >
         template < typename Writer >
         static void print( Writer&& w, const std::optional< T >& opt_val )
         {
-                if ( opt_val.has_value() ) {
+                if ( opt_val.has_value() )
                         w( *opt_val );
-                } else {
+                else
                         w( "nothing" );
-                }
         }
 };
 
@@ -486,9 +481,8 @@ struct pretty_printer< std::bitset< N > >
         template < typename Writer >
         static void print( Writer&& w, const std::bitset< N >& b )
         {
-                for ( const std::size_t i : range( N ) ) {
+                for ( const std::size_t i : range( N ) )
                         w( b[i] ? '1' : '0' );
-                }
         }
 };
 

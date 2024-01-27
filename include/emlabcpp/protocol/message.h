@@ -210,22 +210,19 @@ template < std::size_t N >
 void to_json( nlohmann::json& j, const message< N >& msg )
 {
         j = nlohmann::json::array();
-        for ( std::byte b : msg ) {
+        for ( std::byte b : msg )
                 j.push_back( b );
-        }
 }
 
 template < std::size_t N >
 void from_json( const nlohmann::json& j, message< N >& msg )
 {
-        if ( j.size() > N ) {
+        if ( j.size() > N )
                 throw std::exception{};  // TODO: fix this
-        }
 
         std::vector< std::byte > tmp;
-        for ( std::byte b : j ) {
+        for ( std::byte b : j )
                 tmp.push_back( b );
-        }
 
         msg = message< N >{ view< const std::byte* >( tmp ) };
 }

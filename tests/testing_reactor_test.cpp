@@ -86,9 +86,8 @@ void executor_test_run( T& tf )
                 testing::executor exec{
                     static_cast< testing::test_id >( i ), pmr::new_delete_resource(), tf };
 
-                while ( !exec.finished() ) {
+                while ( !exec.finished() )
                         exec.tick();
-                }
 
                 EXPECT_EQ( tf.setup_count, i );
                 EXPECT_EQ( tf.run_count, i );
@@ -116,9 +115,8 @@ TEST( executor, nested )
 
         testing::executor exec{ 0, pmr::new_delete_resource(), tf };
 
-        while ( !exec.finished() ) {
+        while ( !exec.finished() )
                 exec.tick();
-        }
 }
 
 TEST( reactor, reactor_simple )

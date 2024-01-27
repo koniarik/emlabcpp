@@ -77,9 +77,8 @@ public:
                                            const std::variant< key_type, child_id >& key )
                     -> std::optional< node_id > {
                         const child_id* const id_ptr = std::get_if< child_id >( &key );
-                        if ( id_ptr == nullptr ) {
+                        if ( id_ptr == nullptr )
                                 return std::nullopt;
-                        }
                         return h.get_child( *id_ptr );
                 };
 
@@ -106,9 +105,8 @@ public:
                     .bind_left(
                         [&nid, &id_var](
                             std::optional< node_id > opt_nid ) -> either< node_id, error_enum > {
-                                if ( opt_nid ) {
+                                if ( opt_nid )
                                         return *opt_nid;
-                                }
                                 EMLABCPP_ERROR_LOG(
                                     "Node ",
                                     nid,
@@ -189,16 +187,14 @@ private:
                     [this]( const contiguous_container_type type ) -> std::optional< node_id > {
                             if ( type == contiguous_container_type::ARRAY ) {
                                     auto opt_res = tree_.make_array_node();
-                                    if ( opt_res ) {
+                                    if ( opt_res )
                                             return opt_res->first;
-                                    }
                                     return std::nullopt;
 
                             } else if ( type == contiguous_container_type::OBJECT ) {
                                     auto opt_res = tree_.make_object_node();
-                                    if ( opt_res ) {
+                                    if ( opt_res )
                                             return opt_res->first;
-                                    }
                                     return std::nullopt;
                             } else {
                                     return std::nullopt;
@@ -265,13 +261,11 @@ private:
                                 cont = node.get_container_handle();
 
                             auto* ah_ptr = std::get_if< AHandle >( &cont );
-                            if ( ah_ptr != nullptr ) {
+                            if ( ah_ptr != nullptr )
                                     return var_type{ *ah_ptr };
-                            }
                             auto* oh_ptr = std::get_if< OHandle >( &cont );
-                            if ( oh_ptr != nullptr ) {
+                            if ( oh_ptr != nullptr )
                                     return var_type{ *oh_ptr };
-                            }
                             EMLABCPP_ERROR_LOG( "Node ", nid, " is not of container type" );
                             return error_enum::WRONG_TYPE;
                     } );
@@ -304,9 +298,8 @@ private:
                 return self->get_containers( nid ).bind_left(
                     [&nid]( auto& var ) -> either< Handle, error_enum > {
                             auto* h_ptr = std::get_if< Handle >( &var );
-                            if ( h_ptr != nullptr ) {
+                            if ( h_ptr != nullptr )
                                     return *h_ptr;
-                            }
                             EMLABCPP_ERROR_LOG(
                                 "Node ", nid, " is not of type: ", pretty_type_name< Handle >() );
                             return error_enum::WRONG_TYPE;

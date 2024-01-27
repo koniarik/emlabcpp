@@ -38,9 +38,8 @@ constexpr float distance_of( const line< N >& l, const point< N >& p )
 {
         const vector< N > direction      = l[1] - l[0];
         const float       length_squared = length2_of( direction );
-        if ( length_squared == 0.f ) {
+        if ( length_squared == 0.f )
                 return distance_of( p, l[0] );
-        }
         float projection_dist = dot( p - l[0], direction );
         projection_dist /= length_squared;
         projection_dist = std::clamp( projection_dist, 0.f, 1.f );

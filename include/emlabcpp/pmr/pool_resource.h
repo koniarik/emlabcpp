@@ -34,9 +34,8 @@ class pool_resource final : public pmr::memory_resource
 public:
         pool_resource()
         {
-                for ( const std::size_t i : range( PoolCount ) ) {
+                for ( const std::size_t i : range( PoolCount ) )
                         free_.push_back( static_cast< uint16_t >( i ) );
-                }
         }
 
         pool_resource( const pool_resource& )            = delete;

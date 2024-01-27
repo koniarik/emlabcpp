@@ -44,11 +44,10 @@ struct backup_proto_traits;
 template < typename D >
 consteval auto traits_for_impl()
 {
-        if constexpr ( with_value_type< proto_traits< D > > ) {
+        if constexpr ( with_value_type< proto_traits< D > > )
                 return proto_traits< D >{};
-        } else {
+        else
                 return backup_proto_traits< D >{};
-        }
 }
 
 template < typename D >

@@ -93,46 +93,40 @@ public:
         either( const either& other ) noexcept
           : id_( other.id_ )
         {
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         std::construct_at( &left_, other.left_ );
-                } else {
+                else
                         std::construct_at( &right_, other.right_ );
-                }
         }
 
         either( either&& other ) noexcept
           : id_( other.id_ )
         {
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         std::construct_at( &left_, std::move( other.left_ ) );
-                } else {
+                else
                         std::construct_at( &right_, std::move( other.right_ ) );
-                }
         }
 
         either& operator=( const either& other )
         {
-                if ( this == &other ) {
+                if ( this == &other )
                         return *this;
-                }
-                if ( other.id_ == item::LEFT ) {
+                if ( other.id_ == item::LEFT )
                         *this = other.left_;
-                } else {
+                else
                         *this = other.right_;
-                }
                 return *this;
         }
 
         either& operator=( either&& other ) noexcept
         {
-                if ( this == &other ) {
+                if ( this == &other )
                         return *this;
-                }
-                if ( other.id_ == item::LEFT ) {
+                if ( other.id_ == item::LEFT )
                         *this = std::move( other.left_ );
-                } else {
+                else
                         *this = std::move( other.right_ );
-                }
                 return *this;
         }
 
@@ -178,9 +172,8 @@ public:
         {
                 using return_either = either< decltype( left_f( left_ ) ), right_item >;
 
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         return return_either{ left_f( left_ ) };
-                }
 
                 return return_either{ right_ };
         }
@@ -190,9 +183,8 @@ public:
                 using return_either =
                     either< decltype( left_f( std::move( left_ ) ) ), right_item >;
 
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         return return_either{ left_f( std::move( left_ ) ) };
-                }
 
                 return return_either{ std::move( right_ ) };
         }
@@ -201,9 +193,8 @@ public:
         {
                 using return_either = either< left_item, decltype( right_f( right_ ) ) >;
 
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         return return_either{ left_ };
-                }
 
                 return return_either{ right_f( right_ ) };
         }
@@ -213,9 +204,8 @@ public:
                 using return_either =
                     either< left_item, decltype( right_f( std::move( right_ ) ) ) >;
 
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         return return_either{ std::move( left_ ) };
-                }
 
                 return return_either{ right_f( std::move( right_ ) ) };
         }
@@ -227,38 +217,34 @@ public:
 
         decltype( auto ) match( auto&& left_f, auto&& right_f ) &
         {
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         return left_f( left_ );
-                } else {
+                else
                         return right_f( right_ );
-                }
         }
 
         decltype( auto ) match( auto&& left_f, auto&& right_f ) const&
         {
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         return left_f( left_ );
-                } else {
+                else
                         return right_f( right_ );
-                }
         }
 
         decltype( auto ) match( auto&& left_f, auto&& right_f ) &&
         {
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         return left_f( std::move( left_ ) );
-                } else {
+                else
                         return right_f( std::move( right_ ) );
-                }
         }
 
         template < typename U = left_item, typename K = right_item >
         requires( std::same_as< U, K > )
         [[nodiscard]] left_item join() &&
         {
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         return std::move( left_ );
-                }
 
                 return std::move( right_ );
         }
@@ -267,9 +253,8 @@ public:
         requires( std::same_as< U, K > )
         [[nodiscard]] left_item join() const&
         {
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         return left_;
-                }
 
                 return right_;
         }
@@ -277,18 +262,16 @@ public:
         template < typename T >
         [[nodiscard]] either< left_item, T > construct_right() const&
         {
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         return { left_ };
-                }
                 return { T{ right_ } };
         }
 
         template < typename T >
         [[nodiscard]] either< left_item, T > construct_right() &&
         {
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         return { std::move( left_ ) };
-                }
                 return { T{ std::move( right_ ) } };
         }
 
@@ -297,9 +280,8 @@ public:
                 using return_either =
                     either< typename decltype( left_f( left_ ) )::left_item, right_item >;
 
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         return left_f( left_ ).template construct_right< right_item >();
-                }
 
                 return return_either{ right_ };
         }
@@ -321,18 +303,16 @@ public:
         template < typename T >
         [[nodiscard]] either< T, right_item > construct_left() const&
         {
-                if ( id_ != item::LEFT ) {
+                if ( id_ != item::LEFT )
                         return { right_ };
-                }
                 return { T{ left_ } };
         }
 
         template < typename T >
         [[nodiscard]] either< T, right_item > construct_left() &&
         {
-                if ( id_ != item::LEFT ) {
+                if ( id_ != item::LEFT )
                         return { std::move( right_ ) };
-                }
                 return { T{ std::move( left_ ) } };
         }
 
@@ -341,9 +321,8 @@ public:
                 using return_either =
                     either< left_item, typename decltype( right_f( right_ ) )::right_item >;
 
-                if ( id_ == item::RIGHT ) {
+                if ( id_ == item::RIGHT )
                         return right_f( right_ ).template construct_left< left_item >();
-                }
 
                 return return_either{ left_ };
         }
@@ -369,24 +348,21 @@ public:
 
         friend constexpr bool operator==( const either& a, const either& b )
         {
-                if ( a.is_left() != b.is_left() ) {
+                if ( a.is_left() != b.is_left() )
                         return false;
-                }
-                if ( a.is_left() ) {
+                if ( a.is_left() )
                         return a.left_ == b.left_;
-                } else {
+                else
                         return a.right_ == b.right_;
-                }
         }
 
 private:
         void destruct()
         {
-                if ( id_ == item::LEFT ) {
+                if ( id_ == item::LEFT )
                         std::destroy_at( &left_ );
-                } else {
+                else
                         std::destroy_at( &right_ );
-                }
         }
 };
 
@@ -400,9 +376,8 @@ struct empty_assembly_tag
 template < typename... Ts >
 either< std::tuple< Ts... >, empty_assembly_tag > assemble_optionals( std::optional< Ts >&&... opt )
 {
-        if ( ( ... && opt ) ) {
+        if ( ( ... && opt ) )
                 return std::make_tuple< Ts... >( std::forward< Ts >( *opt )... );
-        }
 
         return empty_assembly_tag{};
 }

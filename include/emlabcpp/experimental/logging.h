@@ -27,9 +27,8 @@ consteval std::string_view stem_of( const std::string_view file )
 {
         const std::string_view res{ file };
         const std::size_t      pos = res.find_last_of( '/' );
-        if ( pos == std::string_view::npos ) {
+        if ( pos == std::string_view::npos )
                 return res;
-        }
         return res.substr( pos + 1 );
 }
 

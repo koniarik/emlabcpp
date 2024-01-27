@@ -108,9 +108,8 @@ constexpr float angle_shortest_path( const quaternion& m, const quaternion& n )
 {
         const float s = std::sqrt( norm2_of( m ) * norm2_of( n ) );
         float       d = dot( m, n );
-        if ( d < 0 ) {
+        if ( d < 0 )
                 d = dot( m, -n );
-        }
         return float{ std::acos( d / s ) * 2.0f };
 }
 
@@ -118,17 +117,15 @@ constexpr quaternion slerp( const quaternion& q, const quaternion& s, float f )
 {
         // NOTE: inspired by tf::Quaternion::slerp
         const float theta = angle_shortest_path( q, s ) / 2.0f;
-        if ( theta == 0.0f ) {
+        if ( theta == 0.0f )
                 return q;
-        }
 
         const float d  = 1.0f / std::sin( theta );
         const float s0 = std::sin( ( 1.0f - f ) * theta );
         const float s1 = std::sin( f * theta );
         float       m  = 1.0f;
-        if ( dot( q, s ) < 0 ) {
+        if ( dot( q, s ) < 0 )
                 m = -1.0f;
-        }
         return {
             ( q[0] * s0 + m * s[0] * s1 ) * d,
             ( q[1] * s0 + m * s[1] * s1 ) * d,
@@ -155,9 +152,8 @@ constexpr bool operator<( const quaternion& q, const quaternion& s )
 
         auto i = static_cast< std::size_t >( *iter );
 
-        if ( i == 4 ) {
+        if ( i == 4 )
                 return false;
-        }
         return q[i] < s[i];
 }
 
@@ -202,9 +198,8 @@ constexpr quaternion shortest_arc_quat( point< 3 > x, point< 3 > y )
         vector< 3 > c = cross_product( vector_cast( x ), vector_cast( y ) );
         auto        d = float( dot( x, y ) );
 
-        if ( d < -1.0f + default_epsilon ) {
+        if ( d < -1.0f + default_epsilon )
                 return { c[0], c[1], c[2], 0.0f };
-        }
 
         const float s  = std::sqrt( ( 1.0f + d ) * 2.0f );
         const float rs = 1.0f / s;

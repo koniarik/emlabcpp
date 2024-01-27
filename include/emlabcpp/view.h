@@ -160,18 +160,15 @@ public:
 template < typename IteratorLh, typename IteratorRh >
 constexpr bool operator==( const view< IteratorLh >& lh, const view< IteratorRh >& rh )
 {
-        if ( lh.size() != rh.size() ) {
+        if ( lh.size() != rh.size() )
                 return false;
-        }
 
         IteratorLh lhiter = lh.begin();
         IteratorRh rhiter = rh.begin();
 
-        for ( ; lhiter != lh.end(); ++lhiter, ++rhiter ) {
-                if ( *lhiter != *rhiter ) {
+        for ( ; lhiter != lh.end(); ++lhiter, ++rhiter )
+                if ( *lhiter != *rhiter )
                         return false;
-                }
-        }
         return true;
 }
 
@@ -230,9 +227,8 @@ void string_serialize_view( auto&& w, const view< Iterator, EndIterator >& outpu
         using value_type = typename std::iterator_traits< Iterator >::value_type;
         bool first       = true;
         for ( const value_type& item : output ) {
-                if ( !first ) {
+                if ( !first )
                         w( ',' );
-                }
                 w( item );
                 first = false;
         }

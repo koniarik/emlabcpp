@@ -183,9 +183,8 @@ outcome controller::on_msg( const reactor_controller_variant& var )
                     res = SUCCESS;
                     return std::nullopt;
             } );
-        if ( new_state ) {
+        if ( new_state )
                 state_ = std::move( *new_state );
-        }
 
         // TODO: maybe better error handling? or maybe none at all?
         return res;
@@ -211,8 +210,7 @@ void controller::tick()
             []( const idle_state ) -> opt_state {
                     return std::nullopt;
             } );
-        if ( new_state ) {
+        if ( new_state )
                 state_ = std::move( *new_state );
-        }
 }
 }  // namespace emlabcpp::testing

@@ -56,9 +56,8 @@ struct pretty_printer< protocol::message< N > >
 
                 char l = '|';
                 for ( const std::size_t i : range( msg.size() ) ) {
-                        if ( i % 4 == 0 ) {
+                        if ( i % 4 == 0 )
                                 l = '|';
-                        }
                         const auto val = std::to_integer< uint8_t >( msg[i] );
                         w( l );
                         w( hex_chars[val / 16] );

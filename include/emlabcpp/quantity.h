@@ -318,20 +318,18 @@ struct nlohmann::adl_serializer< T >
 {
         static void to_json( nlohmann::json& j, const T q )
         {
-                if ( T::get_unit().empty() ) {
+                if ( T::get_unit().empty() )
                         j = *q;
-                } else {
+                else
                         j[T::get_unit()] = *q;
-                }
         }
 
         static T from_json( const nlohmann::json& j )
         {
                 using value_type = typename T::value_type;
 
-                if ( T::get_unit().empty() ) {
+                if ( T::get_unit().empty() )
                         return T{ j.get< value_type >() };
-                }
                 return T{ j[T::get_unit()].template get< value_type >() };
         }
 };

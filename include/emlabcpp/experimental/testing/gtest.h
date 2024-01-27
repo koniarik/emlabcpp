@@ -63,9 +63,8 @@ public:
         void TestBody() final
         {
                 cont_.start_test( tid_ );
-                while ( cont_.is_test_running() ) {
+                while ( cont_.is_test_running() )
                         cont_.tick();
-                }
         }
 };
 

@@ -53,9 +53,8 @@ public:
 
         static result from_bool( bool has_succeeded )
         {
-                if ( has_succeeded ) {
+                if ( has_succeeded )
                         return SUCCESS;
-                }
                 return ERROR;
         }
 
@@ -136,9 +135,8 @@ T worst_of( const T& item, const Ts&... other )
 {
         return accumulate(
             std::array{ item, T{ other }... }, T{ SUCCESS }, [&]( T init, auto item ) -> T {
-                    if ( init.get_state() > item.get_state() ) {
+                    if ( init.get_state() > item.get_state() )
                             return init;
-                    }
                     return item;
             } );
 }

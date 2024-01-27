@@ -39,23 +39,20 @@ public:
 
         void fail()
         {
-                if ( status_ != test_status::ERRORED ) {
+                if ( status_ != test_status::ERRORED )
                         status_ = test_status::FAILED;
-                }
         }
 
         void skip()
         {
-                if ( status_ == test_status::SUCCESS ) {
+                if ( status_ == test_status::SUCCESS )
                         status_ = test_status::SKIPPED;
-                }
         }
 
         void expect( const bool val )
         {
-                if ( !val ) {
+                if ( !val )
                         fail();
-                }
         }
 };
 

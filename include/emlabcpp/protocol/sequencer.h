@@ -82,9 +82,8 @@ public:
                         break;
                 }
 
-                if ( buffer_.empty() ) {
+                if ( buffer_.empty() )
                         return sequencer_read_request{ fixed_size };
-                }
 
                 const std::size_t bsize = buffer_.size();
 
@@ -92,22 +91,19 @@ public:
                 /// buffer
                 EMLABCPP_ASSERT( bsize >= prefix.size() );
 
-                if ( bsize < fixed_size ) {
+                if ( bsize < fixed_size )
                         return sequencer_read_request{ fixed_size - bsize };
-                }
 
                 const std::size_t desired_size = Def::get_size( buffer_ );
-                if ( bsize < desired_size ) {
+                if ( bsize < desired_size )
                         return sequencer_read_request{ desired_size - bsize };
-                }
 
                 message_type res( desired_size );
                 copy( view_n( buffer_.begin(), desired_size ), res.begin() );
 
                 /// clean up only the matched message
-                for ( std::size_t i = desired_size; i > 0; i-- ) {
+                for ( std::size_t i = desired_size; i > 0; i-- )
                         buffer_.pop_front();
-                }
 
                 return res;
         }
@@ -123,9 +119,8 @@ sequencer_simple_load( const std::size_t read_limit, ReadCallback&& read )
         std::size_t                                       count   = 0;
         while ( !res && count < read_limit ) {
                 std::optional data = read( to_read );
-                if ( !data ) {
+                if ( !data )
                         return res;
-                }
                 seq.insert( *data );
                 seq.get_message().match(
                     [&to_read, &count]( const std::size_t next_read ) {

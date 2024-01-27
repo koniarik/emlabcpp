@@ -83,9 +83,8 @@ json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt )
                         auto [nid, oh] = *opt_res;
                         for ( const auto& [key, value] : j.items() ) {
                                 std::optional< node_id > chid = f( value );
-                                if ( !chid ) {
+                                if ( !chid )
                                         return std::nullopt;
-                                }
                                 oh.set( json_to_key_type( key ), *chid );
                         }
                         return nid;
@@ -100,9 +99,8 @@ json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt )
                         auto [nid, ah] = *opt_res;
                         for ( const nlohmann::json& jj : j ) {
                                 std::optional< node_id > chid = f( jj );
-                                if ( !chid ) {
+                                if ( !chid )
                                         return std::nullopt;
-                                }
                                 ah.append( *chid );
                         }
                         return nid;
@@ -135,9 +133,8 @@ nlohmann::json data_tree_to_json( const data_tree& tree )
             [&tree, &f]( const node_id nid ) -> nlohmann::json {
                 const auto* const node_ptr = tree.get_node( nid );
 
-                if ( node_ptr == nullptr ) {
+                if ( node_ptr == nullptr )
                         return {};
-                }
 
                 return match(
                     node_ptr->get_container_handle(),
@@ -154,9 +151,8 @@ nlohmann::json data_tree_to_json( const data_tree& tree )
                     },
                     [&f]( const data_const_array_handle ah ) {
                             nlohmann::json j;
-                            for ( const auto& [i, chid] : ah ) {
+                            for ( const auto& [i, chid] : ah )
                                     j.push_back( f( chid ) );
-                            }
                             return j;
                     } );
         };

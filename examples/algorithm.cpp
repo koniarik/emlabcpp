@@ -102,25 +102,22 @@ int main( int, char*[] )
         // situations where equality is not expected or problematic (floats...). `e` specifies
         // tolerable range
 
-        if ( em::almost_equal( 0.0f, 0.1f, 0.5 ) ) {
+        if ( em::almost_equal( 0.0f, 0.1f, 0.5 ) )
                 std::cout << "Yaaaay, 0.1 is within a tolerance of 0.5 to 0.\n";
-        }
 
         // ---------------------------------------------------------------------------------------
         // `tail(cont)` returns a view over provided container without the first item, handy for the
         // code that handles first item differently.
 
-        for ( const int i : em::tail( vec_data ) ) {
+        for ( const int i : em::tail( vec_data ) )
                 std::cout << i << '\n';  // note that `1` from the container is ignored
-        }
 
         // ---------------------------------------------------------------------------------------
         // `init(cont)` returns a view over provided container without the last item, handy for the
         // code that handles last item differently.
 
-        for ( const int i : em::init( vec_data ) ) {
+        for ( const int i : em::init( vec_data ) )
                 std::cout << i << '\n';  // note that `0` from the container is ignored
-        }
 
         // ---------------------------------------------------------------------------------------
         // `min_max_elem(cont, f)` is used to find minimal and maximal value of some
@@ -180,9 +177,8 @@ int main( int, char*[] )
         const bool has_zero_val = em::any_of( vec_data, []( int val ) {
                 return val == 0;
         } );
-        if ( has_zero_val ) {
+        if ( has_zero_val )
                 std::cout << "there is zero in vec_data \\o/ \n";
-        }
 
         // ---------------------------------------------------------------------------------------
         // `equal(cont1, cont2)` compares content of containers for equality, this avoids the need
@@ -204,17 +200,15 @@ int main( int, char*[] )
         auto mapped_vec = em::map_f< std::vector< int > >( vec_data, []( int val ) {
                 return -val;
         } );
-        for ( const int v : mapped_vec ) {
+        for ( const int v : mapped_vec )
                 std::cout << "mapped val: " << v << '\n';
-        }
 
         const std::array< std::string, 11 > mapped_arr =
             em::map_f_to_a< 11 >( vec_data, []( auto item ) {
                     return std::to_string( item );
             } );
-        for ( const std::string& s : mapped_arr ) {
+        for ( const std::string& s : mapped_arr )
                 std::cout << "mapped arr val: " << s << '\n';
-        }
 
         // ---------------------------------------------------------------------------------------
         // as a shortcut for `map_f` functions, we have `convert_to<T>` and it's `T operator(U)`
@@ -228,9 +222,8 @@ int main( int, char*[] )
         auto mapped_struct_vec =
             em::map_f< std::vector< foo_conv > >( vec_data, em::convert_to< foo_conv >{} );
 
-        for ( const foo_conv v : mapped_struct_vec ) {
+        for ( const foo_conv v : mapped_struct_vec )
                 std::cout << "mapped float val: " << v.i << '\n';
-        }
 
         // ---------------------------------------------------------------------------------------
         // `joined` is used for example to join strings with an delimiter

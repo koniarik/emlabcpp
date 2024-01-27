@@ -334,9 +334,8 @@ struct traits_json_serializer< D > : traits_json_serializer_base
         static void add_extra( nlohmann::json& j )
         {
                 j["sub_type"] = traits_for< typename D::value_type >{};
-                if ( D::get_unit() != "" ) {
+                if ( D::get_unit() != "" )
                         j["unit"] = D::get_unit();
-                }
         }
 };
 
@@ -382,11 +381,10 @@ struct traits_json_serializer< tag< V > > : traits_json_serializer_base
 
         static std::string get_name()
         {
-                if constexpr ( std::is_enum_v< decltype( V ) > ) {
+                if constexpr ( std::is_enum_v< decltype( V ) > )
                         return "tag<" + std::string{ convert_enum( V ) } + ">";
-                } else {
+                else
                         return "tag<" + std::to_string( V ) + ">";
-                }
         }
 
         static void add_extra( nlohmann::json& j )
@@ -394,9 +392,8 @@ struct traits_json_serializer< tag< V > > : traits_json_serializer_base
                 j["sub_type"] = typename traits_for< tag< V > >::sub_traits{};
                 j["value"]    = V;
 #ifdef EMLABCPP_USE_MAGIC_ENUM
-                if constexpr ( std::is_enum_v< decltype( V ) > ) {
+                if constexpr ( std::is_enum_v< decltype( V ) > )
                         j["enumerator"] = magic_enum::enum_name( V );
-                }
 #endif
         }
 };

@@ -115,9 +115,8 @@ public:
 
                 for_each_index< sizeof...( Cmds ) >( [&res, &args...]< std::size_t i >() {
                         using cmd = std::tuple_element_t< i, cmds_type >;
-                        if constexpr ( cmd::id == id ) {
+                        if constexpr ( cmd::id == id )
                                 res.emplace( cmd::make_val( args... ) );
-                        }
                 } );
 
                 EMLABCPP_ASSERT( res );

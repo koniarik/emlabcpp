@@ -140,11 +140,10 @@ public:
 
         void store_reply( const ReplyType& inpt )
         {
-                if ( h_ ) {
+                if ( h_ )
                         h_.promise().reply = inpt;
-                } else {
+                else
                         EMLABCPP_ERROR_LOG( "Can't store reply in empty handle" );
-                }
         }
 
         [[nodiscard]] operator bool() const

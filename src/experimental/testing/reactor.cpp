@@ -31,9 +31,8 @@ void reactor::tick()
                 std::ignore     = iface_.reply( boot{} );
         }
 
-        if ( !opt_exec_.has_value() ) {
+        if ( !opt_exec_.has_value() )
                 return;
-        }
         opt_exec_->tick();
         if ( opt_exec_->finished() ) {
                 // TODO: this should not be ignored

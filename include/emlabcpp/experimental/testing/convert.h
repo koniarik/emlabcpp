@@ -34,9 +34,8 @@ struct value_type_converter_getter
         static std::optional< T > from_value( const value_type& var )
         {
                 const T* val_ptr = std::get_if< T >( &var );
-                if ( val_ptr ) {
+                if ( val_ptr )
                         return *val_ptr;
-                }
                 return std::nullopt;
         }
 
@@ -58,9 +57,8 @@ struct value_type_converter< emlabcpp::string_buffer< N > >
         static std::optional< emlabcpp::string_buffer< N > > from_value( const value_type& var )
         {
                 const auto* val_ptr = std::get_if< string_buffer >( &var );
-                if ( val_ptr ) {
+                if ( val_ptr )
                         return *val_ptr;
-                }
                 return std::nullopt;
         }
 
@@ -84,15 +82,13 @@ struct value_type_converter< T >
         {
                 if ( std::holds_alternative< float >( var ) ) {
                         const auto v = *std::get_if< float >( &var );
-                        if ( v == 0.f ) {
+                        if ( v == 0.f )
                                 return T{ 0 };
-                        }
                 }
                 std::optional< int64_t > opt_val =
                     value_type_converter< int64_t >::from_value( var );
-                if ( !opt_val ) {
+                if ( !opt_val )
                         return std::nullopt;
-                }
                 return static_cast< T >( *opt_val );
         }
 
@@ -123,9 +119,8 @@ struct value_type_converter< std::chrono::duration< Rep, Ratio > >
         from_value( const value_type& var )
         {
                 std::optional< Rep > opt_raw = value_type_converter< Rep >::from_value( var );
-                if ( !opt_raw.has_value() ) {
+                if ( !opt_raw.has_value() )
                         return std::nullopt;
-                }
                 return std::chrono::duration< Rep, Ratio >{ *opt_raw };
         }
 };

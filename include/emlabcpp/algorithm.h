@@ -39,12 +39,10 @@ template < typename T >
 constexpr int sign( const T& val )
 {
         using value_type = std::decay_t< T >;
-        if ( value_type{ 0 } > val ) {
+        if ( value_type{ 0 } > val )
                 return -1;
-        }
-        if ( value_type{ 0 } < val ) {
+        if ( value_type{ 0 } < val )
                 return 1;
-        }
         return 0;
 }
 
@@ -53,9 +51,8 @@ template < typename T >
 [[nodiscard]] constexpr T ceil_to( T val, T base )
 {
         auto m = val % base;
-        if ( m == 0 ) {
+        if ( m == 0 )
                 return val;
-        }
         return val + base - m;
 }
 
@@ -72,11 +69,10 @@ template < arithmetic_operators T, arithmetic_operators U >
 template < container Container >
 [[nodiscard]] constexpr std::size_t cont_size( const Container& cont ) noexcept
 {
-        if constexpr ( static_sized< Container > ) {
+        if constexpr ( static_sized< Container > )
                 return std::tuple_size_v< Container >;
-        } else {
+        else
                 return std::size( cont );
-        }
 }
 
 /// Two items 'lh' and 'rh' are almost equal if their difference is smaller than
@@ -112,11 +108,9 @@ template <
 {
         auto beg = std::begin( cont );
         auto end = std::end( cont );
-        for ( ; beg != end; ++beg ) {
-                if ( f( *beg ) ) {
+        for ( ; beg != end; ++beg )
+                if ( f( *beg ) )
                         return beg;
-                }
-        }
         return cont.end();
 }
 
@@ -149,11 +143,10 @@ template < container Container, typename T >
 template < container Container, typename T >
 [[nodiscard]] constexpr bool contains( const Container& cont, const T& item )
 {
-        if constexpr ( range_container< Container > ) {
+        if constexpr ( range_container< Container > )
                 return find( cont, item ) != cont.end();
-        } else {
+        else
                 return find( cont, item ) != cont_size( cont );
-        }
 }
 
 /// Applies unary callable 'f' to each element of container 'cont'
@@ -172,9 +165,8 @@ constexpr void for_each( Container&& cont, UnaryCallable&& f )
 template < range_container Container, container_invocable< Container > UnaryCallable >
 constexpr void for_each( Container&& cont, UnaryCallable&& f )
 {
-        for ( auto&& item : std::forward< Container >( cont ) ) {
+        for ( auto&& item : std::forward< Container >( cont ) )
                 f( std::forward< decltype( item ) >( item ) );
-        }
 }
 
 /// Applies unary callable 'f(x)' to each element of container 'cont', returns
@@ -238,9 +230,8 @@ template < container Container, container_invocable< Container > UnaryCallable =
 {
         std::size_t res = 0;
         for_each( cont, [&]( auto& item ) {
-                if ( f( item ) ) {
+                if ( f( item ) )
                         res += 1;
-                }
         } );
         return res;
 }
@@ -282,11 +273,10 @@ template <
         for_each( cont, [&]( auto& item ) {
                 res += f( item );
         } );
-        if constexpr ( std::is_arithmetic_v< T > ) {
+        if constexpr ( std::is_arithmetic_v< T > )
                 return res / static_cast< T >( cont_size( cont ) );
-        } else {
+        else
                 return res / cont_size( cont );
-        }
 }
 
 /// Applies callable 'f(x)' to each element of container 'cont' and returns the
@@ -303,11 +293,10 @@ template <
                 auto v = f( val ) - u;
                 return v * v;
         } );
-        if constexpr ( std::is_arithmetic_v< T > ) {
+        if constexpr ( std::is_arithmetic_v< T > )
                 return res / static_cast< T >( cont_size( cont ) );
-        } else {
+        else
                 return res / cont_size( cont );
-        }
 }
 
 /// Applies binary callable 'f(x,y)' to each combination of items `x` from `lh_cont`
@@ -329,11 +318,10 @@ template < container Container, container_invocable< Container > PredicateCallab
 {
         auto res = find_if( cont, std::forward< PredicateCallable >( f ) );
 
-        if constexpr ( is_std_tuple_v< Container > ) {
+        if constexpr ( is_std_tuple_v< Container > )
                 return res != std::tuple_size_v< std::decay_t< Container > >;
-        } else {
+        else
                 return res != cont.end();
-        }
 }
 
 /// Returns true if call to predicate 'f(x)' returns false for all items in
@@ -362,14 +350,12 @@ template <
 [[nodiscard]] constexpr bool
 equal( LhContainer&& lh, RhContainer&& rh, BinaryPredicateCallable&& f = std::equal_to< void >{} )
 {
-        if ( cont_size( lh ) != cont_size( rh ) ) {
+        if ( cont_size( lh ) != cont_size( rh ) )
                 return false;
-        }
         auto rbeg = std::begin( rh );
         for ( auto& item : lh ) {
-                if ( !f( item, *rbeg ) ) {
+                if ( !f( item, *rbeg ) )
                         return false;
-                }
                 ++rbeg;
         }
         return true;
@@ -452,13 +438,11 @@ template <
 [[nodiscard]] constexpr T
 joined( Container&& cont, const T& val, UnaryCallable&& f = std::identity() )
 {
-        if ( cont.empty() ) {
+        if ( cont.empty() )
                 return T{};
-        }
         T res = f( *std::begin( cont ) );
-        for ( auto& item : tail( cont ) ) {
+        for ( auto& item : tail( cont ) )
                 res += val + f( item );
-        }
         return res;
 }
 
@@ -501,11 +485,10 @@ constexpr std::size_t find_if_index( PredicateCallable&& f )
 template < std::size_t i, typename PredicateCallable >
 constexpr bool until_index( PredicateCallable&& f )
 {
-        if constexpr ( i != 0 ) {
+        if constexpr ( i != 0 )
                 return until_index< i - 1 >( f ) || f.template operator()< i - 1 >();
-        } else {
+        else
                 return false;
-        }
 }
 
 /// Function expectes bounded value as index input and callable. Based on the value

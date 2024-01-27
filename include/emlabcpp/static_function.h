@@ -141,9 +141,8 @@ public:
 
         static_function_base& operator=( const static_function_base& other )
         {
-                if ( this == &other ) {
+                if ( this == &other )
                         return *this;
-                }
 
                 clear();
 
@@ -158,9 +157,8 @@ public:
 
         static_function_base& operator=( static_function_base&& other ) noexcept
         {
-                if ( this == &other ) {
+                if ( this == &other )
                         return *this;
-                }
 
                 clear();
 
@@ -227,9 +225,8 @@ public:
 private:
         static constexpr std::size_t required_space( std::size_t size, const std::size_t align )
         {
-                if ( align > Align ) {
+                if ( align > Align )
                         size += align - Align;
-                }
                 return size;
         }
 

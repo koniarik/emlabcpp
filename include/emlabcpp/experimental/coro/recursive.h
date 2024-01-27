@@ -141,17 +141,15 @@ public:
 
         [[nodiscard]] bool done() const
         {
-                if ( h_ ) {
+                if ( h_ )
                         return h_.done();
-                }
                 return true;
         }
 
         [[nodiscard]] wait_state get_state() const override
         {
-                if ( done() ) {
+                if ( done() )
                         return wait_state::READY;
-                }
                 return wait_state::WAITING;
         }
 
@@ -168,9 +166,8 @@ public:
 
         auto await_resume()
         {
-                if constexpr ( !std::is_void_v< T > ) {
+                if constexpr ( !std::is_void_v< T > )
                         return h_.promise().value;
-                }
         }
 
         auto get_value()
@@ -180,20 +177,17 @@ public:
 
         auto run()
         {
-                while ( !done() ) {
+                while ( !done() )
                         tick();
-                }
 
-                if constexpr ( !std::is_void_v< T > ) {
+                if constexpr ( !std::is_void_v< T > )
                         return h_.promise().value;
-                }
         }
 
         void tick() override
         {
-                if ( !h_ ) {
+                if ( !h_ )
                         return;
-                }
                 wait_interface* iface = h_.promise().iface;
 
                 if ( iface != nullptr ) {

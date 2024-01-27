@@ -54,9 +54,8 @@ public:
         static Derived make_filled_with( value_type val )
         {
                 std::array< float, N > res;
-                for ( const std::size_t i : range( N ) ) {
+                for ( const std::size_t i : range( N ) )
                         res[i] = val;
-                }
                 return Derived{ res };
         }
 
@@ -144,9 +143,8 @@ template <
 constexpr Derived operator*( const vec_point_base< Derived, N >& a, T s )
 {
         Derived res{ *a };
-        for ( const std::size_t i : range( N ) ) {
+        for ( const std::size_t i : range( N ) )
                 res[i] *= s;
-        }
         return res;
 }
 
@@ -168,9 +166,8 @@ template <
 constexpr Derived operator/( const vec_point_base< Derived, N >& a, T s )
 {
         Derived res{ *a };
-        for ( const std::size_t i : range( N ) ) {
+        for ( const std::size_t i : range( N ) )
                 res[i] /= float( s );
-        }
         return res;
 }
 
@@ -218,9 +215,8 @@ template < typename Derived, std::size_t N >
 constexpr Derived abs( const vec_point_base< Derived, N >& a )
 {
         Derived res;
-        for ( const std::size_t i : range( N ) ) {
+        for ( const std::size_t i : range( N ) )
                 res[i] = std::abs( a[i] );
-        }
         return res;
 }
 
@@ -245,9 +241,8 @@ constexpr Derived
 dimensional_max( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& b )
 {
         Derived res;
-        for ( const std::size_t i : range( N ) ) {
+        for ( const std::size_t i : range( N ) )
                 res[i] = std::max( a[i], b[i] );
-        }
         return res;
 }
 
@@ -258,9 +253,8 @@ constexpr Derived
 dimensional_min( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& b )
 {
         Derived res;
-        for ( const std::size_t i : range( N ) ) {
+        for ( const std::size_t i : range( N ) )
                 res[i] = std::min( a[i], b[i] );
-        }
         return res;
 }
 
@@ -289,9 +283,8 @@ constexpr Derived lin_interp(
     float                               factor )
 {
         Derived res;
-        for ( const std::size_t i : range( N ) ) {
+        for ( const std::size_t i : range( N ) )
                 res[i] = from[i] + ( goal[i] - from[i] ) * factor;
-        }
         return res;
 }
 

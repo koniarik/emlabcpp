@@ -35,15 +35,14 @@ auto generate_vars_log_tuple(
         static_assert( 4 * N == sizeof...( Ids ) );
 
         auto f = [&]< std::size_t i > {
-                if constexpr ( i % 4 == 0 ) {
+                if constexpr ( i % 4 == 0 )
                         return names[i / 4];
-                } else if constexpr ( i % 4 == 1 ) {
+                else if constexpr ( i % 4 == 1 )
                         return std::string_view{ " = " };
-                } else if constexpr ( i % 4 == 2 ) {
+                else if constexpr ( i % 4 == 2 )
                         return std::get< i / 4 >( args );
-                } else {
+                else
                         return std::string_view{ ";\t" };
-                }
         };
 
         return std::make_tuple( f.template operator()< Ids >()... );

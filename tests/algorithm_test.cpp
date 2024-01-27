@@ -546,9 +546,8 @@ TEST( Algorithm, until_index )
         std::vector< std::size_t > odata{};
 
         until_index< 8 >( [&]< std::size_t i >() {
-                if ( odata.size() == idata.size() ) {
+                if ( odata.size() == idata.size() )
                         return true;
-                }
                 odata.push_back( idata[i] );
                 return false;
         } );

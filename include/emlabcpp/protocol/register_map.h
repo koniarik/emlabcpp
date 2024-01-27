@@ -195,9 +195,8 @@ private:
         {
                 until_index< registers_count >( [&obj, &key, &f]< std::size_t j >() {
                         using reg_type = std::tuple_element_t< j, registers_tuple >;
-                        if ( reg_type::key != key ) {
+                        if ( reg_type::key != key )
                                 return false;
-                        }
                         f( std::get< j >( obj.registers_ ) );
                         return true;
                 } );

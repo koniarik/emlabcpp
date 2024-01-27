@@ -65,9 +65,8 @@ struct memory_promise
                 p--;
 
                 const result res = ( *p )->deallocate( p, size + ptr_size, alignof( PromiseType ) );
-                if ( res == ERROR ) {
+                if ( res == ERROR )
                         pmr::throw_bad_alloc();
-                }
         }
 };
 }  // namespace emlabcpp::coro

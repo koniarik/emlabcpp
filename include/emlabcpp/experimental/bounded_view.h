@@ -62,12 +62,10 @@ public:
 
         static std::optional< bounded_view > make( view< Iterator > v )
         {
-                if ( std::size( v ) < min ) {
+                if ( std::size( v ) < min )
                         return {};
-                }
-                if ( std::size( v ) > max ) {
+                if ( std::size( v ) > max )
                         return {};
-                }
                 return { bounded_view( std::begin( v ), std::end( v ) ) };
         }
 
@@ -90,13 +88,11 @@ public:
         std::optional< bounded_view< iterator, OffsetSizeType > > opt_offset( std::size_t offset )
         {
                 auto new_beg = this->begin() + offset;
-                if ( new_beg + OffsetSizeType::min_val > this->end() ) {
+                if ( new_beg + OffsetSizeType::min_val > this->end() )
                         return {};
-                }
                 auto new_end = new_beg + OffsetSizeType::max_val;
-                if ( new_end <= this->end() ) {
+                if ( new_end <= this->end() )
                         return { bounded_view< iterator, OffsetSizeType >{ new_beg, new_end } };
-                }
                 return { bounded_view< iterator, OffsetSizeType >{ new_beg, this->end() } };
         }
 };

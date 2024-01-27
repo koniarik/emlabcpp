@@ -47,9 +47,8 @@ public:
         T* allocate( const std::size_t n )
         {
                 void* const res = resource_.get().allocate( n * sizeof( T ), alignof( T ) );
-                if ( res == nullptr ) {
+                if ( res == nullptr )
                         throw_bad_alloc();
-                }
                 return reinterpret_cast< T* >( res );
         }
 
@@ -57,9 +56,8 @@ public:
         {
                 const result res = resource_.get().deallocate(
                     reinterpret_cast< void* >( p ), n * sizeof( T ), alignof( T ) );
-                if ( res == ERROR ) {
+                if ( res == ERROR )
                         throw_bad_alloc();
-                }
         }
 
         friend constexpr bool operator==( const allocator& lh, const allocator& rh )

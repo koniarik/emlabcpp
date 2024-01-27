@@ -45,21 +45,18 @@ struct handler
                         .field_count = static_cast< uint32_t >( field_count ),
                     },
                     chcksm_f );
-                if ( !success ) {
+                if ( !success )
                         return { false, {} };
-                }
                 std::tie( success, buffer ) = store_impl< Endianess >( buffer, pl, chcksm_f );
-                if ( !success ) {
+                if ( !success )
                         return { false, {} };
-                }
 
                 for ( const std::size_t i : range( field_count ) ) {
                         const Field fp = field_f( i );
                         std::tie( success, buffer ) =
                             store_impl< Endianess >( buffer, fp, chcksm_f );
-                        if ( !success ) {
+                        if ( !success )
                                 return { false, {} };
-                        }
                 }
 
                 return { success, target_buffer.subspan( 0, buffer.size() ) };
@@ -91,9 +88,8 @@ struct handler
                         return load_result::DESERIALIZATION_ERROR;
                 }
 
-                if ( !pl_f( std::as_const( pl ) ) ) {
+                if ( !pl_f( std::as_const( pl ) ) )
                         return load_result::PAYLOAD_REFUSED;
-                }
 
                 for ( const std::size_t i : range( head.field_count ) ) {
                         std::ignore = i;

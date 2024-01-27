@@ -108,9 +108,8 @@ TEST( params, base )
 
         testing::executor exec{ 0u, pmr::new_delete_resource(), tf };
 
-        while ( !exec.finished() ) {
+        while ( !exec.finished() )
                 exec.tick();
-        }
 
         EXPECT_TRUE( tf.checkpoint_reached );
         EXPECT_FALSE( tf.end_reached );

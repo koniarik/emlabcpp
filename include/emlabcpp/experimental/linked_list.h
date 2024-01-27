@@ -40,9 +40,8 @@ public:
 
         linked_list_node_base& operator=( linked_list_node_base&& other ) noexcept
         {
-                if ( &other == this ) {
+                if ( &other == this )
                         return *this;
-                }
 
                 prev_ = other.prev_;
                 if ( prev_ != nullptr ) {
@@ -62,9 +61,8 @@ public:
         void link_as_next( linked_list_node_base< Base >& node )
         {
                 node.next_ = next_;
-                if ( next_ != nullptr ) {
+                if ( next_ != nullptr )
                         next_->prev_ = &node;
-                }
 
                 node.prev_ = this;
                 next_      = &node;
@@ -85,9 +83,8 @@ public:
         {
                 auto* n = this;
                 while ( n != nullptr ) {
-                        if ( id == 0 ) {
+                        if ( id == 0 )
                                 return n;
-                        }
                         n = n->next_;
                         id -= 1;
                 }
@@ -112,23 +109,19 @@ public:
 
         [[nodiscard]] linked_list_node_base* get_prev( const std::size_t id )
         {
-                if ( id == 0 ) {
+                if ( id == 0 )
                         return this;
-                }
-                if ( prev_ == nullptr ) {
+                if ( prev_ == nullptr )
                         return nullptr;
-                }
                 return prev_->get_prev( id - 1 );
         }
 
         virtual ~linked_list_node_base()
         {
-                if ( prev_ != nullptr ) {
+                if ( prev_ != nullptr )
                         prev_->next_ = next_;
-                }
-                if ( next_ != nullptr ) {
+                if ( next_ != nullptr )
                         next_->prev_ = prev_;
-                }
         }
 
 private:

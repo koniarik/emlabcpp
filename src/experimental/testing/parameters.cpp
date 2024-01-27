@@ -28,9 +28,8 @@ namespace emlabcpp::testing
 bool param_type_processor::set_value( const params_server_client_variant& var )
 {
         const auto* const val_ptr = std::get_if< param_type_reply >( &var );
-        if ( val_ptr == nullptr ) {
+        if ( val_ptr == nullptr )
                 return false;
-        }
         reply = val_ptr->type;
         return true;
 }
@@ -39,9 +38,8 @@ template struct params_awaiter< param_type_processor >;
 [[nodiscard]] bool param_child_processor::set_value( const params_server_client_variant& var )
 {
         const auto* const val_ptr = std::get_if< param_child_reply >( &var );
-        if ( val_ptr == nullptr ) {
+        if ( val_ptr == nullptr )
                 return false;
-        }
         reply = val_ptr->chid;
         return true;
 }
@@ -50,9 +48,8 @@ template struct params_awaiter< param_child_processor >;
 [[nodiscard]] bool param_child_count_processor::set_value( const params_server_client_variant& var )
 {
         const auto* const val_ptr = std::get_if< param_child_count_reply >( &var );
-        if ( val_ptr == nullptr ) {
+        if ( val_ptr == nullptr )
                 return false;
-        }
         reply = val_ptr->count;
         return true;
 }
@@ -61,9 +58,8 @@ template struct params_awaiter< param_child_count_processor >;
 [[nodiscard]] bool param_key_processor::set_value( const params_server_client_variant& var )
 {
         const auto* const val_ptr = std::get_if< param_key_reply >( &var );
-        if ( val_ptr == nullptr ) {
+        if ( val_ptr == nullptr )
                 return false;
-        }
         reply = val_ptr->key;
         return true;
 }
@@ -95,9 +91,8 @@ outcome parameters::on_msg( const std::span< const std::byte > data )
 
 outcome parameters::on_msg( const params_server_client_variant& req )
 {
-        if ( !reply_cb_ ) {
+        if ( !reply_cb_ )
                 return ERROR;
-        }
         reply_cb_( req );
         // TODO: maybe better error hndling can be done?
         return SUCCESS;
@@ -275,15 +270,14 @@ outcome parameters_server::reply_node_error(
     const contiguous_request_adapter_errors err,
     const node_id                           nid )
 {
-        if ( err == contiguous_request_adapter_errors::WRONG_TYPE ) {
+        if ( err == contiguous_request_adapter_errors::WRONG_TYPE )
                 EMLABCPP_ERROR_LOG( "Failed to work with ", nid, ", wrong type of node" );
-        } else if ( err == contiguous_request_adapter_errors::FULL ) {
+        else if ( err == contiguous_request_adapter_errors::FULL )
                 EMLABCPP_ERROR_LOG( "Failed to insert data, data storage is full" );
-        } else if ( err == contiguous_request_adapter_errors::MISSING_NODE ) {
+        else if ( err == contiguous_request_adapter_errors::MISSING_NODE )
                 EMLABCPP_ERROR_LOG( "Tree node ", nid, " is missing " );
-        } else if ( err == contiguous_request_adapter_errors::CHILD_MISSING ) {
+        else if ( err == contiguous_request_adapter_errors::CHILD_MISSING )
                 EMLABCPP_ERROR_LOG( "Tree node child ", nid, " is missing " );
-        }
         return send( tree_error_reply{ .err = err, .nid = nid } );
 }
 

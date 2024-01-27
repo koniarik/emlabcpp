@@ -74,14 +74,12 @@ struct register_handler
 
                 auto opt_view = bounded_view< const std::byte*, typename def::size_type >::make(
                     view_n( msg.begin(), std::min( def::max_size, msg.size() ) ) );
-                if ( !opt_view ) {
+                if ( !opt_view )
                         return error_record{ SIZE_ERR, 0 };
-                }
                 reg_value_type< Key > res;
                 auto                  sres = def::deserialize( *opt_view, res );
-                if ( sres.has_error() ) {
+                if ( sres.has_error() )
                         return error_record{ *sres.get_error(), sres.used };
-                }
                 return res;
         }
 

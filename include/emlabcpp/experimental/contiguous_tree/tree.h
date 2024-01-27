@@ -73,9 +73,8 @@ public:
 
         [[nodiscard]] std::optional< node_id > get_child( child_id chid ) const
         {
-                if ( obj_->size() < chid ) {
+                if ( obj_->size() < chid )
                         return std::nullopt;
-                }
                 auto iter = obj_->begin();
                 std::advance( iter, chid );
                 return iter->second;
@@ -84,9 +83,8 @@ public:
         [[nodiscard]] std::optional< node_id > get_child( key_type k ) const
         {
                 auto iter = obj_->find( k );
-                if ( iter == obj_->end() ) {
+                if ( iter == obj_->end() )
                         return std::nullopt;
-                }
                 return iter->second;
         }
 
@@ -97,9 +95,8 @@ public:
 
         [[nodiscard]] const key_type* get_key( child_id chid ) const
         {
-                if ( chid >= obj_->size() ) {
+                if ( chid >= obj_->size() )
                         return nullptr;
-                }
 
                 auto iter = obj_->begin();
                 std::advance( iter, chid );
@@ -119,9 +116,8 @@ private:
 template < typename ObjectType >
 std::ostream& operator<<( std::ostream& os, const contiguous_object_handle< ObjectType >& oh )
 {
-        for ( const auto& [key, nid] : oh ) {
+        for ( const auto& [key, nid] : oh )
                 os << key << ":" << nid << ",";
-        }
         return os;
 }
 #endif
@@ -169,9 +165,8 @@ public:
         [[nodiscard]] std::optional< node_id > get_child( child_id chid ) const
         {
                 auto iter = arr_->find( chid );
-                if ( iter == arr_->end() ) {
+                if ( iter == arr_->end() )
                         return std::nullopt;
-                }
                 return iter->second;
         }
 
@@ -193,9 +188,8 @@ private:
 template < typename ArrayType >
 std::ostream& operator<<( std::ostream& os, const contiguous_array_handle< ArrayType >& ah )
 {
-        for ( const auto& [chid, nid] : ah ) {
+        for ( const auto& [chid, nid] : ah )
                 os << chid << ":" << nid << ",";
-        }
         return os;
 }
 #endif
@@ -235,12 +229,10 @@ public:
             variant< std::reference_wrapper< const Value >, object_handle, array_handle >
             get_container_handle()
         {
-                if ( std::holds_alternative< array_type >( content_ ) ) {
+                if ( std::holds_alternative< array_type >( content_ ) )
                         return array_handle{ std::get_if< array_type >( &content_ ) };
-                }
-                if ( std::holds_alternative< object_type >( content_ ) ) {
+                if ( std::holds_alternative< object_type >( content_ ) )
                         return object_handle{ std::get_if< object_type >( &content_ ) };
-                }
                 return std::ref( *std::get_if< Value >( &content_ ) );
         }
 
@@ -250,12 +242,10 @@ public:
             const_array_handle >
         get_container_handle() const
         {
-                if ( std::holds_alternative< array_type >( content_ ) ) {
+                if ( std::holds_alternative< array_type >( content_ ) )
                         return const_array_handle{ std::get_if< array_type >( &content_ ) };
-                }
-                if ( std::holds_alternative< object_type >( content_ ) ) {
+                if ( std::holds_alternative< object_type >( content_ ) )
                         return const_object_handle{ std::get_if< object_type >( &content_ ) };
-                }
                 return std::ref( *std::get_if< Value >( &content_ ) );
         }
 
@@ -332,18 +322,16 @@ public:
         [[nodiscard]] const node_type* get_node( node_id nid ) const
         {
                 auto iter = data_.find( nid );
-                if ( iter == data_.end() ) {
+                if ( iter == data_.end() )
                         return nullptr;
-                }
                 return &iter->second;
         }
 
         [[nodiscard]] node_type* get_node( node_id nid )
         {
                 auto iter = data_.find( nid );
-                if ( iter == data_.end() ) {
+                if ( iter == data_.end() )
                         return nullptr;
-                }
                 return &iter->second;
         }
 
@@ -415,9 +403,8 @@ public:
 private:
         std::optional< std::pair< node_id, iterator > > make_node( content_type cont )
         {
-                if ( mem_res_.get().is_full() ) {
+                if ( mem_res_.get().is_full() )
                         return std::nullopt;
-                }
                 auto nid              = static_cast< node_id >( data_.size() );
                 auto [iter, inserted] = data_.emplace( nid, node_type{ std::move( cont ) } );
                 return std::make_pair( nid, iter );
@@ -431,9 +418,8 @@ private:
 template < typename Key, typename Value >
 std::ostream& operator<<( std::ostream& os, const contiguous_tree< Key, Value >& tree )
 {
-        for ( const auto& [nid, node] : tree ) {
+        for ( const auto& [nid, node] : tree )
                 os << nid << ":" << node << "\n";
-        }
         return os;
 }
 #endif

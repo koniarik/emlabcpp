@@ -74,13 +74,12 @@ constexpr min_max< T > intersection( const min_max< T >& head, const Args&... ar
 template < typename T >
 constexpr min_max< T > expand( const min_max< T >& mm, const T& val )
 {
-        if ( val < mm.min() ) {
+        if ( val < mm.min() )
                 return { val, mm.max() };
-        } else if ( val > mm.max() ) {
+        else if ( val > mm.max() )
                 return { mm.min(), val };
-        } else {
+        else
                 return mm;
-        }
 }
 
 template < typename T >

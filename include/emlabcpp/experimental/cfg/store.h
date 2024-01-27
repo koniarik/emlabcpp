@@ -15,9 +15,8 @@ store_impl( std::span< std::byte > buffer, const T& item, ChecksumFunction&& chc
 {
         using sig_conv = protocol::converter_for< checksum, Endianess >;
         using conv     = protocol::converter_for< T, Endianess >;
-        if ( buffer.size() < sig_conv::max_size + conv::max_size ) {
+        if ( buffer.size() < sig_conv::max_size + conv::max_size )
                 return { false, buffer };
-        }
         std::span< std::byte > data = buffer.subspan< sig_conv::max_size, conv::max_size >();
         const bounded used  = conv::serialize_at( data.subspan< 0, conv::max_size >(), item );
         data                = data.first( *used );
