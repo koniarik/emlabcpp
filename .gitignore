@@ -1,2 +1,3 @@
 build/*
-ctidy_build/*
+test_package/CMakeUserPresets.json
+test_package/build/*
