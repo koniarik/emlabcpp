@@ -18,5 +18,6 @@ jobs:
       - run: pip install conan --break-system-packages
       - name: Conan profile
         run: conan profile detect --force
+      - run: sed -i 's/cppstd=gnu17/cppstd=20/g'
       - name: Execute
         run: ${{ inputs.cmd }}
