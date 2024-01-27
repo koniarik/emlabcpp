@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: pacman -Syu cmake gcc clang make ninja gtest nlohmann-json which parallel python-pip --noconfirm
       - name: Install pip
-        run: pip install --upgrade conan
+        run: sudo pip install --upgrade conan --root-user-action=ignore
       - name: Conan profile
         run: conan profile detect --force
       - name: Execute
