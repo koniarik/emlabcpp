@@ -134,34 +134,33 @@ $(document).ready(function(){initNavTree('gtest_8h_source.html',''); initResizab
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> TestBody() final</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                cont_.start_test( tid_ );</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">while</span> ( cont_.is_test_running() ) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">while</span> ( cont_.is_test_running() )</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        cont_.tick();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> register_gtests( controller&amp; cont )</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">const</span> std::string suite_name = std::string{ cont.suite_name() };</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">for</span> ( <span class="keyword">auto</span> [tid, name] : cont.get_tests() ) {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keyword">const</span> std::string sname{ name.begin(), name.end() };</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a>     <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a> = tid;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                ::testing::RegisterTest(</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    suite_name.c_str(),</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    sname.c_str(),</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> register_gtests( controller&amp; cont )</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">const</span> std::string suite_name = std::string{ cont.suite_name() };</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">for</span> ( <span class="keyword">auto</span> [tid, name] : cont.get_tests() ) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keyword">const</span> std::string sname{ name.begin(), name.end() };</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a>     <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a> = tid;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                ::testing::RegisterTest(</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    suite_name.c_str(),</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    sname.c_str(),</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <span class="keyword">nullptr</span>,</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    <span class="keyword">nullptr</span>,</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <span class="keyword">nullptr</span>,</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    __FILE__,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    __LINE__,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    [&amp;cont, <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a>] {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                            return new gtest( cont, test_id );</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    } );</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}  <span class="comment">// namespace emlabcpp::testing</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    __FILE__,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    __LINE__,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    [&amp;cont, <a class="code" href="namespaceemlabcpp_1_1testing.html#a00b8f081e11fc3a56f298674ec89a8ca">test_id</a>] {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                            return new gtest( cont, test_id );</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    } );</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}  <span class="comment">// namespace emlabcpp::testing</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="acontroller_8h_html"><div class="ttname"><a href="controller_8h.html">controller.h</a></div></div>
 <div class="ttc" id="aexperimental_2testing_2base_8h_html"><div class="ttname"><a href="experimental_2testing_2base_8h.html">base.h</a></div></div>
 <div class="ttc" id="aexperimental_2testing_2json_8h_html"><div class="ttname"><a href="experimental_2testing_2json_8h.html">json.h</a></div></div>
@@ -171,7 +170,7 @@ $(document).ready(function(){initNavTree('gtest_8h_source.html',''); initResizab
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a137ff616974dc5f715b6fb730d6ff95bab9e14d9b2886bcff408b85aefa780419"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95bab9e14d9b2886bcff408b85aefa780419">emlabcpp::testing::test_status::FAILED</a></div><div class="ttdeci">@ FAILED</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a137ff616974dc5f715b6fb730d6ff95bad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95bad0749aaba8b833466dfcbb0428e4f89c">emlabcpp::testing::test_status::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a137ff616974dc5f715b6fb730d6ff95badd0f1fac7b1452a7c98db1c15fa9b7bb"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95badd0f1fac7b1452a7c98db1c15fa9b7bb">emlabcpp::testing::test_status::ERRORED</a></div><div class="ttdeci">@ ERRORED</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:525</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:508</div></div>
 <div class="ttc" id="anew__delete__resource_8h_html"><div class="ttname"><a href="new__delete__resource_8h.html">new_delete_resource.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -179,7 +178,7 @@ $(document).ready(function(){initNavTree('gtest_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="gtest_8h.html">gtest.h</a></li>
-    <li class="footer">Generated on Sat Jan 13 2024 21:08:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 27 2024 07:34:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

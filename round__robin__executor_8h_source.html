@@ -108,40 +108,39 @@ $(document).ready(function(){initNavTree('round__robin__executor_8h_source.html'
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                i         = ( i + 1 ) % std::size( coros );</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keywordflow">if</span> ( cor.done() ) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                        <span class="keywordflow">if</span> ( i == 0 &amp;&amp; <a class="code" href="namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb">all_of</a>( coros ) ) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                        <span class="keywordflow">if</span> ( i == 0 &amp;&amp; <a class="code" href="namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb">all_of</a>( coros ) )</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                co_return;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>* out = cor.get_request();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">if</span> ( out == <span class="keyword">nullptr</span> ) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        <a class="code" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>( <span class="stringliteral">&quot;reply from coroutine is nullptr!&quot;</span> );</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                        co_return;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">auto</span> resp = co_yield *out;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                cor.store_reply( resp );</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">if</span> ( !cor.tick() ) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                        <a class="code" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>(</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                            <span class="stringliteral">&quot;Coroutine &quot;</span>, cor.address(), <span class="stringliteral">&quot; failed to tick, bailing out&quot;</span> );</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                        co_return;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}  <span class="comment">// namespace emlabcpp::coro</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>* out = cor.get_request();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">if</span> ( out == <span class="keyword">nullptr</span> ) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        <a class="code" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>( <span class="stringliteral">&quot;reply from coroutine is nullptr!&quot;</span> );</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        co_return;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">auto</span> resp = co_yield *out;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                cor.store_reply( resp );</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">if</span> ( !cor.tick() ) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                        <a class="code" href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a>(</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                            <span class="stringliteral">&quot;Coroutine &quot;</span>, cor.address(), <span class="stringliteral">&quot; failed to tick, bailing out&quot;</span> );</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        co_return;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}  <span class="comment">// namespace emlabcpp::coro</span></div>
 <div class="ttc" id="aalgorithm_8h_html"><div class="ttname"><a href="algorithm_8h.html">algorithm.h</a></div></div>
 <div class="ttc" id="aclassemlabcpp_1_1pmr_1_1memory__resource_html"><div class="ttname"><a href="classemlabcpp_1_1pmr_1_1memory__resource.html">emlabcpp::pmr::memory_resource</a></div><div class="ttdef"><b>Definition:</b> memory_resource.h:29</div></div>
-<div class="ttc" id="alogging_8h_html_a5fedc1f7cb2ad93b9469d7189195ee36"><div class="ttname"><a href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a></div><div class="ttdeci">#define EMLABCPP_INFO_LOG(...)</div><div class="ttdef"><b>Definition:</b> logging.h:75</div></div>
-<div class="ttc" id="alogging_8h_html_ada7075f34eb3793a4a33b7b4a80341b4"><div class="ttname"><a href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a></div><div class="ttdeci">#define EMLABCPP_ERROR_LOG(...)</div><div class="ttdef"><b>Definition:</b> logging.h:77</div></div>
+<div class="ttc" id="alogging_8h_html_a5fedc1f7cb2ad93b9469d7189195ee36"><div class="ttname"><a href="logging_8h.html#a5fedc1f7cb2ad93b9469d7189195ee36">EMLABCPP_INFO_LOG</a></div><div class="ttdeci">#define EMLABCPP_INFO_LOG(...)</div><div class="ttdef"><b>Definition:</b> logging.h:74</div></div>
+<div class="ttc" id="alogging_8h_html_ada7075f34eb3793a4a33b7b4a80341b4"><div class="ttname"><a href="logging_8h.html#ada7075f34eb3793a4a33b7b4a80341b4">EMLABCPP_ERROR_LOG</a></div><div class="ttdeci">#define EMLABCPP_ERROR_LOG(...)</div><div class="ttdef"><b>Definition:</b> logging.h:76</div></div>
 <div class="ttc" id="amemory__resource_8h_html"><div class="ttname"><a href="memory__resource_8h.html">memory_resource.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1coro_html"><div class="ttname"><a href="namespaceemlabcpp_1_1coro.html">emlabcpp::coro</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> memory_promise.h:27</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1coro_html_ab378dfed00f70195082f524f3b4a5c00"><div class="ttname"><a href="namespaceemlabcpp_1_1coro.html#ab378dfed00f70195082f524f3b4a5c00">emlabcpp::coro::round_robin_run</a></div><div class="ttdeci">Container::value_type round_robin_run(pmr::memory_resource &amp;, Container coros)</div><div class="ttdef"><b>Definition:</b> round_robin_executor.h:29</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:47</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a39882ff8249fe71fbd0a6a3658c692bb"><div class="ttname"><a href="namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb">emlabcpp::all_of</a></div><div class="ttdeci">constexpr bool all_of(Container &amp;&amp;cont, PredicateCallable &amp;&amp;f=std::identity())</div><div class="ttdoc">Returns true if call to predicate 'f(x)' returns true for all items in 'cont'.</div><div class="ttdef"><b>Definition:</b> algorithm.h:349</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a39882ff8249fe71fbd0a6a3658c692bb"><div class="ttname"><a href="namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb">emlabcpp::all_of</a></div><div class="ttdeci">constexpr bool all_of(Container &amp;&amp;cont, PredicateCallable &amp;&amp;f=std::identity())</div><div class="ttdoc">Returns true if call to predicate 'f(x)' returns true for all items in 'cont'.</div><div class="ttdef"><b>Definition:</b> algorithm.h:337</div></div>
 <div class="ttc" id="astatic__circular__buffer_8h_html"><div class="ttname"><a href="static__circular__buffer_8h.html">static_circular_buffer.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -149,7 +148,7 @@ $(document).ready(function(){initNavTree('round__robin__executor_8h_source.html'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_124696910e1f6c10a38401e63d4996f0.html">coro</a></li><li class="navelem"><a class="el" href="round__robin__executor_8h.html">round_robin_executor.h</a></li>
-    <li class="footer">Generated on Sat Jan 13 2024 21:08:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 27 2024 07:34:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -134,76 +134,72 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2handler_8h_source.h
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        .<a class="code" href="namespaceemlabcpp_1_1cfg.html#a697b50cd6be1964f6d2c3f74354076f8">field_count</a> = <span class="keyword">static_cast&lt;</span> uint32_t <span class="keyword">&gt;</span>( field_count ),</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    },</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                    chcksm_f );</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">if</span> ( !success ) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">if</span> ( !success )</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        <span class="keywordflow">return</span> { <span class="keyword">false</span>, {} };</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                std::tie( success, buffer ) = store_impl&lt; Endianess &gt;( buffer, pl, chcksm_f );</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordflow">if</span> ( !success ) {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        <span class="keywordflow">return</span> { <span class="keyword">false</span>, {} };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">for</span> ( <span class="keyword">const</span> std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( field_count ) ) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                        <span class="keyword">const</span> Field fp = field_f( i );</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        std::tie( success, buffer ) =</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                            store_impl&lt; Endianess &gt;( buffer, fp, chcksm_f );</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                        <span class="keywordflow">if</span> ( !success ) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                <span class="keywordflow">return</span> { <span class="keyword">false</span>, {} };</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                std::tie( success, buffer ) = store_impl&lt; Endianess &gt;( buffer, pl, chcksm_f );</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">if</span> ( !success )</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        <span class="keywordflow">return</span> { <span class="keyword">false</span>, {} };</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">for</span> ( <span class="keyword">const</span> std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( field_count ) ) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                        <span class="keyword">const</span> Field fp = field_f( i );</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                        std::tie( success, buffer ) =</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                            store_impl&lt; Endianess &gt;( buffer, fp, chcksm_f );</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        <span class="keywordflow">if</span> ( !success )</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                                <span class="keywordflow">return</span> { <span class="keyword">false</span>, {} };</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordflow">return</span> { success, target_buffer.subspan( 0, buffer.size() ) };</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordflow">return</span> { success, target_buffer.subspan( 0, buffer.size() ) };</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> PayloadFunction, <span class="keyword">typename</span> FieldFunction, <span class="keyword">typename</span> ChecksumFunction &gt;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1handler.html#a95f0caf6956ef4f8815bcdb5ccdba73b">   69</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117">load_result</a> <a class="code" href="structemlabcpp_1_1cfg_1_1handler.html#a95f0caf6956ef4f8815bcdb5ccdba73b">load</a>(</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            std::span&lt; std::byte &gt; source,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            PayloadFunction&amp;&amp;      pl_f,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            FieldFunction&amp;&amp;        field_f,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            ChecksumFunction&amp;&amp;     chcksm_f )</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                std::span&lt; std::byte &gt; buffer = source;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordtype">bool</span>                   success;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <a class="code" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header">header</a> head;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                std::tie( success, head, buffer ) =</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    load_impl&lt; header, Endianess &gt;( buffer, chcksm_f );</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">if</span> ( !success ) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        <a class="code" href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">EMLABCPP_DEBUG_LOG</a>( <span class="stringliteral">&quot;Failed to deserialize header&quot;</span> );</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117aaf7685d125c5b33467c4f7783cb22e29">load_result::DESERIALIZATION_ERROR</a>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                Payload pl;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                std::tie( success, pl, buffer ) =</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    load_impl&lt; Payload, Endianess &gt;( buffer, chcksm_f );</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordflow">if</span> ( !success ) {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                        <a class="code" href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">EMLABCPP_DEBUG_LOG</a>( <span class="stringliteral">&quot;Failed to deserialize payload&quot;</span> );</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117aaf7685d125c5b33467c4f7783cb22e29">load_result::DESERIALIZATION_ERROR</a>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> PayloadFunction, <span class="keyword">typename</span> FieldFunction, <span class="keyword">typename</span> ChecksumFunction &gt;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1handler.html#a95f0caf6956ef4f8815bcdb5ccdba73b">   66</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117">load_result</a> <a class="code" href="structemlabcpp_1_1cfg_1_1handler.html#a95f0caf6956ef4f8815bcdb5ccdba73b">load</a>(</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            std::span&lt; std::byte &gt; source,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            PayloadFunction&amp;&amp;      pl_f,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            FieldFunction&amp;&amp;        field_f,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            ChecksumFunction&amp;&amp;     chcksm_f )</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                std::span&lt; std::byte &gt; buffer = source;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordtype">bool</span>                   success;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <a class="code" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header">header</a> head;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                std::tie( success, head, buffer ) =</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    load_impl&lt; header, Endianess &gt;( buffer, chcksm_f );</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">if</span> ( !success ) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                        <a class="code" href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">EMLABCPP_DEBUG_LOG</a>( <span class="stringliteral">&quot;Failed to deserialize header&quot;</span> );</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117aaf7685d125c5b33467c4f7783cb22e29">load_result::DESERIALIZATION_ERROR</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                Payload pl;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                std::tie( success, pl, buffer ) =</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    load_impl&lt; Payload, Endianess &gt;( buffer, chcksm_f );</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">if</span> ( !success ) {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        <a class="code" href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">EMLABCPP_DEBUG_LOG</a>( <span class="stringliteral">&quot;Failed to deserialize payload&quot;</span> );</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117aaf7685d125c5b33467c4f7783cb22e29">load_result::DESERIALIZATION_ERROR</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">if</span> ( !pl_f( std::as_const( pl ) ) )</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117a3c626b7887de56122df69a972b5516b0">load_result::PAYLOAD_REFUSED</a>;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordflow">if</span> ( !pl_f( std::as_const( pl ) ) ) {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117a3c626b7887de56122df69a972b5516b0">load_result::PAYLOAD_REFUSED</a>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">for</span> ( <span class="keyword">const</span> std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( head.<a class="code" href="namespaceemlabcpp_1_1cfg.html#a697b50cd6be1964f6d2c3f74354076f8">field_count</a> ) ) {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        std::ignore = i;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        Field <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                        std::tie( success, <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, buffer ) =</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                            load_impl&lt; Field, Endianess &gt;( buffer, chcksm_f );</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        <span class="keywordflow">if</span> ( !success ) {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                <a class="code" href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">EMLABCPP_DEBUG_LOG</a>( <span class="stringliteral">&quot;Failed to deserialize subitem&quot;</span> );</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117aaf7685d125c5b33467c4f7783cb22e29">load_result::DESERIALIZATION_ERROR</a>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                        }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        field_f( std::as_const( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> ) );</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117ad0749aaba8b833466dfcbb0428e4f89c">load_result::SUCCESS</a>;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}  <span class="comment">// namespace emlabcpp::cfg</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordflow">for</span> ( <span class="keyword">const</span> std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( head.<a class="code" href="namespaceemlabcpp_1_1cfg.html#a697b50cd6be1964f6d2c3f74354076f8">field_count</a> ) ) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        std::ignore = i;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        Field <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        std::tie( success, <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, buffer ) =</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                            load_impl&lt; Field, Endianess &gt;( buffer, chcksm_f );</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        <span class="keywordflow">if</span> ( !success ) {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                                <a class="code" href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">EMLABCPP_DEBUG_LOG</a>( <span class="stringliteral">&quot;Failed to deserialize subitem&quot;</span> );</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117aaf7685d125c5b33467c4f7783cb22e29">load_result::DESERIALIZATION_ERROR</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        field_f( std::as_const( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> ) );</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117ad0749aaba8b833466dfcbb0428e4f89c">load_result::SUCCESS</a>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}  <span class="comment">// namespace emlabcpp::cfg</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1view_html"><div class="ttname"><a href="classemlabcpp_1_1view.html">emlabcpp::view</a></div><div class="ttdoc">Generic class to represent view of some container.</div><div class="ttdef"><b>Definition:</b> view.h:37</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1view_html_af2e8f0748de03d25eb586ef4fbe0bb13"><div class="ttname"><a href="classemlabcpp_1_1view.html#af2e8f0748de03d25eb586ef4fbe0bb13">emlabcpp::view::size</a></div><div class="ttdeci">constexpr size_type size() const</div><div class="ttdoc">Size of the view over dataset uses std::ranges::distance() to tell the size.</div><div class="ttdef"><b>Definition:</b> view.h:131</div></div>
 <div class="ttc" id="aload_8h_html"><div class="ttname"><a href="load_8h.html">load.h</a></div></div>
-<div class="ttc" id="alogging_8h_html_a2bae0d339175519cb81ce2c059155229"><div class="ttname"><a href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">EMLABCPP_DEBUG_LOG</a></div><div class="ttdeci">#define EMLABCPP_DEBUG_LOG(...)</div><div class="ttdef"><b>Definition:</b> logging.h:76</div></div>
+<div class="ttc" id="alogging_8h_html_a2bae0d339175519cb81ce2c059155229"><div class="ttname"><a href="logging_8h.html#a2bae0d339175519cb81ce2c059155229">EMLABCPP_DEBUG_LOG</a></div><div class="ttdeci">#define EMLABCPP_DEBUG_LOG(...)</div><div class="ttdef"><b>Definition:</b> logging.h:75</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1cfg_html"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html">emlabcpp::cfg</a></div><div class="ttdef"><b>Definition:</b> base.h:6</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a697b50cd6be1964f6d2c3f74354076f8"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a697b50cd6be1964f6d2c3f74354076f8">emlabcpp::cfg::header::field_count</a></div><div class="ttdeci">uint32_t field_count</div><div class="ttdef"><b>Definition:</b> base.h:23</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a7aec13dbf2caeca273b78f943c348117"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117">emlabcpp::cfg::load_result</a></div><div class="ttdeci">load_result</div><div class="ttdef"><b>Definition:</b> base.h:11</div></div>
@@ -211,13 +207,13 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2handler_8h_source.h
 <div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a7aec13dbf2caeca273b78f943c348117aaf7685d125c5b33467c4f7783cb22e29"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117aaf7685d125c5b33467c4f7783cb22e29">emlabcpp::cfg::load_result::DESERIALIZATION_ERROR</a></div><div class="ttdeci">@ DESERIALIZATION_ERROR</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a7aec13dbf2caeca273b78f943c348117ad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117ad0749aaba8b833466dfcbb0428e4f89c">emlabcpp::cfg::load_result::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_structemlabcpp_1_1cfg_1_1header"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header">emlabcpp::cfg::header</a></div><div class="ttdef"><b>Definition:</b> base.h:21</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_aba2818d17e2b2cc369733e18839ba19f"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">emlabcpp::protocol::converter_for</a></div><div class="ttdeci">decltype(converter_for_impl&lt; D, E &gt;()) converter_for</div><div class="ttdef"><b>Definition:</b> converter.h:50</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_aba2818d17e2b2cc369733e18839ba19f"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">emlabcpp::protocol::converter_for</a></div><div class="ttdeci">decltype(converter_for_impl&lt; D, E &gt;()) converter_for</div><div class="ttdef"><b>Definition:</b> converter.h:49</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_acf5a156c767ed17a892cc7e9b5acd2b1"><div class="ttname"><a href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">emlabcpp::range</a></div><div class="ttdeci">constexpr view&lt; iterators::numeric_iterator&lt; Numeric &gt; &gt; range(Numeric from, Numeric to)</div><div class="ttdoc">Builds numeric view over interval [from, to)</div><div class="ttdef"><b>Definition:</b> range.h:29</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_ae863a37ceeaded64e65fc9ac024f70d9"><div class="ttname"><a href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:163</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ae863a37ceeaded64e65fc9ac024f70d9"><div class="ttname"><a href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:156</div></div>
 <div class="ttc" id="astore_8h_html"><div class="ttname"><a href="store_8h.html">store.h</a></div></div>
 <div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler</a></div><div class="ttdef"><b>Definition:</b> handler.h:11</div></div>
 <div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html_a2e4cffa890b344de5884f98f862f23eb"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html#a2e4cffa890b344de5884f98f862f23eb">emlabcpp::cfg::handler::chcksum_conv</a></div><div class="ttdeci">protocol::converter_for&lt; checksum, Endianess &gt; chcksum_conv</div><div class="ttdef"><b>Definition:</b> handler.h:12</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html_a95f0caf6956ef4f8815bcdb5ccdba73b"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html#a95f0caf6956ef4f8815bcdb5ccdba73b">emlabcpp::cfg::handler::load</a></div><div class="ttdeci">static load_result load(std::span&lt; std::byte &gt; source, PayloadFunction &amp;&amp;pl_f, FieldFunction &amp;&amp;field_f, ChecksumFunction &amp;&amp;chcksm_f)</div><div class="ttdef"><b>Definition:</b> handler.h:69</div></div>
+<div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html_a95f0caf6956ef4f8815bcdb5ccdba73b"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html#a95f0caf6956ef4f8815bcdb5ccdba73b">emlabcpp::cfg::handler::load</a></div><div class="ttdeci">static load_result load(std::span&lt; std::byte &gt; source, PayloadFunction &amp;&amp;pl_f, FieldFunction &amp;&amp;field_f, ChecksumFunction &amp;&amp;chcksm_f)</div><div class="ttdef"><b>Definition:</b> handler.h:66</div></div>
 <div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html_aa98ac6250f37eb63416a7e200831f1f1"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html#aa98ac6250f37eb63416a7e200831f1f1">emlabcpp::cfg::handler::store</a></div><div class="ttdeci">static std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt; store(std::span&lt; std::byte &gt; target_buffer, const Payload &amp;pl, std::size_t field_count, FieldFunction &amp;&amp;field_f, ChecksumFunction &amp;&amp;chcksm_f)</div><div class="ttdef"><b>Definition:</b> handler.h:32</div></div>
 <div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html_ae322cd364ee3ee0953d4161081d41c08"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html#ae322cd364ee3ee0953d4161081d41c08">emlabcpp::cfg::handler::store</a></div><div class="ttdeci">static std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt; store(std::span&lt; std::byte &gt; target_buffer, const Payload &amp;pl, view&lt; const Field * &gt; fields, ChecksumFunction &amp;&amp;chcksm_f)</div><div class="ttdef"><b>Definition:</b> handler.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -226,7 +222,7 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2handler_8h_source.h
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_b8d3940418ab59971bff71afaa8cab2b.html">cfg</a></li><li class="navelem"><a class="el" href="experimental_2cfg_2handler_8h.html">handler.h</a></li>
-    <li class="footer">Generated on Sat Jan 13 2024 21:08:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 27 2024 07:34:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

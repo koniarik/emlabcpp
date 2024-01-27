@@ -110,32 +110,29 @@ $(document).ready(function(){initNavTree('record_8h_source.html',''); initResiza
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1record.html#aaf6d35e3a28af918cb0c4b05e73bc211">   40</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing_1_1record.html#aaf6d35e3a28af918cb0c4b05e73bc211">fail</a>()</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">if</span> ( status_ != <a class="code" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95badd0f1fac7b1452a7c98db1c15fa9b7bb">test_status::ERRORED</a> ) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">if</span> ( status_ != <a class="code" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95badd0f1fac7b1452a7c98db1c15fa9b7bb">test_status::ERRORED</a> )</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        status_ = <a class="code" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95bab9e14d9b2886bcff408b85aefa780419">test_status::FAILED</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1record.html#abf99e69ba53a663e078d7407146ba28a">   47</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing_1_1record.html#abf99e69ba53a663e078d7407146ba28a">skip</a>()</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">if</span> ( status_ == <a class="code" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95bad0749aaba8b833466dfcbb0428e4f89c">test_status::SUCCESS</a> ) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                        status_ = <a class="code" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95ba203ec08f57cb105eeb2b121ba6503b52">test_status::SKIPPED</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1record.html#a076914ed9831860a623b3a77d013a953">   54</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing_1_1record.html#a076914ed9831860a623b3a77d013a953">expect</a>( <span class="keyword">const</span> <span class="keywordtype">bool</span> val )</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">if</span> ( !val ) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                        <a class="code" href="classemlabcpp_1_1testing_1_1record.html#aaf6d35e3a28af918cb0c4b05e73bc211">fail</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}  <span class="comment">// namespace emlabcpp::testing</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1record.html#abf99e69ba53a663e078d7407146ba28a">   46</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing_1_1record.html#abf99e69ba53a663e078d7407146ba28a">skip</a>()</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">if</span> ( status_ == <a class="code" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95bad0749aaba8b833466dfcbb0428e4f89c">test_status::SUCCESS</a> )</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        status_ = <a class="code" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95ba203ec08f57cb105eeb2b121ba6503b52">test_status::SKIPPED</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1testing_1_1record.html#a076914ed9831860a623b3a77d013a953">   52</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classemlabcpp_1_1testing_1_1record.html#a076914ed9831860a623b3a77d013a953">expect</a>( <span class="keyword">const</span> <span class="keywordtype">bool</span> val )</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">if</span> ( !val )</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                        <a class="code" href="classemlabcpp_1_1testing_1_1record.html#aaf6d35e3a28af918cb0c4b05e73bc211">fail</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}  <span class="comment">// namespace emlabcpp::testing</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1record_html"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1record.html">emlabcpp::testing::record</a></div><div class="ttdef"><b>Definition:</b> record.h:31</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing_1_1record_html_a076914ed9831860a623b3a77d013a953"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1record.html#a076914ed9831860a623b3a77d013a953">emlabcpp::testing::record::expect</a></div><div class="ttdeci">void expect(const bool val)</div><div class="ttdef"><b>Definition:</b> record.h:54</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1testing_1_1record_html_a076914ed9831860a623b3a77d013a953"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1record.html#a076914ed9831860a623b3a77d013a953">emlabcpp::testing::record::expect</a></div><div class="ttdeci">void expect(const bool val)</div><div class="ttdef"><b>Definition:</b> record.h:52</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1record_html_a9063e99b1c4eca56d8461bcf92068c29"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1record.html#a9063e99b1c4eca56d8461bcf92068c29">emlabcpp::testing::record::status</a></div><div class="ttdeci">test_status status() const</div><div class="ttdef"><b>Definition:</b> record.h:35</div></div>
 <div class="ttc" id="aclassemlabcpp_1_1testing_1_1record_html_aaf6d35e3a28af918cb0c4b05e73bc211"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1record.html#aaf6d35e3a28af918cb0c4b05e73bc211">emlabcpp::testing::record::fail</a></div><div class="ttdeci">void fail()</div><div class="ttdef"><b>Definition:</b> record.h:40</div></div>
-<div class="ttc" id="aclassemlabcpp_1_1testing_1_1record_html_abf99e69ba53a663e078d7407146ba28a"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1record.html#abf99e69ba53a663e078d7407146ba28a">emlabcpp::testing::record::skip</a></div><div class="ttdeci">void skip()</div><div class="ttdef"><b>Definition:</b> record.h:47</div></div>
+<div class="ttc" id="aclassemlabcpp_1_1testing_1_1record_html_abf99e69ba53a663e078d7407146ba28a"><div class="ttname"><a href="classemlabcpp_1_1testing_1_1record.html#abf99e69ba53a663e078d7407146ba28a">emlabcpp::testing::record::skip</a></div><div class="ttdeci">void skip()</div><div class="ttdef"><b>Definition:</b> record.h:46</div></div>
 <div class="ttc" id="acoroutine_8h_html"><div class="ttname"><a href="coroutine_8h.html">coroutine.h</a></div></div>
 <div class="ttc" id="aexperimental_2testing_2base_8h_html"><div class="ttname"><a href="experimental_2testing_2base_8h.html">base.h</a></div></div>
 <div class="ttc" id="aexperimental_2testing_2protocol_8h_html"><div class="ttname"><a href="experimental_2testing_2protocol_8h.html">protocol.h</a></div></div>
@@ -153,7 +150,7 @@ $(document).ready(function(){initNavTree('record_8h_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="record_8h.html">record.h</a></li>
-    <li class="footer">Generated on Sat Jan 13 2024 21:08:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 27 2024 07:34:55 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
