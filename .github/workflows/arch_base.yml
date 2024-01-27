@@ -13,11 +13,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: pacman -Syu cmake gcc clang make ninja gtest nlohmann-json which parallel python-pip --noconfirm
       - name: Install Conan
         id: conan
         uses: turtlebrowser/get-conan@main
-      - name: Install dependencies
-        run: pacman -Syu cmake gcc clang make ninja gtest nlohmann-json which parallel --noconfirm
       - name: Conan profile
         run: conan profile detect --force
       - name: Execute
