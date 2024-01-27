@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"namespaceemlabcpp.html#a4a90457babf1c49444a526a98007a751":[2,0,0,285],
 "namespaceemlabcpp.html#a4b323693e8d1a33bad5c12c63709fe3b":[2,0,0,228],
 "namespaceemlabcpp.html#a4b726ddab4f550f3e186f177243cb09b":[2,0,0,379],
 "namespaceemlabcpp.html#a4d26e4c3f680aa9ba3a5469a253cca55":[2,0,0,172],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "namespaceemlabcpp.html#aff43a196db9cecc357e6f4452638b32f":[2,0,0,418],
 "namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of":[4,0,0,0,5,0,1],
 "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag":[4,0,0,0,12,1],
-"namespaceemlabcpp.html#structemlabcpp_1_1iterator__of":[4,0,0,0,5,0,0],
-"namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub":[4,0,0,0,1,4,0,1]
+"namespaceemlabcpp.html#structemlabcpp_1_1iterator__of":[4,0,0,0,5,0,0]
 };
