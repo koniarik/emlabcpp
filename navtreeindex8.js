@@ -1,6 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a7ea0b3234403e2b43fc830dbd901c795":[2,0,0,9,123,7],
 "namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76aa92b7d54a4af0d4a68deaca06f6b5d14":[2,0,0,9,123,3],
 "namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76abc7e642981e78350d9d7576b29082c70":[2,0,0,9,123,2],
 "namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76ac4e2cca74f2a682c3f462ee09d0f8621":[2,0,0,9,123,6],
@@ -249,5 +248,6 @@ var NAVTREEINDEX8 =
 "quantity_8h.html#ab4db09819cc4cc5a21ed238dd2e30d6a":[4,0,0,0,22,7],
 "quantity_8h.html#ad94cfee3e6e80c1e90bc767e6ace9f7e":[4,0,0,0,22,4],
 "quantity_8h.html#afc235c95c20406e05b11a433e3ed7857":[4,0,0,0,22,11],
-"quantity_8h_source.html":[4,0,0,0,22]
+"quantity_8h_source.html":[4,0,0,0,22],
+"quaternion_8h.html":[4,0,0,0,1,3,4]
 };
