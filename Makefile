@@ -40,5 +40,8 @@ clang-format:
 cmake-format:
 	find ./ -iname "*CMakeLists.txt" -o -iname "*.cmake" | xargs cmake-format -i
 
+conan:
+	conan build . --build=missing
+
 doc:
 	doxygen

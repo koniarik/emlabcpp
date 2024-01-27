@@ -23,3 +23,7 @@ jobs:
         uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
         with:
             cmd: make clang-tidy
+    conan:
+        uses: koniarik/emlabcpp/.github/workflows/arch_base.yml@main
+        with:
+            cmd: make conan
