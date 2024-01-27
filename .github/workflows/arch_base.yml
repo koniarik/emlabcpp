@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        run: pacman -Syu cmake gcc clang make ninja gtest nlohmann-json which parallel --noconfirm
+        run: pacman -Syu cmake gcc clang make ninja gtest nlohmann-json which parallel python-pip --noconfirm
       - name: Install pip
         run: pip install --upgrade conan
       - name: Conan profile
