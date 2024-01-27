@@ -71,8 +71,10 @@ extern noneabi_logger ERROR_LOGGER;
 
 #else
 
-#define EMLABCPP_INFO_LOG( ... )
-#define EMLABCPP_DEBUG_LOG( ... )
-#define EMLABCPP_ERROR_LOG( ... )
+#define EMLABCPP_NOOP ( (void) 0 )
+
+#define EMLABCPP_INFO_LOG( ... ) EMLABCPP_NOOP
+#define EMLABCPP_DEBUG_LOG( ... ) EMLABCPP_NOOP
+#define EMLABCPP_ERROR_LOG( ... ) EMLABCPP_NOOP
 
 #endif

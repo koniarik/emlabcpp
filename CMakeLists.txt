@@ -27,6 +27,19 @@ target_include_directories(emlabcpp PUBLIC include/)
 target_include_directories(emlabcpp PRIVATE src/)
 emlabcpp_compile_options(emlabcpp)
 
+file(GLOB_RECURSE EMLABCPP_INCLUDE_FILES "include/*.h")
+
+target_sources(
+  emlabcpp
+  PUBLIC FILE_SET
+         public_headers
+         TYPE
+         HEADERS
+         BASE_DIRS
+         include
+         FILES
+         ${EMLABCPP_INCLUDE_FILES})
+
 if(EMLABCPP_COVERAGE_ENABLED)
   emlabcpp_target_enable_coverage(emlabcpp)
 endif()
@@ -39,4 +52,4 @@ if(EMLABCPP_TESTS_ENABLED)
   endif()
 endif()
 
-install(TARGETS emlabcpp)
+install(TARGETS emlabcpp FILE_SET public_headers)
