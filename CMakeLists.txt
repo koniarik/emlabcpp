@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.23)
 
 option(EMLABCPP_COVERAGE_ENABLED
        "Decides whenever the corevage should be builded" OFF)
+option(EMLABCPP_TESTS_ENABLED "Decides whenever tests should be enabled" OFF)
 
 project(emlabcpp)
 
@@ -43,10 +44,12 @@ if(EMLABCPP_COVERAGE_ENABLED)
   emlabcpp_target_enable_coverage(emlabcpp)
 endif()
 
-if(NOT BUILD_TESTING STREQUAL OFF)
-  include(CTest)
-  add_subdirectory(tests)
-  add_subdirectory(examples)
+if(EMLABCPP_TESTS_ENABLED)
+  if(NOT BUILD_TESTING STREQUAL OFF)
+    include(CTest)
+    add_subdirectory(tests)
+    add_subdirectory(examples)
+  endif()
 endif()
 
 install(TARGETS emlabcpp FILE_SET public_headers)
