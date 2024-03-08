@@ -19,7 +19,17 @@
 
 #include "emlabcpp/experimental/testing/json.h"
 
+#include "emlabcpp/experimental/logging.h"
+#include "emlabcpp/experimental/testing/base.h"
+#include "emlabcpp/match.h"
+#include "emlabcpp/pmr/memory_resource.h"
 #include "emlabcpp/static_function.h"
+
+#include <cstdint>
+#include <nlohmann/json.hpp>
+#include <optional>
+#include <string>
+#include <string_view>
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 

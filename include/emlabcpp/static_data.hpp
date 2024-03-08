@@ -1,7 +1,5 @@
 #pragma once
 
-#include <string_view>
-
 #define EMLABCPP_STATIC_DATA( variable_name, data_infix )                             \
         extern "C" const char _binary_##data_infix##_start;                           \
         extern "C" const char _binary_##data_infix##_end;                             \

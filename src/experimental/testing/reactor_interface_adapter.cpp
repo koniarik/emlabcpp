@@ -19,6 +19,10 @@
 
 #include "emlabcpp/experimental/testing/reactor_interface_adapter.h"
 
+#include "emlabcpp/experimental/testing/protocol.h"
+#include "emlabcpp/protocol/handler.h"
+#include "emlabcpp/result.h"
+
 namespace emlabcpp::testing
 {
 

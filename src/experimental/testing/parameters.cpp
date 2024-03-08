@@ -19,9 +19,25 @@
 
 #include "emlabcpp/experimental/testing/parameters.h"
 
+#include "emlabcpp/experimental/contiguous_tree/base.h"
+#include "emlabcpp/experimental/contiguous_tree/request_adapter.h"
+#include "emlabcpp/experimental/decompose.h"
 #include "emlabcpp/experimental/logging.h"
+#include "emlabcpp/experimental/multiplexer.h"
+#include "emlabcpp/experimental/testing/base.h"
+#include "emlabcpp/experimental/testing/protocol.h"
+#include "emlabcpp/outcome.h"
+#include "emlabcpp/protocol/handler.h"
+#include "emlabcpp/result.h"
+#include "emlabcpp/view.h"
+#include "emlabcpp/visit.h"
 
+#include <cstddef>
+#include <span>
+#include <string_view>
+#include <tuple>
 #include <utility>
+#include <variant>
 
 namespace emlabcpp::testing
 {

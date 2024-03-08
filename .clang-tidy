@@ -53,4 +53,6 @@ CheckOptions:
     value: lower_case
   - key:             misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
     value: '1'
+  - key:             misc-include-cleaner.IgnoreHeaders
+    value: "nlohmann/*"
 ...

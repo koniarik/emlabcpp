@@ -72,6 +72,13 @@ public:
         {
         }
 
+        test_callable( const std::string_view name, auto& rec, Callable cb )
+          : name_( name )
+          , cb_( std::move( cb ) )
+        {
+                rec.register_test( this );
+        }
+
         test_callable( test_callable&& ) noexcept            = default;
         test_callable& operator=( test_callable&& ) noexcept = default;
 

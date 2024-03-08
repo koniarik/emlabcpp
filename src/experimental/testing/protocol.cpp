@@ -19,6 +19,8 @@
 
 #include "emlabcpp/experimental/testing/protocol.h"
 
+#include "emlabcpp/protocol/endpoint.h"
+
 namespace emlabcpp::protocol
 {
 

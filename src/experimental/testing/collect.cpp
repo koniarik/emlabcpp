@@ -19,6 +19,29 @@
 
 #include "emlabcpp/experimental/testing/collect.h"
 
+#include "emlabcpp/either.h"
+#include "emlabcpp/experimental/contiguous_tree/base.h"
+#include "emlabcpp/experimental/contiguous_tree/request_adapter.h"
+#include "emlabcpp/experimental/coro/recursive.h"
+#include "emlabcpp/experimental/decompose.h"
+#include "emlabcpp/experimental/logging.h"
+#include "emlabcpp/experimental/multiplexer.h"
+#include "emlabcpp/experimental/testing/base.h"
+#include "emlabcpp/experimental/testing/coroutine.h"
+#include "emlabcpp/experimental/testing/protocol.h"
+#include "emlabcpp/match.h"
+#include "emlabcpp/outcome.h"
+#include "emlabcpp/pmr/memory_resource.h"
+#include "emlabcpp/protocol/handler.h"
+#include "emlabcpp/result.h"
+#include "emlabcpp/view.h"
+
+#include <coroutine>
+#include <cstddef>
+#include <optional>
+#include <span>
+#include <string_view>
+#include <tuple>
 #include <utility>
 
 namespace emlabcpp::testing

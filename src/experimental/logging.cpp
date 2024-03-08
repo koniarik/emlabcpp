@@ -19,6 +19,9 @@
 
 #include "emlabcpp/experimental/logging.h"
 
+#include "emlabcpp/experimental/logging/color.h"
+#include "emlabcpp/experimental/logging/eabi_logger.h"
+
 #ifdef EMLABCPP_USE_LOGGING
 
 namespace emlabcpp

@@ -19,9 +19,30 @@
 
 #include "emlabcpp/experimental/testing/controller.h"
 
-#include "emlabcpp/experimental/contiguous_tree/request_adapter.h"
+#include "emlabcpp/experimental/coro/recursive.h"
 #include "emlabcpp/experimental/logging.h"
+#include "emlabcpp/experimental/testing/base.h"
+#include "emlabcpp/experimental/testing/controller_interface_adapter.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
+#include "emlabcpp/experimental/testing/error.h"
+#include "emlabcpp/experimental/testing/protocol.h"
+#include "emlabcpp/match.h"
+#include "emlabcpp/outcome.h"
+#include "emlabcpp/pmr/memory_resource.h"
+#include "emlabcpp/protocol/error.h"
+#include "emlabcpp/protocol/handler.h"
+#include "emlabcpp/range.h"
+#include "emlabcpp/result.h"
+#include "emlabcpp/view.h"
+#include "emlabcpp/visit.h"
+
+#include <coroutine>
+#include <cstddef>
+#include <optional>
+#include <span>
+#include <tuple>
+#include <utility>
+#include <variant>
 
 namespace emlabcpp::testing
 {

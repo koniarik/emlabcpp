@@ -19,7 +19,9 @@
 
 #include "emlabcpp/experimental/testing/interface.h"
 
-#include <utility>
+#include "emlabcpp/experimental/testing/coroutine.h"
+#include "emlabcpp/experimental/testing/record.h"
+#include "emlabcpp/pmr/memory_resource.h"
 
 namespace emlabcpp::testing
 {

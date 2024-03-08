@@ -19,7 +19,20 @@
 
 #include "emlabcpp/experimental/testing/reactor.h"
 
+#include "emlabcpp/experimental/testing/base.h"
+#include "emlabcpp/experimental/testing/interface.h"
+#include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/experimental/testing/reactor_interface_adapter.h"
+#include "emlabcpp/match.h"
+#include "emlabcpp/outcome.h"
+#include "emlabcpp/protocol/error.h"
+#include "emlabcpp/protocol/handler.h"
+#include "emlabcpp/result.h"
+#include "emlabcpp/view.h"
+
+#include <cstddef>
+#include <span>
+#include <tuple>
 
 namespace emlabcpp::testing
 {
