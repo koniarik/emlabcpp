@@ -86,10 +86,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"classemlabcpp_1_1defer.html",
-"classemlabcpp_1_1protocol_1_1message.html#a86fb664e427aa25123bab33afe6ee054",
-"classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534",
+"algorithm_8h.html",
+"classemlabcpp_1_1defer.html#a2fac5182a5be5813537bd523107e375e",
+"classemlabcpp_1_1protocol_1_1message.html#a8acaf9218f8a73b700951fc48069b83e",
+"classemlabcpp_1_1static__vector.html#a3ac1be4a1a7ca604add992ca39ac0223",
 "concepts_8h.html#a5a66cad0d4226d39ffd692e16bcfc076",
 "functions_type_k.html",
 "namespaceemlabcpp.html#a49a18ed069c328b94893a379a85d855f",
