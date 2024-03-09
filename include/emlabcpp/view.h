@@ -199,7 +199,7 @@ constexpr view< Iter > view_n( Iter begin, const std::size_t n )
 }
 
 template < data_container Container >
-[[deprecated]] constexpr auto data_view( Container& cont )
+constexpr auto data_view( Container& cont )
 {
         return view_n( std::data( cont ), std::size( cont ) );
 }
@@ -237,9 +237,9 @@ void string_serialize_view( auto&& w, const view< Iterator, EndIterator >& outpu
 #ifdef EMLABCPP_USE_OSTREAM
 
 template < typename Iterator, typename EndIterator >
-requires( ostreamable< typename std::iterator_traits< Iterator >::value_type > )
 std::ostream& operator<<( std::ostream& os, const view< Iterator, EndIterator >& iter )
 {
+        static_assert( ostreamable< typename std::iterator_traits< Iterator >::value_type > );
         string_serialize_view(
             [&os]( const auto& item ) {
                     os << item;

@@ -59,7 +59,8 @@ struct pretty_printer< timelog >
                     std::strftime( data.data(), data.size(), "%F %T.", localtime_r( &t, &tmval ) );
                 w( std::string_view{ data.data(), i } );
 
-                std::snprintf( data.begin(), data.size(), "%.6li", us.count() );
+                std::snprintf(
+                    data.begin(), data.size(), "%.6i", static_cast< int >( us.count() ) );
                 w( std::string_view{ data.data() } );
         }
 };
