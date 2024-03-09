@@ -27,6 +27,40 @@
 
 namespace emlabcpp::testing
 {
+
+struct expect_awaiter : public coro::wait_interface
+{
+        bool success;
+
+        expect_awaiter( bool success )
+          : success( success )
+        {
+        }
+
+        [[nodiscard]] coro::wait_state get_state() const override
+        {
+                return success ? coro::wait_state::READY : coro::wait_state::ERRORED;
+        }
+
+        void tick() override
+        {
+        }
+
+        [[nodiscard]] bool await_ready() const
+        {
+                return false;
+        }
+
+        template < typename T >
+        void await_suspend( std::coroutine_handle< T > )
+        {
+        }
+
+        void await_resume() const
+        {
+        }
+};
+
 class record
 {
         test_status status_ = test_status::SUCCESS;
@@ -49,10 +83,12 @@ public:
                         status_ = test_status::SKIPPED;
         }
 
-        void expect( const bool val )
+        expect_awaiter expect( const bool val )
         {
                 if ( !val )
                         fail();
+
+                return { status_ != test_status::FAILED };
         }
 };
 
