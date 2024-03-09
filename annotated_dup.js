@@ -204,6 +204,7 @@ var annotated_dup =
         [ "packet_def", "structemlabcpp_1_1testing_1_1packet__def.html", "structemlabcpp_1_1testing_1_1packet__def" ],
         [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html", "classemlabcpp_1_1testing_1_1reactor" ],
         [ "reactor_interface_adapter", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html", "classemlabcpp_1_1testing_1_1reactor__interface__adapter" ],
+        [ "expect_awaiter", "structemlabcpp_1_1testing_1_1expect__awaiter.html", "structemlabcpp_1_1testing_1_1expect__awaiter" ],
         [ "record", "classemlabcpp_1_1testing_1_1record.html", "classemlabcpp_1_1testing_1_1record" ]
       ] ],
       [ "convert_to", "structemlabcpp_1_1convert__to.html", "structemlabcpp_1_1convert__to" ],

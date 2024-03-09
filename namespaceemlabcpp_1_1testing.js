@@ -63,6 +63,7 @@ var namespaceemlabcpp_1_1testing =
     [ "packet_def", "structemlabcpp_1_1testing_1_1packet__def.html", "structemlabcpp_1_1testing_1_1packet__def" ],
     [ "reactor", "classemlabcpp_1_1testing_1_1reactor.html", "classemlabcpp_1_1testing_1_1reactor" ],
     [ "reactor_interface_adapter", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html", "classemlabcpp_1_1testing_1_1reactor__interface__adapter" ],
+    [ "expect_awaiter", "structemlabcpp_1_1testing_1_1expect__awaiter.html", "structemlabcpp_1_1testing_1_1expect__awaiter" ],
     [ "record", "classemlabcpp_1_1testing_1_1record.html", "classemlabcpp_1_1testing_1_1record" ],
     [ "child_count", "namespaceemlabcpp_1_1testing.html#aa5f2797989f4c0edacfaa3d8967435a2", null ],
     [ "child_id", "namespaceemlabcpp_1_1testing.html#acbd9645e3f3070dc31de4a5d5c22be05", null ],
