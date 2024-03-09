@@ -26,12 +26,13 @@
 #include "emlabcpp/static_function.h"
 
 #include <cstdint>
-#include <nlohmann/json.hpp>
 #include <optional>
 #include <string>
 #include <string_view>
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
+
+#include <nlohmann/json.hpp>
 
 namespace emlabcpp::testing
 {
