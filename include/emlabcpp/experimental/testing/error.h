@@ -74,7 +74,7 @@ inline std::ostream& operator<<( std::ostream& os, const internal_reactor_error&
 #ifdef EMLABCPP_USE_MAGIC_ENUM
                 os << convert_enum( T::id );
 #else
-                os << static_cast<std::underlying_type_t<T::id>>(T::id);
+                os << static_cast<std::underlying_type_t<typename T::id>>(T::id);
 #endif
         } );
         return os;
