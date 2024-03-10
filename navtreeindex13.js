@@ -1,6 +1,5 @@
 var NAVTREEINDEX13 =
 {
-"structemlabcpp_1_1timelog.html#a72780e74e9bda101f80e92e9ab0bcb9e":[3,0,0,42,2],
 "structemlabcpp_1_1timelog.html#ab7de8e983b424607ed2195468127452c":[3,0,0,42,0],
 "structemlabcpp_1_1tuple__has__type_3_01T_00_01std_1_1tuple_3_01Us_8_8_8_01_4_01_4.html":[3,0,0,117],
 "structstd_1_1hash_3_01T_01_4.html":[3,0,1,7],
@@ -154,5 +153,6 @@ var NAVTREEINDEX13 =
 "zip_8h.html#a4a90457babf1c49444a526a98007a751":[4,0,0,0,34,3],
 "zip_8h.html#a81d4ae07c2d875b52377456faf19fe92":[4,0,0,0,34,6],
 "zip_8h.html#aa8b8f5742901528282a9da6b8317e7b5":[4,0,0,0,34,4],
-"zip_8h_source.html":[4,0,0,0,34]
+"zip_8h_source.html":[4,0,0,0,34],
+"":[2,0,1]
 };
