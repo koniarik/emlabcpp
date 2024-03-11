@@ -26,6 +26,8 @@
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/static_function.h"
 
+#include <source_location>
+
 namespace emlabcpp::testing
 {
 
@@ -60,17 +62,17 @@ using collect_server_transmit_callback =
 
 class collector;
 
-class [[nodiscard]] collect_awaiter : public coro::wait_interface
+class [[nodiscard]] collect_awaiter : public wait_interface
 {
 public:
-        collect_request  req;
-        node_id          res{};
-        coro::wait_state state = coro::wait_state::WAITING;
-        collector&       col;
+        collect_request req;
+        node_id         res{};
+        coro_state      state = coro_state::WAITING;
+        collector&      col;
 
         collect_awaiter( const collect_request& req, collector& coll );
 
-        [[nodiscard]] coro::wait_state get_state() const override
+        [[nodiscard]] coro_state get_state() const override
         {
                 return state;
         }
@@ -84,7 +86,7 @@ public:
                 return false;
         }
 
-        void await_suspend( std::coroutine_handle< test_coroutine::promise_type > h );
+        void await_suspend( std::coroutine_handle< coroutine< void >::promise_type > h );
 
         [[nodiscard]] node_id await_resume() const
         {
@@ -157,6 +159,16 @@ private:
         collect_reply_callback           reply_callback_;
         collect_client_transmit_callback send_cb_;
 };
+
+inline status_awaiter
+expect( collector& c, bool expr, std::source_location loc = std::source_location::current() )
+{
+        if ( !expr ) {
+                c.set( "sfile", loc.file_name() );
+                c.set( "sline", loc.line() );
+        }
+        return expect( expr );
+}
 
 class collect_server
 {

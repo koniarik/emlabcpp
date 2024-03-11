@@ -42,10 +42,10 @@ public:
                 return "nested test case";
         }
 
-        testing::test_coroutine run( pmr::memory_resource& mem, testing::record& rec ) override
+        testing::coroutine< void > run( pmr::memory_resource& mem ) override
         {
                 for ( std::size_t i : range( 1u, 8u ) ) {
-                        co_await sub.run( mem, rec );
+                        co_await sub.run( mem );
 
                         EXPECT_EQ( sub.run_count, i );
                 }

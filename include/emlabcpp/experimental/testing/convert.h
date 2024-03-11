@@ -107,6 +107,15 @@ struct value_type_converter< std::string_view >
         }
 };
 
+template <>
+struct value_type_converter< const char* >
+{
+        static value_type to_value( const char* item )
+        {
+                return string_buffer( item );
+        }
+};
+
 template < typename Rep, typename Ratio >
 struct value_type_converter< std::chrono::duration< Rep, Ratio > >
 {

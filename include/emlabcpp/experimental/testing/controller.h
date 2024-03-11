@@ -32,7 +32,7 @@ class controller
 {
         struct initializing_state
         {
-                test_coroutine coro;
+                coroutine< void > coro{};
         };
 
         struct test_running_state
@@ -100,7 +100,7 @@ public:
         void tick();
 
 private:
-        test_coroutine initialize( pmr::memory_resource& mem_res );
+        coroutine< void > initialize( pmr::memory_resource& mem_res );
 
         protocol::channel_type channel_;
         states                 state_ = initializing_state{};

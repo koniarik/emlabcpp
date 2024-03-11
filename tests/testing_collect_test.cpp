@@ -42,7 +42,7 @@ struct collector_test_fixture : public testing::test_interface
                 return "wololo";
         }
 
-        testing::test_coroutine run( pmr::memory_resource&, testing::record& ) override
+        testing::coroutine< void > run( pmr::memory_resource& ) override
         {
                 coll.set( 0, "key1", 42 );
                 EMLABCPP_INFO_LOG( "Collected key1" );

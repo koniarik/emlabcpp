@@ -20,18 +20,17 @@
 #include "emlabcpp/experimental/testing/interface.h"
 
 #include "emlabcpp/experimental/testing/coroutine.h"
-#include "emlabcpp/experimental/testing/record.h"
 #include "emlabcpp/pmr/memory_resource.h"
 
 namespace emlabcpp::testing
 {
 
-test_coroutine test_interface::setup( pmr::memory_resource&, record& )
+coroutine< void > test_interface::setup( pmr::memory_resource& )
 {
         co_return;
 }
 
-test_coroutine test_interface::teardown( pmr::memory_resource&, record& )
+coroutine< void > test_interface::teardown( pmr::memory_resource& )
 {
         co_return;
 }

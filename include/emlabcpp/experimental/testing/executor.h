@@ -41,7 +41,6 @@ public:
           : rid_( rid )
           , mem_( mem )
           , test_( test )
-          , rec_()
           , coro_()
         {
         }
@@ -60,40 +59,44 @@ public:
         {
                 switch ( phas_ ) {
                 case phase::INIT:
-                        coro_ = test_.setup( mem_, rec_ );
+                        coro_ = test_.setup( mem_ );
                         phas_ = phase::SETUP;
                         break;
-                case phase::SETUP:
+                case phase::SETUP: {
                         if ( !coro_.done() ) {
                                 coro_.tick();
                                 break;
                         }
-                        coro_ = test_coroutine();
-                        if ( rec_.status() != test_status::SUCCESS ) {
-                                status_ = rec_.status();
+                        const coro_state s = coro_.get_state();
+                        if ( s != coro_state::DONE ) {
+                                status_ = status_cnv( coro_.get_state() );
                                 phas_   = phase::FINISHED;
-                                break;
+                        } else {
+                                coro_ = coroutine< void >();
+                                coro_ = test_.run( mem_ );
+                                phas_ = phase::RUN;
                         }
-                        coro_ = test_.run( mem_, rec_ );
-                        phas_ = phase::RUN;
                         break;
+                }
                 case phase::RUN:
                         if ( !coro_.done() ) {
                                 coro_.tick();
                                 break;
                         }
-                        coro_ = test_coroutine();
-                        coro_ = test_.teardown( mem_, rec_ );
-                        phas_ = phase::TEARDOWN;
+                        status_ = status_cnv( coro_.get_state() );
+                        coro_   = coroutine< void >();
+                        coro_   = test_.teardown( mem_ );
+                        phas_   = phase::TEARDOWN;
                         break;
                 case phase::TEARDOWN:
                         if ( !coro_.done() ) {
                                 coro_.tick();
                                 break;
                         }
-                        status_ = rec_.status();
-                        coro_   = test_coroutine();
-                        phas_   = phase::FINISHED;
+                        if ( coro_.get_state() == coro_state::ERRORED )
+                                status_ = test_status::ERRORED;
+                        coro_ = coroutine< void >();
+                        phas_ = phase::FINISHED;
                         break;
                 case phase::FINISHED:
                         break;
@@ -106,12 +109,26 @@ public:
         }
 
 private:
+        static test_status status_cnv( coro_state s )
+        {
+                switch ( s ) {
+                case coro_state::DONE:
+                        return test_status::SUCCESS;
+                case coro_state::SKIPPED:
+                        return test_status::SKIPPED;
+                case coro_state::FAILED:
+                        return test_status::FAILED;
+                default:
+                        break;
+                }
+                return test_status::ERRORED;
+        }
+
         run_id                rid_;
         test_status           status_ = test_status::ERRORED;
         pmr::memory_resource& mem_;
         test_interface&       test_;
-        record                rec_;
-        test_coroutine        coro_;
+        coroutine< void >     coro_;
         phase                 phas_{ phase::INIT };
 };
 

@@ -43,7 +43,7 @@ struct params_test_fixture : public testing::test_interface
                 return "wololo";
         }
 
-        testing::test_coroutine run( pmr::memory_resource&, testing::record& ) override
+        testing::coroutine< void > run( pmr::memory_resource& ) override
         {
                 testing::node_type_enum t =
                     co_await params.get_type( co_await params.get_child( 0, "pi" ) );

@@ -36,19 +36,19 @@ public:
                 return "simple wololo";
         }
 
-        testing::test_coroutine setup( pmr::memory_resource&, testing::record& ) override
+        testing::coroutine< void > setup( pmr::memory_resource& ) override
         {
                 setup_count += 1;
                 co_return;
         }
 
-        testing::test_coroutine run( pmr::memory_resource&, testing::record& ) override
+        testing::coroutine< void > run( pmr::memory_resource& ) override
         {
                 run_count += 1;
                 co_return;
         }
 
-        testing::test_coroutine teardown( pmr::memory_resource&, testing::record& ) override
+        testing::coroutine< void > teardown( pmr::memory_resource& ) override
         {
                 teardown_count += 1;
                 co_return;
@@ -69,21 +69,21 @@ public:
                 return "complex wololo";
         }
 
-        testing::test_coroutine setup( pmr::memory_resource&, testing::record& ) override
+        testing::coroutine< void > setup( pmr::memory_resource& ) override
         {
                 co_await std::suspend_always{};
                 co_await std::suspend_never{};
                 setup_count += 1;
         }
 
-        testing::test_coroutine run( pmr::memory_resource&, testing::record& ) override
+        testing::coroutine< void > run( pmr::memory_resource& ) override
         {
                 co_await std::suspend_always{};
                 co_await std::suspend_never{};
                 run_count += 1;
         }
 
-        testing::test_coroutine teardown( pmr::memory_resource&, testing::record& ) override
+        testing::coroutine< void > teardown( pmr::memory_resource& ) override
         {
                 co_await std::suspend_always{};
                 co_await std::suspend_never{};

@@ -21,6 +21,7 @@
 
 #include "emlabcpp/experimental/contiguous_tree/request_adapter.h"
 #include "emlabcpp/experimental/function_view.h"
+#include "emlabcpp/experimental/testing/convert.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
 #include "emlabcpp/experimental/testing/protocol.h"
 #include "emlabcpp/protocol/handler.h"
@@ -160,11 +161,11 @@ using params_server_transmit_callback =
 class parameters;
 
 template < typename Processor >
-struct [[nodiscard]] params_awaiter : public coro::wait_interface
+struct [[nodiscard]] params_awaiter : public wait_interface
 {
-        Processor        proc;
-        coro::wait_state state = coro::wait_state::WAITING;
-        parameters&      params;
+        Processor   proc;
+        coro_state  state = coro_state::WAITING;
+        parameters& params;
 
         using request_type = decltype( proc.req );
 
@@ -174,7 +175,7 @@ struct [[nodiscard]] params_awaiter : public coro::wait_interface
         {
         }
 
-        [[nodiscard]] coro::wait_state get_state() const override
+        [[nodiscard]] coro_state get_state() const override
         {
                 return state;
         }
@@ -407,9 +408,9 @@ void params_awaiter< Processor >::await_suspend( const std::coroutine_handle< Pr
                         std::ignore = params.send(
                             param_error{ string_buffer( "failed to proces param awaiter" ) } );
                         proc.log_error( params );
-                        state = coro::wait_state::ERRORED;
+                        state = coro_state::ERRORED;
                 } else {
-                        state = coro::wait_state::READY;
+                        state = coro_state::DONE;
                 }
         } );
 }

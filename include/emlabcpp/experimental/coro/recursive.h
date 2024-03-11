@@ -1,5 +1,6 @@
 #pragma once
 
+#include "emlabcpp/experimental/coro/data_promise.h"
 #include "emlabcpp/experimental/coro/memory_promise.h"
 #include "emlabcpp/experimental/coro/owning_coroutine_handle.h"
 
@@ -15,9 +16,8 @@ enum class wait_state : uint8_t
         ERRORED
 };
 
-class wait_interface
+struct wait_interface
 {
-public:
         [[nodiscard]] virtual wait_state get_state() const = 0;
         virtual void                     tick()            = 0;
         virtual ~wait_interface()                          = default;
@@ -71,26 +71,6 @@ struct error_awaiter : public wait_interface
         }
 
         void await_resume() const
-        {
-        }
-};
-
-template < typename T >
-struct data_promise
-{
-        template < typename U >
-        void return_value( U&& val )
-        {
-                value = std::forward< U >( val );
-        }
-
-        T value;
-};
-
-template <>
-struct data_promise< void >
-{
-        void return_void() const
         {
         }
 };
@@ -203,10 +183,8 @@ public:
                                 // Intentionally does nothing
                         }
                 }
-                if ( !h_.done() ) {
-                        iface = nullptr;
+                if ( !h_.done() )
                         h_();
-                }
         }
 
 private:

@@ -48,10 +48,10 @@ namespace emlabcpp::testing
 {
 
 template < typename T >
-struct msg_awaiter : public coro::wait_interface
+struct msg_awaiter : public wait_interface
 {
         T                          reply;
-        coro::wait_state           state = coro::wait_state::WAITING;
+        coro_state                 state = coro_state::WAITING;
         controller_reactor_variant request;
 
         controller_interface_adapter& iface;
@@ -62,7 +62,7 @@ struct msg_awaiter : public coro::wait_interface
         {
         }
 
-        [[nodiscard]] coro::wait_state get_state() const override
+        [[nodiscard]] coro_state get_state() const override
         {
                 return state;
         }
@@ -76,16 +76,17 @@ struct msg_awaiter : public coro::wait_interface
                 return false;
         }
 
-        void await_suspend( const std::coroutine_handle< typename test_coroutine::promise_type > h )
+        void
+        await_suspend( const std::coroutine_handle< typename coroutine< void >::promise_type > h )
         {
                 h.promise().iface = this;
                 iface.set_reply_cb( [this]( const reactor_controller_variant& var ) {
                         const T* val_ptr = std::get_if< T >( &var );
                         if ( val_ptr == nullptr ) {
-                                state = coro::wait_state::ERRORED;
+                                state = coro_state::ERRORED;
                                 return false;
                         }
-                        state = coro::wait_state::READY;
+                        state = coro_state::DONE;
                         reply = *val_ptr;
                         return true;
                 } );
@@ -99,9 +100,8 @@ struct msg_awaiter : public coro::wait_interface
         }
 };
 
-test_coroutine controller::initialize( pmr::memory_resource& )
+coroutine< void > controller::initialize( pmr::memory_resource& )
 {
-
         name_ = ( co_await msg_awaiter< get_suite_name_reply >(
                       get_property< msgid::SUITE_NAME >{}, iface_ ) )
                     .name;

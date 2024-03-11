@@ -21,6 +21,7 @@
 
 #include "emlabcpp/experimental/testing/executor.h"
 #include "emlabcpp/experimental/testing/protocol.h"
+#include "emlabcpp/experimental/testing/reactor_interface_adapter.h"
 #include "emlabcpp/pmr/stack_resource.h"
 #include "emlabcpp/protocol/endpoint.h"
 #include "emlabcpp/result.h"

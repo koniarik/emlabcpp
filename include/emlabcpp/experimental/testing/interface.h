@@ -22,7 +22,6 @@
 #include "emlabcpp/experimental/linked_list.h"
 #include "emlabcpp/experimental/testing/base.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
-#include "emlabcpp/experimental/testing/record.h"
 #include "emlabcpp/protocol/packet_handler.h"
 #include "emlabcpp/result.h"
 
@@ -43,9 +42,9 @@ public:
 
         [[nodiscard]] virtual std::string_view get_name() const = 0;
 
-        virtual test_coroutine setup( pmr::memory_resource&, record& );
-        virtual test_coroutine run( pmr::memory_resource&, record& ) = 0;
-        virtual test_coroutine teardown( pmr::memory_resource&, record& );
+        virtual coroutine< void > setup( pmr::memory_resource& );
+        virtual coroutine< void > run( pmr::memory_resource& ) = 0;
+        virtual coroutine< void > teardown( pmr::memory_resource& );
 
         virtual ~test_interface() = default;
 };
@@ -53,10 +52,10 @@ public:
 using test_ll_node = linked_list_node_base< test_interface >;
 
 template < typename T >
-concept valid_test_callable = requires( T t, pmr::memory_resource& mem_resource, record& rec ) {
+concept valid_test_callable = requires( T t, pmr::memory_resource& mem_resource ) {
         {
-                t( mem_resource, rec )
-        } -> std::same_as< test_coroutine >;
+                t( mem_resource )
+        } -> std::same_as< coroutine< void > >;
 };
 
 template < typename T >
@@ -87,15 +86,18 @@ public:
                 return std::string_view{ name_.data(), name_.size() };
         }
 
-        test_coroutine run( pmr::memory_resource& mem_resource, record& rec ) final
+        coroutine< void > run( pmr::memory_resource& mem_resource ) final
         {
-                return cb_( mem_resource, rec );
+                return cb_( mem_resource );
         }
 
 private:
         name_buffer name_;
         Callable    cb_;
 };
+
+template < valid_test_callable Callable >
+test_callable( const std::string_view name, Callable cb ) -> test_callable< Callable >;
 
 struct empty_node_impl : test_interface
 {
@@ -104,7 +106,7 @@ struct empty_node_impl : test_interface
                 return "";
         }
 
-        test_coroutine run( pmr::memory_resource&, record& ) override
+        coroutine< void > run( pmr::memory_resource& ) override
         {
                 co_return;
         }

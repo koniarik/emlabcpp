@@ -53,7 +53,8 @@ collect_awaiter::collect_awaiter( const collect_request& req, collector& coll )
 {
 }
 
-void collect_awaiter::await_suspend( const std::coroutine_handle< test_coroutine::promise_type > h )
+void collect_awaiter::await_suspend(
+    const std::coroutine_handle< coroutine< void >::promise_type > h )
 {
         h.promise().iface = this;
         col.exchange( req, [this]( const collect_server_client_group& var ) {
@@ -61,12 +62,12 @@ void collect_awaiter::await_suspend( const std::coroutine_handle< test_coroutine
                     var,
                     [this]( const collect_reply& rpl ) {
                             res   = rpl.nid;
-                            state = coro::wait_state::READY;
+                            state = coro_state::DONE;
                     },
                     [this]( const tree_error_reply& err ) {
                             std::ignore = err;
                             EMLABCPP_ERROR_LOG( "Got an error: ", decompose( err ) );
-                            state = coro::wait_state::ERRORED;
+                            state = coro_state::ERRORED;
                     } );
         } );
 }
