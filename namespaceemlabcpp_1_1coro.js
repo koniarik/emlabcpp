@@ -1,12 +1,12 @@
 var namespaceemlabcpp_1_1coro =
 [
-    [ "memory_promise", "structemlabcpp_1_1coro_1_1memory__promise.html", "structemlabcpp_1_1coro_1_1memory__promise" ],
-    [ "owning_coroutine_handle", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", "classemlabcpp_1_1coro_1_1owning__coroutine__handle" ],
-    [ "wait_interface", "classemlabcpp_1_1coro_1_1wait__interface.html", "classemlabcpp_1_1coro_1_1wait__interface" ],
-    [ "noop_awaiter", "structemlabcpp_1_1coro_1_1noop__awaiter.html", "structemlabcpp_1_1coro_1_1noop__awaiter" ],
-    [ "error_awaiter", "structemlabcpp_1_1coro_1_1error__awaiter.html", "structemlabcpp_1_1coro_1_1error__awaiter" ],
     [ "data_promise", "structemlabcpp_1_1coro_1_1data__promise.html", "structemlabcpp_1_1coro_1_1data__promise" ],
     [ "data_promise< void >", "structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4.html", "structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4" ],
+    [ "memory_promise", "structemlabcpp_1_1coro_1_1memory__promise.html", "structemlabcpp_1_1coro_1_1memory__promise" ],
+    [ "owning_coroutine_handle", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", "classemlabcpp_1_1coro_1_1owning__coroutine__handle" ],
+    [ "wait_interface", "structemlabcpp_1_1coro_1_1wait__interface.html", "structemlabcpp_1_1coro_1_1wait__interface" ],
+    [ "noop_awaiter", "structemlabcpp_1_1coro_1_1noop__awaiter.html", "structemlabcpp_1_1coro_1_1noop__awaiter" ],
+    [ "error_awaiter", "structemlabcpp_1_1coro_1_1error__awaiter.html", "structemlabcpp_1_1coro_1_1error__awaiter" ],
     [ "recursive_coroutine", "classemlabcpp_1_1coro_1_1recursive__coroutine.html", "classemlabcpp_1_1coro_1_1recursive__coroutine" ],
     [ "request_reply", "classemlabcpp_1_1coro_1_1request__reply.html", "classemlabcpp_1_1coro_1_1request__reply" ],
     [ "wait_state", "namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90", [

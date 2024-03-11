@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classemlabcpp_1_1coro_1_1wait__interface.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="structemlabcpp_1_1coro_1_1wait__interface.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="1,-67.5 1,-97.5 120,-97.5 120,-67.5 1,-67.5"/>
 <text text-anchor="start" x="9" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::coro::wait</text>
 <text text-anchor="middle" x="60.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">_interface</text>

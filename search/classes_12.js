@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['value_5foffset_1661',['value_offset',['../structemlabcpp_1_1protocol_1_1value__offset.html',1,'emlabcpp::protocol']]],
-  ['value_5ftype_5fconverter_1662',['value_type_converter',['../namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter',1,'emlabcpp::testing']]],
+  ['value_5foffset_1660',['value_offset',['../structemlabcpp_1_1protocol_1_1value__offset.html',1,'emlabcpp::protocol']]],
+  ['value_5ftype_5fconverter_1661',['value_type_converter',['../namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter',1,'emlabcpp::testing']]],
+  ['value_5ftype_5fconverter_3c_20const_20char_20_2a_20_3e_1662',['value_type_converter&lt; const char * &gt;',['../structemlabcpp_1_1testing_1_1value__type__converter_3_01const_01char_01_5_01_4.html',1,'emlabcpp::testing']]],
   ['value_5ftype_5fconverter_3c_20int64_5ft_20_3e_1663',['value_type_converter&lt; int64_t &gt;',['../structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html',1,'emlabcpp::testing']]],
   ['value_5ftype_5fconverter_3c_20std_3a_3achrono_3a_3aduration_3c_20rep_2c_20ratio_20_3e_20_3e_1664',['value_type_converter&lt; std::chrono::duration&lt; Rep, Ratio &gt; &gt;',['../structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4.html',1,'emlabcpp::testing']]],
   ['value_5ftype_5fconverter_3c_20std_3a_3astring_5fview_20_3e_1665',['value_type_converter&lt; std::string_view &gt;',['../structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html',1,'emlabcpp::testing']]],

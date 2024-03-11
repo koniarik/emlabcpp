@@ -20,5 +20,6 @@ var collect_8h =
     [ "collect_server_client_message", "collect_8h.html#a8f31210bf94829b46e3ed0373409b3c8", null ],
     [ "collect_server_transmit_callback", "collect_8h.html#a92f5e143a8b528250547144d5605bf81", null ],
     [ "collect_value_type", "collect_8h.html#abb99f2b435a1233d2af64136bcd8ae17", null ],
+    [ "expect", "collect_8h.html#a784c65ad2baae738905bad887b873936", null ],
     [ "collect_channel", "collect_8h.html#a99f1151dbb3866e17e7c5d4b51f8a090", null ]
 ];

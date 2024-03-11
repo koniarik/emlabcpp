@@ -76,7 +76,8 @@ var hierarchy =
     ] ],
     [ "emlabcpp::data_iterator_of< Container >", "namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of", null ],
     [ "emlabcpp::coro::data_promise< T >", "structemlabcpp_1_1coro_1_1data__promise.html", [
-      [ "emlabcpp::coro::recursive_coroutine< T >::promise_type", "structemlabcpp_1_1coro_1_1recursive__coroutine_1_1promise__type.html", null ]
+      [ "emlabcpp::coro::recursive_coroutine< T >::promise_type", "structemlabcpp_1_1coro_1_1recursive__coroutine_1_1promise__type.html", null ],
+      [ "emlabcpp::testing::coroutine< T >::promise_type", "structemlabcpp_1_1testing_1_1coroutine_1_1promise__type.html", null ]
     ] ],
     [ "emlabcpp::coro::data_promise< void >", "structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4.html", null ],
     [ "emlabcpp::detail::decompose_anything< size_t >", "structemlabcpp_1_1detail_1_1decompose__anything.html", null ],
@@ -179,7 +180,8 @@ var hierarchy =
     [ "emlabcpp::coro::memory_promise< PromiseType >", "structemlabcpp_1_1coro_1_1memory__promise.html", null ],
     [ "emlabcpp::coro::memory_promise< promise_type >", "structemlabcpp_1_1coro_1_1memory__promise.html", [
       [ "emlabcpp::coro::recursive_coroutine< T >::promise_type", "structemlabcpp_1_1coro_1_1recursive__coroutine_1_1promise__type.html", null ],
-      [ "emlabcpp::coro::request_reply< RequestType, ReplyType >::promise_type", "structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html", null ]
+      [ "emlabcpp::coro::request_reply< RequestType, ReplyType >::promise_type", "structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html", null ],
+      [ "emlabcpp::testing::coroutine< T >::promise_type", "structemlabcpp_1_1testing_1_1coroutine_1_1promise__type.html", null ]
     ] ],
     [ "emlabcpp::pmr::memory_resource", "classemlabcpp_1_1pmr_1_1memory__resource.html", [
       [ "emlabcpp::pmr::stack_resource< 1024+512 >", "classemlabcpp_1_1pmr_1_1stack__resource.html", null ],
@@ -302,7 +304,6 @@ var hierarchy =
     [ "emlabcpp::testing::reactor_interface_adapter", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html", null ],
     [ "emlabcpp::testing::reactor_internal_error_report", "structemlabcpp_1_1testing_1_1reactor__internal__error__report.html", null ],
     [ "emlabcpp::testing::reactor_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error", null ],
-    [ "emlabcpp::testing::record", "classemlabcpp_1_1testing_1_1record.html", null ],
     [ "emlabcpp::recursive_writer< Writer >", "structemlabcpp_1_1recursive__writer.html", null ],
     [ "emlabcpp::protocol::register_handler< Map >", "structemlabcpp_1_1protocol_1_1register__handler.html", null ],
     [ "emlabcpp::protocol::register_map< Endianess, Regs >", "classemlabcpp_1_1protocol_1_1register__map.html", null ],
@@ -388,6 +389,7 @@ var hierarchy =
     [ "emlabcpp::type_tag< T >", "namespaceemlabcpp.html#structemlabcpp_1_1type__tag", null ],
     [ "emlabcpp::protocol::value_offset< D, Offset >", "structemlabcpp_1_1protocol_1_1value__offset.html", null ],
     [ "emlabcpp::testing::value_type_converter< T >", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter", null ],
+    [ "emlabcpp::testing::value_type_converter< const char * >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01const_01char_01_5_01_4.html", null ],
     [ "emlabcpp::testing::value_type_converter< std::chrono::duration< Rep, Ratio > >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4.html", null ],
     [ "emlabcpp::testing::value_type_converter< std::string_view >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html", null ],
     [ "emlabcpp::testing::value_type_converter_getter< T >", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", null ],
@@ -406,14 +408,17 @@ var hierarchy =
       [ "emlabcpp::bounded_view< Iterator, SizeType >", "classemlabcpp_1_1bounded__view.html", null ]
     ] ],
     [ "emlabcpp::rpc::void_return_type", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1void__return__type", null ],
-    [ "emlabcpp::coro::wait_interface", "classemlabcpp_1_1coro_1_1wait__interface.html", [
-      [ "emlabcpp::coro::recursive_coroutine< void >", "classemlabcpp_1_1coro_1_1recursive__coroutine.html", null ],
+    [ "emlabcpp::coro::wait_interface", "structemlabcpp_1_1coro_1_1wait__interface.html", [
       [ "emlabcpp::coro::error_awaiter", "structemlabcpp_1_1coro_1_1error__awaiter.html", null ],
       [ "emlabcpp::coro::noop_awaiter", "structemlabcpp_1_1coro_1_1noop__awaiter.html", null ],
-      [ "emlabcpp::coro::recursive_coroutine< T >", "classemlabcpp_1_1coro_1_1recursive__coroutine.html", null ],
+      [ "emlabcpp::coro::recursive_coroutine< T >", "classemlabcpp_1_1coro_1_1recursive__coroutine.html", null ]
+    ] ],
+    [ "emlabcpp::testing::wait_interface", "structemlabcpp_1_1testing_1_1wait__interface.html", [
+      [ "emlabcpp::testing::coroutine< void >", "classemlabcpp_1_1testing_1_1coroutine.html", null ],
       [ "emlabcpp::testing::collect_awaiter", "classemlabcpp_1_1testing_1_1collect__awaiter.html", null ],
-      [ "emlabcpp::testing::expect_awaiter", "structemlabcpp_1_1testing_1_1expect__awaiter.html", null ],
-      [ "emlabcpp::testing::params_awaiter< Processor >", "structemlabcpp_1_1testing_1_1params__awaiter.html", null ]
+      [ "emlabcpp::testing::coroutine< T >", "classemlabcpp_1_1testing_1_1coroutine.html", null ],
+      [ "emlabcpp::testing::params_awaiter< Processor >", "structemlabcpp_1_1testing_1_1params__awaiter.html", null ],
+      [ "emlabcpp::testing::status_awaiter", "structemlabcpp_1_1testing_1_1status__awaiter.html", null ]
     ] ],
     [ "emlabcpp::testing::wrong_type_error", "structemlabcpp_1_1testing_1_1wrong__type__error.html", null ],
     [ "emlabcpp::zip_iterator< Iterators >", "classemlabcpp_1_1zip__iterator.html", null ],

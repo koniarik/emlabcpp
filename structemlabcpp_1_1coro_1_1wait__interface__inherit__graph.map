@@ -1,0 +1,6 @@
+<map id="emlabcpp::coro::wait_interface" name="emlabcpp::coro::wait_interface">
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,164,112"/>
+<area shape="rect" id="node2" href="$structemlabcpp_1_1coro_1_1error__awaiter.html" title=" " alt="" coords="227,5,388,47"/>
+<area shape="rect" id="node3" href="$structemlabcpp_1_1coro_1_1noop__awaiter.html" title=" " alt="" coords="226,71,389,112"/>
+<area shape="rect" id="node4" href="$classemlabcpp_1_1coro_1_1recursive__coroutine.html" title=" " alt="" coords="212,136,403,177"/>
+</map>

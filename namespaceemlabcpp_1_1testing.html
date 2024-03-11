@@ -125,7 +125,15 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html">value_type_converter&lt; std::string_view &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter_3_01const_01char_01_5_01_4.html">value_type_converter&lt; const char * &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4.html">value_type_converter&lt; std::chrono::duration&lt; Rep, Ratio &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1wait__interface.html">wait_interface</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1coroutine.html">coroutine</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1status__awaiter.html">status_awaiter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1testing_1_1reactor__protocol__error"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error">reactor_protocol_error</a></td></tr>
 <tr class="separator:structemlabcpp_1_1testing_1_1reactor__protocol__error"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -225,10 +233,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1reactor__interface__adapter.html">reactor_interface_adapter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1expect__awaiter.html">expect_awaiter</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1testing_1_1record.html">record</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -280,8 +284,6 @@ Typedefs</h2></td></tr>
 <tr class="separator:a2d364a2eccea6d9cdb092933d1e818d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92f5e143a8b528250547144d5605bf81"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a92f5e143a8b528250547144d5605bf81">collect_server_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#a8f31210bf94829b46e3ed0373409b3c8">collect_server_client_message</a> &amp;), 32 &gt;</td></tr>
 <tr class="separator:a92f5e143a8b528250547144d5605bf81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae00c5ff4f8236a54f34ac13a2d74ca1c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ae00c5ff4f8236a54f34ac13a2d74ca1c">test_coroutine</a> = <a class="el" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html">coro::recursive_coroutine</a>&lt; void &gt;</td></tr>
-<tr class="separator:ae00c5ff4f8236a54f34ac13a2d74ca1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21c567b7200acbb97782be90bdf747b4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a21c567b7200acbb97782be90bdf747b4">error_variant</a> = std::variant&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error">reactor_protocol_error</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__protocol__error">controller_protocol_error</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error">internal_reactor_error</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__internal__error">controller_internal_error</a> &gt;</td></tr>
 <tr class="separator:a21c567b7200acbb97782be90bdf747b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a097cc8cba998203818d645f127a04e66"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a097cc8cba998203818d645f127a04e66">test_ll_node</a> = <a class="el" href="classemlabcpp_1_1linked__list__node__base.html">linked_list_node_base</a>&lt; <a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a> &gt;</td></tr>
@@ -368,6 +370,19 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a137ff616974dc5f715b6fb730d6ff95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36b5c4e3cf7f27ac1c6807333d3b7d65"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a36b5c4e3cf7f27ac1c6807333d3b7d65">coro_state</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a36b5c4e3cf7f27ac1c6807333d3b7d65a1869d56535e8b1449a6da54ff5e11f50">WAITING</a> = 0x1
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a36b5c4e3cf7f27ac1c6807333d3b7d65add0f1fac7b1452a7c98db1c15fa9b7bb">ERRORED</a> = 0x3
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a36b5c4e3cf7f27ac1c6807333d3b7d65a203ec08f57cb105eeb2b121ba6503b52">SKIPPED</a> = 0x4
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a36b5c4e3cf7f27ac1c6807333d3b7d65ab9e14d9b2886bcff408b85aefa780419">FAILED</a> = 0x5
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#a36b5c4e3cf7f27ac1c6807333d3b7d65a2ba22e58ca17bb728d522bba36cf8350">DONE</a> = 0x6
+<br />
+ }</td></tr>
+<tr class="separator:a36b5c4e3cf7f27ac1c6807333d3b7d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb07fe9541c63a9babdb6f577489443a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443a">params_enum</a> : uint8_t { <br />
 &#160;&#160;<a class="el" href="namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa5a762008e8eca4531fef87b0164b2cdf">PARAM_VALUE</a> = 0x10
 , <br />
@@ -438,9 +453,20 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ad6d062b71cf62c15572934d7cf66ce32"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ad6d062b71cf62c15572934d7cf66ce32">is_problematic</a> (<a class="el" href="namespaceemlabcpp_1_1testing.html#a137ff616974dc5f715b6fb730d6ff95b">test_status</a> stat)</td></tr>
 <tr class="separator:ad6d062b71cf62c15572934d7cf66ce32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a784c65ad2baae738905bad887b873936"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1testing_1_1status__awaiter.html">status_awaiter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a784c65ad2baae738905bad887b873936">expect</a> (<a class="el" href="classemlabcpp_1_1testing_1_1collector.html">collector</a> &amp;c, bool expr, std::source_location loc=std::source_location::current())</td></tr>
+<tr class="separator:a784c65ad2baae738905bad887b873936"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68a80d6426bbb9d6709a4af8a28f05e4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a68a80d6426bbb9d6709a4af8a28f05e4"><td class="memTemplItemLeft" align="right" valign="top">requires(N&lt;=<a class="el" href="structemlabcpp_1_1string__buffer.html#ad3fb49b9adf76d2a6e5f15041000af70">string_buffer::capacity</a>) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; emlabcpp requires(<a class="el" href="namespaceemlabcpp.html#a5a66cad0d4226d39ffd692e16bcfc076">alternative_of</a>&lt; T, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4">requires</a> (!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;) struct <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter">value_type_converter</a>&lt; T &gt;</td></tr>
 <tr class="separator:a68a80d6426bbb9d6709a4af8a28f05e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a083719957aaf90bd86cb24b4457f68fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1testing_1_1status__awaiter.html">status_awaiter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a083719957aaf90bd86cb24b4457f68fd">expect</a> (bool expr)</td></tr>
+<tr class="separator:a083719957aaf90bd86cb24b4457f68fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b66a0b6da3b1e4bb011e38d449b2755"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1testing_1_1status__awaiter.html">status_awaiter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a2b66a0b6da3b1e4bb011e38d449b2755">fail</a> ()</td></tr>
+<tr class="separator:a2b66a0b6da3b1e4bb011e38d449b2755"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a629b37146851ed10536be82200b8e178"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1testing_1_1status__awaiter.html">status_awaiter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a629b37146851ed10536be82200b8e178">skip</a> ()</td></tr>
+<tr class="separator:a629b37146851ed10536be82200b8e178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a843c3b7de0d1dbdf5f4c138a2f773ac0"><td class="memTemplParams" colspan="2">template&lt;valid_test_callable Callable&gt; </td></tr>
+<tr class="memitem:a843c3b7de0d1dbdf5f4c138a2f773ac0"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a843c3b7de0d1dbdf5f4c138a2f773ac0">test_callable</a> (const std::string_view name, Callable cb) -&gt; <a class="el" href="classemlabcpp_1_1testing_1_1test__callable.html">test_callable</a>&lt; Callable &gt;</td></tr>
+<tr class="separator:a843c3b7de0d1dbdf5f4c138a2f773ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26767cbbbbaeb6e03c676f6e343f64a9"><td class="memTemplParams" colspan="2">template&lt;typename Unit , typename Reactor , typename... Args&gt; </td></tr>
 <tr class="memitem:a26767cbbbbaeb6e03c676f6e343f64a9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1result.html">result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a26767cbbbbaeb6e03c676f6e343f64a9">construct_test_unit</a> (<a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;mem_res, Reactor &amp;<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a>, Args &amp;&amp;... <a class="el" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a>)</td></tr>
 <tr class="separator:a26767cbbbbaeb6e03c676f6e343f64a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1408,20 +1434,6 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ae00c5ff4f8236a54f34ac13a2d74ca1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae00c5ff4f8236a54f34ac13a2d74ca1c">&#9670;&nbsp;</a></span>test_coroutine</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ae00c5ff4f8236a54f34ac13a2d74ca1c">emlabcpp::testing::test_coroutine</a> = typedef <a class="el" href="classemlabcpp_1_1coro_1_1recursive__coroutine.html">coro::recursive_coroutine</a>&lt; void &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a00b8f081e11fc3a56f298674ec89a8ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00b8f081e11fc3a56f298674ec89a8ca">&#9670;&nbsp;</a></span>test_id</h2>
 
@@ -1497,6 +1509,35 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a36b5c4e3cf7f27ac1c6807333d3b7d65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36b5c4e3cf7f27ac1c6807333d3b7d65">&#9670;&nbsp;</a></span>coro_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceemlabcpp_1_1testing.html#a36b5c4e3cf7f27ac1c6807333d3b7d65">emlabcpp::testing::coro_state</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a36b5c4e3cf7f27ac1c6807333d3b7d65a1869d56535e8b1449a6da54ff5e11f50"></a>WAITING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a36b5c4e3cf7f27ac1c6807333d3b7d65add0f1fac7b1452a7c98db1c15fa9b7bb"></a>ERRORED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a36b5c4e3cf7f27ac1c6807333d3b7d65a203ec08f57cb105eeb2b121ba6503b52"></a>SKIPPED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a36b5c4e3cf7f27ac1c6807333d3b7d65ab9e14d9b2886bcff408b85aefa780419"></a>FAILED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a36b5c4e3cf7f27ac1c6807333d3b7d65a2ba22e58ca17bb728d522bba36cf8350"></a>DONE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <a id="acaa3eb138817e4e8e0040cb830a35d76"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acaa3eb138817e4e8e0040cb830a35d76">&#9670;&nbsp;</a></span>error_enum</h2>
 
@@ -1740,6 +1781,105 @@ template&lt;typename Unit , typename Reactor , typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="a083719957aaf90bd86cb24b4457f68fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a083719957aaf90bd86cb24b4457f68fd">&#9670;&nbsp;</a></span>expect() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structemlabcpp_1_1testing_1_1status__awaiter.html">status_awaiter</a> emlabcpp::testing::expect </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>expr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1testing.html#a36b5c4e3cf7f27ac1c6807333d3b7d65a2ba22e58ca17bb728d522bba36cf8350">DONE</a>, and <a class="el" href="namespaceemlabcpp_1_1testing.html#a36b5c4e3cf7f27ac1c6807333d3b7d65ab9e14d9b2886bcff408b85aefa780419">FAILED</a>.</p>
+
+</div>
+</div>
+<a id="a784c65ad2baae738905bad887b873936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a784c65ad2baae738905bad887b873936">&#9670;&nbsp;</a></span>expect() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structemlabcpp_1_1testing_1_1status__awaiter.html">status_awaiter</a> emlabcpp::testing::expect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1testing_1_1collector.html">collector</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>expr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::source_location&#160;</td>
+          <td class="paramname"><em>loc</em> = <code>std::source_location::current()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classemlabcpp_1_1testing_1_1collector.html#a873ff33b37c7bb4ba001a7848ed287b1">emlabcpp::testing::collector::set()</a>.</p>
+
+</div>
+</div>
+<a id="a2b66a0b6da3b1e4bb011e38d449b2755"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b66a0b6da3b1e4bb011e38d449b2755">&#9670;&nbsp;</a></span>fail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structemlabcpp_1_1testing_1_1status__awaiter.html">status_awaiter</a> emlabcpp::testing::fail </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1testing.html#a36b5c4e3cf7f27ac1c6807333d3b7d65ab9e14d9b2886bcff408b85aefa780419">FAILED</a>.</p>
+
+</div>
+</div>
 <a id="ad6d062b71cf62c15572934d7cf66ce32"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad6d062b71cf62c15572934d7cf66ce32">&#9670;&nbsp;</a></span>is_problematic()</h2>
 
@@ -1782,6 +1922,63 @@ template&lt;typename T &gt; </div>
           <td class="paramtype">!std::same_as&lt; T, int64_t &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;!std::same_as&lt; T, bool &gt;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a629b37146851ed10536be82200b8e178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a629b37146851ed10536be82200b8e178">&#9670;&nbsp;</a></span>skip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structemlabcpp_1_1testing_1_1status__awaiter.html">status_awaiter</a> emlabcpp::testing::skip </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1testing.html#a36b5c4e3cf7f27ac1c6807333d3b7d65a203ec08f57cb105eeb2b121ba6503b52">SKIPPED</a>.</p>
+
+</div>
+</div>
+<a id="a843c3b7de0d1dbdf5f4c138a2f773ac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a843c3b7de0d1dbdf5f4c138a2f773ac0">&#9670;&nbsp;</a></span>test_callable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;valid_test_callable Callable&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1testing_1_1test__callable.html">emlabcpp::testing::test_callable</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable&#160;</td>
+          <td class="paramname"><em>cb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> -&gt;  <a class="el" href="classemlabcpp_1_1testing_1_1test__callable.html">test_callable</a>&lt; Callable &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1868,10 +2065,10 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T t, pmr::memory_resource&amp; mem_resource, record&amp; rec ) {</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T t, pmr::memory_resource&amp; mem_resource ) {</div>
 <div class="line">        {</div>
-<div class="line">                t( mem_resource, rec )</div>
-<div class="line">        } -&gt; std::same_as&lt; test_coroutine &gt;;</div>
+<div class="line">                t( mem_resource )</div>
+<div class="line">        } -&gt; std::same_as&lt; coroutine&lt; void &gt; &gt;;</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:77</div></div>
 </div><!-- fragment -->
@@ -1909,7 +2106,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Mon Mar 11 2024 06:45:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 11 2024 22:24:34 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

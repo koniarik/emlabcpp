@@ -7,7 +7,7 @@ var classemlabcpp_1_1testing_1_1test__interface =
     [ "get_name", "classemlabcpp_1_1testing_1_1test__interface.html#a1d48188286785bbc4fa9b1816a7026aa", null ],
     [ "operator=", "classemlabcpp_1_1testing_1_1test__interface.html#af39b21a1b17745f6cf3c8fc102c7c683", null ],
     [ "operator=", "classemlabcpp_1_1testing_1_1test__interface.html#a92640c0418c2ee4b6fa6f32075f35302", null ],
-    [ "run", "classemlabcpp_1_1testing_1_1test__interface.html#ac43f94dcd599108d5d8586982f7646ae", null ],
-    [ "setup", "classemlabcpp_1_1testing_1_1test__interface.html#af30b93bbc4de751b7cc70796a0a710dc", null ],
-    [ "teardown", "classemlabcpp_1_1testing_1_1test__interface.html#aa8c3a0807b94cdabc31313f9aeefe058", null ]
+    [ "run", "classemlabcpp_1_1testing_1_1test__interface.html#a6e01e0ba6d1d1bed2799003fced84ae7", null ],
+    [ "setup", "classemlabcpp_1_1testing_1_1test__interface.html#a8b67bac32359a2b60479b55e4439269a", null ],
+    [ "teardown", "classemlabcpp_1_1testing_1_1test__interface.html#aa7cb439d4821378d99b0309b2fba46fd", null ]
 ];

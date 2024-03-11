@@ -27,9 +27,5 @@ var dir_539f3c5103b46bf50615f61463de2f53 =
     ] ],
     [ "reactor_interface_adapter.h", "reactor__interface__adapter_8h.html", [
       [ "reactor_interface_adapter", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html", "classemlabcpp_1_1testing_1_1reactor__interface__adapter" ]
-    ] ],
-    [ "record.h", "record_8h.html", [
-      [ "expect_awaiter", "structemlabcpp_1_1testing_1_1expect__awaiter.html", "structemlabcpp_1_1testing_1_1expect__awaiter" ],
-      [ "record", "classemlabcpp_1_1testing_1_1record.html", "classemlabcpp_1_1testing_1_1record" ]
     ] ]
 ];
