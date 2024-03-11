@@ -14,5 +14,8 @@ var classemlabcpp_1_1testing_1_1collector =
     [ "operator=", "classemlabcpp_1_1testing_1_1collector.html#ac618a80781118aafea257b4030f886d4", null ],
     [ "set", "classemlabcpp_1_1testing_1_1collector.html#a20a554a039e4627ce0692d8f4c7a2bae", null ],
     [ "set", "classemlabcpp_1_1testing_1_1collector.html#a873ff33b37c7bb4ba001a7848ed287b1", null ],
-    [ "set", "classemlabcpp_1_1testing_1_1collector.html#aea52822097368230e0509a6696079657", null ]
+    [ "set", "classemlabcpp_1_1testing_1_1collector.html#aea52822097368230e0509a6696079657", null ],
+    [ "set", "classemlabcpp_1_1testing_1_1collector.html#afaadc083f1320ddf42a2c743905049cd", null ],
+    [ "set", "classemlabcpp_1_1testing_1_1collector.html#a84fc461305b8fb6ffa9472a2188d5f59", null ],
+    [ "set", "classemlabcpp_1_1testing_1_1collector.html#aad2fe3e24397984a02968f73af450b41", null ]
 ];

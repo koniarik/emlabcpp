@@ -1,5 +1,8 @@
 var NAVTREEINDEX10 =
 {
+"structemlabcpp_1_1min__max.html#af158a2d3598c29af6400a3c0ed2fdd4f":[3,0,0,86,4],
+"structemlabcpp_1_1min__max.html#af5d4af768610d1109a6d75705682c391":[3,0,0,86,6],
+"structemlabcpp_1_1physical__quantity.html":[3,0,0,89],
 "structemlabcpp_1_1physical__quantity.html#a19418778ee702ff5f0988b90e3e8dde1":[3,0,0,89,1],
 "structemlabcpp_1_1physical__quantity.html#a322fae98f9d256a4e20618060c22463a":[3,0,0,89,2],
 "structemlabcpp_1_1physical__quantity.html#a398248b03ff2f045a1d071b1c662ef41":[3,0,0,89,0],
@@ -157,8 +160,8 @@ var NAVTREEINDEX10 =
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a1d054f4f05805200120105e02368d5ff":[3,0,0,6,13,12],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a4e756edb229f66f59acb9fb43b84764b":[3,0,0,6,13,7],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a4e756edb229f66f59acb9fb43b84764b":[3,0,0,6,13,8],
-"structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a5ea44fb2dc8cf3d1b6018eaea5f0e13d":[3,0,0,6,13,4],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a5ea44fb2dc8cf3d1b6018eaea5f0e13d":[3,0,0,6,13,5],
+"structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a5ea44fb2dc8cf3d1b6018eaea5f0e13d":[3,0,0,6,13,4],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a6c5feac86d2f8c6feaa58f90d442012f":[3,0,0,6,13,0],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a752ad07f1d5a50a1aea9fb4f7fd977fa":[3,0,0,6,13,2],
 "structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a818a80fa4dc8f1708574743ff9955f82":[3,0,0,6,13,11],
@@ -246,8 +249,5 @@ var NAVTREEINDEX10 =
 "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html#a3d797e24413e99b925a7d535c84cdb02":[3,0,0,6,19,4],
 "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html#a51fdae6f6bd5b10e0cea6e83c52a3b10":[3,0,0,6,19,6],
 "structemlabcpp_1_1protocol_1_1converter_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html#a53089db45bf32a07282e35e9bf3c32c2":[3,0,0,6,19,2],
-"structemlabcpp_1_1protocol_1_1converter_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html#ad3a90eff706e166aee3f6f30599182bf":[3,0,0,6,19,1],
-"structemlabcpp_1_1protocol_1_1converter_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html#adefc3e3e8a5b68688a9a6e480c8f48be":[3,0,0,6,19,0],
-"structemlabcpp_1_1protocol_1_1converter_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html#adfb0ebbcc4effeabbbbe60e1a96e9c59":[3,0,0,6,19,5],
-"structemlabcpp_1_1protocol_1_1converter_3_01std_1_1monostate_00_01Endianess_01_4.html":[3,0,0,6,17]
+"structemlabcpp_1_1protocol_1_1converter_3_01std_1_1bitset_3_01N_01_4_00_01Endianess_01_4.html#ad3a90eff706e166aee3f6f30599182bf":[3,0,0,6,19,1]
 };
