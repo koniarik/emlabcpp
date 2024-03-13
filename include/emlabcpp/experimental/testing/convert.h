@@ -102,6 +102,24 @@ struct value_type_converter< T >
         }
 };
 
+template < std::size_t N >
+struct value_type_converter< std::bitset< N > >
+{
+        static_assert( N < 64 );
+
+        static std::optional< std::bitset< N > > from_value( const value_type& var )
+        {
+                if ( auto* val = std::get_if< int64_t >( &var ) )
+                        return { *val };
+                return std::nullopt;
+        }
+
+        static value_type to_value( const std::bitset< N >& item )
+        {
+                return static_cast< int64_t >( item.to_ulong() );
+        }
+};
+
 template <>
 struct value_type_converter< std::string_view >
 {
