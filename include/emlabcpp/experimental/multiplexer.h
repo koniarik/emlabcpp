@@ -53,6 +53,21 @@ static constexpr channel_type multiplexer_service_id = 0;
 using multiplexer_service_protocol = std::tuple< multiplexer_enum >;
 using multiplexer_service_msg      = typename handler< multiplexer_service_protocol >::message_type;
 
+inline std::tuple< bool, std::span< std::byte > > serialize_multiplexed(
+    channel_type                 channel,
+    std::span< const std::byte > data,
+    std::span< std::byte >       target )
+{
+        using chan_ser = protocol::serializer< channel_type, std::endian::little >;
+        if ( target.size() < chan_ser::max_size + data.size() )
+                return { false, {} };
+
+        chan_ser::serialize_at( target.subspan< 0, chan_ser::max_size >(), channel );
+        std::memcpy( target.data() + chan_ser::max_size, data.data(), data.size() );
+
+        return { false, target.subspan( 0, chan_ser::max_size + data.size() ) };
+}
+
 template < std::size_t N >
 multiplexer_message< N > serialize_multiplexed( channel_type channel, const message< N >& m )
 {

@@ -204,7 +204,7 @@ using reactor_transmit_callback =
 using controller_transmit_callback =
     static_function< result( protocol::channel_type, const controller_reactor_message& ), 32 >;
 
-using packet_payload = protocol::multiplexer_payload< 80 >;
+using packet_payload = protocol::multiplexer_payload< 110 >;
 // TODO: this needs rethinking /o\ entire multiplexer needs redesign?
 
 // TODO: this needs more constructive approach... why is it here?

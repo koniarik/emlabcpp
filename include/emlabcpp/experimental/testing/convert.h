@@ -57,9 +57,13 @@ struct value_type_converter< emlabcpp::string_buffer< N > >
         static std::optional< emlabcpp::string_buffer< N > > from_value( const value_type& var )
         {
                 const auto* val_ptr = std::get_if< string_buffer >( &var );
-                if ( val_ptr )
+                if ( val_ptr == nullptr )
+                        return std::nullopt;
+
+                if constexpr ( N == string_buffer::capacity )
                         return *val_ptr;
-                return std::nullopt;
+                else
+                        return emlabcpp::string_buffer< N >{ std::string_view{ *val_ptr } };
         }
 
         static value_type to_value( const emlabcpp::string_buffer< N >& item )

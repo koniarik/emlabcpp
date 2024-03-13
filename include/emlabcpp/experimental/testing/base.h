@@ -39,7 +39,7 @@ using node_id        = uint32_t;
 using child_count    = uint32_t;
 using child_id       = uint32_t;
 using node_type_enum = contiguous_tree_type;
-using string_buffer  = string_buffer< 32 >;
+using string_buffer  = string_buffer< 64 >;
 using key_type       = key_type_buffer;
 
 // TODO: this breaks stuff as it has nlohmann::json serialization overload which is _not a good

@@ -165,6 +165,7 @@ expect( collector& c, bool expr, std::source_location loc = std::source_location
 {
         if ( !expr ) {
                 c.set( "sfile", loc.file_name() );
+                c.set( "sfun", loc.function_name() );
                 c.set( "sline", loc.line() );
         }
         return expect( expr );

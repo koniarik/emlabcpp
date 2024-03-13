@@ -40,6 +40,14 @@ struct string_buffer : std::array< char, N >
                 std::copy_n( msg, M, this->begin() );
         }
 
+        template < std::size_t M >
+        constexpr string_buffer( const string_buffer< M >& msg )
+          : string_buffer()
+        {
+                static_assert( M < N );
+                std::copy_n( msg.data(), M, this->begin() );
+        }
+
         operator std::string_view() const
         {
                 return std::string_view( this->data() );
