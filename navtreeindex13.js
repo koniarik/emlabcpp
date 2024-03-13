@@ -1,5 +1,8 @@
 var NAVTREEINDEX13 =
 {
+"structemlabcpp_1_1testing_1_1reactor__internal__error__report.html#ae064730873d48cb3f99fab1e4ff0c37f":[3,0,0,8,63,1],
+"structemlabcpp_1_1testing_1_1status__awaiter.html":[3,0,0,8,17],
+"structemlabcpp_1_1testing_1_1status__awaiter.html#a3cbfafd31fcf5830a4df3f73c4b4b205":[3,0,0,8,17,2],
 "structemlabcpp_1_1testing_1_1status__awaiter.html#a441a6724b0d21f9891f5d1eb26bdd7bb":[3,0,0,8,17,4],
 "structemlabcpp_1_1testing_1_1status__awaiter.html#a7ffa91eb163469d4b21c1090fdd13a14":[3,0,0,8,17,6],
 "structemlabcpp_1_1testing_1_1status__awaiter.html#a9087553460bb5efdd59faf40434396b9":[3,0,0,8,17,3],

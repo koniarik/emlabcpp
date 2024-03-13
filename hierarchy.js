@@ -4,6 +4,7 @@ var hierarchy =
     [ "emlabcpp::are_same<... >", "namespaceemlabcpp.html#structemlabcpp_1_1are__same", null ],
     [ "std::array< T >", null, [
       [ "emlabcpp::min_max< float >", "structemlabcpp_1_1min__max.html", null ],
+      [ "emlabcpp::string_buffer< 64 >", "structemlabcpp_1_1string__buffer.html", null ],
       [ "emlabcpp::string_buffer< 32 >", "structemlabcpp_1_1string__buffer.html", null ],
       [ "emlabcpp::string_buffer< mark_size >", "structemlabcpp_1_1string__buffer.html", null ],
       [ "emlabcpp::min_max< T >", "structemlabcpp_1_1min__max.html", null ],
@@ -355,7 +356,7 @@ var hierarchy =
     [ "emlabcpp::static_storage< T, real_size >", "classemlabcpp_1_1static__storage.html", null ],
     [ "emlabcpp::static_vector< T, N >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::static_vector< uint16_t, PoolCount >", "classemlabcpp_1_1static__vector.html", null ],
-    [ "emlabcpp::string_buffer< 32 >< 32 >", "structemlabcpp_1_1string__buffer.html", null ],
+    [ "emlabcpp::string_buffer< 64 >< 32 >", "structemlabcpp_1_1string__buffer.html", null ],
     [ "emlabcpp::success_type", "structemlabcpp_1_1success__type.html", null ],
     [ "emlabcpp::tag< V >", "structemlabcpp_1_1tag.html", null ],
     [ "emlabcpp::protocol::tag_group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group", null ],

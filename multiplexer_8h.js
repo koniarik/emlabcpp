@@ -15,5 +15,6 @@ var multiplexer_8h =
     [ "extract_multiplexed", "multiplexer_8h.html#ab08294ec0d41d8284242e2b8bc4c2a18", null ],
     [ "multiplexed_dispatch", "multiplexer_8h.html#a39ffab4b8c7d6910c971588b583d8270", null ],
     [ "serialize_multiplexed", "multiplexer_8h.html#a3e625c3d79c1b8ca3bc23f0ac23d00cd", null ],
+    [ "serialize_multiplexed", "multiplexer_8h.html#aa866c34d5e932f8dfd3e123200bd7e93", null ],
     [ "multiplexer_service_id", "multiplexer_8h.html#ac45b34ffbd63c8c942cea66c9b489c16", null ]
 ];
