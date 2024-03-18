@@ -47,24 +47,24 @@
 namespace emlabcpp::testing
 {
 
-collect_awaiter::collect_awaiter( const collect_request& req, collector& coll )
+collect_awaiter::collect_awaiter( collect_request const& req, collector& coll )
   : req( req )
   , col( coll )
 {
 }
 
 void collect_awaiter::await_suspend(
-    const std::coroutine_handle< coroutine< void >::promise_type > h )
+    std::coroutine_handle< coroutine< void >::promise_type > const h )
 {
         h.promise().iface = this;
-        col.exchange( req, [this]( const collect_server_client_group& var ) {
+        col.exchange( req, [this]( collect_server_client_group const& var ) {
                 match(
                     var,
-                    [this]( const collect_reply& rpl ) {
+                    [this]( collect_reply const& rpl ) {
                             res   = rpl.nid;
                             state = coro_state::DONE;
                     },
-                    [this]( const tree_error_reply& err ) {
+                    [this]( tree_error_reply const& err ) {
                             std::ignore = err;
                             EMLABCPP_ERROR_LOG( "Got an error: ", decompose( err ) );
                             state = coro_state::ERRORED;
@@ -72,28 +72,28 @@ void collect_awaiter::await_suspend(
         } );
 }
 
-collector::collector( const protocol::channel_type chann, collect_client_transmit_callback send_cb )
+collector::collector( protocol::channel_type const chann, collect_client_transmit_callback send_cb )
   : channel_( chann )
   , send_cb_( std::move( send_cb ) )
 {
 }
 
-outcome collector::on_msg( const std::span< const std::byte >& msg )
+outcome collector::on_msg( std::span< std::byte const > const& msg )
 {
         using h = protocol::handler< collect_server_client_group >;
         return h::extract( view_n( msg.data(), msg.size() ) )
             .match(
-                [this]( const collect_server_client_group& req ) {
+                [this]( collect_server_client_group const& req ) {
                         return on_msg( req );
                 },
-                []( const auto& err ) -> outcome {
+                []( auto const& err ) -> outcome {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                         return ERROR;
                 } );
 }
 
-outcome collector::on_msg( const collect_server_client_group& var )
+outcome collector::on_msg( collect_server_client_group const& var )
 {
         if ( reply_callback_ ) {
                 reply_callback_( var );
@@ -104,7 +104,7 @@ outcome collector::on_msg( const collect_server_client_group& var )
 }
 
 collect_awaiter
-collector::set( const node_id parent, const std::string_view key, contiguous_container_type t )
+collector::set( node_id const parent, std::string_view const key, contiguous_container_type t )
 {
         return collect_awaiter{
             collect_request{
@@ -112,7 +112,7 @@ collector::set( const node_id parent, const std::string_view key, contiguous_con
             *this };
 }
 
-collect_awaiter collector::append( const node_id parent, contiguous_container_type t )
+collect_awaiter collector::append( node_id const parent, contiguous_container_type t )
 {
         return collect_awaiter{
             collect_request{
@@ -120,7 +120,7 @@ collect_awaiter collector::append( const node_id parent, contiguous_container_ty
             *this };
 }
 
-bool collector::set( const node_id parent, const std::string_view key, const value_type& val )
+bool collector::set( node_id const parent, std::string_view const key, value_type const& val )
 {
         EMLABCPP_DEBUG_LOG(
             "Sending collect request for parent ", parent, " key: ", key, " value: ", val );
@@ -131,7 +131,7 @@ bool collector::set( const node_id parent, const std::string_view key, const val
                    .value         = val } ) == SUCCESS;
 }
 
-bool collector::append( const node_id parent, const value_type& val )
+bool collector::append( node_id const parent, value_type const& val )
 {
         return send( collect_request{
                    .parent        = parent,
@@ -140,13 +140,13 @@ bool collector::append( const node_id parent, const value_type& val )
                    .value         = val } ) == SUCCESS;
 }
 
-bool collector::exchange( const collect_request& req, collect_reply_callback cb )
+bool collector::exchange( collect_request const& req, collect_reply_callback cb )
 {
         reply_callback_ = std::move( cb );
         return send( req ) == SUCCESS;
 }
 
-result collector::send( const collect_request& req )
+result collector::send( collect_request const& req )
 {
         using h  = protocol::handler< collect_request >;
         auto msg = h::serialize( req );
@@ -154,7 +154,7 @@ result collector::send( const collect_request& req )
 }
 
 collect_server::collect_server(
-    const protocol::channel_type     chan,
+    protocol::channel_type const     chan,
     pmr::memory_resource&            mem_res,
     collect_server_transmit_callback send_cb )
   : channel_( chan )
@@ -163,23 +163,23 @@ collect_server::collect_server(
 {
 }
 
-outcome collect_server::on_msg( const std::span< const std::byte > data )
+outcome collect_server::on_msg( std::span< std::byte const > const data )
 {
         using h = protocol::handler< collect_request >;
         EMLABCPP_DEBUG_LOG( "got msg: ", collect_client_server_message{ data } );
         return h::extract( view_n( data.data(), data.size() ) )
             .match(
-                [this]( const collect_request& req ) {
+                [this]( collect_request const& req ) {
                         return on_msg( req );
                 },
-                []( const auto& err ) -> outcome {
+                []( auto const& err ) -> outcome {
                         std::ignore = err;
                         EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                         return ERROR;
                 } );
 }
 
-outcome collect_server::on_msg( const collect_request& req )
+outcome collect_server::on_msg( collect_request const& req )
 {
         EMLABCPP_DEBUG_LOG(
             "got collect request: parent:",
@@ -207,17 +207,17 @@ outcome collect_server::on_msg( const collect_request& req )
             req.opt_key ? harn.insert( req.parent, *req.opt_key, req.value ) :
                           harn.insert( req.parent, req.value );
         return res.match(
-            [this, &req]( const node_id nid ) -> result {
+            [this, &req]( node_id const nid ) -> result {
                     if ( !req.expects_reply )
                             return SUCCESS;
                     return this->send( collect_reply{ nid } );
             },
-            [this, &req]( const contiguous_request_adapter_errors err ) {
+            [this, &req]( contiguous_request_adapter_errors const err ) {
                     return this->send( tree_error_reply{ err, req.parent } );
             } );
 }
 
-result collect_server::send( const collect_server_client_group& val )
+result collect_server::send( collect_server_client_group const& val )
 {
         using h = protocol::handler< collect_server_client_group >;
         return send_cb_( channel_, h::serialize( val ) );

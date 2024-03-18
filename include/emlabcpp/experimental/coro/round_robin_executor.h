@@ -42,7 +42,7 @@ typename Container::value_type round_robin_run( pmr::memory_resource&, Container
                         continue;
                 }
 
-                const auto* out = cor.get_request();
+                auto const* out = cor.get_request();
 
                 if ( out == nullptr ) {
                         EMLABCPP_ERROR_LOG( "reply from coroutine is nullptr!" );

@@ -29,31 +29,31 @@ using logging_option = std::variant< set_stdout, set_stderr, set_ostream, log_co
 class eabi_logger
 {
 public:
-        explicit eabi_logger( const std::vector< logging_option >& opts )
+        explicit eabi_logger( std::vector< logging_option > const& opts )
         {
-                for ( const auto& opt : opts )
+                for ( auto const& opt : opts )
                         set_option( opt );
         }
 
-        void set_option( const logging_option& opt )
+        void set_option( logging_option const& opt )
         {
                 match(
                     opt,
-                    [this]( const set_stdout& s ) {
+                    [this]( set_stdout const& s ) {
                             use_stdout_ = s.enabled;
                     },
-                    [this]( const set_stderr& s ) {
+                    [this]( set_stderr const& s ) {
                             use_stderr_ = s.enabled;
                     },
-                    [this]( const set_ostream& f ) {
+                    [this]( set_ostream const& f ) {
                             filestream_ = f.os;
                     },
-                    [this]( const log_colors& c ) {
+                    [this]( log_colors const& c ) {
                             colors_ = c;
                     } );
         }
 
-        void log_header( const timelog& tl, const std::string_view file, const int line )
+        void log_header( timelog const& tl, std::string_view const file, int const line )
         {
                 set_color( colors_.time );
                 write( tl );
@@ -68,7 +68,7 @@ public:
         }
 
         template < typename... Args >
-        void log( const Args&... args )
+        void log( Args const&... args )
         {
                 write_std_streams( reset_color() );
                 write( ' ' );
@@ -77,17 +77,17 @@ public:
 
 private:
         template < typename T >
-        void write( const T& t )
+        void write( T const& t )
         {
 
                 pretty_printer< T >::print(
-                    recursive_writer{ [this]( const auto& sub ) {
+                    recursive_writer{ [this]( auto const& sub ) {
                             this->write( sub );
                     } },
                     t );
         }
 
-        void write( const std::string_view sv )
+        void write( std::string_view const sv )
         {
 
                 write_std_streams( sv );
@@ -98,14 +98,14 @@ private:
                 }
         }
 
-        void set_color( const std::string_view c ) const
+        void set_color( std::string_view const c ) const
         {
                 write_std_streams( "\033[38;5;" );
                 write_std_streams( c );
                 write_std_streams( "m" );
         }
 
-        void write_std_streams( const std::string_view sv ) const
+        void write_std_streams( std::string_view const sv ) const
         {
                 if ( use_stdout_ )
                         std::cout.write( sv.data(), static_cast< std::streamsize >( sv.size() ) );

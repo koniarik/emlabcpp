@@ -71,10 +71,10 @@ struct valid_test_case : protocol_test_fixture
                 test_map m;
 
                 std::array< std::byte, max_size > buffer;
-                const bounded                     used = pitem::serialize_at(
+                bounded const                     used = pitem::serialize_at(
                     std::span< std::byte, pitem::max_size >( buffer.begin(), pitem::max_size ),
                     val );
-                const message_type source_msg( view_n( buffer.begin(), *used ) );
+                message_type const source_msg( view_n( buffer.begin(), *used ) );
                 test_handler::extract< Key >( source_msg )
                     .match(
                         [&]( auto val ) {
@@ -84,7 +84,7 @@ struct valid_test_case : protocol_test_fixture
                                 FAIL() << err;
                         } );
 
-                const value_type stored = m.get_val< Key >();
+                value_type const stored = m.get_val< Key >();
 
                 EXPECT_EQ( val, stored );
 
@@ -130,7 +130,7 @@ int main( int argc, char** argv )
 
         using namespace emlabcpp;
 
-        const std::vector< std::function< protocol_test_fixture*() > > tests = {
+        std::vector< std::function< protocol_test_fixture*() > > const tests = {
             make_valid_test_case< FOO >( 6663434u ),
             make_valid_test_case< WOO >( 6663434u ),
             make_valid_test_case< TOO >( 42u ),

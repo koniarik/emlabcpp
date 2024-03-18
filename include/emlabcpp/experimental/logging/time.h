@@ -33,7 +33,7 @@ struct timelog
 {
         std::chrono::time_point< std::chrono::system_clock > tp;
 
-        explicit timelog( const std::chrono::time_point< std::chrono::system_clock > tp_ )
+        explicit timelog( std::chrono::time_point< std::chrono::system_clock > const tp_ )
           : tp( tp_ )
         {
         }
@@ -45,17 +45,17 @@ template <>
 struct pretty_printer< timelog >
 {
         template < typename W >
-        static void print( W&& w, const timelog& lg )
+        static void print( W&& w, timelog const& lg )
         {
-                const std::time_t t   = std::chrono::system_clock::to_time_t( lg.tp );
-                const auto        dur = lg.tp.time_since_epoch();
-                const auto us = std::chrono::duration_cast< std::chrono::microseconds >( dur ) %
+                std::time_t const t   = std::chrono::system_clock::to_time_t( lg.tp );
+                auto const        dur = lg.tp.time_since_epoch();
+                auto const us = std::chrono::duration_cast< std::chrono::microseconds >( dur ) %
                                 std::chrono::seconds{ 1 };
 
                 std::array< char, 42 > data;
 
                 std::tm           tmval;
-                const std::size_t i =
+                std::size_t const i =
                     std::strftime( data.data(), data.size(), "%F %T.", localtime_r( &t, &tmval ) );
                 w( std::string_view{ data.data(), i } );
 

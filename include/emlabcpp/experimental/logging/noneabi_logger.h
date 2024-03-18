@@ -14,14 +14,14 @@ class noneabi_logger
 {
 public:
         template < typename... Args >
-        void log( const Args&... args )
+        void log( Args const&... args )
         {
                 ( write( args ), ... );
                 end();
         }
 
         template < typename T >
-        void write( const T& t )
+        void write( T const& t )
         {
                 pretty_printer< T >::print(
                     recursive_writer{ [&]( std::string_view sv ) {

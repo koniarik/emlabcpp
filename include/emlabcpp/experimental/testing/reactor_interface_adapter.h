@@ -29,7 +29,7 @@ namespace emlabcpp::testing
 {
 class reactor_interface_adapter
 {
-        using incoming_handler = static_function< bool( const controller_reactor_variant& ), 16 >;
+        using incoming_handler = static_function< bool( controller_reactor_variant const& ), 16 >;
 
         protocol::channel_type    channel_;
         reactor_transmit_callback transmit_;
@@ -37,15 +37,15 @@ class reactor_interface_adapter
 
 public:
         reactor_interface_adapter(
-            const protocol::channel_type chann,
+            protocol::channel_type const chann,
             reactor_transmit_callback    tb )
           : channel_( chann )
           , transmit_( std::move( tb ) )
         {
         }
 
-        result reply( const reactor_controller_variant& );
+        result reply( reactor_controller_variant const& );
 
-        result report_failure( const reactor_error_variant& );
+        result report_failure( reactor_error_variant const& );
 };
 }  // namespace emlabcpp::testing

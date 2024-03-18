@@ -108,10 +108,10 @@ public:
         using reply_handler   = protocol::handler< outter_reply_group >;
 
         template < typename Handler >
-        static reply_message_type on_message( const request_message_type& msg, Handler&& h )
+        static reply_message_type on_message( request_message_type const& msg, Handler&& h )
         {
                 return request_handler::extract( msg )
-                    .convert_left( [&]( const request_type& req_var ) {
+                    .convert_left( [&]( request_type const& req_var ) {
                             reply_variant rep = visit_index(
                                 [&]< std::size_t i >() {
                                         auto val = h( tag< i >{}, *std::get_if< i >( &req_var ) );
@@ -120,7 +120,7 @@ public:
                                 req_var );
                             return reply_handler::serialize( rep );
                     } )
-                    .convert_right( [&]( const protocol::error_record& rec ) {
+                    .convert_right( [&]( protocol::error_record const& rec ) {
                             EMLABCPP_ERROR_LOG(
                                 "reactor failed to extract incoming message ", msg );
                             return reply_handler::serialize( reactor_error{ rec } );
@@ -163,7 +163,7 @@ public:
 
         template < auto ID, typename... Args, typename MsgCallback >
         static either< typename call_type< ID >::reply, error >
-        call( MsgCallback&& cb, const Args&... args )
+        call( MsgCallback&& cb, Args const&... args )
         {
                 auto req_msg   = make_call_msg< ID >( args... );
                 auto reply_msg = cb( req_msg );
@@ -172,7 +172,7 @@ public:
         }
 
         template < auto ID, typename... Args >
-        static auto make_call_msg( const Args&... args )
+        static auto make_call_msg( Args const&... args )
         {
 
                 typename call_type< ID >::request req{ args... };
@@ -183,13 +183,13 @@ public:
 
         template < auto ID >
         static either< typename call_type< ID >::reply, error >
-        on_reply_msg( const auto& reply_msg )
+        on_reply_msg( auto const& reply_msg )
         {
                 using rt = typename call_type< ID >::reply;
 
                 return reply_handler::extract( reply_msg )
                     .convert_right( convert_to< error >{} )
-                    .bind_left( [&]( const auto& var ) -> either< rt, error > {
+                    .bind_left( [&]( auto const& var ) -> either< rt, error > {
                             auto* err_ptr = std::get_if< reactor_error >( &var );
                             if ( err_ptr != nullptr )
                                     return error{ *err_ptr };
@@ -222,7 +222,7 @@ struct derive
         using reply =
             std::conditional_t< void_returning, void_return_type, typename sig::return_type >;
 
-        static constexpr reply handle( auto& obj, const auto&... args )
+        static constexpr reply handle( auto& obj, auto const&... args )
         {
                 if constexpr ( void_returning ) {
                         ( obj.*Method )( args... );
@@ -246,18 +246,18 @@ public:
         class_wrapper( Class& obj )
           : obj_( obj ){};
 
-        reply_message_type on_message( const request_message_type& msg )
+        reply_message_type on_message( request_message_type const& msg )
         {
                 return reactor_type::on_message( msg, *this );
         }
 
         template < std::size_t I, typename Request >
-        auto operator()( tag< I >, const Request& req )
+        auto operator()( tag< I >, Request const& req )
         {
                 using call_type = std::tuple_element_t< I, bindings_tuple >;
 
                 return std::apply(
-                    [&]( const auto&... args ) -> typename call_type::reply {
+                    [&]( auto const&... args ) -> typename call_type::reply {
                             return call_type::handle( obj_, args... );
                     },
                     req );
@@ -294,7 +294,7 @@ class bind_wrapper
         static constexpr std::size_t call_index = get_call_index< def_type >( ID );
 
 public:
-        reply_message_type on_message( const request_message_type& msg )
+        reply_message_type on_message( request_message_type const& msg )
         {
                 return reactor_type::on_message( msg, *this );
         }
@@ -308,12 +308,12 @@ public:
         }
 
         template < std::size_t I, typename Request >
-        auto operator()( tag< I >, const Request& req )
+        auto operator()( tag< I >, Request const& req )
         {
                 using call_type = std::tuple_element_t< I, def_type >;
 
                 return std::apply(
-                    [&]( const auto&... args ) -> typename call_type::reply {
+                    [&]( auto const&... args ) -> typename call_type::reply {
                             if constexpr ( call_type::void_returning ) {
                                     std::get< I >( cbs_ )( args... );
                                     return void_return_type{};

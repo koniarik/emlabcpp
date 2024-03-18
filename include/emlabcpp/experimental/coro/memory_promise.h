@@ -32,17 +32,17 @@ struct memory_promise
         static constexpr std::size_t ptr_size = sizeof( pmr::memory_resource* );
 
         void*
-        operator new( const std::size_t sz, auto&, pmr::memory_resource& pi, auto&&... ) noexcept
+        operator new( std::size_t const sz, auto&, pmr::memory_resource& pi, auto&&... ) noexcept
         {
                 return alloc( sz, pi );
         }
 
-        void* operator new( const std::size_t sz, pmr::memory_resource& pi, auto&&... ) noexcept
+        void* operator new( std::size_t const sz, pmr::memory_resource& pi, auto&&... ) noexcept
         {
                 return alloc( sz, pi );
         }
 
-        void* operator new( const std::size_t sz, auto&&... ) noexcept = delete;
+        void* operator new( std::size_t const sz, auto&&... ) noexcept = delete;
 
         static void* alloc( std::size_t sz, pmr::memory_resource& pi )
         {
@@ -58,13 +58,13 @@ struct memory_promise
                 return p;
         }
 
-        void operator delete( void* const ptr, const std::size_t size )
+        void operator delete( void* const ptr, std::size_t const size )
         {
                 auto p = reinterpret_cast< pmr::memory_resource** >( ptr );
 
                 p--;
 
-                const result res = ( *p )->deallocate( p, size + ptr_size, alignof( PromiseType ) );
+                result const res = ( *p )->deallocate( p, size + ptr_size, alignof( PromiseType ) );
                 if ( res == ERROR )
                         pmr::throw_bad_alloc();
         }

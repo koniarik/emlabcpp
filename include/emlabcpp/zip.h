@@ -92,7 +92,7 @@ public:
                 return *this;
         }
 
-        constexpr std::ptrdiff_t operator-( const zip_iterator< Iterators... >& other ) const
+        constexpr std::ptrdiff_t operator-( zip_iterator< Iterators... > const& other ) const
         {
                 return std::get< 0 >( iters_ ) - std::get< 0 >( other.iters_ );
         }
@@ -109,7 +109,7 @@ public:
         }
 
         /// Two zip iterators are equal if all of their iterators are equal
-        constexpr bool operator==( const zip_iterator< Iterators... >& other ) const
+        constexpr bool operator==( zip_iterator< Iterators... > const& other ) const
         {
                 return equals( other, std::index_sequence_for< Iterators... >{} );
         }
@@ -117,7 +117,7 @@ public:
 private:
         template < typename std::size_t... Idx >
         [[nodiscard]] constexpr bool
-        equals( const zip_iterator< Iterators... >& other, std::index_sequence< Idx... > ) const
+        equals( zip_iterator< Iterators... > const& other, std::index_sequence< Idx... > ) const
         {
                 return ( ( std::get< Idx >( iters_ ) == std::get< Idx >( other.iters_ ) ) || ... );
         }
@@ -133,7 +133,7 @@ operator+( zip_iterator< Iterators... > lh, std::ptrdiff_t m )
 
 template < typename... Iterators >
 constexpr bool
-operator!=( const zip_iterator< Iterators... >& lh, const zip_iterator< Iterators... >& rh )
+operator!=( zip_iterator< Iterators... > const& lh, zip_iterator< Iterators... > const& rh )
 {
         return !( lh == rh );
 }
@@ -171,7 +171,7 @@ template < gettable_container Tuple, gettable_container... Tuples >
 auto zip( Tuple&& frst, Tuples&&... tpls )
 {
         static_assert(
-            ( (static_size_v< Tuple > == static_size_v< Tuples >) &&... ),
+            ( ( static_size_v< Tuple > == static_size_v< Tuples > ) && ... ),
             "All tuples has to be of same size in zip" );
         return tuple_zip_impl(
             std::make_tuple( frst, tpls... ),

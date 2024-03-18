@@ -33,7 +33,7 @@ namespace emlabcpp
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 
 template < std::size_t N >
-inline void from_json( const nlohmann::json& j, point< N >& p )
+inline void from_json( nlohmann::json const& j, point< N >& p )
 {
         using container = typename point< N >::container;
 
@@ -41,17 +41,17 @@ inline void from_json( const nlohmann::json& j, point< N >& p )
 }
 
 template < std::size_t N >
-inline void to_json( nlohmann::json& j, const point< N >& p )
+inline void to_json( nlohmann::json& j, point< N > const& p )
 {
         j = view{ p };
 }
 
-inline void to_json( nlohmann::json& j, const quaternion& quat )
+inline void to_json( nlohmann::json& j, quaternion const& quat )
 {
         j = { quat[0], quat[1], quat[2], quat[3] };
 }
 
-inline void from_json( const nlohmann::json& j, quaternion& quat )
+inline void from_json( nlohmann::json const& j, quaternion& quat )
 {
         quat = quaternion{
             j.at( 0 ).get< float >(),
@@ -60,26 +60,26 @@ inline void from_json( const nlohmann::json& j, quaternion& quat )
             j.at( 3 ).get< float >() };
 }
 
-inline void to_json( nlohmann::json& j, const pose& p )
+inline void to_json( nlohmann::json& j, pose const& p )
 {
         j["position"]    = p.position;
         j["orientation"] = p.orientation;
 }
 
-inline void from_json( const nlohmann::json& j, pose& p )
+inline void from_json( nlohmann::json const& j, pose& p )
 {
         p = pose{
             j.at( "position" ).get< point< 3 > >(), j.at( "orientation" ).get< quaternion >() };
 }
 
 template < typename Item, std::size_t N >
-inline void to_json( nlohmann::json& j, const simplex< Item, N >& sim )
+inline void to_json( nlohmann::json& j, simplex< Item, N > const& sim )
 {
         std::copy( sim.begin(), sim.end(), std::back_inserter( j ) );
 }
 
 template < typename Item, std::size_t N >
-inline void from_json( const nlohmann::json& j, simplex< Item, N >& sim )
+inline void from_json( nlohmann::json const& j, simplex< Item, N >& sim )
 {
         sim = simplex< Item, N >{ j.get< std::array< Item, N + 1 > >() };
 }

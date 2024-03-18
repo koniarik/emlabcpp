@@ -152,11 +152,11 @@ using params_server_client_variant =
 using params_server_client_message =
     typename protocol::handler< params_server_client_group >::message_type;
 
-using params_reply_callback = static_function< void( const params_server_client_variant& ), 32 >;
+using params_reply_callback = static_function< void( params_server_client_variant const& ), 32 >;
 using params_client_transmit_callback =
-    static_function< result( protocol::channel_type, const params_client_server_message& ), 32 >;
+    static_function< result( protocol::channel_type, params_client_server_message const& ), 32 >;
 using params_server_transmit_callback =
-    static_function< result( protocol::channel_type, const params_server_client_message& ), 32 >;
+    static_function< result( protocol::channel_type, params_server_client_message const& ), 32 >;
 
 class parameters;
 
@@ -206,9 +206,9 @@ struct param_value_processor
 
         void log_error( parameters& params ) const;
 
-        [[nodiscard]] bool set_value( const params_server_client_variant& var )
+        [[nodiscard]] bool set_value( params_server_client_variant const& var )
         {
-                const auto* const val_ptr = std::get_if< param_value_reply >( &var );
+                auto const* const val_ptr = std::get_if< param_value_reply >( &var );
                 if ( val_ptr == nullptr )
                         return false;
                 auto opt_res = value_type_converter< T >::from_value( val_ptr->value );
@@ -230,9 +230,9 @@ struct param_variant_processor
         {
         }
 
-        [[nodiscard]] bool set_value( const params_server_client_variant& var )
+        [[nodiscard]] bool set_value( params_server_client_variant const& var )
         {
-                const auto* const val_ptr = std::get_if< param_value_reply >( &var );
+                auto const* const val_ptr = std::get_if< param_value_reply >( &var );
                 if ( val_ptr == nullptr )
                         return false;
                 reply = val_ptr->value;
@@ -250,9 +250,9 @@ struct param_value_key_processor
 
         void log_error( parameters& params ) const;
 
-        [[nodiscard]] bool set_value( const params_server_client_variant& var )
+        [[nodiscard]] bool set_value( params_server_client_variant const& var )
         {
-                const auto* const val_ptr = std::get_if< param_value_key_reply >( &var );
+                auto const* const val_ptr = std::get_if< param_value_key_reply >( &var );
                 if ( val_ptr == nullptr )
                         return false;
                 auto opt_res = value_type_converter< T >::from_value( val_ptr->value );
@@ -271,11 +271,11 @@ struct param_type_processor
         param_type_request req;
         using reply_type = param_type_reply;
 
-        void log_error( const parameters& ) const
+        void log_error( parameters const& ) const
         {
         }
 
-        [[nodiscard]] bool set_value( const params_server_client_variant& var );
+        [[nodiscard]] bool set_value( params_server_client_variant const& var );
 };
 
 using param_type_awaiter = params_awaiter< param_type_processor >;
@@ -286,11 +286,11 @@ struct param_child_processor
         node_id             reply;
         param_child_request req;
 
-        void log_error( const parameters& ) const
+        void log_error( parameters const& ) const
         {
         }
 
-        [[nodiscard]] bool set_value( const params_server_client_variant& var );
+        [[nodiscard]] bool set_value( params_server_client_variant const& var );
 };
 
 using param_child_awaiter = params_awaiter< param_child_processor >;
@@ -301,11 +301,11 @@ struct param_child_count_processor
         child_count               reply;
         param_child_count_request req;
 
-        void log_error( const parameters& ) const
+        void log_error( parameters const& ) const
         {
         }
 
-        [[nodiscard]] bool set_value( const params_server_client_variant& var );
+        [[nodiscard]] bool set_value( params_server_client_variant const& var );
 };
 
 using param_child_count_awaiter = params_awaiter< param_child_count_processor >;
@@ -316,11 +316,11 @@ struct param_key_processor
         key_type          reply;
         param_key_request req;
 
-        void log_error( const parameters& ) const
+        void log_error( parameters const& ) const
         {
         }
 
-        [[nodiscard]] bool set_value( const params_server_client_variant& var );
+        [[nodiscard]] bool set_value( params_server_client_variant const& var );
 };
 
 using param_key_awaiter = params_awaiter< param_key_processor >;
@@ -336,44 +336,44 @@ public:
                 return channel_;
         }
 
-        outcome on_msg( std::span< const std::byte > data );
-        outcome on_msg( const params_server_client_variant& req );
+        outcome on_msg( std::span< std::byte const > data );
+        outcome on_msg( params_server_client_variant const& req );
 
         param_type_awaiter get_type( node_id nid );
 
         template < typename T >
-        param_value_awaiter< T > get_value( const node_id node )
+        param_value_awaiter< T > get_value( node_id const node )
         {
                 return param_value_awaiter< T >{ param_value_request{ node }, *this };
         }
 
         template < typename T >
-        param_value_key_awaiter< T > get_value( const node_id node, const child_id chid )
+        param_value_key_awaiter< T > get_value( node_id const node, child_id const chid )
         {
                 return param_value_key_awaiter< T >{ param_value_key_request{ node, chid }, *this };
         }
 
         template < typename T >
-        param_value_key_awaiter< T > get_value( const node_id node, const key_type& k )
+        param_value_key_awaiter< T > get_value( node_id const node, key_type const& k )
         {
                 return param_value_key_awaiter< T >{ param_value_key_request{ node, k }, *this };
         }
 
-        param_variant_awaiter get_value_variant( const node_id node )
+        param_variant_awaiter get_value_variant( node_id const node )
         {
                 return param_variant_awaiter{ param_value_request{ .nid = node }, *this };
         }
 
         param_child_awaiter get_child( node_id nid, child_id chid );
-        param_child_awaiter get_child( node_id nid, const key_type& key );
+        param_child_awaiter get_child( node_id nid, key_type const& key );
 
-        param_child_count_awaiter get_child_count( const node_id nid );
+        param_child_count_awaiter get_child_count( node_id const nid );
 
         param_key_awaiter get_key( node_id nid, child_id chid );
 
-        void exchange( const params_client_server_variant& req, params_reply_callback reply_cb );
+        void exchange( params_client_server_variant const& req, params_reply_callback reply_cb );
 
-        result send( const params_client_server_variant& val );
+        result send( params_client_server_variant const& val );
 
 private:
         protocol::channel_type          channel_;
@@ -399,10 +399,10 @@ void param_value_key_processor< T >::log_error( parameters& params ) const
 
 template < typename Processor >
 template < typename PromiseType >
-void params_awaiter< Processor >::await_suspend( const std::coroutine_handle< PromiseType > h )
+void params_awaiter< Processor >::await_suspend( std::coroutine_handle< PromiseType > const h )
 {
         h.promise().iface = this;
-        params.exchange( proc.req, [this]( const params_server_client_variant& var ) {
+        params.exchange( proc.req, [this]( params_server_client_variant const& var ) {
                 if ( !proc.set_value( var ) ) {
                         // TODO: this should not be ignored
                         std::ignore = params.send(
@@ -419,7 +419,7 @@ class parameters_server
 {
 public:
         parameters_server(
-            const protocol::channel_type    chann,
+            protocol::channel_type const    chann,
             data_tree                       tree,
             params_server_transmit_callback send_cb );
 
@@ -428,19 +428,19 @@ public:
                 return channel_;
         }
 
-        outcome on_msg( const std::span< const std::byte > data );
-        outcome on_msg( const params_client_server_variant& req );
+        outcome on_msg( std::span< std::byte const > const data );
+        outcome on_msg( params_client_server_variant const& req );
 
 private:
-        outcome on_req( const param_error& req ) const;
-        outcome on_req( const param_value_request& req );
-        outcome on_req( const param_value_key_request& req );
-        outcome on_req( const param_child_request& req );
-        outcome on_req( const param_child_count_request& req );
-        outcome on_req( const param_key_request& req );
-        outcome on_req( const param_type_request& req );
-        outcome reply_node_error( const contiguous_request_adapter_errors err, const node_id nid );
-        result  send( const params_server_client_variant& var );
+        outcome on_req( param_error const& req ) const;
+        outcome on_req( param_value_request const& req );
+        outcome on_req( param_value_key_request const& req );
+        outcome on_req( param_child_request const& req );
+        outcome on_req( param_child_count_request const& req );
+        outcome on_req( param_key_request const& req );
+        outcome on_req( param_type_request const& req );
+        outcome reply_node_error( contiguous_request_adapter_errors const err, node_id const nid );
+        result  send( params_server_client_variant const& var );
 
         protocol::channel_type          channel_;
         data_tree                       tree_;

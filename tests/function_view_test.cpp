@@ -26,28 +26,28 @@ namespace emlabcpp
 
 using basic_view   = function_view< void( int ) >;
 using return_view  = function_view< std::string( int ) >;
-using complex_view = function_view< float( int, const std::string& ) >;
+using complex_view = function_view< float( int, std::string const& ) >;
 
 // NOLINTNEXTLINE
 TEST( FunctionView, call_view_pointer )
 {
         auto             lb = []( int ) -> void {};
-        const basic_view bf{ lb };
+        basic_view const bf{ lb };
         bf( 42 );
 
         auto lr = []( int val ) -> std::string {
                 return std::to_string( val );
         };
-        const return_view rf{ lr };
-        const std::string sub_res = rf( 42 );
+        return_view const rf{ lr };
+        std::string const sub_res = rf( 42 );
         EXPECT_EQ( sub_res, "42" );
 
-        auto lc = []( int val, const std::string& sval ) -> float {
+        auto lc = []( int val, std::string const& sval ) -> float {
                 return static_cast< float >( val * std::stoi( sval ) );
         };
-        static_assert( with_signature< decltype( lc ), float( int, const std::string& ) > );
-        const complex_view cf{ lc };
-        const float        val = cf( 42, "2" );
+        static_assert( with_signature< decltype( lc ), float( int, std::string const& ) > );
+        complex_view const cf{ lc };
+        float const        val = cf( 42, "2" );
         EXPECT_EQ( val, 84 );
 }
 
@@ -58,7 +58,7 @@ TEST( FunctionView, call_callable )
         auto lf         = [&]( int val ) -> void {
                 test_value = val;
         };
-        const basic_view bf{ lf };
+        basic_view const bf{ lf };
         bf( 42 );
         EXPECT_EQ( test_value, 42 );
         bf( 666 );
@@ -69,7 +69,7 @@ TEST( FunctionView, call_callable )
                 test_value = val;
                 return std::to_string( val );
         };
-        const return_view rf{ lr };
+        return_view const rf{ lr };
         std::string       test_sres = rf( 42 );
         EXPECT_EQ( test_value, 42 );
         EXPECT_EQ( test_sres, "42" );
@@ -78,11 +78,11 @@ TEST( FunctionView, call_callable )
         EXPECT_EQ( test_sres, "666" );
 
         test_value = 0;
-        auto lc    = [&]( int val, const std::string& sval ) -> float {
+        auto lc    = [&]( int val, std::string const& sval ) -> float {
                 test_value = val;
                 return static_cast< float >( std::stoi( sval ) );
         };
-        const complex_view cf{ lc };
+        complex_view const cf{ lc };
         float              test_fres = cf( 42, "12" );
         EXPECT_EQ( test_value, 42 );
         EXPECT_EQ( test_fres, 12.f );

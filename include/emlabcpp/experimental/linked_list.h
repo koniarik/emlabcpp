@@ -30,8 +30,8 @@ class linked_list_node_base
 public:
         linked_list_node_base() = default;
 
-        linked_list_node_base( const linked_list_node_base& )            = delete;
-        linked_list_node_base& operator=( const linked_list_node_base& ) = delete;
+        linked_list_node_base( linked_list_node_base const& )            = delete;
+        linked_list_node_base& operator=( linked_list_node_base const& ) = delete;
 
         linked_list_node_base( linked_list_node_base&& other ) noexcept
         {
@@ -69,10 +69,10 @@ public:
         }
 
         virtual Base&       operator*()       = 0;
-        virtual const Base& operator*() const = 0;
+        virtual Base const& operator*() const = 0;
 
         virtual Base*       operator->()       = 0;
-        virtual const Base* operator->() const = 0;
+        virtual Base const* operator->() const = 0;
 
         [[nodiscard]] linked_list_node_base* get_next()
         {
@@ -107,7 +107,7 @@ public:
                 return prev_;
         }
 
-        [[nodiscard]] linked_list_node_base* get_prev( const std::size_t id )
+        [[nodiscard]] linked_list_node_base* get_prev( std::size_t const id )
         {
                 if ( id == 0 )
                         return this;
@@ -146,7 +146,7 @@ public:
                 return item_;
         }
 
-        [[nodiscard]] const T& get() const
+        [[nodiscard]] T const& get() const
         {
                 return item_;
         }
@@ -156,7 +156,7 @@ public:
                 return item_;
         }
 
-        const Base& operator*() const override
+        Base const& operator*() const override
         {
                 return item_;
         }
@@ -166,7 +166,7 @@ public:
                 return &item_;
         }
 
-        const Base* operator->() const override
+        Base const* operator->() const override
         {
                 return &item_;
         }

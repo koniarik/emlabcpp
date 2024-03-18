@@ -60,12 +60,8 @@ using traits_for = decltype( traits_for_impl< D >() );
 /// size used.
 template < typename D >
 concept convertible = requires( D val ) {
-        {
-                traits_for< D >::max_size
-        } -> std::convertible_to< std::size_t >;
-        {
-                traits_for< D >::min_size
-        } -> std::convertible_to< std::size_t >;
+        { traits_for< D >::max_size } -> std::convertible_to< std::size_t >;
+        { traits_for< D >::min_size } -> std::convertible_to< std::size_t >;
         requires std::default_initializable< typename traits_for< D >::value_type >;
 };
 

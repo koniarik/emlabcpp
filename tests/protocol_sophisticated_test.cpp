@@ -91,8 +91,8 @@ struct simple_tag_struct
         T value;
 
         friend auto operator<=>(
-            const simple_tag_struct< ID, T >&,
-            const simple_tag_struct< ID, T >& ) = default;
+            simple_tag_struct< ID, T > const&,
+            simple_tag_struct< ID, T > const& ) = default;
 };
 
 using simple_ca = simple_tag_struct< CA, float >;
@@ -121,7 +121,7 @@ struct valid_test_case : protocol_test_fixture
         void TestBody() final
         {
                 auto       msg      = handler::serialize( val );
-                const bool is_equal = equal( msg, expected_buffer );
+                bool const is_equal = equal( msg, expected_buffer );
                 EXPECT_TRUE( is_equal ) << "msg: " << msg << "\n"
                                         << "expected: " << message_type( expected_buffer ) << "\n";
 
@@ -144,7 +144,7 @@ struct valid_test_case : protocol_test_fixture
 template < typename Group >
 std::function< protocol_test_fixture*() > make_valid_test_case(
     typename protocol::traits_for< Group >::value_type val,
-    const std::vector< int >&                          buff )
+    std::vector< int > const&                          buff )
 {
         return [=]() {
                 auto cview = convert_view< std::byte >( buff );
@@ -161,7 +161,7 @@ int main( int argc, char** argv )
 
         using namespace emlabcpp;
 
-        const std::vector< std::function< protocol_test_fixture*() > > tests = {
+        std::vector< std::function< protocol_test_fixture*() > > const tests = {
             make_valid_test_case< simple_group >(
                 simple_group::make_val< FOO >( 42u, 666u ), { 12, 0, 0, 0, 42, 0, 0, 2, 154 } ),
             make_valid_test_case< simple_group >(

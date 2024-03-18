@@ -46,7 +46,7 @@ public:
 
         template < bounded_derived OtherSize >
         requires( OtherSize::min_val >= min && OtherSize::max_val <= max )
-        bounded_view( const bounded_view< Iterator, OtherSize >& other )
+        bounded_view( bounded_view< Iterator, OtherSize > const& other )
           : bounded_view( std::begin( other ), std::end( other ) )
         {
         }

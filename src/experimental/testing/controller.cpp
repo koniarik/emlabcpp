@@ -56,7 +56,7 @@ struct msg_awaiter : public wait_interface
 
         controller_interface_adapter& iface;
 
-        msg_awaiter( const controller_reactor_variant& req, controller_interface_adapter& ifa )
+        msg_awaiter( controller_reactor_variant const& req, controller_interface_adapter& ifa )
           : request( req )
           , iface( ifa )
         {
@@ -77,11 +77,11 @@ struct msg_awaiter : public wait_interface
         }
 
         void
-        await_suspend( const std::coroutine_handle< typename coroutine< void >::promise_type > h )
+        await_suspend( std::coroutine_handle< typename coroutine< void >::promise_type > const h )
         {
                 h.promise().iface = this;
-                iface.set_reply_cb( [this]( const reactor_controller_variant& var ) {
-                        const T* val_ptr = std::get_if< T >( &var );
+                iface.set_reply_cb( [this]( reactor_controller_variant const& var ) {
+                        T const* val_ptr = std::get_if< T >( &var );
                         if ( val_ptr == nullptr ) {
                                 state = coro_state::ERRORED;
                                 return false;
@@ -108,19 +108,19 @@ coroutine< void > controller::initialize( pmr::memory_resource& )
         date_ = ( co_await msg_awaiter< get_suite_date_reply >(
                       get_property< msgid::SUITE_DATE >{}, iface_ ) )
                     .date;
-        const test_id count =
+        test_id const count =
             ( co_await msg_awaiter< get_count_reply >( get_property< msgid::COUNT >{}, iface_ ) )
                 .count;
 
-        for ( const test_id i : range( count ) ) {
-                const auto name_reply = co_await msg_awaiter< get_test_name_reply >(
+        for ( test_id const i : range( count ) ) {
+                auto const name_reply = co_await msg_awaiter< get_test_name_reply >(
                     get_test_name_request{ .tid = i }, iface_ );
 
                 tests_[i] = name_reply.name;
         }
 }
 
-void controller::start_test( const test_id tid )
+void controller::start_test( test_id const tid )
 {
         if ( !std::holds_alternative< idle_state >( state_ ) ) {
                 EMLABCPP_ERROR_LOG( "Can't start a new test, not in prepared state" );
@@ -135,28 +135,28 @@ void controller::start_test( const test_id tid )
         std::ignore = iface_.send( exec_request{ .rid = rid_, .tid = tid } );
 }
 
-outcome controller::on_msg( const std::span< const std::byte > data )
+outcome controller::on_msg( std::span< std::byte const > const data )
 {
         using h = protocol::handler< reactor_controller_group >;
         return h::extract( view_n( data.data(), data.size() ) )
             .match(
-                [this]( const reactor_controller_variant& var ) {
+                [this]( reactor_controller_variant const& var ) {
                         return on_msg( var );
                 },
-                [this]( const protocol::error_record& rec ) -> outcome {
+                [this]( protocol::error_record const& rec ) -> outcome {
                         EMLABCPP_ERROR_LOG( "Failed to extract incoming msg: ", rec );
                         iface_.report_error( controller_protocol_error{ rec } );
                         return ERROR;
                 } );
 }
 
-outcome controller::on_msg( const reactor_controller_variant& var )
+outcome controller::on_msg( reactor_controller_variant const& var )
 {
         using opt_state     = std::optional< states >;
         outcome   res       = ERROR;
         opt_state new_state = match(
             state_,
-            [this, &var, &res]( const initializing_state& ) -> opt_state {
+            [this, &var, &res]( initializing_state const& ) -> opt_state {
                     if ( std::holds_alternative< boot >( var ) ) {
                             EMLABCPP_DEBUG_LOG( "Got boot message" );
                             res = SUCCESS;
@@ -175,13 +175,13 @@ outcome controller::on_msg( const reactor_controller_variant& var )
                     return std::nullopt;
             },
             [this, &var, &res]( test_running_state& rs ) -> opt_state {
-                    const auto* err_ptr = std::get_if< reactor_internal_error_report >( &var );
+                    auto const* err_ptr = std::get_if< reactor_internal_error_report >( &var );
                     if ( err_ptr != nullptr ) {
                             iface_.report_error( internal_reactor_error{ err_ptr->var } );
                             return std::nullopt;
                     }
 
-                    const auto* tf_ptr = std::get_if< test_finished >( &var );
+                    auto const* tf_ptr = std::get_if< test_finished >( &var );
                     if ( tf_ptr == nullptr ) {
                             visit(
                                 [&]< typename T >( T& ) {
@@ -200,7 +200,7 @@ outcome controller::on_msg( const reactor_controller_variant& var )
                     res = SUCCESS;
                     return states{ idle_state{} };
             },
-            [&res]( const idle_state ) -> opt_state {
+            [&res]( idle_state const ) -> opt_state {
                     res = SUCCESS;
                     return std::nullopt;
             } );
@@ -225,10 +225,10 @@ void controller::tick()
                     EMLABCPP_INFO_LOG( "Controller finished initialization and is prepared" );
                     return states{ idle_state{} };
             },
-            []( const test_running_state& ) -> opt_state {
+            []( test_running_state const& ) -> opt_state {
                     return std::nullopt;
             },
-            []( const idle_state ) -> opt_state {
+            []( idle_state const ) -> opt_state {
                     return std::nullopt;
             } );
         if ( new_state )

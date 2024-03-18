@@ -28,30 +28,30 @@ namespace emlabcpp
 
 TEST( SimplexTest, volume2d )
 {
-        const std::array< point< 2 >, 3 > data{
+        std::array< point< 2 >, 3 > const data{
             point< 2 >( 0, 1 ), point< 2 >( 1, 0 ), point< 2 >( 0, 0 ) };
 
-        const simplex< point< 2 >, 2 > sim( data );
+        simplex< point< 2 >, 2 > const sim( data );
 
         ASSERT_NEAR( volume_of( sim ), 0.5f, 0.001f );
 }
 
 TEST( SimplexTest, volume3d )
 {
-        const std::array< point< 3 >, 4 > data{
+        std::array< point< 3 >, 4 > const data{
             point< 3 >( 0, 0, 1 ),
             point< 3 >( 1, 0, 0 ),
             point< 3 >( 0, 0, 0 ),
             point< 3 >{ 0, 1, 0 } };
 
-        const simplex< point< 3 >, 3 > sim( data );
+        simplex< point< 3 >, 3 > const sim( data );
 
         ASSERT_NEAR( volume_of( sim ), 0.166667f, 0.00001f );
 }
 
 TEST( SimplexTest, json )
 {
-        const std::array< point< 3 >, 4 > data{
+        std::array< point< 3 >, 4 > const data{
             point< 3 >( 0, 0, 1 ),
             point< 3 >( 1, 0, 0 ),
             point< 3 >( 0, 0, 0 ),
@@ -59,9 +59,9 @@ TEST( SimplexTest, json )
 
         using simplex_type = simplex< point< 3 >, 3 >;
 
-        const simplex_type sim( data );
+        simplex_type const sim( data );
 
-        const nlohmann::json simplex_j = nlohmann::json( sim );
+        nlohmann::json const simplex_j = nlohmann::json( sim );
         ASSERT_EQ( simplex_j.get< simplex_type >(), sim );
 }
 

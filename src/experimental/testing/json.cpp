@@ -37,7 +37,7 @@
 namespace emlabcpp::testing
 {
 
-std::optional< value_type > json_to_value_type( const nlohmann::json& j )
+std::optional< value_type > json_to_value_type( nlohmann::json const& j )
 {
         using value_t = nlohmann::json::value_t;
 
@@ -58,32 +58,32 @@ std::optional< value_type > json_to_value_type( const nlohmann::json& j )
         return std::nullopt;
 }
 
-nlohmann::json value_type_to_json( const value_type& tv )
+nlohmann::json value_type_to_json( value_type const& tv )
 {
         nlohmann::json res = match(
             tv,
-            []( const string_buffer& buff ) {
+            []( string_buffer const& buff ) {
                     return nlohmann::json{ std::string_view{ buff } };
             },
-            []( const auto& item ) {
+            []( auto const& item ) {
                     return nlohmann::json{ item };
             } );
 
         return res[0];
 }
 
-key_type json_to_key_type( const nlohmann::json& j )
+key_type json_to_key_type( nlohmann::json const& j )
 {
         return j.get< std::string_view >();
 }
 
 std::optional< data_tree >
-json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt )
+json_to_data_tree( pmr::memory_resource& mem_res, nlohmann::json const& inpt )
 {
         data_tree tree{ mem_res };
 
-        static_function< std::optional< node_id >( const nlohmann::json& j ), 32 > f =
-            [&tree, &f]( const nlohmann::json& j ) -> std::optional< node_id > {
+        static_function< std::optional< node_id >( nlohmann::json const& j ), 32 > f =
+            [&tree, &f]( nlohmann::json const& j ) -> std::optional< node_id > {
                 if ( j.is_object() ) {
                         std::optional opt_res = tree.make_object_node();
                         if ( !opt_res ) {
@@ -92,7 +92,7 @@ json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt )
                                 return std::nullopt;
                         }
                         auto [nid, oh] = *opt_res;
-                        for ( const auto& [key, value] : j.items() ) {
+                        for ( auto const& [key, value] : j.items() ) {
                                 std::optional< node_id > chid = f( value );
                                 if ( !chid )
                                         return std::nullopt;
@@ -108,7 +108,7 @@ json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt )
                                 return std::nullopt;
                         }
                         auto [nid, ah] = *opt_res;
-                        for ( const nlohmann::json& jj : j ) {
+                        for ( nlohmann::json const& jj : j ) {
                                 std::optional< node_id > chid = f( jj );
                                 if ( !chid )
                                         return std::nullopt;
@@ -129,7 +129,7 @@ json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt )
                 return *opt_id;
         };
 
-        const auto opt_root_id = f( inpt );
+        auto const opt_root_id = f( inpt );
         if ( opt_root_id ) {
                 return tree;
         } else {
@@ -138,31 +138,31 @@ json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt )
         }
 }
 
-nlohmann::json data_tree_to_json( const data_tree& tree )
+nlohmann::json data_tree_to_json( data_tree const& tree )
 {
         static_function< nlohmann::json( node_id ), 32 > f =
-            [&tree, &f]( const node_id nid ) -> nlohmann::json {
-                const auto* const node_ptr = tree.get_node( nid );
+            [&tree, &f]( node_id const nid ) -> nlohmann::json {
+                auto const* const node_ptr = tree.get_node( nid );
 
                 if ( node_ptr == nullptr )
                         return {};
 
                 return match(
                     node_ptr->get_container_handle(),
-                    []( const value_type& val ) {
+                    []( value_type const& val ) {
                             return value_type_to_json( val );
                     },
-                    [&f]( const data_const_object_handle oh ) {
+                    [&f]( data_const_object_handle const oh ) {
                             nlohmann::json j = nlohmann::json::object();
-                            for ( const auto& [key, chid] : oh ) {
-                                    const std::string k{ std::string_view{ key } };
+                            for ( auto const& [key, chid] : oh ) {
+                                    std::string const k{ std::string_view{ key } };
                                     j[k] = f( chid );
                             }
                             return j;
                     },
-                    [&f]( const data_const_array_handle ah ) {
+                    [&f]( data_const_array_handle const ah ) {
                             nlohmann::json j = nlohmann::json::array();
-                            for ( const auto& [i, chid] : ah )
+                            for ( auto const& [i, chid] : ah )
                                     j.push_back( f( chid ) );
                             return j;
                     } );

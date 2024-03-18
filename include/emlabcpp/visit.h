@@ -31,7 +31,7 @@ namespace detail
 }  // namespace detail
 
 template < typename Visitor, typename Variant >
-decltype( auto ) visit_index( Visitor&& vis, const Variant& var )
+decltype( auto ) visit_index( Visitor&& vis, Variant const& var )
 {
         return detail::linear_index_visit_impl<
             std::variant_size_v< std::decay_t< Variant > > - 1 >(

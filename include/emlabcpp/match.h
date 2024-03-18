@@ -27,10 +27,10 @@ namespace emlabcpp
 template < typename... Callables >
 struct matcher : Callables...
 {
-        matcher( const matcher& )     = default;
+        matcher( matcher const& )     = default;
         matcher( matcher&& ) noexcept = default;
 
-        matcher& operator=( const matcher& )     = default;
+        matcher& operator=( matcher const& )     = default;
         matcher& operator=( matcher&& ) noexcept = default;
 
         template < typename... Ts >

@@ -90,7 +90,7 @@ TEST( static_vector_test, emplace_back )
         EXPECT_EQ( tbuff.back(), 42 );
 
         // This is special constructor of std::string
-        const std::size_t i = 5;
+        std::size_t const i = 5;
         obuff.emplace_back( i, 'c' );
         EXPECT_EQ( obuff.back(), "ccccc" );
 }
@@ -114,7 +114,7 @@ TEST( static_vector_test, usage )
 TEST( static_vector_test, copy_trivial )
 {
         trivial_buffer tbuff;
-        for ( const int i : { 1, 2, 3, 4, 5 } )
+        for ( int const i : { 1, 2, 3, 4, 5 } )
                 tbuff.push_back( i );
 
         trivial_buffer cpy{ tbuff };
@@ -139,12 +139,12 @@ TEST( static_vector_test, copy_trivial )
 TEST( static_vector_test, copy_object )
 {
         obj_buffer obuff;
-        for ( const std::string s :
+        for ( std::string const s :
               { "Pack", "my", "box", "with", "five", "dozen", "liquor", "jugs." } ) {
                 obuff.push_back( s );
         }
 
-        const obj_buffer cpy{ obuff };
+        obj_buffer const cpy{ obuff };
         EXPECT_EQ( obuff, cpy );
 
         obj_buffer cpy2;
@@ -155,10 +155,10 @@ TEST( static_vector_test, copy_object )
 TEST( static_vector_test, move_trivial )
 {
         trivial_buffer tbuff;
-        for ( const int i : { 1, 2, 3, 4, 5 } )
+        for ( int const i : { 1, 2, 3, 4, 5 } )
                 tbuff.push_back( i );
 
-        const trivial_buffer cpy{ tbuff };
+        trivial_buffer const cpy{ tbuff };
         trivial_buffer       moved{ std::move( tbuff ) };
 
         EXPECT_EQ( cpy, moved );
@@ -172,12 +172,12 @@ TEST( static_vector_test, move_trivial )
 TEST( static_vector_test, move_object )
 {
         obj_buffer obuff;
-        for ( const std::string s :
+        for ( std::string const s :
               { "Pack", "my", "box", "with", "five", "dozen", "liquor", "jugs." } ) {
                 obuff.push_back( s );
         }
 
-        const obj_buffer cpy{ obuff };
+        obj_buffer const cpy{ obuff };
         obj_buffer       moved{ std::move( obuff ) };
 
         EXPECT_EQ( cpy, moved );
@@ -191,15 +191,15 @@ TEST( static_vector_test, move_object )
 TEST( static_vector_test, iterators )
 {
         trivial_buffer           tbuff;
-        const std::vector< int > data = { 1, 2, 3, 4, 5 };
-        for ( const int i : data )
+        std::vector< int > const data = { 1, 2, 3, 4, 5 };
+        for ( int const i : data )
                 tbuff.push_back( i );
 
         std::vector< int > res;
-        for ( const int i : tbuff )
+        for ( int const i : tbuff )
                 res.push_back( i );
 
-        const bool are_equal = equal( data, res );
+        bool const are_equal = equal( data, res );
         EXPECT_TRUE( are_equal );
 
         trivial_iterator beg = tbuff.begin();
@@ -212,8 +212,8 @@ TEST( static_vector_test, swap )
         obj_buffer vec1{ std::array{ "1"s, "2"s, "3"s, "4"s, "5"s } };
         obj_buffer vec2{ std::array{ "a"s, "b"s, "c"s } };
 
-        const obj_buffer vec1c = vec1;
-        const obj_buffer vec2c = vec2;
+        obj_buffer const vec1c = vec1;
+        obj_buffer const vec2c = vec2;
 
         EXPECT_EQ( vec1.size(), 5 );
         EXPECT_EQ( vec2.size(), 3 );

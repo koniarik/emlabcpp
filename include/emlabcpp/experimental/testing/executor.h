@@ -37,7 +37,7 @@ class executor
         };
 
 public:
-        executor( const run_id rid, pmr::memory_resource& mem, test_interface& test )
+        executor( run_id const rid, pmr::memory_resource& mem, test_interface& test )
           : rid_( rid )
           , mem_( mem )
           , test_( test )
@@ -67,7 +67,7 @@ public:
                                 coro_.tick();
                                 break;
                         }
-                        const coro_state s = coro_.get_state();
+                        coro_state const s = coro_.get_state();
                         if ( s != coro_state::DONE ) {
                                 status_ = status_cnv( coro_.get_state() );
                                 phas_   = phase::FINISHED;

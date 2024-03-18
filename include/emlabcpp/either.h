@@ -77,7 +77,7 @@ public:
                 std::construct_at( &left_, std::move( item ) );
         }
 
-        either( const left_item& item ) noexcept
+        either( left_item const& item ) noexcept
           : id_( item::LEFT )
         {
                 std::construct_at( &left_, item );
@@ -90,7 +90,7 @@ public:
                 std::construct_at( &right_, std::forward< Item >( item ) );
         }
 
-        either( const either& other ) noexcept
+        either( either const& other ) noexcept
           : id_( other.id_ )
         {
                 if ( id_ == item::LEFT )
@@ -108,7 +108,7 @@ public:
                         std::construct_at( &right_, std::move( other.right_ ) );
         }
 
-        either& operator=( const either& other )
+        either& operator=( either const& other )
         {
                 if ( this == &other )
                         return *this;
@@ -130,7 +130,7 @@ public:
                 return *this;
         }
 
-        either& operator=( const left_item& other )
+        either& operator=( left_item const& other )
         {
                 destruct();
                 id_ = item::LEFT;
@@ -146,7 +146,7 @@ public:
                 return *this;
         }
 
-        either& operator=( const either_uniquely_right_item< LH, RH > auto& other )
+        either& operator=( either_uniquely_right_item< LH, RH > auto const& other )
         {
                 destruct();
                 id_ = item::RIGHT;
@@ -275,7 +275,7 @@ public:
                 return { T{ std::move( right_ ) } };
         }
 
-        [[nodiscard]] auto bind_left( std::invocable< const left_item& > auto&& left_f ) const&
+        [[nodiscard]] auto bind_left( std::invocable< left_item const& > auto&& left_f ) const&
         {
                 using return_either =
                     either< typename decltype( left_f( left_ ) )::left_item, right_item >;
@@ -316,7 +316,7 @@ public:
                 return { T{ std::move( left_ ) } };
         }
 
-        [[nodiscard]] auto bind_right( std::invocable< const right_item& > auto&& right_f ) const&
+        [[nodiscard]] auto bind_right( std::invocable< right_item const& > auto&& right_f ) const&
         {
                 using return_either =
                     either< left_item, typename decltype( right_f( right_ ) )::right_item >;
@@ -346,7 +346,7 @@ public:
                 destruct();
         }
 
-        friend constexpr bool operator==( const either& a, const either& b )
+        friend constexpr bool operator==( either const& a, either const& b )
         {
                 if ( a.is_left() != b.is_left() )
                         return false;
@@ -421,7 +421,7 @@ requires(
         return assemble_optionals(
                    convert( std::forward< FirstE >( first ) ),
                    convert( std::forward< Eithers >( others ) )... )
-            .convert_right( [&collection]( const empty_assembly_tag ) {
+            .convert_right( [&collection]( empty_assembly_tag const ) {
                     return collection;
             } );
 }

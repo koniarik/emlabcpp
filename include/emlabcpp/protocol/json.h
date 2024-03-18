@@ -55,7 +55,7 @@ struct proto_traits_adl_serializer
         using traits   = traits_for< D >;
         using prot_ser = ProtoSer;
 
-        static void to_json( nlohmann::json& j, const traits& )
+        static void to_json( nlohmann::json& j, traits const& )
         {
                 j["type"] = prot_ser::type_name;
 #ifdef EMLABCPP_USE_DEMANGLING
@@ -67,7 +67,7 @@ struct proto_traits_adl_serializer
                 prot_ser::add_extra( j );
         }
 
-        static traits from_json( const nlohmann::json& )
+        static traits from_json( nlohmann::json const& )
         {
                 return {};
         }

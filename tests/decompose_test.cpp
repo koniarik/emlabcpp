@@ -45,23 +45,23 @@ struct three_item
 // NOLINTNEXTLINE
 TEST( Decompose, decompose )
 {
-        const one_item v1{ 42 };
+        one_item const v1{ 42 };
 
-        std::tuple< const int& > t1 = decompose( v1 );
+        std::tuple< int const& > t1 = decompose( v1 );
         EXPECT_EQ( std::get< 0 >( t1 ), v1.i );
 
         std::tuple< int > t1b = decompose( one_item{ 1 } );
         EXPECT_EQ( std::get< 0 >( t1b ), 1 );
 
-        const two_item v2{ 42, "test" };
+        two_item const v2{ 42, "test" };
 
-        std::tuple< const int&, const std::string& > t2 = decompose( v2 );
+        std::tuple< int const&, std::string const& > t2 = decompose( v2 );
         EXPECT_EQ( std::get< 0 >( t2 ), v2.i );
         EXPECT_EQ( std::get< 1 >( t2 ), v2.s );
 
-        const three_item v3{ 42, "test", 3.141592f };
+        three_item const v3{ 42, "test", 3.141592f };
 
-        std::tuple< const int&, const std::string&, const float& > t3 = decompose( v3 );
+        std::tuple< int const&, std::string const&, float const& > t3 = decompose( v3 );
         EXPECT_EQ( std::get< 0 >( t3 ), v3.i );
         EXPECT_EQ( std::get< 1 >( t3 ), v3.s );
         EXPECT_EQ( std::get< 2 >( t3 ), v3.f );
@@ -76,8 +76,8 @@ struct tricky_opt
 // NOLINTNEXTLINE
 TEST( Decompose, tricky )
 {
-        const tricky_opt                                              to{ 42, "test" };
-        std::tuple< const int&, const std::optional< std::string >& > tov = decompose( to );
+        tricky_opt const                                              to{ 42, "test" };
+        std::tuple< int const&, std::optional< std::string > const& > tov = decompose( to );
         EXPECT_EQ( std::get< 0 >( tov ), to.i );
         EXPECT_EQ( std::get< 1 >( tov ), to.opt_string );
 }

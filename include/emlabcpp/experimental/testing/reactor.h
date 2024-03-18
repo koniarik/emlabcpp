@@ -34,7 +34,7 @@ class reactor
         protocol::channel_type channel_;
 
         std::string_view       suite_name_;
-        const std::string_view suite_date_ = __DATE__ " " __TIME__;
+        std::string_view const suite_date_ = __DATE__ " " __TIME__;
 
         empty_node                        root_node_;
         pmr::stack_resource< 1024 + 512 > mem_;
@@ -46,8 +46,8 @@ class reactor
 
 public:
         explicit reactor(
-            const protocol::channel_type chann,
-            const std::string_view       suite_name,
+            protocol::channel_type const chann,
+            std::string_view const       suite_name,
             reactor_transmit_callback    tb )
           : channel_( chann )
           , suite_name_( suite_name )
@@ -55,9 +55,9 @@ public:
         {
         }
 
-        reactor( const reactor& )            = delete;
+        reactor( reactor const& )            = delete;
         reactor( reactor&& )                 = delete;
-        reactor& operator=( const reactor& ) = delete;
+        reactor& operator=( reactor const& ) = delete;
         reactor& operator=( reactor&& )      = delete;
 
         [[nodiscard]] constexpr protocol::channel_type get_channel() const
@@ -65,8 +65,8 @@ public:
                 return channel_;
         }
 
-        outcome on_msg( std::span< const std::byte > buffer );
-        outcome on_msg( const controller_reactor_variant& var );
+        outcome on_msg( std::span< std::byte const > buffer );
+        outcome on_msg( controller_reactor_variant const& var );
 
         void register_test( linked_list_node_base< test_interface >& test )
         {

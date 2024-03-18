@@ -31,7 +31,7 @@ namespace emlabcpp
 {
 
 template < typename T >
-std::string to_string( const T& val )
+std::string to_string( T const& val )
 {
         std::stringstream ss;
         ss << val;
@@ -43,7 +43,7 @@ struct protocol_test_fixture : public ::testing::Test
         virtual void generate_name( std::ostream& ) const = 0;
 };
 
-inline std::ostream& operator<<( std::ostream& os, const protocol_test_fixture& f )
+inline std::ostream& operator<<( std::ostream& os, protocol_test_fixture const& f )
 {
         f.generate_name( os );
         return os;
@@ -60,10 +60,10 @@ inline std::string pretty_name()
 }
 
 inline void exec_protocol_test_fixture_test(
-    const std::vector< std::function< protocol_test_fixture*() > >& factories )
+    std::vector< std::function< protocol_test_fixture*() > > const& factories )
 {
         for ( auto [i, factory] : enumerate( factories ) ) {
-                const std::unique_ptr< protocol_test_fixture > test_ptr{ factory() };
+                std::unique_ptr< protocol_test_fixture > const test_ptr{ factory() };
                 ::testing::RegisterTest(
                     "protocol_test_fixture",
                     ( "test " + ::testing::PrintToString( *test_ptr ) ).c_str(),
@@ -83,19 +83,19 @@ struct thread_safe_queue
 public:
         void insert( std::span< uint8_t > inpt )
         {
-                const std::lock_guard g{ lock_ };
+                std::lock_guard const g{ lock_ };
                 buff_.emplace_back( inpt.begin(), inpt.end() );
         }
 
         bool empty()
         {
-                const std::lock_guard g{ lock_ };
+                std::lock_guard const g{ lock_ };
                 return buff_.empty();
         }
 
         static_vector< uint8_t, 64 > pop()
         {
-                const std::lock_guard g{ lock_ };
+                std::lock_guard const g{ lock_ };
                 if ( buff_.empty() )
                         return {};
                 static_vector< uint8_t, 64 > res;

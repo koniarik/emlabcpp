@@ -33,7 +33,7 @@ struct string_buffer : std::array< char, N >
         }
 
         template < std::size_t M >
-        constexpr string_buffer( const char ( &msg )[M] )
+        constexpr string_buffer( char const ( &msg )[M] )
           : string_buffer()
         {
                 static_assert( M < N );
@@ -41,7 +41,7 @@ struct string_buffer : std::array< char, N >
         }
 
         template < std::size_t M >
-        constexpr string_buffer( const string_buffer< M >& msg )
+        constexpr string_buffer( string_buffer< M > const& msg )
           : string_buffer()
         {
                 static_assert( M < N );
@@ -60,7 +60,7 @@ struct string_buffer : std::array< char, N >
 };
 
 template < std::size_t N >
-std::ostream& operator<<( std::ostream& os, const string_buffer< N >& sb )
+std::ostream& operator<<( std::ostream& os, string_buffer< N > const& sb )
 {
         return os << std::string_view( sb );
 }
@@ -69,7 +69,7 @@ template < std::size_t N >
 struct pretty_printer< string_buffer< N > >
 {
         template < typename W >
-        static void print( W&& w, const string_buffer< N >& buff )
+        static void print( W&& w, string_buffer< N > const& buff )
         {
                 w( std::string_view{ buff } );
         }
@@ -78,15 +78,15 @@ struct pretty_printer< string_buffer< N > >
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 
 template < std::size_t N >
-void to_json( nlohmann::json& j, const string_buffer< N >& buffer )
+void to_json( nlohmann::json& j, string_buffer< N > const& buffer )
 {
         j = std::string_view{ buffer };
 }
 
 template < std::size_t N >
-void from_json( const nlohmann::json& j, string_buffer< N >& buffer )
+void from_json( nlohmann::json const& j, string_buffer< N >& buffer )
 {
-        const std::string s = j;
+        std::string const s = j;
         buffer              = string_buffer< N >( std::string_view{ s } );
 }
 

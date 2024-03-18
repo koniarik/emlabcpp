@@ -69,7 +69,7 @@ TEST( rpc, basic )
 
         // this is callback used to send and receive message between devices, in tests it's just
         // direct exchange
-        auto exchange_messages_f = [&]( const auto& msg ) {
+        auto exchange_messages_f = [&]( auto const& msg ) {
                 return wrap.on_message( msg );
         };
 
@@ -121,7 +121,7 @@ TEST( rpc, bind )
                 f.call3_m( i );
         } );
 
-        auto exchange_messages_f = [&]( const auto& msg ) {
+        auto exchange_messages_f = [&]( auto const& msg ) {
                 return bwp.on_message( msg );
         };
 

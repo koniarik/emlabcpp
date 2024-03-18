@@ -29,8 +29,8 @@ namespace emlabcpp::logging
 template < std::size_t N, std::size_t... Ids >
 auto generate_vars_log_tuple(
     std::index_sequence< Ids... >,
-    const std::array< std::string_view, N >& names,
-    const auto&                              args )
+    std::array< std::string_view, N > const& names,
+    auto const&                              args )
 {
         static_assert( 4 * N == sizeof...( Ids ) );
 
@@ -53,7 +53,7 @@ std::array< std::string_view, N > expand_var_names( std::string_view sv )
 {
         std::array< std::string_view, N > names;
         for ( std::size_t i = 0; i < N; i++ ) {
-                const std::size_t p = sv.find( ',' );
+                std::size_t const p = sv.find( ',' );
                 names[i]            = sv.substr( 0, p );
                 sv                  = sv.substr( p + 1 );
         }

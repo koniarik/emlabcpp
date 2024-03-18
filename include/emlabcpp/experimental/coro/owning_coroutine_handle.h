@@ -38,14 +38,14 @@ public:
         {
         }
 
-        owning_coroutine_handle( const owning_coroutine_handle& ) = delete;
+        owning_coroutine_handle( owning_coroutine_handle const& ) = delete;
 
         owning_coroutine_handle( owning_coroutine_handle&& other ) noexcept
         {
                 *this = std::move( other );
         }
 
-        owning_coroutine_handle& operator=( const owning_coroutine_handle& ) = delete;
+        owning_coroutine_handle& operator=( owning_coroutine_handle const& ) = delete;
 
         owning_coroutine_handle& operator=( owning_coroutine_handle&& other ) noexcept
         {
@@ -78,7 +78,7 @@ public:
                 return h_.promise();
         }
 
-        [[nodiscard]] constexpr const promise_type& promise() const
+        [[nodiscard]] constexpr promise_type const& promise() const
         {
                 return h_.promise();
         }

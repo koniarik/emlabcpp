@@ -27,12 +27,12 @@ namespace emlabcpp::pmr
 {
 
 /// TODO: this needs tests
-inline void* align( void* const ptr, const std::size_t alignment )
+inline void* align( void* const ptr, std::size_t const alignment )
 {
         // note: based on tips from sarah@#include discord
-        const auto iptr         = std::bit_cast< std::uintptr_t >( ptr );
-        const auto low_bit_mask = alignment - 1;
-        const auto aligned      = ( iptr + low_bit_mask ) & ~low_bit_mask;
+        auto const iptr         = std::bit_cast< std::uintptr_t >( ptr );
+        auto const low_bit_mask = alignment - 1;
+        auto const aligned      = ( iptr + low_bit_mask ) & ~low_bit_mask;
         return static_cast< std::byte* >( ptr ) + ( aligned - iptr );
 }
 

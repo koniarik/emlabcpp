@@ -28,9 +28,7 @@ namespace emlabcpp::protocol
 
 template < typename T >
 concept packet_def = requires( T t ) {
-        {
-                T::endianess
-        } -> std::convertible_to< std::endian >;
+        { T::endianess } -> std::convertible_to< std::endian >;
         is_std_array_v< std::decay_t< decltype( T::prefix ) > >;
         requires convertible< typename T::size_type >;
         requires convertible< typename T::checksum_type >;
@@ -76,7 +74,7 @@ struct packet : packet_base< Def, Payload >
                 static constexpr auto        prefix     = Def::prefix;
                 static constexpr std::size_t fixed_size = prefix_size + size_size;
 
-                static constexpr std::size_t get_size( const auto& buffer )
+                static constexpr std::size_t get_size( auto const& buffer )
                 {
                         std::array< std::byte, size_size > tmp;
                         std::copy_n( std::begin( buffer ) + prefix_size, size_size, tmp.begin() );
@@ -87,7 +85,7 @@ struct packet : packet_base< Def, Payload >
 
         using sequencer_type = sequencer< sequencer_def >;
 
-        static constexpr checksum_type get_checksum( const view< const std::byte* > mview )
+        static constexpr checksum_type get_checksum( view< std::byte const* > const mview )
         {
                 return Def::get_checksum( mview );
         }

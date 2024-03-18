@@ -114,7 +114,7 @@ public:
 
         recursive_coroutine() = default;
 
-        explicit recursive_coroutine( const handle& cor )
+        explicit recursive_coroutine( handle const& cor )
           : h_( cor )
         {
         }
@@ -139,7 +139,7 @@ public:
         }
 
         template < typename U >
-        void await_suspend( const U h )
+        void await_suspend( U const h )
         {
                 h.promise().iface = this;
         }
@@ -171,7 +171,7 @@ public:
                 wait_interface* iface = h_.promise().iface;
 
                 if ( iface != nullptr ) {
-                        const wait_state s = iface->get_state();
+                        wait_state const s = iface->get_state();
                         if ( s == wait_state::WAITING ) {
                                 iface->tick();
                                 return;

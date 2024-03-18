@@ -59,26 +59,26 @@ struct pose
         {
         }
 
-        explicit constexpr pose( const point< 3 >& position )
+        explicit constexpr pose( point< 3 > const& position )
           : position( position )
           , orientation( neutral_quat )
         {
         }
 
-        explicit constexpr pose( const quaternion& orientation )
+        explicit constexpr pose( quaternion const& orientation )
           : position( 0, 0, 0 )
           , orientation( orientation )
         {
         }
 
-        constexpr pose( const point< 3 >& position, const quaternion& orientation )
+        constexpr pose( point< 3 > const& position, quaternion const& orientation )
           : position( position )
           , orientation( orientation )
         {
         }
 };
 
-constexpr bool operator<( const pose& x, const pose& y )
+constexpr bool operator<( pose const& x, pose const& y )
 {
         if ( x.position == y.position )
                 return x.orientation < y.orientation;
@@ -86,19 +86,19 @@ constexpr bool operator<( const pose& x, const pose& y )
 }
 
 /// compares poses on their position and orientation
-constexpr bool operator==( const pose& x, const pose& y )
+constexpr bool operator==( pose const& x, pose const& y )
 {
         return x.position == y.position && x.orientation == y.orientation;
 }
 
 /// negation of operator== between poses
-constexpr bool operator!=( const pose& x, const pose& y )
+constexpr bool operator!=( pose const& x, pose const& y )
 {
         return !( x == y );
 }
 
 /// returns PoseDistance between provided poses
-constexpr pose_distance distance_of( const pose& x, const pose& y )
+constexpr pose_distance distance_of( pose const& x, pose const& y )
 {
         return {
             distance_of( x.position, y.position ),
@@ -107,7 +107,7 @@ constexpr pose_distance distance_of( const pose& x, const pose& y )
 
 /// linear interpolation between base se and goal pose, with factor 0 'base' is returned, with
 /// factor 1 'goal' is returned. With factor 0.5, pose between 'base' and 'goal' pose is returned
-constexpr pose lin_interp( const pose& from, const pose& goal, float factor )
+constexpr pose lin_interp( pose const& from, pose const& goal, float factor )
 {
         return pose{
             lin_interp( from.position, goal.position, factor ),
@@ -115,16 +115,16 @@ constexpr pose lin_interp( const pose& from, const pose& goal, float factor )
 }
 
 inline std::vector< pose >
-lineary_interpolate_path( const std::vector< pose >& ipath, float d_step, float a_step )
+lineary_interpolate_path( std::vector< pose > const& ipath, float d_step, float a_step )
 {
         std::vector< pose > res;
         if ( ipath.empty() )
                 return res;
-        for ( const std::size_t i : range( ipath.size() - 1 ) ) {
-                const pose&       from      = ipath[i];
-                const pose&       to        = ipath[i + 1];
-                const std::size_t seg_steps = steps( distance_of( to, from ), d_step, a_step );
-                for ( const std::size_t j : range( seg_steps ) )
+        for ( std::size_t const i : range( ipath.size() - 1 ) ) {
+                pose const&       from      = ipath[i];
+                pose const&       to        = ipath[i + 1];
+                std::size_t const seg_steps = steps( distance_of( to, from ), d_step, a_step );
+                for ( std::size_t const j : range( seg_steps ) )
                         res.push_back( lin_interp( from, to, float( j ) / float( seg_steps ) ) );
         }
         res.push_back( ipath.back() );
@@ -133,43 +133,43 @@ lineary_interpolate_path( const std::vector< pose >& ipath, float d_step, float 
 
 /// Point A is rotated based on 'transformation' orientation and than moved based on
 /// 'transformation' position
-constexpr point< 3 > transform( const point< 3 >& a, const pose& transformation )
+constexpr point< 3 > transform( point< 3 > const& a, pose const& transformation )
 {
         return rotate( a, transformation.orientation ) + vector_cast( transformation.position );
 }
 
-constexpr vector< 3 > transform( const vector< 3 >& v, const pose& transformation )
+constexpr vector< 3 > transform( vector< 3 > const& v, pose const& transformation )
 {
         return rotate( v, transformation.orientation ) + vector_cast( transformation.position );
 }
 
 /// Pose X is rotated based on 'transformation' orientation and than moved based on 'transformation'
 /// position
-constexpr pose transform( const pose& x, const pose& transformation )
+constexpr pose transform( pose const& x, pose const& transformation )
 {
         return pose{
             transform( x.position, transformation ), transformation.orientation * x.orientation };
 }
 
 template < typename T >
-constexpr auto transform( const min_max< T >& mm, const pose& transformation )
+constexpr auto transform( min_max< T > const& mm, pose const& transformation )
 {
         return min_max{ transform( mm.min, transformation ), transform( mm.max, transformation ) };
 }
 
-constexpr pose inverse( const pose& x )
+constexpr pose inverse( pose const& x )
 {
         return pose{ -x.position, inverse( x.orientation ) };
 }
 
 template < typename T >
-constexpr auto inverse_transform( const T& item, const pose& transformation )
+constexpr auto inverse_transform( T const& item, pose const& transformation )
 {
         return transform( item, inverse( transformation ) );
 }
 
 /// Pose X is rotated based on quaternion 'quad'
-constexpr pose rotate( const pose& x, const quaternion& quat )
+constexpr pose rotate( pose const& x, quaternion const& quat )
 {
         return pose{ rotate( x.position, quat ), quat * x.orientation };
 }

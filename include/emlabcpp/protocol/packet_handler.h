@@ -43,13 +43,13 @@ struct packet_handler
         static constexpr std::size_t size_size     = Packet::size_traits::max_size;
         static constexpr auto        endianess     = Packet::endianess;
 
-        static message_type serialize( const value_type& val )
+        static message_type serialize( value_type const& val )
         {
 
                 message_type msg = sub_handler::serialize(
                     std::make_tuple( Packet::prefix, val, checksum_type{} ) );
 
-                const checksum_type chcksm =
+                checksum_type const chcksm =
                     Packet::get_checksum( view_n( msg.begin(), msg.size() - checksum_size ) );
 
                 serializer< checksum_type, endianess >::serialize_at(
@@ -60,16 +60,16 @@ struct packet_handler
                 return msg;
         }
 
-        static either< value_type, error_record > extract( const view< const std::byte* >& msg )
+        static either< value_type, error_record > extract( view< std::byte const* > const& msg )
         {
                 return sub_handler::extract( msg ).bind_left(
                     [&msg]( std::tuple< prefix_type, value_type, checksum_type > pack )
                         -> either< value_type, error_record > {
-                            const checksum_type present_checksum = std::get< 2 >( pack );
-                            const std::size_t   checksum_pos     = msg.size() - checksum_size;
-                            const view< const std::byte* > area =
+                            checksum_type const present_checksum = std::get< 2 >( pack );
+                            std::size_t const   checksum_pos     = msg.size() - checksum_size;
+                            view< std::byte const* > const area =
                                 view_n( msg.begin(), checksum_pos );
-                            const checksum_type calculated_checksum = Packet::get_checksum( area );
+                            checksum_type const calculated_checksum = Packet::get_checksum( area );
 
                             if ( present_checksum != calculated_checksum ) {
                                     EMLABCPP_ERROR_LOG(

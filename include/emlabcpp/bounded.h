@@ -139,10 +139,10 @@ public:
                                      interval_range;
         }
 
-        friend constexpr auto operator<=>( const bounded&, const bounded& ) = default;
+        friend constexpr auto operator<=>( bounded const&, bounded const& ) = default;
 
         template < typename U >
-        friend constexpr auto operator<=>( const bounded& b, const U& val )
+        friend constexpr auto operator<=>( bounded const& b, U const& val )
         {
                 return *b <=> val;
         }
@@ -150,7 +150,7 @@ public:
         /// Sum of two bounded types of same base type is bounded within appropiate ranges.
         template < T FromOther, T ToOther >
         constexpr bounded< T, MinVal + FromOther, MaxVal + ToOther >
-        operator+( const bounded< T, FromOther, ToOther >& other ) const
+        operator+( bounded< T, FromOther, ToOther > const& other ) const
         {
                 return bounded< T, MinVal + FromOther, MaxVal + ToOther >( val_ + *other );
         }
@@ -166,7 +166,7 @@ constexpr auto bounded_constant = bounded< std::size_t, N, N >{};
 namespace detail
 {
         template < typename T, T MinVal, T MaxVal >
-        constexpr bool bounded_derived_test( const bounded< T, MinVal, MaxVal >& )
+        constexpr bool bounded_derived_test( bounded< T, MinVal, MaxVal > const& )
         {
                 return true;
         }
@@ -180,7 +180,7 @@ template < typename T, T MinVal, T MaxVal >
 struct pretty_printer< bounded< T, MinVal, MaxVal > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const bounded< T, MinVal, MaxVal >& b )
+        static void print( Writer&& w, bounded< T, MinVal, MaxVal > const& b )
         {
                 pretty_printer< T >::print( std::forward< Writer >( w ), *b );
         }
@@ -188,7 +188,7 @@ struct pretty_printer< bounded< T, MinVal, MaxVal > >
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < typename T, T MinVal, T MaxVal >
-std::ostream& operator<<( std::ostream& os, const bounded< T, MinVal, MaxVal >& b )
+std::ostream& operator<<( std::ostream& os, bounded< T, MinVal, MaxVal > const& b )
 {
         return os << *b;
 }

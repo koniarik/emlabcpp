@@ -41,7 +41,7 @@ struct register_pair
 
         value_type value;
 
-        friend constexpr auto operator<=>( const register_pair&, const register_pair& ) = default;
+        friend constexpr auto operator<=>( register_pair const&, register_pair const& ) = default;
 };
 
 template < typename UnaryCallable, typename Registers >
@@ -111,7 +111,7 @@ public:
         {
         }
 
-        constexpr explicit register_map( const Regs&... regs )
+        constexpr explicit register_map( Regs const&... regs )
           : registers_( regs... )
         {
         }
@@ -125,7 +125,7 @@ public:
         [[nodiscard]] reg_value_type< Key > get_val() const
         {
                 static_assert( contains_key< Key > );
-                const reg_type< Key >& reg = std::get< key_index< Key > >( registers_ );
+                reg_type< Key > const& reg = std::get< key_index< Key > >( registers_ );
                 return reg.value;
         }
 
@@ -174,7 +174,7 @@ public:
                 return with_register_impl( *this, key, std::forward< UnaryCallable >( f ) );
         }
 
-        friend constexpr auto operator<=>( const register_map&, const register_map& ) = default;
+        friend constexpr auto operator<=>( register_map const&, register_map const& ) = default;
 
 private:
         template < typename Class, typename UnaryCallable >
@@ -183,7 +183,7 @@ private:
         {
                 using ret_type = decltype( f( std::get< 0 >( registers_ ) ) );
                 ret_type res;
-                with_register_impl( obj, key, [&res, &f]( const auto& reg ) {
+                with_register_impl( obj, key, [&res, &f]( auto const& reg ) {
                         res = f( reg );
                 } );
                 return res;
@@ -204,7 +204,7 @@ private:
 };
 
 template < typename Map, typename UnaryCallable >
-void for_each_register( const Map& m, UnaryCallable&& f )
+void for_each_register( Map const& m, UnaryCallable&& f )
 {
         for_each_index< Map::registers_count >(
             [&m, f = std::forward< UnaryCallable >( f )]< std::size_t i >() {
@@ -215,9 +215,9 @@ void for_each_register( const Map& m, UnaryCallable&& f )
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < std::endian Endianess, typename... Regs >
-std::ostream& operator<<( std::ostream& os, const register_map< Endianess, Regs... >& m )
+std::ostream& operator<<( std::ostream& os, register_map< Endianess, Regs... > const& m )
 {
-        for_each_register( m, [&os]< auto key, typename T >( const T& val ) {
+        for_each_register( m, [&os]< auto key, typename T >( T const& val ) {
                 os << key << "\t" << val << "\n";
         } );
 
@@ -234,9 +234,9 @@ template < std::endian Endianess, typename... Regs >
 struct pretty_printer< protocol::register_map< Endianess, Regs... > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const protocol::register_map< Endianess, Regs... >& cmap )
+        static void print( Writer&& w, protocol::register_map< Endianess, Regs... > const& cmap )
         {
-                protocol::for_each_register( cmap, [&w]< auto key, typename T >( const T& val ) {
+                protocol::for_each_register( cmap, [&w]< auto key, typename T >( T const& val ) {
                         w( key );
                         w( '\t' );
                         w( val );

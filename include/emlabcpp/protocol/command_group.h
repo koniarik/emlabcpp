@@ -53,7 +53,7 @@ struct command
 
         /// Creates value of the command based on the args.
         constexpr static value_type
-        make_val( const typename proto_traits< Defs >::value_type&... args )
+        make_val( typename proto_traits< Defs >::value_type const&... args )
         {
                 return { tag< ID >{}, args... };
         }
@@ -109,7 +109,7 @@ public:
         /// will receive the appropiate 'args'.
         template < auto id, typename... Args >
         requires( ( id == Cmds::id ) || ... )
-        constexpr static value_type make_val( const Args&... args )
+        constexpr static value_type make_val( Args const&... args )
         {
                 std::optional< value_type > res;
 

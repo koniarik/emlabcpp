@@ -46,13 +46,13 @@ public:
         {
         }
 
-        [[nodiscard]] either< std::reference_wrapper< const value_type >, error_enum >
+        [[nodiscard]] either< std::reference_wrapper< value_type const >, error_enum >
         get_value( node_id id ) const
         {
                 return get_node( id ).bind_left(
-                    [&id]( const node_type& node )
-                        -> either< std::reference_wrapper< const value_type >, error_enum > {
-                            const value_type* val_ptr = node.get_value();
+                    [&id]( node_type const& node )
+                        -> either< std::reference_wrapper< value_type const >, error_enum > {
+                            value_type const* val_ptr = node.get_value();
                             if ( val_ptr == nullptr ) {
                                     EMLABCPP_ERROR_LOG( "Node ", id, " is not value type" );
                                     return error_enum::WRONG_TYPE;
@@ -62,21 +62,21 @@ public:
         }
 
         [[nodiscard]] either< node_id, error_enum >
-        get_child( node_id nid, const std::variant< key_type, child_id >& id_var ) const
+        get_child( node_id nid, std::variant< key_type, child_id > const& id_var ) const
         {
                 auto get_object_child = []( const_object_handle&                      h,
-                                            const std::variant< key_type, child_id >& key ) {
+                                            std::variant< key_type, child_id > const& key ) {
                         return visit(
-                            [&h]( const auto& k ) {
+                            [&h]( auto const& k ) {
                                     return h.get_child( k );
                             },
                             key );
                 };
 
                 auto get_array_child = []( const_array_handle&                       h,
-                                           const std::variant< key_type, child_id >& key )
+                                           std::variant< key_type, child_id > const& key )
                     -> std::optional< node_id > {
-                        const child_id* const id_ptr = std::get_if< child_id >( &key );
+                        child_id const* const id_ptr = std::get_if< child_id >( &key );
                         if ( id_ptr == nullptr )
                                 return std::nullopt;
                         return h.get_child( *id_ptr );
@@ -119,9 +119,9 @@ public:
         [[nodiscard]] either< child_id, error_enum > get_child_count( node_id nid ) const
         {
                 return get_containers( nid ).convert_left(
-                    []( const std::variant< const_object_handle, const_array_handle > var ) {
+                    []( std::variant< const_object_handle, const_array_handle > const var ) {
                             return visit(
-                                []( const auto& handle ) {
+                                []( auto const& handle ) {
                                         return std::size( handle );
                                 },
                                 var );
@@ -132,7 +132,7 @@ public:
         {
                 return get_object_handle( nid ).bind_left(
                     [&nid, &chid]( const_object_handle oh ) -> either< key_type, error_enum > {
-                            const key_type* key_ptr = oh.get_key( chid );
+                            key_type const* key_ptr = oh.get_key( chid );
 
                             if ( key_ptr == nullptr ) {
                                     EMLABCPP_ERROR_LOG(
@@ -145,15 +145,15 @@ public:
 
         [[nodiscard]] either< type_enum, error_enum > get_type( node_id nid ) const
         {
-                return get_node( nid ).convert_left( []( const node_type& node ) {
+                return get_node( nid ).convert_left( []( node_type const& node ) {
                         return node.get_type();
                 } );
         }
 
         [[nodiscard]] either< node_id, error_enum > insert(
             node_id                                                      parent,
-            const key_type&                                              key,
-            const std::variant< value_type, contiguous_container_type >& val )
+            key_type const&                                              key,
+            std::variant< value_type, contiguous_container_type > const& val )
         {
                 return get_object_handle( parent ).bind_left(
                     [this, &val, &key]( object_handle oh ) {
@@ -165,7 +165,7 @@ public:
         }
 
         [[nodiscard]] either< node_id, error_enum >
-        insert( node_id parent, const std::variant< value_type, contiguous_container_type >& val )
+        insert( node_id parent, std::variant< value_type, contiguous_container_type > const& val )
         {
                 return get_array_handle( parent ).bind_left( [this, &val]( array_handle ah ) {
                         return construct_node( val ).convert_left( [&ah]( node_id nid ) {
@@ -177,14 +177,14 @@ public:
 
 private:
         [[nodiscard]] either< node_id, error_enum >
-        construct_node( const std::variant< value_type, contiguous_container_type >& var )
+        construct_node( std::variant< value_type, contiguous_container_type > const& var )
         {
                 std::optional< node_id > opt_nid = match(
                     var,
-                    [this]( const value_type& val ) {
+                    [this]( value_type const& val ) {
                             return tree_.make_value_node( val );
                     },
-                    [this]( const contiguous_container_type type ) -> std::optional< node_id > {
+                    [this]( contiguous_container_type const type ) -> std::optional< node_id > {
                             if ( type == contiguous_container_type::ARRAY ) {
                                     auto opt_res = tree_.make_array_node();
                                     if ( opt_res )
@@ -208,10 +208,10 @@ private:
                 return *opt_nid;
         }
 
-        [[nodiscard]] either< std::reference_wrapper< const node_type >, error_enum >
+        [[nodiscard]] either< std::reference_wrapper< node_type const >, error_enum >
         get_node( node_id nid ) const
         {
-                return get_node_impl< const node_type >( this, nid );
+                return get_node_impl< node_type const >( this, nid );
         }
 
         [[nodiscard]] either< std::reference_wrapper< node_type >, error_enum >
@@ -255,7 +255,7 @@ private:
                     [&nid]( auto& node_wrapper ) -> either< var_type, error_enum > {
                             auto& node = node_wrapper.get();
                             std::variant<
-                                std::reference_wrapper< const value_type >,
+                                std::reference_wrapper< value_type const >,
                                 OHandle,
                                 AHandle >
                                 cont = node.get_container_handle();

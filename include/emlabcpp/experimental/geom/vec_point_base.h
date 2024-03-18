@@ -54,7 +54,7 @@ public:
         static Derived make_filled_with( value_type val )
         {
                 std::array< float, N > res;
-                for ( const std::size_t i : range( N ) )
+                for ( std::size_t const i : range( N ) )
                         res[i] = val;
                 return Derived{ res };
         }
@@ -113,18 +113,18 @@ public:
                 return N;
         }
 
-        [[nodiscard]] constexpr const container& operator*() const
+        [[nodiscard]] constexpr container const& operator*() const
         {
                 return data_;
         }
 
-        friend constexpr auto operator<=>( const vec_point_base&, const vec_point_base& ) = default;
+        friend constexpr auto operator<=>( vec_point_base const&, vec_point_base const& ) = default;
 };
 
 namespace detail
 {
         template < typename Derived, std::size_t N >
-        constexpr bool vec_point_derived_test( const vec_point_base< Derived, N >& )
+        constexpr bool vec_point_derived_test( vec_point_base< Derived, N > const& )
         {
                 return true;
         }
@@ -140,10 +140,10 @@ template <
     std::size_t N,
     typename T,
     typename = typename std::enable_if_t< std::is_arithmetic_v< T > > >
-constexpr Derived operator*( const vec_point_base< Derived, N >& a, T s )
+constexpr Derived operator*( vec_point_base< Derived, N > const& a, T s )
 {
         Derived res{ *a };
-        for ( const std::size_t i : range( N ) )
+        for ( std::size_t const i : range( N ) )
                 res[i] *= s;
         return res;
 }
@@ -151,7 +151,7 @@ constexpr Derived operator*( const vec_point_base< Derived, N >& a, T s )
 /// Multiplies each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic
 ///
 template < typename Derived, std::size_t N, typename T >
-constexpr Derived operator*( T s, const vec_point_base< Derived, N >& a )
+constexpr Derived operator*( T s, vec_point_base< Derived, N > const& a )
 {
         return a * s;
 }
@@ -163,10 +163,10 @@ template <
     std::size_t N,
     typename T,
     typename = typename std::enable_if_t< std::is_arithmetic_v< T > > >
-constexpr Derived operator/( const vec_point_base< Derived, N >& a, T s )
+constexpr Derived operator/( vec_point_base< Derived, N > const& a, T s )
 {
         Derived res{ *a };
-        for ( const std::size_t i : range( N ) )
+        for ( std::size_t const i : range( N ) )
                 res[i] /= float( s );
         return res;
 }
@@ -174,7 +174,7 @@ constexpr Derived operator/( const vec_point_base< Derived, N >& a, T s )
 /// Calculates the dot product between A and B
 ///
 template < typename Derived, std::size_t N >
-constexpr float dot( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& b )
+constexpr float dot( vec_point_base< Derived, N > const& a, vec_point_base< Derived, N > const& b )
 {
         return sum( range( N ), [&]( std::size_t i ) {
                 return a[i] * b[i];
@@ -185,7 +185,7 @@ constexpr float dot( const vec_point_base< Derived, N >& a, const vec_point_base
 /// by A
 ///
 template < typename Derived, std::size_t N >
-constexpr auto length2_of( const vec_point_base< Derived, N >& a )
+constexpr auto length2_of( vec_point_base< Derived, N > const& a )
 {
         auto res = sum( range( N ), [a]( std::size_t i ) {
                 return std::pow( a[i], 2 );
@@ -196,7 +196,7 @@ constexpr auto length2_of( const vec_point_base< Derived, N >& a )
 /// Returns distance of A from [0,0,0], this is a length of vector represented by A
 ///
 template < typename Derived, std::size_t N >
-constexpr float length_of( const vec_point_base< Derived, N >& a )
+constexpr float length_of( vec_point_base< Derived, N > const& a )
 {
         return std::sqrt( length2_of( a ) );
 }
@@ -204,7 +204,7 @@ constexpr float length_of( const vec_point_base< Derived, N >& a )
 /// Calculates normalized version of A, this means that length(A) equals to 1
 ///
 template < typename Derived, std::size_t N >
-constexpr Derived normalized( const vec_point_base< Derived, N >& a )
+constexpr Derived normalized( vec_point_base< Derived, N > const& a )
 {
         return a / length_of( a );
 }
@@ -212,24 +212,24 @@ constexpr Derived normalized( const vec_point_base< Derived, N >& a )
 /// Creates absolute version of A - removing signs on all dimensions
 ///
 template < typename Derived, std::size_t N >
-constexpr Derived abs( const vec_point_base< Derived, N >& a )
+constexpr Derived abs( vec_point_base< Derived, N > const& a )
 {
         Derived res;
-        for ( const std::size_t i : range( N ) )
+        for ( std::size_t const i : range( N ) )
                 res[i] = std::abs( a[i] );
         return res;
 }
 
 template < typename Derived, std::size_t N >
 constexpr Derived
-max( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& b )
+max( vec_point_base< Derived, N > const& a, vec_point_base< Derived, N > const& b )
 {
         return Derived{ a > b ? *a : *b };
 }
 
 template < typename Derived, std::size_t N >
-constexpr const Derived&
-min( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& b )
+constexpr Derived const&
+min( vec_point_base< Derived, N > const& a, vec_point_base< Derived, N > const& b )
 {
         return Derived{ a < b ? *a : *b };
 }
@@ -238,10 +238,10 @@ min( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& 
 ///
 template < typename Derived, std::size_t N >
 constexpr Derived
-dimensional_max( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& b )
+dimensional_max( vec_point_base< Derived, N > const& a, vec_point_base< Derived, N > const& b )
 {
         Derived res;
-        for ( const std::size_t i : range( N ) )
+        for ( std::size_t const i : range( N ) )
                 res[i] = std::max( a[i], b[i] );
         return res;
 }
@@ -250,10 +250,10 @@ dimensional_max( const vec_point_base< Derived, N >& a, const vec_point_base< De
 ///
 template < typename Derived, std::size_t N >
 constexpr Derived
-dimensional_min( const vec_point_base< Derived, N >& a, const vec_point_base< Derived, N >& b )
+dimensional_min( vec_point_base< Derived, N > const& a, vec_point_base< Derived, N > const& b )
 {
         Derived res;
-        for ( const std::size_t i : range( N ) )
+        for ( std::size_t const i : range( N ) )
                 res[i] = std::min( a[i], b[i] );
         return res;
 }
@@ -263,13 +263,13 @@ template <
     typename UnaryFunction = std::identity,
     typename Derived       = std::decay_t< mapped_t< Container, UnaryFunction > > >
 constexpr min_max< Derived >
-dimensional_min_max_elem( const Container& cont, UnaryFunction&& f = std::identity{} )
+dimensional_min_max_elem( Container const& cont, UnaryFunction&& f = std::identity{} )
 {
         min_max< Derived > bound_cube;
         bound_cube.min = std::numeric_limits< Derived >::max();
         bound_cube.max = std::numeric_limits< Derived >::lowest();
-        for ( const auto& item : cont ) {
-                const auto& p  = f( item );
+        for ( auto const& item : cont ) {
+                auto const& p  = f( item );
                 bound_cube.min = dimensional_min( bound_cube.min, p );
                 bound_cube.max = dimensional_max( bound_cube.max, p );
         }
@@ -278,12 +278,12 @@ dimensional_min_max_elem( const Container& cont, UnaryFunction&& f = std::identi
 
 template < typename Derived, std::size_t N >
 constexpr Derived lin_interp(
-    const vec_point_base< Derived, N >& from,
-    const vec_point_base< Derived, N >& goal,
+    vec_point_base< Derived, N > const& from,
+    vec_point_base< Derived, N > const& goal,
     float                               factor )
 {
         Derived res;
-        for ( const std::size_t i : range( N ) )
+        for ( std::size_t const i : range( N ) )
                 res[i] = from[i] + ( goal[i] - from[i] ) * factor;
         return res;
 }

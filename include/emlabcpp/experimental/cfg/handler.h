@@ -14,8 +14,8 @@ struct handler
         template < typename ChecksumFunction >
         static std::tuple< bool, std::span< std::byte > > store(
             std::span< std::byte > target_buffer,
-            const Payload&         pl,
-            view< const Field* >   fields,
+            Payload const&         pl,
+            view< Field const* >   fields,
             ChecksumFunction&&     chcksm_f )
         {
                 return store(
@@ -31,7 +31,7 @@ struct handler
         template < typename FieldFunction, typename ChecksumFunction >
         static std::tuple< bool, std::span< std::byte > > store(
             std::span< std::byte > target_buffer,
-            const Payload&         pl,
+            Payload const&         pl,
             std::size_t            field_count,
             FieldFunction&&        field_f,
             ChecksumFunction&&     chcksm_f )
@@ -51,8 +51,8 @@ struct handler
                 if ( !success )
                         return { false, {} };
 
-                for ( const std::size_t i : range( field_count ) ) {
-                        const Field fp = field_f( i );
+                for ( std::size_t const i : range( field_count ) ) {
+                        Field const fp = field_f( i );
                         std::tie( success, buffer ) =
                             store_impl< Endianess >( buffer, fp, chcksm_f );
                         if ( !success )
@@ -91,7 +91,7 @@ struct handler
                 if ( !pl_f( std::as_const( pl ) ) )
                         return load_result::PAYLOAD_REFUSED;
 
-                for ( const std::size_t i : range( head.field_count ) ) {
+                for ( std::size_t const i : range( head.field_count ) ) {
                         std::ignore = i;
                         Field f;
                         std::tie( success, f, buffer ) =

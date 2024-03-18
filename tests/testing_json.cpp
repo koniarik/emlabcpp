@@ -27,7 +27,7 @@ namespace emlabcpp
 
 TEST( TestingJson, json )
 {
-        const nlohmann::json j = {
+        nlohmann::json const j = {
             { "v1", 42 },
             { "v2", -42 },
             { "v3", false },
@@ -40,7 +40,7 @@ TEST( TestingJson, json )
 
         EXPECT_TRUE( opt_tree );
 
-        const nlohmann::json result = testing::data_tree_to_json( *opt_tree );
+        nlohmann::json const result = testing::data_tree_to_json( *opt_tree );
 
         EXPECT_EQ( j, result );
 }

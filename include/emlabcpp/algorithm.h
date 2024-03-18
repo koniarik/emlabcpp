@@ -36,7 +36,7 @@ constexpr float default_epsilon = 1.19e-07f;
 
 /// returns sign of variable T: -1,0,1
 template < typename T >
-constexpr int sign( const T& val )
+constexpr int sign( T const& val )
 {
         using value_type = std::decay_t< T >;
         if ( value_type{ 0 } > val )
@@ -67,7 +67,7 @@ template < arithmetic_operators T, arithmetic_operators U >
 
 /// Returns the size of the container, regardless of what it is
 template < container Container >
-[[nodiscard]] constexpr std::size_t cont_size( const Container& cont ) noexcept
+[[nodiscard]] constexpr std::size_t cont_size( Container const& cont ) noexcept
 {
         if constexpr ( static_sized< Container > )
                 return std::tuple_size_v< Container >;
@@ -79,21 +79,21 @@ template < container Container >
 /// value 'eps'
 template < typename T >
 [[nodiscard]] constexpr bool
-almost_equal( const T& lh, const T& rh, const float eps = default_epsilon )
+almost_equal( T const& lh, T const& rh, float const eps = default_epsilon )
 {
         return float( std::abs( lh - rh ) ) < eps;
 }
 
 /// Returns range over Container, which skips first item of container
 template < referenceable_container Container, typename Iterator = iterator_of_t< Container > >
-[[nodiscard]] constexpr view< Iterator > tail( Container&& cont, const int step = 1 )
+[[nodiscard]] constexpr view< Iterator > tail( Container&& cont, int const step = 1 )
 {
         return view< Iterator >( std::begin( cont ) + step, std::end( cont ) );
 }
 
 /// Returns range over Container, which skips last item of container
 template < referenceable_container Container, typename Iterator = iterator_of_t< Container > >
-[[nodiscard]] constexpr view< Iterator > init( Container&& cont, const int step = 1 )
+[[nodiscard]] constexpr view< Iterator > init( Container&& cont, int const step = 1 )
 {
         return view< Iterator >( std::begin( cont ), std::end( cont ) - step );
 }
@@ -132,16 +132,16 @@ find_if( Container&& t, PredicateCallable&& f = std::identity() )
 /// Finds first item in container 'cont' that is equal to 'item', returns
 /// iterator for container, or index for tuples
 template < container Container, typename T >
-[[nodiscard]] constexpr auto find( Container&& cont, const T& item )
+[[nodiscard]] constexpr auto find( Container&& cont, T const& item )
 {
-        return find_if( std::forward< Container >( cont ), [&]( const auto& sub_item ) {
+        return find_if( std::forward< Container >( cont ), [&]( auto const& sub_item ) {
                 return sub_item == item;
         } );
 }
 
 /// Checks if container `cont` contains at least one occurence of `item`, returns true/false
 template < container Container, typename T >
-[[nodiscard]] constexpr bool contains( const Container& cont, const T& item )
+[[nodiscard]] constexpr bool contains( Container const& cont, T const& item )
 {
         if constexpr ( range_container< Container > )
                 return find( cont, item ) != cont.end();
@@ -436,7 +436,7 @@ template <
     typename T,
     container_invocable< Container > UnaryCallable = std::identity >
 [[nodiscard]] constexpr T
-joined( Container&& cont, const T& val, UnaryCallable&& f = std::identity() )
+joined( Container&& cont, T const& val, UnaryCallable&& f = std::identity() )
 {
         if ( cont.empty() )
                 return T{};
@@ -498,9 +498,7 @@ constexpr bool until_index( PredicateCallable&& f )
 /// Expectes the bounded value to be valid (that is within the range)
 template < bounded_derived IndexType, typename Callable >
 requires( !requires( Callable f ) {
-        {
-                f.template operator()< 0 >()
-        } -> std::same_as< void >;
+        { f.template operator()< 0 >() } -> std::same_as< void >;
 } )
 constexpr auto select_index( IndexType i, Callable&& f )
 {
@@ -514,9 +512,7 @@ constexpr auto select_index( IndexType i, Callable&& f )
 
 template < bounded_derived IndexType, typename Callable >
 requires requires( Callable f ) {
-        {
-                f.template operator()< 0 >()
-        } -> std::same_as< void >;
+        { f.template operator()< 0 >() } -> std::same_as< void >;
 }
 constexpr void select_index( IndexType i, Callable&& f )
 {
@@ -531,7 +527,7 @@ constexpr void select_index( IndexType i, Callable&& f )
 
 /// Conveft the provided arguments into array of std::byte
 template < typename... Args, std::size_t N = sizeof...( Args ) >
-constexpr std::array< std::byte, N > bytes( const Args&... args )
+constexpr std::array< std::byte, N > bytes( Args const&... args )
 {
         return std::array< std::byte, N >{ static_cast< std::byte >( args )... };
 }

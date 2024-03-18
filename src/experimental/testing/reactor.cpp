@@ -55,56 +55,56 @@ void reactor::tick()
         }
 }
 
-outcome reactor::on_msg( const std::span< const std::byte > buffer )
+outcome reactor::on_msg( std::span< std::byte const > const buffer )
 {
         using h = protocol::handler< controller_reactor_group >;
         return h::extract( view_n( buffer.data(), buffer.size() ) )
             .match(
-                [this]( const controller_reactor_variant& var ) {
+                [this]( controller_reactor_variant const& var ) {
                         return on_msg( var );
                 },
-                [this]( const protocol::error_record& rec ) -> outcome {
+                [this]( protocol::error_record const& rec ) -> outcome {
                         // error is returned anyway
                         std::ignore = iface_.report_failure( input_message_protocol_error{ rec } );
                         return ERROR;
                 } );
 }
 
-outcome reactor::on_msg( const controller_reactor_variant& var )
+outcome reactor::on_msg( controller_reactor_variant const& var )
 {
-        return match( var, [this]( const auto& item ) {
+        return match( var, [this]( auto const& item ) {
                 return handle_message( item );
         } );
 }
 
-outcome reactor::handle_message( const get_property< msgid::SUITE_NAME > )
+outcome reactor::handle_message( get_property< msgid::SUITE_NAME > const )
 {
         return iface_.reply( get_suite_name_reply{ name_buffer( suite_name_ ) } );
 }
 
-outcome reactor::handle_message( const get_property< msgid::SUITE_DATE > )
+outcome reactor::handle_message( get_property< msgid::SUITE_DATE > const )
 {
         return iface_.reply( get_suite_date_reply{ name_buffer( suite_date_ ) } );
 }
 
-outcome reactor::handle_message( const get_property< msgid::COUNT > )
+outcome reactor::handle_message( get_property< msgid::COUNT > const )
 {
-        const std::size_t c = root_node_.count_next();
+        std::size_t const c = root_node_.count_next();
         return iface_.reply( get_count_reply{ static_cast< test_id >( c ) } );
 }
 
-outcome reactor::handle_message( const get_test_name_request req )
+outcome reactor::handle_message( get_test_name_request const req )
 {
         test_ll_node* const node_ptr = root_node_.get_next( req.tid + 1 );
         if ( node_ptr == nullptr ) {
                 std::ignore = iface_.report_failure( error< BAD_TEST_ID_E >{} );
                 return FAILURE;
         }
-        const test_interface& test = **node_ptr;
+        test_interface const& test = **node_ptr;
         return iface_.reply( get_test_name_reply{ name_buffer( test.get_name() ) } );
 }
 
-outcome reactor::handle_message( const exec_request req )
+outcome reactor::handle_message( exec_request const req )
 {
         if ( opt_exec_ ) {
                 std::ignore = iface_.report_failure( error< TEST_IS_RUNING_E >{} );

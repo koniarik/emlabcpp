@@ -31,7 +31,7 @@
 namespace emlabcpp::testing
 {
 
-inline ::testing::AssertionResult gtest_predicate( const char*, const test_result& tres )
+inline ::testing::AssertionResult gtest_predicate( char const*, test_result const& tres )
 {
 
         ::testing::AssertionResult res = ::testing::AssertionSuccess();
@@ -70,10 +70,10 @@ public:
 
 inline void register_gtests( controller& cont )
 {
-        const std::string suite_name = std::string{ cont.suite_name() };
+        std::string const suite_name = std::string{ cont.suite_name() };
         for ( auto [tid, name] : cont.get_tests() ) {
-                const std::string sname{ name.begin(), name.end() };
-                const test_id     test_id = tid;
+                std::string const sname{ name.begin(), name.end() };
+                test_id const     test_id = tid;
                 ::testing::RegisterTest(
                     suite_name.c_str(),
                     sname.c_str(),

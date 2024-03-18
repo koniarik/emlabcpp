@@ -51,7 +51,7 @@ public:
         {
         }
 
-        constexpr simplex( const simplex< Item, N - 1 >& sub, Item item )
+        constexpr simplex( simplex< Item, N - 1 > const& sub, Item item )
           : points_()
         {
                 std::copy( sub.begin(), sub.end(), points_.begin() );
@@ -84,7 +84,7 @@ public:
                 return points_.end();
         }
 
-        [[nodiscard]] constexpr const Item& operator[]( std::size_t index ) const
+        [[nodiscard]] constexpr Item const& operator[]( std::size_t index ) const
         {
                 return points_[index];
         }
@@ -96,9 +96,9 @@ public:
 };
 
 template < std::size_t N, std::size_t U >
-constexpr point< N > center_of( const simplex< point< N >, U >& s )
+constexpr point< N > center_of( simplex< point< N >, U > const& s )
 {
-        vector< N > avg = sum( s, [&]( const point< N >& p ) -> vector< N > {
+        vector< N > avg = sum( s, [&]( point< N > const& p ) -> vector< N > {
                 return vector_cast( p ) / s.size();
         } );
 
@@ -106,10 +106,10 @@ constexpr point< N > center_of( const simplex< point< N >, U >& s )
 }
 
 template < std::size_t N >
-constexpr float volume_of( const simplex< point< N >, N >& simplex )
+constexpr float volume_of( simplex< point< N >, N > const& simplex )
 {
         matrix< N, N > m;
-        for ( const std::size_t i : range( simplex.size() - 1 ) ) {
+        for ( std::size_t const i : range( simplex.size() - 1 ) ) {
                 auto diff = simplex[i + 1] - simplex[0];
                 std::copy( diff.begin(), diff.end(), &m[i][0] );
         }
@@ -118,7 +118,7 @@ constexpr float volume_of( const simplex< point< N >, N >& simplex )
 }
 
 template < typename Item, std::size_t N >
-constexpr bool operator<( const simplex< Item, N >& lh, const simplex< Item, N >& rh )
+constexpr bool operator<( simplex< Item, N > const& lh, simplex< Item, N > const& rh )
 {
         // there are actually N+1 items in N simplex;
         std::size_t i = *find_if( range( N ), [&]( std::size_t j ) {
@@ -128,31 +128,31 @@ constexpr bool operator<( const simplex< Item, N >& lh, const simplex< Item, N >
 }
 
 template < typename Item, std::size_t N >
-constexpr bool operator>( const simplex< Item, N >& lh, const simplex< Item, N >& rh )
+constexpr bool operator>( simplex< Item, N > const& lh, simplex< Item, N > const& rh )
 {
         return rh < lh;
 }
 
 template < typename Item, std::size_t N >
-constexpr bool operator<=( const simplex< Item, N >& lh, const simplex< Item, N >& rh )
+constexpr bool operator<=( simplex< Item, N > const& lh, simplex< Item, N > const& rh )
 {
         return !( lh > rh );
 }
 
 template < typename Item, std::size_t N >
-constexpr bool operator>=( const simplex< Item, N >& lh, const simplex< Item, N >& rh )
+constexpr bool operator>=( simplex< Item, N > const& lh, simplex< Item, N > const& rh )
 {
         return !( lh < rh );
 }
 
 template < typename Item, std::size_t N >
-constexpr bool operator==( const simplex< Item, N >& lh, const simplex< Item, N >& rh )
+constexpr bool operator==( simplex< Item, N > const& lh, simplex< Item, N > const& rh )
 {
         return equal( lh, rh );
 }
 
 template < typename Item, std::size_t N >
-constexpr bool operator!=( const simplex< Item, N >& lh, const simplex< Item, N >& rh )
+constexpr bool operator!=( simplex< Item, N > const& lh, simplex< Item, N > const& rh )
 {
         return !( lh == rh );
 }

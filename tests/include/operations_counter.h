@@ -36,7 +36,7 @@ struct operations_counter
                 default_count += 1;
         }
 
-        operations_counter( const operations_counter& )
+        operations_counter( operations_counter const& )
         {
                 copy_count += 1;
         }
@@ -46,7 +46,7 @@ struct operations_counter
                 move_count += 1;
         }
 
-        operations_counter& operator=( const operations_counter& )
+        operations_counter& operator=( operations_counter const& )
         {
                 copy_count += 1;
                 return *this;
@@ -86,7 +86,7 @@ struct operations_counter_fixture : ::testing::Test
 
         void SetUp() override
         {
-                for ( const std::size_t i : range( n ) ) {
+                for ( std::size_t const i : range( n ) ) {
                         std::ignore = i;
                         cont.emplace_back();
                 }

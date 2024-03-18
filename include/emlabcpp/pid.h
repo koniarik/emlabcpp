@@ -64,7 +64,7 @@ struct pid
         time_type last_time;
         float     output;
 
-        pid( time_type now, const config& conf = config{} )
+        pid( time_type now, config const& conf = config{} )
           : cfg( conf )
           , last_time( now )
           , output( clamp( 0.f, cfg.limits ) )
@@ -107,13 +107,13 @@ float update( pid< TimeType >& pid, TimeType now, float measured, float desired 
 
         auto t_diff = static_cast< float >( now - pid.last_time );
 
-        const pid_coefficients& coeff = pid.cfg.coefficients;
+        pid_coefficients const& coeff = pid.cfg.coefficients;
 
-        const float error = desired - measured;
+        float const error = desired - measured;
         pid.i_sum += coeff.i * ( error * t_diff );
         pid.i_sum = clamp( pid.i_sum, pid.cfg.limits );
 
-        const float measured_diff = ( measured - pid.last_measured ) / t_diff;
+        float const measured_diff = ( measured - pid.last_measured ) / t_diff;
         pid.output                = coeff.p * error + pid.i_sum - coeff.d * measured_diff;
         pid.output                = clamp( pid.output, pid.cfg.limits );
 
@@ -139,14 +139,14 @@ struct nlohmann::adl_serializer< emlabcpp::pid_coefficients >
 {
         using cfg_type = emlabcpp::pid_coefficients;
 
-        static void to_json( nlohmann::json& j, const cfg_type& cfg )
+        static void to_json( nlohmann::json& j, cfg_type const& cfg )
         {
                 j["p"] = cfg.p;
                 j["i"] = cfg.i;
                 j["d"] = cfg.d;
         }
 
-        static cfg_type from_json( const nlohmann::json& j )
+        static cfg_type from_json( nlohmann::json const& j )
         {
                 cfg_type cfg;
                 cfg.p = j["p"];
@@ -161,13 +161,13 @@ struct nlohmann::adl_serializer< emlabcpp::pid_config >
 {
         using cfg_type = emlabcpp::pid_config;
 
-        static void to_json( nlohmann::json& j, const cfg_type& cfg )
+        static void to_json( nlohmann::json& j, cfg_type const& cfg )
         {
                 j["coefficients"] = cfg.coefficients;
                 j["limits"]       = cfg.limits;
         }
 
-        static cfg_type from_json( const nlohmann::json& j )
+        static cfg_type from_json( nlohmann::json const& j )
         {
                 cfg_type cfg;
                 cfg.coefficients = j["coefficients"];

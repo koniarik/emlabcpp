@@ -51,7 +51,7 @@ template < typename T >
 struct pretty_printer;
 
 template < std::size_t N, typename Writer, typename T >
-void pretty_print_serialize_basic( Writer&& w, const T& val )
+void pretty_print_serialize_basic( Writer&& w, T const& val )
 {
         std::array< char, N > buffer{};
         auto [ptr, ec] = std::to_chars( buffer.data(), buffer.data() + buffer.size(), val );
@@ -63,7 +63,7 @@ void pretty_print_serialize_basic( Writer&& w, const T& val )
 template < std::size_t N >
 struct buffer_writer
 {
-        void operator()( const char c )
+        void operator()( char const c )
         {
                 if ( size == N )
                         return;
@@ -71,7 +71,7 @@ struct buffer_writer
                 size += 1;
         }
 
-        void operator()( const std::string_view sv )
+        void operator()( std::string_view const sv )
         {
                 for ( char c : sv )
                         this->operator()( c );
@@ -100,7 +100,7 @@ struct recursive_writer
         }
 
         template < typename T >
-        void operator()( const T& item )
+        void operator()( T const& item )
         {
                 pretty_printer< T >::print( *this, item );
         }
@@ -109,7 +109,7 @@ struct recursive_writer
 };
 
 template < typename... Ts >
-auto& pretty_stream_write( ostreamlike auto& os, const Ts&... item )
+auto& pretty_stream_write( ostreamlike auto& os, Ts const&... item )
 {
         ( pretty_printer< Ts >::print(
               recursive_writer{ [&os]( std::string_view sv ) {
@@ -121,16 +121,16 @@ auto& pretty_stream_write( ostreamlike auto& os, const Ts&... item )
 };
 
 template < typename T >
-concept pretty_printable = requires( const T& v ) {
+concept pretty_printable = requires( T const& v ) {
         pretty_printer< T >::print(
-            []( const std::string_view ) {
+            []( std::string_view const ) {
                     // empty intentionally
             },
             v );
 };
 
 template < std::size_t N, typename... Ts >
-buffer_writer< N > pretty_print_buffer( const Ts&... item )
+buffer_writer< N > pretty_print_buffer( Ts const&... item )
 {
         buffer_writer< N > buff{};
         ( pretty_printer< Ts >::print( recursive_writer{ buff }, item ), ... );
@@ -143,7 +143,7 @@ struct pretty_stream
 {
 
         template < typename U >
-        pretty_stream& operator<<( const U& item )
+        pretty_stream& operator<<( U const& item )
         {
                 writer( item );
                 return *this;
@@ -156,11 +156,11 @@ template <>
 struct pretty_printer< std::byte >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::byte b )
+        static void print( Writer&& w, std::byte const b )
         {
                 // TODO: duplicates pretty_print_serialize_basic
                 std::array< char, 2 > buffer{};
-                const auto [ptr, ec] = std::to_chars(
+                auto const [ptr, ec] = std::to_chars(
                     buffer.data(), buffer.data() + buffer.size(), static_cast< uint8_t >( b ), 16 );
                 if ( ec != std::errc() )
                         return;
@@ -263,7 +263,7 @@ template <>
 struct pretty_printer< char >
 {
         template < typename Writer >
-        static void print( Writer&& w, const char c )
+        static void print( Writer&& w, char const c )
         {
                 w( std::string_view{ &c, 1 } );
         }
@@ -273,7 +273,7 @@ template < std::size_t N >
 struct pretty_printer< char[N] >
 {
         template < typename Writer >
-        static void print( Writer&& w, const char* const c )
+        static void print( Writer&& w, char const* const c )
         {
                 // TODO: is this really a good idea?
                 w( std::string_view{ c, N - 1 } );
@@ -284,7 +284,7 @@ template <>
 struct pretty_printer< std::string >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::string& s )
+        static void print( Writer&& w, std::string const& s )
         {
                 w( std::string_view{ s } );
         }
@@ -294,7 +294,7 @@ template <>
 struct pretty_printer< bool >
 {
         template < typename Writer >
-        static void print( Writer&& w, const bool b )
+        static void print( Writer&& w, bool const b )
         {
                 w( b ? 't' : 'f' );
         }
@@ -327,7 +327,7 @@ template < typename Iterator >
 struct pretty_printer< view< Iterator > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const view< Iterator >& output )
+        static void print( Writer&& w, view< Iterator > const& output )
         {
                 string_serialize_view( std::forward< Writer >( w ), output );
         }
@@ -337,7 +337,7 @@ template < typename T, std::size_t N >
 struct pretty_printer< std::span< T, N > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::span< T, N >& sp )
+        static void print( Writer&& w, std::span< T, N > const& sp )
         {
                 string_serialize_view( std::forward< Writer >( w ), view{ sp } );
         }
@@ -347,7 +347,7 @@ template < typename T, std::size_t N >
 struct pretty_printer< std::array< T, N > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::array< T, N >& arr )
+        static void print( Writer&& w, std::array< T, N > const& arr )
         {
                 string_serialize_view( std::forward< Writer >( w ), view{ arr } );
         }
@@ -357,7 +357,7 @@ template <>
 struct pretty_printer< std::filesystem::path >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::filesystem::path& p )
+        static void print( Writer&& w, std::filesystem::path const& p )
         {
                 w( p.string() );
         }
@@ -367,7 +367,7 @@ template < typename T >
 struct pretty_printer< std::optional< T > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::optional< T >& opt_val )
+        static void print( Writer&& w, std::optional< T > const& opt_val )
         {
                 if ( opt_val.has_value() )
                         w( *opt_val );
@@ -380,7 +380,7 @@ template < typename T >
 struct pretty_printer< std::vector< T > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::vector< T >& vec )
+        static void print( Writer&& w, std::vector< T > const& vec )
         {
                 string_serialize_view( std::forward< Writer >( w ), data_view( vec ) );
         }
@@ -390,7 +390,7 @@ template < typename T >
 struct pretty_printer< std::set< T > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::set< T >& vec )
+        static void print( Writer&& w, std::set< T > const& vec )
         {
                 string_serialize_view( std::forward< Writer >( w ), view( vec ) );
         }
@@ -400,7 +400,7 @@ template < typename K, typename T >
 struct pretty_printer< std::map< K, T > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::map< K, T >& m )
+        static void print( Writer&& w, std::map< K, T > const& m )
         {
                 string_serialize_view( std::forward< Writer >( w ), view( m ) );
         }
@@ -410,7 +410,7 @@ template < typename K, typename T >
 struct pretty_printer< std::unordered_map< K, T > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::unordered_map< K, T >& m )
+        static void print( Writer&& w, std::unordered_map< K, T > const& m )
         {
                 string_serialize_view( std::forward< Writer >( w ), view( m ) );
         }
@@ -420,10 +420,10 @@ template < typename... Ts >
 struct pretty_printer< std::variant< Ts... > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::variant< Ts... >& var )
+        static void print( Writer&& w, std::variant< Ts... > const& var )
         {
                 visit(
-                    [&w]( const auto& item ) {
+                    [&w]( auto const& item ) {
                             w( item );
                     },
                     var );
@@ -434,7 +434,7 @@ template < typename... Ts >
 struct pretty_printer< std::tuple< Ts... > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::tuple< Ts... >& tpl )
+        static void print( Writer&& w, std::tuple< Ts... > const& tpl )
         {
                 if constexpr ( sizeof...( Ts ) == 0 ) {
                         w( "()" );
@@ -442,7 +442,7 @@ struct pretty_printer< std::tuple< Ts... > >
                 }
 
                 char delim = '(';
-                for_each( tpl, [&]( const auto& item ) {
+                for_each( tpl, [&]( auto const& item ) {
                         w( delim );
                         w( item );
                         delim = ',';
@@ -455,7 +455,7 @@ template < typename LH, typename RH >
 struct pretty_printer< std::pair< LH, RH > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::pair< LH, RH >& p )
+        static void print( Writer&& w, std::pair< LH, RH > const& p )
         {
                 w( '(' );
                 w( p.first );
@@ -469,7 +469,7 @@ template < typename Rep, typename Period >
 struct pretty_printer< std::chrono::duration< Rep, Period > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::chrono::duration< Rep, Period >& d )
+        static void print( Writer&& w, std::chrono::duration< Rep, Period > const& d )
         {
                 pretty_printer< Rep >::print( std::forward< Writer >( w ), d.count() );
         }
@@ -479,9 +479,9 @@ template < std::size_t N >
 struct pretty_printer< std::bitset< N > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const std::bitset< N >& b )
+        static void print( Writer&& w, std::bitset< N > const& b )
         {
-                for ( const std::size_t i : range( N ) )
+                for ( std::size_t const i : range( N ) )
                         w( b[i] ? '1' : '0' );
         }
 };
@@ -490,7 +490,7 @@ template < typename T >
 struct pretty_printer< min_max< T > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const min_max< T >& mm )
+        static void print( Writer&& w, min_max< T > const& mm )
         {
                 string_serialize_view( std::forward< Writer >( w ), view{ mm } );
         }
@@ -502,7 +502,7 @@ template <>
 struct pretty_printer< nlohmann::json >
 {
         template < typename Writer >
-        static void print( Writer&& w, const nlohmann::json& j )
+        static void print( Writer&& w, nlohmann::json const& j )
         {
                 std::string s = j.dump( 4 );
                 w( s );

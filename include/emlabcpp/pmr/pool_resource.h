@@ -34,22 +34,22 @@ class pool_resource final : public pmr::memory_resource
 public:
         pool_resource()
         {
-                for ( const std::size_t i : range( PoolCount ) )
+                for ( std::size_t const i : range( PoolCount ) )
                         free_.push_back( static_cast< uint16_t >( i ) );
         }
 
-        pool_resource( const pool_resource& )            = delete;
+        pool_resource( pool_resource const& )            = delete;
         pool_resource( pool_resource&& )                 = delete;
-        pool_resource& operator=( const pool_resource& ) = delete;
+        pool_resource& operator=( pool_resource const& ) = delete;
         pool_resource& operator=( pool_resource&& )      = delete;
 
         [[nodiscard]] void*
-        allocate( const std::size_t bytes, const std::size_t alignment ) override
+        allocate( std::size_t const bytes, std::size_t const alignment ) override
         {
                 void*       p    = nullptr;
                 std::size_t used = bytes;
                 if ( !free_.empty() ) {
-                        const std::size_t i      = free_.back();
+                        std::size_t const i      = free_.back();
                         void* const       pool_p = pools_[i].data();
                         p                        = align( pool_p, alignment );
                         used += static_cast< std::size_t >(
@@ -66,13 +66,13 @@ public:
         }
 
         [[nodiscard]] result
-        deallocate( void* const ptr, const std::size_t, const std::size_t ) override
+        deallocate( void* const ptr, std::size_t const, std::size_t const ) override
         {
 
-                const auto pval = std::bit_cast< std::size_t >( ptr );
-                const auto bval = std::bit_cast< std::size_t >( &pools_ );
+                auto const pval = std::bit_cast< std::size_t >( ptr );
+                auto const bval = std::bit_cast< std::size_t >( &pools_ );
 
-                const std::size_t spot_i = ( pval - bval ) / PoolSize;
+                std::size_t const spot_i = ( pval - bval ) / PoolSize;
 
                 if ( spot_i >= PoolCount ) {
                         EMLABCPP_ERROR_LOG( "Failed to deallocate" );
@@ -82,7 +82,7 @@ public:
                 return SUCCESS;
         }
 
-        [[nodiscard]] bool is_equal( const pmr::memory_resource& other ) const noexcept override
+        [[nodiscard]] bool is_equal( pmr::memory_resource const& other ) const noexcept override
         {
                 return this == &other;
         }

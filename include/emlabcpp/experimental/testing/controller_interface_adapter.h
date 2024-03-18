@@ -30,12 +30,12 @@ class controller_interface_adapter
         protocol::channel_type channel_;
         controller_interface&  iface_;
 
-        static_function< bool( const reactor_controller_variant& ), 32 > reply_cb_;
+        static_function< bool( reactor_controller_variant const& ), 32 > reply_cb_;
         controller_transmit_callback                                     send_cb_;
 
 public:
         explicit controller_interface_adapter(
-            const protocol::channel_type channel,
+            protocol::channel_type const channel,
             controller_interface&        iface,
             controller_transmit_callback send_cb )
           : channel_( channel )
@@ -44,10 +44,10 @@ public:
         {
         }
 
-        result send( const controller_reactor_variant& var )
+        result send( controller_reactor_variant const& var )
         {
                 using h        = protocol::handler< controller_reactor_group >;
-                const auto msg = h::serialize( var );
+                auto const msg = h::serialize( var );
                 return send_cb_( channel_, msg );
         }
 
@@ -61,37 +61,37 @@ public:
                 return iface_;
         }
 
-        void set_reply_cb( static_function< bool( const reactor_controller_variant& ), 32 > cb )
+        void set_reply_cb( static_function< bool( reactor_controller_variant const& ), 32 > cb )
         {
                 reply_cb_ = std::move( cb );
         }
 
-        bool on_msg_with_cb( const reactor_controller_variant& var )
+        bool on_msg_with_cb( reactor_controller_variant const& var )
         {
                 if ( !reply_cb_ )
                         return false;
                 return reply_cb_( var );
         }
 
-        void report_error( const error_variant& var )
+        void report_error( error_variant const& var )
         {
                 log_error( var );
                 iface_.on_error( var );
         }
 #ifdef EMLABCPP_USE_LOGGING
-        void log_error( const error_variant& var ) const
+        void log_error( error_variant const& var ) const
         {
                 match(
                     var,
-                    []( const reactor_protocol_error& e ) {
+                    []( reactor_protocol_error const& e ) {
                             EMLABCPP_ERROR_LOG(
                                 "Protocol error reported from reactor: ", decompose( e ) );
                     },
-                    []( const controller_protocol_error& e ) {
+                    []( controller_protocol_error const& e ) {
                             EMLABCPP_ERROR_LOG(
                                 "Protocol error reported from controller: ", decompose( e ) );
                     },
-                    []( const internal_reactor_error& e ) {
+                    []( internal_reactor_error const& e ) {
                             visit(
                                 []< typename T >( T& item ) {
                                         EMLABCPP_ERROR_LOG(
@@ -102,13 +102,13 @@ public:
                                 },
                                 e.val );
                     },
-                    []( const controller_internal_error& e ) {
+                    []( controller_internal_error const& e ) {
                             EMLABCPP_ERROR_LOG(
                                 "Wrong message arrived to controller: ", decompose( e ) );
                     } );
         }
 #else
-        void log_error( const error_variant& )
+        void log_error( error_variant const& )
         {
         }
 #endif

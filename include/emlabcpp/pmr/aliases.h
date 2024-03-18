@@ -55,6 +55,6 @@ using set = std::set< T, allocator< T > >;
 template < typename T >
 using deque = std::deque< T, allocator< T > >;
 template < typename Key, typename T >
-using map = std::map< Key, T, std::less< Key >, allocator< std::pair< const Key, T > > >;
+using map = std::map< Key, T, std::less< Key >, allocator< std::pair< Key const, T > > >;
 
 }  // namespace emlabcpp::pmr

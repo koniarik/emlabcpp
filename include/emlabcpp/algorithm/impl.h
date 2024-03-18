@@ -28,10 +28,10 @@ namespace emlabcpp::impl
 
 template < typename... Args, typename UnaryPredicate, std::size_t... Idx >
 [[nodiscard]] constexpr std::size_t
-find_if_impl( const std::tuple< Args... >& t, UnaryPredicate&& f, std::index_sequence< Idx... > )
+find_if_impl( std::tuple< Args... > const& t, UnaryPredicate&& f, std::index_sequence< Idx... > )
 {
         std::size_t res = sizeof...( Args );
-        auto        ff  = [&]( const auto& item, const std::size_t i ) {
+        auto        ff  = [&]( auto const& item, std::size_t const i ) {
                 if ( f( item ) ) {
                         res = i;
                         return true;
@@ -77,7 +77,7 @@ template <
 requires( !range_container< Container > )
 [[nodiscard]] std::array< T, N > map_f_to_a_impl(
     Container&&          cont,
-    const UnaryCallable& f,
+    UnaryCallable const& f,
     std::integer_sequence< std::size_t, Is... > )
 {
         auto process = [&cont, &f]< std::size_t i >() {
@@ -85,7 +85,7 @@ requires( !range_container< Container > )
         };
 
         /// viz. second map_f_to_a_impl
-        return std::array< T, N >{ process.template operator()< Is >()... };
+        return std::array< T, N > { process.template operator()< Is >()... };
 }
 
 template < typename >

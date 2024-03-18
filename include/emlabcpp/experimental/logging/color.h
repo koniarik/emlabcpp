@@ -47,7 +47,7 @@ struct log_color_stub
 };
 
 #ifdef EMLABCPP_USE_OSTREAM
-inline std::ostream& operator<<( std::ostream& os, const log_color_stub& c )
+inline std::ostream& operator<<( std::ostream& os, log_color_stub const& c )
 {
         return os << "\033[38;5;" << c.c << "m";
 }

@@ -53,10 +53,10 @@ public:
                 std::construct_at( ptr_, std::forward< U >( item ) );
         }
 
-        derived_storage( const derived_storage& ) = delete;
+        derived_storage( derived_storage const& ) = delete;
         derived_storage( derived_storage&& )      = delete;
 
-        derived_storage& operator=( const derived_storage& ) = delete;
+        derived_storage& operator=( derived_storage const& ) = delete;
         derived_storage& operator=( derived_storage&& )      = delete;
 
         T& operator*()
@@ -64,7 +64,7 @@ public:
                 return *ptr_;
         }
 
-        const T& operator*() const
+        T const& operator*() const
         {
                 return *ptr_;
         }
@@ -74,7 +74,7 @@ public:
                 return ptr_;
         }
 
-        const T* operator->() const
+        T const* operator->() const
         {
                 return ptr_;
         }
@@ -89,7 +89,7 @@ public:
                 return *ptr_;
         }
 
-        const T& get() const
+        T const& get() const
         {
                 return *ptr_;
         }

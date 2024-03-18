@@ -35,7 +35,7 @@ struct sequencer_def
         static constexpr std::size_t            fixed_size  = 3;
         static constexpr std::size_t            buffer_size = message_type::capacity * 2;
 
-        static constexpr std::size_t get_size( const auto& bview )
+        static constexpr std::size_t get_size( auto const& bview )
         {
                 return std::to_integer< std::size_t >( bview[2] ) + fixed_size;
         }
@@ -64,7 +64,7 @@ TEST( protocol_seq, basic )
                     FAIL();
             },
             [&]( auto msg ) {
-                    const bool are_equal = equal( msg, data );
+                    bool const are_equal = equal( msg, data );
                     EXPECT_TRUE( are_equal );
             } );
 }
@@ -90,7 +90,7 @@ TEST( protocol_seq, noise_at_start )
                     FAIL();
             },
             [&]( auto msg ) {
-                    const bool are_equal = equal( msg, tail( data ) );
+                    bool const are_equal = equal( msg, tail( data ) );
                     EXPECT_TRUE( are_equal ) << msg;
             } );
 }
@@ -110,7 +110,7 @@ TEST( protocol_seq, multi_msg )
                     FAIL();
             },
             [&]( auto msg ) {
-                    const bool are_equal = equal( msg, msg1 );
+                    bool const are_equal = equal( msg, msg1 );
                     EXPECT_TRUE( are_equal );
             } );
 
@@ -120,7 +120,7 @@ TEST( protocol_seq, multi_msg )
                     FAIL();
             },
             [&]( auto msg ) {
-                    const bool are_equal = equal( msg, msg2 );
+                    bool const are_equal = equal( msg, msg2 );
                     EXPECT_TRUE( are_equal );
             } );
 }

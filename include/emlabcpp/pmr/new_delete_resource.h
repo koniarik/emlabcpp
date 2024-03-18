@@ -41,7 +41,7 @@ struct new_delete_resource_impl : memory_resource
                 return SUCCESS;
         };
 
-        [[nodiscard]] bool is_equal( const memory_resource& ) const noexcept override
+        [[nodiscard]] bool is_equal( memory_resource const& ) const noexcept override
         {
                 return true;
         };

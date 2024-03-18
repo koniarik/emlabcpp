@@ -23,10 +23,10 @@
 
 namespace emlabcpp
 {
-consteval std::string_view stem_of( const std::string_view file )
+consteval std::string_view stem_of( std::string_view const file )
 {
-        const std::string_view res{ file };
-        const std::size_t      pos = res.find_last_of( '/' );
+        std::string_view const res{ file };
+        std::size_t const      pos = res.find_last_of( '/' );
         if ( pos == std::string_view::npos )
                 return res;
         return res.substr( pos + 1 );

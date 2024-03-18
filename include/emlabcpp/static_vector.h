@@ -39,15 +39,15 @@ public:
         using value_type      = T;
         using size_type       = std::size_t;
         using reference       = T&;
-        using const_reference = const T&;
+        using const_reference = T const&;
         using iterator        = T*;
-        using const_iterator  = const T*;
+        using const_iterator  = T const*;
 
         /// public methods
         /// --------------------------------------------------------------------------------
         static_vector() = default;
 
-        static_vector( const static_vector& other )
+        static_vector( static_vector const& other )
         {
                 copy_from( other );
         }
@@ -58,7 +58,7 @@ public:
                 other.clear();
         }
 
-        static_vector( std::size_t M, const T& item )
+        static_vector( std::size_t M, T const& item )
         {
                 M = std::max( M, N );
                 std::uninitialized_fill( begin(), begin() + M, item );
@@ -71,7 +71,7 @@ public:
                 move_from( data );
         }
 
-        static_vector& operator=( const static_vector& other )
+        static_vector& operator=( static_vector const& other )
         {
                 if ( this == &other )
                         return *this;
@@ -93,7 +93,7 @@ public:
         void swap( static_vector& other ) noexcept
         {
                 using std::swap;
-                const size_type shared_n = std::min( size(), other.size() );
+                size_type const shared_n = std::min( size(), other.size() );
 
                 for ( size_type i = 0; i < shared_n; ++i )
                         swap( storage_[i], other.storage_[i] );
@@ -116,7 +116,7 @@ public:
                 return storage_.data();
         }
 
-        [[nodiscard]] const T* data() const
+        [[nodiscard]] T const* data() const
         {
                 return storage_.data();
         }
@@ -208,12 +208,12 @@ public:
                 return size_ == N;
         }
 
-        const_reference operator[]( const size_type i ) const
+        const_reference operator[]( size_type const i ) const
         {
                 return storage_[i];
         }
 
-        reference operator[]( const size_type i )
+        reference operator[]( size_type const i )
         {
                 return storage_[i];
         }
@@ -236,7 +236,7 @@ private:
         size_type              size_ = 0;  /// count of items
 
         template < typename Container >
-        void copy_from( const Container& cont )
+        void copy_from( Container const& cont )
         {
                 size_ = std::size( cont );
                 std::uninitialized_copy( std::begin( cont ), std::end( cont ), begin() );
@@ -258,14 +258,14 @@ private:
 };
 
 template < typename T, std::size_t N >
-[[nodiscard]] auto operator<=>( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
+[[nodiscard]] auto operator<=>( static_vector< T, N > const& lh, static_vector< T, N > const& rh )
 {
         return std::lexicographical_compare_three_way(
             std::begin( lh ), std::end( lh ), std::begin( rh ), std::end( rh ) );
 }
 
 template < typename T, std::size_t N >
-[[nodiscard]] bool operator==( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
+[[nodiscard]] bool operator==( static_vector< T, N > const& lh, static_vector< T, N > const& rh )
 {
         auto size = std::size( lh );
         if ( size != std::size( rh ) )
@@ -278,13 +278,13 @@ template < typename T, std::size_t N >
 }
 
 template < typename T, std::size_t N >
-[[nodiscard]] bool operator!=( const static_vector< T, N >& lh, const static_vector< T, N >& rh )
+[[nodiscard]] bool operator!=( static_vector< T, N > const& lh, static_vector< T, N > const& rh )
 {
         return !( lh == rh );
 }
 
 template < typename T, std::size_t N >
-void swap( const static_vector< T, N >& lh, const static_vector< T, N >& rh ) noexcept
+void swap( static_vector< T, N > const& lh, static_vector< T, N > const& rh ) noexcept
 {
         lh.swap( rh );
 }
@@ -292,7 +292,7 @@ void swap( const static_vector< T, N >& lh, const static_vector< T, N >& rh ) no
 #ifdef EMLABCPP_USE_OSTREAM
 /// Output operator for the view, uses comma to separate the items in the view.
 template < typename T, std::size_t N >
-std::ostream& operator<<( std::ostream& os, const static_vector< T, N >& vec )
+std::ostream& operator<<( std::ostream& os, static_vector< T, N > const& vec )
 {
         return os << view{ vec };
 }
@@ -302,7 +302,7 @@ template < typename T, std::size_t N >
 struct pretty_printer< static_vector< T, N > >
 {
         template < typename W >
-        static void print( W&& w, const static_vector< T, N >& vec )
+        static void print( W&& w, static_vector< T, N > const& vec )
         {
                 w( view{ vec } );
         }

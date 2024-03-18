@@ -30,11 +30,11 @@ namespace emlabcpp
 template < std::size_t N >
 using triangle = simplex< point< N >, 2 >;
 
-inline point< 3 > get_triangle_sphere_center( const triangle< 3 >& tri )
+inline point< 3 > get_triangle_sphere_center( triangle< 3 > const& tri )
 {
-        const vector< 3 > ab     = tri[0] - tri[1];
-        const vector< 3 > ac     = tri[0] - tri[2];
-        const vector< 3 > normal = normalized( cross_product( ab, ac ) );
+        vector< 3 > const ab     = tri[0] - tri[1];
+        vector< 3 > const ac     = tri[0] - tri[2];
+        vector< 3 > const normal = normalized( cross_product( ab, ac ) );
         vector< 3 >       p_ab   = cross_product( normal, ab );
         vector< 3 >       p_ac   = cross_product( normal, ac );
         vector< 3 >       c_ac   = ( vector_cast( tri[0] ) + vector_cast( tri[2] ) ) / 2;
@@ -49,12 +49,12 @@ inline point< 3 > get_triangle_sphere_center( const triangle< 3 >& tri )
         return point_cast( c_ac + k * p_ac );
 }
 
-constexpr vector< 3 > normal_of( const triangle< 3 >& tri )
+constexpr vector< 3 > normal_of( triangle< 3 > const& tri )
 {
         return cross_product( tri[0] - tri[1], tri[0] - tri[2] );
 }
 
-constexpr triangle< 3 > transform( const triangle< 3 >& t, const pose& transformation )
+constexpr triangle< 3 > transform( triangle< 3 > const& t, pose const& transformation )
 {
         return triangle< 3 >{
             transform( t[0], transformation ),
@@ -63,7 +63,7 @@ constexpr triangle< 3 > transform( const triangle< 3 >& t, const pose& transform
 }
 
 template < std::size_t N >
-constexpr triangle< N > scale( const triangle< N >& t, const point< N >& scales )
+constexpr triangle< N > scale( triangle< N > const& t, point< N > const& scales )
 {
         return triangle< N >{ t[0] * scales, t[1] * scales, t[2] * scales };
 }

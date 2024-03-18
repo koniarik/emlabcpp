@@ -42,9 +42,9 @@ public:
         {
         }
 
-        constexpr quaternion( const vector< 3 >& ax, const float& a ) noexcept
+        constexpr quaternion( vector< 3 > const& ax, float const& a ) noexcept
         {
-                const float s = std::sin( a * 0.5f ) / length_of( ax );
+                float const s = std::sin( a * 0.5f ) / length_of( ax );
                 fields_[0]    = ax[0] * s;
                 fields_[1]    = ax[1] * s;
                 fields_[2]    = ax[2] * s;
@@ -84,45 +84,45 @@ public:
 
 constexpr quaternion neutral_quat{ 0.f, 0.f, 0.f, 1.f };
 
-constexpr quaternion inverse( const quaternion& q )
+constexpr quaternion inverse( quaternion const& q )
 {
         return { -q[0], -q[1], -q[2], q[3] };
 }
 
-constexpr quaternion operator-( const quaternion& q )
+constexpr quaternion operator-( quaternion const& q )
 {
         return { -q[0], -q[1], -q[2], -q[3] };
 }
 
-constexpr float dot( const quaternion& q, const quaternion& s )
+constexpr float dot( quaternion const& q, quaternion const& s )
 {
         return q[0] * s[0] + q[1] * s[1] + q[2] * s[2] + q[3] * s[3];
 }
 
-constexpr float norm2_of( const quaternion& q )
+constexpr float norm2_of( quaternion const& q )
 {
         return dot( q, q );
 }
 
-constexpr float angle_shortest_path( const quaternion& m, const quaternion& n )
+constexpr float angle_shortest_path( quaternion const& m, quaternion const& n )
 {
-        const float s = std::sqrt( norm2_of( m ) * norm2_of( n ) );
+        float const s = std::sqrt( norm2_of( m ) * norm2_of( n ) );
         float       d = dot( m, n );
         if ( d < 0 )
                 d = dot( m, -n );
         return float{ std::acos( d / s ) * 2.0f };
 }
 
-constexpr quaternion slerp( const quaternion& q, const quaternion& s, float f )
+constexpr quaternion slerp( quaternion const& q, quaternion const& s, float f )
 {
         // NOTE: inspired by tf::Quaternion::slerp
-        const float theta = angle_shortest_path( q, s ) / 2.0f;
+        float const theta = angle_shortest_path( q, s ) / 2.0f;
         if ( theta == 0.0f )
                 return q;
 
-        const float d  = 1.0f / std::sin( theta );
-        const float s0 = std::sin( ( 1.0f - f ) * theta );
-        const float s1 = std::sin( f * theta );
+        float const d  = 1.0f / std::sin( theta );
+        float const s0 = std::sin( ( 1.0f - f ) * theta );
+        float const s1 = std::sin( f * theta );
         float       m  = 1.0f;
         if ( dot( q, s ) < 0 )
                 m = -1.0f;
@@ -134,17 +134,17 @@ constexpr quaternion slerp( const quaternion& q, const quaternion& s, float f )
         };
 }
 
-constexpr bool operator==( const quaternion& q, const quaternion& s )
+constexpr bool operator==( quaternion const& q, quaternion const& s )
 {
         return q[0] == s[0] && q[1] == s[1] && q[2] == s[2] && q[3] == s[3];
 }
 
-constexpr bool operator!=( const quaternion& q, const quaternion& s )
+constexpr bool operator!=( quaternion const& q, quaternion const& s )
 {
         return !( q == s );
 }
 
-constexpr bool operator<( const quaternion& q, const quaternion& s )
+constexpr bool operator<( quaternion const& q, quaternion const& s )
 {
         auto iter = find_if( range( 4u ), [&]( std::size_t i ) {
                 return q[i] != s[i];
@@ -157,7 +157,7 @@ constexpr bool operator<( const quaternion& q, const quaternion& s )
         return q[i] < s[i];
 }
 
-constexpr quaternion operator*( const quaternion& q, const quaternion& s )
+constexpr quaternion operator*( quaternion const& q, quaternion const& s )
 {
         return {
             q[3] * s[0] + q[0] * s[3] + q[1] * s[2] - q[2] * s[1],
@@ -167,22 +167,22 @@ constexpr quaternion operator*( const quaternion& q, const quaternion& s )
         };
 }
 
-constexpr quaternion operator*( const quaternion& q, const point< 3 >& x )
+constexpr quaternion operator*( quaternion const& q, point< 3 > const& x )
 {
         return q * quaternion{ x[0], x[1], x[2], 0.f };
 }
 
-constexpr quaternion operator*( const point< 3 >& x, const quaternion& q )
+constexpr quaternion operator*( point< 3 > const& x, quaternion const& q )
 {
         return quaternion{ x[0], x[1], x[2], 0.f } * q;
 }
 
-constexpr quaternion operator+( const quaternion& lh, const quaternion& rh )
+constexpr quaternion operator+( quaternion const& lh, quaternion const& rh )
 {
         return { lh[0] + rh[0], lh[1] + rh[1], lh[2] + rh[2], lh[3] + rh[3] };
 }
 
-constexpr bool almost_equal( const quaternion& q, const quaternion& s, float eps = default_epsilon )
+constexpr bool almost_equal( quaternion const& q, quaternion const& s, float eps = default_epsilon )
 {
         return all_of( range< std::size_t >( 4 ), [&]( std::size_t i ) {
                 return almost_equal( q[i], s[i], eps );
@@ -201,24 +201,24 @@ constexpr quaternion shortest_arc_quat( point< 3 > x, point< 3 > y )
         if ( d < -1.0f + default_epsilon )
                 return { c[0], c[1], c[2], 0.0f };
 
-        const float s  = std::sqrt( ( 1.0f + d ) * 2.0f );
-        const float rs = 1.0f / s;
+        float const s  = std::sqrt( ( 1.0f + d ) * 2.0f );
+        float const rs = 1.0f / s;
 
         return { c[0] * rs, c[1] * rs, c[2] * rs, s * 0.f };
 }
 
-constexpr point< 3 > rotate( const point< 3 >& x, const quaternion& q )
+constexpr point< 3 > rotate( point< 3 > const& x, quaternion const& q )
 {
-        const quaternion r = q * x * inverse( q );
+        quaternion const r = q * x * inverse( q );
         return point< 3 >{ r[0], r[1], r[2] };
 }
 
-constexpr quaternion rotate( const quaternion& x, const quaternion& q )
+constexpr quaternion rotate( quaternion const& x, quaternion const& q )
 {
         return q * x * inverse( q );
 }
 
-constexpr vector< 3 > rotate( const vector< 3 >& v, const quaternion& q )
+constexpr vector< 3 > rotate( vector< 3 > const& v, quaternion const& q )
 {
         return vector_cast( rotate( point_cast( v ), q ) );
 }

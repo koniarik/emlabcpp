@@ -34,7 +34,7 @@ public:
         using value_type = T;
 
         template < typename U >
-        allocator( const allocator< U >& other )
+        allocator( allocator< U > const& other )
           : resource_( other.resource_ )
         {
         }
@@ -44,7 +44,7 @@ public:
         {
         }
 
-        T* allocate( const std::size_t n )
+        T* allocate( std::size_t const n )
         {
                 void* const res = resource_.get().allocate( n * sizeof( T ), alignof( T ) );
                 if ( res == nullptr )
@@ -52,15 +52,15 @@ public:
                 return reinterpret_cast< T* >( res );
         }
 
-        void deallocate( T* const p, const std::size_t n ) const
+        void deallocate( T* const p, std::size_t const n ) const
         {
-                const result res = resource_.get().deallocate(
+                result const res = resource_.get().deallocate(
                     reinterpret_cast< void* >( p ), n * sizeof( T ), alignof( T ) );
                 if ( res == ERROR )
                         throw_bad_alloc();
         }
 
-        friend constexpr bool operator==( const allocator& lh, const allocator& rh )
+        friend constexpr bool operator==( allocator const& lh, allocator const& rh )
         {
                 return lh.resource_.get().is_equal( rh.resource_.get() );
         }

@@ -33,7 +33,7 @@ template < std::size_t N >
 struct pretty_printer< protocol::message< N > >
 {
         template < typename T >
-        static void print( T&& w, const protocol::message< N >& msg )
+        static void print( T&& w, protocol::message< N > const& msg )
         {
                 // TODO: this might benefit from some refactoring?
                 static constexpr char hex_chars[16] = {
@@ -55,10 +55,10 @@ struct pretty_printer< protocol::message< N > >
                     'F' };
 
                 char l = '|';
-                for ( const std::size_t i : range( msg.size() ) ) {
+                for ( std::size_t const i : range( msg.size() ) ) {
                         if ( i % 4 == 0 )
                                 l = '|';
-                        const auto val = std::to_integer< uint8_t >( msg[i] );
+                        auto const val = std::to_integer< uint8_t >( msg[i] );
                         w( l );
                         w( hex_chars[val / 16] );
                         w( hex_chars[val % 16] );
@@ -71,7 +71,7 @@ template < std::size_t N >
 struct pretty_printer< protocol::sizeless_message< N > >
 {
         template < typename Writer >
-        static void print( Writer&& w, const protocol::sizeless_message< N >& msg )
+        static void print( Writer&& w, protocol::sizeless_message< N > const& msg )
         {
                 pretty_printer< protocol::message< N > >::print( std::forward< Writer >( w ), msg );
         }
@@ -81,7 +81,7 @@ template <>
 struct pretty_printer< protocol::mark >
 {
         template < typename T >
-        static void print( T&& w, const protocol::mark& m )
+        static void print( T&& w, protocol::mark const& m )
         {
                 w( std::string_view( m.data(), m.size() ) );
         }
@@ -91,7 +91,7 @@ template <>
 struct pretty_printer< protocol::error_record >
 {
         template < typename T >
-        static void print( T&& w, const protocol::error_record& rec )
+        static void print( T&& w, protocol::error_record const& rec )
         {
                 w( rec.error_mark );
                 w( '(' );
@@ -104,22 +104,22 @@ namespace protocol
 {
 #ifdef EMLABCPP_USE_OSTREAM
         template < std::size_t N >
-        inline std::ostream& operator<<( std::ostream& os, const message< N >& m )
+        inline std::ostream& operator<<( std::ostream& os, message< N > const& m )
         {
                 return pretty_stream_write( os, m );
         }
 
-        inline std::ostream& operator<<( std::ostream& os, const mark& m )
+        inline std::ostream& operator<<( std::ostream& os, mark const& m )
         {
                 return pretty_stream_write( os, m );
         }
 
-        inline std::ostream& operator<<( std::ostream& os, const error_record& rec )
+        inline std::ostream& operator<<( std::ostream& os, error_record const& rec )
         {
                 return pretty_stream_write( os, rec );
         }
 
-        inline std::ostream& operator<<( std::ostream& os, const std::endian& val )
+        inline std::ostream& operator<<( std::ostream& os, std::endian const& val )
         {
                 switch ( val ) {
                 case std::endian::big:
