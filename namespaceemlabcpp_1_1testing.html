@@ -2068,9 +2068,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T t, pmr::memory_resource&amp; mem_resource ) {</div>
-<div class="line">        {</div>
-<div class="line">                t( mem_resource )</div>
-<div class="line">        } -&gt; std::same_as&lt; coroutine&lt; void &gt; &gt;;</div>
+<div class="line">        { t( mem_resource ) } -&gt; std::same_as&lt; coroutine&lt; void &gt; &gt;;</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:77</div></div>
 </div><!-- fragment -->
@@ -2090,9 +2088,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4">requires</a>( <span class="keyword">const</span> T&amp; item, <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a>&amp; val ) {</div>
-<div class="line">        {</div>
-<div class="line">                value_type_converter&lt; T &gt;::to_value( item )</div>
-<div class="line">        } -&gt; std::convertible_to&lt; value_type &gt;;</div>
+<div class="line">        { value_type_converter&lt; T &gt;::to_value( item ) } -&gt; std::convertible_to&lt; value_type &gt;;</div>
 <div class="line">        {</div>
 <div class="line">                value_type_converter&lt; T &gt;::from_value( val )</div>
 <div class="line">        } -&gt; std::convertible_to&lt; std::optional&lt; T &gt; &gt;;</div>
@@ -2108,7 +2104,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Wed Mar 13 2024 22:06:50 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 18 2024 15:46:46 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
