@@ -52,15 +52,11 @@ using converter_for = decltype( converter_for_impl< D, E >() );
 /// tests of custom converter overloads.
 template < typename T >
 concept converter_check = requires() {
-        {
-                T::max_size
-        } -> std::convertible_to< std::size_t >;
+        { T::max_size } -> std::convertible_to< std::size_t >;
         typename T::value_type;
         requires bounded_derived< typename T::size_type >;
 } && requires( std::span< std::byte, T::max_size > buff, typename T::value_type item ) {
-        {
-                T::serialize_at( buff, item )
-        } -> std::same_as< typename T::size_type >;
+        { T::serialize_at( buff, item ) } -> std::same_as< typename T::size_type >;
 } && requires( std::span< const std::byte > buff, typename T::value_type item ) {
         T::deserialize( buff, item );
 };
@@ -691,8 +687,8 @@ struct converter< tag_group< Ds... >, Endianess >
                             auto* val_ptr = std::get_if< i >( &item );
                             auto  used    = nth_converter< i >::serialize_at(
                                 buffer.template subspan<
-                                    nth_tag_converter< i >::max_size,
-                                    nth_converter< i >::max_size >(),
+                                        nth_tag_converter< i >::max_size,
+                                        nth_converter< i >::max_size >(),
                                 *val_ptr );
                             return tag_used + used;
                     },

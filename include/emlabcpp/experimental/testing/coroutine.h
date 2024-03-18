@@ -40,7 +40,7 @@ enum class coro_state : uint8_t
 struct wait_interface
 {
         [[nodiscard]] virtual coro_state get_state() const = 0;
-        virtual void                     tick(){};
+        virtual void                     tick() {};
         virtual ~wait_interface() = default;
 };
 

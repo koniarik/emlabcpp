@@ -180,15 +180,9 @@ public:
 
 template < typename M >
 concept matrix_like = requires( M m, std::size_t i, std::size_t j ) {
-        {
-                M::rows
-        } -> std::convertible_to< std::size_t >;
-        {
-                M::cols
-        } -> std::convertible_to< std::size_t >;
-        {
-                m[i][j]
-        } -> std::convertible_to< typename M::value_type >;
+        { M::rows } -> std::convertible_to< std::size_t >;
+        { M::cols } -> std::convertible_to< std::size_t >;
+        { m[i][j] } -> std::convertible_to< typename M::value_type >;
 };
 
 template < matrix_like Matrix, std::size_t I, std::size_t J >

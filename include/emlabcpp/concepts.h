@@ -33,34 +33,18 @@ namespace emlabcpp
 
 template < typename T >
 concept arithmetic_operators = requires( T a, T b ) {
-        {
-                a + b
-        } -> std::convertible_to< T >;
-        {
-                a - b
-        } -> std::convertible_to< T >;
-        {
-                a / b
-        } -> std::convertible_to< T >;
-        {
-                a* b
-        } -> std::convertible_to< T >;
+        { a + b } -> std::convertible_to< T >;
+        { a - b } -> std::convertible_to< T >;
+        { a / b } -> std::convertible_to< T >;
+        { a* b } -> std::convertible_to< T >;
 };
 
 template < typename T >
 concept arithmetic_assignment = requires( T a, T b ) {
-        {
-                a += b
-        };
-        {
-                a -= b
-        };
-        {
-                a /= b
-        };
-        {
-                a *= b
-        };
+        { a += b };
+        { a -= b };
+        { a /= b };
+        { a *= b };
 };
 
 template < typename T >
@@ -74,9 +58,7 @@ concept arithmetic = std::integral< T > || std::floating_point< T >;
 
 template < typename T >
 concept gettable_container = requires( T a ) {
-        {
-                std::tuple_size< std::decay_t< T > >::value
-        } -> std::convertible_to< std::size_t >;
+        { std::tuple_size< std::decay_t< T > >::value } -> std::convertible_to< std::size_t >;
 };
 
 /// so, std::ranges::range is meh because it expects return of begin() being input_output_iterator,
@@ -121,9 +103,7 @@ concept data_container_with_iter =
 
 template < typename T >
 concept static_sized = requires( T a ) {
-        {
-                std::tuple_size< std::decay_t< T > >::value
-        } -> std::convertible_to< std::size_t >;
+        { std::tuple_size< std::decay_t< T > >::value } -> std::convertible_to< std::size_t >;
 };
 
 /// ------------------------------------------------------------------------------------------------
@@ -142,9 +122,7 @@ concept container_invocable =
 
 template < typename UnaryCallable, typename ReturnValue, typename... Args >
 concept invocable_returning = requires( UnaryCallable f, Args... args ) {
-        {
-                f( args... )
-        } -> std::same_as< ReturnValue >;
+        { f( args... ) } -> std::same_as< ReturnValue >;
 };
 
 /// ------------------------------------------------------------------------------------------------
@@ -173,9 +151,7 @@ concept ostreamlike = !std::is_array_v< T > && requires( T val ) {
 
 template < typename T >
 concept ostreamable = requires( std::ostream& os, T item ) {
-        {
-                os << item
-        } -> std::convertible_to< std::ostream& >;
+        { os << item } -> std::convertible_to< std::ostream& >;
 };
 
 /// ------------------------------------------------------------------------------------------------

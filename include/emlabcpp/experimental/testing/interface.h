@@ -53,9 +53,7 @@ using test_ll_node = linked_list_node_base< test_interface >;
 
 template < typename T >
 concept valid_test_callable = requires( T t, pmr::memory_resource& mem_resource ) {
-        {
-                t( mem_resource )
-        } -> std::same_as< coroutine< void > >;
+        { t( mem_resource ) } -> std::same_as< coroutine< void > >;
 };
 
 template < typename T >

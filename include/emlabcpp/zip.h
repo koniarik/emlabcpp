@@ -171,7 +171,7 @@ template < gettable_container Tuple, gettable_container... Tuples >
 auto zip( Tuple&& frst, Tuples&&... tpls )
 {
         static_assert(
-            ( (static_size_v< Tuple > == static_size_v< Tuples >) &&... ),
+            ( ( static_size_v< Tuple > == static_size_v< Tuples > ) && ... ),
             "All tuples has to be of same size in zip" );
         return tuple_zip_impl(
             std::make_tuple( frst, tpls... ),

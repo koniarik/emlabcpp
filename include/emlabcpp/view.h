@@ -215,8 +215,8 @@ constexpr view< iterator_of_t< Container > > trim_view( Container& cont, const f
 }
 
 /// Returns view to the Container in reverse order.
-constexpr auto reversed( referenceable_container auto& container )
-    -> view< decltype( std::rbegin( container ) ) >
+constexpr auto
+reversed( referenceable_container auto& container ) -> view< decltype( std::rbegin( container ) ) >
 {
         return { std::rbegin( container ), std::rend( container ) };
 }

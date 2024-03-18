@@ -85,7 +85,7 @@ requires( !range_container< Container > )
         };
 
         /// viz. second map_f_to_a_impl
-        return std::array< T, N >{ process.template operator()< Is >()... };
+        return std::array< T, N > { process.template operator()< Is >()... };
 }
 
 template < typename >
