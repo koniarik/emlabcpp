@@ -141,7 +141,7 @@ struct value_type_converter< const char* >
 template <>
 struct value_type_converter< std::byte >
 {
-        static value_type to_value( const char* item )
+        static value_type to_value( const std::byte item )
         {
                 return int64_t( item );
         }
