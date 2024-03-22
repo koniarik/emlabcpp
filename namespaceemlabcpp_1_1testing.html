@@ -129,6 +129,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter_3_01const_01char_01_5_01_4.html">value_type_converter&lt; const char * &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1byte_01_4.html">value_type_converter&lt; std::byte &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4.html">value_type_converter&lt; std::chrono::duration&lt; Rep, Ratio &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1wait__interface.html">wait_interface</a></td></tr>
@@ -2088,7 +2090,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4">requires</a>( <span class="keyword">const</span> T&amp; item, <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a>&amp; val ) {</div>
-<div class="line">        { value_type_converter&lt; T &gt;::to_value( item ) } -&gt; std::convertible_to&lt; value_type &gt;;</div>
+<div class="line">        {</div>
+<div class="line">                value_type_converter&lt; T &gt;::to_value( item )</div>
+<div class="line">        } -&gt; std::convertible_to&lt; value_type &gt;;</div>
 <div class="line">        {</div>
 <div class="line">                value_type_converter&lt; T &gt;::from_value( val )</div>
 <div class="line">        } -&gt; std::convertible_to&lt; std::optional&lt; T &gt; &gt;;</div>
@@ -2104,7 +2108,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Mon Mar 18 2024 15:46:46 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 22 2024 20:33:31 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -15,6 +15,7 @@ var namespaceemlabcpp_1_1testing =
     [ "value_type_converter< std::bitset< N > >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1bitset_3_01N_01_4_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1bitset_3_01N_01_4_01_4" ],
     [ "value_type_converter< std::string_view >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4" ],
     [ "value_type_converter< const char * >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01const_01char_01_5_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01const_01char_01_5_01_4" ],
+    [ "value_type_converter< std::byte >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1byte_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1byte_01_4" ],
     [ "value_type_converter< std::chrono::duration< Rep, Ratio > >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4" ],
     [ "wait_interface", "structemlabcpp_1_1testing_1_1wait__interface.html", "structemlabcpp_1_1testing_1_1wait__interface" ],
     [ "coroutine", "classemlabcpp_1_1testing_1_1coroutine.html", "classemlabcpp_1_1testing_1_1coroutine" ],
