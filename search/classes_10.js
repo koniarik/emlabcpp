@@ -18,7 +18,7 @@ var searchData=
   ['sized_5fbuffer_1606',['sized_buffer',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer',1,'emlabcpp::protocol']]],
   ['sizeless_5fmessage_1607',['sizeless_message',['../classemlabcpp_1_1protocol_1_1sizeless__message.html',1,'emlabcpp::protocol']]],
   ['stack_5fresource_1608',['stack_resource',['../classemlabcpp_1_1pmr_1_1stack__resource.html',1,'emlabcpp::pmr']]],
-  ['stack_5fresource_3c_201024_2b512_20_3e_1609',['stack_resource&lt; 1024+512 &gt;',['../classemlabcpp_1_1pmr_1_1stack__resource.html',1,'emlabcpp::pmr']]],
+  ['stack_5fresource_3c_202048_20_3e_1609',['stack_resource&lt; 2048 &gt;',['../classemlabcpp_1_1pmr_1_1stack__resource.html',1,'emlabcpp::pmr']]],
   ['static_5fcircular_5fbuffer_1610',['static_circular_buffer',['../classemlabcpp_1_1static__circular__buffer.html',1,'emlabcpp']]],
   ['static_5fcircular_5fbuffer_3c_20std_3a_3abyte_2c_20def_3a_3amessage_5ftype_3a_3acapacity_20_2a2_20_3e_1611',['static_circular_buffer&lt; std::byte, Def::message_type::capacity *2 &gt;',['../classemlabcpp_1_1static__circular__buffer.html',1,'emlabcpp']]],
   ['static_5fcircular_5fbuffer_5fiterator_1612',['static_circular_buffer_iterator',['../classemlabcpp_1_1static__circular__buffer__iterator.html',1,'emlabcpp']]],

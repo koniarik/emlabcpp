@@ -185,7 +185,7 @@ var hierarchy =
       [ "emlabcpp::testing::coroutine< T >::promise_type", "structemlabcpp_1_1testing_1_1coroutine_1_1promise__type.html", null ]
     ] ],
     [ "emlabcpp::pmr::memory_resource", "classemlabcpp_1_1pmr_1_1memory__resource.html", [
-      [ "emlabcpp::pmr::stack_resource< 1024+512 >", "classemlabcpp_1_1pmr_1_1stack__resource.html", null ],
+      [ "emlabcpp::pmr::stack_resource< 2048 >", "classemlabcpp_1_1pmr_1_1stack__resource.html", null ],
       [ "emlabcpp::pmr::new_delete_resource_impl", "structemlabcpp_1_1pmr_1_1new__delete__resource__impl.html", null ],
       [ "emlabcpp::pmr::pool_resource< PoolSize, PoolCount >", "classemlabcpp_1_1pmr_1_1pool__resource.html", null ],
       [ "emlabcpp::pmr::stack_resource< Capacity >", "classemlabcpp_1_1pmr_1_1stack__resource.html", null ]
