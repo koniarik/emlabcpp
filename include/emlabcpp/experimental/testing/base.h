@@ -73,17 +73,13 @@ struct test_result
         run_id      rid;
         test_status status = test_status::ERRORED;
 
+        test_result() = default;
+
         test_result( const test_id ttid, const run_id trid )
           : tid( ttid )
           , rid( trid )
         {
         }
-
-        test_result( const test_result& )            = delete;
-        test_result& operator=( const test_result& ) = delete;
-
-        test_result( test_result&& ) noexcept            = default;
-        test_result& operator=( test_result&& ) noexcept = default;
 };
 
 }  // namespace emlabcpp::testing
