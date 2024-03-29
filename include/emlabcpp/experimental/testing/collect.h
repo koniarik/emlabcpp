@@ -115,22 +115,18 @@ public:
         outcome on_msg( const collect_server_client_group& var );
 
         collect_awaiter
-        set( const node_id parent, std::string_view key, contiguous_container_type t );
+             set( const node_id parent, std::string_view key, contiguous_container_type t );
+        bool set( const node_id parent, std::string_view key, const value_type& val );
 
         collect_awaiter set( std::string_view key, contiguous_container_type t )
         {
                 return set( 0, key, t );
         }
 
-        collect_awaiter append( const node_id parent, contiguous_container_type t );
-        bool            set( const node_id parent, std::string_view key, const value_type& val );
-
         bool set( std::string_view key, const value_type& val )
         {
                 return set( 0, key, val );
         }
-
-        bool append( const node_id parent, const value_type& val );
 
         template < typename Arg >
         bool set( node_id parent, std::string_view key, const Arg& arg )
@@ -143,6 +139,9 @@ public:
         {
                 return set( 0, key, value_type_converter< Arg >::to_value( arg ) );
         }
+
+        collect_awaiter append( const node_id parent, contiguous_container_type t );
+        bool            append( const node_id parent, const value_type& val );
 
         template < typename Arg >
         bool append( node_id parent, const Arg& arg )
