@@ -80,6 +80,7 @@ var namespaceemlabcpp_1_1protocol =
     [ "converter_for", "namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f", null ],
     [ "endpoint_error", "namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e", null ],
     [ "mark", "namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b", null ],
+    [ "multiplexer_channel_handler", "namespaceemlabcpp_1_1protocol.html#a7691c56fa602099a1233561f8b8004d2", null ],
     [ "multiplexer_handler", "namespaceemlabcpp_1_1protocol.html#a986f53c6ddc39b9b91e4bc40d744e569", null ],
     [ "multiplexer_message", "namespaceemlabcpp_1_1protocol.html#aecf6971020e07eaf0c7f0f3b373d5df8", null ],
     [ "multiplexer_payload", "namespaceemlabcpp_1_1protocol.html#a313daa9e6fbd3cb1ebea01a7f36662eb", null ],
@@ -127,5 +128,6 @@ var namespaceemlabcpp_1_1protocol =
     [ "packet_def", "namespaceemlabcpp_1_1protocol.html#a0fe4054075187b3f230763da6fdd12d1", null ],
     [ "register_map_void_returning", "namespaceemlabcpp_1_1protocol.html#af6a2b6db86c30d95881fe0346b567f8b", null ],
     [ "SIZE_ERR", "namespaceemlabcpp_1_1protocol.html#a75075a1ed102c600dfd1f1894c1fc93b", null ],
+    [ "slot", "namespaceemlabcpp_1_1protocol.html#ac766b37bba750eda3365d7fef4fb01c4", null ],
     [ "UNDEFVAR_ERR", "namespaceemlabcpp_1_1protocol.html#ac9952af57257a4c508414c5724c85458", null ]
 ];

@@ -272,6 +272,8 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:a0db15f01394ce6ad3ae6257e4866dca2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a> = uint16_t</td></tr>
 <tr class="separator:a0db15f01394ce6ad3ae6257e4866dca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7691c56fa602099a1233561f8b8004d2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a7691c56fa602099a1233561f8b8004d2">multiplexer_channel_handler</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">handler</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a>, std::endian::little &gt;</td></tr>
+<tr class="separator:a7691c56fa602099a1233561f8b8004d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a313daa9e6fbd3cb1ebea01a7f36662eb"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
 <tr class="memitem:a313daa9e6fbd3cb1ebea01a7f36662eb"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a313daa9e6fbd3cb1ebea01a7f36662eb">multiplexer_payload</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">tuple</a>&lt; std::endian::little, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a>, <a class="el" href="classemlabcpp_1_1protocol_1_1sizeless__message.html">sizeless_message</a>&lt; N &gt; &gt;</td></tr>
 <tr class="separator:a313daa9e6fbd3cb1ebea01a7f36662eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -326,7 +328,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ab08294ec0d41d8284242e2b8bc4c2a18"><td class="memTemplParams" colspan="2">template&lt;typename BinaryCallable &gt; </td></tr>
 <tr class="memitem:ab08294ec0d41d8284242e2b8bc4c2a18"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1outcome.html">outcome</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ab08294ec0d41d8284242e2b8bc4c2a18">extract_multiplexed</a> (const std::span&lt; const std::byte &gt; &amp;msg, BinaryCallable handle_cb)</td></tr>
 <tr class="separator:ab08294ec0d41d8284242e2b8bc4c2a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39ffab4b8c7d6910c971588b583d8270"><td class="memTemplParams" colspan="2">template&lt;typename... Slotted&gt; </td></tr>
+<tr class="memitem:a39ffab4b8c7d6910c971588b583d8270"><td class="memTemplParams" colspan="2">template&lt;slot... Slotted&gt; </td></tr>
 <tr class="memitem:a39ffab4b8c7d6910c971588b583d8270"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1outcome.html">outcome</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a39ffab4b8c7d6910c971588b583d8270">multiplexed_dispatch</a> (<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a> chann, const auto &amp;data, Slotted &amp;... slotted)</td></tr>
 <tr class="separator:a39ffab4b8c7d6910c971588b583d8270"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E&gt; </td></tr>
@@ -365,6 +367,9 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:ac45b34ffbd63c8c942cea66c9b489c16"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ac45b34ffbd63c8c942cea66c9b489c16">multiplexer_service_id</a> = 0</td></tr>
 <tr class="separator:ac45b34ffbd63c8c942cea66c9b489c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac766b37bba750eda3365d7fef4fb01c4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ac766b37bba750eda3365d7fef4fb01c4"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#ac766b37bba750eda3365d7fef4fb01c4">slot</a></td></tr>
+<tr class="separator:ac766b37bba750eda3365d7fef4fb01c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa86d1c4c148d71e70716484056a293c0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aa86d1c4c148d71e70716484056a293c0"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aa86d1c4c148d71e70716484056a293c0">base_type</a> = std::is_floating_point_v&lt; T &gt; || std::is_integral_v&lt; T &gt; || std::is_enum_v&lt; T &gt;</td></tr>
 <tr class="memdesc:aa86d1c4c148d71e70716484056a293c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that matches types considered base - serialized directly by using byte shifting.  <a href="namespaceemlabcpp_1_1protocol.html#aa86d1c4c148d71e70716484056a293c0">More...</a><br /></td></tr>
@@ -721,6 +726,20 @@ template&lt;typename D , std::endian E&gt; </div>
 
 </div>
 </div>
+<a id="a7691c56fa602099a1233561f8b8004d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7691c56fa602099a1233561f8b8004d2">&#9670;&nbsp;</a></span>multiplexer_channel_handler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#a7691c56fa602099a1233561f8b8004d2">emlabcpp::protocol::multiplexer_channel_handler</a> = typedef <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">handler</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a>, std::endian::little &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a986f53c6ddc39b9b91e4bc40d744e569"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a986f53c6ddc39b9b91e4bc40d744e569">&#9670;&nbsp;</a></span>multiplexer_handler</h2>
 
@@ -1064,7 +1083,7 @@ template&lt;std::convertible_to&lt; uint8_t &gt;... Ts&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... Slotted&gt; </div>
+template&lt;slot... Slotted&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classemlabcpp_1_1outcome.html">outcome</a> emlabcpp::protocol::multiplexed_dispatch </td>
@@ -1214,7 +1233,7 @@ template&lt;std::size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#ab94ed6e95e60af5a0353af4340e989dc">emlabcpp::protocol::handler&lt; T &gt;::serialize()</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html#a0e3e29986bf7027654d2a44e4c0bc77a">emlabcpp::protocol::handler&lt; T, E &gt;::serialize()</a>.</p>
 
 </div>
 </div>
@@ -1734,6 +1753,30 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 
 </div>
 </div>
+<a id="ac766b37bba750eda3365d7fef4fb01c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac766b37bba750eda3365d7fef4fb01c4">&#9670;&nbsp;</a></span>slot</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::protocol::slot</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T s, std::span&lt; const std::byte &gt; data ) {</div>
+<div class="line">        {</div>
+<div class="line">                s.get_channel()</div>
+<div class="line">        } -&gt; std::convertible_to&lt; channel_type &gt;;</div>
+<div class="line">        {</div>
+<div class="line">                s.on_msg( data )</div>
+<div class="line">        } -&gt; std::convertible_to&lt; outcome &gt;;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="ac9952af57257a4c508414c5724c85458"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac9952af57257a4c508414c5724c85458">&#9670;&nbsp;</a></span>UNDEFVAR_ERR</h2>
 
@@ -1764,7 +1807,7 @@ template&lt;typename UnaryCallable , typename Registers &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Fri Mar 29 2024 10:18:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 30 2024 22:42:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

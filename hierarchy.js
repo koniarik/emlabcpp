@@ -22,6 +22,7 @@ var hierarchy =
     [ "emlabcpp::buffer_writer< N >", "structemlabcpp_1_1buffer__writer.html", null ],
     [ "emlabcpp::rpc::class_wrapper< Class, Bindings >", "classemlabcpp_1_1rpc_1_1class__wrapper.html", null ],
     [ "emlabcpp::cobs_decoder", "structemlabcpp_1_1cobs__decoder.html", null ],
+    [ "emlabcpp::cobs_encoder", "classemlabcpp_1_1cobs__encoder.html", null ],
     [ "emlabcpp::testing::collect_reply", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__reply", null ],
     [ "emlabcpp::testing::collect_request", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__request", null ],
     [ "emlabcpp::testing::collect_server", "classemlabcpp_1_1testing_1_1collect__server.html", null ],
@@ -147,7 +148,7 @@ var hierarchy =
     [ "emlabcpp::testing::get_test_name_request", "structemlabcpp_1_1testing_1_1get__test__name__request.html", null ],
     [ "emlabcpp::protocol::group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group", null ],
     [ "emlabcpp::cfg::handler< Payload, Field, Endianess >", "structemlabcpp_1_1cfg_1_1handler.html", null ],
-    [ "emlabcpp::protocol::handler< T >", "structemlabcpp_1_1protocol_1_1handler.html", null ],
+    [ "emlabcpp::protocol::handler< T, E >", "structemlabcpp_1_1protocol_1_1handler.html", null ],
     [ "std::hash< T >", "structstd_1_1hash_3_01T_01_4.html", null ],
     [ "emlabcpp::cfg::header", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header", null ],
     [ "emlabcpp::identity_matrix< N, T >", "classemlabcpp_1_1identity__matrix.html", null ],
@@ -410,6 +411,7 @@ var hierarchy =
     [ "emlabcpp::view< Iterator, EndIterator >", "classemlabcpp_1_1view.html", [
       [ "emlabcpp::bounded_view< Iterator, SizeType >", "classemlabcpp_1_1bounded__view.html", null ]
     ] ],
+    [ "emlabcpp::view< std::byte * >", "classemlabcpp_1_1view.html", null ],
     [ "emlabcpp::rpc::void_return_type", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1void__return__type", null ],
     [ "emlabcpp::coro::wait_interface", "structemlabcpp_1_1coro_1_1wait__interface.html", [
       [ "emlabcpp::coro::error_awaiter", "structemlabcpp_1_1coro_1_1error__awaiter.html", null ],

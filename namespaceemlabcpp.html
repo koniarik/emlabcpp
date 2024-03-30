@@ -149,6 +149,9 @@ Classes</h2></td></tr>
 <tr class="separator:structemlabcpp_1_1empty__assembly__tag"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded__view.html">bounded_view</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1cobs__encoder.html">cobs_encoder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: make this no inline.  <a href="classemlabcpp_1_1cobs__encoder.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cobs__decoder.html">cobs_decoder</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1decode__cobs__iter.html">decode_cobs_iter</a></td></tr>
@@ -698,7 +701,7 @@ Functions</h2></td></tr>
 <tr class="memitem:afe935e56d6376df9f87d0d015a3baecc"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc">enumerate</a> (Container &amp;&amp;cont)</td></tr>
 <tr class="separator:afe935e56d6376df9f87d0d015a3baecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6752f0fca39f0928386bab695fea0e2"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac6752f0fca39f0928386bab695fea0e2">encode_cobs</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const std::byte * &gt; source, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; target)</td></tr>
-<tr class="memdesc:ac6752f0fca39f0928386bab695fea0e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: make this no inline.  <a href="namespaceemlabcpp.html#ac6752f0fca39f0928386bab695fea0e2">More...</a><br /></td></tr>
+<tr class="memdesc:ac6752f0fca39f0928386bab695fea0e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer.  <a href="namespaceemlabcpp.html#ac6752f0fca39f0928386bab695fea0e2">More...</a><br /></td></tr>
 <tr class="separator:ac6752f0fca39f0928386bab695fea0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa636b3f8449e9bac7a6d8aa8ffdeec3a"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa636b3f8449e9bac7a6d8aa8ffdeec3a">decode_cobs</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; const std::byte * &gt; source, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte * &gt; target)</td></tr>
 <tr class="memdesc:aa636b3f8449e9bac7a6d8aa8ffdeec3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer.  <a href="namespaceemlabcpp.html#aa636b3f8449e9bac7a6d8aa8ffdeec3a">More...</a><br /></td></tr>
@@ -4275,10 +4278,10 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>TODO: make this no inline. </p>
-<p>Encodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer. Note that this does not store 0 at the end. </p>
+<p>Encodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer. </p>
+<p>Note that this does not store 0 at the end. </p>
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a35373b7ecce53b42f2b93316496708e1">emlabcpp::view&lt; Iterator, EndIterator &gt;::begin()</a>, <a class="el" href="namespaceemlabcpp.html#a036ecd2b344a56d6473500952c3c9db8">count()</a>, and <a class="el" href="classemlabcpp_1_1view.html#a307e340890bedc068c2cac28e2f86896">emlabcpp::view&lt; Iterator, EndIterator &gt;::end()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1cobs__encoder.html#a94a98c6c87ff20fdcb660fc27506037a">emlabcpp::cobs_encoder::insert()</a>.</p>
 
 </div>
 </div>
@@ -11500,7 +11503,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Fri Mar 29 2024 10:18:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 30 2024 22:42:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

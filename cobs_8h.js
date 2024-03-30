@@ -1,5 +1,6 @@
 var cobs_8h =
 [
+    [ "cobs_encoder", "classemlabcpp_1_1cobs__encoder.html", "classemlabcpp_1_1cobs__encoder" ],
     [ "cobs_decoder", "structemlabcpp_1_1cobs__decoder.html", "structemlabcpp_1_1cobs__decoder" ],
     [ "iterator_traits< emlabcpp::decode_cobs_iter< Iter > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1decode__cobs__iter_3_01Iter_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1decode__cobs__iter_3_01Iter_01_4_01_4" ],
     [ "decode_cobs_iter", "classemlabcpp_1_1decode__cobs__iter.html", "classemlabcpp_1_1decode__cobs__iter" ],

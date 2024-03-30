@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"color_8h.html#aa04c4ddd773c5ae47bf78d051770a30a":[4,0,0,0,1,4,0,4],
+"color_8h_source.html":[4,0,0,0,1,4,0],
+"command__group_8h.html":[4,0,0,0,4,1],
 "command__group_8h_source.html":[4,0,0,0,4,1],
 "concepts_8h.html":[4,0,0,0,9],
 "concepts_8h.html#a24f6b4dc0a35260a281aa436f5401cce":[4,0,0,0,9,22],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "functions_func_w.html":[3,3,1,20],
 "functions_func_y.html":[3,3,1,21],
 "functions_func_z.html":[3,3,1,22],
-"functions_func_~.html":[3,3,1,23],
-"functions_g.html":[3,3,0,6],
-"functions_h.html":[3,3,0,7],
-"functions_i.html":[3,3,0,8]
+"functions_func_~.html":[3,3,1,23]
 };

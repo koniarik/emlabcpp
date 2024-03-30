@@ -20,6 +20,7 @@ var namespaceemlabcpp =
     [ "either", "classemlabcpp_1_1either.html", "classemlabcpp_1_1either" ],
     [ "empty_assembly_tag", "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag", null ],
     [ "bounded_view", "classemlabcpp_1_1bounded__view.html", "classemlabcpp_1_1bounded__view" ],
+    [ "cobs_encoder", "classemlabcpp_1_1cobs__encoder.html", "classemlabcpp_1_1cobs__encoder" ],
     [ "cobs_decoder", "structemlabcpp_1_1cobs__decoder.html", "structemlabcpp_1_1cobs__decoder" ],
     [ "decode_cobs_iter", "classemlabcpp_1_1decode__cobs__iter.html", "classemlabcpp_1_1decode__cobs__iter" ],
     [ "contiguous_request_adapter", "classemlabcpp_1_1contiguous__request__adapter.html", "classemlabcpp_1_1contiguous__request__adapter" ],
