@@ -31,10 +31,10 @@ namespace emlabcpp::protocol
 //
 /// You may want to have this class (With the include) to be present in separate .cpp file, as the
 /// compile time can be quite heavy.
-template < convertible T >
+template < convertible T, std::endian E = std::endian::big >
 struct handler
 {
-        using def                             = converter_for< T, std::endian::big >;
+        using def                             = converter_for< T, E >;
         static constexpr std::size_t max_size = def::max_size;
         using value_type                      = typename def::value_type;
         using message_type                    = message< max_size >;
