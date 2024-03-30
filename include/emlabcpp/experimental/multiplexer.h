@@ -30,6 +30,8 @@ namespace emlabcpp::protocol
 
 using channel_type = uint16_t;
 
+using multiplexer_channel_handler = handler< channel_type, std::endian::little >;
+
 template < std::size_t N >
 using multiplexer_payload = tuple< std::endian::little, channel_type, sizeless_message< N > >;
 
@@ -87,7 +89,17 @@ outcome extract_multiplexed( const std::span< const std::byte >& msg, BinaryCall
         return handle_cb( id, msg.subspan( chan_ser::max_size ) );
 }
 
-template < typename... Slotted >
+template < typename T >
+concept slot = requires( T s, std::span< const std::byte > data ) {
+        {
+                s.get_channel()
+        } -> std::convertible_to< channel_type >;
+        {
+                s.on_msg( data )
+        } -> std::convertible_to< outcome >;
+};
+
+template < slot... Slotted >
 outcome multiplexed_dispatch( channel_type chann, const auto& data, Slotted&... slotted )
 {
         outcome res = SUCCESS;
