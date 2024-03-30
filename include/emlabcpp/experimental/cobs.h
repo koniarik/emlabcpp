@@ -10,43 +10,63 @@ namespace emlabcpp
 
 /// TODO: make this no inline
 
+class cobs_encoder
+{
+public:
+        cobs_encoder( view< std::byte* > target )
+          : target( target )
+        {
+        }
+
+        bool insert( std::byte b )
+        {
+                if ( b != std::byte{ 0 } ) {
+                        count += 1;
+                        *p = b;
+                } else {
+                        *last_p = std::byte{ count };
+                        count   = 1;
+                        last_p  = p;
+                }
+
+                ++p;
+
+                if ( p == target.end() )
+                        return false;
+
+                if ( count == 255 ) {
+                        *last_p = std::byte{ 255 };
+                        count   = 1;
+                        last_p  = p++;
+                }
+
+                return p != target.end();
+        }
+
+        view< std::byte* > commit() &&
+        {
+                *last_p = std::byte{ count };
+                return { target.begin(), p };
+        }
+
+private:
+        view< std::byte* > target;
+        std::byte*         last_p = target.begin();
+        std::byte*         p      = std::next( last_p );
+        uint8_t            count  = 1;
+};
+
 /// Encodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS)
 /// encoding, returns bool indicating whenever conversion succeeded and subview used for conversion
 /// from target buffer. Note that this does not store 0 at the end.
 inline std::tuple< bool, view< std::byte* > >
 encode_cobs( view< const std::byte* > source, view< std::byte* > target )
 {
-        std::byte* last_tok       = target.begin();
-        std::byte* target_current = last_tok;
-        target_current++;
-        uint8_t count = 1;
-        for ( const std::byte b : source ) {
-
-                if ( b != std::byte{ 0 } ) {
-                        count += 1;
-                        *target_current = b;
-                } else {
-                        *last_tok = std::byte{ count };
-                        count     = 1;
-                        last_tok  = target_current;
-                }
-
-                target_current += 1;
-                if ( target_current == target.end() )
-                        return { false, target };
-
-                if ( count == 255 ) {
-                        *last_tok = std::byte{ 255 };
-                        count     = 1;
-                        last_tok  = target_current;
-
-                        target_current += 1;
-                        if ( target_current == target.end() )
-                                return { false, target };
-                }
-        }
-        *last_tok = std::byte{ count };
-        return { true, { target.begin(), target_current } };
+        cobs_encoder e( target );
+        for ( std::byte b : source )
+                if ( !e.insert( b ) )
+                        return { false, {} };
+        return { true, std::move( e ).commit() };
 }
 
 struct cobs_decoder
