@@ -498,9 +498,7 @@ constexpr bool until_index( PredicateCallable&& f )
 /// Expectes the bounded value to be valid (that is within the range)
 template < bounded_derived IndexType, typename Callable >
 requires( !requires( Callable f ) {
-        {
-                f.template operator()< 0 >()
-        } -> std::same_as< void >;
+        { f.template operator()< 0 >() } -> std::same_as< void >;
 } )
 constexpr auto select_index( IndexType i, Callable&& f )
 {
@@ -514,9 +512,7 @@ constexpr auto select_index( IndexType i, Callable&& f )
 
 template < bounded_derived IndexType, typename Callable >
 requires requires( Callable f ) {
-        {
-                f.template operator()< 0 >()
-        } -> std::same_as< void >;
+        { f.template operator()< 0 >() } -> std::same_as< void >;
 }
 constexpr void select_index( IndexType i, Callable&& f )
 {

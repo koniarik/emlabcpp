@@ -91,12 +91,8 @@ outcome extract_multiplexed( const std::span< const std::byte >& msg, BinaryCall
 
 template < typename T >
 concept slot = requires( T s, std::span< const std::byte > data ) {
-        {
-                s.get_channel()
-        } -> std::convertible_to< channel_type >;
-        {
-                s.on_msg( data )
-        } -> std::convertible_to< outcome >;
+        { s.get_channel() } -> std::convertible_to< channel_type >;
+        { s.on_msg( data ) } -> std::convertible_to< outcome >;
 };
 
 template < slot... Slotted >
