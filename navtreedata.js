@@ -86,20 +86,20 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"classemlabcpp_1_1decode__cobs__iter.html#aed20c61580154f797d8f9c4227850939",
-"classemlabcpp_1_1protocol_1_1message.html#a86c7be85eba571133db0d3247c006d8e",
-"classemlabcpp_1_1static__vector.html#a39ce12a1299db38ce04c60d817597cf4",
-"color_8h.html#a3959b862aa2e1cc006ab40cb96de64a2",
-"functions_func_z.html",
-"namespaceemlabcpp.html#a364f72aef7b46ed76b90e1f7a054fc32",
-"namespaceemlabcpp.html#aeb2a793ecef21878567a88585e7f7b6b",
-"namespaceemlabcpp_1_1testing.html#a8aeb6900d9833b37e14385e88b5007ff",
-"pretty__printer_8h.html#abed05683098f9a93c5b694ff9b9f3c16",
-"structemlabcpp_1_1error__type.html",
-"structemlabcpp_1_1protocol_1_1converter_3_01message_3_01N_01_4_00_01Endianess_01_4.html#afc310747364601d198adc0216554c732",
-"structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1variant_3_01Ds_8_8_8_01_4_01_4.html#abafff8136a337a1b26387de9fac6aa8a",
-"structemlabcpp_1_1testing_1_1param__variant__processor.html#a7537424e5544a31f95d97f7d21e54d87"
+"algorithm_8h.html",
+"classemlabcpp_1_1defer.html",
+"classemlabcpp_1_1protocol_1_1message.html#a86fb664e427aa25123bab33afe6ee054",
+"classemlabcpp_1_1static__vector.html#a3aa21b589fbecd34ed3f487ba81c4534",
+"color_8h.html#a620a32406486ae5b889d41d446c4a8b0",
+"functions_func_~.html",
+"namespaceemlabcpp.html#a37668b1023850f199c917bcf2131523c",
+"namespaceemlabcpp.html#aebffc4f0df356683a2b9b2a595e90e40",
+"namespaceemlabcpp_1_1testing.html#a8f31210bf94829b46e3ed0373409b3c8",
+"pretty__printer_8h.html#ae0b0ddf4f4fdd45dfc13d5420c34b446",
+"structemlabcpp_1_1error__type.html#af43027b873a88d6fd15c88f4db6747f9",
+"structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html",
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1variant_3_01Ds_8_8_8_01_4_01_4.html#ac53cc3acf503a21a4636536cb5f0bb6a",
+"structemlabcpp_1_1testing_1_1param__variant__processor.html#a8f7557cae2bd29c2c573ad69df37a188"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
