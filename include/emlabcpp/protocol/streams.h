@@ -28,12 +28,19 @@
 
 namespace emlabcpp
 {
-
-template < std::size_t N >
-struct pretty_printer< protocol::message< N > >
+namespace protocol
 {
         template < typename T >
-        static void print( T&& w, const protocol::message< N >& msg )
+        struct msg_format
+        {
+                T item;
+        };
+}  // namespace protocol
+
+template < typename T >
+struct pretty_printer< protocol::msg_format< T > >
+{
+        static void print( auto&& w, auto&& wrapper )
         {
                 // TODO: this might benefit from some refactoring?
                 static constexpr char hex_chars[16] = {
@@ -54,16 +61,29 @@ struct pretty_printer< protocol::message< N > >
                     'E',
                     'F' };
 
-                char l = '|';
-                for ( const std::size_t i : range( msg.size() ) ) {
+                char        l = '|';
+                std::size_t i = 0;
+                for ( const std::byte b : wrapper.item ) {
                         if ( i % 4 == 0 )
                                 l = '|';
-                        const auto val = std::to_integer< uint8_t >( msg[i] );
+                        const auto val = std::to_integer< uint8_t >( b );
                         w( l );
                         w( hex_chars[val / 16] );
                         w( hex_chars[val % 16] );
                         l = ':';
+
+                        i++;
                 }
+        }
+};
+
+template < std::size_t N >
+struct pretty_printer< protocol::message< N > >
+{
+        template < typename T >
+        static void print( T&& w, const protocol::message< N >& msg )
+        {
+                w( protocol::msg_format{ msg } );
         }
 };
 

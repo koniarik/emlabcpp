@@ -568,4 +568,29 @@ TEST( Algorithm, select_index )
         }
 }
 
+TEST( Algorithm, bytes )
+{
+        std::array< std::byte, 3 > data = bytes( 1, 2, 3 );
+        EXPECT_EQ( data[0], std::byte{ 1 } );
+        EXPECT_EQ( data[1], std::byte{ 2 } );
+        EXPECT_EQ( data[2], std::byte{ 3 } );
+}
+
+TEST( Algorithm, merge_arrays )
+{
+        std::array< int, 2 > d1  = { 42, 666 };
+        std::array< int, 3 > d2  = { 1, 2, 3 };
+        std::array< int, 5 > res = merge_arrays( d1, d2 );
+
+        std::array< int, 5 > expected = { 42, 666, 1, 2, 3 };
+        EXPECT_EQ( res, expected );
+}
+
+TEST( Algorithm, filled )
+{
+        std::array< int, 5 > d        = filled< 5 >( 42 );
+        std::array< int, 5 > expected = { 42, 42, 42, 42, 42 };
+        EXPECT_EQ( d, expected );
+}
+
 }  // namespace emlabcpp
