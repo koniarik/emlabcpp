@@ -27,6 +27,10 @@ var dir_d020062af5803c7b3279d0fbd1610b13 =
     [ "sequencer.h", "sequencer_8h.html", "sequencer_8h" ],
     [ "serializer.h", "serializer_8h.html", "serializer_8h" ],
     [ "streams.h", "streams_8h.html", [
+      [ "msg_format", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1msg__format", [
+        [ "item", "namespaceemlabcpp_1_1protocol.html#af78b93092e56190cc41e0831eb31d87f", null ]
+      ] ],
+      [ "pretty_printer< protocol::msg_format< T > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1msg__format_3_01T_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1msg__format_3_01T_01_4_01_4" ],
       [ "pretty_printer< protocol::message< N > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1message_3_01N_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1message_3_01N_01_4_01_4" ],
       [ "pretty_printer< protocol::sizeless_message< N > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1sizeless__message_3_01N_01_4_01_4.html", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1sizeless__message_3_01N_01_4_01_4" ],
       [ "pretty_printer< protocol::mark >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1mark_01_4.html", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1mark_01_4" ],

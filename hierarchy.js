@@ -194,6 +194,7 @@ var hierarchy =
     [ "emlabcpp::protocol::message< N >", "classemlabcpp_1_1protocol_1_1message.html", [
       [ "emlabcpp::protocol::sizeless_message< N >", "classemlabcpp_1_1protocol_1_1sizeless__message.html", null ]
     ] ],
+    [ "emlabcpp::protocol::msg_format< T >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1msg__format", null ],
     [ "emlabcpp::protocol::multiplexed_endpoint< Packet >", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", null ],
     [ "emlabcpp::testing::no_response_error", "structemlabcpp_1_1testing_1_1no__response__error.html", null ],
     [ "emlabcpp::noneabi_logger", "classemlabcpp_1_1noneabi__logger.html", null ],
@@ -243,6 +244,7 @@ var hierarchy =
     [ "emlabcpp::pretty_printer< protocol::error_record >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1error__record_01_4.html", null ],
     [ "emlabcpp::pretty_printer< protocol::mark >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1mark_01_4.html", null ],
     [ "emlabcpp::pretty_printer< protocol::message< N > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1message_3_01N_01_4_01_4.html", null ],
+    [ "emlabcpp::pretty_printer< protocol::msg_format< T > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1msg__format_3_01T_01_4_01_4.html", null ],
     [ "emlabcpp::pretty_printer< protocol::register_map< Endianess, Regs... > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1register__map_3_01Endianess_00_01Regs_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::pretty_printer< protocol::sizeless_message< N > >", "structemlabcpp_1_1pretty__printer_3_01protocol_1_1sizeless__message_3_01N_01_4_01_4.html", null ],
     [ "emlabcpp::pretty_printer< short int >", "structemlabcpp_1_1pretty__printer_3_01short_01int_01_4.html", null ],

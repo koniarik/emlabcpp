@@ -319,6 +319,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pretty__printer_3_01protocol_1_1register__map_3_01Endianess_00_01Regs_8_8_8_01_4_01_4.html">pretty_printer&lt; protocol::register_map&lt; Endianess, Regs... &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pretty__printer_3_01protocol_1_1msg__format_3_01T_01_4_01_4.html">pretty_printer&lt; protocol::msg_format&lt; T &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pretty__printer_3_01protocol_1_1message_3_01N_01_4_01_4.html">pretty_printer&lt; protocol::message&lt; N &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1pretty__printer_3_01protocol_1_1sizeless__message_3_01N_01_4_01_4.html">pretty_printer&lt; protocol::sizeless_message&lt; N &gt; &gt;</a></td></tr>
@@ -679,6 +681,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ad798db07be925b58001fd00feb4f721d"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad798db07be925b58001fd00feb4f721d">merge_arrays</a> (Arr &amp;&amp;first, Arrs &amp;&amp;... arrs)</td></tr>
 <tr class="memdesc:ad798db07be925b58001fd00feb4f721d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expects multiple std::arrays on input, and merges all together into one std::array instance.  <a href="namespaceemlabcpp.html#ad798db07be925b58001fd00feb4f721d">More...</a><br /></td></tr>
 <tr class="separator:ad798db07be925b58001fd00feb4f721d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51f95c951560ad4b1cbc3c793a72a2d7"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename T &gt; </td></tr>
+<tr class="memitem:a51f95c951560ad4b1cbc3c793a72a2d7"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::array&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a51f95c951560ad4b1cbc3c793a72a2d7">filled</a> (const T &amp;item)</td></tr>
+<tr class="memdesc:a51f95c951560ad4b1cbc3c793a72a2d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an array filled with value <code>x</code>  <a href="namespaceemlabcpp.html#a51f95c951560ad4b1cbc3c793a72a2d7">More...</a><br /></td></tr>
+<tr class="separator:a51f95c951560ad4b1cbc3c793a72a2d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51bc55ba3cb21b9294e89cdda68b1f98"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Container , typename Iterator  = iterator_of_t&lt; Container &gt;&gt; </td></tr>
 <tr class="memitem:a51bc55ba3cb21b9294e89cdda68b1f98"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; <a class="el" href="classemlabcpp_1_1iterators_1_1convert__iterator.html">iterators::convert_iterator</a>&lt; T, Iterator &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a51bc55ba3cb21b9294e89cdda68b1f98">convert_view</a> (Container &amp;&amp;cont)</td></tr>
 <tr class="separator:a51bc55ba3cb21b9294e89cdda68b1f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4409,6 +4415,38 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51f95c951560ad4b1cbc3c793a72a2d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51f95c951560ad4b1cbc3c793a72a2d7">&#9670;&nbsp;</a></span>filled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::array&lt; T, N &gt; emlabcpp::filled </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs an array filled with value <code>x</code> </p>
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>.</p>
 
 </div>
 </div>
@@ -10269,7 +10307,7 @@ template&lt;typename... Ts&gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
 <div class="line">        min_max&lt; T &gt; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>{ head }</div>
-<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:506</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:508</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -11503,7 +11541,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sat Mar 30 2024 22:42:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Mar 31 2024 12:34:52 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

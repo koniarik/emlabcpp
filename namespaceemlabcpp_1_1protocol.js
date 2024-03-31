@@ -53,6 +53,7 @@ var namespaceemlabcpp_1_1protocol =
     [ "serializer", "structemlabcpp_1_1protocol_1_1serializer.html", "structemlabcpp_1_1protocol_1_1serializer" ],
     [ "serializer< float, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4" ],
     [ "serializer< bool, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html", "structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4" ],
+    [ "msg_format", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1msg__format", "namespaceemlabcpp_1_1protocol_structemlabcpp_1_1protocol_1_1msg__format_dup" ],
     [ "proto_traits", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits", null ],
     [ "backup_proto_traits", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1backup__proto__traits", null ],
     [ "proto_traits< D >", "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4.html", "structemlabcpp_1_1protocol_1_1proto__traits_3_01D_01_4" ],
