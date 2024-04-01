@@ -57,7 +57,7 @@ template < typename T >
 }
 
 /// maps input value 'input' from input range to equivalent value in output range
-template < arithmetic_operators T, arithmetic_operators U >
+template < additive_operators T, arithmetic_operators U >
 [[nodiscard]] constexpr U map_range( T input, T from_min, T from_max, U to_min, U to_max )
 {
         return to_min + static_cast< U >(

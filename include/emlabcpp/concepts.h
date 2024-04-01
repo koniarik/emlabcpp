@@ -32,12 +32,19 @@ namespace emlabcpp
 /// arithmetic related concepts
 
 template < typename T >
-concept arithmetic_operators = requires( T a, T b ) {
+concept additive_operators = requires( T a, T b ) {
         { a + b } -> std::convertible_to< T >;
         { a - b } -> std::convertible_to< T >;
+};
+
+template < typename T >
+concept multiplicative_operators = requires( T a, T b ) {
         { a / b } -> std::convertible_to< T >;
         { a* b } -> std::convertible_to< T >;
 };
+
+template < typename T >
+concept arithmetic_operators = additive_operators< T > && multiplicative_operators< T >;
 
 template < typename T >
 concept arithmetic_assignment = requires( T a, T b ) {
