@@ -539,7 +539,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a3a3ff32c2bf0005fcdbab5763193f239"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3a3ff32c2bf0005fcdbab5763193f239">ceil_to</a> (T val, T base)</td></tr>
 <tr class="memdesc:a3a3ff32c2bf0005fcdbab5763193f239"><td class="mdescLeft">&#160;</td><td class="mdescRight">takes an value <code>val</code> and rounds it up to nearest multiply of <code>base</code>  <a href="namespaceemlabcpp.html#a3a3ff32c2bf0005fcdbab5763193f239">More...</a><br /></td></tr>
 <tr class="separator:a3a3ff32c2bf0005fcdbab5763193f239"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0abef993d302d6b6d93fe877ca62491c"><td class="memTemplParams" colspan="2">template&lt;arithmetic_operators T, arithmetic_operators U&gt; </td></tr>
+<tr class="memitem:a0abef993d302d6b6d93fe877ca62491c"><td class="memTemplParams" colspan="2">template&lt;additive_operators T, arithmetic_operators U&gt; </td></tr>
 <tr class="memitem:a0abef993d302d6b6d93fe877ca62491c"><td class="memTemplItemLeft" align="right" valign="top">constexpr U&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0abef993d302d6b6d93fe877ca62491c">map_range</a> (T input, T from_min, T from_max, U to_min, U to_max)</td></tr>
 <tr class="memdesc:a0abef993d302d6b6d93fe877ca62491c"><td class="mdescLeft">&#160;</td><td class="mdescRight">maps input value 'input' from input range to equivalent value in output range  <a href="namespaceemlabcpp.html#a0abef993d302d6b6d93fe877ca62491c">More...</a><br /></td></tr>
 <tr class="separator:a0abef993d302d6b6d93fe877ca62491c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1246,8 +1246,14 @@ Variables</h2></td></tr>
 <tr class="memitem:add79493bcf07bd4c54afffe3a0f3ee00"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#add79493bcf07bd4c54afffe3a0f3ee00">bounded_derived</a> = <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T val ) { <a class="el" href="namespaceemlabcpp_1_1detail.html#aa15d5c022409d351cd45334d7501dc72">detail::bounded_derived_test</a>( val ); }</td></tr>
 <tr class="memdesc:add79493bcf07bd4c54afffe3a0f3ee00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that matchestype deriving from bounded.  <a href="namespaceemlabcpp.html#add79493bcf07bd4c54afffe3a0f3ee00">More...</a><br /></td></tr>
 <tr class="separator:add79493bcf07bd4c54afffe3a0f3ee00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ba98b073e1c4277207d152957581b84"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a1ba98b073e1c4277207d152957581b84"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1ba98b073e1c4277207d152957581b84">additive_operators</a></td></tr>
+<tr class="separator:a1ba98b073e1c4277207d152957581b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5de77964b77f4e30ef2e570442171e8c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a5de77964b77f4e30ef2e570442171e8c"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5de77964b77f4e30ef2e570442171e8c">multiplicative_operators</a></td></tr>
+<tr class="separator:a5de77964b77f4e30ef2e570442171e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94924279b38cf1803ee0f01cb4889b24"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a94924279b38cf1803ee0f01cb4889b24"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a94924279b38cf1803ee0f01cb4889b24">arithmetic_operators</a></td></tr>
+<tr class="memitem:a94924279b38cf1803ee0f01cb4889b24"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a94924279b38cf1803ee0f01cb4889b24">arithmetic_operators</a> = <a class="el" href="namespaceemlabcpp.html#a1ba98b073e1c4277207d152957581b84">additive_operators</a>&lt; T &gt; &amp;&amp; <a class="el" href="namespaceemlabcpp.html#a5de77964b77f4e30ef2e570442171e8c">multiplicative_operators</a>&lt; T &gt;</td></tr>
 <tr class="separator:a94924279b38cf1803ee0f01cb4889b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa70c87fb6240fb7ebbfbb27d7b25b999"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aa70c87fb6240fb7ebbfbb27d7b25b999"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa70c87fb6240fb7ebbfbb27d7b25b999">arithmetic_assignment</a></td></tr>
@@ -5224,7 +5230,7 @@ template&lt;std::size_t N, range_container Container, container_invocable&lt; Co
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;arithmetic_operators T, arithmetic_operators U&gt; </div>
+template&lt;additive_operators T, arithmetic_operators U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -10248,6 +10254,29 @@ template&lt;gettable_container Tuple, gettable_container... Tuples&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a1ba98b073e1c4277207d152957581b84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ba98b073e1c4277207d152957581b84">&#9670;&nbsp;</a></span>additive_operators</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::additive_operators</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, T b ) {</div>
+<div class="line">        { a + b } -&gt; std::convertible_to&lt; T &gt;;</div>
+<div class="line">        { a - b } -&gt; std::convertible_to&lt; T &gt;;</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:77</div></div>
+</div><!-- fragment --><hr  />
+<p> arithmetic related concepts </p>
+
+</div>
+</div>
 <a id="a5a66cad0d4226d39ffd692e16bcfc076"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a66cad0d4226d39ffd692e16bcfc076">&#9670;&nbsp;</a></span>alternative_of</h2>
 
@@ -10346,7 +10375,6 @@ template&lt;typename T &gt; </div>
 <div class="line">        { a /= b };</div>
 <div class="line">        { a *= b };</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:77</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -10375,18 +10403,10 @@ template&lt;typename T &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept emlabcpp::arithmetic_operators</td>
+          <td class="memname">concept emlabcpp::arithmetic_operators = <a class="el" href="namespaceemlabcpp.html#a1ba98b073e1c4277207d152957581b84">additive_operators</a>&lt; T &gt; &amp;&amp; <a class="el" href="namespaceemlabcpp.html#a5de77964b77f4e30ef2e570442171e8c">multiplicative_operators</a>&lt; T &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, T b ) {</div>
-<div class="line">        { a + b } -&gt; std::convertible_to&lt; T &gt;;</div>
-<div class="line">        { a - b } -&gt; std::convertible_to&lt; T &gt;;</div>
-<div class="line">        { a / b } -&gt; std::convertible_to&lt; T &gt;;</div>
-<div class="line">        { a* b } -&gt; std::convertible_to&lt; T &gt;;</div>
-<div class="line">}</div>
-</div><!-- fragment --><hr  />
-<p> arithmetic related concepts </p>
 
 </div>
 </div>
@@ -10943,6 +10963,26 @@ template&lt;typename M &gt; </div>
 <div class="line">        { m[i][j] } -&gt; std::convertible_to&lt; typename M::value_type &gt;;</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespaceemlabcpp_html_ae9679354218890ed9c289c674a125378"><div class="ttname"><a href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">emlabcpp::requires</a></div><div class="ttdeci">requires(M::rows==1 &amp;&amp;M::cols==1) const expr matrix&lt; M</div><div class="ttdef"><b>Definition:</b> matrix.h:358</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5de77964b77f4e30ef2e570442171e8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5de77964b77f4e30ef2e570442171e8c">&#9670;&nbsp;</a></span>multiplicative_operators</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::multiplicative_operators</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, T b ) {</div>
+<div class="line">        { a / b } -&gt; std::convertible_to&lt; T &gt;;</div>
+<div class="line">        { a* b } -&gt; std::convertible_to&lt; T &gt;;</div>
+<div class="line">}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -11541,7 +11581,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sun Mar 31 2024 12:35:31 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 1 2024 15:03:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

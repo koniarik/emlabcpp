@@ -1,5 +1,6 @@
 var concepts_8h =
 [
+    [ "additive_operators", "concepts_8h.html#a1ba98b073e1c4277207d152957581b84", null ],
     [ "alternative_of", "concepts_8h.html#a5a66cad0d4226d39ffd692e16bcfc076", null ],
     [ "arithmetic", "concepts_8h.html#a61e7321a7721894fde42b2da9bf2cbd8", null ],
     [ "arithmetic_assignment", "concepts_8h.html#aa70c87fb6240fb7ebbfbb27d7b25b999", null ],
@@ -14,6 +15,7 @@ var concepts_8h =
     [ "element_of", "concepts_8h.html#a3895ca2fd367021e74c1915f724c0242", null ],
     [ "gettable_container", "concepts_8h.html#adb54eee14fc87e50de7f6ed35ad1aba0", null ],
     [ "invocable_returning", "concepts_8h.html#a5219e24bd076b3c65f56c69b9025dd69", null ],
+    [ "multiplicative_operators", "concepts_8h.html#a5de77964b77f4e30ef2e570442171e8c", null ],
     [ "ostreamable", "concepts_8h.html#aa360bfc94fbbd8ed260477cbc7016b27", null ],
     [ "ostreamlike", "concepts_8h.html#a27325f314502897567307b29b2b03776", null ],
     [ "range_container", "concepts_8h.html#a904e4439ee5b6a29ec1c9a5a6d404c55", null ],
