@@ -27,6 +27,7 @@
 #include "emlabcpp/static_vector.h"
 #include "emlabcpp/types.h"
 
+#include <chrono>
 #include <optional>
 #include <variant>
 
@@ -240,6 +241,15 @@ struct proto_traits< string_buffer< N > >
         using value_type                      = string_buffer< N >;
         static constexpr std::size_t max_size = N + counter_traits::max_size;
         static constexpr std::size_t min_size = 0 + counter_traits::min_size;
+};
+
+template < typename Rep, typename Ratio >
+struct proto_traits< std::chrono::duration< Rep, Ratio > >
+{
+        using rep_traits                      = traits_for< Rep >;
+        using value_type                      = std::chrono::duration< Rep, Ratio >;
+        static constexpr std::size_t max_size = rep_traits::max_size;
+        static constexpr std::size_t min_size = rep_traits::min_size;
 };
 
 template <>

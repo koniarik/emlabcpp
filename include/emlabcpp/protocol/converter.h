@@ -839,6 +839,36 @@ struct converter< string_buffer< N >, Endianess >
         }
 };
 
+template < typename Rep, typename Ratio, std::endian Endianess >
+struct converter< std::chrono::duration< Rep, Ratio >, Endianess >
+{
+        using traits     = traits_for< std::chrono::duration< Rep, Ratio > >;
+        using value_type = typename traits::value_type;
+
+        using rep_traits    = typename traits::rep_traits;
+        using rep_converter = converter_for< Rep, Endianess >;
+
+        static constexpr std::size_t max_size = traits::max_size;
+        static constexpr std::size_t min_size = traits::min_size;
+
+        using size_type = bounded< std::size_t, min_size, max_size >;
+
+        static constexpr size_type
+        serialize_at( std::span< std::byte, max_size > buffer, const value_type& item )
+        {
+                return rep_converter::serialize_at( buffer, item.count() );
+        }
+
+        static constexpr conversion_result
+        deserialize( const std::span< const std::byte >& buffer, value_type& value )
+        {
+                Rep  rep;
+                auto res = rep_converter::deserialize( buffer, rep );
+                value    = value_type{ rep };
+                return res;
+        }
+};
+
 template < std::endian Endianess >
 struct converter< error_record, Endianess >
 {
