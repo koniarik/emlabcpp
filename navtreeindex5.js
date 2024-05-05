@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"functions_func_w.html":[3,3,1,20],
 "functions_func_y.html":[3,3,1,21],
 "functions_func_z.html":[3,3,1,22],
 "functions_func_~.html":[3,3,1,23],
@@ -17,8 +18,8 @@ var NAVTREEINDEX5 =
 "functions_rela.html":[3,3,4],
 "functions_s.html":[3,3,0,17],
 "functions_t.html":[3,3,0,18],
-"functions_type.html":[3,3,3],
 "functions_type.html":[3,3,3,0],
+"functions_type.html":[3,3,3],
 "functions_type_b.html":[3,3,3,1],
 "functions_type_c.html":[3,3,3,2],
 "functions_type_d.html":[3,3,3,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp.html#a306420110ac2a2a1ecc364e0053c1e30":[2,0,0,176],
 "namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755":[2,0,0,185],
 "namespaceemlabcpp.html#a3142e383a8785970db18f0f84a9c0f21":[2,0,0,307],
-"namespaceemlabcpp.html#a33c5ed3dba4f9efa0836eeeec747e47b":[4,0,0,0,1,4,0,0,1],
-"namespaceemlabcpp.html#a35de9105fe961a808d8e0f3a2cb58bf2":[2,0,0,332]
+"namespaceemlabcpp.html#a33c5ed3dba4f9efa0836eeeec747e47b":[4,0,0,0,1,4,0,0,1]
 };
