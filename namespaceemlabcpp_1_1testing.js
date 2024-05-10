@@ -11,6 +11,7 @@ var namespaceemlabcpp_1_1testing =
     [ "controller_interface_adapter", "classemlabcpp_1_1testing_1_1controller__interface__adapter.html", "classemlabcpp_1_1testing_1_1controller__interface__adapter" ],
     [ "value_type_converter", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter", null ],
     [ "value_type_converter_getter", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", "structemlabcpp_1_1testing_1_1value__type__converter__getter" ],
+    [ "value_type_converter_enum", "structemlabcpp_1_1testing_1_1value__type__converter__enum.html", "structemlabcpp_1_1testing_1_1value__type__converter__enum" ],
     [ "value_type_converter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html", null ],
     [ "value_type_converter< std::bitset< N > >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1bitset_3_01N_01_4_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1bitset_3_01N_01_4_01_4" ],
     [ "value_type_converter< std::string_view >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4" ],

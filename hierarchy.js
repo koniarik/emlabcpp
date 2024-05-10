@@ -400,6 +400,7 @@ var hierarchy =
     [ "emlabcpp::testing::value_type_converter< std::byte >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1byte_01_4.html", null ],
     [ "emlabcpp::testing::value_type_converter< std::chrono::duration< Rep, Ratio > >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4.html", null ],
     [ "emlabcpp::testing::value_type_converter< std::string_view >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html", null ],
+    [ "emlabcpp::testing::value_type_converter_enum< T >", "structemlabcpp_1_1testing_1_1value__type__converter__enum.html", null ],
     [ "emlabcpp::testing::value_type_converter_getter< T >", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", null ],
     [ "emlabcpp::testing::value_type_converter_getter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", [
       [ "emlabcpp::testing::value_type_converter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html", null ]
