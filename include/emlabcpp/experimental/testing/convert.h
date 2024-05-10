@@ -45,6 +45,26 @@ struct value_type_converter_getter
         }
 };
 
+template < typename T >
+struct value_type_converter_enum
+{
+        static_assert( std::is_enum_v< T > );
+
+        static value_type to_value( T m )
+        {
+                return static_cast< int64_t >( m );
+        }
+
+        static std::optional< T > from_value( const value_type& var )
+        {
+                auto* val = std::get_if< int64_t >( &var );
+                if ( val == nullptr )
+                        return std::nullopt;
+
+                return static_cast< T >( *val );
+        }
+};
+
 template <>
 struct value_type_converter< int64_t > : value_type_converter_getter< int64_t >
 {
