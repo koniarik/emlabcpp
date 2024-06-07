@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('impl_8h.html',''); initResizable(); })
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -121,6 +122,11 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespaceemlabcpp_1_1impl"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copyright (C) 2020 Jan Veverak Koniarik. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ad033e440927450aafee3024cd7f16575"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="impl_8h.html#ad033e440927450aafee3024cd7f16575">EMLABCPP_INDEX_SWITCH_CASE</a>(x)</td></tr>
+<tr class="separator:ad033e440927450aafee3024cd7f16575"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a502794f0cc63c9d3399dfcedd60bd48e"><td class="memTemplParams" colspan="2">template&lt;typename... Args, typename UnaryPredicate , std::size_t... Idx&gt; </td></tr>
@@ -138,6 +144,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a5b47b8b6ec7073426834aee07b4a749c"><td class="memTemplParams" colspan="2">template&lt;std::size_t I, typename T &gt; </td></tr>
 <tr class="memitem:a5b47b8b6ec7073426834aee07b4a749c"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">emlabcpp::impl::get_ith_item_from_arrays</a> (T &amp;arr, auto &amp;... arrays)</td></tr>
 <tr class="separator:a5b47b8b6ec7073426834aee07b4a749c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4606886189823b5ac10a55fab1debabf"><td class="memTemplParams" colspan="2">template&lt;std::size_t Off, std::size_t N, typename F &gt; </td></tr>
+<tr class="memitem:a4606886189823b5ac10a55fab1debabf"><td class="memTemplItemLeft" align="right" valign="top">constexpr decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">emlabcpp::impl::index_switch</a> (std::size_t i, F &amp;&amp;f)</td></tr>
+<tr class="memdesc:a4606886189823b5ac10a55fab1debabf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes <code>f&lt;i&gt;</code> if provided <code>i</code> matches.  <a href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">More...</a><br /></td></tr>
+<tr class="separator:a4606886189823b5ac10a55fab1debabf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -145,13 +155,36 @@ Variables</h2></td></tr>
 <tr class="memitem:aa4539ae7694e16e3a1749e3089a36e2f"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f">emlabcpp::impl::map_f_collectable</a></td></tr>
 <tr class="separator:aa4539ae7694e16e3a1749e3089a36e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ad033e440927450aafee3024cd7f16575"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad033e440927450aafee3024cd7f16575">&#9670;&nbsp;</a></span>EMLABCPP_INDEX_SWITCH_CASE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EMLABCPP_INDEX_SWITCH_CASE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">        <span class="keywordflow">case</span> x:                         \</div>
+<div class="line">                if constexpr ( x &lt; N )  \</div>
+<div class="line">                        return std::forward&lt; F &gt;( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> ).template operator()&lt; Off + x &gt;();</div>
+<div class="ttc" id="anamespaceemlabcpp_html_ae863a37ceeaded64e65fc9ac024f70d9"><div class="ttname"><a href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:156</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_cd2498770f46874251cd2a7d2270663c.html">algorithm</a></li><li class="navelem"><a class="el" href="impl_8h.html">impl.h</a></li>
-    <li class="footer">Generated on Fri May 10 2024 16:36:10 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jun 7 2024 22:05:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

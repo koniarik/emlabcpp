@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"functions_func_w.html":[3,3,1,20],
 "functions_func_y.html":[3,3,1,21],
 "functions_func_z.html":[3,3,1,22],
 "functions_func_~.html":[3,3,1,23],
@@ -69,12 +70,14 @@ var NAVTREEINDEX5 =
 "gtest_8h_source.html":[4,0,0,0,1,5,9],
 "hierarchy.html":[3,2],
 "impl_8h.html":[4,0,0,0,0,0],
-"impl_8h.html#a502794f0cc63c9d3399dfcedd60bd48e":[4,0,0,0,0,0,2],
-"impl_8h.html#a5b47b8b6ec7073426834aee07b4a749c":[4,0,0,0,0,0,3],
-"impl_8h.html#a6bbd605bf9a833a4c88a3862dbf50d5f":[4,0,0,0,0,0,6],
-"impl_8h.html#a9282cb9e137c842eef92467c1a0a504a":[4,0,0,0,0,0,4],
-"impl_8h.html#aa391ac6fa79be363f91ee9cbe2e4c578":[4,0,0,0,0,0,5],
-"impl_8h.html#aa4539ae7694e16e3a1749e3089a36e2f":[4,0,0,0,0,0,7],
+"impl_8h.html#a4606886189823b5ac10a55fab1debabf":[4,0,0,0,0,0,5],
+"impl_8h.html#a502794f0cc63c9d3399dfcedd60bd48e":[4,0,0,0,0,0,3],
+"impl_8h.html#a5b47b8b6ec7073426834aee07b4a749c":[4,0,0,0,0,0,4],
+"impl_8h.html#a6bbd605bf9a833a4c88a3862dbf50d5f":[4,0,0,0,0,0,8],
+"impl_8h.html#a9282cb9e137c842eef92467c1a0a504a":[4,0,0,0,0,0,6],
+"impl_8h.html#aa391ac6fa79be363f91ee9cbe2e4c578":[4,0,0,0,0,0,7],
+"impl_8h.html#aa4539ae7694e16e3a1749e3089a36e2f":[4,0,0,0,0,0,9],
+"impl_8h.html#ad033e440927450aafee3024cd7f16575":[4,0,0,0,0,0,2],
 "impl_8h_source.html":[4,0,0,0,0,0],
 "index.html":[],
 "index.html#autotoc_md10":[1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp.html#a2e849ebc932caa63f7e1e6c67d0c2f7b":[2,0,0,442],
 "namespaceemlabcpp.html#a2fe2d2bf491db344cf04e4c2b9d799b8":[2,0,0,348],
 "namespaceemlabcpp.html#a306420110ac2a2a1ecc364e0053c1e30":[2,0,0,176],
-"namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755":[2,0,0,185],
-"namespaceemlabcpp.html#a3142e383a8785970db18f0f84a9c0f21":[2,0,0,307],
-"namespaceemlabcpp.html#a33c5ed3dba4f9efa0836eeeec747e47b":[4,0,0,0,1,4,0,0,1],
-"namespaceemlabcpp.html#a35de9105fe961a808d8e0f3a2cb58bf2":[2,0,0,332]
+"namespaceemlabcpp.html#a306d3a03f11c2e95874c23956020a755":[2,0,0,185]
 };

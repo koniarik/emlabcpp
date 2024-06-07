@@ -1,5 +1,8 @@
 var NAVTREEINDEX7 =
 {
+"namespaceemlabcpp.html#ae94e0bd03b2708f3260f665730929fb1":[2,0,0,352],
+"namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378":[2,0,0,336],
+"namespaceemlabcpp.html#ae9b509189c2527a5023267e866b85d68":[2,0,0,234],
 "namespaceemlabcpp.html#aea33175760f7e4286188490bacd98ac3":[2,0,0,237],
 "namespaceemlabcpp.html#aea91805d160a2eda9dfc9f0f29477351":[2,0,0,325],
 "namespaceemlabcpp.html#aeacd3ca34a1bc6927bc31268b483edcf":[2,0,0,414],
@@ -76,12 +79,13 @@ var NAVTREEINDEX7 =
 "namespaceemlabcpp_1_1detail.html#ae62a62600226a000600fed5337655cbc":[2,0,0,2,8],
 "namespaceemlabcpp_1_1detail.html#afac237c2d59a7ecc344d8c7176a6eb10":[2,0,0,2,6],
 "namespaceemlabcpp_1_1impl.html":[2,0,0,3],
+"namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf":[2,0,0,3,17],
 "namespaceemlabcpp_1_1impl.html#a502794f0cc63c9d3399dfcedd60bd48e":[2,0,0,3,15],
 "namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c":[2,0,0,3,16],
-"namespaceemlabcpp_1_1impl.html#a6bbd605bf9a833a4c88a3862dbf50d5f":[2,0,0,3,19],
-"namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a":[2,0,0,3,17],
-"namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578":[2,0,0,3,18],
-"namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f":[2,0,0,3,20],
+"namespaceemlabcpp_1_1impl.html#a6bbd605bf9a833a4c88a3862dbf50d5f":[2,0,0,3,20],
+"namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a":[2,0,0,3,18],
+"namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578":[2,0,0,3,19],
+"namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f":[2,0,0,3,21],
 "namespaceemlabcpp_1_1iterators.html":[2,0,0,4],
 "namespaceemlabcpp_1_1logging.html":[2,0,0,5],
 "namespaceemlabcpp_1_1logging.html#a04248a323e06ff3779b3b3a86f1d2a43":[2,0,0,5,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX7 =
 "namespaceemlabcpp_1_1testing.html#a7782092fb45f8874b35ce71aed89cc1a":[2,0,0,9,99],
 "namespaceemlabcpp_1_1testing.html#a784c65ad2baae738905bad887b873936":[2,0,0,9,137],
 "namespaceemlabcpp_1_1testing.html#a798ae63d9a86a525be0c8c0859f02dd0":[2,0,0,9,133],
-"namespaceemlabcpp_1_1testing.html#a7990a2783b0090e4fb21f6af5916c99c":[2,0,0,9,82],
-"namespaceemlabcpp_1_1testing.html#a7e08805379404a1461a71ef34f603b27":[2,0,0,9,87],
-"namespaceemlabcpp_1_1testing.html#a7e1f933b19818e29bac91fbe5811f8d5":[2,0,0,9,113],
-"namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f":[2,0,0,9,127],
-"namespaceemlabcpp_1_1testing.html#a80cf237e6f45884843dd60ad60c4a33f":[2,0,0,9,88]
+"namespaceemlabcpp_1_1testing.html#a7990a2783b0090e4fb21f6af5916c99c":[2,0,0,9,82]
 };
