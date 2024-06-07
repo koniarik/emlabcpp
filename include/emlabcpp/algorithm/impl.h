@@ -137,4 +137,55 @@ constexpr auto get_ith_item_from_arrays( T& arr, auto&... arrays )
                 return arr[I];
 }
 
+#define EMLABCPP_INDEX_SWITCH_CASE( x ) \
+        case x:                         \
+                if constexpr ( x < N )  \
+                        return std::forward< F >( f ).template operator()< Off + x >();
+
+/// Executes `f<i>` if provided `i` matches
+template < std::size_t Off, std::size_t N, typename F >
+constexpr decltype( auto ) index_switch( std::size_t i, F&& f )
+{
+        switch ( i ) {
+                EMLABCPP_INDEX_SWITCH_CASE( 0 )
+                EMLABCPP_INDEX_SWITCH_CASE( 1 )
+                EMLABCPP_INDEX_SWITCH_CASE( 2 )
+                EMLABCPP_INDEX_SWITCH_CASE( 3 )
+                EMLABCPP_INDEX_SWITCH_CASE( 4 )
+                EMLABCPP_INDEX_SWITCH_CASE( 5 )
+                EMLABCPP_INDEX_SWITCH_CASE( 6 )
+                EMLABCPP_INDEX_SWITCH_CASE( 7 )
+                EMLABCPP_INDEX_SWITCH_CASE( 8 )
+                EMLABCPP_INDEX_SWITCH_CASE( 9 )
+                EMLABCPP_INDEX_SWITCH_CASE( 10 )
+                EMLABCPP_INDEX_SWITCH_CASE( 11 )
+                EMLABCPP_INDEX_SWITCH_CASE( 12 )
+                EMLABCPP_INDEX_SWITCH_CASE( 13 )
+                EMLABCPP_INDEX_SWITCH_CASE( 14 )
+                EMLABCPP_INDEX_SWITCH_CASE( 15 )
+                EMLABCPP_INDEX_SWITCH_CASE( 16 )
+                EMLABCPP_INDEX_SWITCH_CASE( 17 )
+                EMLABCPP_INDEX_SWITCH_CASE( 18 )
+                EMLABCPP_INDEX_SWITCH_CASE( 19 )
+                EMLABCPP_INDEX_SWITCH_CASE( 20 )
+                EMLABCPP_INDEX_SWITCH_CASE( 21 )
+                EMLABCPP_INDEX_SWITCH_CASE( 22 )
+                EMLABCPP_INDEX_SWITCH_CASE( 23 )
+                EMLABCPP_INDEX_SWITCH_CASE( 24 )
+                EMLABCPP_INDEX_SWITCH_CASE( 25 )
+                EMLABCPP_INDEX_SWITCH_CASE( 26 )
+                EMLABCPP_INDEX_SWITCH_CASE( 27 )
+                EMLABCPP_INDEX_SWITCH_CASE( 28 )
+                EMLABCPP_INDEX_SWITCH_CASE( 29 )
+                EMLABCPP_INDEX_SWITCH_CASE( 30 )
+                EMLABCPP_INDEX_SWITCH_CASE( 31 )
+        default:
+                break;
+        }
+        if constexpr ( N > 32 )
+                return index_switch< 32, N - 32 >( i - 32, std::forward< F >( f ) );
+
+        abort();
+}
+
 }  // namespace emlabcpp::impl
