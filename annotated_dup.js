@@ -342,7 +342,7 @@ var annotated_dup =
       [ "type_map< std::tuple< Ts... >, Fun >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4", "namespaceemlabcpp_structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4_dup" ],
       [ "type_tag", "namespaceemlabcpp.html#structemlabcpp_1_1type__tag", "namespaceemlabcpp_structemlabcpp_1_1type__tag_dup" ],
       [ "index_of", "namespaceemlabcpp.html#structemlabcpp_1_1index__of", null ],
-      [ "index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", null ],
+      [ "index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4" ],
       [ "view", "classemlabcpp_1_1view.html", "classemlabcpp_1_1view" ],
       [ "zip_iterator", "classemlabcpp_1_1zip__iterator.html", "classemlabcpp_1_1zip__iterator" ]
     ] ],

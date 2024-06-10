@@ -8,7 +8,8 @@ var types_8h =
     [ "type_tag", "namespaceemlabcpp.html#structemlabcpp_1_1type__tag", [
       [ "type", "namespaceemlabcpp.html#aa956ddce4f2384a729e45e5b6a83c212", null ]
     ] ],
-    [ "index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", null ],
+    [ "index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4" ],
+    [ "index_of_v", "types_8h.html#adf1bd5361b527ba0c0f4c0cbb50657ec", null ],
     [ "mapped_t", "types_8h.html#abf111745a0eec5119748333b9640afca", null ],
     [ "select_utype_t", "types_8h.html#ac223240cfaa32fcb48f0daa06c78a9e2", null ],
     [ "type_map_t", "types_8h.html#afbd4de918223b1144d32fcef8a9dfe2a", null ],

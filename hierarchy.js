@@ -154,9 +154,9 @@ var hierarchy =
     [ "emlabcpp::cfg::header", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header", null ],
     [ "emlabcpp::identity_matrix< N, T >", "classemlabcpp_1_1identity__matrix.html", null ],
     [ "emlabcpp::index_of< T, Variant >", "namespaceemlabcpp.html#structemlabcpp_1_1index__of", null ],
+    [ "emlabcpp::index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::testing::input_message_protocol_error", "structemlabcpp_1_1testing_1_1input__message__protocol__error.html", null ],
     [ "std::integral_constant", null, [
-      [ "emlabcpp::index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", null ],
       [ "std::tuple_size< emlabcpp::min_max< T > >", "structstd_1_1tuple__size_3_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html", null ]
     ] ],
     [ "emlabcpp::testing::internal_reactor_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error", null ],

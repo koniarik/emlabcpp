@@ -226,15 +226,17 @@ $(document).ready(function(){initNavTree('types_8h_source.html',''); initResizab
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts &gt;</div>
 <div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html">  170</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1index__of">index_of</a>&lt; T, std::variant&lt; Ts... &gt; &gt;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  : std::integral_constant&lt;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        std::size_t,</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        std::variant&lt; type_tag&lt; Ts &gt;... &gt;( type_tag&lt; T &gt;() ).index() &gt;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;{</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="comment">// got the tip for this from:</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="comment">// https://stackoverflow.com/questions/52303316/get-index-by-type-in-stdvariant</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;};</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;{</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html#ac7347fe5483df0665e72b240cf562fc2">  172</a></span>&#160;        <span class="keyword">static</span> constexpr std::size_t value =</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            std::variant&lt; type_tag&lt; Ts &gt;... &gt;( <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1type__tag">type_tag&lt; T &gt;</a>() ).index();</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="comment">// got the tip for this from:</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="comment">// https://stackoverflow.com/questions/52303316/get-index-by-type-in-stdvariant</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;};</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, <span class="keyword">typename</span> Variant &gt;</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#adf1bd5361b527ba0c0f4c0cbb50657ec">  179</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp.html#adf1bd5361b527ba0c0f4c0cbb50657ec">index_of_v</a> = <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1index__of">index_of&lt; T, Variant &gt;::value</a>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aconcepts_8h_html"><div class="ttname"><a href="concepts_8h.html">concepts.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> impl.h:27</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a5b62f09ff5468bc513cac30ace3d6c58"><div class="ttname"><a href="namespaceemlabcpp.html#a5b62f09ff5468bc513cac30ace3d6c58">emlabcpp::pretty_type_name</a></div><div class="ttdeci">auto pretty_type_name()</div><div class="ttdef"><b>Definition:</b> types.h:89</div></div>
@@ -247,6 +249,7 @@ $(document).ready(function(){initNavTree('types_8h_source.html',''); initResizab
 <div class="ttc" id="anamespaceemlabcpp_html_ac223240cfaa32fcb48f0daa06c78a9e2"><div class="ttname"><a href="namespaceemlabcpp.html#ac223240cfaa32fcb48f0daa06c78a9e2">emlabcpp::select_utype_t</a></div><div class="ttdeci">typename select_utype&lt; N &gt;::type select_utype_t</div><div class="ttdef"><b>Definition:</b> types.h:140</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_adaca063c7275419f3999bd854c88de3d"><div class="ttname"><a href="namespaceemlabcpp.html#adaca063c7275419f3999bd854c88de3d">emlabcpp::has_static_size_v</a></div><div class="ttdeci">constexpr bool has_static_size_v</div><div class="ttdef"><b>Definition:</b> types.h:38</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_add7921925c77c6350a91d55d9471bdc1"><div class="ttname"><a href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const string_buffer&lt; N &gt; &amp;sb)</div><div class="ttdef"><b>Definition:</b> string_buffer.h:63</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_adf1bd5361b527ba0c0f4c0cbb50657ec"><div class="ttname"><a href="namespaceemlabcpp.html#adf1bd5361b527ba0c0f4c0cbb50657ec">emlabcpp::index_of_v</a></div><div class="ttdeci">index_of&lt; T, Variant &gt;::value index_of_v</div><div class="ttdef"><b>Definition:</b> types.h:179</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afbd4de918223b1144d32fcef8a9dfe2a"><div class="ttname"><a href="namespaceemlabcpp.html#afbd4de918223b1144d32fcef8a9dfe2a">emlabcpp::type_map_t</a></div><div class="ttdeci">typename type_map&lt; T, Fun &gt;::type type_map_t</div><div class="ttdef"><b>Definition:</b> types.h:154</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1index__of"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1index__of">emlabcpp::index_of</a></div><div class="ttdef"><b>Definition:</b> types.h:167</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1mapped"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1mapped">emlabcpp::mapped</a></div><div class="ttdef"><b>Definition:</b> types.h:45</div></div>
@@ -265,7 +268,7 @@ $(document).ready(function(){initNavTree('types_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="types_8h.html">types.h</a></li>
-    <li class="footer">Generated on Fri Jun 7 2024 22:05:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Jun 10 2024 19:00:19 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
