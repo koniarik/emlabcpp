@@ -168,12 +168,14 @@ struct index_of;
 
 template < typename T, typename... Ts >
 struct index_of< T, std::variant< Ts... > >
-  : std::integral_constant<
-        std::size_t,
-        std::variant< type_tag< Ts >... >( type_tag< T >() ).index() >
 {
+        static constexpr std::size_t value =
+            std::variant< type_tag< Ts >... >( type_tag< T >() ).index();
         // got the tip for this from:
         // https://stackoverflow.com/questions/52303316/get-index-by-type-in-stdvariant
 };
+
+template < typename T, typename Variant >
+using index_of_v = index_of< T, Variant >::value;
 
 }  // namespace emlabcpp

@@ -19,22 +19,18 @@
 
 #pragma once
 
+#include "algorithm/impl.h"
+
 #include <tuple>
 #include <variant>
 
 namespace emlabcpp
 {
-namespace detail
-{
-        template < std::size_t N, typename Callable >
-        decltype( auto ) linear_index_visit_impl( std::size_t index, Callable&& cb );
-}  // namespace detail
 
 template < typename Visitor, typename Variant >
 decltype( auto ) visit_index( Visitor&& vis, const Variant& var )
 {
-        return detail::linear_index_visit_impl<
-            std::variant_size_v< std::decay_t< Variant > > - 1 >(
+        return impl::index_switch< 0, std::variant_size_v< std::decay_t< Variant > > >(
             var.index(), std::forward< Visitor >( vis ) );
 }
 
@@ -66,21 +62,5 @@ decltype( auto ) apply_on_visit( Visitor&& vis, Variant&& var )
             },
             std::forward< Variant >( var ) );
 }
-
-namespace detail
-{
-        template < std::size_t N, typename Callable >
-        decltype( auto ) linear_index_visit_impl( std::size_t index, Callable&& cb )
-        {
-                if constexpr ( N == 0 ) {
-                        return std::forward< Callable >( cb ).template operator()< 0 >();
-                } else if ( index == N ) {
-                        return std::forward< Callable >( cb ).template operator()< N >();
-                } else {
-                        return linear_index_visit_impl< N - 1 >(
-                            index, std::forward< Callable >( cb ) );
-                }
-        }
-}  // namespace detail
 
 }  // namespace emlabcpp

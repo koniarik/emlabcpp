@@ -516,13 +516,8 @@ requires requires( Callable f ) {
 }
 constexpr void select_index( IndexType i, Callable&& f )
 {
-        until_index< IndexType::max_val + 1 >( [&i, &f]< std::size_t j >() {
-                if ( *i == j ) {
-                        f.template operator()< j >();
-                        return true;
-                }
-                return false;
-        } );
+        static_assert( IndexType::min_val == 0 );
+        impl::index_switch< 0, IndexType::max_val + 1 >( *i, f );
 }
 
 /// Conveft the provided arguments into array of std::byte
