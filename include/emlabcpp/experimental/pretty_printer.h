@@ -210,6 +210,26 @@ struct pretty_printer< long int >
 };
 
 template <>
+struct pretty_printer< long long >
+{
+        template < typename Writer >
+        static void print( Writer&& w, long long i )
+        {
+                pretty_print_serialize_basic< 32 >( std::forward< Writer >( w ), i );
+        }
+};
+
+template <>
+struct pretty_printer< unsigned long long >
+{
+        template < typename Writer >
+        static void print( Writer&& w, unsigned long long i )
+        {
+                pretty_print_serialize_basic< 32 >( std::forward< Writer >( w ), i );
+        }
+};
+
+template <>
 struct pretty_printer< unsigned char >
 {
         template < typename Writer >

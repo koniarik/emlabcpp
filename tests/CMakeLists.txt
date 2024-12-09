@@ -51,7 +51,7 @@ endfunction()
 
 function(add_emlabcpp_test name)
   add_executable(${name} ${name}.cpp)
-  target_link_libraries(${name} GTest::gtest GTest::gtest_main)
+  target_link_libraries(${name} gtest GTest::)
   emlabcpp_setup_test(${name})
 endfunction()
 
