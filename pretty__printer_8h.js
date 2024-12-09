@@ -8,6 +8,8 @@ var pretty__printer_8h =
     [ "pretty_printer< short int >", "structemlabcpp_1_1pretty__printer_3_01short_01int_01_4.html", "structemlabcpp_1_1pretty__printer_3_01short_01int_01_4" ],
     [ "pretty_printer< int >", "structemlabcpp_1_1pretty__printer_3_01int_01_4.html", "structemlabcpp_1_1pretty__printer_3_01int_01_4" ],
     [ "pretty_printer< long int >", "structemlabcpp_1_1pretty__printer_3_01long_01int_01_4.html", "structemlabcpp_1_1pretty__printer_3_01long_01int_01_4" ],
+    [ "pretty_printer< long long >", "structemlabcpp_1_1pretty__printer_3_01long_01long_01_4.html", "structemlabcpp_1_1pretty__printer_3_01long_01long_01_4" ],
+    [ "pretty_printer< unsigned long long >", "structemlabcpp_1_1pretty__printer_3_01unsigned_01long_01long_01_4.html", "structemlabcpp_1_1pretty__printer_3_01unsigned_01long_01long_01_4" ],
     [ "pretty_printer< unsigned char >", "structemlabcpp_1_1pretty__printer_3_01unsigned_01char_01_4.html", "structemlabcpp_1_1pretty__printer_3_01unsigned_01char_01_4" ],
     [ "pretty_printer< short unsigned >", "structemlabcpp_1_1pretty__printer_3_01short_01unsigned_01_4.html", "structemlabcpp_1_1pretty__printer_3_01short_01unsigned_01_4" ],
     [ "pretty_printer< unsigned >", "structemlabcpp_1_1pretty__printer_3_01unsigned_01_4.html", "structemlabcpp_1_1pretty__printer_3_01unsigned_01_4" ],
