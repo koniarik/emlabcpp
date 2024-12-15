@@ -21,7 +21,7 @@
 
 #ifdef EMLABCPP_USE_MAGIC_ENUM
 
-#include <magic_enum.hpp>
+#include <magic_enum/magic_enum.hpp>
 
 #endif
 

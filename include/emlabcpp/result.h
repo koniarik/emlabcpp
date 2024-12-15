@@ -137,4 +137,14 @@ T worst_of( const T& item, const Ts&... other )
             } );
 }
 
+/// Operator version of `worst_of`
+///
+template < result_like T, result_like U >
+T operator&&( const T& lh, const U& rh )
+{
+        if ( rh.get_state() > rh.get_state() )
+                return rh;
+        return lh;
+}
+
 }  // namespace emlabcpp
