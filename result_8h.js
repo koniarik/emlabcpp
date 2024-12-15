@@ -6,6 +6,7 @@ var result_8h =
     [ "operator!=", "result_8h.html#a1811f38be90c63bf57f3328cd02540b8", null ],
     [ "operator!=", "result_8h.html#a5d92a93bd9d100bc3d357e0000c42147", null ],
     [ "operator!=", "result_8h.html#a5e633c5997cbde2bc7c8e7a838a3d758", null ],
+    [ "operator&&", "result_8h.html#a78daa4c27d8cda333e6a24384728abf8", null ],
     [ "operator==", "result_8h.html#a62e6b3161e4e0e4ab4e73bd075b4ca86", null ],
     [ "operator==", "result_8h.html#a6fd05723b51ac4272f77748b193dd5a0", null ],
     [ "operator==", "result_8h.html#ac6cdde179fdf0ce98e1875f92551cbfe", null ],

@@ -93,13 +93,13 @@ var NAVTREEINDEX =
 "color_8h.html#a3959b862aa2e1cc006ab40cb96de64a2",
 "functions_func_w.html",
 "namespaceemlabcpp.html#a3142e383a8785970db18f0f84a9c0f21",
-"namespaceemlabcpp.html#ae905e83f27246077252ae1308f0fda07",
-"namespaceemlabcpp_1_1testing.html#a7e08805379404a1461a71ef34f603b27",
-"pose_8h.html#ae6416b91bd33ea2a47540c131ba789fe",
-"structemlabcpp_1_1coro_1_1wait__interface.html#a580fdfad0e28574666ba7a2179577652",
-"structemlabcpp_1_1protocol_1_1converter_3_01group_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html#ad7c856744395ff3859da5d6807186ed7",
-"structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1array_3_01D_00_01N_01_4_01_4.html#adb4debca43f3c939b70c2b6fb54f105a",
-"structemlabcpp_1_1testing_1_1param__type__request.html#a6ef522e6421238fe40fd4dbb00eead5e"
+"namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9",
+"namespaceemlabcpp_1_1testing.html#a7990a2783b0090e4fb21f6af5916c99c",
+"pose_8h.html#ac081ada5ee8e130abc77d8471f570661",
+"structemlabcpp_1_1coro_1_1wait__interface.html#a717b7f422dccc806f16082c62a098b51",
+"structemlabcpp_1_1protocol_1_1converter_3_01group_3_01Ds_8_8_8_01_4_00_01Endianess_01_4.html#af669969ddf77ec0a68f50e774ddef2d8",
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1bitset_3_01N_01_4_01_4.html",
+"structemlabcpp_1_1testing_1_1param__type__request.html#a71d12df47490cded75b6039026922b30"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

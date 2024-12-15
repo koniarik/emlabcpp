@@ -30,7 +30,6 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     [ "range.h", "range_8h.html", "range_8h" ],
     [ "result.h", "result_8h.html", "result_8h" ],
     [ "static_circular_buffer.h", "static__circular__buffer_8h.html", "static__circular__buffer_8h" ],
-    [ "static_data.hpp", "static__data_8hpp.html", "static__data_8hpp" ],
     [ "static_function.h", "static__function_8h.html", "static__function_8h" ],
     [ "static_storage.h", "static__storage_8h.html", [
       [ "static_storage", "classemlabcpp_1_1static__storage.html", "classemlabcpp_1_1static__storage" ]
