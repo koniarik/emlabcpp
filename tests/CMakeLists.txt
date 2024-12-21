@@ -1,6 +1,20 @@
 include(GoogleTest)
 
-find_package(GTest REQUIRED CONFIG)
+include(third-party/CPM.cmake)
+
+cpmaddpackage(
+  NAME
+  googletest
+  GITHUB_REPOSITORY
+  google/googletest
+  GIT_TAG
+  release-1.12.1
+  VERSION
+  1.12.1
+  OPTIONS
+  "INSTALL_GTEST OFF"
+  "gtest_force_shared_crt")
+cpmaddpackage("gh:nlohmann/json@3.11.3")
 
 target_compile_options(
   emlabcpp
@@ -12,6 +26,7 @@ target_compile_options(
          -DEMLABCPP_USE_DEMANGLING
          -DEMLABCPP_USE_OSTREAM)
 target_include_directories(emlabcpp SYSTEM PUBLIC third-party/)
+target_link_libraries(emlabcpp PUBLIC nlohmann_json)
 
 function(emlabcpp_setup_test target)
   target_include_directories(${target} PRIVATE include/)

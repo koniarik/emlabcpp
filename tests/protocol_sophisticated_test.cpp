@@ -20,7 +20,6 @@
 #include "emlabcpp/convert_view.h"
 #include "emlabcpp/protocol/command_group.h"
 #include "emlabcpp/protocol/handler.h"
-#include "emlabcpp/protocol/json.h"
 #include "emlabcpp/protocol/streams.h"
 #include "emlabcpp/protocol/tuple.h"
 #include "util.h"

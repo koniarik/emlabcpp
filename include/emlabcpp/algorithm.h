@@ -460,10 +460,7 @@ void copy( Container&& cont, Iterator iter )
 template < std::size_t N, typename NullCallable >
 constexpr void for_each_index( NullCallable&& f )
 {
-        if constexpr ( N != 0 ) {
-                for_each_index< N - 1 >( f );
-                f.template operator()< N - 1 >();
-        }
+        impl::index_seq< 0, N >( f );
 }
 
 /// Executes unary callable `f()` with template argument of type 'std::size_t', which ranges from 0
@@ -485,10 +482,7 @@ constexpr std::size_t find_if_index( PredicateCallable&& f )
 template < std::size_t i, typename PredicateCallable >
 constexpr bool until_index( PredicateCallable&& f )
 {
-        if constexpr ( i != 0 )
-                return until_index< i - 1 >( f ) || f.template operator()< i - 1 >();
-        else
-                return false;
+        return impl::index_until< 0, i >( f );
 }
 
 /// Function expectes bounded value as index input and callable. Based on the value

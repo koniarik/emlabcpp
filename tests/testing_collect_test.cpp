@@ -56,7 +56,7 @@ struct collector_test_fixture : public testing::test_interface
 
                 checkpoint_reached = true;
 
-                co_await coll.set( nid, "key3", contiguous_container_type::ARRAY );
+                std::ignore = co_await coll.set( nid, "key3", contiguous_container_type::ARRAY );
 
                 end_reached = true;
         }
