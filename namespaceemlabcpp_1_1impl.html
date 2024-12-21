@@ -150,6 +150,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a4606886189823b5ac10a55fab1debabf"><td class="memTemplItemLeft" align="right" valign="top">constexpr decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">index_switch</a> (std::size_t i, F &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
 <tr class="memdesc:a4606886189823b5ac10a55fab1debabf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes <code>f&lt;i&gt;</code> if provided <code>i</code> matches.  <a href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">More...</a><br /></td></tr>
 <tr class="separator:a4606886189823b5ac10a55fab1debabf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a907f5a51879fabd1a1af1d0dd452db07"><td class="memTemplParams" colspan="2">template&lt;std::size_t Off, std::size_t N, typename F &gt; </td></tr>
+<tr class="memitem:a907f5a51879fabd1a1af1d0dd452db07"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a907f5a51879fabd1a1af1d0dd452db07">index_seq</a> (F &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
+<tr class="memdesc:a907f5a51879fabd1a1af1d0dd452db07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes <code>f&lt;i&gt;</code> for i going from Off to N.  <a href="namespaceemlabcpp_1_1impl.html#a907f5a51879fabd1a1af1d0dd452db07">More...</a><br /></td></tr>
+<tr class="separator:a907f5a51879fabd1a1af1d0dd452db07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abce547c43b4a41299954095aaedbc550"><td class="memTemplParams" colspan="2">template&lt;std::size_t Off, std::size_t N, typename F &gt; </td></tr>
+<tr class="memitem:abce547c43b4a41299954095aaedbc550"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#abce547c43b4a41299954095aaedbc550">index_until</a> (F &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
+<tr class="memdesc:abce547c43b4a41299954095aaedbc550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes <code>f&lt;i&gt;</code> until some is true.  <a href="namespaceemlabcpp_1_1impl.html#abce547c43b4a41299954095aaedbc550">More...</a><br /></td></tr>
+<tr class="separator:abce547c43b4a41299954095aaedbc550"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -292,6 +300,38 @@ template&lt;std::size_t I, typename T &gt; </div>
 
 </div>
 </div>
+<a id="a907f5a51879fabd1a1af1d0dd452db07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a907f5a51879fabd1a1af1d0dd452db07">&#9670;&nbsp;</a></span>index_seq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t Off, std::size_t N, typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void emlabcpp::impl::index_seq </td>
+          <td>(</td>
+          <td class="paramtype">F &amp;&amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Executes <code>f&lt;i&gt;</code> for i going from Off to N. </p>
+
+<p class="reference">References <a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8h.html#aa8e6590904926df9b2f00b61c63f370a">EMLABCPP_INDEX_SEQ</a>, and <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>.</p>
+
+</div>
+</div>
 <a id="a4606886189823b5ac10a55fab1debabf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4606886189823b5ac10a55fab1debabf">&#9670;&nbsp;</a></span>index_switch()</h2>
 
@@ -330,7 +370,39 @@ template&lt;std::size_t Off, std::size_t N, typename F &gt; </div>
 
 <p>Executes <code>f&lt;i&gt;</code> if provided <code>i</code> matches. </p>
 
-<p class="reference">References <a class="el" href="impl_8h.html#ad033e440927450aafee3024cd7f16575">EMLABCPP_INDEX_SWITCH_CASE</a>, and <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>.</p>
+<p class="reference">References <a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8h.html#ad033e440927450aafee3024cd7f16575">EMLABCPP_INDEX_SWITCH_CASE</a>, and <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>.</p>
+
+</div>
+</div>
+<a id="abce547c43b4a41299954095aaedbc550"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abce547c43b4a41299954095aaedbc550">&#9670;&nbsp;</a></span>index_until()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t Off, std::size_t N, typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool emlabcpp::impl::index_until </td>
+          <td>(</td>
+          <td class="paramtype">F &amp;&amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Executes <code>f&lt;i&gt;</code> until some is true. </p>
+
+<p class="reference">References <a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8h.html#ac2dd8a495eb1e272978107ec2e672e7b">EMLABCPP_INDEX_UNTIL</a>, and <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>.</p>
 
 </div>
 </div>
@@ -454,7 +526,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1impl.html">impl</a></li>
-    <li class="footer">Generated on Sun Dec 15 2024 12:45:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 21 2024 16:02:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

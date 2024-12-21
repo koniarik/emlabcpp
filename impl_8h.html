@@ -124,8 +124,16 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a6874ce542f9adb9bcfb82748f103eb61"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>&#160;&#160;&#160;32</td></tr>
+<tr class="separator:a6874ce542f9adb9bcfb82748f103eb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fe4c3a9d539a761d08c07c63cad7f38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>(F)</td></tr>
+<tr class="separator:a6fe4c3a9d539a761d08c07c63cad7f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad033e440927450aafee3024cd7f16575"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="impl_8h.html#ad033e440927450aafee3024cd7f16575">EMLABCPP_INDEX_SWITCH_CASE</a>(x)</td></tr>
 <tr class="separator:ad033e440927450aafee3024cd7f16575"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8e6590904926df9b2f00b61c63f370a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="impl_8h.html#aa8e6590904926df9b2f00b61c63f370a">EMLABCPP_INDEX_SEQ</a>(x)</td></tr>
+<tr class="separator:aa8e6590904926df9b2f00b61c63f370a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2dd8a495eb1e272978107ec2e672e7b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="impl_8h.html#ac2dd8a495eb1e272978107ec2e672e7b">EMLABCPP_INDEX_UNTIL</a>(x)</td></tr>
+<tr class="separator:ac2dd8a495eb1e272978107ec2e672e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -148,6 +156,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a4606886189823b5ac10a55fab1debabf"><td class="memTemplItemLeft" align="right" valign="top">constexpr decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">emlabcpp::impl::index_switch</a> (std::size_t i, F &amp;&amp;f)</td></tr>
 <tr class="memdesc:a4606886189823b5ac10a55fab1debabf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes <code>f&lt;i&gt;</code> if provided <code>i</code> matches.  <a href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">More...</a><br /></td></tr>
 <tr class="separator:a4606886189823b5ac10a55fab1debabf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a907f5a51879fabd1a1af1d0dd452db07"><td class="memTemplParams" colspan="2">template&lt;std::size_t Off, std::size_t N, typename F &gt; </td></tr>
+<tr class="memitem:a907f5a51879fabd1a1af1d0dd452db07"><td class="memTemplItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a907f5a51879fabd1a1af1d0dd452db07">emlabcpp::impl::index_seq</a> (F &amp;&amp;f)</td></tr>
+<tr class="memdesc:a907f5a51879fabd1a1af1d0dd452db07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes <code>f&lt;i&gt;</code> for i going from Off to N.  <a href="namespaceemlabcpp_1_1impl.html#a907f5a51879fabd1a1af1d0dd452db07">More...</a><br /></td></tr>
+<tr class="separator:a907f5a51879fabd1a1af1d0dd452db07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abce547c43b4a41299954095aaedbc550"><td class="memTemplParams" colspan="2">template&lt;std::size_t Off, std::size_t N, typename F &gt; </td></tr>
+<tr class="memitem:abce547c43b4a41299954095aaedbc550"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#abce547c43b4a41299954095aaedbc550">emlabcpp::impl::index_until</a> (F &amp;&amp;f)</td></tr>
+<tr class="memdesc:abce547c43b4a41299954095aaedbc550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes <code>f&lt;i&gt;</code> until some is true.  <a href="namespaceemlabcpp_1_1impl.html#abce547c43b4a41299954095aaedbc550">More...</a><br /></td></tr>
+<tr class="separator:abce547c43b4a41299954095aaedbc550"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -156,6 +172,58 @@ Variables</h2></td></tr>
 <tr class="separator:aa4539ae7694e16e3a1749e3089a36e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a6fe4c3a9d539a761d08c07c63cad7f38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fe4c3a9d539a761d08c07c63cad7f38">&#9670;&nbsp;</a></span>EMLABCPP_INDEX_EXPAND</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EMLABCPP_INDEX_EXPAND</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">F</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6874ce542f9adb9bcfb82748f103eb61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6874ce542f9adb9bcfb82748f103eb61">&#9670;&nbsp;</a></span>EMLABCPP_INDEX_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EMLABCPP_INDEX_MAX&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8e6590904926df9b2f00b61c63f370a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8e6590904926df9b2f00b61c63f370a">&#9670;&nbsp;</a></span>EMLABCPP_INDEX_SEQ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EMLABCPP_INDEX_SEQ</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">        <span class="keywordflow">if</span> constexpr ( x &lt; N )  \</div>
+<div class="line">                f.template operator()&lt; Off + x &gt;();</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="ad033e440927450aafee3024cd7f16575"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad033e440927450aafee3024cd7f16575">&#9670;&nbsp;</a></span>EMLABCPP_INDEX_SWITCH_CASE</h2>
 
@@ -178,13 +246,34 @@ Variables</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="ac2dd8a495eb1e272978107ec2e672e7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2dd8a495eb1e272978107ec2e672e7b">&#9670;&nbsp;</a></span>EMLABCPP_INDEX_UNTIL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EMLABCPP_INDEX_UNTIL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">        <span class="keywordflow">if</span> constexpr ( x &lt; N )                            \</div>
+<div class="line">                if ( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>.template <span class="keyword">operator</span>()&lt; Off + x &gt;() ) \</div>
+<div class="line">                        return <span class="keyword">true</span>;</div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_cd2498770f46874251cd2a7d2270663c.html">algorithm</a></li><li class="navelem"><a class="el" href="impl_8h.html">impl.h</a></li>
-    <li class="footer">Generated on Sun Dec 15 2024 12:45:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Dec 21 2024 16:02:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -138,8 +138,6 @@ var NAVTREEINDEX4 =
 "experimental_2contiguous__tree_2base_8h.html#aa815694613f8d89e804ac10b1395eecaa8eee8e217391199668cbac89472ace53":[4,0,0,0,1,1,0,0,1],
 "experimental_2contiguous__tree_2base_8h.html#aa815694613f8d89e804ac10b1395eecaacb4fb1757fb37c43cded35d3eb857c43":[4,0,0,0,1,1,0,0,0],
 "experimental_2contiguous__tree_2base_8h_source.html":[4,0,0,0,1,1,0],
-"experimental_2geom_2json_8h.html":[4,0,0,0,1,3,0],
-"experimental_2geom_2json_8h_source.html":[4,0,0,0,1,3,0],
 "experimental_2logging_2util_8h.html":[4,0,0,0,1,4,5],
 "experimental_2logging_2util_8h.html#a04248a323e06ff3779b3b3a86f1d2a43":[4,0,0,0,1,4,5,2],
 "experimental_2logging_2util_8h.html#a34d7d2336fd44b97109ebbccc3569c41":[4,0,0,0,1,4,5,0],
@@ -177,8 +175,6 @@ var NAVTREEINDEX4 =
 "experimental_2testing_2error_8h.html":[4,0,0,0,1,5,7],
 "experimental_2testing_2error_8h.html#a21c567b7200acbb97782be90bdf747b4":[4,0,0,0,1,5,7,4],
 "experimental_2testing_2error_8h_source.html":[4,0,0,0,1,5,7],
-"experimental_2testing_2json_8h.html":[4,0,0,0,1,5,11],
-"experimental_2testing_2json_8h_source.html":[4,0,0,0,1,5,11],
 "experimental_2testing_2protocol_8h.html":[4,0,0,0,1,5,13],
 "experimental_2testing_2protocol_8h.html#a0e5ec9d2b9b3a8fc865abee7143a9f3b":[4,0,0,0,1,5,13,27],
 "experimental_2testing_2protocol_8h.html#a1552bd84b510ee082c62d4e8cb609f63":[4,0,0,0,1,5,13,22],
@@ -249,5 +245,9 @@ var NAVTREEINDEX4 =
 "functions_func_t.html":[3,3,1,17],
 "functions_func_u.html":[3,3,1,18],
 "functions_func_v.html":[3,3,1,19],
-"functions_func_w.html":[3,3,1,20]
+"functions_func_w.html":[3,3,1,20],
+"functions_func_y.html":[3,3,1,21],
+"functions_func_z.html":[3,3,1,22],
+"functions_func_~.html":[3,3,1,23],
+"functions_g.html":[3,3,0,6]
 };
