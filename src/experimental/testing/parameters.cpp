@@ -22,7 +22,6 @@
 #include "emlabcpp/experimental/contiguous_tree/base.h"
 #include "emlabcpp/experimental/contiguous_tree/request_adapter.h"
 #include "emlabcpp/experimental/decompose.h"
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/experimental/multiplexer.h"
 #include "emlabcpp/experimental/testing/base.h"
 #include "emlabcpp/experimental/testing/protocol.h"
@@ -100,7 +99,6 @@ outcome parameters::on_msg( const std::span< const std::byte > data )
                 },
                 []( const auto& err ) -> outcome {
                         std::ignore = err;
-                        EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                         return ERROR;
                 } );
 }
@@ -173,7 +171,6 @@ outcome parameters_server::on_msg( const std::span< const std::byte > data )
                 },
                 []( const auto& err ) -> outcome {
                         std::ignore = err;
-                        EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                         return ERROR;
                 } );
 }
@@ -190,8 +187,6 @@ outcome parameters_server::on_msg( const params_client_server_variant& req )
 outcome parameters_server::on_req( const param_error& req ) const
 {
         std::ignore = req;
-        EMLABCPP_ERROR_LOG(
-            "Params errored: ", std::string_view{ req.error.data(), req.error.size() } );
         return FAILURE;
 }
 
@@ -227,7 +222,6 @@ outcome parameters_server::on_req( const param_value_key_request& req )
 
 outcome parameters_server::on_req( const param_child_request& req )
 {
-        EMLABCPP_DEBUG_LOG( "got request: ", decompose( req ) );
         const contiguous_request_adapter harn{ tree_ };
 
         return harn.get_child( req.parent, req.chid )
@@ -242,7 +236,6 @@ outcome parameters_server::on_req( const param_child_request& req )
 
 outcome parameters_server::on_req( const param_child_count_request& req )
 {
-        EMLABCPP_DEBUG_LOG( "got request: ", decompose( req ) );
         const contiguous_request_adapter harn{ tree_ };
 
         return harn.get_child_count( req.parent )
@@ -286,14 +279,6 @@ outcome parameters_server::reply_node_error(
     const contiguous_request_adapter_errors err,
     const node_id                           nid )
 {
-        if ( err == contiguous_request_adapter_errors::WRONG_TYPE )
-                EMLABCPP_ERROR_LOG( "Failed to work with ", nid, ", wrong type of node" );
-        else if ( err == contiguous_request_adapter_errors::FULL )
-                EMLABCPP_ERROR_LOG( "Failed to insert data, data storage is full" );
-        else if ( err == contiguous_request_adapter_errors::MISSING_NODE )
-                EMLABCPP_ERROR_LOG( "Tree node ", nid, " is missing " );
-        else if ( err == contiguous_request_adapter_errors::CHILD_MISSING )
-                EMLABCPP_ERROR_LOG( "Tree node child ", nid, " is missing " );
         return send( tree_error_reply{ .err = err, .nid = nid } );
 }
 

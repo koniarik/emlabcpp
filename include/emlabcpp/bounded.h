@@ -20,7 +20,6 @@
 #pragma once
 
 #include "emlabcpp/concepts.h"
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/experimental/pretty_printer.h"
 
 #include <optional>
@@ -81,22 +80,10 @@ public:
         template < typename U >
         static std::optional< bounded< T, min_val, max_val > > make( U val )
         {
-                if ( static_cast< T >( val ) < min_val ) {
-                        EMLABCPP_ERROR_LOG(
-                            "Failed to build bounded, value ",
-                            val,
-                            " is smaller than min value ",
-                            min_val );
+                if ( static_cast< T >( val ) < min_val )
                         return {};
-                }
-                if ( static_cast< T >( val ) > max_val ) {
-                        EMLABCPP_ERROR_LOG(
-                            "Failed to build bounded, value ",
-                            val,
-                            " is bigger than max value ",
-                            max_val );
+                if ( static_cast< T >( val ) > max_val )
                         return {};
-                }
                 return bounded{ static_cast< T >( val ) };
         }
 

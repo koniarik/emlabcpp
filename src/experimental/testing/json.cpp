@@ -19,7 +19,6 @@
 
 #include "emlabcpp/experimental/testing/json.h"
 
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/experimental/testing/base.h"
 #include "emlabcpp/match.h"
 #include "emlabcpp/pmr/memory_resource.h"
@@ -54,7 +53,6 @@ std::optional< value_type > json_to_value_type( const nlohmann::json& j )
         default:
                 break;
         }
-        EMLABCPP_ERROR_LOG( "Got type of json we can't process: ", j.type() );
         return std::nullopt;
 }
 
@@ -86,11 +84,8 @@ json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt )
             [&tree, &f]( const nlohmann::json& j ) -> std::optional< node_id > {
                 if ( j.is_object() ) {
                         std::optional opt_res = tree.make_object_node();
-                        if ( !opt_res ) {
-                                EMLABCPP_ERROR_LOG(
-                                    "Failed to build tree object in json conversion" );
+                        if ( !opt_res )
                                 return std::nullopt;
-                        }
                         auto [nid, oh] = *opt_res;
                         for ( const auto& [key, value] : j.items() ) {
                                 std::optional< node_id > chid = f( value );
@@ -102,11 +97,8 @@ json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt )
                 }
                 if ( j.is_array() ) {
                         std::optional opt_res = tree.make_array_node();
-                        if ( !opt_res ) {
-                                EMLABCPP_ERROR_LOG(
-                                    "Failed to build tree array in json conversion" );
+                        if ( !opt_res )
                                 return std::nullopt;
-                        }
                         auto [nid, ah] = *opt_res;
                         for ( const nlohmann::json& jj : j ) {
                                 std::optional< node_id > chid = f( jj );
@@ -117,25 +109,19 @@ json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt )
                         return nid;
                 }
                 std::optional< value_type > opt_val = json_to_value_type( j );
-                if ( !opt_val ) {
-                        EMLABCPP_ERROR_LOG( "Failed to convert value in json conversion" );
+                if ( !opt_val )
                         return std::nullopt;
-                }
                 std::optional opt_id = tree.make_value_node( *opt_val );
-                if ( !opt_id ) {
-                        EMLABCPP_ERROR_LOG( "Failed to build value node in json conversion" );
+                if ( !opt_id )
                         return std::nullopt;
-                }
                 return *opt_id;
         };
 
         const auto opt_root_id = f( inpt );
-        if ( opt_root_id ) {
+        if ( opt_root_id )
                 return tree;
-        } else {
-                EMLABCPP_ERROR_LOG( "Failed to convert testing tree from json" );
+        else
                 return std::nullopt;
-        }
 }
 
 nlohmann::json data_tree_to_json( const data_tree& tree )

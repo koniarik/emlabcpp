@@ -20,7 +20,6 @@
 #pragma once
 
 #include "emlabcpp/experimental/contiguous_tree/base.h"
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/match.h"
 #include "emlabcpp/pmr/aliases.h"
 #include "emlabcpp/pmr/pool_resource.h"
@@ -368,10 +367,8 @@ public:
         std::optional< node_id > make_value_node( value_type val )
         {
                 std::optional opt_val = make_node( std::move( val ) );
-                if ( !opt_val ) {
-                        EMLABCPP_ERROR_LOG( "Failed to make value node in tree" );
+                if ( !opt_val )
                         return std::nullopt;
-                }
                 auto [nid, iter] = *opt_val;
                 return nid;
         }
@@ -379,10 +376,8 @@ public:
         std::optional< std::pair< node_id, array_handle > > make_array_node()
         {
                 std::optional opt_val = make_node( array_type{ mem_res_.get() } );
-                if ( !opt_val ) {
-                        EMLABCPP_ERROR_LOG( "Failed to make array node in tree" );
+                if ( !opt_val )
                         return std::nullopt;
-                }
                 auto [nid, iter] = *opt_val;
                 auto var         = iter->second.get_container_handle();
                 return std::make_pair( nid, *std::get_if< array_handle >( &var ) );
@@ -391,10 +386,8 @@ public:
         std::optional< std::pair< node_id, object_handle > > make_object_node()
         {
                 std::optional opt_val = make_node( object_type{ mem_res_.get() } );
-                if ( !opt_val ) {
-                        EMLABCPP_ERROR_LOG( "Failed to make object node in tree" );
+                if ( !opt_val )
                         return std::nullopt;
-                }
                 auto [nid, iter] = *opt_val;
                 auto var         = iter->second.get_container_handle();
                 return std::make_pair( nid, *std::get_if< object_handle >( &var ) );

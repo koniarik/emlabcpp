@@ -19,7 +19,6 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/pmr/memory_resource.h"
 #include "emlabcpp/pmr/util.h"
 #include "emlabcpp/range.h"
@@ -57,10 +56,8 @@ public:
                             reinterpret_cast< std::byte* >( pool_p ) );
                 }
 
-                if ( p == nullptr || used > PoolSize ) {
-                        EMLABCPP_ERROR_LOG( "Failed to allocate ", bytes, " bytes" );
+                if ( p == nullptr || used > PoolSize )
                         return nullptr;
-                }
                 free_.pop_back();
                 return p;
         }
@@ -74,10 +71,8 @@ public:
 
                 const std::size_t spot_i = ( pval - bval ) / PoolSize;
 
-                if ( spot_i >= PoolCount ) {
-                        EMLABCPP_ERROR_LOG( "Failed to deallocate" );
+                if ( spot_i >= PoolCount )
                         return ERROR;
-                }
                 free_.push_back( static_cast< uint16_t >( spot_i ) );
                 return SUCCESS;
         }

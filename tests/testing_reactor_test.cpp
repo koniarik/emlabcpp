@@ -19,7 +19,6 @@
 
 #include "test.h"
 
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/experimental/testing/controller.h"
 #include "emlabcpp/experimental/testing/gtest.h"
 #include "emlabcpp/experimental/testing/json.h"
@@ -66,12 +65,10 @@ public:
                     .match(
                         [&]( const auto& var ) -> result {
                                 // TODO: var shall be logged
-                                EMLABCPP_INFO_LOG( "Got a msg: ", "" );
                                 msgs.push_back( var );
                                 return SUCCESS;
                         },
                         [&]( const auto& err ) -> result {
-                                EMLABCPP_ERROR_LOG( "Got an error: ", err );
                                 return ERROR;
                         } );
         }

@@ -20,7 +20,6 @@
 #pragma once
 
 #include "emlabcpp/experimental/contiguous_tree/base.h"
-#include "emlabcpp/experimental/logging.h"
 
 namespace emlabcpp
 {
@@ -53,10 +52,8 @@ public:
                     [&id]( const node_type& node )
                         -> either< std::reference_wrapper< const value_type >, error_enum > {
                             const value_type* val_ptr = node.get_value();
-                            if ( val_ptr == nullptr ) {
-                                    EMLABCPP_ERROR_LOG( "Node ", id, " is not value type" );
+                            if ( val_ptr == nullptr )
                                     return error_enum::WRONG_TYPE;
-                            }
                             return std::ref( *val_ptr );
                     } );
         }
@@ -90,28 +87,18 @@ public:
                                 const_object_handle* oh_ptr = std::get_if< 0 >( &var );
                                 const_array_handle*  ah_ptr = std::get_if< 1 >( &var );
 
-                                if ( oh_ptr != nullptr ) {
+                                if ( oh_ptr != nullptr )
                                         return get_object_child( *oh_ptr, id_var );
-                                } else if ( ah_ptr != nullptr ) {
+                                else if ( ah_ptr != nullptr )
                                         return get_array_child( *ah_ptr, id_var );
-                                } else {
-                                        EMLABCPP_ERROR_LOG(
-                                            "Node ",
-                                            nid,
-                                            " does not have children, is value type" );
+                                else
                                         return error_enum::WRONG_TYPE;
-                                }
                         } )
                     .bind_left(
                         [&nid, &id_var](
                             std::optional< node_id > opt_nid ) -> either< node_id, error_enum > {
                                 if ( opt_nid )
                                         return *opt_nid;
-                                EMLABCPP_ERROR_LOG(
-                                    "Node ",
-                                    nid,
-                                    " does not have child with identifier: ",
-                                    id_var );
                                 return error_enum::CHILD_MISSING;
                         } );
         }
@@ -134,11 +121,8 @@ public:
                     [&nid, &chid]( const_object_handle oh ) -> either< key_type, error_enum > {
                             const key_type* key_ptr = oh.get_key( chid );
 
-                            if ( key_ptr == nullptr ) {
-                                    EMLABCPP_ERROR_LOG(
-                                        "Node ", nid, " does not have child with id: ", chid );
+                            if ( key_ptr == nullptr )
                                     return error_enum::CHILD_MISSING;
-                            }
                             return *key_ptr;
                     } );
         }
@@ -200,11 +184,8 @@ private:
                                     return std::nullopt;
                             }
                     } );
-                if ( !opt_nid ) {
-                        EMLABCPP_ERROR_LOG(
-                            "Failed to construct node, tree is full, size is: ", tree_.size() );
+                if ( !opt_nid )
                         return error_enum::FULL;
-                }
                 return *opt_nid;
         }
 
@@ -226,10 +207,8 @@ private:
         {
                 Node* node_ptr = self->tree_.get_node( nid );
 
-                if ( node_ptr == nullptr ) {
-                        EMLABCPP_ERROR_LOG( "Node ", nid, " is not in the tree" );
+                if ( node_ptr == nullptr )
                         return error_enum::MISSING_NODE;
-                }
 
                 return std::ref( *node_ptr );
         }
@@ -266,7 +245,6 @@ private:
                             auto* oh_ptr = std::get_if< OHandle >( &cont );
                             if ( oh_ptr != nullptr )
                                     return var_type{ *oh_ptr };
-                            EMLABCPP_ERROR_LOG( "Node ", nid, " is not of container type" );
                             return error_enum::WRONG_TYPE;
                     } );
         }
@@ -300,8 +278,6 @@ private:
                             auto* h_ptr = std::get_if< Handle >( &var );
                             if ( h_ptr != nullptr )
                                     return *h_ptr;
-                            EMLABCPP_ERROR_LOG(
-                                "Node ", nid, " is not of type: ", pretty_type_name< Handle >() );
                             return error_enum::WRONG_TYPE;
                     } );
         }

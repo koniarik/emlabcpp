@@ -105,14 +105,10 @@ outcome multiplexed_dispatch( channel_type chann, const auto& data, Slotted&... 
                 if ( chann != item.get_channel() )
                         return false;
                 res = item.on_msg( data );
-                if ( res == ERROR )
-                        EMLABCPP_ERROR_LOG( "Slot returned an error for message" );
                 return true;
         };
-        if ( !( f( slotted ) || ... || false ) ) {
-                EMLABCPP_ERROR_LOG( "Failed to match channel: ", chann );
+        if ( !( f( slotted ) || ... || false ) )
                 res = ERROR;
-        }
         return res;
 }
 

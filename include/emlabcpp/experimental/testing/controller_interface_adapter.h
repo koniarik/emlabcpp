@@ -75,43 +75,8 @@ public:
 
         void report_error( const error_variant& var )
         {
-                log_error( var );
                 iface_.on_error( var );
         }
-#ifdef EMLABCPP_USE_LOGGING
-        void log_error( const error_variant& var ) const
-        {
-                match(
-                    var,
-                    []( const reactor_protocol_error& e ) {
-                            EMLABCPP_ERROR_LOG(
-                                "Protocol error reported from reactor: ", decompose( e ) );
-                    },
-                    []( const controller_protocol_error& e ) {
-                            EMLABCPP_ERROR_LOG(
-                                "Protocol error reported from controller: ", decompose( e ) );
-                    },
-                    []( const internal_reactor_error& e ) {
-                            visit(
-                                []< typename T >( T& item ) {
-                                        EMLABCPP_ERROR_LOG(
-                                            "Internal error from reactor: ",
-                                            T::id,
-                                            ":",
-                                            decompose( item ) );
-                                },
-                                e.val );
-                    },
-                    []( const controller_internal_error& e ) {
-                            EMLABCPP_ERROR_LOG(
-                                "Wrong message arrived to controller: ", decompose( e ) );
-                    } );
-        }
-#else
-        void log_error( const error_variant& )
-        {
-        }
-#endif
 };
 
 }  // namespace emlabcpp::testing

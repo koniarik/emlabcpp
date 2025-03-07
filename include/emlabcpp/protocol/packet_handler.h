@@ -19,7 +19,6 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/protocol/handler.h"
 #include "emlabcpp/protocol/packet.h"
 #include "emlabcpp/protocol/streams.h"
@@ -71,16 +70,8 @@ struct packet_handler
                                 view_n( msg.begin(), checksum_pos );
                             const checksum_type calculated_checksum = Packet::get_checksum( area );
 
-                            if ( present_checksum != calculated_checksum ) {
-                                    EMLABCPP_ERROR_LOG(
-                                        "Problematic message: ", message_type( msg ) );
-                                    EMLABCPP_ERROR_LOG(
-                                        "Checksum failed, calculated: ",
-                                        int( calculated_checksum ),
-                                        " present: ",
-                                        int( present_checksum ) );
+                            if ( present_checksum != calculated_checksum )
                                     return error_record{ CHECKSUM_ERR, checksum_pos };
-                            }
 
                             return std::get< 1 >( pack );
                     } );

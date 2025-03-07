@@ -20,7 +20,6 @@ add_library(
   src/experimental/testing/parameters.cpp
   src/experimental/testing/collect.cpp
   src/experimental/testing/interface.cpp
-  src/experimental/logging.cpp
   src/experimental/testing/json.cpp
   src/experimental/testing/controller.cpp)
 target_include_directories(emlabcpp PUBLIC include/)

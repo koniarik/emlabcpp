@@ -20,7 +20,6 @@
 #include "emlabcpp/experimental/testing/controller.h"
 
 #include "emlabcpp/experimental/coro/recursive.h"
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/experimental/testing/base.h"
 #include "emlabcpp/experimental/testing/controller_interface_adapter.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
@@ -122,10 +121,8 @@ coroutine< void > controller::initialize( pmr::memory_resource& )
 
 void controller::start_test( const test_id tid )
 {
-        if ( !std::holds_alternative< idle_state >( state_ ) ) {
-                EMLABCPP_ERROR_LOG( "Can't start a new test, not in prepared state" );
+        if ( !std::holds_alternative< idle_state >( state_ ) )
                 return;
-        }
 
         rid_ += 1;
 
@@ -144,7 +141,6 @@ outcome controller::on_msg( const std::span< const std::byte > data )
                         return on_msg( var );
                 },
                 [this]( const protocol::error_record& rec ) -> outcome {
-                        EMLABCPP_ERROR_LOG( "Failed to extract incoming msg: ", rec );
                         iface_.report_error( controller_protocol_error{ rec } );
                         return ERROR;
                 } );
@@ -158,12 +154,10 @@ outcome controller::on_msg( const reactor_controller_variant& var )
             state_,
             [this, &var, &res]( const initializing_state& ) -> opt_state {
                     if ( std::holds_alternative< boot >( var ) ) {
-                            EMLABCPP_DEBUG_LOG( "Got boot message" );
                             res = SUCCESS;
                             return std::nullopt;
                     }
                     if ( !iface_.on_msg_with_cb( var ) ) {
-                            EMLABCPP_ERROR_LOG( "Got wrong message: ", var.index() );
                             visit(
                                 [&]< typename T >( T& ) {
                                         iface_.report_error( controller_internal_error{ T::id } );
@@ -190,9 +184,6 @@ outcome controller::on_msg( const reactor_controller_variant& var )
                                 var );
                             return std::nullopt;
                     }
-
-                    EMLABCPP_INFO_LOG(
-                        "Test finished, rid: ", tf_ptr->rid, " status: ", tf_ptr->status );
 
                     rs.context.status = tf_ptr->status;
                     iface_->on_result( rs.context );
@@ -222,7 +213,6 @@ void controller::tick()
                             return std::nullopt;
                     }
 
-                    EMLABCPP_INFO_LOG( "Controller finished initialization and is prepared" );
                     return states{ idle_state{} };
             },
             []( const test_running_state& ) -> opt_state {

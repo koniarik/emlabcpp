@@ -121,8 +121,6 @@ public:
                             return reply_handler::serialize( rep );
                     } )
                     .convert_right( [&]( const protocol::error_record& rec ) {
-                            EMLABCPP_ERROR_LOG(
-                                "reactor failed to extract incoming message ", msg );
                             return reply_handler::serialize( reactor_error{ rec } );
                     } )
                     .join();
@@ -197,9 +195,6 @@ public:
                             auto& reply_var = std::get< 0 >( var );
                             auto* ptr       = std::get_if< call_index< ID > >( &reply_var );
                             if ( ptr == nullptr ) {
-                                    EMLABCPP_ERROR_LOG(
-                                        "controller failed to extract incoming message ",
-                                        reply_msg );
                                     return error{ reply_error{
                                         .expected_index = call_index< ID >,
                                         .index          = reply_var.index() } };

@@ -165,11 +165,9 @@ TEST( testing_combined, complex )
         dev_items  dev;
 
         host.cb = [&]( auto data ) {
-                EMLABCPP_INFO_LOG( "to dev: ", data );
                 return dev.on_msg( data );
         };
         dev.cb = [&]( auto data ) {
-                EMLABCPP_INFO_LOG( "to host: ", data );
                 return host.on_msg( data );
         };
 

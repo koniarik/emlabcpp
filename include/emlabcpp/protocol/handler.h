@@ -56,16 +56,6 @@ struct handler
                 const conversion_result res = def::deserialize( msg, val );
                 if ( res.has_error() ) {
                         const mark* const mark = res.get_error();
-                        EMLABCPP_ERROR_LOG(
-                            "Failed to extract protocol def ",
-                            pretty_type_name< T >(),
-                            " from message ",
-                            message_type( msg ),
-                            ", error is: ",
-                            *mark,
-                            " with ",
-                            res.used,
-                            " bytes" );
                         return error_record{ *mark, res.used };
                 }
                 return val;

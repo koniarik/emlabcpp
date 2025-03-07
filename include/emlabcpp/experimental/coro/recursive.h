@@ -103,7 +103,6 @@ public:
 
                 void unhandled_exception() const
                 {
-                        EMLABCPP_ERROR_LOG( "Got unhandled exception" );
                 }
 
                 wait_interface* iface = nullptr;
@@ -176,7 +175,6 @@ public:
                                 iface->tick();
                                 return;
                         } else if ( s == wait_state::ERRORED ) {
-                                EMLABCPP_ERROR_LOG( "Coroutine errored, killing it" );
                                 h_ = owning_handle();
                                 return;
                         } else {

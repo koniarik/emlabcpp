@@ -24,7 +24,6 @@
 #include "emlabcpp/experimental/contiguous_tree/request_adapter.h"
 #include "emlabcpp/experimental/coro/recursive.h"
 #include "emlabcpp/experimental/decompose.h"
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/experimental/multiplexer.h"
 #include "emlabcpp/experimental/testing/base.h"
 #include "emlabcpp/experimental/testing/coroutine.h"
@@ -66,8 +65,7 @@ void collect_awaiter::await_suspend(
                     },
                     [this]( const tree_error_reply& err ) {
                             std::ignore = err;
-                            EMLABCPP_ERROR_LOG( "Got an error: ", decompose( err ) );
-                            state = coro_state::ERRORED;
+                            state       = coro_state::ERRORED;
                     } );
         } );
 }
@@ -88,7 +86,6 @@ outcome collector::on_msg( const std::span< const std::byte >& msg )
                 },
                 []( const auto& err ) -> outcome {
                         std::ignore = err;
-                        EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                         return ERROR;
                 } );
 }
@@ -122,8 +119,6 @@ collect_awaiter collector::append( const node_id parent, contiguous_container_ty
 
 bool collector::set( const node_id parent, const std::string_view key, const value_type& val )
 {
-        EMLABCPP_DEBUG_LOG(
-            "Sending collect request for parent ", parent, " key: ", key, " value: ", val );
         return send( collect_request{
                    .parent        = parent,
                    .expects_reply = false,
@@ -166,7 +161,6 @@ collect_server::collect_server(
 outcome collect_server::on_msg( const std::span< const std::byte > data )
 {
         using h = protocol::handler< collect_request >;
-        EMLABCPP_DEBUG_LOG( "got msg: ", collect_client_server_message{ data } );
         return h::extract( view_n( data.data(), data.size() ) )
             .match(
                 [this]( const collect_request& req ) {
@@ -174,31 +168,18 @@ outcome collect_server::on_msg( const std::span< const std::byte > data )
                 },
                 []( const auto& err ) -> outcome {
                         std::ignore = err;
-                        EMLABCPP_ERROR_LOG( "Failed to extract msg: ", err );
                         return ERROR;
                 } );
 }
 
 outcome collect_server::on_msg( const collect_request& req )
 {
-        EMLABCPP_DEBUG_LOG(
-            "got collect request: parent:",
-            req.parent,
-            " reply:",
-            req.expects_reply,
-            " opt_key:",
-            req.opt_key,
-            " value:",
-            req.value );
         // TODO: this may be a bad idea ...
         if ( tree_.empty() ) {
-                if ( req.opt_key ) {
-                        EMLABCPP_DEBUG_LOG( "collect tree is empty, making root object" );
+                if ( req.opt_key )
                         tree_.make_object_node();
-                } else {
-                        EMLABCPP_DEBUG_LOG( "collect tree is empty, making root array" );
+                else
                         tree_.make_array_node();
-                }
         }
 
         contiguous_request_adapter harn{ tree_ };

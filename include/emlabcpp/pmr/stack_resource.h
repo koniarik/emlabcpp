@@ -19,7 +19,6 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/pmr/memory_resource.h"
 #include "emlabcpp/pmr/util.h"
 
@@ -72,15 +71,12 @@ public:
                 set_node( top_, prev_ptr, nullptr );
                 set_node( prev_ptr, prev_node.prev_ptr, top_ );
 
-                EMLABCPP_DEBUG_LOG( "Allocating ", p, " for ", bytes, " bytes" );
-
                 return p;
         }
 
         [[nodiscard]] result
         deallocate( void* const ptr, const std::size_t bytes, const std::size_t ) override
         {
-                EMLABCPP_DEBUG_LOG( "Deallocating ", ptr, " with ", bytes, " bytes" );
                 std::byte* node_ptr = reinterpret_cast< std::byte* >( ptr ) + bytes + node_size;
                 auto [prev_ptr, next_ptr] = get_node( node_ptr );
 

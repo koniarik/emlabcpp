@@ -19,7 +19,6 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/pmr/memory_resource.h"
 #include "emlabcpp/pmr/throw_bad_alloc.h"
 

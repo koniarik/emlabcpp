@@ -72,7 +72,6 @@ public:
 
                 void unhandled_exception() const
                 {
-                        EMLABCPP_ERROR_LOG( "Got unhandled exception" );
                 }
 
                 wait_interface* iface = nullptr;
@@ -137,7 +136,6 @@ public:
                         return;
 
                 if ( done() ) {
-                        EMLABCPP_ERROR_LOG( "Prematurely done" );
                         state_ = coro_state::ERRORED;
                         return;
                 }
@@ -151,8 +149,6 @@ public:
                                 iface->tick();
                                 return;
                         case coro_state::ERRORED:
-                                EMLABCPP_ERROR_LOG( "Coroutine errored, killing it" );
-                                [[fallthrough]];
                         case coro_state::SKIPPED:
                         case coro_state::FAILED:
                                 h_     = owning_handle();

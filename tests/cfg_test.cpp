@@ -1,6 +1,5 @@
 #include "emlabcpp/convert_view.h"
 #include "emlabcpp/experimental/cfg/handler.h"
-#include "emlabcpp/experimental/logging.h"
 #include "emlabcpp/protocol/message.h"
 #include "emlabcpp/protocol/streams.h"
 

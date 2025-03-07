@@ -21,7 +21,6 @@
 
 #include "emlabcpp/experimental/coro/memory_promise.h"
 #include "emlabcpp/experimental/coro/owning_coroutine_handle.h"
-#include "emlabcpp/experimental/logging.h"
 
 #include <coroutine>
 #include <optional>
@@ -116,34 +115,26 @@ public:
 
         const RequestType* get_request()
         {
-                if ( !h_ ) {
-                        EMLABCPP_ERROR_LOG( "Can't extract request from empty handle" );
+                if ( !h_ )
                         return nullptr;
-                }
                 std::optional< RequestType >& opt_val = h_.promise().request;
-                if ( !opt_val.has_value() ) {
-                        EMLABCPP_ERROR_LOG( "No request in coroutine at ", &h_.promise().request );
+                if ( !opt_val.has_value() )
                         return nullptr;
-                }
                 return &*opt_val;
         }
 
         bool has_reply()
         {
-                if ( h_ ) {
+                if ( h_ )
                         return h_.promise().reply.has_value();
-                } else {
-                        EMLABCPP_ERROR_LOG( "Can't check reply in empty handle" );
+                else
                         return false;
-                }
         }
 
         void store_reply( const ReplyType& inpt )
         {
                 if ( h_ )
                         h_.promise().reply = inpt;
-                else
-                        EMLABCPP_ERROR_LOG( "Can't store reply in empty handle" );
         }
 
         [[nodiscard]] operator bool() const
@@ -158,19 +149,12 @@ public:
 
         [[nodiscard]] bool tick()
         {
-                if ( !h_.promise().reply ) {
-                        EMLABCPP_ERROR_LOG( "Can't tick coroutine ", address(), ", no reply" );
+                if ( !h_.promise().reply )
                         return false;
-                }
-                if ( !h_ ) {
-                        EMLABCPP_ERROR_LOG( "No handle in coroutine ", address() );
+                if ( !h_ )
                         return false;
-                }
-                if ( h_.done() ) {
-                        EMLABCPP_ERROR_LOG(
-                            "Ticking coroutine ", address(), " that is finished - skipping" );
+                if ( h_.done() )
                         return false;
-                }
                 h_.promise().request.reset();
                 h_();
                 h_.promise().reply.reset();
