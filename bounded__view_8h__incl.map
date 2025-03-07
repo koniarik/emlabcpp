@@ -1,10 +1,9 @@
 <map id="include/emlabcpp/experimental/bounded_view.h" name="include/emlabcpp/experimental/bounded_view.h">
-<area shape="rect" id="node1" title=" " alt="" coords="19,5,247,47"/>
-<area shape="rect" id="node2" href="$bounded_8h.html" title=" " alt="" coords="275,95,433,121"/>
-<area shape="rect" id="node6" href="$view_8h.html" title=" " alt="" coords="71,259,203,285"/>
-<area shape="rect" id="node3" href="$concepts_8h.html" title=" " alt="" coords="363,259,523,285"/>
-<area shape="rect" id="node4" href="$logging_8h.html" title=" " alt="" coords="28,169,205,211"/>
-<area shape="rect" id="node5" href="$pretty__printer_8h.html" title=" " alt="" coords="345,169,523,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="565,259,639,285"/>
-<area shape="rect" id="node8" title=" " alt="" coords="229,177,321,203"/>
+<area shape="rect" id="node1" title=" " alt="" coords="222,5,450,47"/>
+<area shape="rect" id="node2" href="$bounded_8h.html" title=" " alt="" coords="130,95,289,121"/>
+<area shape="rect" id="node5" href="$view_8h.html" title=" " alt="" coords="365,259,497,285"/>
+<area shape="rect" id="node3" href="$concepts_8h.html" title=" " alt="" coords="5,259,165,285"/>
+<area shape="rect" id="node4" href="$pretty__printer_8h.html" title=" " alt="" coords="247,169,425,211"/>
+<area shape="rect" id="node6" title=" " alt="" coords="203,259,277,285"/>
+<area shape="rect" id="node7" title=" " alt="" coords="79,177,171,203"/>
 </map>

@@ -4,7 +4,6 @@ var dir_833cf07299c67ab119396183470d94f1 =
     [ "contiguous_tree", "dir_15f8cd90f3890d7a65699de4188dbb27.html", "dir_15f8cd90f3890d7a65699de4188dbb27" ],
     [ "coro", "dir_124696910e1f6c10a38401e63d4996f0.html", "dir_124696910e1f6c10a38401e63d4996f0" ],
     [ "geom", "dir_3ae5028df88b3fc471a247e16af56915.html", "dir_3ae5028df88b3fc471a247e16af56915" ],
-    [ "logging", "dir_7be96e89c84803827e352320bc015c84.html", "dir_7be96e89c84803827e352320bc015c84" ],
     [ "testing", "dir_539f3c5103b46bf50615f61463de2f53.html", "dir_539f3c5103b46bf50615f61463de2f53" ],
     [ "bounded_view.h", "bounded__view_8h.html", [
       [ "bounded_view", "classemlabcpp_1_1bounded__view.html", "classemlabcpp_1_1bounded__view" ]
@@ -21,7 +20,6 @@ var dir_833cf07299c67ab119396183470d94f1 =
       [ "linked_list_node_base", "classemlabcpp_1_1linked__list__node__base.html", "classemlabcpp_1_1linked__list__node__base" ],
       [ "linked_list_node", "classemlabcpp_1_1linked__list__node.html", "classemlabcpp_1_1linked__list__node" ]
     ] ],
-    [ "logging.h", "logging_8h.html", "logging_8h" ],
     [ "matrix.h", "matrix_8h.html", "matrix_8h" ],
     [ "multiplexer.h", "multiplexer_8h.html", "multiplexer_8h" ],
     [ "pretty_printer.h", "pretty__printer_8h.html", "pretty__printer_8h" ],

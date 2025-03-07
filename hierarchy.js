@@ -91,7 +91,6 @@ var hierarchy =
     [ "std::disjunction", null, [
       [ "emlabcpp::tuple_has_type< T, std::tuple< Us... > >", "structemlabcpp_1_1tuple__has__type_3_01T_00_01std_1_1tuple_3_01Us_8_8_8_01_4_01_4.html", null ]
     ] ],
-    [ "emlabcpp::eabi_logger", "classemlabcpp_1_1eabi__logger.html", null ],
     [ "emlabcpp::either< LH, RH >", "classemlabcpp_1_1either.html", null ],
     [ "emlabcpp::empty_assembly_tag", "namespaceemlabcpp.html#structemlabcpp_1_1empty__assembly__tag", null ],
     [ "emlabcpp::protocol::endianess_wrapper< Endianess, D >", "structemlabcpp_1_1protocol_1_1endianess__wrapper.html", null ],
@@ -171,8 +170,6 @@ var hierarchy =
       [ "emlabcpp::linked_list_node< empty_node_impl >", "classemlabcpp_1_1linked__list__node.html", null ],
       [ "emlabcpp::linked_list_node< T, Base >", "classemlabcpp_1_1linked__list__node.html", null ]
     ] ],
-    [ "emlabcpp::log_color_stub", "namespaceemlabcpp.html#structemlabcpp_1_1log__color__stub", null ],
-    [ "emlabcpp::log_colors", "namespaceemlabcpp.html#structemlabcpp_1_1log__colors", null ],
     [ "emlabcpp::impl::map_f_collector< typename >", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector", null ],
     [ "emlabcpp::impl::map_f_collector< std::array< T, N > >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::impl::map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", null ],
@@ -198,7 +195,6 @@ var hierarchy =
     [ "emlabcpp::protocol::msg_format< T >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1msg__format", null ],
     [ "emlabcpp::protocol::multiplexed_endpoint< Packet >", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", null ],
     [ "emlabcpp::testing::no_response_error", "structemlabcpp_1_1testing_1_1no__response__error.html", null ],
-    [ "emlabcpp::noneabi_logger", "classemlabcpp_1_1noneabi__logger.html", null ],
     [ "std::numeric_limits< T >", "structstd_1_1numeric__limits_3_01T_01_4.html", null ],
     [ "emlabcpp::outcome", "classemlabcpp_1_1outcome.html", null ],
     [ "emlabcpp::coro::owning_coroutine_handle< PromiseType >", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", null ],
@@ -270,7 +266,6 @@ var hierarchy =
     [ "emlabcpp::pretty_printer< std::vector< T > >", "structemlabcpp_1_1pretty__printer_3_01std_1_1vector_3_01T_01_4_01_4.html", null ],
     [ "emlabcpp::pretty_printer< string_buffer< N > >", "structemlabcpp_1_1pretty__printer_3_01string__buffer_3_01N_01_4_01_4.html", null ],
     [ "emlabcpp::pretty_printer< T >", "structemlabcpp_1_1pretty__printer_3_01T_01_4.html", null ],
-    [ "emlabcpp::pretty_printer< timelog >", "structemlabcpp_1_1pretty__printer_3_01timelog_01_4.html", null ],
     [ "emlabcpp::pretty_printer< unsigned >", "structemlabcpp_1_1pretty__printer_3_01unsigned_01_4.html", null ],
     [ "emlabcpp::pretty_printer< unsigned char >", "structemlabcpp_1_1pretty__printer_3_01unsigned_01char_01_4.html", null ],
     [ "emlabcpp::pretty_printer< unsigned long long >", "structemlabcpp_1_1pretty__printer_3_01unsigned_01long_01long_01_4.html", null ],
@@ -326,9 +321,6 @@ var hierarchy =
     [ "emlabcpp::protocol::serializer< T, Endianess >", "structemlabcpp_1_1protocol_1_1serializer.html", null ],
     [ "emlabcpp::protocol::serializer< bool, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol::serializer< float, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html", null ],
-    [ "emlabcpp::set_ostream", "namespaceemlabcpp.html#structemlabcpp_1_1set__ostream", null ],
-    [ "emlabcpp::set_stderr", "namespaceemlabcpp.html#structemlabcpp_1_1set__stderr", null ],
-    [ "emlabcpp::set_stdout", "namespaceemlabcpp.html#structemlabcpp_1_1set__stdout", null ],
     [ "emlabcpp::signature_of< Signature >", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of", null ],
     [ "emlabcpp::signature_of< ReturnType(Args...) >", "namespaceemlabcpp.html#structemlabcpp_1_1signature__of_3_01ReturnType_07Args_8_8_8_08_01_4", null ],
     [ "emlabcpp::signature_of< ReturnType(Class::*)(Args...) >", "structemlabcpp_1_1signature__of_3_01ReturnType_07Class_1_1_5_08_07Args_8_8_8_08_01_4.html", [
@@ -373,7 +365,6 @@ var hierarchy =
       [ "emlabcpp::testing::test_callable< Callable >", "classemlabcpp_1_1testing_1_1test__callable.html", null ]
     ] ],
     [ "emlabcpp::testing::test_result", "structemlabcpp_1_1testing_1_1test__result.html", null ],
-    [ "emlabcpp::timelog", "structemlabcpp_1_1timelog.html", null ],
     [ "emlabcpp::rpc::traits< T >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits", null ],
     [ "emlabcpp::rpc::traits< std::tuple< Calls... > >", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4", null ],
     [ "traits_for", null, [

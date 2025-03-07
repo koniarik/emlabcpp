@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>emlabcpp: include/emlabcpp/experimental/logging/noneabi_logger.h File Reference</title>
+<title>emlabcpp: include/emlabcpp/pmr/util.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('noneabi__logger_8h.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('util_8h.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -84,86 +84,48 @@ $(document).ready(function(){initNavTree('noneabi__logger_8h.html',''); initResi
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">noneabi_logger.h File Reference</div>  </div>
+<div class="title">util.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="pretty__printer_8h_source.html">emlabcpp/experimental/pretty_printer.h</a>&quot;</code><br />
-<code>#include &lt;string_view&gt;</code><br />
+<div class="textblock"><code>#include &lt;bit&gt;</code><br />
+<code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for noneabi_logger.h:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for util.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="noneabi__logger_8h__incl.svg" width="2015" height="455"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="util_8h__incl.svg" width="236" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
-<p><a href="noneabi__logger_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="util_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1noneabi__logger.html">emlabcpp::noneabi_logger</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceemlabcpp"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></td></tr>
 <tr class="memdesc:namespaceemlabcpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copyright (C) 2020 Jan Veverak Koniarik. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:af1c2e24334848e4d859efb22a03a1051"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="noneabi__logger_8h.html#af1c2e24334848e4d859efb22a03a1051">EMLABCPP_NONEABI_LOG_IMPL</a>(logger, ...)&#160;&#160;&#160;( logger ).log( __VA_ARGS__, '\n' )</td></tr>
-<tr class="separator:af1c2e24334848e4d859efb22a03a1051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceemlabcpp_1_1pmr"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></td></tr>
+<tr class="memdesc:namespaceemlabcpp_1_1pmr"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copyright (C) 2020 Jan Veverak Koniarik. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a17bf222ded1132ffa8aca958be89b986"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a17bf222ded1132ffa8aca958be89b986">emlabcpp::noneabi_log_write</a> (std::string_view)</td></tr>
-<tr class="separator:a17bf222ded1132ffa8aca958be89b986"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc3034d1cbdc8f57b66c8fdb1875f5a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abc3034d1cbdc8f57b66c8fdb1875f5a5">emlabcpp::noneabi_log_end</a> ()</td></tr>
-<tr class="separator:abc3034d1cbdc8f57b66c8fdb1875f5a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b56b352c8ba06335f92e0118ab2f263"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263">emlabcpp::pmr::align</a> (void *const ptr, const std::size_t alignment)</td></tr>
+<tr class="memdesc:a1b56b352c8ba06335f92e0118ab2f263"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: this needs tests.  <a href="namespaceemlabcpp_1_1pmr.html#a1b56b352c8ba06335f92e0118ab2f263">More...</a><br /></td></tr>
+<tr class="separator:a1b56b352c8ba06335f92e0118ab2f263"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="af1c2e24334848e4d859efb22a03a1051"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1c2e24334848e4d859efb22a03a1051">&#9670;&nbsp;</a></span>EMLABCPP_NONEABI_LOG_IMPL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define EMLABCPP_NONEABI_LOG_IMPL</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">logger, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;( logger ).log( __VA_ARGS__, '\n' )</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_7be96e89c84803827e352320bc015c84.html">logging</a></li><li class="navelem"><a class="el" href="noneabi__logger_8h.html">noneabi_logger.h</a></li>
-    <li class="footer">Generated on Sat Dec 21 2024 16:02:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_231aac52433e25ed4b5ea5619bdfd3e1.html">pmr</a></li><li class="navelem"><a class="el" href="util_8h.html">util.h</a></li>
+    <li class="footer">Generated on Fri Mar 7 2025 21:14:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
