@@ -1,8 +1,8 @@
 <map id="include/emlabcpp/experimental/geom/point.h" name="include/emlabcpp/experimental/geom/point.h">
-<area shape="rect" id="node1" title=" " alt="" coords="122,5,350,47"/>
-<area shape="rect" id="node2" href="$vec__point__base_8h.html" title=" " alt="" coords="71,184,251,225"/>
-<area shape="rect" id="node5" href="$range_8h.html" title=" " alt="" coords="293,273,432,300"/>
-<area shape="rect" id="node6" href="$vector_8h.html" title=" " alt="" coords="147,95,325,136"/>
-<area shape="rect" id="node3" href="$algorithm_8h.html" title=" " alt="" coords="5,348,171,375"/>
-<area shape="rect" id="node4" href="$physical__quantity_8h.html" title=" " alt="" coords="54,273,269,300"/>
+<area shape="rect" id="node1" title=" " alt="" coords="86,5,314,47"/>
+<area shape="rect" id="node2" href="$vec__point__base_8h.html" title=" " alt="" coords="41,184,221,225"/>
+<area shape="rect" id="node4" href="$range_8h.html" title=" " alt="" coords="207,423,346,449"/>
+<area shape="rect" id="node6" href="$vector_8h.html" title=" " alt="" coords="112,95,289,136"/>
+<area shape="rect" id="node3" href="$algorithm_8h.html" title=" " alt="" coords="48,348,214,375"/>
+<area shape="rect" id="node5" href="$physical__quantity_8h.html" title=" " alt="" coords="24,273,238,300"/>
 </map>

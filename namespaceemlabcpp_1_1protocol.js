@@ -105,6 +105,7 @@ var namespaceemlabcpp_1_1protocol =
     [ "for_each_register", "namespaceemlabcpp_1_1protocol.html#a25417e5baf4dcb0a348bb0e6e5ea83a2", null ],
     [ "message", "namespaceemlabcpp_1_1protocol.html#ad7cf453765253654adcf697d7810d1b6", null ],
     [ "multiplexed_dispatch", "namespaceemlabcpp_1_1protocol.html#a39ffab4b8c7d6910c971588b583d8270", null ],
+    [ "pretty_print_msg_format", "namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630", null ],
     [ "requires", "namespaceemlabcpp_1_1protocol.html#a380711490896b7090b370d91691adb69", null ],
     [ "sequencer_simple_load", "namespaceemlabcpp_1_1protocol.html#a65c1faf455d3f60687ad28bb43cfe060", null ],
     [ "serialize_at", "namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac", null ],

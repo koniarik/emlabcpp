@@ -22,7 +22,6 @@ var dir_833cf07299c67ab119396183470d94f1 =
     ] ],
     [ "matrix.h", "matrix_8h.html", "matrix_8h" ],
     [ "multiplexer.h", "multiplexer_8h.html", "multiplexer_8h" ],
-    [ "pretty_printer.h", "pretty__printer_8h.html", "pretty__printer_8h" ],
     [ "rpc.h", "rpc_8h.html", "rpc_8h" ],
     [ "string_buffer.h", "string__buffer_8h.html", "string__buffer_8h" ]
 ];

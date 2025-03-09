@@ -1,14 +1,14 @@
 <map id="include/emlabcpp/pmr/pool_resource.h" name="include/emlabcpp/pmr/pool_resource.h">
-<area shape="rect" id="node1" title=" " alt="" coords="411,5,577,47"/>
-<area shape="rect" id="node2" href="$memory__resource_8h.html" title=" " alt="" coords="272,95,447,136"/>
-<area shape="rect" id="node6" href="$util_8h.html" title=" " alt="" coords="5,191,159,218"/>
-<area shape="rect" id="node8" href="$range_8h.html" title=" " alt="" coords="793,273,931,300"/>
-<area shape="rect" id="node9" href="$static__vector_8h.html" title=" " alt="" coords="504,102,689,129"/>
-<area shape="rect" id="node3" href="$result_8h.html" title=" " alt="" coords="183,191,322,218"/>
-<area shape="rect" id="node5" title=" " alt="" coords="324,273,395,300"/>
-<area shape="rect" id="node4" title=" " alt="" coords="173,273,239,300"/>
-<area shape="rect" id="node7" title=" " alt="" coords="63,273,101,300"/>
-<area shape="rect" id="node10" href="$concepts_8h.html" title=" " alt="" coords="569,273,729,300"/>
-<area shape="rect" id="node11" href="$pretty__printer_8h.html" title=" " alt="" coords="667,184,844,225"/>
-<area shape="rect" id="node12" href="$static__storage_8h.html" title=" " alt="" coords="397,191,591,218"/>
+<area shape="rect" id="node1" title=" " alt="" coords="343,5,509,47"/>
+<area shape="rect" id="node2" href="$memory__resource_8h.html" title=" " alt="" coords="237,95,412,136"/>
+<area shape="rect" id="node6" href="$util_8h.html" title=" " alt="" coords="5,184,159,211"/>
+<area shape="rect" id="node8" href="$range_8h.html" title=" " alt="" coords="646,102,785,129"/>
+<area shape="rect" id="node9" href="$static__vector_8h.html" title=" " alt="" coords="436,102,621,129"/>
+<area shape="rect" id="node3" href="$result_8h.html" title=" " alt="" coords="183,184,322,211"/>
+<area shape="rect" id="node5" title=" " alt="" coords="324,259,395,285"/>
+<area shape="rect" id="node4" title=" " alt="" coords="173,259,239,285"/>
+<area shape="rect" id="node7" title=" " alt="" coords="63,259,101,285"/>
+<area shape="rect" id="node10" href="$concepts_8h.html" title=" " alt="" coords="615,184,775,211"/>
+<area shape="rect" id="node11" href="$static__storage_8h.html" title=" " alt="" coords="397,184,591,211"/>
+<area shape="rect" id="node12" href="$view_8h.html" title=" " alt="" coords="800,184,932,211"/>
 </map>
