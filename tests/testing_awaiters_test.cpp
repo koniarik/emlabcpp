@@ -17,11 +17,11 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
-#include "test.h"
+#include "util/test.h"
 
 #include "emlabcpp/experimental/testing/executor.h"
 #include "emlabcpp/pmr/new_delete_resource.h"
-#include "util.h"
+#include "util/util.h"
 
 #include <gtest/gtest.h>
 

@@ -75,6 +75,10 @@ inline void exec_protocol_test_fixture_test(
         }
 }
 
+void protocol_def_tests();
+void protocol_sophisticated_tests();
+void protocol_register_map_tests();
+
 struct thread_safe_queue
 {
         std::deque< std::vector< uint8_t > > buff_;

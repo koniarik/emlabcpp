@@ -19,7 +19,6 @@
 
 #include "emlabcpp/algorithm.h"
 
-#include "emlabcpp/experimental/pretty_printer.h"
 #include "emlabcpp/quantity.h"
 
 #include <gtest/gtest.h>

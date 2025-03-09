@@ -20,7 +20,6 @@
 #pragma once
 
 #include "emlabcpp/algorithm.h"
-#include "emlabcpp/experimental/pretty_printer.h"
 #include "emlabcpp/range.h"
 
 namespace emlabcpp
@@ -374,24 +373,5 @@ constexpr matrix< M::rows, M::cols, typename M::value_type > inverse( const M& m
         res[1] = { -m[1][0], m[0][0] };
         return v * res;
 }
-
-template < matrix_like T >
-struct pretty_printer< T >
-{
-        template < typename Writer >
-        static void print( Writer&& w, const T& m )
-        {
-                w( '[' );
-                for ( const std::size_t i : range( T::rows ) ) {
-                        w( '[' );
-                        for ( const std::size_t j : range( T::cols ) ) {
-                                w( m[i][j] );
-                                w( ',' );
-                        }
-                        w( ']' );
-                }
-                w( ']' );
-        }
-};
 
 }  // namespace emlabcpp

@@ -20,7 +20,7 @@
 #include "emlabcpp/convert_view.h"
 #include "emlabcpp/protocol/converter.h"
 #include "emlabcpp/protocol/streams.h"
-#include "util.h"
+#include "util/util.h"
 
 #include <gtest/gtest.h>
 
@@ -73,10 +73,8 @@ struct valid_test_case : protocol_test_fixture
 
         void generate_name( std::ostream& os ) const final
         {
-                pretty_stream_write( os, "test case for: ", pretty_name< T >(), ";" );
-                pretty_stream_write( os, " ", Endianess, ";" );
-                pretty_stream_write(
-                    os, " expected binary data: ", convert_view< int >( expected_buffer ), ";" );
+                os << "test case for: " << pretty_name< T >() << ";";
+                os << " expected binary data: " << convert_view< int >( expected_buffer ) << ";";
         }
 };
 
@@ -137,9 +135,9 @@ struct invalid_test_case : protocol_test_fixture
 
         void generate_name( std::ostream& os ) const final
         {
-                pretty_stream_write( os, "invalid test for: ", pretty_name< T >(), ";" );
-                pretty_stream_write( os, " input: ", convert_view< int >( inpt ), ";" );
-                pretty_stream_write( os, " expected error: ", expected_rec, ";" );
+                os << "invalid test for: " << pretty_name< T >() << ";";
+                os << " input: " << convert_view< int >( inpt ) << ";";
+                os << " expected error: " << expected_rec << ";";
         }
 };
 
@@ -167,13 +165,8 @@ struct simple_struct
         friend auto operator<=>( const simple_struct< T >&, const simple_struct< T >& ) = default;
 };
 
-}  // namespace emlabcpp
-
-int main( int argc, char** argv )
+void protocol_def_tests()
 {
-        testing::InitGoogleTest( &argc, argv );
-
-        using namespace emlabcpp;
 
         const std::vector< std::function< protocol_test_fixture*() > > tests = {
             // basic types
@@ -342,5 +335,6 @@ int main( int argc, char** argv )
         };
 
         exec_protocol_test_fixture_test( tests );
-        return RUN_ALL_TESTS();
 }
+
+}  // namespace emlabcpp

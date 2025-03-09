@@ -20,8 +20,8 @@
 #pragma once
 
 #include "emlabcpp/concepts.h"
-#include "emlabcpp/experimental/pretty_printer.h"
 #include "emlabcpp/static_storage.h"
+#include "emlabcpp/view.h"
 
 namespace emlabcpp
 {
@@ -297,15 +297,5 @@ std::ostream& operator<<( std::ostream& os, const static_vector< T, N >& vec )
         return os << view{ vec };
 }
 #endif
-
-template < typename T, std::size_t N >
-struct pretty_printer< static_vector< T, N > >
-{
-        template < typename W >
-        static void print( W&& w, const static_vector< T, N >& vec )
-        {
-                w( view{ vec } );
-        }
-};
 
 }  // namespace emlabcpp

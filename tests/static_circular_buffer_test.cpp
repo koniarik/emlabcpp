@@ -19,8 +19,8 @@
 
 #include "emlabcpp/static_circular_buffer.h"
 
+#include "./util/operations_counter.h"
 #include "emlabcpp/algorithm.h"
-#include "operations_counter.h"
 
 #include <gtest/gtest.h>
 

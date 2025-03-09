@@ -20,7 +20,6 @@
 #pragma once
 
 #include "emlabcpp/algorithm.h"
-#include "emlabcpp/experimental/pretty_printer.h"
 #include "emlabcpp/protocol/base.h"
 #include "emlabcpp/protocol/traits.h"
 
@@ -226,23 +225,3 @@ std::ostream& operator<<( std::ostream& os, const register_map< Endianess, Regs.
 #endif
 
 }  // namespace emlabcpp::protocol
-
-namespace emlabcpp
-{
-
-template < std::endian Endianess, typename... Regs >
-struct pretty_printer< protocol::register_map< Endianess, Regs... > >
-{
-        template < typename Writer >
-        static void print( Writer&& w, const protocol::register_map< Endianess, Regs... >& cmap )
-        {
-                protocol::for_each_register( cmap, [&w]< auto key, typename T >( const T& val ) {
-                        w( key );
-                        w( '\t' );
-                        w( val );
-                        w( '\n' );
-                } );
-        }
-};
-
-}  // namespace emlabcpp

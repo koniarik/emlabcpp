@@ -22,6 +22,7 @@
 #include "emlabcpp/algorithm/impl.h"
 #include "emlabcpp/bounded.h"
 #include "emlabcpp/min_max.h"
+#include "emlabcpp/range.h"
 #include "emlabcpp/types.h"
 #include "emlabcpp/view.h"
 

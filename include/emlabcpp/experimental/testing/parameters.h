@@ -386,7 +386,7 @@ void param_value_processor< T >::log_error( parameters& params ) const
 {
         // TODO: this should not be ignored
         std::ignore = params.send( param_error{ string_buffer( "for value of type:" ) } );
-        std::ignore = params.send( param_error{ string_buffer( pretty_type_name< T >() ) } );
+        // std::ignore = params.send( param_error{ string_buffer( pretty_type_name< T >() ) } );
 }
 
 template < typename T >
@@ -394,7 +394,8 @@ void param_value_key_processor< T >::log_error( parameters& params ) const
 {
         // TODO: this should not be ignored
         std::ignore = params.send( param_error{ string_buffer( "for keyvalue of type:" ) } );
-        std::ignore = params.send( param_error{ string_buffer( pretty_type_name< T >() ) } );
+        //        std::ignore = params.send( param_error{ string_buffer( pretty_type_name< T >() ) }
+        //        );
 }
 
 template < typename Processor >

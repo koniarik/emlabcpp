@@ -20,7 +20,7 @@
 #include "emlabcpp/experimental/geom/point.h"
 
 #include "emlabcpp/experimental/geom/json.h"
-#include "point_test.h"
+#include "util/point_test.h"
 
 #include <gtest/gtest.h>
 

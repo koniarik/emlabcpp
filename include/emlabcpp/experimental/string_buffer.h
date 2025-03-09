@@ -1,7 +1,5 @@
 #pragma once
 
-#include "emlabcpp/experimental/pretty_printer.h"
-
 #include <algorithm>
 #include <array>
 #include <cstring>
@@ -83,16 +81,6 @@ std::ostream& operator<<( std::ostream& os, const string_buffer< N >& sb )
 {
         return os << std::string_view( sb );
 }
-
-template < std::size_t N >
-struct pretty_printer< string_buffer< N > >
-{
-        template < typename W >
-        static void print( W&& w, const string_buffer< N >& buff )
-        {
-                w( std::string_view{ buff } );
-        }
-};
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 

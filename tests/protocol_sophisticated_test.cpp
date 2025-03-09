@@ -22,7 +22,7 @@
 #include "emlabcpp/protocol/handler.h"
 #include "emlabcpp/protocol/streams.h"
 #include "emlabcpp/protocol/tuple.h"
-#include "util.h"
+#include "util/util.h"
 
 #include <gtest/gtest.h>
 
@@ -152,14 +152,8 @@ std::function< protocol_test_fixture*() > make_valid_test_case(
         };
 }
 
-}  // namespace emlabcpp
-
-int main( int argc, char** argv )
+void protocol_sophisticated_tests()
 {
-        testing::InitGoogleTest( &argc, argv );
-
-        using namespace emlabcpp;
-
         const std::vector< std::function< protocol_test_fixture*() > > tests = {
             make_valid_test_case< simple_group >(
                 simple_group::make_val< FOO >( 42u, 666u ), { 12, 0, 0, 0, 42, 0, 0, 2, 154 } ),
@@ -215,5 +209,5 @@ int main( int argc, char** argv )
         };
 
         exec_protocol_test_fixture_test( tests );
-        return RUN_ALL_TESTS();
 }
+}  // namespace emlabcpp

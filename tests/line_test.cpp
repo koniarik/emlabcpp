@@ -19,7 +19,7 @@
 
 #include "emlabcpp/experimental/geom/line.h"
 
-#include "point_test.h"
+#include "util/point_test.h"
 
 #include <cmath>
 #include <gtest/gtest.h>

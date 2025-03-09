@@ -17,7 +17,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
-#include "test.h"
+#include "util/test.h"
 
 #include "emlabcpp/experimental/multiplexer.h"
 #include "emlabcpp/experimental/testing/collect.h"

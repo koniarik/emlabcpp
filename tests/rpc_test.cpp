@@ -19,8 +19,6 @@
 
 #include "emlabcpp/experimental/rpc.h"
 
-#include "emlabcpp/experimental/pretty_printer.h"
-
 #include <gtest/gtest.h>
 
 namespace emlabcpp

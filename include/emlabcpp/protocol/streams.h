@@ -26,129 +26,67 @@
 
 #include <iomanip>
 
-namespace emlabcpp
+namespace emlabcpp::protocol
 {
-namespace protocol
+template < typename T >
+struct msg_format
 {
-        template < typename T >
-        struct msg_format
-        {
-                T item;
-        };
-}  // namespace protocol
+        T item;
+};
 
 template < typename T >
-struct pretty_printer< protocol::msg_format< T > >
+static void pretty_print_msg_format( auto&& w, msg_format< T > wrapper )
 {
-        static void print( auto&& w, auto&& wrapper )
-        {
-                // TODO: this might benefit from some refactoring?
-                static constexpr char hex_chars[16] = {
-                    '0',
-                    '1',
-                    '2',
-                    '3',
-                    '4',
-                    '5',
-                    '6',
-                    '7',
-                    '8',
-                    '9',
-                    'A',
-                    'B',
-                    'C',
-                    'D',
-                    'E',
-                    'F' };
+        // TODO: this might benefit from some refactoring?
+        static constexpr char hex_chars[16] = {
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
-                char        l = '|';
-                std::size_t i = 0;
-                for ( const std::byte b : wrapper.item ) {
-                        if ( i % 4 == 0 )
-                                l = '|';
-                        const auto val = std::to_integer< uint8_t >( b );
-                        w( l );
-                        w( hex_chars[val / 16] );
-                        w( hex_chars[val % 16] );
-                        l = ':';
+        char        l = '|';
+        std::size_t i = 0;
+        for ( const std::byte b : wrapper.item ) {
+                if ( i % 4 == 0 )
+                        l = '|';
+                const auto val = std::to_integer< uint8_t >( b );
+                w( l );
+                w( hex_chars[val / 16] );
+                w( hex_chars[val % 16] );
+                l = ':';
 
-                        i++;
-                }
+                i++;
         }
-};
+}
 
-template < std::size_t N >
-struct pretty_printer< protocol::message< N > >
-{
-        template < typename T >
-        static void print( T&& w, const protocol::message< N >& msg )
-        {
-                w( protocol::msg_format{ msg } );
-        }
-};
-
-template < std::size_t N >
-struct pretty_printer< protocol::sizeless_message< N > >
-{
-        template < typename Writer >
-        static void print( Writer&& w, const protocol::sizeless_message< N >& msg )
-        {
-                pretty_printer< protocol::message< N > >::print( std::forward< Writer >( w ), msg );
-        }
-};
-
-template <>
-struct pretty_printer< protocol::mark >
-{
-        template < typename T >
-        static void print( T&& w, const protocol::mark& m )
-        {
-                w( std::string_view( m.data(), m.size() ) );
-        }
-};
-
-template <>
-struct pretty_printer< protocol::error_record >
-{
-        template < typename T >
-        static void print( T&& w, const protocol::error_record& rec )
-        {
-                w( rec.error_mark );
-                w( '(' );
-                w( rec.offset );
-                w( ')' );
-        }
-};
-
-namespace protocol
-{
 #ifdef EMLABCPP_USE_OSTREAM
-        template < std::size_t N >
-        inline std::ostream& operator<<( std::ostream& os, const message< N >& m )
-        {
-                return pretty_stream_write( os, m );
-        }
+template < std::size_t N >
+inline std::ostream& operator<<( std::ostream& os, const message< N >& m )
+{
+        pretty_print_msg_format(
+            [&]( auto c ) {
+                    os << c;
+            },
+            msg_format{ m } );
+        return os;
+}
 
-        inline std::ostream& operator<<( std::ostream& os, const mark& m )
-        {
-                return pretty_stream_write( os, m );
-        }
+inline std::ostream& operator<<( std::ostream& os, const mark& m )
+{
+        return os << std::string_view{ m.data(), m.size() };
+}
 
-        inline std::ostream& operator<<( std::ostream& os, const error_record& rec )
-        {
-                return pretty_stream_write( os, rec );
-        }
+inline std::ostream& operator<<( std::ostream& os, const error_record& rec )
+{
+        return os << rec.error_mark << '(' << rec.offset << ')';
+}
 
-        inline std::ostream& operator<<( std::ostream& os, const std::endian& val )
-        {
-                switch ( val ) {
-                case std::endian::big:
-                        return os << "big endian";
-                case std::endian::little:
-                        return os << "little endian";
-                }
-                return os;
+inline std::ostream& operator<<( std::ostream& os, const std::endian& val )
+{
+        switch ( val ) {
+        case std::endian::big:
+                return os << "big endian";
+        case std::endian::little:
+                return os << "little endian";
         }
+        return os;
+}
 #endif
-}  // namespace protocol
-}  // namespace emlabcpp
+}  // namespace emlabcpp::protocol

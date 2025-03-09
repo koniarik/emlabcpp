@@ -20,7 +20,6 @@
 #pragma once
 
 #include "emlabcpp/concepts.h"
-#include "emlabcpp/experimental/pretty_printer.h"
 
 #include <optional>
 #include <type_traits>
@@ -162,16 +161,6 @@ namespace detail
 /// Concept that matchestype deriving from bounded
 template < typename T >
 concept bounded_derived = requires( T val ) { detail::bounded_derived_test( val ); };
-
-template < typename T, T MinVal, T MaxVal >
-struct pretty_printer< bounded< T, MinVal, MaxVal > >
-{
-        template < typename Writer >
-        static void print( Writer&& w, const bounded< T, MinVal, MaxVal >& b )
-        {
-                pretty_printer< T >::print( std::forward< Writer >( w ), *b );
-        }
-};
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < typename T, T MinVal, T MaxVal >

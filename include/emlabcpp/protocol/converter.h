@@ -23,6 +23,7 @@
 #include "emlabcpp/assert.h"
 #include "emlabcpp/protocol/serializer.h"
 #include "emlabcpp/protocol/traits.h"
+#include "emlabcpp/visit.h"
 
 namespace emlabcpp::protocol
 {

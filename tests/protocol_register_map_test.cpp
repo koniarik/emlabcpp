@@ -20,7 +20,7 @@
 #include "emlabcpp/protocol/register_handler.h"
 #include "emlabcpp/protocol/register_map.h"
 #include "emlabcpp/protocol/streams.h"
-#include "util.h"
+#include "util/util.h"
 
 #include <gtest/gtest.h>
 
@@ -122,13 +122,8 @@ TEST( protocol_map, runtime_access )
         }
 }
 
-}  // namespace emlabcpp
-
-int main( int argc, char** argv )
+void protocol_register_map_tests()
 {
-        testing::InitGoogleTest( &argc, argv );
-
-        using namespace emlabcpp;
 
         const std::vector< std::function< protocol_test_fixture*() > > tests = {
             make_valid_test_case< FOO >( 6663434u ),
@@ -138,5 +133,6 @@ int main( int argc, char** argv )
             make_valid_test_case< KOO >( 42u ) };
 
         exec_protocol_test_fixture_test( tests );
-        return RUN_ALL_TESTS();
 }
+
+}  // namespace emlabcpp
