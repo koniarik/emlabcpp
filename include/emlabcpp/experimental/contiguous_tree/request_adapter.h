@@ -49,7 +49,7 @@ public:
         get_value( node_id id ) const
         {
                 return get_node( id ).bind_left(
-                    [&id]( const node_type& node )
+                    []( const node_type& node )
                         -> either< std::reference_wrapper< const value_type >, error_enum > {
                             const value_type* val_ptr = node.get_value();
                             if ( val_ptr == nullptr )
@@ -81,7 +81,7 @@ public:
 
                 return get_containers( nid )
                     .bind_left(
-                        [&id_var, &nid, &get_object_child, &get_array_child](
+                        [&id_var, &get_object_child, &get_array_child](
                             std::variant< const_object_handle, const_array_handle > var )
                             -> either< std::optional< node_id >, error_enum > {
                                 const_object_handle* oh_ptr = std::get_if< 0 >( &var );
@@ -95,8 +95,7 @@ public:
                                         return error_enum::WRONG_TYPE;
                         } )
                     .bind_left(
-                        [&nid, &id_var](
-                            std::optional< node_id > opt_nid ) -> either< node_id, error_enum > {
+                        []( std::optional< node_id > opt_nid ) -> either< node_id, error_enum > {
                                 if ( opt_nid )
                                         return *opt_nid;
                                 return error_enum::CHILD_MISSING;
@@ -118,7 +117,7 @@ public:
         [[nodiscard]] either< key_type, error_enum > get_key( node_id nid, child_id chid ) const
         {
                 return get_object_handle( nid ).bind_left(
-                    [&nid, &chid]( const_object_handle oh ) -> either< key_type, error_enum > {
+                    [&chid]( const_object_handle oh ) -> either< key_type, error_enum > {
                             const key_type* key_ptr = oh.get_key( chid );
 
                             if ( key_ptr == nullptr )
@@ -231,7 +230,7 @@ private:
         {
                 using var_type = std::variant< OHandle, AHandle >;
                 return self->get_node( nid ).bind_left(
-                    [&nid]( auto& node_wrapper ) -> either< var_type, error_enum > {
+                    []( auto& node_wrapper ) -> either< var_type, error_enum > {
                             auto& node = node_wrapper.get();
                             std::variant<
                                 std::reference_wrapper< const value_type >,
@@ -274,7 +273,7 @@ private:
         [[nodiscard]] static either< Handle, error_enum > get_handle_impl( Self* self, node_id nid )
         {
                 return self->get_containers( nid ).bind_left(
-                    [&nid]( auto& var ) -> either< Handle, error_enum > {
+                    [&]( auto& var ) -> either< Handle, error_enum > {
                             auto* h_ptr = std::get_if< Handle >( &var );
                             if ( h_ptr != nullptr )
                                     return *h_ptr;

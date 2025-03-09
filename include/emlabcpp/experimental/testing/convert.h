@@ -22,6 +22,8 @@
 #include "emlabcpp/experimental/string_buffer.h"
 #include "emlabcpp/experimental/testing/base.h"
 
+#include <bitset>
+
 namespace emlabcpp::testing
 {
 

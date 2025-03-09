@@ -104,7 +104,7 @@ static_assert( bounded_derived< bounded_derived_test > );
 // NOLINTNEXTLINE
 TEST( Bounded, ostream )
 {
-        auto v = bounded_constant< 42 >;
+        // auto v = bounded_constant< 42 >;
 
         // TODO: fix
         // EXPECT_EQ( to_string( v ), "42" );

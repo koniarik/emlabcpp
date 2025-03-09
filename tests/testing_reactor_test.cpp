@@ -68,7 +68,7 @@ public:
                                 msgs.push_back( var );
                                 return SUCCESS;
                         },
-                        [&]( const auto& err ) -> result {
+                        [&]( const auto& ) -> result {
                                 return ERROR;
                         } );
         }
