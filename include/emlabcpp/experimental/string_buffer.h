@@ -59,6 +59,25 @@ struct string_buffer : std::array< char, N >
         }
 };
 
+namespace bits
+{
+        template < typename T >
+        struct is_string_buffer
+        {
+                static constexpr bool value = false;
+        };
+
+        template < std::size_t N >
+        struct is_string_buffer< string_buffer< N > >
+        {
+                static constexpr bool value = true;
+        };
+
+}  // namespace bits
+
+template < typename T >
+concept is_string_buffer_v = bits::is_string_buffer< T >::value;
+
 template < std::size_t N >
 std::ostream& operator<<( std::ostream& os, const string_buffer< N >& sb )
 {
