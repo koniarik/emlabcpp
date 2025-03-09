@@ -1,5 +1,6 @@
 var namespaceemlabcpp =
 [
+    [ "bits", "namespaceemlabcpp_1_1bits.html", "namespaceemlabcpp_1_1bits" ],
     [ "cfg", "namespaceemlabcpp_1_1cfg.html", "namespaceemlabcpp_1_1cfg" ],
     [ "coro", "namespaceemlabcpp_1_1coro.html", "namespaceemlabcpp_1_1coro" ],
     [ "detail", "namespaceemlabcpp_1_1detail.html", "namespaceemlabcpp_1_1detail" ],
@@ -419,6 +420,7 @@ var namespaceemlabcpp =
     [ "is_std_array_v", "namespaceemlabcpp.html#a1d463be90e36b5d5be447e407fca17bf", null ],
     [ "is_std_tuple_v", "namespaceemlabcpp.html#a633f5fea14133c23b25a75cd57a8805d", null ],
     [ "is_std_vector_v", "namespaceemlabcpp.html#aa5277a3e558d32758ca0e4770ed5e1eb", null ],
+    [ "is_string_buffer_v", "namespaceemlabcpp.html#a8278be24d125a68a1d021a5a6744e794", null ],
     [ "is_view_v", "namespaceemlabcpp.html#aff43a196db9cecc357e6f4452638b32f", null ],
     [ "matrix_like", "namespaceemlabcpp.html#a71244dcc912784b08768c6ae041c37bc", null ],
     [ "multiplicative_operators", "namespaceemlabcpp.html#a5de77964b77f4e30ef2e570442171e8c", null ],

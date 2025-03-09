@@ -1,6 +1,10 @@
 var annotated_dup =
 [
     [ "emlabcpp", "namespaceemlabcpp.html", [
+      [ "bits", "namespaceemlabcpp_1_1bits.html", [
+        [ "is_string_buffer", "structemlabcpp_1_1bits_1_1is__string__buffer.html", "structemlabcpp_1_1bits_1_1is__string__buffer" ],
+        [ "is_string_buffer< string_buffer< N > >", "structemlabcpp_1_1bits_1_1is__string__buffer_3_01string__buffer_3_01N_01_4_01_4.html", "structemlabcpp_1_1bits_1_1is__string__buffer_3_01string__buffer_3_01N_01_4_01_4" ]
+      ] ],
       [ "cfg", "namespaceemlabcpp_1_1cfg.html", [
         [ "header", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1header_dup" ],
         [ "handler", "structemlabcpp_1_1cfg_1_1handler.html", "structemlabcpp_1_1cfg_1_1handler" ]

@@ -159,6 +159,8 @@ var hierarchy =
       [ "std::tuple_size< emlabcpp::min_max< T > >", "structstd_1_1tuple__size_3_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html", null ]
     ] ],
     [ "emlabcpp::testing::internal_reactor_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error", null ],
+    [ "emlabcpp::bits::is_string_buffer< T >", "structemlabcpp_1_1bits_1_1is__string__buffer.html", null ],
+    [ "emlabcpp::bits::is_string_buffer< string_buffer< N > >", "structemlabcpp_1_1bits_1_1is__string__buffer_3_01string__buffer_3_01N_01_4_01_4.html", null ],
     [ "emlabcpp::iterator_of< Container >", "namespaceemlabcpp.html#structemlabcpp_1_1iterator__of", null ],
     [ "std::iterator_traits< emlabcpp::decode_cobs_iter< Iter > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1decode__cobs__iter_3_01Iter_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::iterators::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", null ],
