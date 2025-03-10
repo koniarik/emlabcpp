@@ -23,12 +23,12 @@
 
 #include "util/test.h"
 
+#include "./util/util.h"
 #include "emlabcpp/experimental/testing/controller.h"
 #include "emlabcpp/experimental/testing/gtest.h"
 #include "emlabcpp/experimental/testing/json.h"
 #include "emlabcpp/experimental/testing/reactor.h"
 #include "emlabcpp/protocol/streams.h"
-#include "util.h"
 
 #include <gtest/gtest.h>
 
