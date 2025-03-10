@@ -88,23 +88,23 @@ $(document).ready(function(){initNavTree('enumerate_8h_source.html',''); initRes
 </div><!--header-->
 <div class="contents">
 <a href="enumerate_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zip_8h.html">emlabcpp/zip.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Container &gt;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc">    9</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc">enumerate</a>( Container&amp;&amp; cont )</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885">zip</a>( <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( cont.size() ), cont );</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
-<div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> impl.h:27</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a41ab261a0f296f3c9862e59e12339885"><div class="ttname"><a href="namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885">emlabcpp::zip</a></div><div class="ttdeci">auto zip(Ts &amp;&amp;... cont)</div><div class="ttdoc">Creates a view of zip iterators for specified containers.</div><div class="ttdef"><b>Definition:</b> zip.h:147</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_acf5a156c767ed17a892cc7e9b5acd2b1"><div class="ttname"><a href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">emlabcpp::range</a></div><div class="ttdeci">constexpr view&lt; iterators::numeric_iterator&lt; Numeric &gt; &gt; range(Numeric from, Numeric to)</div><div class="ttdoc">Builds numeric view over interval [from, to)</div><div class="ttdef"><b>Definition:</b> range.h:29</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_afe935e56d6376df9f87d0d015a3baecc"><div class="ttname"><a href="namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc">emlabcpp::enumerate</a></div><div class="ttdeci">auto enumerate(Container &amp;&amp;cont)</div><div class="ttdef"><b>Definition:</b> enumerate.h:9</div></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zip_8h.html">emlabcpp/zip.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Container &gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc">   30</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc">enumerate</a>( Container&amp;&amp; cont )</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885">zip</a>( <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( cont.size() ), cont );</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">MIT License.</div><div class="ttdef"><b>Definition:</b> impl.h:31</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a41ab261a0f296f3c9862e59e12339885"><div class="ttname"><a href="namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885">emlabcpp::zip</a></div><div class="ttdeci">auto zip(Ts &amp;&amp;... cont)</div><div class="ttdoc">Creates a view of zip iterators for specified containers.</div><div class="ttdef"><b>Definition:</b> zip.h:151</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_acf5a156c767ed17a892cc7e9b5acd2b1"><div class="ttname"><a href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">emlabcpp::range</a></div><div class="ttdeci">constexpr view&lt; iterators::numeric_iterator&lt; Numeric &gt; &gt; range(Numeric from, Numeric to)</div><div class="ttdoc">Builds numeric view over interval [from, to)</div><div class="ttdef"><b>Definition:</b> range.h:33</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_afe935e56d6376df9f87d0d015a3baecc"><div class="ttname"><a href="namespaceemlabcpp.html#afe935e56d6376df9f87d0d015a3baecc">emlabcpp::enumerate</a></div><div class="ttdeci">auto enumerate(Container &amp;&amp;cont)</div><div class="ttdef"><b>Definition:</b> enumerate.h:30</div></div>
 <div class="ttc" id="azip_8h_html"><div class="ttname"><a href="zip_8h.html">zip.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('enumerate_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="enumerate_8h.html">enumerate.h</a></li>
-    <li class="footer">Generated on Sun Mar 9 2025 22:22:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 10 2025 20:59:57 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

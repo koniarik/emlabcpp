@@ -88,87 +88,87 @@ $(document).ready(function(){initNavTree('streams_8h_source.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <a href="streams_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="enum_8h.html">emlabcpp/enum.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="protocol_2base_8h.html">emlabcpp/protocol/base.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="register__map_8h.html">emlabcpp/protocol/register_map.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="range_8h.html">emlabcpp/range.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1protocol.html">emlabcpp::protocol</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html">   32</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1msg__format">msg_format</a></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html#af78b93092e56190cc41e0831eb31d87f">   34</a></span>&#160;        T <a class="code" href="namespaceemlabcpp_1_1protocol.html#af78b93092e56190cc41e0831eb31d87f">item</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630">   38</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630">pretty_print_msg_format</a>( <span class="keyword">auto</span>&amp;&amp; w, <a class="code" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1msg__format">msg_format&lt; T &gt;</a> wrapper )</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">// TODO: this might benefit from some refactoring?</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">char</span> hex_chars[16] = {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;1&#39;</span>, <span class="charliteral">&#39;2&#39;</span>, <span class="charliteral">&#39;3&#39;</span>, <span class="charliteral">&#39;4&#39;</span>, <span class="charliteral">&#39;5&#39;</span>, <span class="charliteral">&#39;6&#39;</span>, <span class="charliteral">&#39;7&#39;</span>, <span class="charliteral">&#39;8&#39;</span>, <span class="charliteral">&#39;9&#39;</span>, <span class="charliteral">&#39;A&#39;</span>, <span class="charliteral">&#39;B&#39;</span>, <span class="charliteral">&#39;C&#39;</span>, <span class="charliteral">&#39;D&#39;</span>, <span class="charliteral">&#39;E&#39;</span>, <span class="charliteral">&#39;F&#39;</span> };</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">char</span>        l = <span class="charliteral">&#39;|&#39;</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::size_t i = 0;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">for</span> ( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> b : wrapper.<a class="code" href="namespaceemlabcpp_1_1protocol.html#af78b93092e56190cc41e0831eb31d87f">item</a> ) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">if</span> ( i % 4 == 0 )</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        l = <span class="charliteral">&#39;|&#39;</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> val = std::to_integer&lt; uint8_t &gt;( b );</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                w( l );</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                w( hex_chars[val / 16] );</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                w( hex_chars[val % 16] );</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                l = <span class="charliteral">&#39;:&#39;</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                i++;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="enum_8h.html">emlabcpp/enum.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="protocol_2base_8h.html">emlabcpp/protocol/base.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="register__map_8h.html">emlabcpp/protocol/register_map.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="range_8h.html">emlabcpp/range.h</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1protocol.html">emlabcpp::protocol</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html">   36</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1msg__format">msg_format</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html#af78b93092e56190cc41e0831eb31d87f">   38</a></span>&#160;        T <a class="code" href="namespaceemlabcpp_1_1protocol.html#af78b93092e56190cc41e0831eb31d87f">item</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630">   42</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630">pretty_print_msg_format</a>( <span class="keyword">auto</span>&amp;&amp; w, <a class="code" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1msg__format">msg_format&lt; T &gt;</a> wrapper )</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// TODO: this might benefit from some refactoring?</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">char</span> hex_chars[16] = {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;1&#39;</span>, <span class="charliteral">&#39;2&#39;</span>, <span class="charliteral">&#39;3&#39;</span>, <span class="charliteral">&#39;4&#39;</span>, <span class="charliteral">&#39;5&#39;</span>, <span class="charliteral">&#39;6&#39;</span>, <span class="charliteral">&#39;7&#39;</span>, <span class="charliteral">&#39;8&#39;</span>, <span class="charliteral">&#39;9&#39;</span>, <span class="charliteral">&#39;A&#39;</span>, <span class="charliteral">&#39;B&#39;</span>, <span class="charliteral">&#39;C&#39;</span>, <span class="charliteral">&#39;D&#39;</span>, <span class="charliteral">&#39;E&#39;</span>, <span class="charliteral">&#39;F&#39;</span> };</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">char</span>        l = <span class="charliteral">&#39;|&#39;</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        std::size_t i = 0;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">for</span> ( <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> b : wrapper.<a class="code" href="namespaceemlabcpp_1_1protocol.html#af78b93092e56190cc41e0831eb31d87f">item</a> ) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">if</span> ( i % 4 == 0 )</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        l = <span class="charliteral">&#39;|&#39;</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> val = std::to_integer&lt; uint8_t &gt;( b );</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                w( l );</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                w( hex_chars[val / 16] );</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                w( hex_chars[val % 16] );</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                l = <span class="charliteral">&#39;:&#39;</span>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_OSTREAM</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">operator&lt;&lt;</a>( std::ostream&amp; os, <span class="keyword">const</span> message&lt; N &gt;&amp; m )</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630">pretty_print_msg_format</a>(</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            [&amp;]( <span class="keyword">auto</span> c ) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    os &lt;&lt; c;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            },</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            msg_format{ m } );</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">operator&lt;&lt;</a>( std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>&amp; m )</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; std::string_view{ m.data(), m.size() };</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">operator&lt;&lt;</a>( std::ostream&amp; os, <span class="keyword">const</span> error_record&amp; rec )</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; rec.error_mark &lt;&lt; <span class="charliteral">&#39;(&#39;</span> &lt;&lt; rec.offset &lt;&lt; <span class="charliteral">&#39;)&#39;</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">operator&lt;&lt;</a>( std::ostream&amp; os, <span class="keyword">const</span> std::endian&amp; val )</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">switch</span> ( val ) {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">case</span> std::endian::big:</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;big endian&quot;</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">case</span> std::endian::little:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;little endian&quot;</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}  <span class="comment">// namespace emlabcpp::protocol</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                i++;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#ifdef EMLABCPP_USE_OSTREAM</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">operator&lt;&lt;</a>( std::ostream&amp; os, <span class="keyword">const</span> message&lt; N &gt;&amp; m )</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630">pretty_print_msg_format</a>(</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            [&amp;]( <span class="keyword">auto</span> c ) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    os &lt;&lt; c;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            },</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            msg_format{ m } );</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">operator&lt;&lt;</a>( std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">mark</a>&amp; m )</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; std::string_view{ m.data(), m.size() };</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">operator&lt;&lt;</a>( std::ostream&amp; os, <span class="keyword">const</span> error_record&amp; rec )</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; rec.error_mark &lt;&lt; <span class="charliteral">&#39;(&#39;</span> &lt;&lt; rec.offset &lt;&lt; <span class="charliteral">&#39;)&#39;</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">operator&lt;&lt;</a>( std::ostream&amp; os, <span class="keyword">const</span> std::endian&amp; val )</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">switch</span> ( val ) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">case</span> std::endian::big:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;big endian&quot;</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">case</span> std::endian::little:</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;little endian&quot;</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}  <span class="comment">// namespace emlabcpp::protocol</span></div>
 <div class="ttc" id="aenum_8h_html"><div class="ttname"><a href="enum_8h.html">enum.h</a></div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html">emlabcpp::protocol</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> multiplexer.h:29</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a95639c060b8e7d62ecc9dffcfb00236b"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">emlabcpp::protocol::mark</a></div><div class="ttdeci">string_buffer&lt; mark_size &gt; mark</div><div class="ttdef"><b>Definition:</b> error.h:32</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_ad9bfce78b138b4a8753b18562c30b630"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630">emlabcpp::protocol::pretty_print_msg_format</a></div><div class="ttdeci">static void pretty_print_msg_format(auto &amp;&amp;w, msg_format&lt; T &gt; wrapper)</div><div class="ttdef"><b>Definition:</b> streams.h:38</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_af78b93092e56190cc41e0831eb31d87f"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#af78b93092e56190cc41e0831eb31d87f">emlabcpp::protocol::msg_format::item</a></div><div class="ttdeci">T item</div><div class="ttdef"><b>Definition:</b> streams.h:34</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_structemlabcpp_1_1protocol_1_1msg__format"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1msg__format">emlabcpp::protocol::msg_format</a></div><div class="ttdef"><b>Definition:</b> streams.h:33</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_add7921925c77c6350a91d55d9471bdc1"><div class="ttname"><a href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const string_buffer&lt; N &gt; &amp;sb)</div><div class="ttdef"><b>Definition:</b> string_buffer.h:80</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:114</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html">emlabcpp::protocol</a></div><div class="ttdoc">MIT License.</div><div class="ttdef"><b>Definition:</b> multiplexer.h:33</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a95639c060b8e7d62ecc9dffcfb00236b"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a95639c060b8e7d62ecc9dffcfb00236b">emlabcpp::protocol::mark</a></div><div class="ttdeci">string_buffer&lt; mark_size &gt; mark</div><div class="ttdef"><b>Definition:</b> error.h:36</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_ad9bfce78b138b4a8753b18562c30b630"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630">emlabcpp::protocol::pretty_print_msg_format</a></div><div class="ttdeci">static void pretty_print_msg_format(auto &amp;&amp;w, msg_format&lt; T &gt; wrapper)</div><div class="ttdef"><b>Definition:</b> streams.h:42</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_af78b93092e56190cc41e0831eb31d87f"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#af78b93092e56190cc41e0831eb31d87f">emlabcpp::protocol::msg_format::item</a></div><div class="ttdeci">T item</div><div class="ttdef"><b>Definition:</b> streams.h:38</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_structemlabcpp_1_1protocol_1_1msg__format"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1msg__format">emlabcpp::protocol::msg_format</a></div><div class="ttdef"><b>Definition:</b> streams.h:37</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_add7921925c77c6350a91d55d9471bdc1"><div class="ttname"><a href="namespaceemlabcpp.html#add7921925c77c6350a91d55d9471bdc1">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const string_buffer&lt; N &gt; &amp;sb)</div><div class="ttdef"><b>Definition:</b> string_buffer.h:101</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:118</div></div>
 <div class="ttc" id="aprotocol_2base_8h_html"><div class="ttname"><a href="protocol_2base_8h.html">base.h</a></div></div>
 <div class="ttc" id="arange_8h_html"><div class="ttname"><a href="range_8h.html">range.h</a></div></div>
 <div class="ttc" id="aregister__map_8h_html"><div class="ttname"><a href="register__map_8h.html">register_map.h</a></div></div>
@@ -178,7 +178,7 @@ $(document).ready(function(){initNavTree('streams_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="streams_8h.html">streams.h</a></li>
-    <li class="footer">Generated on Sun Mar 9 2025 22:22:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 10 2025 20:59:57 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

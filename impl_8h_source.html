@@ -88,230 +88,230 @@ $(document).ready(function(){initNavTree('impl_8h_source.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 <a href="impl_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">emlabcpp/types.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html">   26</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1impl.html">emlabcpp::impl</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span>... Args, <span class="keyword">typename</span> UnaryPredicate, std::size_t... Idx &gt;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;[[nodiscard]] constexpr std::size_t</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a502794f0cc63c9d3399dfcedd60bd48e">   31</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1impl.html#a502794f0cc63c9d3399dfcedd60bd48e">find_if_impl</a>( <span class="keyword">const</span> std::tuple&lt; Args... &gt;&amp; t, UnaryPredicate&amp;&amp; <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, std::index_sequence&lt; Idx... &gt; )</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        std::size_t <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = <span class="keyword">sizeof</span>...( Args );</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">auto</span>        ff  = [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; item, <span class="keyword">const</span> std::size_t i ) {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <span class="keywordflow">if</span> ( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>( item ) ) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = i;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        };</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        ( ff( std::get&lt; Idx &gt;( t ), Idx ) || ... );</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">typename</span> T,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::size_t     N,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a> Container,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a>,</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::size_t... Is &gt;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;[[nodiscard]] std::array&lt; T, N &gt;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a">   54</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a">map_f_to_a_impl</a>( Container&amp;&amp; cont, <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a>&amp;&amp; <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, std::integer_sequence&lt; std::size_t, Is... &gt; )</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">auto</span> iter    = cont.begin();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">auto</span> process = [&amp;]( auto ) {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">if</span> constexpr ( std::is_reference_v&lt; Container &gt; )</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>( *iter++ );</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>( std::move( *iter++ ) );</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        };</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> std::array&lt; T, N &gt;{ process( Is )... };</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">typename</span> T,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    std::size_t        N,</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">gettable_container</a> Container,</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a>,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    std::size_t... Is &gt;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">   77</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( !range_container&lt; Container &gt; )</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;[[nodiscard]] std::array&lt; T, N &gt; <a class="code" href="namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a">map_f_to_a_impl</a>(</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    Container&amp;&amp;          cont,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a>&amp; <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>,</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    std::integer_sequence&lt; std::size_t, Is... &gt; )</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">auto</span> process = [&amp;cont, &amp;<a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>]&lt; std::size_t i &gt;() {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>( std::get&lt; i &gt;( std::forward&lt; Container &gt;( cont ) ) );</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        };</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> std::array&lt; T, N &gt; { process.template operator()&lt; Is &gt;()... };</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">emlabcpp/types.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html">   30</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1impl.html">emlabcpp::impl</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span>... Args, <span class="keyword">typename</span> UnaryPredicate, std::size_t... Idx &gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;[[nodiscard]] constexpr std::size_t</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a502794f0cc63c9d3399dfcedd60bd48e">   35</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1impl.html#a502794f0cc63c9d3399dfcedd60bd48e">find_if_impl</a>( <span class="keyword">const</span> std::tuple&lt; Args... &gt;&amp; t, UnaryPredicate&amp;&amp; <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, std::index_sequence&lt; Idx... &gt; )</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        std::size_t <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = <span class="keyword">sizeof</span>...( Args );</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">auto</span>        ff  = [&amp;]( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; item, <span class="keyword">const</span> std::size_t i ) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keywordflow">if</span> ( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>( item ) ) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                        <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> = i;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        };</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        ( ff( std::get&lt; Idx &gt;( t ), Idx ) || ... );</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">typename</span> T,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    std::size_t     N,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a> Container,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a>,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    std::size_t... Is &gt;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;[[nodiscard]] std::array&lt; T, N &gt;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a">   58</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a">map_f_to_a_impl</a>( Container&amp;&amp; cont, <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a>&amp;&amp; <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, std::integer_sequence&lt; std::size_t, Is... &gt; )</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">auto</span> iter    = cont.begin();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">auto</span> process = [&amp;]( auto ) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">if</span> constexpr ( std::is_reference_v&lt; Container &gt; )</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>( *iter++ );</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>( std::move( *iter++ ) );</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        };</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> std::array&lt; T, N &gt;{ process( Is )... };</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">typename</span> T,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    std::size_t        N,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">gettable_container</a> Container,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a>,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    std::size_t... Is &gt;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">   81</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( !range_container&lt; Container &gt; )</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;[[nodiscard]] std::array&lt; T, N &gt; <a class="code" href="namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a">map_f_to_a_impl</a>(</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Container&amp;&amp;          cont,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a>&amp; <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    std::integer_sequence&lt; std::size_t, Is... &gt; )</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">auto</span> process = [&amp;cont, &amp;<a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>]&lt; std::size_t i &gt;() {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>( std::get&lt; i &gt;( std::forward&lt; Container &gt;( cont ) ) );</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        };</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> &gt;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html">   92</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector">map_f_collector</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">template</span> &lt; with_push_back T &gt;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html">   95</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector">map_f_collector</a>&lt; T &gt;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">   97</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">collect</a>( T&amp; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> val )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.push_back( std::move( val ) );</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a6bbd605bf9a833a4c88a3862dbf50d5f">  104</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> b ) { a.insert( b ); }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">struct </span>map_f_collector&lt; T &gt;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">  107</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">collect</a>( T&amp; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> val )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.insert( std::move( val ) );</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html">  114</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector">map_f_collector</a>&lt; std::array&lt; T, N &gt; &gt;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html#a4e5b380463b4ccd3f5e7f9be41e58e0a">  116</a></span>&#160;        std::size_t i = 0;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html#a2598d2f2f9a7631a0cb44384c4b0e463">  118</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html#a2598d2f2f9a7631a0cb44384c4b0e463">collect</a>( std::array&lt; T, N &gt;&amp; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>, T val )</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[i] = std::move( val );</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                i += 1;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;};</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f">  126</a></span>&#160;concept <a class="code" href="namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f">map_f_collectable</a> = <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T item, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> val ) {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <a class="code" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html">map_f_collector&lt; T &gt;</a>{}.<a class="code" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">collect</a>( item, std::move( val ) );</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;};</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> I, <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">  131</a></span>&#160;constexpr <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">get_ith_item_from_arrays</a>( T&amp; arr, <span class="keyword">auto</span>&amp;... arrays )</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;{</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        constexpr std::size_t first_size = std::tuple_size_v&lt; std::decay_t&lt; T &gt; &gt;;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordflow">if</span> constexpr ( I &gt;= first_size )</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">get_ith_item_from_arrays</a>&lt; I - first_size &gt;( arrays... );</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                <span class="keywordflow">return</span> arr[I];</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">  140</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INDEX_MAX 32</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">  141</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INDEX_EXPAND( F ) \</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor">        F( 0 )                     \</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">        F( 1 )                     \</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor">        F( 2 )                     \</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor">        F( 3 )                     \</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">        F( 4 )                     \</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor">        F( 5 )                     \</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor">        F( 6 )                     \</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor">        F( 7 )                     \</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">        F( 8 )                     \</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">        F( 9 )                     \</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">        F( 10 )                    \</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">        F( 11 )                    \</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor">        F( 12 )                    \</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">        F( 13 )                    \</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">        F( 14 )                    \</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">        F( 15 )                    \</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">        F( 16 )                    \</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">        F( 17 )                    \</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor">        F( 18 )                    \</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor">        F( 19 )                    \</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor">        F( 20 )                    \</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">        F( 21 )                    \</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">        F( 22 )                    \</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="preprocessor">        F( 23 )                    \</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">        F( 24 )                    \</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">        F( 25 )                    \</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor">        F( 26 )                    \</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">        F( 27 )                    \</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor">        F( 28 )                    \</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">        F( 29 )                    \</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor">        F( 30 )                    \</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="preprocessor">        F( 31 )</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="impl_8h.html#ad033e440927450aafee3024cd7f16575">  175</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INDEX_SWITCH_CASE( x ) \</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">        case x:                         \</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">                if constexpr ( x &lt; N )  \</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">                        return std::forward&lt; F &gt;( f ).template operator()&lt; Off + x &gt;();</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> Off, std::<span class="keywordtype">size_t</span> N, <span class="keyword">typename</span> F &gt;</div>
-<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">  182</a></span>&#160;constexpr decltype( <span class="keyword">auto</span> ) <a class="code" href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">index_switch</a>( std::<span class="keywordtype">size_t</span> i, F&amp;&amp; <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> )</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">switch</span> ( i ) {</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                <a class="code" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>( <a class="code" href="impl_8h.html#ad033e440927450aafee3024cd7f16575">EMLABCPP_INDEX_SWITCH_CASE</a> )</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        }</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">if</span> constexpr ( N &gt; <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a> )</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">index_switch</a>&lt; <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, N - <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a> &gt;(</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                    i - <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, std::forward&lt; F &gt;( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> ) );</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        abort();</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;}</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="impl_8h.html#aa8e6590904926df9b2f00b61c63f370a">  196</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INDEX_SEQ( x ) \</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor">        if constexpr ( x &lt; N )  \</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">                f.template operator()&lt; Off + x &gt;();</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> std::array&lt; T, N &gt; { process.template operator()&lt; Is &gt;()... };</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> &gt;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html">   96</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector">map_f_collector</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">template</span> &lt; with_push_back T &gt;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html">   99</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector">map_f_collector</a>&lt; T &gt;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">  101</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">collect</a>( T&amp; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> val )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.push_back( std::move( val ) );</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a6bbd605bf9a833a4c88a3862dbf50d5f">  108</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> b ) { a.insert( b ); }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">struct </span>map_f_collector&lt; T &gt;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">  111</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">collect</a>( T&amp; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> val )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.insert( std::move( val ) );</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;};</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N &gt;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html">  118</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector">map_f_collector</a>&lt; std::array&lt; T, N &gt; &gt;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html#a4e5b380463b4ccd3f5e7f9be41e58e0a">  120</a></span>&#160;        std::size_t i = 0;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html#a2598d2f2f9a7631a0cb44384c4b0e463">  122</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html#a2598d2f2f9a7631a0cb44384c4b0e463">collect</a>( std::array&lt; T, N &gt;&amp; <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>, T val )</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>[i] = std::move( val );</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                i += 1;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;};</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f">  130</a></span>&#160;concept <a class="code" href="namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f">map_f_collectable</a> = <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T item, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">T::value_type</a> val ) {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <a class="code" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html">map_f_collector&lt; T &gt;</a>{}.<a class="code" href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">collect</a>( item, std::move( val ) );</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;};</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> I, <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">  135</a></span>&#160;constexpr <span class="keyword">auto</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">get_ith_item_from_arrays</a>( T&amp; arr, <span class="keyword">auto</span>&amp;... arrays )</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;{</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        constexpr std::size_t first_size = std::tuple_size_v&lt; std::decay_t&lt; T &gt; &gt;;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordflow">if</span> constexpr ( I &gt;= first_size )</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">get_ith_item_from_arrays</a>&lt; I - first_size &gt;( arrays... );</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                <span class="keywordflow">return</span> arr[I];</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;}</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">  144</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INDEX_MAX 32</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">  145</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INDEX_EXPAND( F ) \</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">        F( 0 )                     \</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor">        F( 1 )                     \</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor">        F( 2 )                     \</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor">        F( 3 )                     \</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">        F( 4 )                     \</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">        F( 5 )                     \</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">        F( 6 )                     \</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">        F( 7 )                     \</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor">        F( 8 )                     \</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">        F( 9 )                     \</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">        F( 10 )                    \</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">        F( 11 )                    \</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">        F( 12 )                    \</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">        F( 13 )                    \</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor">        F( 14 )                    \</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor">        F( 15 )                    \</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor">        F( 16 )                    \</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">        F( 17 )                    \</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">        F( 18 )                    \</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="preprocessor">        F( 19 )                    \</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">        F( 20 )                    \</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">        F( 21 )                    \</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor">        F( 22 )                    \</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">        F( 23 )                    \</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor">        F( 24 )                    \</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">        F( 25 )                    \</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor">        F( 26 )                    \</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="preprocessor">        F( 27 )                    \</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">        F( 28 )                    \</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor">        F( 29 )                    \</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">        F( 30 )                    \</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">        F( 31 )</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="impl_8h.html#ad033e440927450aafee3024cd7f16575">  179</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INDEX_SWITCH_CASE( x ) \</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor">        case x:                         \</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor">                if constexpr ( x &lt; N )  \</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">                        return std::forward&lt; F &gt;( f ).template operator()&lt; Off + x &gt;();</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> Off, std::<span class="keywordtype">size_t</span> N, <span class="keyword">typename</span> F &gt;</div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">  186</a></span>&#160;constexpr decltype( <span class="keyword">auto</span> ) <a class="code" href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">index_switch</a>( std::<span class="keywordtype">size_t</span> i, F&amp;&amp; <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> )</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;{</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">switch</span> ( i ) {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                <a class="code" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>( <a class="code" href="impl_8h.html#ad033e440927450aafee3024cd7f16575">EMLABCPP_INDEX_SWITCH_CASE</a> )</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keywordflow">if</span> constexpr ( N &gt; <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a> )</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">index_switch</a>&lt; <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, N - <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a> &gt;(</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                    i - <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, std::forward&lt; F &gt;( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> ) );</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        abort();</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;}</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> Off, std::<span class="keywordtype">size_t</span> N, <span class="keyword">typename</span> F &gt;</div>
-<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a907f5a51879fabd1a1af1d0dd452db07">  202</a></span>&#160;constexpr <span class="keywordtype">void</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#a907f5a51879fabd1a1af1d0dd452db07">index_seq</a>( F&amp;&amp; <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> )</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;{</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <a class="code" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>( <a class="code" href="impl_8h.html#aa8e6590904926df9b2f00b61c63f370a">EMLABCPP_INDEX_SEQ</a> )</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keywordflow">if</span> constexpr ( N &gt; <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a> )</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                <a class="code" href="namespaceemlabcpp_1_1impl.html#a907f5a51879fabd1a1af1d0dd452db07">index_seq</a>&lt; <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, N - <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a> &gt;( std::forward&lt; F &gt;( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> ) );</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;}</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="impl_8h.html#ac2dd8a495eb1e272978107ec2e672e7b">  209</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INDEX_UNTIL( x )                         \</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">        if constexpr ( x &lt; N )                            \</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">                if ( f.template operator()&lt; Off + x &gt;() ) \</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">                        return true;</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> Off, std::<span class="keywordtype">size_t</span> N, <span class="keyword">typename</span> F &gt;</div>
-<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#abce547c43b4a41299954095aaedbc550">  216</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#abce547c43b4a41299954095aaedbc550">index_until</a>( F&amp;&amp; <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> )</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;{</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <a class="code" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>( <a class="code" href="impl_8h.html#ac2dd8a495eb1e272978107ec2e672e7b">EMLABCPP_INDEX_UNTIL</a> )</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keywordflow">if</span> constexpr ( N &gt; <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a> )</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#abce547c43b4a41299954095aaedbc550">index_until</a>&lt; <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, N - <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a> &gt;(</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                    std::forward&lt; F &gt;( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> ) );</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;}</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;}  <span class="comment">// namespace emlabcpp::impl</span></div>
-<div class="ttc" id="aimpl_8h_html_a6874ce542f9adb9bcfb82748f103eb61"><div class="ttname"><a href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a></div><div class="ttdeci">#define EMLABCPP_INDEX_MAX</div><div class="ttdef"><b>Definition:</b> impl.h:140</div></div>
-<div class="ttc" id="aimpl_8h_html_a6fe4c3a9d539a761d08c07c63cad7f38"><div class="ttname"><a href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a></div><div class="ttdeci">#define EMLABCPP_INDEX_EXPAND(F)</div><div class="ttdef"><b>Definition:</b> impl.h:141</div></div>
-<div class="ttc" id="aimpl_8h_html_aa8e6590904926df9b2f00b61c63f370a"><div class="ttname"><a href="impl_8h.html#aa8e6590904926df9b2f00b61c63f370a">EMLABCPP_INDEX_SEQ</a></div><div class="ttdeci">#define EMLABCPP_INDEX_SEQ(x)</div><div class="ttdef"><b>Definition:</b> impl.h:196</div></div>
-<div class="ttc" id="aimpl_8h_html_ac2dd8a495eb1e272978107ec2e672e7b"><div class="ttname"><a href="impl_8h.html#ac2dd8a495eb1e272978107ec2e672e7b">EMLABCPP_INDEX_UNTIL</a></div><div class="ttdeci">#define EMLABCPP_INDEX_UNTIL(x)</div><div class="ttdef"><b>Definition:</b> impl.h:209</div></div>
-<div class="ttc" id="aimpl_8h_html_ad033e440927450aafee3024cd7f16575"><div class="ttname"><a href="impl_8h.html#ad033e440927450aafee3024cd7f16575">EMLABCPP_INDEX_SWITCH_CASE</a></div><div class="ttdeci">#define EMLABCPP_INDEX_SWITCH_CASE(x)</div><div class="ttdef"><b>Definition:</b> impl.h:175</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html">emlabcpp::impl</a></div><div class="ttdoc">Copyright (C) 2020 Jan Veverak Koniarik.</div><div class="ttdef"><b>Definition:</b> impl.h:27</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a4606886189823b5ac10a55fab1debabf"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">emlabcpp::impl::index_switch</a></div><div class="ttdeci">constexpr decltype(auto) index_switch(std::size_t i, F &amp;&amp;f)</div><div class="ttdoc">Executes f&lt;i&gt; if provided i matches.</div><div class="ttdef"><b>Definition:</b> impl.h:182</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a502794f0cc63c9d3399dfcedd60bd48e"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a502794f0cc63c9d3399dfcedd60bd48e">emlabcpp::impl::find_if_impl</a></div><div class="ttdeci">constexpr std::size_t find_if_impl(const std::tuple&lt; Args... &gt; &amp;t, UnaryPredicate &amp;&amp;f, std::index_sequence&lt; Idx... &gt;)</div><div class="ttdef"><b>Definition:</b> impl.h:31</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a5b47b8b6ec7073426834aee07b4a749c"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">emlabcpp::impl::get_ith_item_from_arrays</a></div><div class="ttdeci">constexpr auto get_ith_item_from_arrays(T &amp;arr, auto &amp;... arrays)</div><div class="ttdef"><b>Definition:</b> impl.h:131</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a907f5a51879fabd1a1af1d0dd452db07"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a907f5a51879fabd1a1af1d0dd452db07">emlabcpp::impl::index_seq</a></div><div class="ttdeci">constexpr void index_seq(F &amp;&amp;f)</div><div class="ttdoc">Executes f&lt;i&gt; for i going from Off to N.</div><div class="ttdef"><b>Definition:</b> impl.h:202</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a9282cb9e137c842eef92467c1a0a504a"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a">emlabcpp::impl::map_f_to_a_impl</a></div><div class="ttdeci">std::array&lt; T, N &gt; map_f_to_a_impl(Container &amp;&amp;cont, UnaryCallable &amp;&amp;f, std::integer_sequence&lt; std::size_t, Is... &gt;)</div><div class="ttdef"><b>Definition:</b> impl.h:54</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:77</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa4539ae7694e16e3a1749e3089a36e2f"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f">emlabcpp::impl::map_f_collectable</a></div><div class="ttdeci">concept map_f_collectable</div><div class="ttdef"><b>Definition:</b> impl.h:126</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_abce547c43b4a41299954095aaedbc550"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#abce547c43b4a41299954095aaedbc550">emlabcpp::impl::index_until</a></div><div class="ttdeci">constexpr bool index_until(F &amp;&amp;f)</div><div class="ttdoc">Executes f&lt;i&gt; until some is true.</div><div class="ttdef"><b>Definition:</b> impl.h:216</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_structemlabcpp_1_1impl_1_1map__f__collector"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector">emlabcpp::impl::map_f_collector</a></div><div class="ttdef"><b>Definition:</b> impl.h:92</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:47</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a904e4439ee5b6a29ec1c9a5a6d404c55"><div class="ttname"><a href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">emlabcpp::range_container</a></div><div class="ttdeci">concept range_container</div><div class="ttdoc">so, std::ranges::range is meh because it expects return of begin() being input_output_iterator,...</div><div class="ttdef"><b>Definition:</b> concepts.h:74</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:501</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_ac1cdce6706f4b40d478521925ca85f8a"><div class="ttname"><a href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">emlabcpp::UnaryCallable</a></div><div class="ttdeci">UnaryCallable</div><div class="ttdef"><b>Definition:</b> types.h:50</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_adb54eee14fc87e50de7f6ed35ad1aba0"><div class="ttname"><a href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">emlabcpp::gettable_container</a></div><div class="ttdeci">concept gettable_container</div><div class="ttdef"><b>Definition:</b> concepts.h:67</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_ae863a37ceeaded64e65fc9ac024f70d9"><div class="ttname"><a href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:157</div></div>
-<div class="ttc" id="astructemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4_html"><div class="ttname"><a href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html">emlabcpp::impl::map_f_collector&lt; T &gt;</a></div><div class="ttdef"><b>Definition:</b> impl.h:96</div></div>
-<div class="ttc" id="astructemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4_html_a9f599f30ea801909666f3fca862df63e"><div class="ttname"><a href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">emlabcpp::impl::map_f_collector&lt; T &gt;::collect</a></div><div class="ttdeci">void collect(T &amp;res, typename T::value_type val) const</div><div class="ttdef"><b>Definition:</b> impl.h:97</div></div>
-<div class="ttc" id="astructemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4_html_a2598d2f2f9a7631a0cb44384c4b0e463"><div class="ttname"><a href="structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html#a2598d2f2f9a7631a0cb44384c4b0e463">emlabcpp::impl::map_f_collector&lt; std::array&lt; T, N &gt; &gt;::collect</a></div><div class="ttdeci">void collect(std::array&lt; T, N &gt; &amp;res, T val)</div><div class="ttdef"><b>Definition:</b> impl.h:118</div></div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="impl_8h.html#aa8e6590904926df9b2f00b61c63f370a">  200</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INDEX_SEQ( x ) \</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">        if constexpr ( x &lt; N )  \</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor">                f.template operator()&lt; Off + x &gt;();</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> Off, std::<span class="keywordtype">size_t</span> N, <span class="keyword">typename</span> F &gt;</div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#a907f5a51879fabd1a1af1d0dd452db07">  206</a></span>&#160;constexpr <span class="keywordtype">void</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#a907f5a51879fabd1a1af1d0dd452db07">index_seq</a>( F&amp;&amp; <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> )</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;{</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <a class="code" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>( <a class="code" href="impl_8h.html#aa8e6590904926df9b2f00b61c63f370a">EMLABCPP_INDEX_SEQ</a> )</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">if</span> constexpr ( N &gt; <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a> )</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                <a class="code" href="namespaceemlabcpp_1_1impl.html#a907f5a51879fabd1a1af1d0dd452db07">index_seq</a>&lt; <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, N - <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a> &gt;( std::forward&lt; F &gt;( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> ) );</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;}</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="impl_8h.html#ac2dd8a495eb1e272978107ec2e672e7b">  213</a></span>&#160;<span class="preprocessor">#define EMLABCPP_INDEX_UNTIL( x )                         \</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor">        if constexpr ( x &lt; N )                            \</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="preprocessor">                if ( f.template operator()&lt; Off + x &gt;() ) \</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="preprocessor">                        return true;</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> Off, std::<span class="keywordtype">size_t</span> N, <span class="keyword">typename</span> F &gt;</div>
+<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1impl.html#abce547c43b4a41299954095aaedbc550">  220</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#abce547c43b4a41299954095aaedbc550">index_until</a>( F&amp;&amp; <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> )</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;{</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <a class="code" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>( <a class="code" href="impl_8h.html#ac2dd8a495eb1e272978107ec2e672e7b">EMLABCPP_INDEX_UNTIL</a> )</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordflow">if</span> constexpr ( N &gt; <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a> )</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1impl.html#abce547c43b4a41299954095aaedbc550">index_until</a>&lt; <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, N - <a class="code" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a> &gt;(</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                    std::forward&lt; F &gt;( <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a> ) );</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;}</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;}  <span class="comment">// namespace emlabcpp::impl</span></div>
+<div class="ttc" id="aimpl_8h_html_a6874ce542f9adb9bcfb82748f103eb61"><div class="ttname"><a href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a></div><div class="ttdeci">#define EMLABCPP_INDEX_MAX</div><div class="ttdef"><b>Definition:</b> impl.h:144</div></div>
+<div class="ttc" id="aimpl_8h_html_a6fe4c3a9d539a761d08c07c63cad7f38"><div class="ttname"><a href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a></div><div class="ttdeci">#define EMLABCPP_INDEX_EXPAND(F)</div><div class="ttdef"><b>Definition:</b> impl.h:145</div></div>
+<div class="ttc" id="aimpl_8h_html_aa8e6590904926df9b2f00b61c63f370a"><div class="ttname"><a href="impl_8h.html#aa8e6590904926df9b2f00b61c63f370a">EMLABCPP_INDEX_SEQ</a></div><div class="ttdeci">#define EMLABCPP_INDEX_SEQ(x)</div><div class="ttdef"><b>Definition:</b> impl.h:200</div></div>
+<div class="ttc" id="aimpl_8h_html_ac2dd8a495eb1e272978107ec2e672e7b"><div class="ttname"><a href="impl_8h.html#ac2dd8a495eb1e272978107ec2e672e7b">EMLABCPP_INDEX_UNTIL</a></div><div class="ttdeci">#define EMLABCPP_INDEX_UNTIL(x)</div><div class="ttdef"><b>Definition:</b> impl.h:213</div></div>
+<div class="ttc" id="aimpl_8h_html_ad033e440927450aafee3024cd7f16575"><div class="ttname"><a href="impl_8h.html#ad033e440927450aafee3024cd7f16575">EMLABCPP_INDEX_SWITCH_CASE</a></div><div class="ttdeci">#define EMLABCPP_INDEX_SWITCH_CASE(x)</div><div class="ttdef"><b>Definition:</b> impl.h:179</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html">emlabcpp::impl</a></div><div class="ttdoc">MIT License.</div><div class="ttdef"><b>Definition:</b> impl.h:31</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a4606886189823b5ac10a55fab1debabf"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">emlabcpp::impl::index_switch</a></div><div class="ttdeci">constexpr decltype(auto) index_switch(std::size_t i, F &amp;&amp;f)</div><div class="ttdoc">Executes f&lt;i&gt; if provided i matches.</div><div class="ttdef"><b>Definition:</b> impl.h:186</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a502794f0cc63c9d3399dfcedd60bd48e"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a502794f0cc63c9d3399dfcedd60bd48e">emlabcpp::impl::find_if_impl</a></div><div class="ttdeci">constexpr std::size_t find_if_impl(const std::tuple&lt; Args... &gt; &amp;t, UnaryPredicate &amp;&amp;f, std::index_sequence&lt; Idx... &gt;)</div><div class="ttdef"><b>Definition:</b> impl.h:35</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a5b47b8b6ec7073426834aee07b4a749c"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">emlabcpp::impl::get_ith_item_from_arrays</a></div><div class="ttdeci">constexpr auto get_ith_item_from_arrays(T &amp;arr, auto &amp;... arrays)</div><div class="ttdef"><b>Definition:</b> impl.h:135</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a907f5a51879fabd1a1af1d0dd452db07"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a907f5a51879fabd1a1af1d0dd452db07">emlabcpp::impl::index_seq</a></div><div class="ttdeci">constexpr void index_seq(F &amp;&amp;f)</div><div class="ttdoc">Executes f&lt;i&gt; for i going from Off to N.</div><div class="ttdef"><b>Definition:</b> impl.h:206</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a9282cb9e137c842eef92467c1a0a504a"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a">emlabcpp::impl::map_f_to_a_impl</a></div><div class="ttdeci">std::array&lt; T, N &gt; map_f_to_a_impl(Container &amp;&amp;cont, UnaryCallable &amp;&amp;f, std::integer_sequence&lt; std::size_t, Is... &gt;)</div><div class="ttdef"><b>Definition:</b> impl.h:58</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa391ac6fa79be363f91ee9cbe2e4c578"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">emlabcpp::impl::requires</a></div><div class="ttdeci">requires(!range_container&lt; Container &gt;) std</div><div class="ttdef"><b>Definition:</b> impl.h:81</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa4539ae7694e16e3a1749e3089a36e2f"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f">emlabcpp::impl::map_f_collectable</a></div><div class="ttdeci">concept map_f_collectable</div><div class="ttdef"><b>Definition:</b> impl.h:130</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_abce547c43b4a41299954095aaedbc550"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#abce547c43b4a41299954095aaedbc550">emlabcpp::impl::index_until</a></div><div class="ttdeci">constexpr bool index_until(F &amp;&amp;f)</div><div class="ttdoc">Executes f&lt;i&gt; until some is true.</div><div class="ttdef"><b>Definition:</b> impl.h:220</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_structemlabcpp_1_1impl_1_1map__f__collector"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector">emlabcpp::impl::map_f_collector</a></div><div class="ttdef"><b>Definition:</b> impl.h:96</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a7eba021904701a30cd427b798483dc5f"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">emlabcpp::testing::value_type</a></div><div class="ttdeci">std::variant&lt; int64_t, float, bool, string_buffer &gt; value_type</div><div class="ttdef"><b>Definition:</b> base.h:51</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a904e4439ee5b6a29ec1c9a5a6d404c55"><div class="ttname"><a href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">emlabcpp::range_container</a></div><div class="ttdeci">concept range_container</div><div class="ttdoc">so, std::ranges::range is meh because it expects return of begin() being input_output_iterator,...</div><div class="ttdef"><b>Definition:</b> concepts.h:78</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:505</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ac1cdce6706f4b40d478521925ca85f8a"><div class="ttname"><a href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">emlabcpp::UnaryCallable</a></div><div class="ttdeci">UnaryCallable</div><div class="ttdef"><b>Definition:</b> types.h:54</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_adb54eee14fc87e50de7f6ed35ad1aba0"><div class="ttname"><a href="namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0">emlabcpp::gettable_container</a></div><div class="ttdeci">concept gettable_container</div><div class="ttdef"><b>Definition:</b> concepts.h:71</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ae863a37ceeaded64e65fc9ac024f70d9"><div class="ttname"><a href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a></div><div class="ttdeci">UnaryCallable &amp;&amp; f</div><div class="ttdef"><b>Definition:</b> algorithm.h:161</div></div>
+<div class="ttc" id="astructemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4_html"><div class="ttname"><a href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html">emlabcpp::impl::map_f_collector&lt; T &gt;</a></div><div class="ttdef"><b>Definition:</b> impl.h:100</div></div>
+<div class="ttc" id="astructemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4_html_a9f599f30ea801909666f3fca862df63e"><div class="ttname"><a href="structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e">emlabcpp::impl::map_f_collector&lt; T &gt;::collect</a></div><div class="ttdeci">void collect(T &amp;res, typename T::value_type val) const</div><div class="ttdef"><b>Definition:</b> impl.h:101</div></div>
+<div class="ttc" id="astructemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4_html_a2598d2f2f9a7631a0cb44384c4b0e463"><div class="ttname"><a href="structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html#a2598d2f2f9a7631a0cb44384c4b0e463">emlabcpp::impl::map_f_collector&lt; std::array&lt; T, N &gt; &gt;::collect</a></div><div class="ttdeci">void collect(std::array&lt; T, N &gt; &amp;res, T val)</div><div class="ttdef"><b>Definition:</b> impl.h:122</div></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -319,7 +319,7 @@ $(document).ready(function(){initNavTree('impl_8h_source.html',''); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_cd2498770f46874251cd2a7d2270663c.html">algorithm</a></li><li class="navelem"><a class="el" href="impl_8h.html">impl.h</a></li>
-    <li class="footer">Generated on Sun Mar 9 2025 22:22:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Mar 10 2025 20:59:57 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
