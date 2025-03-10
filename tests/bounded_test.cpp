@@ -23,7 +23,7 @@
 
 #include "emlabcpp/bounded.h"
 
-#include "util.h"
+#include "./util/util.h"
 
 #include <gtest/gtest.h>
 
