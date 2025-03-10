@@ -9,12 +9,35 @@ repos:
      - id: end-of-file-fixer
      - id: check-yaml
      - id: check-added-large-files
- - repo: https://github.com/pre-commit/mirrors-clang-format
-   rev: v18.1.1
+ - repo: local
    hooks:
     - id: clang-format
-      types_or: [c++, c]
- - repo: https://github.com/cheshirekow/cmake-format-precommit
-   rev: v0.6.13
-   hooks:
+      name: clang-format
+      entry: clang-format -i
+      language: python
+      'types_or': [c++, c, c#, cuda, java, javascript, json, objective-c, proto, textproto, metal]
+      args: ["-style=file"]
+      require_serial: false
+      additional_dependencies: ['clang-format==18.1.1']
     - id: cmake-format
+      name: cmake-format
+      entry: cmake-format
+      args: [--in-place]
+      language: python
+      types: [cmake]
+      additional_dependencies: ['cmakelang==0.6.13']
+ - repo: https://github.com/Lucas-C/pre-commit-hooks
+   rev: v1.5.5
+   hooks:
+    - id: chmod
+      args: ['644']
+      files: \.md$
+    - id: insert-license
+      files: \.cpp|\.h$
+      args:
+        - --license-filepath
+        - ./LICENSE
+        - --comment-style
+        - ///
+        - --use-current-year
+        - --no-extra-eol
