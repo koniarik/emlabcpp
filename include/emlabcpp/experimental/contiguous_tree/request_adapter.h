@@ -25,6 +25,7 @@
 
 #include "./base.h"
 
+#include <optional>
 #include <variant>
 
 namespace emlabcpp
