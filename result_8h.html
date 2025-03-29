@@ -86,20 +86,20 @@ $(document).ready(function(){initNavTree('result_8h.html',''); initResizable(); 
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">result.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="algorithm_8h_source.html">./algorithm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="status_8h_source.html">./status.h</a>&quot;</code><br />
 <code>#include &lt;cstdint&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for result.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="result_8h__incl.svg" width="878" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="result_8h__incl.svg" width="951" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -107,14 +107,8 @@ $(document).ready(function(){initNavTree('result_8h.html',''); initResizable(); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1success__type.html">emlabcpp::success_type</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique type representing success, should not be used directly.  <a href="structemlabcpp_1_1success__type.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1error__type.html">emlabcpp::error_type</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique type representing error, should not be used directly.  <a href="structemlabcpp_1_1error__type.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1result.html">emlabcpp::result</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>result</code> represents an result of some operation, as an alternative to returning just <code>bool</code> with true/false value.  <a href="classemlabcpp_1_1result.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1result.html">emlabcpp::result</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>result</code> represents an result of some operation, as an alternative to returning just <code>bool</code> with true/false value.  <a href="structemlabcpp_1_1result.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -123,60 +117,15 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespaceemlabcpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">MIT License. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a027d13df7e2f58167af61e430b1b35ce"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a027d13df7e2f58167af61e430b1b35ce">emlabcpp::operator==</a> (result const &amp;lh, result const &amp;rh)</td></tr>
-<tr class="memdesc:a027d13df7e2f58167af61e430b1b35ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two results for equality, uses get_state()  <a href="namespaceemlabcpp.html#a027d13df7e2f58167af61e430b1b35ce">More...</a><br /></td></tr>
-<tr class="separator:a027d13df7e2f58167af61e430b1b35ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01fa6fc7a2caaee9561d4f88d56061b8"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a01fa6fc7a2caaee9561d4f88d56061b8">emlabcpp::operator!=</a> (result const &amp;lh, result const &amp;rh)</td></tr>
-<tr class="memdesc:a01fa6fc7a2caaee9561d4f88d56061b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two results for inequality, uses get_state()  <a href="namespaceemlabcpp.html#a01fa6fc7a2caaee9561d4f88d56061b8">More...</a><br /></td></tr>
-<tr class="separator:a01fa6fc7a2caaee9561d4f88d56061b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab31667e728135a61014e942a3ba0153d"><td class="memTemplParams" colspan="2">template&lt;result_native_constant T&gt; </td></tr>
-<tr class="memitem:ab31667e728135a61014e942a3ba0153d"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab31667e728135a61014e942a3ba0153d">emlabcpp::operator==</a> (result const &amp;res, T)</td></tr>
-<tr class="memdesc:ab31667e728135a61014e942a3ba0153d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares result with any of the constant types.  <a href="namespaceemlabcpp.html#ab31667e728135a61014e942a3ba0153d">More...</a><br /></td></tr>
-<tr class="separator:ab31667e728135a61014e942a3ba0153d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a748ab04b049b8f1a916f9b7484e06a76"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a748ab04b049b8f1a916f9b7484e06a76">emlabcpp::operator==</a> (result_native_constant auto c, result const &amp;res)</td></tr>
-<tr class="memdesc:a748ab04b049b8f1a916f9b7484e06a76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares result with any of the constant types.  <a href="namespaceemlabcpp.html#a748ab04b049b8f1a916f9b7484e06a76">More...</a><br /></td></tr>
-<tr class="separator:a748ab04b049b8f1a916f9b7484e06a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5211b2c4fdc4dc5c92e79c29c713a090"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5211b2c4fdc4dc5c92e79c29c713a090">emlabcpp::operator!=</a> (result const &amp;res, result_native_constant auto c)</td></tr>
-<tr class="memdesc:a5211b2c4fdc4dc5c92e79c29c713a090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares result for inequality with any of the constant types.  <a href="namespaceemlabcpp.html#a5211b2c4fdc4dc5c92e79c29c713a090">More...</a><br /></td></tr>
-<tr class="separator:a5211b2c4fdc4dc5c92e79c29c713a090"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4139ee5cbcd05b9d6b13110d724dcfb1"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a4139ee5cbcd05b9d6b13110d724dcfb1">emlabcpp::operator!=</a> (result_native_constant auto c, result const &amp;res)</td></tr>
-<tr class="memdesc:a4139ee5cbcd05b9d6b13110d724dcfb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares result for inequality with any of the constant types.  <a href="namespaceemlabcpp.html#a4139ee5cbcd05b9d6b13110d724dcfb1">More...</a><br /></td></tr>
-<tr class="separator:a4139ee5cbcd05b9d6b13110d724dcfb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7d7fc34ae96a58c5c9048dc4733b5db"><td class="memTemplParams" colspan="2">template&lt;result_like T, result_like... Ts&gt; </td></tr>
-<tr class="memitem:ad7d7fc34ae96a58c5c9048dc4733b5db"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad7d7fc34ae96a58c5c9048dc4733b5db">emlabcpp::worst_of</a> (T const &amp;item, Ts const &amp;... other)</td></tr>
-<tr class="memdesc:ad7d7fc34ae96a58c5c9048dc4733b5db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the worst result like state out of given arguments.  <a href="namespaceemlabcpp.html#ad7d7fc34ae96a58c5c9048dc4733b5db">More...</a><br /></td></tr>
-<tr class="separator:ad7d7fc34ae96a58c5c9048dc4733b5db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5586eecb1d12a9b160aa73a652a0299e"><td class="memTemplParams" colspan="2">template&lt;result_like T, result_like U&gt; </td></tr>
-<tr class="memitem:a5586eecb1d12a9b160aa73a652a0299e"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5586eecb1d12a9b160aa73a652a0299e">emlabcpp::operator&amp;&amp;</a> (T const &amp;lh, U const &amp;rh)</td></tr>
-<tr class="memdesc:a5586eecb1d12a9b160aa73a652a0299e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator version of <code>worst_of</code>  <a href="namespaceemlabcpp.html#a5586eecb1d12a9b160aa73a652a0299e">More...</a><br /></td></tr>
-<tr class="separator:a5586eecb1d12a9b160aa73a652a0299e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:afe02e91acaaf63457009e5300a68becd"><td class="memItemLeft" align="right" valign="top">success_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#afe02e91acaaf63457009e5300a68becd">emlabcpp::SUCCESS</a></td></tr>
-<tr class="memdesc:afe02e91acaaf63457009e5300a68becd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global constant of <a class="el" href="structemlabcpp_1_1success__type.html" title="Unique type representing success, should not be used directly.">success_type</a> for direct usage.  <a href="namespaceemlabcpp.html#afe02e91acaaf63457009e5300a68becd">More...</a><br /></td></tr>
-<tr class="separator:afe02e91acaaf63457009e5300a68becd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4daa9ae3a8263bbce72728fc136c3121"><td class="memItemLeft" align="right" valign="top">error_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a4daa9ae3a8263bbce72728fc136c3121">emlabcpp::ERROR</a></td></tr>
-<tr class="memdesc:a4daa9ae3a8263bbce72728fc136c3121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global constant of <a class="el" href="structemlabcpp_1_1error__type.html" title="Unique type representing error, should not be used directly.">error_type</a> for direct usage.  <a href="namespaceemlabcpp.html#a4daa9ae3a8263bbce72728fc136c3121">More...</a><br /></td></tr>
-<tr class="separator:a4daa9ae3a8263bbce72728fc136c3121"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53bb9ab6abee8fc7151e92dd9fefdb58"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a53bb9ab6abee8fc7151e92dd9fefdb58"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a53bb9ab6abee8fc7151e92dd9fefdb58">emlabcpp::result_native_constant</a> = std::same_as&lt; T, success_type &gt; || std::same_as&lt; T, error_type &gt;</td></tr>
-<tr class="memdesc:a53bb9ab6abee8fc7151e92dd9fefdb58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter concept that allows only <a class="el" href="structemlabcpp_1_1success__type.html" title="Unique type representing success, should not be used directly.">success_type</a> or <a class="el" href="structemlabcpp_1_1error__type.html" title="Unique type representing error, should not be used directly.">error_type</a>.  <a href="namespaceemlabcpp.html#a53bb9ab6abee8fc7151e92dd9fefdb58">More...</a><br /></td></tr>
-<tr class="separator:a53bb9ab6abee8fc7151e92dd9fefdb58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa831ae73250e5115f2936b31d26a6b7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aaa831ae73250e5115f2936b31d26a6b7"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aaa831ae73250e5115f2936b31d26a6b7">emlabcpp::result_constant</a></td></tr>
-<tr class="memdesc:aaa831ae73250e5115f2936b31d26a6b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matches types that could be considered a result constant, matches anything, not just error_type/success_type.  <a href="namespaceemlabcpp.html#aaa831ae73250e5115f2936b31d26a6b7">More...</a><br /></td></tr>
-<tr class="separator:aaa831ae73250e5115f2936b31d26a6b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2cc38a2ca173cdd7e30e1ccc1f4fe54"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aa2cc38a2ca173cdd7e30e1ccc1f4fe54"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa2cc38a2ca173cdd7e30e1ccc1f4fe54">emlabcpp::result_value</a></td></tr>
-<tr class="memdesc:aa2cc38a2ca173cdd7e30e1ccc1f4fe54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matches types that could be considered a result value, that is result similar types can be treated the same way.  <a href="namespaceemlabcpp.html#aa2cc38a2ca173cdd7e30e1ccc1f4fe54">More...</a><br /></td></tr>
-<tr class="separator:aa2cc38a2ca173cdd7e30e1ccc1f4fe54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66f8e38a0e1ddf05756a003a85be1efd"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a66f8e38a0e1ddf05756a003a85be1efd"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a66f8e38a0e1ddf05756a003a85be1efd">emlabcpp::result_like</a> = result_constant&lt; T &gt; || result_value&lt; T &gt;</td></tr>
-<tr class="memdesc:a66f8e38a0e1ddf05756a003a85be1efd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matches types that are relevant in context of working with result-like objects, be it result values or result constants.  <a href="namespaceemlabcpp.html#a66f8e38a0e1ddf05756a003a85be1efd">More...</a><br /></td></tr>
-<tr class="separator:a66f8e38a0e1ddf05756a003a85be1efd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a66341f5368fd342d8c4b7385db2e5fc3"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a66341f5368fd342d8c4b7385db2e5fc3">emlabcpp::result_e</a> { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp.html#a66341f5368fd342d8c4b7385db2e5fc3ad0749aaba8b833466dfcbb0428e4f89c">emlabcpp::SUCCESS</a> = 0
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp.html#a66341f5368fd342d8c4b7385db2e5fc3abb1ca97ec761fc37101737ba0aa2e7c5">emlabcpp::ERROR</a> = 1
+<br />
+ }</td></tr>
+<tr class="separator:a66341f5368fd342d8c4b7385db2e5fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -184,7 +133,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="result_8h.html">result.h</a></li>
-    <li class="footer">Generated on Sat Mar 29 2025 15:38:04 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 22:50:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

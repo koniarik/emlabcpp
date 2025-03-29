@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1bounded.html',''); in
 </div><!--header-->
 <div class="contents">
 
-<p>Bounded type represents a overlay over type T which is constrained between MinVal and MaxVal as compile time constants.  
+<p>The <code>bounded</code> class represents a wrapper over type <code>T</code> constrained between <code>MinVal</code> and <code>MaxVal</code> as compile-time constants.  
  <a href="classemlabcpp_1_1bounded.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="bounded_8h_source.html">bounded.h</a>&gt;</code></p>
@@ -104,6 +104,7 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1bounded.html',''); in
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a53a7e456f96a1af5abfd27f48b206924"><td class="memTemplParams" colspan="2">template&lt;typename U , U OtherMin, U OtherMax&gt; </td></tr>
 <tr class="memitem:a53a7e456f96a1af5abfd27f48b206924"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#a53a7e456f96a1af5abfd27f48b206924">requires</a> (std::is_integral_v&lt; U &gt; &amp;&amp;std::is_integral_v&lt; T &gt; &amp;&amp;<a class="el" href="classemlabcpp_1_1bounded.html#a75b35e3e3c03f124a4377180f5d9961c">min_val</a>&lt;=<a class="el" href="classemlabcpp_1_1bounded.html#a78ece7b442cc90783268333e6ab53cd4">OtherMin</a> &amp;&amp;OtherMax&lt;=<a class="el" href="classemlabcpp_1_1bounded.html#a8efa10af016194061e575d8b65319849">max_val</a>) const expr <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>(<a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; U</td></tr>
+<tr class="memdesc:a53a7e456f96a1af5abfd27f48b206924"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that allows conversion from another <code>bounded</code> type with compatible bounds.  <a href="classemlabcpp_1_1bounded.html#a53a7e456f96a1af5abfd27f48b206924">More...</a><br /></td></tr>
 <tr class="separator:a53a7e456f96a1af5abfd27f48b206924"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad61c34b57cc60bec0621321519f6de6"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#aad61c34b57cc60bec0621321519f6de6">bounded</a> ()</td></tr>
 <tr class="separator:aad61c34b57cc60bec0621321519f6de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,7 +127,7 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a4c03b3f83e73a36634b7c8a176a2ef50"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
 <tr class="memitem:a4c03b3f83e73a36634b7c8a176a2ef50"><td class="memTemplItemLeft" align="right" valign="top">static std::optional&lt; <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, <a class="el" href="classemlabcpp_1_1bounded.html#a75b35e3e3c03f124a4377180f5d9961c">min_val</a>, <a class="el" href="classemlabcpp_1_1bounded.html#a8efa10af016194061e575d8b65319849">max_val</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#a4c03b3f83e73a36634b7c8a176a2ef50">make</a> (U val)</td></tr>
-<tr class="memdesc:a4c03b3f83e73a36634b7c8a176a2ef50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static method optinally returns bounded value, only in case the input value is withing allowed range.  <a href="classemlabcpp_1_1bounded.html#a4c03b3f83e73a36634b7c8a176a2ef50">More...</a><br /></td></tr>
+<tr class="memdesc:a4c03b3f83e73a36634b7c8a176a2ef50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an optional <code>bounded</code> value if the input value is within the allowed range.  <a href="classemlabcpp_1_1bounded.html#a4c03b3f83e73a36634b7c8a176a2ef50">More...</a><br /></td></tr>
 <tr class="separator:a4c03b3f83e73a36634b7c8a176a2ef50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a084079ca127463fc18937bdd1436441c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; T, <a class="el" href="classemlabcpp_1_1bounded.html#a75b35e3e3c03f124a4377180f5d9961c">min_val</a>, <a class="el" href="classemlabcpp_1_1bounded.html#a8efa10af016194061e575d8b65319849">max_val</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#a084079ca127463fc18937bdd1436441c">min</a> ()</td></tr>
 <tr class="separator:a084079ca127463fc18937bdd1436441c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,8 +138,10 @@ Static Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a78ece7b442cc90783268333e6ab53cd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#a78ece7b442cc90783268333e6ab53cd4">OtherMin</a></td></tr>
 <tr class="separator:a78ece7b442cc90783268333e6ab53cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9389797ddc31078643a428c5a65c5b70"><td class="memItemLeft" align="right" valign="top">OtherMax&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#a9389797ddc31078643a428c5a65c5b70">other</a>: val_( static_cast&lt; T &gt;( *other ) ) { } template &lt; T Val &gt; static constexpr <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a> get() { static_assert( <a class="el" href="classemlabcpp_1_1bounded.html#a75b35e3e3c03f124a4377180f5d9961c">min_val</a> &lt;= Val &amp;&amp; Val &lt;= <a class="el" href="classemlabcpp_1_1bounded.html#a8efa10af016194061e575d8b65319849">max_val</a> )</td></tr>
+<tr class="memitem:a9389797ddc31078643a428c5a65c5b70"><td class="memItemLeft" align="right" valign="top">OtherMax&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#a9389797ddc31078643a428c5a65c5b70">other</a>: val_( static_cast&lt; T &gt;( *other ) ) { } template &lt; T Val &gt; static constexpr <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a> get() { static_assert( <a class="el" href="classemlabcpp_1_1bounded.html#a75b35e3e3c03f124a4377180f5d9961c">min_val</a> &lt;= Val &amp;&amp; Val &lt;= <a class="el" href="classemlabcpp_1_1bounded.html#a8efa10af016194061e575d8b65319849">max_val</a></td></tr>
 <tr class="separator:a9389797ddc31078643a428c5a65c5b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1826affc465ed63d2af293f82c58567d"><td class="memItemLeft" align="right" valign="top">OtherMax Value out of&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#a1826affc465ed63d2af293f82c58567d">bounds</a></td></tr>
+<tr class="separator:a1826affc465ed63d2af293f82c58567d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd88470b057f4b5ea757588fee16fd1f"><td class="memItemLeft" align="right" valign="top">return&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1bounded.html#acd88470b057f4b5ea757588fee16fd1f">bounded</a> { Val }</td></tr>
 <tr class="separator:acd88470b057f4b5ea757588fee16fd1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -168,10 +171,9 @@ Friends</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename T, T MinVal, T MaxVal&gt;<br />
 class emlabcpp::bounded&lt; T, MinVal, MaxVal &gt;</h3>
 
-<p>Bounded type represents a overlay over type T which is constrained between MinVal and MaxVal as compile time constants. </p>
-<p>/ The API is deisgned in a way that you can't create the type out of theb ounds.</p>
-<p>This is beneficial in design of an API. In case of using the T directly and asserting that it is withing corrent range, the API has to check at runtime whenever that is true and return error in case it is out of range. / With bounded type the API does not have to do that, as the type can't be passed unless it is within corret range.</p>
-<p>It does not remove the bounds check, it just moves it away from within API to the user, which has to deal with creating correct bounded type. </p>
+<p>The <code>bounded</code> class represents a wrapper over type <code>T</code> constrained between <code>MinVal</code> and <code>MaxVal</code> as compile-time constants. </p>
+<p>This ensures that values of this type are always within the specified range, providing compile-time guarantees and eliminating the need for runtime checks within APIs.</p>
+<p>This design shifts the responsibility of bounds checking from the API to the user, ensuring that only valid values are passed to the API. While bounds checks are still necessary, they are moved to the point of creation of the <code>bounded</code> type. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aad61c34b57cc60bec0621321519f6de6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad61c34b57cc60bec0621321519f6de6">&#9670;&nbsp;</a></span>bounded()</h2>
@@ -229,7 +231,8 @@ template&lt;typename U &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Static method optinally returns bounded value, only in case the input value is withing allowed range. </p>
+<p>Creates an optional <code>bounded</code> value if the input value is within the allowed range. </p>
+<p>Returns <code>std::nullopt</code> if the value is out of bounds. </p>
 
 <p class="reference">References <a class="el" href="classemlabcpp_1_1bounded.html#a8efa10af016194061e575d8b65319849">emlabcpp::bounded&lt; T, MinVal, MaxVal &gt;::max_val</a>, and <a class="el" href="classemlabcpp_1_1bounded.html#a75b35e3e3c03f124a4377180f5d9961c">emlabcpp::bounded&lt; T, MinVal, MaxVal &gt;::min_val</a>.</p>
 
@@ -400,6 +403,8 @@ template&lt;typename U , U OtherMin, U OtherMax&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructor that allows conversion from another <code>bounded</code> type with compatible bounds. </p>
 
 </div>
 </div>
@@ -589,6 +594,22 @@ template&lt;typename T , T MinVal, T MaxVal&gt; </div>
 
 </div>
 </div>
+<a id="a1826affc465ed63d2af293f82c58567d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1826affc465ed63d2af293f82c58567d">&#9670;&nbsp;</a></span>bounds</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T MinVal, T MaxVal&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">OtherMax Value out of <a class="el" href="classemlabcpp_1_1bounded.html">emlabcpp::bounded</a>&lt; T, MinVal, MaxVal &gt;::bounds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a16ff2cd92759c7f62ef87df2c09a1ba0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a16ff2cd92759c7f62ef87df2c09a1ba0">&#9670;&nbsp;</a></span>has_single_element</h2>
 
@@ -726,7 +747,7 @@ template&lt;typename T , T MinVal, T MaxVal&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1bounded.html">bounded</a></li>
-    <li class="footer">Generated on Sat Mar 29 2025 15:38:04 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 22:50:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

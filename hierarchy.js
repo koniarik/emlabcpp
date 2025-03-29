@@ -97,10 +97,10 @@ var hierarchy =
     [ "emlabcpp::rpc::error", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1error", null ],
     [ "emlabcpp::testing::error< Err >", "structemlabcpp_1_1testing_1_1error.html", null ],
     [ "emlabcpp::protocol::error_record", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record", null ],
-    [ "emlabcpp::error_type", "structemlabcpp_1_1error__type.html", null ],
+    [ "emlabcpp::error_type", "namespaceemlabcpp.html#structemlabcpp_1_1error__type", null ],
     [ "emlabcpp::testing::exec_request", "structemlabcpp_1_1testing_1_1exec__request.html", null ],
     [ "emlabcpp::testing::executor", "classemlabcpp_1_1testing_1_1executor.html", null ],
-    [ "emlabcpp::failure_type", "structemlabcpp_1_1failure__type.html", null ],
+    [ "emlabcpp::failure_type", "namespaceemlabcpp.html#structemlabcpp_1_1failure__type", null ],
     [ "std::false_type", null, [
       [ "emlabcpp::impl::is_std_array< std::decay_t< T > >", "structemlabcpp_1_1impl_1_1is__std__array.html", [
         [ "emlabcpp::is_std_array< T >", "structemlabcpp_1_1is__std__array.html", null ]
@@ -195,7 +195,6 @@ var hierarchy =
     [ "emlabcpp::protocol::multiplexed_endpoint< Packet >", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", null ],
     [ "emlabcpp::testing::no_response_error", "structemlabcpp_1_1testing_1_1no__response__error.html", null ],
     [ "std::numeric_limits< T >", "structstd_1_1numeric__limits_3_01T_01_4.html", null ],
-    [ "emlabcpp::outcome", "classemlabcpp_1_1outcome.html", null ],
     [ "emlabcpp::coro::owning_coroutine_handle< PromiseType >", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", null ],
     [ "emlabcpp::coro::owning_coroutine_handle< promise_type >", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", null ],
     [ "emlabcpp::testing::packet_def", "structemlabcpp_1_1testing_1_1packet__def.html", null ],
@@ -268,7 +267,6 @@ var hierarchy =
     [ "emlabcpp::protocol::register_pair< Key, D >", "structemlabcpp_1_1protocol_1_1register__pair.html", null ],
     [ "emlabcpp::rpc::reply_error", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1reply__error", null ],
     [ "emlabcpp::coro::request_reply< RequestType, ReplyType >", "classemlabcpp_1_1coro_1_1request__reply.html", null ],
-    [ "emlabcpp::result", "classemlabcpp_1_1result.html", null ],
     [ "emlabcpp::rowcol_submatrix< Matrix, I, J >", "classemlabcpp_1_1rowcol__submatrix.html", null ],
     [ "emlabcpp::select_utype< size_t >", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
     [ "emlabcpp::protocol::sequencer< Def >", "classemlabcpp_1_1protocol_1_1sequencer.html", null ],
@@ -310,8 +308,15 @@ var hierarchy =
     [ "emlabcpp::static_storage< T, real_size >", "classemlabcpp_1_1static__storage.html", null ],
     [ "emlabcpp::static_vector< T, N >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::static_vector< uint16_t, PoolCount >", "classemlabcpp_1_1static__vector.html", null ],
+    [ "emlabcpp::status< Derived, Enum, SuccessValue >", "structemlabcpp_1_1status.html", null ],
+    [ "emlabcpp::status< outcome, outcome_e, outcome_e::SUCCESS >", "structemlabcpp_1_1status.html", [
+      [ "emlabcpp::outcome", "structemlabcpp_1_1outcome.html", null ]
+    ] ],
+    [ "emlabcpp::status< result, result_e, result_e::SUCCESS >", "structemlabcpp_1_1status.html", [
+      [ "emlabcpp::result", "structemlabcpp_1_1result.html", null ]
+    ] ],
     [ "emlabcpp::string_buffer< 128 >< 32 >", "structemlabcpp_1_1string__buffer.html", null ],
-    [ "emlabcpp::success_type", "structemlabcpp_1_1success__type.html", null ],
+    [ "emlabcpp::success_type", "namespaceemlabcpp.html#structemlabcpp_1_1success__type", null ],
     [ "emlabcpp::tag< V >", "structemlabcpp_1_1tag.html", null ],
     [ "emlabcpp::protocol::tag_group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group", null ],
     [ "emlabcpp::testing::test_finished", "structemlabcpp_1_1testing_1_1test__finished.html", null ],

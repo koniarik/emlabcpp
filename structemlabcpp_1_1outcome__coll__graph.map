@@ -1,0 +1,4 @@
+<map id="emlabcpp::outcome" name="emlabcpp::outcome">
+<area shape="rect" id="node1" title="outcome represents tristate resut of some operation, which can succeed, fail or produce an error." alt="" coords="35,109,186,136"/>
+<area shape="rect" id="node2" href="$structemlabcpp_1_1status.html" title=" " alt="" coords="5,5,216,61"/>
+</map>

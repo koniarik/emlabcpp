@@ -1,4 +1,4 @@
 <map id="emlabcpp::min_max&lt; T &gt;" name="emlabcpp::min_max&lt; T &gt;">
-<area shape="rect" id="node1" title="Helper structure representing a range of two variables, one being a minimum and second being a maximu..." alt="" coords="5,80,199,107"/>
+<area shape="rect" id="node1" title="A structure representing a range defined by a minimum and a maximum value." alt="" coords="5,80,199,107"/>
 <area shape="rect" id="node2" title=" " alt="" coords="41,5,163,32"/>
 </map>

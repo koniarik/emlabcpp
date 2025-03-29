@@ -332,10 +332,10 @@ Functions</h2></td></tr>
 <tr class="memitem:af54eda66ff9e2dc93fb37fe0c9bf0074"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1protocol.html#aecf6971020e07eaf0c7f0f3b373d5df8">multiplexer_message</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#af54eda66ff9e2dc93fb37fe0c9bf0074">serialize_multiplexed</a> (<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a> channel, <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; N &gt; const &amp;m)</td></tr>
 <tr class="separator:af54eda66ff9e2dc93fb37fe0c9bf0074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17030631441fd4daa09b11516bec8a73"><td class="memTemplParams" colspan="2">template&lt;typename BinaryCallable &gt; </td></tr>
-<tr class="memitem:a17030631441fd4daa09b11516bec8a73"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1outcome.html">outcome</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a17030631441fd4daa09b11516bec8a73">extract_multiplexed</a> (std::span&lt; std::byte const &gt; const &amp;msg, BinaryCallable handle_cb)</td></tr>
+<tr class="memitem:a17030631441fd4daa09b11516bec8a73"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1outcome.html">outcome</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a17030631441fd4daa09b11516bec8a73">extract_multiplexed</a> (std::span&lt; std::byte const &gt; const &amp;msg, BinaryCallable handle_cb)</td></tr>
 <tr class="separator:a17030631441fd4daa09b11516bec8a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a211b65802f08cb2dd9dde035fc8b41e6"><td class="memTemplParams" colspan="2">template&lt;slot... Slotted&gt; </td></tr>
-<tr class="memitem:a211b65802f08cb2dd9dde035fc8b41e6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1outcome.html">outcome</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a211b65802f08cb2dd9dde035fc8b41e6">multiplexed_dispatch</a> (<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a> chann, auto const &amp;data, Slotted &amp;... slotted)</td></tr>
+<tr class="memitem:a211b65802f08cb2dd9dde035fc8b41e6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1outcome.html">outcome</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a211b65802f08cb2dd9dde035fc8b41e6">multiplexed_dispatch</a> (<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a> chann, auto const &amp;data, Slotted &amp;... slotted)</td></tr>
 <tr class="separator:a211b65802f08cb2dd9dde035fc8b41e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplParams" colspan="2">template&lt;typename D , std::endian E&gt; </td></tr>
 <tr class="memitem:a8a42ec62524b9afc0195ff5f102300f9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9">converter_for_impl</a> ()</td></tr>
@@ -1046,7 +1046,7 @@ template&lt;typename D , std::endian E, typename T &gt; </div>
 template&lt;typename BinaryCallable &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1outcome.html">outcome</a> emlabcpp::protocol::extract_multiplexed </td>
+          <td class="memname"><a class="el" href="structemlabcpp_1_1outcome.html">outcome</a> emlabcpp::protocol::extract_multiplexed </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; std::byte const &gt; const &amp;&#160;</td>
           <td class="paramname"><em>msg</em>, </td>
@@ -1065,7 +1065,7 @@ template&lt;typename BinaryCallable &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a388ea57599b22905bdfca64243a29c59">deserialize()</a>, <a class="el" href="namespaceemlabcpp.html#a4daa9ae3a8263bbce72728fc136c3121">emlabcpp::ERROR</a>, and <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a388ea57599b22905bdfca64243a29c59">deserialize()</a>, <a class="el" href="namespaceemlabcpp.html#a4ca94ba01416e77d0f5c54e5cc60d559">emlabcpp::ERROR</a>, and <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">max_size</a>.</p>
 
 </div>
 </div>
@@ -1130,7 +1130,7 @@ template&lt;std::convertible_to&lt; uint8_t &gt;... Ts&gt; </div>
 template&lt;slot... Slotted&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1outcome.html">outcome</a> emlabcpp::protocol::multiplexed_dispatch </td>
+          <td class="memname"><a class="el" href="structemlabcpp_1_1outcome.html">outcome</a> emlabcpp::protocol::multiplexed_dispatch </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">channel_type</a>&#160;</td>
           <td class="paramname"><em>chann</em>, </td>
@@ -1155,7 +1155,7 @@ template&lt;slot... Slotted&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a4daa9ae3a8263bbce72728fc136c3121">emlabcpp::ERROR</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>, and <a class="el" href="namespaceemlabcpp.html#afe02e91acaaf63457009e5300a68becd">emlabcpp::SUCCESS</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a4ca94ba01416e77d0f5c54e5cc60d559">emlabcpp::ERROR</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>, and <a class="el" href="namespaceemlabcpp.html#ad8c144f0b220ab7b8d72c07b0aff808d">emlabcpp::SUCCESS</a>.</p>
 
 </div>
 </div>
@@ -1887,7 +1887,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li>
-    <li class="footer">Generated on Sat Mar 29 2025 15:38:04 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 22:50:39 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

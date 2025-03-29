@@ -86,19 +86,19 @@ $(document).ready(function(){initNavTree('outcome_8h.html',''); initResizable();
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">outcome.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="result_8h_source.html">./result.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="status_8h_source.html">./status.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for outcome.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="outcome_8h__incl.svg" width="224" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="outcome_8h__incl.svg" width="330" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -106,11 +106,8 @@ $(document).ready(function(){initNavTree('outcome_8h.html',''); initResizable();
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1failure__type.html">emlabcpp::failure_type</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique type representing failure, should not be used directly.  <a href="structemlabcpp_1_1failure__type.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1outcome.html">emlabcpp::outcome</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>outcome</code> represents tristate resut of some operation, which can succeed, fail or produce an error.  <a href="classemlabcpp_1_1outcome.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1outcome.html">emlabcpp::outcome</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>outcome</code> represents tristate resut of some operation, which can succeed, fail or produce an error.  <a href="structemlabcpp_1_1outcome.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -119,37 +116,17 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespaceemlabcpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">MIT License. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a77509b922e0be05758143a9322f65739"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a77509b922e0be05758143a9322f65739">emlabcpp::operator==</a> (outcome const &amp;lh, outcome const &amp;rh)</td></tr>
-<tr class="memdesc:a77509b922e0be05758143a9322f65739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two outcomes for equality, uses get_state()  <a href="namespaceemlabcpp.html#a77509b922e0be05758143a9322f65739">More...</a><br /></td></tr>
-<tr class="separator:a77509b922e0be05758143a9322f65739"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a98ab3fb31561e8bbbec83732a19fe1"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a8a98ab3fb31561e8bbbec83732a19fe1">emlabcpp::operator!=</a> (outcome const &amp;lh, outcome const &amp;rh)</td></tr>
-<tr class="memdesc:a8a98ab3fb31561e8bbbec83732a19fe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two outcomes for inequality, uses get_state()  <a href="namespaceemlabcpp.html#a8a98ab3fb31561e8bbbec83732a19fe1">More...</a><br /></td></tr>
-<tr class="separator:a8a98ab3fb31561e8bbbec83732a19fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a524f4a1a49b4214f2e2d58048956c36d"><td class="memTemplParams" colspan="2">template&lt;outcome_native_constant T&gt; </td></tr>
-<tr class="memitem:a524f4a1a49b4214f2e2d58048956c36d"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a524f4a1a49b4214f2e2d58048956c36d">emlabcpp::operator==</a> (outcome const &amp;outc, T)</td></tr>
-<tr class="memdesc:a524f4a1a49b4214f2e2d58048956c36d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares outcome with any of the constant types.  <a href="namespaceemlabcpp.html#a524f4a1a49b4214f2e2d58048956c36d">More...</a><br /></td></tr>
-<tr class="separator:a524f4a1a49b4214f2e2d58048956c36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a346a1b4c0db34913c21815c9b698cbc6"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a346a1b4c0db34913c21815c9b698cbc6">emlabcpp::operator==</a> (outcome_native_constant auto c, outcome const &amp;outc)</td></tr>
-<tr class="memdesc:a346a1b4c0db34913c21815c9b698cbc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares outcome with any of the constant types.  <a href="namespaceemlabcpp.html#a346a1b4c0db34913c21815c9b698cbc6">More...</a><br /></td></tr>
-<tr class="separator:a346a1b4c0db34913c21815c9b698cbc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a275fd95ec308b849ca31b829c2e70add"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a275fd95ec308b849ca31b829c2e70add">emlabcpp::operator!=</a> (outcome const &amp;outc, outcome_native_constant auto c)</td></tr>
-<tr class="memdesc:a275fd95ec308b849ca31b829c2e70add"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares outcome for inequality with any of the constant types.  <a href="namespaceemlabcpp.html#a275fd95ec308b849ca31b829c2e70add">More...</a><br /></td></tr>
-<tr class="separator:a275fd95ec308b849ca31b829c2e70add"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3d5bb9a5d65fc51adc83460e363b76f"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa3d5bb9a5d65fc51adc83460e363b76f">emlabcpp::operator!=</a> (outcome_native_constant auto c, outcome const &amp;outc)</td></tr>
-<tr class="memdesc:aa3d5bb9a5d65fc51adc83460e363b76f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares outcome for inequality with any of the constant types.  <a href="namespaceemlabcpp.html#aa3d5bb9a5d65fc51adc83460e363b76f">More...</a><br /></td></tr>
-<tr class="separator:aa3d5bb9a5d65fc51adc83460e363b76f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:aeacd3ca34a1bc6927bc31268b483edcf"><td class="memItemLeft" align="right" valign="top">failure_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aeacd3ca34a1bc6927bc31268b483edcf">emlabcpp::FAILURE</a></td></tr>
-<tr class="memdesc:aeacd3ca34a1bc6927bc31268b483edcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global constant of <a class="el" href="structemlabcpp_1_1failure__type.html" title="Unique type representing failure, should not be used directly.">failure_type</a> for direct usage.  <a href="namespaceemlabcpp.html#aeacd3ca34a1bc6927bc31268b483edcf">More...</a><br /></td></tr>
-<tr class="separator:aeacd3ca34a1bc6927bc31268b483edcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a660c9fcd3227bf0bad30426003430dbc"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a660c9fcd3227bf0bad30426003430dbc"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a660c9fcd3227bf0bad30426003430dbc">emlabcpp::outcome_native_constant</a></td></tr>
-<tr class="memdesc:a660c9fcd3227bf0bad30426003430dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter concept that allows only <a class="el" href="structemlabcpp_1_1success__type.html" title="Unique type representing success, should not be used directly.">success_type</a>, <a class="el" href="structemlabcpp_1_1failure__type.html" title="Unique type representing failure, should not be used directly.">failure_type</a>, or <a class="el" href="structemlabcpp_1_1error__type.html" title="Unique type representing error, should not be used directly.">error_type</a>.  <a href="namespaceemlabcpp.html#a660c9fcd3227bf0bad30426003430dbc">More...</a><br /></td></tr>
-<tr class="separator:a660c9fcd3227bf0bad30426003430dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a1ef662b744016746c0164eb689b39ade"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1ef662b744016746c0164eb689b39ade">emlabcpp::outcome_e</a> { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp.html#a1ef662b744016746c0164eb689b39adead0749aaba8b833466dfcbb0428e4f89c">emlabcpp::SUCCESS</a> = 0
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp.html#a1ef662b744016746c0164eb689b39adea36fc6065a3e970bc3e6b2e59da52bf2a">emlabcpp::FAILURE</a> = 1
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp.html#a1ef662b744016746c0164eb689b39adeabb1ca97ec761fc37101737ba0aa2e7c5">emlabcpp::ERROR</a> = 2
+<br />
+ }</td></tr>
+<tr class="separator:a1ef662b744016746c0164eb689b39ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -157,7 +134,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="outcome_8h.html">outcome.h</a></li>
-    <li class="footer">Generated on Sat Mar 29 2025 15:38:04 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 22:50:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

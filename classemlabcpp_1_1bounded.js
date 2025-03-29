@@ -14,6 +14,7 @@ var classemlabcpp_1_1bounded =
     [ "operator<=>", "classemlabcpp_1_1bounded.html#a39fda29bcf6921c27ec85625e6cdac17", null ],
     [ "operator<=>", "classemlabcpp_1_1bounded.html#a8308b9ff99d8da058310218a5b70e2f4", null ],
     [ "bounded", "classemlabcpp_1_1bounded.html#acd88470b057f4b5ea757588fee16fd1f", null ],
+    [ "bounds", "classemlabcpp_1_1bounded.html#a1826affc465ed63d2af293f82c58567d", null ],
     [ "has_single_element", "classemlabcpp_1_1bounded.html#a16ff2cd92759c7f62ef87df2c09a1ba0", null ],
     [ "interval_range", "classemlabcpp_1_1bounded.html#ad083fc1bfdca3ffc2b99d7498c7822fe", null ],
     [ "max_val", "classemlabcpp_1_1bounded.html#a8efa10af016194061e575d8b65319849", null ],

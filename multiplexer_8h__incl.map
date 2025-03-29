@@ -1,10 +1,11 @@
 <map id="include/emlabcpp/experimental/multiplexer.h" name="include/emlabcpp/experimental/multiplexer.h">
-<area shape="rect" id="node1" title=" " alt="" coords="216,5,444,47"/>
-<area shape="rect" id="node2" href="$outcome_8h.html" title=" " alt="" coords="5,95,108,121"/>
-<area shape="rect" id="node4" href="$endpoint_8h.html" title=" " alt="" coords="133,95,293,121"/>
-<area shape="rect" id="node6" href="$protocol_2handler_8h.html" title=" " alt="" coords="230,244,321,271"/>
-<area shape="rect" id="node7" href="$tuple_8h.html" title=" " alt="" coords="367,95,442,121"/>
-<area shape="rect" id="node8" href="$static__vector_8h.html" title=" " alt="" coords="467,95,596,121"/>
-<area shape="rect" id="node3" href="$result_8h.html" title=" " alt="" coords="17,169,96,196"/>
-<area shape="rect" id="node5" href="$packet__handler_8h.html" title=" " alt="" coords="147,169,287,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="229,5,457,47"/>
+<area shape="rect" id="node2" href="$outcome_8h.html" title=" " alt="" coords="19,95,121,121"/>
+<area shape="rect" id="node5" href="$endpoint_8h.html" title=" " alt="" coords="146,95,306,121"/>
+<area shape="rect" id="node7" href="$protocol_2handler_8h.html" title=" " alt="" coords="205,244,295,271"/>
+<area shape="rect" id="node8" href="$tuple_8h.html" title=" " alt="" coords="381,95,455,121"/>
+<area shape="rect" id="node9" href="$static__vector_8h.html" title=" " alt="" coords="480,95,609,121"/>
+<area shape="rect" id="node3" href="$result_8h.html" title=" " alt="" coords="5,169,84,196"/>
+<area shape="rect" id="node4" href="$status_8h.html" title=" " alt="" coords="61,244,143,271"/>
+<area shape="rect" id="node6" href="$packet__handler_8h.html" title=" " alt="" coords="161,169,301,196"/>
 </map>
