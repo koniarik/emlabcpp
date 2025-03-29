@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"classemlabcpp_1_1protocol_1_1register__map.html#a8fb00aa95c1e87be15a902fc6e229e0b":[3,0,0,7,45,13],
 "classemlabcpp_1_1protocol_1_1register__map.html#a9a8585ce3fa58e7c413e83df4b81e28e":[3,0,0,7,45,2],
 "classemlabcpp_1_1protocol_1_1register__map.html#aa02e5952201cf89f3b2e0d89f9612c4e":[3,0,0,7,45,15],
 "classemlabcpp_1_1protocol_1_1register__map.html#ab5642aa9603b98cbdf974d7465ce1aa5":[3,0,0,7,45,11],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "classemlabcpp_1_1testing_1_1collect__awaiter.html#ab1b466d49e7f06ade6d887e833cf0a0c":[3,0,0,9,3,4],
 "classemlabcpp_1_1testing_1_1collect__awaiter.html#abd597d9eaed23a8786cb9f9d157b9e42":[3,0,0,9,3,2],
 "classemlabcpp_1_1testing_1_1collect__awaiter.html#ad69501e47b5cb12d866b9a4c65665222":[3,0,0,9,3,8],
-"classemlabcpp_1_1testing_1_1collect__awaiter.html#ae3b1e3c28516dbbf756931712cd0ab3e":[3,0,0,9,3,7],
-"classemlabcpp_1_1testing_1_1collect__awaiter.html#ae3d1fbab2240377d3d475fc86f9a7650":[3,0,0,9,3,5]
+"classemlabcpp_1_1testing_1_1collect__awaiter.html#ae3b1e3c28516dbbf756931712cd0ab3e":[3,0,0,9,3,7]
 };

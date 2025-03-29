@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"namespaceemlabcpp_1_1protocol.html#a0cc152a369eaf93310e8db07084d7c1b":[2,0,0,7,119],
 "namespaceemlabcpp_1_1protocol.html#a0d666fa48e88a04569954408cc678126":[2,0,0,7,118],
 "namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2":[2,0,0,7,77],
 "namespaceemlabcpp_1_1protocol.html#a0e98558caf268e368b4544533cb43055":[2,0,0,7,111],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "namespacemembers_func_o.html":[2,1,1,12],
 "namespacemembers_func_p.html":[2,1,1,13],
 "namespacemembers_func_q.html":[2,1,1,14],
-"namespacemembers_func_r.html":[2,1,1,15],
-"namespacemembers_func_s.html":[2,1,1,16]
+"namespacemembers_func_r.html":[2,1,1,15]
 };
