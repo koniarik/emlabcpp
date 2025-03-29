@@ -35,13 +35,13 @@ using complex_function = static_function< float( int, std::string ), 42 >;
 // NOLINTNEXTLINE
 TEST( StaticFunction, empty )
 {
-        const basic_function bf{};
+        basic_function const bf{};
         EXPECT_FALSE( bf );
 
-        const return_function rf{};
+        return_function const rf{};
         EXPECT_FALSE( rf );
 
-        const complex_function cf{};
+        complex_function const cf{};
         EXPECT_FALSE( cf );
 }
 
@@ -60,7 +60,7 @@ TEST( StaticFunction, store_function_pointer )
         rf = nullptr;
         EXPECT_FALSE( rf );
 
-        complex_function cf = []( int, const std::string& ) -> float {
+        complex_function cf = []( int, std::string const& ) -> float {
                 return 0.f;
         };
         EXPECT_TRUE( cf );
@@ -79,14 +79,14 @@ TEST( StaticFunction, call_function_pointer )
                 return std::to_string( val );
         };
         EXPECT_TRUE( rf );
-        const std::string sub_res = rf( 42 );
+        std::string const sub_res = rf( 42 );
         EXPECT_EQ( sub_res, "42" );
 
-        complex_function cf = []( int val, const std::string& sval ) -> float {
+        complex_function cf = []( int val, std::string const& sval ) -> float {
                 return static_cast< float >( val * std::stoi( sval ) );
         };
         EXPECT_TRUE( cf );
-        const float val = cf( 42, "2" );
+        float const val = cf( 42, "2" );
         EXPECT_EQ( val, 84 );
 }
 
@@ -117,7 +117,7 @@ TEST( StaticFunction, call_callable )
         EXPECT_EQ( test_sres, "666" );
 
         test_value          = 0;
-        complex_function cf = [&]( int val, const std::string& sval ) -> float {
+        complex_function cf = [&]( int val, std::string const& sval ) -> float {
                 test_value = val;
                 return static_cast< float >( std::stoi( sval ) );
         };

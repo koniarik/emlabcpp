@@ -72,7 +72,7 @@ struct : pmr::memory_resource
                 return ERROR;
         }
 
-        bool is_equal( const memory_resource& ) const noexcept
+        bool is_equal( memory_resource const& ) const noexcept
         {
                 return true;
         };

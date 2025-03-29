@@ -218,7 +218,7 @@ void for_each_register( Map const& m, UnaryCallable&& f )
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < std::endian Endianess, typename... Regs >
-std::ostream& operator<<( std::ostream& os, const register_map< Endianess, Regs... >& m )
+std::ostream& operator<<( std::ostream& os, register_map< Endianess, Regs... > const& m )
 {
         for_each_register( m, [&os]< auto key, typename T >( T const& val ) {
                 os << key << "\t" << val << "\n";

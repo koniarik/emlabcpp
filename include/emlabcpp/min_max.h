@@ -43,7 +43,7 @@ struct min_max : std::array< T, 2 >
                 return this->operator[]( 0 );
         }
 
-        [[nodiscard]] constexpr const T& min() const
+        [[nodiscard]] constexpr T const& min() const
         {
                 return this->operator[]( 0 );
         }
@@ -53,7 +53,7 @@ struct min_max : std::array< T, 2 >
                 return this->operator[]( 1 );
         }
 
-        [[nodiscard]] constexpr const T& max() const
+        [[nodiscard]] constexpr T const& max() const
         {
                 return this->operator[]( 1 );
         }
@@ -67,23 +67,23 @@ struct min_max : std::array< T, 2 >
 };
 
 template < typename T, typename Compare >
-constexpr const T& clamp( const T& x, const min_max< T >& mm, Compare&& comp )
+constexpr T const& clamp( T const& x, min_max< T > const& mm, Compare&& comp )
 {
         return comp( x, mm.min() ) ? mm.min() : comp( mm.max(), x ) ? mm.max() : x;
 }
 
 template < typename T >
-constexpr const T& clamp( const T& x, const min_max< T >& mm )
+constexpr T const& clamp( T const& x, min_max< T > const& mm )
 {
         return clamp( x, mm, std::less{} );
 }
 
 template < typename T, typename... Args >
 requires( std::same_as< Args, min_max< T > > && ... )
-constexpr min_max< T > intersection( const min_max< T >& head, const Args&... args )
+constexpr min_max< T > intersection( min_max< T > const& head, Args const&... args )
 {
         min_max< T > res{ head };
-        auto         f = [&]( const min_max< T >& other ) {
+        auto         f = [&]( min_max< T > const& other ) {
                 res.min() = std::max( res.min(), other.min() );
                 res.max() = std::min( res.max(), other.max() );
         };
@@ -93,7 +93,7 @@ constexpr min_max< T > intersection( const min_max< T >& head, const Args&... ar
 }
 
 template < typename T >
-constexpr min_max< T > expand( const min_max< T >& mm, const T& val )
+constexpr min_max< T > expand( min_max< T > const& mm, T const& val )
 {
         if ( val < mm.min() )
                 return { val, mm.max() };
@@ -104,7 +104,7 @@ constexpr min_max< T > expand( const min_max< T >& mm, const T& val )
 }
 
 template < typename T >
-constexpr bool contains( const min_max< T >& mm, const T& val )
+constexpr bool contains( min_max< T > const& mm, T const& val )
 {
         return mm.min() <= val && val <= mm.max();
 }
@@ -130,13 +130,13 @@ struct tuple_element< I, emlabcpp::min_max< T > >
 template < typename T >
 struct nlohmann::adl_serializer< emlabcpp::min_max< T > >
 {
-        static void to_json( nlohmann::json& j, const emlabcpp::min_max< T >& mm )
+        static void to_json( nlohmann::json& j, emlabcpp::min_max< T > const& mm )
         {
                 j["min"] = mm.min();
                 j["max"] = mm.max();
         }
 
-        static emlabcpp::min_max< T > from_json( const nlohmann::json& j )
+        static emlabcpp::min_max< T > from_json( nlohmann::json const& j )
         {
                 return emlabcpp::min_max< T >{ j["min"], j["max"] };
         }

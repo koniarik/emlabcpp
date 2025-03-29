@@ -49,9 +49,9 @@ public:
         {
         }
 
-        defer( const defer& )                = default;
+        defer( defer const& )                = default;
         defer( defer&& ) noexcept            = default;
-        defer& operator=( const defer& )     = default;
+        defer& operator=( defer const& )     = default;
         defer& operator=( defer&& ) noexcept = default;
 
         ~defer()

@@ -40,9 +40,9 @@ public:
 
         using value_type      = T;
         using reference       = T&;
-        using const_reference = const T&;
+        using const_reference = T const&;
         using pointer         = T*;
-        using const_pointer   = const T*;
+        using const_pointer   = T const*;
         using size_type       = std::size_t;
 
         /// Returns pointer to first item of the storage
@@ -59,25 +59,25 @@ public:
 
         /// Constructs an item at position i with arguments args...
         template < typename... Args >
-        constexpr void emplace_item( const size_type i, Args&&... args )
+        constexpr void emplace_item( size_type const i, Args&&... args )
         {
                 std::construct_at( data() + i, std::forward< Args >( args )... );
         }
 
         /// Deconstructs an item at position i
-        constexpr void delete_item( const size_type i )
+        constexpr void delete_item( size_type const i )
         {
                 std::destroy_at( data() + i );
         }
 
         /// Provides a reference to item at position i
-        [[nodiscard]] constexpr reference operator[]( const size_type i ) noexcept
+        [[nodiscard]] constexpr reference operator[]( size_type const i ) noexcept
         {
                 return *( data() + i );
         }
 
         /// Provides a reference to item at position i
-        [[nodiscard]] constexpr const_reference operator[]( const size_type i ) const noexcept
+        [[nodiscard]] constexpr const_reference operator[]( size_type const i ) const noexcept
         {
                 return *( data() + i );
         }

@@ -270,7 +270,7 @@ constexpr ValueType operator/( ValueType const val, quantity< Derived, ValueType
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < typename T, typename ValueType >
-std::ostream& operator<<( std::ostream& os, const quantity< T, ValueType >& q )
+std::ostream& operator<<( std::ostream& os, quantity< T, ValueType > const& q )
 {
         return os << *q << T::get_unit();
 }

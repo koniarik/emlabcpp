@@ -219,8 +219,8 @@ constexpr view< iterator_of_t< Container > > trim_view( Container& cont, float c
 }
 
 /// Returns view to the Container in reverse order.
-constexpr auto reversed( referenceable_container auto& container )
-    -> view< decltype( std::rbegin( container ) ) >
+constexpr auto
+reversed( referenceable_container auto& container ) -> view< decltype( std::rbegin( container ) ) >
 {
         return { std::rbegin( container ), std::rend( container ) };
 }
@@ -241,7 +241,7 @@ void string_serialize_view( auto&& w, view< Iterator, EndIterator > const& outpu
 #ifdef EMLABCPP_USE_OSTREAM
 
 template < typename Iterator, typename EndIterator >
-std::ostream& operator<<( std::ostream& os, const view< Iterator, EndIterator >& iter )
+std::ostream& operator<<( std::ostream& os, view< Iterator, EndIterator > const& iter )
 {
         static_assert( ostreamable< typename std::iterator_traits< Iterator >::value_type > );
         string_serialize_view(

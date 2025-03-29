@@ -29,7 +29,7 @@ namespace std
 {
 
 template < typename T >
-vector< T > operator+( vector< T > lh, const vector< T >& rh )
+vector< T > operator+( vector< T > lh, vector< T > const& rh )
 {
         lh.insert( lh.end(), rh.begin(), rh.end() );
         return lh;
@@ -115,7 +115,7 @@ TEST( COBS, encode )
                 auto [res, used] = encode_cobs( raw, tmp );
                 EXPECT_TRUE( res );
 
-                const bool are_eq = used == view{ encod };
+                bool const are_eq = used == view{ encod };
                 EXPECT_TRUE( are_eq ) << "output: " << used << "\n"
                                       << "expected: " << view{ encod };
         }
@@ -131,7 +131,7 @@ TEST( COBS, decode )
                 auto [dres, dused] = decode_cobs( encod, dtmp );
                 EXPECT_TRUE( dres );
 
-                const bool are_eq = dused == view{ raw };
+                bool const are_eq = dused == view{ raw };
                 EXPECT_TRUE( are_eq ) << "inpt:     " << view{ encod } << "\n"
                                       << "output:   " << dused << "\n"
                                       << "expected: " << view{ raw };
@@ -144,7 +144,7 @@ TEST( COBS, decode_iter )
 
                 auto cview = cobs_decode_view( view{ encod } );
 
-                const bool are_eq = std::equal( raw.begin(), raw.end(), cview.begin() );
+                bool const are_eq = std::equal( raw.begin(), raw.end(), cview.begin() );
                 EXPECT_TRUE( are_eq ) << "output:   " << cview << "\n"
                                       << "expected: " << view{ raw };
         }

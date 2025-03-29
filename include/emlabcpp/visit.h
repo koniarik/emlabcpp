@@ -32,7 +32,7 @@ namespace emlabcpp
 {
 
 template < typename Visitor, typename Variant >
-decltype( auto ) visit_index( Visitor&& vis, const Variant& var )
+decltype( auto ) visit_index( Visitor&& vis, Variant const& var )
 {
         return impl::index_switch< 0, std::variant_size_v< std::decay_t< Variant > > >(
             var.index(), std::forward< Visitor >( vis ) );

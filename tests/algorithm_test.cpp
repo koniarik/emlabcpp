@@ -40,7 +40,7 @@ TEST( Algorithm, sign )
         EXPECT_EQ( sign( 1 ), 1 );
         EXPECT_EQ( sign( 10 ), 1 );
 
-        const int i = 10;
+        int const i = 10;
         EXPECT_EQ( sign( i ), 1 );
 }
 
@@ -117,8 +117,8 @@ TEST( Algorithm, find_if_bool_tup )
 // NOLINTNEXTLINE
 TEST( Algorithm, find_if_int_tup )
 {
-        const std::tuple< int, int, int > tup2 = { -1, 0, 1 };
-        const std::size_t                 i    = find_if( tup2, [&]( int i ) {
+        std::tuple< int, int, int > const tup2 = { -1, 0, 1 };
+        std::size_t const                 i    = find_if( tup2, [&]( int i ) {
                 return i > 0;
         } );
         EXPECT_EQ( i, 2u );
@@ -142,8 +142,8 @@ TEST( Algorithm, find_if_vector )
 // NOLINTNEXTLINE
 TEST( Algorithm, find )
 {
-        const std::tuple< int, int, int > tup2 = { -1, 0, 1 };
-        const std::size_t                 i    = find( tup2, 1 );
+        std::tuple< int, int, int > const tup2 = { -1, 0, 1 };
+        std::size_t const                 i    = find( tup2, 1 );
         EXPECT_EQ( i, 2u );
 
         std::vector< int > vec1 = { -1, 0, 1 };
@@ -155,11 +155,11 @@ TEST( Algorithm, find )
 // NOLINTNEXTLINE
 TEST( Algorithm, contains )
 {
-        const std::vector< int > vec = { 0, 1, 2, 42, 3, 4, 5 };
+        std::vector< int > const vec = { 0, 1, 2, 42, 3, 4, 5 };
         EXPECT_TRUE( contains( vec, 42 ) );
         EXPECT_FALSE( contains( vec, 666 ) );
 
-        const std::tuple< int, int > tpl = { -1, 1 };
+        std::tuple< int, int > const tpl = { -1, 1 };
         EXPECT_TRUE( contains( tpl, 1 ) );
         EXPECT_FALSE( contains( tpl, 0 ) );
 }
@@ -274,7 +274,7 @@ TEST( Algorithm, avg )
         EXPECT_EQ( res, std::size_t( 2 ) );
 
         using test_type      = tagged_quantity< struct avg_test_type_tag, std::size_t >;
-        const test_type res2 = avg( std::vector< test_type >{ test_type{ 0 }, test_type{ 10 } } );
+        test_type const res2 = avg( std::vector< test_type >{ test_type{ 0 }, test_type{ 10 } } );
         EXPECT_EQ( res2, test_type{ 5u } );
 }
 
@@ -286,11 +286,11 @@ TEST( Algorithm, variance )
         res = variance(
             std::tuple< std::size_t, std::size_t, std::size_t, std::size_t >{ 1, 2, 3, 4 } );
         EXPECT_EQ( res, std::size_t( 1 ) );
-        const float fres = variance( std::vector< float >{ 1.f, 2.f, 3.f, 4.f } );
+        float const fres = variance( std::vector< float >{ 1.f, 2.f, 3.f, 4.f } );
         EXPECT_EQ( fres, 1.25f );
 
         using test_type        = tagged_quantity< struct variance_test_type_tag, std::size_t >;
-        const std::size_t res2 = variance(
+        std::size_t const res2 = variance(
             std::vector< test_type >{ test_type{ 0 }, test_type{ 10 } }, [&]( test_type v ) {
                     return *v;
             } );
@@ -405,7 +405,7 @@ TEST( Algorithm, map_f )
         auto res = map_f< std::array< int, 4 > >( idata );
         EXPECT_TRUE( is_equal ) << view{ res } << "," << view{ idata };
 
-        const float mapped_sum = sum( map_f< std::list< float > >( idata, [&]( int i ) {
+        float const mapped_sum = sum( map_f< std::list< float > >( idata, [&]( int i ) {
                 return float( i ) * 1.5f;
         } ) );
         EXPECT_EQ( mapped_sum, 15.f );
@@ -414,7 +414,7 @@ TEST( Algorithm, map_f )
         is_equal = equal( map_f< std::vector< int > >( tdata ), idata );
         EXPECT_TRUE( is_equal );
 
-        const std::map< int, std::string > expected{
+        std::map< int, std::string > const expected{
             { 1, "1" }, { 2, "2" }, { 3, "3" }, { 4, "4" } };
         auto converted = map_f< std::map< int, std::string > >( idata, []( int i ) {
                 return std::make_pair( i, std::to_string( i ) );
@@ -441,7 +441,7 @@ TEST( Algorithm, map_f_to_a_vector )
         bool is_equal = equal( map_f_to_a< 4 >( idata ), idata );
         EXPECT_TRUE( is_equal );
 
-        const std::vector< int > goal_data{ 2, 4, 6, 8 };
+        std::vector< int > const goal_data{ 2, 4, 6, 8 };
         is_equal = equal(
             map_f_to_a< 4 >(
                 std::move( idata ),
@@ -456,7 +456,7 @@ TEST( Algorithm, map_f_to_a_array )
 {
         std::array< int, 4 > idata2{ 1, 2, 3, 4 };
 
-        const bool is_equal = equal( map_f_to_a( idata2 ), idata2 );
+        bool const is_equal = equal( map_f_to_a( idata2 ), idata2 );
         EXPECT_TRUE( is_equal );
 }
 
@@ -471,11 +471,11 @@ TEST( Algorithm, map_f_to_a_tuple )
         EXPECT_EQ( tup1_res[1], "0.000000" );
         EXPECT_EQ( tup1_res[2], "1" );
 
-        const std::array< bool, 3 > arr1_res = map_f_to_a( std::move( tup1 ), []( auto v ) {
+        std::array< bool, 3 > const arr1_res = map_f_to_a( std::move( tup1 ), []( auto v ) {
                 return v != 0;
         } );
 
-        const std::array< bool, 3 > expected = { true, false, true };
+        std::array< bool, 3 > const expected = { true, false, true };
         EXPECT_EQ( arr1_res, expected );
 }
 
@@ -487,7 +487,7 @@ struct convert_test
 // NOLINTNEXTLINE
 TEST( Algorithm, convert_to )
 {
-        const std::vector< int > idata{ 1, 2, 3, 4 };
+        std::vector< int > const idata{ 1, 2, 3, 4 };
 
         auto mapped = map_f< std::vector< convert_test > >( idata, convert_to< convert_test >{} );
         EXPECT_EQ( mapped[0].val, 1 );
@@ -497,7 +497,7 @@ TEST( Algorithm, convert_to )
 // NOLINTNEXTLINE
 TEST( Algorithm, joined )
 {
-        const std::vector< std::string > idata{ "ab", "cd", "ef" };
+        std::vector< std::string > const idata{ "ab", "cd", "ef" };
         std::string                      msg = joined( idata, std::string{ "|" } );
 
         EXPECT_EQ( msg, "ab|cd|ef" );
@@ -535,7 +535,7 @@ TEST( Algorithm, find_if_index )
 {
         std::vector< std::size_t > idata{ 1, 2, 3, 4 };
 
-        const std::size_t i = find_if_index< 4 >( [&]< std::size_t i >() {
+        std::size_t const i = find_if_index< 4 >( [&]< std::size_t i >() {
                 return idata[i] == 3;
         } );
 
@@ -562,9 +562,9 @@ TEST( Algorithm, until_index )
 TEST( Algorithm, select_index )
 {
         std::vector< std::size_t > idata{ 1, 2, 3, 4 };
-        for ( const std::size_t i : idata ) {
-                const bounded     b = bounded< std::size_t, 0, 3 >::make( i - 1 ).value();
-                const std::size_t j = select_index( b, [&]< std::size_t i >() -> std::size_t {
+        for ( std::size_t const i : idata ) {
+                bounded const     b = bounded< std::size_t, 0, 3 >::make( i - 1 ).value();
+                std::size_t const j = select_index( b, [&]< std::size_t i >() -> std::size_t {
                         return idata[i];
                 } );
                 EXPECT_EQ( i, j ) << "bounded val: " << b;

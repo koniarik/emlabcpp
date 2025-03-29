@@ -22,6 +22,7 @@
 ///
 
 #include "emlabcpp/protocol.h"
+
 #include "emlabcpp/match.h"
 #include "emlabcpp/protocol/handler.h"
 #include "emlabcpp/protocol/streams.h"
@@ -68,7 +69,7 @@ int main( int, char*[] )
         // preferable to use it in standalone compilation unit.
         using example_tuple_handler = em::protocol::handler< example_tuple >;
 
-        const std::tuple< uint32_t, int16_t, int16_t > tuple_val = { 666, -2, 2 };
+        std::tuple< uint32_t, int16_t, int16_t > const tuple_val = { 666, -2, 2 };
         em::protocol::message< 8 > tuple_msg = example_tuple_handler::serialize( tuple_val );
 
         // The library has support for streams, these however are stored in separate included file
@@ -84,7 +85,8 @@ int main( int, char*[] )
         std::variant< std::tuple< uint32_t, int16_t, int16_t >, em::protocol::error_record >
             tuple_either = example_tuple_handler::extract( tuple_msg );
 
-        em::match(tuple_either,
+        em::match(
+            tuple_either,
             []( std::tuple< uint32_t, int16_t, int16_t > ) {
                     std::cout << "Yaaay, protocol deserialized what it serialized \\o/\n";
             },
@@ -130,7 +132,7 @@ int main( int, char*[] )
         // To simplify the process of handling the value, the command_group provides make_val static
         // method for creating a value of said group, that can be processed.
 
-        const example_group_value group_val = example_group::make_val< EXAMPLE_CMD_A >( 42u );
+        example_group_value const group_val = example_group::make_val< EXAMPLE_CMD_A >( 42u );
 
         // serialization and deserialization works same way as in case of tuple
 
@@ -142,11 +144,11 @@ int main( int, char*[] )
         // this produces: |00:01:00:00|00:2a
 
         em::match(
-                example_group_handler::extract( group_msg ),
-                [&]( example_group_value ) {
-                        std::cout << "yayyy, group deserialize :) \n";
-                },
-                [&]( em::protocol::error_record rec ) {
-                        std::cout << "something went wrong with the group: " << rec << "\n";
-                } );
+            example_group_handler::extract( group_msg ),
+            [&]( example_group_value ) {
+                    std::cout << "yayyy, group deserialize :) \n";
+            },
+            [&]( em::protocol::error_record rec ) {
+                    std::cout << "something went wrong with the group: " << rec << "\n";
+            } );
 }

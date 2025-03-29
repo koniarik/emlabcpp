@@ -40,7 +40,7 @@ struct sequencer_def
         static constexpr std::size_t            fixed_size  = 3;
         static constexpr std::size_t            buffer_size = message_type::capacity * 2;
 
-        static constexpr std::size_t get_size( const auto& bview )
+        static constexpr std::size_t get_size( auto const& bview )
         {
                 return std::to_integer< std::size_t >( bview[2] ) + fixed_size;
         }
@@ -55,7 +55,8 @@ TEST( protocol_seq, basic )
         sequencer seq;
 
         seq.insert( view_n( data.begin(), 3 ) );
-        match(seq.get_message(),
+        match(
+            seq.get_message(),
             [&]( protocol::sequencer_read_request to_read ) {
                     EXPECT_EQ( *to_read, 3 );
             },
@@ -64,12 +65,13 @@ TEST( protocol_seq, basic )
             } );
 
         seq.insert( view_n( data.begin() + 3, 3 ) );
-        match(seq.get_message(),
+        match(
+            seq.get_message(),
             [&]( protocol::sequencer_read_request ) {
                     FAIL();
             },
             [&]( auto msg ) {
-                    const bool are_equal = equal( msg, data );
+                    bool const are_equal = equal( msg, data );
                     EXPECT_TRUE( are_equal );
             } );
 }
@@ -81,7 +83,8 @@ TEST( protocol_seq, noise_at_start )
         sequencer seq;
 
         seq.insert( view_n( data.begin(), 4 ) );
-        match(seq.get_message(),
+        match(
+            seq.get_message(),
             [&]( protocol::sequencer_read_request to_read ) {
                     EXPECT_EQ( *to_read, 3 );
             },
@@ -90,12 +93,13 @@ TEST( protocol_seq, noise_at_start )
             } );
 
         seq.insert( view_n( data.begin() + 4, 3 ) );
-        match(seq.get_message(),
+        match(
+            seq.get_message(),
             [&]( protocol::sequencer_read_request ) {
                     FAIL();
             },
             [&]( auto msg ) {
-                    const bool are_equal = equal( msg, tail( data ) );
+                    bool const are_equal = equal( msg, tail( data ) );
                     EXPECT_TRUE( are_equal ) << msg;
             } );
 }
@@ -110,22 +114,24 @@ TEST( protocol_seq, multi_msg )
         sequencer seq;
 
         seq.insert( view_n( data.begin(), 5 ) );
-        match(seq.get_message(),
+        match(
+            seq.get_message(),
             [&]( protocol::sequencer_read_request ) {
                     FAIL();
             },
             [&]( auto msg ) {
-                    const bool are_equal = equal( msg, msg1 );
+                    bool const are_equal = equal( msg, msg1 );
                     EXPECT_TRUE( are_equal );
             } );
 
         seq.insert( view_n( data.begin() + 4, 6 ) );
-        match(seq.get_message(),
+        match(
+            seq.get_message(),
             [&]( protocol::sequencer_read_request ) {
                     FAIL();
             },
             [&]( auto msg ) {
-                    const bool are_equal = equal( msg, msg2 );
+                    bool const are_equal = equal( msg, msg2 );
                     EXPECT_TRUE( are_equal );
             } );
 }

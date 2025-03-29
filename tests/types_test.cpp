@@ -29,9 +29,9 @@
 namespace emlabcpp
 {
 
-static_assert( std::same_as< mapped_t< std::vector< int >, std::identity >, const int& > );
-static_assert( std::same_as< mapped_t< std::list< int >, std::identity >, const int& > );
-static_assert( std::same_as< mapped_t< view< const int* >, std::identity >, const int& > );
+static_assert( std::same_as< mapped_t< std::vector< int >, std::identity >, int const& > );
+static_assert( std::same_as< mapped_t< std::list< int >, std::identity >, int const& > );
+static_assert( std::same_as< mapped_t< view< int const* >, std::identity >, int const& > );
 // TODO: decide this:
 // static_assert(
 //    std::same_as< mapped_t< view< const int ( * )[128] >, std::identity >, const int& > );

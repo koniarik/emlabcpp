@@ -51,9 +51,9 @@ struct valid_test_case : protocol_test_fixture
         void TestBody() final
         {
                 std::array< std::byte, pitem::max_size > buffer{};
-                const std::span                          bspan{ buffer };
+                std::span const                          bspan{ buffer };
 
-                const bounded used =
+                bounded const used =
                     pitem::serialize_at( bspan.template first< pitem::max_size >(), val );
 
                 EXPECT_EQ( *used, expected_buffer.size() );
@@ -65,7 +65,7 @@ struct valid_test_case : protocol_test_fixture
 
                 value_type item;
                 auto       sres = pitem::deserialize(
-                    std::span< const std::byte >{ buffer.begin(), *used }, item );
+                    std::span< std::byte const >{ buffer.begin(), *used }, item );
 
                 if ( sres.has_error() ) {
                         FAIL() << *sres.get_error();
@@ -84,7 +84,7 @@ struct valid_test_case : protocol_test_fixture
 
 template < std::endian Endianess, typename T >
 std::function< protocol_test_fixture*() >
-make_valid_test_case( T val, const std::vector< uint8_t >& buff )
+make_valid_test_case( T val, std::vector< uint8_t > const& buff )
 {
         return [=]() {
                 return new valid_test_case< Endianess, T >( val, buff );
@@ -94,7 +94,7 @@ make_valid_test_case( T val, const std::vector< uint8_t >& buff )
 template < std::endian Endianess, typename T >
 std::function< protocol_test_fixture*() > make_specific_valid_test_case(
     typename protocol::converter_for< T, Endianess >::value_type val,
-    const std::vector< uint8_t >&                                buff )
+    std::vector< uint8_t > const&                                buff )
 {
         return [=]() {
                 return new valid_test_case< Endianess, T >( val, buff );
@@ -123,7 +123,7 @@ struct invalid_test_case : protocol_test_fixture
                 ASSERT_LE( inpt.size(), tmp.size() );
                 copy( inpt, tmp.begin() );
 
-                auto opt_view = bounded_view< const std::byte*, typename pitem::size_type >::make(
+                auto opt_view = bounded_view< std::byte const*, typename pitem::size_type >::make(
                     view_n( tmp.begin(), inpt.size() ) );
                 EXPECT_TRUE( opt_view );
 
@@ -147,7 +147,7 @@ struct invalid_test_case : protocol_test_fixture
 
 template < typename T >
 std::function< protocol_test_fixture*() >
-make_invalid_test_case( const std::vector< uint8_t >& buff, const protocol::error_record& rec )
+make_invalid_test_case( std::vector< uint8_t > const& buff, protocol::error_record const& rec )
 {
         return [=]() {
                 auto cview = convert_view< std::byte >( buff );
@@ -157,22 +157,22 @@ make_invalid_test_case( const std::vector< uint8_t >& buff, const protocol::erro
 }
 
 using variable_size_type = static_vector< uint8_t, 7 >;
-const variable_size_type VARIABLE_VAL_1{ std::array< uint8_t, 3 >{ 1, 2, 3 } };
-const variable_size_type VARIABLE_VAL_2{ std::array< uint8_t, 7 >{ 1, 2, 3, 4, 5, 6, 7 } };
-const variable_size_type VARIABLE_VAL_3{ std::array< uint8_t, 0 >{} };
+variable_size_type const VARIABLE_VAL_1{ std::array< uint8_t, 3 >{ 1, 2, 3 } };
+variable_size_type const VARIABLE_VAL_2{ std::array< uint8_t, 7 >{ 1, 2, 3, 4, 5, 6, 7 } };
+variable_size_type const VARIABLE_VAL_3{ std::array< uint8_t, 0 >{} };
 
 template < typename T >
 struct simple_struct
 {
         T value;
 
-        friend auto operator<=>( const simple_struct< T >&, const simple_struct< T >& ) = default;
+        friend auto operator<=>( simple_struct< T > const&, simple_struct< T > const& ) = default;
 };
 
 void protocol_def_tests()
 {
 
-        const std::vector< std::function< protocol_test_fixture*() > > tests = {
+        std::vector< std::function< protocol_test_fixture*() > > const tests = {
             // basic types
             make_valid_test_case< std::endian::little >( uint8_t{ 42 }, { 42 } ),
             make_valid_test_case< std::endian::big >( uint8_t{ 42 }, { 42 } ),

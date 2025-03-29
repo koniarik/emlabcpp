@@ -89,14 +89,14 @@ TEST( static_circular_buffer_test, emplace_back )
         EXPECT_EQ( tbuff.back(), 42 );
 
         // This is special constructor of std::string
-        const std::size_t i = 5;
+        std::size_t const i = 5;
         obuff.emplace_back( i, 'c' );
         EXPECT_EQ( obuff.back(), "ccccc" );
 }
 
 TEST( static_circular_buffer_test, circler_overflow_trivial )
 {
-        const std::vector< int > tidata = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        std::vector< int > const tidata = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
         std::vector< int >       todata;
         trivial_buffer           tbuff;
 
@@ -104,7 +104,7 @@ TEST( static_circular_buffer_test, circler_overflow_trivial )
 
         // insert data from tidata into tbuff, if it is full start poping the
         // data from tbuff to todata
-        for ( const int i : tidata ) {
+        for ( int const i : tidata ) {
                 if ( tbuff.full() ) {
                         todata.push_back( tbuff.front() );
                         tbuff.pop_front();
@@ -123,14 +123,14 @@ TEST( static_circular_buffer_test, circler_overflow_trivial )
 
 TEST( static_circular_buffer_test, circle_overflow_object )
 {
-        const std::vector< std::string > oidata = {
+        std::vector< std::string > const oidata = {
             "Pack", "my", "box", "with", "five", "dozen", "liquor", "jugs." };
         std::vector< std::string > oodata;
         obj_buffer                 obuff;
 
         EXPECT_GT( oidata.size(), buffer_size );
 
-        for ( const std::string& s : oidata ) {
+        for ( std::string const& s : oidata ) {
                 if ( obuff.full() ) {
                         oodata.push_back( obuff.front() );
                         obuff.pop_front();
@@ -165,7 +165,7 @@ TEST( static_circular_buffer_test, usage )
 TEST( static_circular_buffer_test, copy_trivial )
 {
         trivial_buffer tbuff;
-        for ( const int i : { 1, 2, 3, 4, 5 } )
+        for ( int const i : { 1, 2, 3, 4, 5 } )
                 tbuff.push_back( i );
 
         trivial_buffer cpy{ tbuff };
@@ -190,12 +190,12 @@ TEST( static_circular_buffer_test, copy_trivial )
 TEST( static_circular_buffer_test, copy_object )
 {
         obj_buffer obuff;
-        for ( const std::string s :
+        for ( std::string const s :
               { "Pack", "my", "box", "with", "five", "dozen", "liquor", "jugs." } ) {
                 obuff.push_back( s );
         }
 
-        const obj_buffer cpy{ obuff };
+        obj_buffer const cpy{ obuff };
         EXPECT_EQ( obuff, cpy );
 
         obj_buffer cpy2;
@@ -206,10 +206,10 @@ TEST( static_circular_buffer_test, copy_object )
 TEST( static_circular_buffer_test, move_trivial )
 {
         trivial_buffer tbuff;
-        for ( const int i : { 1, 2, 3, 4, 5 } )
+        for ( int const i : { 1, 2, 3, 4, 5 } )
                 tbuff.push_back( i );
 
-        const trivial_buffer cpy{ tbuff };
+        trivial_buffer const cpy{ tbuff };
         trivial_buffer       moved{ std::move( tbuff ) };
 
         EXPECT_EQ( cpy, moved );
@@ -223,12 +223,12 @@ TEST( static_circular_buffer_test, move_trivial )
 TEST( static_circular_buffer_test, move_object )
 {
         obj_buffer obuff;
-        for ( const std::string s :
+        for ( std::string const s :
               { "Pack", "my", "box", "with", "five", "dozen", "liquor", "jugs." } ) {
                 obuff.push_back( s );
         }
 
-        const obj_buffer cpy{ obuff };
+        obj_buffer const cpy{ obuff };
         obj_buffer       moved{ std::move( obuff ) };
 
         EXPECT_EQ( cpy, moved );
@@ -242,26 +242,26 @@ TEST( static_circular_buffer_test, move_object )
 TEST( static_circular_buffer_test, iterators )
 {
         trivial_buffer           tbuff;
-        const std::vector< int > data = { 1, 2, 3, 4, 5 };
-        for ( const int i : data )
+        std::vector< int > const data = { 1, 2, 3, 4, 5 };
+        for ( int const i : data )
                 tbuff.push_back( i );
 
         std::vector< int > res;
-        for ( const int i : tbuff )
+        for ( int const i : tbuff )
                 res.push_back( i );
 
-        const bool are_equal = equal( data, res );
+        bool const are_equal = equal( data, res );
         EXPECT_TRUE( are_equal );
 
-        const trivial_iterator beg = tbuff.begin();
-        const trivial_iterator cpy{ beg };
+        trivial_iterator const beg = tbuff.begin();
+        trivial_iterator const cpy{ beg };
         EXPECT_EQ( beg, cpy );
 }
 
 TEST( static_circular_buffer_test, view )
 {
         obj_buffer obuff;
-        for ( const std::string& s : { "1"s, "2"s, "3"s, "4"s } )
+        for ( std::string const& s : { "1"s, "2"s, "3"s, "4"s } )
                 obuff.push_back( s );
         std::stringstream ss;
 
@@ -283,7 +283,7 @@ TEST( static_circular_buffer_test, back_inserter )
 
         std::array< int, 6 > expected = { 1, 2, 3, 4, 5, 6 };
 
-        const bool are_equal = equal( buff, expected );
+        bool const are_equal = equal( buff, expected );
         EXPECT_TRUE( are_equal ) << "buff: " << view{ buff } << "\n"
                                  << "expected: " << view{ expected } << "\n";
 }
@@ -291,7 +291,7 @@ TEST( static_circular_buffer_test, back_inserter )
 TEST( static_circular_buffer_test, back )
 {
         trivial_buffer tbuff;
-        for ( const int i : { 1, 2, 3, 4, 5, 6, 7 } )
+        for ( int const i : { 1, 2, 3, 4, 5, 6, 7 } )
                 tbuff.push_back( i );
 
         EXPECT_TRUE( tbuff.full() );

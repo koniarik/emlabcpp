@@ -211,7 +211,7 @@ concept message_derived = requires( T val ) { detail::message_derived_test( val 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 
 template < std::size_t N >
-void to_json( nlohmann::json& j, const message< N >& msg )
+void to_json( nlohmann::json& j, message< N > const& msg )
 {
         j = nlohmann::json::array();
         for ( std::byte b : msg )

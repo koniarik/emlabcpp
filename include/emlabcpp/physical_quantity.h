@@ -262,7 +262,7 @@ constexpr auto pow( physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, 
 template < int Len, int Mass, int Time, int Current, int Temp, int Mol, int Li, int Angle, int Byte >
 std::ostream& operator<<(
     std::ostream&                                                                    os,
-    const physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte >& q )
+    physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte > const& q )
 {
         return os << *q
                   << physical_quantity< Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte >::

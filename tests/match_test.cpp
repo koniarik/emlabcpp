@@ -41,7 +41,7 @@ TEST( match, vis )
                     SUCCEED();
                     fired = true;
             },
-            [&]( const std::string& ) {
+            [&]( std::string const& ) {
                     FAIL();
             } );
 
@@ -55,7 +55,7 @@ TEST( match, vis )
             [&]( int ) {
                     FAIL();
             },
-            [&]( const std::string& ) {
+            [&]( std::string const& ) {
                     SUCCEED();
                     fired = true;
             } );
@@ -76,7 +76,7 @@ TEST( match, vis_apply )
                     SUCCEED();
                     fired = true;
             },
-            [&]( const std::string& ) {
+            [&]( std::string const& ) {
                     FAIL();
             } );
 
@@ -90,7 +90,7 @@ TEST( match, vis_apply )
             [&]( int, int ) {
                     FAIL();
             },
-            [&]( const std::string& ) {
+            [&]( std::string const& ) {
                     SUCCEED();
                     fired = true;
             } );
@@ -103,7 +103,7 @@ TEST( match, referecing )
         std::variant< std::vector< int >, std::string > var{ std::string{ "test" } };
         match(
             var,
-            [&]( const std::vector< int >& ) {
+            [&]( std::vector< int > const& ) {
                     FAIL();
             },
             [&]( std::string& s ) {

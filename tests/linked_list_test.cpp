@@ -38,7 +38,7 @@ TEST( LinkedList, base )
 
         EXPECT_EQ( n1.get_next(), &n2 );
 
-        const test_node n3 = std::move( n2 );
+        test_node const n3 = std::move( n2 );
 
         EXPECT_EQ( n1.get_next(), &n3 );
 }

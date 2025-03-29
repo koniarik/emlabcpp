@@ -37,11 +37,11 @@ namespace emlabcpp
 
 struct controller_iface : testing::controller_interface
 {
-        void on_result( const testing::test_result& ) override
+        void on_result( testing::test_result const& ) override
         {
         }
 
-        void on_error( const testing::error_variant& ) override
+        void on_error( testing::error_variant const& ) override
         {
         }
 };
@@ -50,10 +50,10 @@ TEST( testing_combined, base )
 {
         testing::controller* con_ptr;
         testing::reactor*    reac_ptr;
-        auto                 reactor_send_f = [&]( auto, const auto& data ) {
+        auto                 reactor_send_f = [&]( auto, auto const& data ) {
                 return con_ptr->on_msg( data ).has_errored_result();
         };
-        auto contr_send_f = [&]( auto, const auto& data ) {
+        auto contr_send_f = [&]( auto, auto const& data ) {
                 return reac_ptr->on_msg( data ).has_errored_result();
         };
 
@@ -86,11 +86,11 @@ TEST( testing_combined, base )
 
 struct complex_controller_iface : testing::controller_interface
 {
-        void on_result( const testing::test_result& ) override
+        void on_result( testing::test_result const& ) override
         {
         }
 
-        void on_error( const testing::error_variant& ) override
+        void on_error( testing::error_variant const& ) override
         {
         }
 };
@@ -102,32 +102,32 @@ struct host_items
             testing::core_channel,
             pmr::new_delete_resource(),
             ciface,
-            [&]( auto chan, const auto& data ) {
+            [&]( auto chan, auto const& data ) {
                     return send( chan, data );
             } };
         testing::collect_server col_serv{
             testing::collect_channel,
             pmr::new_delete_resource(),
-            [&]( auto chan, const auto& data ) {
+            [&]( auto chan, auto const& data ) {
                     return send( chan, data );
             } };
         testing::parameters_server param_serv{
             testing::params_channel,
             testing::data_tree{ pmr::new_delete_resource() },
-            [&]( auto chan, const auto& data ) {
+            [&]( auto chan, auto const& data ) {
                     return send( chan, data );
             } };
 
-        std::function< result( std::span< const std::byte > ) > cb;
+        std::function< result( std::span< std::byte const > ) > cb;
         testing::endpoint                                       ep;
 
         template < std::size_t N >
-        result send( protocol::channel_type channel, const protocol::message< N >& data )
+        result send( protocol::channel_type channel, protocol::message< N > const& data )
         {
                 return cb( ep.serialize( channel, data ) );
         }
 
-        result on_msg( const std::span< const std::byte > data )
+        result on_msg( std::span< std::byte const > const data )
         {
                 ep.insert( data );
                 return ep.dispatch_value( cont, col_serv, param_serv ).has_errored_result();
@@ -136,26 +136,26 @@ struct host_items
 
 struct dev_items
 {
-        testing::reactor   reac{ testing::core_channel, "reac", [&]( auto chan, const auto& data ) {
+        testing::reactor   reac{ testing::core_channel, "reac", [&]( auto chan, auto const& data ) {
                                       return send( chan, data );
                               } };
-        testing::collector coll{ testing::collect_channel, [&]( auto chan, const auto& data ) {
+        testing::collector coll{ testing::collect_channel, [&]( auto chan, auto const& data ) {
                                         return send( chan, data );
                                 } };
-        testing::parameters params{ testing::params_channel, [&]( auto chan, const auto& data ) {
+        testing::parameters params{ testing::params_channel, [&]( auto chan, auto const& data ) {
                                            return send( chan, data );
                                    } };
 
-        std::function< result( std::span< const std::byte > ) > cb;
+        std::function< result( std::span< std::byte const > ) > cb;
         testing::endpoint                                       ep;
 
         template < std::size_t N >
-        result send( protocol::channel_type channel, const protocol::message< N >& data )
+        result send( protocol::channel_type channel, protocol::message< N > const& data )
         {
                 return cb( ep.serialize( channel, data ) );
         }
 
-        result on_msg( const std::span< const std::byte > data )
+        result on_msg( std::span< std::byte const > const data )
         {
                 ep.insert( data );
                 return ep.dispatch_value( reac, coll, params ).has_errored_result();

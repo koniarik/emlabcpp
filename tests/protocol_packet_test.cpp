@@ -38,7 +38,7 @@ struct packet_test_def
         using size_type                                       = uint16_t;
         using checksum_type                                   = uint16_t;
 
-        static constexpr checksum_type get_checksum( const view< const std::byte* > )
+        static constexpr checksum_type get_checksum( view< std::byte const* > const )
         {
                 return 0x00;
         }
@@ -53,13 +53,14 @@ TEST( Packet, simple )
 {
         std::tuple< uint32_t, uint8_t, uint8_t > val{ 0x43434343, 0x8, 0x16 };
         message_type                             msg = handler::serialize( val );
-        const message_type                       res(
+        message_type const                       res(
             0x91, 0x19, 0x91, 0x19, 0x00, 0x06, 0x43, 0x43, 0x43, 0x43, 0x08, 0x16, 0x00, 0x00 );
 
         EXPECT_EQ( msg, res ) << "msg: " << msg << "\n"
                               << "res: " << res;
 
-        match(handler::extract( msg ),
+        match(
+            handler::extract( msg ),
             [&]( std::tuple< uint32_t, uint8_t, uint8_t > pack ) {
                     EXPECT_EQ( pack, val );
             },
@@ -78,7 +79,8 @@ TEST( Packet, seq )
         seq test_seq{};
 
         test_seq.insert( msg );
-        match(test_seq.get_message(),
+        match(
+            test_seq.get_message(),
             [&]( protocol::sequencer_read_request ) {
                     FAIL();
             },

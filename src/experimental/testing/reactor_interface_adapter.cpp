@@ -30,14 +30,14 @@
 namespace emlabcpp::testing
 {
 
-result reactor_interface_adapter::reply( const reactor_controller_variant& var )
+result reactor_interface_adapter::reply( reactor_controller_variant const& var )
 {
         using h        = protocol::handler< reactor_controller_group >;
-        const auto msg = h::serialize( var );
+        auto const msg = h::serialize( var );
         return transmit_( channel_, msg );
 }
 
-result reactor_interface_adapter::report_failure( const reactor_error_variant& evar )
+result reactor_interface_adapter::report_failure( reactor_error_variant const& evar )
 {
         return reply( reactor_internal_error_report{ evar } );
 }

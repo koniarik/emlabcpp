@@ -35,9 +35,9 @@ float sum_distance( pose_distance pd )
 
 TEST( Pose, distance )
 {
-        const pose neutral;
-        const pose pos_offseted{ point< 3 >( 10, 0, 0 ) };
-        const pose angle_offseted{ quaternion( z_axis, 1.f ) };
+        pose const neutral;
+        pose const pos_offseted{ point< 3 >( 10, 0, 0 ) };
+        pose const angle_offseted{ quaternion( z_axis, 1.f ) };
 
         ASSERT_NEAR( sum_distance( distance_of( neutral, pos_offseted ) ), 10., 1e-6 );
         ASSERT_NEAR( sum_distance( distance_of( neutral, angle_offseted ) ), 1., 1e-6 );

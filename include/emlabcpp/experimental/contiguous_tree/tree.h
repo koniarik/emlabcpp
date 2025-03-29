@@ -117,7 +117,7 @@ private:
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < typename ObjectType >
-std::ostream& operator<<( std::ostream& os, const contiguous_object_handle< ObjectType >& oh )
+std::ostream& operator<<( std::ostream& os, contiguous_object_handle< ObjectType > const& oh )
 {
         for ( auto const& [key, nid] : oh )
                 os << key << ":" << nid << ",";
@@ -189,7 +189,7 @@ private:
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < typename ArrayType >
-std::ostream& operator<<( std::ostream& os, const contiguous_array_handle< ArrayType >& ah )
+std::ostream& operator<<( std::ostream& os, contiguous_array_handle< ArrayType > const& ah )
 {
         for ( auto const& [chid, nid] : ah )
                 os << chid << ":" << nid << ",";
@@ -273,7 +273,7 @@ private:
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < typename Key, typename Value >
-std::ostream& operator<<( std::ostream& os, const contiguous_node< Key, Value >& node )
+std::ostream& operator<<( std::ostream& os, contiguous_node< Key, Value > const& node )
 {
         visit(
             [&os]( auto const& val ) {
@@ -413,7 +413,7 @@ private:
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < typename Key, typename Value >
-std::ostream& operator<<( std::ostream& os, const contiguous_tree< Key, Value >& tree )
+std::ostream& operator<<( std::ostream& os, contiguous_tree< Key, Value > const& tree )
 {
         for ( auto const& [nid, node] : tree )
                 os << nid << ":" << node << "\n";

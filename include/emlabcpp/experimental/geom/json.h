@@ -37,7 +37,7 @@ namespace emlabcpp
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 
 template < std::size_t N >
-inline void from_json( const nlohmann::json& j, point< N >& p )
+inline void from_json( nlohmann::json const& j, point< N >& p )
 {
         using container = typename point< N >::container;
 

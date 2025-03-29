@@ -62,7 +62,7 @@ static void pretty_print_msg_format( auto&& w, msg_format< T > wrapper )
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < std::size_t N >
-inline std::ostream& operator<<( std::ostream& os, const message< N >& m )
+inline std::ostream& operator<<( std::ostream& os, message< N > const& m )
 {
         pretty_print_msg_format(
             [&]( auto c ) {

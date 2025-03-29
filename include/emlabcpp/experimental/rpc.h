@@ -188,8 +188,6 @@ public:
         static std::variant< typename call_type< ID >::reply, error >
         on_reply_msg( auto const& reply_msg )
         {
-                using rt = typename call_type< ID >::reply;
-
                 auto tmp = reply_handler::extract( reply_msg );
                 if ( auto* err = std::get_if< protocol::error_record >( &tmp ) )
                         return error{ *err };
@@ -244,7 +242,7 @@ public:
         using reply_message_type   = typename reactor_type::reply_message_type;
 
         class_wrapper( Class& obj )
-          : obj_( obj ) {};
+          : obj_( obj ){};
 
         reply_message_type on_message( request_message_type const& msg )
         {

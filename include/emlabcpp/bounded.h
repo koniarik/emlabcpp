@@ -168,7 +168,7 @@ concept bounded_derived = requires( T val ) { detail::bounded_derived_test( val 
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < typename T, T MinVal, T MaxVal >
-std::ostream& operator<<( std::ostream& os, const bounded< T, MinVal, MaxVal >& b )
+std::ostream& operator<<( std::ostream& os, bounded< T, MinVal, MaxVal > const& b )
 {
         return os << *b;
 }

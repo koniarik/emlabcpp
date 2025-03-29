@@ -32,7 +32,7 @@ namespace emlabcpp
 
 TEST( Quaternion, global_constants )
 {
-        const quaternion v{ 0, 0, 0, 1.f };
+        quaternion const v{ 0, 0, 0, 1.f };
         EXPECT_EQ( neutral_quat, v );
 }
 

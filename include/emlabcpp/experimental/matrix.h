@@ -242,7 +242,7 @@ private:
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < matrix_like Matrix >
-std::ostream& operator<<( std::ostream& os, const Matrix& m )
+std::ostream& operator<<( std::ostream& os, Matrix const& m )
 {
         for ( std::size_t const i : range( Matrix::rows ) ) {
                 for ( std::size_t const j : range( Matrix::cols ) )
