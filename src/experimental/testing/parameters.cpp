@@ -204,7 +204,7 @@ outcome parameters_server::on_req( param_value_request const& req )
                     return send( param_value_reply{ val } );
             },
             [this, &req]( contiguous_request_adapter_errors const err ) -> outcome {
-                    return worst_of( reply_node_error( err, req.nid ), FAILURE );
+                    return reply_node_error( err, req.nid ) == SUCCESS ? outcome( FAILURE ) : ERROR;
             } );
 }
 
@@ -213,7 +213,7 @@ outcome parameters_server::on_req( param_value_key_request const& req )
         contiguous_request_adapter const harn{ tree_ };
 
         auto return_err = [&req, this]( contiguous_request_adapter_errors const err ) -> outcome {
-                return worst_of( reply_node_error( err, req.nid ), FAILURE );
+                return reply_node_error( err, req.nid ) == SUCCESS ? outcome( FAILURE ) : ERROR;
         };
 
         return match(
@@ -239,7 +239,8 @@ outcome parameters_server::on_req( param_child_request const& req )
                     return send( param_child_reply{ child } );
             },
             [this, &req]( contiguous_request_adapter_errors const err ) -> outcome {
-                    return worst_of( reply_node_error( err, req.parent ), FAILURE );
+                    return reply_node_error( err, req.parent ) == SUCCESS ? outcome( FAILURE ) :
+                                                                            ERROR;
             } );
 }
 
@@ -253,7 +254,8 @@ outcome parameters_server::on_req( param_child_count_request const& req )
                     return send( param_child_count_reply{ count } );
             },
             [this, &req]( contiguous_request_adapter_errors const err ) -> outcome {
-                    return worst_of( reply_node_error( err, req.parent ), FAILURE );
+                    return reply_node_error( err, req.parent ) == SUCCESS ? outcome( FAILURE ) :
+                                                                            ERROR;
             } );
 }
 
@@ -267,7 +269,7 @@ outcome parameters_server::on_req( param_key_request const& req )
                     return send( param_key_reply{ key } );
             },
             [this, &req]( contiguous_request_adapter_errors const err ) -> outcome {
-                    return worst_of( reply_node_error( err, req.nid ), FAILURE );
+                    return reply_node_error( err, req.nid ) == SUCCESS ? outcome( FAILURE ) : ERROR;
             } );
 }
 
@@ -281,7 +283,7 @@ outcome parameters_server::on_req( param_type_request const& req )
                     return send( param_type_reply{ type } );
             },
             [this, &req]( contiguous_request_adapter_errors const err ) -> outcome {
-                    return worst_of( reply_node_error( err, req.nid ), FAILURE );
+                    return reply_node_error( err, req.nid ) == SUCCESS ? outcome( FAILURE ) : ERROR;
             } );
 }
 

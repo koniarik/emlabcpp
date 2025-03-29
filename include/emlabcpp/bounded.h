@@ -31,22 +31,18 @@
 namespace emlabcpp
 {
 
-/// Bounded type represents a overlay over type T which is constrained between MinVal and MaxVal as
-/// compile time constants. / The API is deisgned in a way that you can't create the type out of
-/// theb ounds.
+/// The `bounded` class represents a wrapper over type `T` constrained between `MinVal` and `MaxVal`
+/// as compile-time constants. This ensures that values of this type are always within the specified
+/// range, providing compile-time guarantees and eliminating the need for runtime checks within
+/// APIs.
 ///
-/// This is beneficial in design of an API.
-/// In case of using the T directly and asserting that it is withing corrent range, the API has to
-/// check at runtime whenever that is true and return error in case it is out of range. / With
-/// bounded type the API does not have to do that, as the type can't be passed unless it is within
-/// corret range.
-///
-/// It does not remove the bounds check, it just moves it away from within API to the user, which
-/// has to deal with creating correct bounded type.
+/// This design shifts the responsibility of bounds checking from the API to the user, ensuring that
+/// only valid values are passed to the API. While bounds checks are still necessary, they are moved
+/// to the point of creation of the `bounded` type.
 template < typename T, T MinVal, T MaxVal >
 class bounded
 {
-        static_assert( MinVal <= MaxVal );
+        static_assert( MinVal <= MaxVal, "MinVal must be less than or equal to MaxVal" );
         T val_;
 
         constexpr explicit bounded( T val )
@@ -60,6 +56,7 @@ public:
         static constexpr T    interval_range     = static_cast< T >( 1 ) + max_val - min_val;
         static constexpr bool has_single_element = MinVal == MaxVal;
 
+        /// Constructor that allows conversion from another `bounded` type with compatible bounds.
         template < typename U, U OtherMin, U OtherMax >
         requires(
             std::is_integral_v< U > && std::is_integral_v< T > && min_val <= OtherMin &&
@@ -69,17 +66,17 @@ public:
         {
         }
 
-        /// Static method that creates an instance of bounded with value provided at compile time.
-        /// This value is checked at compile time.
+        /// Creates an instance of `bounded` with a value provided at compile time.
+        /// The value is checked at compile time to ensure it is within the allowed range.
         template < T Val >
         static constexpr bounded get()
         {
-                static_assert( min_val <= Val && Val <= max_val );
+                static_assert( min_val <= Val && Val <= max_val, "Value out of bounds" );
                 return bounded{ Val };
         }
 
-        /// Static method optinally returns bounded value, only in case the input value is withing
-        /// allowed range.
+        /// Creates an optional `bounded` value if the input value is within the allowed range.
+        /// Returns `std::nullopt` if the value is out of bounds.
         template < typename U >
         static std::optional< bounded< T, min_val, max_val > > make( U val )
         {

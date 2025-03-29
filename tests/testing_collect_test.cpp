@@ -69,10 +69,10 @@ TEST( collect, base )
         testing::collect_server* server_ptr;
 
         auto col_send_f = [&]( auto, auto data ) {
-                return server_ptr->on_msg( data ).has_errored_result();
+                return server_ptr->on_msg( data ) == SUCCESS ? result( SUCCESS ) : ERROR;
         };
         auto server_send_f = [&]( auto, auto data ) {
-                return col_ptr->on_msg( data ).has_errored_result();
+                return col_ptr->on_msg( data ) == SUCCESS ? result( SUCCESS ) : ERROR;
         };
 
         testing::collector coll{ 0, col_send_f };

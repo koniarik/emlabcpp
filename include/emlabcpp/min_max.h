@@ -31,8 +31,7 @@
 namespace emlabcpp
 {
 
-/// Helper structure representing a range of two variables, one being a minimum
-/// and second being a maximum.
+/// A structure representing a range defined by a minimum and a maximum value.
 template < typename T >
 struct min_max : std::array< T, 2 >
 {
