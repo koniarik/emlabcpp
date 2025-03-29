@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['joined_1858',['joined',['../namespaceemlabcpp.html#ad24d670cd02b9255601622cf2494417e',1,'emlabcpp']]]
+  ['joined_1826',['joined',['../namespaceemlabcpp.html#a417dc63bcfd0f3fe1314388f1d2515d3',1,'emlabcpp']]]
 ];

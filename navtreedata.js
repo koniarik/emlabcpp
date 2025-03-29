@@ -32,24 +32,23 @@ var NAVTREE =
       [ "bounded.h", "index.html#autotoc_md13", null ],
       [ "concepts.h", "index.html#autotoc_md14", null ],
       [ "defer.h", "index.html#autotoc_md15", null ],
-      [ "either.h", "index.html#autotoc_md16", null ],
-      [ "enum.h", "index.html#autotoc_md17", null ],
-      [ "iterator.h", "index.html#autotoc_md18", [
-        [ "iterators/numeric.h", "index.html#autotoc_md19", null ],
-        [ "iterators/subscript.h", "index.html#autotoc_md20", null ],
-        [ "iterators/access.h", "index.html#autotoc_md21", null ]
+      [ "enum.h", "index.html#autotoc_md16", null ],
+      [ "iterator.h", "index.html#autotoc_md17", [
+        [ "iterators/numeric.h", "index.html#autotoc_md18", null ],
+        [ "iterators/subscript.h", "index.html#autotoc_md19", null ],
+        [ "iterators/access.h", "index.html#autotoc_md20", null ]
       ] ],
-      [ "match.h", "index.html#autotoc_md22", null ],
-      [ "physical_quantity.h", "index.html#autotoc_md23", null ],
-      [ "pid.h", "index.html#autotoc_md24", null ],
-      [ "protocol.h", "index.html#autotoc_md25", null ],
-      [ "quantity.h", "index.html#autotoc_md26", null ],
-      [ "static_circular_buffer.h", "index.html#autotoc_md27", null ],
-      [ "static_vector.h", "index.html#autotoc_md28", null ],
-      [ "types.h", "index.html#autotoc_md29", null ],
-      [ "view.h", "index.html#autotoc_md30", null ],
-      [ "visit.h", "index.html#autotoc_md31", null ],
-      [ "zip.h", "index.html#autotoc_md32", null ]
+      [ "match.h", "index.html#autotoc_md21", null ],
+      [ "physical_quantity.h", "index.html#autotoc_md22", null ],
+      [ "pid.h", "index.html#autotoc_md23", null ],
+      [ "protocol.h", "index.html#autotoc_md24", null ],
+      [ "quantity.h", "index.html#autotoc_md25", null ],
+      [ "static_circular_buffer.h", "index.html#autotoc_md26", null ],
+      [ "static_vector.h", "index.html#autotoc_md27", null ],
+      [ "types.h", "index.html#autotoc_md28", null ],
+      [ "view.h", "index.html#autotoc_md29", null ],
+      [ "visit.h", "index.html#autotoc_md30", null ],
+      [ "zip.h", "index.html#autotoc_md31", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -88,18 +87,18 @@ var NAVTREEINDEX =
 [
 "algorithm_8h.html",
 "classemlabcpp_1_1defer.html",
-"classemlabcpp_1_1protocol_1_1message.html#ae5703c883fe5ce62a6e2bd9bb4190418",
-"classemlabcpp_1_1static__vector.html#a6f43a9659bdf444c5cf2ee4a12feb7e3",
-"concepts_8h.html#a5ebf6dfb3da372e9238ce6f14be53edd",
-"functions_type_s.html",
-"namespaceemlabcpp.html#a4daa9ae3a8263bbce72728fc136c3121",
-"namespaceemlabcpp_1_1coro.html",
-"namespaceemlabcpp_1_1testing.html#acf293f858331c93ba18fa6cda9936aaf",
-"reactor_8h_source.html",
-"structemlabcpp_1_1protocol_1_1backup__converter_3_01T_00_01Endianess_01_4.html#a7ac7194b0a83cc0e226e56423e134c87",
-"structemlabcpp_1_1protocol_1_1packet.html#a117a841e57e21da98dbc93b3f37ac2af",
-"structemlabcpp_1_1testing_1_1get__property.html",
-"types_2base_8h.html#a98ab53b012e339a9621604b203df856e"
+"classemlabcpp_1_1protocol_1_1register__map.html#a9a8585ce3fa58e7c413e83df4b81e28e",
+"classemlabcpp_1_1testing_1_1collect__awaiter.html#afd6e971c1b4ce48af5beb4f2b806e9bb",
+"converter_8h.html#af7b9659a2e1fe1042e7ada0c5797599c",
+"impl_8h.html#a4606886189823b5ac10a55fab1debabf",
+"namespaceemlabcpp.html#a6044bbf69503a7dfc2107e8928791c21",
+"namespaceemlabcpp_1_1protocol.html#a0d666fa48e88a04569954408cc678126",
+"namespacemembers_func_t.html",
+"sequencer_8h.html#a431c1a3957378c1f7b12115f665b542d",
+"structemlabcpp_1_1protocol_1_1converter_3_01D_00_01Endianess_01_4.html#a089b8f569464b605697fa1a64aaa8e29",
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01error__record_01_4.html",
+"structemlabcpp_1_1testing_1_1param__child__reply.html#a18d124c8ab97fde59eeff008d7af6cf6",
+"vector_8h.html#a9562476a49ff3f90e84d658dd3bafbb9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

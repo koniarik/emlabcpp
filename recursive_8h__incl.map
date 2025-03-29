@@ -1,10 +1,10 @@
 <map id="include/emlabcpp/experimental/coro/recursive.h" name="include/emlabcpp/experimental/coro/recursive.h">
-<area shape="rect" id="node1" title=" " alt="" coords="291,5,519,47"/>
-<area shape="rect" id="node2" href="$data__promise_8h.html" title=" " alt="" coords="216,102,393,143"/>
-<area shape="rect" id="node4" href="$memory__promise_8h.html" title=" " alt="" coords="7,102,192,143"/>
-<area shape="rect" id="node7" href="$owning__coroutine__handle_8h.html" title=" " alt="" coords="417,95,595,151"/>
-<area shape="rect" id="node8" title=" " alt="" coords="553,206,635,233"/>
-<area shape="rect" id="node3" title=" " alt="" coords="431,206,491,233"/>
-<area shape="rect" id="node5" href="$memory__resource_8h.html" title=" " alt="" coords="5,199,180,240"/>
-<area shape="rect" id="node6" href="$throw__bad__alloc_8h.html" title=" " alt="" coords="205,199,362,240"/>
+<area shape="rect" id="node1" title=" " alt="" coords="289,5,517,47"/>
+<area shape="rect" id="node2" href="$data__promise_8h.html" title=" " alt="" coords="257,102,387,129"/>
+<area shape="rect" id="node4" href="$memory__promise_8h.html" title=" " alt="" coords="75,102,233,129"/>
+<area shape="rect" id="node7" href="$owning__coroutine__handle_8h.html" title=" " alt="" coords="412,95,557,136"/>
+<area shape="rect" id="node8" title=" " alt="" coords="534,191,617,218"/>
+<area shape="rect" id="node3" title=" " alt="" coords="429,191,489,218"/>
+<area shape="rect" id="node5" href="$memory__resource_8h.html" title=" " alt="" coords="5,191,212,218"/>
+<area shape="rect" id="node6" href="$throw__bad__alloc_8h.html" title=" " alt="" coords="237,184,381,225"/>
 </map>

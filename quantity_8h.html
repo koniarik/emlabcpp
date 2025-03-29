@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('quantity_8h.html',''); initResizable()
 <div class="title">quantity.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="concepts_8h_source.html">emlabcpp/concepts.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="concepts_8h_source.html">./concepts.h</a>&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;limits&gt;</code><br />
@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('quantity_8h.html',''); initResizable()
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="quantity_8h__incl.svg" width="968" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="quantity_8h__incl.svg" width="910" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -135,65 +135,65 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8be65555da61958326df0b50c6ee2bd8"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:a8be65555da61958326df0b50c6ee2bd8"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#a8be65555da61958326df0b50c6ee2bd8">emlabcpp::detail::quantity_derived_test</a> (const quantity&lt; Derived, ValueType &gt; &amp;)</td></tr>
-<tr class="separator:a8be65555da61958326df0b50c6ee2bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37fb61edcdf95a5c2fc63e29d2431946"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:a37fb61edcdf95a5c2fc63e29d2431946"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a37fb61edcdf95a5c2fc63e29d2431946">emlabcpp::operator+</a> (quantity&lt; Derived, ValueType &gt; lhs, const quantity&lt; Derived, ValueType &gt; rhs)</td></tr>
-<tr class="memdesc:a37fb61edcdf95a5c2fc63e29d2431946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of quantities with same Derived and value_type.  <a href="namespaceemlabcpp.html#a37fb61edcdf95a5c2fc63e29d2431946">More...</a><br /></td></tr>
-<tr class="separator:a37fb61edcdf95a5c2fc63e29d2431946"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ec5f53bd49815db80874c10f4742f92"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:a7ec5f53bd49815db80874c10f4742f92"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7ec5f53bd49815db80874c10f4742f92">emlabcpp::operator-</a> (quantity&lt; Derived, ValueType &gt; lhs, const quantity&lt; Derived, ValueType &gt; rhs)</td></tr>
-<tr class="memdesc:a7ec5f53bd49815db80874c10f4742f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtraction of quantities with same Derived and value_type.  <a href="namespaceemlabcpp.html#a7ec5f53bd49815db80874c10f4742f92">More...</a><br /></td></tr>
-<tr class="separator:a7ec5f53bd49815db80874c10f4742f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc235c95c20406e05b11a433e3ed7857"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:afc235c95c20406e05b11a433e3ed7857"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#afc235c95c20406e05b11a433e3ed7857">emlabcpp::operator-</a> (const quantity&lt; Derived, ValueType &gt; val)</td></tr>
-<tr class="memdesc:afc235c95c20406e05b11a433e3ed7857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides negation of the quantity.  <a href="namespaceemlabcpp.html#afc235c95c20406e05b11a433e3ed7857">More...</a><br /></td></tr>
-<tr class="separator:afc235c95c20406e05b11a433e3ed7857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49a18ed069c328b94893a379a85d855f"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&gt; </td></tr>
-<tr class="memitem:a49a18ed069c328b94893a379a85d855f"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a49a18ed069c328b94893a379a85d855f">emlabcpp::operator&lt;</a> (const quantity&lt; Derived, ValueType &gt; lhs, const RhValueType rhs)</td></tr>
-<tr class="memdesc:a49a18ed069c328b94893a379a85d855f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides abillity to compare quantity with non-quantity arithmetic value.  <a href="namespaceemlabcpp.html#a49a18ed069c328b94893a379a85d855f">More...</a><br /></td></tr>
-<tr class="separator:a49a18ed069c328b94893a379a85d855f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c42d6c592410c5073ecfb18431a4d04"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType , arithmetic_like LhValueType&gt; </td></tr>
-<tr class="memitem:a1c42d6c592410c5073ecfb18431a4d04"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1c42d6c592410c5073ecfb18431a4d04">emlabcpp::operator&lt;</a> (const LhValueType lhs, const quantity&lt; Derived, ValueType &gt; rhs)</td></tr>
-<tr class="memdesc:a1c42d6c592410c5073ecfb18431a4d04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides abillity to compare quantity with non-quantity arithmetic value.  <a href="namespaceemlabcpp.html#a1c42d6c592410c5073ecfb18431a4d04">More...</a><br /></td></tr>
-<tr class="separator:a1c42d6c592410c5073ecfb18431a4d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a1b0db510277c2522d504eabc6821e3"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:a9a1b0db510277c2522d504eabc6821e3"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a9a1b0db510277c2522d504eabc6821e3">emlabcpp::operator*</a> (quantity&lt; Derived, ValueType &gt; q, const arithmetic auto val)</td></tr>
-<tr class="memdesc:a9a1b0db510277c2522d504eabc6821e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplication of quantity by it's value_type.  <a href="namespaceemlabcpp.html#a9a1b0db510277c2522d504eabc6821e3">More...</a><br /></td></tr>
-<tr class="separator:a9a1b0db510277c2522d504eabc6821e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0176bf0d3582d8fa997f2ae98869d099"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:a0176bf0d3582d8fa997f2ae98869d099"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0176bf0d3582d8fa997f2ae98869d099">emlabcpp::operator/</a> (quantity&lt; Derived, ValueType &gt; q, const arithmetic auto val)</td></tr>
-<tr class="memdesc:a0176bf0d3582d8fa997f2ae98869d099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Division of quantity by it's value_type.  <a href="namespaceemlabcpp.html#a0176bf0d3582d8fa997f2ae98869d099">More...</a><br /></td></tr>
-<tr class="separator:a0176bf0d3582d8fa997f2ae98869d099"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad94cfee3e6e80c1e90bc767e6ace9f7e"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:ad94cfee3e6e80c1e90bc767e6ace9f7e"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad94cfee3e6e80c1e90bc767e6ace9f7e">emlabcpp::abs</a> (const quantity&lt; Derived, ValueType &gt; q)</td></tr>
-<tr class="memdesc:ad94cfee3e6e80c1e90bc767e6ace9f7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantity with absolute value of internal value.  <a href="namespaceemlabcpp.html#ad94cfee3e6e80c1e90bc767e6ace9f7e">More...</a><br /></td></tr>
-<tr class="separator:ad94cfee3e6e80c1e90bc767e6ace9f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a364f72aef7b46ed76b90e1f7a054fc32"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:a364f72aef7b46ed76b90e1f7a054fc32"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a364f72aef7b46ed76b90e1f7a054fc32">emlabcpp::cos</a> (const quantity&lt; Derived, ValueType &gt; u)</td></tr>
-<tr class="memdesc:a364f72aef7b46ed76b90e1f7a054fc32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns cosinus of the quantity as scalar.  <a href="namespaceemlabcpp.html#a364f72aef7b46ed76b90e1f7a054fc32">More...</a><br /></td></tr>
-<tr class="separator:a364f72aef7b46ed76b90e1f7a054fc32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3d3eb598a75856181b79136ed06dbd8"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:aa3d3eb598a75856181b79136ed06dbd8"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa3d3eb598a75856181b79136ed06dbd8">emlabcpp::sin</a> (const quantity&lt; Derived, ValueType &gt; u)</td></tr>
-<tr class="memdesc:aa3d3eb598a75856181b79136ed06dbd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns sinus of the quantity as scalar.  <a href="namespaceemlabcpp.html#aa3d3eb598a75856181b79136ed06dbd8">More...</a><br /></td></tr>
-<tr class="separator:aa3d3eb598a75856181b79136ed06dbd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82bc958527847885bdfc4005b22271e6"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:a82bc958527847885bdfc4005b22271e6"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a82bc958527847885bdfc4005b22271e6">emlabcpp::max</a> (const quantity&lt; Derived, ValueType &gt; lh, const quantity&lt; Derived, ValueType &gt; rh)</td></tr>
-<tr class="memdesc:a82bc958527847885bdfc4005b22271e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantity with maximum value of one of the quantities.  <a href="namespaceemlabcpp.html#a82bc958527847885bdfc4005b22271e6">More...</a><br /></td></tr>
-<tr class="separator:a82bc958527847885bdfc4005b22271e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4db09819cc4cc5a21ed238dd2e30d6a"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:ab4db09819cc4cc5a21ed238dd2e30d6a"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">emlabcpp::min</a> (const quantity&lt; Derived, ValueType &gt; lh, const quantity&lt; Derived, ValueType &gt; rh)</td></tr>
-<tr class="memdesc:ab4db09819cc4cc5a21ed238dd2e30d6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantity with minimum value of one of the quantities.  <a href="namespaceemlabcpp.html#ab4db09819cc4cc5a21ed238dd2e30d6a">More...</a><br /></td></tr>
-<tr class="separator:ab4db09819cc4cc5a21ed238dd2e30d6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a244aa2b00962ce96249bb72e5d07b0c1"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:a244aa2b00962ce96249bb72e5d07b0c1"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a244aa2b00962ce96249bb72e5d07b0c1">emlabcpp::operator*</a> (const ValueType val, const quantity&lt; Derived, ValueType &gt; q)</td></tr>
-<tr class="memdesc:a244aa2b00962ce96249bb72e5d07b0c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplication of value_type by quantity returns quantity.  <a href="namespaceemlabcpp.html#a244aa2b00962ce96249bb72e5d07b0c1">More...</a><br /></td></tr>
-<tr class="separator:a244aa2b00962ce96249bb72e5d07b0c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e7c3c010fa2b7cffe9478558c1d9df6"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
-<tr class="memitem:a1e7c3c010fa2b7cffe9478558c1d9df6"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1e7c3c010fa2b7cffe9478558c1d9df6">emlabcpp::operator/</a> (const ValueType val, const quantity&lt; Derived, ValueType &gt; q)</td></tr>
-<tr class="memdesc:a1e7c3c010fa2b7cffe9478558c1d9df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Division of value_type by quantity returns quantity.  <a href="namespaceemlabcpp.html#a1e7c3c010fa2b7cffe9478558c1d9df6">More...</a><br /></td></tr>
-<tr class="separator:a1e7c3c010fa2b7cffe9478558c1d9df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d15c50b2bbbeeaa8bdc5d694b52730c"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:a8d15c50b2bbbeeaa8bdc5d694b52730c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1detail.html#a8d15c50b2bbbeeaa8bdc5d694b52730c">emlabcpp::detail::quantity_derived_test</a> (quantity&lt; Derived, ValueType &gt; const &amp;)</td></tr>
+<tr class="separator:a8d15c50b2bbbeeaa8bdc5d694b52730c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa769755c5f91ef62dc9d15f40311e640"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:aa769755c5f91ef62dc9d15f40311e640"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa769755c5f91ef62dc9d15f40311e640">emlabcpp::operator+</a> (quantity&lt; Derived, ValueType &gt; lhs, quantity&lt; Derived, ValueType &gt; const rhs)</td></tr>
+<tr class="memdesc:aa769755c5f91ef62dc9d15f40311e640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of quantities with same Derived and value_type.  <a href="namespaceemlabcpp.html#aa769755c5f91ef62dc9d15f40311e640">More...</a><br /></td></tr>
+<tr class="separator:aa769755c5f91ef62dc9d15f40311e640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c89a86af41d0afc8c294f691f03dba3"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:a1c89a86af41d0afc8c294f691f03dba3"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1c89a86af41d0afc8c294f691f03dba3">emlabcpp::operator-</a> (quantity&lt; Derived, ValueType &gt; lhs, quantity&lt; Derived, ValueType &gt; const rhs)</td></tr>
+<tr class="memdesc:a1c89a86af41d0afc8c294f691f03dba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtraction of quantities with same Derived and value_type.  <a href="namespaceemlabcpp.html#a1c89a86af41d0afc8c294f691f03dba3">More...</a><br /></td></tr>
+<tr class="separator:a1c89a86af41d0afc8c294f691f03dba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81a99b9695c313b1a54ab1fdc47416b9"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:a81a99b9695c313b1a54ab1fdc47416b9"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a81a99b9695c313b1a54ab1fdc47416b9">emlabcpp::operator-</a> (quantity&lt; Derived, ValueType &gt; const val)</td></tr>
+<tr class="memdesc:a81a99b9695c313b1a54ab1fdc47416b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides negation of the quantity.  <a href="namespaceemlabcpp.html#a81a99b9695c313b1a54ab1fdc47416b9">More...</a><br /></td></tr>
+<tr class="separator:a81a99b9695c313b1a54ab1fdc47416b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a044797e0296bafbfc9cb5ec86bfdb0e4"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType , arithmetic_like RhValueType&gt; </td></tr>
+<tr class="memitem:a044797e0296bafbfc9cb5ec86bfdb0e4"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a044797e0296bafbfc9cb5ec86bfdb0e4">emlabcpp::operator&lt;</a> (quantity&lt; Derived, ValueType &gt; const lhs, RhValueType const rhs)</td></tr>
+<tr class="memdesc:a044797e0296bafbfc9cb5ec86bfdb0e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides abillity to compare quantity with non-quantity arithmetic value.  <a href="namespaceemlabcpp.html#a044797e0296bafbfc9cb5ec86bfdb0e4">More...</a><br /></td></tr>
+<tr class="separator:a044797e0296bafbfc9cb5ec86bfdb0e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81633fa08052523cd4fb5f315a286cce"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType , arithmetic_like LhValueType&gt; </td></tr>
+<tr class="memitem:a81633fa08052523cd4fb5f315a286cce"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a81633fa08052523cd4fb5f315a286cce">emlabcpp::operator&lt;</a> (LhValueType const lhs, quantity&lt; Derived, ValueType &gt; const rhs)</td></tr>
+<tr class="memdesc:a81633fa08052523cd4fb5f315a286cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides abillity to compare quantity with non-quantity arithmetic value.  <a href="namespaceemlabcpp.html#a81633fa08052523cd4fb5f315a286cce">More...</a><br /></td></tr>
+<tr class="separator:a81633fa08052523cd4fb5f315a286cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a113ae6d930d0d7b6b4cea3e105ef3c89"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:a113ae6d930d0d7b6b4cea3e105ef3c89"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a113ae6d930d0d7b6b4cea3e105ef3c89">emlabcpp::operator*</a> (quantity&lt; Derived, ValueType &gt; q, arithmetic auto const val)</td></tr>
+<tr class="memdesc:a113ae6d930d0d7b6b4cea3e105ef3c89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplication of quantity by it's value_type.  <a href="namespaceemlabcpp.html#a113ae6d930d0d7b6b4cea3e105ef3c89">More...</a><br /></td></tr>
+<tr class="separator:a113ae6d930d0d7b6b4cea3e105ef3c89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a992eaf6dceaf1c7d3c11238f698ff88c"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:a992eaf6dceaf1c7d3c11238f698ff88c"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a992eaf6dceaf1c7d3c11238f698ff88c">emlabcpp::operator/</a> (quantity&lt; Derived, ValueType &gt; q, arithmetic auto const val)</td></tr>
+<tr class="memdesc:a992eaf6dceaf1c7d3c11238f698ff88c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Division of quantity by it's value_type.  <a href="namespaceemlabcpp.html#a992eaf6dceaf1c7d3c11238f698ff88c">More...</a><br /></td></tr>
+<tr class="separator:a992eaf6dceaf1c7d3c11238f698ff88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50ffa44557c5251237a919d0843f13cc"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:a50ffa44557c5251237a919d0843f13cc"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a50ffa44557c5251237a919d0843f13cc">emlabcpp::abs</a> (quantity&lt; Derived, ValueType &gt; const q)</td></tr>
+<tr class="memdesc:a50ffa44557c5251237a919d0843f13cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantity with absolute value of internal value.  <a href="namespaceemlabcpp.html#a50ffa44557c5251237a919d0843f13cc">More...</a><br /></td></tr>
+<tr class="separator:a50ffa44557c5251237a919d0843f13cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89767bdacebf048b6e8cc6a17b9663a0"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:a89767bdacebf048b6e8cc6a17b9663a0"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a89767bdacebf048b6e8cc6a17b9663a0">emlabcpp::cos</a> (quantity&lt; Derived, ValueType &gt; const u)</td></tr>
+<tr class="memdesc:a89767bdacebf048b6e8cc6a17b9663a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns cosinus of the quantity as scalar.  <a href="namespaceemlabcpp.html#a89767bdacebf048b6e8cc6a17b9663a0">More...</a><br /></td></tr>
+<tr class="separator:a89767bdacebf048b6e8cc6a17b9663a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5106ef8ad66345637cf8b13dd1fda9ec"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:a5106ef8ad66345637cf8b13dd1fda9ec"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5106ef8ad66345637cf8b13dd1fda9ec">emlabcpp::sin</a> (quantity&lt; Derived, ValueType &gt; const u)</td></tr>
+<tr class="memdesc:a5106ef8ad66345637cf8b13dd1fda9ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns sinus of the quantity as scalar.  <a href="namespaceemlabcpp.html#a5106ef8ad66345637cf8b13dd1fda9ec">More...</a><br /></td></tr>
+<tr class="separator:a5106ef8ad66345637cf8b13dd1fda9ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eab1ea813bee66236fa93054eb0fae5"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:a5eab1ea813bee66236fa93054eb0fae5"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5eab1ea813bee66236fa93054eb0fae5">emlabcpp::max</a> (quantity&lt; Derived, ValueType &gt; const lh, quantity&lt; Derived, ValueType &gt; const rh)</td></tr>
+<tr class="memdesc:a5eab1ea813bee66236fa93054eb0fae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantity with maximum value of one of the quantities.  <a href="namespaceemlabcpp.html#a5eab1ea813bee66236fa93054eb0fae5">More...</a><br /></td></tr>
+<tr class="separator:a5eab1ea813bee66236fa93054eb0fae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6919f10a6a4596b7b33d935ef44c8b1c"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:a6919f10a6a4596b7b33d935ef44c8b1c"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6919f10a6a4596b7b33d935ef44c8b1c">emlabcpp::min</a> (quantity&lt; Derived, ValueType &gt; const lh, quantity&lt; Derived, ValueType &gt; const rh)</td></tr>
+<tr class="memdesc:a6919f10a6a4596b7b33d935ef44c8b1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantity with minimum value of one of the quantities.  <a href="namespaceemlabcpp.html#a6919f10a6a4596b7b33d935ef44c8b1c">More...</a><br /></td></tr>
+<tr class="separator:a6919f10a6a4596b7b33d935ef44c8b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a389a5cc86ed797a145ffdeccf2782d88"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:a389a5cc86ed797a145ffdeccf2782d88"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a389a5cc86ed797a145ffdeccf2782d88">emlabcpp::operator*</a> (ValueType const val, quantity&lt; Derived, ValueType &gt; const q)</td></tr>
+<tr class="memdesc:a389a5cc86ed797a145ffdeccf2782d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplication of value_type by quantity returns quantity.  <a href="namespaceemlabcpp.html#a389a5cc86ed797a145ffdeccf2782d88">More...</a><br /></td></tr>
+<tr class="separator:a389a5cc86ed797a145ffdeccf2782d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1917205f8db3c6bf0d76651f4a20ea7f"><td class="memTemplParams" colspan="2">template&lt;typename Derived , typename ValueType &gt; </td></tr>
+<tr class="memitem:a1917205f8db3c6bf0d76651f4a20ea7f"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1917205f8db3c6bf0d76651f4a20ea7f">emlabcpp::operator/</a> (ValueType const val, quantity&lt; Derived, ValueType &gt; const q)</td></tr>
+<tr class="memdesc:a1917205f8db3c6bf0d76651f4a20ea7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Division of value_type by quantity returns quantity.  <a href="namespaceemlabcpp.html#a1917205f8db3c6bf0d76651f4a20ea7f">More...</a><br /></td></tr>
+<tr class="separator:a1917205f8db3c6bf0d76651f4a20ea7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -208,7 +208,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="quantity_8h.html">quantity.h</a></li>
-    <li class="footer">Generated on Mon Mar 10 2025 21:15:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 15:31:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

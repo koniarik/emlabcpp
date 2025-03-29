@@ -14,7 +14,6 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     [ "defer.h", "defer_8h.html", [
       [ "defer", "classemlabcpp_1_1defer.html", "classemlabcpp_1_1defer" ]
     ] ],
-    [ "either.h", "either_8h.html", "either_8h" ],
     [ "enum.h", "enum_8h.html", "enum_8h" ],
     [ "enumerate.h", "enumerate_8h.html", "enumerate_8h" ],
     [ "iterator.h", "iterator_8h.html", [

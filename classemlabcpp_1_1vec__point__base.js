@@ -12,11 +12,11 @@ var classemlabcpp_1_1vec__point__base =
     [ "end", "classemlabcpp_1_1vec__point__base.html#a27fb39598c957d4ae59c82e6d4d6afeb", null ],
     [ "end", "classemlabcpp_1_1vec__point__base.html#a91779091ec54d8f9bcebeaa3b8fce21d", null ],
     [ "make_filled_with", "classemlabcpp_1_1vec__point__base.html#a1dc5f3a725e57e593ee21b2302423b5b", null ],
-    [ "operator*", "classemlabcpp_1_1vec__point__base.html#a029a5dd027e19a6fdff6d65515e51085", null ],
+    [ "operator*", "classemlabcpp_1_1vec__point__base.html#a9c4393b671a091cf76fd5940b6c27e3f", null ],
     [ "operator-", "classemlabcpp_1_1vec__point__base.html#a8188e8f28172d79982fd4a86be98eb8f", null ],
     [ "operator[]", "classemlabcpp_1_1vec__point__base.html#a29fbe67b0afa7ad92d796700281d54eb", null ],
     [ "operator[]", "classemlabcpp_1_1vec__point__base.html#a97d36a349d8aade9bf18bb87a4c1309d", null ],
     [ "size", "classemlabcpp_1_1vec__point__base.html#afc42f6d190e792134f33dc3b99a4c166", null ],
-    [ "operator<=>", "classemlabcpp_1_1vec__point__base.html#a9083cff40975c8d2d8e5dd4b13085120", null ],
+    [ "operator<=>", "classemlabcpp_1_1vec__point__base.html#a949553a9ae3ccae5087bd77427a7fa70", null ],
     [ "dimensions", "classemlabcpp_1_1vec__point__base.html#a63af4a0274fa50f2365ac7a9ce2a0b4e", null ]
 ];

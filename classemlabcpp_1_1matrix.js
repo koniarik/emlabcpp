@@ -6,9 +6,9 @@ var classemlabcpp_1_1matrix =
     [ "matrix", "classemlabcpp_1_1matrix.html#a3b922476ca86d30728320f5c02ae396c", null ],
     [ "begin", "classemlabcpp_1_1matrix.html#ae38c9308433981cbc0f73818dbe760c0", null ],
     [ "end", "classemlabcpp_1_1matrix.html#a64da774d3b440cc71f6698b0452cf053", null ],
-    [ "operator==", "classemlabcpp_1_1matrix.html#ab4946480a9ba8aa6e26240fbc9401a44", null ],
+    [ "operator==", "classemlabcpp_1_1matrix.html#ac3932ff89ab5d5492b5d98de0308230e", null ],
     [ "operator[]", "classemlabcpp_1_1matrix.html#a448b6bea3170945b4d5b7d505ef9111f", null ],
-    [ "operator[]", "classemlabcpp_1_1matrix.html#a12c3009cb8005ef33b31470fc075c1cb", null ],
+    [ "operator[]", "classemlabcpp_1_1matrix.html#af0be0bc91dcf0746272e730f0e243d83", null ],
     [ "cols", "classemlabcpp_1_1matrix.html#a95c6400c5ffe9f7de3ae365c4893c159", null ],
     [ "rows", "classemlabcpp_1_1matrix.html#a56972613ba95706034164fc68355c3ed", null ]
 ];

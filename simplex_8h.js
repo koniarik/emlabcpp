@@ -1,12 +1,12 @@
 var simplex_8h =
 [
     [ "simplex", "classemlabcpp_1_1simplex.html", "classemlabcpp_1_1simplex" ],
-    [ "center_of", "simplex_8h.html#a8c868b270298a6e752372a1809dc03d0", null ],
-    [ "operator!=", "simplex_8h.html#ac7a44460972cfa981d6af54caba9f8b2", null ],
-    [ "operator<", "simplex_8h.html#a37668b1023850f199c917bcf2131523c", null ],
-    [ "operator<=", "simplex_8h.html#add2749663d773cccf70a46c26fafb132", null ],
-    [ "operator==", "simplex_8h.html#aa32193fca8f431c8887d0a5402866074", null ],
-    [ "operator>", "simplex_8h.html#a78453f63bffe0ddbe927529c68875dc4", null ],
-    [ "operator>=", "simplex_8h.html#a8345b253a90bb775245754b4e6307216", null ],
-    [ "volume_of", "simplex_8h.html#a6189ac849a51ae66a922cd84c9af8254", null ]
+    [ "center_of", "simplex_8h.html#ac294105427e19320821509a367462c36", null ],
+    [ "operator!=", "simplex_8h.html#af3614607d86949d19b640d9a33284429", null ],
+    [ "operator<", "simplex_8h.html#a9c3126eb05106e9a28a4556d31e6a961", null ],
+    [ "operator<=", "simplex_8h.html#a8d00c6c3cb52ca970c9752454ce8fddf", null ],
+    [ "operator==", "simplex_8h.html#ae83f29891e0c7be2eee69b89588df758", null ],
+    [ "operator>", "simplex_8h.html#a0d39f24887788ae240b808e79d62de84", null ],
+    [ "operator>=", "simplex_8h.html#ac229488d4d6586cd9d9a325efdcb6627", null ],
+    [ "volume_of", "simplex_8h.html#a37d26ba6fb062781759f8b5f013fb82f", null ]
 ];

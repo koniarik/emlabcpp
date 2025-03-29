@@ -13,10 +13,10 @@ var multiplexer_8h =
       [ "PORT_MATCH_ERROR", "multiplexer_8h.html#a95e0cc87ac4f73ef63f5a43c3bc37dafad7cee373ed46d900f608c5970cdfe643", null ],
       [ "PROTOCOL_ERROR", "multiplexer_8h.html#a95e0cc87ac4f73ef63f5a43c3bc37dafa89fc9790558c285c0664b57f3251ebc1", null ]
     ] ],
-    [ "extract_multiplexed", "multiplexer_8h.html#ab08294ec0d41d8284242e2b8bc4c2a18", null ],
-    [ "multiplexed_dispatch", "multiplexer_8h.html#a39ffab4b8c7d6910c971588b583d8270", null ],
-    [ "serialize_multiplexed", "multiplexer_8h.html#a3e625c3d79c1b8ca3bc23f0ac23d00cd", null ],
-    [ "serialize_multiplexed", "multiplexer_8h.html#aa866c34d5e932f8dfd3e123200bd7e93", null ],
+    [ "extract_multiplexed", "multiplexer_8h.html#a17030631441fd4daa09b11516bec8a73", null ],
+    [ "multiplexed_dispatch", "multiplexer_8h.html#a211b65802f08cb2dd9dde035fc8b41e6", null ],
+    [ "serialize_multiplexed", "multiplexer_8h.html#af54eda66ff9e2dc93fb37fe0c9bf0074", null ],
+    [ "serialize_multiplexed", "multiplexer_8h.html#af396c9d9da6bba7eb0914be736666c84", null ],
     [ "multiplexer_service_id", "multiplexer_8h.html#ac45b34ffbd63c8c942cea66c9b489c16", null ],
     [ "slot", "multiplexer_8h.html#ac766b37bba750eda3365d7fef4fb01c4", null ]
 ];

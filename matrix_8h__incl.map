@@ -1,13 +1,13 @@
 <map id="include/emlabcpp/experimental/matrix.h" name="include/emlabcpp/experimental/matrix.h">
-<area shape="rect" id="node1" title=" " alt="" coords="647,5,875,47"/>
-<area shape="rect" id="node2" href="$algorithm_8h.html" title=" " alt="" coords="619,95,784,121"/>
-<area shape="rect" id="node8" href="$range_8h.html" title=" " alt="" coords="959,177,1097,203"/>
-<area shape="rect" id="node3" href="$impl_8h.html" title=" " alt="" coords="27,169,181,211"/>
-<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="572,259,711,285"/>
-<area shape="rect" id="node5" title=" " alt="" coords="19,259,74,285"/>
-<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="205,177,363,203"/>
-<area shape="rect" id="node7" href="$min__max_8h.html" title=" " alt="" coords="388,177,551,203"/>
-<area shape="rect" id="node9" href="$view_8h.html" title=" " alt="" coords="575,177,707,203"/>
-<area shape="rect" id="node10" title=" " alt="" coords="731,177,794,203"/>
-<area shape="rect" id="node11" title=" " alt="" coords="818,177,883,203"/>
+<area shape="rect" id="node1" title=" " alt="" coords="451,5,679,47"/>
+<area shape="rect" id="node2" href="$algorithm_8h.html" title=" " alt="" coords="465,95,575,121"/>
+<area shape="rect" id="node8" href="$range_8h.html" title=" " alt="" coords="763,169,842,196"/>
+<area shape="rect" id="node3" href="$impl_8h.html" title=" " alt="" coords="25,169,164,196"/>
+<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="433,244,516,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="14,244,69,271"/>
+<area shape="rect" id="node6" href="$bounded_8h.html" title=" " alt="" coords="188,169,287,196"/>
+<area shape="rect" id="node7" href="$min__max_8h.html" title=" " alt="" coords="311,169,414,196"/>
+<area shape="rect" id="node9" href="$view_8h.html" title=" " alt="" coords="439,169,511,196"/>
+<area shape="rect" id="node10" title=" " alt="" coords="535,169,598,196"/>
+<area shape="rect" id="node11" title=" " alt="" coords="622,169,687,196"/>
 </map>

@@ -10,5 +10,5 @@ var classemlabcpp_1_1rpc_1_1reactor =
     [ "request_message_type", "classemlabcpp_1_1rpc_1_1reactor.html#afe6dbbcf2622160727d6d3c2394283e6", null ],
     [ "request_type", "classemlabcpp_1_1rpc_1_1reactor.html#a7c210f878722ae74317d02dd6f529e1f", null ],
     [ "traits_type", "classemlabcpp_1_1rpc_1_1reactor.html#af26a4f2541edc00bf841c83004d00c8b", null ],
-    [ "on_message", "classemlabcpp_1_1rpc_1_1reactor.html#ab9772313daba8fe9f6405da3c8f66831", null ]
+    [ "on_message", "classemlabcpp_1_1rpc_1_1reactor.html#a64daa7180c5fcd2f582f308a55e52109", null ]
 ];

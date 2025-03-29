@@ -129,7 +129,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html">value_type_converter&lt; std::string_view &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter_3_01const_01char_01_5_01_4.html">value_type_converter&lt; const char * &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter_3_01char_01const_01_5_01_4.html">value_type_converter&lt; char const * &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1byte_01_4.html">value_type_converter&lt; std::byte &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -284,12 +284,12 @@ Typedefs</h2></td></tr>
 <tr class="separator:a8f31210bf94829b46e3ed0373409b3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a394ba6099a6530516b2ddb88f9254612"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a394ba6099a6530516b2ddb88f9254612">collect_client_server_message</a> = typename <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">protocol::handler</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1collect__request">collect_request</a> &gt;::message_type</td></tr>
 <tr class="separator:a394ba6099a6530516b2ddb88f9254612"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab819765634c50c04dbea447f617c26f2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ab819765634c50c04dbea447f617c26f2">collect_reply_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; void(const <a class="el" href="namespaceemlabcpp_1_1testing.html#ab2a20a39928284e80ca27466da77a4c1">collect_server_client_group</a> &amp;), 32 &gt;</td></tr>
-<tr class="separator:ab819765634c50c04dbea447f617c26f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d364a2eccea6d9cdb092933d1e818d2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a2d364a2eccea6d9cdb092933d1e818d2">collect_client_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#a394ba6099a6530516b2ddb88f9254612">collect_client_server_message</a> &amp;), 32 &gt;</td></tr>
-<tr class="separator:a2d364a2eccea6d9cdb092933d1e818d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92f5e143a8b528250547144d5605bf81"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a92f5e143a8b528250547144d5605bf81">collect_server_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#a8f31210bf94829b46e3ed0373409b3c8">collect_server_client_message</a> &amp;), 32 &gt;</td></tr>
-<tr class="separator:a92f5e143a8b528250547144d5605bf81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b344908ff492deb876981d618f34532"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a0b344908ff492deb876981d618f34532">collect_reply_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; void(<a class="el" href="namespaceemlabcpp_1_1testing.html#ab2a20a39928284e80ca27466da77a4c1">collect_server_client_group</a> const  &amp;), 32 &gt;</td></tr>
+<tr class="separator:a0b344908ff492deb876981d618f34532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5723059e48026bbb20fa4bddc61c2ae"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ac5723059e48026bbb20fa4bddc61c2ae">collect_client_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a394ba6099a6530516b2ddb88f9254612">collect_client_server_message</a> const  &amp;), 32 &gt;</td></tr>
+<tr class="separator:ac5723059e48026bbb20fa4bddc61c2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae12cafee461faaf506459c1c36100696"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ae12cafee461faaf506459c1c36100696">collect_server_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a8f31210bf94829b46e3ed0373409b3c8">collect_server_client_message</a> const  &amp;), 32 &gt;</td></tr>
+<tr class="separator:ae12cafee461faaf506459c1c36100696"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21c567b7200acbb97782be90bdf747b4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a21c567b7200acbb97782be90bdf747b4">error_variant</a> = std::variant&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error">reactor_protocol_error</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__protocol__error">controller_protocol_error</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1internal__reactor__error">internal_reactor_error</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1controller__internal__error">controller_internal_error</a> &gt;</td></tr>
 <tr class="separator:a21c567b7200acbb97782be90bdf747b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a097cc8cba998203818d645f127a04e66"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a097cc8cba998203818d645f127a04e66">test_ll_node</a> = <a class="el" href="classemlabcpp_1_1linked__list__node__base.html">linked_list_node_base</a>&lt; <a class="el" href="classemlabcpp_1_1testing_1_1test__interface.html">test_interface</a> &gt;</td></tr>
@@ -314,12 +314,12 @@ Typedefs</h2></td></tr>
 <tr class="separator:a2df72f608e4f6bdc15509ae107867d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e1f933b19818e29bac91fbe5811f8d5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a7e1f933b19818e29bac91fbe5811f8d5">params_server_client_message</a> = typename <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">protocol::handler</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#a5e58a267cd3278f4420c1437eaf179d6">params_server_client_group</a> &gt;::message_type</td></tr>
 <tr class="separator:a7e1f933b19818e29bac91fbe5811f8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad63c63d342408825c82efcf6014b2a4b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ad63c63d342408825c82efcf6014b2a4b">params_reply_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; void(const <a class="el" href="namespaceemlabcpp_1_1testing.html#a2df72f608e4f6bdc15509ae107867d33">params_server_client_variant</a> &amp;), 32 &gt;</td></tr>
-<tr class="separator:ad63c63d342408825c82efcf6014b2a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dfee1176ccf67d13739f6b4174865fb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a1dfee1176ccf67d13739f6b4174865fb">params_client_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#a939a4deb49e2c809aaee1251f9ff7373">params_client_server_message</a> &amp;), 32 &gt;</td></tr>
-<tr class="separator:a1dfee1176ccf67d13739f6b4174865fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad836ff5d6395848b0b1cdd0597156599"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ad836ff5d6395848b0b1cdd0597156599">params_server_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#a7e1f933b19818e29bac91fbe5811f8d5">params_server_client_message</a> &amp;), 32 &gt;</td></tr>
-<tr class="separator:ad836ff5d6395848b0b1cdd0597156599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d49e0d2e07d04af8f99ea84dd88d879"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a7d49e0d2e07d04af8f99ea84dd88d879">params_reply_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; void(<a class="el" href="namespaceemlabcpp_1_1testing.html#a2df72f608e4f6bdc15509ae107867d33">params_server_client_variant</a> const  &amp;), 32 &gt;</td></tr>
+<tr class="separator:a7d49e0d2e07d04af8f99ea84dd88d879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63c17237d96e3243f355d1a45ea1c439"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a63c17237d96e3243f355d1a45ea1c439">params_client_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a939a4deb49e2c809aaee1251f9ff7373">params_client_server_message</a> const  &amp;), 32 &gt;</td></tr>
+<tr class="separator:a63c17237d96e3243f355d1a45ea1c439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e6e586c4cd289b07edc63047c675c2f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a4e6e586c4cd289b07edc63047c675c2f">params_server_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7e1f933b19818e29bac91fbe5811f8d5">params_server_client_message</a> const  &amp;), 32 &gt;</td></tr>
+<tr class="separator:a4e6e586c4cd289b07edc63047c675c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3494d4dfdcdba476b36065c37cca9828"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a3494d4dfdcdba476b36065c37cca9828"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a3494d4dfdcdba476b36065c37cca9828">param_value_awaiter</a> = <a class="el" href="structemlabcpp_1_1testing_1_1params__awaiter.html">params_awaiter</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1param__value__processor.html">param_value_processor</a>&lt; T &gt; &gt;</td></tr>
 <tr class="separator:a3494d4dfdcdba476b36065c37cca9828"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -350,10 +350,10 @@ Typedefs</h2></td></tr>
 <tr class="separator:ab013b23e3c03b3fc9202b93e14cd8d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2a18ebb255c16f47e08d5f8f8d8a9f6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#af2a18ebb255c16f47e08d5f8f8d8a9f6">reactor_controller_message</a> = typename <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">protocol::handler</a>&lt; <a class="el" href="namespaceemlabcpp_1_1testing.html#acf293f858331c93ba18fa6cda9936aaf">reactor_controller_group</a> &gt;::message_type</td></tr>
 <tr class="separator:af2a18ebb255c16f47e08d5f8f8d8a9f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab33c48d89ae78a99c4eb79400fd167f4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ab33c48d89ae78a99c4eb79400fd167f4">reactor_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#af2a18ebb255c16f47e08d5f8f8d8a9f6">reactor_controller_message</a> &amp;), 32 &gt;</td></tr>
-<tr class="separator:ab33c48d89ae78a99c4eb79400fd167f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a8223f005c481689aa17053c1cee569"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a8a8223f005c481689aa17053c1cee569">controller_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#a525a178b0ea7ef8fa80c45e9ae80e4f2">controller_reactor_message</a> &amp;), 32 &gt;</td></tr>
-<tr class="separator:a8a8223f005c481689aa17053c1cee569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa60b012adcbf81a58e88d69f35a3b36f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#aa60b012adcbf81a58e88d69f35a3b36f">reactor_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#af2a18ebb255c16f47e08d5f8f8d8a9f6">reactor_controller_message</a> const  &amp;), 32 &gt;</td></tr>
+<tr class="separator:aa60b012adcbf81a58e88d69f35a3b36f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdae936e0935f887ec15bbb94329e61f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#afdae936e0935f887ec15bbb94329e61f">controller_transmit_callback</a> = <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>(<a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a525a178b0ea7ef8fa80c45e9ae80e4f2">controller_reactor_message</a> const  &amp;), 32 &gt;</td></tr>
+<tr class="separator:afdae936e0935f887ec15bbb94329e61f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7782092fb45f8874b35ce71aed89cc1a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a7782092fb45f8874b35ce71aed89cc1a">packet_payload</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a313daa9e6fbd3cb1ebea01a7f36662eb">protocol::multiplexer_payload</a>&lt; 256 &gt;</td></tr>
 <tr class="separator:a7782092fb45f8874b35ce71aed89cc1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1552bd84b510ee082c62d4e8cb609f63"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a1552bd84b510ee082c62d4e8cb609f63">packet</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">protocol::packet</a>&lt; <a class="el" href="structemlabcpp_1_1testing_1_1packet__def.html">packet_def</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7782092fb45f8874b35ce71aed89cc1a">packet_payload</a> &gt;</td></tr>
@@ -470,11 +470,11 @@ Functions</h2></td></tr>
 <tr class="separator:a2b66a0b6da3b1e4bb011e38d449b2755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a629b37146851ed10536be82200b8e178"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1testing_1_1status__awaiter.html">status_awaiter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a629b37146851ed10536be82200b8e178">skip</a> ()</td></tr>
 <tr class="separator:a629b37146851ed10536be82200b8e178"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a843c3b7de0d1dbdf5f4c138a2f773ac0"><td class="memTemplParams" colspan="2">template&lt;valid_test_callable Callable&gt; </td></tr>
-<tr class="memitem:a843c3b7de0d1dbdf5f4c138a2f773ac0"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a843c3b7de0d1dbdf5f4c138a2f773ac0">test_callable</a> (const std::string_view name, Callable cb) -&gt; <a class="el" href="classemlabcpp_1_1testing_1_1test__callable.html">test_callable</a>&lt; Callable &gt;</td></tr>
-<tr class="separator:a843c3b7de0d1dbdf5f4c138a2f773ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a275d5294033110175d6fd256a73b3bb8"><td class="memTemplParams" colspan="2">template&lt;valid_test_callable Callable&gt; </td></tr>
+<tr class="memitem:a275d5294033110175d6fd256a73b3bb8"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a275d5294033110175d6fd256a73b3bb8">test_callable</a> (std::string_view const name, Callable cb) -&gt; <a class="el" href="classemlabcpp_1_1testing_1_1test__callable.html">test_callable</a>&lt; Callable &gt;</td></tr>
+<tr class="separator:a275d5294033110175d6fd256a73b3bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26767cbbbbaeb6e03c676f6e343f64a9"><td class="memTemplParams" colspan="2">template&lt;typename Unit , typename Reactor , typename... Args&gt; </td></tr>
-<tr class="memitem:a26767cbbbbaeb6e03c676f6e343f64a9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1result.html">result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a26767cbbbbaeb6e03c676f6e343f64a9">construct_test_unit</a> (<a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;mem_res, Reactor &amp;<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a>, Args &amp;&amp;... <a class="el" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">args</a>)</td></tr>
+<tr class="memitem:a26767cbbbbaeb6e03c676f6e343f64a9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1result.html">result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a26767cbbbbaeb6e03c676f6e343f64a9">construct_test_unit</a> (<a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;mem_res, Reactor &amp;<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a>, Args &amp;&amp;... <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">args</a>)</td></tr>
 <tr class="separator:a26767cbbbbaeb6e03c676f6e343f64a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a798ae63d9a86a525be0c8c0859f02dd0"><td class="memTemplParams" colspan="2">template&lt;typename Callable , typename Reactor &gt; </td></tr>
 <tr class="memitem:a798ae63d9a86a525be0c8c0859f02dd0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1result.html">result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a798ae63d9a86a525be0c8c0859f02dd0">construct_test_callable</a> (<a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html">pmr::memory_resource</a> &amp;mem_res, Reactor &amp;<a class="el" href="classemlabcpp_1_1testing_1_1reactor.html">reactor</a>, std::string_view name, Callable callable)</td></tr>
@@ -737,14 +737,14 @@ msg_id</td>
 
 </div>
 </div>
-<a id="a2d364a2eccea6d9cdb092933d1e818d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d364a2eccea6d9cdb092933d1e818d2">&#9670;&nbsp;</a></span>collect_client_transmit_callback</h2>
+<a id="ac5723059e48026bbb20fa4bddc61c2ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5723059e48026bbb20fa4bddc61c2ae">&#9670;&nbsp;</a></span>collect_client_transmit_callback</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a2d364a2eccea6d9cdb092933d1e818d2">emlabcpp::testing::collect_client_transmit_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#a394ba6099a6530516b2ddb88f9254612">collect_client_server_message</a>&amp; ), 32 &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ac5723059e48026bbb20fa4bddc61c2ae">emlabcpp::testing::collect_client_transmit_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a394ba6099a6530516b2ddb88f9254612">collect_client_server_message</a> const&amp; ), 32 &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -765,14 +765,14 @@ msg_id</td>
 
 </div>
 </div>
-<a id="ab819765634c50c04dbea447f617c26f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab819765634c50c04dbea447f617c26f2">&#9670;&nbsp;</a></span>collect_reply_callback</h2>
+<a id="a0b344908ff492deb876981d618f34532"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b344908ff492deb876981d618f34532">&#9670;&nbsp;</a></span>collect_reply_callback</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ab819765634c50c04dbea447f617c26f2">emlabcpp::testing::collect_reply_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; void( const <a class="el" href="namespaceemlabcpp_1_1testing.html#ab2a20a39928284e80ca27466da77a4c1">collect_server_client_group</a>&amp; ), 32 &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a0b344908ff492deb876981d618f34532">emlabcpp::testing::collect_reply_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; void( <a class="el" href="namespaceemlabcpp_1_1testing.html#ab2a20a39928284e80ca27466da77a4c1">collect_server_client_group</a> const&amp; ), 32 &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -807,14 +807,14 @@ msg_id</td>
 
 </div>
 </div>
-<a id="a92f5e143a8b528250547144d5605bf81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92f5e143a8b528250547144d5605bf81">&#9670;&nbsp;</a></span>collect_server_transmit_callback</h2>
+<a id="ae12cafee461faaf506459c1c36100696"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae12cafee461faaf506459c1c36100696">&#9670;&nbsp;</a></span>collect_server_transmit_callback</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a92f5e143a8b528250547144d5605bf81">emlabcpp::testing::collect_server_transmit_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#a8f31210bf94829b46e3ed0373409b3c8">collect_server_client_message</a>&amp; ), 32 &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ae12cafee461faaf506459c1c36100696">emlabcpp::testing::collect_server_transmit_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a8f31210bf94829b46e3ed0373409b3c8">collect_server_client_message</a> const&amp; ), 32 &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -877,14 +877,14 @@ msg_id</td>
 
 </div>
 </div>
-<a id="a8a8223f005c481689aa17053c1cee569"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a8223f005c481689aa17053c1cee569">&#9670;&nbsp;</a></span>controller_transmit_callback</h2>
+<a id="afdae936e0935f887ec15bbb94329e61f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdae936e0935f887ec15bbb94329e61f">&#9670;&nbsp;</a></span>controller_transmit_callback</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a8a8223f005c481689aa17053c1cee569">emlabcpp::testing::controller_transmit_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#a525a178b0ea7ef8fa80c45e9ae80e4f2">controller_reactor_message</a>&amp; ), 32 &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#afdae936e0935f887ec15bbb94329e61f">emlabcpp::testing::controller_transmit_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a525a178b0ea7ef8fa80c45e9ae80e4f2">controller_reactor_message</a> const&amp; ), 32 &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1259,28 +1259,28 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a1dfee1176ccf67d13739f6b4174865fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dfee1176ccf67d13739f6b4174865fb">&#9670;&nbsp;</a></span>params_client_transmit_callback</h2>
+<a id="a63c17237d96e3243f355d1a45ea1c439"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63c17237d96e3243f355d1a45ea1c439">&#9670;&nbsp;</a></span>params_client_transmit_callback</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a1dfee1176ccf67d13739f6b4174865fb">emlabcpp::testing::params_client_transmit_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#a939a4deb49e2c809aaee1251f9ff7373">params_client_server_message</a>&amp; ), 32 &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a63c17237d96e3243f355d1a45ea1c439">emlabcpp::testing::params_client_transmit_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a939a4deb49e2c809aaee1251f9ff7373">params_client_server_message</a> const&amp; ), 32 &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ad63c63d342408825c82efcf6014b2a4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad63c63d342408825c82efcf6014b2a4b">&#9670;&nbsp;</a></span>params_reply_callback</h2>
+<a id="a7d49e0d2e07d04af8f99ea84dd88d879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d49e0d2e07d04af8f99ea84dd88d879">&#9670;&nbsp;</a></span>params_reply_callback</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ad63c63d342408825c82efcf6014b2a4b">emlabcpp::testing::params_reply_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; void( const <a class="el" href="namespaceemlabcpp_1_1testing.html#a2df72f608e4f6bdc15509ae107867d33">params_server_client_variant</a>&amp; ), 32 &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a7d49e0d2e07d04af8f99ea84dd88d879">emlabcpp::testing::params_reply_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; void( <a class="el" href="namespaceemlabcpp_1_1testing.html#a2df72f608e4f6bdc15509ae107867d33">params_server_client_variant</a> const&amp; ), 32 &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1329,14 +1329,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ad836ff5d6395848b0b1cdd0597156599"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad836ff5d6395848b0b1cdd0597156599">&#9670;&nbsp;</a></span>params_server_transmit_callback</h2>
+<a id="a4e6e586c4cd289b07edc63047c675c2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e6e586c4cd289b07edc63047c675c2f">&#9670;&nbsp;</a></span>params_server_transmit_callback</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ad836ff5d6395848b0b1cdd0597156599">emlabcpp::testing::params_server_transmit_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#a7e1f933b19818e29bac91fbe5811f8d5">params_server_client_message</a>&amp; ), 32 &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#a4e6e586c4cd289b07edc63047c675c2f">emlabcpp::testing::params_server_transmit_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#a7e1f933b19818e29bac91fbe5811f8d5">params_server_client_message</a> const&amp; ), 32 &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1399,14 +1399,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ab33c48d89ae78a99c4eb79400fd167f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab33c48d89ae78a99c4eb79400fd167f4">&#9670;&nbsp;</a></span>reactor_transmit_callback</h2>
+<a id="aa60b012adcbf81a58e88d69f35a3b36f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa60b012adcbf81a58e88d69f35a3b36f">&#9670;&nbsp;</a></span>reactor_transmit_callback</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#ab33c48d89ae78a99c4eb79400fd167f4">emlabcpp::testing::reactor_transmit_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, const <a class="el" href="namespaceemlabcpp_1_1testing.html#af2a18ebb255c16f47e08d5f8f8d8a9f6">reactor_controller_message</a>&amp; ), 32 &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1testing.html#aa60b012adcbf81a58e88d69f35a3b36f">emlabcpp::testing::reactor_transmit_callback</a> = typedef <a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a>&lt; <a class="el" href="classemlabcpp_1_1result.html">result</a>( <a class="el" href="namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2">protocol::channel_type</a>, <a class="el" href="namespaceemlabcpp_1_1testing.html#af2a18ebb255c16f47e08d5f8f8d8a9f6">reactor_controller_message</a> const&amp; ), 32 &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1784,7 +1784,7 @@ template&lt;typename Unit , typename Reactor , typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#a0550bae04778b8ce6ce9c333788e3a6e">emlabcpp::pmr::memory_resource::allocate()</a>, <a class="el" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">emlabcpp::args</a>, <a class="el" href="namespaceemlabcpp.html#a4daa9ae3a8263bbce72728fc136c3121">emlabcpp::ERROR</a>, <a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#a24e294c263a01f78dc3b45b94767909a">emlabcpp::testing::reactor::register_test()</a>, and <a class="el" href="namespaceemlabcpp.html#afe02e91acaaf63457009e5300a68becd">emlabcpp::SUCCESS</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1pmr_1_1memory__resource.html#a0550bae04778b8ce6ce9c333788e3a6e">emlabcpp::pmr::memory_resource::allocate()</a>, <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">emlabcpp::args</a>, <a class="el" href="namespaceemlabcpp.html#a4daa9ae3a8263bbce72728fc136c3121">emlabcpp::ERROR</a>, <a class="el" href="classemlabcpp_1_1testing_1_1reactor.html#a24e294c263a01f78dc3b45b94767909a">emlabcpp::testing::reactor::register_test()</a>, and <a class="el" href="namespaceemlabcpp.html#afe02e91acaaf63457009e5300a68becd">emlabcpp::SUCCESS</a>.</p>
 
 </div>
 </div>
@@ -1856,7 +1856,7 @@ template&lt;typename Unit , typename Reactor , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1testing_1_1collector.html#a873ff33b37c7bb4ba001a7848ed287b1">emlabcpp::testing::collector::set()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1testing_1_1collector.html#a4db00d3b4089b14c31f22d9e08cca306">emlabcpp::testing::collector::set()</a>.</p>
 
 </div>
 </div>
@@ -1962,8 +1962,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a843c3b7de0d1dbdf5f4c138a2f773ac0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a843c3b7de0d1dbdf5f4c138a2f773ac0">&#9670;&nbsp;</a></span>test_callable()</h2>
+<a id="a275d5294033110175d6fd256a73b3bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a275d5294033110175d6fd256a73b3bb8">&#9670;&nbsp;</a></span>test_callable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1973,7 +1973,7 @@ template&lt;valid_test_callable Callable&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classemlabcpp_1_1testing_1_1test__callable.html">emlabcpp::testing::test_callable</a> </td>
           <td>(</td>
-          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramtype">std::string_view const&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
@@ -2092,7 +2092,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4">requires</a>( <span class="keyword">const</span> T&amp; item, <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a>&amp; val ) {</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1testing.html#a68a80d6426bbb9d6709a4af8a28f05e4">requires</a>( T <span class="keyword">const</span>&amp; item, <a class="code" href="namespaceemlabcpp_1_1testing.html#a7eba021904701a30cd427b798483dc5f">value_type</a> <span class="keyword">const</span>&amp; val ) {</div>
 <div class="line">        { value_type_converter&lt; T &gt;::to_value( item ) } -&gt; std::convertible_to&lt; value_type &gt;;</div>
 <div class="line">        {</div>
 <div class="line">                value_type_converter&lt; T &gt;::from_value( val )</div>
@@ -2109,7 +2109,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1testing.html">testing</a></li>
-    <li class="footer">Generated on Mon Mar 10 2025 21:15:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 15:31:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

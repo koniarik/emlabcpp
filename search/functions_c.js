@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['new_5fdelete_5fresource_1896',['new_delete_resource',['../namespaceemlabcpp_1_1pmr.html#a52bf0aa428dd57cda666f487d3f2582d',1,'emlabcpp::pmr']]],
-  ['non_5fvalue_5fbyte_1897',['non_value_byte',['../structemlabcpp_1_1cobs__decoder.html#ade7031f5024520c9a3c905e717147f36',1,'emlabcpp::cobs_decoder']]],
-  ['none_5fof_1898',['none_of',['../namespaceemlabcpp.html#a37c8cfdb013071f0e1eb609c257eb9d0',1,'emlabcpp']]],
-  ['norm2_5fof_1899',['norm2_of',['../namespaceemlabcpp.html#af6fc2eeaf683b868d3ec7eed8fe6f69a',1,'emlabcpp']]],
-  ['normal_5fof_1900',['normal_of',['../namespaceemlabcpp.html#a2c0ae4e9cff5dd9f2ed611a2eac14c14',1,'emlabcpp::normal_of(const triangle&lt; 3 &gt; &amp;tri)'],['../namespaceemlabcpp.html#ac699c992dfb572a61d18dde2a4c302a8',1,'emlabcpp::normal_of(const vector&lt; 2 &gt; &amp;a)']]],
-  ['normalized_1901',['normalized',['../namespaceemlabcpp.html#aab2416235ee550b6758f4e804d71d612',1,'emlabcpp']]],
-  ['numeric_5fiterator_1902',['numeric_iterator',['../classemlabcpp_1_1iterators_1_1numeric__iterator.html#a905d6dd3d6b4496cecbe4b4f74edde17',1,'emlabcpp::iterators::numeric_iterator']]]
+  ['new_5fdelete_5fresource_1864',['new_delete_resource',['../namespaceemlabcpp_1_1pmr.html#a52bf0aa428dd57cda666f487d3f2582d',1,'emlabcpp::pmr']]],
+  ['non_5fvalue_5fbyte_1865',['non_value_byte',['../structemlabcpp_1_1cobs__decoder.html#ade7031f5024520c9a3c905e717147f36',1,'emlabcpp::cobs_decoder']]],
+  ['none_5fof_1866',['none_of',['../namespaceemlabcpp.html#a37c8cfdb013071f0e1eb609c257eb9d0',1,'emlabcpp']]],
+  ['norm2_5fof_1867',['norm2_of',['../namespaceemlabcpp.html#ad8e6b76b80a1aa107e0babd62f5f7af4',1,'emlabcpp']]],
+  ['normal_5fof_1868',['normal_of',['../namespaceemlabcpp.html#a07195d9b1972b37655b1c9a0b543d52b',1,'emlabcpp::normal_of(triangle&lt; 3 &gt; const &amp;tri)'],['../namespaceemlabcpp.html#ac8ae9fabf0beb535e1dc1c08b3d0b7a6',1,'emlabcpp::normal_of(vector&lt; 2 &gt; const &amp;a)']]],
+  ['normalized_1869',['normalized',['../namespaceemlabcpp.html#a6eb0a9d462d8ff0ccbf431c08c7f6595',1,'emlabcpp']]],
+  ['numeric_5fiterator_1870',['numeric_iterator',['../classemlabcpp_1_1iterators_1_1numeric__iterator.html#a905d6dd3d6b4496cecbe4b4f74edde17',1,'emlabcpp::iterators::numeric_iterator']]]
 ];

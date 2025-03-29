@@ -10,6 +10,6 @@ var interface_8h =
     [ "construct_test_callable", "interface_8h.html#a798ae63d9a86a525be0c8c0859f02dd0", null ],
     [ "construct_test_callable", "interface_8h.html#a0c9eec7e1a987e7ccb1c36ac6fb1d26f", null ],
     [ "construct_test_unit", "interface_8h.html#a26767cbbbbaeb6e03c676f6e343f64a9", null ],
-    [ "test_callable", "interface_8h.html#a843c3b7de0d1dbdf5f4c138a2f773ac0", null ],
+    [ "test_callable", "interface_8h.html#a275d5294033110175d6fd256a73b3bb8", null ],
     [ "valid_test_callable", "interface_8h.html#ad7a2a6759ff6cb8d4ee8777b7c33db2f", null ]
 ];

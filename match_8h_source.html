@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('match_8h_source.html',''); initResizab
 <a href="match_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="visit_8h.html">emlabcpp/visit.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="visit_8h.html">./visit.h</a>&quot;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
@@ -98,10 +98,10 @@ $(document).ready(function(){initNavTree('match_8h_source.html',''); initResizab
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span>... Callables &gt;</div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1matcher.html">   32</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1matcher.html">matcher</a> : Callables...</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1matcher.html#a67b97ef8f31311ba49898438ccf0bc7a">   34</a></span>&#160;        <a class="code" href="structemlabcpp_1_1matcher.html#a67b97ef8f31311ba49898438ccf0bc7a">matcher</a>( <span class="keyword">const</span> <a class="code" href="structemlabcpp_1_1matcher.html">matcher</a>&amp; )     = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1matcher.html#afd8ca8e16aff7257f03fcfe0fe9e619e">   34</a></span>&#160;        <a class="code" href="structemlabcpp_1_1matcher.html#afd8ca8e16aff7257f03fcfe0fe9e619e">matcher</a>( <a class="code" href="structemlabcpp_1_1matcher.html">matcher</a> <span class="keyword">const</span>&amp; )     = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1matcher.html#aae38d3b02385f31937e136e2a06f992f">   35</a></span>&#160;        <a class="code" href="structemlabcpp_1_1matcher.html#aae38d3b02385f31937e136e2a06f992f">matcher</a>( <a class="code" href="structemlabcpp_1_1matcher.html">matcher</a>&amp;&amp; ) noexcept = default;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1matcher.html#ada6e281be70507e556af3f8f04c6f7e4">   37</a></span>&#160;        <a class="code" href="structemlabcpp_1_1matcher.html">matcher</a>&amp; operator=( const <a class="code" href="structemlabcpp_1_1matcher.html">matcher</a>&amp; )     = default;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1matcher.html#a3efc251c2fb155a0f680261330ff1f35">   37</a></span>&#160;        <a class="code" href="structemlabcpp_1_1matcher.html">matcher</a>&amp; operator=( <a class="code" href="structemlabcpp_1_1matcher.html">matcher</a> const&amp; )     = default;</div>
 <div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1matcher.html#ac26161e2d600cd2d3c9fa6fcadcba5c5">   38</a></span>&#160;        <a class="code" href="structemlabcpp_1_1matcher.html">matcher</a>&amp; operator=( <a class="code" href="structemlabcpp_1_1matcher.html">matcher</a>&amp;&amp; ) noexcept = default;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        template &lt; typename... Ts &gt;</div>
@@ -143,8 +143,8 @@ $(document).ready(function(){initNavTree('match_8h_source.html',''); initResizab
 <div class="ttc" id="anamespaceemlabcpp_html_ab077da8cbabe4cc68820537ddc602b91"><div class="ttname"><a href="namespaceemlabcpp.html#ab077da8cbabe4cc68820537ddc602b91">emlabcpp::matcher</a></div><div class="ttdeci">matcher(Callables &amp;&amp;...) -&gt; matcher&lt; std::decay_t&lt; Callables &gt;... &gt;</div></div>
 <div class="ttc" id="astructemlabcpp_1_1matcher_html"><div class="ttname"><a href="structemlabcpp_1_1matcher.html">emlabcpp::matcher</a></div><div class="ttdef"><b>Definition:</b> match.h:33</div></div>
 <div class="ttc" id="astructemlabcpp_1_1matcher_html_a29c98dbca5f34816e749106e4b3cf6a5"><div class="ttname"><a href="structemlabcpp_1_1matcher.html#a29c98dbca5f34816e749106e4b3cf6a5">emlabcpp::matcher::~matcher</a></div><div class="ttdeci">~matcher()=default</div></div>
-<div class="ttc" id="astructemlabcpp_1_1matcher_html_a67b97ef8f31311ba49898438ccf0bc7a"><div class="ttname"><a href="structemlabcpp_1_1matcher.html#a67b97ef8f31311ba49898438ccf0bc7a">emlabcpp::matcher::matcher</a></div><div class="ttdeci">matcher(const matcher &amp;)=default</div></div>
 <div class="ttc" id="astructemlabcpp_1_1matcher_html_aae38d3b02385f31937e136e2a06f992f"><div class="ttname"><a href="structemlabcpp_1_1matcher.html#aae38d3b02385f31937e136e2a06f992f">emlabcpp::matcher::matcher</a></div><div class="ttdeci">matcher(matcher &amp;&amp;) noexcept=default</div></div>
+<div class="ttc" id="astructemlabcpp_1_1matcher_html_afd8ca8e16aff7257f03fcfe0fe9e619e"><div class="ttname"><a href="structemlabcpp_1_1matcher.html#afd8ca8e16aff7257f03fcfe0fe9e619e">emlabcpp::matcher::matcher</a></div><div class="ttdeci">matcher(matcher const &amp;)=default</div></div>
 <div class="ttc" id="avisit_8h_html"><div class="ttname"><a href="visit_8h.html">visit.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -152,7 +152,7 @@ $(document).ready(function(){initNavTree('match_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="match_8h.html">match.h</a></li>
-    <li class="footer">Generated on Mon Mar 10 2025 21:15:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 15:31:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

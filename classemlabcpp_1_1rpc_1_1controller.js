@@ -12,8 +12,8 @@ var classemlabcpp_1_1rpc_1_1controller =
     [ "request_message_type", "classemlabcpp_1_1rpc_1_1controller.html#afe94fcd4cd666f4c442eb5d8160781fa", null ],
     [ "request_type", "classemlabcpp_1_1rpc_1_1controller.html#a686e1d9f088895316ae29fa6ca257747", null ],
     [ "traits_type", "classemlabcpp_1_1rpc_1_1controller.html#acaaca643c854408d4c5e708cf8195393", null ],
-    [ "call", "classemlabcpp_1_1rpc_1_1controller.html#a3febe1db6ba2217715e7c1548e1b3656", null ],
-    [ "make_call_msg", "classemlabcpp_1_1rpc_1_1controller.html#a6c6c5e5e0c9a01fefd9f6773ea1a2990", null ],
-    [ "on_reply_msg", "classemlabcpp_1_1rpc_1_1controller.html#a0148ec511a202e461184c202962487b6", null ],
+    [ "call", "classemlabcpp_1_1rpc_1_1controller.html#a1ba7b5990a49fc456baeb679e76cb9f9", null ],
+    [ "make_call_msg", "classemlabcpp_1_1rpc_1_1controller.html#af27b0220ca32fb90a52033e8fe115605", null ],
+    [ "on_reply_msg", "classemlabcpp_1_1rpc_1_1controller.html#a28b2a6822a843b09401cf4fcc792111f", null ],
     [ "call_index", "classemlabcpp_1_1rpc_1_1controller.html#ac17a25cd77b7e3a50a45cd060c636c81", null ]
 ];

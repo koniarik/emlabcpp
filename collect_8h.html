@@ -93,19 +93,19 @@ $(document).ready(function(){initNavTree('collect_8h.html',''); initResizable();
 <div class="title">collect.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="request__adapter_8h_source.html">emlabcpp/experimental/contiguous_tree/request_adapter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="function__view_8h_source.html">emlabcpp/experimental/function_view.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="experimental_2testing_2convert_8h_source.html">emlabcpp/experimental/testing/convert.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="coroutine_8h_source.html">emlabcpp/experimental/testing/coroutine.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="experimental_2testing_2protocol_8h_source.html">emlabcpp/experimental/testing/protocol.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="static__function_8h_source.html">emlabcpp/static_function.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="static__function_8h_source.html">../../static_function.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="request__adapter_8h_source.html">../contiguous_tree/request_adapter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="function__view_8h_source.html">../function_view.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="experimental_2testing_2convert_8h_source.html">./convert.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="coroutine_8h_source.html">./coroutine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="experimental_2testing_2protocol_8h_source.html">./protocol.h</a>&quot;</code><br />
 <code>#include &lt;source_location&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for collect.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="collect_8h__incl.svg" width="2607" height="574"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="collect_8h__incl.svg" width="2288" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -145,12 +145,12 @@ Typedefs</h2></td></tr>
 <tr class="separator:a8f31210bf94829b46e3ed0373409b3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a394ba6099a6530516b2ddb88f9254612"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a394ba6099a6530516b2ddb88f9254612">emlabcpp::testing::collect_client_server_message</a> = typename protocol::handler&lt; collect_request &gt;::message_type</td></tr>
 <tr class="separator:a394ba6099a6530516b2ddb88f9254612"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab819765634c50c04dbea447f617c26f2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ab819765634c50c04dbea447f617c26f2">emlabcpp::testing::collect_reply_callback</a> = static_function&lt; void(const collect_server_client_group &amp;), 32 &gt;</td></tr>
-<tr class="separator:ab819765634c50c04dbea447f617c26f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d364a2eccea6d9cdb092933d1e818d2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a2d364a2eccea6d9cdb092933d1e818d2">emlabcpp::testing::collect_client_transmit_callback</a> = static_function&lt; result(protocol::channel_type, const collect_client_server_message &amp;), 32 &gt;</td></tr>
-<tr class="separator:a2d364a2eccea6d9cdb092933d1e818d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92f5e143a8b528250547144d5605bf81"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a92f5e143a8b528250547144d5605bf81">emlabcpp::testing::collect_server_transmit_callback</a> = static_function&lt; result(protocol::channel_type, const collect_server_client_message &amp;), 32 &gt;</td></tr>
-<tr class="separator:a92f5e143a8b528250547144d5605bf81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b344908ff492deb876981d618f34532"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#a0b344908ff492deb876981d618f34532">emlabcpp::testing::collect_reply_callback</a> = static_function&lt; void(collect_server_client_group const  &amp;), 32 &gt;</td></tr>
+<tr class="separator:a0b344908ff492deb876981d618f34532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5723059e48026bbb20fa4bddc61c2ae"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ac5723059e48026bbb20fa4bddc61c2ae">emlabcpp::testing::collect_client_transmit_callback</a> = static_function&lt; result(protocol::channel_type, collect_client_server_message const  &amp;), 32 &gt;</td></tr>
+<tr class="separator:ac5723059e48026bbb20fa4bddc61c2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae12cafee461faaf506459c1c36100696"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1testing.html#ae12cafee461faaf506459c1c36100696">emlabcpp::testing::collect_server_transmit_callback</a> = static_function&lt; result(protocol::channel_type, collect_server_client_message const  &amp;), 32 &gt;</td></tr>
+<tr class="separator:ae12cafee461faaf506459c1c36100696"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -233,7 +233,7 @@ nid</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_539f3c5103b46bf50615f61463de2f53.html">testing</a></li><li class="navelem"><a class="el" href="collect_8h.html">collect.h</a></li>
-    <li class="footer">Generated on Mon Mar 10 2025 21:15:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 15:31:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

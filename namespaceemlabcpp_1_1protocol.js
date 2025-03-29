@@ -1,7 +1,7 @@
 var namespaceemlabcpp_1_1protocol =
 [
     [ "detail", "namespaceemlabcpp_1_1protocol_1_1detail.html", [
-      [ "message_derived_test", "namespaceemlabcpp_1_1protocol_1_1detail.html#aba82f9bdb1604d0b12a5f9ce21d48376", null ]
+      [ "message_derived_test", "namespaceemlabcpp_1_1protocol_1_1detail.html#adae83846c95fb304710676eab748e694", null ]
     ] ],
     [ "multiplexed_endpoint", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint" ],
     [ "conversion_result", "structemlabcpp_1_1protocol_1_1conversion__result.html", "structemlabcpp_1_1protocol_1_1conversion__result" ],
@@ -99,19 +99,19 @@ var namespaceemlabcpp_1_1protocol =
       [ "PROTOCOL_ERROR", "namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafa89fc9790558c285c0664b57f3251ebc1", null ]
     ] ],
     [ "converter_for_impl", "namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9", null ],
-    [ "deserialize", "namespaceemlabcpp_1_1protocol.html#ab6cb8eed0d3dbf831466baeae0b0501d", null ],
-    [ "deserialize_range", "namespaceemlabcpp_1_1protocol.html#aa390c4e4ac21589780d1561635052074", null ],
-    [ "extract_multiplexed", "namespaceemlabcpp_1_1protocol.html#ab08294ec0d41d8284242e2b8bc4c2a18", null ],
-    [ "for_each_register", "namespaceemlabcpp_1_1protocol.html#a25417e5baf4dcb0a348bb0e6e5ea83a2", null ],
+    [ "deserialize", "namespaceemlabcpp_1_1protocol.html#a388ea57599b22905bdfca64243a29c59", null ],
+    [ "deserialize_range", "namespaceemlabcpp_1_1protocol.html#add8db871ab01bea119d72a495af6cafe", null ],
+    [ "extract_multiplexed", "namespaceemlabcpp_1_1protocol.html#a17030631441fd4daa09b11516bec8a73", null ],
+    [ "for_each_register", "namespaceemlabcpp_1_1protocol.html#ae1478b77466bf5c4f4cb182459ca131d", null ],
     [ "message", "namespaceemlabcpp_1_1protocol.html#ad7cf453765253654adcf697d7810d1b6", null ],
-    [ "multiplexed_dispatch", "namespaceemlabcpp_1_1protocol.html#a39ffab4b8c7d6910c971588b583d8270", null ],
+    [ "multiplexed_dispatch", "namespaceemlabcpp_1_1protocol.html#a211b65802f08cb2dd9dde035fc8b41e6", null ],
     [ "pretty_print_msg_format", "namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630", null ],
     [ "requires", "namespaceemlabcpp_1_1protocol.html#a380711490896b7090b370d91691adb69", null ],
-    [ "sequencer_simple_load", "namespaceemlabcpp_1_1protocol.html#a65c1faf455d3f60687ad28bb43cfe060", null ],
+    [ "sequencer_simple_load", "namespaceemlabcpp_1_1protocol.html#a431c1a3957378c1f7b12115f665b542d", null ],
     [ "serialize_at", "namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac", null ],
-    [ "serialize_multiplexed", "namespaceemlabcpp_1_1protocol.html#a3e625c3d79c1b8ca3bc23f0ac23d00cd", null ],
-    [ "serialize_multiplexed", "namespaceemlabcpp_1_1protocol.html#aa866c34d5e932f8dfd3e123200bd7e93", null ],
-    [ "serialize_range", "namespaceemlabcpp_1_1protocol.html#a025c3ab4f51bf2f567f9ad6dd9440355", null ],
+    [ "serialize_multiplexed", "namespaceemlabcpp_1_1protocol.html#af54eda66ff9e2dc93fb37fe0c9bf0074", null ],
+    [ "serialize_multiplexed", "namespaceemlabcpp_1_1protocol.html#af396c9d9da6bba7eb0914be736666c84", null ],
+    [ "serialize_range", "namespaceemlabcpp_1_1protocol.html#a03087c19ddd8d3a0960099c664a2291b", null ],
     [ "sizeless_message", "namespaceemlabcpp_1_1protocol.html#a28cabc33555007426b8995bfbf036ae5", null ],
     [ "traits_for_impl", "namespaceemlabcpp_1_1protocol.html#a8e118c9ad4e33ebcc00f167a469b770a", null ],
     [ "BADVAL_ERR", "namespaceemlabcpp_1_1protocol.html#ae7f63810880ec41008ee91a908c63148", null ],

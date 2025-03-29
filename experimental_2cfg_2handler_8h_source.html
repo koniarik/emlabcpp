@@ -89,8 +89,8 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2handler_8h_source.h
 <div class="contents">
 <a href="experimental_2cfg_2handler_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="load_8h.html">emlabcpp/experimental/cfg/load.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="store_8h.html">emlabcpp/experimental/cfg/store.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="load_8h.html">./load.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="store_8h.html">./store.h</a>&quot;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1cfg.html">emlabcpp::cfg</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
@@ -101,13 +101,13 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2handler_8h_source.h
 <div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1handler.html#a2e4cffa890b344de5884f98f862f23eb">   33</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="structemlabcpp_1_1cfg_1_1handler.html#a2e4cffa890b344de5884f98f862f23eb">chcksum_conv</a> = <a class="code" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">protocol::converter_for&lt; checksum, Endianess &gt;</a>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> ChecksumFunction &gt;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1handler.html#ae322cd364ee3ee0953d4161081d41c08">   36</a></span>&#160;        <span class="keyword">static</span> std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt; <a class="code" href="structemlabcpp_1_1cfg_1_1handler.html#ae322cd364ee3ee0953d4161081d41c08">store</a>(</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1handler.html#a5890b7d4460d5f82dfbaeb0c21948512">   36</a></span>&#160;        <span class="keyword">static</span> std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt; <a class="code" href="structemlabcpp_1_1cfg_1_1handler.html#a5890b7d4460d5f82dfbaeb0c21948512">store</a>(</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            std::span&lt; std::byte &gt; target_buffer,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keyword">const</span> Payload&amp;         pl,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <a class="code" href="classemlabcpp_1_1view.html">view&lt; const Field* &gt;</a>   fields,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            Payload <span class="keyword">const</span>&amp;         pl,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <a class="code" href="classemlabcpp_1_1view.html">view&lt; Field const* &gt;</a>   fields,</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            ChecksumFunction&amp;&amp;     chcksm_f )</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1cfg_1_1handler.html#ae322cd364ee3ee0953d4161081d41c08">store</a>(</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structemlabcpp_1_1cfg_1_1handler.html#a5890b7d4460d5f82dfbaeb0c21948512">store</a>(</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    target_buffer,</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    pl,</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    fields.<a class="code" href="classemlabcpp_1_1view.html#af2e8f0748de03d25eb586ef4fbe0bb13">size</a>(),</div>
@@ -118,9 +118,9 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2handler_8h_source.h
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">template</span> &lt; <span class="keyword">typename</span> FieldFunction, <span class="keyword">typename</span> ChecksumFunction &gt;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1handler.html#aa98ac6250f37eb63416a7e200831f1f1">   53</a></span>&#160;        <span class="keyword">static</span> std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt; <a class="code" href="structemlabcpp_1_1cfg_1_1handler.html#aa98ac6250f37eb63416a7e200831f1f1">store</a>(</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1handler.html#ade534cd71ff5e007c364f27cf5edd23b">   53</a></span>&#160;        <span class="keyword">static</span> std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt; <a class="code" href="structemlabcpp_1_1cfg_1_1handler.html#ade534cd71ff5e007c364f27cf5edd23b">store</a>(</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            std::span&lt; std::byte &gt; target_buffer,</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keyword">const</span> Payload&amp;         pl,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            Payload <span class="keyword">const</span>&amp;         pl,</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            std::size_t            field_count,</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            FieldFunction&amp;&amp;        field_f,</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            ChecksumFunction&amp;&amp;     chcksm_f )</div>
@@ -140,8 +140,8 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2handler_8h_source.h
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">if</span> ( !success )</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        <span class="keywordflow">return</span> { <span class="keyword">false</span>, {} };</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">for</span> ( <span class="keyword">const</span> std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( field_count ) ) {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        <span class="keyword">const</span> Field fp = field_f( i );</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">for</span> ( std::size_t <span class="keyword">const</span> i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( field_count ) ) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        Field <span class="keyword">const</span> fp = field_f( i );</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                        std::tie( success, buffer ) =</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                            store_impl&lt; Endianess &gt;( buffer, fp, chcksm_f );</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                        <span class="keywordflow">if</span> ( !success )</div>
@@ -176,7 +176,7 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2handler_8h_source.h
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">if</span> ( !pl_f( std::as_const( pl ) ) )</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117a3c626b7887de56122df69a972b5516b0">load_result::PAYLOAD_REFUSED</a>;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordflow">for</span> ( <span class="keyword">const</span> std::size_t i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( head.<a class="code" href="namespaceemlabcpp_1_1cfg.html#a697b50cd6be1964f6d2c3f74354076f8">field_count</a> ) ) {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordflow">for</span> ( std::size_t <span class="keyword">const</span> i : <a class="code" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>( head.<a class="code" href="namespaceemlabcpp_1_1cfg.html#a697b50cd6be1964f6d2c3f74354076f8">field_count</a> ) ) {</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                        std::ignore = i;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                        Field <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                        std::tie( success, <a class="code" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, buffer ) =</div>
@@ -206,16 +206,16 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2handler_8h_source.h
 <div class="ttc" id="astore_8h_html"><div class="ttname"><a href="store_8h.html">store.h</a></div></div>
 <div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html">emlabcpp::cfg::handler</a></div><div class="ttdef"><b>Definition:</b> handler.h:32</div></div>
 <div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html_a2e4cffa890b344de5884f98f862f23eb"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html#a2e4cffa890b344de5884f98f862f23eb">emlabcpp::cfg::handler::chcksum_conv</a></div><div class="ttdeci">protocol::converter_for&lt; checksum, Endianess &gt; chcksum_conv</div><div class="ttdef"><b>Definition:</b> handler.h:33</div></div>
+<div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html_a5890b7d4460d5f82dfbaeb0c21948512"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html#a5890b7d4460d5f82dfbaeb0c21948512">emlabcpp::cfg::handler::store</a></div><div class="ttdeci">static std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt; store(std::span&lt; std::byte &gt; target_buffer, Payload const &amp;pl, view&lt; Field const * &gt; fields, ChecksumFunction &amp;&amp;chcksm_f)</div><div class="ttdef"><b>Definition:</b> handler.h:36</div></div>
 <div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html_a95f0caf6956ef4f8815bcdb5ccdba73b"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html#a95f0caf6956ef4f8815bcdb5ccdba73b">emlabcpp::cfg::handler::load</a></div><div class="ttdeci">static load_result load(std::span&lt; std::byte &gt; source, PayloadFunction &amp;&amp;pl_f, FieldFunction &amp;&amp;field_f, ChecksumFunction &amp;&amp;chcksm_f)</div><div class="ttdef"><b>Definition:</b> handler.h:87</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html_aa98ac6250f37eb63416a7e200831f1f1"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html#aa98ac6250f37eb63416a7e200831f1f1">emlabcpp::cfg::handler::store</a></div><div class="ttdeci">static std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt; store(std::span&lt; std::byte &gt; target_buffer, const Payload &amp;pl, std::size_t field_count, FieldFunction &amp;&amp;field_f, ChecksumFunction &amp;&amp;chcksm_f)</div><div class="ttdef"><b>Definition:</b> handler.h:53</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html_ae322cd364ee3ee0953d4161081d41c08"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html#ae322cd364ee3ee0953d4161081d41c08">emlabcpp::cfg::handler::store</a></div><div class="ttdeci">static std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt; store(std::span&lt; std::byte &gt; target_buffer, const Payload &amp;pl, view&lt; const Field * &gt; fields, ChecksumFunction &amp;&amp;chcksm_f)</div><div class="ttdef"><b>Definition:</b> handler.h:36</div></div>
+<div class="ttc" id="astructemlabcpp_1_1cfg_1_1handler_html_ade534cd71ff5e007c364f27cf5edd23b"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1handler.html#ade534cd71ff5e007c364f27cf5edd23b">emlabcpp::cfg::handler::store</a></div><div class="ttdeci">static std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt; store(std::span&lt; std::byte &gt; target_buffer, Payload const &amp;pl, std::size_t field_count, FieldFunction &amp;&amp;field_f, ChecksumFunction &amp;&amp;chcksm_f)</div><div class="ttdef"><b>Definition:</b> handler.h:53</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_b8d3940418ab59971bff71afaa8cab2b.html">cfg</a></li><li class="navelem"><a class="el" href="experimental_2cfg_2handler_8h.html">handler.h</a></li>
-    <li class="footer">Generated on Mon Mar 10 2025 21:15:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 15:31:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

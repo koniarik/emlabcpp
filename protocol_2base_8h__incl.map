@@ -1,15 +1,15 @@
 <map id="include/emlabcpp/protocol/base.h" name="include/emlabcpp/protocol/base.h">
-<area shape="rect" id="node1" title=" " alt="" coords="397,5,592,47"/>
-<area shape="rect" id="node2" href="$bounded_8h.html" title=" " alt="" coords="166,95,324,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="11,259,79,285"/>
-<area shape="rect" id="node6" title=" " alt="" coords="307,177,399,203"/>
-<area shape="rect" id="node7" href="$protocol_2error_8h.html" title=" " alt="" coords="400,95,589,121"/>
-<area shape="rect" id="node11" title=" " alt="" coords="686,259,753,285"/>
-<area shape="rect" id="node12" title=" " alt="" coords="779,95,818,121"/>
-<area shape="rect" id="node13" title=" " alt="" coords="842,95,901,121"/>
-<area shape="rect" id="node3" href="$concepts_8h.html" title=" " alt="" coords="24,177,184,203"/>
-<area shape="rect" id="node5" title=" " alt="" coords="208,177,282,203"/>
-<area shape="rect" id="node8" href="$string__buffer_8h.html" title=" " alt="" coords="526,169,703,211"/>
-<area shape="rect" id="node9" title=" " alt="" coords="414,259,500,285"/>
-<area shape="rect" id="node10" title=" " alt="" coords="565,259,621,285"/>
+<area shape="rect" id="node1" title=" " alt="" coords="339,5,534,47"/>
+<area shape="rect" id="node2" href="$bounded_8h.html" title=" " alt="" coords="167,95,269,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,259,73,285"/>
+<area shape="rect" id="node6" title=" " alt="" coords="256,177,348,203"/>
+<area shape="rect" id="node7" href="$protocol_2error_8h.html" title=" " alt="" coords="401,95,473,121"/>
+<area shape="rect" id="node11" title=" " alt="" coords="622,259,689,285"/>
+<area shape="rect" id="node12" title=" " alt="" coords="712,95,751,121"/>
+<area shape="rect" id="node13" title=" " alt="" coords="775,95,834,121"/>
+<area shape="rect" id="node3" href="$concepts_8h.html" title=" " alt="" coords="33,177,133,203"/>
+<area shape="rect" id="node5" title=" " alt="" coords="157,177,231,203"/>
+<area shape="rect" id="node8" href="$string__buffer_8h.html" title=" " alt="" coords="474,169,637,211"/>
+<area shape="rect" id="node9" title=" " alt="" coords="361,259,446,285"/>
+<area shape="rect" id="node10" title=" " alt="" coords="507,259,563,285"/>
 </map>

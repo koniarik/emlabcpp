@@ -8,7 +8,7 @@ var classemlabcpp_1_1contiguous__object__handle =
     [ "end", "classemlabcpp_1_1contiguous__object__handle.html#a76f2ef3551ec751a743b0eb305266c18", null ],
     [ "get_child", "classemlabcpp_1_1contiguous__object__handle.html#a59bfda33121a4ac83fcf4da37998cf99", null ],
     [ "get_child", "classemlabcpp_1_1contiguous__object__handle.html#ab7c687af89c970a8f08fab5b54ebf1df", null ],
-    [ "get_key", "classemlabcpp_1_1contiguous__object__handle.html#a6563168e5bfc28b080f1225ffa01885a", null ],
-    [ "set", "classemlabcpp_1_1contiguous__object__handle.html#ae0dbba07252526ca237f0d5716e09f20", null ],
+    [ "get_key", "classemlabcpp_1_1contiguous__object__handle.html#a0ab228f45b3f73af334fdfdb05440c0a", null ],
+    [ "set", "classemlabcpp_1_1contiguous__object__handle.html#ac5cd5f913966b6384b9cbc40c98991cc", null ],
     [ "size", "classemlabcpp_1_1contiguous__object__handle.html#a09cf00f4bd4dc3af52e479f6203f9e1a", null ]
 ];

@@ -1,16 +1,16 @@
 <map id="include/emlabcpp/experimental/geom/json.h" name="include/emlabcpp/experimental/geom/json.h">
-<area shape="rect" id="node1" title=" " alt="" coords="181,5,409,47"/>
-<area shape="rect" id="node2" href="$point_8h.html" title=" " alt="" coords="203,273,380,315"/>
-<area shape="rect" id="node7" href="$pose_8h.html" title=" " alt="" coords="144,95,321,136"/>
-<area shape="rect" id="node8" href="$quaternion_8h.html" title=" " alt="" coords="5,184,183,225"/>
-<area shape="rect" id="node10" href="$simplex_8h.html" title=" " alt="" coords="409,184,587,225"/>
-<area shape="rect" id="node3" href="$vec__point__base_8h.html" title=" " alt="" coords="200,452,380,493"/>
-<area shape="rect" id="node5" href="$range_8h.html" title=" " alt="" coords="282,616,421,643"/>
-<area shape="rect" id="node6" href="$vector_8h.html" title=" " alt="" coords="152,363,329,404"/>
-<area shape="rect" id="node4" href="$algorithm_8h.html" title=" " alt="" coords="333,541,498,568"/>
-<area shape="rect" id="node9" title=" " alt="" coords="207,191,267,218"/>
-<area shape="rect" id="node11" href="$matrix_8h.html" title=" " alt="" coords="456,452,633,493"/>
-<area shape="rect" id="node12" title=" " alt="" coords="455,281,541,307"/>
-<area shape="rect" id="node13" title=" " alt="" coords="565,281,621,307"/>
-<area shape="rect" id="node14" title=" " alt="" coords="645,281,708,307"/>
+<area shape="rect" id="node1" title=" " alt="" coords="39,5,267,47"/>
+<area shape="rect" id="node2" href="$point_8h.html" title=" " alt="" coords="5,244,80,271"/>
+<area shape="rect" id="node7" href="$pose_8h.html" title=" " alt="" coords="79,95,153,121"/>
+<area shape="rect" id="node8" href="$quaternion_8h.html" title=" " alt="" coords="161,169,273,196"/>
+<area shape="rect" id="node10" href="$simplex_8h.html" title=" " alt="" coords="298,169,393,196"/>
+<area shape="rect" id="node3" href="$range_8h.html" title=" " alt="" coords="101,543,195,569"/>
+<area shape="rect" id="node4" href="$vec__point__base_8h.html" title=" " alt="" coords="30,393,173,420"/>
+<area shape="rect" id="node6" href="$vector_8h.html" title=" " alt="" coords="80,319,163,345"/>
+<area shape="rect" id="node5" href="$algorithm_8h.html" title=" " alt="" coords="137,468,258,495"/>
+<area shape="rect" id="node9" title=" " alt="" coords="77,169,137,196"/>
+<area shape="rect" id="node11" href="$matrix_8h.html" title=" " alt="" coords="249,393,338,420"/>
+<area shape="rect" id="node12" title=" " alt="" coords="303,244,388,271"/>
+<area shape="rect" id="node13" title=" " alt="" coords="412,244,468,271"/>
+<area shape="rect" id="node14" title=" " alt="" coords="493,244,555,271"/>
 </map>

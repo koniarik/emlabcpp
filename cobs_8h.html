@@ -91,15 +91,15 @@ $(document).ready(function(){initNavTree('cobs_8h.html',''); initResizable(); })
 <div class="title">cobs.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="algorithm_8h_source.html">emlabcpp/algorithm.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="view_8h_source.html">emlabcpp/view.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="algorithm_8h_source.html">../algorithm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="view_8h_source.html">../view.h</a>&quot;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for cobs.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="cobs_8h__incl.svg" width="1104" height="291"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="cobs_8h__incl.svg" width="846" height="276"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -125,12 +125,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac6752f0fca39f0928386bab695fea0e2"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, view&lt; std::byte * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac6752f0fca39f0928386bab695fea0e2">emlabcpp::encode_cobs</a> (view&lt; const std::byte * &gt; source, view&lt; std::byte * &gt; target)</td></tr>
-<tr class="memdesc:ac6752f0fca39f0928386bab695fea0e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer.  <a href="namespaceemlabcpp.html#ac6752f0fca39f0928386bab695fea0e2">More...</a><br /></td></tr>
-<tr class="separator:ac6752f0fca39f0928386bab695fea0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa636b3f8449e9bac7a6d8aa8ffdeec3a"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, view&lt; std::byte * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa636b3f8449e9bac7a6d8aa8ffdeec3a">emlabcpp::decode_cobs</a> (view&lt; const std::byte * &gt; source, view&lt; std::byte * &gt; target)</td></tr>
-<tr class="memdesc:aa636b3f8449e9bac7a6d8aa8ffdeec3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer.  <a href="namespaceemlabcpp.html#aa636b3f8449e9bac7a6d8aa8ffdeec3a">More...</a><br /></td></tr>
-<tr class="separator:aa636b3f8449e9bac7a6d8aa8ffdeec3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5310f80a7f1ae10cd74f8028193511c2"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, view&lt; std::byte * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5310f80a7f1ae10cd74f8028193511c2">emlabcpp::encode_cobs</a> (view&lt; std::byte const * &gt; source, view&lt; std::byte * &gt; target)</td></tr>
+<tr class="memdesc:a5310f80a7f1ae10cd74f8028193511c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer.  <a href="namespaceemlabcpp.html#a5310f80a7f1ae10cd74f8028193511c2">More...</a><br /></td></tr>
+<tr class="separator:a5310f80a7f1ae10cd74f8028193511c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a971147b99a5b38779174a4a02d0099b3"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, view&lt; std::byte * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a971147b99a5b38779174a4a02d0099b3">emlabcpp::decode_cobs</a> (view&lt; std::byte const * &gt; source, view&lt; std::byte * &gt; target)</td></tr>
+<tr class="memdesc:a971147b99a5b38779174a4a02d0099b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer.  <a href="namespaceemlabcpp.html#a971147b99a5b38779174a4a02d0099b3">More...</a><br /></td></tr>
+<tr class="separator:a971147b99a5b38779174a4a02d0099b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eb69734e95cc40cd53e2f01531183d7"><td class="memTemplParams" colspan="2">template&lt;typename Iter &gt; </td></tr>
 <tr class="memitem:a1eb69734e95cc40cd53e2f01531183d7"><td class="memTemplItemLeft" align="right" valign="top">view&lt; decode_cobs_iter&lt; Iter &gt;, decode_cobs_iter&lt; Iter &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1eb69734e95cc40cd53e2f01531183d7">emlabcpp::cobs_decode_view</a> (view&lt; Iter &gt; data)</td></tr>
 <tr class="separator:a1eb69734e95cc40cd53e2f01531183d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,7 +141,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="cobs_8h.html">cobs.h</a></li>
-    <li class="footer">Generated on Mon Mar 10 2025 21:15:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 15:31:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

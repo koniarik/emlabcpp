@@ -1,6 +1,6 @@
 var classemlabcpp_1_1testing_1_1collect__awaiter =
 [
-    [ "collect_awaiter", "classemlabcpp_1_1testing_1_1collect__awaiter.html#a3a1432b55393ebae7e201b60a456310f", null ],
+    [ "collect_awaiter", "classemlabcpp_1_1testing_1_1collect__awaiter.html#a08830932012756bcc303c8cfc7de7ed7", null ],
     [ "await_ready", "classemlabcpp_1_1testing_1_1collect__awaiter.html#a2c297991611dc6c50396cfa9df8a8e3c", null ],
     [ "await_resume", "classemlabcpp_1_1testing_1_1collect__awaiter.html#abd597d9eaed23a8786cb9f9d157b9e42", null ],
     [ "await_suspend", "classemlabcpp_1_1testing_1_1collect__awaiter.html#afd6e971c1b4ce48af5beb4f2b806e9bb", null ],

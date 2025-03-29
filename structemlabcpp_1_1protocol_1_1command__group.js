@@ -8,7 +8,7 @@ var structemlabcpp_1_1protocol_1_1command__group =
     [ "traits", "structemlabcpp_1_1protocol_1_1command__group.html#a033202bfae0d0ce14cba76fa53bd7706", null ],
     [ "value_type", "structemlabcpp_1_1protocol_1_1command__group.html#a87d2368d448f67c501508e79183b4e56", null ],
     [ "with_commands", "structemlabcpp_1_1protocol_1_1command__group.html#ad45b67c848cbde4f1d784923fb67c3c6", null ],
-    [ "requires", "structemlabcpp_1_1protocol_1_1command__group.html#adcdf4b785d8a11621a08053b2aa31d12", null ],
+    [ "requires", "structemlabcpp_1_1protocol_1_1command__group.html#a1dd763c222d3fcd8d322457e2bdf18ed", null ],
     [ "id_index", "structemlabcpp_1_1protocol_1_1command__group.html#a389fc59fac287bb557adf8294b46f6dd", null ],
     [ "max_size", "structemlabcpp_1_1protocol_1_1command__group.html#a2cb6f27394161030509cff2485c1b7b3", null ]
 ];

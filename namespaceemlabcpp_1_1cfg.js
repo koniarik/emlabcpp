@@ -10,5 +10,5 @@ var namespaceemlabcpp_1_1cfg =
       [ "PAYLOAD_REFUSED", "namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117a3c626b7887de56122df69a972b5516b0", null ]
     ] ],
     [ "load_impl", "namespaceemlabcpp_1_1cfg.html#a00fb1af601631b505a904e3f3b1cd7a8", null ],
-    [ "store_impl", "namespaceemlabcpp_1_1cfg.html#a7980f440577d53560bbe5adb7af1ed2e", null ]
+    [ "store_impl", "namespaceemlabcpp_1_1cfg.html#a141649f092d321835c9935e3ecaa93c0", null ]
 ];

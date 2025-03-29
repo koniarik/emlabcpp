@@ -92,12 +92,12 @@ $(document).ready(function(){initNavTree('algorithm_8h.html',''); initResizable(
 <div class="title">algorithm.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="impl_8h_source.html">emlabcpp/algorithm/impl.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="bounded_8h_source.html">emlabcpp/bounded.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="min__max_8h_source.html">emlabcpp/min_max.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="range_8h_source.html">emlabcpp/range.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="types_8h_source.html">emlabcpp/types.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="view_8h_source.html">emlabcpp/view.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="impl_8h_source.html">./algorithm/impl.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bounded_8h_source.html">./bounded.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="min__max_8h_source.html">./min_max.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="range_8h_source.html">./range.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="types_8h_source.html">./types.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="view_8h_source.html">./view.h</a>&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;cstdlib&gt;</code><br />
 <code>#include &lt;tuple&gt;</code><br />
@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('algorithm_8h.html',''); initResizable(
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="algorithm_8h__incl.svg" width="1103" height="291"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="algorithm_8h__incl.svg" width="843" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -126,10 +126,10 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1aef6c41e29219cbbc8538767c0e1f0e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a1aef6c41e29219cbbc8538767c0e1f0e"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1aef6c41e29219cbbc8538767c0e1f0e">emlabcpp::sign</a> (const T &amp;val)</td></tr>
-<tr class="memdesc:a1aef6c41e29219cbbc8538767c0e1f0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns sign of variable T: -1,0,1  <a href="namespaceemlabcpp.html#a1aef6c41e29219cbbc8538767c0e1f0e">More...</a><br /></td></tr>
-<tr class="separator:a1aef6c41e29219cbbc8538767c0e1f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a814d6c59042c6b73cca5c9a2272d6316"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a814d6c59042c6b73cca5c9a2272d6316"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a814d6c59042c6b73cca5c9a2272d6316">emlabcpp::sign</a> (T const &amp;val)</td></tr>
+<tr class="memdesc:a814d6c59042c6b73cca5c9a2272d6316"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns sign of variable T: -1,0,1  <a href="namespaceemlabcpp.html#a814d6c59042c6b73cca5c9a2272d6316">More...</a><br /></td></tr>
+<tr class="separator:a814d6c59042c6b73cca5c9a2272d6316"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a3ff32c2bf0005fcdbab5763193f239"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a3a3ff32c2bf0005fcdbab5763193f239"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3a3ff32c2bf0005fcdbab5763193f239">emlabcpp::ceil_to</a> (T val, T base)</td></tr>
 <tr class="memdesc:a3a3ff32c2bf0005fcdbab5763193f239"><td class="mdescLeft">&#160;</td><td class="mdescRight">takes an value <code>val</code> and rounds it up to nearest multiply of <code>base</code>  <a href="namespaceemlabcpp.html#a3a3ff32c2bf0005fcdbab5763193f239">More...</a><br /></td></tr>
@@ -138,22 +138,22 @@ Functions</h2></td></tr>
 <tr class="memitem:a0abef993d302d6b6d93fe877ca62491c"><td class="memTemplItemLeft" align="right" valign="top">constexpr U&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0abef993d302d6b6d93fe877ca62491c">emlabcpp::map_range</a> (T input, T from_min, T from_max, U to_min, U to_max)</td></tr>
 <tr class="memdesc:a0abef993d302d6b6d93fe877ca62491c"><td class="mdescLeft">&#160;</td><td class="mdescRight">maps input value 'input' from input range to equivalent value in output range  <a href="namespaceemlabcpp.html#a0abef993d302d6b6d93fe877ca62491c">More...</a><br /></td></tr>
 <tr class="separator:a0abef993d302d6b6d93fe877ca62491c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a631eb361805aa7459b944503f7538951"><td class="memTemplParams" colspan="2">template&lt;container Container&gt; </td></tr>
-<tr class="memitem:a631eb361805aa7459b944503f7538951"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a631eb361805aa7459b944503f7538951">emlabcpp::cont_size</a> (const Container &amp;cont) noexcept</td></tr>
-<tr class="memdesc:a631eb361805aa7459b944503f7538951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the container, regardless of what it is.  <a href="namespaceemlabcpp.html#a631eb361805aa7459b944503f7538951">More...</a><br /></td></tr>
-<tr class="separator:a631eb361805aa7459b944503f7538951"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4898d31a822e25963cab32a985e89f4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af4898d31a822e25963cab32a985e89f4"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af4898d31a822e25963cab32a985e89f4">emlabcpp::almost_equal</a> (const T &amp;lh, const T &amp;rh, const float eps=default_epsilon)</td></tr>
-<tr class="memdesc:af4898d31a822e25963cab32a985e89f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Two items 'lh' and 'rh' are almost equal if their difference is smaller than value 'eps'.  <a href="namespaceemlabcpp.html#af4898d31a822e25963cab32a985e89f4">More...</a><br /></td></tr>
-<tr class="separator:af4898d31a822e25963cab32a985e89f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a254ed4de50fc497ac961253ac3625040"><td class="memTemplParams" colspan="2">template&lt;referenceable_container Container, typename Iterator  = iterator_of_t&lt; Container &gt;&gt; </td></tr>
-<tr class="memitem:a254ed4de50fc497ac961253ac3625040"><td class="memTemplItemLeft" align="right" valign="top">constexpr view&lt; Iterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a254ed4de50fc497ac961253ac3625040">emlabcpp::tail</a> (Container &amp;&amp;cont, const int step=1)</td></tr>
-<tr class="memdesc:a254ed4de50fc497ac961253ac3625040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns range over Container, which skips first item of container.  <a href="namespaceemlabcpp.html#a254ed4de50fc497ac961253ac3625040">More...</a><br /></td></tr>
-<tr class="separator:a254ed4de50fc497ac961253ac3625040"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b323693e8d1a33bad5c12c63709fe3b"><td class="memTemplParams" colspan="2">template&lt;referenceable_container Container, typename Iterator  = iterator_of_t&lt; Container &gt;&gt; </td></tr>
-<tr class="memitem:a4b323693e8d1a33bad5c12c63709fe3b"><td class="memTemplItemLeft" align="right" valign="top">constexpr view&lt; Iterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a4b323693e8d1a33bad5c12c63709fe3b">emlabcpp::init</a> (Container &amp;&amp;cont, const int step=1)</td></tr>
-<tr class="memdesc:a4b323693e8d1a33bad5c12c63709fe3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns range over Container, which skips last item of container.  <a href="namespaceemlabcpp.html#a4b323693e8d1a33bad5c12c63709fe3b">More...</a><br /></td></tr>
-<tr class="separator:a4b323693e8d1a33bad5c12c63709fe3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff8d314e21017873e9895791defe0635"><td class="memTemplParams" colspan="2">template&lt;container Container&gt; </td></tr>
+<tr class="memitem:aff8d314e21017873e9895791defe0635"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aff8d314e21017873e9895791defe0635">emlabcpp::cont_size</a> (Container const &amp;cont) noexcept</td></tr>
+<tr class="memdesc:aff8d314e21017873e9895791defe0635"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the container, regardless of what it is.  <a href="namespaceemlabcpp.html#aff8d314e21017873e9895791defe0635">More...</a><br /></td></tr>
+<tr class="separator:aff8d314e21017873e9895791defe0635"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae464f57c8582b655e0852bae30a0b8ca"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae464f57c8582b655e0852bae30a0b8ca"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae464f57c8582b655e0852bae30a0b8ca">emlabcpp::almost_equal</a> (T const &amp;lh, T const &amp;rh, float const eps=default_epsilon)</td></tr>
+<tr class="memdesc:ae464f57c8582b655e0852bae30a0b8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Two items 'lh' and 'rh' are almost equal if their difference is smaller than value 'eps'.  <a href="namespaceemlabcpp.html#ae464f57c8582b655e0852bae30a0b8ca">More...</a><br /></td></tr>
+<tr class="separator:ae464f57c8582b655e0852bae30a0b8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a231279793ce500e80c1bbb0848ed83c6"><td class="memTemplParams" colspan="2">template&lt;referenceable_container Container, typename Iterator  = iterator_of_t&lt; Container &gt;&gt; </td></tr>
+<tr class="memitem:a231279793ce500e80c1bbb0848ed83c6"><td class="memTemplItemLeft" align="right" valign="top">constexpr view&lt; Iterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a231279793ce500e80c1bbb0848ed83c6">emlabcpp::tail</a> (Container &amp;&amp;cont, int const step=1)</td></tr>
+<tr class="memdesc:a231279793ce500e80c1bbb0848ed83c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns range over Container, which skips first item of container.  <a href="namespaceemlabcpp.html#a231279793ce500e80c1bbb0848ed83c6">More...</a><br /></td></tr>
+<tr class="separator:a231279793ce500e80c1bbb0848ed83c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a565474a8d7bb938dd256fdb548c6f6ff"><td class="memTemplParams" colspan="2">template&lt;referenceable_container Container, typename Iterator  = iterator_of_t&lt; Container &gt;&gt; </td></tr>
+<tr class="memitem:a565474a8d7bb938dd256fdb548c6f6ff"><td class="memTemplItemLeft" align="right" valign="top">constexpr view&lt; Iterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a565474a8d7bb938dd256fdb548c6f6ff">emlabcpp::init</a> (Container &amp;&amp;cont, int const step=1)</td></tr>
+<tr class="memdesc:a565474a8d7bb938dd256fdb548c6f6ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns range over Container, which skips last item of container.  <a href="namespaceemlabcpp.html#a565474a8d7bb938dd256fdb548c6f6ff">More...</a><br /></td></tr>
+<tr class="separator:a565474a8d7bb938dd256fdb548c6f6ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adad2aaee725330a629c1fa9af8cf7e37"><td class="memTemplParams" colspan="2">template&lt;range_container Container, container_invocable&lt; Container &gt; PredicateCallable = std::identity&gt; </td></tr>
 <tr class="memitem:adad2aaee725330a629c1fa9af8cf7e37"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#adad2aaee725330a629c1fa9af8cf7e37">emlabcpp::find_if</a> (Container &amp;&amp;cont, PredicateCallable &amp;&amp;f=std::identity())</td></tr>
 <tr class="memdesc:adad2aaee725330a629c1fa9af8cf7e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns iterator for first item, for which call to predicate f(*iter) holds true.  <a href="namespaceemlabcpp.html#adad2aaee725330a629c1fa9af8cf7e37">More...</a><br /></td></tr>
@@ -162,14 +162,14 @@ Functions</h2></td></tr>
 <tr class="memitem:aab6fd32a8b3335eec93b94331d4293b0"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">emlabcpp::requires</a> (!range_container&lt; Container &gt;) const expr std</td></tr>
 <tr class="memdesc:aab6fd32a8b3335eec93b94331d4293b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns index of an element in tuple 't', for which call to predicate f(x) holds true, otherwise returns index of 'past the end' item - size of the tuple.  <a href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">More...</a><br /></td></tr>
 <tr class="separator:aab6fd32a8b3335eec93b94331d4293b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6a73bbed8b818abff4ab4e7c2b9af68"><td class="memTemplParams" colspan="2">template&lt;container Container, typename T &gt; </td></tr>
-<tr class="memitem:ae6a73bbed8b818abff4ab4e7c2b9af68"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae6a73bbed8b818abff4ab4e7c2b9af68">emlabcpp::find</a> (Container &amp;&amp;cont, const T &amp;item)</td></tr>
-<tr class="memdesc:ae6a73bbed8b818abff4ab4e7c2b9af68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds first item in container 'cont' that is equal to 'item', returns iterator for container, or index for tuples.  <a href="namespaceemlabcpp.html#ae6a73bbed8b818abff4ab4e7c2b9af68">More...</a><br /></td></tr>
-<tr class="separator:ae6a73bbed8b818abff4ab4e7c2b9af68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b36ab023620ad0de3855f2f892d400f"><td class="memTemplParams" colspan="2">template&lt;container Container, typename T &gt; </td></tr>
-<tr class="memitem:a6b36ab023620ad0de3855f2f892d400f"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6b36ab023620ad0de3855f2f892d400f">emlabcpp::contains</a> (const Container &amp;cont, const T &amp;item)</td></tr>
-<tr class="memdesc:a6b36ab023620ad0de3855f2f892d400f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if container <code>cont</code> contains at least one occurence of <code>item</code>, returns true/false.  <a href="namespaceemlabcpp.html#a6b36ab023620ad0de3855f2f892d400f">More...</a><br /></td></tr>
-<tr class="separator:a6b36ab023620ad0de3855f2f892d400f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac599d73fbac6433f70ba199e29e247e0"><td class="memTemplParams" colspan="2">template&lt;container Container, typename T &gt; </td></tr>
+<tr class="memitem:ac599d73fbac6433f70ba199e29e247e0"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac599d73fbac6433f70ba199e29e247e0">emlabcpp::find</a> (Container &amp;&amp;cont, T const &amp;item)</td></tr>
+<tr class="memdesc:ac599d73fbac6433f70ba199e29e247e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds first item in container 'cont' that is equal to 'item', returns iterator for container, or index for tuples.  <a href="namespaceemlabcpp.html#ac599d73fbac6433f70ba199e29e247e0">More...</a><br /></td></tr>
+<tr class="separator:ac599d73fbac6433f70ba199e29e247e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac77a0075c379e93afef4961e57bf88c1"><td class="memTemplParams" colspan="2">template&lt;container Container, typename T &gt; </td></tr>
+<tr class="memitem:ac77a0075c379e93afef4961e57bf88c1"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac77a0075c379e93afef4961e57bf88c1">emlabcpp::contains</a> (Container const &amp;cont, T const &amp;item)</td></tr>
+<tr class="memdesc:ac77a0075c379e93afef4961e57bf88c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if container <code>cont</code> contains at least one occurence of <code>item</code>, returns true/false.  <a href="namespaceemlabcpp.html#ac77a0075c379e93afef4961e57bf88c1">More...</a><br /></td></tr>
+<tr class="separator:ac77a0075c379e93afef4961e57bf88c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a670099942b8cdd3d2cc28760b1717d7c"><td class="memTemplParams" colspan="2">template&lt;gettable_container Container, container_invocable&lt; Container &gt; UnaryCallable&gt; </td></tr>
 <tr class="memitem:a670099942b8cdd3d2cc28760b1717d7c"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a670099942b8cdd3d2cc28760b1717d7c">emlabcpp::requires</a> (!range_container&lt; Container &gt;) const expr void for_each(Container &amp;&amp;cont</td></tr>
 <tr class="memdesc:a670099942b8cdd3d2cc28760b1717d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies unary callable 'f' to each element of container 'cont'.  <a href="namespaceemlabcpp.html#a670099942b8cdd3d2cc28760b1717d7c">More...</a><br /></td></tr>
@@ -238,10 +238,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a1911a0fc83869772cacfc4d21772268f"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">emlabcpp::map_f_to_a</a> (Container &amp;&amp;cont, UnaryCallable &amp;&amp;f=std::identity()) requires(!static_sized&lt; Container &gt;)</td></tr>
 <tr class="memdesc:a1911a0fc83869772cacfc4d21772268f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls callable <code>f(cont[i])</code> for i = 0...N and stores the result in array of an size N.  <a href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">More...</a><br /></td></tr>
 <tr class="separator:a1911a0fc83869772cacfc4d21772268f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad24d670cd02b9255601622cf2494417e"><td class="memTemplParams" colspan="2">template&lt;range_container Container, typename T , container_invocable&lt; Container &gt; UnaryCallable = std::identity&gt; </td></tr>
-<tr class="memitem:ad24d670cd02b9255601622cf2494417e"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad24d670cd02b9255601622cf2494417e">emlabcpp::joined</a> (Container &amp;&amp;cont, const T &amp;val, UnaryCallable &amp;&amp;f=std::identity())</td></tr>
-<tr class="memdesc:ad24d670cd02b9255601622cf2494417e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function applies callable <code>f</code> to each item in container <code>cont</code> and contacts results with operator+, <code>val</code> is used as a separator between the items.  <a href="namespaceemlabcpp.html#ad24d670cd02b9255601622cf2494417e">More...</a><br /></td></tr>
-<tr class="separator:ad24d670cd02b9255601622cf2494417e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a417dc63bcfd0f3fe1314388f1d2515d3"><td class="memTemplParams" colspan="2">template&lt;range_container Container, typename T , container_invocable&lt; Container &gt; UnaryCallable = std::identity&gt; </td></tr>
+<tr class="memitem:a417dc63bcfd0f3fe1314388f1d2515d3"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a417dc63bcfd0f3fe1314388f1d2515d3">emlabcpp::joined</a> (Container &amp;&amp;cont, T const &amp;val, UnaryCallable &amp;&amp;f=std::identity())</td></tr>
+<tr class="memdesc:a417dc63bcfd0f3fe1314388f1d2515d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function applies callable <code>f</code> to each item in container <code>cont</code> and contacts results with operator+, <code>val</code> is used as a separator between the items.  <a href="namespaceemlabcpp.html#a417dc63bcfd0f3fe1314388f1d2515d3">More...</a><br /></td></tr>
+<tr class="separator:a417dc63bcfd0f3fe1314388f1d2515d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54b28822529dd798c4e0f74f6d38f7fb"><td class="memTemplParams" colspan="2">template&lt;container Container, typename Iterator &gt; </td></tr>
 <tr class="memitem:a54b28822529dd798c4e0f74f6d38f7fb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">emlabcpp::copy</a> (Container &amp;&amp;cont, Iterator iter)</td></tr>
 <tr class="separator:a54b28822529dd798c4e0f74f6d38f7fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -268,18 +268,18 @@ Functions</h2></td></tr>
 <tr class="separator:a8d77f50ca9dd31e43365e38debbd42fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a505109612442935cc682cf92a9d2296c"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a505109612442935cc682cf92a9d2296c">emlabcpp::select_index</a> (IndexType i, Callable &amp;&amp;f)</td></tr>
 <tr class="separator:a505109612442935cc682cf92a9d2296c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="memTemplParams" colspan="2">template&lt;typename... Args, std::size_t N = sizeof...( Args )&gt; </td></tr>
-<tr class="memitem:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::array&lt; std::byte, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">emlabcpp::bytes</a> (const Args &amp;... args)</td></tr>
-<tr class="memdesc:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conveft the provided arguments into array of std::byte.  <a href="namespaceemlabcpp.html#ae2f187ac1e10327a8c941d80b3b6b1e4">More...</a><br /></td></tr>
-<tr class="separator:ae2f187ac1e10327a8c941d80b3b6b1e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5266b3d998c70ddddcc15f7bba604b42"><td class="memTemplParams" colspan="2">template&lt;typename... Args, std::size_t N = sizeof...( Args )&gt; </td></tr>
+<tr class="memitem:a5266b3d998c70ddddcc15f7bba604b42"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::array&lt; std::byte, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5266b3d998c70ddddcc15f7bba604b42">emlabcpp::bytes</a> (Args const &amp;... args)</td></tr>
+<tr class="memdesc:a5266b3d998c70ddddcc15f7bba604b42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conveft the provided arguments into array of std::byte.  <a href="namespaceemlabcpp.html#a5266b3d998c70ddddcc15f7bba604b42">More...</a><br /></td></tr>
+<tr class="separator:a5266b3d998c70ddddcc15f7bba604b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad798db07be925b58001fd00feb4f721d"><td class="memTemplParams" colspan="2">template&lt;typename Arr , typename... Arrs&gt; </td></tr>
 <tr class="memitem:ad798db07be925b58001fd00feb4f721d"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad798db07be925b58001fd00feb4f721d">emlabcpp::merge_arrays</a> (Arr &amp;&amp;first, Arrs &amp;&amp;... arrs)</td></tr>
 <tr class="memdesc:ad798db07be925b58001fd00feb4f721d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expects multiple std::arrays on input, and merges all together into one std::array instance.  <a href="namespaceemlabcpp.html#ad798db07be925b58001fd00feb4f721d">More...</a><br /></td></tr>
 <tr class="separator:ad798db07be925b58001fd00feb4f721d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51f95c951560ad4b1cbc3c793a72a2d7"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename T &gt; </td></tr>
-<tr class="memitem:a51f95c951560ad4b1cbc3c793a72a2d7"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::array&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a51f95c951560ad4b1cbc3c793a72a2d7">emlabcpp::filled</a> (const T &amp;item)</td></tr>
-<tr class="memdesc:a51f95c951560ad4b1cbc3c793a72a2d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an array filled with value <code>x</code>  <a href="namespaceemlabcpp.html#a51f95c951560ad4b1cbc3c793a72a2d7">More...</a><br /></td></tr>
-<tr class="separator:a51f95c951560ad4b1cbc3c793a72a2d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d26d2adcae9ef476f4a0b2136b9352d"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename T &gt; </td></tr>
+<tr class="memitem:a7d26d2adcae9ef476f4a0b2136b9352d"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::array&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7d26d2adcae9ef476f4a0b2136b9352d">emlabcpp::filled</a> (T const &amp;item)</td></tr>
+<tr class="memdesc:a7d26d2adcae9ef476f4a0b2136b9352d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an array filled with value <code>x</code>  <a href="namespaceemlabcpp.html#a7d26d2adcae9ef476f4a0b2136b9352d">More...</a><br /></td></tr>
+<tr class="separator:a7d26d2adcae9ef476f4a0b2136b9352d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -296,7 +296,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="algorithm_8h.html">algorithm.h</a></li>
-    <li class="footer">Generated on Mon Mar 10 2025 21:15:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 15:31:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -91,15 +91,15 @@ $(document).ready(function(){initNavTree('point_8h.html',''); initResizable(); }
 <div class="title">point.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="vec__point__base_8h_source.html">emlabcpp/experimental/geom/vec_point_base.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vector_8h_source.html">emlabcpp/experimental/geom/vector.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="range_8h_source.html">emlabcpp/range.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="range_8h_source.html">../../range.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vec__point__base_8h_source.html">./vec_point_base.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vector_8h_source.html">./vector.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for point.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="point_8h__incl.svg" width="351" height="455"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="point_8h__incl.svg" width="390" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -119,42 +119,42 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1806b61b0659c26b8a0a53288ecfa313"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a1806b61b0659c26b8a0a53288ecfa313"><td class="memTemplItemLeft" align="right" valign="top">constexpr point&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1806b61b0659c26b8a0a53288ecfa313">emlabcpp::point_cast</a> (const vector&lt; N &gt; &amp;v)</td></tr>
-<tr class="separator:a1806b61b0659c26b8a0a53288ecfa313"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cfa63f3a0229b43ff56952dbb4e191f"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a3cfa63f3a0229b43ff56952dbb4e191f"><td class="memTemplItemLeft" align="right" valign="top">constexpr vector&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3cfa63f3a0229b43ff56952dbb4e191f">emlabcpp::vector_cast</a> (const point&lt; N &gt; &amp;p)</td></tr>
-<tr class="separator:a3cfa63f3a0229b43ff56952dbb4e191f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63fe2550fd1fae3aab0b4791d8e58efa"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a63fe2550fd1fae3aab0b4791d8e58efa"><td class="memTemplItemLeft" align="right" valign="top">constexpr point&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a63fe2550fd1fae3aab0b4791d8e58efa">emlabcpp::operator*</a> (point&lt; N &gt; a, const point&lt; N &gt; &amp;b)</td></tr>
-<tr class="memdesc:a63fe2550fd1fae3aab0b4791d8e58efa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplication of points multiplies each coordinate of A by coordinate of B on same dimension.  <a href="namespaceemlabcpp.html#a63fe2550fd1fae3aab0b4791d8e58efa">More...</a><br /></td></tr>
-<tr class="separator:a63fe2550fd1fae3aab0b4791d8e58efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65d491045b619755db02e72cfa69e772"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a65d491045b619755db02e72cfa69e772"><td class="memTemplItemLeft" align="right" valign="top">constexpr vector&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a65d491045b619755db02e72cfa69e772">emlabcpp::operator-</a> (point&lt; N &gt; a, const point&lt; N &gt; &amp;b)</td></tr>
-<tr class="memdesc:a65d491045b619755db02e72cfa69e772"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a result of subtraction of A from B, viz -= operator.  <a href="namespaceemlabcpp.html#a65d491045b619755db02e72cfa69e772">More...</a><br /></td></tr>
-<tr class="separator:a65d491045b619755db02e72cfa69e772"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57aae6e5cd5a893e35a12622960dc79b"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a57aae6e5cd5a893e35a12622960dc79b"><td class="memTemplItemLeft" align="right" valign="top">constexpr point&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a57aae6e5cd5a893e35a12622960dc79b">emlabcpp::operator+</a> (point&lt; N &gt; a, const vector&lt; N &gt; &amp;b)</td></tr>
-<tr class="memdesc:a57aae6e5cd5a893e35a12622960dc79b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a result of addition a to b, viz += operator.  <a href="namespaceemlabcpp.html#a57aae6e5cd5a893e35a12622960dc79b">More...</a><br /></td></tr>
-<tr class="separator:a57aae6e5cd5a893e35a12622960dc79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57cf7c57e3d0c20cf08c0f4562e32fe9"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a57cf7c57e3d0c20cf08c0f4562e32fe9"><td class="memTemplItemLeft" align="right" valign="top">constexpr point&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a57cf7c57e3d0c20cf08c0f4562e32fe9">emlabcpp::operator-</a> (point&lt; N &gt; a, const vector&lt; N &gt; &amp;b)</td></tr>
-<tr class="memdesc:a57cf7c57e3d0c20cf08c0f4562e32fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a result of subtraction a to b, viz += operator.  <a href="namespaceemlabcpp.html#a57cf7c57e3d0c20cf08c0f4562e32fe9">More...</a><br /></td></tr>
-<tr class="separator:a57cf7c57e3d0c20cf08c0f4562e32fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9977373a20edbc718c415668d82b0893"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a9977373a20edbc718c415668d82b0893"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a9977373a20edbc718c415668d82b0893">emlabcpp::distance_of</a> (const point&lt; N &gt; &amp;a, const point&lt; N &gt; &amp;b)</td></tr>
-<tr class="memdesc:a9977373a20edbc718c415668d82b0893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns euclidian distance of point A from point B.  <a href="namespaceemlabcpp.html#a9977373a20edbc718c415668d82b0893">More...</a><br /></td></tr>
-<tr class="separator:a9977373a20edbc718c415668d82b0893"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b0c8873bbc692d1700c0f3a5603d620"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a7b0c8873bbc692d1700c0f3a5603d620"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7b0c8873bbc692d1700c0f3a5603d620">emlabcpp::point_angle</a> (const point&lt; N &gt; &amp;a, const point&lt; N &gt; &amp;b)</td></tr>
-<tr class="separator:a7b0c8873bbc692d1700c0f3a5603d620"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26e570f89d7f0975b1cff5b2ec8cd7e3"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a26e570f89d7f0975b1cff5b2ec8cd7e3"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; point&lt; N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a26e570f89d7f0975b1cff5b2ec8cd7e3">emlabcpp::lineary_interpolate_path</a> (const std::vector&lt; point&lt; N &gt; &gt; &amp;ipath, float d_step)</td></tr>
-<tr class="separator:a26e570f89d7f0975b1cff5b2ec8cd7e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf2a3b65521b77f85095c0130ef945fe"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:aaf2a3b65521b77f85095c0130ef945fe"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aaf2a3b65521b77f85095c0130ef945fe">emlabcpp::axis_projection_distance</a> (const point&lt; N &gt; &amp;a, const vector&lt; N &gt; &amp;axis_direction)</td></tr>
-<tr class="memdesc:aaf2a3b65521b77f85095c0130ef945fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to calculate distance of projection of point A.  <a href="namespaceemlabcpp.html#aaf2a3b65521b77f85095c0130ef945fe">More...</a><br /></td></tr>
-<tr class="separator:aaf2a3b65521b77f85095c0130ef945fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c12c6cbb44c2e1859d1d358f5669b69"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:a0c12c6cbb44c2e1859d1d358f5669b69"><td class="memTemplItemLeft" align="right" valign="top">constexpr point&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0c12c6cbb44c2e1859d1d358f5669b69">emlabcpp::point_cast</a> (vector&lt; N &gt; const &amp;v)</td></tr>
+<tr class="separator:a0c12c6cbb44c2e1859d1d358f5669b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf5b72176081094d23e7ba44b307bbcb"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:abf5b72176081094d23e7ba44b307bbcb"><td class="memTemplItemLeft" align="right" valign="top">constexpr vector&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abf5b72176081094d23e7ba44b307bbcb">emlabcpp::vector_cast</a> (point&lt; N &gt; const &amp;p)</td></tr>
+<tr class="separator:abf5b72176081094d23e7ba44b307bbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58474e3d150740d1c81193bf6004ac8c"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:a58474e3d150740d1c81193bf6004ac8c"><td class="memTemplItemLeft" align="right" valign="top">constexpr point&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a58474e3d150740d1c81193bf6004ac8c">emlabcpp::operator*</a> (point&lt; N &gt; a, point&lt; N &gt; const &amp;b)</td></tr>
+<tr class="memdesc:a58474e3d150740d1c81193bf6004ac8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplication of points multiplies each coordinate of A by coordinate of B on same dimension.  <a href="namespaceemlabcpp.html#a58474e3d150740d1c81193bf6004ac8c">More...</a><br /></td></tr>
+<tr class="separator:a58474e3d150740d1c81193bf6004ac8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac09a470ff3b24abe911e6d08ec0ea0c0"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:ac09a470ff3b24abe911e6d08ec0ea0c0"><td class="memTemplItemLeft" align="right" valign="top">constexpr vector&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac09a470ff3b24abe911e6d08ec0ea0c0">emlabcpp::operator-</a> (point&lt; N &gt; a, point&lt; N &gt; const &amp;b)</td></tr>
+<tr class="memdesc:ac09a470ff3b24abe911e6d08ec0ea0c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a result of subtraction of A from B, viz -= operator.  <a href="namespaceemlabcpp.html#ac09a470ff3b24abe911e6d08ec0ea0c0">More...</a><br /></td></tr>
+<tr class="separator:ac09a470ff3b24abe911e6d08ec0ea0c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26a8fb58eec641f5a3825f8c684ff6d1"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:a26a8fb58eec641f5a3825f8c684ff6d1"><td class="memTemplItemLeft" align="right" valign="top">constexpr point&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a26a8fb58eec641f5a3825f8c684ff6d1">emlabcpp::operator+</a> (point&lt; N &gt; a, vector&lt; N &gt; const &amp;b)</td></tr>
+<tr class="memdesc:a26a8fb58eec641f5a3825f8c684ff6d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a result of addition a to b, viz += operator.  <a href="namespaceemlabcpp.html#a26a8fb58eec641f5a3825f8c684ff6d1">More...</a><br /></td></tr>
+<tr class="separator:a26a8fb58eec641f5a3825f8c684ff6d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabc2d56e5b666168195810e2c2fb85db"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:aabc2d56e5b666168195810e2c2fb85db"><td class="memTemplItemLeft" align="right" valign="top">constexpr point&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aabc2d56e5b666168195810e2c2fb85db">emlabcpp::operator-</a> (point&lt; N &gt; a, vector&lt; N &gt; const &amp;b)</td></tr>
+<tr class="memdesc:aabc2d56e5b666168195810e2c2fb85db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a result of subtraction a to b, viz += operator.  <a href="namespaceemlabcpp.html#aabc2d56e5b666168195810e2c2fb85db">More...</a><br /></td></tr>
+<tr class="separator:aabc2d56e5b666168195810e2c2fb85db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee2d79916f92a116f6478fb928bd346d"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:aee2d79916f92a116f6478fb928bd346d"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aee2d79916f92a116f6478fb928bd346d">emlabcpp::distance_of</a> (point&lt; N &gt; const &amp;a, point&lt; N &gt; const &amp;b)</td></tr>
+<tr class="memdesc:aee2d79916f92a116f6478fb928bd346d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns euclidian distance of point A from point B.  <a href="namespaceemlabcpp.html#aee2d79916f92a116f6478fb928bd346d">More...</a><br /></td></tr>
+<tr class="separator:aee2d79916f92a116f6478fb928bd346d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6855f415eda103a7b9807510a531e9fd"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:a6855f415eda103a7b9807510a531e9fd"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6855f415eda103a7b9807510a531e9fd">emlabcpp::point_angle</a> (point&lt; N &gt; const &amp;a, point&lt; N &gt; const &amp;b)</td></tr>
+<tr class="separator:a6855f415eda103a7b9807510a531e9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadd2e186f6fcbc505b519cd701ca271a"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:aadd2e186f6fcbc505b519cd701ca271a"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; point&lt; N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aadd2e186f6fcbc505b519cd701ca271a">emlabcpp::lineary_interpolate_path</a> (std::vector&lt; point&lt; N &gt; &gt; const &amp;ipath, float d_step)</td></tr>
+<tr class="separator:aadd2e186f6fcbc505b519cd701ca271a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb3ac578082bbaa2d40a6fcf52bbc70f"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:acb3ac578082bbaa2d40a6fcf52bbc70f"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acb3ac578082bbaa2d40a6fcf52bbc70f">emlabcpp::axis_projection_distance</a> (point&lt; N &gt; const &amp;a, vector&lt; N &gt; const &amp;axis_direction)</td></tr>
+<tr class="memdesc:acb3ac578082bbaa2d40a6fcf52bbc70f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to calculate distance of projection of point A.  <a href="namespaceemlabcpp.html#acb3ac578082bbaa2d40a6fcf52bbc70f">More...</a><br /></td></tr>
+<tr class="separator:acb3ac578082bbaa2d40a6fcf52bbc70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -162,7 +162,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_3ae5028df88b3fc471a247e16af56915.html">geom</a></li><li class="navelem"><a class="el" href="point_8h.html">point.h</a></li>
-    <li class="footer">Generated on Mon Mar 10 2025 21:15:36 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 15:31:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,16 +1,16 @@
 <map id="include/emlabcpp/protocol/serializer.h" name="include/emlabcpp/protocol/serializer.h">
-<area shape="rect" id="node1" title=" " alt="" coords="560,5,754,47"/>
-<area shape="rect" id="node2" href="$bounded__view_8h.html" title=" " alt="" coords="171,95,348,136"/>
-<area shape="rect" id="node6" title=" " alt="" coords="12,273,65,300"/>
-<area shape="rect" id="node7" href="$protocol_2base_8h.html" title=" " alt="" coords="562,102,752,129"/>
-<area shape="rect" id="node9" title=" " alt="" coords="894,191,932,218"/>
-<area shape="rect" id="node13" href="$range_8h.html" title=" " alt="" coords="924,102,1062,129"/>
-<area shape="rect" id="node3" href="$bounded_8h.html" title=" " alt="" coords="180,191,339,218"/>
-<area shape="rect" id="node5" href="$view_8h.html" title=" " alt="" coords="24,191,156,218"/>
-<area shape="rect" id="node4" title=" " alt="" coords="272,273,364,300"/>
-<area shape="rect" id="node8" href="$protocol_2error_8h.html" title=" " alt="" coords="414,191,604,218"/>
-<area shape="rect" id="node10" title=" " alt="" coords="628,191,686,218"/>
-<area shape="rect" id="node11" title=" " alt="" coords="710,191,777,218"/>
-<area shape="rect" id="node12" title=" " alt="" coords="802,191,870,218"/>
-<area shape="rect" id="node14" href="$numeric_8h.html" title=" " alt="" coords="956,184,1102,225"/>
+<area shape="rect" id="node1" title=" " alt="" coords="235,5,430,47"/>
+<area shape="rect" id="node2" href="$bounded__view_8h.html" title=" " alt="" coords="242,95,423,136"/>
+<area shape="rect" id="node6" title=" " alt="" coords="91,259,144,285"/>
+<area shape="rect" id="node7" href="$range_8h.html" title=" " alt="" coords="87,102,170,129"/>
+<area shape="rect" id="node9" href="$protocol_2base_8h.html" title=" " alt="" coords="528,102,601,129"/>
+<area shape="rect" id="node11" title=" " alt="" coords="846,184,885,211"/>
+<area shape="rect" id="node3" href="$bounded_8h.html" title=" " alt="" coords="306,184,409,211"/>
+<area shape="rect" id="node5" href="$view_8h.html" title=" " alt="" coords="206,184,282,211"/>
+<area shape="rect" id="node4" title=" " alt="" coords="356,259,448,285"/>
+<area shape="rect" id="node8" href="$numeric_8h.html" title=" " alt="" coords="27,184,182,211"/>
+<area shape="rect" id="node10" href="$protocol_2error_8h.html" title=" " alt="" coords="484,184,556,211"/>
+<area shape="rect" id="node12" title=" " alt="" coords="580,184,639,211"/>
+<area shape="rect" id="node13" title=" " alt="" coords="663,184,730,211"/>
+<area shape="rect" id="node14" title=" " alt="" coords="754,184,822,211"/>
 </map>

@@ -95,14 +95,14 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1rpc_1_1bind__wrapper.
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aabf6bd104cd398f78da9f26493dd8c4f"><td class="memItemLeft" align="right" valign="top">reply_message_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1bind__wrapper.html#aabf6bd104cd398f78da9f26493dd8c4f">on_message</a> (const request_message_type &amp;msg)</td></tr>
-<tr class="separator:aabf6bd104cd398f78da9f26493dd8c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e6171eb46b80f03330780229ca0eef"><td class="memItemLeft" align="right" valign="top">reply_message_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1bind__wrapper.html#a26e6171eb46b80f03330780229ca0eef">on_message</a> (request_message_type const &amp;msg)</td></tr>
+<tr class="separator:a26e6171eb46b80f03330780229ca0eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a574ea7b428e5e9ba2302a44eb6b8dc48"><td class="memTemplParams" colspan="2">template&lt;auto ID, typename Callable &gt; </td></tr>
 <tr class="memitem:a574ea7b428e5e9ba2302a44eb6b8dc48"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1bind__wrapper.html#a574ea7b428e5e9ba2302a44eb6b8dc48">bind</a> (Callable cb)</td></tr>
 <tr class="separator:a574ea7b428e5e9ba2302a44eb6b8dc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b0c607dd54a0edc84755b69f8fd84ff"><td class="memTemplParams" colspan="2">template&lt;std::size_t I, typename Request &gt; </td></tr>
-<tr class="memitem:a4b0c607dd54a0edc84755b69f8fd84ff"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1bind__wrapper.html#a4b0c607dd54a0edc84755b69f8fd84ff">operator()</a> (<a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; I &gt;, const Request &amp;req)</td></tr>
-<tr class="separator:a4b0c607dd54a0edc84755b69f8fd84ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2318a97f0ac414f67085fde56153fe1"><td class="memTemplParams" colspan="2">template&lt;std::size_t I, typename Request &gt; </td></tr>
+<tr class="memitem:ae2318a97f0ac414f67085fde56153fe1"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1bind__wrapper.html#ae2318a97f0ac414f67085fde56153fe1">operator()</a> (<a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; I &gt;, Request const &amp;req)</td></tr>
+<tr class="separator:ae2318a97f0ac414f67085fde56153fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a574ea7b428e5e9ba2302a44eb6b8dc48"></a>
@@ -135,8 +135,8 @@ template&lt;auto ID, typename Callable &gt; </div>
 
 </div>
 </div>
-<a id="aabf6bd104cd398f78da9f26493dd8c4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabf6bd104cd398f78da9f26493dd8c4f">&#9670;&nbsp;</a></span>on_message()</h2>
+<a id="a26e6171eb46b80f03330780229ca0eef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26e6171eb46b80f03330780229ca0eef">&#9670;&nbsp;</a></span>on_message()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +149,7 @@ template&lt;typename... Bindings&gt; </div>
         <tr>
           <td class="memname">reply_message_type <a class="el" href="classemlabcpp_1_1rpc_1_1bind__wrapper.html">emlabcpp::rpc::bind_wrapper</a>&lt; Bindings &gt;::on_message </td>
           <td>(</td>
-          <td class="paramtype">const request_message_type &amp;&#160;</td>
+          <td class="paramtype">request_message_type const &amp;&#160;</td>
           <td class="paramname"><em>msg</em></td><td>)</td>
           <td></td>
         </tr>
@@ -161,12 +161,12 @@ template&lt;typename... Bindings&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1rpc_1_1reactor.html#ab9772313daba8fe9f6405da3c8f66831">emlabcpp::rpc::reactor&lt; CallDefs &gt;::on_message()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1rpc_1_1reactor.html#a64daa7180c5fcd2f582f308a55e52109">emlabcpp::rpc::reactor&lt; CallDefs &gt;::on_message()</a>.</p>
 
 </div>
 </div>
-<a id="a4b0c607dd54a0edc84755b69f8fd84ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b0c607dd54a0edc84755b69f8fd84ff">&#9670;&nbsp;</a></span>operator()()</h2>
+<a id="ae2318a97f0ac414f67085fde56153fe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2318a97f0ac414f67085fde56153fe1">&#9670;&nbsp;</a></span>operator()()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +187,7 @@ template&lt;std::size_t I, typename Request &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const Request &amp;&#160;</td>
+          <td class="paramtype">Request const &amp;&#160;</td>
           <td class="paramname"><em>req</em>&#160;</td>
         </tr>
         <tr>
@@ -203,7 +203,7 @@ template&lt;std::size_t I, typename Request &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ad867ea735e282b26f2876295d58f90b3">emlabcpp::args</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">emlabcpp::args</a>.</p>
 
 </div>
 </div>
@@ -216,7 +216,7 @@ template&lt;std::size_t I, typename Request &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1rpc.html">rpc</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1rpc_1_1bind__wrapper.html">bind_wrapper</a></li>
-    <li class="footer">Generated on Mon Mar 10 2025 21:15:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Mar 29 2025 15:31:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

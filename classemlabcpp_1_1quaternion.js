@@ -5,7 +5,7 @@ var classemlabcpp_1_1quaternion =
     [ "value_type", "classemlabcpp_1_1quaternion.html#ae17bd9d0e7c5f5389c7dacccca43be2d", null ],
     [ "quaternion", "classemlabcpp_1_1quaternion.html#ab979f66787c20255f21a6f48bee65304", null ],
     [ "quaternion", "classemlabcpp_1_1quaternion.html#a5329497fcdceab9f51a09f9b5380b736", null ],
-    [ "quaternion", "classemlabcpp_1_1quaternion.html#a6311310f587d1cd07ecf2f219f8c3cf9", null ],
+    [ "quaternion", "classemlabcpp_1_1quaternion.html#ac6e4733ebff809d0f62453ee068ec8cf", null ],
     [ "begin", "classemlabcpp_1_1quaternion.html#a87cf6cbe976ccb2ac1754f501e27c08d", null ],
     [ "begin", "classemlabcpp_1_1quaternion.html#ae0119a50fcd3df7eaf9a620cb4a5443c", null ],
     [ "end", "classemlabcpp_1_1quaternion.html#a3799769bb4ab2aaf3dbdab7b1e8951dc", null ],
