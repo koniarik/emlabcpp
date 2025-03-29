@@ -23,8 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/string_buffer.h"
-#include "emlabcpp/experimental/testing/base.h"
+#include "../string_buffer.h"
+#include "./base.h"
 
 #include <bitset>
 
@@ -37,15 +37,15 @@ struct value_type_converter;
 template < typename T >
 struct value_type_converter_getter
 {
-        static std::optional< T > from_value( const value_type& var )
+        static std::optional< T > from_value( value_type const& var )
         {
-                const T* val_ptr = std::get_if< T >( &var );
+                T const* val_ptr = std::get_if< T >( &var );
                 if ( val_ptr )
                         return *val_ptr;
                 return std::nullopt;
         }
 
-        static value_type to_value( const T& item )
+        static value_type to_value( T const& item )
         {
                 return { item };
         }
@@ -61,7 +61,7 @@ struct value_type_converter_enum
                 return static_cast< int64_t >( m );
         }
 
-        static std::optional< T > from_value( const value_type& var )
+        static std::optional< T > from_value( value_type const& var )
         {
                 auto* val = std::get_if< int64_t >( &var );
                 if ( val == nullptr )
@@ -80,9 +80,9 @@ template < std::size_t N >
 requires( N <= string_buffer::capacity )
 struct value_type_converter< emlabcpp::string_buffer< N > >
 {
-        static std::optional< emlabcpp::string_buffer< N > > from_value( const value_type& var )
+        static std::optional< emlabcpp::string_buffer< N > > from_value( value_type const& var )
         {
-                const auto* val_ptr = std::get_if< string_buffer >( &var );
+                auto const* val_ptr = std::get_if< string_buffer >( &var );
                 if ( val_ptr == nullptr )
                         return std::nullopt;
 
@@ -92,7 +92,7 @@ struct value_type_converter< emlabcpp::string_buffer< N > >
                         return emlabcpp::string_buffer< N >{ std::string_view{ *val_ptr } };
         }
 
-        static value_type to_value( const emlabcpp::string_buffer< N >& item )
+        static value_type to_value( emlabcpp::string_buffer< N > const& item )
         {
                 return { string_buffer{ item } };
         }
@@ -108,10 +108,10 @@ template < typename T >
 requires( !std::same_as< T, int64_t > && std::is_integral_v< T > && !std::same_as< T, bool > )
 struct value_type_converter< T >
 {
-        static std::optional< T > from_value( const value_type& var )
+        static std::optional< T > from_value( value_type const& var )
         {
                 if ( std::holds_alternative< float >( var ) ) {
-                        const auto v = *std::get_if< float >( &var );
+                        auto const v = *std::get_if< float >( &var );
                         if ( v == 0.f )
                                 return T{ 0 };
                 }
@@ -122,7 +122,7 @@ struct value_type_converter< T >
                 return static_cast< T >( *opt_val );
         }
 
-        static value_type to_value( const T& item )
+        static value_type to_value( T const& item )
         {
                 return { static_cast< int64_t >( item ) };
         }
@@ -133,14 +133,14 @@ struct value_type_converter< std::bitset< N > >
 {
         static_assert( N < 64 );
 
-        static std::optional< std::bitset< N > > from_value( const value_type& var )
+        static std::optional< std::bitset< N > > from_value( value_type const& var )
         {
                 if ( auto* val = std::get_if< int64_t >( &var ) )
                         return { *val };
                 return std::nullopt;
         }
 
-        static value_type to_value( const std::bitset< N >& item )
+        static value_type to_value( std::bitset< N > const& item )
         {
                 return static_cast< int64_t >( item.to_ulong() );
         }
@@ -149,16 +149,16 @@ struct value_type_converter< std::bitset< N > >
 template <>
 struct value_type_converter< std::string_view >
 {
-        static value_type to_value( const std::string_view& item )
+        static value_type to_value( std::string_view const& item )
         {
                 return string_buffer( item );
         }
 };
 
 template <>
-struct value_type_converter< const char* >
+struct value_type_converter< char const* >
 {
-        static value_type to_value( const char* item )
+        static value_type to_value( char const* item )
         {
                 return string_buffer( item );
         }
@@ -167,7 +167,7 @@ struct value_type_converter< const char* >
 template <>
 struct value_type_converter< std::byte >
 {
-        static value_type to_value( const std::byte item )
+        static value_type to_value( std::byte const item )
         {
                 return int64_t( item );
         }
@@ -176,13 +176,13 @@ struct value_type_converter< std::byte >
 template < typename Rep, typename Ratio >
 struct value_type_converter< std::chrono::duration< Rep, Ratio > >
 {
-        static value_type to_value( const std::chrono::duration< Rep, Ratio >& val )
+        static value_type to_value( std::chrono::duration< Rep, Ratio > const& val )
         {
                 return value_type_converter< Rep >::to_value( val.count() );
         }
 
         static std::optional< std::chrono::duration< Rep, Ratio > >
-        from_value( const value_type& var )
+        from_value( value_type const& var )
         {
                 std::optional< Rep > opt_raw = value_type_converter< Rep >::from_value( var );
                 if ( !opt_raw.has_value() )
@@ -192,7 +192,7 @@ struct value_type_converter< std::chrono::duration< Rep, Ratio > >
 };
 
 template < typename T >
-concept value_type_convertible = requires( const T& item, const value_type& val ) {
+concept value_type_convertible = requires( T const& item, value_type const& val ) {
         { value_type_converter< T >::to_value( item ) } -> std::convertible_to< value_type >;
         {
                 value_type_converter< T >::from_value( val )

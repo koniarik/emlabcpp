@@ -23,11 +23,11 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/contiguous_tree/base.h"
-#include "emlabcpp/match.h"
-#include "emlabcpp/pmr/aliases.h"
-#include "emlabcpp/pmr/pool_resource.h"
-#include "emlabcpp/static_vector.h"
+#include "../../match.h"
+#include "../../pmr/aliases.h"
+#include "../../pmr/pool_resource.h"
+#include "../../static_vector.h"
+#include "./base.h"
 
 #include <map>
 
@@ -96,7 +96,7 @@ public:
                 return static_cast< uint32_t >( obj_->size() );
         }
 
-        [[nodiscard]] const key_type* get_key( child_id chid ) const
+        [[nodiscard]] key_type const* get_key( child_id chid ) const
         {
                 if ( chid >= obj_->size() )
                         return nullptr;
@@ -106,7 +106,7 @@ public:
                 return &iter->first;
         }
 
-        void set( const key_type& k, node_id nid )
+        void set( key_type const& k, node_id nid )
         {
                 obj_->emplace( k, nid );
         }
@@ -119,7 +119,7 @@ private:
 template < typename ObjectType >
 std::ostream& operator<<( std::ostream& os, const contiguous_object_handle< ObjectType >& oh )
 {
-        for ( const auto& [key, nid] : oh )
+        for ( auto const& [key, nid] : oh )
                 os << key << ":" << nid << ",";
         return os;
 }
@@ -191,7 +191,7 @@ private:
 template < typename ArrayType >
 std::ostream& operator<<( std::ostream& os, const contiguous_array_handle< ArrayType >& ah )
 {
-        for ( const auto& [chid, nid] : ah )
+        for ( auto const& [chid, nid] : ah )
                 os << chid << ":" << nid << ",";
         return os;
 }
@@ -209,16 +209,16 @@ public:
         using object_type         = pmr::map< key_type, node_id >;
         using content_type        = std::variant< Value, array_type, object_type >;
         using object_handle       = contiguous_object_handle< object_type >;
-        using const_object_handle = contiguous_object_handle< const object_type >;
+        using const_object_handle = contiguous_object_handle< object_type const >;
         using array_handle        = contiguous_array_handle< array_type >;
-        using const_array_handle  = contiguous_array_handle< const array_type >;
+        using const_array_handle  = contiguous_array_handle< array_type const >;
 
         explicit contiguous_node( content_type cont )
           : content_( std::move( cont ) )
         {
         }
 
-        [[nodiscard]] const Value* get_value() const
+        [[nodiscard]] Value const* get_value() const
         {
                 return std::get_if< Value >( &content_ );
         }
@@ -229,7 +229,7 @@ public:
         }
 
         [[nodiscard]] std::
-            variant< std::reference_wrapper< const Value >, object_handle, array_handle >
+            variant< std::reference_wrapper< Value const >, object_handle, array_handle >
             get_container_handle()
         {
                 if ( std::holds_alternative< array_type >( content_ ) )
@@ -240,7 +240,7 @@ public:
         }
 
         [[nodiscard]] std::variant<
-            std::reference_wrapper< const Value >,
+            std::reference_wrapper< Value const >,
             const_object_handle,
             const_array_handle >
         get_container_handle() const
@@ -256,13 +256,13 @@ public:
         {
                 return match(
                     content_,
-                    []( const Value& ) {
+                    []( Value const& ) {
                             return contiguous_tree_type::VALUE;
                     },
-                    []( const array_type& ) {
+                    []( array_type const& ) {
                             return contiguous_tree_type::ARRAY;
                     },
-                    []( const object_type& ) {
+                    []( object_type const& ) {
                             return contiguous_tree_type::OBJECT;
                     } );
         }
@@ -276,7 +276,7 @@ template < typename Key, typename Value >
 std::ostream& operator<<( std::ostream& os, const contiguous_node< Key, Value >& node )
 {
         visit(
-            [&os]( const auto& val ) {
+            [&os]( auto const& val ) {
                     os << val;
             },
             node.get_container_handle() );
@@ -322,7 +322,7 @@ public:
                 data_.clear();
         }
 
-        [[nodiscard]] const node_type* get_node( node_id nid ) const
+        [[nodiscard]] node_type const* get_node( node_id nid ) const
         {
                 auto iter = data_.find( nid );
                 if ( iter == data_.end() )
@@ -415,7 +415,7 @@ private:
 template < typename Key, typename Value >
 std::ostream& operator<<( std::ostream& os, const contiguous_tree< Key, Value >& tree )
 {
-        for ( const auto& [nid, node] : tree )
+        for ( auto const& [nid, node] : tree )
                 os << nid << ":" << node << "\n";
         return os;
 }

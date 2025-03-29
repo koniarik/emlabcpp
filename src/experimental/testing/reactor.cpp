@@ -62,8 +62,7 @@ void reactor::tick()
 outcome reactor::on_msg( const std::span< const std::byte > buffer )
 {
         using h = protocol::handler< controller_reactor_group >;
-        return h::extract( view_n( buffer.data(), buffer.size() ) )
-            .match(
+        return match(h::extract( view_n( buffer.data(), buffer.size() ) ),
                 [this]( const controller_reactor_variant& var ) {
                         return on_msg( var );
                 },

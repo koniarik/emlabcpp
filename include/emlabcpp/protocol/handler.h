@@ -23,9 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/either.h"
-#include "emlabcpp/protocol/converter.h"
-#include "emlabcpp/types.h"
+#include "../types.h"
+#include "./converter.h"
 
 namespace emlabcpp::protocol
 {
@@ -43,23 +42,24 @@ struct handler
         using value_type                      = typename def::value_type;
         using message_type                    = message< max_size >;
 
-        static message_type serialize( const value_type& val )
+        static message_type serialize( value_type const& val )
         {
                 message_type res{ max_size };
 
-                const bounded used =
+                bounded const used =
                     def::serialize_at( std::span< std::byte, max_size >{ res }, val );
                 EMLABCPP_ASSERT( *used <= max_size );
                 res.resize( *used );
                 return res;
         };
 
-        static either< value_type, error_record > extract( const view< const std::byte* >& msg )
+        static std::variant< value_type, error_record >
+        extract( view< std::byte const* > const& msg )
         {
                 value_type              val;
-                const conversion_result res = def::deserialize( msg, val );
+                conversion_result const res = def::deserialize( msg, val );
                 if ( res.has_error() ) {
-                        const mark* const mark = res.get_error();
+                        mark const* const mark = res.get_error();
                         return error_record{ *mark, res.used };
                 }
                 return val;

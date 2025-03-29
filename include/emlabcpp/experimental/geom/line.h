@@ -23,8 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/geom/point.h"
-#include "emlabcpp/experimental/geom/vector.h"
+#include "./point.h"
+#include "./vector.h"
 
 #include <array>
 
@@ -38,23 +38,23 @@ using line = std::array< point< N >, 2 >;
 
 // calculate shortest distance between any point on line and point 'p'
 template < std::size_t N >
-constexpr float distance_of( const line< N >& l, const point< N >& p )
+constexpr float distance_of( line< N > const& l, point< N > const& p )
 {
-        const vector< N > direction      = l[1] - l[0];
-        const float       length_squared = length2_of( direction );
+        vector< N > const direction      = l[1] - l[0];
+        float const       length_squared = length2_of( direction );
         if ( length_squared == 0.f )
                 return distance_of( p, l[0] );
         float projection_dist = dot( p - l[0], direction );
         projection_dist /= length_squared;
         projection_dist = std::clamp( projection_dist, 0.f, 1.f );
 
-        const point< N > closest_p = l[0] + projection_dist * direction;
+        point< N > const closest_p = l[0] + projection_dist * direction;
 
         return distance_of( closest_p, p );
 }
 
 template < std::size_t N >
-constexpr float distance_of( const point< N >& p, const line< N >& line )
+constexpr float distance_of( point< N > const& p, line< N > const& line )
 {
         return distance_of( line, p );
 }

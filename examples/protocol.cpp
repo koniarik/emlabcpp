@@ -22,7 +22,7 @@
 ///
 
 #include "emlabcpp/protocol.h"
-
+#include "emlabcpp/match.h"
 #include "emlabcpp/protocol/handler.h"
 #include "emlabcpp/protocol/streams.h"
 
@@ -81,10 +81,10 @@ int main( int, char*[] )
         // Note: the protocol::error_record is serializable by the library, so you can
         // simply send it in report.
 
-        em::either< std::tuple< uint32_t, int16_t, int16_t >, em::protocol::error_record >
+        std::variant< std::tuple< uint32_t, int16_t, int16_t >, em::protocol::error_record >
             tuple_either = example_tuple_handler::extract( tuple_msg );
 
-        tuple_either.match(
+        em::match(tuple_either,
             []( std::tuple< uint32_t, int16_t, int16_t > ) {
                     std::cout << "Yaaay, protocol deserialized what it serialized \\o/\n";
             },
@@ -141,8 +141,8 @@ int main( int, char*[] )
         std::cout << "Message from example group looks like: " << group_msg << "\n";
         // this produces: |00:01:00:00|00:2a
 
-        example_group_handler::extract( group_msg )
-            .match(
+        em::match(
+                example_group_handler::extract( group_msg ),
                 [&]( example_group_value ) {
                         std::cout << "yayyy, group deserialize :) \n";
                 },

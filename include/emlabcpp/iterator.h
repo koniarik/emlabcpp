@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/view.h"
+#include "./view.h"
 
 #include <iterator>
 
@@ -81,7 +81,7 @@ class generic_iterator
 public:
         using value_type        = typename std::iterator_traits< Derived >::value_type;
         using reference         = typename std::iterator_traits< Derived >::reference;
-        using const_reference   = const reference;
+        using const_reference   = reference const;
         using pointer           = typename std::iterator_traits< Derived >::pointer;
         using const_pointer     = typename std::iterator_traits< Derived >::const_pointer;
         using difference_type   = typename std::iterator_traits< Derived >::difference_type;
@@ -103,7 +103,7 @@ public:
                 return impl();
         }
 
-        constexpr Derived operator++( const int )
+        constexpr Derived operator++( int const )
         {
                 auto copy = impl();
                 impl() += 1;
@@ -116,19 +116,19 @@ public:
                 return impl();
         }
 
-        constexpr Derived operator--( const int )
+        constexpr Derived operator--( int const )
         {
                 auto copy = impl();
                 impl() -= 1;
                 return copy;
         }
 
-        constexpr auto operator<=>( const generic_iterator< Derived >& other ) const
+        constexpr auto operator<=>( generic_iterator< Derived > const& other ) const
         {
                 return impl() <=> other.impl();
         }
 
-        constexpr bool operator==( const generic_iterator< Derived >& other ) const
+        constexpr bool operator==( generic_iterator< Derived > const& other ) const
         {
                 return impl() == other.impl();
         }

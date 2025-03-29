@@ -23,8 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/testing/base.h"
-#include "emlabcpp/pmr/memory_resource.h"
+#include "../../pmr/memory_resource.h"
+#include "./base.h"
 
 #include <optional>
 
@@ -34,16 +34,16 @@
 namespace emlabcpp::testing
 {
 
-std::optional< value_type > json_to_value_type( const nlohmann::json& j );
+std::optional< value_type > json_to_value_type( nlohmann::json const& j );
 
-nlohmann::json value_type_to_json( const value_type& tv );
+nlohmann::json value_type_to_json( value_type const& tv );
 
-key_type json_to_key_type( const nlohmann::json& j );
+key_type json_to_key_type( nlohmann::json const& j );
 
 std::optional< data_tree >
-json_to_data_tree( pmr::memory_resource& mem_res, const nlohmann::json& inpt );
+json_to_data_tree( pmr::memory_resource& mem_res, nlohmann::json const& inpt );
 
-nlohmann::json data_tree_to_json( const data_tree& tree );
+nlohmann::json data_tree_to_json( data_tree const& tree );
 
 }  // namespace emlabcpp::testing
 

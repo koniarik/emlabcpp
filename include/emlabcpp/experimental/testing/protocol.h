@@ -23,19 +23,19 @@
 
 #pragma once
 
-#include "emlabcpp/algorithm.h"
-#include "emlabcpp/experimental/contiguous_tree/base.h"
-#include "emlabcpp/experimental/multiplexer.h"
-#include "emlabcpp/experimental/testing/base.h"
-#include "emlabcpp/protocol/base.h"
-#include "emlabcpp/protocol/endpoint.h"
-#include "emlabcpp/protocol/error.h"
-#include "emlabcpp/protocol/handler.h"
-#include "emlabcpp/protocol/message.h"
-#include "emlabcpp/protocol/packet.h"
-#include "emlabcpp/protocol/traits.h"
-#include "emlabcpp/static_function.h"
-#include "emlabcpp/view.h"
+#include "../../algorithm.h"
+#include "../../protocol/base.h"
+#include "../../protocol/endpoint.h"
+#include "../../protocol/error.h"
+#include "../../protocol/handler.h"
+#include "../../protocol/message.h"
+#include "../../protocol/packet.h"
+#include "../../protocol/traits.h"
+#include "../../static_function.h"
+#include "../../view.h"
+#include "../contiguous_tree/base.h"
+#include "../multiplexer.h"
+#include "../testing/base.h"
 
 #include <array>
 #include <bit>
@@ -204,9 +204,9 @@ using reactor_controller_message =
     typename protocol::handler< reactor_controller_group >::message_type;
 
 using reactor_transmit_callback =
-    static_function< result( protocol::channel_type, const reactor_controller_message& ), 32 >;
+    static_function< result( protocol::channel_type, reactor_controller_message const& ), 32 >;
 using controller_transmit_callback =
-    static_function< result( protocol::channel_type, const controller_reactor_message& ), 32 >;
+    static_function< result( protocol::channel_type, controller_reactor_message const& ), 32 >;
 
 using packet_payload = protocol::multiplexer_payload< 256 >;
 // TODO: this needs rethinking /o\ entire multiplexer needs redesign?
@@ -221,11 +221,11 @@ struct packet_def
         using size_type                                       = uint16_t;
         using checksum_type                                   = std::byte;
 
-        static constexpr checksum_type get_checksum( const view< const std::byte* > msg )
+        static constexpr checksum_type get_checksum( view< std::byte const* > const msg )
         {
-                const std::byte init{ 0x0 };
+                std::byte const init{ 0x0 };
                 return accumulate(
-                    msg, init, []( const std::byte accum, const std::byte val ) -> std::byte {
+                    msg, init, []( std::byte const accum, std::byte const val ) -> std::byte {
                             return accum ^ val;
                     } );
         }

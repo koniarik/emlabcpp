@@ -23,13 +23,13 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/decompose.h"
-#include "emlabcpp/protocol/base.h"
-#include "emlabcpp/protocol/error.h"
-#include "emlabcpp/protocol/message.h"
-#include "emlabcpp/quantity.h"
-#include "emlabcpp/static_vector.h"
-#include "emlabcpp/types.h"
+#include "../experimental/decompose.h"
+#include "../quantity.h"
+#include "../static_vector.h"
+#include "../types.h"
+#include "./base.h"
+#include "./error.h"
+#include "./message.h"
 
 #include <chrono>
 #include <optional>

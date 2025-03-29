@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/types/base.h"
+#include "./types/base.h"
 
 #include <concepts>
 #include <iterator>
@@ -156,7 +156,7 @@ concept ostreamlike = !std::is_array_v< T > && requires( T val ) {
         requires detail::directly_streamable_for< T, float >;
         requires detail::directly_streamable_for< T, double >;
         requires detail::directly_streamable_for< T, bool >;
-        requires detail::directly_streamable_for< T, const void* >;
+        requires detail::directly_streamable_for< T, void const* >;
         requires detail::directly_streamable_for< T, std::nullptr_t >;
 };
 

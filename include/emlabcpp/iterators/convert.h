@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/iterator.h"
+#include "../iterator.h"
 
 namespace emlabcpp::iterators
 {
@@ -79,17 +79,17 @@ public:
                 return *this;
         }
 
-        auto operator<=>( const convert_iterator& other ) const
+        auto operator<=>( convert_iterator const& other ) const
         {
                 return iter_ <=> other.iter_;
         }
 
-        bool operator==( const convert_iterator& other ) const
+        bool operator==( convert_iterator const& other ) const
         {
                 return iter_ == other.iter_;
         }
 
-        std::ptrdiff_t operator-( const convert_iterator& other )
+        std::ptrdiff_t operator-( convert_iterator const& other )
         {
                 return iter_ - other.iter_;
         }

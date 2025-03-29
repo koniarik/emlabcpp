@@ -23,10 +23,10 @@
 
 #pragma once
 
-#include "emlabcpp/enum.h"
-#include "emlabcpp/protocol/base.h"
-#include "emlabcpp/protocol/register_map.h"
-#include "emlabcpp/range.h"
+#include "../enum.h"
+#include "../range.h"
+#include "./base.h"
+#include "./register_map.h"
 
 #include <iomanip>
 
@@ -47,10 +47,10 @@ static void pretty_print_msg_format( auto&& w, msg_format< T > wrapper )
 
         char        l = '|';
         std::size_t i = 0;
-        for ( const std::byte b : wrapper.item ) {
+        for ( std::byte const b : wrapper.item ) {
                 if ( i % 4 == 0 )
                         l = '|';
-                const auto val = std::to_integer< uint8_t >( b );
+                auto const val = std::to_integer< uint8_t >( b );
                 w( l );
                 w( hex_chars[val / 16] );
                 w( hex_chars[val % 16] );
@@ -72,17 +72,17 @@ inline std::ostream& operator<<( std::ostream& os, const message< N >& m )
         return os;
 }
 
-inline std::ostream& operator<<( std::ostream& os, const mark& m )
+inline std::ostream& operator<<( std::ostream& os, mark const& m )
 {
         return os << std::string_view{ m.data(), m.size() };
 }
 
-inline std::ostream& operator<<( std::ostream& os, const error_record& rec )
+inline std::ostream& operator<<( std::ostream& os, error_record const& rec )
 {
         return os << rec.error_mark << '(' << rec.offset << ')';
 }
 
-inline std::ostream& operator<<( std::ostream& os, const std::endian& val )
+inline std::ostream& operator<<( std::ostream& os, std::endian const& val )
 {
         switch ( val ) {
         case std::endian::big:

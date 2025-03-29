@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/types.h"
+#include "./types.h"
 
 #include <span>
 
@@ -62,7 +62,7 @@ public:
 
         /// constructor from Container, uses begin/end of the container
         template < range_container_with_iter< iterator > Cont >
-        constexpr view( const Cont& cont )
+        constexpr view( Cont const& cont )
           : begin_( std::begin( cont ) )
           , end_( std::end( cont ) )
         {
@@ -78,7 +78,7 @@ public:
 
         template < data_container_with_iter< iterator > Cont >
         requires( !range_container_with_iter< Cont, iterator > )
-        constexpr view( const Cont& cont )
+        constexpr view( Cont const& cont )
           : begin_( std::data( cont ) )
           , end_( begin_ + std::size( cont ) )
         {
@@ -113,7 +113,7 @@ public:
         }
 
         /// Access to i-th element in the range, expects Iterator::operator+
-        [[nodiscard]] constexpr decltype( auto ) operator[]( const size_type i ) const
+        [[nodiscard]] constexpr decltype( auto ) operator[]( size_type const i ) const
         {
                 return *( begin_ + static_cast< difference_type >( i ) );
         }
@@ -144,13 +144,13 @@ public:
         }
 
         /// Returns first value of the range
-        [[nodiscard]] constexpr const value_type& front() const
+        [[nodiscard]] constexpr value_type const& front() const
         {
                 return *begin_;
         }
 
         /// Returns last value of the range
-        [[nodiscard]] constexpr const value_type& back() const
+        [[nodiscard]] constexpr value_type const& back() const
         {
                 return *std::prev( end_ );
         }
@@ -162,7 +162,7 @@ public:
 };
 
 template < typename IteratorLh, typename IteratorRh >
-constexpr bool operator==( const view< IteratorLh >& lh, const view< IteratorRh >& rh )
+constexpr bool operator==( view< IteratorLh > const& lh, view< IteratorRh > const& rh )
 {
         if ( lh.size() != rh.size() )
                 return false;
@@ -177,7 +177,7 @@ constexpr bool operator==( const view< IteratorLh >& lh, const view< IteratorRh 
 }
 
 template < typename IteratorLh, typename IteratorRh >
-constexpr bool operator!=( const view< IteratorLh >& lh, const view< IteratorRh >& rh )
+constexpr bool operator!=( view< IteratorLh > const& lh, view< IteratorRh > const& rh )
 {
         return !( lh == rh );
 }
@@ -195,7 +195,7 @@ struct impl::is_view< view< Iter > > : std::true_type
 /// Creates view over 'n' items of dataset starting at 'begin'
 /// This does not check validity of the range!
 template < typename Iter >
-constexpr view< Iter > view_n( Iter begin, const std::size_t n )
+constexpr view< Iter > view_n( Iter begin, std::size_t const n )
 {
         auto end = std::next(
             begin, static_cast< typename std::iterator_traits< Iter >::difference_type >( n ) );
@@ -212,25 +212,25 @@ constexpr auto data_view( Container& cont )
 /// and last r*size/2 items. This can be used to get the dataset without
 /// first/last 5% for example, by using r=0.1
 template < range_container Container >
-constexpr view< iterator_of_t< Container > > trim_view( Container& cont, const float r )
+constexpr view< iterator_of_t< Container > > trim_view( Container& cont, float const r )
 {
-        const std::size_t step = std::size( cont ) * ( 1.f - r ) / 2.f;
+        std::size_t const step = std::size( cont ) * ( 1.f - r ) / 2.f;
         return { std::begin( cont ) + step, std::end( cont ) - step };
 }
 
 /// Returns view to the Container in reverse order.
-constexpr auto
-reversed( referenceable_container auto& container ) -> view< decltype( std::rbegin( container ) ) >
+constexpr auto reversed( referenceable_container auto& container )
+    -> view< decltype( std::rbegin( container ) ) >
 {
         return { std::rbegin( container ), std::rend( container ) };
 }
 
 template < typename Iterator, typename EndIterator >
-void string_serialize_view( auto&& w, const view< Iterator, EndIterator >& output )
+void string_serialize_view( auto&& w, view< Iterator, EndIterator > const& output )
 {
         using value_type = typename std::iterator_traits< Iterator >::value_type;
         bool first       = true;
-        for ( const value_type& item : output ) {
+        for ( value_type const& item : output ) {
                 if ( !first )
                         w( ',' );
                 w( item );
@@ -245,7 +245,7 @@ std::ostream& operator<<( std::ostream& os, const view< Iterator, EndIterator >&
 {
         static_assert( ostreamable< typename std::iterator_traits< Iterator >::value_type > );
         string_serialize_view(
-            [&os]( const auto& item ) {
+            [&os]( auto const& item ) {
                     os << item;
             },
             iter );

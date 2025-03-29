@@ -62,19 +62,19 @@ class reactor_interface
 public:
         static std::vector< testing::reactor_controller_variant > msgs;
 
-        result operator()( auto, std::span< const std::byte > msg )
+        result operator()( auto, std::span< std::byte const > msg )
         {
                 using h = protocol::handler< testing::reactor_controller_group >;
-                return h::extract( view_n( msg.data(), msg.size() ) )
-                    .match(
-                        [&]( const auto& var ) -> result {
-                                // TODO: var shall be logged
-                                msgs.push_back( var );
-                                return SUCCESS;
-                        },
-                        [&]( const auto& ) -> result {
-                                return ERROR;
-                        } );
+                return match(
+                    h::extract( view_n( msg.data(), msg.size() ) ),
+                    [&]( protocol::error_record const& ) -> result {
+                            return ERROR;
+                    },
+                    [&]( auto const& var ) -> result {
+                            // TODO: var shall be logged
+                            msgs.push_back( var );
+                            return SUCCESS;
+                    } );
         }
 };
 
@@ -83,7 +83,7 @@ std::vector< testing::reactor_controller_variant > reactor_interface::msgs{};
 template < typename T >
 void executor_test_run( T& tf )
 {
-        for ( const std::size_t i : range( 1u, 8u ) ) {
+        for ( std::size_t const i : range( 1u, 8u ) ) {
                 testing::executor exec{
                     static_cast< testing::test_id >( i ), pmr::new_delete_resource(), tf };
 
@@ -132,7 +132,7 @@ TEST( reactor, reactor_simple )
 
         std::ignore = rec.on_msg( testing::exec_request{ .rid = 0, .tid = 0 } );
 
-        for ( const std::size_t i : range( 20u ) ) {
+        for ( std::size_t const i : range( 20u ) ) {
                 std::ignore = i;
                 rec.tick();
         }

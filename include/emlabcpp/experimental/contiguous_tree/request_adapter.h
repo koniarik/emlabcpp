@@ -23,7 +23,9 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/contiguous_tree/base.h"
+#include "./base.h"
+
+#include <variant>
 
 namespace emlabcpp
 {
@@ -49,129 +51,141 @@ public:
         {
         }
 
-        [[nodiscard]] either< std::reference_wrapper< const value_type >, error_enum >
+        [[nodiscard]] std::variant< std::reference_wrapper< value_type const >, error_enum >
         get_value( node_id id ) const
         {
-                return get_node( id ).bind_left(
-                    []( const node_type& node )
-                        -> either< std::reference_wrapper< const value_type >, error_enum > {
-                            const value_type* val_ptr = node.get_value();
-                            if ( val_ptr == nullptr )
-                                    return error_enum::WRONG_TYPE;
-                            return std::ref( *val_ptr );
-                    } );
+                auto n = get_node( id );
+                if ( auto* e = std::get_if< error_enum >( &n ) )
+                        return *e;
+                auto&             node    = std::get_if< 0 >( &n )->get();
+                value_type const* val_ptr = node.get_value();
+                if ( val_ptr == nullptr )
+                        return error_enum::WRONG_TYPE;
+                return std::ref( *val_ptr );
         }
 
-        [[nodiscard]] either< node_id, error_enum >
-        get_child( node_id nid, const std::variant< key_type, child_id >& id_var ) const
+        [[nodiscard]] std::variant< node_id, error_enum >
+        get_child( node_id nid, std::variant< key_type, child_id > const& id_var ) const
         {
                 auto get_object_child = []( const_object_handle&                      h,
-                                            const std::variant< key_type, child_id >& key ) {
+                                            std::variant< key_type, child_id > const& key ) {
                         return visit(
-                            [&h]( const auto& k ) {
+                            [&h]( auto const& k ) {
                                     return h.get_child( k );
                             },
                             key );
                 };
 
                 auto get_array_child = []( const_array_handle&                       h,
-                                           const std::variant< key_type, child_id >& key )
+                                           std::variant< key_type, child_id > const& key )
                     -> std::optional< node_id > {
-                        const child_id* const id_ptr = std::get_if< child_id >( &key );
+                        child_id const* const id_ptr = std::get_if< child_id >( &key );
                         if ( id_ptr == nullptr )
                                 return std::nullopt;
                         return h.get_child( *id_ptr );
                 };
 
-                return get_containers( nid )
-                    .bind_left(
-                        [&id_var, &get_object_child, &get_array_child](
-                            std::variant< const_object_handle, const_array_handle > var )
-                            -> either< std::optional< node_id >, error_enum > {
-                                const_object_handle* oh_ptr = std::get_if< 0 >( &var );
-                                const_array_handle*  ah_ptr = std::get_if< 1 >( &var );
+                auto tmp = get_containers( nid );
+                if ( auto* e = std::get_if< error_enum >( &tmp ) )
+                        return *e;
 
-                                if ( oh_ptr != nullptr )
-                                        return get_object_child( *oh_ptr, id_var );
-                                else if ( ah_ptr != nullptr )
-                                        return get_array_child( *ah_ptr, id_var );
-                                else
-                                        return error_enum::WRONG_TYPE;
-                        } )
-                    .bind_left(
-                        []( std::optional< node_id > opt_nid ) -> either< node_id, error_enum > {
-                                if ( opt_nid )
-                                        return *opt_nid;
-                                return error_enum::CHILD_MISSING;
-                        } );
+                const_object_handle* oh_ptr = std::get_if< 0 >( &tmp );
+                const_array_handle*  ah_ptr = std::get_if< 1 >( &tmp );
+
+                std::optional< node_id > res;
+                if ( oh_ptr != nullptr )
+                        res = get_object_child( *oh_ptr, id_var );
+                else if ( ah_ptr != nullptr )
+                        res = get_array_child( *ah_ptr, id_var );
+                else
+                        return error_enum::WRONG_TYPE;
+                if ( res )
+                        return *res;
+
+                return error_enum::CHILD_MISSING;
         }
 
-        [[nodiscard]] either< child_id, error_enum > get_child_count( node_id nid ) const
+        [[nodiscard]] std::variant< child_id, error_enum > get_child_count( node_id nid ) const
         {
-                return get_containers( nid ).convert_left(
-                    []( const std::variant< const_object_handle, const_array_handle > var ) {
-                            return visit(
-                                []( const auto& handle ) {
-                                        return std::size( handle );
-                                },
-                                var );
+                using R = std::variant< child_id, error_enum >;
+                return match(
+                    get_containers( nid ),
+                    []( const_object_handle const& oh ) -> R {
+                            return oh.size();
+                    },
+                    []( const_array_handle const& ah ) -> R {
+                            return ah.size();
+                    },
+                    []( error_enum e ) -> R {
+                            return e;
                     } );
         }
 
-        [[nodiscard]] either< key_type, error_enum > get_key( node_id nid, child_id chid ) const
+        [[nodiscard]] std::variant< key_type, error_enum >
+        get_key( node_id nid, child_id chid ) const
         {
-                return get_object_handle( nid ).bind_left(
-                    [&chid]( const_object_handle oh ) -> either< key_type, error_enum > {
-                            const key_type* key_ptr = oh.get_key( chid );
+                auto tmp = get_object_handle( nid );
+                if ( auto* e = std::get_if< error_enum >( &tmp ) )
+                        return *e;
+                auto&           oh      = *std::get_if< const_object_handle >( &tmp );
+                key_type const* key_ptr = oh.get_key( chid );
 
-                            if ( key_ptr == nullptr )
-                                    return error_enum::CHILD_MISSING;
-                            return *key_ptr;
-                    } );
+                if ( key_ptr == nullptr )
+                        return error_enum::CHILD_MISSING;
+                return *key_ptr;
         }
 
-        [[nodiscard]] either< type_enum, error_enum > get_type( node_id nid ) const
+        [[nodiscard]] std::variant< type_enum, error_enum > get_type( node_id nid ) const
         {
-                return get_node( nid ).convert_left( []( const node_type& node ) {
-                        return node.get_type();
-                } );
+                auto tmp = get_node( nid );
+                if ( auto* e = std::get_if< error_enum >( &tmp ) )
+                        return *e;
+                auto& node = *std::get_if< 0 >( &tmp );
+                return node.get().get_type();
         }
 
-        [[nodiscard]] either< node_id, error_enum > insert(
+        [[nodiscard]] std::variant< node_id, error_enum > insert(
             node_id                                                      parent,
-            const key_type&                                              key,
-            const std::variant< value_type, contiguous_container_type >& val )
+            key_type const&                                              key,
+            std::variant< value_type, contiguous_container_type > const& val )
         {
-                return get_object_handle( parent ).bind_left(
-                    [this, &val, &key]( object_handle oh ) {
-                            return construct_node( val ).convert_left( [&key, &oh]( node_id nid ) {
-                                    oh.set( key, nid );
-                                    return nid;
-                            } );
-                    } );
+                auto obj = get_object_handle( parent );
+                if ( auto* e = std::get_if< error_enum >( &obj ) )
+                        return *e;
+                auto& oh    = *std::get_if< object_handle >( &obj );
+                auto  cnode = construct_node( val );
+                if ( auto* e = std::get_if< error_enum >( &cnode ) )
+                        return *e;
+                auto& nid = *std::get_if< node_id >( &cnode );
+                oh.set( key, nid );
+                return nid;
         }
 
-        [[nodiscard]] either< node_id, error_enum >
-        insert( node_id parent, const std::variant< value_type, contiguous_container_type >& val )
+        [[nodiscard]] std::variant< node_id, error_enum >
+        insert( node_id parent, std::variant< value_type, contiguous_container_type > const& val )
         {
-                return get_array_handle( parent ).bind_left( [this, &val]( array_handle ah ) {
-                        return construct_node( val ).convert_left( [&ah]( node_id nid ) {
-                                ah.append( nid );
-                                return nid;
-                        } );
-                } );
+                auto tmp = get_array_handle( parent );
+                if ( auto* e = std::get_if< error_enum >( &tmp ) )
+                        return *e;
+                auto& ah  = *std::get_if< array_handle >( &tmp );
+                auto  nid = construct_node( val );
+                if ( auto* e = std::get_if< error_enum >( &nid ) )
+                        return *e;
+                auto& val_nid = *std::get_if< node_id >( &nid );
+                ah.append( val_nid );
+                return nid;
         }
 
 private:
-        [[nodiscard]] either< node_id, error_enum >
-        construct_node( const std::variant< value_type, contiguous_container_type >& var )
+        [[nodiscard]] std::variant< node_id, error_enum >
+        construct_node( std::variant< value_type, contiguous_container_type > const& var )
         {
                 std::optional< node_id > opt_nid = match(
                     var,
-                    [this]( const value_type& val ) {
+                    [this]( value_type const& val ) {
                             return tree_.make_value_node( val );
                     },
-                    [this]( const contiguous_container_type type ) -> std::optional< node_id > {
+                    [this]( contiguous_container_type const type ) -> std::optional< node_id > {
                             if ( type == contiguous_container_type::ARRAY ) {
                                     auto opt_res = tree_.make_array_node();
                                     if ( opt_res )
@@ -192,20 +206,20 @@ private:
                 return *opt_nid;
         }
 
-        [[nodiscard]] either< std::reference_wrapper< const node_type >, error_enum >
+        [[nodiscard]] std::variant< std::reference_wrapper< node_type const >, error_enum >
         get_node( node_id nid ) const
         {
-                return get_node_impl< const node_type >( this, nid );
+                return get_node_impl< node_type const >( this, nid );
         }
 
-        [[nodiscard]] either< std::reference_wrapper< node_type >, error_enum >
+        [[nodiscard]] std::variant< std::reference_wrapper< node_type >, error_enum >
         get_node( node_id nid )
         {
                 return get_node_impl< node_type >( this, nid );
         }
 
         template < typename Node, typename Self >
-        [[nodiscard]] static either< std::reference_wrapper< Node >, error_enum >
+        [[nodiscard]] static std::variant< std::reference_wrapper< Node >, error_enum >
         get_node_impl( Self* self, node_id nid )
         {
                 Node* node_ptr = self->tree_.get_node( nid );
@@ -216,73 +230,73 @@ private:
                 return std::ref( *node_ptr );
         }
 
-        [[nodiscard]] either< std::variant< const_object_handle, const_array_handle >, error_enum >
+        [[nodiscard]] std::variant< const_object_handle, const_array_handle, error_enum >
         get_containers( node_id nid ) const
         {
                 return get_containers_impl< const_object_handle, const_array_handle >( this, nid );
         }
 
-        [[nodiscard]] either< std::variant< object_handle, array_handle >, error_enum >
+        [[nodiscard]] std::variant< object_handle, array_handle, error_enum >
         get_containers( node_id nid )
         {
                 return get_containers_impl< object_handle, array_handle >( this, nid );
         }
 
         template < typename OHandle, typename AHandle, typename Self >
-        [[nodiscard]] static either< std::variant< OHandle, AHandle >, error_enum >
+        [[nodiscard]] static std::variant< OHandle, AHandle, error_enum >
         get_containers_impl( Self* self, node_id nid )
         {
-                using var_type = std::variant< OHandle, AHandle >;
-                return self->get_node( nid ).bind_left(
-                    []( auto& node_wrapper ) -> either< var_type, error_enum > {
-                            auto& node = node_wrapper.get();
-                            std::variant<
-                                std::reference_wrapper< const value_type >,
-                                OHandle,
-                                AHandle >
-                                cont = node.get_container_handle();
+                auto tmp = self->get_node( nid );
+                if ( auto* e_ptr = std::get_if< error_enum >( &tmp ) )
+                        return *e_ptr;
+                auto& node_wrapper = *std::get_if< 0 >( &tmp );
+                auto& node         = node_wrapper.get();
+                std::variant< std::reference_wrapper< value_type const >, OHandle, AHandle > cont =
+                    node.get_container_handle();
 
-                            auto* ah_ptr = std::get_if< AHandle >( &cont );
-                            if ( ah_ptr != nullptr )
-                                    return var_type{ *ah_ptr };
-                            auto* oh_ptr = std::get_if< OHandle >( &cont );
-                            if ( oh_ptr != nullptr )
-                                    return var_type{ *oh_ptr };
-                            return error_enum::WRONG_TYPE;
-                    } );
+                auto* ah_ptr = std::get_if< AHandle >( &cont );
+                if ( ah_ptr != nullptr )
+                        return *ah_ptr;
+                auto* oh_ptr = std::get_if< OHandle >( &cont );
+                if ( oh_ptr != nullptr )
+                        return *oh_ptr;
+                return error_enum::WRONG_TYPE;
         }
 
-        [[nodiscard]] either< const_object_handle, error_enum >
+        [[nodiscard]] std::variant< const_object_handle, error_enum >
         get_object_handle( node_id nid ) const
         {
                 return get_handle_impl< const_object_handle >( this, nid );
         };
 
-        [[nodiscard]] either< object_handle, error_enum > get_object_handle( node_id nid )
+        [[nodiscard]] std::variant< object_handle, error_enum > get_object_handle( node_id nid )
         {
                 return get_handle_impl< object_handle >( this, nid );
         };
 
-        [[nodiscard]] either< const_array_handle, error_enum > get_array_handle( node_id nid ) const
+        [[nodiscard]] std::variant< const_array_handle, error_enum >
+        get_array_handle( node_id nid ) const
         {
                 return get_handle_impl< const_array_handle >( this, nid );
         };
 
-        [[nodiscard]] either< array_handle, error_enum > get_array_handle( node_id nid )
+        [[nodiscard]] std::variant< array_handle, error_enum > get_array_handle( node_id nid )
         {
                 return get_handle_impl< array_handle >( this, nid );
         };
 
         template < typename Handle, typename Self >
-        [[nodiscard]] static either< Handle, error_enum > get_handle_impl( Self* self, node_id nid )
+        [[nodiscard]] static std::variant< Handle, error_enum >
+        get_handle_impl( Self* self, node_id nid )
         {
-                return self->get_containers( nid ).bind_left(
-                    [&]( auto& var ) -> either< Handle, error_enum > {
-                            auto* h_ptr = std::get_if< Handle >( &var );
-                            if ( h_ptr != nullptr )
-                                    return *h_ptr;
-                            return error_enum::WRONG_TYPE;
-                    } );
+                auto var = self->get_containers( nid );
+                if ( auto* e_ptr = std::get_if< error_enum >( &var ) )
+                        return *e_ptr;
+
+                auto* h_ptr = std::get_if< Handle >( &var );
+                if ( h_ptr != nullptr )
+                        return *h_ptr;
+                return error_enum::WRONG_TYPE;
         }
 
         Tree& tree_;

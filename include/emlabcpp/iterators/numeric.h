@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/iterator.h"
+#include "../iterator.h"
 
 namespace emlabcpp::iterators
 {
@@ -39,7 +39,7 @@ struct std::iterator_traits< emlabcpp::iterators::numeric_iterator< T > >
         using value_type        = T;
         using difference_type   = std::ptrdiff_t;
         using pointer           = T*;
-        using const_pointer     = const T*;
+        using const_pointer     = T const*;
         using reference         = T&;
         using iterator_category = std::random_access_iterator_tag;
 };
@@ -68,7 +68,7 @@ public:
                 return val_;
         }
 
-        constexpr const T& operator*() const
+        constexpr T const& operator*() const
         {
                 return val_;
         }
@@ -85,17 +85,17 @@ public:
                 return *this;
         }
 
-        constexpr auto operator<=>( const numeric_iterator< T >& other ) const
+        constexpr auto operator<=>( numeric_iterator< T > const& other ) const
         {
                 return val_ <=> other.val_;
         }
 
-        constexpr bool operator==( const numeric_iterator< T >& other ) const
+        constexpr bool operator==( numeric_iterator< T > const& other ) const
         {
                 return val_ == other.val_;
         }
 
-        constexpr std::ptrdiff_t operator-( const numeric_iterator& other ) const
+        constexpr std::ptrdiff_t operator-( numeric_iterator const& other ) const
         {
                 return static_cast< std::ptrdiff_t >( val_ ) -
                        static_cast< std::ptrdiff_t >( other.val_ );

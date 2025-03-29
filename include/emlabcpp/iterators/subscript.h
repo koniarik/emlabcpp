@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/iterator.h"
+#include "./iterator.h"
 
 namespace emlabcpp::iterators
 {
@@ -37,7 +37,7 @@ struct std::iterator_traits< emlabcpp::iterators::subscript_iterator< Container 
         using value_type        = typename Container::value_type;
         using difference_type   = std::make_signed_t< std::size_t >;
         using pointer           = value_type*;
-        using const_pointer     = const value_type*;
+        using const_pointer     = value_type const*;
         using reference         = value_type&;
         using iterator_category = std::random_access_iterator_tag;
 };
@@ -60,7 +60,7 @@ class subscript_iterator : public generic_iterator< subscript_iterator< Containe
 
 public:
         using value_type = typename Container::value_type;
-        using reference  = std::conditional_t< is_const, const value_type&, value_type& >;
+        using reference  = std::conditional_t< is_const, value_type const&, value_type& >;
         using difference_type =
             typename std::iterator_traits< subscript_iterator< Container > >::difference_type;
 
@@ -75,7 +75,7 @@ public:
                 return cont_[i_];
         }
 
-        const reference operator*() const
+        reference const operator*() const
         {
                 return cont_[i_];
         }
@@ -92,17 +92,17 @@ public:
                 return *this;
         }
 
-        auto operator<=>( const subscript_iterator& other ) const
+        auto operator<=>( subscript_iterator const& other ) const
         {
                 return i_ <=> other.i_;
         }
 
-        bool operator==( const subscript_iterator& other ) const
+        bool operator==( subscript_iterator const& other ) const
         {
                 return i_ == other.i_ && &cont_ == &other.cont_;
         }
 
-        difference_type operator-( const subscript_iterator& other ) const
+        difference_type operator-( subscript_iterator const& other ) const
         {
                 return static_cast< difference_type >( i_ - other.i_ );
         }

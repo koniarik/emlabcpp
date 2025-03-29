@@ -23,6 +23,6 @@
 
 #pragma once
 
-#include "emlabcpp/protocol/command_group.h"
-#include "emlabcpp/protocol/traits.h"
-#include "emlabcpp/protocol/tuple.h"
+#include "./protocol/command_group.h"
+#include "./protocol/traits.h"
+#include "./protocol/tuple.h"

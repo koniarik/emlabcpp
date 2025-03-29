@@ -21,7 +21,7 @@
 /// SOFTWARE.
 #pragma once
 
-#include "emlabcpp/result.h"
+#include "./result.h"
 
 namespace emlabcpp
 {
@@ -96,13 +96,13 @@ private:
 };
 
 /// Compare two outcomes for equality, uses get_state()
-constexpr bool operator==( const outcome& lh, const outcome& rh )
+constexpr bool operator==( outcome const& lh, outcome const& rh )
 {
         return lh.get_state() == rh.get_state();
 }
 
 /// Compare two outcomes for inequality, uses get_state()
-constexpr bool operator!=( const outcome& lh, const outcome& rh )
+constexpr bool operator!=( outcome const& lh, outcome const& rh )
 {
         return !( lh == rh );
 }
@@ -114,25 +114,25 @@ concept outcome_native_constant = std::same_as< T, success_type > ||
 
 /// Compares outcome with any of the constant types
 template < outcome_native_constant T >
-constexpr bool operator==( const outcome& outc, T )
+constexpr bool operator==( outcome const& outc, T )
 {
         return outc.get_state() == T::id;
 }
 
 /// Compares outcome with any of the constant types
-constexpr bool operator==( outcome_native_constant auto c, const outcome& outc )
+constexpr bool operator==( outcome_native_constant auto c, outcome const& outc )
 {
         return outc == c;
 }
 
 /// Compares outcome for inequality with any of the constant types
-constexpr bool operator!=( const outcome& outc, outcome_native_constant auto c )
+constexpr bool operator!=( outcome const& outc, outcome_native_constant auto c )
 {
         return !( outc == c );
 }
 
 /// Compares outcome for inequality with any of the constant types
-constexpr bool operator!=( outcome_native_constant auto c, const outcome& outc )
+constexpr bool operator!=( outcome_native_constant auto c, outcome const& outc )
 {
         return !( outc == c );
 }

@@ -23,11 +23,11 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/testing/base.h"
-#include "emlabcpp/experimental/testing/controller_interface_adapter.h"
-#include "emlabcpp/experimental/testing/coroutine.h"
-#include "emlabcpp/pmr/aliases.h"
-#include "emlabcpp/result.h"
+#include "../../pmr/aliases.h"
+#include "../../result.h"
+#include "./base.h"
+#include "./controller_interface_adapter.h"
+#include "./coroutine.h"
 
 namespace emlabcpp::testing
 {
@@ -52,7 +52,7 @@ class controller
 
 public:
         controller(
-            const protocol::channel_type channel,
+            protocol::channel_type const channel,
             pmr::memory_resource&        mem_res,
             controller_interface&        iface,
             controller_transmit_callback send_cb )
@@ -91,15 +91,15 @@ public:
                 return std::holds_alternative< test_running_state >( state_ );
         }
 
-        [[nodiscard]] const pmr::map< test_id, name_buffer >& get_tests() const
+        [[nodiscard]] pmr::map< test_id, name_buffer > const& get_tests() const
         {
                 return tests_;
         }
 
-        outcome on_msg( const std::span< const std::byte > data );
-        outcome on_msg( const reactor_controller_variant& );
+        outcome on_msg( std::span< std::byte const > const data );
+        outcome on_msg( reactor_controller_variant const& );
 
-        void start_test( const test_id tid );
+        void start_test( test_id const tid );
 
         void tick();
 

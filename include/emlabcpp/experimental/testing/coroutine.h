@@ -23,9 +23,9 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/coro/data_promise.h"
-#include "emlabcpp/experimental/coro/memory_promise.h"
-#include "emlabcpp/experimental/coro/owning_coroutine_handle.h"
+#include "../coro/data_promise.h"
+#include "../coro/memory_promise.h"
+#include "../coro/owning_coroutine_handle.h"
 
 #include <coroutine>
 
@@ -86,7 +86,7 @@ public:
 
         explicit coroutine() = default;
 
-        explicit coroutine( const handle& cor )
+        explicit coroutine( handle const& cor )
           : state_( cor ? coro_state::WAITING : coro_state::ERRORED )
           , h_( cor )
         {
@@ -114,7 +114,7 @@ public:
                 return false;
         }
 
-        void await_suspend( const auto& h )
+        void await_suspend( auto const& h )
         {
                 h.promise().iface = this;
         }
@@ -147,7 +147,7 @@ public:
                 wait_interface* iface = h_.promise().iface;
 
                 if ( iface != nullptr ) {
-                        const coro_state s = iface->get_state();
+                        coro_state const s = iface->get_state();
                         switch ( s ) {
                         case coro_state::WAITING:
                                 iface->tick();

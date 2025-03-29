@@ -23,8 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/concepts.h"
-#include "emlabcpp/view.h"
+#include "../concepts.h"
+#include "../view.h"
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
 #include <nlohmann/json.hpp>
@@ -42,35 +42,35 @@ public:
         using value_type     = std::byte;
         using reference      = std::byte&;
         using pointer        = std::byte*;
-        using const_pointer  = const std::byte*;
+        using const_pointer  = std::byte const*;
         using iterator       = std::byte*;
-        using const_iterator = const std::byte*;
+        using const_iterator = std::byte const*;
         using size_type      = std::size_t;
 
         static constexpr size_type capacity = N;
 
         constexpr message() = default;
 
-        constexpr explicit message( const size_type n ) noexcept
+        constexpr explicit message( size_type const n ) noexcept
           : used_( n )
         {
         }
 
-        constexpr explicit message( const view< const_iterator >& v ) noexcept
+        constexpr explicit message( view< const_iterator > const& v ) noexcept
           : used_( v.size() )
         {
                 std::copy( v.begin(), v.end(), std::data( data_ ) );
         }
 
         template < size_type M >
-        constexpr explicit message( const message< M >& other ) noexcept
+        constexpr explicit message( message< M > const& other ) noexcept
           : message( view{ other } )
         {
                 static_assert( M <= N );
         }
 
         template < size_type M >
-        constexpr explicit message( const std::array< value_type, M >& inpt ) noexcept
+        constexpr explicit message( std::array< value_type, M > const& inpt ) noexcept
           : message( view{ inpt } )
         {
                 static_assert( M <= N );
@@ -84,7 +84,7 @@ public:
         }
 
         template < size_type M >
-        constexpr message& operator=( const message< M >& other ) noexcept
+        constexpr message& operator=( message< M > const& other ) noexcept
         {
                 used_ = other.size();
                 std::copy( other.begin(), other.end(), std::data( data_ ) );
@@ -146,22 +146,22 @@ public:
                 return &data_[0] + used_;
         }
 
-        value_type operator[]( const size_type i ) const noexcept
+        value_type operator[]( size_type const i ) const noexcept
         {
                 return data_[i];
         }
 
-        reference operator[]( const size_type i ) noexcept
+        reference operator[]( size_type const i ) noexcept
         {
                 return data_[i];
         }
 
-        void resize( const size_type n ) noexcept
+        void resize( size_type const n ) noexcept
         {
                 used_ = n;
         }
 
-        friend auto operator==( const message& lh, const message& rh ) noexcept
+        friend auto operator==( message const& lh, message const& rh ) noexcept
         {
                 return view_n( lh.begin(), lh.used_ ) == view_n( rh.begin(), rh.used_ );
         }
@@ -185,7 +185,7 @@ public:
         using message< N >::message;
 
         template < std::size_t M >
-        explicit sizeless_message( const message< M >& other )
+        explicit sizeless_message( message< M > const& other )
           : message< N >( other )
         {
                 static_assert( M <= N );
@@ -198,7 +198,7 @@ sizeless_message( Ts... inpt ) -> sizeless_message< sizeof...( Ts ) >;
 namespace detail
 {
         template < std::size_t N >
-        constexpr bool message_derived_test( const message< N >& )
+        constexpr bool message_derived_test( message< N > const& )
         {
                 return true;
         }
@@ -219,16 +219,16 @@ void to_json( nlohmann::json& j, const message< N >& msg )
 }
 
 template < std::size_t N >
-void from_json( const nlohmann::json& j, message< N >& msg )
+void from_json( nlohmann::json const& j, message< N >& msg )
 {
         if ( j.size() > N )
                 throw std::exception{};  // TODO: fix this
 
         std::vector< std::byte > tmp;
-        for ( const std::byte b : j )
+        for ( std::byte const b : j )
                 tmp.push_back( b );
 
-        msg = message< N >{ view< const std::byte* >( tmp ) };
+        msg = message< N >{ view< std::byte const* >( tmp ) };
 }
 
 #endif

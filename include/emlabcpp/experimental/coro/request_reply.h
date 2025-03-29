@@ -23,8 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/coro/memory_promise.h"
-#include "emlabcpp/experimental/coro/owning_coroutine_handle.h"
+#include "./memory_promise.h"
+#include "./owning_coroutine_handle.h"
 
 #include <coroutine>
 #include <optional>
@@ -54,7 +54,7 @@ public:
                 {
                 }
 
-                const ReplyType& await_resume()
+                ReplyType const& await_resume()
                 {
                         // NOLINTNEXTLINE
                         return *prom_->reply;
@@ -106,18 +106,18 @@ public:
 
         request_reply() = default;
 
-        request_reply( const handle cor )
+        request_reply( handle const cor )
           : h_( cor )
         {
         }
 
-        request_reply( const request_reply& )            = delete;
-        request_reply& operator=( const request_reply& ) = delete;
+        request_reply( request_reply const& )            = delete;
+        request_reply& operator=( request_reply const& ) = delete;
 
         request_reply( request_reply&& ) noexcept            = default;
         request_reply& operator=( request_reply&& ) noexcept = default;
 
-        const RequestType* get_request()
+        RequestType const* get_request()
         {
                 if ( !h_ )
                         return nullptr;
@@ -135,7 +135,7 @@ public:
                         return false;
         }
 
-        void store_reply( const ReplyType& inpt )
+        void store_reply( ReplyType const& inpt )
         {
                 if ( h_ )
                         h_.promise().reply = inpt;

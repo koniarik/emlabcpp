@@ -22,6 +22,7 @@
 ///
 
 #include "emlabcpp/algorithm.h"
+#include "emlabcpp/match.h"
 #include "emlabcpp/protocol/message.h"
 #include "emlabcpp/protocol/sequencer.h"
 #include "emlabcpp/protocol/streams.h"
@@ -54,7 +55,7 @@ TEST( protocol_seq, basic )
         sequencer seq;
 
         seq.insert( view_n( data.begin(), 3 ) );
-        seq.get_message().match(
+        match(seq.get_message(),
             [&]( protocol::sequencer_read_request to_read ) {
                     EXPECT_EQ( *to_read, 3 );
             },
@@ -63,7 +64,7 @@ TEST( protocol_seq, basic )
             } );
 
         seq.insert( view_n( data.begin() + 3, 3 ) );
-        seq.get_message().match(
+        match(seq.get_message(),
             [&]( protocol::sequencer_read_request ) {
                     FAIL();
             },
@@ -80,7 +81,7 @@ TEST( protocol_seq, noise_at_start )
         sequencer seq;
 
         seq.insert( view_n( data.begin(), 4 ) );
-        seq.get_message().match(
+        match(seq.get_message(),
             [&]( protocol::sequencer_read_request to_read ) {
                     EXPECT_EQ( *to_read, 3 );
             },
@@ -89,7 +90,7 @@ TEST( protocol_seq, noise_at_start )
             } );
 
         seq.insert( view_n( data.begin() + 4, 3 ) );
-        seq.get_message().match(
+        match(seq.get_message(),
             [&]( protocol::sequencer_read_request ) {
                     FAIL();
             },
@@ -109,7 +110,7 @@ TEST( protocol_seq, multi_msg )
         sequencer seq;
 
         seq.insert( view_n( data.begin(), 5 ) );
-        seq.get_message().match(
+        match(seq.get_message(),
             [&]( protocol::sequencer_read_request ) {
                     FAIL();
             },
@@ -119,7 +120,7 @@ TEST( protocol_seq, multi_msg )
             } );
 
         seq.insert( view_n( data.begin() + 4, 6 ) );
-        seq.get_message().match(
+        match(seq.get_message(),
             [&]( protocol::sequencer_read_request ) {
                     FAIL();
             },

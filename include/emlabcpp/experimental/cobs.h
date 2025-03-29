@@ -21,8 +21,8 @@
 /// SOFTWARE.
 #pragma once
 
-#include "emlabcpp/algorithm.h"
-#include "emlabcpp/view.h"
+#include "../algorithm.h"
+#include "../view.h"
 
 #include <cstddef>
 
@@ -81,7 +81,7 @@ private:
 /// encoding, returns bool indicating whenever conversion succeeded and subview used for conversion
 /// from target buffer. Note that this does not store 0 at the end.
 inline std::tuple< bool, view< std::byte* > >
-encode_cobs( view< const std::byte* > source, view< std::byte* > target )
+encode_cobs( view< std::byte const* > source, view< std::byte* > target )
 {
         cobs_encoder e( target );
         for ( std::byte b : source )
@@ -120,7 +120,7 @@ struct cobs_decoder
 
         [[nodiscard]] std::optional< std::byte > iter( std::byte inpt )
         {
-                const std::optional< std::byte > b = get( inpt );
+                std::optional< std::byte > const b = get( inpt );
                 advance( inpt );
                 return b;
         }
@@ -141,13 +141,13 @@ struct cobs_decoder
 /// encoding, returns bool indicating whenever conversion succeeded and subview used for conversion
 /// from target buffer. Note that this does not expect 0 at the end.
 inline std::tuple< bool, view< std::byte* > >
-decode_cobs( view< const std::byte* > source, view< std::byte* > target )
+decode_cobs( view< std::byte const* > source, view< std::byte* > target )
 {
 
         std::byte*   target_current = target.begin();
         cobs_decoder dec( source.front() );
 
-        for ( const std::byte b : tail( source ) ) {
+        for ( std::byte const b : tail( source ) ) {
 
                 std::optional< std::byte > val = dec.iter( b );
 
@@ -173,7 +173,7 @@ struct std::iterator_traits< emlabcpp::decode_cobs_iter< Iter > >
         using value_type        = std::byte;
         using difference_type   = std::ptrdiff_t;
         using pointer           = value_type*;
-        using const_pointer     = const value_type*;
+        using const_pointer     = value_type const*;
         using reference         = value_type&;
         using iterator_category = std::input_iterator_tag;
 };
@@ -215,7 +215,7 @@ public:
                 return res;
         }
 
-        bool operator==( const decode_cobs_iter& other ) const
+        bool operator==( decode_cobs_iter const& other ) const
         {
                 return iter_ == other.iter_;
         }

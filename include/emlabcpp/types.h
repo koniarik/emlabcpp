@@ -23,8 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/concepts.h"
-#include "emlabcpp/types/base.h"
+#include "./concepts.h"
+#include "./types/base.h"
 
 #include <string>
 
@@ -75,7 +75,7 @@ struct tag
 
         static constexpr value_type value = V;
 
-        friend constexpr auto operator<=>( const tag&, const tag& ) = default;
+        friend constexpr auto operator<=>( tag const&, tag const& ) = default;
 };
 
 #ifdef EMLABCPP_USE_OSTREAM

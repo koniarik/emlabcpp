@@ -21,7 +21,7 @@
 /// SOFTWARE.
 #pragma once
 
-#include "emlabcpp/algorithm.h"
+#include "./algorithm.h"
 
 #include <cstdint>
 
@@ -84,13 +84,13 @@ private:
 };
 
 /// Compare two results for equality, uses get_state()
-constexpr bool operator==( const result& lh, const result& rh )
+constexpr bool operator==( result const& lh, result const& rh )
 {
         return lh.get_state() == rh.get_state();
 }
 
 /// Compare two results for inequality, uses get_state()
-constexpr bool operator!=( const result& lh, const result& rh )
+constexpr bool operator!=( result const& lh, result const& rh )
 {
         return !( lh == rh );
 }
@@ -101,25 +101,25 @@ concept result_native_constant = std::same_as< T, success_type > || std::same_as
 
 /// Compares result with any of the constant types
 template < result_native_constant T >
-constexpr bool operator==( const result& res, T )
+constexpr bool operator==( result const& res, T )
 {
         return res.get_state() == T::id;
 }
 
 /// Compares result with any of the constant types
-constexpr bool operator==( result_native_constant auto c, const result& res )
+constexpr bool operator==( result_native_constant auto c, result const& res )
 {
         return res == c;
 }
 
 /// Compares result for inequality with any of the constant types
-constexpr bool operator!=( const result& res, result_native_constant auto c )
+constexpr bool operator!=( result const& res, result_native_constant auto c )
 {
         return !( res == c );
 }
 
 /// Compares result for inequality with any of the constant types
-constexpr bool operator!=( result_native_constant auto c, const result& res )
+constexpr bool operator!=( result_native_constant auto c, result const& res )
 {
         return !( res == c );
 }
@@ -148,7 +148,7 @@ concept result_like = result_constant< T > || result_value< T >;
 /// Returns the worst result like state out of given arguments. Firs item given to function is used
 /// as result type, rest just has to have compatible API.
 template < result_like T, result_like... Ts >
-T worst_of( const T& item, const Ts&... other )
+T worst_of( T const& item, Ts const&... other )
 {
         return accumulate(
             std::array{ item, T{ other }... }, T{ SUCCESS }, [&]( T init, auto item ) -> T {
@@ -161,7 +161,7 @@ T worst_of( const T& item, const Ts&... other )
 /// Operator version of `worst_of`
 ///
 template < result_like T, result_like U >
-T operator&&( const T& lh, const U& rh )
+T operator&&( T const& lh, U const& rh )
 {
         if ( rh.get_state() > rh.get_state() )
                 return rh;

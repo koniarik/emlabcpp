@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/string_buffer.h"
+#include "../experimental/string_buffer.h"
 
 #include <algorithm>
 #include <array>

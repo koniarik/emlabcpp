@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/pmr/util.h"
+#include "./pmr/util.h"
 
 #include <functional>
 #include <memory>
@@ -58,7 +58,7 @@ namespace detail
                 {
                 }
 
-                explicit static_function_storage( const T& item )
+                explicit static_function_storage( T const& item )
                   : item_( item )
                 {
                 }
@@ -78,7 +78,7 @@ namespace detail
                 }
 
                 static void*
-                handle( void* const source, void* target, const static_function_operations op )
+                handle( void* const source, void* target, static_function_operations const op )
                 {
                         auto ptr = reinterpret_cast< static_function_storage* >( source );
 
@@ -122,12 +122,12 @@ public:
 
         static_function_base() = default;
 
-        explicit static_function_base( const std::nullptr_t )
+        explicit static_function_base( std::nullptr_t const )
           : static_function_base()
         {
         }
 
-        static_function_base( const static_function_base& other )
+        static_function_base( static_function_base const& other )
         {
                 *this = other;
         }
@@ -143,7 +143,7 @@ public:
                 *this = std::move( c );
         }
 
-        static_function_base& operator=( const static_function_base& other )
+        static_function_base& operator=( static_function_base const& other )
         {
                 if ( this == &other )
                         return *this;
@@ -175,7 +175,7 @@ public:
                 return *this;
         }
 
-        static_function_base& operator=( const std::nullptr_t )
+        static_function_base& operator=( std::nullptr_t const )
         {
                 clear();
                 return *this;
@@ -227,7 +227,7 @@ public:
         }
 
 private:
-        static constexpr std::size_t required_space( std::size_t size, const std::size_t align )
+        static constexpr std::size_t required_space( std::size_t size, std::size_t const align )
         {
                 if ( align > Align )
                         size += align - Align;
@@ -239,14 +239,14 @@ private:
                 if ( obj_ != nullptr ) {
                         // temporary obj required for throwing destructors
                         void*         obj  = obj_;
-                        const vtable* vtbl = vtable_;
+                        vtable const* vtbl = vtable_;
                         obj_               = nullptr;
                         vtable_            = nullptr;
                         vtbl->handle( obj, nullptr, detail::static_function_operations::DESTROY );
                 }
         }
 
-        const vtable* vtable_ = nullptr;
+        vtable const* vtable_ = nullptr;
         void*         obj_    = nullptr;
         alignas( Align ) storage_type storage_;
 };

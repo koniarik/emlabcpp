@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/geom/vec_point_base.h"
+#include "./vec_point_base.h"
 
 namespace emlabcpp
 {
@@ -34,16 +34,16 @@ class vector : public vec_point_base< vector< N >, N >
 public:
         using vec_point_base< vector, N >::vec_point_base;
 
-        constexpr vector< N >& operator+=( const vector< N >& other )
+        constexpr vector< N >& operator+=( vector< N > const& other )
         {
-                for ( const std::size_t i : range( N ) )
+                for ( std::size_t const i : range( N ) )
                         ( *this )[i] += other[i];
                 return *this;
         }
 
-        constexpr vector< N >& operator-=( const vector< N >& other )
+        constexpr vector< N >& operator-=( vector< N > const& other )
         {
-                for ( const std::size_t i : range( N ) )
+                for ( std::size_t const i : range( N ) )
                         ( *this )[i] -= other[i];
                 return *this;
         }
@@ -56,14 +56,14 @@ constexpr vector< 3 > y_axis{ 0, 1, 0 };
 constexpr vector< 3 > z_axis{ 0, 0, 1 };
 
 template < std::size_t N >
-constexpr vector< N > operator+( vector< N > lh, const vector< N >& rh )
+constexpr vector< N > operator+( vector< N > lh, vector< N > const& rh )
 {
         return lh += rh;
 }
 
 /// Calculates cross product between points A and B
 ///
-constexpr vector< 3 > cross_product( const vector< 3 >& a, const vector< 3 >& b )
+constexpr vector< 3 > cross_product( vector< 3 > const& a, vector< 3 > const& b )
 {
         return vector< 3 >{
             a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0] };
@@ -71,13 +71,13 @@ constexpr vector< 3 > cross_product( const vector< 3 >& a, const vector< 3 >& b 
 
 /// Returns a normal to a point A in two dimensions
 ///
-constexpr vector< 2 > normal_of( const vector< 2 >& a )
+constexpr vector< 2 > normal_of( vector< 2 > const& a )
 {
         return vector< 2 >{ a[1], -a[0] };
 }
 
 template < std::size_t N >
-constexpr float vector_angle( const vector< N >& a, const vector< N >& b )
+constexpr float vector_angle( vector< N > const& a, vector< N > const& b )
 {
         auto s = sqrt( length2_of( a ) * length2_of( b ) );
         return acosf( float( dot( a, b ) ) / *s );

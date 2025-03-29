@@ -21,7 +21,7 @@
 /// SOFTWARE.
 #pragma once
 
-#include "emlabcpp/zip.h"
+#include "./zip.h"
 
 namespace emlabcpp
 {

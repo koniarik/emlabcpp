@@ -23,10 +23,9 @@
 
 #pragma once
 
-#include "emlabcpp/assert.h"
-#include "emlabcpp/either.h"
-#include "emlabcpp/quantity.h"
-#include "emlabcpp/static_circular_buffer.h"
+#include "../assert.h"
+#include "../quantity.h"
+#include "../static_circular_buffer.h"
 
 #include <array>
 
@@ -57,7 +56,7 @@ public:
                 copy( std::forward< Container >( dview ), std::back_inserter( buffer_ ) );
         }
 
-        either< sequencer_read_request, message_type > get_message()
+        std::variant< sequencer_read_request, message_type > get_message()
         {
                 auto bend = buffer_.end();
                 while ( !buffer_.empty() ) {
@@ -89,7 +88,7 @@ public:
                 if ( buffer_.empty() )
                         return sequencer_read_request{ fixed_size };
 
-                const std::size_t bsize = buffer_.size();
+                std::size_t const bsize = buffer_.size();
 
                 /// This is implied by the fact that we should have full match at the start of
                 /// buffer
@@ -98,7 +97,7 @@ public:
                 if ( bsize < fixed_size )
                         return sequencer_read_request{ fixed_size - bsize };
 
-                const std::size_t desired_size = Def::get_size( buffer_ );
+                std::size_t const desired_size = Def::get_size( buffer_ );
                 if ( bsize < desired_size )
                         return sequencer_read_request{ desired_size - bsize };
 
@@ -115,7 +114,7 @@ public:
 
 template < typename Sequencer, typename ReadCallback >
 std::optional< typename Sequencer::message_type >
-sequencer_simple_load( const std::size_t read_limit, ReadCallback&& read )
+sequencer_simple_load( std::size_t const read_limit, ReadCallback&& read )
 {
         Sequencer                                         seq;
         std::optional< typename Sequencer::message_type > res;
@@ -127,7 +126,7 @@ sequencer_simple_load( const std::size_t read_limit, ReadCallback&& read )
                         return res;
                 seq.insert( *data );
                 seq.get_message().match(
-                    [&to_read, &count]( const std::size_t next_read ) {
+                    [&to_read, &count]( std::size_t const next_read ) {
                             to_read = next_read;
                             count   = 0;
                     },

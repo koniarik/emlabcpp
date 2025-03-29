@@ -23,11 +23,11 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/linked_list.h"
-#include "emlabcpp/experimental/testing/base.h"
-#include "emlabcpp/experimental/testing/coroutine.h"
-#include "emlabcpp/protocol/packet_handler.h"
-#include "emlabcpp/result.h"
+#include "../../protocol/packet_handler.h"
+#include "../../result.h"
+#include "../linked_list.h"
+#include "./base.h"
+#include "./coroutine.h"
 
 #include <span>
 
@@ -39,8 +39,8 @@ class test_interface
 public:
         test_interface() = default;
 
-        test_interface( const test_interface& )            = delete;
-        test_interface& operator=( const test_interface& ) = delete;
+        test_interface( test_interface const& )            = delete;
+        test_interface& operator=( test_interface const& ) = delete;
         test_interface( test_interface&& other )           = default;
         test_interface& operator=( test_interface&& )      = default;
 
@@ -67,13 +67,13 @@ template < valid_test_callable Callable >
 class test_callable : public test_interface
 {
 public:
-        test_callable( const std::string_view name, Callable cb )
+        test_callable( std::string_view const name, Callable cb )
           : name_( name )
           , cb_( std::move( cb ) )
         {
         }
 
-        test_callable( const std::string_view name, auto& rec, Callable cb )
+        test_callable( std::string_view const name, auto& rec, Callable cb )
           : name_( name )
           , cb_( std::move( cb ) )
         {
@@ -99,7 +99,7 @@ private:
 };
 
 template < valid_test_callable Callable >
-test_callable( const std::string_view name, Callable cb ) -> test_callable< Callable >;
+test_callable( std::string_view const name, Callable cb ) -> test_callable< Callable >;
 
 struct empty_node_impl : test_interface
 {

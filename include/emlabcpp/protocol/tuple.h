@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/protocol/traits.h"
+#include "./traits.h"
 
 namespace emlabcpp::protocol
 {
@@ -58,7 +58,7 @@ struct tuple : converter_def_type_base
         using message_type = message< max_size >;
 
         constexpr static value_type
-        make_val( const typename proto_traits< Ds >::value_type&... args )
+        make_val( typename proto_traits< Ds >::value_type const&... args )
         {
                 return value_type{ args... };
         }

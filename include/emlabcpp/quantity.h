@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/concepts.h"
+#include "./concepts.h"
 
 #include <cmath>
 #include <functional>
@@ -95,28 +95,28 @@ public:
         }
 
         /// Add other quantity of same Derived and value_type
-        constexpr Derived& operator+=( const quantity other ) noexcept
+        constexpr Derived& operator+=( quantity const other ) noexcept
         {
                 value_ += *other;
                 return impl();
         }
 
         /// Subtract other quantity of same Derived and value_type
-        constexpr Derived& operator-=( const quantity other ) noexcept
+        constexpr Derived& operator-=( quantity const other ) noexcept
         {
                 value_ -= *other;
                 return impl();
         }
 
         /// Divides quantity by it's value type
-        constexpr Derived& operator/=( const arithmetic auto val ) noexcept
+        constexpr Derived& operator/=( arithmetic auto const val ) noexcept
         {
                 value_ /= val;
                 return impl();
         }
 
         /// Multiplies quantity by it's value type
-        constexpr Derived& operator*=( const arithmetic auto val ) noexcept
+        constexpr Derived& operator*=( arithmetic auto const val ) noexcept
         {
                 value_ *= val;
                 return impl();
@@ -134,13 +134,13 @@ public:
                 return "";
         }
 
-        friend constexpr auto operator<=>( const quantity&, const quantity& ) = default;
+        friend constexpr auto operator<=>( quantity const&, quantity const& ) = default;
 };
 
 namespace detail
 {
         template < typename Derived, typename ValueType >
-        constexpr bool quantity_derived_test( const quantity< Derived, ValueType >& )
+        constexpr bool quantity_derived_test( quantity< Derived, ValueType > const& )
         {
                 return true;
         }
@@ -167,7 +167,7 @@ public:
 /// Sum of quantities with same Derived and value_type
 template < typename Derived, typename ValueType >
 constexpr Derived
-operator+( quantity< Derived, ValueType > lhs, const quantity< Derived, ValueType > rhs )
+operator+( quantity< Derived, ValueType > lhs, quantity< Derived, ValueType > const rhs )
 {
         return lhs += rhs;
 }
@@ -175,63 +175,63 @@ operator+( quantity< Derived, ValueType > lhs, const quantity< Derived, ValueTyp
 /// Subtraction of quantities with same Derived and value_type
 template < typename Derived, typename ValueType >
 constexpr Derived
-operator-( quantity< Derived, ValueType > lhs, const quantity< Derived, ValueType > rhs )
+operator-( quantity< Derived, ValueType > lhs, quantity< Derived, ValueType > const rhs )
 {
         return lhs -= rhs;
 }
 
 /// Provides negation of the quantity
 template < typename Derived, typename ValueType >
-constexpr Derived operator-( const quantity< Derived, ValueType > val )
+constexpr Derived operator-( quantity< Derived, ValueType > const val )
 {
         return Derived{ -*val };
 }
 
 /// Provides abillity to compare quantity with non-quantity arithmetic value.
 template < typename Derived, typename ValueType, arithmetic_like RhValueType >
-constexpr bool operator<( const quantity< Derived, ValueType > lhs, const RhValueType rhs )
+constexpr bool operator<( quantity< Derived, ValueType > const lhs, RhValueType const rhs )
 {
         return *lhs < rhs;
 }
 
 /// Provides abillity to compare quantity with non-quantity arithmetic value.
 template < typename Derived, typename ValueType, arithmetic_like LhValueType >
-constexpr bool operator<( const LhValueType lhs, const quantity< Derived, ValueType > rhs )
+constexpr bool operator<( LhValueType const lhs, quantity< Derived, ValueType > const rhs )
 {
         return lhs < *rhs;
 }
 
 /// Multiplication of quantity by it's value_type
 template < typename Derived, typename ValueType >
-constexpr Derived operator*( quantity< Derived, ValueType > q, const arithmetic auto val )
+constexpr Derived operator*( quantity< Derived, ValueType > q, arithmetic auto const val )
 {
         return q *= val;
 }
 
 /// Division of quantity by it's value_type
 template < typename Derived, typename ValueType >
-constexpr Derived operator/( quantity< Derived, ValueType > q, const arithmetic auto val )
+constexpr Derived operator/( quantity< Derived, ValueType > q, arithmetic auto const val )
 {
         return q /= val;
 }
 
 /// Quantity with absolute value of internal value
 template < typename Derived, typename ValueType >
-constexpr Derived abs( const quantity< Derived, ValueType > q )
+constexpr Derived abs( quantity< Derived, ValueType > const q )
 {
         return Derived( std::abs( *q ) );
 }
 
 /// Returns cosinus of the quantity as scalar
 template < typename Derived, typename ValueType >
-constexpr auto cos( const quantity< Derived, ValueType > u )
+constexpr auto cos( quantity< Derived, ValueType > const u )
 {
         return std::cos( *u );
 }
 
 /// Returns sinus of the quantity as scalar
 template < typename Derived, typename ValueType >
-constexpr auto sin( const quantity< Derived, ValueType > u )
+constexpr auto sin( quantity< Derived, ValueType > const u )
 {
         return std::sin( *u );
 }
@@ -239,7 +239,7 @@ constexpr auto sin( const quantity< Derived, ValueType > u )
 /// Quantity with maximum value of one of the quantities
 template < typename Derived, typename ValueType >
 constexpr Derived
-max( const quantity< Derived, ValueType > lh, const quantity< Derived, ValueType > rh )
+max( quantity< Derived, ValueType > const lh, quantity< Derived, ValueType > const rh )
 {
         return Derived( std::max( *lh, *rh ) );
 }
@@ -247,7 +247,7 @@ max( const quantity< Derived, ValueType > lh, const quantity< Derived, ValueType
 /// Quantity with minimum value of one of the quantities
 template < typename Derived, typename ValueType >
 constexpr Derived
-min( const quantity< Derived, ValueType > lh, const quantity< Derived, ValueType > rh )
+min( quantity< Derived, ValueType > const lh, quantity< Derived, ValueType > const rh )
 {
         return Derived( std::min( *lh, *rh ) );
 }
@@ -256,14 +256,14 @@ min( const quantity< Derived, ValueType > lh, const quantity< Derived, ValueType
 
 /// Multiplication of value_type by quantity returns quantity
 template < typename Derived, typename ValueType >
-constexpr Derived operator*( const ValueType val, const quantity< Derived, ValueType > q )
+constexpr Derived operator*( ValueType const val, quantity< Derived, ValueType > const q )
 {
         return q * val;
 }
 
 /// Division of value_type by quantity returns quantity
 template < typename Derived, typename ValueType >
-constexpr ValueType operator/( const ValueType val, const quantity< Derived, ValueType > q )
+constexpr ValueType operator/( ValueType const val, quantity< Derived, ValueType > const q )
 {
         return val / *q;
 }
@@ -309,7 +309,7 @@ struct std::hash< T >
         {
                 /// TODO: this should be rewritten
                 /// 'reverse' the prefix+unit info in bits and than xor it with number
-                const std::string unit = T::get_unit();
+                std::string const unit = T::get_unit();
                 return std::hash< typename T::value_type >()( *q ) ^
                        std::hash< std::string >()( unit );
         }
@@ -320,7 +320,7 @@ struct std::hash< T >
 template < emlabcpp::quantity_derived T >
 struct nlohmann::adl_serializer< T >
 {
-        static void to_json( nlohmann::json& j, const T q )
+        static void to_json( nlohmann::json& j, T const q )
         {
                 if ( T::get_unit().empty() )
                         j = *q;
@@ -328,7 +328,7 @@ struct nlohmann::adl_serializer< T >
                         j[T::get_unit()] = *q;
         }
 
-        static T from_json( const nlohmann::json& j )
+        static T from_json( nlohmann::json const& j )
         {
                 using value_type = typename T::value_type;
 

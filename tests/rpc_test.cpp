@@ -23,6 +23,8 @@
 
 #include "emlabcpp/experimental/rpc.h"
 
+#include "emlabcpp/match.h"
+
 #include <gtest/gtest.h>
 
 namespace emlabcpp
@@ -71,38 +73,38 @@ TEST( rpc, basic )
 
         // this is callback used to send and receive message between devices, in tests it's just
         // direct exchange
-        auto exchange_messages_f = [&]( const auto& msg ) {
+        auto exchange_messages_f = [&]( auto const& msg ) {
                 return wrap.on_message( msg );
         };
 
         using con = rpc::controller< direct_test_wrapper >;
 
-        con::call< CALL_1 >( exchange_messages_f, 42 )
-            .match(
-                [&]( int r ) {
-                        EXPECT_EQ( r, 84 );
-                },
-                [&]( auto ) {
-                        FAIL() << "got an error";
-                } );
+        match(
+            con::call< CALL_1 >( exchange_messages_f, 42 ),
+            [&]( int r ) {
+                    EXPECT_EQ( r, 84 );
+            },
+            [&]( auto ) {
+                    FAIL() << "got an error";
+            } );
 
-        con::call< CALL_2 >( exchange_messages_f, 0.4f, 666u )
-            .match(
-                [&]( std::tuple< int, int > res ) {
-                        auto [a, b] = res;
-                        EXPECT_EQ( a, 266 );
-                        EXPECT_EQ( b, 42 );
-                },
-                [&]( auto ) {
-                        FAIL() << "got an error";
-                } );
+        match(
+            con::call< CALL_2 >( exchange_messages_f, 0.4f, 666u ),
+            [&]( std::tuple< int, int > res ) {
+                    auto [a, b] = res;
+                    EXPECT_EQ( a, 266 );
+                    EXPECT_EQ( b, 42 );
+            },
+            [&]( auto ) {
+                    FAIL() << "got an error";
+            } );
 
-        con::call< CALL_3 >( exchange_messages_f, 42 )
-            .match(
-                [&]( rpc::void_return_type ) {},
-                [&]( rpc::error ) {
-                        FAIL() << "test errored";
-                } );
+        match(
+            con::call< CALL_3 >( exchange_messages_f, 42 ),
+            [&]( rpc::void_return_type ) {},
+            [&]( rpc::error ) {
+                    FAIL() << "test errored";
+            } );
 }
 
 TEST( rpc, bind )
@@ -123,38 +125,38 @@ TEST( rpc, bind )
                 f.call3_m( i );
         } );
 
-        auto exchange_messages_f = [&]( const auto& msg ) {
+        auto exchange_messages_f = [&]( auto const& msg ) {
                 return bwp.on_message( msg );
         };
 
         using con = rpc::controller< direct_test_wrapper >;
 
-        con::call< CALL_1 >( exchange_messages_f, 42 )
-            .match(
-                [&]( int r ) {
-                        EXPECT_EQ( r, 84 );
-                },
-                [&]( auto ) {
-                        FAIL() << "got an error";
-                } );
+        match(
+            con::call< CALL_1 >( exchange_messages_f, 42 ),
+            [&]( int r ) {
+                    EXPECT_EQ( r, 84 );
+            },
+            [&]( auto ) {
+                    FAIL() << "got an error";
+            } );
 
-        con::call< CALL_2 >( exchange_messages_f, 0.4f, 666u )
-            .match(
-                [&]( std::tuple< int, int > res ) {
-                        auto [a, b] = res;
-                        EXPECT_EQ( a, 266 );
-                        EXPECT_EQ( b, 42 );
-                },
-                [&]( auto ) {
-                        FAIL() << "got an error";
-                } );
+        match(
+            con::call< CALL_2 >( exchange_messages_f, 0.4f, 666u ),
+            [&]( std::tuple< int, int > res ) {
+                    auto [a, b] = res;
+                    EXPECT_EQ( a, 266 );
+                    EXPECT_EQ( b, 42 );
+            },
+            [&]( auto ) {
+                    FAIL() << "got an error";
+            } );
 
-        con::call< CALL_3 >( exchange_messages_f, 42 )
-            .match(
-                [&]( rpc::void_return_type ) {},
-                [&]( rpc::error ) {
-                        FAIL() << "errored";
-                } );
+        match(
+            con::call< CALL_3 >( exchange_messages_f, 42 ),
+            [&]( rpc::void_return_type ) {},
+            [&]( rpc::error ) {
+                    FAIL() << "errored";
+            } );
 }
 
 }  // namespace emlabcpp

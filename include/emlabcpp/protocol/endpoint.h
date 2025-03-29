@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/protocol/packet_handler.h"
+#include "./packet_handler.h"
 
 namespace emlabcpp::protocol
 {
@@ -45,7 +45,7 @@ public:
         using output_value   = typename OutputPacket::value_type;
         using input_value    = typename InputPacket::value_type;
 
-        output_message serialize( const output_value& val )
+        output_message serialize( output_value const& val )
         {
                 using handler = packet_handler< OutputPacket >;
                 return handler::serialize( val );
@@ -62,15 +62,14 @@ public:
                 using return_type = std::variant< std::size_t, input_value, error_record >;
                 using handler     = packet_handler< InputPacket >;
 
-                return seq_.get_message()
-                    .convert_left( convert_to< return_type >{} )
-                    .convert_right( []( const input_message msg ) {
-                            return handler::extract( msg )
-                                .convert_left( convert_to< return_type >{} )
-                                .convert_right( convert_to< return_type >{} )
-                                .join();
-                    } )
-                    .join();
+                return match(
+                    seq_.get_message(),
+                    []( sequencer_read_request const to_read ) -> return_type {
+                            return *to_read;
+                    },
+                    [&]( input_message const msg ) -> return_type {
+                            return match( handler::extract( msg ), convert_to< return_type >{} );
+                    } );
         }
 
 private:

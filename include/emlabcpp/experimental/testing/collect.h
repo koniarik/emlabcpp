@@ -23,12 +23,12 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/contiguous_tree/request_adapter.h"
-#include "emlabcpp/experimental/function_view.h"
-#include "emlabcpp/experimental/testing/convert.h"
-#include "emlabcpp/experimental/testing/coroutine.h"
-#include "emlabcpp/experimental/testing/protocol.h"
-#include "emlabcpp/static_function.h"
+#include "../../static_function.h"
+#include "../contiguous_tree/request_adapter.h"
+#include "../function_view.h"
+#include "./convert.h"
+#include "./coroutine.h"
+#include "./protocol.h"
 
 #include <source_location>
 
@@ -58,11 +58,11 @@ using collect_server_client_message =
     typename protocol::handler< collect_server_client_group >::message_type;
 using collect_client_server_message = typename protocol::handler< collect_request >::message_type;
 
-using collect_reply_callback = static_function< void( const collect_server_client_group& ), 32 >;
+using collect_reply_callback = static_function< void( collect_server_client_group const& ), 32 >;
 using collect_client_transmit_callback =
-    static_function< result( protocol::channel_type, const collect_client_server_message& ), 32 >;
+    static_function< result( protocol::channel_type, collect_client_server_message const& ), 32 >;
 using collect_server_transmit_callback =
-    static_function< result( protocol::channel_type, const collect_server_client_message& ), 32 >;
+    static_function< result( protocol::channel_type, collect_server_client_message const& ), 32 >;
 
 class collector;
 
@@ -74,7 +74,7 @@ public:
         coro_state      state = coro_state::WAITING;
         collector&      col;
 
-        collect_awaiter( const collect_request& req, collector& coll );
+        collect_awaiter( collect_request const& req, collector& coll );
 
         [[nodiscard]] coro_state get_state() const override
         {
@@ -105,9 +105,9 @@ class collector
 public:
         collector( protocol::channel_type chann, collect_client_transmit_callback send_cb );
 
-        collector( const collector& )            = delete;
+        collector( collector const& )            = delete;
         collector( collector&& )                 = delete;
-        collector& operator=( const collector& ) = delete;
+        collector& operator=( collector const& ) = delete;
         collector& operator=( collector&& )      = delete;
 
         [[nodiscard]] constexpr protocol::channel_type get_channel() const
@@ -115,48 +115,48 @@ public:
                 return channel_;
         }
 
-        outcome on_msg( const std::span< const std::byte >& msg );
-        outcome on_msg( const collect_server_client_group& var );
+        outcome on_msg( std::span< std::byte const > const& msg );
+        outcome on_msg( collect_server_client_group const& var );
 
         collect_awaiter
-             set( const node_id parent, std::string_view key, contiguous_container_type t );
-        bool set( const node_id parent, std::string_view key, const value_type& val );
+             set( node_id const parent, std::string_view key, contiguous_container_type t );
+        bool set( node_id const parent, std::string_view key, value_type const& val );
 
         collect_awaiter set( std::string_view key, contiguous_container_type t )
         {
                 return set( 0, key, t );
         }
 
-        bool set( std::string_view key, const value_type& val )
+        bool set( std::string_view key, value_type const& val )
         {
                 return set( 0, key, val );
         }
 
         template < typename Arg >
-        bool set( node_id parent, std::string_view key, const Arg& arg )
+        bool set( node_id parent, std::string_view key, Arg const& arg )
         {
                 return set( parent, key, value_type_converter< Arg >::to_value( arg ) );
         }
 
         template < typename Arg >
-        bool set( std::string_view key, const Arg& arg )
+        bool set( std::string_view key, Arg const& arg )
         {
                 return set( 0, key, value_type_converter< Arg >::to_value( arg ) );
         }
 
-        collect_awaiter append( const node_id parent, contiguous_container_type t );
-        bool            append( const node_id parent, const value_type& val );
+        collect_awaiter append( node_id const parent, contiguous_container_type t );
+        bool            append( node_id const parent, value_type const& val );
 
         template < typename Arg >
-        bool append( node_id parent, const Arg& arg )
+        bool append( node_id parent, Arg const& arg )
         {
                 return append( parent, value_type_converter< Arg >::to_value( arg ) );
         }
 
-        bool exchange( const collect_request& req, collect_reply_callback cb );
+        bool exchange( collect_request const& req, collect_reply_callback cb );
 
 private:
-        result send( const collect_request& req );
+        result send( collect_request const& req );
 
         protocol::channel_type           channel_;
         collect_reply_callback           reply_callback_;
@@ -187,21 +187,21 @@ public:
                 return channel_;
         }
 
-        outcome on_msg( std::span< const std::byte > data );
-        outcome on_msg( const collect_request& req );
+        outcome on_msg( std::span< std::byte const > data );
+        outcome on_msg( collect_request const& req );
 
         void clear()
         {
                 tree_.clear();
         }
 
-        [[nodiscard]] const data_tree& get_tree() const
+        [[nodiscard]] data_tree const& get_tree() const
         {
                 return tree_;
         }
 
 private:
-        result send( const collect_server_client_group& val );
+        result send( collect_server_client_group const& val );
 
         protocol::channel_type           channel_;
         data_tree                        tree_;

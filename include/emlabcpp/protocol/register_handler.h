@@ -23,8 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/either.h"
-#include "emlabcpp/protocol/converter.h"
+#include "./converter.h"
 
 namespace emlabcpp::protocol
 {
@@ -56,27 +55,27 @@ struct register_handler
 
                 message_type res( max_size );
                 static_assert( def::size_type::max_val <= max_size );
-                const bounded used = def::serialize_at(
+                bounded const used = def::serialize_at(
                     std::span< std::byte, def::size_type::max_val >( res ), val );
                 res.resize( *used );
                 return res;
         }
 
         // TODO: what happens if the key is bad?
-        static message_type select( const map_type& m, key_type key )
+        static message_type select( map_type const& m, key_type key )
         {
-                return m.with_register( key, [&]< typename RegType >( const RegType& reg ) {
+                return m.with_register( key, [&]< typename RegType >( RegType const& reg ) {
                         return serialize< RegType::key >( reg.value );
                 } );
         }
 
         template < key_type Key >
-        static either< reg_value_type< Key >, error_record >
-        extract( const view< const std::byte* >& msg )
+        static std::variant< reg_value_type< Key >, error_record >
+        extract( view< std::byte const* > const& msg )
         {
                 using def = converter_for< reg_def_type< Key >, Map::endianess >;
 
-                auto opt_view = bounded_view< const std::byte*, typename def::size_type >::make(
+                auto opt_view = bounded_view< std::byte const*, typename def::size_type >::make(
                     view_n( msg.begin(), std::min( def::max_size, msg.size() ) ) );
                 if ( !opt_view )
                         return error_record{ SIZE_ERR, 0 };
@@ -88,15 +87,15 @@ struct register_handler
         }
 
         static std::optional< error_record >
-        insert( map_type& m, key_type key, const view< const std::byte* >& buff )
+        insert( map_type& m, key_type key, view< std::byte const* > const& buff )
         {
                 std::optional< error_record > res;
                 m.with_register( key, [&]< typename RegType >( RegType& reg ) {
                         extract< RegType::key >( buff ).match(
-                            [&]( const auto& val ) {
+                            [&]( auto const& val ) {
                                     reg.value = val;
                             },
-                            [&]( const auto& err ) {
+                            [&]( auto const& err ) {
                                     res = err;
                             } );
                 } );

@@ -23,8 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/pmr/memory_resource.h"
-#include "emlabcpp/pmr/util.h"
+#include "./memory_resource.h"
+#include "./util.h"
 
 #include <array>
 #include <cstring>
@@ -51,17 +51,17 @@ public:
                 set_node( top_, nullptr, nullptr );
         }
 
-        stack_resource( const stack_resource& )            = delete;
+        stack_resource( stack_resource const& )            = delete;
         stack_resource( stack_resource&& )                 = delete;
-        stack_resource& operator=( const stack_resource& ) = delete;
+        stack_resource& operator=( stack_resource const& ) = delete;
         stack_resource& operator=( stack_resource&& )      = delete;
 
         [[nodiscard]] void*
-        allocate( const std::size_t bytes, const std::size_t alignment ) override
+        allocate( std::size_t const bytes, std::size_t const alignment ) override
         {
 
                 std::byte* prev_ptr  = top_;
-                const node prev_node = get_node( prev_ptr );
+                node const prev_node = get_node( prev_ptr );
 
                 auto* const p = reinterpret_cast< std::byte* >( align( top_, alignment ) );
 
@@ -79,7 +79,7 @@ public:
         }
 
         [[nodiscard]] result
-        deallocate( void* const ptr, const std::size_t bytes, const std::size_t ) override
+        deallocate( void* const ptr, std::size_t const bytes, std::size_t const ) override
         {
                 std::byte* node_ptr = reinterpret_cast< std::byte* >( ptr ) + bytes + node_size;
                 auto [prev_ptr, next_ptr] = get_node( node_ptr );
@@ -97,7 +97,7 @@ public:
                 return SUCCESS;
         }
 
-        [[nodiscard]] bool is_equal( const pmr::memory_resource& other ) const noexcept override
+        [[nodiscard]] bool is_equal( pmr::memory_resource const& other ) const noexcept override
         {
                 return this == &other;
         }

@@ -23,9 +23,9 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/geom/vec_point_base.h"
-#include "emlabcpp/experimental/geom/vector.h"
-#include "emlabcpp/range.h"
+#include "../../range.h"
+#include "./vec_point_base.h"
+#include "./vector.h"
 
 namespace emlabcpp
 {
@@ -38,18 +38,18 @@ public:
         using vec_point_base< point, N >::vec_point_base;
 
         /// += operator adds value of 'i'th coordinate from 'other' to 'this', for all 0 <= i < N
-        constexpr point< N >& operator+=( const vector< N >& other )
+        constexpr point< N >& operator+=( vector< N > const& other )
         {
-                for ( const std::size_t i : range( N ) )
+                for ( std::size_t const i : range( N ) )
                         ( *this )[i] += other[i];
                 return *this;
         }
 
         /// -= operator subtracts value of 'i'th coordinate of 'other' from 'this', for all 0 <= i <
         /// N
-        constexpr point< N >& operator-=( const vector< N >& other )
+        constexpr point< N >& operator-=( vector< N > const& other )
         {
-                for ( const std::size_t i : range( N ) )
+                for ( std::size_t const i : range( N ) )
                         ( *this )[i] -= other[i];
                 return *this;
         }
@@ -58,22 +58,22 @@ public:
 };
 
 template < std::size_t N >
-constexpr point< N > point_cast( const vector< N >& v )
+constexpr point< N > point_cast( vector< N > const& v )
 {
         return point< N >{ *v };
 }
 
 template < std::size_t N >
-constexpr vector< N > vector_cast( const point< N >& p )
+constexpr vector< N > vector_cast( point< N > const& p )
 {
         return vector< N >{ *p };
 }
 
 /// Multiplication of points multiplies each coordinate of A by coordinate of B on same dimension
 template < std::size_t N >
-[[deprecated]] constexpr point< N > operator*( point< N > a, const point< N >& b )
+[[deprecated]] constexpr point< N > operator*( point< N > a, point< N > const& b )
 {
-        for ( const std::size_t i : range( N ) )
+        for ( std::size_t const i : range( N ) )
                 a[i] *= b[i];
         return a;
 }
@@ -81,7 +81,7 @@ template < std::size_t N >
 /// Returns a result of subtraction of A from B, viz -= operator
 ///
 template < std::size_t N >
-constexpr vector< N > operator-( point< N > a, const point< N >& b )
+constexpr vector< N > operator-( point< N > a, point< N > const& b )
 {
         a -= vector_cast( b );
         return vector< N >{ *a };
@@ -90,7 +90,7 @@ constexpr vector< N > operator-( point< N > a, const point< N >& b )
 /// Returns a result of addition a to b, viz += operator
 ///
 template < std::size_t N >
-constexpr point< N > operator+( point< N > a, const vector< N >& b )
+constexpr point< N > operator+( point< N > a, vector< N > const& b )
 {
         a += b;
         return a;
@@ -99,7 +99,7 @@ constexpr point< N > operator+( point< N > a, const vector< N >& b )
 /// Returns a result of subtraction a to b, viz += operator
 ///
 template < std::size_t N >
-constexpr point< N > operator-( point< N > a, const vector< N >& b )
+constexpr point< N > operator-( point< N > a, vector< N > const& b )
 {
         a -= b;
         return a;
@@ -108,7 +108,7 @@ constexpr point< N > operator-( point< N > a, const vector< N >& b )
 /// Returns euclidian distance of point A from point B
 ///
 template < std::size_t N >
-constexpr float distance_of( const point< N >& a, const point< N >& b )
+constexpr float distance_of( point< N > const& a, point< N > const& b )
 {
         auto tmp = sum( range( N ), [&]( std::size_t i ) {
                 return std::pow( a[i] - b[i], 2 );
@@ -117,24 +117,24 @@ constexpr float distance_of( const point< N >& a, const point< N >& b )
 }
 
 template < std::size_t N >
-constexpr float point_angle( const point< N >& a, const point< N >& b )
+constexpr float point_angle( point< N > const& a, point< N > const& b )
 {
         return vector_angle( vector_cast( a ), vector_cast( b ) );
 }
 
 template < std::size_t N >
 inline std::vector< point< N > >
-lineary_interpolate_path( const std::vector< point< N > >& ipath, float d_step )
+lineary_interpolate_path( std::vector< point< N > > const& ipath, float d_step )
 {
         std::vector< point< N > > res;
         if ( ipath.empty() )
                 return res;
         for ( std::size_t i : range( ipath.size() - 1 ) ) {
-                const point< N >& from = ipath[i];
-                const point< N >& to   = ipath[i + 1];
+                point< N > const& from = ipath[i];
+                point< N > const& to   = ipath[i + 1];
 
-                const std::size_t seg_steps = std::size_t{ distance_of( from, to ) / d_step };
-                for ( const std::size_t j : range( seg_steps ) )
+                std::size_t const seg_steps = std::size_t{ distance_of( from, to ) / d_step };
+                for ( std::size_t const j : range( seg_steps ) )
                         res.push_back( lin_interp( from, to, float( j ) / float( seg_steps ) ) );
         }
         res.push_back( ipath.back() );
@@ -146,7 +146,7 @@ lineary_interpolate_path( const std::vector< point< N > >& ipath, float d_step )
 /// coordinate is returned.
 ///
 template < std::size_t N >
-constexpr float axis_projection_distance( const point< N >& a, const vector< N >& axis_direction )
+constexpr float axis_projection_distance( point< N > const& a, vector< N > const& axis_direction )
 {
         return float( dot( vector_cast( a ), axis_direction ) );
 }

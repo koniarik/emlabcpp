@@ -23,10 +23,10 @@
 
 #pragma once
 
-#include "emlabcpp/algorithm.h"
-#include "emlabcpp/experimental/contiguous_tree/tree.h"
-#include "emlabcpp/experimental/string_buffer.h"
-#include "emlabcpp/static_function.h"
+#include "../../algorithm.h"
+#include "../../static_function.h"
+#include "../contiguous_tree/tree.h"
+#include "../string_buffer.h"
 
 #include <algorithm>
 #include <map>
@@ -79,7 +79,7 @@ struct test_result
 
         test_result() = default;
 
-        test_result( const test_id ttid, const run_id trid )
+        test_result( test_id const ttid, run_id const trid )
           : tid( ttid )
           , rid( trid )
         {

@@ -23,7 +23,7 @@
 
 #pragma once
 
-#include "emlabcpp/concepts.h"
+#include "../concepts.h"
 
 namespace emlabcpp
 {
@@ -38,9 +38,9 @@ public:
         using signature = ReturnType( ArgTypes... );
 
         function_view( function_view& )                      = default;
-        function_view( const function_view& )                = default;
+        function_view( function_view const& )                = default;
         function_view( function_view&& ) noexcept            = default;
-        function_view& operator=( const function_view& )     = default;
+        function_view& operator=( function_view const& )     = default;
         function_view& operator=( function_view&& ) noexcept = default;
 
         function_view( signature* fun )

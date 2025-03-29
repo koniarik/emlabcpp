@@ -21,6 +21,7 @@
 /// SOFTWARE.
 ///
 
+#include "emlabcpp/match.h"
 #include "emlabcpp/protocol/register_handler.h"
 #include "emlabcpp/protocol/register_map.h"
 #include "emlabcpp/protocol/streams.h"
@@ -75,20 +76,20 @@ struct valid_test_case : protocol_test_fixture
                 test_map m;
 
                 std::array< std::byte, max_size > buffer;
-                const bounded                     used = pitem::serialize_at(
+                bounded const                     used = pitem::serialize_at(
                     std::span< std::byte, pitem::max_size >( buffer.begin(), pitem::max_size ),
                     val );
-                const message_type source_msg( view_n( buffer.begin(), *used ) );
-                test_handler::extract< Key >( source_msg )
-                    .match(
-                        [&]( auto val ) {
-                                m.set_val< Key >( val );
-                        },
-                        [&]( auto err ) {
-                                FAIL() << err;
-                        } );
+                message_type const source_msg( view_n( buffer.begin(), *used ) );
+                match(
+                    test_handler::extract< Key >( source_msg ),
+                    [&]( protocol::error_record const& err ) {
+                            FAIL() << err;
+                    },
+                    [&]( auto val ) {
+                            m.set_val< Key >( val );
+                    } );
 
-                const value_type stored = m.get_val< Key >();
+                value_type const stored = m.get_val< Key >();
 
                 EXPECT_EQ( val, stored );
 
@@ -129,7 +130,7 @@ TEST( protocol_map, runtime_access )
 void protocol_register_map_tests()
 {
 
-        const std::vector< std::function< protocol_test_fixture*() > > tests = {
+        std::vector< std::function< protocol_test_fixture*() > > const tests = {
             make_valid_test_case< FOO >( 6663434u ),
             make_valid_test_case< WOO >( 6663434u ),
             make_valid_test_case< TOO >( 42u ),

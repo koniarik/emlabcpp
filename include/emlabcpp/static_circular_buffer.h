@@ -23,8 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/iterator.h"
-#include "emlabcpp/static_storage.h"
+#include "./iterator.h"
+#include "./static_storage.h"
 
 namespace emlabcpp
 {
@@ -57,16 +57,16 @@ public:
         using value_type      = T;
         using size_type       = std::size_t;
         using reference       = T&;
-        using const_reference = const T&;
+        using const_reference = T const&;
         using iterator        = static_circular_buffer_iterator< static_circular_buffer< T, N > >;
         using const_iterator =
-            static_circular_buffer_iterator< const static_circular_buffer< T, N > >;
+            static_circular_buffer_iterator< static_circular_buffer< T, N > const >;
 
         /// public methods
         /// --------------------------------------------------------------------------------
         static_circular_buffer() = default;
 
-        static_circular_buffer( const static_circular_buffer& other )
+        static_circular_buffer( static_circular_buffer const& other )
         {
                 copy_from( other );
         }
@@ -77,7 +77,7 @@ public:
                 other.clear();
         }
 
-        static_circular_buffer& operator=( const static_circular_buffer& other )
+        static_circular_buffer& operator=( static_circular_buffer const& other )
         {
                 if ( this == &other )
                         return *this;
@@ -215,12 +215,12 @@ public:
                 return next( to_ ) == from_;
         }
 
-        const_reference operator[]( const size_type i ) const
+        const_reference operator[]( size_type const i ) const
         {
                 return storage_[( from_ + i ) % real_size];
         }
 
-        reference operator[]( const size_type i )
+        reference operator[]( size_type const i )
         {
                 return storage_[( from_ + i ) % real_size];
         }
@@ -257,7 +257,7 @@ private:
                         pop_front();
         }
 
-        void copy_from( const static_circular_buffer& other )
+        void copy_from( static_circular_buffer const& other )
         {
                 to_ = other.size();
                 std::uninitialized_copy( other.begin(), other.end(), storage_.data() );
@@ -270,12 +270,12 @@ private:
         }
 
         /// Use this only when moving the indexes in the circular buffer - bullet-proof.
-        [[nodiscard]] constexpr auto next( const size_type i ) const
+        [[nodiscard]] constexpr auto next( size_type const i ) const
         {
                 return ( i + 1 ) % real_size;
         }
 
-        [[nodiscard]] constexpr auto prev( const size_type i ) const
+        [[nodiscard]] constexpr auto prev( size_type const i ) const
         {
                 return i == 0 ? real_size - 1 : i - 1;
         }
@@ -286,14 +286,14 @@ private:
 
 template < typename T, std::size_t N >
 [[nodiscard]] auto
-operator<=>( const static_circular_buffer< T, N >& lh, const static_circular_buffer< T, N >& rh )
+operator<=>( static_circular_buffer< T, N > const& lh, static_circular_buffer< T, N > const& rh )
 {
         return std::lexicographical_compare_three_way( lh.begin(), lh.end(), rh.begin(), rh.end() );
 }
 
 template < typename T, std::size_t N >
 [[nodiscard]] bool
-operator==( const static_circular_buffer< T, N >& lh, const static_circular_buffer< T, N >& rh )
+operator==( static_circular_buffer< T, N > const& lh, static_circular_buffer< T, N > const& rh )
 {
         auto size = lh.size();
         if ( size != rh.size() )
@@ -307,7 +307,7 @@ operator==( const static_circular_buffer< T, N >& lh, const static_circular_buff
 
 template < typename T, std::size_t N >
 [[nodiscard]] bool
-operator!=( const static_circular_buffer< T, N >& lh, const static_circular_buffer< T, N >& rh )
+operator!=( static_circular_buffer< T, N > const& lh, static_circular_buffer< T, N > const& rh )
 {
         return !( lh == rh );
 }
@@ -315,7 +315,7 @@ operator!=( const static_circular_buffer< T, N >& lh, const static_circular_buff
 #ifdef EMLABCPP_USE_OSTREAM
 /// Output operator for the view, uses comma to separate the items in the view.
 template < typename T, std::size_t N >
-std::ostream& operator<<( std::ostream& os, const static_circular_buffer< T, N >& cb )
+std::ostream& operator<<( std::ostream& os, static_circular_buffer< T, N > const& cb )
 {
         return os << view{ cb };
 }
@@ -329,7 +329,7 @@ struct std::iterator_traits< emlabcpp::static_circular_buffer_iterator< Containe
         using value_type        = typename Container::value_type;
         using difference_type   = std::make_signed_t< std::size_t >;
         using pointer           = value_type*;
-        using const_pointer     = const value_type*;
+        using const_pointer     = value_type const*;
         using reference         = value_type&;
         using iterator_category = std::random_access_iterator_tag;
 };
@@ -345,8 +345,8 @@ public:
         static constexpr bool        is_const  = std::is_const_v< Container >;
         static constexpr std::size_t real_size = Container::real_size;
         using value_type                       = typename Container::value_type;
-        using reference       = std::conditional_t< is_const, const value_type&, value_type& >;
-        using const_reference = const value_type&;
+        using reference       = std::conditional_t< is_const, value_type const&, value_type& >;
+        using const_reference = value_type const&;
         using difference_type = typename std::iterator_traits<
             static_circular_buffer_iterator< Container > >::difference_type;
 
@@ -356,12 +356,12 @@ public:
         {
         }
 
-        static_circular_buffer_iterator( const static_circular_buffer_iterator& ) noexcept =
+        static_circular_buffer_iterator( static_circular_buffer_iterator const& ) noexcept =
             default;
         static_circular_buffer_iterator( static_circular_buffer_iterator&& ) noexcept = default;
 
         static_circular_buffer_iterator&
-        operator=( const static_circular_buffer_iterator& ) noexcept = default;
+        operator=( static_circular_buffer_iterator const& ) noexcept = default;
         static_circular_buffer_iterator&
         operator=( static_circular_buffer_iterator&& ) noexcept = default;
 
@@ -389,17 +389,17 @@ public:
                 return *this;
         }
 
-        auto operator<=>( const static_circular_buffer_iterator& other ) const noexcept
+        auto operator<=>( static_circular_buffer_iterator const& other ) const noexcept
         {
                 return i_ <=> other.i_;
         }
 
-        bool operator==( const static_circular_buffer_iterator& other ) const noexcept
+        bool operator==( static_circular_buffer_iterator const& other ) const noexcept
         {
                 return i_ == other.i_;
         }
 
-        difference_type operator-( const static_circular_buffer_iterator& other ) const noexcept
+        difference_type operator-( static_circular_buffer_iterator const& other ) const noexcept
         {
                 std::size_t i = i_;
                 if ( i < cont_.get().from_ )

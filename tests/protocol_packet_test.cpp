@@ -21,6 +21,7 @@
 /// SOFTWARE.
 ///
 
+#include "emlabcpp/match.h"
 #include "emlabcpp/protocol/packet.h"
 #include "emlabcpp/protocol/packet_handler.h"
 #include "emlabcpp/protocol/streams.h"
@@ -58,7 +59,7 @@ TEST( Packet, simple )
         EXPECT_EQ( msg, res ) << "msg: " << msg << "\n"
                               << "res: " << res;
 
-        handler::extract( msg ).match(
+        match(handler::extract( msg ),
             [&]( std::tuple< uint32_t, uint8_t, uint8_t > pack ) {
                     EXPECT_EQ( pack, val );
             },
@@ -77,7 +78,7 @@ TEST( Packet, seq )
         seq test_seq{};
 
         test_seq.insert( msg );
-        test_seq.get_message().match(
+        match(test_seq.get_message(),
             [&]( protocol::sequencer_read_request ) {
                     FAIL();
             },

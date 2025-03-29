@@ -23,8 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/algorithm.h"
-#include "emlabcpp/quantity.h"
+#include "./algorithm.h"
+#include "./quantity.h"
 
 #include <string>
 

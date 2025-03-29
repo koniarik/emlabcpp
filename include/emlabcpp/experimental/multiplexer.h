@@ -23,11 +23,11 @@
 
 #pragma once
 
-#include "emlabcpp/outcome.h"
-#include "emlabcpp/protocol/endpoint.h"
-#include "emlabcpp/protocol/handler.h"
-#include "emlabcpp/protocol/tuple.h"
-#include "emlabcpp/static_vector.h"
+#include "../outcome.h"
+#include "../protocol/endpoint.h"
+#include "../protocol/handler.h"
+#include "../protocol/tuple.h"
+#include "../static_vector.h"
 
 namespace emlabcpp::protocol
 {
@@ -61,7 +61,7 @@ using multiplexer_service_msg      = typename handler< multiplexer_service_proto
 
 inline std::tuple< bool, std::span< std::byte > > serialize_multiplexed(
     channel_type                 channel,
-    std::span< const std::byte > data,
+    std::span< std::byte const > data,
     std::span< std::byte >       target )
 {
         using chan_ser = protocol::serializer< channel_type, std::endian::little >;
@@ -75,14 +75,14 @@ inline std::tuple< bool, std::span< std::byte > > serialize_multiplexed(
 }
 
 template < std::size_t N >
-multiplexer_message< N > serialize_multiplexed( channel_type channel, const message< N >& m )
+multiplexer_message< N > serialize_multiplexed( channel_type channel, message< N > const& m )
 {
         return multiplexer_handler< N >::serialize(
             std::make_tuple( channel, sizeless_message< N >( m ) ) );
 }
 
 template < typename BinaryCallable >
-outcome extract_multiplexed( const std::span< const std::byte >& msg, BinaryCallable handle_cb )
+outcome extract_multiplexed( std::span< std::byte const > const& msg, BinaryCallable handle_cb )
 {
         using chan_ser = protocol::serializer< channel_type, std::endian::little >;
         if ( msg.size() < chan_ser::max_size )
@@ -94,13 +94,13 @@ outcome extract_multiplexed( const std::span< const std::byte >& msg, BinaryCall
 }
 
 template < typename T >
-concept slot = requires( T s, std::span< const std::byte > data ) {
+concept slot = requires( T s, std::span< std::byte const > data ) {
         { s.get_channel() } -> std::convertible_to< channel_type >;
         { s.on_msg( data ) } -> std::convertible_to< outcome >;
 };
 
 template < slot... Slotted >
-outcome multiplexed_dispatch( channel_type chann, const auto& data, Slotted&... slotted )
+outcome multiplexed_dispatch( channel_type chann, auto const& data, Slotted&... slotted )
 {
         outcome res = SUCCESS;
 
@@ -126,13 +126,13 @@ public:
         // TODO: !!! use "has_static_size" concept!
         // TODO: maybe message_like concept?
         template < std::size_t N >
-        message_type serialize( channel_type chann, const message< N >& msg )
+        message_type serialize( channel_type chann, message< N > const& msg )
         {
                 return ep.serialize( std::make_tuple( chann, payload_message{ msg } ) );
         }
 
         template < std::size_t N >
-        message_type serialize( channel_type chann, const sizeless_message< N >& msg )
+        message_type serialize( channel_type chann, sizeless_message< N > const& msg )
         {
                 return ep.serialize( std::make_tuple( chann, payload_message{ msg } ) );
         }
@@ -155,7 +155,7 @@ public:
                 return match(
                     ep.get_value(),
                     std::forward< NextCallable >( nc ),
-                    [&vc]( const std::tuple< channel_type, payload_message >& payload ) {
+                    [&vc]( std::tuple< channel_type, payload_message > const& payload ) {
                             return std::apply( std::forward< ValueCallable >( vc ), payload );
                     },
                     std::forward< ErrorCallable >( ec ) );
@@ -166,14 +166,14 @@ public:
         {
                 return match(
                     ep.get_value(),
-                    []( const std::size_t ) -> outcome {
+                    []( std::size_t const ) -> outcome {
                             return SUCCESS;
                     },
-                    [&slotted...]( const std::tuple< channel_type, payload_message >& payload ) {
-                            const auto& [id, data] = payload;
+                    [&slotted...]( std::tuple< channel_type, payload_message > const& payload ) {
+                            auto const& [id, data] = payload;
                             return multiplexed_dispatch( id, data, slotted... );
                     },
-                    []( const error_record& ) -> outcome {
+                    []( error_record const& ) -> outcome {
                             return ERROR;
                     } );
         }

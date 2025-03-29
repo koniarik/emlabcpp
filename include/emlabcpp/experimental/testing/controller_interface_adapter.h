@@ -23,8 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/testing/controller_interface.h"
-#include "emlabcpp/static_function.h"
+#include "../../static_function.h"
+#include "./controller_interface.h"
 
 namespace emlabcpp::testing
 {
@@ -34,12 +34,12 @@ class controller_interface_adapter
         protocol::channel_type channel_;
         controller_interface&  iface_;
 
-        static_function< bool( const reactor_controller_variant& ), 32 > reply_cb_;
+        static_function< bool( reactor_controller_variant const& ), 32 > reply_cb_;
         controller_transmit_callback                                     send_cb_;
 
 public:
         explicit controller_interface_adapter(
-            const protocol::channel_type channel,
+            protocol::channel_type const channel,
             controller_interface&        iface,
             controller_transmit_callback send_cb )
           : channel_( channel )
@@ -48,10 +48,10 @@ public:
         {
         }
 
-        result send( const controller_reactor_variant& var )
+        result send( controller_reactor_variant const& var )
         {
                 using h        = protocol::handler< controller_reactor_group >;
-                const auto msg = h::serialize( var );
+                auto const msg = h::serialize( var );
                 return send_cb_( channel_, msg );
         }
 
@@ -65,19 +65,19 @@ public:
                 return iface_;
         }
 
-        void set_reply_cb( static_function< bool( const reactor_controller_variant& ), 32 > cb )
+        void set_reply_cb( static_function< bool( reactor_controller_variant const& ), 32 > cb )
         {
                 reply_cb_ = std::move( cb );
         }
 
-        bool on_msg_with_cb( const reactor_controller_variant& var )
+        bool on_msg_with_cb( reactor_controller_variant const& var )
         {
                 if ( !reply_cb_ )
                         return false;
                 return reply_cb_( var );
         }
 
-        void report_error( const error_variant& var )
+        void report_error( error_variant const& var )
         {
                 iface_.on_error( var );
         }

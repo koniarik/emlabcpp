@@ -23,8 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/experimental/testing/error.h"
-#include "emlabcpp/experimental/testing/protocol.h"
+#include "./error.h"
+#include "./protocol.h"
 
 namespace emlabcpp::testing
 {
@@ -32,8 +32,8 @@ namespace emlabcpp::testing
 class controller_interface
 {
 public:
-        virtual void on_result( const test_result& )  = 0;
-        virtual void on_error( const error_variant& ) = 0;
+        virtual void on_result( test_result const& )  = 0;
+        virtual void on_error( error_variant const& ) = 0;
 
         virtual ~controller_interface() = default;
 };

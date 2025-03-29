@@ -23,8 +23,8 @@
 
 #pragma once
 
-#include "emlabcpp/bounded.h"
-#include "emlabcpp/protocol/error.h"
+#include "../bounded.h"
+#include "./error.h"
 
 #include <bit>
 #include <bitset>
@@ -39,16 +39,16 @@ struct conversion_result
 {
 
         std::size_t used  = 0;
-        const mark* error = nullptr;
+        mark const* error = nullptr;
 
         constexpr conversion_result() = default;
 
-        explicit constexpr conversion_result( const std::size_t u )
+        explicit constexpr conversion_result( std::size_t const u )
           : used( u )
         {
         }
 
-        constexpr conversion_result( const std::size_t u, const mark* const m )
+        constexpr conversion_result( std::size_t const u, mark const* const m )
           : used( u )
           , error( m )
         {
@@ -59,7 +59,7 @@ struct conversion_result
                 return error != nullptr;
         }
 
-        [[nodiscard]] constexpr const mark* get_error() const
+        [[nodiscard]] constexpr mark const* get_error() const
         {
                 return error;
         }

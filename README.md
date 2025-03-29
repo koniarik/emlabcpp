@@ -15,7 +15,6 @@ More details in [Documentation](https://koniarik.github.io/emlabcpp/index.html)
     - [bounded.h](#boundedh)
     - [concepts.h](#conceptsh)
     - [defer.h](#deferh)
-    - [either.h](#eitherh)
     - [enum.h](#enumh)
     - [iterator.h](#iteratorh)
     - [match.h](#matchh)
@@ -112,38 +111,6 @@ void exec_job(){
 }
 ```
 This enforces that "finished" message is send after the `exec_job` call finishes.
-
-### either.h
-
-`either<A,B>` is `std::variant` alternative able to hold only two types.
-Either however contains multiple methods to transform it's state and type.
-This makes it possible to chain the changes in the code.
-
-```cpp
-using error = std::string;
-
-either<U, error> fuu();
-
-either<T, error> foo(int i)
-{
-    return fuu()
-        .convert_left([&](U val) -> T{
-            T res{val};
-            T.do_magic(i);
-            return res;
-        })
-        .convert_right([&](error e){
-            return "Magic was not done :(, sub error is: " + e;
-        });
-}
-
-foo(42).match(
-    [&](T val){
-        std::cout << "T happend\o/: " << val << "\n";
-    },[&](error e){
-        std::cerr << "error happend :(: " << e << "\n";
-    })
-```
 
 ### enum.h
 
