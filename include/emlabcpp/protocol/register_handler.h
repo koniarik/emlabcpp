@@ -91,12 +91,13 @@ struct register_handler
         {
                 std::optional< error_record > res;
                 m.with_register( key, [&]< typename RegType >( RegType& reg ) {
-                        extract< RegType::key >( buff ).match(
+                        match(
+                            extract< RegType::key >( buff ),
+                            [&]( error_record const& err ) {
+                                    res = err;
+                            },
                             [&]( auto const& val ) {
                                     reg.value = val;
-                            },
-                            [&]( auto const& err ) {
-                                    res = err;
                             } );
                 } );
                 return res;
