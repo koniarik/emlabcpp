@@ -48,22 +48,22 @@ struct outcome : status< outcome, outcome_e, outcome_e::SUCCESS >
         using enum outcome_e;
         using status::status;
 
-        outcome( result const r ) noexcept
+        constexpr outcome( result const r ) noexcept
           : status( r == result::SUCCESS ? outcome_e::SUCCESS : outcome_e::ERROR )
         {
         }
 
-        outcome( success_type ) noexcept
+        constexpr outcome( success_type ) noexcept
           : outcome( SUCCESS )
         {
         }
 
-        outcome( error_type ) noexcept
+        constexpr outcome( error_type ) noexcept
           : outcome( ERROR )
         {
         }
 
-        outcome( failure_type ) noexcept
+        constexpr outcome( failure_type ) noexcept
           : outcome( FAILURE )
         {
         }

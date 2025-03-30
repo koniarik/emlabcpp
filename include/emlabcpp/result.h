@@ -42,12 +42,12 @@ struct result : status< result, result_e, result_e::SUCCESS >
         using enum result_e;
         using status::status;
 
-        result( success_type ) noexcept
+        constexpr result( success_type ) noexcept
           : result( SUCCESS )
         {
         }
 
-        result( error_type ) noexcept
+        constexpr result( error_type ) noexcept
           : result( ERROR )
         {
         }
