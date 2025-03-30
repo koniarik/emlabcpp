@@ -50,11 +50,11 @@ TEST( testing_combined, base )
 {
         testing::controller* con_ptr;
         testing::reactor*    reac_ptr;
-        auto                 reactor_send_f = [&]( auto, auto const& data ) {
-                return con_ptr->on_msg( data ) == SUCCESS ? result( SUCCESS ) : ERROR;
+        auto                 reactor_send_f = [&]( auto, auto const& data ) -> result {
+                return con_ptr->on_msg( data );
         };
-        auto contr_send_f = [&]( auto, auto const& data ) {
-                return reac_ptr->on_msg( data ) == SUCCESS ? result( SUCCESS ) : ERROR;
+        auto contr_send_f = [&]( auto, auto const& data ) -> result {
+                return reac_ptr->on_msg( data );
         };
 
         testing::reactor reac{ 0, "reac", reactor_send_f };
@@ -130,9 +130,7 @@ struct host_items
         result on_msg( std::span< std::byte const > const data )
         {
                 ep.insert( data );
-                return ep.dispatch_value( cont, col_serv, param_serv ) == SUCCESS ?
-                           result( SUCCESS ) :
-                           ERROR;
+                return ep.dispatch_value( cont, col_serv, param_serv );
         }
 };
 
@@ -160,8 +158,7 @@ struct dev_items
         result on_msg( std::span< std::byte const > const data )
         {
                 ep.insert( data );
-                return ep.dispatch_value( reac, coll, params ) == SUCCESS ? result( SUCCESS ) :
-                                                                            ERROR;
+                return ep.dispatch_value( reac, coll, params );
         }
 };
 

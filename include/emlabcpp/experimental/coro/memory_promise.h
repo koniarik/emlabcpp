@@ -68,7 +68,7 @@ struct memory_promise
                 p--;
 
                 result const res = ( *p )->deallocate( p, size + ptr_size, alignof( PromiseType ) );
-                if ( res == ERROR )
+                if ( res == result::ERROR )
                         pmr::throw_bad_alloc();
         }
 };

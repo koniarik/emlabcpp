@@ -94,7 +94,7 @@ public:
                         set_node( next_ptr, prev_ptr, next_next_ptr );
                 }
 
-                return SUCCESS;
+                return result::SUCCESS;
         }
 
         [[nodiscard]] bool is_equal( pmr::memory_resource const& other ) const noexcept override

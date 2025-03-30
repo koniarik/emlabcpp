@@ -41,7 +41,7 @@ struct [[nodiscard]] status
         constexpr status& operator=( status const& ) noexcept = default;
         constexpr status& operator=( status&& ) noexcept      = default;
 
-        enum_type value() const noexcept
+        constexpr enum_type value() const noexcept
         {
                 return s_;
         }
@@ -49,36 +49,8 @@ struct [[nodiscard]] status
         constexpr friend auto
         operator<=>( status const& lhs, status const& rhs ) noexcept = default;
 
-        constexpr friend auto operator<=>( status const& lhs, Derived const& rhs ) noexcept
-        {
-                return lhs.s_ <=> rhs;
-        }
-
-        constexpr friend bool operator==( status const& lhs, Derived const& rhs ) noexcept
-        {
-                return lhs.s_ == static_cast< status const& >( rhs ).s_;
-        }
-
 private:
         enum_type s_;
 };
-
-struct [[nodiscard]] success_type
-{
-};
-
-constexpr success_type const SUCCESS;
-
-struct [[nodiscard]] failure_type
-{
-};
-
-constexpr failure_type const FAILURE;
-
-struct [[nodiscard]] error_type
-{
-};
-
-constexpr error_type const ERROR;
 
 }  // namespace emlabcpp

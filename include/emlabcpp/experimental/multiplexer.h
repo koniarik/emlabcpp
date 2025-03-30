@@ -86,7 +86,7 @@ outcome extract_multiplexed( std::span< std::byte const > const& msg, BinaryCall
 {
         using chan_ser = protocol::serializer< channel_type, std::endian::little >;
         if ( msg.size() < chan_ser::max_size )
-                return ERROR;
+                return outcome::ERROR;
         channel_type id = chan_ser::deserialize( msg.subspan< 0, chan_ser::max_size >() );
 
         // TODO: there might be a better way than callback?
@@ -102,7 +102,7 @@ concept slot = requires( T s, std::span< std::byte const > data ) {
 template < slot... Slotted >
 outcome multiplexed_dispatch( channel_type chann, auto const& data, Slotted&... slotted )
 {
-        outcome res = SUCCESS;
+        outcome res = outcome::SUCCESS;
 
         // TODO: assert that channels are unique
         auto f = [&]< typename T >( T& item ) {
@@ -112,7 +112,7 @@ outcome multiplexed_dispatch( channel_type chann, auto const& data, Slotted&... 
                 return true;
         };
         if ( !( f( slotted ) || ... || false ) )
-                res = ERROR;
+                res = outcome::ERROR;
         return res;
 }
 
@@ -167,14 +167,14 @@ public:
                 return match(
                     ep.get_value(),
                     []( std::size_t const ) -> outcome {
-                            return SUCCESS;
+                            return outcome::SUCCESS;
                     },
                     [&slotted...]( std::tuple< channel_type, payload_message > const& payload ) {
                             auto const& [id, data] = payload;
                             return multiplexed_dispatch( id, data, slotted... );
                     },
                     []( error_record const& ) -> outcome {
-                            return ERROR;
+                            return outcome::ERROR;
                     } );
         }
 

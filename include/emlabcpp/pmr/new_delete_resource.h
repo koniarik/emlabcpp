@@ -42,7 +42,7 @@ struct new_delete_resource_impl : memory_resource
         result deallocate( void* p, std::size_t, std::size_t alignment ) override
         {
                 ::operator delete( p, std::align_val_t{ alignment } );
-                return SUCCESS;
+                return result::SUCCESS;
         };
 
         [[nodiscard]] bool is_equal( memory_resource const& ) const noexcept override

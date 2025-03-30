@@ -126,13 +126,13 @@ result construct_test_unit( pmr::memory_resource& mem_res, Reactor& reactor, Arg
         using unode = test_unit< Unit >;
         void* p     = mem_res.allocate( sizeof( unode ), alignof( unode ) );
         if ( p == nullptr )
-                return ERROR;
+                return result::ERROR;
         unode* node =
             std::construct_at( reinterpret_cast< unode* >( p ), std::forward< Args >( args )... );
 
         reactor.register_test( *node );
 
-        return SUCCESS;
+        return result::SUCCESS;
 }
 
 template < typename Callable, typename Reactor >
@@ -154,7 +154,7 @@ void construct_test_callable(
     Callable              callable,
     result&               res )
 {
-        if ( res != SUCCESS )
+        if ( res != result::SUCCESS )
                 return;
         res = construct_test_unit< test_callable< Callable > >(
             mem_res, reactor, name, std::move( callable ) );

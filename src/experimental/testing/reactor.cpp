@@ -70,7 +70,7 @@ outcome reactor::on_msg( std::span< std::byte const > const buffer )
             [this]( protocol::error_record const& rec ) -> outcome {
                     // error is returned anyway
                     std::ignore = iface_.report_failure( input_message_protocol_error{ rec } );
-                    return ERROR;
+                    return outcome::ERROR;
             } );
 }
 
@@ -102,7 +102,7 @@ outcome reactor::handle_message( get_test_name_request const req )
         test_ll_node* const node_ptr = root_node_.get_next( req.tid + 1 );
         if ( node_ptr == nullptr ) {
                 std::ignore = iface_.report_failure( error< BAD_TEST_ID_E >{} );
-                return FAILURE;
+                return outcome::FAILURE;
         }
         test_interface const& test = **node_ptr;
         return iface_.reply( get_test_name_reply{ name_buffer( test.get_name() ) } );
@@ -112,16 +112,16 @@ outcome reactor::handle_message( exec_request const req )
 {
         if ( opt_exec_ ) {
                 std::ignore = iface_.report_failure( error< TEST_IS_RUNING_E >{} );
-                return FAILURE;
+                return outcome::FAILURE;
         }
 
         test_ll_node* const node_ptr = root_node_.get_next( req.tid + 1 );
         if ( node_ptr == nullptr ) {
                 std::ignore = iface_.report_failure( error< BAD_TEST_ID_E >{} );
-                return FAILURE;
+                return outcome::FAILURE;
         }
         test_interface& test = **node_ptr;
         opt_exec_.emplace( req.rid, mem_, test );
-        return SUCCESS;
+        return outcome::SUCCESS;
 }
 }  // namespace emlabcpp::testing

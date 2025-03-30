@@ -45,27 +45,22 @@ enum class outcome_e
 /// due to mistake in algorithm)
 struct outcome : status< outcome, outcome_e, outcome_e::SUCCESS >
 {
-        using enum outcome_e;
         using status::status;
+        using enum outcome_e;
 
         constexpr outcome( result const r ) noexcept
           : status( r == result::SUCCESS ? outcome_e::SUCCESS : outcome_e::ERROR )
         {
         }
 
-        constexpr outcome( success_type ) noexcept
-          : outcome( SUCCESS )
+        constexpr outcome( result_e const r ) noexcept
+          : status( r == result::SUCCESS ? outcome_e::SUCCESS : outcome_e::ERROR )
         {
         }
 
-        constexpr outcome( error_type ) noexcept
-          : outcome( ERROR )
+        constexpr operator result() const noexcept
         {
-        }
-
-        constexpr outcome( failure_type ) noexcept
-          : outcome( FAILURE )
-        {
+                return value() == outcome_e::SUCCESS ? result::SUCCESS : result::ERROR;
         }
 };
 

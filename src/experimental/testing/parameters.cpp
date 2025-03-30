@@ -103,17 +103,17 @@ outcome parameters::on_msg( std::span< std::byte const > const data )
             },
             []( auto const& err ) -> outcome {
                     std::ignore = err;
-                    return ERROR;
+                    return outcome::ERROR;
             } );
 }
 
 outcome parameters::on_msg( params_server_client_variant const& req )
 {
         if ( !reply_cb_ )
-                return ERROR;
+                return outcome::ERROR;
         reply_cb_( req );
         // TODO: maybe better error hndling can be done?
-        return SUCCESS;
+        return outcome::SUCCESS;
 }
 
 param_type_awaiter parameters::get_type( node_id const nid )
@@ -175,7 +175,7 @@ outcome parameters_server::on_msg( std::span< std::byte const > const data )
             },
             []( auto const& err ) -> outcome {
                     std::ignore = err;
-                    return ERROR;
+                    return outcome::ERROR;
             } );
 }
 
@@ -191,7 +191,7 @@ outcome parameters_server::on_msg( params_client_server_variant const& req )
 outcome parameters_server::on_req( param_error const& req ) const
 {
         std::ignore = req;
-        return FAILURE;
+        return outcome::FAILURE;
 }
 
 outcome parameters_server::on_req( param_value_request const& req )
@@ -204,7 +204,8 @@ outcome parameters_server::on_req( param_value_request const& req )
                     return send( param_value_reply{ val } );
             },
             [this, &req]( contiguous_request_adapter_errors const err ) -> outcome {
-                    return reply_node_error( err, req.nid ) == SUCCESS ? outcome( FAILURE ) : ERROR;
+                    return reply_node_error( err, req.nid ) == outcome::SUCCESS ? outcome::FAILURE :
+                                                                                  outcome::ERROR;
             } );
 }
 
@@ -213,7 +214,8 @@ outcome parameters_server::on_req( param_value_key_request const& req )
         contiguous_request_adapter const harn{ tree_ };
 
         auto return_err = [&req, this]( contiguous_request_adapter_errors const err ) -> outcome {
-                return reply_node_error( err, req.nid ) == SUCCESS ? outcome( FAILURE ) : ERROR;
+                return reply_node_error( err, req.nid ) == outcome::SUCCESS ? outcome::FAILURE :
+                                                                              outcome::ERROR;
         };
 
         return match(
@@ -239,8 +241,9 @@ outcome parameters_server::on_req( param_child_request const& req )
                     return send( param_child_reply{ child } );
             },
             [this, &req]( contiguous_request_adapter_errors const err ) -> outcome {
-                    return reply_node_error( err, req.parent ) == SUCCESS ? outcome( FAILURE ) :
-                                                                            ERROR;
+                    return reply_node_error( err, req.parent ) == outcome::SUCCESS ?
+                               outcome::FAILURE :
+                               outcome::ERROR;
             } );
 }
 
@@ -254,8 +257,9 @@ outcome parameters_server::on_req( param_child_count_request const& req )
                     return send( param_child_count_reply{ count } );
             },
             [this, &req]( contiguous_request_adapter_errors const err ) -> outcome {
-                    return reply_node_error( err, req.parent ) == SUCCESS ? outcome( FAILURE ) :
-                                                                            ERROR;
+                    return reply_node_error( err, req.parent ) == outcome::SUCCESS ?
+                               outcome::FAILURE :
+                               outcome::ERROR;
             } );
 }
 
@@ -269,7 +273,8 @@ outcome parameters_server::on_req( param_key_request const& req )
                     return send( param_key_reply{ key } );
             },
             [this, &req]( contiguous_request_adapter_errors const err ) -> outcome {
-                    return reply_node_error( err, req.nid ) == SUCCESS ? outcome( FAILURE ) : ERROR;
+                    return reply_node_error( err, req.nid ) == outcome::SUCCESS ? outcome::FAILURE :
+                                                                                  outcome::ERROR;
             } );
 }
 
@@ -283,7 +288,8 @@ outcome parameters_server::on_req( param_type_request const& req )
                     return send( param_type_reply{ type } );
             },
             [this, &req]( contiguous_request_adapter_errors const err ) -> outcome {
-                    return reply_node_error( err, req.nid ) == SUCCESS ? outcome( FAILURE ) : ERROR;
+                    return reply_node_error( err, req.nid ) == outcome::SUCCESS ? outcome::FAILURE :
+                                                                                  outcome::ERROR;
             } );
 }
 

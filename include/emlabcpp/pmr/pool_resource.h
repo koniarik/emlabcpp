@@ -76,9 +76,9 @@ public:
                 std::size_t const spot_i = ( pval - bval ) / PoolSize;
 
                 if ( spot_i >= PoolCount )
-                        return ERROR;
+                        return result::ERROR;
                 free_.push_back( static_cast< uint16_t >( spot_i ) );
-                return SUCCESS;
+                return result::SUCCESS;
         }
 
         [[nodiscard]] bool is_equal( pmr::memory_resource const& other ) const noexcept override

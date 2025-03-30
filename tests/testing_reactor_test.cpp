@@ -68,12 +68,12 @@ public:
                 return match(
                     h::extract( view_n( msg.data(), msg.size() ) ),
                     [&]( protocol::error_record const& ) -> result {
-                            return ERROR;
+                            return result::ERROR;
                     },
                     [&]( auto const& var ) -> result {
                             // TODO: var shall be logged
                             msgs.push_back( var );
-                            return SUCCESS;
+                            return result::SUCCESS;
                     } );
         }
 };

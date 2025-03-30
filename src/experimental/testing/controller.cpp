@@ -146,19 +146,19 @@ outcome controller::on_msg( std::span< std::byte const > const data )
             },
             [this]( protocol::error_record const& rec ) -> outcome {
                     iface_.report_error( controller_protocol_error{ rec } );
-                    return ERROR;
+                    return outcome::ERROR;
             } );
 }
 
 outcome controller::on_msg( reactor_controller_variant const& var )
 {
         using opt_state     = std::optional< states >;
-        outcome   res       = ERROR;
+        outcome   res       = outcome::ERROR;
         opt_state new_state = match(
             state_,
             [this, &var, &res]( initializing_state const& ) -> opt_state {
                     if ( std::holds_alternative< boot >( var ) ) {
-                            res = SUCCESS;
+                            res = outcome::SUCCESS;
                             return std::nullopt;
                     }
                     if ( !iface_.on_msg_with_cb( var ) ) {
@@ -168,7 +168,7 @@ outcome controller::on_msg( reactor_controller_variant const& var )
                                 },
                                 var );
                     } else {
-                            res = SUCCESS;
+                            res = outcome::SUCCESS;
                     }
                     return std::nullopt;
             },
@@ -192,11 +192,11 @@ outcome controller::on_msg( reactor_controller_variant const& var )
                     rs.context.status = tf_ptr->status;
                     iface_->on_result( rs.context );
 
-                    res = SUCCESS;
+                    res = outcome::SUCCESS;
                     return states{ idle_state{} };
             },
             [&res]( idle_state const ) -> opt_state {
-                    res = SUCCESS;
+                    res = outcome::SUCCESS;
                     return std::nullopt;
             } );
         if ( new_state )

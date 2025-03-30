@@ -60,7 +60,7 @@ public:
         {
                 result const res = resource_.get().deallocate(
                     reinterpret_cast< void* >( p ), n * sizeof( T ), alignof( T ) );
-                if ( res == ERROR )
+                if ( res == result::ERROR )
                         throw_bad_alloc();
         }
 

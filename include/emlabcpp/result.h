@@ -39,18 +39,8 @@ enum class result_e
 /// true/false value. Result has only two states, SUCCESS or ERROR.
 struct result : status< result, result_e, result_e::SUCCESS >
 {
-        using enum result_e;
         using status::status;
-
-        constexpr result( success_type ) noexcept
-          : result( SUCCESS )
-        {
-        }
-
-        constexpr result( error_type ) noexcept
-          : result( ERROR )
-        {
-        }
+        using enum result_e;
 };
 
 }  // namespace emlabcpp

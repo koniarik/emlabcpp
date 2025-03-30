@@ -89,7 +89,7 @@ outcome collector::on_msg( std::span< std::byte const > const& msg )
             },
             []( auto const& err ) -> outcome {
                     std::ignore = err;
-                    return ERROR;
+                    return outcome::ERROR;
             } );
 }
 
@@ -97,9 +97,9 @@ outcome collector::on_msg( collect_server_client_group const& var )
 {
         if ( reply_callback_ ) {
                 reply_callback_( var );
-                return SUCCESS;
+                return outcome::SUCCESS;
         } else {
-                return ERROR;
+                return outcome::ERROR;
         }
 }
 
@@ -126,7 +126,7 @@ bool collector::set( node_id const parent, std::string_view const key, value_typ
                    .parent        = parent,
                    .expects_reply = false,
                    .opt_key       = key_type( key ),
-                   .value         = val } ) == SUCCESS;
+                   .value         = val } ) == result::SUCCESS;
 }
 
 bool collector::append( node_id const parent, value_type const& val )
@@ -135,13 +135,13 @@ bool collector::append( node_id const parent, value_type const& val )
                    .parent        = parent,
                    .expects_reply = false,
                    .opt_key       = std::nullopt,
-                   .value         = val } ) == SUCCESS;
+                   .value         = val } ) == result::SUCCESS;
 }
 
 bool collector::exchange( collect_request const& req, collect_reply_callback cb )
 {
         reply_callback_ = std::move( cb );
-        return send( req ) == SUCCESS;
+        return send( req ) == result::SUCCESS;
 }
 
 result collector::send( collect_request const& req )
@@ -171,7 +171,7 @@ outcome collect_server::on_msg( std::span< std::byte const > const data )
             },
             []( auto const& err ) -> outcome {
                     std::ignore = err;
-                    return ERROR;
+                    return result::ERROR;
             } );
 }
 
@@ -194,7 +194,7 @@ outcome collect_server::on_msg( collect_request const& req )
             res,
             [this, &req]( node_id const nid ) -> result {
                     if ( !req.expects_reply )
-                            return SUCCESS;
+                            return result::SUCCESS;
                     return this->send( collect_reply{ nid } );
             },
             [this, &req]( contiguous_request_adapter_errors const err ) {
