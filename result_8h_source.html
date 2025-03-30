@@ -105,34 +105,18 @@ $(document).ready(function(){initNavTree('result_8h_source.html',''); initResiza
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1result.html">   40</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1result.html">result</a> : <a class="code" href="structemlabcpp_1_1status.html">status</a>&lt; result, result_e, result_e::SUCCESS &gt;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">using</span> <span class="keyword">enum</span> <a class="code" href="namespaceemlabcpp.html#a66341f5368fd342d8c4b7385db2e5fc3">result_e</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">using</span> <a class="code" href="structemlabcpp_1_1status.html#a62b83446a7948b8c7f7c3769fbf027bb">status::status</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1result.html#ad1aa2d79784b91df814b2f45bd67507e">   45</a></span>&#160;        constexpr <a class="code" href="structemlabcpp_1_1result.html#ad1aa2d79784b91df814b2f45bd67507e">result</a>( <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1success__type">success_type</a> ) noexcept</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;          : <a class="code" href="structemlabcpp_1_1result.html#ad1aa2d79784b91df814b2f45bd67507e">result</a>( <a class="code" href="namespaceemlabcpp.html#ad8c144f0b220ab7b8d72c07b0aff808d">SUCCESS</a> )</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1result.html#af1c96912d3fad4e7a22f9b813341065f">   50</a></span>&#160;        constexpr <a class="code" href="structemlabcpp_1_1result.html#af1c96912d3fad4e7a22f9b813341065f">result</a>( <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1error__type">error_type</a> ) noexcept</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          : <a class="code" href="structemlabcpp_1_1result.html#ad1aa2d79784b91df814b2f45bd67507e">result</a>( <a class="code" href="namespaceemlabcpp.html#a4ca94ba01416e77d0f5c54e5cc60d559">ERROR</a> )</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">using</span> <a class="code" href="structemlabcpp_1_1status.html#a62b83446a7948b8c7f7c3769fbf027bb">status::status</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">using</span> <span class="keyword">enum</span> <a class="code" href="namespaceemlabcpp.html#a66341f5368fd342d8c4b7385db2e5fc3">result_e</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="aalgorithm_8h_html"><div class="ttname"><a href="algorithm_8h.html">algorithm.h</a></div></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">MIT License.</div><div class="ttdef"><b>Definition:</b> impl.h:31</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a4ca94ba01416e77d0f5c54e5cc60d559"><div class="ttname"><a href="namespaceemlabcpp.html#a4ca94ba01416e77d0f5c54e5cc60d559">emlabcpp::ERROR</a></div><div class="ttdeci">constexpr error_type const ERROR</div><div class="ttdef"><b>Definition:</b> status.h:82</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a66341f5368fd342d8c4b7385db2e5fc3"><div class="ttname"><a href="namespaceemlabcpp.html#a66341f5368fd342d8c4b7385db2e5fc3">emlabcpp::result_e</a></div><div class="ttdeci">result_e</div><div class="ttdef"><b>Definition:</b> result.h:33</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a66341f5368fd342d8c4b7385db2e5fc3abb1ca97ec761fc37101737ba0aa2e7c5"><div class="ttname"><a href="namespaceemlabcpp.html#a66341f5368fd342d8c4b7385db2e5fc3abb1ca97ec761fc37101737ba0aa2e7c5">emlabcpp::result_e::ERROR</a></div><div class="ttdeci">@ ERROR</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a66341f5368fd342d8c4b7385db2e5fc3ad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="namespaceemlabcpp.html#a66341f5368fd342d8c4b7385db2e5fc3ad0749aaba8b833466dfcbb0428e4f89c">emlabcpp::result_e::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_ad8c144f0b220ab7b8d72c07b0aff808d"><div class="ttname"><a href="namespaceemlabcpp.html#ad8c144f0b220ab7b8d72c07b0aff808d">emlabcpp::SUCCESS</a></div><div class="ttdeci">constexpr success_type const SUCCESS</div><div class="ttdef"><b>Definition:</b> status.h:70</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1error__type"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1error__type">emlabcpp::error_type</a></div><div class="ttdef"><b>Definition:</b> status.h:79</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1success__type"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1success__type">emlabcpp::success_type</a></div><div class="ttdef"><b>Definition:</b> status.h:67</div></div>
 <div class="ttc" id="astatus_8h_html"><div class="ttname"><a href="status_8h.html">status.h</a></div></div>
 <div class="ttc" id="astructemlabcpp_1_1result_html"><div class="ttname"><a href="structemlabcpp_1_1result.html">emlabcpp::result</a></div><div class="ttdoc">result represents an result of some operation, as an alternative to returning just bool with true/fal...</div><div class="ttdef"><b>Definition:</b> result.h:41</div></div>
-<div class="ttc" id="astructemlabcpp_1_1result_html_ad1aa2d79784b91df814b2f45bd67507e"><div class="ttname"><a href="structemlabcpp_1_1result.html#ad1aa2d79784b91df814b2f45bd67507e">emlabcpp::result::result</a></div><div class="ttdeci">constexpr result(success_type) noexcept</div><div class="ttdef"><b>Definition:</b> result.h:45</div></div>
-<div class="ttc" id="astructemlabcpp_1_1result_html_af1c96912d3fad4e7a22f9b813341065f"><div class="ttname"><a href="structemlabcpp_1_1result.html#af1c96912d3fad4e7a22f9b813341065f">emlabcpp::result::result</a></div><div class="ttdeci">constexpr result(error_type) noexcept</div><div class="ttdef"><b>Definition:</b> result.h:50</div></div>
 <div class="ttc" id="astructemlabcpp_1_1status_html"><div class="ttname"><a href="structemlabcpp_1_1status.html">emlabcpp::status</a></div><div class="ttdef"><b>Definition:</b> status.h:31</div></div>
 <div class="ttc" id="astructemlabcpp_1_1status_html_a62b83446a7948b8c7f7c3769fbf027bb"><div class="ttname"><a href="structemlabcpp_1_1status.html#a62b83446a7948b8c7f7c3769fbf027bb">emlabcpp::status::status</a></div><div class="ttdeci">constexpr status(enum_type s) noexcept</div><div class="ttdef"><b>Definition:</b> status.h:34</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -141,7 +125,7 @@ $(document).ready(function(){initNavTree('result_8h_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="result_8h.html">result.h</a></li>
-    <li class="footer">Generated on Sun Mar 30 2025 14:47:25 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Mar 30 2025 19:37:44 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -97,10 +97,8 @@ var hierarchy =
     [ "emlabcpp::rpc::error", "namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1error", null ],
     [ "emlabcpp::testing::error< Err >", "structemlabcpp_1_1testing_1_1error.html", null ],
     [ "emlabcpp::protocol::error_record", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record", null ],
-    [ "emlabcpp::error_type", "namespaceemlabcpp.html#structemlabcpp_1_1error__type", null ],
     [ "emlabcpp::testing::exec_request", "structemlabcpp_1_1testing_1_1exec__request.html", null ],
     [ "emlabcpp::testing::executor", "classemlabcpp_1_1testing_1_1executor.html", null ],
-    [ "emlabcpp::failure_type", "namespaceemlabcpp.html#structemlabcpp_1_1failure__type", null ],
     [ "std::false_type", null, [
       [ "emlabcpp::impl::is_std_array< std::decay_t< T > >", "structemlabcpp_1_1impl_1_1is__std__array.html", [
         [ "emlabcpp::is_std_array< T >", "structemlabcpp_1_1is__std__array.html", null ]
@@ -316,7 +314,6 @@ var hierarchy =
       [ "emlabcpp::result", "structemlabcpp_1_1result.html", null ]
     ] ],
     [ "emlabcpp::string_buffer< 128 >< 32 >", "structemlabcpp_1_1string__buffer.html", null ],
-    [ "emlabcpp::success_type", "namespaceemlabcpp.html#structemlabcpp_1_1success__type", null ],
     [ "emlabcpp::tag< V >", "structemlabcpp_1_1tag.html", null ],
     [ "emlabcpp::protocol::tag_group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group", null ],
     [ "emlabcpp::testing::test_finished", "structemlabcpp_1_1testing_1_1test__finished.html", null ],

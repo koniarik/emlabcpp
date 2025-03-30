@@ -34,7 +34,9 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
       [ "static_storage", "classemlabcpp_1_1static__storage.html", "classemlabcpp_1_1static__storage" ]
     ] ],
     [ "static_vector.h", "static__vector_8h.html", "static__vector_8h" ],
-    [ "status.h", "status_8h.html", "status_8h" ],
+    [ "status.h", "status_8h.html", [
+      [ "status", "structemlabcpp_1_1status.html", "structemlabcpp_1_1status" ]
+    ] ],
     [ "subscript_view.h", "subscript__view_8h.html", "subscript__view_8h" ],
     [ "types.h", "types_8h.html", "types_8h" ],
     [ "view.h", "view_8h.html", "view_8h" ],

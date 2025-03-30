@@ -1,10 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"namespaceemlabcpp_1_1protocol.html#a6029ae0351da35ad86920e1e3a9a9d16":[2,0,0,7,88],
-"namespaceemlabcpp_1_1protocol.html#a604e8244fbc16988fb4681dbc2d7bc6e":[2,0,0,7,79],
-"namespaceemlabcpp_1_1protocol.html#a72532ac9192b8549e819b0cfb65c3faa":[2,0,0,7,122],
-"namespaceemlabcpp_1_1protocol.html#a75075a1ed102c600dfd1f1894c1fc93b":[2,0,0,7,126],
-"namespaceemlabcpp_1_1protocol.html#a7691c56fa602099a1233561f8b8004d2":[2,0,0,7,81],
 "namespaceemlabcpp_1_1protocol.html#a7996dad74892867782224e252a6e8d53":[4,0,0,0,4,4,0,1],
 "namespaceemlabcpp_1_1protocol.html#a81042a6c1a100c96f3c81c1a901fdcd7":[2,0,0,7,86],
 "namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9":[2,0,0,7,93],
@@ -212,8 +207,8 @@ var NAVTREEINDEX7 =
 "namespacemembers_enum.html":[2,1,4],
 "namespacemembers_eval.html":[2,1,5],
 "namespacemembers_f.html":[2,1,0,5],
-"namespacemembers_func.html":[2,1,1,0],
 "namespacemembers_func.html":[2,1,1],
+"namespacemembers_func.html":[2,1,1,0],
 "namespacemembers_func_b.html":[2,1,1,1],
 "namespacemembers_func_c.html":[2,1,1,2],
 "namespacemembers_func_d.html":[2,1,1,3],
@@ -249,5 +244,10 @@ var NAVTREEINDEX7 =
 "namespacemembers_s.html":[2,1,0,18],
 "namespacemembers_t.html":[2,1,0,19],
 "namespacemembers_type.html":[2,1,3],
-"namespacemembers_u.html":[2,1,0,20]
+"namespacemembers_u.html":[2,1,0,20],
+"namespacemembers_v.html":[2,1,0,21],
+"namespacemembers_vars.html":[2,1,2],
+"namespacemembers_w.html":[2,1,0,22],
+"namespacemembers_x.html":[2,1,0,23],
+"namespacemembers_y.html":[2,1,0,24]
 };
