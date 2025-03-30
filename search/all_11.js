@@ -76,7 +76,7 @@ var searchData=
   ['reset_914',['reset',['../namespaceemlabcpp.html#a802d2ec172423fb3984b1e88336f6233',1,'emlabcpp']]],
   ['resistance_915',['resistance',['../namespaceemlabcpp.html#ae48e239b7c22e51004fc26dd043d32b9',1,'emlabcpp']]],
   ['resize_916',['resize',['../classemlabcpp_1_1protocol_1_1message.html#a93bb0bbe990b35a9d3a2098fac41d718',1,'emlabcpp::protocol::message']]],
-  ['result_917',['result',['../structemlabcpp_1_1result.html',1,'emlabcpp::result'],['../structemlabcpp_1_1result.html#a68d71a7a7b31ee33c80512a103c530c9',1,'emlabcpp::result::result(error_type) noexcept'],['../structemlabcpp_1_1result.html#a3ff9859980912c85301d3055d4c6e130',1,'emlabcpp::result::result(success_type) noexcept']]],
+  ['result_917',['result',['../structemlabcpp_1_1result.html',1,'emlabcpp::result'],['../structemlabcpp_1_1result.html#af1c96912d3fad4e7a22f9b813341065f',1,'emlabcpp::result::result(error_type) noexcept'],['../structemlabcpp_1_1result.html#ad1aa2d79784b91df814b2f45bd67507e',1,'emlabcpp::result::result(success_type) noexcept']]],
   ['result_2eh_918',['result.h',['../result_8h.html',1,'']]],
   ['result_5fe_919',['result_e',['../namespaceemlabcpp.html#a66341f5368fd342d8c4b7385db2e5fc3',1,'emlabcpp']]],
   ['result_5ftype_920',['result_type',['../classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_01_4.html#aee3f64d32631341388fd6cfb79dac84d',1,'emlabcpp::static_function_base&lt; ReturnType(ArgTypes...), Capacity, Align &gt;']]],

@@ -88,82 +88,90 @@ $(document).ready(function(){initNavTree('status_8h_source.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 <a href="status_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;concepts&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Derived, <span class="keyword">typename</span> Enum, Enum SuccessValue &gt;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html">    9</a></span>&#160;<span class="keyword">struct </span>[[nodiscard]] <a class="code" href="structemlabcpp_1_1status.html">status</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a5af9d598c5cea5ffc457af21fa2ec66e">   11</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="structemlabcpp_1_1status.html#a5af9d598c5cea5ffc457af21fa2ec66e">enum_type</a> = Enum;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a6964cac77977032019d149b56dc2454f">   13</a></span>&#160;        <a class="code" href="structemlabcpp_1_1status.html#a6964cac77977032019d149b56dc2454f">status</a>( <a class="code" href="structemlabcpp_1_1status.html#a5af9d598c5cea5ffc457af21fa2ec66e">enum_type</a> s ) noexcept</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;          : s_( s )</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#ad43a6d6a5460f11e2522c49daa22ec9e">   18</a></span>&#160;        <a class="code" href="structemlabcpp_1_1status.html#ad43a6d6a5460f11e2522c49daa22ec9e">status</a>( <a class="code" href="structemlabcpp_1_1status.html">status</a> <span class="keyword">const</span>&amp; ) noexcept            = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a524f71b846466559ce3bd517bb25f6f9">   19</a></span>&#160;        <a class="code" href="structemlabcpp_1_1status.html#a524f71b846466559ce3bd517bb25f6f9">status</a>( <a class="code" href="structemlabcpp_1_1status.html">status</a>&amp;&amp; ) noexcept                 = default;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a04a2f8b57b2a1ad333ba473942fed7bf">   20</a></span>&#160;        <a class="code" href="structemlabcpp_1_1status.html">status</a>&amp; operator=( <a class="code" href="structemlabcpp_1_1status.html">status</a> const&amp; ) noexcept = default;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a668a86f365900a2b0b6a65bdb60e0cb4">   21</a></span>&#160;        <a class="code" href="structemlabcpp_1_1status.html">status</a>&amp; operator=( <a class="code" href="structemlabcpp_1_1status.html">status</a>&amp;&amp; ) noexcept      = default;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#ad69c4a764b9799f91909947dc99315c4">   23</a></span>&#160;        friend auto operator&lt;=&gt;( <a class="code" href="structemlabcpp_1_1status.html">status</a> const&amp; lhs, <a class="code" href="structemlabcpp_1_1status.html">status</a> const&amp; rhs ) noexcept = default;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#abdc9fac97cb030663d2e879e0285aec4">   25</a></span>&#160;        friend auto operator&lt;=&gt;( <a class="code" href="structemlabcpp_1_1status.html">status</a> const&amp; lhs, Derived const&amp; rhs ) noexcept</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="keywordflow">return</span> lhs.s_ &lt;=&gt; rhs;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a6c632b7eba4f5b9aafbe314028faf004">   30</a></span>&#160;        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="structemlabcpp_1_1status.html#a6c632b7eba4f5b9aafbe314028faf004">operator==</a>( <a class="code" href="structemlabcpp_1_1status.html">status</a> <span class="keyword">const</span>&amp; lhs, Derived <span class="keyword">const</span>&amp; rhs ) noexcept</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordflow">return</span> lhs.s_ == <span class="keyword">static_cast&lt;</span> <a class="code" href="structemlabcpp_1_1status.html">status</a> const&amp; <span class="keyword">&gt;</span>( rhs ).s_;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        enum_type s_;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;concepts&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp.html">emlabcpp</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> Derived, <span class="keyword">typename</span> Enum, Enum SuccessValue &gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html">   30</a></span>&#160;<span class="keyword">struct </span>[[nodiscard]] <a class="code" href="structemlabcpp_1_1status.html">status</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a5af9d598c5cea5ffc457af21fa2ec66e">   32</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="structemlabcpp_1_1status.html#a5af9d598c5cea5ffc457af21fa2ec66e">enum_type</a> = Enum;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a62b83446a7948b8c7f7c3769fbf027bb">   34</a></span>&#160;        constexpr <a class="code" href="structemlabcpp_1_1status.html#a62b83446a7948b8c7f7c3769fbf027bb">status</a>( <a class="code" href="structemlabcpp_1_1status.html#a5af9d598c5cea5ffc457af21fa2ec66e">enum_type</a> s ) noexcept</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;          : s_( s )</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html">   39</a></span>&#160;<span class="keyword">struct </span>[[nodiscard]] <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1success__type">success_type</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ad8c144f0b220ab7b8d72c07b0aff808d">   43</a></span>&#160;constexpr <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1success__type">success_type</a> <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#ad8c144f0b220ab7b8d72c07b0aff808d">SUCCESS</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html">   45</a></span>&#160;<span class="keyword">struct </span>[[nodiscard]] <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1failure__type">failure_type</a></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a46f346771830d210fb51e3d7b6be9703">   39</a></span>&#160;        constexpr <a class="code" href="structemlabcpp_1_1status.html#a46f346771830d210fb51e3d7b6be9703">status</a>( <a class="code" href="structemlabcpp_1_1status.html">status</a> <span class="keyword">const</span>&amp; ) noexcept            = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a017da033dda68175de322816fd64d9f1">   40</a></span>&#160;        constexpr <a class="code" href="structemlabcpp_1_1status.html#a017da033dda68175de322816fd64d9f1">status</a>( <a class="code" href="structemlabcpp_1_1status.html">status</a>&amp;&amp; ) noexcept                 = default;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#af032a18717a1e5955d5d476a141574dd">   41</a></span>&#160;        constexpr <a class="code" href="structemlabcpp_1_1status.html">status</a>&amp; operator=( <a class="code" href="structemlabcpp_1_1status.html">status</a> const&amp; ) noexcept = default;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a224fe60b8d2c0458f17b8610dd231137">   42</a></span>&#160;        constexpr <a class="code" href="structemlabcpp_1_1status.html">status</a>&amp; operator=( <a class="code" href="structemlabcpp_1_1status.html">status</a>&amp;&amp; ) noexcept      = default;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a050b6d915f925f141b762007118a85bb">   44</a></span>&#160;        <a class="code" href="structemlabcpp_1_1status.html#a5af9d598c5cea5ffc457af21fa2ec66e">enum_type</a> value() const noexcept</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keywordflow">return</span> s_;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a6ff2b99c96d4b5d341707178765540fe">   49</a></span>&#160;constexpr <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1failure__type">failure_type</a> <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#a6ff2b99c96d4b5d341707178765540fe">FAILURE</a>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html">   51</a></span>&#160;<span class="keyword">struct </span>[[nodiscard]] <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1error__type">error_type</a></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a4ca94ba01416e77d0f5c54e5cc60d559">   55</a></span>&#160;constexpr <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1error__type">error_type</a> <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#a4ca94ba01416e77d0f5c54e5cc60d559">ERROR</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#af01e3c69030014fbed1cd0433c7876bd">   49</a></span>&#160;        constexpr <span class="keyword">friend</span> <span class="keyword">auto</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="namespaceemlabcpp.html#ad3006d6f69314abae91dc0740a404ddf">operator&lt;=&gt;</a>( <a class="code" href="structemlabcpp_1_1status.html">status</a> <span class="keyword">const</span>&amp; lhs, <a class="code" href="structemlabcpp_1_1status.html">status</a> <span class="keyword">const</span>&amp; rhs ) noexcept = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#ad5494273f3baa02c5bfa5fb8bd69bb6b">   52</a></span>&#160;        constexpr <span class="keyword">friend</span> <span class="keyword">auto</span> <a class="code" href="structemlabcpp_1_1status.html#ad5494273f3baa02c5bfa5fb8bd69bb6b">operator&lt;=&gt;</a>( <a class="code" href="structemlabcpp_1_1status.html">status</a> <span class="keyword">const</span>&amp; lhs, Derived <span class="keyword">const</span>&amp; rhs ) noexcept</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">return</span> lhs.s_ &lt;=&gt; rhs;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1status.html#a9c8eec958d4e0ab67c7f6631f5090530">   57</a></span>&#160;        constexpr <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="structemlabcpp_1_1status.html#a9c8eec958d4e0ab67c7f6631f5090530">operator==</a>( <a class="code" href="structemlabcpp_1_1status.html">status</a> <span class="keyword">const</span>&amp; lhs, Derived <span class="keyword">const</span>&amp; rhs ) noexcept</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">return</span> lhs.s_ == <span class="keyword">static_cast&lt;</span> <a class="code" href="structemlabcpp_1_1status.html">status</a> const&amp; <span class="keyword">&gt;</span>( rhs ).s_;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        enum_type s_;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html">   66</a></span>&#160;<span class="keyword">struct </span>[[nodiscard]] <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1success__type">success_type</a></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#ad8c144f0b220ab7b8d72c07b0aff808d">   70</a></span>&#160;constexpr <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1success__type">success_type</a> <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#ad8c144f0b220ab7b8d72c07b0aff808d">SUCCESS</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html">   72</a></span>&#160;<span class="keyword">struct </span>[[nodiscard]] <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1failure__type">failure_type</a></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a6ff2b99c96d4b5d341707178765540fe">   76</a></span>&#160;constexpr <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1failure__type">failure_type</a> <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#a6ff2b99c96d4b5d341707178765540fe">FAILURE</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html">   78</a></span>&#160;<span class="keyword">struct </span>[[nodiscard]] <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1error__type">error_type</a></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a4ca94ba01416e77d0f5c54e5cc60d559">   82</a></span>&#160;constexpr <a class="code" href="namespaceemlabcpp.html#structemlabcpp_1_1error__type">error_type</a> <span class="keyword">const</span> <a class="code" href="namespaceemlabcpp.html#a4ca94ba01416e77d0f5c54e5cc60d559">ERROR</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">MIT License.</div><div class="ttdef"><b>Definition:</b> impl.h:31</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a4ca94ba01416e77d0f5c54e5cc60d559"><div class="ttname"><a href="namespaceemlabcpp.html#a4ca94ba01416e77d0f5c54e5cc60d559">emlabcpp::ERROR</a></div><div class="ttdeci">constexpr error_type const ERROR</div><div class="ttdef"><b>Definition:</b> status.h:55</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a6ff2b99c96d4b5d341707178765540fe"><div class="ttname"><a href="namespaceemlabcpp.html#a6ff2b99c96d4b5d341707178765540fe">emlabcpp::FAILURE</a></div><div class="ttdeci">constexpr failure_type const FAILURE</div><div class="ttdef"><b>Definition:</b> status.h:49</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_ad8c144f0b220ab7b8d72c07b0aff808d"><div class="ttname"><a href="namespaceemlabcpp.html#ad8c144f0b220ab7b8d72c07b0aff808d">emlabcpp::SUCCESS</a></div><div class="ttdeci">constexpr success_type const SUCCESS</div><div class="ttdef"><b>Definition:</b> status.h:43</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1error__type"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1error__type">emlabcpp::error_type</a></div><div class="ttdef"><b>Definition:</b> status.h:52</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1failure__type"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1failure__type">emlabcpp::failure_type</a></div><div class="ttdef"><b>Definition:</b> status.h:46</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1success__type"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1success__type">emlabcpp::success_type</a></div><div class="ttdef"><b>Definition:</b> status.h:40</div></div>
-<div class="ttc" id="astructemlabcpp_1_1status_html"><div class="ttname"><a href="structemlabcpp_1_1status.html">emlabcpp::status</a></div><div class="ttdef"><b>Definition:</b> status.h:10</div></div>
-<div class="ttc" id="astructemlabcpp_1_1status_html_a524f71b846466559ce3bd517bb25f6f9"><div class="ttname"><a href="structemlabcpp_1_1status.html#a524f71b846466559ce3bd517bb25f6f9">emlabcpp::status::status</a></div><div class="ttdeci">status(status &amp;&amp;) noexcept=default</div></div>
-<div class="ttc" id="astructemlabcpp_1_1status_html_a5af9d598c5cea5ffc457af21fa2ec66e"><div class="ttname"><a href="structemlabcpp_1_1status.html#a5af9d598c5cea5ffc457af21fa2ec66e">emlabcpp::status::enum_type</a></div><div class="ttdeci">Enum enum_type</div><div class="ttdef"><b>Definition:</b> status.h:11</div></div>
-<div class="ttc" id="astructemlabcpp_1_1status_html_a6964cac77977032019d149b56dc2454f"><div class="ttname"><a href="structemlabcpp_1_1status.html#a6964cac77977032019d149b56dc2454f">emlabcpp::status::status</a></div><div class="ttdeci">status(enum_type s) noexcept</div><div class="ttdef"><b>Definition:</b> status.h:13</div></div>
-<div class="ttc" id="astructemlabcpp_1_1status_html_a6c632b7eba4f5b9aafbe314028faf004"><div class="ttname"><a href="structemlabcpp_1_1status.html#a6c632b7eba4f5b9aafbe314028faf004">emlabcpp::status::operator==</a></div><div class="ttdeci">friend bool operator==(status const &amp;lhs, Derived const &amp;rhs) noexcept</div><div class="ttdef"><b>Definition:</b> status.h:30</div></div>
-<div class="ttc" id="astructemlabcpp_1_1status_html_ad43a6d6a5460f11e2522c49daa22ec9e"><div class="ttname"><a href="structemlabcpp_1_1status.html#ad43a6d6a5460f11e2522c49daa22ec9e">emlabcpp::status::status</a></div><div class="ttdeci">status(status const &amp;) noexcept=default</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a4ca94ba01416e77d0f5c54e5cc60d559"><div class="ttname"><a href="namespaceemlabcpp.html#a4ca94ba01416e77d0f5c54e5cc60d559">emlabcpp::ERROR</a></div><div class="ttdeci">constexpr error_type const ERROR</div><div class="ttdef"><b>Definition:</b> status.h:82</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a6ff2b99c96d4b5d341707178765540fe"><div class="ttname"><a href="namespaceemlabcpp.html#a6ff2b99c96d4b5d341707178765540fe">emlabcpp::FAILURE</a></div><div class="ttdeci">constexpr failure_type const FAILURE</div><div class="ttdef"><b>Definition:</b> status.h:76</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ad3006d6f69314abae91dc0740a404ddf"><div class="ttname"><a href="namespaceemlabcpp.html#ad3006d6f69314abae91dc0740a404ddf">emlabcpp::operator&lt;=&gt;</a></div><div class="ttdeci">auto operator&lt;=&gt;(static_circular_buffer&lt; T, N &gt; const &amp;lh, static_circular_buffer&lt; T, N &gt; const &amp;rh)</div><div class="ttdef"><b>Definition:</b> static_circular_buffer.h:289</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_ad8c144f0b220ab7b8d72c07b0aff808d"><div class="ttname"><a href="namespaceemlabcpp.html#ad8c144f0b220ab7b8d72c07b0aff808d">emlabcpp::SUCCESS</a></div><div class="ttdeci">constexpr success_type const SUCCESS</div><div class="ttdef"><b>Definition:</b> status.h:70</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1error__type"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1error__type">emlabcpp::error_type</a></div><div class="ttdef"><b>Definition:</b> status.h:79</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1failure__type"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1failure__type">emlabcpp::failure_type</a></div><div class="ttdef"><b>Definition:</b> status.h:73</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_structemlabcpp_1_1success__type"><div class="ttname"><a href="namespaceemlabcpp.html#structemlabcpp_1_1success__type">emlabcpp::success_type</a></div><div class="ttdef"><b>Definition:</b> status.h:67</div></div>
+<div class="ttc" id="astructemlabcpp_1_1status_html"><div class="ttname"><a href="structemlabcpp_1_1status.html">emlabcpp::status</a></div><div class="ttdef"><b>Definition:</b> status.h:31</div></div>
+<div class="ttc" id="astructemlabcpp_1_1status_html_a017da033dda68175de322816fd64d9f1"><div class="ttname"><a href="structemlabcpp_1_1status.html#a017da033dda68175de322816fd64d9f1">emlabcpp::status::status</a></div><div class="ttdeci">constexpr status(status &amp;&amp;) noexcept=default</div></div>
+<div class="ttc" id="astructemlabcpp_1_1status_html_a46f346771830d210fb51e3d7b6be9703"><div class="ttname"><a href="structemlabcpp_1_1status.html#a46f346771830d210fb51e3d7b6be9703">emlabcpp::status::status</a></div><div class="ttdeci">constexpr status(status const &amp;) noexcept=default</div></div>
+<div class="ttc" id="astructemlabcpp_1_1status_html_a5af9d598c5cea5ffc457af21fa2ec66e"><div class="ttname"><a href="structemlabcpp_1_1status.html#a5af9d598c5cea5ffc457af21fa2ec66e">emlabcpp::status::enum_type</a></div><div class="ttdeci">Enum enum_type</div><div class="ttdef"><b>Definition:</b> status.h:32</div></div>
+<div class="ttc" id="astructemlabcpp_1_1status_html_a62b83446a7948b8c7f7c3769fbf027bb"><div class="ttname"><a href="structemlabcpp_1_1status.html#a62b83446a7948b8c7f7c3769fbf027bb">emlabcpp::status::status</a></div><div class="ttdeci">constexpr status(enum_type s) noexcept</div><div class="ttdef"><b>Definition:</b> status.h:34</div></div>
+<div class="ttc" id="astructemlabcpp_1_1status_html_a9c8eec958d4e0ab67c7f6631f5090530"><div class="ttname"><a href="structemlabcpp_1_1status.html#a9c8eec958d4e0ab67c7f6631f5090530">emlabcpp::status::operator==</a></div><div class="ttdeci">constexpr friend bool operator==(status const &amp;lhs, Derived const &amp;rhs) noexcept</div><div class="ttdef"><b>Definition:</b> status.h:57</div></div>
+<div class="ttc" id="astructemlabcpp_1_1status_html_ad5494273f3baa02c5bfa5fb8bd69bb6b"><div class="ttname"><a href="structemlabcpp_1_1status.html#ad5494273f3baa02c5bfa5fb8bd69bb6b">emlabcpp::status::operator&lt;=&gt;</a></div><div class="ttdeci">constexpr friend auto operator&lt;=&gt;(status const &amp;lhs, Derived const &amp;rhs) noexcept</div><div class="ttdef"><b>Definition:</b> status.h:52</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="status_8h.html">status.h</a></li>
-    <li class="footer">Generated on Sat Mar 29 2025 22:50:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Mar 30 2025 14:47:25 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
