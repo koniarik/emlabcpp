@@ -14,7 +14,7 @@ var searchData=
   ['emlabcpp_5findex_5fswitch_5fcase_289',['EMLABCPP_INDEX_SWITCH_CASE',['../impl_8h.html#ad033e440927450aafee3024cd7f16575',1,'impl.h']]],
   ['emlabcpp_5findex_5funtil_290',['EMLABCPP_INDEX_UNTIL',['../impl_8h.html#ac2dd8a495eb1e272978107ec2e672e7b',1,'impl.h']]],
   ['emplace_5fback_291',['emplace_back',['../classemlabcpp_1_1static__circular__buffer.html#a99ae5108af386ff50f607b1882a0644d',1,'emlabcpp::static_circular_buffer::emplace_back()'],['../classemlabcpp_1_1static__vector.html#a807a90ecd860faed6caca090363c49b1',1,'emlabcpp::static_vector::emplace_back()']]],
-  ['emplace_5fitem_292',['emplace_item',['../classemlabcpp_1_1static__storage.html#a3864ec3baa5de5958e4099d341f853bb',1,'emlabcpp::static_storage']]],
+  ['emplace_5fitem_292',['emplace_item',['../classemlabcpp_1_1static__storage.html#a66f4ffcec21bcc6917024fdc052a7520',1,'emlabcpp::static_storage']]],
   ['empty_293',['empty',['../classemlabcpp_1_1view.html#ad22ed9ee716c999b734a91db6d2273d5',1,'emlabcpp::view::empty()'],['../classemlabcpp_1_1static__vector.html#a1cb3115b37984ce71393fca1dc7b7717',1,'emlabcpp::static_vector::empty()'],['../classemlabcpp_1_1static__circular__buffer.html#a4b705c2c87ce4b5d4c34a7d1607cdbc4',1,'emlabcpp::static_circular_buffer::empty()'],['../classemlabcpp_1_1contiguous__tree.html#a1d1187f156113cfe8185deadf0354192',1,'emlabcpp::contiguous_tree::empty()']]],
   ['empty_5fnode_294',['empty_node',['../namespaceemlabcpp_1_1testing.html#a5eb00cf4e66c7b9a7d648db6c598514c',1,'emlabcpp::testing']]],
   ['empty_5fnode_5fimpl_295',['empty_node_impl',['../structemlabcpp_1_1testing_1_1empty__node__impl.html',1,'emlabcpp::testing']]],

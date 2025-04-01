@@ -35,7 +35,7 @@ var searchData=
   ['default_5fepsilon_251',['default_epsilon',['../namespaceemlabcpp.html#a20db02f115d34db629106a39c5194e18',1,'emlabcpp']]],
   ['defer_252',['defer',['../classemlabcpp_1_1defer.html#a2fac5182a5be5813537bd523107e375e',1,'emlabcpp::defer::defer(defer &amp;&amp;) noexcept=default'],['../classemlabcpp_1_1defer.html#a6b2ff0449b46f547c54c7b5ba8621156',1,'emlabcpp::defer::defer(Callable f)'],['../classemlabcpp_1_1defer.html#a7625c7b4bcc1953cac3039a024a1abc4',1,'emlabcpp::defer::defer(defer const &amp;)=default'],['../classemlabcpp_1_1defer.html',1,'emlabcpp::defer&lt; Callable &gt;']]],
   ['defer_2eh_253',['defer.h',['../defer_8h.html',1,'']]],
-  ['delete_5fitem_254',['delete_item',['../classemlabcpp_1_1static__storage.html#a6e56aff01b73b4b684e5f286e6936209',1,'emlabcpp::static_storage']]],
+  ['delete_5fitem_254',['delete_item',['../classemlabcpp_1_1static__storage.html#af6dbc81a80a73a86410c72af52003f6c',1,'emlabcpp::static_storage']]],
   ['deleter_255',['deleter',['../structemlabcpp_1_1pmr_1_1deleter.html',1,'emlabcpp::pmr']]],
   ['deque_256',['deque',['../namespaceemlabcpp_1_1pmr.html#afb6624d9cbb77fc5417e36cf287c559f',1,'emlabcpp::pmr']]],
   ['derive_257',['derive',['../structemlabcpp_1_1rpc_1_1derive.html',1,'emlabcpp::rpc']]],

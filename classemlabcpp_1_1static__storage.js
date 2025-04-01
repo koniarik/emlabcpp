@@ -8,8 +8,8 @@ var classemlabcpp_1_1static__storage =
     [ "value_type", "classemlabcpp_1_1static__storage.html#adcf915bbb92e4ade339399b751525646", null ],
     [ "data", "classemlabcpp_1_1static__storage.html#a7a6a8a55e6ad85a285d67b928ae872cd", null ],
     [ "data", "classemlabcpp_1_1static__storage.html#a7fcbb5894fa450c2416528044a38b086", null ],
-    [ "delete_item", "classemlabcpp_1_1static__storage.html#a6e56aff01b73b4b684e5f286e6936209", null ],
-    [ "emplace_item", "classemlabcpp_1_1static__storage.html#a3864ec3baa5de5958e4099d341f853bb", null ],
+    [ "delete_item", "classemlabcpp_1_1static__storage.html#af6dbc81a80a73a86410c72af52003f6c", null ],
+    [ "emplace_item", "classemlabcpp_1_1static__storage.html#a66f4ffcec21bcc6917024fdc052a7520", null ],
     [ "operator[]", "classemlabcpp_1_1static__storage.html#aa0ab8cd1e417dc986fe91996b2a9f3e0", null ],
     [ "operator[]", "classemlabcpp_1_1static__storage.html#a2be6c38c39d4a24d456b56b485c9f5a8", null ],
     [ "capacity", "classemlabcpp_1_1static__storage.html#a3848143590dda5b8a64f674e9018c0e9", null ]
