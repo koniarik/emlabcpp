@@ -27,6 +27,8 @@
 #include "./static_storage.h"
 #include "./view.h"
 
+#include <limits>
+
 namespace emlabcpp
 {
 
