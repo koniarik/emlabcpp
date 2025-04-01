@@ -27,7 +27,7 @@
 namespace emlabcpp
 {
 
-enum class outcome_e
+enum class outcome_e : uint8_t
 {
         SUCCESS = 0,
         FAILURE = 1,
@@ -43,7 +43,7 @@ enum class outcome_e
 /// For example, for parsing function, FAILURE should be used to mark that the parsed string is not
 /// valid, ERROR should be used to mark that unexpected internal error happend (out-of-bound access
 /// due to mistake in algorithm)
-struct outcome : status< outcome, outcome_e, outcome_e::SUCCESS >
+struct [[nodiscard]] outcome : status< outcome, outcome_e, outcome_e::SUCCESS >
 {
         using status::status;
         using enum outcome_e;

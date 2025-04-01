@@ -31,7 +31,7 @@ namespace emlabcpp::testing
 
 class executor
 {
-        enum class phase
+        enum class phase : uint8_t
         {
                 INIT,
                 SETUP,

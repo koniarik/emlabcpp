@@ -115,21 +115,21 @@ private:
                 ptr -= sizeof( std::byte* );
 
                 std::byte* prev = nullptr;
-                std::memcpy( &prev, ptr, sizeof( std::byte* ) );
+                std::memcpy( static_cast< void* >( &prev ), ptr, sizeof( std::byte* ) );
 
                 ptr -= sizeof( std::byte* );
 
                 std::byte* next = nullptr;
-                std::memcpy( &next, ptr, sizeof( std::byte* ) );
+                std::memcpy( static_cast< void* >( &next ), ptr, sizeof( std::byte* ) );
                 return { prev, next };
         };
 
         void set_node( std::byte* ptr, std::byte* const prev, std::byte* const next ) const
         {
                 ptr -= sizeof( std::byte* );
-                std::memcpy( ptr, &prev, sizeof( std::byte* ) );
+                std::memcpy( ptr, static_cast< void const* >( &prev ), sizeof( std::byte* ) );
                 ptr -= sizeof( std::byte* );
-                std::memcpy( ptr, &next, sizeof( std::byte* ) );
+                std::memcpy( ptr, static_cast< void const* >( &next ), sizeof( std::byte* ) );
         }
 
         std::byte* top_ = nullptr;

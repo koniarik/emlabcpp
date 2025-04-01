@@ -29,7 +29,7 @@
 namespace emlabcpp
 {
 
-enum class result_e
+enum class result_e : uint8_t
 {
         SUCCESS = 0,
         ERROR   = 1,
@@ -37,7 +37,7 @@ enum class result_e
 
 /// `result` represents an result of some operation, as an alternative to returning just `bool` with
 /// true/false value. Result has only two states, SUCCESS or ERROR.
-struct result : status< result, result_e, result_e::SUCCESS >
+struct [[nodiscard]] result : status< result, result_e, result_e::SUCCESS >
 {
         using status::status;
         using enum result_e;

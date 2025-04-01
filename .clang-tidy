@@ -1,7 +1,7 @@
 ---
 Checks: >
   -*,
-  bugprone*,-bugprone-easily-swappable-parameters,-bugprone-macro-parentheses,-bugprone-exception-escape,-bugprone-unchecked-optional-access,
+  bugprone*,-bugprone-easily-swappable-parameters,-bugprone-macro-parentheses,-bugprone-exception-escape,-bugprone-unchecked-optional-access,-bugprone-crtp-constructor-accessibility,
   concurrency*,
   modernize*,-modernize-use-trailing-return-type,-modernize-avoid-c-arrays,-modernize-use-nullptr,
   misc*,-misc-include-cleaner,

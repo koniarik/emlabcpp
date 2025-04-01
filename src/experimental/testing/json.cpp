@@ -116,9 +116,7 @@ json_to_data_tree( pmr::memory_resource& mem_res, nlohmann::json const& inpt )
                 if ( !opt_val )
                         return std::nullopt;
                 std::optional opt_id = tree.make_value_node( *opt_val );
-                if ( !opt_id )
-                        return std::nullopt;
-                return *opt_id;
+                return opt_id;
         };
 
         auto const opt_root_id = f( inpt );

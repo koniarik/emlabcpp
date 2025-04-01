@@ -97,8 +97,8 @@ class generic_iterator
                 return static_cast< Derived const& >( *this );
         }
 
-protected:
         generic_iterator() noexcept = default;
+        friend Derived;
 
 public:
         using value_type        = typename std::iterator_traits< Derived >::value_type;

@@ -123,12 +123,12 @@ param_type_awaiter parameters::get_type( node_id const nid )
 
 param_child_awaiter parameters::get_child( node_id const nid, child_id const chid )
 {
-        return param_child_awaiter{ param_child_request{ nid, chid }, *this };
+        return param_child_awaiter{ param_child_request{ .parent = nid, .chid = chid }, *this };
 }
 
 param_child_awaiter parameters::get_child( node_id const nid, key_type const& key )
 {
-        return param_child_awaiter{ param_child_request{ nid, key }, *this };
+        return param_child_awaiter{ param_child_request{ .parent = nid, .chid = key }, *this };
 }
 
 param_child_count_awaiter parameters::get_child_count( node_id const nid )
@@ -138,7 +138,7 @@ param_child_count_awaiter parameters::get_child_count( node_id const nid )
 
 param_key_awaiter parameters::get_key( node_id const nid, child_id const chid )
 {
-        return param_key_awaiter{ param_key_request{ nid, chid }, *this };
+        return param_key_awaiter{ param_key_request{ .nid = nid, .chid = chid }, *this };
 }
 
 void parameters::exchange( params_client_server_variant const& req, params_reply_callback reply_cb )

@@ -58,7 +58,7 @@ struct memory_promise
 
                 p++;
 
-                return p;
+                return static_cast< void* >( p );
         }
 
         void operator delete( void* const ptr, std::size_t const size )
@@ -67,7 +67,8 @@ struct memory_promise
 
                 p--;
 
-                result const res = ( *p )->deallocate( p, size + ptr_size, alignof( PromiseType ) );
+                result const res = ( *p )->deallocate(
+                    static_cast< void* >( p ), size + ptr_size, alignof( PromiseType ) );
                 if ( res == result::ERROR )
                         pmr::throw_bad_alloc();
         }

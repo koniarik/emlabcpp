@@ -78,7 +78,8 @@ struct packet_handler
                             checksum_type const calculated_checksum = Packet::get_checksum( area );
 
                             if ( present_checksum != calculated_checksum )
-                                    return error_record{ CHECKSUM_ERR, checksum_pos };
+                                    return error_record{
+                                        .error_mark = CHECKSUM_ERR, .offset = checksum_pos };
 
                             return std::get< 1 >( pack );
                     },

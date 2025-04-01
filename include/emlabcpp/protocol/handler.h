@@ -60,7 +60,7 @@ struct handler
                 conversion_result const res = def::deserialize( msg, val );
                 if ( res.has_error() ) {
                         mark const* const mark = res.get_error();
-                        return error_record{ *mark, res.used };
+                        return error_record{ .error_mark = *mark, .offset = res.used };
                 }
                 return val;
         }

@@ -41,7 +41,7 @@ struct [[nodiscard]] status
         constexpr status& operator=( status const& ) noexcept = default;
         constexpr status& operator=( status&& ) noexcept      = default;
 
-        constexpr enum_type value() const noexcept
+        [[nodiscard]] constexpr enum_type value() const noexcept
         {
                 return s_;
         }

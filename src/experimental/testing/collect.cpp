@@ -198,7 +198,7 @@ outcome collect_server::on_msg( collect_request const& req )
                     return this->send( collect_reply{ nid } );
             },
             [this, &req]( contiguous_request_adapter_errors const err ) {
-                    return this->send( tree_error_reply{ err, req.parent } );
+                    return this->send( tree_error_reply{ .err = err, .nid = req.parent } );
             } );
 }
 

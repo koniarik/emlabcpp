@@ -33,7 +33,7 @@ namespace emlabcpp
 
 namespace detail
 {
-        enum class static_function_operations
+        enum class static_function_operations : uint8_t
         {
                 COPY,
                 MOVE,
