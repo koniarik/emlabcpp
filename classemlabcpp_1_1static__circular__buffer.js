@@ -6,7 +6,7 @@ var classemlabcpp_1_1static__circular__buffer =
     [ "reference", "classemlabcpp_1_1static__circular__buffer.html#a2254e0fe38c1f37f98650a6e499ed53a", null ],
     [ "size_type", "classemlabcpp_1_1static__circular__buffer.html#a60847ddc38b03e9ce918c49094fb75a4", null ],
     [ "value_type", "classemlabcpp_1_1static__circular__buffer.html#a123d9df03ecd4482bc7c75e57e44fcec", null ],
-    [ "static_circular_buffer", "classemlabcpp_1_1static__circular__buffer.html#af84f6406b3af6132c17c69963f9513c0", null ],
+    [ "static_circular_buffer", "classemlabcpp_1_1static__circular__buffer.html#a5da00eb141d261378a32e7762db4bc85", null ],
     [ "static_circular_buffer", "classemlabcpp_1_1static__circular__buffer.html#a647ed92de8cf41c5ef058a6b2286cb3e", null ],
     [ "static_circular_buffer", "classemlabcpp_1_1static__circular__buffer.html#a69fbbedfa2b5dc2e4055073a55691f50", null ],
     [ "~static_circular_buffer", "classemlabcpp_1_1static__circular__buffer.html#ae66ed12d7b93d88d3aca30343b678810", null ],

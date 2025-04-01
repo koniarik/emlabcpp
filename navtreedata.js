@@ -25,30 +25,30 @@
 var NAVTREE =
 [
   [ "emlabcpp", "index.html", [
-    [ "Installation", "index.html#autotoc_md9", null ],
-    [ "Components", "index.html#autotoc_md10", [
-      [ "algorithm.h", "index.html#autotoc_md11", null ],
-      [ "assert.h", "index.html#autotoc_md12", null ],
-      [ "bounded.h", "index.html#autotoc_md13", null ],
-      [ "concepts.h", "index.html#autotoc_md14", null ],
-      [ "defer.h", "index.html#autotoc_md15", null ],
-      [ "enum.h", "index.html#autotoc_md16", null ],
-      [ "iterator.h", "index.html#autotoc_md17", [
-        [ "iterators/numeric.h", "index.html#autotoc_md18", null ],
-        [ "iterators/subscript.h", "index.html#autotoc_md19", null ],
-        [ "iterators/access.h", "index.html#autotoc_md20", null ]
+    [ "Installation", "index.html#autotoc_md5", null ],
+    [ "Components", "index.html#autotoc_md6", [
+      [ "algorithm.h", "index.html#autotoc_md7", null ],
+      [ "assert.h", "index.html#autotoc_md8", null ],
+      [ "bounded.h", "index.html#autotoc_md9", null ],
+      [ "concepts.h", "index.html#autotoc_md10", null ],
+      [ "defer.h", "index.html#autotoc_md11", null ],
+      [ "enum.h", "index.html#autotoc_md12", null ],
+      [ "iterator.h", "index.html#autotoc_md13", [
+        [ "iterators/numeric.h", "index.html#autotoc_md14", null ],
+        [ "iterators/subscript.h", "index.html#autotoc_md15", null ],
+        [ "iterators/access.h", "index.html#autotoc_md16", null ]
       ] ],
-      [ "match.h", "index.html#autotoc_md21", null ],
-      [ "physical_quantity.h", "index.html#autotoc_md22", null ],
-      [ "pid.h", "index.html#autotoc_md23", null ],
-      [ "protocol.h", "index.html#autotoc_md24", null ],
-      [ "quantity.h", "index.html#autotoc_md25", null ],
-      [ "static_circular_buffer.h", "index.html#autotoc_md26", null ],
-      [ "static_vector.h", "index.html#autotoc_md27", null ],
-      [ "types.h", "index.html#autotoc_md28", null ],
-      [ "view.h", "index.html#autotoc_md29", null ],
-      [ "visit.h", "index.html#autotoc_md30", null ],
-      [ "zip.h", "index.html#autotoc_md31", null ]
+      [ "match.h", "index.html#autotoc_md17", null ],
+      [ "physical_quantity.h", "index.html#autotoc_md18", null ],
+      [ "pid.h", "index.html#autotoc_md19", null ],
+      [ "protocol.h", "index.html#autotoc_md20", null ],
+      [ "quantity.h", "index.html#autotoc_md21", null ],
+      [ "static_circular_buffer.h", "index.html#autotoc_md22", null ],
+      [ "static_vector.h", "index.html#autotoc_md23", null ],
+      [ "types.h", "index.html#autotoc_md24", null ],
+      [ "view.h", "index.html#autotoc_md25", null ],
+      [ "visit.h", "index.html#autotoc_md26", null ],
+      [ "zip.h", "index.html#autotoc_md27", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],

@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Installation</h1>
 <p>Repository is at <a href="https://github.com/koniarik/emlabcpp">https://github.com/koniarik/emlabcpp</a> The prefered of getting the library for now is via fetchcontent:</p>
 <div class="fragment"><div class="line">FetchContent_Declare(</div>
@@ -122,10 +122,10 @@ Installation</h1>
 <div class="line">  GIT_TAG v1.1</div>
 <div class="line">)</div>
 <div class="line">FetchContent_MakeAvailable(emlabcpp)</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Components</h1>
 <p>The library can be view as a set of components. These are organized based on the root header file for the said component.</p>
-<h2><a class="anchor" id="autotoc_md11"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 algorithm.h</h2>
 <p>Contains a set of algorithms similar to &lt;algorithm&gt; standard library, with a major change. Functions take as an argument a container itself, rather than iterators. Most of the functions are also able to work with <code>std::tuple</code>. This is expanded with other short functions representing simple algorithms.</p>
 <p>The two core functions are <code>find_if</code> and <code>for_each</code>, both are implemented with variant over containers and tuples.</p>
@@ -147,7 +147,7 @@ algorithm.h</h2>
 <div class="ttc" id="anamespaceemlabcpp_html_a685395cc470dfed697a40d2c718af4e9"><div class="ttname"><a href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">emlabcpp::for_each</a></div><div class="ttdeci">constexpr void for_each(Container &amp;&amp;cont, UnaryCallable &amp;&amp;f)</div><div class="ttdoc">Applies unary callable 'f' to each element of container 'cont'.</div><div class="ttdef"><b>Definition:</b> algorithm.h:171</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_adad2aaee725330a629c1fa9af8cf7e37"><div class="ttname"><a href="namespaceemlabcpp.html#adad2aaee725330a629c1fa9af8cf7e37">emlabcpp::find_if</a></div><div class="ttdeci">constexpr auto find_if(Container &amp;&amp;cont, PredicateCallable &amp;&amp;f=std::identity())</div><div class="ttdoc">Returns iterator for first item, for which call to predicate f(*iter) holds true.</div><div class="ttdef"><b>Definition:</b> algorithm.h:112</div></div>
 </div><!-- fragment --><p>See examples for an overview of algorithms.</p>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md8"></a>
 assert.h</h2>
 <p>Provides <code><a class="el" href="assert_8h.html#a1be190c4e600e598cc284808298bde75" title="MIT License.">EMLABCPP_ASSERT(c)</a></code> macro that has three states:</p><ol type="1">
 <li>Does nothing - node instructions are emitted.</li>
@@ -155,15 +155,15 @@ assert.h</h2>
 <li>Calls <code>EMLABCPP_ASSERT_FUNC(c)</code> if <code>EMLABCPP_ASSERT_FUNC</code> is defined.</li>
 </ol>
 <p>By default, none of the macros are defined.</p>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 bounded.h</h2>
 <p>Provides <code>bounded&lt;T,Min,Max&gt;</code> class that envelops type <code>T</code> and provides interface that enforces <code>T</code> to remain within bounds <code>Min</code> and <code>Max</code>. Can be used to relay value constrains in type information.</p>
 <p>For example:</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> T::set_power(bounded&lt;float, -1.f, 1.f&gt;)</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
 concepts.h</h2>
 <p>A set of C++ concepts designed for implementing a checks inside the library.</p>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 defer.h</h2>
 <p>Simple utility class to setup code segments executed after the end of scope:</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> exec_job(){</div>
@@ -173,7 +173,7 @@ defer.h</h2>
 <div class="line">    <span class="comment">// ...</span></div>
 <div class="line">}</div>
 </div><!-- fragment --><p> This enforces that "finished" message is send after the <code>exec_job</code> call finishes.</p>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<h2><a class="anchor" id="autotoc_md12"></a>
 enum.h</h2>
 <p>Provides a function that converts enum value into string representative, this either does simple <code>int-&gt;string</code> conversion or uses <code>magic_enum</code> library if it is enabled with <code>EMLABCPP_USE_MAGIC_ENUM</code> define.</p>
 <p>For example: </p><div class="fragment"><div class="line"><span class="keyword">enum</span> e_type {</div>
@@ -182,11 +182,11 @@ enum.h</h2>
 <div class="line"> </div>
 <div class="line">std::cout &lt;&lt; convert_enum(FOO) &lt;&lt; std::endl;</div>
 </div><!-- fragment --><p>Outputs <code>FOO</code> if <code>magic_enum</code> is enabled and <code>0</code> otherwise.</p>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
 iterator.h</h2>
 <p>Contains <code>generic_iterator&lt;Derived&gt;</code> CRTP baseclass. This simplifies implementation of custom iterators, as most of the methods/operators we expect of iterators can be implemented based on a small set of functions. (operator+, operator++(int), operator++ can be implemetned with operator+=)</p>
 <p>For implementing iterator, you only provide the basic subset for this class and it takes care of the rest. Keep in mind that this is for "general" use case, and for optimallity you may be better served with fully custom iterator.</p>
-<h3><a class="anchor" id="autotoc_md18"></a>
+<h3><a class="anchor" id="autotoc_md14"></a>
 iterators/numeric.h</h3>
 <p>Iterator that mimics real data container of sequence of numbers. The number is stored inside the iterator and when iterator is advanced, so is the internal value changed. Use functions like <code>range(from,to)</code> to creates a range from this iterators.</p>
 <div class="fragment"><div class="line">std::vector&lt;int&gt; vec_data;</div>
@@ -196,7 +196,7 @@ iterators/numeric.h</h3>
 <div class="line">    std::cout &lt;&lt; vec_data[i] &lt;&lt; <span class="charliteral">&#39;-&#39;</span> &lt;&lt; vec_data[i+1] &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespaceemlabcpp_html_acf5a156c767ed17a892cc7e9b5acd2b1"><div class="ttname"><a href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">emlabcpp::range</a></div><div class="ttdeci">constexpr view&lt; iterators::numeric_iterator&lt; Numeric &gt; &gt; range(Numeric from, Numeric to)</div><div class="ttdoc">Builds numeric view over interval [from, to)</div><div class="ttdef"><b>Definition:</b> range.h:33</div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md19"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md15"></a>
 iterators/subscript.h</h3>
 <p>Iterator over datatype that implemented operator[] but does not have iterators.</p>
 <div class="fragment"><div class="line">std::bitset&lt;32&gt; bit_data;</div>
@@ -206,7 +206,7 @@ iterators/subscript.h</h3>
 <div class="line">    std::cout &lt;&lt; (b ? <span class="charliteral">&#39;a&#39;</span> : <span class="charliteral">&#39;b&#39;</span>);</div>
 <div class="line">}</div>
 <div class="ttc" id="anamespaceemlabcpp_html_ac813ec118aa63294f4ed7955f389e289"><div class="ttname"><a href="namespaceemlabcpp.html#ac813ec118aa63294f4ed7955f389e289">emlabcpp::subscript_view</a></div><div class="ttdeci">view&lt; iterators::subscript_iterator&lt; Container &gt; &gt; subscript_view(Container &amp;cont)</div><div class="ttdef"><b>Definition:</b> subscript_view.h:31</div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md20"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md16"></a>
 iterators/access.h</h3>
 <p>Iterators overlays the data stored in input container, and provides access only to 'reference' provided by function out of item in the container.</p>
 <div class="fragment"><div class="line"><span class="keyword">struct </span>foo{</div>
@@ -224,7 +224,7 @@ iterators/access.h</h3>
 <div class="line">{</div>
 <div class="line">    std::cout &lt;&lt; item &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md21"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
 match.h</h2>
 <p>Match is mechanism similar to <code>std::visit(Callable,Variant)</code>, but one that changes the order of arguments and allows mutliple callables. The signature is along the lines of: <code>match(Variant,Callable...)</code>. The implementation composes callables together and let's method resolution pick the appropaite callable for alternative present in the variant.</p>
 <p>This makes it possible to write constructs such as these: </p><div class="fragment"><div class="line">std::variant&lt;StateA, StateB, StateC&gt; states;</div>
@@ -240,7 +240,7 @@ match.h</h2>
 <div class="line">    });</div>
 <div class="ttc" id="anamespaceemlabcpp_html_a57181a407fd6f29a50664f8ba4cb44cd"><div class="ttname"><a href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match</a></div><div class="ttdeci">decltype(auto) match(Variant &amp;&amp;var, Callables &amp;&amp;... cals)</div><div class="ttdef"><b>Definition:</b> match.h:55</div></div>
 </div><!-- fragment --><p> Here, the function executions a lambda for the state that is present in the variant, you can think about it like a <code>switch</code> but for variant.</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 physical_quantity.h</h2>
 <p>System of physical quantities based on <code><a class="el" href="quantity_8h.html">quantity.h</a></code>. These represent physical quantity that stores it's unit in it's own type (templated).</p>
 <p>This makes it possible to have velocity/length/time represented as distinct types. Also, the result type of operations like length divided by time is of type velocity.</p>
@@ -254,10 +254,10 @@ physical_quantity.h</h2>
 <div class="ttc" id="anamespaceemlabcpp_html_a1133bfe4782c135fcdb04c3de43fc0a1"><div class="ttname"><a href="namespaceemlabcpp.html#a1133bfe4782c135fcdb04c3de43fc0a1">emlabcpp::velocity</a></div><div class="ttdeci">physical_quantity&lt; 1, 0, -1, 0, 0, 0, 0, 0, 0 &gt; velocity</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:123</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a35fa23942849e26dc612a6608eb2ec02"><div class="ttname"><a href="namespaceemlabcpp.html#a35fa23942849e26dc612a6608eb2ec02">emlabcpp::timeq</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 1, 0, 0, 0, 0, 0, 0 &gt; timeq</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:112</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a9f7b213031fa424abf6cc3d1d04ac1ca"><div class="ttname"><a href="namespaceemlabcpp.html#a9f7b213031fa424abf6cc3d1d04ac1ca">emlabcpp::acceleration</a></div><div class="ttdeci">physical_quantity&lt; 1, 0, -2, 0, 0, 0, 0, 0, 0 &gt; acceleration</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:119</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md23"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md19"></a>
 pid.h</h2>
 <p>Basic PID regulator implementation using floats, templated based on the time type.</p>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 protocol.h</h2>
 <p>The protocol library serializes and deserialize C++ data structures into binary messages. The principle is that the protocol is defined with library types. Based on the definition, <code>protocol_handler&lt;Def&gt;</code> provides routines for serialization and deserialization of data structures corresponding to said definition.</p>
 <p>In case of work with simple robot, we can create simple protocol: </p><div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="namespaceemlabcpp.html#a11ac05592b4c728910966af0c89b13a8">distance</a> = unsigned;</div>
@@ -280,10 +280,10 @@ protocol.h</h2>
 <div class="ttc" id="anamespaceemlabcpp_html_a11ac05592b4c728910966af0c89b13a8"><div class="ttname"><a href="namespaceemlabcpp.html#a11ac05592b4c728910966af0c89b13a8">emlabcpp::distance</a></div><div class="ttdeci">length distance</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:129</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afa050c988b29285083320111dc7b90ca"><div class="ttname"><a href="namespaceemlabcpp.html#afa050c988b29285083320111dc7b90ca">emlabcpp::angle</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 1, 0 &gt; angle</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:117</div></div>
 </div><!-- fragment --><p>See examples for more detailed explanation.</p>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 quantity.h</h2>
 <p>Simple thin overlay over numeric types, that gives abillity to implement strongly typed numeric types. This is handy in case you want to enforce correctness on type level. See implementation of <code>physical_quantity</code> as an example.</p>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 static_circular_buffer.h</h2>
 <p>Basic implementation of circular buffer with static maximal size, that can store non-default constructible elements. No dynamic allocation is used.</p>
 <div class="fragment"><div class="line">static_circular_buffer&lt;std::byte, 256&gt; buffr;</div>
@@ -302,10 +302,10 @@ static_circular_buffer.h</h2>
 <div class="line">{</div>
 <div class="line">    buffr.pop_front();</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md27"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md23"></a>
 static_vector.h</h2>
 <p>Basic implementation of vector with static maximal size, that can store non-default constructible elements. No dynamic allocation is used.</p>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
 types.h</h2>
 <p>A library of helpers for type inspection, this contains types similar to <code>type_traits</code> of standard library. This follows the pattern of <code>std::</code> library - type check is structure with <code>::value</code>/<code>::type</code> attributes and using for <code>_v</code>/<code>_t</code> suffixed aliases exists.</p>
 <div class="fragment"><div class="line"><span class="keyword">using</span> data = std::vector&lt;int&gt;;</div>
@@ -317,7 +317,7 @@ types.h</h2>
 <div class="line"><span class="keyword">using</span> fun = decltype(fun);</div>
 <div class="line"> </div>
 <div class="line">static_assert(std::is_same_v&lt;mapped_t&lt;data, fun&gt;, std::string&gt;);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md29"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md25"></a>
 view.h</h2>
 <p>Simple container storing a pair of iterators - non-owning container of data. This make it possible to pass a subset of container to API expecting a container itself. It is also more sensible for functions that would return <code>std::pair</code> of iterators.</p>
 <div class="fragment"><div class="line">std::vector&lt;int&gt; vec_data{1,2,3,4,5,6};</div>
@@ -348,10 +348,10 @@ view.h</h2>
 <div class="ttc" id="anamespaceemlabcpp_html_a2fe2d2bf491db344cf04e4c2b9d799b8"><div class="ttname"><a href="namespaceemlabcpp.html#a2fe2d2bf491db344cf04e4c2b9d799b8">emlabcpp::reversed</a></div><div class="ttdeci">constexpr auto reversed(referenceable_container auto &amp;container) -&gt; view&lt; decltype(std::rbegin(container)) &gt;</div><div class="ttdoc">Returns view to the Container in reverse order.</div><div class="ttdef"><b>Definition:</b> view.h:223</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a4b726ddab4f550f3e186f177243cb09b"><div class="ttname"><a href="namespaceemlabcpp.html#a4b726ddab4f550f3e186f177243cb09b">emlabcpp::view</a></div><div class="ttdeci">view(Container &amp;cont) -&gt; view&lt; iterator_of_t&lt; Container &gt; &gt;</div><div class="ttdoc">The container deduction guide uses iterator_of_t.</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a622f11a522f1ded8232d2e13e7f41337"><div class="ttname"><a href="namespaceemlabcpp.html#a622f11a522f1ded8232d2e13e7f41337">emlabcpp::view_n</a></div><div class="ttdeci">constexpr view&lt; Iter &gt; view_n(Iter begin, std::size_t const n)</div><div class="ttdoc">Creates view over 'n' items of dataset starting at 'begin' This does not check validity of the range!</div><div class="ttdef"><b>Definition:</b> view.h:198</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md30"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md26"></a>
 visit.h</h2>
 <p><code>visit</code> is reimplementation of <code>std::visit</code> that has worse time complexity in exchange of less code being generate for the mechanism. It also drop support for multiple variants.</p>
-<h2><a class="anchor" id="autotoc_md31"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 zip.h</h2>
 <p>zip iterator over multiple data containers, which dereference value is tuple of references to provided containers.</p>
 <p>This is especially handy in combination with numeric iterator. Example is <code>enumerate(cont)</code> which returns zip of range over cont size and cont itself, which behaves same as enumerate on python.</p>
@@ -377,7 +377,7 @@ zip.h</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Mar 30 2025 19:37:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Apr 1 2025 10:44:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
