@@ -119,22 +119,23 @@ var hierarchy =
     ] ],
     [ "emlabcpp::function_view< Signature >", "namespaceemlabcpp.html#classemlabcpp_1_1function__view", null ],
     [ "emlabcpp::function_view< ReturnType(ArgTypes...) >", "classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html", null ],
-    [ "emlabcpp::generic_iterator< Derived >", "classemlabcpp_1_1generic__iterator.html", null ],
-    [ "emlabcpp::generic_iterator< convert_iterator< T, Iterator > >", "classemlabcpp_1_1generic__iterator.html", [
+    [ "emlabcpp::generic_iterator< Derived >", "namespaceemlabcpp.html#structemlabcpp_1_1generic__iterator", null ],
+    [ "emlabcpp::generic_iterator< convert_iterator< T, Iterator > >", "namespaceemlabcpp.html", [
       [ "emlabcpp::iterators::convert_iterator< T, Iterator >", "classemlabcpp_1_1iterators_1_1convert__iterator.html", null ]
     ] ],
-    [ "emlabcpp::generic_iterator< decode_cobs_iter< Iter > >", "classemlabcpp_1_1generic__iterator.html", [
+    [ "emlabcpp::generic_iterator< decode_cobs_iter< Iter > >", "namespaceemlabcpp.html", [
       [ "emlabcpp::decode_cobs_iter< Iter >", "classemlabcpp_1_1decode__cobs__iter.html", null ]
     ] ],
-    [ "emlabcpp::generic_iterator< numeric_iterator< T > >", "classemlabcpp_1_1generic__iterator.html", [
+    [ "emlabcpp::generic_iterator< numeric_iterator< T > >", "namespaceemlabcpp.html", [
       [ "emlabcpp::iterators::numeric_iterator< T >", "classemlabcpp_1_1iterators_1_1numeric__iterator.html", null ]
     ] ],
-    [ "emlabcpp::generic_iterator< static_circular_buffer_iterator< Container > >", "classemlabcpp_1_1generic__iterator.html", [
-      [ "emlabcpp::static_circular_buffer_iterator< Container >", "classemlabcpp_1_1static__circular__buffer__iterator.html", null ]
+    [ "emlabcpp::generic_iterator< static_circular_buffer_iterator< T > >", "namespaceemlabcpp.html", [
+      [ "emlabcpp::static_circular_buffer_iterator< T >", "classemlabcpp_1_1static__circular__buffer__iterator.html", null ]
     ] ],
-    [ "emlabcpp::generic_iterator< subscript_iterator< Container > >", "classemlabcpp_1_1generic__iterator.html", [
+    [ "emlabcpp::generic_iterator< subscript_iterator< Container > >", "namespaceemlabcpp.html", [
       [ "emlabcpp::iterators::subscript_iterator< Container >", "classemlabcpp_1_1iterators_1_1subscript__iterator.html", null ]
     ] ],
+    [ "emlabcpp::generic_iterator_base< Derived >", "classemlabcpp_1_1generic__iterator__base.html", null ],
     [ "emlabcpp::testing::get_count_reply", "structemlabcpp_1_1testing_1_1get__count__reply.html", null ],
     [ "emlabcpp::testing::get_property< ID >", "structemlabcpp_1_1testing_1_1get__property.html", null ],
     [ "emlabcpp::testing::get_suite_date_reply", "structemlabcpp_1_1testing_1_1get__suite__date__reply.html", null ],
@@ -161,7 +162,7 @@ var hierarchy =
     [ "std::iterator_traits< emlabcpp::iterators::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::iterators::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::iterators::subscript_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html", null ],
-    [ "std::iterator_traits< emlabcpp::static_circular_buffer_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01Container_01_4_01_4.html", null ],
+    [ "std::iterator_traits< emlabcpp::static_circular_buffer_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01T_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::zip_iterator< Iterators... > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::linked_list_node_base< Base >", "classemlabcpp_1_1linked__list__node__base.html", [
       [ "emlabcpp::linked_list_node< empty_node_impl >", "classemlabcpp_1_1linked__list__node.html", null ],
@@ -303,7 +304,6 @@ var hierarchy =
     ] ],
     [ "emlabcpp::impl::static_size< std::tuple< Ts... > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::static_storage< T, N >", "classemlabcpp_1_1static__storage.html", null ],
-    [ "emlabcpp::static_storage< T, real_size >", "classemlabcpp_1_1static__storage.html", null ],
     [ "emlabcpp::static_vector< T, N >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::static_vector< uint16_t, PoolCount >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::status< Derived, Enum, SuccessValue >", "structemlabcpp_1_1status.html", null ],

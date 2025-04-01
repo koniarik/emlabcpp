@@ -197,8 +197,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator simplifies custom iterator implementation using CRTP.">generic_iterator</a> simplifies custom iterator implementation using CRTP.  <a href="classemlabcpp_1_1generic__iterator.html#details">More...</a><br /></td></tr>
+<tr class="memitem:structemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1generic__iterator">generic_iterator</a></td></tr>
+<tr class="memdesc:structemlabcpp_1_1generic__iterator"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1generic__iterator" title="generic_iterator simplifies custom iterator implementation using CRTP.">generic_iterator</a> simplifies custom iterator implementation using CRTP.  <a href="namespaceemlabcpp.html#structemlabcpp_1_1generic__iterator">More...</a><br /></td></tr>
+<tr class="separator:structemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator__base.html">generic_iterator_base</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1matcher.html">matcher</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1275,6 +1277,25 @@ dist</td>
 </td></tr>
 </table>
 
+</div>
+</div>
+<a name="structemlabcpp_1_1generic__iterator" id="structemlabcpp_1_1generic__iterator"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1generic__iterator">&#9670;&nbsp;</a></span>emlabcpp::generic_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::generic_iterator</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;typename Derived&gt;<br />
+struct emlabcpp::generic_iterator&lt; Derived &gt;</h3>
+
+<p><a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1generic__iterator" title="generic_iterator simplifies custom iterator implementation using CRTP.">generic_iterator</a> simplifies custom iterator implementation using CRTP. </p>
+<p>Users inherit from <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1generic__iterator" title="generic_iterator simplifies custom iterator implementation using CRTP.">generic_iterator</a> and pass their class as the Derived template argument. It relies on std::iterator_traits&lt;Derived&gt; for type definitions and provides additional methods based on those implemented in the Derived class. </p>
+</div>
 </div>
 </div>
 <a name="structemlabcpp_1_1pid__coefficients" id="structemlabcpp_1_1pid__coefficients"></a>
@@ -7007,7 +7028,7 @@ template&lt;typename T , std::size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426">emlabcpp::static_circular_buffer&lt; T, N &gt;::begin()</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#aa8165951ae18e5a305ee580be7c749d4">emlabcpp::static_circular_buffer&lt; T, N &gt;::end()</a>, <a class="el" href="namespaceemlabcpp.html#a504dbf8012c154e4c54aae3af67e08c9">equal()</a>, and <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a4a90f093a980231b0156e8ed33c6e1f1">emlabcpp::static_circular_buffer&lt; T, N &gt;::size()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426">emlabcpp::static_circular_buffer&lt; T, N &gt;::begin()</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#aa8165951ae18e5a305ee580be7c749d4">emlabcpp::static_circular_buffer&lt; T, N &gt;::end()</a>, <a class="el" href="namespaceemlabcpp.html#a504dbf8012c154e4c54aae3af67e08c9">equal()</a>, and <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a1e075ae0be996c278fb28a8afe471fe7">emlabcpp::static_circular_buffer&lt; T, N &gt;::size()</a>.</p>
 
 </div>
 </div>
@@ -10295,7 +10316,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Tue Apr 1 2025 16:24:53 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Apr 1 2025 20:59:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

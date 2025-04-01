@@ -85,20 +85,20 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"classemlabcpp_1_1decode__cobs__iter.html#ace22a13e1c035dd86aba81fe26220605",
-"classemlabcpp_1_1protocol_1_1register__map.html#ac910e0d119bf622432dc91a200693b5a",
-"classemlabcpp_1_1testing_1_1collector.html#a17f0b208d55815745ec3f66044593c7f",
-"coroutine_8h.html#a36b5c4e3cf7f27ac1c6807333d3b7d65add0f1fac7b1452a7c98db1c15fa9b7bb",
-"impl_8h.html#aa8e6590904926df9b2f00b61c63f370a",
-"namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9",
-"namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3",
-"namespacemembers_r.html",
-"static__function_8h.html#a504aa8af747dc7480bcb7d73d822841bae8606d021da140a92c7eba8d9b8af84f",
-"structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#ac6eed1982a49b6b3d64b0a86a62bc279",
-"structemlabcpp_1_1protocol_1_1proto__traits_3_01sizeless__message_3_01N_01_4_01_4.html#a7b8c323ffdcd9bbb6cba6a7a0b6e32a9",
-"structemlabcpp_1_1testing_1_1param__key__reply.html#a00f5a68102f595c9d062912dc7277ba1",
-"view_8h_source.html"
+"algorithm_8h.html",
+"classemlabcpp_1_1decode__cobs__iter.html#aed20c61580154f797d8f9c4227850939",
+"classemlabcpp_1_1protocol_1_1sequencer.html#aa8380c5c5b078cfa206aeabad70c992a",
+"classemlabcpp_1_1testing_1_1collector.html#aad2fe3e24397984a02968f73af450b41",
+"decompose_8h.html#ab124463ea669779e32ea4428088a01c4",
+"index.html#autotoc_md16",
+"namespaceemlabcpp.html#a7405050872ccfca2a64cb049e4def265",
+"namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9",
+"new__delete__resource_8h.html",
+"status_8h.html",
+"structemlabcpp_1_1protocol_1_1converter_3_01message_3_01N_01_4_00_01Endianess_01_4.html",
+"structemlabcpp_1_1protocol_1_1proto__traits_3_01std_1_1bitset_3_01N_01_4_01_4.html#a65c3921a62032677cff4147a98468123",
+"structemlabcpp_1_1testing_1_1param__type__reply.html",
+"zip_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

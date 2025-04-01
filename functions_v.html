@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('functions_v.html',''); initResizable()
 : <a class="el" href="classemlabcpp_1_1contiguous__node.html#a016438cfc2e670519a6c8ae28c138020">emlabcpp::contiguous_node&lt; Key, Value &gt;</a>
 , <a class="el" href="classemlabcpp_1_1contiguous__request__adapter.html#af57eb87261d1532de3b0405cffada4af">emlabcpp::contiguous_request_adapter&lt; Tree &gt;</a>
 , <a class="el" href="classemlabcpp_1_1contiguous__tree.html#a199ea7cde737405b4f67be75ee19d0e4">emlabcpp::contiguous_tree&lt; Key, Value &gt;</a>
-, <a class="el" href="classemlabcpp_1_1generic__iterator.html#a045454491c2aa862c6658e85a1660deb">emlabcpp::generic_iterator&lt; Derived &gt;</a>
+, <a class="el" href="classemlabcpp_1_1generic__iterator__base.html#a7d3a591032fff43f113776aec6927bbd">emlabcpp::generic_iterator_base&lt; Derived &gt;</a>
 , <a class="el" href="classemlabcpp_1_1identity__matrix.html#a1594594c927b425a7bdafb38b3b3437c">emlabcpp::identity_matrix&lt; N, T &gt;</a>
 , <a class="el" href="classemlabcpp_1_1iterators_1_1subscript__iterator.html#a9bb0ab67e3f6247fa06aa7727d5eb9f6">emlabcpp::iterators::subscript_iterator&lt; Container &gt;</a>
 , <a class="el" href="classemlabcpp_1_1matrix.html#ab9216b1aaaf1cd5d69f1f585add4ff7f">emlabcpp::matrix&lt; N, M, T &gt;</a>
@@ -168,7 +168,7 @@ $(document).ready(function(){initNavTree('functions_v.html',''); initResizable()
 , <a class="el" href="classemlabcpp_1_1rowcol__submatrix.html#a54e40544c4a7b100b382f55d8b0c3042">emlabcpp::rowcol_submatrix&lt; Matrix, I, J &gt;</a>
 , <a class="el" href="classemlabcpp_1_1simplex.html#af05f292a9bc0b52290264558f074717e">emlabcpp::simplex&lt; Item, N &gt;</a>
 , <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a123d9df03ecd4482bc7c75e57e44fcec">emlabcpp::static_circular_buffer&lt; T, N &gt;</a>
-, <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a3e00b3c7d4e86f7206fe94192fbcb7f0">emlabcpp::static_circular_buffer_iterator&lt; Container &gt;</a>
+, <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#abaab0bd2130b88a76c71d8916c705555">emlabcpp::static_circular_buffer_iterator&lt; T &gt;</a>
 , <a class="el" href="classemlabcpp_1_1static__storage.html#adcf915bbb92e4ade339399b751525646">emlabcpp::static_storage&lt; T, N &gt;</a>
 , <a class="el" href="classemlabcpp_1_1static__vector.html#ad1f78fe788ab85252cef7740ab8c1900">emlabcpp::static_vector&lt; T, N &gt;</a>
 , <a class="el" href="structemlabcpp_1_1tag.html#a3c9caf900810ddd8b770de401efc5e09">emlabcpp::tag&lt; V &gt;</a>
@@ -179,7 +179,7 @@ $(document).ready(function(){initNavTree('functions_v.html',''); initResizable()
 , <a class="el" href="structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html#ab61b964c237501a7ea67e791579a99a7">std::iterator_traits&lt; emlabcpp::iterators::convert_iterator&lt; T, Iterator &gt; &gt;</a>
 , <a class="el" href="structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4.html#a3b31e1d6f03c5c60f2da15a1a80345be">std::iterator_traits&lt; emlabcpp::iterators::numeric_iterator&lt; T &gt; &gt;</a>
 , <a class="el" href="structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html#a94d14588aa49d382ee1fc26ac7929a97">std::iterator_traits&lt; emlabcpp::iterators::subscript_iterator&lt; Container &gt; &gt;</a>
-, <a class="el" href="structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01Container_01_4_01_4.html#a54b39c3d522cfc35d207c2b4a5ab6c89">std::iterator_traits&lt; emlabcpp::static_circular_buffer_iterator&lt; Container &gt; &gt;</a>
+, <a class="el" href="structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01T_01_4_01_4.html#a0cecc14340873b9075c82b1db2e8de31">std::iterator_traits&lt; emlabcpp::static_circular_buffer_iterator&lt; T &gt; &gt;</a>
 , <a class="el" href="structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4.html#af4624deb77b33d216e74447f3efb72fb">std::iterator_traits&lt; emlabcpp::zip_iterator&lt; Iterators... &gt; &gt;</a>
 , <a class="el" href="structstd_1_1numeric__limits_3_01T_01_4.html#ac12f5340dbb260e6cb9486a7a00f3a4c">std::numeric_limits&lt; T &gt;</a>
 </li>
@@ -205,7 +205,7 @@ $(document).ready(function(){initNavTree('functions_v.html',''); initResizable()
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Apr 1 2025 16:24:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Apr 1 2025 20:59:38 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

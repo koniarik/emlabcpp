@@ -1,6 +1,6 @@
 var iterator_8h =
 [
-    [ "generic_iterator", "classemlabcpp_1_1generic__iterator.html", "classemlabcpp_1_1generic__iterator" ],
+    [ "generic_iterator_base", "classemlabcpp_1_1generic__iterator__base.html", "classemlabcpp_1_1generic__iterator__base" ],
     [ "nothrow_add_assign", "iterator_8h.html#aeaf0a89b5a964961b194ce7d5e97a1e3", null ],
     [ "nothrow_dereference", "iterator_8h.html#a0831a15e8671ef24b4c603958370ab09", null ],
     [ "nothrow_equality_compare", "iterator_8h.html#a69ec76f710bc498a013e2fa20298970d", null ],

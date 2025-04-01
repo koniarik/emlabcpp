@@ -23,7 +23,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classemlabcpp_1_1generic__iterator.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="namespaceemlabcpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="0,-78.5 0,-108.5 194,-108.5 194,-78.5 0,-78.5"/>
 <text text-anchor="start" x="8" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">emlabcpp::generic_iterator</text>
 <text text-anchor="middle" x="97" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; subscript_iterator&lt; Container &gt; &gt;</text>

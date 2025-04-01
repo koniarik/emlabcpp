@@ -248,7 +248,8 @@ var annotated_dup =
       [ "identity_matrix", "classemlabcpp_1_1identity__matrix.html", "classemlabcpp_1_1identity__matrix" ],
       [ "rowcol_submatrix", "classemlabcpp_1_1rowcol__submatrix.html", "classemlabcpp_1_1rowcol__submatrix" ],
       [ "string_buffer", "structemlabcpp_1_1string__buffer.html", "structemlabcpp_1_1string__buffer" ],
-      [ "generic_iterator", "classemlabcpp_1_1generic__iterator.html", "classemlabcpp_1_1generic__iterator" ],
+      [ "generic_iterator", "namespaceemlabcpp.html#structemlabcpp_1_1generic__iterator", null ],
+      [ "generic_iterator_base", "classemlabcpp_1_1generic__iterator__base.html", "classemlabcpp_1_1generic__iterator__base" ],
       [ "matcher", "structemlabcpp_1_1matcher.html", "structemlabcpp_1_1matcher" ],
       [ "min_max", "structemlabcpp_1_1min__max.html", "structemlabcpp_1_1min__max" ],
       [ "outcome", "structemlabcpp_1_1outcome.html", "structemlabcpp_1_1outcome" ],
@@ -303,7 +304,7 @@ var annotated_dup =
       [ "tuple_element< I, emlabcpp::min_max< T > >", "structstd_1_1tuple__element_3_01I_00_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html", "structstd_1_1tuple__element_3_01I_00_01emlabcpp_1_1min__max_3_01T_01_4_01_4" ],
       [ "numeric_limits< T >", "structstd_1_1numeric__limits_3_01T_01_4.html", "structstd_1_1numeric__limits_3_01T_01_4" ],
       [ "hash< T >", "structstd_1_1hash_3_01T_01_4.html", "structstd_1_1hash_3_01T_01_4" ],
-      [ "iterator_traits< emlabcpp::static_circular_buffer_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01Container_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01Container_01_4_01_4" ],
+      [ "iterator_traits< emlabcpp::static_circular_buffer_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01T_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01T_01_4_01_4" ],
       [ "iterator_traits< emlabcpp::zip_iterator< Iterators... > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4" ]
     ] ]
 ];

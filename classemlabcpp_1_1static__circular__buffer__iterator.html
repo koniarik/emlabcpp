@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>emlabcpp: emlabcpp::static_circular_buffer_iterator&lt; Container &gt; Class Template Reference</title>
+<title>emlabcpp: emlabcpp::static_circular_buffer_iterator&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,168 +89,128 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1static__circular__buf
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classemlabcpp_1_1static__circular__buffer__iterator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">emlabcpp::static_circular_buffer_iterator&lt; Container &gt; Class Template Reference</div>  </div>
+<div class="title">emlabcpp::static_circular_buffer_iterator&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="static__circular__buffer_8h_source.html">static_circular_buffer.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for emlabcpp::static_circular_buffer_iterator&lt; Container &gt;:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for emlabcpp::static_circular_buffer_iterator&lt; T &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classemlabcpp_1_1static__circular__buffer__iterator__inherit__graph.svg" width="226" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classemlabcpp_1_1static__circular__buffer__iterator__inherit__graph.svg" width="208" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::static_circular_buffer_iterator&lt; Container &gt;:</div>
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::static_circular_buffer_iterator&lt; T &gt;:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classemlabcpp_1_1static__circular__buffer__iterator__coll__graph.svg" width="226" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classemlabcpp_1_1static__circular__buffer__iterator__coll__graph.svg" width="208" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a3e00b3c7d4e86f7206fe94192fbcb7f0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a3e00b3c7d4e86f7206fe94192fbcb7f0">value_type</a> = typename Container::value_type</td></tr>
-<tr class="separator:a3e00b3c7d4e86f7206fe94192fbcb7f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a864feaa3da60a052800a3afaefe53325"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a864feaa3da60a052800a3afaefe53325">reference</a> = std::conditional_t&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a1556b7e16e728bcd5f1bff73f74de0ad">is_const</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a3e00b3c7d4e86f7206fe94192fbcb7f0">value_type</a> const  &amp;, <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a3e00b3c7d4e86f7206fe94192fbcb7f0">value_type</a> &amp; &gt;</td></tr>
-<tr class="separator:a864feaa3da60a052800a3afaefe53325"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af35309e7f6f37c76b9374481430344df"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#af35309e7f6f37c76b9374481430344df">const_reference</a> = <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a3e00b3c7d4e86f7206fe94192fbcb7f0">value_type</a> const  &amp;</td></tr>
-<tr class="separator:af35309e7f6f37c76b9374481430344df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa201895338e557ec046a51886057aeca"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#aa201895338e557ec046a51886057aeca">difference_type</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#aa201895338e557ec046a51886057aeca">difference_type</a></td></tr>
-<tr class="separator:aa201895338e557ec046a51886057aeca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_types_classemlabcpp_1_1generic__iterator"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classemlabcpp_1_1generic__iterator')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classemlabcpp_1_1generic__iterator.html">emlabcpp::generic_iterator&lt; static_circular_buffer_iterator&lt; Container &gt; &gt;</a></td></tr>
-<tr class="memitem:a045454491c2aa862c6658e85a1660deb inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a045454491c2aa862c6658e85a1660deb">value_type</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#a045454491c2aa862c6658e85a1660deb">value_type</a></td></tr>
-<tr class="separator:a045454491c2aa862c6658e85a1660deb inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58da75ec0f7d0fe6e90eb5e95667627d inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a58da75ec0f7d0fe6e90eb5e95667627d">reference</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#a58da75ec0f7d0fe6e90eb5e95667627d">reference</a></td></tr>
-<tr class="separator:a58da75ec0f7d0fe6e90eb5e95667627d inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36d4dd7d4959b16995c5336fc84926f1 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a36d4dd7d4959b16995c5336fc84926f1">const_reference</a> = <a class="el" href="classemlabcpp_1_1generic__iterator.html#a58da75ec0f7d0fe6e90eb5e95667627d">reference</a> const</td></tr>
-<tr class="separator:a36d4dd7d4959b16995c5336fc84926f1 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6dd3f181353509f981be8cf51c46842 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842">pointer</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842">pointer</a></td></tr>
-<tr class="separator:ae6dd3f181353509f981be8cf51c46842 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94f63521bb88de9902ade70a45e3cb7e inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a94f63521bb88de9902ade70a45e3cb7e">const_pointer</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#a94f63521bb88de9902ade70a45e3cb7e">const_pointer</a></td></tr>
-<tr class="separator:a94f63521bb88de9902ade70a45e3cb7e inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b29a6768655f601d4fd06dd1aa7d9dd inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a></td></tr>
-<tr class="separator:a1b29a6768655f601d4fd06dd1aa7d9dd inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeabf51df48a675da9886636622e47980 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aeabf51df48a675da9886636622e47980">iterator_category</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html#aeabf51df48a675da9886636622e47980">iterator_category</a></td></tr>
-<tr class="separator:aeabf51df48a675da9886636622e47980 inherit pub_types_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaab0bd2130b88a76c71d8916c705555"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#abaab0bd2130b88a76c71d8916c705555">value_type</a> = T</td></tr>
+<tr class="separator:abaab0bd2130b88a76c71d8916c705555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab66a40eb75c7560d62bee5a0f3bcf477"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#ab66a40eb75c7560d62bee5a0f3bcf477">reference</a> = std::conditional_t&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a0b59c56658122d117ee51d9fb7ffaaea">is_const</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#abaab0bd2130b88a76c71d8916c705555">value_type</a> const  &amp;, <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#abaab0bd2130b88a76c71d8916c705555">value_type</a> &amp; &gt;</td></tr>
+<tr class="separator:ab66a40eb75c7560d62bee5a0f3bcf477"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e9341d0828de97511886b3183bb431f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a4e9341d0828de97511886b3183bb431f">const_reference</a> = <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#abaab0bd2130b88a76c71d8916c705555">value_type</a> const  &amp;</td></tr>
+<tr class="separator:a4e9341d0828de97511886b3183bb431f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68b58b16cc658d2e06fec9e6aa44de01"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a68b58b16cc658d2e06fec9e6aa44de01">difference_type</a> = typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; T &gt; &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a68b58b16cc658d2e06fec9e6aa44de01">difference_type</a></td></tr>
+<tr class="separator:a68b58b16cc658d2e06fec9e6aa44de01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0484256bff8eb12a57640fe4535e4da3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a0484256bff8eb12a57640fe4535e4da3">static_circular_buffer_iterator</a> (Container &amp;cont, std::size_t i) noexcept</td></tr>
-<tr class="separator:a0484256bff8eb12a57640fe4535e4da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0893254a2a5c9369abe01ac3232a3b62"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a0893254a2a5c9369abe01ac3232a3b62">static_circular_buffer_iterator</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> const &amp;) noexcept=default</td></tr>
-<tr class="separator:a0893254a2a5c9369abe01ac3232a3b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a429b69d57f4d849a74e9817281062cb8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a429b69d57f4d849a74e9817281062cb8">static_circular_buffer_iterator</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> &amp;&amp;) noexcept=default</td></tr>
-<tr class="separator:a429b69d57f4d849a74e9817281062cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3061342974230b3b88ea8e39c467e9b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a3061342974230b3b88ea8e39c467e9b7">operator=</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> const &amp;) noexcept=default</td></tr>
-<tr class="separator:a3061342974230b3b88ea8e39c467e9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6710c9fe1b4b18e3057871e1350b8bcf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a6710c9fe1b4b18e3057871e1350b8bcf">operator=</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> &amp;&amp;) noexcept=default</td></tr>
-<tr class="separator:a6710c9fe1b4b18e3057871e1350b8bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a153fb7ee83977fca0eff907f4f85e992"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a864feaa3da60a052800a3afaefe53325">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a153fb7ee83977fca0eff907f4f85e992">operator*</a> () noexcept</td></tr>
-<tr class="separator:a153fb7ee83977fca0eff907f4f85e992"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6843b1bb9da5cac60bc9aaa3a8b1975d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a864feaa3da60a052800a3afaefe53325">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a6843b1bb9da5cac60bc9aaa3a8b1975d">operator*</a> () const noexcept</td></tr>
-<tr class="separator:a6843b1bb9da5cac60bc9aaa3a8b1975d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab40acd1a372f6d86258ff87a4c09aab3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#ab40acd1a372f6d86258ff87a4c09aab3">operator+=</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#aa201895338e557ec046a51886057aeca">difference_type</a> j) noexcept</td></tr>
-<tr class="separator:ab40acd1a372f6d86258ff87a4c09aab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47baf35c528d26842f3d724ce6b5d44b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a47baf35c528d26842f3d724ce6b5d44b">operator-=</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#aa201895338e557ec046a51886057aeca">difference_type</a> j) noexcept</td></tr>
-<tr class="separator:a47baf35c528d26842f3d724ce6b5d44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad30e4d73288f65f7f8f25d7cfda281e6"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#ad30e4d73288f65f7f8f25d7cfda281e6">operator&lt;=&gt;</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> const &amp;other) const noexcept</td></tr>
-<tr class="separator:ad30e4d73288f65f7f8f25d7cfda281e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afef259d0ca39f549d5884e8ff2f6c605"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#afef259d0ca39f549d5884e8ff2f6c605">operator==</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> const &amp;other) const noexcept</td></tr>
-<tr class="separator:afef259d0ca39f549d5884e8ff2f6c605"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34f5f98e49dd0d961da2a1ecc304d27c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#aa201895338e557ec046a51886057aeca">difference_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a34f5f98e49dd0d961da2a1ecc304d27c">operator-</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> const &amp;other) const noexcept</td></tr>
-<tr class="separator:a34f5f98e49dd0d961da2a1ecc304d27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classemlabcpp_1_1generic__iterator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classemlabcpp_1_1generic__iterator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classemlabcpp_1_1generic__iterator.html">emlabcpp::generic_iterator&lt; static_circular_buffer_iterator&lt; Container &gt; &gt;</a></td></tr>
-<tr class="memitem:a64165e996e713b43626a4180b187bd65 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842">pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a64165e996e713b43626a4180b187bd65">operator-&gt;</a> () noexcept(nothrow_dereference&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;)</td></tr>
-<tr class="separator:a64165e996e713b43626a4180b187bd65 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebebe71c6c79e57dd20cb48008917a66 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1generic__iterator.html#a94f63521bb88de9902ade70a45e3cb7e">const_pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aebebe71c6c79e57dd20cb48008917a66">operator-&gt;</a> () const noexcept(nothrow_dereference&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;)</td></tr>
-<tr class="separator:aebebe71c6c79e57dd20cb48008917a66 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8d17811089c9bd7063ff7ffa737df84 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aa8d17811089c9bd7063ff7ffa737df84">operator++</a> () noexcept(nothrow_add_assign&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;)</td></tr>
-<tr class="separator:aa8d17811089c9bd7063ff7ffa737df84 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ba01210deb50405cc3655ee49766459 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a5ba01210deb50405cc3655ee49766459">operator++</a> (int const) noexcept(nothrow_add_assign&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt; &amp;&amp;std::is_nothrow_copy_constructible_v&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;)</td></tr>
-<tr class="separator:a5ba01210deb50405cc3655ee49766459 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6df3d2da345c2f566057db4e3eaf675b inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a6df3d2da345c2f566057db4e3eaf675b">operator--</a> () noexcept(nothrow_sub_assign&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;)</td></tr>
-<tr class="separator:a6df3d2da345c2f566057db4e3eaf675b inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acace1d9b4f04041b9d071acab13c4a50 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#acace1d9b4f04041b9d071acab13c4a50">operator--</a> (int const) noexcept(nothrow_sub_assign&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt; &amp;&amp;std::is_nothrow_copy_constructible_v&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;)</td></tr>
-<tr class="separator:acace1d9b4f04041b9d071acab13c4a50 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab60c000aa1c6db620c3288ab59ed54d1 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#ab60c000aa1c6db620c3288ab59ed54d1">operator&lt;=&gt;</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a>&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt; const &amp;other) const noexcept(nothrow_threeway_compare&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;)</td></tr>
-<tr class="separator:ab60c000aa1c6db620c3288ab59ed54d1 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14e94eeb0a661ad6a65dbf93cfdc56ef inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a14e94eeb0a661ad6a65dbf93cfdc56ef">operator==</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a>&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt; const &amp;other) const noexcept(nothrow_equality_compare&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;)</td></tr>
-<tr class="separator:a14e94eeb0a661ad6a65dbf93cfdc56ef inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30985f0e17059e2558cab71f1e2564db inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a30985f0e17059e2558cab71f1e2564db">operator+</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> v) const noexcept(nothrow_add_assign&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt; &amp;&amp;std::is_nothrow_copy_constructible_v&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;)</td></tr>
-<tr class="separator:a30985f0e17059e2558cab71f1e2564db inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5afd77fca96aaf87c28d5edf2cf27250 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a5afd77fca96aaf87c28d5edf2cf27250">operator-</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> v) const noexcept(nothrow_sub_assign&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt; &amp;&amp;std::is_nothrow_copy_constructible_v&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;)</td></tr>
-<tr class="separator:a5afd77fca96aaf87c28d5edf2cf27250 inherit pub_methods_classemlabcpp_1_1generic__iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cc5ed1286fb10c125284fb490ac1328"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a1cc5ed1286fb10c125284fb490ac1328">static_circular_buffer_iterator</a> (T *beg, T *end, T *p) noexcept</td></tr>
+<tr class="separator:a1cc5ed1286fb10c125284fb490ac1328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1870e0aaf2a122b301306ad48db4d862"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a1870e0aaf2a122b301306ad48db4d862">static_circular_buffer_iterator</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> const &amp;) noexcept=default</td></tr>
+<tr class="separator:a1870e0aaf2a122b301306ad48db4d862"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89f9c3a6030f9a8b0ddf0a3447d98049"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a89f9c3a6030f9a8b0ddf0a3447d98049">static_circular_buffer_iterator</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a89f9c3a6030f9a8b0ddf0a3447d98049"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88e44a8c04bc1fcf6e10be772316128c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a88e44a8c04bc1fcf6e10be772316128c">operator=</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> const &amp;) noexcept=default</td></tr>
+<tr class="separator:a88e44a8c04bc1fcf6e10be772316128c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1a8b4c392c6412b585814e206c8454b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#ae1a8b4c392c6412b585814e206c8454b">operator=</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:ae1a8b4c392c6412b585814e206c8454b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f2d7ad43ffaf034c03cfa270812a065"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#ab66a40eb75c7560d62bee5a0f3bcf477">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a1f2d7ad43ffaf034c03cfa270812a065">operator*</a> () noexcept</td></tr>
+<tr class="separator:a1f2d7ad43ffaf034c03cfa270812a065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ad9737fc85ca0352cba84eb681a5e6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#ab66a40eb75c7560d62bee5a0f3bcf477">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a5ad9737fc85ca0352cba84eb681a5e6a">operator*</a> () const noexcept</td></tr>
+<tr class="separator:a5ad9737fc85ca0352cba84eb681a5e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1d295fb4f314c022376aa71cfebcc05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#aa1d295fb4f314c022376aa71cfebcc05">operator++</a> () noexcept</td></tr>
+<tr class="separator:aa1d295fb4f314c022376aa71cfebcc05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a319a7fb59ab2748ccf52c04436a6e308"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a319a7fb59ab2748ccf52c04436a6e308">operator--</a> () noexcept</td></tr>
+<tr class="separator:a319a7fb59ab2748ccf52c04436a6e308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae39af533bef4547f42117093dc42d74e"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#ae39af533bef4547f42117093dc42d74e">operator&lt;=&gt;</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> const &amp;other) const noexcept</td></tr>
+<tr class="separator:ae39af533bef4547f42117093dc42d74e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f428b3a182e74ac9d1a15732d168cfe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a9f428b3a182e74ac9d1a15732d168cfe">operator==</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> const &amp;other) const noexcept</td></tr>
+<tr class="separator:a9f428b3a182e74ac9d1a15732d168cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a1556b7e16e728bcd5f1bff73f74de0ad"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a1556b7e16e728bcd5f1bff73f74de0ad">is_const</a> = std::is_const_v&lt; Container &gt;</td></tr>
-<tr class="separator:a1556b7e16e728bcd5f1bff73f74de0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18cb2b7ed6b092d9060eb8036fc4d698"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a18cb2b7ed6b092d9060eb8036fc4d698">real_size</a> = Container::real_size</td></tr>
-<tr class="separator:a18cb2b7ed6b092d9060eb8036fc4d698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b59c56658122d117ee51d9fb7ffaaea"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a0b59c56658122d117ee51d9fb7ffaaea">is_const</a> = std::is_const_v&lt; T &gt;</td></tr>
+<tr class="separator:a0b59c56658122d117ee51d9fb7ffaaea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="af35309e7f6f37c76b9374481430344df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af35309e7f6f37c76b9374481430344df">&#9670;&nbsp;</a></span>const_reference</h2>
+<a id="a4e9341d0828de97511886b3183bb431f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e9341d0828de97511886b3183bb431f">&#9670;&nbsp;</a></span>const_reference</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#af35309e7f6f37c76b9374481430344df">const_reference</a> =  <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a3e00b3c7d4e86f7206fe94192fbcb7f0">value_type</a> const&amp;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a4e9341d0828de97511886b3183bb431f">const_reference</a> =  <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#abaab0bd2130b88a76c71d8916c705555">value_type</a> const&amp;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aa201895338e557ec046a51886057aeca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa201895338e557ec046a51886057aeca">&#9670;&nbsp;</a></span>difference_type</h2>
+<a id="a68b58b16cc658d2e06fec9e6aa44de01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b58b16cc658d2e06fec9e6aa44de01">&#9670;&nbsp;</a></span>difference_type</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#aa201895338e557ec046a51886057aeca">difference_type</a> =  typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#aa201895338e557ec046a51886057aeca">difference_type</a></td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a68b58b16cc658d2e06fec9e6aa44de01">difference_type</a> =  typename std::iterator_traits&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; T &gt; &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a68b58b16cc658d2e06fec9e6aa44de01">difference_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a864feaa3da60a052800a3afaefe53325"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a864feaa3da60a052800a3afaefe53325">&#9670;&nbsp;</a></span>reference</h2>
+<a id="ab66a40eb75c7560d62bee5a0f3bcf477"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab66a40eb75c7560d62bee5a0f3bcf477">&#9670;&nbsp;</a></span>reference</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a864feaa3da60a052800a3afaefe53325">reference</a> =  std::conditional_t&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a1556b7e16e728bcd5f1bff73f74de0ad">is_const</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a3e00b3c7d4e86f7206fe94192fbcb7f0">value_type</a> const&amp;, <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a3e00b3c7d4e86f7206fe94192fbcb7f0">value_type</a>&amp; &gt;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#ab66a40eb75c7560d62bee5a0f3bcf477">reference</a> =  std::conditional_t&lt; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a0b59c56658122d117ee51d9fb7ffaaea">is_const</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#abaab0bd2130b88a76c71d8916c705555">value_type</a> const&amp;, <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#abaab0bd2130b88a76c71d8916c705555">value_type</a>&amp; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a3e00b3c7d4e86f7206fe94192fbcb7f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e00b3c7d4e86f7206fe94192fbcb7f0">&#9670;&nbsp;</a></span>value_type</h2>
+<a id="abaab0bd2130b88a76c71d8916c705555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaab0bd2130b88a76c71d8916c705555">&#9670;&nbsp;</a></span>value_type</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a3e00b3c7d4e86f7206fe94192fbcb7f0">value_type</a> =  typename Container::value_type</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#abaab0bd2130b88a76c71d8916c705555">value_type</a> =  T</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -258,28 +218,34 @@ template&lt;typename Container &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0484256bff8eb12a57640fe4535e4da3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0484256bff8eb12a57640fe4535e4da3">&#9670;&nbsp;</a></span>static_circular_buffer_iterator() <span class="overload">[1/3]</span></h2>
+<a id="a1cc5ed1286fb10c125284fb490ac1328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cc5ed1286fb10c125284fb490ac1328">&#9670;&nbsp;</a></span>static_circular_buffer_iterator() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> </td>
           <td>(</td>
-          <td class="paramtype">Container &amp;&#160;</td>
-          <td class="paramname"><em>cont</em>, </td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>beg</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>i</em>&#160;</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -296,21 +262,21 @@ template&lt;typename Container &gt; </div>
 
 </div>
 </div>
-<a id="a0893254a2a5c9369abe01ac3232a3b62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0893254a2a5c9369abe01ac3232a3b62">&#9670;&nbsp;</a></span>static_circular_buffer_iterator() <span class="overload">[2/3]</span></h2>
+<a id="a1870e0aaf2a122b301306ad48db4d862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1870e0aaf2a122b301306ad48db4d862">&#9670;&nbsp;</a></span>static_circular_buffer_iterator() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; T &gt; const &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -324,21 +290,21 @@ template&lt;typename Container &gt; </div>
 
 </div>
 </div>
-<a id="a429b69d57f4d849a74e9817281062cb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a429b69d57f4d849a74e9817281062cb8">&#9670;&nbsp;</a></span>static_circular_buffer_iterator() <span class="overload">[3/3]</span></h2>
+<a id="a89f9c3a6030f9a8b0ddf0a3447d98049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f9c3a6030f9a8b0ddf0a3447d98049">&#9670;&nbsp;</a></span>static_circular_buffer_iterator() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::<a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; T &gt; &amp;&amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -353,19 +319,19 @@ template&lt;typename Container &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6843b1bb9da5cac60bc9aaa3a8b1975d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6843b1bb9da5cac60bc9aaa3a8b1975d">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+<a id="a5ad9737fc85ca0352cba84eb681a5e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ad9737fc85ca0352cba84eb681a5e6a">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a864feaa3da60a052800a3afaefe53325">reference</a> <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::operator* </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#ab66a40eb75c7560d62bee5a0f3bcf477">reference</a> <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::operator* </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -380,19 +346,19 @@ template&lt;typename Container &gt; </div>
 
 </div>
 </div>
-<a id="a153fb7ee83977fca0eff907f4f85e992"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a153fb7ee83977fca0eff907f4f85e992">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+<a id="a1f2d7ad43ffaf034c03cfa270812a065"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f2d7ad43ffaf034c03cfa270812a065">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a864feaa3da60a052800a3afaefe53325">reference</a> <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::operator* </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#ab66a40eb75c7560d62bee5a0f3bcf477">reference</a> <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::operator* </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -407,22 +373,21 @@ template&lt;typename Container &gt; </div>
 
 </div>
 </div>
-<a id="ab40acd1a372f6d86258ff87a4c09aab3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab40acd1a372f6d86258ff87a4c09aab3">&#9670;&nbsp;</a></span>operator+=()</h2>
+<a id="aa1d295fb4f314c022376aa71cfebcc05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1d295fb4f314c022376aa71cfebcc05">&#9670;&nbsp;</a></span>operator++()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&amp; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::operator+= </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&amp; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::operator++ </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#aa201895338e557ec046a51886057aeca">difference_type</a>&#160;</td>
-          <td class="paramname"><em>j</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -433,56 +398,23 @@ template&lt;typename Container &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a18cb2b7ed6b092d9060eb8036fc4d698">emlabcpp::static_circular_buffer_iterator&lt; Container &gt;::real_size</a>.</p>
-
 </div>
 </div>
-<a id="a34f5f98e49dd0d961da2a1ecc304d27c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34f5f98e49dd0d961da2a1ecc304d27c">&#9670;&nbsp;</a></span>operator-()</h2>
+<a id="a319a7fb59ab2748ccf52c04436a6e308"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a319a7fb59ab2748ccf52c04436a6e308">&#9670;&nbsp;</a></span>operator--()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#aa201895338e557ec046a51886057aeca">difference_type</a> <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::operator- </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&amp; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::operator-- </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a18cb2b7ed6b092d9060eb8036fc4d698">emlabcpp::static_circular_buffer_iterator&lt; Container &gt;::real_size</a>.</p>
-
-</div>
-</div>
-<a id="a47baf35c528d26842f3d724ce6b5d44b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47baf35c528d26842f3d724ce6b5d44b">&#9670;&nbsp;</a></span>operator-=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Container &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&amp; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::operator-= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#aa201895338e557ec046a51886057aeca">difference_type</a>&#160;</td>
-          <td class="paramname"><em>j</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -493,25 +425,23 @@ template&lt;typename Container &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html#a18cb2b7ed6b092d9060eb8036fc4d698">emlabcpp::static_circular_buffer_iterator&lt; Container &gt;::real_size</a>.</p>
-
 </div>
 </div>
-<a id="ad30e4d73288f65f7f8f25d7cfda281e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad30e4d73288f65f7f8f25d7cfda281e6">&#9670;&nbsp;</a></span>operator&lt;=&gt;()</h2>
+<a id="ae39af533bef4547f42117093dc42d74e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae39af533bef4547f42117093dc42d74e">&#9670;&nbsp;</a></span>operator&lt;=&gt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::operator&lt;=&gt; </td>
+          <td class="memname">auto <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::operator&lt;=&gt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; T &gt; const &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -525,21 +455,21 @@ template&lt;typename Container &gt; </div>
 
 </div>
 </div>
-<a id="a6710c9fe1b4b18e3057871e1350b8bcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6710c9fe1b4b18e3057871e1350b8bcf">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="ae1a8b4c392c6412b585814e206c8454b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1a8b4c392c6412b585814e206c8454b">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&amp; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::operator= </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&amp; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; T &gt; &amp;&amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -553,21 +483,21 @@ template&lt;typename Container &gt; </div>
 
 </div>
 </div>
-<a id="a3061342974230b3b88ea8e39c467e9b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3061342974230b3b88ea8e39c467e9b7">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a88e44a8c04bc1fcf6e10be772316128c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88e44a8c04bc1fcf6e10be772316128c">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&amp; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::operator= </td>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&amp; <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; T &gt; const &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -581,21 +511,21 @@ template&lt;typename Container &gt; </div>
 
 </div>
 </div>
-<a id="afef259d0ca39f549d5884e8ff2f6c605"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afef259d0ca39f549d5884e8ff2f6c605">&#9670;&nbsp;</a></span>operator==()</h2>
+<a id="a9f428b3a182e74ac9d1a15732d168cfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f428b3a182e74ac9d1a15732d168cfe">&#9670;&nbsp;</a></span>operator==()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::operator== </td>
+          <td class="memname">bool <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::operator== </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; Container &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a>&lt; T &gt; const &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -610,43 +540,19 @@ template&lt;typename Container &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a1556b7e16e728bcd5f1bff73f74de0ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1556b7e16e728bcd5f1bff73f74de0ad">&#9670;&nbsp;</a></span>is_const</h2>
+<a id="a0b59c56658122d117ee51d9fb7ffaaea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b59c56658122d117ee51d9fb7ffaaea">&#9670;&nbsp;</a></span>is_const</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Container &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::is_const = std::is_const_v&lt; Container &gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a18cb2b7ed6b092d9060eb8036fc4d698"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18cb2b7ed6b092d9060eb8036fc4d698">&#9670;&nbsp;</a></span>real_size</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Container &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; Container &gt;::real_size = Container::real_size</td>
+          <td class="memname">constexpr bool <a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">emlabcpp::static_circular_buffer_iterator</a>&lt; T &gt;::is_const = std::is_const_v&lt; T &gt;</td>
         </tr>
       </table>
   </td>
@@ -667,7 +573,7 @@ template&lt;typename Container &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a></li>
-    <li class="footer">Generated on Tue Apr 1 2025 16:24:53 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Apr 1 2025 20:59:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
