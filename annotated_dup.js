@@ -44,8 +44,7 @@ var annotated_dup =
       ] ],
       [ "iterators", "namespaceemlabcpp_1_1iterators.html", [
         [ "convert_iterator", "classemlabcpp_1_1iterators_1_1convert__iterator.html", "classemlabcpp_1_1iterators_1_1convert__iterator" ],
-        [ "numeric_iterator", "classemlabcpp_1_1iterators_1_1numeric__iterator.html", "classemlabcpp_1_1iterators_1_1numeric__iterator" ],
-        [ "subscript_iterator", "classemlabcpp_1_1iterators_1_1subscript__iterator.html", "classemlabcpp_1_1iterators_1_1subscript__iterator" ]
+        [ "numeric_iterator", "classemlabcpp_1_1iterators_1_1numeric__iterator.html", "classemlabcpp_1_1iterators_1_1numeric__iterator" ]
       ] ],
       [ "pmr", "namespaceemlabcpp_1_1pmr.html", [
         [ "deleter", "structemlabcpp_1_1pmr_1_1deleter.html", "structemlabcpp_1_1pmr_1_1deleter" ],
@@ -299,7 +298,6 @@ var annotated_dup =
       [ "iterator_traits< emlabcpp::decode_cobs_iter< Iter > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1decode__cobs__iter_3_01Iter_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1decode__cobs__iter_3_01Iter_01_4_01_4" ],
       [ "iterator_traits< emlabcpp::iterators::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4" ],
       [ "iterator_traits< emlabcpp::iterators::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4" ],
-      [ "iterator_traits< emlabcpp::iterators::subscript_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4" ],
       [ "tuple_size< emlabcpp::min_max< T > >", "structstd_1_1tuple__size_3_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html", null ],
       [ "tuple_element< I, emlabcpp::min_max< T > >", "structstd_1_1tuple__element_3_01I_00_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html", "structstd_1_1tuple__element_3_01I_00_01emlabcpp_1_1min__max_3_01T_01_4_01_4" ],
       [ "numeric_limits< T >", "structstd_1_1numeric__limits_3_01T_01_4.html", "structstd_1_1numeric__limits_3_01T_01_4" ],

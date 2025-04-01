@@ -306,7 +306,6 @@ var namespaceemlabcpp =
     [ "sqrt", "namespaceemlabcpp.html#a5519896c5f0324265089711b6a020642", null ],
     [ "steps", "namespaceemlabcpp.html#a95b7c5f71b2d2128143bbd09bc6cb341", null ],
     [ "string_serialize_view", "namespaceemlabcpp.html#af06cdf4e6872ac961315f173c9d21aa5", null ],
-    [ "subscript_view", "namespaceemlabcpp.html#ac813ec118aa63294f4ed7955f389e289", null ],
     [ "sum", "namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae", null ],
     [ "swap", "namespaceemlabcpp.html#a736be2315b7c53a88f64e165cbeb3fab", null ],
     [ "tail", "namespaceemlabcpp.html#a231279793ce500e80c1bbb0848ed83c6", null ],

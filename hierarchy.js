@@ -132,9 +132,6 @@ var hierarchy =
     [ "emlabcpp::generic_iterator< static_circular_buffer_iterator< T > >", "namespaceemlabcpp.html", [
       [ "emlabcpp::static_circular_buffer_iterator< T >", "classemlabcpp_1_1static__circular__buffer__iterator.html", null ]
     ] ],
-    [ "emlabcpp::generic_iterator< subscript_iterator< Container > >", "namespaceemlabcpp.html", [
-      [ "emlabcpp::iterators::subscript_iterator< Container >", "classemlabcpp_1_1iterators_1_1subscript__iterator.html", null ]
-    ] ],
     [ "emlabcpp::generic_iterator_base< Derived >", "classemlabcpp_1_1generic__iterator__base.html", null ],
     [ "emlabcpp::testing::get_count_reply", "structemlabcpp_1_1testing_1_1get__count__reply.html", null ],
     [ "emlabcpp::testing::get_property< ID >", "structemlabcpp_1_1testing_1_1get__property.html", null ],
@@ -161,7 +158,6 @@ var hierarchy =
     [ "std::iterator_traits< emlabcpp::decode_cobs_iter< Iter > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1decode__cobs__iter_3_01Iter_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::iterators::convert_iterator< T, Iterator > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1convert__iterator_3_01T_00_01Iterator_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::iterators::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4.html", null ],
-    [ "std::iterator_traits< emlabcpp::iterators::subscript_iterator< Container > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1subscript__iterator_3_01Container_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::static_circular_buffer_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01T_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::zip_iterator< Iterators... > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::linked_list_node_base< Base >", "classemlabcpp_1_1linked__list__node__base.html", [

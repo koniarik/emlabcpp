@@ -35,7 +35,6 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     [ "status.h", "status_8h.html", [
       [ "status", "structemlabcpp_1_1status.html", "structemlabcpp_1_1status" ]
     ] ],
-    [ "subscript_view.h", "subscript__view_8h.html", "subscript__view_8h" ],
     [ "types.h", "types_8h.html", "types_8h" ],
     [ "view.h", "view_8h.html", "view_8h" ],
     [ "visit.h", "visit_8h.html", "visit_8h" ],

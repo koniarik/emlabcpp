@@ -201,11 +201,10 @@ iterators/subscript.h</h3>
 <p>Iterator over datatype that implemented operator[] but does not have iterators.</p>
 <div class="fragment"><div class="line">std::bitset&lt;32&gt; bit_data;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">bool</span> b : <a class="code" href="namespaceemlabcpp.html#ac813ec118aa63294f4ed7955f389e289">subscript_view</a>(bit_data))</div>
+<div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">bool</span> b : subscript_view(bit_data))</div>
 <div class="line">{</div>
 <div class="line">    std::cout &lt;&lt; (b ? <span class="charliteral">&#39;a&#39;</span> : <span class="charliteral">&#39;b&#39;</span>);</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_html_ac813ec118aa63294f4ed7955f389e289"><div class="ttname"><a href="namespaceemlabcpp.html#ac813ec118aa63294f4ed7955f389e289">emlabcpp::subscript_view</a></div><div class="ttdeci">view&lt; iterators::subscript_iterator&lt; Container &gt; &gt; subscript_view(Container &amp;cont)</div><div class="ttdef"><b>Definition:</b> subscript_view.h:31</div></div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md13"></a>
 iterators/access.h</h3>
 <p>Iterators overlays the data stored in input container, and provides access only to 'reference' provided by function out of item in the container.</p>
@@ -377,7 +376,7 @@ zip.h</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Apr 1 2025 21:27:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Apr 1 2025 21:31:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
