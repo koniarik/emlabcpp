@@ -81,7 +81,10 @@ struct packet : packet_base< Def, Payload >
                 static constexpr std::size_t get_size( auto const& buffer )
                 {
                         std::array< std::byte, size_size > tmp;
-                        std::copy_n( std::begin( buffer ) + prefix_size, size_size, tmp.begin() );
+
+                        auto iter = std::begin( buffer );
+                        std::advance( iter, prefix_size );
+                        std::copy_n( iter, size_size, tmp.begin() );
                         return serializer_type::deserialize( tmp ) + fixed_size +
                                checksum_traits::max_size;
                 }

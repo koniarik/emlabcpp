@@ -57,36 +57,13 @@ concept nothrow_equality_compare = requires( Derived d ) {
 /// Users inherit from generic_iterator and pass their class as the Derived template argument.
 /// It relies on std::iterator_traits<Derived> for type definitions and provides additional methods
 /// based on those implemented in the Derived class.
-///
-/// The Derived class is expected to provide these methods:
-///  - reference operator*();
-///  - const_reference operator*() const;
-///  - Derived& operator+=(difference_type);
-///  - Derived& operator-=(difference_type);
-///  - bool operator<(const Derived & other);
-///  - bool operator==(const Derived & other);
-///  - difference_type operator-(const Derived& other);
-///
-/// Given these methods, the generic iterator provides:
-///  - pointer operator->();
-///  - const_pointer operator->() const;
-///  - Derived& operator++();
-///  - Derived operator++(int);
-///  - Derived& operator--();
-///  - Derived operator--(int);
-///  - Derived operator+(difference_type);
-///  - Derived operator-(difference_type);
-///
-/// Additionally, the following free functions are usable:
-///  - bool operator>(const generic_iterator<Derived> &, const generic_iterator<Derived>&);
-///  - bool operator<=(const generic_iterator<Derived> &, const generic_iterator<Derived>&);
-///  - bool operator!=(const generic_iterator<Derived> &, const generic_iterator<Derived>&);
-///
-///
-template < typename Derived >
-class generic_iterator
-{
 
+template < typename Derived >
+struct generic_iterator;
+
+template < typename Derived >
+class generic_iterator_base
+{
         [[nodiscard]] constexpr Derived& impl() noexcept
         {
                 return static_cast< Derived& >( *this );
@@ -97,17 +74,18 @@ class generic_iterator
                 return static_cast< Derived const& >( *this );
         }
 
-        generic_iterator() noexcept = default;
+        generic_iterator_base() noexcept = default;
         friend Derived;
+        friend generic_iterator< Derived >;
 
 public:
         using value_type        = typename std::iterator_traits< Derived >::value_type;
-        using reference         = typename std::iterator_traits< Derived >::reference;
-        using const_reference   = reference const;
         using pointer           = typename std::iterator_traits< Derived >::pointer;
         using const_pointer     = typename std::iterator_traits< Derived >::const_pointer;
-        using difference_type   = typename std::iterator_traits< Derived >::difference_type;
         using iterator_category = typename std::iterator_traits< Derived >::iterator_category;
+        using reference         = typename std::iterator_traits< Derived >::reference;
+        using const_reference   = reference const;
+        using difference_type   = typename std::iterator_traits< Derived >::difference_type;
 
         constexpr pointer operator->() noexcept( nothrow_dereference< Derived > )
         {
@@ -118,6 +96,17 @@ public:
         {
                 return &*impl();
         }
+};
+
+template < typename Derived >
+requires( std::same_as<
+          typename std::iterator_traits< Derived >::iterator_category,
+          std::random_access_iterator_tag > )
+struct generic_iterator< Derived > : public generic_iterator_base< Derived >
+{
+        using generic_iterator_base< Derived >::impl;
+
+        using difference_type = typename std::iterator_traits< Derived >::difference_type;
 
         constexpr Derived& operator++() noexcept( nothrow_add_assign< Derived > )
         {
@@ -147,18 +136,6 @@ public:
                 return copy;
         }
 
-        constexpr auto operator<=>( generic_iterator< Derived > const& other ) const
-            noexcept( nothrow_threeway_compare< Derived > )
-        {
-                return impl() <=> other.impl();
-        }
-
-        constexpr bool operator==( generic_iterator< Derived > const& other ) const
-            noexcept( nothrow_equality_compare< Derived > )
-        {
-                return impl() == other.impl();
-        }
-
         constexpr Derived operator+( difference_type v ) const noexcept(
             nothrow_add_assign< Derived > && std::is_nothrow_copy_constructible_v< Derived > )
         {
@@ -172,6 +149,48 @@ public:
         {
                 auto copy = impl();
                 copy -= v;
+                return copy;
+        }
+};
+
+template < typename Derived >
+requires( std::same_as<
+          typename std::iterator_traits< Derived >::iterator_category,
+          std::bidirectional_iterator_tag > )
+struct generic_iterator< Derived > : public generic_iterator_base< Derived >
+{
+        using generic_iterator_base< Derived >::impl;
+
+        constexpr Derived operator++( int const ) noexcept(
+            nothrow_add_assign< Derived > && std::is_nothrow_copy_constructible_v< Derived > )
+        {
+                auto copy = impl();
+                ++impl();
+                return copy;
+        }
+
+        constexpr Derived operator--( int const ) noexcept(
+            nothrow_sub_assign< Derived > && std::is_nothrow_copy_constructible_v< Derived > )
+        {
+                auto copy = impl();
+                --impl();
+                return copy;
+        }
+};
+
+template < typename Derived >
+requires( std::same_as<
+          typename std::iterator_traits< Derived >::iterator_category,
+          std::input_iterator_tag > )
+struct generic_iterator< Derived > : public generic_iterator_base< Derived >
+{
+        using generic_iterator_base< Derived >::impl;
+
+        constexpr Derived operator++( int const ) noexcept(
+            nothrow_add_assign< Derived > && std::is_nothrow_copy_constructible_v< Derived > )
+        {
+                auto copy = impl();
+                ++impl();
                 return copy;
         }
 };

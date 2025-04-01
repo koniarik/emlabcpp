@@ -34,9 +34,17 @@ using namespace std::literals;
 
 static constexpr std::size_t buffer_size = 7;
 
-using trivial_buffer   = static_circular_buffer< int, buffer_size >;
-using trivial_iterator = typename trivial_buffer::iterator;
-using obj_buffer       = static_circular_buffer< std::string, buffer_size >;
+using trivial_buffer         = static_circular_buffer< int, buffer_size >;
+using trivial_iterator       = typename trivial_buffer::iterator;
+using trivial_const_iterator = typename trivial_buffer::const_iterator;
+using obj_buffer             = static_circular_buffer< std::string, buffer_size >;
+using obj_iterator           = typename obj_buffer::iterator;
+using obj_const_iterator     = typename obj_buffer::const_iterator;
+
+// static_assert( std::bidirectional_iterator< trivial_iterator > );
+// static_assert( std::bidirectional_iterator< trivial_const_iterator > );
+// static_assert( std::bidirectional_iterator< obj_iterator > );
+// static_assert( std::bidirectional_iterator< obj_const_iterator > );
 
 TEST( static_circular_buffer_test, pop_front )
 {
@@ -153,7 +161,7 @@ TEST( static_circular_buffer_test, usage )
         EXPECT_TRUE( tbuff.empty() );
         EXPECT_FALSE( tbuff.full() );
         EXPECT_EQ( tbuff.size(), 0 );
-        EXPECT_EQ( tbuff.max_size(), buffer_size );
+        EXPECT_EQ( tbuff.capacity(), buffer_size );
 
         tbuff.push_back( 42 );
 

@@ -42,7 +42,9 @@ struct sequencer_def
 
         static constexpr std::size_t get_size( auto const& bview )
         {
-                return std::to_integer< std::size_t >( bview[2] ) + fixed_size;
+                auto iter = bview.begin();
+                std::advance( iter, 2 );
+                return std::to_integer< std::size_t >( *iter ) + fixed_size;
         }
 };
 

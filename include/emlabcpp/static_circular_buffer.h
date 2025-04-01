@@ -30,7 +30,7 @@
 namespace emlabcpp
 {
 
-template < typename Container >
+template < typename T >
 class static_circular_buffer_iterator;
 
 /// Class implementing circular buffer of any type for up to N elements. This should work for
@@ -47,19 +47,23 @@ class static_circular_buffer_iterator;
 template < typename T, std::size_t N >
 class static_circular_buffer
 {
-        /// We need real_size of the buffer to be +1 bigger than number of items
-        static constexpr std::size_t real_size = N + 1;
 
 public:
-        static constexpr std::size_t capacity = N;
+        static constexpr std::size_t max_size = N;
+
+        // XXX: derive this
+        using index_type = int32_t;
+
+        static_assert(
+            N < std::numeric_limits< index_type >::max(),
+            "static_circular_buffer: N must be less than index_type max value" );
 
         using value_type      = T;
-        using size_type       = std::size_t;
+        using size_type       = uint32_t;
         using reference       = T&;
         using const_reference = T const&;
-        using iterator        = static_circular_buffer_iterator< static_circular_buffer< T, N > >;
-        using const_iterator =
-            static_circular_buffer_iterator< static_circular_buffer< T, N > const >;
+        using iterator        = static_circular_buffer_iterator< T >;
+        using const_iterator  = static_circular_buffer_iterator< T const >;
 
         static_circular_buffer() noexcept = default;
 
@@ -97,12 +101,13 @@ public:
 
         [[nodiscard]] iterator begin()
         {
-                return iterator{ *this, from_ };
+                return iterator{ storage_.data(), storage_.data() + N, storage_.data() + from_ };
         }
 
         [[nodiscard]] const_iterator begin() const
         {
-                return const_iterator{ *this, from_ };
+                return const_iterator{
+                    storage_.data(), storage_.data() + N, storage_.data() + from_ };
         }
 
         [[nodiscard]] std::reverse_iterator< iterator > rbegin()
@@ -117,12 +122,12 @@ public:
 
         [[nodiscard]] reference front()
         {
-                return storage_[from_];
+                return storage_[static_cast< size_type >( from_ )];
         }
 
         [[nodiscard]] const_reference front() const
         {
-                return storage_[from_];
+                return storage_[static_cast< size_type >( from_ )];
         }
 
         [[nodiscard]] T take_front()
@@ -134,13 +139,15 @@ public:
 
         void pop_front()
         {
-                storage_.delete_item( from_ );
+                storage_.delete_item( static_cast< size_type >( from_ ) );
                 from_ = next( from_ );
+                if ( from_ == to_ )
+                        from_ = -1;
         }
 
-        void pop_front( std::size_t n )
+        void pop_front( size_type n )
         {
-                for ( std::size_t i = 0; i < n; i++ )
+                for ( size_type i = 0; i < n; i++ )
                         pop_front();
         }
 
@@ -148,12 +155,13 @@ public:
 
         [[nodiscard]] iterator end()
         {
-                return iterator{ *this, to_ };
+                return iterator{ storage_.data(), storage_.data() + N, storage_.data() + to_ };
         }
 
         [[nodiscard]] const_iterator end() const
         {
-                return const_iterator{ *this, to_ };
+                return const_iterator{
+                    storage_.data(), storage_.data() + N, storage_.data() + to_ };
         }
 
         [[nodiscard]] std::reverse_iterator< iterator > rend()
@@ -168,12 +176,12 @@ public:
 
         [[nodiscard]] reference back()
         {
-                return storage_[prev( to_ )];
+                return storage_[static_cast< size_type >( prev( to_ ) )];
         }
 
         [[nodiscard]] const_reference back() const
         {
-                return storage_[prev( to_ )];
+                return storage_[static_cast< size_type >( prev( to_ ) )];
         }
 
         void push_back( T item )
@@ -184,43 +192,40 @@ public:
         template < typename... Args >
         T& emplace_back( Args&&... args )
         {
-                T& ref = storage_.emplace_item( to_, std::forward< Args >( args )... );
-                to_    = next( to_ );
+                T& ref = storage_.emplace_item(
+                    static_cast< size_type >( to_ ), std::forward< Args >( args )... );
+                if ( from_ == -1 )
+                        from_ = to_;
+                to_ = next( to_ );
                 return ref;
         }
 
         /// other methods
 
-        [[nodiscard]] constexpr std::size_t max_size() const
+        [[nodiscard]] constexpr size_type capacity() const
         {
                 return N;
         }
 
-        [[nodiscard]] std::size_t size() const
+        [[nodiscard]] size_type size() const
         {
-                if ( to_ >= from_ )
-                        return to_ - from_;
-                return to_ + ( real_size - from_ );
+                if ( from_ == -1 )
+                        return 0;
+                auto t = static_cast< size_type >( to_ );
+                auto f = static_cast< size_type >( from_ );
+                if ( t >= f )
+                        return t - f;
+                return t + ( N - f );
         }
 
         [[nodiscard]] bool empty() const
         {
-                return to_ == from_;
+                return from_ == -1;
         }
 
         [[nodiscard]] bool full() const
         {
-                return next( to_ ) == from_;
-        }
-
-        const_reference operator[]( size_type const i ) const
-        {
-                return storage_[( from_ + i ) % real_size];
-        }
-
-        reference operator[]( size_type const i )
-        {
-                return storage_[( from_ + i ) % real_size];
+                return from_ != -1 && to_ == from_;
         }
 
         void clear()
@@ -234,12 +239,9 @@ public:
         }
 
 private:
-        static_storage< T, real_size > storage_;
-        size_type                      from_ = 0;  /// index of the first item
-        size_type                      to_   = 0;  /// index past the last item
-
-        /// from_ == to_ means empty
-        /// to_ + 1 == from_ is full
+        static_storage< T, N > storage_;
+        index_type             from_ = -1;  /// index of the first item
+        index_type             to_   = 0;   /// index past the last item
 
         void purge()
         {
@@ -249,28 +251,30 @@ private:
 
         void copy_from( static_circular_buffer const& other )
         {
-                to_ = other.size();
+                from_ = 0;
+                to_   = static_cast< index_type >( other.size() );
                 std::uninitialized_copy( other.begin(), other.end(), storage_.data() );
         }
 
         void move_from( static_circular_buffer& other )
         {
-                to_ = other.size();
+                from_ = 0;
+                to_   = static_cast< index_type >( other.size() );
                 std::uninitialized_move( other.begin(), other.end(), storage_.data() );
         }
 
         /// Use this only when moving the indexes in the circular buffer - bullet-proof.
-        [[nodiscard]] constexpr auto next( size_type const i ) const
+        [[nodiscard]] constexpr index_type next( index_type const i ) const noexcept
         {
-                return ( i + 1 ) % real_size;
+                return static_cast< size_type >( i + 1 ) % N;
         }
 
-        [[nodiscard]] constexpr auto prev( size_type const i ) const
+        [[nodiscard]] constexpr index_type prev( index_type const i ) const noexcept
         {
-                return i == 0 ? real_size - 1 : i - 1;
+                return i == 0 ? N - 1 : i - 1;
         }
 
-        template < typename Container >
+        template < typename U >
         friend class static_circular_buffer_iterator;
 };
 
@@ -310,36 +314,36 @@ std::ostream& operator<<( std::ostream& os, static_circular_buffer< T, N > const
 
 }  // namespace emlabcpp
 
-template < typename Container >
-struct std::iterator_traits< emlabcpp::static_circular_buffer_iterator< Container > >
+template < typename T >
+struct std::iterator_traits< emlabcpp::static_circular_buffer_iterator< T > >
 {
-        using value_type        = typename Container::value_type;
+        using value_type        = T;
         using difference_type   = std::make_signed_t< std::size_t >;
         using pointer           = value_type*;
         using const_pointer     = value_type const*;
         using reference         = value_type&;
-        using iterator_category = std::random_access_iterator_tag;
+        using iterator_category = std::bidirectional_iterator_tag;
 };
 
 namespace emlabcpp
 {
 
-template < typename Container >
+template < typename T >
 class static_circular_buffer_iterator
-  : public generic_iterator< static_circular_buffer_iterator< Container > >
+  : public generic_iterator< static_circular_buffer_iterator< T > >
 {
 public:
-        static constexpr bool        is_const  = std::is_const_v< Container >;
-        static constexpr std::size_t real_size = Container::real_size;
-        using value_type                       = typename Container::value_type;
+        static constexpr bool is_const = std::is_const_v< T >;
+        using value_type               = T;
         using reference       = std::conditional_t< is_const, value_type const&, value_type& >;
         using const_reference = value_type const&;
-        using difference_type = typename std::iterator_traits<
-            static_circular_buffer_iterator< Container > >::difference_type;
+        using difference_type =
+            typename std::iterator_traits< static_circular_buffer_iterator< T > >::difference_type;
 
-        static_circular_buffer_iterator( Container& cont, std::size_t i ) noexcept
-          : cont_( cont )
-          , i_( i )
+        static_circular_buffer_iterator( T* beg, T* end, T* p ) noexcept
+          : beg_( beg )
+          , end_( end )
+          , p_( p )
         {
         }
 
@@ -354,52 +358,43 @@ public:
 
         reference operator*() noexcept
         {
-                return cont_.get().storage_[i_];
+                return *p_;
         }
 
         reference operator*() const noexcept
         {
-                return cont_.get().storage_[i_];
+                return *p_;
         }
 
-        static_circular_buffer_iterator& operator+=( difference_type j ) noexcept
+        static_circular_buffer_iterator& operator++() noexcept
         {
-                auto uj = static_cast< std::size_t >( j );
-                i_      = ( i_ + uj ) % real_size;
+                p_++;
+                if ( p_ == end_ )
+                        p_ = beg_;
                 return *this;
         }
 
-        static_circular_buffer_iterator& operator-=( difference_type j ) noexcept
+        static_circular_buffer_iterator& operator--() noexcept
         {
-                auto uj = static_cast< std::size_t >( j );
-                i_      = ( i_ + real_size - uj ) % real_size;
+                if ( p_ == beg_ )
+                        p_ = end_;
                 return *this;
         }
 
         auto operator<=>( static_circular_buffer_iterator const& other ) const noexcept
         {
-                return i_ <=> other.i_;
+                return p_ <=> other.p_;
         }
 
         bool operator==( static_circular_buffer_iterator const& other ) const noexcept
         {
-                return i_ == other.i_;
-        }
-
-        difference_type operator-( static_circular_buffer_iterator const& other ) const noexcept
-        {
-                std::size_t i = i_;
-                if ( i < cont_.get().from_ )
-                        i += real_size;
-                std::size_t j = other.i_;
-                if ( j < cont_.get().from_ )
-                        j += real_size;
-                return static_cast< difference_type >( i - j );
+                return p_ == other.p_;
         }
 
 private:
-        std::reference_wrapper< Container > cont_;
-        std::size_t                         i_;
+        T* beg_;
+        T* end_;
+        T* p_;
 };
 
 }  // namespace emlabcpp
