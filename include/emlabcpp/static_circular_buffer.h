@@ -253,25 +253,30 @@ private:
 
         void copy_from( static_circular_buffer const& other )
         {
-                from_ = 0;
-                to_   = static_cast< index_type >( other.size() );
-                std::uninitialized_copy( other.begin(), other.end(), storage_.data() );
+                from_       = 0;
+                to_         = static_cast< index_type >( other.size() );
+                size_type i = 0;
+                for ( T const& item : other )
+                        storage_.emplace_item( i++, item );
         }
 
-        void move_from( static_circular_buffer& other )
+        void move_from( static_circular_buffer& other ) noexcept
         {
-                from_ = 0;
-                to_   = static_cast< index_type >( other.size() );
-                std::uninitialized_move( other.begin(), other.end(), storage_.data() );
+                static_assert( std::is_nothrow_move_constructible_v< T > );
+                from_       = 0;
+                to_         = static_cast< index_type >( other.size() );
+                size_type i = 0;
+                for ( T& item : other )
+                        storage_.emplace_item( i++, std::move( item ) );
         }
 
         /// Use this only when moving the indexes in the circular buffer - bullet-proof.
-        [[nodiscard]] constexpr index_type next( index_type const i ) const noexcept
+        [[nodiscard]] static constexpr index_type next( index_type const i ) noexcept
         {
                 return static_cast< size_type >( i + 1 ) % N;
         }
 
-        [[nodiscard]] constexpr index_type prev( index_type const i ) const noexcept
+        [[nodiscard]] static constexpr index_type prev( index_type const i ) noexcept
         {
                 return i == 0 ? N - 1 : i - 1;
         }

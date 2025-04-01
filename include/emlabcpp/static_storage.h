@@ -59,13 +59,15 @@ public:
 
         /// Constructs an item at position i with arguments args...
         template < typename... Args >
-        constexpr T& emplace_item( size_type const i, Args&&... args )
+        constexpr T& emplace_item( size_type const i, Args&&... args ) noexcept(
+            std::is_nothrow_constructible_v< T, Args... > )
         {
                 return *std::construct_at( data() + i, std::forward< Args >( args )... );
         }
 
         /// Deconstructs an item at position i
-        constexpr void delete_item( size_type const i )
+        constexpr void
+        delete_item( size_type const i ) noexcept( std::is_nothrow_destructible_v< T > )
         {
                 std::destroy_at( data() + i );
         }
