@@ -38,8 +38,6 @@ class static_vector
 public:
         static constexpr std::size_t capacity = N;
 
-        /// public types
-        /// --------------------------------------------------------------------------------
         using value_type      = T;
         using size_type       = std::size_t;
         using reference       = T&;
@@ -47,8 +45,6 @@ public:
         using iterator        = T*;
         using const_iterator  = T const*;
 
-        /// public methods
-        /// --------------------------------------------------------------------------------
         static_vector() = default;
 
         static_vector( static_vector const& other )
@@ -234,9 +230,6 @@ public:
         }
 
 private:
-        /// private attributes
-        /// --------------------------------------------------------------------------------
-
         static_storage< T, N > storage_;
         size_type              size_ = 0;  /// count of items
 
