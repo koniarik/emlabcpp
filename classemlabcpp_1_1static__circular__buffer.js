@@ -15,7 +15,7 @@ var classemlabcpp_1_1static__circular__buffer =
     [ "begin", "classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426", null ],
     [ "begin", "classemlabcpp_1_1static__circular__buffer.html#a7c4ed6cc63bb1846f0c45eab4945547c", null ],
     [ "clear", "classemlabcpp_1_1static__circular__buffer.html#a4cd0366ca39afd85a5f057105b0b3b01", null ],
-    [ "emplace_back", "classemlabcpp_1_1static__circular__buffer.html#a5fc6be4492b57c91e62a1922ecd7c467", null ],
+    [ "emplace_back", "classemlabcpp_1_1static__circular__buffer.html#a99ae5108af386ff50f607b1882a0644d", null ],
     [ "empty", "classemlabcpp_1_1static__circular__buffer.html#a4b705c2c87ce4b5d4c34a7d1607cdbc4", null ],
     [ "end", "classemlabcpp_1_1static__circular__buffer.html#aa8165951ae18e5a305ee580be7c749d4", null ],
     [ "end", "classemlabcpp_1_1static__circular__buffer.html#a99021117509d248c5baeed803b7e2cfc", null ],

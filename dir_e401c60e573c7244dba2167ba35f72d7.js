@@ -16,9 +16,7 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     ] ],
     [ "enum.h", "enum_8h.html", "enum_8h" ],
     [ "enumerate.h", "enumerate_8h.html", "enumerate_8h" ],
-    [ "iterator.h", "iterator_8h.html", [
-      [ "generic_iterator", "classemlabcpp_1_1generic__iterator.html", "classemlabcpp_1_1generic__iterator" ]
-    ] ],
+    [ "iterator.h", "iterator_8h.html", "iterator_8h" ],
     [ "match.h", "match_8h.html", "match_8h" ],
     [ "min_max.h", "min__max_8h.html", "min__max_8h" ],
     [ "outcome.h", "outcome_8h.html", "outcome_8h" ],

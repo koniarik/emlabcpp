@@ -1,5 +1,8 @@
 <map id="include/emlabcpp/range.h" name="include/emlabcpp/range.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,196,32"/>
-<area shape="rect" id="node2" href="$numeric_8h.html" title=" " alt="" coords="23,80,178,107"/>
-<area shape="rect" id="node3" href="$iterator_8h.html" title=" " alt="" coords="54,155,147,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="55,5,246,32"/>
+<area shape="rect" id="node2" href="$numeric_8h.html" title=" " alt="" coords="5,80,160,107"/>
+<area shape="rect" id="node4" href="$view_8h.html" title=" " alt="" coords="184,80,256,107"/>
+<area shape="rect" id="node3" href="$iterator_8h.html" title=" " alt="" coords="36,155,129,181"/>
+<area shape="rect" id="node5" href="$types_8h.html" title=" " alt="" coords="167,155,246,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="271,155,324,181"/>
 </map>

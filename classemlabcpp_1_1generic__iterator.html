@@ -86,13 +86,14 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1generic__iterator.htm
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classemlabcpp_1_1generic__iterator-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">emlabcpp::generic_iterator&lt; Derived &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is a class using CRTP to ease implementation of custom iterators.  
+<p><a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator simplifies custom iterator implementation using CRTP.">generic_iterator</a> simplifies custom iterator implementation using CRTP.  
  <a href="classemlabcpp_1_1generic__iterator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="iterator_8h_source.html">iterator.h</a>&gt;</code></p>
@@ -116,57 +117,61 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a95e1892dd926944107bee59661922c19"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842">pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a95e1892dd926944107bee59661922c19">operator-&gt;</a> ()</td></tr>
-<tr class="separator:a95e1892dd926944107bee59661922c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad12b20563cf58540d83d4fefe782dad8"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1generic__iterator.html#a94f63521bb88de9902ade70a45e3cb7e">const_pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#ad12b20563cf58540d83d4fefe782dad8">operator-&gt;</a> () const</td></tr>
-<tr class="separator:ad12b20563cf58540d83d4fefe782dad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a065560a2202ed85cf4f45f132131f092"><td class="memItemLeft" align="right" valign="top">constexpr Derived &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a065560a2202ed85cf4f45f132131f092">operator++</a> ()</td></tr>
-<tr class="separator:a065560a2202ed85cf4f45f132131f092"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afec617d9a0272189e77275d8d36915eb"><td class="memItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#afec617d9a0272189e77275d8d36915eb">operator++</a> (int const)</td></tr>
-<tr class="separator:afec617d9a0272189e77275d8d36915eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2a4cae41edb6508ae6a674d9748d030"><td class="memItemLeft" align="right" valign="top">constexpr Derived &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aa2a4cae41edb6508ae6a674d9748d030">operator--</a> ()</td></tr>
-<tr class="separator:aa2a4cae41edb6508ae6a674d9748d030"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cc76bf4f92219ee9d78080ecb8cc9aa"><td class="memItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a8cc76bf4f92219ee9d78080ecb8cc9aa">operator--</a> (int const)</td></tr>
-<tr class="separator:a8cc76bf4f92219ee9d78080ecb8cc9aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c01741521b5effca51b24acb68e04ed"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a7c01741521b5effca51b24acb68e04ed">operator&lt;=&gt;</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a>&lt; Derived &gt; const &amp;other) const</td></tr>
-<tr class="separator:a7c01741521b5effca51b24acb68e04ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf6aa507074b5bc98fe59f48b2391437"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#adf6aa507074b5bc98fe59f48b2391437">operator==</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a>&lt; Derived &gt; const &amp;other) const</td></tr>
-<tr class="separator:adf6aa507074b5bc98fe59f48b2391437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a933e3dd5fcca0a49f503200ad3985053"><td class="memItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a933e3dd5fcca0a49f503200ad3985053">operator+</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> v) const</td></tr>
-<tr class="separator:a933e3dd5fcca0a49f503200ad3985053"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2df9463217505f015062dd24c4f45513"><td class="memItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a2df9463217505f015062dd24c4f45513">operator-</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> v) const</td></tr>
-<tr class="separator:a2df9463217505f015062dd24c4f45513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64165e996e713b43626a4180b187bd65"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842">pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a64165e996e713b43626a4180b187bd65">operator-&gt;</a> () noexcept(<a class="el" href="namespaceemlabcpp.html#a0831a15e8671ef24b4c603958370ab09">nothrow_dereference</a>&lt; Derived &gt;)</td></tr>
+<tr class="separator:a64165e996e713b43626a4180b187bd65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebebe71c6c79e57dd20cb48008917a66"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1generic__iterator.html#a94f63521bb88de9902ade70a45e3cb7e">const_pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aebebe71c6c79e57dd20cb48008917a66">operator-&gt;</a> () const noexcept(<a class="el" href="namespaceemlabcpp.html#a0831a15e8671ef24b4c603958370ab09">nothrow_dereference</a>&lt; Derived &gt;)</td></tr>
+<tr class="separator:aebebe71c6c79e57dd20cb48008917a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8d17811089c9bd7063ff7ffa737df84"><td class="memItemLeft" align="right" valign="top">constexpr Derived &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#aa8d17811089c9bd7063ff7ffa737df84">operator++</a> () noexcept(<a class="el" href="namespaceemlabcpp.html#aeaf0a89b5a964961b194ce7d5e97a1e3">nothrow_add_assign</a>&lt; Derived &gt;)</td></tr>
+<tr class="separator:aa8d17811089c9bd7063ff7ffa737df84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ba01210deb50405cc3655ee49766459"><td class="memItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a5ba01210deb50405cc3655ee49766459">operator++</a> (int const) noexcept(<a class="el" href="namespaceemlabcpp.html#aeaf0a89b5a964961b194ce7d5e97a1e3">nothrow_add_assign</a>&lt; Derived &gt; &amp;&amp;std::is_nothrow_copy_constructible_v&lt; Derived &gt;)</td></tr>
+<tr class="separator:a5ba01210deb50405cc3655ee49766459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6df3d2da345c2f566057db4e3eaf675b"><td class="memItemLeft" align="right" valign="top">constexpr Derived &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a6df3d2da345c2f566057db4e3eaf675b">operator--</a> () noexcept(<a class="el" href="namespaceemlabcpp.html#a775a31358529928338b5586452f6050f">nothrow_sub_assign</a>&lt; Derived &gt;)</td></tr>
+<tr class="separator:a6df3d2da345c2f566057db4e3eaf675b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acace1d9b4f04041b9d071acab13c4a50"><td class="memItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#acace1d9b4f04041b9d071acab13c4a50">operator--</a> (int const) noexcept(<a class="el" href="namespaceemlabcpp.html#a775a31358529928338b5586452f6050f">nothrow_sub_assign</a>&lt; Derived &gt; &amp;&amp;std::is_nothrow_copy_constructible_v&lt; Derived &gt;)</td></tr>
+<tr class="separator:acace1d9b4f04041b9d071acab13c4a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab60c000aa1c6db620c3288ab59ed54d1"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#ab60c000aa1c6db620c3288ab59ed54d1">operator&lt;=&gt;</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a>&lt; Derived &gt; const &amp;other) const noexcept(<a class="el" href="namespaceemlabcpp.html#aa93c323b76c99b1a173d6233b5023006">nothrow_threeway_compare</a>&lt; Derived &gt;)</td></tr>
+<tr class="separator:ab60c000aa1c6db620c3288ab59ed54d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14e94eeb0a661ad6a65dbf93cfdc56ef"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a14e94eeb0a661ad6a65dbf93cfdc56ef">operator==</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a>&lt; Derived &gt; const &amp;other) const noexcept(<a class="el" href="namespaceemlabcpp.html#a69ec76f710bc498a013e2fa20298970d">nothrow_equality_compare</a>&lt; Derived &gt;)</td></tr>
+<tr class="separator:a14e94eeb0a661ad6a65dbf93cfdc56ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30985f0e17059e2558cab71f1e2564db"><td class="memItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a30985f0e17059e2558cab71f1e2564db">operator+</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> v) const noexcept(<a class="el" href="namespaceemlabcpp.html#aeaf0a89b5a964961b194ce7d5e97a1e3">nothrow_add_assign</a>&lt; Derived &gt; &amp;&amp;std::is_nothrow_copy_constructible_v&lt; Derived &gt;)</td></tr>
+<tr class="separator:a30985f0e17059e2558cab71f1e2564db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5afd77fca96aaf87c28d5edf2cf27250"><td class="memItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a5afd77fca96aaf87c28d5edf2cf27250">operator-</a> (<a class="el" href="classemlabcpp_1_1generic__iterator.html#a1b29a6768655f601d4fd06dd1aa7d9dd">difference_type</a> v) const noexcept(<a class="el" href="namespaceemlabcpp.html#a775a31358529928338b5586452f6050f">nothrow_sub_assign</a>&lt; Derived &gt; &amp;&amp;std::is_nothrow_copy_constructible_v&lt; Derived &gt;)</td></tr>
+<tr class="separator:a5afd77fca96aaf87c28d5edf2cf27250"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a21521483a14bc4fac247f805187df37c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1generic__iterator.html#a21521483a14bc4fac247f805187df37c">generic_iterator</a> () noexcept=default</td></tr>
+<tr class="separator:a21521483a14bc4fac247f805187df37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Derived&gt;<br />
 class emlabcpp::generic_iterator&lt; Derived &gt;</h3>
 
-<p><a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is a class using CRTP to ease implementation of custom iterators. </p>
-<p>User of the class is required to inheric from <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> and pass the inheriting class as template argument Derived. The <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> expectes existence of properly setup std::iterator_traits&lt;Derived&gt; instance, which is used to decide types for various methods. Given that <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is able to provide user with methods/functions that are based on the Derived methods.</p>
-<p>For example: It is necessary for Derived class to implement only operator==, given that <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator is a class using CRTP to ease implementation of custom iterators.">generic_iterator</a> is able to provied !=</p>
+<p><a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator simplifies custom iterator implementation using CRTP.">generic_iterator</a> simplifies custom iterator implementation using CRTP. </p>
+<p>Users inherit from <a class="el" href="classemlabcpp_1_1generic__iterator.html" title="generic_iterator simplifies custom iterator implementation using CRTP.">generic_iterator</a> and pass their class as the Derived template argument. It relies on std::iterator_traits&lt;Derived&gt; for type definitions and provides additional methods based on those implemented in the Derived class.</p>
 <p>The Derived class is expected to provide these methods:</p><ul>
 <li>reference <a class="el" href="namespaceemlabcpp.html#a58474e3d150740d1c81193bf6004ac8c" title="Multiplication of points multiplies each coordinate of A by coordinate of B on same dimension.">operator*()</a>;</li>
 <li>const_reference operator*() const;</li>
-<li>Deriver&amp; operator+=(difference_type);</li>
-<li>Deriver&amp; operator-=(difference_type);</li>
+<li>Derived&amp; operator+=(difference_type);</li>
+<li>Derived&amp; operator-=(difference_type);</li>
 <li>bool operator&lt;(const Derived &amp; other);</li>
 <li>bool operator==(const Derived &amp; other);</li>
 <li>difference_type operator-(const Derived&amp; other);</li>
 </ul>
-<p>Give nthese methods, the generic iterator provides additional methods thanks to CRTP mechanics:</p><ul>
-<li>pointer <a class="el" href="classemlabcpp_1_1generic__iterator.html#a95e1892dd926944107bee59661922c19">operator-&gt;()</a>;</li>
-<li>const_pointer opetrator-&gt;();</li>
-<li>Derived&amp; <a class="el" href="classemlabcpp_1_1generic__iterator.html#a065560a2202ed85cf4f45f132131f092">operator++()</a>;</li>
-<li>Derived&amp; <a class="el" href="classemlabcpp_1_1generic__iterator.html#afec617d9a0272189e77275d8d36915eb">operator++(int)</a>;</li>
-<li>Derived&amp; <a class="el" href="classemlabcpp_1_1generic__iterator.html#aa2a4cae41edb6508ae6a674d9748d030">operator--()</a>;</li>
-<li>Derived&amp; <a class="el" href="classemlabcpp_1_1generic__iterator.html#a8cc76bf4f92219ee9d78080ecb8cc9aa">operator--(int)</a>;</li>
+<p>Given these methods, the generic iterator provides:</p><ul>
+<li>pointer <a class="el" href="classemlabcpp_1_1generic__iterator.html#a64165e996e713b43626a4180b187bd65">operator-&gt;()</a>;</li>
+<li>const_pointer <a class="el" href="classemlabcpp_1_1generic__iterator.html#aebebe71c6c79e57dd20cb48008917a66">operator-&gt;() const</a>;</li>
+<li>Derived&amp; <a class="el" href="classemlabcpp_1_1generic__iterator.html#aa8d17811089c9bd7063ff7ffa737df84">operator++()</a>;</li>
+<li>Derived <a class="el" href="classemlabcpp_1_1generic__iterator.html#a5ba01210deb50405cc3655ee49766459">operator++(int)</a>;</li>
+<li>Derived&amp; <a class="el" href="classemlabcpp_1_1generic__iterator.html#a6df3d2da345c2f566057db4e3eaf675b">operator--()</a>;</li>
+<li>Derived <a class="el" href="classemlabcpp_1_1generic__iterator.html#acace1d9b4f04041b9d071acab13c4a50">operator--(int)</a>;</li>
 <li>Derived operator+(difference_type);</li>
 <li>Derived operator-(difference_type);</li>
 </ul>
-<p>Additional to that, following free functions are usable:</p><ul>
-<li>bool operator&gt;(const generic_iterator&lt;Derived&gt; &amp;, const generic_iterator&lt;Derived&gt;&amp;)</li>
-<li>bool operator&lt;=(const generic_iterator&lt;Derived&gt; &amp;, const generic_iterator&lt;Derived&gt;&amp;)</li>
-<li>bool operator!=(const generic_iterator&lt;Derived&gt; &amp;, const generic_iterator&lt;Derived&gt;&amp;) </li>
+<p>Additionally, the following free functions are usable:</p><ul>
+<li>bool operator&gt;(const generic_iterator&lt;Derived&gt; &amp;, const generic_iterator&lt;Derived&gt;&amp;);</li>
+<li>bool operator&lt;=(const generic_iterator&lt;Derived&gt; &amp;, const generic_iterator&lt;Derived&gt;&amp;);</li>
+<li>bool operator!=(const generic_iterator&lt;Derived&gt; &amp;, const generic_iterator&lt;Derived&gt;&amp;); </li>
 </ul>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a94f63521bb88de9902ade70a45e3cb7e"></a>
@@ -281,9 +286,37 @@ template&lt;typename Derived &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a21521483a14bc4fac247f805187df37c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21521483a14bc4fac247f805187df37c">&#9670;&nbsp;</a></span>generic_iterator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classemlabcpp_1_1generic__iterator.html">emlabcpp::generic_iterator</a>&lt; Derived &gt;::<a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a933e3dd5fcca0a49f503200ad3985053"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a933e3dd5fcca0a49f503200ad3985053">&#9670;&nbsp;</a></span>operator+()</h2>
+<a id="a30985f0e17059e2558cab71f1e2564db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30985f0e17059e2558cab71f1e2564db">&#9670;&nbsp;</a></span>operator+()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,7 +336,7 @@ template&lt;typename Derived &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -312,8 +345,8 @@ template&lt;typename Derived &gt; </div>
 
 </div>
 </div>
-<a id="a065560a2202ed85cf4f45f132131f092"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a065560a2202ed85cf4f45f132131f092">&#9670;&nbsp;</a></span>operator++() <span class="overload">[1/2]</span></h2>
+<a id="aa8d17811089c9bd7063ff7ffa737df84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8d17811089c9bd7063ff7ffa737df84">&#9670;&nbsp;</a></span>operator++() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,15 +365,15 @@ template&lt;typename Derived &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="afec617d9a0272189e77275d8d36915eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afec617d9a0272189e77275d8d36915eb">&#9670;&nbsp;</a></span>operator++() <span class="overload">[2/2]</span></h2>
+<a id="a5ba01210deb50405cc3655ee49766459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ba01210deb50405cc3655ee49766459">&#9670;&nbsp;</a></span>operator++() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -360,7 +393,7 @@ template&lt;typename Derived &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -369,8 +402,8 @@ template&lt;typename Derived &gt; </div>
 
 </div>
 </div>
-<a id="a2df9463217505f015062dd24c4f45513"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2df9463217505f015062dd24c4f45513">&#9670;&nbsp;</a></span>operator-()</h2>
+<a id="a5afd77fca96aaf87c28d5edf2cf27250"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5afd77fca96aaf87c28d5edf2cf27250">&#9670;&nbsp;</a></span>operator-()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -390,7 +423,7 @@ template&lt;typename Derived &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -399,8 +432,8 @@ template&lt;typename Derived &gt; </div>
 
 </div>
 </div>
-<a id="aa2a4cae41edb6508ae6a674d9748d030"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2a4cae41edb6508ae6a674d9748d030">&#9670;&nbsp;</a></span>operator--() <span class="overload">[1/2]</span></h2>
+<a id="a6df3d2da345c2f566057db4e3eaf675b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6df3d2da345c2f566057db4e3eaf675b">&#9670;&nbsp;</a></span>operator--() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -419,15 +452,15 @@ template&lt;typename Derived &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8cc76bf4f92219ee9d78080ecb8cc9aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cc76bf4f92219ee9d78080ecb8cc9aa">&#9670;&nbsp;</a></span>operator--() <span class="overload">[2/2]</span></h2>
+<a id="acace1d9b4f04041b9d071acab13c4a50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acace1d9b4f04041b9d071acab13c4a50">&#9670;&nbsp;</a></span>operator--() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -447,7 +480,7 @@ template&lt;typename Derived &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -456,35 +489,8 @@ template&lt;typename Derived &gt; </div>
 
 </div>
 </div>
-<a id="a95e1892dd926944107bee59661922c19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95e1892dd926944107bee59661922c19">&#9670;&nbsp;</a></span>operator-&gt;() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842">pointer</a> <a class="el" href="classemlabcpp_1_1generic__iterator.html">emlabcpp::generic_iterator</a>&lt; Derived &gt;::operator-&gt; </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad12b20563cf58540d83d4fefe782dad8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad12b20563cf58540d83d4fefe782dad8">&#9670;&nbsp;</a></span>operator-&gt;() <span class="overload">[2/2]</span></h2>
+<a id="aebebe71c6c79e57dd20cb48008917a66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebebe71c6c79e57dd20cb48008917a66">&#9670;&nbsp;</a></span>operator-&gt;() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -503,15 +509,42 @@ template&lt;typename Derived &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7c01741521b5effca51b24acb68e04ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c01741521b5effca51b24acb68e04ed">&#9670;&nbsp;</a></span>operator&lt;=&gt;()</h2>
+<a id="a64165e996e713b43626a4180b187bd65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64165e996e713b43626a4180b187bd65">&#9670;&nbsp;</a></span>operator-&gt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842">pointer</a> <a class="el" href="classemlabcpp_1_1generic__iterator.html">emlabcpp::generic_iterator</a>&lt; Derived &gt;::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab60c000aa1c6db620c3288ab59ed54d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab60c000aa1c6db620c3288ab59ed54d1">&#9670;&nbsp;</a></span>operator&lt;=&gt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -531,15 +564,15 @@ template&lt;typename Derived &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="adf6aa507074b5bc98fe59f48b2391437"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf6aa507074b5bc98fe59f48b2391437">&#9670;&nbsp;</a></span>operator==()</h2>
+<a id="a14e94eeb0a661ad6a65dbf93cfdc56ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e94eeb0a661ad6a65dbf93cfdc56ef">&#9670;&nbsp;</a></span>operator==()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -559,7 +592,7 @@ template&lt;typename Derived &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -575,7 +608,7 @@ template&lt;typename Derived &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1generic__iterator.html">generic_iterator</a></li>
-    <li class="footer">Generated on Tue Apr 1 2025 10:44:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Apr 1 2025 15:57:00 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

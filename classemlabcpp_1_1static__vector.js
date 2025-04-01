@@ -18,7 +18,7 @@ var classemlabcpp_1_1static__vector =
     [ "clear", "classemlabcpp_1_1static__vector.html#ad88d376d5324c71e3237fea10a043849", null ],
     [ "data", "classemlabcpp_1_1static__vector.html#ae3c85e2d2037629e1b263244526c19f1", null ],
     [ "data", "classemlabcpp_1_1static__vector.html#aebad05d967f8b3856f875aa0e36d6283", null ],
-    [ "emplace_back", "classemlabcpp_1_1static__vector.html#a50f2fc816dd0ccf72292e0986f1ccf20", null ],
+    [ "emplace_back", "classemlabcpp_1_1static__vector.html#a807a90ecd860faed6caca090363c49b1", null ],
     [ "empty", "classemlabcpp_1_1static__vector.html#a1cb3115b37984ce71393fca1dc7b7717", null ],
     [ "end", "classemlabcpp_1_1static__vector.html#a5ff32c8ea013a8be31e716d472f84bbb", null ],
     [ "end", "classemlabcpp_1_1static__vector.html#a6f43a9659bdf444c5cf2ee4a12feb7e3", null ],

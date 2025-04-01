@@ -160,9 +160,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a06d1aa70abf995f72636a03e3fd7d93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add5ec3d89fed5dc891d2b2607413c90e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#add5ec3d89fed5dc891d2b2607413c90e">push_back</a> (T item)</td></tr>
 <tr class="separator:add5ec3d89fed5dc891d2b2607413c90e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fc6be4492b57c91e62a1922ecd7c467"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a5fc6be4492b57c91e62a1922ecd7c467"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a5fc6be4492b57c91e62a1922ecd7c467">emplace_back</a> (Args &amp;&amp;... <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">args</a>)</td></tr>
-<tr class="separator:a5fc6be4492b57c91e62a1922ecd7c467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99ae5108af386ff50f607b1882a0644d"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a99ae5108af386ff50f607b1882a0644d"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a99ae5108af386ff50f607b1882a0644d">emplace_back</a> (Args &amp;&amp;... <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">args</a>)</td></tr>
+<tr class="separator:a99ae5108af386ff50f607b1882a0644d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad79b32945aa2393af18e55ef2282cb58"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html#ad79b32945aa2393af18e55ef2282cb58">max_size</a> () const</td></tr>
 <tr class="memdesc:ad79b32945aa2393af18e55ef2282cb58"><td class="mdescLeft">&#160;</td><td class="mdescRight">other methods  <a href="classemlabcpp_1_1static__circular__buffer.html#ad79b32945aa2393af18e55ef2282cb58">More...</a><br /></td></tr>
 <tr class="separator:ad79b32945aa2393af18e55ef2282cb58"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -549,8 +549,8 @@ template&lt;typename T , std::size_t N&gt; </div>
 
 </div>
 </div>
-<a id="a5fc6be4492b57c91e62a1922ecd7c467"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fc6be4492b57c91e62a1922ecd7c467">&#9670;&nbsp;</a></span>emplace_back()</h2>
+<a id="a99ae5108af386ff50f607b1882a0644d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99ae5108af386ff50f607b1882a0644d">&#9670;&nbsp;</a></span>emplace_back()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -563,7 +563,7 @@ template&lt;typename... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, N &gt;::emplace_back </td>
+          <td class="memname">T&amp; <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, N &gt;::emplace_back </td>
           <td>(</td>
           <td class="paramtype">Args &amp;&amp;...&#160;</td>
           <td class="paramname"><em>args</em></td><td>)</td>
@@ -577,7 +577,7 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">emlabcpp::args</a>, and <a class="el" href="classemlabcpp_1_1static__storage.html#a03acb65af32c8f18bbc4559498a04856">emlabcpp::static_storage&lt; T, N &gt;::emplace_item()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">emlabcpp::args</a>, and <a class="el" href="classemlabcpp_1_1static__storage.html#a3864ec3baa5de5958e4099d341f853bb">emlabcpp::static_storage&lt; T, N &gt;::emplace_item()</a>.</p>
 
 </div>
 </div>
@@ -975,7 +975,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a5fc6be4492b57c91e62a1922ecd7c467">emlabcpp::static_circular_buffer&lt; T, N &gt;::emplace_back()</a>.</p>
+<p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a99ae5108af386ff50f607b1882a0644d">emlabcpp::static_circular_buffer&lt; T, N &gt;::emplace_back()</a>.</p>
 
 </div>
 </div>
@@ -1212,7 +1212,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a></li>
-    <li class="footer">Generated on Tue Apr 1 2025 10:44:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Apr 1 2025 15:57:00 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

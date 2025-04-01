@@ -37,32 +37,17 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="view_8h.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="red" points="10.5,-0.5 10.5,-19.5 64.5,-19.5 64.5,-0.5 10.5,-0.5"/>
-<text text-anchor="middle" x="37.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">./view.h</text>
+<g id="a_node3"><a xlink:title=" ">
+<polygon fill="white" stroke="#bfbfbf" points="47,-0.5 47,-19.5 100,-19.5 100,-0.5 47,-0.5"/>
+<text text-anchor="middle" x="73.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">iterator</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M67.56,-56.08C62.52,-48.53 55.16,-37.49 48.99,-28.23"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="51.79,-26.13 43.33,-19.75 45.97,-30.01 51.79,-26.13"/>
-</g>
-<!-- Node14 -->
-<g id="node4" class="node">
-<title>Node14</title>
-<g id="a_node4"><a xlink:title=" ">
-<polygon fill="white" stroke="#bfbfbf" points="83,-0.5 83,-19.5 136,-19.5 136,-0.5 83,-0.5"/>
-<text text-anchor="middle" x="109.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">iterator</text>
-</a>
-</g>
-</g>
-<!-- Node2&#45;&gt;Node14 -->
-<g id="edge3" class="edge">
-<title>Node2&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M79.44,-56.08C84.48,-48.53 91.84,-37.49 98.01,-28.23"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="101.03,-30.01 103.67,-19.75 95.21,-26.13 101.03,-30.01"/>
+<path fill="none" stroke="midnightblue" d="M73.5,-56.08C73.5,-49.01 73.5,-38.86 73.5,-29.99"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="77,-29.75 73.5,-19.75 70,-29.75 77,-29.75"/>
 </g>
 </g>
 </svg>

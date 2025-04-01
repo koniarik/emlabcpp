@@ -1,18 +1,19 @@
 <map id="include/emlabcpp/protocol/streams.h" name="include/emlabcpp/protocol/streams.h">
-<area shape="rect" id="node1" title=" " alt="" coords="275,5,470,47"/>
-<area shape="rect" id="node2" href="$enum_8h.html" title=" " alt="" coords="10,169,92,196"/>
-<area shape="rect" id="node4" href="$range_8h.html" title=" " alt="" coords="136,244,219,271"/>
-<area shape="rect" id="node6" href="$protocol_2base_8h.html" title=" " alt="" coords="461,244,534,271"/>
-<area shape="rect" id="node13" href="$register__map_8h.html" title=" " alt="" coords="410,95,538,121"/>
-<area shape="rect" id="node16" title=" " alt="" coords="562,95,636,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="217,393,309,420"/>
-<area shape="rect" id="node5" href="$numeric_8h.html" title=" " alt="" coords="32,319,187,345"/>
-<area shape="rect" id="node7" href="$bounded_8h.html" title=" " alt="" coords="212,319,314,345"/>
-<area shape="rect" id="node8" href="$protocol_2error_8h.html" title=" " alt="" coords="627,319,699,345"/>
-<area shape="rect" id="node9" title=" " alt="" coords="481,319,520,345"/>
-<area shape="rect" id="node10" title=" " alt="" coords="544,319,603,345"/>
-<area shape="rect" id="node11" title=" " alt="" coords="339,319,406,345"/>
-<area shape="rect" id="node12" title=" " alt="" coords="724,319,792,345"/>
-<area shape="rect" id="node14" href="$algorithm_8h.html" title=" " alt="" coords="215,169,324,196"/>
-<area shape="rect" id="node15" href="$traits_8h.html" title=" " alt="" coords="582,169,658,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="548,5,743,47"/>
+<area shape="rect" id="node2" href="$enum_8h.html" title=" " alt="" coords="779,169,861,196"/>
+<area shape="rect" id="node4" href="$range_8h.html" title=" " alt="" coords="613,244,696,271"/>
+<area shape="rect" id="node7" href="$protocol_2base_8h.html" title=" " alt="" coords="253,244,326,271"/>
+<area shape="rect" id="node14" href="$register__map_8h.html" title=" " alt="" coords="253,95,381,121"/>
+<area shape="rect" id="node17" title=" " alt="" coords="733,95,808,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="489,393,581,420"/>
+<area shape="rect" id="node5" href="$numeric_8h.html" title=" " alt="" coords="707,319,861,345"/>
+<area shape="rect" id="node6" href="$view_8h.html" title=" " alt="" coords="611,319,683,345"/>
+<area shape="rect" id="node8" href="$bounded_8h.html" title=" " alt="" coords="483,319,586,345"/>
+<area shape="rect" id="node9" href="$protocol_2error_8h.html" title=" " alt="" coords="5,319,77,345"/>
+<area shape="rect" id="node10" title=" " alt="" coords="337,319,375,345"/>
+<area shape="rect" id="node11" title=" " alt="" coords="400,319,459,345"/>
+<area shape="rect" id="node12" title=" " alt="" coords="245,319,312,345"/>
+<area shape="rect" id="node13" title=" " alt="" coords="102,319,170,345"/>
+<area shape="rect" id="node15" href="$algorithm_8h.html" title=" " alt="" coords="480,169,589,196"/>
+<area shape="rect" id="node16" href="$traits_8h.html" title=" " alt="" coords="179,169,255,196"/>
 </map>

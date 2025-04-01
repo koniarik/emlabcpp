@@ -1,10 +1,12 @@
 <map id="include/emlabcpp/static_circular_buffer.h" name="include/emlabcpp/static_circular_buffer.h">
-<area shape="rect" id="node1" title=" " alt="" coords="117,5,294,47"/>
-<area shape="rect" id="node2" href="$iterator_8h.html" title=" " alt="" coords="93,95,182,121"/>
-<area shape="rect" id="node5" href="$static__storage_8h.html" title=" " alt="" coords="234,95,369,121"/>
-<area shape="rect" id="node3" href="$view_8h.html" title=" " alt="" coords="5,169,77,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="102,169,173,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="197,169,267,196"/>
-<area shape="rect" id="node7" title=" " alt="" coords="292,169,369,196"/>
-<area shape="rect" id="node8" title=" " alt="" coords="394,169,454,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="145,5,323,47"/>
+<area shape="rect" id="node2" href="$iterator_8h.html" title=" " alt="" coords="25,95,115,121"/>
+<area shape="rect" id="node4" href="$static__storage_8h.html" title=" " alt="" coords="167,95,301,121"/>
+<area shape="rect" id="node8" href="$view_8h.html" title=" " alt="" coords="385,95,457,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,169,76,196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="100,169,171,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="195,169,273,196"/>
+<area shape="rect" id="node7" title=" " alt="" coords="297,169,357,196"/>
+<area shape="rect" id="node9" href="$types_8h.html" title=" " alt="" coords="381,169,460,196"/>
+<area shape="rect" id="node10" title=" " alt="" coords="485,169,538,196"/>
 </map>

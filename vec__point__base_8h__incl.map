@@ -1,16 +1,16 @@
 <map id="include/emlabcpp/experimental/geom/vec_point_base.h" name="include/emlabcpp/experimental/geom/vec_point_base.h">
-<area shape="rect" id="node1" title=" " alt="" coords="329,5,557,47"/>
-<area shape="rect" id="node2" href="$algorithm_8h.html" title=" " alt="" coords="382,169,503,196"/>
-<area shape="rect" id="node9" href="$range_8h.html" title=" " alt="" coords="859,244,938,271"/>
-<area shape="rect" id="node13" href="$physical__quantity_8h.html" title=" " alt="" coords="153,95,324,121"/>
-<area shape="rect" id="node3" href="$impl_8h.html" title=" " alt="" coords="427,244,565,271"/>
-<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="569,319,652,345"/>
-<area shape="rect" id="node6" title=" " alt="" coords="415,319,470,345"/>
-<area shape="rect" id="node7" href="$bounded_8h.html" title=" " alt="" coords="589,244,688,271"/>
-<area shape="rect" id="node8" href="$min__max_8h.html" title=" " alt="" coords="159,244,262,271"/>
-<area shape="rect" id="node10" href="$view_8h.html" title=" " alt="" coords="763,244,835,271"/>
-<area shape="rect" id="node11" title=" " alt="" coords="73,244,135,271"/>
-<area shape="rect" id="node12" title=" " alt="" coords="286,244,351,271"/>
-<area shape="rect" id="node5" title=" " alt="" coords="5,393,64,420"/>
-<area shape="rect" id="node14" href="$quantity_8h.html" title=" " alt="" coords="57,169,151,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="371,5,599,47"/>
+<area shape="rect" id="node2" href="$algorithm_8h.html" title=" " alt="" coords="424,169,545,196"/>
+<area shape="rect" id="node9" href="$range_8h.html" title=" " alt="" coords="5,244,84,271"/>
+<area shape="rect" id="node13" href="$physical__quantity_8h.html" title=" " alt="" coords="647,95,818,121"/>
+<area shape="rect" id="node3" href="$impl_8h.html" title=" " alt="" coords="159,244,298,271"/>
+<area shape="rect" id="node4" href="$types_8h.html" title=" " alt="" coords="447,393,530,420"/>
+<area shape="rect" id="node6" title=" " alt="" coords="297,319,352,345"/>
+<area shape="rect" id="node7" href="$bounded_8h.html" title=" " alt="" coords="373,244,471,271"/>
+<area shape="rect" id="node8" href="$min__max_8h.html" title=" " alt="" coords="496,244,599,271"/>
+<area shape="rect" id="node10" href="$view_8h.html" title=" " alt="" coords="86,319,158,345"/>
+<area shape="rect" id="node11" title=" " alt="" coords="764,244,827,271"/>
+<area shape="rect" id="node12" title=" " alt="" coords="623,244,688,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="835,468,894,495"/>
+<area shape="rect" id="node14" href="$quantity_8h.html" title=" " alt="" coords="748,169,843,196"/>
 </map>
