@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"owning__coroutine__handle_8h_source.html":[4,0,0,0,1,2,2],
 "packet_8h.html":[4,0,0,0,4,7],
 "packet_8h.html#a0fe4054075187b3f230763da6fdd12d1":[4,0,0,0,4,7,3],
 "packet_8h.html#a6029ae0351da35ad86920e1e3a9a9d16":[4,0,0,0,4,7,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "string__buffer_8h.html":[4,0,0,0,1,14],
 "string__buffer_8h.html#a8278be24d125a68a1d021a5a6744e794":[4,0,0,0,1,14,4],
 "string__buffer_8h.html#ae6154c4150903826b9b84540c27036ad":[4,0,0,0,1,14,3],
-"string__buffer_8h_source.html":[4,0,0,0,1,14],
-"structemlabcpp_1_1are__same_3_01T_00_01Ts_8_8_8_01_4.html":[3,0,0,62]
+"string__buffer_8h_source.html":[4,0,0,0,1,14]
 };

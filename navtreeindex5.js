@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"index.html#autotoc_md4":[1,0],
 "index.html#autotoc_md5":[1,1],
 "index.html#autotoc_md6":[1,2],
 "index.html#autotoc_md7":[1,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp.html#a7b1e6e1d604ab0623e703f92b9f8d420":[2,0,0,158],
 "namespaceemlabcpp.html#a7b5a68de4881301e46697c48654d8477":[2,0,0,319],
 "namespaceemlabcpp.html#a7bb8b8ced9bb2a501cc61ced29e7801d":[2,0,0,298],
-"namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1":[2,0,0,349],
-"namespaceemlabcpp.html#a7d26d2adcae9ef476f4a0b2136b9352d":[2,0,0,167]
+"namespaceemlabcpp.html#a7cac9e89744ae1ec8ad817df33d291f1":[2,0,0,349]
 };

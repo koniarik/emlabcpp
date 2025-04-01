@@ -1,5 +1,6 @@
 var NAVTREEINDEX9 =
 {
+"structemlabcpp_1_1are__same_3_01T_00_01Ts_8_8_8_01_4.html":[3,0,0,62],
 "structemlabcpp_1_1are__same_3_4.html":[3,0,0,63],
 "structemlabcpp_1_1bits_1_1is__string__buffer.html":[3,0,0,0,0],
 "structemlabcpp_1_1bits_1_1is__string__buffer.html#a85f1043c1ad092dd94895839ff0cf5ce":[3,0,0,0,0,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX9 =
 "structemlabcpp_1_1protocol_1_1converter_3_01message_3_01N_01_4_00_01Endianess_01_4.html#a8c912939da5461c0920b0d082f9362c3":[3,0,0,7,20,6],
 "structemlabcpp_1_1protocol_1_1converter_3_01message_3_01N_01_4_00_01Endianess_01_4.html#a9f84b33b55735dc90b3a5254f25d8161":[3,0,0,7,20,0],
 "structemlabcpp_1_1protocol_1_1converter_3_01message_3_01N_01_4_00_01Endianess_01_4.html#afc310747364601d198adc0216554c732":[3,0,0,7,20,3],
-"structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html":[3,0,0,7,24],
-"structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html#a1c211bd31e7a9d3e3deff077f8590f2d":[3,0,0,7,24,1]
+"structemlabcpp_1_1protocol_1_1converter_3_01sized__buffer_3_01CounterDef_00_01D_01_4_00_01Endianess_01_4.html":[3,0,0,7,24]
 };
