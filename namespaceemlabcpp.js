@@ -130,14 +130,14 @@ var namespaceemlabcpp =
       [ "OBJECT", "namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fda8eee8e217391199668cbac89472ace53", null ],
       [ "ARRAY", "namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fdacb4fb1757fb37c43cded35d3eb857c43", null ]
     ] ],
-    [ "outcome_e", "namespaceemlabcpp.html#a1ef662b744016746c0164eb689b39ade", [
-      [ "SUCCESS", "namespaceemlabcpp.html#a1ef662b744016746c0164eb689b39adead0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "FAILURE", "namespaceemlabcpp.html#a1ef662b744016746c0164eb689b39adea36fc6065a3e970bc3e6b2e59da52bf2a", null ],
-      [ "ERROR", "namespaceemlabcpp.html#a1ef662b744016746c0164eb689b39adeabb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    [ "outcome_e", "namespaceemlabcpp.html#a57a6537b772f3e6e4772dfdf8af3774f", [
+      [ "SUCCESS", "namespaceemlabcpp.html#a57a6537b772f3e6e4772dfdf8af3774fad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "FAILURE", "namespaceemlabcpp.html#a57a6537b772f3e6e4772dfdf8af3774fa36fc6065a3e970bc3e6b2e59da52bf2a", null ],
+      [ "ERROR", "namespaceemlabcpp.html#a57a6537b772f3e6e4772dfdf8af3774fabb1ca97ec761fc37101737ba0aa2e7c5", null ]
     ] ],
-    [ "result_e", "namespaceemlabcpp.html#a66341f5368fd342d8c4b7385db2e5fc3", [
-      [ "SUCCESS", "namespaceemlabcpp.html#a66341f5368fd342d8c4b7385db2e5fc3ad0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "ERROR", "namespaceemlabcpp.html#a66341f5368fd342d8c4b7385db2e5fc3abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    [ "result_e", "namespaceemlabcpp.html#ad6bb11365d380040c5e151a237655d4a", [
+      [ "SUCCESS", "namespaceemlabcpp.html#ad6bb11365d380040c5e151a237655d4aad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "ERROR", "namespaceemlabcpp.html#ad6bb11365d380040c5e151a237655d4aabb1ca97ec761fc37101737ba0aa2e7c5", null ]
     ] ],
     [ "abs", "namespaceemlabcpp.html#a50ffa44557c5251237a919d0843f13cc", null ],
     [ "abs", "namespaceemlabcpp.html#a636ba3f9919efa31f356bb6bca5e290d", null ],

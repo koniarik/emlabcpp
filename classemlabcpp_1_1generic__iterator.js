@@ -7,7 +7,6 @@ var classemlabcpp_1_1generic__iterator =
     [ "pointer", "classemlabcpp_1_1generic__iterator.html#ae6dd3f181353509f981be8cf51c46842", null ],
     [ "reference", "classemlabcpp_1_1generic__iterator.html#a58da75ec0f7d0fe6e90eb5e95667627d", null ],
     [ "value_type", "classemlabcpp_1_1generic__iterator.html#a045454491c2aa862c6658e85a1660deb", null ],
-    [ "generic_iterator", "classemlabcpp_1_1generic__iterator.html#a21521483a14bc4fac247f805187df37c", null ],
     [ "operator+", "classemlabcpp_1_1generic__iterator.html#a30985f0e17059e2558cab71f1e2564db", null ],
     [ "operator++", "classemlabcpp_1_1generic__iterator.html#aa8d17811089c9bd7063ff7ffa737df84", null ],
     [ "operator++", "classemlabcpp_1_1generic__iterator.html#a5ba01210deb50405cc3655ee49766459", null ],

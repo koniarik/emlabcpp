@@ -126,7 +126,7 @@ var searchData=
   ['converter_5ffor_198',['converter_for',['../namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f',1,'emlabcpp::protocol']]],
   ['converter_5ffor_5fimpl_199',['converter_for_impl',['../namespaceemlabcpp_1_1protocol.html#a8a42ec62524b9afc0195ff5f102300f9',1,'emlabcpp::protocol']]],
   ['convertible_200',['convertible',['../namespaceemlabcpp_1_1protocol.html#aabf37dc4e5c925a68b635522ef9567a5',1,'emlabcpp::protocol']]],
-  ['copy_201',['COPY',['../namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eae8606d021da140a92c7eba8d9b8af84f',1,'emlabcpp::detail']]],
+  ['copy_201',['COPY',['../namespaceemlabcpp_1_1detail.html#a504aa8af747dc7480bcb7d73d822841bae8606d021da140a92c7eba8d9b8af84f',1,'emlabcpp::detail']]],
   ['copy_202',['copy',['../namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb',1,'emlabcpp']]],
   ['core_5fchannel_203',['core_channel',['../namespaceemlabcpp_1_1testing.html#ac454345521b3303995ab9d0afe40c98b',1,'emlabcpp::testing']]],
   ['coro_5fstate_204',['coro_state',['../namespaceemlabcpp_1_1testing.html#a36b5c4e3cf7f27ac1c6807333d3b7d65',1,'emlabcpp::testing']]],

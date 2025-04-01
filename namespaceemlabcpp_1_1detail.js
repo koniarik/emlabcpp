@@ -3,10 +3,10 @@ var namespaceemlabcpp_1_1detail =
     [ "decompose_anything", "structemlabcpp_1_1detail_1_1decompose__anything.html", "structemlabcpp_1_1detail_1_1decompose__anything" ],
     [ "static_function_vtable", "structemlabcpp_1_1detail_1_1static__function__vtable.html", "structemlabcpp_1_1detail_1_1static__function__vtable" ],
     [ "static_function_storage", "classemlabcpp_1_1detail_1_1static__function__storage.html", "classemlabcpp_1_1detail_1_1static__function__storage" ],
-    [ "static_function_operations", "namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79e", [
-      [ "COPY", "namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eae8606d021da140a92c7eba8d9b8af84f", null ],
-      [ "MOVE", "namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eaf7f93635f8e193a924ae4a691bb66b8f", null ],
-      [ "DESTROY", "namespaceemlabcpp_1_1detail.html#a309933793612db190739322f8030e79eac39aa6dbe619bb8ef8187b00b686df6a", null ]
+    [ "static_function_operations", "namespaceemlabcpp_1_1detail.html#a504aa8af747dc7480bcb7d73d822841b", [
+      [ "COPY", "namespaceemlabcpp_1_1detail.html#a504aa8af747dc7480bcb7d73d822841bae8606d021da140a92c7eba8d9b8af84f", null ],
+      [ "MOVE", "namespaceemlabcpp_1_1detail.html#a504aa8af747dc7480bcb7d73d822841baf7f93635f8e193a924ae4a691bb66b8f", null ],
+      [ "DESTROY", "namespaceemlabcpp_1_1detail.html#a504aa8af747dc7480bcb7d73d822841bac39aa6dbe619bb8ef8187b00b686df6a", null ]
     ] ],
     [ "bounded_derived_test", "namespaceemlabcpp_1_1detail.html#a136e8541fc31cc1b24989ded96168d29", null ],
     [ "decompose_count", "namespaceemlabcpp_1_1detail.html#a10e61621464f2e4cc1316387d1b70b19", null ],
