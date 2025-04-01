@@ -31,7 +31,6 @@
 #include "emlabcpp/outcome.h"
 #include "emlabcpp/protocol/error.h"
 #include "emlabcpp/protocol/handler.h"
-#include "emlabcpp/result.h"
 #include "emlabcpp/view.h"
 
 #include <cstddef>

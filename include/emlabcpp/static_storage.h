@@ -46,22 +46,22 @@ public:
         using size_type       = std::size_t;
 
         /// Returns pointer to first item of the storage
-        [[nodiscard]] pointer data() noexcept
+        [[nodiscard]] constexpr pointer data() noexcept
         {
                 return reinterpret_cast< pointer >( data_ );
         }
 
         /// Returns pointer to first item of the storage
-        [[nodiscard]] const_pointer data() const noexcept
+        [[nodiscard]] constexpr const_pointer data() const noexcept
         {
                 return reinterpret_cast< const_pointer >( data_ );
         }
 
         /// Constructs an item at position i with arguments args...
         template < typename... Args >
-        constexpr void emplace_item( size_type const i, Args&&... args )
+        constexpr T& emplace_item( size_type const i, Args&&... args )
         {
-                std::construct_at( data() + i, std::forward< Args >( args )... );
+                return *std::construct_at( data() + i, std::forward< Args >( args )... );
         }
 
         /// Deconstructs an item at position i

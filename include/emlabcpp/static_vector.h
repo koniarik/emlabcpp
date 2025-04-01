@@ -161,10 +161,11 @@ public:
         }
 
         template < typename... Args >
-        void emplace_back( Args&&... args )
+        T& emplace_back( Args&&... args )
         {
-                storage_.emplace_item( size_, std::forward< Args >( args )... );
+                T& ref = storage_.emplace_item( size_, std::forward< Args >( args )... );
                 size_ += 1;
+                return ref;
         }
 
         [[nodiscard]] T take_back()

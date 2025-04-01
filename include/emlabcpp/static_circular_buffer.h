@@ -25,6 +25,7 @@
 
 #include "./iterator.h"
 #include "./static_storage.h"
+#include "./view.h"
 
 namespace emlabcpp
 {
@@ -181,10 +182,11 @@ public:
         }
 
         template < typename... Args >
-        void emplace_back( Args&&... args )
+        T& emplace_back( Args&&... args )
         {
-                storage_.emplace_item( to_, std::forward< Args >( args )... );
-                to_ = next( to_ );
+                T& ref = storage_.emplace_item( to_, std::forward< Args >( args )... );
+                to_    = next( to_ );
+                return ref;
         }
 
         /// other methods
@@ -287,10 +289,7 @@ operator==( static_circular_buffer< T, N > const& lh, static_circular_buffer< T,
         if ( size != rh.size() )
                 return false;
 
-        for ( std::size_t i = 0; i < size; ++i )
-                if ( lh[i] != rh[i] )
-                        return false;
-        return true;
+        return std::equal( lh.begin(), lh.end(), rh.begin() );
 }
 
 template < typename T, std::size_t N >

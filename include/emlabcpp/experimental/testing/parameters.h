@@ -354,13 +354,15 @@ public:
         template < typename T >
         param_value_key_awaiter< T > get_value( node_id const node, child_id const chid )
         {
-                return param_value_key_awaiter< T >{ param_value_key_request{ node, chid }, *this };
+                return param_value_key_awaiter< T >{
+                    param_value_key_request{ .nid = node, .key = chid }, *this };
         }
 
         template < typename T >
         param_value_key_awaiter< T > get_value( node_id const node, key_type const& k )
         {
-                return param_value_key_awaiter< T >{ param_value_key_request{ node, k }, *this };
+                return param_value_key_awaiter< T >{
+                    param_value_key_request{ .nid = node, .key = k }, *this };
         }
 
         param_variant_awaiter get_value_variant( node_id const node )

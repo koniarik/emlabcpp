@@ -24,6 +24,7 @@
 #pragma once
 
 #include "./iterators/convert.h"
+#include "./view.h"
 
 namespace emlabcpp
 {

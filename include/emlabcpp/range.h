@@ -24,6 +24,7 @@
 #pragma once
 
 #include "./iterators/numeric.h"
+#include "./view.h"
 
 namespace emlabcpp
 {

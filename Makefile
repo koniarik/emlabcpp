@@ -32,7 +32,7 @@ coverage: run_coverage
 	gcovr --decisions --calls -p --html-details -o build/cov/index.html -r .
 
 clang-tidy: configure
-	find src/ include/ \( -iname "*.hpp" -or -iname "*.cpp" \) -print0 | parallel -0 clang-tidy -p build/norm --fix {}
+	find src/ include/ \( -iname "*.hpp" -or -iname "*.cpp" \) -print0 | parallel -0 clang-tidy -p build/norm {}
 
 clang-format:
 	find ./ \( -iname "*.h" -o -iname "*.cpp" \) | xargs clang-format -i
