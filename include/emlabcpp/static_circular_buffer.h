@@ -52,8 +52,6 @@ class static_circular_buffer
 public:
         static constexpr std::size_t capacity = N;
 
-        /// public types
-        /// --------------------------------------------------------------------------------
         using value_type      = T;
         using size_type       = std::size_t;
         using reference       = T&;
@@ -62,9 +60,7 @@ public:
         using const_iterator =
             static_circular_buffer_iterator< static_circular_buffer< T, N > const >;
 
-        /// public methods
-        /// --------------------------------------------------------------------------------
-        static_circular_buffer() = default;
+        static_circular_buffer() noexcept = default;
 
         static_circular_buffer( static_circular_buffer const& other )
         {
@@ -236,9 +232,6 @@ public:
         }
 
 private:
-        /// private attributes
-        /// --------------------------------------------------------------------------------
-
         static_storage< T, real_size > storage_;
         size_type                      from_ = 0;  /// index of the first item
         size_type                      to_   = 0;  /// index past the last item
@@ -246,11 +239,6 @@ private:
         /// from_ == to_ means empty
         /// to_ + 1 == from_ is full
 
-        /// private methods
-        /// --------------------------------------------------------------------------------
-        //
-
-        /// Cleans entire buffer from items.
         void purge()
         {
                 while ( !empty() )
