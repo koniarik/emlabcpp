@@ -33,9 +33,8 @@ namespace emlabcpp
 /// Continuous data container that can contain N of uninitialized elements. Bookkeeping (what item
 /// is initialized and what is not) is up to owner of this structure.
 template < typename T, std::size_t N >
-class static_storage
+struct static_storage
 {
-public:
         static constexpr std::size_t capacity = N;
 
         using value_type      = T;
@@ -88,4 +87,64 @@ private:
         alignas( T ) std::byte data_[N * sizeof( T )];
 };
 
+template < typename T >
+concept trivial_for_static_storage =
+    std::is_trivially_default_constructible_v< T > && std::is_trivially_destructible_v< T >;
+
+template < typename T, std::size_t N >
+requires( trivial_for_static_storage< T > )
+struct static_storage< T, N >
+{
+        static constexpr std::size_t capacity = N;
+
+        using value_type      = T;
+        using reference       = T&;
+        using const_reference = T const&;
+        using pointer         = T*;
+        using const_pointer   = T const*;
+        using size_type       = std::size_t;
+
+        /// Returns pointer to first item of the storage
+        [[nodiscard]] constexpr pointer data() noexcept
+        {
+                return data_;
+        }
+
+        /// Returns pointer to first item of the storage
+        [[nodiscard]] constexpr const_pointer data() const noexcept
+        {
+                return data_;
+        }
+
+        /// Constructs an item at position i with arguments args...
+        template < typename... Args >
+        constexpr T& emplace_item( size_type const i, Args&&... args ) noexcept(
+            std::is_nothrow_constructible_v< T, Args... > )
+        {
+                data_[i] = T{ std::forward< Args >( args )... };
+                return data_[i];
+        }
+
+        /// Deconstructs an item at position i
+        constexpr void
+        delete_item( size_type const i ) noexcept( std::is_nothrow_destructible_v< T > )
+        {
+                data_[i] = T{};
+        }
+
+        /// Provides a reference to item at position i
+        [[nodiscard]] constexpr reference operator[]( size_type const i ) noexcept
+        {
+                return data_[i];
+        }
+
+        /// Provides a reference to item at position i
+        [[nodiscard]] constexpr const_reference operator[]( size_type const i ) const noexcept
+        {
+                return data_[i];
+        }
+
+private:
+        T data_[N];
+};
 }  // namespace emlabcpp
