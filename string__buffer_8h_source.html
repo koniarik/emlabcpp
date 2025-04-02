@@ -104,26 +104,26 @@ $(document).ready(function(){initNavTree('string__buffer_8h_source.html',''); in
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1string__buffer.html">   37</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer</a> : std::array&lt; char, N &gt;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1string__buffer.html#ad3fb49b9adf76d2a6e5f15041000af70">   39</a></span>&#160;        <span class="keyword">static</span> constexpr std::size_t <a class="code" href="structemlabcpp_1_1string__buffer.html#ad3fb49b9adf76d2a6e5f15041000af70">capacity</a> = N;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1string__buffer.html#ad3fb49b9adf76d2a6e5f15041000af70">   39</a></span>&#160;        <span class="keyword">static</span> constexpr std::size_t <a class="code" href="structemlabcpp_1_1string__buffer.html#ad3fb49b9adf76d2a6e5f15041000af70">capacity</a> = <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1string__buffer.html#a517e3fda66d5d5e319cfc6bc89e84600">   40</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="structemlabcpp_1_1string__buffer.html#a517e3fda66d5d5e319cfc6bc89e84600">base_type</a>                       = std::array&lt; char, N &gt;;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1string__buffer.html#ab8e62fc48d59f60062a17163a6d21c1e">   42</a></span>&#160;        constexpr <a class="code" href="structemlabcpp_1_1string__buffer.html#ab8e62fc48d59f60062a17163a6d21c1e">string_buffer</a>()</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;          : <a class="code" href="structemlabcpp_1_1string__buffer.html#a517e3fda66d5d5e319cfc6bc89e84600">base_type</a>{}</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                std::fill_n( this-&gt;data(), N, <span class="charliteral">&#39;\0&#39;</span> );</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                std::fill_n( this-&gt;<a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>(), <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <span class="charliteral">&#39;\0&#39;</span> );</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1string__buffer.html#a06a29350e1009e407fd3461492cf8a14">   48</a></span>&#160;        constexpr <a class="code" href="structemlabcpp_1_1string__buffer.html#a06a29350e1009e407fd3461492cf8a14">string_buffer</a>( std::string_view sv )</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;          : <a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>()</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                std::copy_n( sv.begin(), <a class="code" href="namespaceemlabcpp.html#ac6a2f5b7b14c057c158d28c8e7538839">std::min</a>( sv.size(), N - 1 ), this-&gt;begin() );</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                std::copy_n( sv.begin(), <a class="code" href="namespaceemlabcpp.html#ac6a2f5b7b14c057c158d28c8e7538839">std::min</a>( sv.size(), <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> - 1 ), this-&gt;begin() );</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> M &gt;</div>
 <div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1string__buffer.html#a87822a3efcd60d2a8c23612d457a0ef3">   55</a></span>&#160;        constexpr <a class="code" href="structemlabcpp_1_1string__buffer.html#a87822a3efcd60d2a8c23612d457a0ef3">string_buffer</a>( <span class="keywordtype">char</span> <span class="keyword">const</span> ( &amp;msg )[M] )</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;          : <a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>()</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                static_assert( M &lt; N );</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                static_assert( M &lt; <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> );</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                std::copy_n( msg, M, this-&gt;begin() );</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
@@ -131,18 +131,18 @@ $(document).ready(function(){initNavTree('string__buffer_8h_source.html',''); in
 <div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1string__buffer.html#ace0b6e0c9e9dcde1f342a5c0d9f4f8d2">   63</a></span>&#160;        constexpr <a class="code" href="structemlabcpp_1_1string__buffer.html#ace0b6e0c9e9dcde1f342a5c0d9f4f8d2">string_buffer</a>( <a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer&lt; M &gt;</a> <span class="keyword">const</span>&amp; msg )</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;          : <a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>()</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                static_assert( M &lt; N );</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                static_assert( M &lt; <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> );</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                std::copy_n( msg.data(), M, this-&gt;begin() );</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1string__buffer.html#a0ac3cf0deb5ceeaee22d586246f0ae7f">   70</a></span>&#160;        <span class="keyword">operator</span> std::string_view()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">return</span> std::string_view( this-&gt;data() );</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">return</span> std::string_view( this-&gt;<a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>() );</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1string__buffer.html#aaba924cefd60952221e2dc805d010bbb">   75</a></span>&#160;        [[nodiscard]] constexpr std::size_t <a class="code" href="structemlabcpp_1_1string__buffer.html#aaba924cefd60952221e2dc805d010bbb">size</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">return</span> strlen( this-&gt;data() );</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">return</span> strlen( this-&gt;<a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>() );</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
@@ -155,7 +155,7 @@ $(document).ready(function(){initNavTree('string__buffer_8h_source.html',''); in
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        };</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1bits_1_1is__string__buffer_3_01string__buffer_3_01N_01_4_01_4.html">   90</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1bits_1_1is__string__buffer.html">is_string_buffer</a>&lt; <a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; N &gt; &gt;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1bits_1_1is__string__buffer_3_01string__buffer_3_01N_01_4_01_4.html">   90</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1bits_1_1is__string__buffer.html">is_string_buffer</a>&lt; <a class="code" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; &gt;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        {</div>
 <div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1bits_1_1is__string__buffer_3_01string__buffer_3_01N_01_4_01_4.html#aecfbaa967375b75c4d59b5ae20858e4d">   92</a></span>&#160;                <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> <a class="code" href="structemlabcpp_1_1bits_1_1is__string__buffer.html#a85f1043c1ad092dd94895839ff0cf5ce">value</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        };</div>
@@ -190,9 +190,11 @@ $(document).ready(function(){initNavTree('string__buffer_8h_source.html',''); in
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}  <span class="comment">// namespace emlabcpp</span></div>
 <div class="ttc" id="anamespaceemlabcpp_html"><div class="ttname"><a href="namespaceemlabcpp.html">emlabcpp</a></div><div class="ttdoc">MIT License.</div><div class="ttdef"><b>Definition:</b> impl.h:31</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a22d3558f494b4daf086216cedf167ba7"><div class="ttname"><a href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data</a></div><div class="ttdeci">constexpr pointer data() noexcept</div><div class="ttdoc">Returns pointer to first item of the storage.</div><div class="ttdef"><b>Definition:</b> static_storage.h:108</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a8278be24d125a68a1d021a5a6744e794"><div class="ttname"><a href="namespaceemlabcpp.html#a8278be24d125a68a1d021a5a6744e794">emlabcpp::is_string_buffer_v</a></div><div class="ttdeci">concept is_string_buffer_v</div><div class="ttdef"><b>Definition:</b> string_buffer.h:98</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ac6a2f5b7b14c057c158d28c8e7538839"><div class="ttname"><a href="namespaceemlabcpp.html#ac6a2f5b7b14c057c158d28c8e7538839">emlabcpp::min</a></div><div class="ttdeci">constexpr Derived const  &amp; min(vec_point_base&lt; Derived, N &gt; const &amp;a, vec_point_base&lt; Derived, N &gt; const &amp;b)</div><div class="ttdef"><b>Definition:</b> vec_point_base.h:236</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_ae6154c4150903826b9b84540c27036ad"><div class="ttname"><a href="namespaceemlabcpp.html#ae6154c4150903826b9b84540c27036ad">emlabcpp::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, string_buffer&lt; N &gt; const &amp;sb)</div><div class="ttdef"><b>Definition:</b> string_buffer.h:101</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_aefd95e49f36531f3571bdf192561e42c"><div class="ttname"><a href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a></div><div class="ttdeci">N</div><div class="ttdef"><b>Definition:</b> static_storage.h:97</div></div>
 <div class="ttc" id="astructemlabcpp_1_1bits_1_1is__string__buffer_html"><div class="ttname"><a href="structemlabcpp_1_1bits_1_1is__string__buffer.html">emlabcpp::bits::is_string_buffer</a></div><div class="ttdef"><b>Definition:</b> string_buffer.h:85</div></div>
 <div class="ttc" id="astructemlabcpp_1_1bits_1_1is__string__buffer_html_a85f1043c1ad092dd94895839ff0cf5ce"><div class="ttname"><a href="structemlabcpp_1_1bits_1_1is__string__buffer.html#a85f1043c1ad092dd94895839ff0cf5ce">emlabcpp::bits::is_string_buffer::value</a></div><div class="ttdeci">static constexpr bool value</div><div class="ttdef"><b>Definition:</b> string_buffer.h:86</div></div>
 <div class="ttc" id="astructemlabcpp_1_1string__buffer_html"><div class="ttname"><a href="structemlabcpp_1_1string__buffer.html">emlabcpp::string_buffer</a></div><div class="ttdef"><b>Definition:</b> string_buffer.h:38</div></div>
@@ -209,7 +211,7 @@ $(document).ready(function(){initNavTree('string__buffer_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="string__buffer_8h.html">string_buffer.h</a></li>
-    <li class="footer">Generated on Tue Apr 1 2025 22:02:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 2 2025 07:08:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

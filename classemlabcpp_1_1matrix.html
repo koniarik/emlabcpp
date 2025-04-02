@@ -106,7 +106,7 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9b883a797fd747510ca379a547f3f037"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#a9b883a797fd747510ca379a547f3f037">matrix</a> ()</td></tr>
 <tr class="separator:a9b883a797fd747510ca379a547f3f037"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b922476ca86d30728320f5c02ae396c"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#a3b922476ca86d30728320f5c02ae396c">matrix</a> (std::array&lt; <a class="el" href="classemlabcpp_1_1matrix.html#a4fd8511fd4dc1f6a9c7b0d1cafaa2efa">row_type</a>, N &gt; data)</td></tr>
+<tr class="memitem:a3b922476ca86d30728320f5c02ae396c"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#a3b922476ca86d30728320f5c02ae396c">matrix</a> (std::array&lt; <a class="el" href="classemlabcpp_1_1matrix.html#a4fd8511fd4dc1f6a9c7b0d1cafaa2efa">row_type</a>, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>)</td></tr>
 <tr class="separator:a3b922476ca86d30728320f5c02ae396c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae38c9308433981cbc0f73818dbe760c0"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#ae38c9308433981cbc0f73818dbe760c0">begin</a> () const</td></tr>
 <tr class="separator:ae38c9308433981cbc0f73818dbe760c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,7 +121,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a56972613ba95706034164fc68355c3ed"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#a56972613ba95706034164fc68355c3ed">rows</a> = N</td></tr>
+<tr class="memitem:a56972613ba95706034164fc68355c3ed"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#a56972613ba95706034164fc68355c3ed">rows</a> = <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a></td></tr>
 <tr class="separator:a56972613ba95706034164fc68355c3ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95c6400c5ffe9f7de3ae365c4893c159"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1matrix.html#a95c6400c5ffe9f7de3ae365c4893c159">cols</a> = M</td></tr>
 <tr class="separator:a95c6400c5ffe9f7de3ae365c4893c159"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,7 +136,7 @@ Static Public Attributes</h2></td></tr>
 template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::<a class="el" href="classemlabcpp_1_1matrix.html#a4fd8511fd4dc1f6a9c7b0d1cafaa2efa">row_type</a> =  std::array&lt; <a class="el" href="classemlabcpp_1_1matrix.html#ab9216b1aaaf1cd5d69f1f585add4ff7f">value_type</a>, M &gt;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, M, T &gt;::<a class="el" href="classemlabcpp_1_1matrix.html#a4fd8511fd4dc1f6a9c7b0d1cafaa2efa">row_type</a> =  std::array&lt; <a class="el" href="classemlabcpp_1_1matrix.html#ab9216b1aaaf1cd5d69f1f585add4ff7f">value_type</a>, M &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -152,7 +152,7 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
 template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::<a class="el" href="classemlabcpp_1_1matrix.html#ab9216b1aaaf1cd5d69f1f585add4ff7f">value_type</a> =  T</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, M, T &gt;::<a class="el" href="classemlabcpp_1_1matrix.html#ab9216b1aaaf1cd5d69f1f585add4ff7f">value_type</a> =  T</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -172,7 +172,7 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::<a class="el" href="classemlabcpp_1_1matrix.html">matrix</a> </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, M, T &gt;::<a class="el" href="classemlabcpp_1_1matrix.html">matrix</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -199,9 +199,9 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::<a class="el" href="classemlabcpp_1_1matrix.html">matrix</a> </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, M, T &gt;::<a class="el" href="classemlabcpp_1_1matrix.html">matrix</a> </td>
           <td>(</td>
-          <td class="paramtype">std::array&lt; <a class="el" href="classemlabcpp_1_1matrix.html#a4fd8511fd4dc1f6a9c7b0d1cafaa2efa">row_type</a>, N &gt;&#160;</td>
+          <td class="paramtype">std::array&lt; <a class="el" href="classemlabcpp_1_1matrix.html#a4fd8511fd4dc1f6a9c7b0d1cafaa2efa">row_type</a>, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td>
           <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>
@@ -228,7 +228,7 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::begin </td>
+          <td class="memname">constexpr auto <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, M, T &gt;::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -255,7 +255,7 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::end </td>
+          <td class="memname">constexpr auto <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, M, T &gt;::end </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -282,9 +282,9 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::operator== </td>
+          <td class="memname">constexpr bool <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, M, T &gt;::operator== </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1matrix.html">matrix</a>&lt; N, M, T &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1matrix.html">matrix</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, M, T &gt; const &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -310,7 +310,7 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1matrix.html#a4fd8511fd4dc1f6a9c7b0d1cafaa2efa">row_type</a>&amp; <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::operator[] </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1matrix.html#a4fd8511fd4dc1f6a9c7b0d1cafaa2efa">row_type</a>&amp; <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, M, T &gt;::operator[] </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -338,7 +338,7 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1matrix.html#a4fd8511fd4dc1f6a9c7b0d1cafaa2efa">row_type</a> const&amp; <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::operator[] </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1matrix.html#a4fd8511fd4dc1f6a9c7b0d1cafaa2efa">row_type</a> const&amp; <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, M, T &gt;::operator[] </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -367,7 +367,7 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::cols = M</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, M, T &gt;::cols = M</td>
         </tr>
       </table>
   </td>
@@ -391,7 +391,7 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; N, M, T &gt;::rows = N</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1matrix.html">emlabcpp::matrix</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, M, T &gt;::rows = <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a></td>
         </tr>
       </table>
   </td>
@@ -412,7 +412,7 @@ template&lt;std::size_t N, std::size_t M, typename T  = float&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1matrix.html">matrix</a></li>
-    <li class="footer">Generated on Tue Apr 1 2025 22:02:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 2 2025 07:08:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

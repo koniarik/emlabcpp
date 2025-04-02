@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['data_5fiterator_5fof_1284',['data_iterator_of',['../namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of',1,'emlabcpp']]],
-  ['data_5fpromise_1285',['data_promise',['../structemlabcpp_1_1coro_1_1data__promise.html',1,'emlabcpp::coro']]],
-  ['data_5fpromise_3c_20void_20_3e_1286',['data_promise&lt; void &gt;',['../structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4.html',1,'emlabcpp::coro']]],
-  ['decode_5fcobs_5fiter_1287',['decode_cobs_iter',['../classemlabcpp_1_1decode__cobs__iter.html',1,'emlabcpp']]],
-  ['decompose_5fanything_1288',['decompose_anything',['../structemlabcpp_1_1detail_1_1decompose__anything.html',1,'emlabcpp::detail']]],
-  ['defer_1289',['defer',['../classemlabcpp_1_1defer.html',1,'emlabcpp']]],
-  ['deleter_1290',['deleter',['../structemlabcpp_1_1pmr_1_1deleter.html',1,'emlabcpp::pmr']]],
-  ['derive_1291',['derive',['../structemlabcpp_1_1rpc_1_1derive.html',1,'emlabcpp::rpc']]],
-  ['derived_5fstorage_1292',['derived_storage',['../classemlabcpp_1_1derived__storage.html',1,'emlabcpp']]]
+  ['data_5fiterator_5fof_1286',['data_iterator_of',['../namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of',1,'emlabcpp']]],
+  ['data_5fpromise_1287',['data_promise',['../structemlabcpp_1_1coro_1_1data__promise.html',1,'emlabcpp::coro']]],
+  ['data_5fpromise_3c_20void_20_3e_1288',['data_promise&lt; void &gt;',['../structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4.html',1,'emlabcpp::coro']]],
+  ['decode_5fcobs_5fiter_1289',['decode_cobs_iter',['../classemlabcpp_1_1decode__cobs__iter.html',1,'emlabcpp']]],
+  ['decompose_5fanything_1290',['decompose_anything',['../structemlabcpp_1_1detail_1_1decompose__anything.html',1,'emlabcpp::detail']]],
+  ['defer_1291',['defer',['../classemlabcpp_1_1defer.html',1,'emlabcpp']]],
+  ['deleter_1292',['deleter',['../structemlabcpp_1_1pmr_1_1deleter.html',1,'emlabcpp::pmr']]],
+  ['derive_1293',['derive',['../structemlabcpp_1_1rpc_1_1derive.html',1,'emlabcpp::rpc']]],
+  ['derived_5fstorage_1294',['derived_storage',['../classemlabcpp_1_1derived__storage.html',1,'emlabcpp']]]
 ];

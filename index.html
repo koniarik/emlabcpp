@@ -307,7 +307,7 @@ static_vector.h</h2>
 <h2><a class="anchor" id="autotoc_md21"></a>
 types.h</h2>
 <p>A library of helpers for type inspection, this contains types similar to <code>type_traits</code> of standard library. This follows the pattern of <code>std::</code> library - type check is structure with <code>::value</code>/<code>::type</code> attributes and using for <code>_v</code>/<code>_t</code> suffixed aliases exists.</p>
-<div class="fragment"><div class="line"><span class="keyword">using</span> data = std::vector&lt;int&gt;;</div>
+<div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a> = std::vector&lt;int&gt;;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">auto</span> fun = [](<span class="keywordtype">int</span> i) -&gt; std::string</div>
 <div class="line">{</div>
@@ -316,6 +316,7 @@ types.h</h2>
 <div class="line"><span class="keyword">using</span> fun = decltype(fun);</div>
 <div class="line"> </div>
 <div class="line">static_assert(std::is_same_v&lt;mapped_t&lt;data, fun&gt;, std::string&gt;);</div>
+<div class="ttc" id="anamespaceemlabcpp_html_a22d3558f494b4daf086216cedf167ba7"><div class="ttname"><a href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data</a></div><div class="ttdeci">constexpr pointer data() noexcept</div><div class="ttdoc">Returns pointer to first item of the storage.</div><div class="ttdef"><b>Definition:</b> static_storage.h:108</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md22"></a>
 view.h</h2>
 <p>Simple container storing a pair of iterators - non-owning container of data. This make it possible to pass a subset of container to API expecting a container itself. It is also more sensible for functions that would return <code>std::pair</code> of iterators.</p>
@@ -376,7 +377,7 @@ zip.h</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Apr 1 2025 22:02:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 2 2025 07:08:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

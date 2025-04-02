@@ -122,7 +122,7 @@ Public Types</h2></td></tr>
 <tr class="memitem:a89020e47d78e9650718fb7be37cdff67"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a> = std::tuple_element_t&lt; <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a2999eaaf7666321cf01acb68b684ce70">key_index</a>&lt; Key &gt;, <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a123ef0007c53a0241f548d9e1b559de3">registers_tuple</a> &gt;</td></tr>
 <tr class="separator:a89020e47d78e9650718fb7be37cdff67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43b737178dcc70ca41577a03ea9c8fb4"><td class="memTemplParams" colspan="2">template&lt;key_type Key&gt; </td></tr>
-<tr class="memitem:a43b737178dcc70ca41577a03ea9c8fb4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a43b737178dcc70ca41577a03ea9c8fb4">reg_value_type</a> = typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::value_type</td></tr>
+<tr class="memitem:a43b737178dcc70ca41577a03ea9c8fb4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a43b737178dcc70ca41577a03ea9c8fb4">reg_value_type</a> = typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::<a class="el" href="namespaceemlabcpp.html#a62a79f4f6d31559fec9c62f27ecb5af1">value_type</a></td></tr>
 <tr class="separator:a43b737178dcc70ca41577a03ea9c8fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac910e0d119bf622432dc91a200693b5a"><td class="memTemplParams" colspan="2">template&lt;key_type Key&gt; </td></tr>
 <tr class="memitem:ac910e0d119bf622432dc91a200693b5a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ac910e0d119bf622432dc91a200693b5a">traits</a> = typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ac910e0d119bf622432dc91a200693b5a">traits</a></td></tr>
@@ -272,7 +272,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 template&lt;key_type Key&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a43b737178dcc70ca41577a03ea9c8fb4">reg_value_type</a> =  typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::value_type</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a43b737178dcc70ca41577a03ea9c8fb4">reg_value_type</a> =  typename <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a89020e47d78e9650718fb7be37cdff67">reg_type</a>&lt; Key &gt;::<a class="el" href="namespaceemlabcpp.html#a62a79f4f6d31559fec9c62f27ecb5af1">value_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -882,7 +882,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a></li>
-    <li class="footer">Generated on Tue Apr 1 2025 22:02:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 2 2025 07:08:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

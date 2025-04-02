@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('message_8h_source.html',''); initResiz
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1protocol_1_1message.html#ae74a6f4195482ba07a43a6aff0e48e1c">   47</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#ae74a6f4195482ba07a43a6aff0e48e1c">const_iterator</a> = <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> <span class="keyword">const</span>*;</div>
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1protocol_1_1message.html#aa19ca00e9db1ecb08f7416f2cad74da0">   48</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#aa19ca00e9db1ecb08f7416f2cad74da0">size_type</a>      = std::size_t;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1protocol_1_1message.html#a5875845d17d03b1db64f95f35756dd4f">   50</a></span>&#160;        <span class="keyword">static</span> constexpr <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#aa19ca00e9db1ecb08f7416f2cad74da0">size_type</a> <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#a5875845d17d03b1db64f95f35756dd4f">capacity</a> = N;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1protocol_1_1message.html#a5875845d17d03b1db64f95f35756dd4f">   50</a></span>&#160;        <span class="keyword">static</span> constexpr <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#aa19ca00e9db1ecb08f7416f2cad74da0">size_type</a> <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#a5875845d17d03b1db64f95f35756dd4f">capacity</a> = <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1protocol_1_1message.html#af0f330ca867f01e21cc495e14f880ff5">   52</a></span>&#160;        constexpr <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#af0f330ca867f01e21cc495e14f880ff5">message</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
@@ -124,21 +124,21 @@ $(document).ready(function(){initNavTree('message_8h_source.html',''); initResiz
 <div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1protocol_1_1message.html#a90defb6043d0a85b9b59ecd0fd9bfebf">   59</a></span>&#160;        constexpr <span class="keyword">explicit</span> <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#a90defb6043d0a85b9b59ecd0fd9bfebf">message</a>( <a class="code" href="classemlabcpp_1_1view.html">view&lt; const_iterator &gt;</a> <span class="keyword">const</span>&amp; v ) noexcept</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;          : used_( v.size() )</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">std::copy</a>( v.begin(), v.end(), std::data( data_ ) );</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">std::copy</a>( v.begin(), v.end(), <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">std::data</a>( data_ ) );</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">template</span> &lt; <span class="keywordtype">size_t</span>ype M &gt;</div>
 <div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1protocol_1_1message.html#af345c3b89f3bc39f7ff67dfd4b2dcc62">   66</a></span>&#160;        constexpr <span class="keyword">explicit</span> <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#af345c3b89f3bc39f7ff67dfd4b2dcc62">message</a>( <a class="code" href="classemlabcpp_1_1protocol_1_1message.html">message&lt; M &gt;</a> <span class="keyword">const</span>&amp; other ) noexcept</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;          : <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#af0f330ca867f01e21cc495e14f880ff5">message</a>( <a class="code" href="classemlabcpp_1_1view.html">view</a>{ other } )</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                static_assert( M &lt;= N );</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                static_assert( M &lt;= <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> );</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">template</span> &lt; <span class="keywordtype">size_t</span>ype M &gt;</div>
 <div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1protocol_1_1message.html#ac3bdbf673af0130883b87d0be9ca8542">   73</a></span>&#160;        constexpr <span class="keyword">explicit</span> <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#ac3bdbf673af0130883b87d0be9ca8542">message</a>( std::array&lt; value_type, M &gt; <span class="keyword">const</span>&amp; inpt ) noexcept</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;          : <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#af0f330ca867f01e21cc495e14f880ff5">message</a>( <a class="code" href="classemlabcpp_1_1view.html">view</a>{ inpt } )</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                static_assert( M &lt;= N );</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                static_assert( M &lt;= <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> );</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">template</span> &lt; std::convertible_to&lt; u<span class="keywordtype">int</span>8_t &gt;... Ts &gt;</div>
@@ -152,7 +152,7 @@ $(document).ready(function(){initNavTree('message_8h_source.html',''); initResiz
 <div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1protocol_1_1message.html#a354e80e8c92aaea74f816ded5e2f5094">   87</a></span>&#160;        constexpr <a class="code" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&amp; <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#a354e80e8c92aaea74f816ded5e2f5094">operator=</a>( <a class="code" href="classemlabcpp_1_1protocol_1_1message.html">message&lt; M &gt;</a> <span class="keyword">const</span>&amp; other ) noexcept</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        {</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                used_ = other.size();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">std::copy</a>( other.begin(), other.end(), std::data( data_ ) );</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <a class="code" href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">std::copy</a>( other.begin(), other.end(), <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">std::data</a>( data_ ) );</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
@@ -232,7 +232,7 @@ $(document).ready(function(){initNavTree('message_8h_source.html',''); initResiz
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        }</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> data_[N];</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> data_[<a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>];</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <a class="code" href="classemlabcpp_1_1bounded.html">size_type</a> used_ = { 0 };</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;};</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
@@ -247,9 +247,9 @@ $(document).ready(function(){initNavTree('message_8h_source.html',''); initResiz
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> M &gt;</div>
 <div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1protocol_1_1sizeless__message.html#adaa80bdb3e201e0293bbcf6b70cf7275">  188</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classemlabcpp_1_1protocol_1_1sizeless__message.html#adaa80bdb3e201e0293bbcf6b70cf7275">sizeless_message</a>( <a class="code" href="classemlabcpp_1_1protocol_1_1message.html">message&lt; M &gt;</a> <span class="keyword">const</span>&amp; other )</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;          : <a class="code" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; N &gt;( other )</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;          : <a class="code" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;( other )</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        {</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                static_assert( M &lt;= N );</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                static_assert( M &lt;= <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> );</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        }</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;};</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
@@ -281,7 +281,7 @@ $(document).ready(function(){initNavTree('message_8h_source.html',''); initResiz
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keyword">template</span> &lt; std::<span class="keywordtype">size_t</span> N &gt;</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="keywordtype">void</span> from_json( nlohmann::json <span class="keyword">const</span>&amp; j, message&lt; N &gt;&amp; msg )</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;{</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">if</span> ( j.size() &gt; N )</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">if</span> ( j.size() &gt; <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> )</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                <span class="keywordflow">throw</span> std::exception{};  <span class="comment">// TODO: fix this</span></div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        std::vector&lt; std::byte &gt; tmp;</div>
@@ -335,8 +335,10 @@ $(document).ready(function(){initNavTree('message_8h_source.html',''); initResiz
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a380711490896b7090b370d91691adb69"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a380711490896b7090b370d91691adb69">emlabcpp::protocol::requires</a></div><div class="ttdeci">requires(std::is_enum_v&lt; T &gt;) struct serializer&lt; T</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a72532ac9192b8549e819b0cfb65c3faa"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a72532ac9192b8549e819b0cfb65c3faa">emlabcpp::protocol::message_derived</a></div><div class="ttdeci">concept message_derived</div><div class="ttdoc">concept matches any type that is message or derives from it.</div><div class="ttdef"><b>Definition:</b> message.h:209</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_ad7cf453765253654adcf697d7810d1b6"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#ad7cf453765253654adcf697d7810d1b6">emlabcpp::protocol::message</a></div><div class="ttdeci">message(Ts... inpt) -&gt; message&lt; sizeof...(Ts) &gt;</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a22d3558f494b4daf086216cedf167ba7"><div class="ttname"><a href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data</a></div><div class="ttdeci">constexpr pointer data() noexcept</div><div class="ttdoc">Returns pointer to first item of the storage.</div><div class="ttdef"><b>Definition:</b> static_storage.h:108</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a54b28822529dd798c4e0f74f6d38f7fb"><div class="ttname"><a href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">emlabcpp::copy</a></div><div class="ttdeci">void copy(Container &amp;&amp;cont, Iterator iter)</div><div class="ttdef"><b>Definition:</b> algorithm.h:455</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a622f11a522f1ded8232d2e13e7f41337"><div class="ttname"><a href="namespaceemlabcpp.html#a622f11a522f1ded8232d2e13e7f41337">emlabcpp::view_n</a></div><div class="ttdeci">constexpr view&lt; Iter &gt; view_n(Iter begin, std::size_t const n)</div><div class="ttdoc">Creates view over 'n' items of dataset starting at 'begin' This does not check validity of the range!</div><div class="ttdef"><b>Definition:</b> view.h:198</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_aefd95e49f36531f3571bdf192561e42c"><div class="ttname"><a href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a></div><div class="ttdeci">N</div><div class="ttdef"><b>Definition:</b> static_storage.h:97</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:118</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -344,7 +346,7 @@ $(document).ready(function(){initNavTree('message_8h_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="message_8h.html">message.h</a></li>
-    <li class="footer">Generated on Tue Apr 1 2025 22:02:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 2 2025 07:08:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

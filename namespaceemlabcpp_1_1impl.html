@@ -135,7 +135,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a72a1ddd6dafcd28180b05c9fcc48bfa8"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a72a1ddd6dafcd28180b05c9fcc48bfa8">find_if_impl</a> (std::tuple&lt; Args... &gt; const &amp;t, UnaryPredicate &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, std::index_sequence&lt; Idx... &gt;)</td></tr>
 <tr class="separator:a72a1ddd6dafcd28180b05c9fcc48bfa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9282cb9e137c842eef92467c1a0a504a"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N, range_container Container, typename UnaryCallable , std::size_t... Is&gt; </td></tr>
-<tr class="memitem:a9282cb9e137c842eef92467c1a0a504a"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a">map_f_to_a_impl</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, std::integer_sequence&lt; std::size_t, Is... &gt;)</td></tr>
+<tr class="memitem:a9282cb9e137c842eef92467c1a0a504a"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a9282cb9e137c842eef92467c1a0a504a">map_f_to_a_impl</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, std::integer_sequence&lt; std::size_t, Is... &gt;)</td></tr>
 <tr class="separator:a9282cb9e137c842eef92467c1a0a504a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa391ac6fa79be363f91ee9cbe2e4c578"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N, gettable_container Container, typename UnaryCallable , std::size_t... Is&gt; </td></tr>
 <tr class="memitem:aa391ac6fa79be363f91ee9cbe2e4c578"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> (!<a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a>&lt; Container &gt;) std</td></tr>
@@ -329,7 +329,7 @@ template&lt;std::size_t Off, std::size_t N, typename F &gt; </div>
 
 <p>Executes <code>f&lt;i&gt;</code> for i going from Off to N. </p>
 
-<p class="reference">References <a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8h.html#aa8e6590904926df9b2f00b61c63f370a">EMLABCPP_INDEX_SEQ</a>, and <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>.</p>
+<p class="reference">References <a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8h.html#aa8e6590904926df9b2f00b61c63f370a">EMLABCPP_INDEX_SEQ</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>, and <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a>.</p>
 
 </div>
 </div>
@@ -371,7 +371,7 @@ template&lt;std::size_t Off, std::size_t N, typename F &gt; </div>
 
 <p>Executes <code>f&lt;i&gt;</code> if provided <code>i</code> matches. </p>
 
-<p class="reference">References <a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8h.html#ad033e440927450aafee3024cd7f16575">EMLABCPP_INDEX_SWITCH_CASE</a>, and <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>.</p>
+<p class="reference">References <a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8h.html#ad033e440927450aafee3024cd7f16575">EMLABCPP_INDEX_SWITCH_CASE</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>, and <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a>.</p>
 
 </div>
 </div>
@@ -403,7 +403,7 @@ template&lt;std::size_t Off, std::size_t N, typename F &gt; </div>
 
 <p>Executes <code>f&lt;i&gt;</code> until some is true. </p>
 
-<p class="reference">References <a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8h.html#ac2dd8a495eb1e272978107ec2e672e7b">EMLABCPP_INDEX_UNTIL</a>, and <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>.</p>
+<p class="reference">References <a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8h.html#ac2dd8a495eb1e272978107ec2e672e7b">EMLABCPP_INDEX_UNTIL</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>, and <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a>.</p>
 
 </div>
 </div>
@@ -416,7 +416,7 @@ template&lt;std::size_t Off, std::size_t N, typename F &gt; </div>
 template&lt;typename T , std::size_t N, range_container Container, typename UnaryCallable , std::size_t... Is&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt; T, N &gt; emlabcpp::impl::map_f_to_a_impl </td>
+          <td class="memname">std::array&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::impl::map_f_to_a_impl </td>
           <td>(</td>
           <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
@@ -527,7 +527,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1impl.html">impl</a></li>
-    <li class="footer">Generated on Tue Apr 1 2025 22:02:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 2 2025 07:08:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

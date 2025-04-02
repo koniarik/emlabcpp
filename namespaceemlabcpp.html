@@ -239,8 +239,8 @@ Classes</h2></td></tr>
 <tr class="separator:classemlabcpp_1_1static__function__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_01_4.html">static_function_base&lt; ReturnType(ArgTypes...), Capacity, Align &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__storage.html">static_storage</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Continuous data container that can contain N of uninitialized elements.  <a href="classemlabcpp_1_1static__storage.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__storage.html">static_storage</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Continuous data container that can contain N of uninitialized elements.  <a href="structemlabcpp_1_1static__storage.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data container for up to N elements.  <a href="classemlabcpp_1_1static__vector.html#details">More...</a><br /></td></tr>
@@ -307,14 +307,26 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a068a535d76f319e21113bceb0fdb8fbe"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a068a535d76f319e21113bceb0fdb8fbe"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a> = std::array&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;, 2 &gt;</td></tr>
+<tr class="memitem:a068a535d76f319e21113bceb0fdb8fbe"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a> = std::array&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;, 2 &gt;</td></tr>
 <tr class="separator:a068a535d76f319e21113bceb0fdb8fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af17d6009cc0a80e2faa67f36d49a1e64"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:af17d6009cc0a80e2faa67f36d49a1e64"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a> = <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;, 2 &gt;</td></tr>
+<tr class="memitem:af17d6009cc0a80e2faa67f36d49a1e64"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a> = <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;, 2 &gt;</td></tr>
 <tr class="separator:af17d6009cc0a80e2faa67f36d49a1e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a803520b1d525d0030e528bc67b402b53"><td class="memTemplParams" colspan="2">template&lt;typename Signature , std::size_t Capacity&gt; </td></tr>
 <tr class="memitem:a803520b1d525d0030e528bc67b402b53"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a803520b1d525d0030e528bc67b402b53">static_function</a> = <a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">static_function_base</a>&lt; Signature, Capacity, alignof(void *) &gt;</td></tr>
 <tr class="separator:a803520b1d525d0030e528bc67b402b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62a79f4f6d31559fec9c62f27ecb5af1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a62a79f4f6d31559fec9c62f27ecb5af1">value_type</a> = T</td></tr>
+<tr class="separator:a62a79f4f6d31559fec9c62f27ecb5af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32d3de1ecae7eb79f5f6073bcb407b70"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a32d3de1ecae7eb79f5f6073bcb407b70">reference</a> = T &amp;</td></tr>
+<tr class="separator:a32d3de1ecae7eb79f5f6073bcb407b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb1ec622052848f0ddd32df8936a27a8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abb1ec622052848f0ddd32df8936a27a8">const_reference</a> = T const  &amp;</td></tr>
+<tr class="separator:abb1ec622052848f0ddd32df8936a27a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dc3e436ef66e826d36130478f13fcc2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5dc3e436ef66e826d36130478f13fcc2">pointer</a> = T *</td></tr>
+<tr class="separator:a5dc3e436ef66e826d36130478f13fcc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c089201bec45628e321b5afa38d169b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2c089201bec45628e321b5afa38d169b">const_pointer</a> = T const  *</td></tr>
+<tr class="separator:a2c089201bec45628e321b5afa38d169b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f96077b9c4ba6a57d7dc290fb7670c5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> = std::size_t</td></tr>
+<tr class="separator:a1f96077b9c4ba6a57d7dc290fb7670c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98ab53b012e339a9621604b203df856e"><td class="memTemplParams" colspan="2">template&lt;typename Container &gt; </td></tr>
 <tr class="memitem:a98ab53b012e339a9621604b203df856e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a98ab53b012e339a9621604b203df856e">iterator_of_t</a> = typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1iterator__of">iterator_of</a>&lt; Container &gt;::type</td></tr>
 <tr class="separator:a98ab53b012e339a9621604b203df856e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -325,7 +337,7 @@ Typedefs</h2></td></tr>
 <tr class="memitem:abf111745a0eec5119748333b9640afca"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abf111745a0eec5119748333b9640afca">mapped_t</a> = typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1mapped">mapped</a>&lt; Container, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &gt;::type</td></tr>
 <tr class="separator:abf111745a0eec5119748333b9640afca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac223240cfaa32fcb48f0daa06c78a9e2"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:ac223240cfaa32fcb48f0daa06c78a9e2"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac223240cfaa32fcb48f0daa06c78a9e2">select_utype_t</a> = typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; N &gt;::type</td></tr>
+<tr class="memitem:ac223240cfaa32fcb48f0daa06c78a9e2"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac223240cfaa32fcb48f0daa06c78a9e2">select_utype_t</a> = typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;::type</td></tr>
 <tr class="separator:ac223240cfaa32fcb48f0daa06c78a9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbd4de918223b1144d32fcef8a9dfe2a"><td class="memTemplParams" colspan="2">template&lt;typename T , template&lt; typename &gt; class Fun&gt; </td></tr>
 <tr class="memitem:afbd4de918223b1144d32fcef8a9dfe2a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#afbd4de918223b1144d32fcef8a9dfe2a">type_map_t</a> = typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1type__map">type_map</a>&lt; T, Fun &gt;::type</td></tr>
@@ -536,7 +548,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ae8555060e43c2b8cdd8d91bb248b9a6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls callable <code>f(x)</code> for each item in container 'cont' (or tuple) and stores result in 'ResultContainer', which is returned.  <a href="namespaceemlabcpp.html#ae8555060e43c2b8cdd8d91bb248b9a6d">More...</a><br /></td></tr>
 <tr class="separator:ae8555060e43c2b8cdd8d91bb248b9a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1911a0fc83869772cacfc4d21772268f"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, range_container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </td></tr>
-<tr class="memitem:a1911a0fc83869772cacfc4d21772268f"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">map_f_to_a</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity()) <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>(!<a class="el" href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">static_sized</a>&lt; Container &gt;)</td></tr>
+<tr class="memitem:a1911a0fc83869772cacfc4d21772268f"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">map_f_to_a</a> (Container &amp;&amp;cont, <a class="el" href="namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a">UnaryCallable</a> &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity()) <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>(!<a class="el" href="namespaceemlabcpp.html#a8114b1d4bc758992dd14a1d64bd454c5">static_sized</a>&lt; Container &gt;)</td></tr>
 <tr class="memdesc:a1911a0fc83869772cacfc4d21772268f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls callable <code>f(cont[i])</code> for i = 0...N and stores the result in array of an size N.  <a href="namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f">More...</a><br /></td></tr>
 <tr class="separator:a1911a0fc83869772cacfc4d21772268f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a417dc63bcfd0f3fe1314388f1d2515d3"><td class="memTemplParams" colspan="2">template&lt;range_container Container, typename T , container_invocable&lt; Container &gt; UnaryCallable = std::identity&gt; </td></tr>
@@ -570,7 +582,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a505109612442935cc682cf92a9d2296c"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a505109612442935cc682cf92a9d2296c">select_index</a> (IndexType i, Callable &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
 <tr class="separator:a505109612442935cc682cf92a9d2296c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5266b3d998c70ddddcc15f7bba604b42"><td class="memTemplParams" colspan="2">template&lt;typename... Args, std::size_t N = sizeof...( Args )&gt; </td></tr>
-<tr class="memitem:a5266b3d998c70ddddcc15f7bba604b42"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::array&lt; std::byte, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5266b3d998c70ddddcc15f7bba604b42">bytes</a> (Args const &amp;... <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">args</a>)</td></tr>
+<tr class="memitem:a5266b3d998c70ddddcc15f7bba604b42"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::array&lt; std::byte, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5266b3d998c70ddddcc15f7bba604b42">bytes</a> (Args const &amp;... <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">args</a>)</td></tr>
 <tr class="memdesc:a5266b3d998c70ddddcc15f7bba604b42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conveft the provided arguments into array of std::byte.  <a href="namespaceemlabcpp.html#a5266b3d998c70ddddcc15f7bba604b42">More...</a><br /></td></tr>
 <tr class="separator:a5266b3d998c70ddddcc15f7bba604b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad798db07be925b58001fd00feb4f721d"><td class="memTemplParams" colspan="2">template&lt;typename Arr , typename... Arrs&gt; </td></tr>
@@ -578,7 +590,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad798db07be925b58001fd00feb4f721d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expects multiple std::arrays on input, and merges all together into one std::array instance.  <a href="namespaceemlabcpp.html#ad798db07be925b58001fd00feb4f721d">More...</a><br /></td></tr>
 <tr class="separator:ad798db07be925b58001fd00feb4f721d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d26d2adcae9ef476f4a0b2136b9352d"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename T &gt; </td></tr>
-<tr class="memitem:a7d26d2adcae9ef476f4a0b2136b9352d"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::array&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7d26d2adcae9ef476f4a0b2136b9352d">filled</a> (T const &amp;item)</td></tr>
+<tr class="memitem:a7d26d2adcae9ef476f4a0b2136b9352d"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::array&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7d26d2adcae9ef476f4a0b2136b9352d">filled</a> (T const &amp;item)</td></tr>
 <tr class="memdesc:a7d26d2adcae9ef476f4a0b2136b9352d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an array filled with value <code>x</code>  <a href="namespaceemlabcpp.html#a7d26d2adcae9ef476f4a0b2136b9352d">More...</a><br /></td></tr>
 <tr class="separator:a7d26d2adcae9ef476f4a0b2136b9352d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51bc55ba3cb21b9294e89cdda68b1f98"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Container , typename Iterator  = iterator_of_t&lt; Container &gt;&gt; </td></tr>
@@ -601,7 +613,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a971147b99a5b38779174a4a02d0099b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS) encoding, returns bool indicating whenever conversion succeeded and subview used for conversion from target buffer.  <a href="namespaceemlabcpp.html#a971147b99a5b38779174a4a02d0099b3">More...</a><br /></td></tr>
 <tr class="separator:a971147b99a5b38779174a4a02d0099b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eb69734e95cc40cd53e2f01531183d7"><td class="memTemplParams" colspan="2">template&lt;typename Iter &gt; </td></tr>
-<tr class="memitem:a1eb69734e95cc40cd53e2f01531183d7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; <a class="el" href="classemlabcpp_1_1decode__cobs__iter.html">decode_cobs_iter</a>&lt; Iter &gt;, <a class="el" href="classemlabcpp_1_1decode__cobs__iter.html">decode_cobs_iter</a>&lt; Iter &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1eb69734e95cc40cd53e2f01531183d7">cobs_decode_view</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iter &gt; data)</td></tr>
+<tr class="memitem:a1eb69734e95cc40cd53e2f01531183d7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; <a class="el" href="classemlabcpp_1_1decode__cobs__iter.html">decode_cobs_iter</a>&lt; Iter &gt;, <a class="el" href="classemlabcpp_1_1decode__cobs__iter.html">decode_cobs_iter</a>&lt; Iter &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1eb69734e95cc40cd53e2f01531183d7">cobs_decode_view</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; Iter &gt; <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>)</td></tr>
 <tr class="separator:a1eb69734e95cc40cd53e2f01531183d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afecb966a998ea6497e7b378bca2681c8"><td class="memTemplParams" colspan="2">template&lt;decomposable_0 T&gt; </td></tr>
 <tr class="memitem:afecb966a998ea6497e7b378bca2681c8"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::tuple&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#afecb966a998ea6497e7b378bca2681c8">decompose</a> (T &amp;&amp;)</td></tr>
@@ -612,45 +624,45 @@ Functions</h2></td></tr>
 <tr class="memitem:ab124463ea669779e32ea4428088a01c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab124463ea669779e32ea4428088a01c4">EMLABCPP_GENERATE_DECOMPOSE</a> (16, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15) template&lt; typename T &gt; using decomposed_type</td></tr>
 <tr class="separator:ab124463ea669779e32ea4428088a01c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb93db9f593c9eb758f2801f88f7d05b"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:acb93db9f593c9eb758f2801f88f7d05b"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acb93db9f593c9eb758f2801f88f7d05b">distance_of</a> (<a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a>&lt; N &gt; const &amp;l, <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;p)</td></tr>
+<tr class="memitem:acb93db9f593c9eb758f2801f88f7d05b"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acb93db9f593c9eb758f2801f88f7d05b">distance_of</a> (<a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;l, <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;p)</td></tr>
 <tr class="separator:acb93db9f593c9eb758f2801f88f7d05b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae65497bc8d43a6c5dd1652df3be235c5"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:ae65497bc8d43a6c5dd1652df3be235c5"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae65497bc8d43a6c5dd1652df3be235c5">distance_of</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;p, <a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a>&lt; N &gt; const &amp;<a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a>)</td></tr>
+<tr class="memitem:ae65497bc8d43a6c5dd1652df3be235c5"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae65497bc8d43a6c5dd1652df3be235c5">distance_of</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;p, <a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;<a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a>)</td></tr>
 <tr class="separator:ae65497bc8d43a6c5dd1652df3be235c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c12c6cbb44c2e1859d1d358f5669b69"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a0c12c6cbb44c2e1859d1d358f5669b69"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0c12c6cbb44c2e1859d1d358f5669b69">point_cast</a> (<a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;v)</td></tr>
+<tr class="memitem:a0c12c6cbb44c2e1859d1d358f5669b69"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0c12c6cbb44c2e1859d1d358f5669b69">point_cast</a> (<a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;v)</td></tr>
 <tr class="separator:a0c12c6cbb44c2e1859d1d358f5669b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf5b72176081094d23e7ba44b307bbcb"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:abf5b72176081094d23e7ba44b307bbcb"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abf5b72176081094d23e7ba44b307bbcb">vector_cast</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;p)</td></tr>
+<tr class="memitem:abf5b72176081094d23e7ba44b307bbcb"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abf5b72176081094d23e7ba44b307bbcb">vector_cast</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;p)</td></tr>
 <tr class="separator:abf5b72176081094d23e7ba44b307bbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58474e3d150740d1c81193bf6004ac8c"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a58474e3d150740d1c81193bf6004ac8c"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a58474e3d150740d1c81193bf6004ac8c">operator*</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; a, <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;b)</td></tr>
+<tr class="memitem:a58474e3d150740d1c81193bf6004ac8c"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a58474e3d150740d1c81193bf6004ac8c">operator*</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; a, <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;b)</td></tr>
 <tr class="memdesc:a58474e3d150740d1c81193bf6004ac8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplication of points multiplies each coordinate of A by coordinate of B on same dimension.  <a href="namespaceemlabcpp.html#a58474e3d150740d1c81193bf6004ac8c">More...</a><br /></td></tr>
 <tr class="separator:a58474e3d150740d1c81193bf6004ac8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac09a470ff3b24abe911e6d08ec0ea0c0"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:ac09a470ff3b24abe911e6d08ec0ea0c0"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac09a470ff3b24abe911e6d08ec0ea0c0">operator-</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; a, <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;b)</td></tr>
+<tr class="memitem:ac09a470ff3b24abe911e6d08ec0ea0c0"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac09a470ff3b24abe911e6d08ec0ea0c0">operator-</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; a, <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;b)</td></tr>
 <tr class="memdesc:ac09a470ff3b24abe911e6d08ec0ea0c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a result of subtraction of A from B, viz -= operator.  <a href="namespaceemlabcpp.html#ac09a470ff3b24abe911e6d08ec0ea0c0">More...</a><br /></td></tr>
 <tr class="separator:ac09a470ff3b24abe911e6d08ec0ea0c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26a8fb58eec641f5a3825f8c684ff6d1"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a26a8fb58eec641f5a3825f8c684ff6d1"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a26a8fb58eec641f5a3825f8c684ff6d1">operator+</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; a, <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;b)</td></tr>
+<tr class="memitem:a26a8fb58eec641f5a3825f8c684ff6d1"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a26a8fb58eec641f5a3825f8c684ff6d1">operator+</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; a, <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;b)</td></tr>
 <tr class="memdesc:a26a8fb58eec641f5a3825f8c684ff6d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a result of addition a to b, viz += operator.  <a href="namespaceemlabcpp.html#a26a8fb58eec641f5a3825f8c684ff6d1">More...</a><br /></td></tr>
 <tr class="separator:a26a8fb58eec641f5a3825f8c684ff6d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabc2d56e5b666168195810e2c2fb85db"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:aabc2d56e5b666168195810e2c2fb85db"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aabc2d56e5b666168195810e2c2fb85db">operator-</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; a, <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;b)</td></tr>
+<tr class="memitem:aabc2d56e5b666168195810e2c2fb85db"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aabc2d56e5b666168195810e2c2fb85db">operator-</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; a, <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;b)</td></tr>
 <tr class="memdesc:aabc2d56e5b666168195810e2c2fb85db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a result of subtraction a to b, viz += operator.  <a href="namespaceemlabcpp.html#aabc2d56e5b666168195810e2c2fb85db">More...</a><br /></td></tr>
 <tr class="separator:aabc2d56e5b666168195810e2c2fb85db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee2d79916f92a116f6478fb928bd346d"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:aee2d79916f92a116f6478fb928bd346d"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aee2d79916f92a116f6478fb928bd346d">distance_of</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;b)</td></tr>
+<tr class="memitem:aee2d79916f92a116f6478fb928bd346d"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aee2d79916f92a116f6478fb928bd346d">distance_of</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;b)</td></tr>
 <tr class="memdesc:aee2d79916f92a116f6478fb928bd346d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns euclidian distance of point A from point B.  <a href="namespaceemlabcpp.html#aee2d79916f92a116f6478fb928bd346d">More...</a><br /></td></tr>
 <tr class="separator:aee2d79916f92a116f6478fb928bd346d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6855f415eda103a7b9807510a531e9fd"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a6855f415eda103a7b9807510a531e9fd"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6855f415eda103a7b9807510a531e9fd">point_angle</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;b)</td></tr>
+<tr class="memitem:a6855f415eda103a7b9807510a531e9fd"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6855f415eda103a7b9807510a531e9fd">point_angle</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;b)</td></tr>
 <tr class="separator:a6855f415eda103a7b9807510a531e9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadd2e186f6fcbc505b519cd701ca271a"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:aadd2e186f6fcbc505b519cd701ca271a"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aadd2e186f6fcbc505b519cd701ca271a">lineary_interpolate_path</a> (std::vector&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; &gt; const &amp;ipath, float d_step)</td></tr>
+<tr class="memitem:aadd2e186f6fcbc505b519cd701ca271a"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aadd2e186f6fcbc505b519cd701ca271a">lineary_interpolate_path</a> (std::vector&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; &gt; const &amp;ipath, float d_step)</td></tr>
 <tr class="separator:aadd2e186f6fcbc505b519cd701ca271a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb3ac578082bbaa2d40a6fcf52bbc70f"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:acb3ac578082bbaa2d40a6fcf52bbc70f"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acb3ac578082bbaa2d40a6fcf52bbc70f">axis_projection_distance</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;axis_direction)</td></tr>
+<tr class="memitem:acb3ac578082bbaa2d40a6fcf52bbc70f"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acb3ac578082bbaa2d40a6fcf52bbc70f">axis_projection_distance</a> (<a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;axis_direction)</td></tr>
 <tr class="memdesc:acb3ac578082bbaa2d40a6fcf52bbc70f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to calculate distance of projection of point A.  <a href="namespaceemlabcpp.html#acb3ac578082bbaa2d40a6fcf52bbc70f">More...</a><br /></td></tr>
 <tr class="separator:acb3ac578082bbaa2d40a6fcf52bbc70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95b7c5f71b2d2128143bbd09bc6cb341"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a95b7c5f71b2d2128143bbd09bc6cb341">steps</a> (<a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1pose__distance">pose_distance</a> dist, float dist_step, float angle_step)</td></tr>
@@ -728,28 +740,28 @@ Functions</h2></td></tr>
 <tr class="memitem:aedb43931ad079507aa5c8ebf524035c4"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aedb43931ad079507aa5c8ebf524035c4">rotate</a> (<a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; 3 &gt; const &amp;v, <a class="el" href="classemlabcpp_1_1quaternion.html">quaternion</a> const &amp;q)</td></tr>
 <tr class="separator:aedb43931ad079507aa5c8ebf524035c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac294105427e19320821509a367462c36"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, std::size_t U&gt; </td></tr>
-<tr class="memitem:ac294105427e19320821509a367462c36"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac294105427e19320821509a367462c36">center_of</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;, U &gt; const &amp;s)</td></tr>
+<tr class="memitem:ac294105427e19320821509a367462c36"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac294105427e19320821509a367462c36">center_of</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;, U &gt; const &amp;s)</td></tr>
 <tr class="separator:ac294105427e19320821509a367462c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37d26ba6fb062781759f8b5f013fb82f"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a37d26ba6fb062781759f8b5f013fb82f"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a37d26ba6fb062781759f8b5f013fb82f">volume_of</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;, N &gt; const &amp;<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>)</td></tr>
+<tr class="memitem:a37d26ba6fb062781759f8b5f013fb82f"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a37d26ba6fb062781759f8b5f013fb82f">volume_of</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>)</td></tr>
 <tr class="separator:a37d26ba6fb062781759f8b5f013fb82f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c3126eb05106e9a28a4556d31e6a961"><td class="memTemplParams" colspan="2">template&lt;typename Item , std::size_t N&gt; </td></tr>
-<tr class="memitem:a9c3126eb05106e9a28a4556d31e6a961"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a9c3126eb05106e9a28a4556d31e6a961">operator&lt;</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:a9c3126eb05106e9a28a4556d31e6a961"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a9c3126eb05106e9a28a4556d31e6a961">operator&lt;</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:a9c3126eb05106e9a28a4556d31e6a961"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d39f24887788ae240b808e79d62de84"><td class="memTemplParams" colspan="2">template&lt;typename Item , std::size_t N&gt; </td></tr>
-<tr class="memitem:a0d39f24887788ae240b808e79d62de84"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0d39f24887788ae240b808e79d62de84">operator&gt;</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:a0d39f24887788ae240b808e79d62de84"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0d39f24887788ae240b808e79d62de84">operator&gt;</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:a0d39f24887788ae240b808e79d62de84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d00c6c3cb52ca970c9752454ce8fddf"><td class="memTemplParams" colspan="2">template&lt;typename Item , std::size_t N&gt; </td></tr>
-<tr class="memitem:a8d00c6c3cb52ca970c9752454ce8fddf"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a8d00c6c3cb52ca970c9752454ce8fddf">operator&lt;=</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:a8d00c6c3cb52ca970c9752454ce8fddf"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a8d00c6c3cb52ca970c9752454ce8fddf">operator&lt;=</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:a8d00c6c3cb52ca970c9752454ce8fddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac229488d4d6586cd9d9a325efdcb6627"><td class="memTemplParams" colspan="2">template&lt;typename Item , std::size_t N&gt; </td></tr>
-<tr class="memitem:ac229488d4d6586cd9d9a325efdcb6627"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac229488d4d6586cd9d9a325efdcb6627">operator&gt;=</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:ac229488d4d6586cd9d9a325efdcb6627"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac229488d4d6586cd9d9a325efdcb6627">operator&gt;=</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:ac229488d4d6586cd9d9a325efdcb6627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae83f29891e0c7be2eee69b89588df758"><td class="memTemplParams" colspan="2">template&lt;typename Item , std::size_t N&gt; </td></tr>
-<tr class="memitem:ae83f29891e0c7be2eee69b89588df758"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae83f29891e0c7be2eee69b89588df758">operator==</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:ae83f29891e0c7be2eee69b89588df758"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae83f29891e0c7be2eee69b89588df758">operator==</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:ae83f29891e0c7be2eee69b89588df758"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3614607d86949d19b640d9a33284429"><td class="memTemplParams" colspan="2">template&lt;typename Item , std::size_t N&gt; </td></tr>
-<tr class="memitem:af3614607d86949d19b640d9a33284429"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af3614607d86949d19b640d9a33284429">operator!=</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:af3614607d86949d19b640d9a33284429"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af3614607d86949d19b640d9a33284429">operator!=</a> (<a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:af3614607d86949d19b640d9a33284429"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59097c60aaf5eda7d31e4a2bc9161d8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a59097c60aaf5eda7d31e4a2bc9161d8d">get_triangle_sphere_center</a> (<a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a>&lt; 3 &gt; const &amp;tri)</td></tr>
 <tr class="separator:a59097c60aaf5eda7d31e4a2bc9161d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -758,62 +770,62 @@ Functions</h2></td></tr>
 <tr class="memitem:a7405050872ccfca2a64cb049e4def265"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a>&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7405050872ccfca2a64cb049e4def265">transform</a> (<a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a>&lt; 3 &gt; const &amp;t, <a class="el" href="structemlabcpp_1_1pose.html">pose</a> const &amp;transformation)</td></tr>
 <tr class="separator:a7405050872ccfca2a64cb049e4def265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21bf2080b111dbe37490823f1faa48a6"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a21bf2080b111dbe37490823f1faa48a6"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a21bf2080b111dbe37490823f1faa48a6">scale</a> (<a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a>&lt; N &gt; const &amp;t, <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;scales)</td></tr>
+<tr class="memitem:a21bf2080b111dbe37490823f1faa48a6"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a21bf2080b111dbe37490823f1faa48a6">scale</a> (<a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;t, <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;scales)</td></tr>
 <tr class="separator:a21bf2080b111dbe37490823f1faa48a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade8b6f63869b137c01f468f94fe66af2"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N, typename T , typename  = typename std::enable_if_t&lt; std::is_arithmetic_v&lt; T &gt; &gt;&gt; </td></tr>
-<tr class="memitem:ade8b6f63869b137c01f468f94fe66af2"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ade8b6f63869b137c01f468f94fe66af2">operator*</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;a, T s)</td></tr>
+<tr class="memitem:ade8b6f63869b137c01f468f94fe66af2"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ade8b6f63869b137c01f468f94fe66af2">operator*</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a, T s)</td></tr>
 <tr class="memdesc:ade8b6f63869b137c01f468f94fe66af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic.  <a href="namespaceemlabcpp.html#ade8b6f63869b137c01f468f94fe66af2">More...</a><br /></td></tr>
 <tr class="separator:ade8b6f63869b137c01f468f94fe66af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cc44ceacc244a528ddbe752ecd54b28"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N, typename T &gt; </td></tr>
-<tr class="memitem:a1cc44ceacc244a528ddbe752ecd54b28"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1cc44ceacc244a528ddbe752ecd54b28">operator*</a> (T s, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;a)</td></tr>
+<tr class="memitem:a1cc44ceacc244a528ddbe752ecd54b28"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1cc44ceacc244a528ddbe752ecd54b28">operator*</a> (T s, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a)</td></tr>
 <tr class="memdesc:a1cc44ceacc244a528ddbe752ecd54b28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic.  <a href="namespaceemlabcpp.html#a1cc44ceacc244a528ddbe752ecd54b28">More...</a><br /></td></tr>
 <tr class="separator:a1cc44ceacc244a528ddbe752ecd54b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad26988acd15fa707a1ab1d00f75617b6"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N, typename T , typename  = typename std::enable_if_t&lt; std::is_arithmetic_v&lt; T &gt; &gt;&gt; </td></tr>
-<tr class="memitem:ad26988acd15fa707a1ab1d00f75617b6"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad26988acd15fa707a1ab1d00f75617b6">operator/</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;a, T s)</td></tr>
+<tr class="memitem:ad26988acd15fa707a1ab1d00f75617b6"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad26988acd15fa707a1ab1d00f75617b6">operator/</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a, T s)</td></tr>
 <tr class="memdesc:ad26988acd15fa707a1ab1d00f75617b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divides each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic.  <a href="namespaceemlabcpp.html#ad26988acd15fa707a1ab1d00f75617b6">More...</a><br /></td></tr>
 <tr class="separator:ad26988acd15fa707a1ab1d00f75617b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b56a9133d031451181abceacdbed8a7"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N&gt; </td></tr>
-<tr class="memitem:a1b56a9133d031451181abceacdbed8a7"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1b56a9133d031451181abceacdbed8a7">dot</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;b)</td></tr>
+<tr class="memitem:a1b56a9133d031451181abceacdbed8a7"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a1b56a9133d031451181abceacdbed8a7">dot</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;b)</td></tr>
 <tr class="memdesc:a1b56a9133d031451181abceacdbed8a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the dot product between A and B.  <a href="namespaceemlabcpp.html#a1b56a9133d031451181abceacdbed8a7">More...</a><br /></td></tr>
 <tr class="separator:a1b56a9133d031451181abceacdbed8a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3caad1b27b4b2959c43e9aa435558c35"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N&gt; </td></tr>
-<tr class="memitem:a3caad1b27b4b2959c43e9aa435558c35"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3caad1b27b4b2959c43e9aa435558c35">length2_of</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;a)</td></tr>
+<tr class="memitem:a3caad1b27b4b2959c43e9aa435558c35"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3caad1b27b4b2959c43e9aa435558c35">length2_of</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a)</td></tr>
 <tr class="memdesc:a3caad1b27b4b2959c43e9aa435558c35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns squared distance of A from [0,0,0], this is a squared length of vector represented by A.  <a href="namespaceemlabcpp.html#a3caad1b27b4b2959c43e9aa435558c35">More...</a><br /></td></tr>
 <tr class="separator:a3caad1b27b4b2959c43e9aa435558c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c8be9302783a0f5b41cc763d1029728"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N&gt; </td></tr>
-<tr class="memitem:a5c8be9302783a0f5b41cc763d1029728"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5c8be9302783a0f5b41cc763d1029728">length_of</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;a)</td></tr>
+<tr class="memitem:a5c8be9302783a0f5b41cc763d1029728"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5c8be9302783a0f5b41cc763d1029728">length_of</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a)</td></tr>
 <tr class="memdesc:a5c8be9302783a0f5b41cc763d1029728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns distance of A from [0,0,0], this is a length of vector represented by A.  <a href="namespaceemlabcpp.html#a5c8be9302783a0f5b41cc763d1029728">More...</a><br /></td></tr>
 <tr class="separator:a5c8be9302783a0f5b41cc763d1029728"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6eb0a9d462d8ff0ccbf431c08c7f6595"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N&gt; </td></tr>
-<tr class="memitem:a6eb0a9d462d8ff0ccbf431c08c7f6595"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6eb0a9d462d8ff0ccbf431c08c7f6595">normalized</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;a)</td></tr>
+<tr class="memitem:a6eb0a9d462d8ff0ccbf431c08c7f6595"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6eb0a9d462d8ff0ccbf431c08c7f6595">normalized</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a)</td></tr>
 <tr class="memdesc:a6eb0a9d462d8ff0ccbf431c08c7f6595"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates normalized version of A, this means that length(A) equals to 1.  <a href="namespaceemlabcpp.html#a6eb0a9d462d8ff0ccbf431c08c7f6595">More...</a><br /></td></tr>
 <tr class="separator:a6eb0a9d462d8ff0ccbf431c08c7f6595"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a636ba3f9919efa31f356bb6bca5e290d"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N&gt; </td></tr>
-<tr class="memitem:a636ba3f9919efa31f356bb6bca5e290d"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a636ba3f9919efa31f356bb6bca5e290d">abs</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;a)</td></tr>
+<tr class="memitem:a636ba3f9919efa31f356bb6bca5e290d"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a636ba3f9919efa31f356bb6bca5e290d">abs</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a)</td></tr>
 <tr class="memdesc:a636ba3f9919efa31f356bb6bca5e290d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates absolute version of A - removing signs on all dimensions.  <a href="namespaceemlabcpp.html#a636ba3f9919efa31f356bb6bca5e290d">More...</a><br /></td></tr>
 <tr class="separator:a636ba3f9919efa31f356bb6bca5e290d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe9cf42b0add3aa7eac2b215455f98ed"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N&gt; </td></tr>
-<tr class="memitem:abe9cf42b0add3aa7eac2b215455f98ed"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abe9cf42b0add3aa7eac2b215455f98ed">max</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;b)</td></tr>
+<tr class="memitem:abe9cf42b0add3aa7eac2b215455f98ed"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abe9cf42b0add3aa7eac2b215455f98ed">max</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;b)</td></tr>
 <tr class="separator:abe9cf42b0add3aa7eac2b215455f98ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6a2f5b7b14c057c158d28c8e7538839"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N&gt; </td></tr>
-<tr class="memitem:ac6a2f5b7b14c057c158d28c8e7538839"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived const  &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac6a2f5b7b14c057c158d28c8e7538839">min</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;b)</td></tr>
+<tr class="memitem:ac6a2f5b7b14c057c158d28c8e7538839"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived const  &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac6a2f5b7b14c057c158d28c8e7538839">min</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;b)</td></tr>
 <tr class="separator:ac6a2f5b7b14c057c158d28c8e7538839"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23f5ee359c0603a72727e357d9c99947"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N&gt; </td></tr>
-<tr class="memitem:a23f5ee359c0603a72727e357d9c99947"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a23f5ee359c0603a72727e357d9c99947">dimensional_max</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;b)</td></tr>
+<tr class="memitem:a23f5ee359c0603a72727e357d9c99947"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a23f5ee359c0603a72727e357d9c99947">dimensional_max</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;b)</td></tr>
 <tr class="memdesc:a23f5ee359c0603a72727e357d9c99947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a C, where C[i] = max(A[i], B[i]) holds for 0 &lt;= i &lt; N.  <a href="namespaceemlabcpp.html#a23f5ee359c0603a72727e357d9c99947">More...</a><br /></td></tr>
 <tr class="separator:a23f5ee359c0603a72727e357d9c99947"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52ff7aa782e3d7ec9c04000f324c0e9f"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N&gt; </td></tr>
-<tr class="memitem:a52ff7aa782e3d7ec9c04000f324c0e9f"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a52ff7aa782e3d7ec9c04000f324c0e9f">dimensional_min</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;b)</td></tr>
+<tr class="memitem:a52ff7aa782e3d7ec9c04000f324c0e9f"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a52ff7aa782e3d7ec9c04000f324c0e9f">dimensional_min</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;b)</td></tr>
 <tr class="memdesc:a52ff7aa782e3d7ec9c04000f324c0e9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a C, where C[i] = min(A[i], B[i]) holds for 0 &lt;= i &lt; N.  <a href="namespaceemlabcpp.html#a52ff7aa782e3d7ec9c04000f324c0e9f">More...</a><br /></td></tr>
 <tr class="separator:a52ff7aa782e3d7ec9c04000f324c0e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a358cff2d1682d9845caa4aee8d958365"><td class="memTemplParams" colspan="2">template&lt;typename Container , typename UnaryFunction  = std::identity, typename Derived  = std::decay_t&lt; mapped_t&lt; Container, UnaryFunction &gt; &gt;&gt; </td></tr>
 <tr class="memitem:a358cff2d1682d9845caa4aee8d958365"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; Derived &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a358cff2d1682d9845caa4aee8d958365">dimensional_min_max_elem</a> (Container const &amp;cont, UnaryFunction &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>=std::identity{})</td></tr>
 <tr class="separator:a358cff2d1682d9845caa4aee8d958365"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ebcdaef801eab209d5572706977fec8"><td class="memTemplParams" colspan="2">template&lt;typename Derived , std::size_t N&gt; </td></tr>
-<tr class="memitem:a5ebcdaef801eab209d5572706977fec8"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5ebcdaef801eab209d5572706977fec8">lin_interp</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;from, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;goal, float factor)</td></tr>
+<tr class="memitem:a5ebcdaef801eab209d5572706977fec8"><td class="memTemplItemLeft" align="right" valign="top">constexpr Derived&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5ebcdaef801eab209d5572706977fec8">lin_interp</a> (<a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;from, <a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;goal, float factor)</td></tr>
 <tr class="separator:a5ebcdaef801eab209d5572706977fec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba061e073dffe44ebd226702b8a9256d"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:aba061e073dffe44ebd226702b8a9256d"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aba061e073dffe44ebd226702b8a9256d">operator+</a> (<a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; lh, <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:aba061e073dffe44ebd226702b8a9256d"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aba061e073dffe44ebd226702b8a9256d">operator+</a> (<a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; lh, <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:aba061e073dffe44ebd226702b8a9256d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cd840c8670b877825d96bf91e62c76c"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5cd840c8670b877825d96bf91e62c76c">cross_product</a> (<a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; 3 &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; 3 &gt; const &amp;b)</td></tr>
 <tr class="memdesc:a5cd840c8670b877825d96bf91e62c76c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates cross product between points A and B.  <a href="namespaceemlabcpp.html#a5cd840c8670b877825d96bf91e62c76c">More...</a><br /></td></tr>
@@ -822,7 +834,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ac8ae9fabf0beb535e1dc1c08b3d0b7a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a normal to a point A in two dimensions.  <a href="namespaceemlabcpp.html#ac8ae9fabf0beb535e1dc1c08b3d0b7a6">More...</a><br /></td></tr>
 <tr class="separator:ac8ae9fabf0beb535e1dc1c08b3d0b7a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcf7f7c11dfd7ca203f3363abfe59318"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:abcf7f7c11dfd7ca203f3363abfe59318"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abcf7f7c11dfd7ca203f3363abfe59318">vector_angle</a> (<a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;b)</td></tr>
+<tr class="memitem:abcf7f7c11dfd7ca203f3363abfe59318"><td class="memTemplItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#abcf7f7c11dfd7ca203f3363abfe59318">vector_angle</a> (<a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;a, <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;b)</td></tr>
 <tr class="separator:abcf7f7c11dfd7ca203f3363abfe59318"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a512f1fd6d6a6aa3d5094088865158e23"><td class="memTemplParams" colspan="2">template&lt;matrix_like LH, matrix_like RH&gt; </td></tr>
 <tr class="memitem:a512f1fd6d6a6aa3d5094088865158e23"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a512f1fd6d6a6aa3d5094088865158e23">requires</a> (LH::rows==RH::rows &amp;&amp;LH::cols==RH::cols) const expr auto operator</td></tr>
@@ -837,7 +849,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ae9679354218890ed9c289c674a125378"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae9679354218890ed9c289c674a125378">requires</a> (M::rows==1 &amp;&amp;M::cols==1) const expr <a class="el" href="classemlabcpp_1_1matrix.html">matrix</a>&lt; M</td></tr>
 <tr class="separator:ae9679354218890ed9c289c674a125378"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6154c4150903826b9b84540c27036ad"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:ae6154c4150903826b9b84540c27036ad"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae6154c4150903826b9b84540c27036ad">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; N &gt; const &amp;sb)</td></tr>
+<tr class="memitem:ae6154c4150903826b9b84540c27036ad"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae6154c4150903826b9b84540c27036ad">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;sb)</td></tr>
 <tr class="separator:ae6154c4150903826b9b84540c27036ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab077da8cbabe4cc68820537ddc602b91"><td class="memTemplParams" colspan="2">template&lt;typename... Callables&gt; </td></tr>
 <tr class="memitem:ab077da8cbabe4cc68820537ddc602b91"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab077da8cbabe4cc68820537ddc602b91">matcher</a> (Callables &amp;&amp;...) -&gt; <a class="el" href="structemlabcpp_1_1matcher.html">matcher</a>&lt; std::decay_t&lt; Callables &gt;... &gt;</td></tr>
@@ -959,40 +971,56 @@ Functions</h2></td></tr>
 <tr class="memdesc:ace588590ccd59087b704005a3c04caae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds numeric view over interval [0, to)  <a href="namespaceemlabcpp.html#ace588590ccd59087b704005a3c04caae">More...</a><br /></td></tr>
 <tr class="separator:ace588590ccd59087b704005a3c04caae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3006d6f69314abae91dc0740a404ddf"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:ad3006d6f69314abae91dc0740a404ddf"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad3006d6f69314abae91dc0740a404ddf">operator&lt;=&gt;</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:ad3006d6f69314abae91dc0740a404ddf"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad3006d6f69314abae91dc0740a404ddf">operator&lt;=&gt;</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:ad3006d6f69314abae91dc0740a404ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45f4b2a0c37593a9fe9fa24e82055731"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:a45f4b2a0c37593a9fe9fa24e82055731"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a45f4b2a0c37593a9fe9fa24e82055731">operator==</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:a45f4b2a0c37593a9fe9fa24e82055731"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a45f4b2a0c37593a9fe9fa24e82055731">operator==</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:a45f4b2a0c37593a9fe9fa24e82055731"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6181af592879c12a867b98e75a8fafef"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:a6181af592879c12a867b98e75a8fafef"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6181af592879c12a867b98e75a8fafef">operator!=</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:a6181af592879c12a867b98e75a8fafef"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6181af592879c12a867b98e75a8fafef">operator!=</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:a6181af592879c12a867b98e75a8fafef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a335b4e955623092b8021cbbb539eaeda"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:a335b4e955623092b8021cbbb539eaeda"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a335b4e955623092b8021cbbb539eaeda">requires</a> (<a class="el" href="namespaceemlabcpp.html#a3d6bbe05fdc4482798a8777fd89bd79c">trivial_for_static_storage</a>&lt; T &gt;) struct <a class="el" href="structemlabcpp_1_1static__storage.html">static_storage</a>&lt; T</td></tr>
+<tr class="separator:a335b4e955623092b8021cbbb539eaeda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22d3558f494b4daf086216cedf167ba7"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceemlabcpp.html#a5dc3e436ef66e826d36130478f13fcc2">pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a> () noexcept</td></tr>
+<tr class="memdesc:a22d3558f494b4daf086216cedf167ba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointer to first item of the storage.  <a href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">More...</a><br /></td></tr>
+<tr class="separator:a22d3558f494b4daf086216cedf167ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6a005d416169624e48fd25482bb644b"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:aa6a005d416169624e48fd25482bb644b"><td class="memTemplItemLeft" align="right" valign="top">constexpr T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa6a005d416169624e48fd25482bb644b">emplace_item</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const i, Args &amp;&amp;... <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">args</a>) noexcept(std::is_nothrow_constructible_v&lt; T, Args... &gt;)</td></tr>
+<tr class="memdesc:aa6a005d416169624e48fd25482bb644b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an item at position i with arguments args...  <a href="namespaceemlabcpp.html#aa6a005d416169624e48fd25482bb644b">More...</a><br /></td></tr>
+<tr class="separator:aa6a005d416169624e48fd25482bb644b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab02c8301ef4db0c17e59d9e6b100420a"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab02c8301ef4db0c17e59d9e6b100420a">delete_item</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const i) noexcept(std::is_nothrow_destructible_v&lt; T &gt;)</td></tr>
+<tr class="memdesc:ab02c8301ef4db0c17e59d9e6b100420a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deconstructs an item at position i.  <a href="namespaceemlabcpp.html#ab02c8301ef4db0c17e59d9e6b100420a">More...</a><br /></td></tr>
+<tr class="separator:ab02c8301ef4db0c17e59d9e6b100420a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38e01294f96a5357c8e80f5c27d081b3"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceemlabcpp.html#a32d3de1ecae7eb79f5f6073bcb407b70">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a38e01294f96a5357c8e80f5c27d081b3">operator[]</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const i) noexcept</td></tr>
+<tr class="memdesc:a38e01294f96a5357c8e80f5c27d081b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a reference to item at position i.  <a href="namespaceemlabcpp.html#a38e01294f96a5357c8e80f5c27d081b3">More...</a><br /></td></tr>
+<tr class="separator:a38e01294f96a5357c8e80f5c27d081b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6977046b5b7b9ce51390b724488d378"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:af6977046b5b7b9ce51390b724488d378"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af6977046b5b7b9ce51390b724488d378">operator&lt;=&gt;</a> (<a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:af6977046b5b7b9ce51390b724488d378"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af6977046b5b7b9ce51390b724488d378">operator&lt;=&gt;</a> (<a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:af6977046b5b7b9ce51390b724488d378"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3061f1658ea319c507053d8c7eb785f"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:af3061f1658ea319c507053d8c7eb785f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af3061f1658ea319c507053d8c7eb785f">operator==</a> (<a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:af3061f1658ea319c507053d8c7eb785f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#af3061f1658ea319c507053d8c7eb785f">operator==</a> (<a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:af3061f1658ea319c507053d8c7eb785f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ddd63976678b7a53c3076c5006a15f5"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:a7ddd63976678b7a53c3076c5006a15f5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7ddd63976678b7a53c3076c5006a15f5">operator!=</a> (<a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;rh)</td></tr>
+<tr class="memitem:a7ddd63976678b7a53c3076c5006a15f5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7ddd63976678b7a53c3076c5006a15f5">operator!=</a> (<a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:a7ddd63976678b7a53c3076c5006a15f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a736be2315b7c53a88f64e165cbeb3fab"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:a736be2315b7c53a88f64e165cbeb3fab"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a736be2315b7c53a88f64e165cbeb3fab">swap</a> (<a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;rh) noexcept</td></tr>
+<tr class="memitem:a736be2315b7c53a88f64e165cbeb3fab"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a736be2315b7c53a88f64e165cbeb3fab">swap</a> (<a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh) noexcept</td></tr>
 <tr class="separator:a736be2315b7c53a88f64e165cbeb3fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b62f09ff5468bc513cac30ace3d6c58"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a5b62f09ff5468bc513cac30ace3d6c58"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a5b62f09ff5468bc513cac30ace3d6c58">pretty_type_name</a> ()</td></tr>
 <tr class="separator:a5b62f09ff5468bc513cac30ace3d6c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd74c7df9ccef5ce376d2c3fe2ef8908"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:acd74c7df9ccef5ce376d2c3fe2ef8908"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acd74c7df9ccef5ce376d2c3fe2ef8908">requires</a> (sizeof(uint8_t)==N) struct <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; N &gt;</td></tr>
+<tr class="memitem:acd74c7df9ccef5ce376d2c3fe2ef8908"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acd74c7df9ccef5ce376d2c3fe2ef8908">requires</a> (sizeof(uint8_t)==<a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>) struct <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;</td></tr>
 <tr class="separator:acd74c7df9ccef5ce376d2c3fe2ef8908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dcd56ce6fdffb4ebcf8a4c079335d8e"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a3dcd56ce6fdffb4ebcf8a4c079335d8e"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3dcd56ce6fdffb4ebcf8a4c079335d8e">requires</a> (sizeof(uint16_t)==N) struct <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; N &gt;</td></tr>
+<tr class="memitem:a3dcd56ce6fdffb4ebcf8a4c079335d8e"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3dcd56ce6fdffb4ebcf8a4c079335d8e">requires</a> (sizeof(uint16_t)==<a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>) struct <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;</td></tr>
 <tr class="separator:a3dcd56ce6fdffb4ebcf8a4c079335d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac39ed97224e397106e08c6e04012e62a"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:ac39ed97224e397106e08c6e04012e62a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac39ed97224e397106e08c6e04012e62a">requires</a> (sizeof(uint32_t)==N) struct <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; N &gt;</td></tr>
+<tr class="memitem:ac39ed97224e397106e08c6e04012e62a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac39ed97224e397106e08c6e04012e62a">requires</a> (sizeof(uint32_t)==<a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>) struct <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;</td></tr>
 <tr class="separator:ac39ed97224e397106e08c6e04012e62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2acb59e904f4530e0e8d42e98f67bcaa"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a2acb59e904f4530e0e8d42e98f67bcaa"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2acb59e904f4530e0e8d42e98f67bcaa">requires</a> (sizeof(uint64_t)==N) struct <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; N &gt;</td></tr>
+<tr class="memitem:a2acb59e904f4530e0e8d42e98f67bcaa"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a2acb59e904f4530e0e8d42e98f67bcaa">requires</a> (sizeof(uint64_t)==<a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>) struct <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;</td></tr>
 <tr class="separator:a2acb59e904f4530e0e8d42e98f67bcaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb2649988155d01327137383a7fb2c90"><td class="memTemplParams" colspan="2">template&lt;typename IteratorLh , typename IteratorRh &gt; </td></tr>
 <tr class="memitem:aeb2649988155d01327137383a7fb2c90"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aeb2649988155d01327137383a7fb2c90">operator==</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; IteratorLh &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; IteratorRh &gt; const &amp;rh)</td></tr>
@@ -1059,7 +1087,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a9f3571963bbe0982f9987b78b111c626"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> {}</td></tr>
 <tr class="separator:a9f3571963bbe0982f9987b78b111c626"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b5a68de4881301e46697c48654d8477"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
-<tr class="memitem:a7b5a68de4881301e46697c48654d8477"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7b5a68de4881301e46697c48654d8477">bounded_constant</a> = <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, N, N &gt;{}</td></tr>
+<tr class="memitem:a7b5a68de4881301e46697c48654d8477"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a7b5a68de4881301e46697c48654d8477">bounded_constant</a> = <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;{}</td></tr>
 <tr class="memdesc:a7b5a68de4881301e46697c48654d8477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple type alias for bounded index constants.  <a href="namespaceemlabcpp.html#a7b5a68de4881301e46697c48654d8477">More...</a><br /></td></tr>
 <tr class="separator:a7b5a68de4881301e46697c48654d8477"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add79493bcf07bd4c54afffe3a0f3ee00"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -1194,6 +1222,11 @@ Variables</h2></td></tr>
 <tr class="memitem:a869ab03f1bd49e1adc49de513ad86ba4"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a869ab03f1bd49e1adc49de513ad86ba4">quantity_derived</a> = <a class="el" href="namespaceemlabcpp.html#aab6fd32a8b3335eec93b94331d4293b0">requires</a>( T val ) { <a class="el" href="namespaceemlabcpp_1_1detail.html#a8d15c50b2bbbeeaa8bdc5d694b52730c">detail::quantity_derived_test</a>( val ); }</td></tr>
 <tr class="memdesc:a869ab03f1bd49e1adc49de513ad86ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept satisfies any type <code>T</code> that inherits from any form of <code>quantity&lt;U&gt;</code>.  <a href="namespaceemlabcpp.html#a869ab03f1bd49e1adc49de513ad86ba4">More...</a><br /></td></tr>
 <tr class="separator:a869ab03f1bd49e1adc49de513ad86ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d6bbe05fdc4482798a8777fd89bd79c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3d6bbe05fdc4482798a8777fd89bd79c"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a3d6bbe05fdc4482798a8777fd89bd79c">trivial_for_static_storage</a></td></tr>
+<tr class="separator:a3d6bbe05fdc4482798a8777fd89bd79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefd95e49f36531f3571bdf192561e42c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a></td></tr>
+<tr class="separator:aefd95e49f36531f3571bdf192561e42c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff43a196db9cecc357e6f4452638b32f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aff43a196db9cecc357e6f4452638b32f"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aff43a196db9cecc357e6f4452638b32f">is_view_v</a> = <a class="el" href="structemlabcpp_1_1is__view.html">is_view</a>&lt; T &gt;::value</td></tr>
 <tr class="separator:aff43a196db9cecc357e6f4452638b32f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1428,11 +1461,11 @@ type</td>
 struct emlabcpp::data_iterator_of&lt; Container &gt;</h3>
 
 <hr  />
-<p> <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of">data_iterator_of</a> is structure where <a class="el" href="namespaceemlabcpp.html#aab22100d2e622b09fff3d5d67d72fe48">data_iterator_of&lt;Container&gt;::type</a> returns type of pointer that is returned by cont.data(); </p>
+<p> <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of">data_iterator_of</a> is structure where <a class="el" href="namespaceemlabcpp.html#aab22100d2e622b09fff3d5d67d72fe48">data_iterator_of&lt;Container&gt;::type</a> returns type of pointer that is returned by <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7" title="Returns pointer to first item of the storage.">cont.data()</a>; </p>
 </div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="aab22100d2e622b09fff3d5d67d72fe48"></a>typedef decltype(data(declval&lt; add_lvalue_reference_t&lt; Container &gt; &gt;()))</td>
+<a id="aab22100d2e622b09fff3d5d67d72fe48"></a>typedef decltype(<a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>(declval&lt; add_lvalue_reference_t&lt; Container &gt; &gt;()))</td>
 <td class="fieldname">
 type</td>
 <td class="fielddoc">
@@ -1746,6 +1779,34 @@ struct emlabcpp::index_of&lt; T, Variant &gt;</h3>
 
 </div>
 </div>
+<a id="a2c089201bec45628e321b5afa38d169b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c089201bec45628e321b5afa38d169b">&#9670;&nbsp;</a></span>const_pointer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a2c089201bec45628e321b5afa38d169b">emlabcpp::const_pointer</a> = typedef T const*</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb1ec622052848f0ddd32df8936a27a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb1ec622052848f0ddd32df8936a27a8">&#9670;&nbsp;</a></span>const_reference</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#abb1ec622052848f0ddd32df8936a27a8">emlabcpp::const_reference</a> = typedef T const&amp;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae2eceaa8b0d9ceb67162be01c8a803f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae2eceaa8b0d9ceb67162be01c8a803f7">&#9670;&nbsp;</a></span>current</h2>
 
@@ -1873,7 +1934,7 @@ template&lt;typename Container &gt; </div>
 template&lt;std::size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">emlabcpp::line</a> = typedef std::array&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;, 2 &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">emlabcpp::line</a> = typedef std::array&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;, 2 &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1924,6 +1985,20 @@ template&lt;typename Container , typename UnaryCallable &gt; </div>
 
 </div>
 </div>
+<a id="a5dc3e436ef66e826d36130478f13fcc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dc3e436ef66e826d36130478f13fcc2">&#9670;&nbsp;</a></span>pointer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a5dc3e436ef66e826d36130478f13fcc2">emlabcpp::pointer</a> = typedef T*</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abbf48f5a991078e6acfe3db1e7762675"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abbf48f5a991078e6acfe3db1e7762675">&#9670;&nbsp;</a></span>power</h2>
 
@@ -1946,6 +2021,20 @@ template&lt;typename Container , typename UnaryCallable &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespaceemlabcpp.html#af96516bd702e891771257f4dc279a2f2">emlabcpp::radius</a> = typedef <a class="el" href="namespaceemlabcpp.html#a458a21111b267fd6b9727f821974f859">length</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a32d3de1ecae7eb79f5f6073bcb407b70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32d3de1ecae7eb79f5f6073bcb407b70">&#9670;&nbsp;</a></span>reference</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a32d3de1ecae7eb79f5f6073bcb407b70">emlabcpp::reference</a> = typedef T&amp;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1975,7 +2064,21 @@ template&lt;typename Container , typename UnaryCallable &gt; </div>
 template&lt;std::size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#ac223240cfaa32fcb48f0daa06c78a9e2">emlabcpp::select_utype_t</a> = typedef typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; N &gt;::type</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#ac223240cfaa32fcb48f0daa06c78a9e2">emlabcpp::select_utype_t</a> = typedef typename <a class="el" href="namespaceemlabcpp.html#structemlabcpp_1_1select__utype">select_utype</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1f96077b9c4ba6a57d7dc290fb7670c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f96077b9c4ba6a57d7dc290fb7670c5">&#9670;&nbsp;</a></span>size_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">emlabcpp::size_type</a> = typedef std::size_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2035,7 +2138,7 @@ template&lt;typename Signature , std::size_t Capacity&gt; </div>
 template&lt;std::size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">emlabcpp::triangle</a> = typedef <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;, 2 &gt;</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">emlabcpp::triangle</a> = typedef <a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;, 2 &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2070,6 +2173,20 @@ template&lt;typename T , template&lt; typename &gt; class Fun&gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Type alieases of physical quantity for used quantities. </p>
+
+</div>
+</div>
+<a id="a62a79f4f6d31559fec9c62f27ecb5af1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62a79f4f6d31559fec9c62f27ecb5af1">&#9670;&nbsp;</a></span>value_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp.html#a62a79f4f6d31559fec9c62f27ecb5af1">emlabcpp::value_type</a> = typedef T</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -2295,7 +2412,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr Derived emlabcpp::abs </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
@@ -2309,7 +2426,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 
 <p>Creates absolute version of A - removing signs on all dimensions. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
 
 </div>
 </div>
@@ -2698,13 +2815,13 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr float emlabcpp::axis_projection_distance </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>axis_direction</em>&#160;</td>
         </tr>
         <tr>
@@ -2739,7 +2856,7 @@ template&lt;typename... Args, std::size_t N = sizeof...( Args )&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::array&lt; std::byte, N &gt; emlabcpp::bytes </td>
+          <td class="memname">constexpr std::array&lt; std::byte, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::bytes </td>
           <td>(</td>
           <td class="paramtype">Args const &amp;...&#160;</td>
           <td class="paramname"><em>args</em></td><td>)</td>
@@ -2811,9 +2928,9 @@ template&lt;std::size_t N, std::size_t U&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; emlabcpp::center_of </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::center_of </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;, U &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;, U &gt; const &amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
           <td></td>
         </tr>
@@ -2933,7 +3050,7 @@ template&lt;typename Iter &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1view.html#a35373b7ecce53b42f2b93316496708e1">emlabcpp::view&lt; Iterator, EndIterator &gt;::begin()</a>, and <a class="el" href="namespaceemlabcpp.html#ac599d73fbac6433f70ba199e29e247e0">find()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data()</a>, and <a class="el" href="namespaceemlabcpp.html#ac599d73fbac6433f70ba199e29e247e0">find()</a>.</p>
 
 </div>
 </div>
@@ -3281,6 +3398,33 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
 
 </div>
 </div>
+<a id="a22d3558f494b4daf086216cedf167ba7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22d3558f494b4daf086216cedf167ba7">&#9670;&nbsp;</a></span>data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceemlabcpp.html#a2c089201bec45628e321b5afa38d169b">const_pointer</a> emlabcpp::data </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns pointer to first item of the storage. </p>
+
+</div>
+</div>
 <a id="a7dcf3cf10bd4814024f7177751b63c26"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7dcf3cf10bd4814024f7177751b63c26">&#9670;&nbsp;</a></span>data_view()</h2>
 
@@ -3307,7 +3451,7 @@ template&lt;data_container Container&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a622f11a522f1ded8232d2e13e7f41337">view_n()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data()</a>, and <a class="el" href="namespaceemlabcpp.html#a622f11a522f1ded8232d2e13e7f41337">view_n()</a>.</p>
 
 </div>
 </div>
@@ -3380,6 +3524,34 @@ template&lt;decomposable_0 T&gt; </div>
 
 </div>
 </div>
+<a id="ab02c8301ef4db0c17e59d9e6b100420a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab02c8301ef4db0c17e59d9e6b100420a">&#9670;&nbsp;</a></span>delete_item()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void emlabcpp::delete_item </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deconstructs an item at position i. </p>
+
+</div>
+</div>
 <a id="a23f5ee359c0603a72727e357d9c99947"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a23f5ee359c0603a72727e357d9c99947">&#9670;&nbsp;</a></span>dimensional_max()</h2>
 
@@ -3394,13 +3566,13 @@ template&lt;typename Derived , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr Derived emlabcpp::dimensional_max </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -3418,7 +3590,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 
 <p>Calculates a C, where C[i] = max(A[i], B[i]) holds for 0 &lt;= i &lt; N. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#abe9cf42b0add3aa7eac2b215455f98ed">max()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#abe9cf42b0add3aa7eac2b215455f98ed">max()</a>, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
 
 </div>
 </div>
@@ -3436,13 +3608,13 @@ template&lt;typename Derived , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr Derived emlabcpp::dimensional_min </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -3460,7 +3632,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 
 <p>Calculates a C, where C[i] = min(A[i], B[i]) holds for 0 &lt;= i &lt; N. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ac6a2f5b7b14c057c158d28c8e7538839">min()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ac6a2f5b7b14c057c158d28c8e7538839">min()</a>, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
 
 </div>
 </div>
@@ -3516,13 +3688,13 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr float emlabcpp::distance_of </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>l</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>p</em>&#160;</td>
         </tr>
         <tr>
@@ -3556,13 +3728,13 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr float emlabcpp::distance_of </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -3580,7 +3752,7 @@ template&lt;std::size_t N&gt; </div>
 
 <p>Returns euclidian distance of point A from point B. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">pow()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, <a class="el" href="namespaceemlabcpp.html#a5519896c5f0324265089711b6a020642">sqrt()</a>, and <a class="el" href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">sum()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <a class="el" href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">pow()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, <a class="el" href="namespaceemlabcpp.html#a5519896c5f0324265089711b6a020642">sqrt()</a>, and <a class="el" href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">sum()</a>.</p>
 
 </div>
 </div>
@@ -3598,13 +3770,13 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr float emlabcpp::distance_of </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>p</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe">line</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>line</em>&#160;</td>
         </tr>
         <tr>
@@ -3714,13 +3886,13 @@ template&lt;typename Derived , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr float emlabcpp::dot </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -3738,7 +3910,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 
 <p>Calculates the dot product between A and B. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">sum()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">sum()</a>.</p>
 
 </div>
 </div>
@@ -3857,6 +4029,48 @@ template&lt;typename Derived , std::size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa6a005d416169624e48fd25482bb644b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6a005d416169624e48fd25482bb644b">&#9670;&nbsp;</a></span>emplace_item()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T&amp; emlabcpp::emplace_item </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs an item at position i with arguments args... </p>
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">args</a>.</p>
 
 </div>
 </div>
@@ -4040,7 +4254,7 @@ template&lt;std::size_t N, typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::array&lt; T, N &gt; emlabcpp::filled </td>
+          <td class="memname">constexpr std::array&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::filled </td>
           <td>(</td>
           <td class="paramtype">T const &amp;&#160;</td>
           <td class="paramname"><em>item</em></td><td>)</td>
@@ -4056,7 +4270,7 @@ template&lt;std::size_t N, typename T &gt; </div>
 
 <p>Constructs an array filled with value <code>x</code> </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, and <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>.</p>
 
 </div>
 </div>
@@ -4174,7 +4388,7 @@ template&lt;std::size_t N, typename PredicateCallable &gt; </div>
 <p>Executes unary callable <code><a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f()</a></code> with template argument of type 'std::size_t', which ranges from 0 to N until first call that returns true. </p>
 <p>Function returns the index on which predicate returned true. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
 
 </div>
 </div>
@@ -4525,7 +4739,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr auto emlabcpp::length2_of </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4539,7 +4753,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 
 <p>Returns squared distance of A from [0,0,0], this is a squared length of vector represented by A. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">pow()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>, and <a class="el" href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">sum()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <a class="el" href="namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6">pow()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>, and <a class="el" href="namespaceemlabcpp.html#a3ae5bc0fd1be635cd2666c78c8d69fae">sum()</a>.</p>
 
 </div>
 </div>
@@ -4557,7 +4771,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr float emlabcpp::length_of </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4636,13 +4850,13 @@ template&lt;typename Derived , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr Derived emlabcpp::lin_interp </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>from</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>goal</em>, </td>
         </tr>
         <tr>
@@ -4664,7 +4878,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
 
 </div>
 </div>
@@ -4680,9 +4894,9 @@ template&lt;std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; &gt; emlabcpp::lineary_interpolate_path </td>
+          <td class="memname">std::vector&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; &gt; emlabcpp::lineary_interpolate_path </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; &gt; const &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; &gt; const &amp;&#160;</td>
           <td class="paramname"><em>ipath</em>, </td>
         </tr>
         <tr>
@@ -4800,7 +5014,7 @@ template&lt;impl::map_f_collectable ResultContainer, container Container, contai
 template&lt;std::size_t N, range_container Container, container_invocable&lt; Container &gt; UnaryCallable = std::identity, typename T  = std::decay_t&lt; mapped_t&lt; Container, UnaryCallable &gt; &gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt; T, N &gt; emlabcpp::map_f_to_a </td>
+          <td class="memname">std::array&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::map_f_to_a </td>
           <td>(</td>
           <td class="paramtype">Container &amp;&amp;&#160;</td>
           <td class="paramname"><em>cont</em>, </td>
@@ -4992,13 +5206,13 @@ template&lt;typename Derived , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr Derived emlabcpp::max </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -5155,13 +5369,13 @@ template&lt;typename Derived , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr Derived const&amp; emlabcpp::min </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -5405,7 +5619,7 @@ template&lt;typename Derived , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr Derived emlabcpp::normalized </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
@@ -5511,13 +5725,13 @@ template&lt;typename Item , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr bool emlabcpp::operator!= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -5546,13 +5760,13 @@ template&lt;typename T , std::size_t N&gt; </div>
         <tr>
           <td class="memname">bool emlabcpp::operator!= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -5576,13 +5790,13 @@ template&lt;typename T , std::size_t N&gt; </div>
         <tr>
           <td class="memname">bool emlabcpp::operator!= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -5759,15 +5973,15 @@ template&lt;std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; emlabcpp::operator* </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::operator* </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -5785,7 +5999,7 @@ template&lt;std::size_t N&gt; </div>
 
 <p>Multiplication of points multiplies each coordinate of A by coordinate of B on same dimension. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, and <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>.</p>
 
 </div>
 </div>
@@ -5921,7 +6135,7 @@ template&lt;typename Derived , std::size_t N, typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em>&#160;</td>
         </tr>
         <tr>
@@ -5995,7 +6209,7 @@ template&lt;typename Derived , std::size_t N, typename T , typename  = typename 
         <tr>
           <td class="memname">constexpr Derived emlabcpp::operator* </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
@@ -6019,7 +6233,7 @@ template&lt;typename Derived , std::size_t N, typename T , typename  = typename 
 
 <p>Multiplies each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
 
 </div>
 </div>
@@ -6035,15 +6249,15 @@ template&lt;std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; emlabcpp::operator+ </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::operator+ </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -6151,15 +6365,15 @@ template&lt;std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; emlabcpp::operator+ </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::operator+ </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -6227,15 +6441,15 @@ template&lt;std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; emlabcpp::operator- </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::operator- </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -6269,15 +6483,15 @@ template&lt;std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; emlabcpp::operator- </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::operator- </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -6527,7 +6741,7 @@ template&lt;typename Derived , std::size_t N, typename T , typename  = typename 
         <tr>
           <td class="memname">constexpr Derived emlabcpp::operator/ </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vec__point__base.html">vec_point_base</a>&lt; Derived, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
@@ -6551,7 +6765,7 @@ template&lt;typename Derived , std::size_t N, typename T , typename  = typename 
 
 <p>Divides each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic. </p>
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
 
 </div>
 </div>
@@ -6725,13 +6939,13 @@ template&lt;typename Item , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr bool emlabcpp::operator&lt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -6747,7 +6961,7 @@ template&lt;typename Item , std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#adad2aaee725330a629c1fa9af8cf7e37">find_if()</a>, and <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#adad2aaee725330a629c1fa9af8cf7e37">find_if()</a>, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, and <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>.</p>
 
 </div>
 </div>
@@ -6768,7 +6982,7 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>sb</em>&#160;</td>
         </tr>
         <tr>
@@ -6795,13 +7009,13 @@ template&lt;typename Item , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr bool emlabcpp::operator&lt;= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -6830,13 +7044,13 @@ template&lt;typename T , std::size_t N&gt; </div>
         <tr>
           <td class="memname">auto emlabcpp::operator&lt;=&gt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -6862,13 +7076,13 @@ template&lt;typename T , std::size_t N&gt; </div>
         <tr>
           <td class="memname">auto emlabcpp::operator&lt;=&gt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -6971,13 +7185,13 @@ template&lt;typename Item , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr bool emlabcpp::operator== </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -7008,13 +7222,13 @@ template&lt;typename T , std::size_t N&gt; </div>
         <tr>
           <td class="memname">bool emlabcpp::operator== </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -7040,13 +7254,13 @@ template&lt;typename T , std::size_t N&gt; </div>
         <tr>
           <td class="memname">bool emlabcpp::operator== </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -7113,13 +7327,13 @@ template&lt;typename Item , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr bool emlabcpp::operator&gt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -7151,13 +7365,13 @@ template&lt;typename Item , std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr bool emlabcpp::operator&gt;= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; Item, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -7175,6 +7389,34 @@ template&lt;typename Item , std::size_t N&gt; </div>
 
 </div>
 </div>
+<a id="a38e01294f96a5357c8e80f5c27d081b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38e01294f96a5357c8e80f5c27d081b3">&#9670;&nbsp;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceemlabcpp.html#abb1ec622052848f0ddd32df8936a27a8">const_reference</a> emlabcpp::operator[] </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Provides a reference to item at position i. </p>
+
+</div>
+</div>
 <a id="a6855f415eda103a7b9807510a531e9fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6855f415eda103a7b9807510a531e9fd">&#9670;&nbsp;</a></span>point_angle()</h2>
 
@@ -7189,13 +7431,13 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr float emlabcpp::point_angle </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -7227,9 +7469,9 @@ template&lt;std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; emlabcpp::point_cast </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::point_cast </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
           <td></td>
         </tr>
@@ -7367,7 +7609,7 @@ template&lt;typename Numeric &gt; </div>
 </div>
 </div>
 <a id="aab6fd32a8b3335eec93b94331d4293b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab6fd32a8b3335eec93b94331d4293b0">&#9670;&nbsp;</a></span>requires() <span class="overload">[1/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aab6fd32a8b3335eec93b94331d4293b0">&#9670;&nbsp;</a></span>requires() <span class="overload">[1/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7391,7 +7633,7 @@ template&lt;gettable_container Container, container_invocable&lt; Container &gt;
 </div>
 </div>
 <a id="a670099942b8cdd3d2cc28760b1717d7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a670099942b8cdd3d2cc28760b1717d7c">&#9670;&nbsp;</a></span>requires() <span class="overload">[2/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a670099942b8cdd3d2cc28760b1717d7c">&#9670;&nbsp;</a></span>requires() <span class="overload">[2/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7413,7 +7655,7 @@ template&lt;gettable_container Container, container_invocable&lt; Container &gt;
 </div>
 </div>
 <a id="a35de9105fe961a808d8e0f3a2cb58bf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35de9105fe961a808d8e0f3a2cb58bf2">&#9670;&nbsp;</a></span>requires() <span class="overload">[3/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a35de9105fe961a808d8e0f3a2cb58bf2">&#9670;&nbsp;</a></span>requires() <span class="overload">[3/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7438,7 +7680,7 @@ template&lt;bounded_derived IndexType, typename Callable &gt; </div>
 </div>
 </div>
 <a id="a8d77f50ca9dd31e43365e38debbd42fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d77f50ca9dd31e43365e38debbd42fa">&#9670;&nbsp;</a></span>requires() <span class="overload">[4/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d77f50ca9dd31e43365e38debbd42fa">&#9670;&nbsp;</a></span>requires() <span class="overload">[4/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7460,7 +7702,7 @@ template&lt;bounded_derived IndexType, typename Callable &gt; </div>
 </div>
 </div>
 <a id="a512f1fd6d6a6aa3d5094088865158e23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a512f1fd6d6a6aa3d5094088865158e23">&#9670;&nbsp;</a></span>requires() <span class="overload">[5/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a512f1fd6d6a6aa3d5094088865158e23">&#9670;&nbsp;</a></span>requires() <span class="overload">[5/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7482,7 +7724,7 @@ template&lt;matrix_like LH, matrix_like RH&gt; </div>
 </div>
 </div>
 <a id="a9d7b165281b38eb416a5f581aca02c45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d7b165281b38eb416a5f581aca02c45">&#9670;&nbsp;</a></span>requires() <span class="overload">[6/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d7b165281b38eb416a5f581aca02c45">&#9670;&nbsp;</a></span>requires() <span class="overload">[6/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7509,12 +7751,12 @@ template&lt;matrix_like M&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
 
 </div>
 </div>
 <a id="ae9679354218890ed9c289c674a125378"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9679354218890ed9c289c674a125378">&#9670;&nbsp;</a></span>requires() <span class="overload">[7/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9679354218890ed9c289c674a125378">&#9670;&nbsp;</a></span>requires() <span class="overload">[7/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7536,7 +7778,7 @@ template&lt;matrix_like M&gt; </div>
 </div>
 </div>
 <a id="a9621414bdb005465241465f455e742ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9621414bdb005465241465f455e742ca">&#9670;&nbsp;</a></span>requires() <span class="overload">[8/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9621414bdb005465241465f455e742ca">&#9670;&nbsp;</a></span>requires() <span class="overload">[8/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7556,7 +7798,7 @@ template&lt;matrix_like M&gt; </div>
 </div>
 </div>
 <a id="a3dcd56ce6fdffb4ebcf8a4c079335d8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3dcd56ce6fdffb4ebcf8a4c079335d8e">&#9670;&nbsp;</a></span>requires() <span class="overload">[9/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dcd56ce6fdffb4ebcf8a4c079335d8e">&#9670;&nbsp;</a></span>requires() <span class="overload">[9/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7567,7 +7809,7 @@ template&lt;std::size_t N&gt; </div>
           <td class="memname">emlabcpp::requires </td>
           <td>(</td>
           <td class="paramtype">sizeof(uint16_t)&#160;</td>
-          <td class="paramname"> = <code>=&#160;N</code></td><td>)</td>
+          <td class="paramname"> = <code>=&#160;<a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a></code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -7576,7 +7818,7 @@ template&lt;std::size_t N&gt; </div>
 </div>
 </div>
 <a id="ac39ed97224e397106e08c6e04012e62a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac39ed97224e397106e08c6e04012e62a">&#9670;&nbsp;</a></span>requires() <span class="overload">[10/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39ed97224e397106e08c6e04012e62a">&#9670;&nbsp;</a></span>requires() <span class="overload">[10/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7587,7 +7829,7 @@ template&lt;std::size_t N&gt; </div>
           <td class="memname">emlabcpp::requires </td>
           <td>(</td>
           <td class="paramtype">sizeof(uint32_t)&#160;</td>
-          <td class="paramname"> = <code>=&#160;N</code></td><td>)</td>
+          <td class="paramname"> = <code>=&#160;<a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a></code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -7596,7 +7838,7 @@ template&lt;std::size_t N&gt; </div>
 </div>
 </div>
 <a id="a2acb59e904f4530e0e8d42e98f67bcaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2acb59e904f4530e0e8d42e98f67bcaa">&#9670;&nbsp;</a></span>requires() <span class="overload">[11/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2acb59e904f4530e0e8d42e98f67bcaa">&#9670;&nbsp;</a></span>requires() <span class="overload">[11/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7607,7 +7849,7 @@ template&lt;std::size_t N&gt; </div>
           <td class="memname">emlabcpp::requires </td>
           <td>(</td>
           <td class="paramtype">sizeof(uint64_t)&#160;</td>
-          <td class="paramname"> = <code>=&#160;N</code></td><td>)</td>
+          <td class="paramname"> = <code>=&#160;<a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a></code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -7616,7 +7858,7 @@ template&lt;std::size_t N&gt; </div>
 </div>
 </div>
 <a id="acd74c7df9ccef5ce376d2c3fe2ef8908"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd74c7df9ccef5ce376d2c3fe2ef8908">&#9670;&nbsp;</a></span>requires() <span class="overload">[12/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acd74c7df9ccef5ce376d2c3fe2ef8908">&#9670;&nbsp;</a></span>requires() <span class="overload">[12/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7627,7 +7869,7 @@ template&lt;std::size_t N&gt; </div>
           <td class="memname">emlabcpp::requires </td>
           <td>(</td>
           <td class="paramtype">sizeof(uint8_t)&#160;</td>
-          <td class="paramname"> = <code>=&#160;N</code></td><td>)</td>
+          <td class="paramname"> = <code>=&#160;<a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a></code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -7636,7 +7878,7 @@ template&lt;std::size_t N&gt; </div>
 </div>
 </div>
 <a id="a39bdb9e4992c495c755d900b23435840"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39bdb9e4992c495c755d900b23435840">&#9670;&nbsp;</a></span>requires() <span class="overload">[13/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a39bdb9e4992c495c755d900b23435840">&#9670;&nbsp;</a></span>requires() <span class="overload">[13/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7658,7 +7900,7 @@ template&lt;typename Enum &gt; </div>
 </div>
 </div>
 <a id="a478ead96ff195d7de7ce62ed8b67a9ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a478ead96ff195d7de7ce62ed8b67a9ad">&#9670;&nbsp;</a></span>requires() <span class="overload">[14/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a478ead96ff195d7de7ce62ed8b67a9ad">&#9670;&nbsp;</a></span>requires() <span class="overload">[14/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7671,6 +7913,26 @@ template&lt;typename T , typename... Args&gt; </div>
           <td class="paramtype">std::same_as&lt; Args, <a class="el" href="structemlabcpp_1_1min__max.html">min_max</a>&lt; T &gt; &gt; &amp;&amp;&#160;</td>
           <td class="paramname"><em>...</em></td><td>)</td>
           <td> const &amp;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a335b4e955623092b8021cbbb539eaeda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a335b4e955623092b8021cbbb539eaeda">&#9670;&nbsp;</a></span>requires() <span class="overload">[15/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">emlabcpp::requires </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a3d6bbe05fdc4482798a8777fd89bd79c">trivial_for_static_storage</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -7912,15 +8174,15 @@ template&lt;std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a>&lt; N &gt; emlabcpp::scale </td>
+          <td class="memname">constexpr <a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::scale </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#af17d6009cc0a80e2faa67f36d49a1e64">triangle</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>scales</em>&#160;</td>
         </tr>
         <tr>
@@ -8319,13 +8581,13 @@ template&lt;typename T , std::size_t N&gt; </div>
         <tr>
           <td class="memname">void emlabcpp::swap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__vector.html">static_vector</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -8863,13 +9125,13 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr float emlabcpp::vector_angle </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -8901,9 +9163,9 @@ template&lt;std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; N &gt; emlabcpp::vector_cast </td>
+          <td class="memname">constexpr <a class="el" href="classemlabcpp_1_1vector.html">vector</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; emlabcpp::vector_cast </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
@@ -9058,7 +9320,7 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr float emlabcpp::volume_of </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; N &gt;, N &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classemlabcpp_1_1simplex.html">simplex</a>&lt; <a class="el" href="classemlabcpp_1_1point.html">point</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>simplex</em></td><td>)</td>
           <td></td>
         </tr>
@@ -9070,7 +9332,7 @@ template&lt;std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a636ba3f9919efa31f356bb6bca5e290d">abs()</a>, <a class="el" href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">copy()</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="classemlabcpp_1_1simplex.html#a1d4f76faf3b981d25919fdfd3f7c21da">emlabcpp::simplex&lt; Item, N &gt;::size()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a636ba3f9919efa31f356bb6bca5e290d">abs()</a>, <a class="el" href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">copy()</a>, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range()</a>, and <a class="el" href="classemlabcpp_1_1simplex.html#a1d4f76faf3b981d25919fdfd3f7c21da">emlabcpp::simplex&lt; Item, N &gt;::size()</a>.</p>
 
 </div>
 </div>
@@ -9303,7 +9565,7 @@ template&lt;std::size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto emlabcpp::bounded_constant = <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, N, N &gt;{}</td>
+          <td class="memname">constexpr auto emlabcpp::bounded_constant = <a class="el" href="classemlabcpp_1_1bounded.html">bounded</a>&lt; std::size_t, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;{}</td>
         </tr>
       </table>
   </td>
@@ -9393,9 +9655,10 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">    (</div>
-<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { data( a ); } || <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { std::data( a ); } ) &amp;&amp;</div>
+<div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>( a ); } || <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">std::data</a>( a ); } ) &amp;&amp;</div>
 <div class="line">    (</div>
 <div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { size( a ); } || <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { std::size( a ); } )</div>
+<div class="ttc" id="anamespaceemlabcpp_html_a22d3558f494b4daf086216cedf167ba7"><div class="ttname"><a href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data</a></div><div class="ttdeci">constexpr pointer data() noexcept</div><div class="ttdoc">Returns pointer to first item of the storage.</div><div class="ttdef"><b>Definition:</b> static_storage.h:108</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -9748,6 +10011,23 @@ template&lt;typename T &gt; </div>
 <div class="line">        { a / b } -&gt; std::convertible_to&lt; T &gt;;</div>
 <div class="line">        { a* b } -&gt; std::convertible_to&lt; T &gt;;</div>
 <div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aefd95e49f36531f3571bdf192561e42c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefd95e49f36531f3571bdf192561e42c">&#9670;&nbsp;</a></span>N</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">emlabcpp::N</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">        <span class="keyword">static</span> constexpr std::size_t capacity = <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a></div>
+<div class="ttc" id="anamespaceemlabcpp_html_aefd95e49f36531f3571bdf192561e42c"><div class="ttname"><a href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a></div><div class="ttdeci">N</div><div class="ttdef"><b>Definition:</b> static_storage.h:97</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -10111,6 +10391,24 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a3d6bbe05fdc4482798a8777fd89bd79c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d6bbe05fdc4482798a8777fd89bd79c">&#9670;&nbsp;</a></span>trivial_for_static_storage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept emlabcpp::trivial_for_static_storage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    std::is_trivially_default_constructible_v&lt; T &gt; &amp;&amp; std::is_trivially_destructible_v&lt; T &gt;</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a8574533cb7c969125a6fde8f5063eff2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8574533cb7c969125a6fde8f5063eff2">&#9670;&nbsp;</a></span>tuple_has_type_v</h2>
 
@@ -10293,7 +10591,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Tue Apr 1 2025 22:02:56 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 2 2025 07:08:35 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
