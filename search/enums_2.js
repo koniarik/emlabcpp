@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['load_5fresult_2478',['load_result',['../namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117',1,'emlabcpp::cfg']]]
+  ['hdr_5fstate_2519',['hdr_state',['../namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1',1,'emlabcpp::cfg']]]
 ];
