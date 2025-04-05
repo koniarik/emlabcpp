@@ -151,8 +151,9 @@ Additional Inherited Members</h2></td></tr>
 <p><code>outcome</code> is designed to be used with SUCCESS, FAILURE, and ERROR global constants. The common semantics should be:</p><ul>
 <li>SUCCESS - operation succeeded</li>
 <li>FAILURE - operation failed, but only in way that can be expected and is not sign of a problem</li>
-<li>ERROR - operaiton errored, in a way that is a sign of a problem For example, for parsing function, FAILURE should be used to mark that the parsed string is not valid, ERROR should be used to mark that unexpected internal error happend (out-of-bound access due to mistake in algorithm) </li>
+<li>ERROR - operaiton errored, in a way that is a sign of a problem For example, for parsing function, FAILURE should be used to mark that the parsed string is not valid, ERROR should be used to mark that unexpected internal error happend (out-of-bound access due to mistake in algorithm)</li>
 </ul>
+<p>Supports comparison: outcome ot = ...; if(ot == outcome::SUCCESS) { ... } </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acabdf699de7872b9ebb6e7306832ae84"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acabdf699de7872b9ebb6e7306832ae84">&#9670;&nbsp;</a></span>outcome() <span class="overload">[1/2]</span></h2>
@@ -309,7 +310,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1outcome.html">outcome</a></li>
-    <li class="footer">Generated on Sat Apr 5 2025 08:13:09 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Apr 5 2025 08:25:05 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"endpoint_8h_source.html":[4,0,0,0,4,3],
 "enum_8h.html":[4,0,0,0,12],
 "enum_8h.html#a39bdb9e4992c495c755d900b23435840":[4,0,0,0,12,0],
 "enum_8h_source.html":[4,0,0,0,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "index.html#autotoc_md23":[1,16],
 "index.html#autotoc_md24":[1,17],
 "index.html#autotoc_md3":[1],
-"index.html#autotoc_md4":[1,0],
-"index.html#autotoc_md5":[1,1]
+"index.html#autotoc_md4":[1,0]
 };
