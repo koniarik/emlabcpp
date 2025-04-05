@@ -37,6 +37,7 @@ enum class result_e : uint8_t
 
 /// `result` represents an result of some operation, as an alternative to returning just `bool` with
 /// true/false value. Result has only two states, SUCCESS or ERROR.
+/// Supports comparison: status st = ...; if(st == result::SUCCESS) { ... }
 struct [[nodiscard]] result : status< result, result_e, result_e::SUCCESS >
 {
         using status::status;

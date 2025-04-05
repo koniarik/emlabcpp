@@ -43,6 +43,8 @@ enum class outcome_e : uint8_t
 /// For example, for parsing function, FAILURE should be used to mark that the parsed string is not
 /// valid, ERROR should be used to mark that unexpected internal error happend (out-of-bound access
 /// due to mistake in algorithm)
+///
+/// Supports comparison: outcome ot = ...; if(ot == outcome::SUCCESS) { ... }
 struct [[nodiscard]] outcome : status< outcome, outcome_e, outcome_e::SUCCESS >
 {
         using status::status;
