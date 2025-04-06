@@ -21,7 +21,10 @@
 /// SOFTWARE.
 #pragma once
 
+#include "../../assert.h"
 #include "../../match.h"
+#include "../../protocol/converter.h"
+#include "../../result.h"
 
 #include <cstdint>
 #include <limits>
@@ -38,7 +41,7 @@ enum class hdr_state : uint8_t
         C = B + 0x40,
 };
 
-inline hdr_state next( hdr_state cs )
+inline hdr_state next( hdr_state cs ) noexcept
 {
         switch ( cs ) {
         case hdr_state::A:
@@ -52,14 +55,29 @@ inline hdr_state next( hdr_state cs )
         }
 }
 
-struct hdr_selector
+inline std::optional< hdr_state > byte_to_hdr( std::byte b ) noexcept
 {
-        hdr_selector( hdr_state cs ) noexcept
+        switch ( b ) {
+        case std::byte{ static_cast< uint8_t >( hdr_state::A ) }:
+                return hdr_state::A;
+        case std::byte{ static_cast< uint8_t >( hdr_state::B ) }:
+                return hdr_state::B;
+        case std::byte{ static_cast< uint8_t >( hdr_state::C ) }:
+                return hdr_state::C;
+        default:
+                return {};
+        }
+}
+
+// find last matching initial state
+struct page_selector
+{
+        page_selector( hdr_state cs ) noexcept
           : cs_( cs )
         {
         }
 
-        void on_cell( std::size_t i, hdr_state cs ) noexcept
+        void on_page( std::size_t i, hdr_state cs ) noexcept
         {
                 if ( cs != cs_ )
                         return;
@@ -72,18 +90,60 @@ struct hdr_selector
         }
 
 private:
-        std::size_t i_;
+        std::size_t i_ = 0;
         hdr_state   cs_;
+};
+
+struct next_page_locator
+{
+
+        bool check_page( std::size_t i, std::byte data[2] ) noexcept
+        {
+                if ( empty_i_ )
+                        return true;
+                auto val = byte_to_hdr( data[0] );
+                // XXX: the XOR is NOT documented anywhere
+                if ( data[0] == std::byte{ 0x00 } || data[0] != ~data[1] || !val ) {
+                        empty_i_ = i;
+                        return true;
+                }
+
+                if ( !psel_ )
+                        psel_ = page_selector{ *val };
+                else
+                        psel_->on_page( i, *val );
+
+                return false;
+        }
+
+        std::pair< std::size_t, hdr_state > finish() && noexcept
+        {
+                if ( psel_ ) {
+                        auto [i, st] = std::move( *psel_ ).finish();
+                        return { i, next( st ) };
+                }
+                return { 0, hdr_state::A };
+        }
+
+private:
+        std::optional< page_selector > psel_;
+        std::optional< std::size_t >   empty_i_;
+        hdr_state                      state_ = hdr_state::A;
 };
 
 // each cell in memory is 64b wide, looks like this:
 // 1b seq | 31b key | 32b val;
 // if `1b` is true, val represents number of cells forming the value
 
-static constexpr uint32_t key_mask     = 0x7FFFFFFF;
+static constexpr uint32_t key_mask = 0x7FFFFFFF;
+
 static constexpr uint32_t sin_bit_mask = 0x80000000;
 
 static_assert( ~key_mask == sin_bit_mask, "key mask and sin bit mask are not correct" );
+
+using cell = uint64_t;
+
+static constexpr std::size_t cell_size = sizeof( cell );
 
 struct ser_res
 {
@@ -134,6 +194,47 @@ inline std::optional< load_res > deser_cell( uint64_t c )
         return r;
 }
 
+inline result store_kval_impl(
+    uint32_t               key,
+    std::span< uint8_t >   front,
+    std::span< uint64_t >  buffer,
+    std::span< uint64_t >& used_area )
+{
+        EMLABCPP_ASSERT(
+            static_cast< void* >( front.data() ) == static_cast< void* >( buffer.data() ) );
+
+        std::size_t const cell_n = 1 + ( front.size() + cell_size - 1 ) / cell_size;
+        if ( cell_n >= buffer.size() )
+                return result::ERROR;
+        std::copy_backward(
+            front.data(), front.data() + front.size(), front.data() + cell_n * cell_size );
+
+        auto r = ser_cell( key, { buffer.data() + 1, cell_n - 1 } );
+        if ( !r )
+                return result::ERROR;
+        buffer[0] = r->cell;
+        used_area = std::span{ buffer.data(), cell_n };
+        return result::SUCCESS;
+}
+
+template < typename T >
+result store_kval(
+    uint32_t               key,
+    T const&               val,
+    std::span< uint64_t >  buffer,
+    std::span< uint64_t >& used_area )
+{
+        using conv = protocol::converter_for< T, std::endian::little >;  // XXX: make endianness
+                                                                         // configurable?
+        if ( buffer.size_bytes() < conv::max_size )
+                return result::ERROR;
+        std::span< uint8_t, conv::max_size > front{ buffer.data() };
+
+        bounded const used = conv::serialize_at( front, val );
+        return store_kval_impl( key, front.subspan( 0, *used ), buffer, used_area );
+}
+
+// iterates over each cell in the page, skipping duplicates
 template < typename KeyCache >
 struct page_loader
 {
@@ -147,12 +248,12 @@ struct page_loader
                 decr( sizeof( cell ) );
         }
 
-        std::size_t addr_to_read()
+        std::size_t addr_to_read() const noexcept
         {
                 return addr_;
         }
 
-        bool errored()
+        bool errored() const
         {
                 return std::holds_alternative< err_st >( state_ );
         }
