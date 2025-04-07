@@ -135,58 +135,68 @@ private:
 // 1b seq | 31b key | 32b val;
 // if `1b` is true, val represents number of cells forming the value
 
-static constexpr uint32_t key_mask = 0x7FFFFFFF;
-
+static constexpr uint32_t key_mask     = 0x7FFFFFFF;
 static constexpr uint32_t sin_bit_mask = 0x80000000;
 
 static_assert( ~key_mask == sin_bit_mask, "key mask and sin bit mask are not correct" );
 
-using cell = uint64_t;
+using cell                              = uint64_t;
+static constexpr std::size_t cell_size  = sizeof( cell );
+static constexpr std::size_t hcell_size = sizeof( cell ) / 2;
 
-static constexpr std::size_t cell_size = sizeof( cell );
-
-struct ser_res
+enum class ser_res : uint8_t
 {
-        uint64_t              cell;
-        std::span< uint64_t > extra;
+        SINGLE,
+        MULTI,
 };
 
-inline std::optional< ser_res > ser_cell( uint32_t key, std::span< uint64_t > value )
+constexpr uint32_t closest_multiple_of( uint32_t x, uint32_t r ) noexcept
 {
-        static constexpr std::size_t u32max = std::numeric_limits< uint32_t >::max();
-        if ( value.empty() || key > sin_bit_mask || value.size() > u32max )
-                return {};
-
-        std::size_t cell_n = value.size() > 1 ? value.size() + 1 :  //
-                                 value[0] > u32max ? 2 :
-                                                     1;
-        auto        u64k   = static_cast< uint64_t >( key );
-        uint64_t    cell;
-        if ( cell_n == 1 )
-                cell = ( ( u64k | sin_bit_mask ) << 32 ) + value[0];
-        else
-                cell = ( u64k << 32 ) + value.size();
-
-        return ser_res{
-            .cell  = cell,
-            .extra = cell_n == 1 ? std::span< uint64_t >{} : value,
-        };
+        return r * ( ( x + r - 1 ) / r );
 }
 
-struct load_res
+inline std::optional< ser_res >
+ser_cell( uint32_t key, std::span< std::byte > value, std::span< std::byte, cell_size > dest )
+{
+        if ( value.empty() || key > sin_bit_mask )
+                return {};
+
+        static_assert( sizeof( uint32_t ) == hcell_size );
+        if ( value.size() <= hcell_size ) {
+                uint32_t val = 0x00;
+                std::memcpy( &val, value.data(), value.size() );
+                uint64_t tmp = key | sin_bit_mask;
+                tmp          = ( tmp << 32 ) + val;
+
+                std::memcpy( dest.data(), &tmp, cell_size );
+                return ser_res::SINGLE;
+        } else {
+                uint32_t size =
+                    closest_multiple_of( static_cast< uint32_t >( value.size() ), cell_size ) /
+                    cell_size;
+                uint64_t tmp = key;
+                tmp          = ( tmp << 32 ) + size;
+                std::memcpy( dest.data(), &tmp, cell_size );
+                return ser_res::MULTI;
+        }
+}
+
+struct deser_res
 {
         bool     is_seq;
         uint32_t key;
         uint32_t val;
 };
 
-inline std::optional< load_res > deser_cell( uint64_t c )
+inline std::optional< deser_res > deser_cell( std::span< std::byte, cell_size > c )
 {
-        auto     front = static_cast< uint32_t >( c >> 32 );
-        load_res r{
+        uint64_t tmp = 0x00;
+        std::memcpy( &tmp, c.data(), c.size() );
+        auto      front = static_cast< uint32_t >( tmp >> 32 );
+        deser_res r{
             .is_seq = !static_cast< bool >( front & sin_bit_mask ),
             .key    = static_cast< uint32_t >( front & key_mask ),
-            .val    = static_cast< uint32_t >( c & 0xFFFFFFFF ),
+            .val    = static_cast< uint32_t >( tmp & 0xFFFF'FFFF ),
         };
 
         if ( r.is_seq && r.val == 0 )
@@ -195,52 +205,58 @@ inline std::optional< load_res > deser_cell( uint64_t c )
 }
 
 inline result store_kval_impl(
-    uint32_t               key,
-    std::span< uint8_t >   front,
-    std::span< uint64_t >  buffer,
-    std::span< uint64_t >& used_area )
+    uint32_t                key,
+    std::byte*              beg,
+    std::byte*              val_end,
+    std::byte*              end,
+    std::span< std::byte >& used_area )
 {
-        EMLABCPP_ASSERT(
-            static_cast< void* >( front.data() ) == static_cast< void* >( buffer.data() ) );
-
-        std::size_t const cell_n = 1 + ( front.size() + cell_size - 1 ) / cell_size;
-        if ( cell_n >= buffer.size() )
+        if ( end - val_end < static_cast< int >( cell_size ) )
                 return result::ERROR;
-        std::copy_backward(
-            front.data(), front.data() + front.size(), front.data() + cell_n * cell_size );
+        std::copy_backward( beg, val_end, val_end + cell_size );
 
-        auto r = ser_cell( key, { buffer.data() + 1, cell_n - 1 } );
-        if ( !r )
+        auto tmp = ser_cell(
+            key,
+            { beg + cell_size, val_end + cell_size },
+            std::span< std::byte, cell_size >{ beg, cell_size } );
+        if ( !tmp )
                 return result::ERROR;
-        buffer[0] = r->cell;
-        used_area = std::span{ buffer.data(), cell_n };
+        switch ( *tmp ) {
+        case ser_res::MULTI:
+                used_area = std::span{ beg, val_end + cell_size };
+                break;
+        case ser_res::SINGLE:
+                used_area = std::span{ beg, cell_size };
+                break;
+        }
         return result::SUCCESS;
 }
 
 template < typename T >
 result store_kval(
-    uint32_t               key,
-    T const&               val,
-    std::span< uint64_t >  buffer,
-    std::span< uint64_t >& used_area )
+    uint32_t                key,
+    T const&                val,
+    std::span< std::byte >  buffer,
+    std::span< std::byte >& used_area )
 {
         using conv = protocol::converter_for< T, std::endian::little >;  // XXX: make endianness
                                                                          // configurable?
-        if ( buffer.size_bytes() < conv::max_size )
+        if ( buffer.size() < conv::max_size )
                 return result::ERROR;
-        std::span< uint8_t, conv::max_size > front{ buffer.data() };
+        std::span< std::byte, conv::max_size > front{ buffer.data(), conv::max_size };
 
         bounded const used = conv::serialize_at( front, val );
-        return store_kval_impl( key, front.subspan( 0, *used ), buffer, used_area );
+
+        return store_kval_impl(
+            key, buffer.data(), buffer.data() + *used, buffer.data() + buffer.size(), used_area );
 }
 
 // iterates over each cell in the page, skipping duplicates
 template < typename KeyCache >
 struct page_loader
 {
-        using cell = uint64_t;
 
-        page_loader( std::size_t end_addr, KeyCache& key_cache, std::span< uint64_t > buffer )
+        page_loader( std::size_t end_addr, KeyCache& key_cache, std::span< std::byte > buffer )
           : addr_( end_addr )
           , key_cache_( key_cache )
           , buffer_( buffer )
@@ -258,7 +274,9 @@ struct page_loader
                 return std::holds_alternative< err_st >( state_ );
         }
 
-        void on_cell( cell c, std::invocable< uint32_t, std::span< uint64_t > > auto&& on_kval )
+        void on_cell(
+            std::span< std::byte, cell_size >                         c,
+            std::invocable< uint32_t, std::span< std::byte > > auto&& on_kval )
         {
                 decr( sizeof( cell ) );
                 state_ = match(
@@ -272,24 +290,27 @@ struct page_loader
                                     return cell_st{};
                             auto [is_seq, key, val] = *tmp;
                             bool skip               = key_cache_( key );
-                            if ( skip ) {
+                            if ( skip ) {  // XXX: test
                                     if ( is_seq )
                                             decr( val * sizeof( cell ) );
                                     return cell_st{};
                             }
 
                             if ( is_seq ) {
-                                    if ( val > buffer_.size() )
+                                    if ( val * sizeof( cell ) > buffer_.size() )
                                             return err_st{};
-                                    return seq_st{ .key = key, .size = val };
+                                    auto x = val * sizeof( cell );
+                                    return seq_st{ .key = key, .i = x, .size = x };
                             }
-                            uint64_t u64val = val;
-                            on_kval( key, std::span{ &u64val, 1 } );
+                            std::byte tmp2[sizeof( val )];
+                            std::memcpy( tmp2, &val, sizeof( val ) );
+                            on_kval( key, std::span{ tmp2 } );
                             return cell_st{};
                     },
                     [&]( seq_st& st ) -> st_var {
-                            buffer_[st.i++] = c;
-                            if ( st.i == st.size ) {
+                            st.i -= sizeof( cell );
+                            std::memcpy( &buffer_[st.i], c.data(), c.size() );
+                            if ( st.i == 0 ) {
                                     on_kval( st.key, { buffer_.data(), st.size } );
                                     return cell_st{};
                             }
@@ -305,7 +326,7 @@ private:
         struct seq_st
         {
                 uint32_t    key;
-                std::size_t i = 0;
+                std::size_t i;
                 std::size_t size;
         };
 
@@ -324,9 +345,9 @@ private:
                         addr_ -= dec;
         }
 
-        std::size_t           addr_;
-        KeyCache              key_cache_;
-        std::span< uint64_t > buffer_;
+        std::size_t            addr_;
+        KeyCache               key_cache_;
+        std::span< std::byte > buffer_;
 };
 
 inline bool is_free_cell( uint64_t cell )

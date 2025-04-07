@@ -27,6 +27,12 @@
 namespace emlabcpp::cfg
 {
 
+std::byte operator"" _b( unsigned long long int val )
+{
+        assert( val <= std::numeric_limits< uint8_t >::max() );
+        return std::byte{ static_cast< uint8_t >( val ) };
+}
+
 hdr_state hdr( char c )
 {
         switch ( c ) {
@@ -39,6 +45,21 @@ hdr_state hdr( char c )
         default:
                 throw std::runtime_error( "Invalid cell state" );
         }
+}
+
+TEST( cfg, closest_multiply_of )
+{
+        auto test_f = [&]( uint32_t x, uint32_t r, uint32_t expected ) {
+                EXPECT_EQ( closest_multiple_of( x, r ), expected )
+                    << "closest_multiple_of( " << x << ", " << r << " ) != " << expected;
+        };
+
+        test_f( 0, 1, 0 );
+        test_f( 1, 1, 1 );
+        test_f( 1, 8, 8 );
+        test_f( 7, 8, 8 );
+        test_f( 8, 8, 8 );
+        test_f( 9, 8, 16 );
 }
 
 TEST( cfg, seq )
@@ -63,61 +84,95 @@ TEST( cfg, seq )
 
 TEST( cfg, zero_cell )
 {
-        auto tmp = deser_cell( 0x00 );
-        EXPECT_FALSE( tmp.has_value() );
+        std::byte tmp[cell_size] = { 0x00_b, 0x00_b, 0x00_b, 0x00_b };
+        auto      r = deser_cell( std::span< std::byte, cell_size >{ tmp, cell_size } );
+        EXPECT_FALSE( r.has_value() );
+
         EXPECT_TRUE( is_free_cell( 0x00 ) );
 }
 
 TEST( cfg, cell )
 {
-        auto test_f =
-            [&]( uint32_t key, std::vector< uint64_t > value, std::vector< uint64_t > expected ) {
-                    auto res = ser_cell( key, value );
-                    EXPECT_TRUE( res.has_value() );
-                    std::vector< uint64_t > tmp = { res->cell };
-                    tmp.insert( tmp.end(), res->extra.begin(), res->extra.end() );
-                    EXPECT_EQ( tmp, expected );
+        auto test_f = [&]( uint32_t key, std::vector< std::byte > value, cell expected ) {
+                std::byte tmp[cell_size] = { 0x00_b };
 
-                    assert( !value.empty() );
-                    std::optional< load_res > lr = deser_cell( res->cell );
-                    EXPECT_EQ( lr->key, key );
-                    if ( expected.size() > 1 ) {
-                            EXPECT_TRUE( lr->is_seq );
-                            EXPECT_EQ( lr->val, expected.size() - 1 );
-                    } else {
-                            EXPECT_FALSE( lr->is_seq );
-                            EXPECT_EQ( lr->val, value[0] );
-                    }
-            };
+                ser_cell( key, value, std::span< std::byte, cell_size >{ tmp, cell_size } );
+                cell tmp2 = 0x00;
+                std::memcpy( &tmp2, tmp, cell_size );
+                EXPECT_EQ( tmp2, expected ) << std::hex << tmp2 << " != " << expected;
 
-        auto test_fs = [&]( uint32_t key, uint32_t value, uint64_t expected ) {
-                test_f( key, { value }, { expected } );
+                std::optional< deser_res > lr =
+                    deser_cell( std::span< std::byte, cell_size >{ tmp, cell_size } );
+                EXPECT_EQ( lr->key, key );
+                if ( value.size() > cell_size / 2 ) {
+                        EXPECT_TRUE( lr->is_seq );
+                        EXPECT_EQ(
+                            lr->val,
+                            closest_multiple_of(
+                                static_cast< uint32_t >( value.size() ), cell_size ) /
+                                cell_size );
+                } else {
+                        uint32_t val = 0x00;
+                        std::memcpy( &val, value.data(), value.size() );
+                        EXPECT_FALSE( lr->is_seq );
+                        EXPECT_EQ( lr->val, val ) << std::hex << lr->val << " != " << val;
+                }
+        };
+
+        auto test_fs = [&]( uint32_t key, uint32_t value, cell expected ) {
+                std::byte tmp[sizeof value];
+                std::memcpy( tmp, &value, sizeof value );
+                test_f( key, { std::begin( tmp ), std::end( tmp ) }, expected );
         };
 
         test_fs( 0x7FFF'FFFF, 0xFFFF'FFFF, 0xFFFF'FFFF'FFFF'FFFF );
         test_fs( 0x1234'5678, 0x1234'5678, 0x9234'5678'1234'5678 );
         test_f(
             0x1234'5678,
-            { 0x1234'5678, 0xFFFF'FFFF },
-            { 0x1234'5678'0000'0002, 0x1234'5678, 0xFFFF'FFFF } );
-        test_f(
-            0x1234'5678,
-            { 0xFFFF'FFFF'FFFF'FFFF },
-            { 0x1234'5678'0000'0001, 0xFFFF'FFFF'FFFF'FFFF } );
+            { 0x12_b, 0x56_b, 0xFF_b, 0xFF_b, 0x12_b, 0x56_b, 0xFF_b, 0xFF_b, 0xFF_b },
+            0x1234'5678'0000'0002 );
+        test_f( 0x1234'5678, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b }, 0x1234'5678'0000'0001 );
+}
+
+TEST( cfg, store )
+{
+        auto test_f = [&]< typename T >( uint32_t key, T value, std::size_t size ) {
+                std::byte              buffer[42];
+                std::span< std::byte > used_area;
+                auto                   res = store_kval( key, value, buffer, used_area );
+                EXPECT_EQ( res, result::SUCCESS );
+                EXPECT_EQ( used_area.size(), size );
+        };
+
+        test_f( 0x0FFF'FFFF, 3.14F, 8 );
+        test_f( 0x0FFF'FFFF, uint32_t{ 42 }, 8 );
+        test_f( 0x0FFF'FFFF, uint64_t{ 0xFFFF'FFFF'FFFF'FFFF }, 16 );
 }
 
 struct buffer_builder
 {
-        auto& add( uint32_t key, std::vector< uint64_t > value ) &
+        auto& add( uint32_t key, std::vector< std::byte > value ) &
         {
-                auto res = ser_cell( key, value );
-                EXPECT_TRUE( res.has_value() );
-                buffer_.insert( buffer_.end(), res->extra.rbegin(), res->extra.rend() );
-                buffer_.emplace_back( res->cell );
+                std::byte tmp[cell_size];
+                auto      res =
+                    ser_cell( key, value, std::span< std::byte, cell_size >{ tmp, cell_size } );
+                switch ( *res ) {
+                case ser_res::SINGLE:
+                        break;
+                case ser_res::MULTI:
+                        std::vector< std::byte > tmp2(
+                            closest_multiple_of(
+                                static_cast< uint32_t >( value.size() ), cell_size ),
+                            0x00_b );
+                        std::memcpy( tmp2.data(), value.data(), value.size() );
+                        buffer_.insert( buffer_.end(), tmp2.begin(), tmp2.end() );
+                        break;
+                }
+                buffer_.insert( buffer_.end(), std::begin( tmp ), std::end( tmp ) );
                 return *this;
         }
 
-        auto add( uint32_t key, std::vector< uint64_t > value ) &&
+        auto add( uint32_t key, std::vector< std::byte > value ) &&
         {
                 this->add( key, std::move( value ) );
                 return std::move( *this );
@@ -128,15 +183,18 @@ struct buffer_builder
                 return std::move( buffer_ );
         }
 
-        std::vector< uint64_t > buffer_;
+        std::vector< std::byte > buffer_;
 };
 
 TEST( cfg, loader )
 {
-        using kv = std::pair< uint32_t, std::vector< uint64_t > >;
+        using kv = std::pair< uint32_t, std::vector< std::byte > >;
 
         auto test_f = [&]( std::vector< kv > data ) {
-                std::map< uint64_t, std::vector< uint64_t > > expected{ data.begin(), data.end() };
+                std::map< uint32_t, std::vector< std::byte > > expected{ data.begin(), data.end() };
+                for ( auto& [key, value] : expected )
+                        while ( value.size() % cell_size != 0 )
+                                value.push_back( 0x00_b );
 
                 buffer_builder bb;
                 for ( auto& [key, value] : data )
@@ -146,18 +204,22 @@ TEST( cfg, loader )
                 auto key_check = []( auto&& ) {
                         return false;
                 };
-                std::map< uint64_t, std::vector< uint64_t > > res;
-                uint64_t                                      tmp[42];
-                page_loader pl( buffer.size() * sizeof( uint64_t ), key_check, tmp );
+                std::map< uint32_t, std::vector< std::byte > > res;
+
+                std::byte tmp[42];
+
+                page_loader pl( buffer.size(), key_check, tmp );
                 while ( !pl.errored() ) {
                         auto addr = pl.addr_to_read();
                         if ( addr == 0 && buffer.size() == 0 )
                                 break;
                         pl.on_cell(
-                            buffer[addr / sizeof( uint64_t )],
-                            [&]( uint32_t key, std::span< uint64_t > value ) {
-                                    res[key] =
-                                        std::vector< uint64_t >{ value.begin(), value.end() };
+                            std::span< std::byte, cell_size >{ &buffer[addr], cell_size },
+                            [&]( uint32_t key, std::span< std::byte > value ) {
+                                    auto& vec = res[key] =
+                                        std::vector< std::byte >{ value.begin(), value.end() };
+                                    while ( vec.size() % cell_size != 0 )
+                                            vec.push_back( 0x00_b );
                             } );
                         if ( addr == 0x00 )
                                 break;
@@ -166,32 +228,49 @@ TEST( cfg, loader )
                 EXPECT_EQ( res, expected );
         };
 
-        test_f(
-            { { 0x1, { 0xFFFF'FFFF } },
-              { 0x2, { 0xFFFF'FFFF } },
-              { 0x3, { 0xFFFF'FFFF } },
-              { 0x4, { 0xFFFF'FFFF } } } );
-
-        test_f(
-            { { 0x1, { 0xFFFF'FFFF } },
-              { 0x2, { 0xFFFF'FFFF } },
-              { 0x3, { 0xFFFF'FFFF } },
-              { 0x4, { 0xFFFF'FFFF, 0xFFFF'FFFF } } } );
-
-        test_f(
-            { { 0x1, { 0xFFFF'FFFF } },
-              { 0x2, { 0xFFFF'FFFF, 1, 2, 3, 4, 5 } },
-              { 0x3, { 0xFFFF'FFFF } },
-              { 0x4, { 0xFFFF'FFFF, 0xFFFF'FFFF, 0xFFFF'FFFF } } } );
-
-        test_f(
-            { { 0x1, { 0xFFFF'FFFF, 12, 3, 4, 5, 453, 43, 43, 43, 4, 3, 4, 343, 43 } },
-              { 0x3, { 0xFFFF'FFFF } },
-              { 0x4, { 0xFFFF'FFFF, 0xFFFF'FFFF, 0xFFFF'FFFF } } } );
-
-        test_f( { { 0x1, { 0xFFFF'FFFF, 12, 3, 4, 5, 453, 43, 43, 43, 4, 3, 4, 343, 43 } } } );
-        test_f( { { 0x1, { 0xFFFF'FFFF } } } );
+        // XXX: the fact that we always have to padd this to multiple is a bit weird
         test_f( {} );
+        test_f( { { 0x1, { 0x11_b, 0x12_b, 0x13_b, 0x14_b } } } );
+        test_f(
+            { { 0x1,
+                { 0x19_b,
+                  0x18_b,
+                  0x17_b,
+                  0x16_b,
+                  0x15_b,
+                  0x14_b,
+                  0x13_b,
+                  0x12_b,
+                  0x11_b,
+                  0x10_b,
+                  0x00_b,
+                  0x00_b,
+                  0x00_b,
+                  0x00_b,
+                  0x00_b,
+                  0x00_b } } } );
+        test_f(
+            { { __LINE__, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } },
+              { 0x2, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } },
+              { 0x3, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } },
+              { 0x4, { 0x01_b, 0x02_b, 0x03_b, 0x04_b } } } );
+
+        test_f(
+            { { __LINE__, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } },
+              { 0x2, { 0xFF_b, 0xFF_b, 0x00_b, 0x00_b } },
+              { 0x3, { 0xFF_b, 0xFF_b, 0x00_b, 0x00_b } },
+              { 0x4, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } } } );
+
+        test_f(
+            { { __LINE__, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } },
+              { 0x2, { 0xFF_b, 0xFF_b, 1_b, 2_b, 3_b, 4_b, 5_b } },
+              { 0x3, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } },
+              { 0x4, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } } } );
+
+        test_f(
+            { { __LINE__, { 0xFF_b, 0xFF_b, 12_b, 3_b, 43_b, 43_b, 4_b, 3_b, 4_b, 34_b, 43_b } },
+              { 0x3, { 0xFF_b, 0xFF_b } },
+              { 0x4, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } } } );
 }
 
 }  // namespace emlabcpp::cfg

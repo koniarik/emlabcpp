@@ -8,9 +8,9 @@ cpmaddpackage(
   GITHUB_REPOSITORY
   google/googletest
   GIT_TAG
-  release-1.12.1
+  v1.16.0
   VERSION
-  1.12.1
+  1.16.0
   OPTIONS
   "INSTALL_GTEST OFF"
   "gtest_force_shared_crt")
