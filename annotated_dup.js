@@ -10,8 +10,7 @@ var annotated_dup =
         [ "handler", "structemlabcpp_1_1cfg_1_1handler.html", "structemlabcpp_1_1cfg_1_1handler" ],
         [ "page_selector", "structemlabcpp_1_1cfg_1_1page__selector.html", "structemlabcpp_1_1cfg_1_1page__selector" ],
         [ "next_page_locator", "structemlabcpp_1_1cfg_1_1next__page__locator.html", "structemlabcpp_1_1cfg_1_1next__page__locator" ],
-        [ "ser_res", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1ser__res", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1ser__res_dup" ],
-        [ "load_res", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1load__res", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1load__res_dup" ],
+        [ "deser_res", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1deser__res_dup" ],
         [ "page_loader", "structemlabcpp_1_1cfg_1_1page__loader.html", "structemlabcpp_1_1cfg_1_1page__loader" ]
       ] ],
       [ "coro", "namespaceemlabcpp_1_1coro.html", [

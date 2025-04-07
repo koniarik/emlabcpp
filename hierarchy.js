@@ -87,6 +87,7 @@ var hierarchy =
     [ "emlabcpp::pmr::deleter", "structemlabcpp_1_1pmr_1_1deleter.html", null ],
     [ "emlabcpp::rpc::derive< ID, Method >", "structemlabcpp_1_1rpc_1_1derive.html", null ],
     [ "emlabcpp::derived_storage< T, N >", "classemlabcpp_1_1derived__storage.html", null ],
+    [ "emlabcpp::cfg::deser_res", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res", null ],
     [ "std::disjunction", null, [
       [ "emlabcpp::tuple_has_type< T, std::tuple< Us... > >", "structemlabcpp_1_1tuple__has__type_3_01T_00_01std_1_1tuple_3_01Us_8_8_8_01_4_01_4.html", null ]
     ] ],
@@ -164,7 +165,6 @@ var hierarchy =
       [ "emlabcpp::linked_list_node< empty_node_impl >", "classemlabcpp_1_1linked__list__node.html", null ],
       [ "emlabcpp::linked_list_node< T, Base >", "classemlabcpp_1_1linked__list__node.html", null ]
     ] ],
-    [ "emlabcpp::cfg::load_res", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1load__res", null ],
     [ "emlabcpp::impl::map_f_collector< typename >", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector", null ],
     [ "emlabcpp::impl::map_f_collector< std::array< T, N > >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::impl::map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", null ],
@@ -270,7 +270,6 @@ var hierarchy =
     [ "emlabcpp::select_utype< size_t >", "namespaceemlabcpp.html#structemlabcpp_1_1select__utype", null ],
     [ "emlabcpp::protocol::sequencer< Def >", "classemlabcpp_1_1protocol_1_1sequencer.html", null ],
     [ "emlabcpp::protocol::packet< Def, Payload >::sequencer_def", "structemlabcpp_1_1protocol_1_1packet_1_1sequencer__def.html", null ],
-    [ "emlabcpp::cfg::ser_res", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1ser__res", null ],
     [ "emlabcpp::protocol::serializer< T, Endianess >", "structemlabcpp_1_1protocol_1_1serializer.html", null ],
     [ "emlabcpp::protocol::serializer< bool, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01bool_00_01Endianess_01_4.html", null ],
     [ "emlabcpp::protocol::serializer< float, Endianess >", "structemlabcpp_1_1protocol_1_1serializer_3_01float_00_01Endianess_01_4.html", null ],

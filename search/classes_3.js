@@ -1,12 +1,13 @@
 var searchData=
 [
-  ['data_5fiterator_5fof_1314',['data_iterator_of',['../namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of',1,'emlabcpp']]],
-  ['data_5fpromise_1315',['data_promise',['../structemlabcpp_1_1coro_1_1data__promise.html',1,'emlabcpp::coro']]],
-  ['data_5fpromise_3c_20void_20_3e_1316',['data_promise&lt; void &gt;',['../structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4.html',1,'emlabcpp::coro']]],
-  ['decode_5fcobs_5fiter_1317',['decode_cobs_iter',['../classemlabcpp_1_1decode__cobs__iter.html',1,'emlabcpp']]],
-  ['decompose_5fanything_1318',['decompose_anything',['../structemlabcpp_1_1detail_1_1decompose__anything.html',1,'emlabcpp::detail']]],
-  ['defer_1319',['defer',['../classemlabcpp_1_1defer.html',1,'emlabcpp']]],
-  ['deleter_1320',['deleter',['../structemlabcpp_1_1pmr_1_1deleter.html',1,'emlabcpp::pmr']]],
-  ['derive_1321',['derive',['../structemlabcpp_1_1rpc_1_1derive.html',1,'emlabcpp::rpc']]],
-  ['derived_5fstorage_1322',['derived_storage',['../classemlabcpp_1_1derived__storage.html',1,'emlabcpp']]]
+  ['data_5fiterator_5fof_1316',['data_iterator_of',['../namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of',1,'emlabcpp']]],
+  ['data_5fpromise_1317',['data_promise',['../structemlabcpp_1_1coro_1_1data__promise.html',1,'emlabcpp::coro']]],
+  ['data_5fpromise_3c_20void_20_3e_1318',['data_promise&lt; void &gt;',['../structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4.html',1,'emlabcpp::coro']]],
+  ['decode_5fcobs_5fiter_1319',['decode_cobs_iter',['../classemlabcpp_1_1decode__cobs__iter.html',1,'emlabcpp']]],
+  ['decompose_5fanything_1320',['decompose_anything',['../structemlabcpp_1_1detail_1_1decompose__anything.html',1,'emlabcpp::detail']]],
+  ['defer_1321',['defer',['../classemlabcpp_1_1defer.html',1,'emlabcpp']]],
+  ['deleter_1322',['deleter',['../structemlabcpp_1_1pmr_1_1deleter.html',1,'emlabcpp::pmr']]],
+  ['derive_1323',['derive',['../structemlabcpp_1_1rpc_1_1derive.html',1,'emlabcpp::rpc']]],
+  ['derived_5fstorage_1324',['derived_storage',['../classemlabcpp_1_1derived__storage.html',1,'emlabcpp']]],
+  ['deser_5fres_1325',['deser_res',['../namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res',1,'emlabcpp::cfg']]]
 ];

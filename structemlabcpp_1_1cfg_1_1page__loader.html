@@ -85,7 +85,6 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1cfg_1_1page__loader.
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="structemlabcpp_1_1cfg_1_1page__loader-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -95,42 +94,20 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1cfg_1_1page__loader.
 
 <p><code>#include &lt;<a class="el" href="experimental_2cfg2_2handler_8h_source.html">handler.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:ad49db0dfa49b2cf370395af50c8678fb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#ad49db0dfa49b2cf370395af50c8678fb">cell</a> = uint64_t</td></tr>
-<tr class="separator:ad49db0dfa49b2cf370395af50c8678fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae0f8af8afc3a7811950c91ebd0320a72"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#ae0f8af8afc3a7811950c91ebd0320a72">page_loader</a> (std::size_t end_addr, KeyCache &amp;key_cache, std::span&lt; uint64_t &gt; buffer)</td></tr>
-<tr class="separator:ae0f8af8afc3a7811950c91ebd0320a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48aa9377e72bbe3c55635893a05c8631"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#a48aa9377e72bbe3c55635893a05c8631">page_loader</a> (std::size_t end_addr, KeyCache &amp;key_cache, std::span&lt; std::byte &gt; buffer)</td></tr>
+<tr class="separator:a48aa9377e72bbe3c55635893a05c8631"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76a4461aa765dc6e4a6ff47de9fe85c2"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#a76a4461aa765dc6e4a6ff47de9fe85c2">addr_to_read</a> () const noexcept</td></tr>
 <tr class="separator:a76a4461aa765dc6e4a6ff47de9fe85c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50513c95de23c9150657360cecfcd18d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#a50513c95de23c9150657360cecfcd18d">errored</a> () const</td></tr>
 <tr class="separator:a50513c95de23c9150657360cecfcd18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a497949e23588543d87ba5f9a59a57a6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#a497949e23588543d87ba5f9a59a57a6e">on_cell</a> (<a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#ad49db0dfa49b2cf370395af50c8678fb">cell</a> c, std::invocable&lt; uint32_t, std::span&lt; uint64_t &gt; &gt; auto &amp;&amp;on_kval)</td></tr>
-<tr class="separator:a497949e23588543d87ba5f9a59a57a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80345eb19022388da5164eaf7c25486a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#a80345eb19022388da5164eaf7c25486a">on_cell</a> (std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> &gt; c, std::invocable&lt; uint32_t, std::span&lt; std::byte &gt; &gt; auto &amp;&amp;on_kval)</td></tr>
+<tr class="separator:a80345eb19022388da5164eaf7c25486a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="ad49db0dfa49b2cf370395af50c8678fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad49db0dfa49b2cf370395af50c8678fb">&#9670;&nbsp;</a></span>cell</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename KeyCache &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html">emlabcpp::cfg::page_loader</a>&lt; KeyCache &gt;::<a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#ad49db0dfa49b2cf370395af50c8678fb">cell</a> =  uint64_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae0f8af8afc3a7811950c91ebd0320a72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0f8af8afc3a7811950c91ebd0320a72">&#9670;&nbsp;</a></span>page_loader()</h2>
+<a id="a48aa9377e72bbe3c55635893a05c8631"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48aa9377e72bbe3c55635893a05c8631">&#9670;&nbsp;</a></span>page_loader()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,7 +132,7 @@ template&lt;typename KeyCache &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::span&lt; uint64_t &gt;&#160;</td>
+          <td class="paramtype">std::span&lt; std::byte &gt;&#160;</td>
           <td class="paramname"><em>buffer</em>&#160;</td>
         </tr>
         <tr>
@@ -228,8 +205,8 @@ template&lt;typename KeyCache &gt; </div>
 
 </div>
 </div>
-<a id="a497949e23588543d87ba5f9a59a57a6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a497949e23588543d87ba5f9a59a57a6e">&#9670;&nbsp;</a></span>on_cell()</h2>
+<a id="a80345eb19022388da5164eaf7c25486a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80345eb19022388da5164eaf7c25486a">&#9670;&nbsp;</a></span>on_cell()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,13 +219,13 @@ template&lt;typename KeyCache &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html">emlabcpp::cfg::page_loader</a>&lt; KeyCache &gt;::on_cell </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#ad49db0dfa49b2cf370395af50c8678fb">cell</a>&#160;</td>
+          <td class="paramtype">std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> &gt;&#160;</td>
           <td class="paramname"><em>c</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::invocable&lt; uint32_t, std::span&lt; uint64_t &gt; &gt; auto &amp;&amp;&#160;</td>
+          <td class="paramtype">std::invocable&lt; uint32_t, std::span&lt; std::byte &gt; &gt; auto &amp;&amp;&#160;</td>
           <td class="paramname"><em>on_kval</em>&#160;</td>
         </tr>
         <tr>
@@ -264,7 +241,7 @@ template&lt;typename KeyCache &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa73825d81ea0cf74db553ceee304f54c">emlabcpp::cfg::deser_cell()</a>, <a class="el" href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match()</a>, and <a class="el" href="namespaceemlabcpp_1_1testing.html#a629b37146851ed10536be82200b8e178">emlabcpp::testing::skip()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa90efe2e41f9e7f7758eef35798905a8">emlabcpp::cfg::deser_cell()</a>, <a class="el" href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match()</a>, and <a class="el" href="namespaceemlabcpp_1_1testing.html#a629b37146851ed10536be82200b8e178">emlabcpp::testing::skip()</a>.</p>
 
 </div>
 </div>
@@ -277,7 +254,7 @@ template&lt;typename KeyCache &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1cfg.html">cfg</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html">page_loader</a></li>
-    <li class="footer">Generated on Sun Apr 6 2025 16:12:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 7 2025 06:18:37 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

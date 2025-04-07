@@ -8,6 +8,7 @@ var searchData=
   ['has_5fsingle_5felement_434',['has_single_element',['../classemlabcpp_1_1bounded.html#a16ff2cd92759c7f62ef87df2c09a1ba0',1,'emlabcpp::bounded']]],
   ['has_5fstatic_5fsize_5fv_435',['has_static_size_v',['../namespaceemlabcpp.html#adaca063c7275419f3999bd854c88de3d',1,'emlabcpp']]],
   ['hash_3c_20t_20_3e_436',['hash&lt; T &gt;',['../structstd_1_1hash_3_01T_01_4.html',1,'std']]],
-  ['hdr_5fstate_437',['hdr_state',['../namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1',1,'emlabcpp::cfg']]],
-  ['header_438',['header',['../namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header',1,'emlabcpp::cfg']]]
+  ['hcell_5fsize_437',['hcell_size',['../namespaceemlabcpp_1_1cfg.html#ac48a218727104b3d96e0b40009076ebc',1,'emlabcpp::cfg']]],
+  ['hdr_5fstate_438',['hdr_state',['../namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1',1,'emlabcpp::cfg']]],
+  ['header_439',['header',['../namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header',1,'emlabcpp::cfg']]]
 ];
