@@ -71,7 +71,7 @@ for_each(vec_data, [&]( int item ){
 });
 
 std::size_t index = find_if(tpl_data, [&]( auto item ){
-    return std::is_same_v< decltype(item), std::string >(item);
+    return std::is_same_v< decltype(item), std::string >;
 });
 auto iter = find_if(vec_data, [&]( int i ){
     return i != 0;
@@ -97,7 +97,7 @@ Provides `bounded<T,Min,Max>` class that envelops type `T` and provides interfac
 For example:
 
 ```cpp
-void T::set_power(bounded<float, -1.f, 1.f>)
+using power = bounded<int, -1024, 1024>;
 ```
 
 ### concepts.h
@@ -109,9 +109,9 @@ A set of C++ concepts designed for implementing a checks inside the library.
 Simple utility class to setup code segments executed after the end of scope:
 
 ```cpp
-void exec_job(){
+{
     defer d = []{
-        send_finished_message();
+        // do something on exit;
     };
     // ...
 }
@@ -125,7 +125,7 @@ Provides a function that converts enum value into string representative, this ei
 For example:
 ```cpp
 enum e_type {
-    FOO = 0;
+    FOO = 0,
 };
 
 std::cout << convert_enum(FOO) << std::endl;
@@ -146,49 +146,12 @@ Keep in mind that this is for "general" use case, and for optimallity you may be
 Iterator that mimics real data container of sequence of numbers. The number is stored inside the iterator and when iterator is advanced, so is the internal value changed. Use functions like `range(from,to)` to creates a range from this iterators.
 
 ```cpp
-std::vector<int> vec_data;
+std::vector<int> vec_data = {1,2,3,4,5};
 
 for(std::size_t i : range(vec_data.size()-1))
 {
     std::cout << vec_data[i] << '-' << vec_data[i+1] << '\n';
 }
-```
-
-#### iterators/subscript.h
-
-Iterator over datatype that implemented operator[] but does not have iterators.
-
-```cpp
-std::bitset<32> bit_data;
-
-for(bool b : subscript_view(bit_data))
-{
-    std::cout << (b ? 'a' : 'b');
-}
-```
-
-#### iterators/access.h
-
-Iterators overlays the data stored in input container, and provides access only to 'reference' provided by function out of item in the container.
-
-```cpp
-
-struct foo{
-    std::string attr;
-}
-
-std::vector<foo> vec_data;
-
-auto acview = access_view(vec_data,
-                          [](const foo& item) -> const std::string& {
-                            return item.attr;
-                          });
-
-for(const std::string & item : acview)
-{
-    std::cout << item << '\n';
-}
-
 ```
 
 ### match.h
@@ -197,15 +160,12 @@ Match is mechanism similar to `std::visit(Callable,Variant)`, but one that chang
 
 This makes it possible to write constructs such as these:
 ```cpp
-std::variant<StateA, StateB, StateC> states;
+std::variant<int, std::string> states;
 match(states,
-    [&](StateA sa){
+    [&](int x){
         // ...
     },
-    [&](StateB sb){
-        // ...
-    },
-    [&](StateC sc){
+    [&](std::string&){
         // ...
     });
 ```
@@ -223,12 +183,12 @@ This increases safety of physical computations, as it enforces correct units in 
 The `operator<<` is overloaded to output units for the type, such as: `0.25m`
 
 ```cpp
-position uniform_accel(position s0, velocity v0, acceleration a, timeq t)
+auto uniform_accel = [](distance s0, velocity v0, acceleration a, timeq t) -> distance
 {
-    return s0 + v0*t + 0.5*a*t*t;
-}
+    return s0 + v0*t + 0.5F*a*t*t;
+};
 
-std::cout << position{0.25};
+std::cout << distance{0.25};
 ```
 
 ### pid.h
@@ -251,7 +211,7 @@ enum robot_cmds : uint8_t
     FORWARD = 0,
     LEFT = 1,
     RIGHT = 2
-}
+};
 
 struct robot_cmd_group
   : protocol::command_group< std::endian::little >::with_commands<
@@ -277,7 +237,7 @@ Basic implementation of circular buffer with static maximal size, that can store
 No dynamic allocation is used.
 
 ```cpp
-static_circular_buffer<std::byte, 256> buffr;
+static_circular_buffer<int, 256> buffr;
 
 for(int i : {0,1,2,3,4,5,6})
 {
@@ -310,11 +270,11 @@ using data = std::vector<int>;
 
 auto fun = [](int i) -> std::string
 {
-    return std::to_string(i)
+    return std::to_string(i);
 };
-using fun = decltype(fun);
+using fun_t = decltype(fun);
 
-static_assert(std::is_same_v<mapped_t<data, fun>, std::string>);
+static_assert(std::is_same_v<mapped_t<data, fun_t>, std::string>);
 
 ```
 
@@ -340,7 +300,7 @@ for(int i : view{vec_data.begin() + 2, vec_data.end()})
 }
 std::cout << '\n';
 
-for(int i : view_n(vec_data, 4))
+for(int i : view_n(vec_data.data(), 4))
 {
     std::cout << i << ',';
 }
@@ -367,7 +327,7 @@ This is especially handy in combination with numeric iterator. Example is `enume
 
 std::vector<int> vec_data{-1,1,-1,1,-1,1};
 
-for(int [i,val] : enumerate(vec_data))
+for(auto [i,val] : enumerate(vec_data))
 {
     std::cout << i << "\t:" << val << '\n';
 }
@@ -375,7 +335,7 @@ for(int [i,val] : enumerate(vec_data))
 std::vector<std::string> names = {"john", "clark"};
 std::vector<std::string> surnames = {"deer", "kent"};
 
-for(int [name, surname] : zip(names, surnames))
+for(auto [name, surname] : zip(names, surnames))
 {
     std::cout << name << '\t' << surname << '\n';
 }

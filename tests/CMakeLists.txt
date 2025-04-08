@@ -68,3 +68,14 @@ file(GLOB TESTS ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 add_executable(emlabcpp_tests ${TESTS} util/operations_counter.cpp)
 target_link_libraries(emlabcpp_tests gtest GTest::gtest_main)
 emlabcpp_setup_test(emlabcpp_tests)
+
+add_custom_command(
+  OUTPUT ${CMAKE_BINARY_DIR}/readme.cpp
+  COMMAND
+    python3 ${CMAKE_CURRENT_SOURCE_DIR}/gen_readme_cpp.py
+    ${CMAKE_CURRENT_SOURCE_DIR}/../README.md ${CMAKE_BINARY_DIR}/readme.cpp
+  DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/../README.md
+          ${CMAKE_CURRENT_SOURCE_DIR}/gen_readme_cpp.py)
+add_executable(readme ${CMAKE_BINARY_DIR}/readme.cpp)
+target_link_libraries(readme PUBLIC emlabcpp gtest GTest::gtest_main)
+add_test(NAME readme COMMAND readme)
