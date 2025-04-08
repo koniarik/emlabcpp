@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "emlabcpp::cfg::activ_page_sel", "structemlabcpp_1_1cfg_1_1activ__page__sel.html", null ],
     [ "emlabcpp::pmr::allocator< T >", "classemlabcpp_1_1pmr_1_1allocator.html", null ],
     [ "emlabcpp::are_same<... >", "namespaceemlabcpp.html#structemlabcpp_1_1are__same", null ],
     [ "std::array< T >", null, [
@@ -189,7 +190,6 @@ var hierarchy =
     ] ],
     [ "emlabcpp::protocol::msg_format< T >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1msg__format", null ],
     [ "emlabcpp::protocol::multiplexed_endpoint< Packet >", "classemlabcpp_1_1protocol_1_1multiplexed__endpoint.html", null ],
-    [ "emlabcpp::cfg::next_page_locator", "structemlabcpp_1_1cfg_1_1next__page__locator.html", null ],
     [ "emlabcpp::testing::no_response_error", "structemlabcpp_1_1testing_1_1no__response__error.html", null ],
     [ "std::numeric_limits< T >", "structstd_1_1numeric__limits_3_01T_01_4.html", null ],
     [ "emlabcpp::coro::owning_coroutine_handle< PromiseType >", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", null ],
@@ -197,7 +197,6 @@ var hierarchy =
     [ "emlabcpp::testing::packet_def", "structemlabcpp_1_1testing_1_1packet__def.html", null ],
     [ "emlabcpp::protocol::packet_handler< Packet >", "structemlabcpp_1_1protocol_1_1packet__handler.html", null ],
     [ "emlabcpp::cfg::page_loader< KeyCache >", "structemlabcpp_1_1cfg_1_1page__loader.html", null ],
-    [ "emlabcpp::cfg::page_selector", "structemlabcpp_1_1cfg_1_1page__selector.html", null ],
     [ "emlabcpp::testing::param_child_count_processor", "structemlabcpp_1_1testing_1_1param__child__count__processor.html", null ],
     [ "emlabcpp::testing::param_child_count_reply", "structemlabcpp_1_1testing_1_1param__child__count__reply.html", null ],
     [ "emlabcpp::testing::param_child_count_request", "structemlabcpp_1_1testing_1_1param__child__count__request.html", null ],

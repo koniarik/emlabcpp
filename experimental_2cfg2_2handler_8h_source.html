@@ -89,394 +89,295 @@ $(document).ready(function(){initNavTree('experimental_2cfg2_2handler_8h_source.
 <div class="contents">
 <a href="experimental_2cfg2_2handler_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../../assert.h&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;../../match.h&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;../../protocol/converter.h&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;../../result.h&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;optional&gt;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;span&gt;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1cfg.html">emlabcpp::cfg</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">   37</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> : uint8_t</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29">A</a> = 0x40,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a9d5ed678fe57bcca610140957afab571">B</a> = <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29">A</a> + 0x40,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a0d61f8370cad1d412f80b84d143e1257">C</a> = <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a9d5ed678fe57bcca610140957afab571">B</a> + 0x40,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a8e03f9106771ab434a50622f4432bee0">   44</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a8e03f9106771ab434a50622f4432bee0">next</a>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> cs ) noexcept</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">switch</span> ( cs ) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29">hdr_state::A</a>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a9d5ed678fe57bcca610140957afab571">hdr_state::B</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a9d5ed678fe57bcca610140957afab571">hdr_state::B</a>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a0d61f8370cad1d412f80b84d143e1257">hdr_state::C</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a0d61f8370cad1d412f80b84d143e1257">hdr_state::C</a>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29">hdr_state::A</a>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">return</span> cs;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a761c82c27449395f92439319e3846e39">   58</a></span>&#160;<span class="keyword">inline</span> std::optional&lt; hdr_state &gt; <a class="code" href="namespaceemlabcpp_1_1cfg.html#a761c82c27449395f92439319e3846e39">byte_to_hdr</a>( <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> b ) noexcept</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">switch</span> ( b ) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>{ <span class="keyword">static_cast&lt;</span> uint8_t <span class="keyword">&gt;</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29">hdr_state::A</a> ) }:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29">hdr_state::A</a>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>{ <span class="keyword">static_cast&lt;</span> uint8_t <span class="keyword">&gt;</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a9d5ed678fe57bcca610140957afab571">hdr_state::B</a> ) }:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a9d5ed678fe57bcca610140957afab571">hdr_state::B</a>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>{ <span class="keyword">static_cast&lt;</span> uint8_t <span class="keyword">&gt;</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a0d61f8370cad1d412f80b84d143e1257">hdr_state::C</a> ) }:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a0d61f8370cad1d412f80b84d143e1257">hdr_state::C</a>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">return</span> {};</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">// find last matching initial state</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__selector.html">   73</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1cfg_1_1page__selector.html">page_selector</a></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__selector.html#ac3e32859a2ab2fe73b951bdb25c99129">   75</a></span>&#160;        <a class="code" href="structemlabcpp_1_1cfg_1_1page__selector.html#ac3e32859a2ab2fe73b951bdb25c99129">page_selector</a>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> cs ) noexcept</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;          : cs_( cs )</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__selector.html#a8585775f34c396bb415180b294369b7a">   80</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1cfg_1_1page__selector.html#a8585775f34c396bb415180b294369b7a">on_page</a>( std::size_t i, <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> cs ) noexcept</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">if</span> ( cs != cs_ )</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                i_ = i;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__selector.html#aea8eaa4ac4f050515dae0a24d5ce0b82">   87</a></span>&#160;        std::pair&lt; std::size_t, hdr_state &gt; <a class="code" href="structemlabcpp_1_1cfg_1_1page__selector.html#aea8eaa4ac4f050515dae0a24d5ce0b82">finish</a>() &amp;&amp; noexcept</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordflow">return</span> { i_, cs_ };</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        std::size_t i_ = 0;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a>   cs_;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1next__page__locator.html">   97</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1cfg_1_1next__page__locator.html">next_page_locator</a></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1next__page__locator.html#a8888c122d885fc48664dc4a3c9b26187">  100</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structemlabcpp_1_1cfg_1_1next__page__locator.html#a8888c122d885fc48664dc4a3c9b26187">check_page</a>( std::size_t i, <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>[2] ) noexcept</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">if</span> ( empty_i_ )</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <span class="keyword">auto</span> val = <a class="code" href="namespaceemlabcpp_1_1cfg.html#a761c82c27449395f92439319e3846e39">byte_to_hdr</a>( <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>[0] );</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="comment">// XXX: the XOR is NOT documented anywhere</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordflow">if</span> ( <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>[0] == <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>{ 0x00 } || <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>[0] != ~<a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>[1] || !val ) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        empty_i_ = i;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordflow">if</span> ( !psel_ )</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                        psel_ = <a class="code" href="structemlabcpp_1_1cfg_1_1page__selector.html">page_selector</a>{ *val };</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                        psel_-&gt;on_page( i, *val );</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        }</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1next__page__locator.html#a44ad1e40c749662bcfd5ab8f2244a7ff">  119</a></span>&#160;        std::pair&lt; std::size_t, hdr_state &gt; <a class="code" href="structemlabcpp_1_1cfg_1_1next__page__locator.html#a44ad1e40c749662bcfd5ab8f2244a7ff">finish</a>() &amp;&amp; noexcept</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordflow">if</span> ( psel_ ) {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                        <span class="keyword">auto</span> [i, st] = std::move( *psel_ ).finish();</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                        <span class="keywordflow">return</span> { i, <a class="code" href="namespaceemlabcpp_1_1cfg.html#a8e03f9106771ab434a50622f4432bee0">next</a>( st ) };</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <span class="keywordflow">return</span> { 0, <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29">hdr_state::A</a> };</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        std::optional&lt; page_selector &gt; psel_;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        std::optional&lt; std::size_t &gt;   empty_i_;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a>                      state_ = <a class="code" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29">hdr_state::A</a>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../../algorithm.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;../../assert.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;../../match.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;../../protocol/converter.h&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;../../result.h&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;span&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1cfg.html">emlabcpp::cfg</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">   39</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a> = std::optional&lt; T &gt;;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">// each cell in memory is 64b wide, looks like this:</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// 1b seq | 31b key | 32b val;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">// if `1b` is true, val represents number of cells forming the value</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a5ebedb2b7bc8c518b4c97f5778d3165e">   45</a></span>&#160;<span class="keyword">static</span> constexpr uint32_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#a5ebedb2b7bc8c518b4c97f5778d3165e">key_mask</a>     = 0x7FFFFFFF;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">   46</a></span>&#160;<span class="keyword">static</span> constexpr uint32_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">sin_bit_mask</a> = 0x80000000;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;static_assert( ~<a class="code" href="namespaceemlabcpp_1_1cfg.html#a5ebedb2b7bc8c518b4c97f5778d3165e">key_mask</a> == <a class="code" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">sin_bit_mask</a>, <span class="stringliteral">&quot;key mask and sin bit mask are not correct&quot;</span> );</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">   50</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a>                              = uint64_t;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">   51</a></span>&#160;<span class="keyword">static</span> constexpr std::size_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a>  = <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> );</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#ac48a218727104b3d96e0b40009076ebc">   52</a></span>&#160;<span class="keyword">static</span> constexpr std::size_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#ac48a218727104b3d96e0b40009076ebc">hcell_size</a> = <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> ) / 2;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">   54</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">ser_res</a> : uint8_t</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8">SINGLE</a>,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb">MULTI</a>,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#ab79d43de96c836d78ad14ea5922d954b">   60</a></span>&#160;constexpr uint32_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#ab79d43de96c836d78ad14ea5922d954b">closest_multiple_of</a>( uint32_t x, uint32_t r ) noexcept</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> r * ( ( x + r - 1 ) / r );</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">inline</span> opt&lt; ser_res &gt;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a48efe3f0644006cbdccfe47ad02cfb4a">   66</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1cfg.html#a48efe3f0644006cbdccfe47ad02cfb4a">ser_cell</a>( uint32_t key, std::span&lt; std::byte &gt; value, std::span&lt; std::byte, cell_size &gt; dest )</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">if</span> ( value.empty() || key &gt; <a class="code" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">sin_bit_mask</a> )</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        static_assert( <span class="keyword">sizeof</span>( uint32_t ) == <a class="code" href="namespaceemlabcpp_1_1cfg.html#ac48a218727104b3d96e0b40009076ebc">hcell_size</a> );</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> ( value.size() &lt;= <a class="code" href="namespaceemlabcpp_1_1cfg.html#ac48a218727104b3d96e0b40009076ebc">hcell_size</a> ) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                uint32_t val = 0x00;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                std::memcpy( &amp;val, value.data(), value.size() );</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                uint64_t tmp = key | <a class="code" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">sin_bit_mask</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                tmp          = ( tmp &lt;&lt; 32 ) + val;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                std::memcpy( dest.data(), &amp;tmp, <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> );</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8">ser_res::SINGLE</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                uint32_t size =</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <a class="code" href="namespaceemlabcpp_1_1cfg.html#ab79d43de96c836d78ad14ea5922d954b">closest_multiple_of</a>( <span class="keyword">static_cast&lt;</span> uint32_t <span class="keyword">&gt;</span>( value.size() ), <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> ) /</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                uint64_t tmp = key;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                tmp          = ( tmp &lt;&lt; 32 ) + size;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                std::memcpy( dest.data(), &amp;tmp, <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> );</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb">ser_res::MULTI</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html">   91</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">deser_res</a></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a91db9fe44fee480a8c6e55885592a9f5">   93</a></span>&#160;        <span class="keywordtype">bool</span>     <a class="code" href="namespaceemlabcpp_1_1cfg.html#a91db9fe44fee480a8c6e55885592a9f5">is_seq</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#ad94b2a447ade816358dae65968f15b38">   94</a></span>&#160;        uint32_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#ad94b2a447ade816358dae65968f15b38">key</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a6c1f54129c3dd7b5eb4e142295cc49f6">   95</a></span>&#160;        uint32_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#a6c1f54129c3dd7b5eb4e142295cc49f6">val</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a332cda5b5350652a3b34302f27afc6a5">   98</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt&lt; deser_res &gt;</a> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a332cda5b5350652a3b34302f27afc6a5">deser_cell</a>( std::span&lt; std::byte, cell_size &gt; c )</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        uint64_t tmp = 0x00;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        std::memcpy( &amp;tmp, c.data(), c.size() );</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keyword">auto</span>      front = <span class="keyword">static_cast&lt;</span> uint32_t <span class="keyword">&gt;</span>( tmp &gt;&gt; 32 );</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">deser_res</a> r{</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            .<a class="code" href="namespaceemlabcpp_1_1cfg.html#a91db9fe44fee480a8c6e55885592a9f5">is_seq</a> = !<span class="keyword">static_cast&lt;</span> <span class="keywordtype">bool</span> <span class="keyword">&gt;</span>( front &amp; <a class="code" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">sin_bit_mask</a> ),</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            .key    = <span class="keyword">static_cast&lt;</span> uint32_t <span class="keyword">&gt;</span>( front &amp; <a class="code" href="namespaceemlabcpp_1_1cfg.html#a5ebedb2b7bc8c518b4c97f5778d3165e">key_mask</a> ),</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            .val    = <span class="keyword">static_cast&lt;</span> uint32_t <span class="keyword">&gt;</span>( tmp &amp; 0xFFFF&#39;FFFF ),</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        };</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">if</span> ( r.is_seq &amp;&amp; r.val == 0 )</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> r;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">inline</span> opt&lt; std::span&lt; std::byte &gt; &gt;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a7d9eca5e00ad57fb1a977f4e89766780">  115</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1cfg.html#a7d9eca5e00ad57fb1a977f4e89766780">store_kval_impl</a>( uint32_t key, <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* beg, <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* val_end, <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* end )</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;{</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">if</span> ( end - val_end &lt; <span class="keyword">static_cast&lt;</span> <span class="keywordtype">int</span> <span class="keyword">&gt;</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> ) )</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* new_end = val_end + <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keyword">auto</span> tmp = <a class="code" href="namespaceemlabcpp_1_1cfg.html#a48efe3f0644006cbdccfe47ad02cfb4a">ser_cell</a>(</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            key, { beg, val_end }, std::span&lt; std::byte, cell_size &gt;{ val_end, <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> } );</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">if</span> ( !tmp )</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">switch</span> ( *tmp ) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb">ser_res::MULTI</a>:</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                <span class="keywordflow">return</span> std::span{ beg, new_end };</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8">ser_res::SINGLE</a>:</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <span class="keywordflow">return</span> std::span{ val_end, <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> };</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment">// each cell in memory is 64b wide, looks like this:</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">// 1b seq | 31b key | 32b val;</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment">// if `1b` is true, val represents number of cells forming the value</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a5ebedb2b7bc8c518b4c97f5778d3165e">  138</a></span>&#160;<span class="keyword">static</span> constexpr uint32_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#a5ebedb2b7bc8c518b4c97f5778d3165e">key_mask</a>     = 0x7FFFFFFF;</div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">  139</a></span>&#160;<span class="keyword">static</span> constexpr uint32_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">sin_bit_mask</a> = 0x80000000;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;static_assert( ~<a class="code" href="namespaceemlabcpp_1_1cfg.html#a5ebedb2b7bc8c518b4c97f5778d3165e">key_mask</a> == <a class="code" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">sin_bit_mask</a>, <span class="stringliteral">&quot;key mask and sin bit mask are not correct&quot;</span> );</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">  143</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a>                              = uint64_t;</div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">  144</a></span>&#160;<span class="keyword">static</span> constexpr std::size_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a>  = <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> );</div>
-<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#ac48a218727104b3d96e0b40009076ebc">  145</a></span>&#160;<span class="keyword">static</span> constexpr std::size_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#ac48a218727104b3d96e0b40009076ebc">hcell_size</a> = <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> ) / 2;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">  147</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">ser_res</a> : uint8_t</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8">SINGLE</a>,</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb">MULTI</a>,</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;};</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#ab79d43de96c836d78ad14ea5922d954b">  153</a></span>&#160;constexpr uint32_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#ab79d43de96c836d78ad14ea5922d954b">closest_multiple_of</a>( uint32_t x, uint32_t r ) noexcept</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;{</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">return</span> r * ( ( x + r - 1 ) / r );</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keyword">inline</span> std::optional&lt; ser_res &gt;</div>
-<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a4422e43d4f77d9ddb39da06ca188183c">  159</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1cfg.html#a4422e43d4f77d9ddb39da06ca188183c">ser_cell</a>( uint32_t key, std::span&lt; std::byte &gt; value, std::span&lt; std::byte, cell_size &gt; dest )</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;{</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">if</span> ( value.empty() || key &gt; <a class="code" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">sin_bit_mask</a> )</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <span class="keywordflow">return</span> {};</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        static_assert( <span class="keyword">sizeof</span>( uint32_t ) == <a class="code" href="namespaceemlabcpp_1_1cfg.html#ac48a218727104b3d96e0b40009076ebc">hcell_size</a> );</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordflow">if</span> ( value.size() &lt;= <a class="code" href="namespaceemlabcpp_1_1cfg.html#ac48a218727104b3d96e0b40009076ebc">hcell_size</a> ) {</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                uint32_t val = 0x00;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                std::memcpy( &amp;val, value.data(), value.size() );</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                uint64_t tmp = key | <a class="code" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">sin_bit_mask</a>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                tmp          = ( tmp &lt;&lt; 32 ) + val;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                std::memcpy( dest.data(), &amp;tmp, <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> );</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8">ser_res::SINGLE</a>;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                uint32_t size =</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                    <a class="code" href="namespaceemlabcpp_1_1cfg.html#ab79d43de96c836d78ad14ea5922d954b">closest_multiple_of</a>( <span class="keyword">static_cast&lt;</span> uint32_t <span class="keyword">&gt;</span>( value.size() ), <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> ) /</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                    <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a>;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                uint64_t tmp = key;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                tmp          = ( tmp &lt;&lt; 32 ) + size;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                std::memcpy( dest.data(), &amp;tmp, <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> );</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb">ser_res::MULTI</a>;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        }</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;}</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html">  184</a></span>&#160;<span class="keyword">struct </span><a class="code" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">deser_res</a></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;{</div>
-<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a91db9fe44fee480a8c6e55885592a9f5">  186</a></span>&#160;        <span class="keywordtype">bool</span>     <a class="code" href="namespaceemlabcpp_1_1cfg.html#a91db9fe44fee480a8c6e55885592a9f5">is_seq</a>;</div>
-<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#ad94b2a447ade816358dae65968f15b38">  187</a></span>&#160;        uint32_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#ad94b2a447ade816358dae65968f15b38">key</a>;</div>
-<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a6c1f54129c3dd7b5eb4e142295cc49f6">  188</a></span>&#160;        uint32_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#a6c1f54129c3dd7b5eb4e142295cc49f6">val</a>;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;};</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
-<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#aa90efe2e41f9e7f7758eef35798905a8">  191</a></span>&#160;<span class="keyword">inline</span> std::optional&lt; deser_res &gt; <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa90efe2e41f9e7f7758eef35798905a8">deser_cell</a>( std::span&lt; std::byte, cell_size &gt; c )</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;{</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        uint64_t tmp = 0x00;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        std::memcpy( &amp;tmp, c.data(), c.size() );</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keyword">auto</span>      front = <span class="keyword">static_cast&lt;</span> uint32_t <span class="keyword">&gt;</span>( tmp &gt;&gt; 32 );</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <a class="code" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">deser_res</a> r{</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            .<a class="code" href="namespaceemlabcpp_1_1cfg.html#a91db9fe44fee480a8c6e55885592a9f5">is_seq</a> = !<span class="keyword">static_cast&lt;</span> <span class="keywordtype">bool</span> <span class="keyword">&gt;</span>( front &amp; <a class="code" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">sin_bit_mask</a> ),</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            .key    = <span class="keyword">static_cast&lt;</span> uint32_t <span class="keyword">&gt;</span>( front &amp; <a class="code" href="namespaceemlabcpp_1_1cfg.html#a5ebedb2b7bc8c518b4c97f5778d3165e">key_mask</a> ),</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            .val    = <span class="keyword">static_cast&lt;</span> uint32_t <span class="keyword">&gt;</span>( tmp &amp; 0xFFFF&#39;FFFF ),</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        };</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">if</span> ( r.is_seq &amp;&amp; r.val == 0 )</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                <span class="keywordflow">return</span> {};</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordflow">return</span> r;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;}</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;opt&lt; std::span&lt; std::byte &gt; &gt;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#ab761d9a9f218530069d2291ea05812c1">  136</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1cfg.html#ab761d9a9f218530069d2291ea05812c1">store_kval</a>( uint32_t key, T <span class="keyword">const</span>&amp; val, std::span&lt; std::byte &gt; buffer )</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;{</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keyword">using</span> conv = <a class="code" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">protocol::converter_for&lt; T, std::endian::little &gt;</a>;  <span class="comment">// XXX: make endianness</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                                                                         <span class="comment">// configurable?</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">if</span> ( buffer.size() &lt; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">conv::max_size</a> )</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        std::span&lt; std::byte, conv::max_size &gt; front{ buffer.data(), <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">conv::max_size</a> };</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <a class="code" href="classemlabcpp_1_1bounded.html">bounded</a> <span class="keyword">const</span> used = <a class="code" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">conv::serialize_at</a>( front, val );</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7d9eca5e00ad57fb1a977f4e89766780">store_kval_impl</a>(</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            key, buffer.data(), buffer.data() + *used, buffer.data() + buffer.size() );</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;}</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#ae8dc05184f069b6e659b6499854aa77e">  151</a></span>&#160;<a class="code" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt&lt; T &gt;</a> <a class="code" href="namespaceemlabcpp_1_1cfg.html#ae8dc05184f069b6e659b6499854aa77e">get_val</a>( std::span&lt; std::byte &gt; <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a> )</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;{</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keyword">using</span> conv = <a class="code" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">protocol::converter_for&lt; T, std::endian::little &gt;</a>;  <span class="comment">// XXX: make endianness</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                                                                         <span class="comment">// configurable?</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        T <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="namespaceemlabcpp_1_1protocol.html#a388ea57599b22905bdfca64243a29c59">conv::deserialize</a>( <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>, <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a> ).has_error() )</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;}</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">// iterates over each cell in the page, skipping duplicates</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> KeyCache &gt;</div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__loader.html">  164</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1cfg_1_1page__loader.html">page_loader</a></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;{</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__loader.html#a48aa9377e72bbe3c55635893a05c8631">  167</a></span>&#160;        <a class="code" href="structemlabcpp_1_1cfg_1_1page__loader.html#a48aa9377e72bbe3c55635893a05c8631">page_loader</a>( std::size_t end_addr, KeyCache&amp; key_cache, std::span&lt; std::byte &gt; buffer )</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;          : addr_( end_addr )</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;          , key_cache_( key_cache )</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;          , buffer_( buffer )</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                decr( <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> ) );</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__loader.html#a76a4461aa765dc6e4a6ff47de9fe85c2">  175</a></span>&#160;        std::size_t <a class="code" href="structemlabcpp_1_1cfg_1_1page__loader.html#a76a4461aa765dc6e4a6ff47de9fe85c2">addr_to_read</a>() const noexcept</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                <span class="keywordflow">return</span> addr_;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        }</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__loader.html#a50513c95de23c9150657360cecfcd18d">  180</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structemlabcpp_1_1cfg_1_1page__loader.html#a50513c95de23c9150657360cecfcd18d">errored</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                <span class="keywordflow">return</span> std::holds_alternative&lt; err_st &gt;( state_ );</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        }</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__loader.html#a80345eb19022388da5164eaf7c25486a">  185</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1cfg_1_1page__loader.html#a80345eb19022388da5164eaf7c25486a">on_cell</a>(</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            std::span&lt; std::byte, cell_size &gt;                         c,</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            std::invocable&lt; uint32_t, std::span&lt; std::byte &gt; &gt; <span class="keyword">auto</span>&amp;&amp; on_kval )</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                decr( <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> ) );</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                state_ = <a class="code" href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">match</a>(</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                    state_,</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                    [&amp;]( err_st&amp; ) -&gt; st_var {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                            <span class="keywordflow">return</span> err_st{};</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                    },</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                    [&amp;]( cell_st&amp; ) -&gt; st_var {</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                            <span class="keyword">auto</span> tmp = <a class="code" href="namespaceemlabcpp_1_1cfg.html#a332cda5b5350652a3b34302f27afc6a5">deser_cell</a>( c );</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                            <span class="keywordflow">if</span> ( !tmp )</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                                    <span class="keywordflow">return</span> cell_st{};</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                            <span class="keyword">auto</span> [is_seq, key, val] = *tmp;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                            <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a629b37146851ed10536be82200b8e178">skip</a>               = key_cache_( key );</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                            <span class="keywordflow">if</span> ( <a class="code" href="namespaceemlabcpp_1_1testing.html#a629b37146851ed10536be82200b8e178">skip</a> ) {  <span class="comment">// XXX: test</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                                    <span class="keywordflow">if</span> ( is_seq )</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                                            decr( val * <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> ) );</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                                    <span class="keywordflow">return</span> cell_st{};</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                            }</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#aef8db175916f228c430a645af80814af">  207</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="structemlabcpp_1_1result.html">result</a> <a class="code" href="namespaceemlabcpp_1_1cfg.html#aef8db175916f228c430a645af80814af">store_kval_impl</a>(</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    uint32_t                key,</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>*              beg,</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>*              val_end,</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>*              end,</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    std::span&lt; std::byte &gt;&amp; used_area )</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;{</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">if</span> ( end - val_end &lt; <span class="keyword">static_cast&lt;</span> <span class="keywordtype">int</span> <span class="keyword">&gt;</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> ) )</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                <span class="keywordflow">return</span> result::ERROR;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        std::copy_backward( beg, val_end, val_end + <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> );</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keyword">auto</span> tmp = <a class="code" href="namespaceemlabcpp_1_1cfg.html#a4422e43d4f77d9ddb39da06ca188183c">ser_cell</a>(</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            key,</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            { beg + <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a>, val_end + <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> },</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            std::span&lt; std::byte, cell_size &gt;{ beg, <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> } );</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">if</span> ( !tmp )</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                <span class="keywordflow">return</span> result::ERROR;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">switch</span> ( *tmp ) {</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb">ser_res::MULTI</a>:</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                used_area = std::span{ beg, val_end + <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> };</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8">ser_res::SINGLE</a>:</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                used_area = std::span{ beg, <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> };</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        }</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">return</span> result::SUCCESS;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;}</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> T &gt;</div>
-<div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a9eb22dfeb0dec0a144b6cb53eb3290ab">  236</a></span>&#160;<a class="code" href="structemlabcpp_1_1result.html">result</a> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a9eb22dfeb0dec0a144b6cb53eb3290ab">store_kval</a>(</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    uint32_t                key,</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    T <span class="keyword">const</span>&amp;                val,</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    std::span&lt; std::byte &gt;  buffer,</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    std::span&lt; std::byte &gt;&amp; used_area )</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;{</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keyword">using</span> conv = <a class="code" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">protocol::converter_for&lt; T, std::endian::little &gt;</a>;  <span class="comment">// XXX: make endianness</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                                                                         <span class="comment">// configurable?</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="keywordflow">if</span> ( buffer.size() &lt; <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">conv::max_size</a> )</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                <span class="keywordflow">return</span> result::ERROR;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        std::span&lt; std::byte, conv::max_size &gt; front{ buffer.data(), <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">conv::max_size</a> };</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                            <span class="keywordflow">if</span> ( is_seq ) {</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                                    <span class="keywordflow">if</span> ( val * <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> ) &gt; buffer_.size() )</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                                            <span class="keywordflow">return</span> err_st{};</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                                    <span class="keyword">auto</span> x = val * <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> );</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                                    <span class="keywordflow">return</span> seq_st{ .key = key, .i = x, .size = x };</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                            }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                            <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> tmp2[<span class="keyword">sizeof</span>( val )];</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                            std::memcpy( tmp2, &amp;val, <span class="keyword">sizeof</span>( val ) );</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                            on_kval( key, std::span{ tmp2 } );</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                            <span class="keywordflow">return</span> cell_st{};</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                    },</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                    [&amp;]( seq_st&amp; st ) -&gt; st_var {</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                            st.i -= <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> );</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                            std::memcpy( &amp;buffer_[st.i], c.data(), c.size() );</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                            <span class="keywordflow">if</span> ( st.i == 0 ) {</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                                    on_kval( st.key, { buffer_.data(), st.size } );</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                                    <span class="keywordflow">return</span> cell_st{};</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                            }</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                            <span class="keywordflow">return</span> st;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                    } );</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keyword">struct </span>cell_st</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        {</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        };</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keyword">struct </span>seq_st</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                uint32_t    key;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                std::size_t i;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                std::size_t size;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        };</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keyword">struct </span>err_st</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        };</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keyword">using</span> st_var = std::variant&lt; cell_st, seq_st, err_st &gt;;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        st_var state_{ cell_st{} };</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <a class="code" href="classemlabcpp_1_1bounded.html">bounded</a> <span class="keyword">const</span> used = <a class="code" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">conv::serialize_at</a>( front, val );</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#aef8db175916f228c430a645af80814af">store_kval_impl</a>(</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            key, buffer.data(), buffer.data() + *used, buffer.data() + buffer.size(), used_area );</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">// iterates over each cell in the page, skipping duplicates</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="keyword">template</span> &lt; <span class="keyword">typename</span> KeyCache &gt;</div>
-<div class="line"><a name="l00256"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__loader.html">  256</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structemlabcpp_1_1cfg_1_1page__loader.html">page_loader</a></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;{</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__loader.html#a48aa9377e72bbe3c55635893a05c8631">  259</a></span>&#160;        <a class="code" href="structemlabcpp_1_1cfg_1_1page__loader.html#a48aa9377e72bbe3c55635893a05c8631">page_loader</a>( std::size_t end_addr, KeyCache&amp; key_cache, std::span&lt; std::byte &gt; buffer )</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;          : addr_( end_addr )</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;          , key_cache_( key_cache )</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;          , buffer_( buffer )</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        {</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                decr( <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> ) );</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        }</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__loader.html#a76a4461aa765dc6e4a6ff47de9fe85c2">  267</a></span>&#160;        std::size_t <a class="code" href="structemlabcpp_1_1cfg_1_1page__loader.html#a76a4461aa765dc6e4a6ff47de9fe85c2">addr_to_read</a>() const noexcept</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        {</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                <span class="keywordflow">return</span> addr_;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        }</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
-<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__loader.html#a50513c95de23c9150657360cecfcd18d">  272</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structemlabcpp_1_1cfg_1_1page__loader.html#a50513c95de23c9150657360cecfcd18d">errored</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                <span class="keywordflow">return</span> std::holds_alternative&lt; err_st &gt;( state_ );</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        }</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
-<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1cfg_1_1page__loader.html#a80345eb19022388da5164eaf7c25486a">  277</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structemlabcpp_1_1cfg_1_1page__loader.html#a80345eb19022388da5164eaf7c25486a">on_cell</a>(</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            std::span&lt; std::byte, cell_size &gt;                         c,</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            std::invocable&lt; uint32_t, std::span&lt; std::byte &gt; &gt; <span class="keyword">auto</span>&amp;&amp; on_kval )</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        {</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                decr( <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> ) );</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                state_ = <a class="code" href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">match</a>(</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                    state_,</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                    [&amp;]( err_st&amp; ) -&gt; st_var {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                            <span class="keywordflow">return</span> err_st{};</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                    },</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                    [&amp;]( cell_st&amp; ) -&gt; st_var {</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;                            <span class="keyword">auto</span> tmp = <a class="code" href="namespaceemlabcpp_1_1cfg.html#aa90efe2e41f9e7f7758eef35798905a8">deser_cell</a>( c );</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                            <span class="keywordflow">if</span> ( !tmp )</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                                    <span class="keywordflow">return</span> cell_st{};</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                            <span class="keyword">auto</span> [is_seq, key, val] = *tmp;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                            <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp_1_1testing.html#a629b37146851ed10536be82200b8e178">skip</a>               = key_cache_( key );</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                            <span class="keywordflow">if</span> ( <a class="code" href="namespaceemlabcpp_1_1testing.html#a629b37146851ed10536be82200b8e178">skip</a> ) {  <span class="comment">// XXX: test</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                                    <span class="keywordflow">if</span> ( is_seq )</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                                            decr( val * <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> ) );</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                                    <span class="keywordflow">return</span> cell_st{};</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                            }</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                            <span class="keywordflow">if</span> ( is_seq ) {</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                                    <span class="keywordflow">if</span> ( val * <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> ) &gt; buffer_.size() )</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                                            <span class="keywordflow">return</span> err_st{};</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                                    <span class="keyword">auto</span> x = val * <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> );</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                                    <span class="keywordflow">return</span> seq_st{ .key = key, .i = x, .size = x };</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                            }</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                            <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a> tmp2[<span class="keyword">sizeof</span>( val )];</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                            std::memcpy( tmp2, &amp;val, <span class="keyword">sizeof</span>( val ) );</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                            on_kval( key, std::span{ tmp2 } );</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                            <span class="keywordflow">return</span> cell_st{};</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                    },</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                    [&amp;]( seq_st&amp; st ) -&gt; st_var {</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                            st.i -= <span class="keyword">sizeof</span>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> );</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                            std::memcpy( &amp;buffer_[st.i], c.data(), c.size() );</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                            <span class="keywordflow">if</span> ( st.i == 0 ) {</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                                    on_kval( st.key, { buffer_.data(), st.size } );</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                                    <span class="keywordflow">return</span> cell_st{};</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                            }</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                            <span class="keywordflow">return</span> st;</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                    } );</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        }</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keyword">struct </span>cell_st</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        {</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        };</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keyword">struct </span>seq_st</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        {</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                uint32_t    key;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                std::size_t i;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                std::size_t size;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        };</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keyword">struct </span>err_st</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        {</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        };</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keyword">using</span> st_var = std::variant&lt; cell_st, seq_st, err_st &gt;;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        st_var state_{ cell_st{} };</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keywordtype">void</span> decr( std::size_t dec )</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        {</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                <span class="keywordflow">if</span> ( addr_ &lt; dec )</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                        addr_ = 0;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                        addr_ -= dec;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        }</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        std::size_t            addr_;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        KeyCache               key_cache_;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        std::span&lt; std::byte &gt; buffer_;</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;};</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
-<div class="line"><a name="l00353"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a7fcbb6212ee62341a8344456758ef717">  353</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a7fcbb6212ee62341a8344456758ef717">is_free_cell</a>( uint64_t <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> )</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;{</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> == 0;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;}</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;}  <span class="comment">// namespace emlabcpp::cfg</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keywordtype">void</span> decr( std::size_t dec )</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        {</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                <span class="keywordflow">if</span> ( addr_ &lt; dec )</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                        addr_ = 0;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                        addr_ -= dec;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        }</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        std::size_t            addr_;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        KeyCache               key_cache_;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        std::span&lt; std::byte &gt; buffer_;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;};</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1cfg.html#a4b5f4aa702b62e72406033cae1964642">  261</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceemlabcpp_1_1cfg.html#a4b5f4aa702b62e72406033cae1964642">is_free_cell</a>( std::span&lt; std::byte, cell_size &gt; <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> )</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;{</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb">all_of</a>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a>, [&amp;]( <span class="keyword">auto</span> x ) {</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                <span class="keywordflow">return</span> x == <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>{ 00 };</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        } );</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;}</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;}  <span class="comment">// namespace emlabcpp::cfg</span></div>
 <div class="ttc" id="aclassemlabcpp_1_1bounded_html"><div class="ttname"><a href="classemlabcpp_1_1bounded.html">emlabcpp::bounded</a></div><div class="ttdoc">The bounded class represents a wrapper over type T constrained between MinVal and MaxVal as compile-t...</div><div class="ttdef"><b>Definition:</b> bounded.h:44</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1cfg_html"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html">emlabcpp::cfg</a></div><div class="ttdoc">MIT License.</div><div class="ttdef"><b>Definition:</b> base.h:27</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a3049d49a73816a35fee82d6c8c0a3790"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">emlabcpp::cfg::sin_bit_mask</a></div><div class="ttdeci">static constexpr uint32_t sin_bit_mask</div><div class="ttdef"><b>Definition:</b> handler.h:139</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a4422e43d4f77d9ddb39da06ca188183c"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a4422e43d4f77d9ddb39da06ca188183c">emlabcpp::cfg::ser_cell</a></div><div class="ttdeci">std::optional&lt; ser_res &gt; ser_cell(uint32_t key, std::span&lt; std::byte &gt; value, std::span&lt; std::byte, cell_size &gt; dest)</div><div class="ttdef"><b>Definition:</b> handler.h:159</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a5ebedb2b7bc8c518b4c97f5778d3165e"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a5ebedb2b7bc8c518b4c97f5778d3165e">emlabcpp::cfg::key_mask</a></div><div class="ttdeci">static constexpr uint32_t key_mask</div><div class="ttdef"><b>Definition:</b> handler.h:138</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a699a088a1ac75a764259edff5c16d682"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">emlabcpp::cfg::cell</a></div><div class="ttdeci">uint64_t cell</div><div class="ttdef"><b>Definition:</b> handler.h:143</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a6c1f54129c3dd7b5eb4e142295cc49f6"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a6c1f54129c3dd7b5eb4e142295cc49f6">emlabcpp::cfg::deser_res::val</a></div><div class="ttdeci">uint32_t val</div><div class="ttdef"><b>Definition:</b> handler.h:188</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a761c82c27449395f92439319e3846e39"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a761c82c27449395f92439319e3846e39">emlabcpp::cfg::byte_to_hdr</a></div><div class="ttdeci">std::optional&lt; hdr_state &gt; byte_to_hdr(std::byte b) noexcept</div><div class="ttdef"><b>Definition:</b> handler.h:58</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a7c14e8fb015be9cf949dfea5e355c7d2"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">emlabcpp::cfg::ser_res</a></div><div class="ttdeci">ser_res</div><div class="ttdef"><b>Definition:</b> handler.h:148</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a3049d49a73816a35fee82d6c8c0a3790"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">emlabcpp::cfg::sin_bit_mask</a></div><div class="ttdeci">static constexpr uint32_t sin_bit_mask</div><div class="ttdef"><b>Definition:</b> handler.h:46</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a332cda5b5350652a3b34302f27afc6a5"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a332cda5b5350652a3b34302f27afc6a5">emlabcpp::cfg::deser_cell</a></div><div class="ttdeci">opt&lt; deser_res &gt; deser_cell(std::span&lt; std::byte, cell_size &gt; c)</div><div class="ttdef"><b>Definition:</b> handler.h:98</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a48efe3f0644006cbdccfe47ad02cfb4a"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a48efe3f0644006cbdccfe47ad02cfb4a">emlabcpp::cfg::ser_cell</a></div><div class="ttdeci">opt&lt; ser_res &gt; ser_cell(uint32_t key, std::span&lt; std::byte &gt; value, std::span&lt; std::byte, cell_size &gt; dest)</div><div class="ttdef"><b>Definition:</b> handler.h:66</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a4b5f4aa702b62e72406033cae1964642"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a4b5f4aa702b62e72406033cae1964642">emlabcpp::cfg::is_free_cell</a></div><div class="ttdeci">bool is_free_cell(std::span&lt; std::byte, cell_size &gt; cell)</div><div class="ttdef"><b>Definition:</b> handler.h:261</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a4bb3fbb806d337a0248f2bce37b1b839"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">emlabcpp::cfg::opt</a></div><div class="ttdeci">std::optional&lt; T &gt; opt</div><div class="ttdef"><b>Definition:</b> handler.h:39</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a5ebedb2b7bc8c518b4c97f5778d3165e"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a5ebedb2b7bc8c518b4c97f5778d3165e">emlabcpp::cfg::key_mask</a></div><div class="ttdeci">static constexpr uint32_t key_mask</div><div class="ttdef"><b>Definition:</b> handler.h:45</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a699a088a1ac75a764259edff5c16d682"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">emlabcpp::cfg::cell</a></div><div class="ttdeci">uint64_t cell</div><div class="ttdef"><b>Definition:</b> handler.h:50</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a6c1f54129c3dd7b5eb4e142295cc49f6"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a6c1f54129c3dd7b5eb4e142295cc49f6">emlabcpp::cfg::deser_res::val</a></div><div class="ttdeci">uint32_t val</div><div class="ttdef"><b>Definition:</b> handler.h:95</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a7c14e8fb015be9cf949dfea5e355c7d2"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">emlabcpp::cfg::ser_res</a></div><div class="ttdeci">ser_res</div><div class="ttdef"><b>Definition:</b> handler.h:55</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8">emlabcpp::cfg::ser_res::SINGLE</a></div><div class="ttdeci">@ SINGLE</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb">emlabcpp::cfg::ser_res::MULTI</a></div><div class="ttdeci">@ MULTI</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a7fcbb6212ee62341a8344456758ef717"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a7fcbb6212ee62341a8344456758ef717">emlabcpp::cfg::is_free_cell</a></div><div class="ttdeci">bool is_free_cell(uint64_t cell)</div><div class="ttdef"><b>Definition:</b> handler.h:353</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a895b7d25c90721a0397f1792bf3ae1f1"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">emlabcpp::cfg::hdr_state</a></div><div class="ttdeci">hdr_state</div><div class="ttdef"><b>Definition:</b> handler.h:38</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a895b7d25c90721a0397f1792bf3ae1f1a0d61f8370cad1d412f80b84d143e1257"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a0d61f8370cad1d412f80b84d143e1257">emlabcpp::cfg::hdr_state::C</a></div><div class="ttdeci">@ C</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29">emlabcpp::cfg::hdr_state::A</a></div><div class="ttdeci">@ A</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a895b7d25c90721a0397f1792bf3ae1f1a9d5ed678fe57bcca610140957afab571"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a9d5ed678fe57bcca610140957afab571">emlabcpp::cfg::hdr_state::B</a></div><div class="ttdeci">@ B</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a8e03f9106771ab434a50622f4432bee0"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a8e03f9106771ab434a50622f4432bee0">emlabcpp::cfg::next</a></div><div class="ttdeci">hdr_state next(hdr_state cs) noexcept</div><div class="ttdef"><b>Definition:</b> handler.h:44</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a91db9fe44fee480a8c6e55885592a9f5"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a91db9fe44fee480a8c6e55885592a9f5">emlabcpp::cfg::deser_res::is_seq</a></div><div class="ttdeci">bool is_seq</div><div class="ttdef"><b>Definition:</b> handler.h:186</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a9eb22dfeb0dec0a144b6cb53eb3290ab"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a9eb22dfeb0dec0a144b6cb53eb3290ab">emlabcpp::cfg::store_kval</a></div><div class="ttdeci">result store_kval(uint32_t key, T const &amp;val, std::span&lt; std::byte &gt; buffer, std::span&lt; std::byte &gt; &amp;used_area)</div><div class="ttdef"><b>Definition:</b> handler.h:236</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_aa3df7d54cca1376914fff230fb11bbd2"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">emlabcpp::cfg::cell_size</a></div><div class="ttdeci">static constexpr std::size_t cell_size</div><div class="ttdef"><b>Definition:</b> handler.h:144</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_aa90efe2e41f9e7f7758eef35798905a8"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#aa90efe2e41f9e7f7758eef35798905a8">emlabcpp::cfg::deser_cell</a></div><div class="ttdeci">std::optional&lt; deser_res &gt; deser_cell(std::span&lt; std::byte, cell_size &gt; c)</div><div class="ttdef"><b>Definition:</b> handler.h:191</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_ab79d43de96c836d78ad14ea5922d954b"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#ab79d43de96c836d78ad14ea5922d954b">emlabcpp::cfg::closest_multiple_of</a></div><div class="ttdeci">constexpr uint32_t closest_multiple_of(uint32_t x, uint32_t r) noexcept</div><div class="ttdef"><b>Definition:</b> handler.h:153</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_ac48a218727104b3d96e0b40009076ebc"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#ac48a218727104b3d96e0b40009076ebc">emlabcpp::cfg::hcell_size</a></div><div class="ttdeci">static constexpr std::size_t hcell_size</div><div class="ttdef"><b>Definition:</b> handler.h:145</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_ad94b2a447ade816358dae65968f15b38"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#ad94b2a447ade816358dae65968f15b38">emlabcpp::cfg::deser_res::key</a></div><div class="ttdeci">uint32_t key</div><div class="ttdef"><b>Definition:</b> handler.h:187</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_aef8db175916f228c430a645af80814af"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#aef8db175916f228c430a645af80814af">emlabcpp::cfg::store_kval_impl</a></div><div class="ttdeci">result store_kval_impl(uint32_t key, std::byte *beg, std::byte *val_end, std::byte *end, std::span&lt; std::byte &gt; &amp;used_area)</div><div class="ttdef"><b>Definition:</b> handler.h:207</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_structemlabcpp_1_1cfg_1_1deser__res"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">emlabcpp::cfg::deser_res</a></div><div class="ttdef"><b>Definition:</b> handler.h:185</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a7d9eca5e00ad57fb1a977f4e89766780"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a7d9eca5e00ad57fb1a977f4e89766780">emlabcpp::cfg::store_kval_impl</a></div><div class="ttdeci">opt&lt; std::span&lt; std::byte &gt; &gt; store_kval_impl(uint32_t key, std::byte *beg, std::byte *val_end, std::byte *end)</div><div class="ttdef"><b>Definition:</b> handler.h:115</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a91db9fe44fee480a8c6e55885592a9f5"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a91db9fe44fee480a8c6e55885592a9f5">emlabcpp::cfg::deser_res::is_seq</a></div><div class="ttdeci">bool is_seq</div><div class="ttdef"><b>Definition:</b> handler.h:93</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_aa3df7d54cca1376914fff230fb11bbd2"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">emlabcpp::cfg::cell_size</a></div><div class="ttdeci">static constexpr std::size_t cell_size</div><div class="ttdef"><b>Definition:</b> handler.h:51</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_ab761d9a9f218530069d2291ea05812c1"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#ab761d9a9f218530069d2291ea05812c1">emlabcpp::cfg::store_kval</a></div><div class="ttdeci">opt&lt; std::span&lt; std::byte &gt; &gt; store_kval(uint32_t key, T const &amp;val, std::span&lt; std::byte &gt; buffer)</div><div class="ttdef"><b>Definition:</b> handler.h:136</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_ab79d43de96c836d78ad14ea5922d954b"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#ab79d43de96c836d78ad14ea5922d954b">emlabcpp::cfg::closest_multiple_of</a></div><div class="ttdeci">constexpr uint32_t closest_multiple_of(uint32_t x, uint32_t r) noexcept</div><div class="ttdef"><b>Definition:</b> handler.h:60</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_ac48a218727104b3d96e0b40009076ebc"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#ac48a218727104b3d96e0b40009076ebc">emlabcpp::cfg::hcell_size</a></div><div class="ttdeci">static constexpr std::size_t hcell_size</div><div class="ttdef"><b>Definition:</b> handler.h:52</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_ad94b2a447ade816358dae65968f15b38"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#ad94b2a447ade816358dae65968f15b38">emlabcpp::cfg::deser_res::key</a></div><div class="ttdeci">uint32_t key</div><div class="ttdef"><b>Definition:</b> handler.h:94</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_ae8dc05184f069b6e659b6499854aa77e"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#ae8dc05184f069b6e659b6499854aa77e">emlabcpp::cfg::get_val</a></div><div class="ttdeci">opt&lt; T &gt; get_val(std::span&lt; std::byte &gt; data)</div><div class="ttdef"><b>Definition:</b> handler.h:151</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_structemlabcpp_1_1cfg_1_1deser__res"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">emlabcpp::cfg::deser_res</a></div><div class="ttdef"><b>Definition:</b> handler.h:92</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a388ea57599b22905bdfca64243a29c59"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a388ea57599b22905bdfca64243a29c59">emlabcpp::protocol::deserialize</a></div><div class="ttdeci">static constexpr T deserialize(std::span&lt; std::byte const, max_size &gt; const &amp;buffer)</div><div class="ttdef"><b>Definition:</b> serializer.h:81</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a5a3eae750f39fcca3a1bf989dc31beac"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">emlabcpp::protocol::serialize_at</a></div><div class="ttdeci">static constexpr void serialize_at(std::span&lt; std::byte, max_size &gt; buffer, T item)</div><div class="ttdef"><b>Definition:</b> serializer.h:76</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a9dfeb95ba0e6684fbc02d537318ac8da"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> serializer.h:73</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_aba2818d17e2b2cc369733e18839ba19f"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">emlabcpp::protocol::converter_for</a></div><div class="ttdeci">decltype(converter_for_impl&lt; D, E &gt;()) converter_for</div><div class="ttdef"><b>Definition:</b> converter.h:54</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1testing_html_a629b37146851ed10536be82200b8e178"><div class="ttname"><a href="namespaceemlabcpp_1_1testing.html#a629b37146851ed10536be82200b8e178">emlabcpp::testing::skip</a></div><div class="ttdeci">status_awaiter skip()</div><div class="ttdef"><b>Definition:</b> coroutine.h:220</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a22d3558f494b4daf086216cedf167ba7"><div class="ttname"><a href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data</a></div><div class="ttdeci">constexpr pointer data() noexcept</div><div class="ttdoc">Returns pointer to first item of the storage.</div><div class="ttdef"><b>Definition:</b> static_storage.h:108</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a39882ff8249fe71fbd0a6a3658c692bb"><div class="ttname"><a href="namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb">emlabcpp::all_of</a></div><div class="ttdeci">constexpr bool all_of(Container &amp;&amp;cont, PredicateCallable &amp;&amp;f=std::identity())</div><div class="ttdoc">Returns true if call to predicate 'f(x)' returns true for all items in 'cont'.</div><div class="ttdef"><b>Definition:</b> algorithm.h:342</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a57181a407fd6f29a50664f8ba4cb44cd"><div class="ttname"><a href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match</a></div><div class="ttdeci">decltype(auto) match(Variant &amp;&amp;var, Callables &amp;&amp;... cals)</div><div class="ttdef"><b>Definition:</b> match.h:55</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a9f3571963bbe0982f9987b78b111c626"><div class="ttname"><a href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a></div><div class="ttdeci">T res</div><div class="ttdef"><b>Definition:</b> algorithm.h:505</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:118</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1next__page__locator_html"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1next__page__locator.html">emlabcpp::cfg::next_page_locator</a></div><div class="ttdef"><b>Definition:</b> handler.h:98</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1next__page__locator_html_a44ad1e40c749662bcfd5ab8f2244a7ff"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1next__page__locator.html#a44ad1e40c749662bcfd5ab8f2244a7ff">emlabcpp::cfg::next_page_locator::finish</a></div><div class="ttdeci">std::pair&lt; std::size_t, hdr_state &gt; finish() &amp;&amp;noexcept</div><div class="ttdef"><b>Definition:</b> handler.h:119</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1next__page__locator_html_a8888c122d885fc48664dc4a3c9b26187"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1next__page__locator.html#a8888c122d885fc48664dc4a3c9b26187">emlabcpp::cfg::next_page_locator::check_page</a></div><div class="ttdeci">bool check_page(std::size_t i, std::byte data[2]) noexcept</div><div class="ttdef"><b>Definition:</b> handler.h:100</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__loader_html"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__loader.html">emlabcpp::cfg::page_loader</a></div><div class="ttdef"><b>Definition:</b> handler.h:257</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__loader_html_a48aa9377e72bbe3c55635893a05c8631"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__loader.html#a48aa9377e72bbe3c55635893a05c8631">emlabcpp::cfg::page_loader::page_loader</a></div><div class="ttdeci">page_loader(std::size_t end_addr, KeyCache &amp;key_cache, std::span&lt; std::byte &gt; buffer)</div><div class="ttdef"><b>Definition:</b> handler.h:259</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__loader_html_a50513c95de23c9150657360cecfcd18d"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__loader.html#a50513c95de23c9150657360cecfcd18d">emlabcpp::cfg::page_loader::errored</a></div><div class="ttdeci">bool errored() const</div><div class="ttdef"><b>Definition:</b> handler.h:272</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__loader_html_a76a4461aa765dc6e4a6ff47de9fe85c2"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__loader.html#a76a4461aa765dc6e4a6ff47de9fe85c2">emlabcpp::cfg::page_loader::addr_to_read</a></div><div class="ttdeci">std::size_t addr_to_read() const noexcept</div><div class="ttdef"><b>Definition:</b> handler.h:267</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__loader_html_a80345eb19022388da5164eaf7c25486a"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__loader.html#a80345eb19022388da5164eaf7c25486a">emlabcpp::cfg::page_loader::on_cell</a></div><div class="ttdeci">void on_cell(std::span&lt; std::byte, cell_size &gt; c, std::invocable&lt; uint32_t, std::span&lt; std::byte &gt; &gt; auto &amp;&amp;on_kval)</div><div class="ttdef"><b>Definition:</b> handler.h:277</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__selector_html"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__selector.html">emlabcpp::cfg::page_selector</a></div><div class="ttdef"><b>Definition:</b> handler.h:74</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__selector_html_a8585775f34c396bb415180b294369b7a"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__selector.html#a8585775f34c396bb415180b294369b7a">emlabcpp::cfg::page_selector::on_page</a></div><div class="ttdeci">void on_page(std::size_t i, hdr_state cs) noexcept</div><div class="ttdef"><b>Definition:</b> handler.h:80</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__selector_html_ac3e32859a2ab2fe73b951bdb25c99129"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__selector.html#ac3e32859a2ab2fe73b951bdb25c99129">emlabcpp::cfg::page_selector::page_selector</a></div><div class="ttdeci">page_selector(hdr_state cs) noexcept</div><div class="ttdef"><b>Definition:</b> handler.h:75</div></div>
-<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__selector_html_aea8eaa4ac4f050515dae0a24d5ce0b82"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__selector.html#aea8eaa4ac4f050515dae0a24d5ce0b82">emlabcpp::cfg::page_selector::finish</a></div><div class="ttdeci">std::pair&lt; std::size_t, hdr_state &gt; finish() &amp;&amp;noexcept</div><div class="ttdef"><b>Definition:</b> handler.h:87</div></div>
-<div class="ttc" id="astructemlabcpp_1_1result_html"><div class="ttname"><a href="structemlabcpp_1_1result.html">emlabcpp::result</a></div><div class="ttdoc">result represents an result of some operation, as an alternative to returning just bool with true/fal...</div><div class="ttdef"><b>Definition:</b> result.h:42</div></div>
+<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__loader_html"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__loader.html">emlabcpp::cfg::page_loader</a></div><div class="ttdef"><b>Definition:</b> handler.h:165</div></div>
+<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__loader_html_a48aa9377e72bbe3c55635893a05c8631"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__loader.html#a48aa9377e72bbe3c55635893a05c8631">emlabcpp::cfg::page_loader::page_loader</a></div><div class="ttdeci">page_loader(std::size_t end_addr, KeyCache &amp;key_cache, std::span&lt; std::byte &gt; buffer)</div><div class="ttdef"><b>Definition:</b> handler.h:167</div></div>
+<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__loader_html_a50513c95de23c9150657360cecfcd18d"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__loader.html#a50513c95de23c9150657360cecfcd18d">emlabcpp::cfg::page_loader::errored</a></div><div class="ttdeci">bool errored() const</div><div class="ttdef"><b>Definition:</b> handler.h:180</div></div>
+<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__loader_html_a76a4461aa765dc6e4a6ff47de9fe85c2"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__loader.html#a76a4461aa765dc6e4a6ff47de9fe85c2">emlabcpp::cfg::page_loader::addr_to_read</a></div><div class="ttdeci">std::size_t addr_to_read() const noexcept</div><div class="ttdef"><b>Definition:</b> handler.h:175</div></div>
+<div class="ttc" id="astructemlabcpp_1_1cfg_1_1page__loader_html_a80345eb19022388da5164eaf7c25486a"><div class="ttname"><a href="structemlabcpp_1_1cfg_1_1page__loader.html#a80345eb19022388da5164eaf7c25486a">emlabcpp::cfg::page_loader::on_cell</a></div><div class="ttdeci">void on_cell(std::span&lt; std::byte, cell_size &gt; c, std::invocable&lt; uint32_t, std::span&lt; std::byte &gt; &gt; auto &amp;&amp;on_kval)</div><div class="ttdef"><b>Definition:</b> handler.h:185</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_41e4d945d025625261ba1bf6390ad1b1.html">cfg2</a></li><li class="navelem"><a class="el" href="experimental_2cfg2_2handler_8h.html">handler.h</a></li>
-    <li class="footer">Generated on Tue Apr 8 2025 09:42:01 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Apr 8 2025 13:13:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -103,13 +103,11 @@ Classes</h2></td></tr>
 <tr class="separator:structemlabcpp_1_1cfg_1_1header"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1handler.html">handler</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__selector.html">page_selector</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1next__page__locator.html">next_page_locator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1cfg_1_1deser__res"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">deser_res</a></td></tr>
 <tr class="separator:structemlabcpp_1_1cfg_1_1deser__res"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html">page_loader</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1activ__page__sel.html">activ_page_sel</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -118,6 +116,9 @@ Typedefs</h2></td></tr>
 <tr class="separator:abc7e2ad89ecd40087cb01e4d7f2481eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f75757b6dd3bce9c54dc9cad57241af"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a0f75757b6dd3bce9c54dc9cad57241af">record_id</a> = uint32_t</td></tr>
 <tr class="separator:a0f75757b6dd3bce9c54dc9cad57241af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bb3fbb806d337a0248f2bce37b1b839"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a4bb3fbb806d337a0248f2bce37b1b839"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a> = std::optional&lt; T &gt;</td></tr>
+<tr class="separator:a4bb3fbb806d337a0248f2bce37b1b839"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a699a088a1ac75a764259edff5c16d682"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a> = uint64_t</td></tr>
 <tr class="separator:a699a088a1ac75a764259edff5c16d682"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -132,6 +133,13 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a7aec13dbf2caeca273b78f943c348117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c14e8fb015be9cf949dfea5e355c7d2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">ser_res</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8">SINGLE</a>
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb">MULTI</a>
+<br />
+ }</td></tr>
+<tr class="separator:a7c14e8fb015be9cf949dfea5e355c7d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a895b7d25c90721a0397f1792bf3ae1f1"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> : uint8_t { <br />
 &#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29">A</a> = 0x40
 , <br />
@@ -141,13 +149,6 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a895b7d25c90721a0397f1792bf3ae1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c14e8fb015be9cf949dfea5e355c7d2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">ser_res</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8">SINGLE</a>
-, <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb">MULTI</a>
-<br />
- }</td></tr>
-<tr class="separator:a7c14e8fb015be9cf949dfea5e355c7d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -157,23 +158,26 @@ Functions</h2></td></tr>
 <tr class="memitem:a141649f092d321835c9935e3ecaa93c0"><td class="memTemplParams" colspan="2">template&lt;std::endian Endianess, typename T , typename ChecksumFunction &gt; </td></tr>
 <tr class="memitem:a141649f092d321835c9935e3ecaa93c0"><td class="memTemplItemLeft" align="right" valign="top">std::tuple&lt; bool, std::span&lt; std::byte &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a141649f092d321835c9935e3ecaa93c0">store_impl</a> (std::span&lt; std::byte &gt; buffer, T const &amp;item, ChecksumFunction &amp;&amp;chcksm_f)</td></tr>
 <tr class="separator:a141649f092d321835c9935e3ecaa93c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e03f9106771ab434a50622f4432bee0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a8e03f9106771ab434a50622f4432bee0">next</a> (<a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> cs) noexcept</td></tr>
-<tr class="separator:a8e03f9106771ab434a50622f4432bee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a761c82c27449395f92439319e3846e39"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a761c82c27449395f92439319e3846e39">byte_to_hdr</a> (std::byte b) noexcept</td></tr>
-<tr class="separator:a761c82c27449395f92439319e3846e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab79d43de96c836d78ad14ea5922d954b"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#ab79d43de96c836d78ad14ea5922d954b">closest_multiple_of</a> (uint32_t x, uint32_t r) noexcept</td></tr>
 <tr class="separator:ab79d43de96c836d78ad14ea5922d954b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4422e43d4f77d9ddb39da06ca188183c"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">ser_res</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4422e43d4f77d9ddb39da06ca188183c">ser_cell</a> (uint32_t key, std::span&lt; std::byte &gt; value, std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> &gt; dest)</td></tr>
-<tr class="separator:a4422e43d4f77d9ddb39da06ca188183c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa90efe2e41f9e7f7758eef35798905a8"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">deser_res</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#aa90efe2e41f9e7f7758eef35798905a8">deser_cell</a> (std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> &gt; c)</td></tr>
-<tr class="separator:aa90efe2e41f9e7f7758eef35798905a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef8db175916f228c430a645af80814af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1result.html">result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#aef8db175916f228c430a645af80814af">store_kval_impl</a> (uint32_t key, std::byte *beg, std::byte *val_end, std::byte *end, std::span&lt; std::byte &gt; &amp;used_area)</td></tr>
-<tr class="separator:aef8db175916f228c430a645af80814af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eb22dfeb0dec0a144b6cb53eb3290ab"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a9eb22dfeb0dec0a144b6cb53eb3290ab"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1result.html">result</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a9eb22dfeb0dec0a144b6cb53eb3290ab">store_kval</a> (uint32_t key, T const &amp;val, std::span&lt; std::byte &gt; buffer, std::span&lt; std::byte &gt; &amp;used_area)</td></tr>
-<tr class="separator:a9eb22dfeb0dec0a144b6cb53eb3290ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fcbb6212ee62341a8344456758ef717"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a7fcbb6212ee62341a8344456758ef717">is_free_cell</a> (uint64_t <a class="el" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a>)</td></tr>
-<tr class="separator:a7fcbb6212ee62341a8344456758ef717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48efe3f0644006cbdccfe47ad02cfb4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">ser_res</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a48efe3f0644006cbdccfe47ad02cfb4a">ser_cell</a> (uint32_t key, std::span&lt; std::byte &gt; value, std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> &gt; dest)</td></tr>
+<tr class="separator:a48efe3f0644006cbdccfe47ad02cfb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a332cda5b5350652a3b34302f27afc6a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">deser_res</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a332cda5b5350652a3b34302f27afc6a5">deser_cell</a> (std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> &gt; c)</td></tr>
+<tr class="separator:a332cda5b5350652a3b34302f27afc6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d9eca5e00ad57fb1a977f4e89766780"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; std::span&lt; std::byte &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a7d9eca5e00ad57fb1a977f4e89766780">store_kval_impl</a> (uint32_t key, std::byte *beg, std::byte *val_end, std::byte *end)</td></tr>
+<tr class="separator:a7d9eca5e00ad57fb1a977f4e89766780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab761d9a9f218530069d2291ea05812c1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab761d9a9f218530069d2291ea05812c1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; std::span&lt; std::byte &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#ab761d9a9f218530069d2291ea05812c1">store_kval</a> (uint32_t key, T const &amp;val, std::span&lt; std::byte &gt; buffer)</td></tr>
+<tr class="separator:ab761d9a9f218530069d2291ea05812c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8dc05184f069b6e659b6499854aa77e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae8dc05184f069b6e659b6499854aa77e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#ae8dc05184f069b6e659b6499854aa77e">get_val</a> (std::span&lt; std::byte &gt; <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>)</td></tr>
+<tr class="separator:ae8dc05184f069b6e659b6499854aa77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b5f4aa702b62e72406033cae1964642"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4b5f4aa702b62e72406033cae1964642">is_free_cell</a> (std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> &gt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a>)</td></tr>
+<tr class="separator:a4b5f4aa702b62e72406033cae1964642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e03f9106771ab434a50622f4432bee0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a8e03f9106771ab434a50622f4432bee0">next</a> (<a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> cs) noexcept</td></tr>
+<tr class="separator:a8e03f9106771ab434a50622f4432bee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5e9b572f5cddc375659a5a0222c67b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#af5e9b572f5cddc375659a5a0222c67b6">byte_to_hdr</a> (std::byte b) noexcept</td></tr>
+<tr class="separator:af5e9b572f5cddc375659a5a0222c67b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -280,6 +284,22 @@ val</td>
 
 </div>
 </div>
+<a id="a4bb3fbb806d337a0248f2bce37b1b839"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bb3fbb806d337a0248f2bce37b1b839">&#9670;&nbsp;</a></span>opt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">emlabcpp::cfg::opt</a> = typedef std::optional&lt; T &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0f75757b6dd3bce9c54dc9cad57241af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0f75757b6dd3bce9c54dc9cad57241af">&#9670;&nbsp;</a></span>record_id</h2>
 
@@ -376,8 +396,8 @@ val</td>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a761c82c27449395f92439319e3846e39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a761c82c27449395f92439319e3846e39">&#9670;&nbsp;</a></span>byte_to_hdr()</h2>
+<a id="af5e9b572f5cddc375659a5a0222c67b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5e9b572f5cddc375659a5a0222c67b6">&#9670;&nbsp;</a></span>byte_to_hdr()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -386,7 +406,7 @@ val</td>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> &gt; emlabcpp::cfg::byte_to_hdr </td>
+          <td class="memname"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> &gt; emlabcpp::cfg::byte_to_hdr </td>
           <td>(</td>
           <td class="paramtype">std::byte&#160;</td>
           <td class="paramname"><em>b</em></td><td>)</td>
@@ -440,8 +460,8 @@ val</td>
 
 </div>
 </div>
-<a id="aa90efe2e41f9e7f7758eef35798905a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa90efe2e41f9e7f7758eef35798905a8">&#9670;&nbsp;</a></span>deser_cell()</h2>
+<a id="a332cda5b5350652a3b34302f27afc6a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a332cda5b5350652a3b34302f27afc6a5">&#9670;&nbsp;</a></span>deser_cell()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -450,7 +470,7 @@ val</td>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">deser_res</a> &gt; emlabcpp::cfg::deser_cell </td>
+          <td class="memname"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">deser_res</a> &gt; emlabcpp::cfg::deser_cell </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> &gt;&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
@@ -468,8 +488,30 @@ val</td>
 
 </div>
 </div>
-<a id="a7fcbb6212ee62341a8344456758ef717"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fcbb6212ee62341a8344456758ef717">&#9670;&nbsp;</a></span>is_free_cell()</h2>
+<a id="ae8dc05184f069b6e659b6499854aa77e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8dc05184f069b6e659b6499854aa77e">&#9670;&nbsp;</a></span>get_val()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; T &gt; emlabcpp::cfg::get_val </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; std::byte &gt;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data()</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a388ea57599b22905bdfca64243a29c59">emlabcpp::protocol::deserialize()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>.</p>
+
+</div>
+</div>
+<a id="a4b5f4aa702b62e72406033cae1964642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b5f4aa702b62e72406033cae1964642">&#9670;&nbsp;</a></span>is_free_cell()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -480,7 +522,7 @@ val</td>
         <tr>
           <td class="memname">bool emlabcpp::cfg::is_free_cell </td>
           <td>(</td>
-          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramtype">std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> &gt;&#160;</td>
           <td class="paramname"><em>cell</em></td><td>)</td>
           <td></td>
         </tr>
@@ -491,6 +533,8 @@ val</td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a39882ff8249fe71fbd0a6a3658c692bb">emlabcpp::all_of()</a>.</p>
 
 </div>
 </div>
@@ -554,8 +598,8 @@ template&lt;typename T , std::endian Endianess, typename ChecksumFunction &gt; <
 
 </div>
 </div>
-<a id="a4422e43d4f77d9ddb39da06ca188183c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4422e43d4f77d9ddb39da06ca188183c">&#9670;&nbsp;</a></span>ser_cell()</h2>
+<a id="a48efe3f0644006cbdccfe47ad02cfb4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48efe3f0644006cbdccfe47ad02cfb4a">&#9670;&nbsp;</a></span>ser_cell()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -564,7 +608,7 @@ template&lt;typename T , std::endian Endianess, typename ChecksumFunction &gt; <
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">ser_res</a> &gt; emlabcpp::cfg::ser_cell </td>
+          <td class="memname"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">ser_res</a> &gt; emlabcpp::cfg::ser_cell </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -636,8 +680,8 @@ template&lt;std::endian Endianess, typename T , typename ChecksumFunction &gt; <
 
 </div>
 </div>
-<a id="a9eb22dfeb0dec0a144b6cb53eb3290ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9eb22dfeb0dec0a144b6cb53eb3290ab">&#9670;&nbsp;</a></span>store_kval()</h2>
+<a id="ab761d9a9f218530069d2291ea05812c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab761d9a9f218530069d2291ea05812c1">&#9670;&nbsp;</a></span>store_kval()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -645,7 +689,7 @@ template&lt;std::endian Endianess, typename T , typename ChecksumFunction &gt; <
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structemlabcpp_1_1result.html">result</a> emlabcpp::cfg::store_kval </td>
+          <td class="memname"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; std::span&lt; std::byte &gt; &gt; emlabcpp::cfg::store_kval </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -660,13 +704,7 @@ template&lt;typename T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::span&lt; std::byte &gt;&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; std::byte &gt; &amp;&#160;</td>
-          <td class="paramname"><em>used_area</em>&#160;</td>
+          <td class="paramname"><em>buffer</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -676,12 +714,12 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">emlabcpp::protocol::serialize_at()</a>, and <a class="el" href="namespaceemlabcpp_1_1cfg.html#aef8db175916f228c430a645af80814af">store_kval_impl()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a5a3eae750f39fcca3a1bf989dc31beac">emlabcpp::protocol::serialize_at()</a>, and <a class="el" href="namespaceemlabcpp_1_1cfg.html#a7d9eca5e00ad57fb1a977f4e89766780">store_kval_impl()</a>.</p>
 
 </div>
 </div>
-<a id="aef8db175916f228c430a645af80814af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef8db175916f228c430a645af80814af">&#9670;&nbsp;</a></span>store_kval_impl()</h2>
+<a id="a7d9eca5e00ad57fb1a977f4e89766780"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d9eca5e00ad57fb1a977f4e89766780">&#9670;&nbsp;</a></span>store_kval_impl()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -690,7 +728,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structemlabcpp_1_1result.html">result</a> emlabcpp::cfg::store_kval_impl </td>
+          <td class="memname"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; std::span&lt; std::byte &gt; &gt; emlabcpp::cfg::store_kval_impl </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -711,13 +749,7 @@ template&lt;typename T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::byte *&#160;</td>
-          <td class="paramname"><em>end</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; std::byte &gt; &amp;&#160;</td>
-          <td class="paramname"><em>used_area</em>&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -732,7 +764,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a>, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb">MULTI</a>, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a4422e43d4f77d9ddb39da06ca188183c">ser_cell()</a>, and <a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8">SINGLE</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a>, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb">MULTI</a>, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a48efe3f0644006cbdccfe47ad02cfb4a">ser_cell()</a>, and <a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8">SINGLE</a>.</p>
 
 </div>
 </div>
@@ -831,7 +863,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1cfg.html">cfg</a></li>
-    <li class="footer">Generated on Tue Apr 8 2025 09:42:02 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Apr 8 2025 13:13:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -8,10 +8,9 @@ var annotated_dup =
       [ "cfg", "namespaceemlabcpp_1_1cfg.html", [
         [ "header", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1header_dup" ],
         [ "handler", "structemlabcpp_1_1cfg_1_1handler.html", "structemlabcpp_1_1cfg_1_1handler" ],
-        [ "page_selector", "structemlabcpp_1_1cfg_1_1page__selector.html", "structemlabcpp_1_1cfg_1_1page__selector" ],
-        [ "next_page_locator", "structemlabcpp_1_1cfg_1_1next__page__locator.html", "structemlabcpp_1_1cfg_1_1next__page__locator" ],
         [ "deser_res", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1deser__res_dup" ],
-        [ "page_loader", "structemlabcpp_1_1cfg_1_1page__loader.html", "structemlabcpp_1_1cfg_1_1page__loader" ]
+        [ "page_loader", "structemlabcpp_1_1cfg_1_1page__loader.html", "structemlabcpp_1_1cfg_1_1page__loader" ],
+        [ "activ_page_sel", "structemlabcpp_1_1cfg_1_1activ__page__sel.html", "structemlabcpp_1_1cfg_1_1activ__page__sel" ]
       ] ],
       [ "coro", "namespaceemlabcpp_1_1coro.html", [
         [ "data_promise", "structemlabcpp_1_1coro_1_1data__promise.html", "structemlabcpp_1_1coro_1_1data__promise" ],

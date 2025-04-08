@@ -94,7 +94,8 @@ $(document).ready(function(){initNavTree('experimental_2cfg2_2handler_8h.html','
 <div class="title">handler.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="assert_8h_source.html">../../assert.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="algorithm_8h_source.html">../../algorithm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="assert_8h_source.html">../../assert.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="match_8h_source.html">../../match.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="converter_8h_source.html">../../protocol/converter.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="result_8h_source.html">../../result.h</a>&quot;</code><br />
@@ -107,7 +108,7 @@ $(document).ready(function(){initNavTree('experimental_2cfg2_2handler_8h.html','
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="experimental_2cfg2_2handler_8h__incl.svg" width="912" height="276"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="experimental_2cfg2_2handler_8h__incl.svg" width="1183" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -115,10 +116,6 @@ $(document).ready(function(){initNavTree('experimental_2cfg2_2handler_8h.html','
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__selector.html">emlabcpp::cfg::page_selector</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1next__page__locator.html">emlabcpp::cfg::next_page_locator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1cfg_1_1deser__res"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">emlabcpp::cfg::deser_res</a></td></tr>
 <tr class="separator:structemlabcpp_1_1cfg_1_1deser__res"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html">emlabcpp::cfg::page_loader&lt; KeyCache &gt;</a></td></tr>
@@ -135,20 +132,14 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a4bb3fbb806d337a0248f2bce37b1b839"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a4bb3fbb806d337a0248f2bce37b1b839"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">emlabcpp::cfg::opt</a> = std::optional&lt; T &gt;</td></tr>
+<tr class="separator:a4bb3fbb806d337a0248f2bce37b1b839"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a699a088a1ac75a764259edff5c16d682"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">emlabcpp::cfg::cell</a> = uint64_t</td></tr>
 <tr class="separator:a699a088a1ac75a764259edff5c16d682"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a895b7d25c90721a0397f1792bf3ae1f1"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">emlabcpp::cfg::hdr_state</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29">emlabcpp::cfg::A</a> = 0x40
-, <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a9d5ed678fe57bcca610140957afab571">emlabcpp::cfg::B</a> = A + 0x40
-, <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a0d61f8370cad1d412f80b84d143e1257">emlabcpp::cfg::C</a> = B + 0x40
-<br />
- }</td></tr>
-<tr class="separator:a895b7d25c90721a0397f1792bf3ae1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c14e8fb015be9cf949dfea5e355c7d2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2">emlabcpp::cfg::ser_res</a> : uint8_t { <br />
 &#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8">emlabcpp::cfg::SINGLE</a>
 , <br />
@@ -159,23 +150,22 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8e03f9106771ab434a50622f4432bee0"><td class="memItemLeft" align="right" valign="top">hdr_state&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a8e03f9106771ab434a50622f4432bee0">emlabcpp::cfg::next</a> (hdr_state cs) noexcept</td></tr>
-<tr class="separator:a8e03f9106771ab434a50622f4432bee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a761c82c27449395f92439319e3846e39"><td class="memItemLeft" align="right" valign="top">std::optional&lt; hdr_state &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a761c82c27449395f92439319e3846e39">emlabcpp::cfg::byte_to_hdr</a> (std::byte b) noexcept</td></tr>
-<tr class="separator:a761c82c27449395f92439319e3846e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab79d43de96c836d78ad14ea5922d954b"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#ab79d43de96c836d78ad14ea5922d954b">emlabcpp::cfg::closest_multiple_of</a> (uint32_t x, uint32_t r) noexcept</td></tr>
 <tr class="separator:ab79d43de96c836d78ad14ea5922d954b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4422e43d4f77d9ddb39da06ca188183c"><td class="memItemLeft" align="right" valign="top">std::optional&lt; ser_res &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4422e43d4f77d9ddb39da06ca188183c">emlabcpp::cfg::ser_cell</a> (uint32_t key, std::span&lt; std::byte &gt; value, std::span&lt; std::byte, cell_size &gt; dest)</td></tr>
-<tr class="separator:a4422e43d4f77d9ddb39da06ca188183c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa90efe2e41f9e7f7758eef35798905a8"><td class="memItemLeft" align="right" valign="top">std::optional&lt; deser_res &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#aa90efe2e41f9e7f7758eef35798905a8">emlabcpp::cfg::deser_cell</a> (std::span&lt; std::byte, cell_size &gt; c)</td></tr>
-<tr class="separator:aa90efe2e41f9e7f7758eef35798905a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef8db175916f228c430a645af80814af"><td class="memItemLeft" align="right" valign="top">result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#aef8db175916f228c430a645af80814af">emlabcpp::cfg::store_kval_impl</a> (uint32_t key, std::byte *beg, std::byte *val_end, std::byte *end, std::span&lt; std::byte &gt; &amp;used_area)</td></tr>
-<tr class="separator:aef8db175916f228c430a645af80814af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eb22dfeb0dec0a144b6cb53eb3290ab"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a9eb22dfeb0dec0a144b6cb53eb3290ab"><td class="memTemplItemLeft" align="right" valign="top">result&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a9eb22dfeb0dec0a144b6cb53eb3290ab">emlabcpp::cfg::store_kval</a> (uint32_t key, T const &amp;val, std::span&lt; std::byte &gt; buffer, std::span&lt; std::byte &gt; &amp;used_area)</td></tr>
-<tr class="separator:a9eb22dfeb0dec0a144b6cb53eb3290ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fcbb6212ee62341a8344456758ef717"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a7fcbb6212ee62341a8344456758ef717">emlabcpp::cfg::is_free_cell</a> (uint64_t cell)</td></tr>
-<tr class="separator:a7fcbb6212ee62341a8344456758ef717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48efe3f0644006cbdccfe47ad02cfb4a"><td class="memItemLeft" align="right" valign="top">opt&lt; ser_res &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a48efe3f0644006cbdccfe47ad02cfb4a">emlabcpp::cfg::ser_cell</a> (uint32_t key, std::span&lt; std::byte &gt; value, std::span&lt; std::byte, cell_size &gt; dest)</td></tr>
+<tr class="separator:a48efe3f0644006cbdccfe47ad02cfb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a332cda5b5350652a3b34302f27afc6a5"><td class="memItemLeft" align="right" valign="top">opt&lt; deser_res &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a332cda5b5350652a3b34302f27afc6a5">emlabcpp::cfg::deser_cell</a> (std::span&lt; std::byte, cell_size &gt; c)</td></tr>
+<tr class="separator:a332cda5b5350652a3b34302f27afc6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d9eca5e00ad57fb1a977f4e89766780"><td class="memItemLeft" align="right" valign="top">opt&lt; std::span&lt; std::byte &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a7d9eca5e00ad57fb1a977f4e89766780">emlabcpp::cfg::store_kval_impl</a> (uint32_t key, std::byte *beg, std::byte *val_end, std::byte *end)</td></tr>
+<tr class="separator:a7d9eca5e00ad57fb1a977f4e89766780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab761d9a9f218530069d2291ea05812c1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab761d9a9f218530069d2291ea05812c1"><td class="memTemplItemLeft" align="right" valign="top">opt&lt; std::span&lt; std::byte &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#ab761d9a9f218530069d2291ea05812c1">emlabcpp::cfg::store_kval</a> (uint32_t key, T const &amp;val, std::span&lt; std::byte &gt; buffer)</td></tr>
+<tr class="separator:ab761d9a9f218530069d2291ea05812c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8dc05184f069b6e659b6499854aa77e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae8dc05184f069b6e659b6499854aa77e"><td class="memTemplItemLeft" align="right" valign="top">opt&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#ae8dc05184f069b6e659b6499854aa77e">emlabcpp::cfg::get_val</a> (std::span&lt; std::byte &gt; data)</td></tr>
+<tr class="separator:ae8dc05184f069b6e659b6499854aa77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b5f4aa702b62e72406033cae1964642"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4b5f4aa702b62e72406033cae1964642">emlabcpp::cfg::is_free_cell</a> (std::span&lt; std::byte, cell_size &gt; cell)</td></tr>
+<tr class="separator:a4b5f4aa702b62e72406033cae1964642"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -230,7 +220,7 @@ val</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_41e4d945d025625261ba1bf6390ad1b1.html">cfg2</a></li><li class="navelem"><a class="el" href="experimental_2cfg2_2handler_8h.html">handler.h</a></li>
-    <li class="footer">Generated on Tue Apr 8 2025 09:42:01 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Apr 8 2025 13:13:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

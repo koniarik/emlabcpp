@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['page_5floader_1951',['page_loader',['../structemlabcpp_1_1cfg_1_1page__loader.html#a48aa9377e72bbe3c55635893a05c8631',1,'emlabcpp::cfg::page_loader']]],
-  ['page_5fselector_1952',['page_selector',['../structemlabcpp_1_1cfg_1_1page__selector.html#ac3e32859a2ab2fe73b951bdb25c99129',1,'emlabcpp::cfg::page_selector']]],
+  ['page_5floader_1952',['page_loader',['../structemlabcpp_1_1cfg_1_1page__loader.html#a48aa9377e72bbe3c55635893a05c8631',1,'emlabcpp::cfg::page_loader']]],
   ['parameters_1953',['parameters',['../classemlabcpp_1_1testing_1_1parameters.html#aa803950e166c898aebf70f7da2192ee1',1,'emlabcpp::testing::parameters']]],
   ['parameters_5fserver_1954',['parameters_server',['../classemlabcpp_1_1testing_1_1parameters__server.html#a162af1e4566e1b4c5e564d91eadf5b4e',1,'emlabcpp::testing::parameters_server']]],
   ['params_5fawaiter_1955',['params_awaiter',['../structemlabcpp_1_1testing_1_1params__awaiter.html#a6e5107752a7578cd8c127e6a865fd3a5',1,'emlabcpp::testing::params_awaiter']]],
@@ -11,7 +10,7 @@ var searchData=
   ['pool_5fresource_1959',['pool_resource',['../classemlabcpp_1_1pmr_1_1pool__resource.html#a4b23fda7e50718afee695c9939cc5ead',1,'emlabcpp::pmr::pool_resource::pool_resource()'],['../classemlabcpp_1_1pmr_1_1pool__resource.html#adce1491cdfc468a6e0965ee4fe7209c6',1,'emlabcpp::pmr::pool_resource::pool_resource(pool_resource const &amp;)=delete'],['../classemlabcpp_1_1pmr_1_1pool__resource.html#aa5d037464142251e37a1ba8c4e895f2e',1,'emlabcpp::pmr::pool_resource::pool_resource(pool_resource &amp;&amp;)=delete']]],
   ['pop_5fback_1960',['pop_back',['../classemlabcpp_1_1static__vector.html#a695cb5bc8494b4bb5ce31bdcd50c47ff',1,'emlabcpp::static_vector']]],
   ['pop_5ffront_1961',['pop_front',['../classemlabcpp_1_1static__circular__buffer.html#aae5cd5d7d9d58ff118bf646e4fd26972',1,'emlabcpp::static_circular_buffer::pop_front()'],['../classemlabcpp_1_1static__circular__buffer.html#a1a1e48e011604513a475a77d17665167',1,'emlabcpp::static_circular_buffer::pop_front(size_type n)']]],
-  ['pose_1962',['pose',['../structemlabcpp_1_1pose.html#ae713fd78d34a49c4a679bdab0fc62c50',1,'emlabcpp::pose::pose()'],['../structemlabcpp_1_1pose.html#ae5dfa4e5e36b7a72110d555751189c53',1,'emlabcpp::pose::pose(point&lt; 3 &gt; const &amp;position, quaternion const &amp;orientation)'],['../structemlabcpp_1_1pose.html#a4ddbb3055e1ebafc02de6ae2a3c6cf0a',1,'emlabcpp::pose::pose(quaternion const &amp;orientation)'],['../structemlabcpp_1_1pose.html#acaf38d4acdaf68056709869fcf8bdc13',1,'emlabcpp::pose::pose(point&lt; 3 &gt; const &amp;position)']]],
+  ['pose_1962',['pose',['../structemlabcpp_1_1pose.html#acaf38d4acdaf68056709869fcf8bdc13',1,'emlabcpp::pose::pose(point&lt; 3 &gt; const &amp;position)'],['../structemlabcpp_1_1pose.html#ae5dfa4e5e36b7a72110d555751189c53',1,'emlabcpp::pose::pose(point&lt; 3 &gt; const &amp;position, quaternion const &amp;orientation)'],['../structemlabcpp_1_1pose.html#a4ddbb3055e1ebafc02de6ae2a3c6cf0a',1,'emlabcpp::pose::pose(quaternion const &amp;orientation)'],['../structemlabcpp_1_1pose.html#ae713fd78d34a49c4a679bdab0fc62c50',1,'emlabcpp::pose::pose()']]],
   ['pow_1963',['pow',['../namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6',1,'emlabcpp']]],
   ['pretty_5fprint_5fmsg_5fformat_1964',['pretty_print_msg_format',['../namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630',1,'emlabcpp::protocol']]],
   ['pretty_5ftype_5fname_1965',['pretty_type_name',['../namespaceemlabcpp.html#a5b62f09ff5468bc513cac30ace3d6c58',1,'emlabcpp']]],
