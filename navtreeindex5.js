@@ -1,12 +1,11 @@
 var NAVTREEINDEX5 =
 {
-"index.html#autotoc_md19":[1,12],
+"index.html#autotoc_md18":[1,13],
+"index.html#autotoc_md19":[1,14],
 "index.html#autotoc_md2":[0],
-"index.html#autotoc_md20":[1,13],
-"index.html#autotoc_md21":[1,14],
-"index.html#autotoc_md22":[1,15],
-"index.html#autotoc_md23":[1,16],
-"index.html#autotoc_md24":[1,17],
+"index.html#autotoc_md20":[1,15],
+"index.html#autotoc_md21":[1,16],
+"index.html#autotoc_md22":[1,17],
 "index.html#autotoc_md3":[1],
 "index.html#autotoc_md4":[1,0],
 "index.html#autotoc_md5":[1,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX5 =
 "namespaceemlabcpp.html#a6919f10a6a4596b7b33d935ef44c8b1c":[0,2,0,204],
 "namespaceemlabcpp.html#a69958489560ea5ebfccc956fbba6a0cb":[0,2,0,174],
 "namespaceemlabcpp.html#a69ec76f710bc498a013e2fa20298970d":[0,2,0,357],
-"namespaceemlabcpp.html#a6be05796ab448aa24c757f16e384de09":[0,2,0,334]
+"namespaceemlabcpp.html#a6be05796ab448aa24c757f16e384de09":[0,2,0,334],
+"namespaceemlabcpp.html#a6d100afeb63e0735bf1abe40e8f1dda3":[0,2,0,335]
 };

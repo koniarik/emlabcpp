@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"endpoint_8h_source.html":[2,0,0,0,4,3],
 "enum_8h.html":[2,0,0,0,12],
 "enum_8h.html#a39bdb9e4992c495c755d900b23435840":[2,0,0,0,12,0],
 "enum_8h_source.html":[2,0,0,0,12],
@@ -243,11 +244,10 @@ var NAVTREEINDEX4 =
 "index.html":[],
 "index.html#autotoc_md10":[1,6],
 "index.html#autotoc_md11":[1,6,0],
-"index.html#autotoc_md12":[1,6,1],
-"index.html#autotoc_md13":[1,6,2],
-"index.html#autotoc_md14":[1,7],
-"index.html#autotoc_md15":[1,8],
-"index.html#autotoc_md16":[1,9],
-"index.html#autotoc_md17":[1,10],
-"index.html#autotoc_md18":[1,11]
+"index.html#autotoc_md12":[1,7],
+"index.html#autotoc_md13":[1,8],
+"index.html#autotoc_md14":[1,9],
+"index.html#autotoc_md15":[1,10],
+"index.html#autotoc_md16":[1,11],
+"index.html#autotoc_md17":[1,12]
 };
