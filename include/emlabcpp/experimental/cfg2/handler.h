@@ -21,6 +21,7 @@
 /// SOFTWARE.
 #pragma once
 
+#include "../../algorithm.h"
 #include "../../assert.h"
 #include "../../match.h"
 #include "../../protocol/converter.h"
@@ -34,102 +35,8 @@
 namespace emlabcpp::cfg
 {
 
-enum class hdr_state : uint8_t
-{
-        A = 0x40,
-        B = A + 0x40,
-        C = B + 0x40,
-};
-
-inline hdr_state next( hdr_state cs ) noexcept
-{
-        switch ( cs ) {
-        case hdr_state::A:
-                return hdr_state::B;
-        case hdr_state::B:
-                return hdr_state::C;
-        case hdr_state::C:
-                return hdr_state::A;
-        default:
-                return cs;
-        }
-}
-
-inline std::optional< hdr_state > byte_to_hdr( std::byte b ) noexcept
-{
-        switch ( b ) {
-        case std::byte{ static_cast< uint8_t >( hdr_state::A ) }:
-                return hdr_state::A;
-        case std::byte{ static_cast< uint8_t >( hdr_state::B ) }:
-                return hdr_state::B;
-        case std::byte{ static_cast< uint8_t >( hdr_state::C ) }:
-                return hdr_state::C;
-        default:
-                return {};
-        }
-}
-
-// find last matching initial state
-struct page_selector
-{
-        page_selector( hdr_state cs ) noexcept
-          : cs_( cs )
-        {
-        }
-
-        void on_page( std::size_t i, hdr_state cs ) noexcept
-        {
-                if ( cs != cs_ )
-                        return;
-                i_ = i;
-        }
-
-        std::pair< std::size_t, hdr_state > finish() && noexcept
-        {
-                return { i_, cs_ };
-        }
-
-private:
-        std::size_t i_ = 0;
-        hdr_state   cs_;
-};
-
-struct next_page_locator
-{
-
-        bool check_page( std::size_t i, std::byte data[2] ) noexcept
-        {
-                if ( empty_i_ )
-                        return true;
-                auto val = byte_to_hdr( data[0] );
-                // XXX: the XOR is NOT documented anywhere
-                if ( data[0] == std::byte{ 0x00 } || data[0] != ~data[1] || !val ) {
-                        empty_i_ = i;
-                        return true;
-                }
-
-                if ( !psel_ )
-                        psel_ = page_selector{ *val };
-                else
-                        psel_->on_page( i, *val );
-
-                return false;
-        }
-
-        std::pair< std::size_t, hdr_state > finish() && noexcept
-        {
-                if ( psel_ ) {
-                        auto [i, st] = std::move( *psel_ ).finish();
-                        return { i, next( st ) };
-                }
-                return { 0, hdr_state::A };
-        }
-
-private:
-        std::optional< page_selector > psel_;
-        std::optional< std::size_t >   empty_i_;
-        hdr_state                      state_ = hdr_state::A;
-};
+template < typename T >
+using opt = std::optional< T >;
 
 // each cell in memory is 64b wide, looks like this:
 // 1b seq | 31b key | 32b val;
@@ -155,7 +62,7 @@ constexpr uint32_t closest_multiple_of( uint32_t x, uint32_t r ) noexcept
         return r * ( ( x + r - 1 ) / r );
 }
 
-inline std::optional< ser_res >
+inline opt< ser_res >
 ser_cell( uint32_t key, std::span< std::byte > value, std::span< std::byte, cell_size > dest )
 {
         if ( value.empty() || key > sin_bit_mask )
@@ -188,7 +95,7 @@ struct deser_res
         uint32_t val;
 };
 
-inline std::optional< deser_res > deser_cell( std::span< std::byte, cell_size > c )
+inline opt< deser_res > deser_cell( std::span< std::byte, cell_size > c )
 {
         uint64_t tmp = 0x00;
         std::memcpy( &tmp, c.data(), c.size() );
@@ -204,51 +111,52 @@ inline std::optional< deser_res > deser_cell( std::span< std::byte, cell_size > 
         return r;
 }
 
-inline result store_kval_impl(
-    uint32_t                key,
-    std::byte*              beg,
-    std::byte*              val_end,
-    std::byte*              end,
-    std::span< std::byte >& used_area )
+inline opt< std::span< std::byte > >
+store_kval_impl( uint32_t key, std::byte* beg, std::byte* val_end, std::byte* end )
 {
         if ( end - val_end < static_cast< int >( cell_size ) )
-                return result::ERROR;
-        std::copy_backward( beg, val_end, val_end + cell_size );
+                return {};
+        std::byte* new_end = val_end + cell_size;
 
         auto tmp = ser_cell(
-            key,
-            { beg + cell_size, val_end + cell_size },
-            std::span< std::byte, cell_size >{ beg, cell_size } );
+            key, { beg, val_end }, std::span< std::byte, cell_size >{ val_end, cell_size } );
         if ( !tmp )
-                return result::ERROR;
+                return {};
         switch ( *tmp ) {
         case ser_res::MULTI:
-                used_area = std::span{ beg, val_end + cell_size };
-                break;
+                return std::span{ beg, new_end };
         case ser_res::SINGLE:
-                used_area = std::span{ beg, cell_size };
-                break;
+                return std::span{ val_end, cell_size };
         }
-        return result::SUCCESS;
+        return {};
 }
 
 template < typename T >
-result store_kval(
-    uint32_t                key,
-    T const&                val,
-    std::span< std::byte >  buffer,
-    std::span< std::byte >& used_area )
+opt< std::span< std::byte > >
+store_kval( uint32_t key, T const& val, std::span< std::byte > buffer )
 {
         using conv = protocol::converter_for< T, std::endian::little >;  // XXX: make endianness
                                                                          // configurable?
         if ( buffer.size() < conv::max_size )
-                return result::ERROR;
+                return {};
         std::span< std::byte, conv::max_size > front{ buffer.data(), conv::max_size };
 
         bounded const used = conv::serialize_at( front, val );
 
         return store_kval_impl(
-            key, buffer.data(), buffer.data() + *used, buffer.data() + buffer.size(), used_area );
+            key, buffer.data(), buffer.data() + *used, buffer.data() + buffer.size() );
+}
+
+template < typename T >
+opt< T > get_val( std::span< std::byte > data )
+{
+
+        using conv = protocol::converter_for< T, std::endian::little >;  // XXX: make endianness
+                                                                         // configurable?
+        T res;
+        if ( conv::deserialize( data, res ).has_error() )
+                return {};
+        return res;
 }
 
 // iterates over each cell in the page, skipping duplicates
@@ -350,9 +258,11 @@ private:
         std::span< std::byte > buffer_;
 };
 
-inline bool is_free_cell( uint64_t cell )
+inline bool is_free_cell( std::span< std::byte, cell_size > cell )
 {
-        return cell == 0;
+        return all_of( cell, [&]( auto x ) {
+                return x == std::byte{ 00 };
+        } );
 }
 
 }  // namespace emlabcpp::cfg

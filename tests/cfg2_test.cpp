@@ -20,7 +20,9 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 /// SOFTWARE.
+
 #include "emlabcpp/experimental/cfg2/handler.h"
+#include "emlabcpp/experimental/cfg2/page.h"
 
 #include <gtest/gtest.h>
 
@@ -65,12 +67,11 @@ TEST( cfg, closest_multiply_of )
 TEST( cfg, seq )
 {
         auto test_f = [&]( std::string_view inpt, std::size_t expected, hdr_state expected_cs ) {
-                page_selector cd{ hdr( inpt[0] ) };
+                activ_page_sel psel{};
                 for ( std::size_t i = 1; i < inpt.size(); ++i )
-                        cd.on_page( i, hdr( inpt[i] ) );
-                auto [i, cs] = std::move( cd ).finish();
-                EXPECT_EQ( i, expected ) << inpt;
-                EXPECT_EQ( cs, expected_cs ) << inpt;
+                        psel.on_hdr( i, hdr( inpt[i] ) );
+                EXPECT_EQ( psel.idx, expected ) << inpt;
+                EXPECT_EQ( psel.hdr_st, expected_cs ) << inpt;
         };
 
         test_f( "AAAA", 3, hdr_state::A );
@@ -88,7 +89,7 @@ TEST( cfg, zero_cell )
         auto      r = deser_cell( std::span< std::byte, cell_size >{ tmp, cell_size } );
         EXPECT_FALSE( r.has_value() );
 
-        EXPECT_TRUE( is_free_cell( 0x00 ) );
+        EXPECT_TRUE( is_free_cell( tmp ) );
 }
 
 TEST( cfg, cell )
@@ -126,6 +127,7 @@ TEST( cfg, cell )
         };
 
         test_fs( 0x7FFF'FFFF, 0xFFFF'FFFF, 0xFFFF'FFFF'FFFF'FFFF );
+        test_fs( 0x0FFF'FFFF, 0x1234'5678, 0x8FFF'FFFF'1234'5678 );
         test_fs( 0x1234'5678, 0x1234'5678, 0x9234'5678'1234'5678 );
         test_f(
             0x1234'5678,
@@ -134,19 +136,34 @@ TEST( cfg, cell )
         test_f( 0x1234'5678, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b }, 0x1234'5678'0000'0001 );
 }
 
-TEST( cfg, store )
+TEST( cfg, storeload )
 {
         auto test_f = [&]< typename T >( uint32_t key, T value, std::size_t size ) {
-                std::byte              buffer[42];
-                std::span< std::byte > used_area;
-                auto                   res = store_kval( key, value, buffer, used_area );
-                EXPECT_EQ( res, result::SUCCESS );
-                EXPECT_EQ( used_area.size(), size );
+                std::byte buffer[42];
+                auto      area = store_kval( key, value, buffer );
+                EXPECT_TRUE( area.has_value() );
+                EXPECT_EQ( area->size(), size );
+
+                auto tmp = deser_cell(
+                    area->subspan( area->size() - cell_size ).template subspan< 0, cell_size >() );
+                EXPECT_TRUE( tmp );
+                auto [is_seq, k, val] = *tmp;
+                EXPECT_EQ( key, k ) << std::hex << key << " != " << k;
+                opt< T > v;
+                if ( is_seq )
+                        v = get_val< T >( area->subspan( 0, val * cell_size ) );
+                else {
+                        std::byte tmp2[cell_size / 2];
+                        std::memcpy( tmp2, &val, sizeof val );
+                        v = get_val< T >( std::span{ tmp2, sizeof tmp2 } );
+                }
+                EXPECT_TRUE( v.has_value() );
+                EXPECT_EQ( *v, value );
         };
 
+        test_f( 0x0FFF'FFFF, uint64_t{ 0xFFFF'FFFF'FFFF'FFFF }, 16 );
         test_f( 0x0FFF'FFFF, 3.14F, 8 );
         test_f( 0x0FFF'FFFF, uint32_t{ 42 }, 8 );
-        test_f( 0x0FFF'FFFF, uint64_t{ 0xFFFF'FFFF'FFFF'FFFF }, 16 );
 }
 
 struct buffer_builder
