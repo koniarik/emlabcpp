@@ -20,7 +20,7 @@ target_compile_options(
   emlabcpp
   PUBLIC -DEMLABCPP_USE_NLOHMANN_JSON
          -DEMLABCPP_ASSERT_NATIVE
-         -DEMLABCPP_USE_MAGIC_ENUM
+         #-DEMLABCPP_USE_MAGIC_ENUM # dropped until clang issues resolved
          -DEMLABCPP_USE_GTEST
          -DEMLABCPP_USE_LOGGING
          -DEMLABCPP_USE_DEMANGLING
