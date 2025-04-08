@@ -1,12 +1,18 @@
 
-# emlabcpp
+<div align="center">
 
-[![Tests](https://github.com/koniarik/emlabcpp/actions/workflows/tests.yml/badge.svg)](https://github.com/koniarik/emlabcpp/actions/workflows/tests.yml)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nlohmann/json/master/LICENSE.MIT)
+C++ embedded library
+
+---
+
+[Documentation](https://koniarik.github.io/emlabcpp/index.html)
+
+</div>
 
 An opinionated C++20 library focusing on embedded development.
 It provides a wide set of tools, from complex mechanisms (protocol library) to simple utilites (view).
-More details in [Documentation](https://koniarik.github.io/emlabcpp/index.html)
+
+Want help? Find `veverak` on [Amulius Embedded Discord](https://discord.com/invite/embedded)
 
 - [Installation](#Installation)
 - [Components](#Components)
