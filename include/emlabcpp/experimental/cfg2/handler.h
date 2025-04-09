@@ -47,9 +47,9 @@ static constexpr uint32_t sin_bit_mask = 0x80000000;
 
 static_assert( ~key_mask == sin_bit_mask, "key mask and sin bit mask are not correct" );
 
-using cell                              = uint64_t;
-static constexpr std::size_t cell_size  = sizeof( cell );
-static constexpr std::size_t hcell_size = sizeof( cell ) / 2;
+using cell                           = uint64_t;
+static constexpr uint16_t cell_size  = sizeof( cell );
+static constexpr uint16_t hcell_size = sizeof( cell ) / 2;
 
 enum class ser_res : uint8_t
 {
@@ -159,6 +159,12 @@ opt< T > get_val( std::span< std::byte > data )
         return res;
 }
 
+enum class cache_res
+{
+        SEEN,
+        NOT_SEEN,
+};
+
 // iterates over each cell in the page, skipping duplicates
 template < typename KeyCache >
 struct page_loader
@@ -182,6 +188,8 @@ struct page_loader
                 return std::holds_alternative< err_st >( state_ );
         }
 
+        // XXX: the templated callback is definetly not great for comp. time/code size - get's
+        // recreated each time
         void on_cell(
             std::span< std::byte, cell_size >                         c,
             std::invocable< uint32_t, std::span< std::byte > > auto&& on_kval )
@@ -195,10 +203,10 @@ struct page_loader
                     [&]( cell_st& ) -> st_var {
                             auto tmp = deser_cell( c );
                             if ( !tmp )
-                                    return cell_st{};
+                                    return err_st{};
                             auto [is_seq, key, val] = *tmp;
-                            bool skip               = key_cache_( key );
-                            if ( skip ) {  // XXX: test
+                            cache_res cr            = key_cache_( key );
+                            if ( cr == cache_res::SEEN ) {  // XXX: test
                                     if ( is_seq )
                                             decr( val * sizeof( cell ) );
                                     return cell_st{};
@@ -224,6 +232,45 @@ struct page_loader
                             }
                             return st;
                     } );
+        }
+
+        // Returns new range that has to be written
+        template < typename M >
+        std::span< std::byte > on_cell_update( std::span< std::byte, cell_size > c, M& map )
+        {
+                std::span< std::byte > used;
+                on_cell( c, [&]( uint32_t key, std::span< std::byte > data ) {
+                        auto ekey = static_cast< typename M::key_type >( key );
+
+                        map.with_register( ekey, [&]< typename Reg >( Reg& reg ) {
+                                auto val = get_val< typename Reg::value_type >( data );
+                                if ( !val )
+                                        state_ = err_st{};
+                                if ( *val == reg.value )
+                                        return;
+
+                                // XXX: error handling?
+                                if ( auto x = store_kval( key, reg.value, buffer_ ) )
+                                        used = *x;
+                        } );
+                } );
+                return used;
+        }
+
+        template < typename M >
+        void on_cell_load( std::span< std::byte, cell_size > c, M& map )
+        {
+                on_cell( c, [&]( uint32_t key, std::span< std::byte > data ) {
+                        auto ekey = static_cast< typename M::key_type >( key );
+
+                        map.with_register( ekey, [&]< typename Reg >( Reg& reg ) {
+                                auto val = get_val< typename Reg::value_type >( data );
+                                if ( !val )
+                                        state_ = err_st{};
+
+                                reg.value = *val;
+                        } );
+                } );
         }
 
 private:
@@ -256,6 +303,13 @@ private:
         std::size_t            addr_;
         KeyCache               key_cache_;
         std::span< std::byte > buffer_;
+};
+
+template < typename Cfg >
+struct storepage
+{
+
+private:
 };
 
 inline bool is_free_cell( std::span< std::byte, cell_size > cell )

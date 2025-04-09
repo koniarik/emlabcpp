@@ -67,6 +67,7 @@ public:
         static constexpr std::endian endianess = Endianess;
         using registers_tuple                  = std::tuple< Regs... >;
         using key_type = typename std::tuple_element_t< 0, registers_tuple >::key_type;
+        static constexpr auto max_key = std::max( { Regs::key... } );
 
         static constexpr std::size_t registers_count = sizeof...( Regs );
         using register_index = bounded< std::size_t, 0, registers_count - 1 >;
@@ -119,7 +120,7 @@ public:
         {
         }
 
-        [[nodiscard]] constexpr bool contains( key_type key ) const
+        [[nodiscard]] static constexpr bool contains( key_type key )
         {
                 return get_reg_index( key ) != std::tuple_size_v< registers_tuple >;
         }
