@@ -11,7 +11,7 @@ var classemlabcpp_1_1protocol_1_1register__map =
     [ "register_map", "classemlabcpp_1_1protocol_1_1register__map.html#ac1b8637639e83482561ed560b66dd395", null ],
     [ "register_map", "classemlabcpp_1_1protocol_1_1register__map.html#ac078fa2585dd4961b10364b399e49e76", null ],
     [ "register_map", "classemlabcpp_1_1protocol_1_1register__map.html#ae385c4f146c64310ddc21ea13d4df8fd", null ],
-    [ "contains", "classemlabcpp_1_1protocol_1_1register__map.html#ab5642aa9603b98cbdf974d7465ce1aa5", null ],
+    [ "contains", "classemlabcpp_1_1protocol_1_1register__map.html#a6b604c60ef9e232f1ce1812b6a332e61", null ],
     [ "get_val", "classemlabcpp_1_1protocol_1_1register__map.html#a62b17ac82a2b9c703b7699784624a65e", null ],
     [ "register_key", "classemlabcpp_1_1protocol_1_1register__map.html#a8fb00aa95c1e87be15a902fc6e229e0b", null ],
     [ "register_size", "classemlabcpp_1_1protocol_1_1register__map.html#a5ca8ba945e7b47eadb74117dc008e50a", null ],
@@ -24,6 +24,7 @@ var classemlabcpp_1_1protocol_1_1register__map =
     [ "endianess", "classemlabcpp_1_1protocol_1_1register__map.html#a186d6906563c747f46ff7b429532f5c4", null ],
     [ "key_index", "classemlabcpp_1_1protocol_1_1register__map.html#a2999eaaf7666321cf01acb68b684ce70", null ],
     [ "keys", "classemlabcpp_1_1protocol_1_1register__map.html#a4b210a18e7c6603b87802da81e7dabf1", null ],
+    [ "max_key", "classemlabcpp_1_1protocol_1_1register__map.html#a90d1c5fdb39fe23e9c2a9621c7b409d6", null ],
     [ "max_value_size", "classemlabcpp_1_1protocol_1_1register__map.html#a33f5097792f99d104f47fd808132b3b9", null ],
     [ "registers_count", "classemlabcpp_1_1protocol_1_1register__map.html#a6df959b196db8242aea28d3fc0e41e38", null ]
 ];

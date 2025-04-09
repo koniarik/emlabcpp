@@ -120,6 +120,8 @@ Classes</h2></td></tr>
 <tr class="separator:structemlabcpp_1_1cfg_1_1deser__res"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html">emlabcpp::cfg::page_loader&lt; KeyCache &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1cfg_1_1storepage"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1storepage">emlabcpp::cfg::storepage&lt; Cfg &gt;</a></td></tr>
+<tr class="separator:structemlabcpp_1_1cfg_1_1storepage"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -147,6 +149,13 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a7c14e8fb015be9cf949dfea5e355c7d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeea787a784189c5391178f02805f3569"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569">emlabcpp::cfg::cache_res</a> { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569aa597a8fc234b2ba1eef93584cae80a4a">emlabcpp::cfg::SEEN</a>
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569afe9d4917e4a7ce384d66ac027f8117bd">emlabcpp::cfg::NOT_SEEN</a>
+<br />
+ }</td></tr>
+<tr class="separator:aeea787a784189c5391178f02805f3569"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -173,10 +182,10 @@ Variables</h2></td></tr>
 <tr class="separator:a5ebedb2b7bc8c518b4c97f5778d3165e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3049d49a73816a35fee82d6c8c0a3790"><td class="memItemLeft" align="right" valign="top">static constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a3049d49a73816a35fee82d6c8c0a3790">emlabcpp::cfg::sin_bit_mask</a> = 0x80000000</td></tr>
 <tr class="separator:a3049d49a73816a35fee82d6c8c0a3790"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3df7d54cca1376914fff230fb11bbd2"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">emlabcpp::cfg::cell_size</a> = sizeof( cell )</td></tr>
-<tr class="separator:aa3df7d54cca1376914fff230fb11bbd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac48a218727104b3d96e0b40009076ebc"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#ac48a218727104b3d96e0b40009076ebc">emlabcpp::cfg::hcell_size</a> = sizeof( cell ) / 2</td></tr>
-<tr class="separator:ac48a218727104b3d96e0b40009076ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a091ba99e3e64a6f4b4f4ea147a496e9e"><td class="memItemLeft" align="right" valign="top">static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e">emlabcpp::cfg::cell_size</a> = sizeof( cell )</td></tr>
+<tr class="separator:a091ba99e3e64a6f4b4f4ea147a496e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf5b81297e9c03a06b5edfd6114cda67"><td class="memItemLeft" align="right" valign="top">static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#adf5b81297e9c03a06b5edfd6114cda67">emlabcpp::cfg::hcell_size</a> = sizeof( cell ) / 2</td></tr>
+<tr class="separator:adf5b81297e9c03a06b5edfd6114cda67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="structemlabcpp_1_1cfg_1_1deser__res" id="structemlabcpp_1_1cfg_1_1deser__res"></a>
@@ -214,13 +223,30 @@ val</td>
 
 </div>
 </div>
+<a name="structemlabcpp_1_1cfg_1_1storepage" id="structemlabcpp_1_1cfg_1_1storepage"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1cfg_1_1storepage">&#9670;&nbsp;</a></span>emlabcpp::cfg::storepage</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct emlabcpp::cfg::storepage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;typename Cfg&gt;<br />
+struct emlabcpp::cfg::storepage&lt; Cfg &gt;</h3>
+
+</div>
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_41e4d945d025625261ba1bf6390ad1b1.html">cfg2</a></li><li class="navelem"><a class="el" href="experimental_2cfg2_2handler_8h.html">handler.h</a></li>
-    <li class="footer">Generated on Tue Apr 8 2025 13:13:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 9 2025 09:41:04 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

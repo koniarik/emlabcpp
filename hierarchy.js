@@ -312,6 +312,7 @@ var hierarchy =
     [ "emlabcpp::status< result, result_e, result_e::SUCCESS >", "structemlabcpp_1_1status.html", [
       [ "emlabcpp::result", "structemlabcpp_1_1result.html", null ]
     ] ],
+    [ "emlabcpp::cfg::storepage< Cfg >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1storepage", null ],
     [ "emlabcpp::string_buffer< 128 >< 32 >", "structemlabcpp_1_1string__buffer.html", null ],
     [ "emlabcpp::tag< V >", "structemlabcpp_1_1tag.html", null ],
     [ "emlabcpp::protocol::tag_group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group", null ],

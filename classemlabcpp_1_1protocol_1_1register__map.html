@@ -139,8 +139,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac078fa2585dd4961b10364b399e49e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae385c4f146c64310ddc21ea13d4df8fd"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ae385c4f146c64310ddc21ea13d4df8fd">register_map</a> (Regs const &amp;... regs)</td></tr>
 <tr class="separator:ae385c4f146c64310ddc21ea13d4df8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5642aa9603b98cbdf974d7465ce1aa5"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ab5642aa9603b98cbdf974d7465ce1aa5">contains</a> (<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a> key) const</td></tr>
-<tr class="separator:ab5642aa9603b98cbdf974d7465ce1aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62b17ac82a2b9c703b7699784624a65e"><td class="memTemplParams" colspan="2">template&lt;key_type Key&gt; </td></tr>
 <tr class="memitem:a62b17ac82a2b9c703b7699784624a65e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a43b737178dcc70ca41577a03ea9c8fb4">reg_value_type</a>&lt; Key &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a62b17ac82a2b9c703b7699784624a65e">get_val</a> () const</td></tr>
 <tr class="separator:a62b17ac82a2b9c703b7699784624a65e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,6 +157,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a6b604c60ef9e232f1ce1812b6a332e61"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a6b604c60ef9e232f1ce1812b6a332e61">contains</a> (<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a> key)</td></tr>
+<tr class="separator:a6b604c60ef9e232f1ce1812b6a332e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ca8ba945e7b47eadb74117dc008e50a"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a5ca8ba945e7b47eadb74117dc008e50a">register_size</a> (<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ad9c9d7232471e21e3b8ffc20082074b9">register_index</a> i)</td></tr>
 <tr class="separator:a5ca8ba945e7b47eadb74117dc008e50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fb00aa95c1e87be15a902fc6e229e0b"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a8fb00aa95c1e87be15a902fc6e229e0b">register_key</a> (<a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#ad9c9d7232471e21e3b8ffc20082074b9">register_index</a> i)</td></tr>
@@ -168,6 +168,8 @@ Static Public Member Functions</h2></td></tr>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a186d6906563c747f46ff7b429532f5c4"><td class="memItemLeft" align="right" valign="top">static constexpr std::endian&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a186d6906563c747f46ff7b429532f5c4">endianess</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a></td></tr>
 <tr class="separator:a186d6906563c747f46ff7b429532f5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90d1c5fdb39fe23e9c2a9621c7b409d6"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a90d1c5fdb39fe23e9c2a9621c7b409d6">max_key</a> = std::max( { Regs::key... } )</td></tr>
+<tr class="separator:a90d1c5fdb39fe23e9c2a9621c7b409d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6df959b196db8242aea28d3fc0e41e38"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a6df959b196db8242aea28d3fc0e41e38">registers_count</a> = sizeof...( Regs )</td></tr>
 <tr class="separator:a6df959b196db8242aea28d3fc0e41e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33f5097792f99d104f47fd808132b3b9"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#a33f5097792f99d104f47fd808132b3b9">max_value_size</a> = std::max( { Regs::traits::max_size... } )</td></tr>
@@ -414,8 +416,8 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab5642aa9603b98cbdf974d7465ce1aa5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5642aa9603b98cbdf974d7465ce1aa5">&#9670;&nbsp;</a></span>contains()</h2>
+<a id="a6b604c60ef9e232f1ce1812b6a332e61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b604c60ef9e232f1ce1812b6a332e61">&#9670;&nbsp;</a></span>contains()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -426,16 +428,16 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::contains </td>
+          <td class="memname">static constexpr bool <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::contains </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html#acb3c07ddc87d99ea052d70bcc4932f9b">key_type</a>&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -825,6 +827,30 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 
 </div>
 </div>
+<a id="a90d1c5fdb39fe23e9c2a9621c7b409d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90d1c5fdb39fe23e9c2a9621c7b409d6">&#9670;&nbsp;</a></span>max_key</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::endian Endianess, typename... Regs&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto <a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">emlabcpp::protocol::register_map</a>&lt; <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a>, Regs &gt;::max_key = std::max( { Regs::key... } )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a33f5097792f99d104f47fd808132b3b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a33f5097792f99d104f47fd808132b3b9">&#9670;&nbsp;</a></span>max_value_size</h2>
 
@@ -882,7 +908,7 @@ template&lt;std::endian Endianess, typename... Regs&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1protocol_1_1register__map.html">register_map</a></li>
-    <li class="footer">Generated on Tue Apr 8 2025 13:13:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 9 2025 09:41:05 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

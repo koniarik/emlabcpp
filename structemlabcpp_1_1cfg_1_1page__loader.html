@@ -102,8 +102,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a76a4461aa765dc6e4a6ff47de9fe85c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50513c95de23c9150657360cecfcd18d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#a50513c95de23c9150657360cecfcd18d">errored</a> () const</td></tr>
 <tr class="separator:a50513c95de23c9150657360cecfcd18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80345eb19022388da5164eaf7c25486a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#a80345eb19022388da5164eaf7c25486a">on_cell</a> (std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> &gt; c, std::invocable&lt; uint32_t, std::span&lt; std::byte &gt; &gt; auto &amp;&amp;on_kval)</td></tr>
+<tr class="memitem:a80345eb19022388da5164eaf7c25486a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#a80345eb19022388da5164eaf7c25486a">on_cell</a> (std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e">cell_size</a> &gt; c, std::invocable&lt; uint32_t, std::span&lt; std::byte &gt; &gt; auto &amp;&amp;on_kval)</td></tr>
 <tr class="separator:a80345eb19022388da5164eaf7c25486a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63688f4f186d606ba72dfe3290f96ed8"><td class="memTemplParams" colspan="2">template&lt;typename M &gt; </td></tr>
+<tr class="memitem:a63688f4f186d606ba72dfe3290f96ed8"><td class="memTemplItemLeft" align="right" valign="top">std::span&lt; std::byte &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#a63688f4f186d606ba72dfe3290f96ed8">on_cell_update</a> (std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e">cell_size</a> &gt; c, M &amp;map)</td></tr>
+<tr class="separator:a63688f4f186d606ba72dfe3290f96ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d6a156bcf83ef2ef129e62cd0e65b7"><td class="memTemplParams" colspan="2">template&lt;typename M &gt; </td></tr>
+<tr class="memitem:ad9d6a156bcf83ef2ef129e62cd0e65b7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#ad9d6a156bcf83ef2ef129e62cd0e65b7">on_cell_load</a> (std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e">cell_size</a> &gt; c, M &amp;map)</td></tr>
+<tr class="separator:ad9d6a156bcf83ef2ef129e62cd0e65b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a48aa9377e72bbe3c55635893a05c8631"></a>
@@ -219,7 +225,7 @@ template&lt;typename KeyCache &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html">emlabcpp::cfg::page_loader</a>&lt; KeyCache &gt;::on_cell </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#aa3df7d54cca1376914fff230fb11bbd2">cell_size</a> &gt;&#160;</td>
+          <td class="paramtype">std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e">cell_size</a> &gt;&#160;</td>
           <td class="paramname"><em>c</em>, </td>
         </tr>
         <tr>
@@ -241,7 +247,91 @@ template&lt;typename KeyCache &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1cfg.html#a332cda5b5350652a3b34302f27afc6a5">emlabcpp::cfg::deser_cell()</a>, <a class="el" href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match()</a>, and <a class="el" href="namespaceemlabcpp_1_1testing.html#a629b37146851ed10536be82200b8e178">emlabcpp::testing::skip()</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1cfg.html#a332cda5b5350652a3b34302f27afc6a5">emlabcpp::cfg::deser_cell()</a>, <a class="el" href="namespaceemlabcpp.html#a57181a407fd6f29a50664f8ba4cb44cd">emlabcpp::match()</a>, and <a class="el" href="namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569aa597a8fc234b2ba1eef93584cae80a4a">emlabcpp::cfg::SEEN</a>.</p>
+
+</div>
+</div>
+<a id="ad9d6a156bcf83ef2ef129e62cd0e65b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9d6a156bcf83ef2ef129e62cd0e65b7">&#9670;&nbsp;</a></span>on_cell_load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename KeyCache &gt; </div>
+<div class="memtemplate">
+template&lt;typename M &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html">emlabcpp::cfg::page_loader</a>&lt; KeyCache &gt;::on_cell_load </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e">cell_size</a> &gt;&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">M &amp;&#160;</td>
+          <td class="paramname"><em>map</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data()</a>, and <a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#a80345eb19022388da5164eaf7c25486a">emlabcpp::cfg::page_loader&lt; KeyCache &gt;::on_cell()</a>.</p>
+
+</div>
+</div>
+<a id="a63688f4f186d606ba72dfe3290f96ed8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63688f4f186d606ba72dfe3290f96ed8">&#9670;&nbsp;</a></span>on_cell_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename KeyCache &gt; </div>
+<div class="memtemplate">
+template&lt;typename M &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::span&lt; std::byte &gt; <a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html">emlabcpp::cfg::page_loader</a>&lt; KeyCache &gt;::on_cell_update </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e">cell_size</a> &gt;&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">M &amp;&#160;</td>
+          <td class="paramname"><em>map</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data()</a>, <a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html#a80345eb19022388da5164eaf7c25486a">emlabcpp::cfg::page_loader&lt; KeyCache &gt;::on_cell()</a>, and <a class="el" href="namespaceemlabcpp_1_1cfg.html#ab761d9a9f218530069d2291ea05812c1">emlabcpp::cfg::store_kval()</a>.</p>
 
 </div>
 </div>
@@ -254,7 +344,7 @@ template&lt;typename KeyCache &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1cfg.html">cfg</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html">page_loader</a></li>
-    <li class="footer">Generated on Tue Apr 8 2025 13:13:45 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 9 2025 09:41:04 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
