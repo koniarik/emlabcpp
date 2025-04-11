@@ -8,5 +8,5 @@ var searchData=
   ['bounded_5fderived_2134',['bounded_derived',['../namespaceemlabcpp.html#add79493bcf07bd4c54afffe3a0f3ee00',1,'emlabcpp']]],
   ['bounds_2135',['bounds',['../classemlabcpp_1_1bounded.html#a1826affc465ed63d2af293f82c58567d',1,'emlabcpp::bounded']]],
   ['bounds_5ferr_2136',['BOUNDS_ERR',['../namespaceemlabcpp_1_1protocol.html#a925029d9c13ebc476b462499b5fae534',1,'emlabcpp::protocol']]],
-  ['buffer_2137',['buffer',['../namespaceemlabcpp_1_1cfg.html#af46b4eb975c0db082392ed7b5c6f59c4',1,'emlabcpp::cfg::lambda_update']]]
+  ['buffer_2137',['buffer',['../namespaceemlabcpp_1_1cfg.html#af0b33af7e8b520713d711a1f474ed4dd',1,'emlabcpp::cfg::update_cbs']]]
 ];

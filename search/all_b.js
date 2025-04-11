@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['lambda_5fbind_529',['lambda_bind',['../structemlabcpp_1_1cfg_1_1lambda__bind.html',1,'emlabcpp::cfg::lambda_bind&lt; T &gt;'],['../structemlabcpp_1_1cfg_1_1lambda__bind.html#a09bc3464de9286a8102d69ed255eadef',1,'emlabcpp::cfg::lambda_bind::lambda_bind()']]],
-  ['lambda_5fupdate_530',['lambda_update',['../namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1lambda__update',1,'emlabcpp::cfg']]],
+  ['lambda_5fbind_530',['lambda_bind',['../structemlabcpp_1_1cfg_1_1lambda__bind.html',1,'emlabcpp::cfg::lambda_bind&lt; T &gt;'],['../structemlabcpp_1_1cfg_1_1lambda__bind.html#a09bc3464de9286a8102d69ed255eadef',1,'emlabcpp::cfg::lambda_bind::lambda_bind()']]],
   ['last_5fmeasured_531',['last_measured',['../structemlabcpp_1_1pid.html#aaeebf0506e1b2d30502abdfa3e33073a',1,'emlabcpp::pid']]],
   ['last_5ftime_532',['last_time',['../structemlabcpp_1_1pid.html#ab22ac70cb2ecdfe8cdd3d4498695ab10',1,'emlabcpp::pid']]],
   ['length_533',['length',['../namespaceemlabcpp.html#a458a21111b267fd6b9727f821974f859',1,'emlabcpp']]],

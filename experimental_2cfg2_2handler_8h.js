@@ -6,14 +6,14 @@ var experimental_2cfg2_2handler_8h =
       [ "val", "namespaceemlabcpp_1_1cfg.html#a6c1f54129c3dd7b5eb4e142295cc49f6", null ]
     ] ],
     [ "update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", "structemlabcpp_1_1cfg_1_1update__iface" ],
-    [ "lambda_update", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1lambda__update", [
-      [ "buffer", "namespaceemlabcpp_1_1cfg.html#af46b4eb975c0db082392ed7b5c6f59c4", null ],
-      [ "key_check_f", "namespaceemlabcpp_1_1cfg.html#a968aad288544d4630ef2323f68996c52", null ],
-      [ "read_f", "namespaceemlabcpp_1_1cfg.html#aefcf96d863dfb4371964459832c1a996", null ],
-      [ "serialize_key_f", "namespaceemlabcpp_1_1cfg.html#aa348b1fb233baad8ed7982648d91a43e", null ],
-      [ "take_unseen_key_f", "namespaceemlabcpp_1_1cfg.html#a758993f2864a938c61fd80719e5216c8", null ],
-      [ "value_changed_f", "namespaceemlabcpp_1_1cfg.html#a473111ba7b405d17efe2921980efe50f", null ],
-      [ "write_f", "namespaceemlabcpp_1_1cfg.html#ad834dea892a56218d4b766813c1d75aa", null ]
+    [ "update_cbs", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1update__cbs", [
+      [ "buffer", "namespaceemlabcpp_1_1cfg.html#af0b33af7e8b520713d711a1f474ed4dd", null ],
+      [ "key_check_f", "namespaceemlabcpp_1_1cfg.html#a1da197ca01e922c711c8226b38f62bdf", null ],
+      [ "read_f", "namespaceemlabcpp_1_1cfg.html#a2ee1fdbf492124664ea5bb45a6ef3c86", null ],
+      [ "serialize_key_f", "namespaceemlabcpp_1_1cfg.html#a163244ba05a73ebfa8fb997cf00c1849", null ],
+      [ "take_unseen_key_f", "namespaceemlabcpp_1_1cfg.html#a98d73c08c3bd251de1a17bf7e4bdeac5", null ],
+      [ "value_changed_f", "namespaceemlabcpp_1_1cfg.html#a06bb3c234436ae95cfffbfbc80306da1", null ],
+      [ "write_f", "namespaceemlabcpp_1_1cfg.html#acac82db8ca3350e2777d18eb9866897e", null ]
     ] ],
     [ "lambda_bind", "structemlabcpp_1_1cfg_1_1lambda__bind.html", "structemlabcpp_1_1cfg_1_1lambda__bind" ],
     [ "cell", "experimental_2cfg2_2handler_8h.html#a699a088a1ac75a764259edff5c16d682", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['load_5fresult_2576',['load_result',['../namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117',1,'emlabcpp::cfg']]]
+  ['load_5fresult_2577',['load_result',['../namespaceemlabcpp_1_1cfg.html#a7aec13dbf2caeca273b78f943c348117',1,'emlabcpp::cfg']]]
 ];

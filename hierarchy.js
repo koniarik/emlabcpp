@@ -162,7 +162,6 @@ var hierarchy =
     [ "std::iterator_traits< emlabcpp::iterators::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::static_circular_buffer_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01T_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::zip_iterator< Iterators... > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4.html", null ],
-    [ "emlabcpp::cfg::lambda_update< Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1lambda__update", null ],
     [ "emlabcpp::linked_list_node_base< Base >", "classemlabcpp_1_1linked__list__node__base.html", [
       [ "emlabcpp::linked_list_node< empty_node_impl >", "classemlabcpp_1_1linked__list__node.html", null ],
       [ "emlabcpp::linked_list_node< T, Base >", "classemlabcpp_1_1linked__list__node.html", null ]
@@ -342,6 +341,7 @@ var hierarchy =
     [ "emlabcpp::type_map< typename, class >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map", null ],
     [ "emlabcpp::type_map< std::tuple< Ts... >, Fun >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4", null ],
     [ "emlabcpp::type_tag< T >", "namespaceemlabcpp.html#structemlabcpp_1_1type__tag", null ],
+    [ "emlabcpp::cfg::update_cbs< Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1update__cbs", null ],
     [ "emlabcpp::cfg::update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", [
       [ "emlabcpp::cfg::lambda_bind< T >", "structemlabcpp_1_1cfg_1_1lambda__bind.html", null ]
     ] ],
