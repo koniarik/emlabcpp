@@ -256,8 +256,8 @@ TEST( cfg, update )
 
                 std::map< uint32_t, std::vector< std::byte > > res;
 
-                std::byte     buffer[42];
-                lambda_update lu{
+                std::byte  buffer[42];
+                update_cbs lu{
                     .buffer = buffer,
                     .read_f = mem_read_f( mem ),
                     .write_f =
@@ -288,7 +288,7 @@ TEST( cfg, update )
                 std::vector< uint32_t >  keys;
                 for ( auto& [k, v] : data )
                         keys.push_back( k );
-                lambda_update lu{
+                update_cbs lu{
                     .buffer          = buffer,
                     .read_f          = mem_read_f( mem ),
                     .write_f         = write_read_f( mem ),

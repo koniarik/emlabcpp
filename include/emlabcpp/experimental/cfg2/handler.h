@@ -196,7 +196,7 @@ template <
     typename ValueChanged,
     typename SerializeKey,
     typename TakeUnseenKey >
-struct lambda_update
+struct update_cbs
 {
         std::span< std::byte > buffer;
         Read                   read_f;

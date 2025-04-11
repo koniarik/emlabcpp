@@ -90,6 +90,15 @@ public:
                 return *this;
         }
 
+        template < std::size_t M >
+        requires( M <= N )
+        static_vector& operator=( std::array< T, M > data )
+        {
+                clear();
+                move_from( data );
+                return *this;
+        }
+
         void swap( static_vector& other ) noexcept
         {
                 using std::swap;
