@@ -165,158 +165,195 @@ enum class cache_res
         NOT_SEEN,
 };
 
-// iterates over each cell in the page, skipping duplicates
-template < typename KeyCache >
-struct page_loader
-{
-
-        page_loader( std::size_t end_addr, KeyCache& key_cache, std::span< std::byte > buffer )
-          : addr_( end_addr )
-          , key_cache_( key_cache )
-          , buffer_( buffer )
-        {
-                decr( sizeof( cell ) );
-        }
-
-        std::size_t addr_to_read() const noexcept
-        {
-                return addr_;
-        }
-
-        bool errored() const
-        {
-                return std::holds_alternative< err_st >( state_ );
-        }
-
-        // XXX: the templated callback is definetly not great for comp. time/code size - get's
-        // recreated each time
-        void on_cell(
-            std::span< std::byte, cell_size >                         c,
-            std::invocable< uint32_t, std::span< std::byte > > auto&& on_kval )
-        {
-                decr( sizeof( cell ) );
-                state_ = match(
-                    state_,
-                    [&]( err_st& ) -> st_var {
-                            return err_st{};
-                    },
-                    [&]( cell_st& ) -> st_var {
-                            auto tmp = deser_cell( c );
-                            if ( !tmp )
-                                    return err_st{};
-                            auto [is_seq, key, val] = *tmp;
-                            cache_res cr            = key_cache_( key );
-                            if ( cr == cache_res::SEEN ) {  // XXX: test
-                                    if ( is_seq )
-                                            decr( val * sizeof( cell ) );
-                                    return cell_st{};
-                            }
-
-                            if ( is_seq ) {
-                                    if ( val * sizeof( cell ) > buffer_.size() )
-                                            return err_st{};
-                                    auto x = val * sizeof( cell );
-                                    return seq_st{ .key = key, .i = x, .size = x };
-                            }
-                            std::byte tmp2[sizeof( val )];
-                            std::memcpy( tmp2, &val, sizeof( val ) );
-                            on_kval( key, std::span{ tmp2 } );
-                            return cell_st{};
-                    },
-                    [&]( seq_st& st ) -> st_var {
-                            st.i -= sizeof( cell );
-                            std::memcpy( &buffer_[st.i], c.data(), c.size() );
-                            if ( st.i == 0 ) {
-                                    on_kval( st.key, { buffer_.data(), st.size } );
-                                    return cell_st{};
-                            }
-                            return st;
-                    } );
-        }
-
-        // Returns new range that has to be written
-        template < typename M >
-        std::span< std::byte > on_cell_update( std::span< std::byte, cell_size > c, M& map )
-        {
-                std::span< std::byte > used;
-                on_cell( c, [&]( uint32_t key, std::span< std::byte > data ) {
-                        auto ekey = static_cast< typename M::key_type >( key );
-
-                        map.with_register( ekey, [&]< typename Reg >( Reg& reg ) {
-                                auto val = get_val< typename Reg::value_type >( data );
-                                if ( !val )
-                                        state_ = err_st{};
-                                if ( *val == reg.value )
-                                        return;
-
-                                // XXX: error handling?
-                                if ( auto x = store_kval( key, reg.value, buffer_ ) )
-                                        used = *x;
-                        } );
-                } );
-                return used;
-        }
-
-        template < typename M >
-        void on_cell_load( std::span< std::byte, cell_size > c, M& map )
-        {
-                on_cell( c, [&]( uint32_t key, std::span< std::byte > data ) {
-                        auto ekey = static_cast< typename M::key_type >( key );
-
-                        map.with_register( ekey, [&]< typename Reg >( Reg& reg ) {
-                                auto val = get_val< typename Reg::value_type >( data );
-                                if ( !val )
-                                        state_ = err_st{};
-
-                                reg.value = *val;
-                        } );
-                } );
-        }
-
-private:
-        struct cell_st
-        {
-        };
-
-        struct seq_st
-        {
-                uint32_t    key;
-                std::size_t i;
-                std::size_t size;
-        };
-
-        struct err_st
-        {
-        };
-
-        using st_var = std::variant< cell_st, seq_st, err_st >;
-        st_var state_{ cell_st{} };
-
-        void decr( std::size_t dec )
-        {
-                if ( addr_ < dec )
-                        addr_ = 0;
-                else
-                        addr_ -= dec;
-        }
-
-        std::size_t            addr_;
-        KeyCache               key_cache_;
-        std::span< std::byte > buffer_;
-};
-
-template < typename Cfg >
-struct storepage
-{
-
-private:
-};
-
 inline bool is_free_cell( std::span< std::byte, cell_size > cell )
 {
         return all_of( cell, [&]( auto x ) {
                 return x == std::byte{ 00 };
         } );
+}
+
+struct update_iface
+{
+        virtual std::span< std::byte > get_buffer() = 0;
+
+        virtual result read( std::size_t addr, std::span< std::byte, cell_size > data ) = 0;
+        virtual result write( std::size_t start_addr, std::span< std::byte > data )     = 0;
+
+        virtual cache_res check_key_cache( uint32_t key )                            = 0;
+        virtual bool      value_changed( uint32_t key, std::span< std::byte > data ) = 0;
+
+        virtual opt< std::size_t > serialize_key( uint32_t key, std::span< std::byte > buffer ) = 0;
+
+        virtual opt< uint32_t > take_unseen_key() = 0;
+
+        virtual ~update_iface() = default;
+};
+
+template <
+    typename Read,
+    typename Write,
+    typename KeyCheck,
+    typename ValueChanged,
+    typename SerializeKey,
+    typename TakeUnseenKey >
+struct lambda_update
+{
+        std::span< std::byte > buffer;
+        Read                   read_f;
+        Write                  write_f;
+        KeyCheck               key_check_f;
+        ValueChanged           value_changed_f;
+        SerializeKey           serialize_key_f;
+        TakeUnseenKey          take_unseen_key_f;
+};
+
+template < typename T >
+struct lambda_bind : update_iface
+{
+        T& lu;
+
+        lambda_bind( T& lu )
+          : lu( lu )
+        {
+        }
+
+        std::span< std::byte > get_buffer() override
+        {
+                return lu.buffer;
+        }
+
+        result read( std::size_t addr, std::span< std::byte, cell_size > data ) override
+        {
+                return lu.read_f( addr, data );
+        }
+
+        result write( std::size_t start_addr, std::span< std::byte > data ) override
+        {
+                return lu.write_f( start_addr, data );
+        }
+
+        cache_res check_key_cache( uint32_t key ) override
+        {
+                return lu.key_check_f( key );
+        }
+
+        bool value_changed( uint32_t key, std::span< std::byte > data ) override
+        {
+                return lu.value_changed_f( key, data );
+        }
+
+        opt< std::size_t > serialize_key( uint32_t key, std::span< std::byte > buffer ) override
+        {
+                return lu.serialize_key_f( key, buffer );
+        }
+
+        opt< uint32_t > take_unseen_key() override
+        {
+                return lu.take_unseen_key_f();
+        }
+};
+
+enum class update_result : uint8_t
+{
+        SUCCESS = 0x00,
+        ERROR   = 0x01,
+        FULL    = 0x02,
+};
+
+inline update_result
+update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface& iface )
+{
+        std::byte   tmp[cell_size];
+        std::size_t addr = end_addr;
+
+        auto decr_addr = [&]( auto& addr ) {
+                if ( addr - cell_size > addr )
+                        return false;
+                addr -= cell_size;
+                if ( addr < start_addr )
+                        return false;
+                return true;
+        };
+
+        std::size_t last_free = end_addr;
+        for ( ;; ) {
+                if ( !decr_addr( addr ) )
+                        break;
+                if ( iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) !=
+                     result::SUCCESS )
+                        return update_result::ERROR;
+                if ( is_free_cell( tmp ) ) {
+                        last_free = addr;
+                        continue;
+                }
+                addr += cell_size;
+                break;
+        }
+
+        std::span< std::byte > buffer = iface.get_buffer();
+
+        auto store_key = [&]( uint32_t key ) -> update_result {
+                auto key_used = iface.serialize_key( key, buffer );
+                if ( !key_used )
+                        return update_result::ERROR;
+
+                if ( *key_used > end_addr - last_free )
+                        return update_result::FULL;
+
+                if ( iface.write( last_free, buffer.subspan( 0, *key_used ) ) == result::SUCCESS )
+                        last_free += *key_used;
+                else
+                        return update_result::ERROR;
+                return update_result::SUCCESS;
+        };
+
+        for ( ;; ) {
+                if ( !decr_addr( addr ) )
+                        break;
+                if ( iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) !=
+                     result::SUCCESS )
+                        return update_result::ERROR;
+                auto c = deser_cell( tmp );
+                if ( !c )
+                        return update_result::ERROR;
+                auto [is_seq, key, val] = *c;
+                cache_res cr            = iface.check_key_cache( key );
+                if ( cr == cache_res::SEEN ) {
+                        if ( is_seq )
+                                addr -= val * cell_size;
+                        continue;
+                }
+
+                std::span< std::byte > val_sp;
+                // XXX: check buffer capacity
+                if ( is_seq ) {
+                        for ( std::size_t i = 0; i < val; ++i ) {
+                                decr_addr( addr );
+                                if ( iface.read(
+                                         addr,
+                                         std::span< std::byte, cell_size >{
+                                             buffer.data() + i * cell_size, cell_size } ) !=
+                                     result::SUCCESS )
+                                        return update_result::ERROR;
+                        }
+                        val_sp = buffer.subspan( 0, val * cell_size );
+                } else {
+                        std::memcpy( buffer.data(), &val, sizeof( val ) );
+                        val_sp = buffer.subspan( 0, sizeof( val ) );
+                }
+                bool changed = iface.value_changed( key, val_sp );
+                if ( !changed )
+                        continue;
+
+                if ( auto res = store_key( key ); res != update_result::SUCCESS )
+                        return res;
+        }
+
+        while ( auto k = iface.take_unseen_key() )
+                if ( auto res = store_key( *k ); res != update_result::SUCCESS )
+                        return res;
+
+        return update_result::SUCCESS;
 }
 
 }  // namespace emlabcpp::cfg

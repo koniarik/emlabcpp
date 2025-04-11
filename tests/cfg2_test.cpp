@@ -25,6 +25,7 @@
 #include "emlabcpp/experimental/cfg2/page.h"
 
 #include <gtest/gtest.h>
+#include <source_location>
 
 namespace emlabcpp::cfg
 {
@@ -203,46 +204,130 @@ struct buffer_builder
         std::vector< std::byte > buffer_;
 };
 
-TEST( cfg, loader )
+auto mem_read_f( auto& mem )
+{
+        return [&]( std::size_t addr, std::span< std::byte, cell_size > buffer ) {
+                if ( addr + cell_size > mem.size() )
+                        return result::ERROR;
+                std::memcpy( buffer.data(), &mem[addr], cell_size );
+                return result::SUCCESS;
+        };
+}
+
+auto write_read_f( auto& mem )
+{
+        return [&]( std::size_t addr, std::span< std::byte > buffer ) {
+                if ( addr + buffer.size() > mem.size() )
+                        return result::ERROR;
+                std::memcpy( &mem[addr], buffer.data(), buffer.size() );
+                return result::SUCCESS;
+        };
+}
+
+auto key_always( cache_res cr )
+{
+        return [=]( uint32_t ) {
+                return cr;
+        };
+}
+
+auto value_changed_always( bool val )
+{
+        return [=]( uint32_t, std::span< std::byte > ) {
+                return val;
+        };
+}
+
+opt< std::size_t > unexpected_serialize_key( uint32_t, std::span< std::byte > )
+{
+        EXPECT_TRUE( false ) << "unexpected serialize_key";
+        return {};
+}
+
+TEST( cfg, update )
 {
         using kv = std::pair< uint32_t, std::vector< std::byte > >;
 
-        auto test_f = [&]( std::vector< kv > data ) {
-                std::map< uint32_t, std::vector< std::byte > > expected{ data.begin(), data.end() };
-                for ( auto& [key, value] : expected )
-                        while ( value.size() % cell_size != 0 )
-                                value.push_back( 0x00_b );
-
+        auto noupdate_f = [&]( std::vector< kv > const& data, std::source_location sl ) {
                 buffer_builder bb;
                 for ( auto& [key, value] : data )
-                        bb.add( key, std::move( value ) );
-                auto buffer = std::move( bb ).build();
+                        bb.add( key, value );
+                auto mem = std::move( bb ).build();
 
-                auto key_check = []( auto&& ) {
-                        return false;
-                };
                 std::map< uint32_t, std::vector< std::byte > > res;
 
-                std::byte tmp[42];
+                std::byte     buffer[42];
+                lambda_update lu{
+                    .buffer = buffer,
+                    .read_f = mem_read_f( mem ),
+                    .write_f =
+                        [&]( std::size_t, std::span< std::byte > ) {
+                                EXPECT_TRUE( false ) << "write not expected";
+                                return result::SUCCESS;
+                        },
+                    .key_check_f       = key_always( cache_res::NOT_SEEN ),
+                    .value_changed_f   = value_changed_always( false ),
+                    .serialize_key_f   = unexpected_serialize_key,
+                    .take_unseen_key_f = [&]() -> opt< uint32_t > {
+                            return {};
+                    },
+                };
+                lambda_bind   lb{ lu };
+                update_result ures = update_stored_config( 0, mem.size(), lb );
+                EXPECT_EQ( ures, update_result::SUCCESS );
 
-                page_loader pl( buffer.size(), key_check, tmp );
-                while ( !pl.errored() ) {
-                        auto addr = pl.addr_to_read();
-                        if ( addr == 0 && buffer.size() == 0 )
-                                break;
-                        pl.on_cell(
-                            std::span< std::byte, cell_size >{ &buffer[addr], cell_size },
-                            [&]( uint32_t key, std::span< std::byte > value ) {
-                                    auto& vec = res[key] =
-                                        std::vector< std::byte >{ value.begin(), value.end() };
-                                    while ( vec.size() % cell_size != 0 )
-                                            vec.push_back( 0x00_b );
-                            } );
-                        if ( addr == 0x00 )
-                                break;
+                if ( HasFatalFailure() ) {
+                        std::cout << "Test fail: " << sl.file_name() << ":" << sl.line()
+                                  << std::endl;
                 }
+        };
 
-                EXPECT_EQ( res, expected );
+        auto full_update_f = [&]( std::vector< kv > const& data, std::source_location sl ) {
+                std::vector< std::byte > mem( 1024, 0x00_b );
+                std::byte                buffer[42];
+                std::vector< uint32_t >  keys;
+                for ( auto& [k, v] : data )
+                        keys.push_back( k );
+                lambda_update lu{
+                    .buffer          = buffer,
+                    .read_f          = mem_read_f( mem ),
+                    .write_f         = write_read_f( mem ),
+                    .key_check_f     = key_always( cache_res::NOT_SEEN ),
+                    .value_changed_f = value_changed_always( true ),
+                    .serialize_key_f = [&]( uint32_t               k,
+                                            std::span< std::byte > buffer ) -> opt< std::size_t > {
+                            auto iter = find_if( data, [&]( auto& kv ) {
+                                    return kv.first == k;
+                            } );
+                            if ( iter == data.end() )
+                                    return {};
+                            if ( buffer.size() < iter->second.size() )
+                                    return {};
+                            std::memcpy( buffer.data(), iter->second.data(), iter->second.size() );
+                            return iter->second.size();
+                    },
+                    .take_unseen_key_f = [&]() -> opt< uint32_t > {
+                            if ( keys.empty() )
+                                    return {};
+                            auto k = keys.back();
+                            keys.pop_back();
+                            return k;
+                    },
+                };
+                lambda_bind   lb{ lu };
+                update_result ures = update_stored_config( 0, mem.size(), lb );
+                EXPECT_EQ( ures, update_result::SUCCESS );
+
+                if ( HasFatalFailure() ) {
+                        std::cout << "Test fail: " << sl.file_name() << ":" << sl.line()
+                                  << std::endl;
+                }
+        };
+
+        auto test_f = [&]( std::vector< kv >    data,
+                           std::source_location sl = std::source_location::current() ) {
+                noupdate_f( data, sl );
+                full_update_f( data, sl );
         };
 
         // XXX: the fact that we always have to padd this to multiple is a bit weird
