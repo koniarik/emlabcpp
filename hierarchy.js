@@ -162,6 +162,7 @@ var hierarchy =
     [ "std::iterator_traits< emlabcpp::iterators::numeric_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1iterators_1_1numeric__iterator_3_01T_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::static_circular_buffer_iterator< T > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1static__circular__buffer__iterator_3_01T_01_4_01_4.html", null ],
     [ "std::iterator_traits< emlabcpp::zip_iterator< Iterators... > >", "structstd_1_1iterator__traits_3_01emlabcpp_1_1zip__iterator_3_01Iterators_8_8_8_01_4_01_4.html", null ],
+    [ "emlabcpp::cfg::lambda_update< Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1lambda__update", null ],
     [ "emlabcpp::linked_list_node_base< Base >", "classemlabcpp_1_1linked__list__node__base.html", [
       [ "emlabcpp::linked_list_node< empty_node_impl >", "classemlabcpp_1_1linked__list__node.html", null ],
       [ "emlabcpp::linked_list_node< T, Base >", "classemlabcpp_1_1linked__list__node.html", null ]
@@ -196,7 +197,6 @@ var hierarchy =
     [ "emlabcpp::coro::owning_coroutine_handle< promise_type >", "classemlabcpp_1_1coro_1_1owning__coroutine__handle.html", null ],
     [ "emlabcpp::testing::packet_def", "structemlabcpp_1_1testing_1_1packet__def.html", null ],
     [ "emlabcpp::protocol::packet_handler< Packet >", "structemlabcpp_1_1protocol_1_1packet__handler.html", null ],
-    [ "emlabcpp::cfg::page_loader< KeyCache >", "structemlabcpp_1_1cfg_1_1page__loader.html", null ],
     [ "emlabcpp::testing::param_child_count_processor", "structemlabcpp_1_1testing_1_1param__child__count__processor.html", null ],
     [ "emlabcpp::testing::param_child_count_reply", "structemlabcpp_1_1testing_1_1param__child__count__reply.html", null ],
     [ "emlabcpp::testing::param_child_count_request", "structemlabcpp_1_1testing_1_1param__child__count__request.html", null ],
@@ -312,7 +312,6 @@ var hierarchy =
     [ "emlabcpp::status< result, result_e, result_e::SUCCESS >", "structemlabcpp_1_1status.html", [
       [ "emlabcpp::result", "structemlabcpp_1_1result.html", null ]
     ] ],
-    [ "emlabcpp::cfg::storepage< Cfg >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1storepage", null ],
     [ "emlabcpp::string_buffer< 128 >< 32 >", "structemlabcpp_1_1string__buffer.html", null ],
     [ "emlabcpp::tag< V >", "structemlabcpp_1_1tag.html", null ],
     [ "emlabcpp::protocol::tag_group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group", null ],
@@ -343,6 +342,9 @@ var hierarchy =
     [ "emlabcpp::type_map< typename, class >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map", null ],
     [ "emlabcpp::type_map< std::tuple< Ts... >, Fun >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4", null ],
     [ "emlabcpp::type_tag< T >", "namespaceemlabcpp.html#structemlabcpp_1_1type__tag", null ],
+    [ "emlabcpp::cfg::update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", [
+      [ "emlabcpp::cfg::lambda_bind< T >", "structemlabcpp_1_1cfg_1_1lambda__bind.html", null ]
+    ] ],
     [ "emlabcpp::protocol::value_offset< D, Offset >", "structemlabcpp_1_1protocol_1_1value__offset.html", null ],
     [ "emlabcpp::testing::value_type_converter< T >", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter", null ],
     [ "emlabcpp::testing::value_type_converter< char const * >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01char_01const_01_5_01_4.html", null ],

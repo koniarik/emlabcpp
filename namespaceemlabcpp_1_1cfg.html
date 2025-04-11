@@ -105,10 +105,12 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:structemlabcpp_1_1cfg_1_1deser__res"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">deser_res</a></td></tr>
 <tr class="separator:structemlabcpp_1_1cfg_1_1deser__res"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html">page_loader</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html">update_iface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:structemlabcpp_1_1cfg_1_1storepage"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1storepage">storepage</a></td></tr>
-<tr class="separator:structemlabcpp_1_1cfg_1_1storepage"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1cfg_1_1lambda__update"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1lambda__update">lambda_update</a></td></tr>
+<tr class="separator:structemlabcpp_1_1cfg_1_1lambda__update"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1lambda__bind.html">lambda_bind</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1activ__page__sel.html">activ_page_sel</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -149,6 +151,15 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:aeea787a784189c5391178f02805f3569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d3f325ec5b6e12ee25a5c960a0048c2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2">update_result</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a> = 0x00
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a> = 0x01
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2aba7de5bc6888294e5884b024a4c894f1">FULL</a> = 0x02
+<br />
+ }</td></tr>
+<tr class="separator:a8d3f325ec5b6e12ee25a5c960a0048c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a895b7d25c90721a0397f1792bf3ae1f1"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> : uint8_t { <br />
 &#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29">A</a> = 0x40
 , <br />
@@ -183,6 +194,8 @@ Functions</h2></td></tr>
 <tr class="separator:ae8dc05184f069b6e659b6499854aa77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b5f4aa702b62e72406033cae1964642"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4b5f4aa702b62e72406033cae1964642">is_free_cell</a> (std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e">cell_size</a> &gt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682">cell</a>)</td></tr>
 <tr class="separator:a4b5f4aa702b62e72406033cae1964642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acad42abf14d4013640a756572e588fd7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2">update_result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#acad42abf14d4013640a756572e588fd7">update_stored_config</a> (std::size_t start_addr, std::size_t end_addr, <a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html">update_iface</a> &amp;iface)</td></tr>
+<tr class="separator:acad42abf14d4013640a756572e588fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e03f9106771ab434a50622f4432bee0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a8e03f9106771ab434a50622f4432bee0">next</a> (<a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> cs) noexcept</td></tr>
 <tr class="separator:a8e03f9106771ab434a50622f4432bee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5e9b572f5cddc375659a5a0222c67b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; <a class="el" href="namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1">hdr_state</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#af5e9b572f5cddc375659a5a0222c67b6">byte_to_hdr</a> (std::byte b) noexcept</td></tr>
@@ -264,21 +277,74 @@ val</td>
 
 </div>
 </div>
-<a name="structemlabcpp_1_1cfg_1_1storepage" id="structemlabcpp_1_1cfg_1_1storepage"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1cfg_1_1storepage">&#9670;&nbsp;</a></span>emlabcpp::cfg::storepage</h2>
+<a name="structemlabcpp_1_1cfg_1_1lambda__update" id="structemlabcpp_1_1cfg_1_1lambda__update"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1cfg_1_1lambda__update">&#9670;&nbsp;</a></span>emlabcpp::cfg::lambda_update</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct emlabcpp::cfg::storepage</td>
+          <td class="memname">struct emlabcpp::cfg::lambda_update</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><h3>template&lt;typename Cfg&gt;<br />
-struct emlabcpp::cfg::storepage&lt; Cfg &gt;</h3>
+<div class="textblock"><h3>template&lt;typename Read, typename Write, typename KeyCheck, typename ValueChanged, typename SerializeKey, typename TakeUnseenKey&gt;<br />
+struct emlabcpp::cfg::lambda_update&lt; Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey &gt;</h3>
 
+</div><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::cfg::lambda_update&lt; Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1cfg_1_1lambda__update__coll__graph.svg" width="242" height="171"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="af46b4eb975c0db082392ed7b5c6f59c4"></a>span&lt; <a class="el" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">byte</a> &gt;</td>
+<td class="fieldname">
+buffer</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a968aad288544d4630ef2323f68996c52"></a>KeyCheck</td>
+<td class="fieldname">
+key_check_f</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aefcf96d863dfb4371964459832c1a996"></a>Read</td>
+<td class="fieldname">
+read_f</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aa348b1fb233baad8ed7982648d91a43e"></a>SerializeKey</td>
+<td class="fieldname">
+serialize_key_f</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a758993f2864a938c61fd80719e5216c8"></a>TakeUnseenKey</td>
+<td class="fieldname">
+take_unseen_key_f</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a473111ba7b405d17efe2921980efe50f"></a>ValueChanged</td>
+<td class="fieldname">
+value_changed_f</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ad834dea892a56218d4b766813c1d75aa"></a>Write</td>
+<td class="fieldname">
+write_f</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -443,6 +509,33 @@ template&lt;typename T &gt; </div>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8"></a>SINGLE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb"></a>MULTI&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a8d3f325ec5b6e12ee25a5c960a0048c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d3f325ec5b6e12ee25a5c960a0048c2">&#9670;&nbsp;</a></span>update_result</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2">emlabcpp::cfg::update_result</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8d3f325ec5b6e12ee25a5c960a0048c2ad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d3f325ec5b6e12ee25a5c960a0048c2abb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8d3f325ec5b6e12ee25a5c960a0048c2aba7de5bc6888294e5884b024a4c894f1"></a>FULL&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -820,6 +913,50 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="acad42abf14d4013640a756572e588fd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acad42abf14d4013640a756572e588fd7">&#9670;&nbsp;</a></span>update_stored_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2">update_result</a> emlabcpp::cfg::update_stored_config </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>start_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>end_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html">update_iface</a> &amp;&#160;</td>
+          <td class="paramname"><em>iface</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e">cell_size</a>, <a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#ab7e4638f0cd2f63823490f8c7c707b7c">emlabcpp::cfg::update_iface::check_key_cache()</a>, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a332cda5b5350652a3b34302f27afc6a5">deser_cell()</a>, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2aba7de5bc6888294e5884b024a4c894f1">FULL</a>, <a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#a71df31169bfccc8116ce8fb3bed2d010">emlabcpp::cfg::update_iface::get_buffer()</a>, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a4b5f4aa702b62e72406033cae1964642">is_free_cell()</a>, <a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#a67095982ef575f68b65cf4b96fb1c9d3">emlabcpp::cfg::update_iface::read()</a>, <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">emlabcpp::res</a>, <a class="el" href="namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569aa597a8fc234b2ba1eef93584cae80a4a">SEEN</a>, <a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#a55ec7e598fc2f393e7486168b56a2193">emlabcpp::cfg::update_iface::serialize_key()</a>, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a>, <a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#aaa0f067f4a67331bcb30319539805e95">emlabcpp::cfg::update_iface::value_changed()</a>, and <a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#a926c50d1401e2098723340eb22a92aa1">emlabcpp::cfg::update_iface::write()</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a091ba99e3e64a6f4b4f4ea147a496e9e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a091ba99e3e64a6f4b4f4ea147a496e9e">&#9670;&nbsp;</a></span>cell_size</h2>
@@ -915,7 +1052,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1cfg.html">cfg</a></li>
-    <li class="footer">Generated on Wed Apr 9 2025 09:41:04 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 11 2025 14:41:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

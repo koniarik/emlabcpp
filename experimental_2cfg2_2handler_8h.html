@@ -118,10 +118,12 @@ $(document).ready(function(){initNavTree('experimental_2cfg2_2handler_8h.html','
 Classes</h2></td></tr>
 <tr class="memitem:structemlabcpp_1_1cfg_1_1deser__res"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">emlabcpp::cfg::deser_res</a></td></tr>
 <tr class="separator:structemlabcpp_1_1cfg_1_1deser__res"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1page__loader.html">emlabcpp::cfg::page_loader&lt; KeyCache &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html">emlabcpp::cfg::update_iface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:structemlabcpp_1_1cfg_1_1storepage"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1storepage">emlabcpp::cfg::storepage&lt; Cfg &gt;</a></td></tr>
-<tr class="separator:structemlabcpp_1_1cfg_1_1storepage"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structemlabcpp_1_1cfg_1_1lambda__update"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1lambda__update">emlabcpp::cfg::lambda_update&lt; Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey &gt;</a></td></tr>
+<tr class="separator:structemlabcpp_1_1cfg_1_1lambda__update"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1lambda__bind.html">emlabcpp::cfg::lambda_bind&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -156,6 +158,15 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:aeea787a784189c5391178f02805f3569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d3f325ec5b6e12ee25a5c960a0048c2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2">emlabcpp::cfg::update_result</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2ad0749aaba8b833466dfcbb0428e4f89c">emlabcpp::cfg::SUCCESS</a> = 0x00
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2abb1ca97ec761fc37101737ba0aa2e7c5">emlabcpp::cfg::ERROR</a> = 0x01
+, <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2aba7de5bc6888294e5884b024a4c894f1">emlabcpp::cfg::FULL</a> = 0x02
+<br />
+ }</td></tr>
+<tr class="separator:a8d3f325ec5b6e12ee25a5c960a0048c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -175,6 +186,8 @@ Functions</h2></td></tr>
 <tr class="separator:ae8dc05184f069b6e659b6499854aa77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b5f4aa702b62e72406033cae1964642"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a4b5f4aa702b62e72406033cae1964642">emlabcpp::cfg::is_free_cell</a> (std::span&lt; std::byte, cell_size &gt; cell)</td></tr>
 <tr class="separator:a4b5f4aa702b62e72406033cae1964642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acad42abf14d4013640a756572e588fd7"><td class="memItemLeft" align="right" valign="top">update_result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#acad42abf14d4013640a756572e588fd7">emlabcpp::cfg::update_stored_config</a> (std::size_t start_addr, std::size_t end_addr, update_iface &amp;iface)</td></tr>
+<tr class="separator:acad42abf14d4013640a756572e588fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -223,21 +236,74 @@ val</td>
 
 </div>
 </div>
-<a name="structemlabcpp_1_1cfg_1_1storepage" id="structemlabcpp_1_1cfg_1_1storepage"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1cfg_1_1storepage">&#9670;&nbsp;</a></span>emlabcpp::cfg::storepage</h2>
+<a name="structemlabcpp_1_1cfg_1_1lambda__update" id="structemlabcpp_1_1cfg_1_1lambda__update"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structemlabcpp_1_1cfg_1_1lambda__update">&#9670;&nbsp;</a></span>emlabcpp::cfg::lambda_update</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct emlabcpp::cfg::storepage</td>
+          <td class="memname">struct emlabcpp::cfg::lambda_update</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><h3>template&lt;typename Cfg&gt;<br />
-struct emlabcpp::cfg::storepage&lt; Cfg &gt;</h3>
+<div class="textblock"><h3>template&lt;typename Read, typename Write, typename KeyCheck, typename ValueChanged, typename SerializeKey, typename TakeUnseenKey&gt;<br />
+struct emlabcpp::cfg::lambda_update&lt; Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey &gt;</h3>
 
+</div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::cfg::lambda_update&lt; Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey &gt;:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1cfg_1_1lambda__update__coll__graph.svg" width="242" height="171"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="af46b4eb975c0db082392ed7b5c6f59c4"></a>span&lt; <a class="el" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">byte</a> &gt;</td>
+<td class="fieldname">
+buffer</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a968aad288544d4630ef2323f68996c52"></a>KeyCheck</td>
+<td class="fieldname">
+key_check_f</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aefcf96d863dfb4371964459832c1a996"></a>Read</td>
+<td class="fieldname">
+read_f</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aa348b1fb233baad8ed7982648d91a43e"></a>SerializeKey</td>
+<td class="fieldname">
+serialize_key_f</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a758993f2864a938c61fd80719e5216c8"></a>TakeUnseenKey</td>
+<td class="fieldname">
+take_unseen_key_f</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a473111ba7b405d17efe2921980efe50f"></a>ValueChanged</td>
+<td class="fieldname">
+value_changed_f</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ad834dea892a56218d4b766813c1d75aa"></a>Write</td>
+<td class="fieldname">
+write_f</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -246,7 +312,7 @@ struct emlabcpp::cfg::storepage&lt; Cfg &gt;</h3>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_41e4d945d025625261ba1bf6390ad1b1.html">cfg2</a></li><li class="navelem"><a class="el" href="experimental_2cfg2_2handler_8h.html">handler.h</a></li>
-    <li class="footer">Generated on Wed Apr 9 2025 09:41:04 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 11 2025 14:41:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

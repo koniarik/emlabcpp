@@ -3,8 +3,9 @@ var namespaceemlabcpp_1_1cfg =
     [ "header", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1header_dup" ],
     [ "handler", "structemlabcpp_1_1cfg_1_1handler.html", "structemlabcpp_1_1cfg_1_1handler" ],
     [ "deser_res", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1deser__res_dup" ],
-    [ "page_loader", "structemlabcpp_1_1cfg_1_1page__loader.html", "structemlabcpp_1_1cfg_1_1page__loader" ],
-    [ "storepage", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1storepage", null ],
+    [ "update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", "structemlabcpp_1_1cfg_1_1update__iface" ],
+    [ "lambda_update", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1lambda__update", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1lambda__update_dup" ],
+    [ "lambda_bind", "structemlabcpp_1_1cfg_1_1lambda__bind.html", "structemlabcpp_1_1cfg_1_1lambda__bind" ],
     [ "activ_page_sel", "structemlabcpp_1_1cfg_1_1activ__page__sel.html", "structemlabcpp_1_1cfg_1_1activ__page__sel" ],
     [ "cell", "namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682", null ],
     [ "checksum", "namespaceemlabcpp_1_1cfg.html#abc7e2ad89ecd40087cb01e4d7f2481eb", null ],
@@ -28,6 +29,11 @@ var namespaceemlabcpp_1_1cfg =
       [ "SINGLE", "namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8", null ],
       [ "MULTI", "namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb", null ]
     ] ],
+    [ "update_result", "namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2", [
+      [ "SUCCESS", "namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "ERROR", "namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2abb1ca97ec761fc37101737ba0aa2e7c5", null ],
+      [ "FULL", "namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2aba7de5bc6888294e5884b024a4c894f1", null ]
+    ] ],
     [ "byte_to_hdr", "namespaceemlabcpp_1_1cfg.html#af5e9b572f5cddc375659a5a0222c67b6", null ],
     [ "closest_multiple_of", "namespaceemlabcpp_1_1cfg.html#ab79d43de96c836d78ad14ea5922d954b", null ],
     [ "deser_cell", "namespaceemlabcpp_1_1cfg.html#a332cda5b5350652a3b34302f27afc6a5", null ],
@@ -39,6 +45,7 @@ var namespaceemlabcpp_1_1cfg =
     [ "store_impl", "namespaceemlabcpp_1_1cfg.html#a141649f092d321835c9935e3ecaa93c0", null ],
     [ "store_kval", "namespaceemlabcpp_1_1cfg.html#ab761d9a9f218530069d2291ea05812c1", null ],
     [ "store_kval_impl", "namespaceemlabcpp_1_1cfg.html#a7d9eca5e00ad57fb1a977f4e89766780", null ],
+    [ "update_stored_config", "namespaceemlabcpp_1_1cfg.html#acad42abf14d4013640a756572e588fd7", null ],
     [ "cell_size", "namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e", null ],
     [ "hcell_size", "namespaceemlabcpp_1_1cfg.html#adf5b81297e9c03a06b5edfd6114cda67", null ],
     [ "key_mask", "namespaceemlabcpp_1_1cfg.html#a5ebedb2b7bc8c518b4c97f5778d3165e", null ],
