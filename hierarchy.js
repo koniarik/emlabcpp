@@ -166,6 +166,10 @@ var hierarchy =
       [ "emlabcpp::linked_list_node< empty_node_impl >", "classemlabcpp_1_1linked__list__node.html", null ],
       [ "emlabcpp::linked_list_node< T, Base >", "classemlabcpp_1_1linked__list__node.html", null ]
     ] ],
+    [ "emlabcpp::cfg::load_cbs< Read, OnKval >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1load__cbs", null ],
+    [ "emlabcpp::cfg::load_iface", "structemlabcpp_1_1cfg_1_1load__iface.html", [
+      [ "emlabcpp::cfg::load_cbs_bind< T >", "structemlabcpp_1_1cfg_1_1load__cbs__bind.html", null ]
+    ] ],
     [ "emlabcpp::impl::map_f_collector< typename >", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector", null ],
     [ "emlabcpp::impl::map_f_collector< std::array< T, N > >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::impl::map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", null ],
@@ -343,7 +347,7 @@ var hierarchy =
     [ "emlabcpp::type_tag< T >", "namespaceemlabcpp.html#structemlabcpp_1_1type__tag", null ],
     [ "emlabcpp::cfg::update_cbs< Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1update__cbs", null ],
     [ "emlabcpp::cfg::update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", [
-      [ "emlabcpp::cfg::lambda_bind< T >", "structemlabcpp_1_1cfg_1_1lambda__bind.html", null ]
+      [ "emlabcpp::cfg::update_cbs_bind< T >", "structemlabcpp_1_1cfg_1_1update__cbs__bind.html", null ]
     ] ],
     [ "emlabcpp::protocol::value_offset< D, Offset >", "structemlabcpp_1_1protocol_1_1value__offset.html", null ],
     [ "emlabcpp::testing::value_type_converter< T >", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter", null ],

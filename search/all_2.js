@@ -14,7 +14,7 @@ var searchData=
   ['cfg_91',['cfg',['../structemlabcpp_1_1pid.html#ac81be85280e2268e736ade9acbb90620',1,'emlabcpp::pid']]],
   ['channel_5ftype_92',['channel_type',['../namespaceemlabcpp_1_1protocol.html#a0db15f01394ce6ad3ae6257e4866dca2',1,'emlabcpp::protocol']]],
   ['chcksum_5fconv_93',['chcksum_conv',['../structemlabcpp_1_1cfg_1_1handler.html#a2e4cffa890b344de5884f98f862f23eb',1,'emlabcpp::cfg::handler']]],
-  ['check_5fkey_5fcache_94',['check_key_cache',['../structemlabcpp_1_1cfg_1_1update__iface.html#ab7e4638f0cd2f63823490f8c7c707b7c',1,'emlabcpp::cfg::update_iface::check_key_cache()'],['../structemlabcpp_1_1cfg_1_1lambda__bind.html#a1253c197d62bc3806e9f7f6387ee80b4',1,'emlabcpp::cfg::lambda_bind::check_key_cache()']]],
+  ['check_5fkey_5fcache_94',['check_key_cache',['../structemlabcpp_1_1cfg_1_1update__iface.html#ab7e4638f0cd2f63823490f8c7c707b7c',1,'emlabcpp::cfg::update_iface::check_key_cache()'],['../structemlabcpp_1_1cfg_1_1update__cbs__bind.html#a3a73a86c3697d3492063ed19d2f5168b',1,'emlabcpp::cfg::update_cbs_bind::check_key_cache()']]],
   ['checksum_95',['checksum',['../namespaceemlabcpp_1_1cfg.html#abc7e2ad89ecd40087cb01e4d7f2481eb',1,'emlabcpp::cfg']]],
   ['checksum_5ferr_96',['CHECKSUM_ERR',['../namespaceemlabcpp_1_1protocol.html#a0eb2445c490b6ad98bd006097c7b4296',1,'emlabcpp::protocol']]],
   ['checksum_5fsize_97',['checksum_size',['../structemlabcpp_1_1protocol_1_1packet__handler.html#a86060b19d1a17ee4701125f29f9b18dc',1,'emlabcpp::protocol::packet_handler']]],

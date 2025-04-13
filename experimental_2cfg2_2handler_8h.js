@@ -15,7 +15,14 @@ var experimental_2cfg2_2handler_8h =
       [ "value_changed_f", "namespaceemlabcpp_1_1cfg.html#a06bb3c234436ae95cfffbfbc80306da1", null ],
       [ "write_f", "namespaceemlabcpp_1_1cfg.html#acac82db8ca3350e2777d18eb9866897e", null ]
     ] ],
-    [ "lambda_bind", "structemlabcpp_1_1cfg_1_1lambda__bind.html", "structemlabcpp_1_1cfg_1_1lambda__bind" ],
+    [ "update_cbs_bind", "structemlabcpp_1_1cfg_1_1update__cbs__bind.html", "structemlabcpp_1_1cfg_1_1update__cbs__bind" ],
+    [ "load_iface", "structemlabcpp_1_1cfg_1_1load__iface.html", "structemlabcpp_1_1cfg_1_1load__iface" ],
+    [ "load_cbs", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1load__cbs", [
+      [ "buffer", "namespaceemlabcpp_1_1cfg.html#a1b6fe4814a449ed5a23e3233bb6b2ef7", null ],
+      [ "on_kval_f", "namespaceemlabcpp_1_1cfg.html#ad1129d3a64e7cf94f50343fa8c956347", null ],
+      [ "read_f", "namespaceemlabcpp_1_1cfg.html#a2ff400f1ac926b49c0555bd8ce14148d", null ]
+    ] ],
+    [ "load_cbs_bind", "structemlabcpp_1_1cfg_1_1load__cbs__bind.html", "structemlabcpp_1_1cfg_1_1load__cbs__bind" ],
     [ "cell", "experimental_2cfg2_2handler_8h.html#a699a088a1ac75a764259edff5c16d682", null ],
     [ "opt", "experimental_2cfg2_2handler_8h.html#a4bb3fbb806d337a0248f2bce37b1b839", null ],
     [ "cache_res", "experimental_2cfg2_2handler_8h.html#aeea787a784189c5391178f02805f3569", [
@@ -35,6 +42,8 @@ var experimental_2cfg2_2handler_8h =
     [ "deser_cell", "experimental_2cfg2_2handler_8h.html#a332cda5b5350652a3b34302f27afc6a5", null ],
     [ "get_val", "experimental_2cfg2_2handler_8h.html#ae8dc05184f069b6e659b6499854aa77e", null ],
     [ "is_free_cell", "experimental_2cfg2_2handler_8h.html#a4b5f4aa702b62e72406033cae1964642", null ],
+    [ "load_stored_config", "experimental_2cfg2_2handler_8h.html#ad0f86d5536484fa3569c4a6c22580ffc", null ],
+    [ "manifest_value", "experimental_2cfg2_2handler_8h.html#a2b36036304d23fe83803095e576114de", null ],
     [ "ser_cell", "experimental_2cfg2_2handler_8h.html#a48efe3f0644006cbdccfe47ad02cfb4a", null ],
     [ "store_kval", "experimental_2cfg2_2handler_8h.html#ab761d9a9f218530069d2291ea05812c1", null ],
     [ "store_kval_impl", "experimental_2cfg2_2handler_8h.html#a7d9eca5e00ad57fb1a977f4e89766780", null ],
