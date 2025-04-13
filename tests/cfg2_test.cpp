@@ -272,9 +272,26 @@ TEST( cfg, update )
                             return {};
                     },
                 };
-                lambda_bind   lb{ lu };
-                update_result ures = update_stored_config( 0, mem.size(), lb );
+                update_cbs_bind lb{ lu };
+                update_result   ures = update_stored_config( 0, mem.size(), lb );
                 EXPECT_EQ( ures, update_result::SUCCESS );
+
+                load_cbs lcb{
+                    .buffer = buffer,
+                    .read_f = mem_read_f( mem ),
+                    .on_kval_f =
+                        [&]( uint32_t key, std::span< std::byte > data ) {
+                                EXPECT_FALSE( res.contains( key ) );
+                                res[key] = std::vector< std::byte >( data.begin(), data.end() );
+                                return result::SUCCESS;
+                        },
+                };
+                load_cbs_bind liface{ lcb };
+
+                auto lres = load_stored_config( 0, mem.size(), liface );
+                EXPECT_EQ( lres, result::SUCCESS );
+                std::map expected{ data.begin(), data.end() };
+                EXPECT_EQ( res, expected );
 
                 if ( HasFatalFailure() ) {
                         std::cout << "Test fail: " << sl.file_name() << ":" << sl.line()
@@ -314,8 +331,8 @@ TEST( cfg, update )
                             return k;
                     },
                 };
-                lambda_bind   lb{ lu };
-                update_result ures = update_stored_config( 0, mem.size(), lb );
+                update_cbs_bind lb{ lu };
+                update_result   ures = update_stored_config( 0, mem.size(), lb );
                 EXPECT_EQ( ures, update_result::SUCCESS );
 
                 if ( HasFatalFailure() ) {
@@ -365,14 +382,30 @@ TEST( cfg, update )
 
         test_f(
             { { __LINE__, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } },
-              { 0x2, { 0xFF_b, 0xFF_b, 1_b, 2_b, 3_b, 4_b, 5_b } },
+              { 0x2, { 0xFF_b, 0xFF_b, 1_b, 2_b, 3_b, 4_b, 5_b, 0x00_b } },
               { 0x3, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } },
-              { 0x4, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } } } );
+              { 0x4, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0x00_b, 0x00_b } } } );
 
         test_f(
-            { { __LINE__, { 0xFF_b, 0xFF_b, 12_b, 3_b, 43_b, 43_b, 4_b, 3_b, 4_b, 34_b, 43_b } },
-              { 0x3, { 0xFF_b, 0xFF_b } },
-              { 0x4, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b } } } );
+            { { __LINE__,
+                { 0xFF_b,
+                  0xFF_b,
+                  12_b,
+                  3_b,
+                  43_b,
+                  43_b,
+                  4_b,
+                  3_b,
+                  4_b,
+                  34_b,
+                  43_b,
+                  0x00_b,
+                  0x00_b,
+                  0x00_b,
+                  0x00_b,
+                  0x00_b } },
+              { 0x3, { 0xFF_b, 0xFF_b, 0x00_b, 0x00_b } },
+              { 0x4, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0x00_b, 0x00_b } } } );
 }
 
 }  // namespace emlabcpp::cfg

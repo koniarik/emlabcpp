@@ -208,11 +208,11 @@ struct update_cbs
 };
 
 template < typename T >
-struct lambda_bind : update_iface
+struct update_cbs_bind : update_iface
 {
         T& lu;
 
-        lambda_bind( T& lu )
+        update_cbs_bind( T& lu )
           : lu( lu )
         {
         }
@@ -259,6 +259,35 @@ enum class update_result : uint8_t
         ERROR   = 0x01,
         FULL    = 0x02,
 };
+
+std::span< std::byte > manifest_value(
+    bool  is_seq,
+    auto& cell_val,
+    auto& decr_addr,
+    auto& addr,
+    auto& iface,
+    auto& buffer )
+{
+        if ( is_seq ) {
+                for ( std::size_t i = 0; i < cell_val; ++i ) {
+                        if ( !decr_addr( addr ) )
+                                return {};
+                        auto buffer_offset = ( cell_val - i - 1 ) * cell_size;
+                        if ( buffer_offset + cell_size > buffer.size() )
+                                return {};
+                        if ( iface.read(
+                                 addr,
+                                 std::span< std::byte, cell_size >{
+                                     buffer.data() + buffer_offset, cell_size } ) !=
+                             result::SUCCESS )
+                                return {};
+                }
+                return buffer.subspan( 0, cell_val * cell_size );
+        } else {
+                std::memcpy( buffer.data(), &cell_val, sizeof( cell_val ) );
+                return buffer.subspan( 0, sizeof( cell_val ) );
+        }
+}
 
 inline update_result
 update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface& iface )
@@ -324,23 +353,8 @@ update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface
                         continue;
                 }
 
-                std::span< std::byte > val_sp;
-                // XXX: check buffer capacity
-                if ( is_seq ) {
-                        for ( std::size_t i = 0; i < val; ++i ) {
-                                decr_addr( addr );
-                                if ( iface.read(
-                                         addr,
-                                         std::span< std::byte, cell_size >{
-                                             buffer.data() + i * cell_size, cell_size } ) !=
-                                     result::SUCCESS )
-                                        return update_result::ERROR;
-                        }
-                        val_sp = buffer.subspan( 0, val * cell_size );
-                } else {
-                        std::memcpy( buffer.data(), &val, sizeof( val ) );
-                        val_sp = buffer.subspan( 0, sizeof( val ) );
-                }
+                std::span< std::byte > val_sp =
+                    manifest_value( is_seq, val, decr_addr, addr, iface, buffer );
                 bool changed = iface.value_changed( key, val_sp );
                 if ( !changed )
                         continue;
@@ -354,6 +368,86 @@ update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface
                         return res;
 
         return update_result::SUCCESS;
+}
+
+struct load_iface
+{
+        virtual std::span< std::byte > get_buffer() = 0;
+
+        virtual result read( std::size_t addr, std::span< std::byte, cell_size > data ) = 0;
+
+        virtual result on_kval( uint32_t key, std::span< std::byte > ) = 0;
+
+        virtual ~load_iface() = default;
+};
+
+template < typename Read, typename OnKval >
+struct load_cbs
+{
+        std::span< std::byte > buffer;
+        Read                   read_f;
+        OnKval                 on_kval_f;
+};
+
+template < typename T >
+struct load_cbs_bind : load_iface
+{
+        T& lu;
+
+        load_cbs_bind( T& lu )
+          : lu( lu )
+        {
+        }
+
+        std::span< std::byte > get_buffer() override
+        {
+                return lu.buffer;
+        }
+
+        result read( std::size_t addr, std::span< std::byte, cell_size > data ) override
+        {
+                return lu.read_f( addr, data );
+        }
+
+        result on_kval( uint32_t key, std::span< std::byte > data ) override
+        {
+                return lu.on_kval_f( key, data );
+        }
+};
+
+inline result load_stored_config( std::size_t start_addr, std::size_t end_addr, load_iface& iface )
+{
+        std::size_t addr      = end_addr;
+        auto        decr_addr = [&]( auto& addr ) {
+                if ( addr - cell_size > addr )
+                        return false;
+                addr -= cell_size;
+                if ( addr < start_addr )
+                        return false;
+                return true;
+        };
+
+        std::byte tmp[cell_size];
+        auto      buffer = iface.get_buffer();
+        for ( ;; ) {
+                if ( !decr_addr( addr ) )
+                        break;
+                if ( iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) !=
+                     result::SUCCESS )
+                        return result::ERROR;
+                // XXX: copy-pasta from other function
+                auto c = deser_cell( tmp );
+                if ( !c )
+                        continue;
+                auto [is_seq, key, val] = *c;
+                std::span< std::byte > val_sp =
+                    manifest_value( is_seq, val, decr_addr, addr, iface, buffer );
+
+                if ( iface.on_kval( key, val_sp ) != result::SUCCESS )
+                        return result::ERROR;
+        }
+
+        return result::SUCCESS;
 }
 
 }  // namespace emlabcpp::cfg
