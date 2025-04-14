@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['zip_2118',['zip',['../namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885',1,'emlabcpp::zip(Ts &amp;&amp;... cont)'],['../namespaceemlabcpp.html#a81d4ae07c2d875b52377456faf19fe92',1,'emlabcpp::zip(Tuple &amp;&amp;frst, Tuples &amp;&amp;... tpls)']]],
-  ['zip_5fiterator_2119',['zip_iterator',['../classemlabcpp_1_1zip__iterator.html#a7e0dc6458a07aadfde46318f50a40e51',1,'emlabcpp::zip_iterator']]]
+  ['yield_5fvalue_2127',['yield_value',['../structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#ac60930d0aece6d536056c03dc9a9d4ae',1,'emlabcpp::coro::request_reply::promise_type']]]
 ];

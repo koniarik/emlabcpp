@@ -28,7 +28,7 @@ var searchData=
   ['bounded_5fview_2eh_73',['bounded_view.h',['../bounded__view_8h.html',1,'']]],
   ['bounds_74',['bounds',['../classemlabcpp_1_1bounded.html#a1826affc465ed63d2af293f82c58567d',1,'emlabcpp::bounded']]],
   ['bounds_5ferr_75',['BOUNDS_ERR',['../namespaceemlabcpp_1_1protocol.html#a925029d9c13ebc476b462499b5fae534',1,'emlabcpp::protocol']]],
-  ['buffer_76',['buffer',['../namespaceemlabcpp_1_1cfg.html#a1b6fe4814a449ed5a23e3233bb6b2ef7',1,'emlabcpp::cfg::load_cbs::buffer()'],['../namespaceemlabcpp_1_1cfg.html#af0b33af7e8b520713d711a1f474ed4dd',1,'emlabcpp::cfg::update_cbs::buffer()']]],
+  ['buffer_76',['buffer',['../namespaceemlabcpp_1_1cfg.html#a9fb68271356147fe191a949a849530a0',1,'emlabcpp::cfg::load_cbs::buffer()'],['../namespaceemlabcpp_1_1cfg.html#af0b33af7e8b520713d711a1f474ed4dd',1,'emlabcpp::cfg::update_cbs::buffer()']]],
   ['byte_77',['byte',['../namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e',1,'emlabcpp']]],
   ['byte_5fto_5fhdr_78',['byte_to_hdr',['../namespaceemlabcpp_1_1cfg.html#af5e9b572f5cddc375659a5a0222c67b6',1,'emlabcpp::cfg']]],
   ['bytes_79',['bytes',['../namespaceemlabcpp.html#a5266b3d998c70ddddcc15f7bba604b42',1,'emlabcpp']]]

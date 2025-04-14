@@ -8,7 +8,7 @@ var experimental_2cfg2_2handler_8h =
     [ "update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", "structemlabcpp_1_1cfg_1_1update__iface" ],
     [ "update_cbs", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1update__cbs", [
       [ "buffer", "namespaceemlabcpp_1_1cfg.html#af0b33af7e8b520713d711a1f474ed4dd", null ],
-      [ "key_check_f", "namespaceemlabcpp_1_1cfg.html#a1da197ca01e922c711c8226b38f62bdf", null ],
+      [ "check_key_cache_f", "namespaceemlabcpp_1_1cfg.html#ab47744dd1b24f65267905ca85ccb2730", null ],
       [ "read_f", "namespaceemlabcpp_1_1cfg.html#a2ee1fdbf492124664ea5bb45a6ef3c86", null ],
       [ "serialize_key_f", "namespaceemlabcpp_1_1cfg.html#a163244ba05a73ebfa8fb997cf00c1849", null ],
       [ "take_unseen_key_f", "namespaceemlabcpp_1_1cfg.html#a98d73c08c3bd251de1a17bf7e4bdeac5", null ],
@@ -18,9 +18,10 @@ var experimental_2cfg2_2handler_8h =
     [ "update_cbs_bind", "structemlabcpp_1_1cfg_1_1update__cbs__bind.html", "structemlabcpp_1_1cfg_1_1update__cbs__bind" ],
     [ "load_iface", "structemlabcpp_1_1cfg_1_1load__iface.html", "structemlabcpp_1_1cfg_1_1load__iface" ],
     [ "load_cbs", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1load__cbs", [
-      [ "buffer", "namespaceemlabcpp_1_1cfg.html#a1b6fe4814a449ed5a23e3233bb6b2ef7", null ],
-      [ "on_kval_f", "namespaceemlabcpp_1_1cfg.html#ad1129d3a64e7cf94f50343fa8c956347", null ],
-      [ "read_f", "namespaceemlabcpp_1_1cfg.html#a2ff400f1ac926b49c0555bd8ce14148d", null ]
+      [ "buffer", "namespaceemlabcpp_1_1cfg.html#a9fb68271356147fe191a949a849530a0", null ],
+      [ "check_key_cache_f", "namespaceemlabcpp_1_1cfg.html#a55874f5032aba29c46e90b59e8894958", null ],
+      [ "on_kval_f", "namespaceemlabcpp_1_1cfg.html#a2db646b02919cec055dfe467c039d01f", null ],
+      [ "read_f", "namespaceemlabcpp_1_1cfg.html#a81ed69fbe04ea95bf8a1631b997a4703", null ]
     ] ],
     [ "load_cbs_bind", "structemlabcpp_1_1cfg_1_1load__cbs__bind.html", "structemlabcpp_1_1cfg_1_1load__cbs__bind" ],
     [ "cell", "experimental_2cfg2_2handler_8h.html#a699a088a1ac75a764259edff5c16d682", null ],
@@ -42,9 +43,14 @@ var experimental_2cfg2_2handler_8h =
     [ "deser_cell", "experimental_2cfg2_2handler_8h.html#a332cda5b5350652a3b34302f27afc6a5", null ],
     [ "get_val", "experimental_2cfg2_2handler_8h.html#ae8dc05184f069b6e659b6499854aa77e", null ],
     [ "is_free_cell", "experimental_2cfg2_2handler_8h.html#a4b5f4aa702b62e72406033cae1964642", null ],
+    [ "key_check_unseen_container", "experimental_2cfg2_2handler_8h.html#ac5226fcde74e562c3903d7aca873e3ab", null ],
     [ "load_stored_config", "experimental_2cfg2_2handler_8h.html#ad0f86d5536484fa3569c4a6c22580ffc", null ],
     [ "manifest_value", "experimental_2cfg2_2handler_8h.html#a2b36036304d23fe83803095e576114de", null ],
+    [ "pop_from_container", "experimental_2cfg2_2handler_8h.html#a174ebbb5a7228e134864f65fa417a3d9", null ],
+    [ "reg_map_value_changed", "experimental_2cfg2_2handler_8h.html#a38e0b35bb4b09c64da3ec72e52f68adc", null ],
     [ "ser_cell", "experimental_2cfg2_2handler_8h.html#a48efe3f0644006cbdccfe47ad02cfb4a", null ],
+    [ "serialize_reg_map_key", "experimental_2cfg2_2handler_8h.html#af78c4fa5d8f2cce1a053c7ad03cf39e6", null ],
+    [ "set_reg_map_key", "experimental_2cfg2_2handler_8h.html#a6b4541be5d8b080788fdb1f61f7e2c3a", null ],
     [ "store_kval", "experimental_2cfg2_2handler_8h.html#ab761d9a9f218530069d2291ea05812c1", null ],
     [ "store_kval_impl", "experimental_2cfg2_2handler_8h.html#a7d9eca5e00ad57fb1a977f4e89766780", null ],
     [ "update_stored_config", "experimental_2cfg2_2handler_8h.html#acad42abf14d4013640a756572e588fd7", null ],

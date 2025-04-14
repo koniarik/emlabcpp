@@ -166,7 +166,7 @@ var hierarchy =
       [ "emlabcpp::linked_list_node< empty_node_impl >", "classemlabcpp_1_1linked__list__node.html", null ],
       [ "emlabcpp::linked_list_node< T, Base >", "classemlabcpp_1_1linked__list__node.html", null ]
     ] ],
-    [ "emlabcpp::cfg::load_cbs< Read, OnKval >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1load__cbs", null ],
+    [ "emlabcpp::cfg::load_cbs< Read, KeyCheck, OnKval >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1load__cbs", null ],
     [ "emlabcpp::cfg::load_iface", "structemlabcpp_1_1cfg_1_1load__iface.html", [
       [ "emlabcpp::cfg::load_cbs_bind< T >", "structemlabcpp_1_1cfg_1_1load__cbs__bind.html", null ]
     ] ],

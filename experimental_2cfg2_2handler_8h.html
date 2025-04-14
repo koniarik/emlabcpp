@@ -126,7 +126,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1load__iface.html">emlabcpp::cfg::load_iface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:structemlabcpp_1_1cfg_1_1load__cbs"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1load__cbs">emlabcpp::cfg::load_cbs&lt; Read, OnKval &gt;</a></td></tr>
+<tr class="memitem:structemlabcpp_1_1cfg_1_1load__cbs"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1load__cbs">emlabcpp::cfg::load_cbs&lt; Read, KeyCheck, OnKval &gt;</a></td></tr>
 <tr class="separator:structemlabcpp_1_1cfg_1_1load__cbs"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1load__cbs__bind.html">emlabcpp::cfg::load_cbs_bind&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,6 +198,19 @@ Functions</h2></td></tr>
 <tr class="separator:acad42abf14d4013640a756572e588fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0f86d5536484fa3569c4a6c22580ffc"><td class="memItemLeft" align="right" valign="top">result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#ad0f86d5536484fa3569c4a6c22580ffc">emlabcpp::cfg::load_stored_config</a> (std::size_t start_addr, std::size_t end_addr, load_iface &amp;iface)</td></tr>
 <tr class="separator:ad0f86d5536484fa3569c4a6c22580ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a174ebbb5a7228e134864f65fa417a3d9"><td class="memItemLeft" align="right" valign="top">opt&lt; std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a174ebbb5a7228e134864f65fa417a3d9">emlabcpp::cfg::pop_from_container</a> (auto &amp;cont)</td></tr>
+<tr class="separator:a174ebbb5a7228e134864f65fa417a3d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5226fcde74e562c3903d7aca873e3ab"><td class="memItemLeft" align="right" valign="top">cache_res&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#ac5226fcde74e562c3903d7aca873e3ab">emlabcpp::cfg::key_check_unseen_container</a> (auto &amp;cont, uint32_t key)</td></tr>
+<tr class="separator:ac5226fcde74e562c3903d7aca873e3ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af78c4fa5d8f2cce1a053c7ad03cf39e6"><td class="memTemplParams" colspan="2">template&lt;typename M &gt; </td></tr>
+<tr class="memitem:af78c4fa5d8f2cce1a053c7ad03cf39e6"><td class="memTemplItemLeft" align="right" valign="top">opt&lt; std::size_t &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#af78c4fa5d8f2cce1a053c7ad03cf39e6">emlabcpp::cfg::serialize_reg_map_key</a> (M &amp;reg_map, uint32_t key, std::span&lt; std::byte &gt; buffer)</td></tr>
+<tr class="separator:af78c4fa5d8f2cce1a053c7ad03cf39e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b4541be5d8b080788fdb1f61f7e2c3a"><td class="memTemplParams" colspan="2">template&lt;typename M &gt; </td></tr>
+<tr class="memitem:a6b4541be5d8b080788fdb1f61f7e2c3a"><td class="memTemplItemLeft" align="right" valign="top">result&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a6b4541be5d8b080788fdb1f61f7e2c3a">emlabcpp::cfg::set_reg_map_key</a> (M &amp;reg_map, uint32_t key, std::span&lt; std::byte &gt; buffer)</td></tr>
+<tr class="separator:a6b4541be5d8b080788fdb1f61f7e2c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38e0b35bb4b09c64da3ec72e52f68adc"><td class="memTemplParams" colspan="2">template&lt;typename M &gt; </td></tr>
+<tr class="memitem:a38e0b35bb4b09c64da3ec72e52f68adc"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a38e0b35bb4b09c64da3ec72e52f68adc">emlabcpp::cfg::reg_map_value_changed</a> (M &amp;reg_map, uint32_t key, std::span&lt; std::byte &gt; data)</td></tr>
+<tr class="separator:a38e0b35bb4b09c64da3ec72e52f68adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -277,9 +290,9 @@ buffer</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a1da197ca01e922c711c8226b38f62bdf"></a>KeyCheck</td>
+<a id="ab47744dd1b24f65267905ca85ccb2730"></a>KeyCheck</td>
 <td class="fieldname">
-key_check_f</td>
+check_key_cache_f</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
@@ -327,33 +340,39 @@ write_f</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><h3>template&lt;typename Read, typename OnKval&gt;<br />
-struct emlabcpp::cfg::load_cbs&lt; Read, OnKval &gt;</h3>
+<div class="textblock"><h3>template&lt;typename Read, typename KeyCheck, typename OnKval&gt;<br />
+struct emlabcpp::cfg::load_cbs&lt; Read, KeyCheck, OnKval &gt;</h3>
 
 </div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::cfg::load_cbs&lt; Read, OnKval &gt;:</div>
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::cfg::load_cbs&lt; Read, KeyCheck, OnKval &gt;:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1cfg_1_1load__cbs__coll__graph.svg" width="180" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1cfg_1_1load__cbs__coll__graph.svg" width="186" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
-<a id="a1b6fe4814a449ed5a23e3233bb6b2ef7"></a>span&lt; <a class="el" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">byte</a> &gt;</td>
+<a id="a9fb68271356147fe191a949a849530a0"></a>span&lt; <a class="el" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">byte</a> &gt;</td>
 <td class="fieldname">
 buffer</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="ad1129d3a64e7cf94f50343fa8c956347"></a>OnKval</td>
+<a id="a55874f5032aba29c46e90b59e8894958"></a>KeyCheck</td>
+<td class="fieldname">
+check_key_cache_f</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a2db646b02919cec055dfe467c039d01f"></a>OnKval</td>
 <td class="fieldname">
 on_kval_f</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a2ff400f1ac926b49c0555bd8ce14148d"></a>Read</td>
+<a id="a81ed69fbe04ea95bf8a1631b997a4703"></a>Read</td>
 <td class="fieldname">
 read_f</td>
 <td class="fielddoc">
@@ -368,7 +387,7 @@ read_f</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_41e4d945d025625261ba1bf6390ad1b1.html">cfg2</a></li><li class="navelem"><a class="el" href="experimental_2cfg2_2handler_8h.html">handler.h</a></li>
-    <li class="footer">Generated on Sun Apr 13 2025 17:26:40 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 14 2025 11:15:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

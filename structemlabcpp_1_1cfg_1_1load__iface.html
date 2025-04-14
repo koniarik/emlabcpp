@@ -107,6 +107,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae3c226e0135e40f29d920bf68dcddd9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1d6526d3f6358c596c16f31b5d20ab5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structemlabcpp_1_1result.html">result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1load__iface.html#af1d6526d3f6358c596c16f31b5d20ab5">read</a> (std::size_t addr, std::span&lt; std::byte, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e">cell_size</a> &gt; <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>)=0</td></tr>
 <tr class="separator:af1d6526d3f6358c596c16f31b5d20ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b07f121b9687684d746fa31a84bb035"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569">cache_res</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1load__iface.html#a9b07f121b9687684d746fa31a84bb035">check_key_cache</a> (uint32_t key)=0</td></tr>
+<tr class="separator:a9b07f121b9687684d746fa31a84bb035"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae12b83971b677b3747ec56b4e4b36112"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structemlabcpp_1_1result.html">result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1load__iface.html#ae12b83971b677b3747ec56b4e4b36112">on_kval</a> (uint32_t key, std::span&lt; std::byte &gt;)=0</td></tr>
 <tr class="separator:ae12b83971b677b3747ec56b4e4b36112"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d74b3a6dc963b7f6f9607d5c9337731"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1load__iface.html#a6d74b3a6dc963b7f6f9607d5c9337731">~load_iface</a> ()=default</td></tr>
@@ -139,6 +141,34 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9b07f121b9687684d746fa31a84bb035"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b07f121b9687684d746fa31a84bb035">&#9670;&nbsp;</a></span>check_key_cache()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569">cache_res</a> emlabcpp::cfg::load_iface::check_key_cache </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="structemlabcpp_1_1cfg_1_1load__cbs__bind.html#a6611b1619a27b4f59f12127e9f9f27d6">emlabcpp::cfg::load_cbs_bind&lt; T &gt;</a>.</p>
+
+</div>
+</div>
 <a id="ae3c226e0135e40f29d920bf68dcddd9b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae3c226e0135e40f29d920bf68dcddd9b">&#9670;&nbsp;</a></span>get_buffer()</h2>
 
@@ -251,7 +281,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1cfg.html">cfg</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1cfg_1_1load__iface.html">load_iface</a></li>
-    <li class="footer">Generated on Sun Apr 13 2025 17:26:40 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 14 2025 11:15:52 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
