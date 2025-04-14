@@ -265,7 +265,7 @@ TEST( cfg, update )
                                 EXPECT_TRUE( false ) << "write not expected";
                                 return result::SUCCESS;
                         },
-                    .key_check_f       = key_always( cache_res::NOT_SEEN ),
+                    .check_key_cache_f = key_always( cache_res::NOT_SEEN ),
                     .value_changed_f   = value_changed_always( false ),
                     .serialize_key_f   = unexpected_serialize_key,
                     .take_unseen_key_f = [&]() -> opt< uint32_t > {
@@ -277,8 +277,9 @@ TEST( cfg, update )
                 EXPECT_EQ( ures, update_result::SUCCESS );
 
                 load_cbs lcb{
-                    .buffer = buffer,
-                    .read_f = mem_read_f( mem ),
+                    .buffer            = buffer,
+                    .read_f            = mem_read_f( mem ),
+                    .check_key_cache_f = key_always( cache_res::NOT_SEEN ),
                     .on_kval_f =
                         [&]( uint32_t key, std::span< std::byte > data ) {
                                 EXPECT_FALSE( res.contains( key ) );
@@ -306,12 +307,12 @@ TEST( cfg, update )
                 for ( auto& [k, v] : data )
                         keys.push_back( k );
                 update_cbs lu{
-                    .buffer          = buffer,
-                    .read_f          = mem_read_f( mem ),
-                    .write_f         = write_read_f( mem ),
-                    .key_check_f     = key_always( cache_res::NOT_SEEN ),
-                    .value_changed_f = value_changed_always( true ),
-                    .serialize_key_f = [&]( uint32_t               k,
+                    .buffer            = buffer,
+                    .read_f            = mem_read_f( mem ),
+                    .write_f           = write_read_f( mem ),
+                    .check_key_cache_f = key_always( cache_res::NOT_SEEN ),
+                    .value_changed_f   = value_changed_always( true ),
+                    .serialize_key_f   = [&]( uint32_t               k,
                                             std::span< std::byte > buffer ) -> opt< std::size_t > {
                             auto iter = find_if( data, [&]( auto& kv ) {
                                     return kv.first == k;

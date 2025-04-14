@@ -201,7 +201,7 @@ struct update_cbs
         std::span< std::byte > buffer;
         Read                   read_f;
         Write                  write_f;
-        KeyCheck               key_check_f;
+        KeyCheck               check_key_cache_f;
         ValueChanged           value_changed_f;
         SerializeKey           serialize_key_f;
         TakeUnseenKey          take_unseen_key_f;
@@ -234,7 +234,7 @@ struct update_cbs_bind : update_iface
 
         cache_res check_key_cache( uint32_t key ) override
         {
-                return lu.key_check_f( key );
+                return lu.check_key_cache_f( key );
         }
 
         bool value_changed( uint32_t key, std::span< std::byte > data ) override
@@ -376,16 +376,19 @@ struct load_iface
 
         virtual result read( std::size_t addr, std::span< std::byte, cell_size > data ) = 0;
 
+        virtual cache_res check_key_cache( uint32_t key ) = 0;
+
         virtual result on_kval( uint32_t key, std::span< std::byte > ) = 0;
 
         virtual ~load_iface() = default;
 };
 
-template < typename Read, typename OnKval >
+template < typename Read, typename KeyCheck, typename OnKval >
 struct load_cbs
 {
         std::span< std::byte > buffer;
         Read                   read_f;
+        KeyCheck               check_key_cache_f;
         OnKval                 on_kval_f;
 };
 
@@ -407,6 +410,11 @@ struct load_cbs_bind : load_iface
         result read( std::size_t addr, std::span< std::byte, cell_size > data ) override
         {
                 return lu.read_f( addr, data );
+        }
+
+        cache_res check_key_cache( uint32_t key ) override
+        {
+                return lu.check_key_cache_f( key );
         }
 
         result on_kval( uint32_t key, std::span< std::byte > data ) override
@@ -440,6 +448,12 @@ inline result load_stored_config( std::size_t start_addr, std::size_t end_addr, 
                 if ( !c )
                         continue;
                 auto [is_seq, key, val] = *c;
+                cache_res cr            = iface.check_key_cache( key );
+                if ( cr == cache_res::SEEN ) {
+                        if ( is_seq )
+                                addr -= val * cell_size;
+                        continue;
+                }
                 std::span< std::byte > val_sp =
                     manifest_value( is_seq, val, decr_addr, addr, iface, buffer );
 
@@ -450,4 +464,73 @@ inline result load_stored_config( std::size_t start_addr, std::size_t end_addr, 
         return result::SUCCESS;
 }
 
+// Util functions usable as callbacks
+
+opt< std::size_t > pop_from_container( auto& cont )
+{
+        if ( cont.empty() )
+                return {};
+        auto k = cont.back();
+        cont.pop_back();
+        return k;
+}
+
+cache_res key_check_unseen_container( auto& cont, uint32_t key )
+{
+        auto iter = find( cont, key );
+        if ( iter == cont.end() )
+                return cache_res::SEEN;
+        std::swap( *iter, cont.back() );
+        cont.pop_back();
+        return cache_res::NOT_SEEN;
+}
+
+template < typename M >
+opt< std::size_t > serialize_reg_map_key( M& reg_map, uint32_t key, std::span< std::byte > buffer )
+{
+        opt< std::size_t > res;
+        reg_map.with_register(
+            static_cast< typename M::key_type >( key ), [&]< typename Reg >( Reg& reg ) {
+                    auto ran = store_kval( Reg::key, reg.value, buffer );
+                    if ( ran )
+                            res = ran->size();
+            } );
+        return res;
+}
+
+template < typename M >
+result set_reg_map_key( M& reg_map, uint32_t key, std::span< std::byte > buffer )
+{
+        result res = result::ERROR;
+        reg_map.with_register(
+            static_cast< typename M::key_type >( key ), [&]< typename Reg >( Reg& reg ) {
+                    auto val = get_val< typename Reg::value_type >( buffer );
+                    if ( val ) {
+                            reg.value = *val;
+                            res       = result::SUCCESS;
+                    }
+            } );
+        return res;
+}
+
+template < typename M >
+bool reg_map_value_changed( M& reg_map, uint32_t key, std::span< std::byte > data )
+{
+        bool res = false;
+        reg_map.with_register(
+            static_cast< typename M::key_type >( key ), [&]< typename Reg >( Reg& reg ) {
+                    auto val = get_val< typename Reg::value_type >( data );
+                    if ( val )
+                            res = reg.value != *val;
+            } );
+        return res;
+}
+
+// XXX: test utils
+// XXX: test case with reg map
+// XXX: test scenarios:
+//  - new key in keyval map
+//  - key dropped from kval map
+//  - only part of keys updated - partial write
+//  - write triggers full
 }  // namespace emlabcpp::cfg
