@@ -21,8 +21,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 /// SOFTWARE.
 
-#include "emlabcpp/experimental/cfg2/handler.h"
-#include "emlabcpp/experimental/cfg2/page.h"
+#include "emlabcpp/experimental/cfg/handler.h"
+#include "emlabcpp/experimental/cfg/page.h"
 
 #include <gtest/gtest.h>
 #include <source_location>
