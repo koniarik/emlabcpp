@@ -30,14 +30,19 @@
 namespace emlabcpp::pmr
 {
 
+constexpr std::uintptr_t align_addr( std::uintptr_t const addr, std::size_t const alignment )
+{
+        // note: based on tips from sarah@#include discord
+        auto const low_bit_mask = alignment - 1;
+        return ( addr + low_bit_mask ) & ~low_bit_mask;
+}
+
 /// TODO: this needs tests
 inline void* align( void* const ptr, std::size_t const alignment )
 {
-        // note: based on tips from sarah@#include discord
-        auto const iptr         = std::bit_cast< std::uintptr_t >( ptr );
-        auto const low_bit_mask = alignment - 1;
-        auto const aligned      = ( iptr + low_bit_mask ) & ~low_bit_mask;
-        return static_cast< std::byte* >( ptr ) + ( aligned - iptr );
+        auto const iptr = std::bit_cast< std::uintptr_t >( ptr );
+        auto       addr = align_addr( iptr, alignment );
+        return static_cast< std::byte* >( ptr ) + ( addr - iptr );
 }
 
 }  // namespace emlabcpp::pmr

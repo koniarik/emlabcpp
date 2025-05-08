@@ -271,6 +271,10 @@ TEST( cfg, update )
                     .take_unseen_key_f = [&]() -> opt< uint32_t > {
                             return {};
                     },
+                    .reset_keys_f = [&]() -> result {
+                            EXPECT_TRUE( false ) << "clear not expected";
+                            return result::SUCCESS;
+                    },
                 };
                 update_cbs_bind lb{ lu };
                 update_result   ures = update_stored_config( 0, mem.size(), lb );
@@ -324,12 +328,13 @@ TEST( cfg, update )
                             std::memcpy( buffer.data(), iter->second.data(), iter->second.size() );
                             return iter->second.size();
                     },
-                    .take_unseen_key_f = [&]() -> opt< uint32_t > {
-                            if ( keys.empty() )
-                                    return {};
-                            auto k = keys.back();
-                            keys.pop_back();
-                            return k;
+                    .take_unseen_key_f =
+                        [&] {
+                                return pop_from_container( keys );
+                        },
+                    .reset_keys_f = [&]() -> result {
+                            EXPECT_TRUE( false ) << "reset not expected";
+                            return result::SUCCESS;
                     },
                 };
                 update_cbs_bind lb{ lu };

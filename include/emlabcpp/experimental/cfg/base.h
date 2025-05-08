@@ -21,27 +21,11 @@
 /// SOFTWARE.
 #pragma once
 
-#include <cstdint>
-
 namespace emlabcpp::cfg
 {
 
-// chcksum | header | chcksum | payload | [ chkcsum | field ] ...
-
-enum class load_result
-{
-        SUCCESS,
-        DESERIALIZATION_ERROR,
-        PAYLOAD_REFUSED
-};
-
-using checksum  = uint32_t;
-using record_id = uint32_t;
-
-struct header
-{
-        // number of fields stored after the header
-        uint32_t field_count;
-};
+using cell                           = uint64_t;
+static constexpr uint16_t cell_size  = sizeof( cell );
+static constexpr uint16_t hcell_size = sizeof( cell ) / 2;
 
 }  // namespace emlabcpp::cfg

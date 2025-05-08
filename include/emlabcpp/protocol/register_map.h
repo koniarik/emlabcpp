@@ -180,6 +180,17 @@ public:
 
         friend constexpr auto operator<=>( register_map const&, register_map const& ) = default;
 
+        static constexpr void with_reg_type( key_type key, auto&& f )
+        {
+                until_index< registers_count >( [&key, &f]< std::size_t j >() {
+                        using reg_type = std::tuple_element_t< j, registers_tuple >;
+                        if ( reg_type::key != key )
+                                return false;
+                        f.template operator()< reg_type >();
+                        return true;
+                } );
+        }
+
 private:
         template < typename Class, typename UnaryCallable >
         requires( !register_map_void_returning< UnaryCallable, registers_tuple > )
