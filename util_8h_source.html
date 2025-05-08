@@ -97,18 +97,24 @@ $(document).ready(function(){initNavTree('util_8h_source.html',''); initResizabl
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#acdebef77695d09b5fa5ebf21f538c2bf">   34</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span>* <a class="code" href="namespaceemlabcpp_1_1pmr.html#acdebef77695d09b5fa5ebf21f538c2bf">align</a>( <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr, std::size_t <span class="keyword">const</span> alignment )</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">// note: based on tips from sarah@#include discord</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> iptr         = std::bit_cast&lt; std::uintptr_t &gt;( ptr );</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> low_bit_mask = alignment - 1;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> aligned      = ( iptr + low_bit_mask ) &amp; ~low_bit_mask;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( ptr ) + ( aligned - iptr );</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}  <span class="comment">// namespace emlabcpp::pmr</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#a33602714edf23b4faa4e0f6a3625f35c">   33</a></span>&#160;constexpr std::uintptr_t <a class="code" href="namespaceemlabcpp_1_1pmr.html#a33602714edf23b4faa4e0f6a3625f35c">align_addr</a>( std::uintptr_t <span class="keyword">const</span> addr, std::size_t <span class="keyword">const</span> alignment )</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">// note: based on tips from sarah@#include discord</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> low_bit_mask = alignment - 1;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> ( addr + low_bit_mask ) &amp; ~low_bit_mask;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespaceemlabcpp_1_1pmr.html#acdebef77695d09b5fa5ebf21f538c2bf">   41</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span>* <a class="code" href="namespaceemlabcpp_1_1pmr.html#acdebef77695d09b5fa5ebf21f538c2bf">align</a>( <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr, std::size_t <span class="keyword">const</span> alignment )</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">auto</span> <span class="keyword">const</span> iptr = std::bit_cast&lt; std::uintptr_t &gt;( ptr );</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">auto</span>       addr = <a class="code" href="namespaceemlabcpp_1_1pmr.html#a33602714edf23b4faa4e0f6a3625f35c">align_addr</a>( iptr, alignment );</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span> <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* <span class="keyword">&gt;</span>( ptr ) + ( addr - iptr );</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}  <span class="comment">// namespace emlabcpp::pmr</span></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1pmr_html"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html">emlabcpp::pmr</a></div><div class="ttdoc">MIT License.</div><div class="ttdef"><b>Definition:</b> aliases.h:36</div></div>
-<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_acdebef77695d09b5fa5ebf21f538c2bf"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#acdebef77695d09b5fa5ebf21f538c2bf">emlabcpp::pmr::align</a></div><div class="ttdeci">void * align(void *const ptr, std::size_t const alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:34</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_a33602714edf23b4faa4e0f6a3625f35c"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#a33602714edf23b4faa4e0f6a3625f35c">emlabcpp::pmr::align_addr</a></div><div class="ttdeci">constexpr std::uintptr_t align_addr(std::uintptr_t const addr, std::size_t const alignment)</div><div class="ttdef"><b>Definition:</b> util.h:33</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1pmr_html_acdebef77695d09b5fa5ebf21f538c2bf"><div class="ttname"><a href="namespaceemlabcpp_1_1pmr.html#acdebef77695d09b5fa5ebf21f538c2bf">emlabcpp::pmr::align</a></div><div class="ttdeci">void * align(void *const ptr, std::size_t const alignment)</div><div class="ttdoc">TODO: this needs tests.</div><div class="ttdef"><b>Definition:</b> util.h:41</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.h:118</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -116,7 +122,7 @@ $(document).ready(function(){initNavTree('util_8h_source.html',''); initResizabl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_231aac52433e25ed4b5ea5619bdfd3e1.html">pmr</a></li><li class="navelem"><a class="el" href="util_8h.html">util.h</a></li>
-    <li class="footer">Generated on Mon Apr 14 2025 11:15:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu May 8 2025 15:48:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

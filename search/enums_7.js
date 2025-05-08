@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['result_5fe_2609',['result_e',['../namespaceemlabcpp.html#ad6bb11365d380040c5e151a237655d4a',1,'emlabcpp']]]
+  ['ser_5fres_2604',['ser_res',['../namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2',1,'emlabcpp::cfg']]],
+  ['static_5ffunction_5foperations_2605',['static_function_operations',['../namespaceemlabcpp_1_1detail.html#a504aa8af747dc7480bcb7d73d822841b',1,'emlabcpp::detail']]]
 ];

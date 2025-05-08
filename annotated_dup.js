@@ -6,9 +6,8 @@ var annotated_dup =
         [ "is_string_buffer< string_buffer< N > >", "structemlabcpp_1_1bits_1_1is__string__buffer_3_01string__buffer_3_01N_01_4_01_4.html", "structemlabcpp_1_1bits_1_1is__string__buffer_3_01string__buffer_3_01N_01_4_01_4" ]
       ] ],
       [ "cfg", "namespaceemlabcpp_1_1cfg.html", [
-        [ "header", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1header_dup" ],
-        [ "handler", "structemlabcpp_1_1cfg_1_1handler.html", "structemlabcpp_1_1cfg_1_1handler" ],
         [ "deser_res", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1deser__res_dup" ],
+        [ "iface_base", "structemlabcpp_1_1cfg_1_1iface__base.html", "structemlabcpp_1_1cfg_1_1iface__base" ],
         [ "update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", "structemlabcpp_1_1cfg_1_1update__iface" ],
         [ "update_cbs", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1update__cbs", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1update__cbs_dup" ],
         [ "update_cbs_bind", "structemlabcpp_1_1cfg_1_1update__cbs__bind.html", "structemlabcpp_1_1cfg_1_1update__cbs__bind" ],

@@ -1,7 +1,6 @@
 var dir_833cf07299c67ab119396183470d94f1 =
 [
     [ "cfg", "dir_b8d3940418ab59971bff71afaa8cab2b.html", "dir_b8d3940418ab59971bff71afaa8cab2b" ],
-    [ "cfg2", "dir_41e4d945d025625261ba1bf6390ad1b1.html", "dir_41e4d945d025625261ba1bf6390ad1b1" ],
     [ "contiguous_tree", "dir_15f8cd90f3890d7a65699de4188dbb27.html", "dir_15f8cd90f3890d7a65699de4188dbb27" ],
     [ "coro", "dir_124696910e1f6c10a38401e63d4996f0.html", "dir_124696910e1f6c10a38401e63d4996f0" ],
     [ "geom", "dir_3ae5028df88b3fc471a247e16af56915.html", "dir_3ae5028df88b3fc471a247e16af56915" ],

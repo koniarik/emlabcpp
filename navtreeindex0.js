@@ -1,6 +1,5 @@
 var NAVTREEINDEX0 =
 {
-"":[0,2,1],
 "algorithm_8h.html":[2,0,0,0,6],
 "algorithm_8h.html#a036ecd2b344a56d6473500952c3c9db8":[2,0,0,0,6,11],
 "algorithm_8h.html#a0854cc8f63fb866604cdba86751aa661":[2,0,0,0,6,27],
@@ -65,8 +64,8 @@ var NAVTREEINDEX0 =
 "bounded_8h.html#a7b5a68de4881301e46697c48654d8477":[2,0,0,0,8,2],
 "bounded_8h.html#add79493bcf07bd4c54afffe3a0f3ee00":[2,0,0,0,8,3],
 "bounded_8h_source.html":[2,0,0,0,8],
-"bounded__view_8h.html":[2,0,0,0,1,6],
-"bounded__view_8h_source.html":[2,0,0,0,1,6],
+"bounded__view_8h.html":[2,0,0,0,1,5],
+"bounded__view_8h_source.html":[2,0,0,0,1,5],
 "classemlabcpp_1_1bounded.html":[1,0,0,11],
 "classemlabcpp_1_1bounded.html#a084079ca127463fc18937bdd1436441c":[1,0,0,11,3],
 "classemlabcpp_1_1bounded.html#a08efc919d358cce4801a81fdea5c130c":[1,0,0,11,2],
@@ -98,8 +97,8 @@ var NAVTREEINDEX0 =
 "classemlabcpp_1_1bounded__view.html#a6b64890bc01240d6bb82c9cc96fc2abc":[1,0,0,13,3],
 "classemlabcpp_1_1bounded__view.html#a89ff8027718f0c41329885db3319ea50":[1,0,0,13,0],
 "classemlabcpp_1_1bounded__view.html#aa0cc5584ce761426ce2dd178a105baf1":[1,0,0,13,8],
-"classemlabcpp_1_1bounded__view.html#aa74d67e6fcf863e95a1e537fc695bce9":[1,0,0,13,6],
 "classemlabcpp_1_1bounded__view.html#aa74d67e6fcf863e95a1e537fc695bce9":[1,0,0,13,7],
+"classemlabcpp_1_1bounded__view.html#aa74d67e6fcf863e95a1e537fc695bce9":[1,0,0,13,6],
 "classemlabcpp_1_1bounded__view.html#aa9f3c2be7a0dcc3bf7c1080ed062e46e":[1,0,0,13,11],
 "classemlabcpp_1_1bounded__view.html#ab97056db029d7dbf8010f7f7183e866f":[1,0,0,13,1],
 "classemlabcpp_1_1bounded__view.html#ac4129f0fd2b9840b78685a7d88d11469":[1,0,0,13,4],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "classemlabcpp_1_1decode__cobs__iter.html":[1,0,0,16],
 "classemlabcpp_1_1decode__cobs__iter.html#a72c2c458c4194ef0b8cacb400ee46f04":[1,0,0,16,2],
 "classemlabcpp_1_1decode__cobs__iter.html#aa81d8439c44ecabf6eff46000797cf0b":[1,0,0,16,4],
-"classemlabcpp_1_1decode__cobs__iter.html#abf4f169af76d56a2375e3180240c4cab":[1,0,0,16,3]
+"classemlabcpp_1_1decode__cobs__iter.html#abf4f169af76d56a2375e3180240c4cab":[1,0,0,16,3],
+"classemlabcpp_1_1decode__cobs__iter.html#ace22a13e1c035dd86aba81fe26220605":[1,0,0,16,1]
 };

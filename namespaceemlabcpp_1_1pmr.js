@@ -13,6 +13,7 @@ var namespaceemlabcpp_1_1pmr =
     [ "unique_ptr", "namespaceemlabcpp_1_1pmr.html#a4d3aad97ead0641249958a7b0e7b9416", null ],
     [ "vector", "namespaceemlabcpp_1_1pmr.html#a425c25e733351df6fc74a961a350c268", null ],
     [ "align", "namespaceemlabcpp_1_1pmr.html#acdebef77695d09b5fa5ebf21f538c2bf", null ],
+    [ "align_addr", "namespaceemlabcpp_1_1pmr.html#a33602714edf23b4faa4e0f6a3625f35c", null ],
     [ "new_delete_resource", "namespaceemlabcpp_1_1pmr.html#a52bf0aa428dd57cda666f487d3f2582d", null ],
     [ "throw_bad_alloc", "namespaceemlabcpp_1_1pmr.html#a0db595500c9bd8f5a2b7a52d4f137a9a", null ]
 ];

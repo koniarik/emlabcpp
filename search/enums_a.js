@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_5fresult_2613',['update_result',['../namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2',1,'emlabcpp::cfg']]]
+  ['wait_5fstate_2608',['wait_state',['../namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90',1,'emlabcpp::coro']]]
 ];

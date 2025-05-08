@@ -100,14 +100,13 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 : <a class="el" href="classemlabcpp_1_1rpc_1_1class__wrapper.html#a4ca36c12d790fd3e37e1fb10e2b4eb75">emlabcpp::rpc::class_wrapper&lt; Class, Bindings &gt;</a>
 </li>
 <li>read()
-: <a class="el" href="structemlabcpp_1_1cfg_1_1load__cbs__bind.html#a9878c345e3aa2c421c14379c0211535c">emlabcpp::cfg::load_cbs_bind&lt; T &gt;</a>
-, <a class="el" href="structemlabcpp_1_1cfg_1_1load__iface.html#af1d6526d3f6358c596c16f31b5d20ab5">emlabcpp::cfg::load_iface</a>
+: <a class="el" href="structemlabcpp_1_1cfg_1_1iface__base.html#abb8d1b35f4e9057206b90513ab3194ea">emlabcpp::cfg::iface_base</a>
+, <a class="el" href="structemlabcpp_1_1cfg_1_1load__cbs__bind.html#a9878c345e3aa2c421c14379c0211535c">emlabcpp::cfg::load_cbs_bind&lt; T &gt;</a>
 , <a class="el" href="structemlabcpp_1_1cfg_1_1update__cbs__bind.html#a5056cec6c9e02bccb3f41a9a47112642">emlabcpp::cfg::update_cbs_bind&lt; T &gt;</a>
-, <a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#a67095982ef575f68b65cf4b96fb1c9d3">emlabcpp::cfg::update_iface</a>
 </li>
 <li>read_f
 : <a class="el" href="namespaceemlabcpp_1_1cfg.html#a81ed69fbe04ea95bf8a1631b997a4703">emlabcpp::cfg::load_cbs&lt; Read, KeyCheck, OnKval &gt;</a>
-, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a2ee1fdbf492124664ea5bb45a6ef3c86">emlabcpp::cfg::update_cbs&lt; Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey &gt;</a>
+, <a class="el" href="namespaceemlabcpp_1_1cfg.html#a248af7da7df9484ff0a60b1a39b44727">emlabcpp::cfg::update_cbs&lt; Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey, ResetKeys &gt;</a>
 </li>
 <li>rec
 : <a class="el" href="namespaceemlabcpp_1_1testing.html#a3d8bb88663b4a685cd0f3699525d426c">emlabcpp::testing::controller_protocol_error</a>
@@ -254,7 +253,7 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 , <a class="el" href="namespaceemlabcpp_1_1rpc.html#a1ddf1782b72055e10ce667c3f25323db">emlabcpp::rpc::traits&lt; std::tuple&lt; Calls... &gt; &gt;</a>
 </li>
 <li>request_reply()
-: <a class="el" href="classemlabcpp_1_1coro_1_1request__reply.html#a5997497fad271b08c58d3c5438bc10ec">emlabcpp::coro::request_reply&lt; RequestType, ReplyType &gt;</a>
+: <a class="el" href="classemlabcpp_1_1coro_1_1request__reply.html#a19a2589c92f165963dbc8e182dc1c760">emlabcpp::coro::request_reply&lt; RequestType, ReplyType &gt;</a>
 </li>
 <li>request_traits
 : <a class="el" href="namespaceemlabcpp_1_1rpc.html#a48f768682ae3d4f4f9663815b4e916dd">emlabcpp::rpc::traits&lt; std::tuple&lt; Calls... &gt; &gt;</a>
@@ -271,14 +270,21 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 </li>
 <li>requires()
 : <a class="el" href="classemlabcpp_1_1bounded.html#a53a7e456f96a1af5abfd27f48b206924">emlabcpp::bounded&lt; T, MinVal, MaxVal &gt;</a>
-, <a class="el" href="classemlabcpp_1_1bounded__view.html#a027286649e9db2af8aaff9a5a5e709cb">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;</a>
+, <a class="el" href="classemlabcpp_1_1bounded__view.html#aa74d67e6fcf863e95a1e537fc695bce9">emlabcpp::bounded_view&lt; Iterator, SizeType &gt;</a>
 , <a class="el" href="structemlabcpp_1_1protocol_1_1command__group.html#a1dd763c222d3fcd8d322457e2bdf18ed">emlabcpp::protocol::command_group&lt; Endianess, Cmds &gt;</a>
 , <a class="el" href="classemlabcpp_1_1static__vector.html#aaaa6b6b9edd4069e4abbef54039c67d6">emlabcpp::static_vector&lt; T, N &gt;</a>
-, <a class="el" href="classemlabcpp_1_1view.html#a10c5dc5e362b912c3b39360f7b16b8f3">emlabcpp::view&lt; Iterator, EndIterator &gt;</a>
+, <a class="el" href="classemlabcpp_1_1view.html#a917bb4032dda100469207490b1089764">emlabcpp::view&lt; Iterator, EndIterator &gt;</a>
 </li>
 <li>res
 : <a class="el" href="structemlabcpp_1_1pmr_1_1deleter.html#a7aafa52a964556f26bc8f9eb5520e9eb">emlabcpp::pmr::deleter</a>
 , <a class="el" href="classemlabcpp_1_1testing_1_1collect__awaiter.html#ad69501e47b5cb12d866b9a4c65665222">emlabcpp::testing::collect_awaiter</a>
+</li>
+<li>reset_keys()
+: <a class="el" href="structemlabcpp_1_1cfg_1_1update__cbs__bind.html#a408e089c97c80227e5a42733379d4e13">emlabcpp::cfg::update_cbs_bind&lt; T &gt;</a>
+, <a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#a92b2eaa03e99a046116765afa8e0eae3">emlabcpp::cfg::update_iface</a>
+</li>
+<li>reset_keys_f
+: <a class="el" href="namespaceemlabcpp_1_1cfg.html#a18b4319a092cccdb7a433f2b95200632">emlabcpp::cfg::update_cbs&lt; Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey, ResetKeys &gt;</a>
 </li>
 <li>resize()
 : <a class="el" href="classemlabcpp_1_1protocol_1_1message.html#a93bb0bbe990b35a9d3a2098fac41d718">emlabcpp::protocol::message&lt; N &gt;</a>
@@ -336,7 +342,7 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Apr 14 2025 11:15:52 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu May 8 2025 15:48:16 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

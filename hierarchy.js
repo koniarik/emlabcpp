@@ -142,11 +142,17 @@ var hierarchy =
     [ "emlabcpp::testing::get_test_name_reply", "structemlabcpp_1_1testing_1_1get__test__name__reply.html", null ],
     [ "emlabcpp::testing::get_test_name_request", "structemlabcpp_1_1testing_1_1get__test__name__request.html", null ],
     [ "emlabcpp::protocol::group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group", null ],
-    [ "emlabcpp::cfg::handler< Payload, Field, Endianess >", "structemlabcpp_1_1cfg_1_1handler.html", null ],
     [ "emlabcpp::protocol::handler< T, E >", "structemlabcpp_1_1protocol_1_1handler.html", null ],
     [ "std::hash< T >", "structstd_1_1hash_3_01T_01_4.html", null ],
-    [ "emlabcpp::cfg::header", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1header", null ],
     [ "emlabcpp::identity_matrix< N, T >", "classemlabcpp_1_1identity__matrix.html", null ],
+    [ "emlabcpp::cfg::iface_base", "structemlabcpp_1_1cfg_1_1iface__base.html", [
+      [ "emlabcpp::cfg::load_iface", "structemlabcpp_1_1cfg_1_1load__iface.html", [
+        [ "emlabcpp::cfg::load_cbs_bind< T >", "structemlabcpp_1_1cfg_1_1load__cbs__bind.html", null ]
+      ] ],
+      [ "emlabcpp::cfg::update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", [
+        [ "emlabcpp::cfg::update_cbs_bind< T >", "structemlabcpp_1_1cfg_1_1update__cbs__bind.html", null ]
+      ] ]
+    ] ],
     [ "emlabcpp::index_of< T, Variant >", "namespaceemlabcpp.html#structemlabcpp_1_1index__of", null ],
     [ "emlabcpp::index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::testing::input_message_protocol_error", "structemlabcpp_1_1testing_1_1input__message__protocol__error.html", null ],
@@ -167,9 +173,6 @@ var hierarchy =
       [ "emlabcpp::linked_list_node< T, Base >", "classemlabcpp_1_1linked__list__node.html", null ]
     ] ],
     [ "emlabcpp::cfg::load_cbs< Read, KeyCheck, OnKval >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1load__cbs", null ],
-    [ "emlabcpp::cfg::load_iface", "structemlabcpp_1_1cfg_1_1load__iface.html", [
-      [ "emlabcpp::cfg::load_cbs_bind< T >", "structemlabcpp_1_1cfg_1_1load__cbs__bind.html", null ]
-    ] ],
     [ "emlabcpp::impl::map_f_collector< typename >", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector", null ],
     [ "emlabcpp::impl::map_f_collector< std::array< T, N > >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::impl::map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", null ],
@@ -345,10 +348,7 @@ var hierarchy =
     [ "emlabcpp::type_map< typename, class >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map", null ],
     [ "emlabcpp::type_map< std::tuple< Ts... >, Fun >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4", null ],
     [ "emlabcpp::type_tag< T >", "namespaceemlabcpp.html#structemlabcpp_1_1type__tag", null ],
-    [ "emlabcpp::cfg::update_cbs< Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1update__cbs", null ],
-    [ "emlabcpp::cfg::update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", [
-      [ "emlabcpp::cfg::update_cbs_bind< T >", "structemlabcpp_1_1cfg_1_1update__cbs__bind.html", null ]
-    ] ],
+    [ "emlabcpp::cfg::update_cbs< Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey, ResetKeys >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1update__cbs", null ],
     [ "emlabcpp::protocol::value_offset< D, Offset >", "structemlabcpp_1_1protocol_1_1value__offset.html", null ],
     [ "emlabcpp::testing::value_type_converter< T >", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter", null ],
     [ "emlabcpp::testing::value_type_converter< char const * >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01char_01const_01_5_01_4.html", null ],

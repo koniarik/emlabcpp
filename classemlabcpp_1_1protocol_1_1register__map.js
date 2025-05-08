@@ -17,6 +17,7 @@ var classemlabcpp_1_1protocol_1_1register__map =
     [ "register_size", "classemlabcpp_1_1protocol_1_1register__map.html#a5ca8ba945e7b47eadb74117dc008e50a", null ],
     [ "set_val", "classemlabcpp_1_1protocol_1_1register__map.html#aa02e5952201cf89f3b2e0d89f9612c4e", null ],
     [ "setup_register", "classemlabcpp_1_1protocol_1_1register__map.html#a62410c195ed948480339d60e9ef756a8", null ],
+    [ "with_reg_type", "classemlabcpp_1_1protocol_1_1register__map.html#ab3d74b08ad5ce55c7232014c0f69b148", null ],
     [ "with_register", "classemlabcpp_1_1protocol_1_1register__map.html#af48d4d383f0cd62c837b3a4aa18a5d27", null ],
     [ "with_register", "classemlabcpp_1_1protocol_1_1register__map.html#a069dc3bd6089aa6ba6759ea9f3d94d11", null ],
     [ "operator<=>", "classemlabcpp_1_1protocol_1_1register__map.html#a1583109115f46fe9689c74dfd045742b", null ],
