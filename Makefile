@@ -10,7 +10,7 @@ EXTRAARGS=-DCMAKE_CXX_FLAGS="$(CXX_FLAGS)" -DCMAKE_EXE_LINKER_FLAGS="$(LINKER_FL
 .PHONY: clean build_test exec_test test
 
 test: build_test
-	cmake --build build/norm --target test
+	cd build/norm && ctest --output-on-failure
 
 clean:
 	rm -rf ./build
