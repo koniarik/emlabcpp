@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"namespacemembers_b.html":[0,3,0,1],
 "namespacemembers_c.html":[0,3,0,2],
 "namespacemembers_d.html":[0,3,0,3],
 "namespacemembers_e.html":[0,3,0,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "register__handler_8h.html":[2,0,0,0,4,9],
 "register__handler_8h_source.html":[2,0,0,0,4,9],
 "register__map_8h.html":[2,0,0,0,4,10],
-"register__map_8h.html#ae1478b77466bf5c4f4cb182459ca131d":[2,0,0,0,4,10,2],
-"register__map_8h.html#af6a2b6db86c30d95881fe0346b567f8b":[2,0,0,0,4,10,3]
+"register__map_8h.html#ae1478b77466bf5c4f4cb182459ca131d":[2,0,0,0,4,10,2]
 };
