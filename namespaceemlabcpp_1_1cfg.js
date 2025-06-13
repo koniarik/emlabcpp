@@ -11,14 +11,14 @@ var namespaceemlabcpp_1_1cfg =
       [ "SEEN", "namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569aa597a8fc234b2ba1eef93584cae80a4a", null ],
       [ "NOT_SEEN", "namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569afe9d4917e4a7ce384d66ac027f8117bd", null ]
     ] ],
+    [ "cell_kind", "namespaceemlabcpp_1_1cfg.html#a3253aa7b8e8920075a179e593c278a7a", [
+      [ "SINGLE", "namespaceemlabcpp_1_1cfg.html#a3253aa7b8e8920075a179e593c278a7aa0679273e201afd0bf57af3961f8a23b8", null ],
+      [ "MULTI", "namespaceemlabcpp_1_1cfg.html#a3253aa7b8e8920075a179e593c278a7aaf26be970aac1b06fa62b87562bc73deb", null ]
+    ] ],
     [ "hdr_state", "namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1", [
       [ "A", "namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29", null ],
       [ "B", "namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a9d5ed678fe57bcca610140957afab571", null ],
       [ "C", "namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a0d61f8370cad1d412f80b84d143e1257", null ]
-    ] ],
-    [ "ser_res", "namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2", [
-      [ "SINGLE", "namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2a0679273e201afd0bf57af3961f8a23b8", null ],
-      [ "MULTI", "namespaceemlabcpp_1_1cfg.html#a7c14e8fb015be9cf949dfea5e355c7d2af26be970aac1b06fa62b87562bc73deb", null ]
     ] ],
     [ "update_result", "namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2", [
       [ "SUCCESS", "namespaceemlabcpp_1_1cfg.html#a8d3f325ec5b6e12ee25a5c960a0048c2ad0749aaba8b833466dfcbb0428e4f89c", null ],
@@ -43,11 +43,11 @@ var namespaceemlabcpp_1_1cfg =
     [ "manifest_value", "namespaceemlabcpp_1_1cfg.html#a70169be74e33fed01d9bc64d2b4c0c04", null ],
     [ "next", "namespaceemlabcpp_1_1cfg.html#a8e03f9106771ab434a50622f4432bee0", null ],
     [ "pop_from_container", "namespaceemlabcpp_1_1cfg.html#a174ebbb5a7228e134864f65fa417a3d9", null ],
-    [ "ser_cell", "namespaceemlabcpp_1_1cfg.html#a48efe3f0644006cbdccfe47ad02cfb4a", null ],
+    [ "ser_cell", "namespaceemlabcpp_1_1cfg.html#ae35c57b858300a7e534c267908cb108a", null ],
     [ "store_key", "namespaceemlabcpp_1_1cfg.html#a8a7c4f0afd18403073de6ff0465ce45c", null ],
-    [ "store_kval", "namespaceemlabcpp_1_1cfg.html#a8cf3961a291286d3f104fb5e182047a4", null ],
-    [ "store_kval", "namespaceemlabcpp_1_1cfg.html#ab761d9a9f218530069d2291ea05812c1", null ],
     [ "store_kval_impl", "namespaceemlabcpp_1_1cfg.html#a7d9eca5e00ad57fb1a977f4e89766780", null ],
+    [ "store_val", "namespaceemlabcpp_1_1cfg.html#a22e9173bb174b5df61648d54a8b5ed17", null ],
+    [ "store_val", "namespaceemlabcpp_1_1cfg.html#a48009de23760e74e10f871c7a69843b8", null ],
     [ "update", "namespaceemlabcpp_1_1cfg.html#aaf9061e321af6bf5c0ab908e5530c8f0", null ],
     [ "update_stored_config", "namespaceemlabcpp_1_1cfg.html#acad42abf14d4013640a756572e588fd7", null ],
     [ "cell_size", "namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e", null ],

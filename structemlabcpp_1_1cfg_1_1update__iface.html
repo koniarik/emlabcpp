@@ -117,8 +117,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab7e4638f0cd2f63823490f8c7c707b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c06b1a818a5ad6bb0f3ac65b70e028a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#a2c06b1a818a5ad6bb0f3ac65b70e028a">value_changed</a> (uint32_t key, std::span&lt; std::byte const &gt; <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>)=0</td></tr>
 <tr class="separator:a2c06b1a818a5ad6bb0f3ac65b70e028a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cd454b9a9c84d9acb129540e5bd4b78"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; std::span&lt; std::byte const &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#a2cd454b9a9c84d9acb129540e5bd4b78">serialize_key</a> (uint32_t key, std::span&lt; std::byte &gt; buffer)=0</td></tr>
-<tr class="separator:a2cd454b9a9c84d9acb129540e5bd4b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3da2887a91d1aa27d2eecab2a0edc958"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; std::span&lt; std::byte const &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#a3da2887a91d1aa27d2eecab2a0edc958">serialize_value</a> (uint32_t key, std::span&lt; std::byte &gt; buffer)=0</td></tr>
+<tr class="separator:a3da2887a91d1aa27d2eecab2a0edc958"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92b2eaa03e99a046116765afa8e0eae3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structemlabcpp_1_1result.html">result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#a92b2eaa03e99a046116765afa8e0eae3">reset_keys</a> ()=0</td></tr>
 <tr class="separator:a92b2eaa03e99a046116765afa8e0eae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33ec6f0c1e711a656372ff78c01695dd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html#a33ec6f0c1e711a656372ff78c01695dd">take_unseen_key</a> ()=0</td></tr>
@@ -212,8 +212,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2cd454b9a9c84d9acb129540e5bd4b78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cd454b9a9c84d9acb129540e5bd4b78">&#9670;&nbsp;</a></span>serialize_key()</h2>
+<a id="a3da2887a91d1aa27d2eecab2a0edc958"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3da2887a91d1aa27d2eecab2a0edc958">&#9670;&nbsp;</a></span>serialize_value()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -222,7 +222,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; std::span&lt; std::byte const &gt; &gt; emlabcpp::cfg::update_iface::serialize_key </td>
+          <td class="memname">virtual <a class="el" href="namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839">opt</a>&lt; std::span&lt; std::byte const &gt; &gt; emlabcpp::cfg::update_iface::serialize_value </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -354,7 +354,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1cfg.html">cfg</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1cfg_1_1update__iface.html">update_iface</a></li>
-    <li class="footer">Generated on Fri Jun 13 2025 12:26:29 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jun 13 2025 18:04:32 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
