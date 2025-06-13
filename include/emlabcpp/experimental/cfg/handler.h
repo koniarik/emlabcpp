@@ -45,7 +45,7 @@ static constexpr uint32_t sin_bit_mask = 0x80000000;
 
 static_assert( ~key_mask == sin_bit_mask, "key mask and sin bit mask are not correct" );
 
-enum class ser_res : uint8_t
+enum class cell_kind : uint8_t
 {
         SINGLE,
         MULTI,
@@ -56,8 +56,8 @@ constexpr uint32_t closest_multiple_of( uint32_t x, uint32_t r ) noexcept
         return r * ( ( x + r - 1 ) / r );
 }
 
-inline opt< ser_res >
-ser_cell( uint32_t key, std::span< std::byte > value, std::span< std::byte, cell_size > dest )
+inline opt< cell_kind >
+ser_cell( uint32_t key, std::span< std::byte const > value, std::span< std::byte, cell_size > dest )
 {
         if ( value.empty() || key > sin_bit_mask )
                 return {};
@@ -70,7 +70,7 @@ ser_cell( uint32_t key, std::span< std::byte > value, std::span< std::byte, cell
                 tmp          = ( tmp << 32 ) + val;
 
                 std::memcpy( dest.data(), &tmp, cell_size );
-                return ser_res::SINGLE;
+                return cell_kind::SINGLE;
         } else {
                 uint32_t size =
                     closest_multiple_of( static_cast< uint32_t >( value.size() ), cell_size ) /
@@ -78,7 +78,7 @@ ser_cell( uint32_t key, std::span< std::byte > value, std::span< std::byte, cell
                 uint64_t tmp = key;
                 tmp          = ( tmp << 32 ) + size;
                 std::memcpy( dest.data(), &tmp, cell_size );
-                return ser_res::MULTI;
+                return cell_kind::MULTI;
         }
 }
 
@@ -117,17 +117,16 @@ store_kval_impl( uint32_t key, std::byte* beg, std::byte* val_end, std::byte* en
         if ( !tmp )
                 return {};
         switch ( *tmp ) {
-        case ser_res::MULTI:
+        case cell_kind::MULTI:
                 return std::span{ beg, new_end };
-        case ser_res::SINGLE:
+        case cell_kind::SINGLE:
                 return std::span{ val_end, cell_size };
         }
         return {};
 }
 
 template < typename T >
-opt< std::span< std::byte > >
-store_kval( uint32_t key, T const& val, std::span< std::byte > buffer )
+opt< std::span< std::byte > > store_val( T const& val, std::span< std::byte > buffer )
 {
         using conv = protocol::converter_for< T, std::endian::little >;  // XXX: make endianness
                                                                          // configurable?
@@ -137,18 +136,23 @@ store_kval( uint32_t key, T const& val, std::span< std::byte > buffer )
 
         bounded const used = conv::serialize_at( front, val );
 
-        return store_kval_impl(
-            key, buffer.data(), buffer.data() + *used, buffer.data() + buffer.size() );
+        return std::span{ buffer.data(), buffer.data() + *used };
 }
 
-opt< std::span< std::byte > >
-store_kval( uint32_t key, std::span< std::byte > value, std::span< std::byte > buffer )
+inline opt< std::span< std::byte > >
+store_val( std::span< std::byte const > val, std::span< std::byte > buffer )
 {
-        if ( value.size() > buffer.size() )
+        if ( buffer.size() < val.size() )
                 return {};
-        std::memcpy( buffer.data(), value.data(), value.size() );
-        return store_kval_impl(
-            key, buffer.data(), buffer.data() + value.size(), buffer.data() + buffer.size() );
+        std::span< std::byte > front{ buffer.data(), val.size() };
+        std::memcpy( front.data(), val.data(), val.size() );
+        return front;
+}
+
+inline opt< std::span< std::byte > >
+store_val( std::span< std::byte > val, std::span< std::byte > buffer )
+{
+        return store_val( std::span< std::byte const >{ val.data(), val.size() }, buffer );
 }
 
 template < typename T >
@@ -249,7 +253,7 @@ struct update_iface : iface_base
         virtual bool      value_changed( uint32_t key, std::span< std::byte const > data ) = 0;
 
         virtual opt< std::span< std::byte const > >
-        serialize_key( uint32_t key, std::span< std::byte > buffer ) = 0;
+        serialize_value( uint32_t key, std::span< std::byte > buffer ) = 0;
 
         virtual result          reset_keys()      = 0;
         virtual opt< uint32_t > take_unseen_key() = 0;
@@ -306,16 +310,22 @@ std::span< std::byte > manifest_value(
 inline update_result
 store_key( std::size_t& addr, std::size_t end_addr, uint32_t key, update_iface& iface )
 {
-        std::span< std::byte > buffer = iface.get_buffer();
-        auto                   used   = iface.serialize_key( key, buffer );
+        auto const                          capacity = end_addr - addr;
+        std::span< std::byte >              buffer   = iface.get_buffer();
+        opt< std::span< std::byte const > > used     = iface.serialize_value( key, buffer );
         if ( !used )
                 return update_result::ERROR;
+        std::span< std::byte const > data = *used;
 
-        if ( end_addr - addr < used->size() )
+        used = store_kval_impl(
+            key, buffer.data(), buffer.data() + data.size(), buffer.data() + buffer.size() );
+        data = *used;
+
+        if ( capacity < data.size() )
                 return update_result::FULL;
 
-        if ( iface.write( addr, *used ) == result::SUCCESS ) {
-                addr += used->size();
+        if ( iface.write( addr, data ) == result::SUCCESS ) {
+                addr += data.size();
                 return update_result::SUCCESS;
         } else
                 return update_result::ERROR;

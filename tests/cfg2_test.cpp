@@ -188,36 +188,6 @@ TEST( cfg, cell )
         test_f( 0x1234'5678, { 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b, 0xFF_b }, 0x1234'5678'0000'0001 );
 }
 
-TEST( cfg, storeload )
-{
-        auto test_f = [&]< typename T >( uint32_t key, T value, std::size_t size ) {
-                std::byte buffer[42];
-                auto      area = store_kval( key, value, buffer );
-                EXPECT_TRUE( area.has_value() );
-                EXPECT_EQ( area->size(), size );
-
-                auto tmp = deser_cell(
-                    area->subspan( area->size() - cell_size ).template subspan< 0, cell_size >() );
-                EXPECT_TRUE( tmp );
-                auto [is_seq, k, val] = *tmp;
-                EXPECT_EQ( key, k ) << std::hex << key << " != " << k;
-                opt< T > v;
-                if ( is_seq )
-                        v = get_val< T >( area->subspan( 0, val * cell_size ) );
-                else {
-                        std::byte tmp2[cell_size / 2];
-                        std::memcpy( tmp2, &val, sizeof val );
-                        v = get_val< T >( std::span{ tmp2, sizeof tmp2 } );
-                }
-                EXPECT_TRUE( v.has_value() );
-                EXPECT_EQ( *v, value );
-        };
-
-        test_f( 0x0FFF'FFFF, uint64_t{ 0xFFFF'FFFF'FFFF'FFFF }, 16 );
-        test_f( 0x0FFF'FFFF, 3.14F, 8 );
-        test_f( 0x0FFF'FFFF, uint32_t{ 42 }, 8 );
-}
-
 struct buffer_builder
 {
         auto& add( uint32_t key, std::vector< std::byte > value ) &
@@ -226,9 +196,9 @@ struct buffer_builder
                 auto      res =
                     ser_cell( key, value, std::span< std::byte, cell_size >{ tmp, cell_size } );
                 switch ( *res ) {
-                case ser_res::SINGLE:
+                case cell_kind::SINGLE:
                         break;
-                case ser_res::MULTI:
+                case cell_kind::MULTI:
                         std::vector< std::byte > tmp2(
                             closest_multiple_of(
                                 static_cast< uint32_t >( value.size() ), cell_size ),
@@ -275,7 +245,7 @@ auto mem_write_f( auto& mem )
         };
 }
 
-opt< std::span< std::byte > > unexpected_serialize_key( uint32_t, std::span< std::byte > )
+opt< std::span< std::byte > > unexpected_serialize( uint32_t, std::span< std::byte > )
 {
         EXPECT_TRUE( false ) << "unexpected serialize_key";
         return {};
@@ -322,9 +292,9 @@ TEST( cfg, update )
                 }
 
                 opt< std::span< std::byte const > >
-                serialize_key( uint32_t k, std::span< std::byte > buffer ) override
+                serialize_value( uint32_t k, std::span< std::byte > buffer ) override
                 {
-                        return unexpected_serialize_key( k, buffer );
+                        return unexpected_serialize( k, buffer );
                 }
 
                 result reset_keys() override
@@ -445,7 +415,7 @@ TEST( cfg, update )
                 }
 
                 opt< std::span< std::byte const > >
-                serialize_key( uint32_t k, std::span< std::byte > buffer ) override
+                serialize_value( uint32_t k, std::span< std::byte > buffer ) override
                 {
                         auto iter = find_if( data, [&]( auto& kv ) {
                                 return kv.first == k;
@@ -455,7 +425,7 @@ TEST( cfg, update )
                         if ( buffer.size() < iter->second.size() )
                                 return {};
                         std::memcpy( buffer.data(), iter->second.data(), iter->second.size() );
-                        return std::span< std::byte const >{ iter->second };
+                        return std::span< std::byte const >{ buffer.data(), iter->second.size() };
                 }
 
                 opt< uint32_t > take_unseen_key() override
@@ -667,7 +637,7 @@ struct page_info
                 auto iter = find_if( cells, []( cell c ) {
                         return c == 0x00;
                 } );
-                return std::distance( cells.begin(), iter );
+                return static_cast< std::size_t >( std::distance( cells.begin(), iter ) );
         }
 };
 
@@ -686,10 +656,10 @@ struct memory
         {
                 std::size_t used = 0;
                 for ( std::size_t i = 0; i < page_count(); ++i ) {
-                        auto addr = i * page_size;
+                        auto addr = static_cast< long >( i * page_size );
                         if ( std::any_of(
                                  buffer.begin() + addr,
-                                 buffer.begin() + addr + page_size,
+                                 buffer.begin() + addr + static_cast< long >( page_size ),
                                  []( std::byte b ) {
                                          return b != 0x00_b;
                                  } ) )
@@ -702,7 +672,7 @@ struct memory
         {
                 std::vector< page_info > result;
                 for ( std::size_t i = 0; i < page_count(); ++i ) {
-                        uint32_t addr = i * page_size;
+                        auto addr = static_cast< uint32_t >( i * page_size );
                         result.emplace_back(
                             page_info{
                                 .addr  = addr,
@@ -785,13 +755,13 @@ TEST( cfg, integration )
                 }
 
                 opt< std::span< std::byte const > >
-                serialize_key( uint32_t key, std::span< std::byte > buffer ) override
+                serialize_value( uint32_t key, std::span< std::byte > buffer ) override
                 {
                         EXPECT_NE( cfg.value( key ).size(), 0 ) << "Value size should not be zero";
                         std::cout << "serializing key " << key
                                   << " with value: " << convert_view< int >( cfg.value( key ) )
                                   << std::endl;
-                        return store_kval( key, cfg.value( key ), buffer );
+                        return store_val( cfg.value( key ), buffer );
                 }
 
                 opt< uint32_t > take_unseen_key() override
