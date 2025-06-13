@@ -22,14 +22,11 @@
 #pragma once
 
 #include "../../algorithm.h"
-#include "../../assert.h"
-#include "../../match.h"
 #include "../../protocol/converter.h"
 #include "../../result.h"
 #include "./page.h"
 
 #include <cstdint>
-#include <limits>
 #include <optional>
 #include <span>
 
@@ -144,6 +141,16 @@ store_kval( uint32_t key, T const& val, std::span< std::byte > buffer )
             key, buffer.data(), buffer.data() + *used, buffer.data() + buffer.size() );
 }
 
+opt< std::span< std::byte > >
+store_kval( uint32_t key, std::span< std::byte > value, std::span< std::byte > buffer )
+{
+        if ( value.size() > buffer.size() )
+                return {};
+        std::memcpy( buffer.data(), value.data(), value.size() );
+        return store_kval_impl(
+            key, buffer.data(), buffer.data() + value.size(), buffer.data() + buffer.size() );
+}
+
 template < typename T >
 opt< T > get_val( std::span< std::byte > data )
 {
@@ -169,137 +176,85 @@ inline bool is_free_cell( std::span< std::byte, cell_size > cell )
         } );
 }
 
-struct iface_base
+struct read_iface
 {
-        virtual std::span< std::byte > get_buffer()                                     = 0;
         virtual result read( std::size_t addr, std::span< std::byte, cell_size > data ) = 0;
 
-        virtual ~iface_base() = default;
+        virtual ~read_iface() = default;
+};
+
+struct iface_base : read_iface
+{
+        virtual std::span< std::byte > get_buffer() = 0;
 };
 
 inline opt< uint16_t >
-locate_current_page( std::size_t mem_size, std::size_t page_size, iface_base& iface )
+locate_current_page( std::size_t mem_size, std::size_t page_size, read_iface& iface )
 {
         if ( mem_size % page_size != 0 )
                 return {};
 
-        activ_page_sel psel;
+        opt< hdr_state > hdr_st;
         for ( uint32_t i = 0; i < mem_size / page_size; i++ ) {
                 std::byte data[cell_size] = {};
                 auto      addr            = i * page_size;
                 if ( iface.read( addr, data ) != result::SUCCESS )
                         return {};
-                if ( psel.on_raw_hdr( i, data ) == result::SUCCESS )
+                auto st = hdr_to_hdr_state( data );
+                if ( !st ) {
+                        if ( hdr_st )
+                                return addr - page_size;
                         continue;
+                } else if ( !hdr_st )
+                        hdr_st = st;
+                else if ( *hdr_st != *st )
+                        return addr - page_size;
         }
-        if ( !psel.hdr_st )
+        if ( !hdr_st )
                 return {};
-        return static_cast< uint16_t >( psel.idx * page_size );
+        return mem_size - page_size;
 }
 
 inline opt< std::pair< std::size_t, hdr_state > >
-locate_next_page( std::size_t mem_size, std::size_t page_size, iface_base& iface )
+locate_next_page( std::size_t mem_size, std::size_t page_size, read_iface& iface )
 {
         if ( mem_size % page_size != 0 )
                 return {};
 
-        std::size_t    addr;
-        activ_page_sel psel;
+        opt< hdr_state > hdr_st;
         for ( uint32_t i = 0; i < mem_size / page_size; i++ ) {
                 std::byte data[cell_size] = {};
-                addr                      = i * page_size;
+                auto      addr            = i * page_size;
                 if ( iface.read( addr, data ) != result::SUCCESS )
                         return {};
-                if ( psel.on_raw_hdr( i, data ) == result::ERROR )
-                        break;
+                auto st = hdr_to_hdr_state( data );
+                if ( !st )
+                        return std::make_pair( addr, hdr_state::A );
+                else if ( !hdr_st )
+                        hdr_st = st;
+                else if ( *hdr_st != *st )
+                        return std::make_pair( addr, *hdr_st );
         }
-        hdr_state page_st = psel.hdr_st ? *psel.hdr_st : hdr_state::A;
-        addr              = psel.hdr_st ? psel.idx * page_size : addr;
-        return std::make_pair( addr, page_st );
+        // XXX: should not be possible at all
+        if ( !hdr_st )
+                return {};
+        return std::make_pair( 0x00, next( *hdr_st ) );
 }
 
 struct update_iface : iface_base
 {
-        virtual result write( std::size_t start_addr, std::span< std::byte > data ) = 0;
+        virtual result write( std::size_t start_addr, std::span< std::byte const > data ) = 0;
 
-        virtual cache_res check_key_cache( uint32_t key )                            = 0;
-        virtual bool      value_changed( uint32_t key, std::span< std::byte > data ) = 0;
+        virtual cache_res check_key_cache( uint32_t key )                                  = 0;
+        virtual bool      value_changed( uint32_t key, std::span< std::byte const > data ) = 0;
 
-        virtual opt< std::size_t > serialize_key( uint32_t key, std::span< std::byte > buffer ) = 0;
+        virtual opt< std::span< std::byte const > >
+        serialize_key( uint32_t key, std::span< std::byte > buffer ) = 0;
 
         virtual result          reset_keys()      = 0;
         virtual opt< uint32_t > take_unseen_key() = 0;
-};
 
-template <
-    typename Read,
-    typename Write,
-    typename KeyCheck,
-    typename ValueChanged,
-    typename SerializeKey,
-    typename TakeUnseenKey,
-    typename ResetKeys >
-struct update_cbs
-{
-        std::span< std::byte > buffer;
-        Read                   read_f;
-        Write                  write_f;
-        KeyCheck               check_key_cache_f;
-        ValueChanged           value_changed_f;
-        SerializeKey           serialize_key_f;
-        TakeUnseenKey          take_unseen_key_f;
-        ResetKeys              reset_keys_f;
-};
-
-template < typename T >
-struct update_cbs_bind : update_iface
-{
-        T& lu;
-
-        update_cbs_bind( T& lu )
-          : lu( lu )
-        {
-        }
-
-        std::span< std::byte > get_buffer() override
-        {
-                return lu.buffer;
-        }
-
-        result read( std::size_t addr, std::span< std::byte, cell_size > data ) override
-        {
-                return lu.read_f( addr, data );
-        }
-
-        result write( std::size_t start_addr, std::span< std::byte > data ) override
-        {
-                return lu.write_f( start_addr, data );
-        }
-
-        cache_res check_key_cache( uint32_t key ) override
-        {
-                return lu.check_key_cache_f( key );
-        }
-
-        bool value_changed( uint32_t key, std::span< std::byte > data ) override
-        {
-                return lu.value_changed_f( key, data );
-        }
-
-        opt< std::size_t > serialize_key( uint32_t key, std::span< std::byte > buffer ) override
-        {
-                return lu.serialize_key_f( key, buffer );
-        }
-
-        opt< uint32_t > take_unseen_key() override
-        {
-                return lu.take_unseen_key_f();
-        }
-
-        result reset_keys() override
-        {
-                return lu.reset_keys_f();
-        }
+        virtual result clear_page( std::size_t addr ) = 0;
 };
 
 enum class update_result : uint8_t
@@ -309,17 +264,27 @@ enum class update_result : uint8_t
         FULL    = 0x02,
 };
 
+inline bool decr_addr( std::size_t& addr, std::size_t n, std::size_t start_addr )
+{
+        if ( addr - cell_size * n > addr )
+                return false;
+        addr -= cell_size * n;
+        if ( addr < start_addr )
+                return false;
+        return true;
+}
+
 std::span< std::byte > manifest_value(
-    bool  is_seq,
-    auto& cell_val,
-    auto& decr_addr,
-    auto& addr,
-    auto& iface,
-    auto& buffer )
+    bool        is_seq,
+    auto&       cell_val,
+    std::size_t start_addr,
+    auto&       addr,
+    auto&       iface,
+    auto&       buffer )
 {
         if ( is_seq ) {
                 for ( std::size_t i = 0; i < cell_val; ++i ) {
-                        if ( !decr_addr( addr ) )
+                        if ( !decr_addr( addr, 1, start_addr ) )
                                 return {};
                         auto buffer_offset = ( cell_val - i - 1 ) * cell_size;
                         if ( buffer_offset + cell_size > buffer.size() )
@@ -338,27 +303,28 @@ std::span< std::byte > manifest_value(
         }
 }
 
-update_result store_key( std::size_t& addr, uint32_t key, update_iface& iface )
+inline update_result
+store_key( std::size_t& addr, std::size_t end_addr, uint32_t key, update_iface& iface )
 {
-        std::span< std::byte > buffer   = iface.get_buffer();
-        auto                   key_used = iface.serialize_key( key, buffer );
-        if ( !key_used )
+        std::span< std::byte > buffer = iface.get_buffer();
+        auto                   used   = iface.serialize_key( key, buffer );
+        if ( !used )
                 return update_result::ERROR;
 
-        if ( *key_used > buffer.size() )
+        if ( end_addr - addr < used->size() )
                 return update_result::FULL;
 
-        if ( iface.write( addr, buffer.subspan( 0, *key_used ) ) == result::SUCCESS ) {
-                addr += *key_used;
+        if ( iface.write( addr, *used ) == result::SUCCESS ) {
+                addr += used->size();
                 return update_result::SUCCESS;
         } else
                 return update_result::ERROR;
 }
 
-inline update_result dump_unseen_keys( std::size_t addr, update_iface& iface )
+inline update_result dump_unseen_keys( std::size_t addr, std::size_t end_addr, update_iface& iface )
 {
         while ( auto k = iface.take_unseen_key() ) {
-                auto res = store_key( addr, *k, iface );
+                auto res = store_key( addr, end_addr, *k, iface );
                 if ( res != update_result::SUCCESS )
                         return res;
         }
@@ -371,18 +337,9 @@ update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface
         std::byte   tmp[cell_size];
         std::size_t addr = end_addr;
 
-        auto decr_addr = [&]( auto& addr ) {
-                if ( addr - cell_size > addr )
-                        return false;
-                addr -= cell_size;
-                if ( addr < start_addr )
-                        return false;
-                return true;
-        };
-
         std::size_t last_free = end_addr;
         for ( ;; ) {
-                if ( !decr_addr( addr ) )
+                if ( !decr_addr( addr, 1, start_addr ) )
                         break;
                 if ( iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) !=
                      result::SUCCESS )
@@ -398,7 +355,7 @@ update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface
         std::span< std::byte > buffer = iface.get_buffer();
 
         for ( ;; ) {
-                if ( !decr_addr( addr ) )
+                if ( !decr_addr( addr, 1, start_addr ) )
                         break;
                 if ( iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) !=
                      result::SUCCESS )
@@ -410,36 +367,37 @@ update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface
                 cache_res cr            = iface.check_key_cache( key );
                 if ( cr == cache_res::SEEN ) {
                         if ( is_seq )
-                                addr -= val * cell_size;
+                                decr_addr( addr, val, start_addr );
                         continue;
                 }
 
                 std::span< std::byte > val_sp =
-                    manifest_value( is_seq, val, decr_addr, addr, iface, buffer );
+                    manifest_value( is_seq, val, start_addr, addr, iface, buffer );
                 bool changed = iface.value_changed( key, val_sp );
                 if ( !changed )
                         continue;
 
-                if ( auto res = store_key( addr, key, iface ); res != update_result::SUCCESS )
+                if ( auto res = store_key( last_free, end_addr, key, iface );
+                     res != update_result::SUCCESS )
                         return res;
         }
 
-        return dump_unseen_keys( last_free, iface );
+        return dump_unseen_keys( last_free, end_addr, iface );
 }
 
 inline result update( std::size_t mem_size, std::size_t page_size, update_iface& iface )
 {
-        auto addr = locate_current_page( mem_size, page_size, iface );
-        if ( !addr )
-                return result::SUCCESS;
-        if ( *addr > mem_size )
-                return result::ERROR;
-        auto r = update_stored_config( *addr + cell_size, *addr + page_size, iface );
-        if ( r != update_result::FULL )
-                return r == update_result::SUCCESS ? result::SUCCESS : result::ERROR;
+        if ( auto addr = locate_current_page( mem_size, page_size, iface ) ) {
+                if ( *addr > mem_size )
+                        return result::ERROR;
+                auto r = update_stored_config( *addr + cell_size, *addr + page_size, iface );
+                if ( r != update_result::FULL )
+                        return r == update_result::SUCCESS ? result::SUCCESS : result::ERROR;
+        }
         auto info = locate_next_page( mem_size, page_size, iface );
         if ( !info )
                 return result::ERROR;
+
         {
                 auto [addr, page_st] = *info;
                 if ( addr > mem_size )
@@ -447,16 +405,17 @@ inline result update( std::size_t mem_size, std::size_t page_size, update_iface&
                 if ( iface.reset_keys() != result::SUCCESS )
                         return result::ERROR;
 
+                if ( iface.clear_page( addr ) != result::SUCCESS )
+                        return result::ERROR;
+
                 auto hdr = get_hdr( page_st );
                 if ( iface.write( addr, std::span< std::byte >{ hdr } ) != result::SUCCESS )
                         return result::ERROR;
                 addr += cell_size;
 
-                if ( iface.reset_keys() != result::SUCCESS )
-                        return result::ERROR;
-
-                return dump_unseen_keys( addr, iface ) == update_result::SUCCESS ? result::SUCCESS :
-                                                                                   result::ERROR;
+                return dump_unseen_keys( addr, addr + page_size, iface ) == update_result::SUCCESS ?
+                           result::SUCCESS :
+                           result::ERROR;
         }
 }
 
@@ -468,62 +427,14 @@ struct load_iface : iface_base
         virtual result on_kval( uint32_t key, std::span< std::byte > ) = 0;
 };
 
-template < typename Read, typename KeyCheck, typename OnKval >
-struct load_cbs
-{
-        std::span< std::byte > buffer;
-        Read                   read_f;
-        KeyCheck               check_key_cache_f;
-        OnKval                 on_kval_f;
-};
-
-template < typename T >
-struct load_cbs_bind : load_iface
-{
-        T& lu;
-
-        load_cbs_bind( T& lu )
-          : lu( lu )
-        {
-        }
-
-        std::span< std::byte > get_buffer() override
-        {
-                return lu.buffer;
-        }
-
-        result read( std::size_t addr, std::span< std::byte, cell_size > data ) override
-        {
-                return lu.read_f( addr, data );
-        }
-
-        cache_res check_key_cache( uint32_t key ) override
-        {
-                return lu.check_key_cache_f( key );
-        }
-
-        result on_kval( uint32_t key, std::span< std::byte > data ) override
-        {
-                return lu.on_kval_f( key, data );
-        }
-};
-
 inline result load_stored_config( std::size_t start_addr, std::size_t end_addr, load_iface& iface )
 {
-        std::size_t addr      = end_addr;
-        auto        decr_addr = [&]( auto& addr ) {
-                if ( addr - cell_size > addr )
-                        return false;
-                addr -= cell_size;
-                if ( addr < start_addr )
-                        return false;
-                return true;
-        };
+        std::size_t addr = end_addr;
 
         std::byte tmp[cell_size];
         auto      buffer = iface.get_buffer();
         for ( ;; ) {
-                if ( !decr_addr( addr ) )
+                if ( !decr_addr( addr, 1, start_addr ) )
                         break;
                 if ( iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) !=
                      result::SUCCESS )
@@ -536,11 +447,11 @@ inline result load_stored_config( std::size_t start_addr, std::size_t end_addr, 
                 cache_res cr            = iface.check_key_cache( key );
                 if ( cr == cache_res::SEEN ) {
                         if ( is_seq )
-                                addr -= val * cell_size;
+                                decr_addr( addr, val, start_addr );
                         continue;
                 }
                 std::span< std::byte > val_sp =
-                    manifest_value( is_seq, val, decr_addr, addr, iface, buffer );
+                    manifest_value( is_seq, val, start_addr, addr, iface, buffer );
 
                 if ( iface.on_kval( key, val_sp ) != result::SUCCESS )
                         return result::ERROR;
@@ -561,6 +472,20 @@ inline result load( std::size_t mem_size, std::size_t page_size, load_iface& ifa
 
 // Util functions usable as callbacks
 
+// a is prefix of b with zeros if a.size() <= b.size()
+inline bool
+is_prefix_of_with_zeros( std::span< std::byte const > a, std::span< std::byte const > b )
+{
+        if ( a.size() > b.size() )
+                return false;
+        auto c = b.subspan( 0, a.size() );
+        if ( !std::ranges::equal( a, c ) )
+                return false;
+        return std::ranges::all_of( b.subspan( a.size() ), []( std::byte b ) {
+                return b == std::byte{ 0x00 };
+        } );
+}
+
 opt< std::size_t > pop_from_container( auto& cont )
 {
         if ( cont.empty() )
@@ -580,52 +505,4 @@ cache_res key_check_unseen_container( auto& cont, uint32_t key )
         return cache_res::NOT_SEEN;
 }
 
-template < typename M >
-opt< std::size_t > serialize_reg_map_key( M& reg_map, uint32_t key, std::span< std::byte > buffer )
-{
-        opt< std::size_t > res;
-        reg_map.with_register(
-            static_cast< typename M::key_type >( key ), [&]< typename Reg >( Reg& reg ) {
-                    auto ran = store_kval( Reg::key, reg.value, buffer );
-                    if ( ran )
-                            res = ran->size();
-            } );
-        return res;
-}
-
-template < typename M >
-result set_reg_map_key( M& reg_map, uint32_t key, std::span< std::byte > buffer )
-{
-        result res = result::ERROR;
-        reg_map.with_register(
-            static_cast< typename M::key_type >( key ), [&]< typename Reg >( Reg& reg ) {
-                    auto val = get_val< typename Reg::value_type >( buffer );
-                    if ( val ) {
-                            reg.value = *val;
-                            res       = result::SUCCESS;
-                    }
-            } );
-        return res;
-}
-
-template < typename M >
-bool reg_map_value_changed( M& reg_map, uint32_t key, std::span< std::byte > data )
-{
-        bool res = false;
-        reg_map.with_register(
-            static_cast< typename M::key_type >( key ), [&]< typename Reg >( Reg& reg ) {
-                    auto val = get_val< typename Reg::value_type >( data );
-                    if ( val )
-                            res = reg.value != *val;
-            } );
-        return res;
-}
-
-// XXX: test utils
-// XXX: test case with reg map
-// XXX: test scenarios:
-//  - new key in keyval map
-//  - key dropped from kval map
-//  - only part of keys updated - partial write
-//  - write triggers full
 }  // namespace emlabcpp::cfg

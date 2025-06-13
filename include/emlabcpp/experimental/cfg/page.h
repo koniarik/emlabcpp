@@ -68,28 +68,12 @@ inline opt< hdr_state > byte_to_hdr( std::byte b ) noexcept
         }
 }
 
-struct activ_page_sel
+inline opt< hdr_state > hdr_to_hdr_state( std::span< std::byte, cell_size > b ) noexcept
 {
-        opt< hdr_state > hdr_st = {};
-        std::size_t      idx    = 0;
-
-        void on_hdr( std::size_t i, hdr_state cs ) noexcept
-        {
-                if ( !hdr_st )
-                        hdr_st = cs;
-                if ( cs == hdr_st )
-                        idx = i;
-        }
-
-        result on_raw_hdr( std::size_t i, std::span< std::byte, cell_size > b ) noexcept
-        {
-                auto val = byte_to_hdr( b[0] );
-                if ( !val || b[0] != ~b[1] )
-                        return result::ERROR;
-                on_hdr( i, *val );
-                return result::SUCCESS;
-        }
-};
+        if ( b[0] != ~b[1] )
+                return {};
+        return byte_to_hdr( b[0] );
+}
 
 inline std::array< std::byte, 2 > get_hdr( hdr_state hst ) noexcept
 {
