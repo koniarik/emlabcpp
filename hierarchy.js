@@ -1,6 +1,5 @@
 var hierarchy =
 [
-    [ "emlabcpp::cfg::activ_page_sel", "structemlabcpp_1_1cfg_1_1activ__page__sel.html", null ],
     [ "emlabcpp::pmr::allocator< T >", "classemlabcpp_1_1pmr_1_1allocator.html", null ],
     [ "emlabcpp::are_same<... >", "namespaceemlabcpp.html#structemlabcpp_1_1are__same", null ],
     [ "std::array< T >", null, [
@@ -145,14 +144,6 @@ var hierarchy =
     [ "emlabcpp::protocol::handler< T, E >", "structemlabcpp_1_1protocol_1_1handler.html", null ],
     [ "std::hash< T >", "structstd_1_1hash_3_01T_01_4.html", null ],
     [ "emlabcpp::identity_matrix< N, T >", "classemlabcpp_1_1identity__matrix.html", null ],
-    [ "emlabcpp::cfg::iface_base", "structemlabcpp_1_1cfg_1_1iface__base.html", [
-      [ "emlabcpp::cfg::load_iface", "structemlabcpp_1_1cfg_1_1load__iface.html", [
-        [ "emlabcpp::cfg::load_cbs_bind< T >", "structemlabcpp_1_1cfg_1_1load__cbs__bind.html", null ]
-      ] ],
-      [ "emlabcpp::cfg::update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", [
-        [ "emlabcpp::cfg::update_cbs_bind< T >", "structemlabcpp_1_1cfg_1_1update__cbs__bind.html", null ]
-      ] ]
-    ] ],
     [ "emlabcpp::index_of< T, Variant >", "namespaceemlabcpp.html#structemlabcpp_1_1index__of", null ],
     [ "emlabcpp::index_of< T, std::variant< Ts... > >", "structemlabcpp_1_1index__of_3_01T_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::testing::input_message_protocol_error", "structemlabcpp_1_1testing_1_1input__message__protocol__error.html", null ],
@@ -172,7 +163,6 @@ var hierarchy =
       [ "emlabcpp::linked_list_node< empty_node_impl >", "classemlabcpp_1_1linked__list__node.html", null ],
       [ "emlabcpp::linked_list_node< T, Base >", "classemlabcpp_1_1linked__list__node.html", null ]
     ] ],
-    [ "emlabcpp::cfg::load_cbs< Read, KeyCheck, OnKval >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1load__cbs", null ],
     [ "emlabcpp::impl::map_f_collector< typename >", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector", null ],
     [ "emlabcpp::impl::map_f_collector< std::array< T, N > >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::impl::map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", null ],
@@ -266,6 +256,12 @@ var hierarchy =
     [ "emlabcpp::testing::reactor_interface_adapter", "classemlabcpp_1_1testing_1_1reactor__interface__adapter.html", null ],
     [ "emlabcpp::testing::reactor_internal_error_report", "structemlabcpp_1_1testing_1_1reactor__internal__error__report.html", null ],
     [ "emlabcpp::testing::reactor_protocol_error", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error", null ],
+    [ "emlabcpp::cfg::read_iface", "structemlabcpp_1_1cfg_1_1read__iface.html", [
+      [ "emlabcpp::cfg::iface_base", "structemlabcpp_1_1cfg_1_1iface__base.html", [
+        [ "emlabcpp::cfg::load_iface", "structemlabcpp_1_1cfg_1_1load__iface.html", null ],
+        [ "emlabcpp::cfg::update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", null ]
+      ] ]
+    ] ],
     [ "emlabcpp::protocol::register_handler< Map >", "structemlabcpp_1_1protocol_1_1register__handler.html", null ],
     [ "emlabcpp::protocol::register_map< Endianess, Regs >", "classemlabcpp_1_1protocol_1_1register__map.html", null ],
     [ "emlabcpp::protocol::register_pair< Key, D >", "structemlabcpp_1_1protocol_1_1register__pair.html", null ],
@@ -348,7 +344,6 @@ var hierarchy =
     [ "emlabcpp::type_map< typename, class >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map", null ],
     [ "emlabcpp::type_map< std::tuple< Ts... >, Fun >", "namespaceemlabcpp.html#structemlabcpp_1_1type__map_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_00_01Fun_01_4", null ],
     [ "emlabcpp::type_tag< T >", "namespaceemlabcpp.html#structemlabcpp_1_1type__tag", null ],
-    [ "emlabcpp::cfg::update_cbs< Read, Write, KeyCheck, ValueChanged, SerializeKey, TakeUnseenKey, ResetKeys >", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1update__cbs", null ],
     [ "emlabcpp::protocol::value_offset< D, Offset >", "structemlabcpp_1_1protocol_1_1value__offset.html", null ],
     [ "emlabcpp::testing::value_type_converter< T >", "namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1value__type__converter", null ],
     [ "emlabcpp::testing::value_type_converter< char const * >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01char_01const_01_5_01_4.html", null ],

@@ -7,14 +7,10 @@ var annotated_dup =
       ] ],
       [ "cfg", "namespaceemlabcpp_1_1cfg.html", [
         [ "deser_res", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1deser__res_dup" ],
+        [ "read_iface", "structemlabcpp_1_1cfg_1_1read__iface.html", "structemlabcpp_1_1cfg_1_1read__iface" ],
         [ "iface_base", "structemlabcpp_1_1cfg_1_1iface__base.html", "structemlabcpp_1_1cfg_1_1iface__base" ],
         [ "update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", "structemlabcpp_1_1cfg_1_1update__iface" ],
-        [ "update_cbs", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1update__cbs", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1update__cbs_dup" ],
-        [ "update_cbs_bind", "structemlabcpp_1_1cfg_1_1update__cbs__bind.html", "structemlabcpp_1_1cfg_1_1update__cbs__bind" ],
-        [ "load_iface", "structemlabcpp_1_1cfg_1_1load__iface.html", "structemlabcpp_1_1cfg_1_1load__iface" ],
-        [ "load_cbs", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1load__cbs", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1load__cbs_dup" ],
-        [ "load_cbs_bind", "structemlabcpp_1_1cfg_1_1load__cbs__bind.html", "structemlabcpp_1_1cfg_1_1load__cbs__bind" ],
-        [ "activ_page_sel", "structemlabcpp_1_1cfg_1_1activ__page__sel.html", "structemlabcpp_1_1cfg_1_1activ__page__sel" ]
+        [ "load_iface", "structemlabcpp_1_1cfg_1_1load__iface.html", "structemlabcpp_1_1cfg_1_1load__iface" ]
       ] ],
       [ "coro", "namespaceemlabcpp_1_1coro.html", [
         [ "data_promise", "structemlabcpp_1_1coro_1_1data__promise.html", "structemlabcpp_1_1coro_1_1data__promise" ],

@@ -1,7 +1,6 @@
 <map id="emlabcpp::cfg::iface_base" name="emlabcpp::cfg::iface_base">
-<area shape="rect" id="node1" title=" " alt="" coords="75,5,267,32"/>
-<area shape="rect" id="node2" href="$structemlabcpp_1_1cfg_1_1load__iface.html" title=" " alt="" coords="5,80,156,121"/>
-<area shape="rect" id="node4" href="$structemlabcpp_1_1cfg_1_1update__iface.html" title=" " alt="" coords="180,80,347,121"/>
-<area shape="rect" id="node3" href="$structemlabcpp_1_1cfg_1_1load__cbs__bind.html" title=" " alt="" coords="5,169,156,211"/>
-<area shape="rect" id="node5" href="$structemlabcpp_1_1cfg_1_1update__cbs__bind.html" title=" " alt="" coords="180,169,347,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="75,95,267,121"/>
+<area shape="rect" id="node3" href="$structemlabcpp_1_1cfg_1_1load__iface.html" title=" " alt="" coords="5,169,156,211"/>
+<area shape="rect" id="node4" href="$structemlabcpp_1_1cfg_1_1update__iface.html" title=" " alt="" coords="180,169,347,211"/>
+<area shape="rect" id="node2" href="$structemlabcpp_1_1cfg_1_1read__iface.html" title=" " alt="" coords="96,5,247,47"/>
 </map>
