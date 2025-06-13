@@ -156,7 +156,7 @@ store_val( std::span< std::byte > val, std::span< std::byte > buffer )
 }
 
 template < typename T >
-opt< T > get_val( std::span< std::byte > data )
+opt< T > get_val( std::span< std::byte const > data )
 {
 
         using conv = protocol::converter_for< T, std::endian::little >;  // XXX: make endianness
