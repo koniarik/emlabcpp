@@ -108,16 +108,16 @@ TEST( cfg, seq )
 
                     auto res = locate_current_page( buffer.size(), cell_size, iface );
                     if ( current_idx >= 0 ) {
-                            EXPECT_TRUE( res.has_value() ) << inpt;
-                            EXPECT_EQ( res.value(), current_idx * cell_size ) << inpt;
+                            EXPECT_EQ( res.status, status::SUCCESS ) << inpt;
+                            EXPECT_EQ( res.addr, current_idx * cell_size ) << inpt;
                     } else {
-                            EXPECT_FALSE( res.has_value() ) << inpt;
+                            EXPECT_EQ( res.status, status::MISSING_PAGE ) << inpt;
                     }
 
                     auto res2 = locate_next_page( buffer.size(), cell_size, iface );
-                    EXPECT_TRUE( res2.has_value() ) << inpt;
-                    EXPECT_EQ( res2->first, next_idx * cell_size ) << inpt;
-                    EXPECT_EQ( res2->second, next_st );
+                    EXPECT_EQ( res2.status, status::SUCCESS ) << inpt;
+                    EXPECT_EQ( res2.addr, next_idx * cell_size ) << inpt;
+                    EXPECT_EQ( res2.state, next_st );
             };
 
         test_f( "0000", -1, 0, hdr_state::A );
@@ -356,13 +356,13 @@ TEST( cfg, update )
                 auto mem = std::move( bb ).build();
 
                 noupdate_iface lb{ mem };
-                update_result  ures = update_stored_config( 0, mem.size(), lb );
-                EXPECT_EQ( ures, update_result::SUCCESS );
+                status         ures = update_stored_config( 0, mem.size(), lb );
+                EXPECT_EQ( ures, status::SUCCESS );
 
                 collect_loader cl{ mem };
 
                 auto lres = load_stored_config( 0, mem.size(), cl );
-                EXPECT_EQ( lres, result::SUCCESS );
+                EXPECT_EQ( lres, status::SUCCESS );
                 std::map expected{ data.begin(), data.end() };
                 EXPECT_EQ( cl.res, expected );
 
@@ -452,9 +452,9 @@ TEST( cfg, update )
                 for ( auto& [k, v] : data )
                         keys.push_back( k );
 
-                full_update   lb{ mem, data, keys };
-                update_result ures = update_stored_config( 0, mem.size(), lb );
-                EXPECT_EQ( ures, update_result::SUCCESS );
+                full_update lb{ mem, data, keys };
+                status      ures = update_stored_config( 0, mem.size(), lb );
+                EXPECT_EQ( ures, status::SUCCESS );
 
                 if ( HasFatalFailure() ) {
                         std::cout << "Test fail: " << sl.file_name() << ":" << sl.line()
@@ -673,12 +673,11 @@ struct memory
                 std::vector< page_info > result;
                 for ( std::size_t i = 0; i < page_count(); ++i ) {
                         auto addr = static_cast< uint32_t >( i * page_size );
-                        result.emplace_back(
-                            page_info{
-                                .addr  = addr,
-                                .cells = std::span< cell >{
-                                    reinterpret_cast< cell* >( buffer.data() + addr ),
-                                    page_size / cell_size } } );
+                        result.emplace_back( page_info{
+                            .addr  = addr,
+                            .cells = std::span< cell >{
+                                reinterpret_cast< cell* >( buffer.data() + addr ),
+                                page_size / cell_size } } );
                 }
                 return result;
         }
@@ -849,7 +848,7 @@ TEST( cfg, integration )
         auto rotate = [&]( uint32_t pages, uint32_t cells ) {
                 unseen_keys = cfg.keys();
                 auto res    = update( mem.mem_size, mem.page_size, ub );
-                EXPECT_EQ( res, result::SUCCESS );
+                EXPECT_EQ( res, status::SUCCESS );
                 EXPECT_EQ( mem.pages_used(), pages );
                 auto p = mem.pages()[mem.pages_used() - 1];
                 EXPECT_TRUE( p.valid() );
@@ -858,7 +857,7 @@ TEST( cfg, integration )
                 unseen_keys = cfg.keys();
                 res         = load( mem.mem_size, mem.page_size, li );
                 EXPECT_TRUE( unseen_keys.empty() );
-                EXPECT_EQ( res, result::SUCCESS );
+                EXPECT_EQ( res, status::SUCCESS );
         };
 
         std::cout << "Initial state:" << std::endl;

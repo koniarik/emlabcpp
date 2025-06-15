@@ -180,6 +180,31 @@ inline bool is_free_cell( std::span< std::byte, cell_size > cell )
         } );
 }
 
+enum class update_status_e : uint8_t
+{
+        SUCCESS      = 0x00,
+        FULL         = 0x01,
+        MISSING_PAGE = 0x02,
+
+        SERIALIZE_VALUE_ERROR,
+        WRITE_ERROR,
+        READ_ERROR,
+        DESER_ERROR,
+        RESET_KEYS_ERROR,
+        CLEAR_ERROR,
+        LOCATE_FAILED_ERROR,
+        ON_KVAL_ERROR,
+
+        MEM_NOT_PAGE_MULTIPLY_ERROR,
+};
+
+struct [[nodiscard]] status : emlabcpp::status< status, update_status_e >
+{
+        using emlabcpp::status< status, update_status_e >::status;
+
+        using enum update_status_e;
+};
+
 struct read_iface
 {
         virtual result read( std::size_t addr, std::span< std::byte, cell_size > data ) = 0;
@@ -192,57 +217,70 @@ struct iface_base : read_iface
         virtual std::span< std::byte > get_buffer() = 0;
 };
 
-inline opt< uint16_t >
+struct locate_current_info
+{
+        cfg::status status;
+        std::size_t addr = 0x00;
+};
+
+inline locate_current_info
 locate_current_page( std::size_t mem_size, std::size_t page_size, read_iface& iface )
 {
         if ( mem_size % page_size != 0 )
-                return {};
+                return { .status = status::MEM_NOT_PAGE_MULTIPLY_ERROR };
 
         opt< hdr_state > hdr_st;
         for ( uint32_t i = 0; i < mem_size / page_size; i++ ) {
                 std::byte data[cell_size] = {};
                 auto      addr            = i * page_size;
                 if ( iface.read( addr, data ) != result::SUCCESS )
-                        return {};
+                        return { .status = status::READ_ERROR };
                 auto st = hdr_to_hdr_state( data );
                 if ( !st ) {
                         if ( hdr_st )
-                                return addr - page_size;
+                                return { .status = status::SUCCESS, .addr = addr - page_size };
                         continue;
                 } else if ( !hdr_st )
                         hdr_st = st;
                 else if ( *hdr_st != *st )
-                        return addr - page_size;
+                        return { .status = status::SUCCESS, .addr = addr - page_size };
         }
         if ( !hdr_st )
-                return {};
-        return mem_size - page_size;
+                return { .status = status::MISSING_PAGE };
+        return { .status = status::SUCCESS, .addr = mem_size - page_size };
 }
 
-inline opt< std::pair< std::size_t, hdr_state > >
+struct locate_next_info
+{
+        cfg::status status;
+        std::size_t addr  = 0x00;
+        hdr_state   state = hdr_state::A;
+};
+
+inline locate_next_info
 locate_next_page( std::size_t mem_size, std::size_t page_size, read_iface& iface )
 {
         if ( mem_size % page_size != 0 )
-                return {};
+                return { .status = status::MEM_NOT_PAGE_MULTIPLY_ERROR };
 
         opt< hdr_state > hdr_st;
         for ( uint32_t i = 0; i < mem_size / page_size; i++ ) {
                 std::byte data[cell_size] = {};
                 auto      addr            = i * page_size;
                 if ( iface.read( addr, data ) != result::SUCCESS )
-                        return {};
+                        return { .status = status::READ_ERROR };
                 auto st = hdr_to_hdr_state( data );
                 if ( !st )
-                        return std::make_pair( addr, hdr_state::A );
+                        return { .status = status::SUCCESS, .addr = addr, .state = hdr_state::A };
                 else if ( !hdr_st )
                         hdr_st = st;
                 else if ( *hdr_st != *st )
-                        return std::make_pair( addr, *hdr_st );
+                        return { .status = status::SUCCESS, .addr = addr, .state = *hdr_st };
         }
         // XXX: should not be possible at all
         if ( !hdr_st )
-                return {};
-        return std::make_pair( 0x00, next( *hdr_st ) );
+                return { .status = status::LOCATE_FAILED_ERROR };
+        return { .status = status::SUCCESS, .addr = 0x00, .state = next( *hdr_st ) };
 }
 
 struct update_iface : iface_base
@@ -259,13 +297,6 @@ struct update_iface : iface_base
         virtual opt< uint32_t > take_unseen_key() = 0;
 
         virtual result clear_page( std::size_t addr ) = 0;
-};
-
-enum class update_result : uint8_t
-{
-        SUCCESS = 0x00,
-        ERROR   = 0x01,
-        FULL    = 0x02,
 };
 
 inline bool decr_addr( std::size_t& addr, std::size_t n, std::size_t start_addr )
@@ -307,14 +338,14 @@ std::span< std::byte > manifest_value(
         }
 }
 
-inline update_result
+inline status
 store_key( std::size_t& addr, std::size_t end_addr, uint32_t key, update_iface& iface )
 {
         auto const                          capacity = end_addr - addr;
         std::span< std::byte >              buffer   = iface.get_buffer();
         opt< std::span< std::byte const > > used     = iface.serialize_value( key, buffer );
         if ( !used )
-                return update_result::ERROR;
+                return status::SERIALIZE_VALUE_ERROR;
         std::span< std::byte const > data = *used;
 
         used = store_kval_impl(
@@ -322,26 +353,25 @@ store_key( std::size_t& addr, std::size_t end_addr, uint32_t key, update_iface& 
         data = *used;
 
         if ( capacity < data.size() )
-                return update_result::FULL;
+                return status::FULL;
 
-        if ( iface.write( addr, data ) == result::SUCCESS ) {
-                addr += data.size();
-                return update_result::SUCCESS;
-        } else
-                return update_result::ERROR;
+        if ( iface.write( addr, data ) != result::SUCCESS )
+                return status::WRITE_ERROR;
+        addr += data.size();
+        return status::SUCCESS;
 }
 
-inline update_result dump_unseen_keys( std::size_t addr, std::size_t end_addr, update_iface& iface )
+inline status dump_unseen_keys( std::size_t addr, std::size_t end_addr, update_iface& iface )
 {
         while ( auto k = iface.take_unseen_key() ) {
                 auto res = store_key( addr, end_addr, *k, iface );
-                if ( res != update_result::SUCCESS )
+                if ( res != status::SUCCESS )
                         return res;
         }
-        return update_result::SUCCESS;
+        return status::SUCCESS;
 }
 
-inline update_result
+inline status
 update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface& iface )
 {
         std::byte   tmp[cell_size];
@@ -353,7 +383,7 @@ update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface
                         break;
                 if ( iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) !=
                      result::SUCCESS )
-                        return update_result::ERROR;
+                        return status::READ_ERROR;
                 if ( is_free_cell( tmp ) ) {
                         last_free = addr;
                         continue;
@@ -369,10 +399,10 @@ update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface
                         break;
                 if ( iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) !=
                      result::SUCCESS )
-                        return update_result::ERROR;
+                        return status::READ_ERROR;
                 auto c = deser_cell( tmp );
                 if ( !c )
-                        return update_result::ERROR;
+                        return status::DESER_ERROR;
                 auto [is_seq, key, val] = *c;
                 cache_res cr            = iface.check_key_cache( key );
                 if ( cr == cache_res::SEEN ) {
@@ -388,45 +418,39 @@ update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface
                         continue;
 
                 if ( auto res = store_key( last_free, end_addr, key, iface );
-                     res != update_result::SUCCESS )
+                     res != status::SUCCESS )
                         return res;
         }
 
         return dump_unseen_keys( last_free, end_addr, iface );
 }
 
-inline result update( std::size_t mem_size, std::size_t page_size, update_iface& iface )
+inline status update( std::size_t mem_size, std::size_t page_size, update_iface& iface )
 {
-        if ( auto addr = locate_current_page( mem_size, page_size, iface ) ) {
-                if ( *addr > mem_size )
-                        return result::ERROR;
-                auto r = update_stored_config( *addr + cell_size, *addr + page_size, iface );
-                if ( r != update_result::FULL )
-                        return r == update_result::SUCCESS ? result::SUCCESS : result::ERROR;
+        if ( auto [status, addr] = locate_current_page( mem_size, page_size, iface );
+             status != status::MISSING_PAGE ) {
+                if ( status != status::SUCCESS )
+                        return status;
+                auto r = update_stored_config( addr + cell_size, addr + page_size, iface );
+                if ( r != status::FULL )
+                        return r;
         }
-        auto info = locate_next_page( mem_size, page_size, iface );
-        if ( !info )
-                return result::ERROR;
+        auto [status, addr, page_st] = locate_next_page( mem_size, page_size, iface );
+        if ( status != status::SUCCESS )
+                return status;
 
-        {
-                auto [addr, page_st] = *info;
-                if ( addr > mem_size )
-                        return result::ERROR;
-                if ( iface.reset_keys() != result::SUCCESS )
-                        return result::ERROR;
+        if ( iface.reset_keys() != result::SUCCESS )
+                return status::RESET_KEYS_ERROR;
 
-                if ( iface.clear_page( addr ) != result::SUCCESS )
-                        return result::ERROR;
+        if ( iface.clear_page( addr ) != result::SUCCESS )
+                return status::CLEAR_ERROR;
 
-                auto hdr = get_hdr( page_st );
-                if ( iface.write( addr, std::span< std::byte >{ hdr } ) != result::SUCCESS )
-                        return result::ERROR;
-                addr += cell_size;
+        auto hdr = get_hdr( page_st );
+        if ( iface.write( addr, std::span< std::byte >{ hdr } ) != result::SUCCESS )
+                return status::WRITE_ERROR;
+        addr += cell_size;
 
-                return dump_unseen_keys( addr, addr + page_size, iface ) == update_result::SUCCESS ?
-                           result::SUCCESS :
-                           result::ERROR;
-        }
+        return dump_unseen_keys( addr, addr + page_size, iface );
 }
 
 struct load_iface : iface_base
@@ -437,7 +461,7 @@ struct load_iface : iface_base
         virtual result on_kval( uint32_t key, std::span< std::byte > ) = 0;
 };
 
-inline result load_stored_config( std::size_t start_addr, std::size_t end_addr, load_iface& iface )
+inline status load_stored_config( std::size_t start_addr, std::size_t end_addr, load_iface& iface )
 {
         std::size_t addr = end_addr;
 
@@ -448,7 +472,7 @@ inline result load_stored_config( std::size_t start_addr, std::size_t end_addr, 
                         break;
                 if ( iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) !=
                      result::SUCCESS )
-                        return result::ERROR;
+                        return status::READ_ERROR;
                 // XXX: copy-pasta from other function
                 auto c = deser_cell( tmp );
                 if ( !c )
@@ -464,20 +488,20 @@ inline result load_stored_config( std::size_t start_addr, std::size_t end_addr, 
                     manifest_value( is_seq, val, start_addr, addr, iface, buffer );
 
                 if ( iface.on_kval( key, val_sp ) != result::SUCCESS )
-                        return result::ERROR;
+                        return status::ON_KVAL_ERROR;
         }
 
-        return result::SUCCESS;
+        return status::SUCCESS;
 }
 
-inline result load( std::size_t mem_size, std::size_t page_size, load_iface& iface )
+inline status load( std::size_t mem_size, std::size_t page_size, load_iface& iface )
 {
-        auto addr = locate_current_page( mem_size, page_size, iface );
-        if ( !addr )
-                return result::SUCCESS;
-        if ( *addr > mem_size )
-                return result::ERROR;
-        return load_stored_config( *addr + cell_size, *addr + page_size, iface );
+        auto [status, addr] = locate_current_page( mem_size, page_size, iface );
+        if ( status == status::MISSING_PAGE )
+                return status::SUCCESS;
+        if ( status != status::SUCCESS )
+                return status;
+        return load_stored_config( addr + cell_size, addr + page_size, iface );
 }
 
 // Util functions usable as callbacks

@@ -26,7 +26,7 @@
 namespace emlabcpp
 {
 
-template < typename Derived, typename Enum, Enum SuccessValue >
+template < typename Derived, typename Enum >
 struct [[nodiscard]] status
 {
         using enum_type = Enum;

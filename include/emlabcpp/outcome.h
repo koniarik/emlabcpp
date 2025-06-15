@@ -45,7 +45,7 @@ enum class outcome_e : uint8_t
 /// due to mistake in algorithm)
 ///
 /// Supports comparison: outcome ot = ...; if(ot == outcome::SUCCESS) { ... }
-struct [[nodiscard]] outcome : status< outcome, outcome_e, outcome_e::SUCCESS >
+struct [[nodiscard]] outcome : status< outcome, outcome_e >
 {
         using status::status;
         using enum outcome_e;
