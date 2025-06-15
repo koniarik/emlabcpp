@@ -1,12 +1,5 @@
 var searchData=
 [
-  ['param_5fchild_2601',['PARAM_CHILD',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa635fd949e556b317f5a5422ab69c45b5',1,'emlabcpp::testing']]],
-  ['param_5fchild_5fcount_2602',['PARAM_CHILD_COUNT',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa8ef363444f05b891ef402c9abb530351',1,'emlabcpp::testing']]],
-  ['param_5ferror_2603',['PARAM_ERROR',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aab705bd275e3f4aa8d88067b1c25a8880',1,'emlabcpp::testing']]],
-  ['param_5fkey_2604',['PARAM_KEY',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa588a485ee5046bd1f4f654d5e58809af',1,'emlabcpp::testing']]],
-  ['param_5ftype_2605',['PARAM_TYPE',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa3624918944d320b7cc07f4ca99a99b91',1,'emlabcpp::testing']]],
-  ['param_5fvalue_2606',['PARAM_VALUE',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa5a762008e8eca4531fef87b0164b2cdf',1,'emlabcpp::testing']]],
-  ['param_5fvalue_5fkey_2607',['PARAM_VALUE_KEY',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa988a042b19386ddc31b0c9663700abab',1,'emlabcpp::testing']]],
-  ['port_5fmatch_5ferror_2608',['PORT_MATCH_ERROR',['../namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafad7cee373ed46d900f608c5970cdfe643',1,'emlabcpp::protocol']]],
-  ['protocol_5ferror_2609',['PROTOCOL_ERROR',['../namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafa89fc9790558c285c0664b57f3251ebc1',1,'emlabcpp::protocol::PROTOCOL_ERROR()'],['../namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459a23f149f0f9ae9ed9e0119e7209178a5d',1,'emlabcpp::testing::PROTOCOL_ERROR()']]]
+  ['object_2624',['OBJECT',['../namespaceemlabcpp.html#a98cc8be30884776ff941bb6ae93946fda8eee8e217391199668cbac89472ace53',1,'emlabcpp::OBJECT()'],['../namespaceemlabcpp.html#aa815694613f8d89e804ac10b1395eecaa8eee8e217391199668cbac89472ace53',1,'emlabcpp::OBJECT()']]],
+  ['on_5fkval_5ferror_2625',['ON_KVAL_ERROR',['../namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa815f591e504db48567e28db94d8305c9',1,'emlabcpp::cfg']]]
 ];

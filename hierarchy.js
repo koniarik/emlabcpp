@@ -163,6 +163,8 @@ var hierarchy =
       [ "emlabcpp::linked_list_node< empty_node_impl >", "classemlabcpp_1_1linked__list__node.html", null ],
       [ "emlabcpp::linked_list_node< T, Base >", "classemlabcpp_1_1linked__list__node.html", null ]
     ] ],
+    [ "emlabcpp::cfg::locate_current_info", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1locate__current__info", null ],
+    [ "emlabcpp::cfg::locate_next_info", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1locate__next__info", null ],
     [ "emlabcpp::impl::map_f_collector< typename >", "namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector", null ],
     [ "emlabcpp::impl::map_f_collector< std::array< T, N > >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html", null ],
     [ "emlabcpp::impl::map_f_collector< T >", "structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html", null ],
@@ -307,12 +309,15 @@ var hierarchy =
     [ "emlabcpp::static_storage< T, N >", "structemlabcpp_1_1static__storage.html", null ],
     [ "emlabcpp::static_vector< T, N >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::static_vector< uint16_t, PoolCount >", "classemlabcpp_1_1static__vector.html", null ],
-    [ "emlabcpp::status< Derived, Enum, SuccessValue >", "structemlabcpp_1_1status.html", null ],
-    [ "emlabcpp::status< outcome, outcome_e, outcome_e::SUCCESS >", "structemlabcpp_1_1status.html", [
+    [ "emlabcpp::status< Derived, Enum >", "structemlabcpp_1_1status.html", null ],
+    [ "emlabcpp::status< outcome, outcome_e >", "structemlabcpp_1_1status.html", [
       [ "emlabcpp::outcome", "structemlabcpp_1_1outcome.html", null ]
     ] ],
-    [ "emlabcpp::status< result, result_e, result_e::SUCCESS >", "structemlabcpp_1_1status.html", [
+    [ "emlabcpp::status< result, result_e >", "structemlabcpp_1_1status.html", [
       [ "emlabcpp::result", "structemlabcpp_1_1result.html", null ]
+    ] ],
+    [ "emlabcpp::status< status, update_status_e >", "structemlabcpp_1_1status.html", [
+      [ "emlabcpp::cfg::status", "structemlabcpp_1_1cfg_1_1status.html", null ]
     ] ],
     [ "emlabcpp::string_buffer< 128 >< 32 >", "structemlabcpp_1_1string__buffer.html", null ],
     [ "emlabcpp::tag< V >", "structemlabcpp_1_1tag.html", null ],

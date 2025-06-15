@@ -1,6 +1,4 @@
 var structemlabcpp_1_1result =
 [
-    [ "status", "structemlabcpp_1_1result.html#a62b83446a7948b8c7f7c3769fbf027bb", null ],
-    [ "status", "structemlabcpp_1_1result.html#a017da033dda68175de322816fd64d9f1", null ],
-    [ "status", "structemlabcpp_1_1result.html#a46f346771830d210fb51e3d7b6be9703", null ]
+    [ "result", "structemlabcpp_1_1result.html#afe41b8ae68a5ec86c760b4b2ed7176f7", null ]
 ];

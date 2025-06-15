@@ -7,8 +7,11 @@ var annotated_dup =
       ] ],
       [ "cfg", "namespaceemlabcpp_1_1cfg.html", [
         [ "deser_res", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1deser__res_dup" ],
+        [ "status", "structemlabcpp_1_1cfg_1_1status.html", null ],
         [ "read_iface", "structemlabcpp_1_1cfg_1_1read__iface.html", "structemlabcpp_1_1cfg_1_1read__iface" ],
         [ "iface_base", "structemlabcpp_1_1cfg_1_1iface__base.html", "structemlabcpp_1_1cfg_1_1iface__base" ],
+        [ "locate_current_info", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1locate__current__info", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1locate__current__info_dup" ],
+        [ "locate_next_info", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1locate__next__info", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1locate__next__info_dup" ],
         [ "update_iface", "structemlabcpp_1_1cfg_1_1update__iface.html", "structemlabcpp_1_1cfg_1_1update__iface" ],
         [ "load_iface", "structemlabcpp_1_1cfg_1_1load__iface.html", "structemlabcpp_1_1cfg_1_1load__iface" ]
       ] ],
