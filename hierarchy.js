@@ -358,6 +358,9 @@ var hierarchy =
     [ "emlabcpp::testing::value_type_converter< std::string_view >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1string__view_01_4.html", null ],
     [ "emlabcpp::testing::value_type_converter_enum< T >", "structemlabcpp_1_1testing_1_1value__type__converter__enum.html", null ],
     [ "emlabcpp::testing::value_type_converter_getter< T >", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", null ],
+    [ "emlabcpp::testing::value_type_converter_getter< bool >", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", [
+      [ "emlabcpp::testing::value_type_converter< bool >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01bool_01_4.html", null ]
+    ] ],
     [ "emlabcpp::testing::value_type_converter_getter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter__getter.html", [
       [ "emlabcpp::testing::value_type_converter< int64_t >", "structemlabcpp_1_1testing_1_1value__type__converter_3_01int64__t_01_4.html", null ]
     ] ],
