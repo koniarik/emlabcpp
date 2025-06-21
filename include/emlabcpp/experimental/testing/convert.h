@@ -72,6 +72,11 @@ struct value_type_converter_enum
 };
 
 template <>
+struct value_type_converter< bool > : value_type_converter_getter< bool >
+{
+};
+
+template <>
 struct value_type_converter< int64_t > : value_type_converter_getter< int64_t >
 {
 };

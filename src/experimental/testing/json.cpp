@@ -83,16 +83,14 @@ std::optional< data_tree >
 json_to_data_tree( pmr::memory_resource& mem_res, nlohmann::json const& inpt )
 {
         data_tree tree{ mem_res };
-
-        static_function< std::optional< node_id >( nlohmann::json const& j ), 32 > f =
-            [&tree, &f]( nlohmann::json const& j ) -> std::optional< node_id > {
+        auto      f = [&tree]( auto& self, nlohmann::json const& j ) -> std::optional< node_id > {
                 if ( j.is_object() ) {
                         std::optional opt_res = tree.make_object_node();
                         if ( !opt_res )
                                 return std::nullopt;
                         auto [nid, oh] = *opt_res;
                         for ( auto const& [key, value] : j.items() ) {
-                                std::optional< node_id > chid = f( value );
+                                std::optional< node_id > chid = self( self, value );
                                 if ( !chid )
                                         return std::nullopt;
                                 oh.set( json_to_key_type( key ), *chid );
@@ -105,7 +103,7 @@ json_to_data_tree( pmr::memory_resource& mem_res, nlohmann::json const& inpt )
                                 return std::nullopt;
                         auto [nid, ah] = *opt_res;
                         for ( nlohmann::json const& jj : j ) {
-                                std::optional< node_id > chid = f( jj );
+                                std::optional< node_id > chid = self( self, jj );
                                 if ( !chid )
                                         return std::nullopt;
                                 ah.append( *chid );
@@ -119,7 +117,7 @@ json_to_data_tree( pmr::memory_resource& mem_res, nlohmann::json const& inpt )
                 return opt_id;
         };
 
-        auto const opt_root_id = f( inpt );
+        auto const opt_root_id = f( f, inpt );
         if ( opt_root_id )
                 return tree;
         else
@@ -128,8 +126,7 @@ json_to_data_tree( pmr::memory_resource& mem_res, nlohmann::json const& inpt )
 
 nlohmann::json data_tree_to_json( data_tree const& tree )
 {
-        static_function< nlohmann::json( node_id ), 32 > f =
-            [&tree, &f]( node_id const nid ) -> nlohmann::json {
+        auto f = [&tree]( auto& self, node_id const nid ) -> nlohmann::json {
                 auto const* const node_ptr = tree.get_node( nid );
 
                 if ( node_ptr == nullptr )
@@ -140,23 +137,23 @@ nlohmann::json data_tree_to_json( data_tree const& tree )
                     []( value_type const& val ) {
                             return value_type_to_json( val );
                     },
-                    [&f]( data_const_object_handle const oh ) {
+                    [&self]( data_const_object_handle const oh ) {
                             nlohmann::json j = nlohmann::json::object();
                             for ( auto const& [key, chid] : oh ) {
                                     std::string const k{ std::string_view{ key } };
-                                    j[k] = f( chid );
+                                    j[k] = self( self, chid );
                             }
                             return j;
                     },
-                    [&f]( data_const_array_handle const ah ) {
+                    [&self]( data_const_array_handle const ah ) {
                             nlohmann::json j = nlohmann::json::array();
                             for ( auto const& [i, chid] : ah )
-                                    j.push_back( f( chid ) );
+                                    j.push_back( self( self, chid ) );
                             return j;
                     } );
         };
 
-        return f( 0 );
+        return f( f, 0 );
 }
 
 }  // namespace emlabcpp::testing
