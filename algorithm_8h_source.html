@@ -153,7 +153,7 @@ $(document).ready(function(){initNavTree('algorithm_8h_source.html',''); initRes
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">template</span> &lt; referenceable_container Container, <span class="keyword">typename</span> Iterator = iterator_of_t&lt; Container &gt; &gt;</div>
 <div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="namespaceemlabcpp.html#a231279793ce500e80c1bbb0848ed83c6">   94</a></span>&#160;[[nodiscard]] constexpr <a class="code" href="classemlabcpp_1_1view.html">view&lt; Iterator &gt;</a> <a class="code" href="namespaceemlabcpp.html#a231279793ce500e80c1bbb0848ed83c6">tail</a>( Container&amp;&amp; cont, <span class="keywordtype">int</span> <span class="keyword">const</span> step = 1 )</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classemlabcpp_1_1view.html">view&lt; Iterator &gt;</a>( std::begin( cont ) + step, std::end( cont ) );</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classemlabcpp_1_1view.html">view&lt; Iterator &gt;</a>( <a class="code" href="namespaceemlabcpp_1_1cfg.html#a8e03f9106771ab434a50622f4432bee0">std::next</a>( std::begin( cont ), step ), std::end( cont ) );</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">template</span> &lt; referenceable_container Container, <span class="keyword">typename</span> Iterator = iterator_of_t&lt; Container &gt; &gt;</div>
@@ -553,6 +553,7 @@ $(document).ready(function(){initNavTree('algorithm_8h_source.html',''); initRes
 <div class="ttc" id="aclassemlabcpp_1_1view_html"><div class="ttname"><a href="classemlabcpp_1_1view.html">emlabcpp::view</a></div><div class="ttdoc">Generic class to represent view of some container.</div><div class="ttdef"><b>Definition:</b> view.h:41</div></div>
 <div class="ttc" id="aimpl_8h_html"><div class="ttname"><a href="impl_8h.html">impl.h</a></div></div>
 <div class="ttc" id="amin__max_8h_html"><div class="ttname"><a href="min__max_8h.html">min_max.h</a></div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1cfg_html_a8e03f9106771ab434a50622f4432bee0"><div class="ttname"><a href="namespaceemlabcpp_1_1cfg.html#a8e03f9106771ab434a50622f4432bee0">emlabcpp::cfg::next</a></div><div class="ttdeci">hdr_state next(hdr_state cs) noexcept</div><div class="ttdef"><b>Definition:</b> page.h:43</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a72a1ddd6dafcd28180b05c9fcc48bfa8"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a72a1ddd6dafcd28180b05c9fcc48bfa8">emlabcpp::impl::find_if_impl</a></div><div class="ttdeci">constexpr std::size_t find_if_impl(std::tuple&lt; Args... &gt; const &amp;t, UnaryPredicate &amp;&amp;f, std::index_sequence&lt; Idx... &gt;)</div><div class="ttdef"><b>Definition:</b> impl.h:35</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_aa4539ae7694e16e3a1749e3089a36e2f"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#aa4539ae7694e16e3a1749e3089a36e2f">emlabcpp::impl::map_f_collectable</a></div><div class="ttdeci">concept map_f_collectable</div><div class="ttdef"><b>Definition:</b> impl.h:130</div></div>
 <div class="ttc" id="anamespaceemlabcpp_1_1impl_html_structemlabcpp_1_1impl_1_1map__f__collector"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#structemlabcpp_1_1impl_1_1map__f__collector">emlabcpp::impl::map_f_collector</a></div><div class="ttdef"><b>Definition:</b> impl.h:96</div></div>
@@ -623,7 +624,7 @@ $(document).ready(function(){initNavTree('algorithm_8h_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="algorithm_8h.html">algorithm.h</a></li>
-    <li class="footer">Generated on Sat Jun 21 2025 20:03:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jul 12 2025 18:54:25 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

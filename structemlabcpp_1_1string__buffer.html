@@ -132,6 +132,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0ac3cf0deb5ceeaee22d586246f0ae7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaba924cefd60952221e2dc805d010bbb"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1string__buffer.html#aaba924cefd60952221e2dc805d010bbb">size</a> () const</td></tr>
 <tr class="separator:aaba924cefd60952221e2dc805d010bbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc0b4fb57e5388c395aa5151e4c5e8b"><td class="memTemplParams" colspan="2">template&lt;std::size_t M&gt; </td></tr>
+<tr class="memitem:a0dc0b4fb57e5388c395aa5151e4c5e8b"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1string__buffer.html#a0dc0b4fb57e5388c395aa5151e4c5e8b">operator==</a> (<a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; M &gt; const &amp;other) const noexcept</td></tr>
+<tr class="separator:a0dc0b4fb57e5388c395aa5151e4c5e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a596e62261b372285590dfe6be7e65459"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1string__buffer.html#a596e62261b372285590dfe6be7e65459">operator==</a> (std::string_view other) const noexcept</td></tr>
+<tr class="separator:a596e62261b372285590dfe6be7e65459"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -309,6 +314,64 @@ template&lt;std::size_t N&gt; </div>
 
 </div>
 </div>
+<a id="a596e62261b372285590dfe6be7e65459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a596e62261b372285590dfe6be7e65459">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="structemlabcpp_1_1string__buffer.html">emlabcpp::string_buffer</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0dc0b4fb57e5388c395aa5151e4c5e8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dc0b4fb57e5388c395aa5151e4c5e8b">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+<div class="memtemplate">
+template&lt;std::size_t M&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="structemlabcpp_1_1string__buffer.html">emlabcpp::string_buffer</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; M &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aaba924cefd60952221e2dc805d010bbb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaba924cefd60952221e2dc805d010bbb">&#9670;&nbsp;</a></span>size()</h2>
 
@@ -372,7 +435,7 @@ template&lt;std::size_t N&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a></li>
-    <li class="footer">Generated on Sat Jun 21 2025 20:03:08 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jul 12 2025 18:54:25 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

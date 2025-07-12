@@ -1,5 +1,7 @@
 var NAVTREEINDEX13 =
 {
+"structstd_1_1tuple__element_3_01I_00_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html#a2061c72471485fe3563467823ebb0a8d":[2,0,0,0,16,2,0],
+"structstd_1_1tuple__size_3_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html":[1,0,1,3],
 "testing_2json_8h.html":[2,0,0,0,1,4,11],
 "testing_2json_8h_source.html":[2,0,0,0,1,4,11],
 "throw__bad__alloc_8h.html":[2,0,0,0,3,6],

@@ -8,12 +8,14 @@ var NAVTREEINDEX12 =
 "structemlabcpp_1_1string__buffer.html":[1,0,0,38],
 "structemlabcpp_1_1string__buffer.html#a06a29350e1009e407fd3461492cf8a14":[1,0,0,38,2],
 "structemlabcpp_1_1string__buffer.html#a0ac3cf0deb5ceeaee22d586246f0ae7f":[1,0,0,38,5],
+"structemlabcpp_1_1string__buffer.html#a0dc0b4fb57e5388c395aa5151e4c5e8b":[1,0,0,38,7],
 "structemlabcpp_1_1string__buffer.html#a517e3fda66d5d5e319cfc6bc89e84600":[1,0,0,38,0],
+"structemlabcpp_1_1string__buffer.html#a596e62261b372285590dfe6be7e65459":[1,0,0,38,6],
 "structemlabcpp_1_1string__buffer.html#a87822a3efcd60d2a8c23612d457a0ef3":[1,0,0,38,3],
-"structemlabcpp_1_1string__buffer.html#aaba924cefd60952221e2dc805d010bbb":[1,0,0,38,6],
+"structemlabcpp_1_1string__buffer.html#aaba924cefd60952221e2dc805d010bbb":[1,0,0,38,8],
 "structemlabcpp_1_1string__buffer.html#ab8e62fc48d59f60062a17163a6d21c1e":[1,0,0,38,1],
 "structemlabcpp_1_1string__buffer.html#ace0b6e0c9e9dcde1f342a5c0d9f4f8d2":[1,0,0,38,4],
-"structemlabcpp_1_1string__buffer.html#ad3fb49b9adf76d2a6e5f15041000af70":[1,0,0,38,7],
+"structemlabcpp_1_1string__buffer.html#ad3fb49b9adf76d2a6e5f15041000af70":[1,0,0,38,9],
 "structemlabcpp_1_1tag.html":[1,0,0,76],
 "structemlabcpp_1_1tag.html#a3c9caf900810ddd8b770de401efc5e09":[1,0,0,76,0],
 "structemlabcpp_1_1tag.html#a62941d50e8da4683486c8908065ee958":[1,0,0,76,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX12 =
 "structstd_1_1numeric__limits_3_01T_01_4.html#aaf3813d74473b315e623f3d3c29b5705":[1,0,1,5,3],
 "structstd_1_1numeric__limits_3_01T_01_4.html#ab2251fa06cfdeeb61d213db89ad08554":[1,0,1,5,1],
 "structstd_1_1numeric__limits_3_01T_01_4.html#ac12f5340dbb260e6cb9486a7a00f3a4c":[1,0,1,5,0],
-"structstd_1_1tuple__element_3_01I_00_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html":[2,0,0,0,16,2],
-"structstd_1_1tuple__element_3_01I_00_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html#a2061c72471485fe3563467823ebb0a8d":[2,0,0,0,16,2,0],
-"structstd_1_1tuple__size_3_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html":[1,0,1,3]
+"structstd_1_1tuple__element_3_01I_00_01emlabcpp_1_1min__max_3_01T_01_4_01_4.html":[2,0,0,0,16,2]
 };
