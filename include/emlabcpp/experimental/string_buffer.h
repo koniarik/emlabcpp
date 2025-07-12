@@ -76,6 +76,17 @@ struct string_buffer : std::array< char, N >
         {
                 return strlen( this->data() );
         }
+
+        template < std::size_t M >
+        constexpr bool operator==( string_buffer< M > const& other ) const noexcept
+        {
+                return std::string_view{ *this } == std::string_view{ other };
+        }
+
+        constexpr bool operator==( std::string_view other ) const noexcept
+        {
+                return std::string_view{ *this } == other;
+        }
 };
 
 namespace bits
