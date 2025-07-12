@@ -93,7 +93,7 @@ almost_equal( T const& lh, T const& rh, float const eps = default_epsilon )
 template < referenceable_container Container, typename Iterator = iterator_of_t< Container > >
 [[nodiscard]] constexpr view< Iterator > tail( Container&& cont, int const step = 1 )
 {
-        return view< Iterator >( std::begin( cont ) + step, std::end( cont ) );
+        return view< Iterator >( std::next( std::begin( cont ), step ), std::end( cont ) );
 }
 
 /// Returns range over Container, which skips last item of container
