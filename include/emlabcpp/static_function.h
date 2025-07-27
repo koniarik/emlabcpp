@@ -140,6 +140,13 @@ public:
         template < typename Callable >
         explicit( false ) static_function_base( Callable c )
         {
+                static_assert(
+                    std::invocable< Callable, ArgTypes... >,
+                    "Provided callable has to be invocable with arguments" );
+                static_assert(
+                    std::
+                        convertible_to< std::invoke_result_t< Callable, ArgTypes... >, ReturnType >,
+                    "Provided callable has to return the same type as static_function" );
                 *this = std::move( c );
         }
 
