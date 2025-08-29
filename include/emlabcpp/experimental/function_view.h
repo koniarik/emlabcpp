@@ -23,13 +23,38 @@
 
 #pragma once
 
-#include "../concepts.h"
+#include <concepts>
 
 namespace emlabcpp
 {
 
+template < typename MemberFunctionPtr >
+struct _member_function_traits;
+
+template < typename ReturnType, typename Object, typename... ArgTypes >
+struct _member_function_traits< ReturnType ( Object::* )( ArgTypes... ) >
+{
+        using signature = ReturnType( ArgTypes... );
+        using object    = Object;
+};
+
 template < typename Signature >
 class function_view;
+
+template < auto MemberFunctionPtr >
+struct member_function
+{
+        using traits    = _member_function_traits< decltype( MemberFunctionPtr ) >;
+        using signature = typename traits::signature;
+        using object    = typename traits::object;
+
+        member_function( object& object )
+          : obj( object )
+        {
+        }
+
+        object& obj;
+};
 
 template < typename ReturnType, typename... ArgTypes >
 class function_view< ReturnType( ArgTypes... ) >
@@ -45,34 +70,50 @@ public:
 
         function_view( signature* fun )
           : obj_( reinterpret_cast< void* >( fun ) )
-          , handler_( &FunctionHandler )
+          , handler_( &function_handler )
         {
         }
 
         template < std::invocable< ArgTypes... > Callable >
         function_view( Callable& cb )
           : obj_( &cb )
-          , handler_( &CallableHandler< Callable > )
+          , handler_( &callable_handler< Callable > )
+        {
+        }
+
+        template < auto MemberFunctionPtr >
+        function_view( member_function< MemberFunctionPtr > handle )
+          : obj_( &handle.obj )
+          , handler_( &member_function_handler<
+                      MemberFunctionPtr,
+                      typename member_function< MemberFunctionPtr >::object > )
         {
         }
 
         ReturnType operator()( ArgTypes... args ) const
         {
-                return handler_( obj_, std::forward< ArgTypes >( args )... );
+                return handler_( obj_, (ArgTypes&&) ( args )... );
         }
 
 private:
         template < typename Callable >
-        static ReturnType CallableHandler( void* const ptr, ArgTypes... args )
+        static ReturnType callable_handler( void* const ptr, ArgTypes... args )
         {
                 auto* cb_ptr = reinterpret_cast< Callable* >( ptr );
-                return ( *cb_ptr )( std::forward< ArgTypes >( args )... );
+                return ( *cb_ptr )( (ArgTypes&&) ( args )... );
         }
 
-        static ReturnType FunctionHandler( void* const ptr, ArgTypes... args )
+        static ReturnType function_handler( void* const ptr, ArgTypes... args )
         {
                 auto f_ptr = reinterpret_cast< signature* >( ptr );
                 return f_ptr( args... );
+        }
+
+        template < auto MemberFunction, typename Object >
+        static ReturnType member_function_handler( void* const ptr, ArgTypes... args )
+        {
+                auto* obj_ptr = reinterpret_cast< Object* >( ptr );
+                return ( obj_ptr->*MemberFunction )( (ArgTypes&&) ( args )... );
         }
 
         using handler = ReturnType( void*, ArgTypes... );
@@ -80,5 +121,9 @@ private:
         void*    obj_;
         handler* handler_;
 };
+
+template < auto MemberFunctionPtr >
+function_view( member_function< MemberFunctionPtr > handle )
+    -> function_view< typename member_function< MemberFunctionPtr >::signature >;
 
 }  // namespace emlabcpp

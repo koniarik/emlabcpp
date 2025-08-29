@@ -33,7 +33,6 @@ function(emlabcpp_compile_options target)
             -pedantic
             -Wconversion
             -Wnon-virtual-dtor
-            -Wold-style-cast
             -Wcast-align
             -Wunused
             -Woverloaded-virtual
