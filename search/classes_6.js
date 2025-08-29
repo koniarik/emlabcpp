@@ -1,16 +1,5 @@
 var searchData=
 [
-  ['generic_5fiterator_1370',['generic_iterator',['../namespaceemlabcpp.html#structemlabcpp_1_1generic__iterator',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20convert_5fiterator_3c_20t_2c_20iterator_20_3e_20_3e_1371',['generic_iterator&lt; convert_iterator&lt; T, Iterator &gt; &gt;',['../namespaceemlabcpp.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20decode_5fcobs_5fiter_3c_20iter_20_3e_20_3e_1372',['generic_iterator&lt; decode_cobs_iter&lt; Iter &gt; &gt;',['../namespaceemlabcpp.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20numeric_5fiterator_3c_20t_20_3e_20_3e_1373',['generic_iterator&lt; numeric_iterator&lt; T &gt; &gt;',['../namespaceemlabcpp.html',1,'emlabcpp']]],
-  ['generic_5fiterator_3c_20static_5fcircular_5fbuffer_5fiterator_3c_20t_20_3e_20_3e_1374',['generic_iterator&lt; static_circular_buffer_iterator&lt; T &gt; &gt;',['../namespaceemlabcpp.html',1,'emlabcpp']]],
-  ['generic_5fiterator_5fbase_1375',['generic_iterator_base',['../classemlabcpp_1_1generic__iterator__base.html',1,'emlabcpp']]],
-  ['get_5fcount_5freply_1376',['get_count_reply',['../structemlabcpp_1_1testing_1_1get__count__reply.html',1,'emlabcpp::testing']]],
-  ['get_5fproperty_1377',['get_property',['../structemlabcpp_1_1testing_1_1get__property.html',1,'emlabcpp::testing']]],
-  ['get_5fsuite_5fdate_5freply_1378',['get_suite_date_reply',['../structemlabcpp_1_1testing_1_1get__suite__date__reply.html',1,'emlabcpp::testing']]],
-  ['get_5fsuite_5fname_5freply_1379',['get_suite_name_reply',['../structemlabcpp_1_1testing_1_1get__suite__name__reply.html',1,'emlabcpp::testing']]],
-  ['get_5ftest_5fname_5freply_1380',['get_test_name_reply',['../structemlabcpp_1_1testing_1_1get__test__name__reply.html',1,'emlabcpp::testing']]],
-  ['get_5ftest_5fname_5frequest_1381',['get_test_name_request',['../structemlabcpp_1_1testing_1_1get__test__name__request.html',1,'emlabcpp::testing']]],
-  ['group_1382',['group',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1group',1,'emlabcpp::protocol']]]
+  ['function_5fview_1377',['function_view',['../namespaceemlabcpp.html#classemlabcpp_1_1function__view',1,'emlabcpp']]],
+  ['function_5fview_3c_20returntype_28argtypes_2e_2e_2e_29_20_3e_1378',['function_view&lt; ReturnType(ArgTypes...) &gt;',['../classemlabcpp_1_1function__view_3_01ReturnType_07ArgTypes_8_8_8_08_01_4.html',1,'emlabcpp']]]
 ];

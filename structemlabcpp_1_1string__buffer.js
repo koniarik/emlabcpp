@@ -9,5 +9,6 @@ var structemlabcpp_1_1string__buffer =
     [ "operator==", "structemlabcpp_1_1string__buffer.html#a596e62261b372285590dfe6be7e65459", null ],
     [ "operator==", "structemlabcpp_1_1string__buffer.html#a0dc0b4fb57e5388c395aa5151e4c5e8b", null ],
     [ "size", "structemlabcpp_1_1string__buffer.html#aaba924cefd60952221e2dc805d010bbb", null ],
+    [ "sv", "structemlabcpp_1_1string__buffer.html#a2a31bb2ea75deeabd5d2197c8ff8e8d0", null ],
     [ "capacity", "structemlabcpp_1_1string__buffer.html#ad3fb49b9adf76d2a6e5f15041000af70", null ]
 ];

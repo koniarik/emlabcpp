@@ -1,5 +1,7 @@
 var hierarchy =
 [
+    [ "emlabcpp::_member_function_traits< MemberFunctionPtr >", "namespaceemlabcpp.html#structemlabcpp_1_1__member__function__traits", null ],
+    [ "emlabcpp::_member_function_traits< ReturnType(Object::*)(ArgTypes...) >", "namespaceemlabcpp.html#structemlabcpp_1_1__member__function__traits_3_01ReturnType_07Object_1_1_5_08_07ArgTypes_8_8_8_08_01_4", null ],
     [ "emlabcpp::pmr::allocator< T >", "classemlabcpp_1_1pmr_1_1allocator.html", null ],
     [ "emlabcpp::are_same<... >", "namespaceemlabcpp.html#structemlabcpp_1_1are__same", null ],
     [ "std::array< T >", null, [
@@ -171,6 +173,7 @@ var hierarchy =
     [ "emlabcpp::mapped< Container, UnaryCallable >", "namespaceemlabcpp.html#structemlabcpp_1_1mapped", null ],
     [ "emlabcpp::mapped< Container, UnaryCallable >", "structemlabcpp_1_1mapped_3_01Container_00_01UnaryCallable_01_4.html", null ],
     [ "emlabcpp::matrix< N, M, T >", "classemlabcpp_1_1matrix.html", null ],
+    [ "emlabcpp::member_function< MemberFunctionPtr >", "structemlabcpp_1_1member__function.html", null ],
     [ "emlabcpp::protocol::memcpy_converter< T, Endianess >", "structemlabcpp_1_1protocol_1_1memcpy__converter.html", null ],
     [ "emlabcpp::coro::memory_promise< PromiseType >", "structemlabcpp_1_1coro_1_1memory__promise.html", null ],
     [ "emlabcpp::coro::memory_promise< promise_type >", "structemlabcpp_1_1coro_1_1memory__promise.html", [

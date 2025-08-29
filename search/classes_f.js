@@ -1,19 +1,8 @@
 var searchData=
 [
-  ['reactor_1504',['reactor',['../classemlabcpp_1_1rpc_1_1reactor.html',1,'emlabcpp::rpc::reactor&lt; CallDefs &gt;'],['../classemlabcpp_1_1testing_1_1reactor.html',1,'emlabcpp::testing::reactor']]],
-  ['reactor_5ferror_1505',['reactor_error',['../namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1reactor__error',1,'emlabcpp::rpc']]],
-  ['reactor_5finterface_5fadapter_1506',['reactor_interface_adapter',['../classemlabcpp_1_1testing_1_1reactor__interface__adapter.html',1,'emlabcpp::testing']]],
-  ['reactor_5finternal_5ferror_5freport_1507',['reactor_internal_error_report',['../structemlabcpp_1_1testing_1_1reactor__internal__error__report.html',1,'emlabcpp::testing']]],
-  ['reactor_5fprotocol_5ferror_1508',['reactor_protocol_error',['../namespaceemlabcpp_1_1testing.html#structemlabcpp_1_1testing_1_1reactor__protocol__error',1,'emlabcpp::testing']]],
-  ['read_5fiface_1509',['read_iface',['../structemlabcpp_1_1cfg_1_1read__iface.html',1,'emlabcpp::cfg']]],
-  ['recursive_5fcoroutine_1510',['recursive_coroutine',['../classemlabcpp_1_1coro_1_1recursive__coroutine.html',1,'emlabcpp::coro']]],
-  ['register_5fhandler_1511',['register_handler',['../structemlabcpp_1_1protocol_1_1register__handler.html',1,'emlabcpp::protocol']]],
-  ['register_5fmap_1512',['register_map',['../classemlabcpp_1_1protocol_1_1register__map.html',1,'emlabcpp::protocol']]],
-  ['register_5fpair_1513',['register_pair',['../structemlabcpp_1_1protocol_1_1register__pair.html',1,'emlabcpp::protocol']]],
-  ['reply_5ferror_1514',['reply_error',['../namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1reply__error',1,'emlabcpp::rpc']]],
-  ['reply_5fwrapper_1515',['reply_wrapper',['../structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4_1_1reply__wrapper.html',1,'emlabcpp::rpc::traits&lt; std::tuple&lt; Calls... &gt; &gt;']]],
-  ['request_5freply_1516',['request_reply',['../classemlabcpp_1_1coro_1_1request__reply.html',1,'emlabcpp::coro']]],
-  ['request_5fwrapper_1517',['request_wrapper',['../structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_01Calls_8_8_8_01_4_01_4_1_1request__wrapper.html',1,'emlabcpp::rpc::traits&lt; std::tuple&lt; Calls... &gt; &gt;']]],
-  ['result_1518',['result',['../structemlabcpp_1_1result.html',1,'emlabcpp']]],
-  ['rowcol_5fsubmatrix_1519',['rowcol_submatrix',['../classemlabcpp_1_1rowcol__submatrix.html',1,'emlabcpp']]]
+  ['quantity_1509',['quantity',['../classemlabcpp_1_1quantity.html',1,'emlabcpp']]],
+  ['quantity_3c_20physical_5fquantity_3c_20len_2c_20mass_2c_20time_2c_20current_2c_20temp_2c_20mol_2c_20li_2c_20angle_2c_20byte_20_3e_2c_20float_20_3e_1510',['quantity&lt; physical_quantity&lt; Len, Mass, Time, Current, Temp, Mol, Li, Angle, Byte &gt;, float &gt;',['../classemlabcpp_1_1quantity.html',1,'emlabcpp']]],
+  ['quantity_3c_20sequencer_5fread_5frequest_2c_20std_3a_3asize_5ft_20_3e_1511',['quantity&lt; sequencer_read_request, std::size_t &gt;',['../classemlabcpp_1_1quantity.html',1,'emlabcpp']]],
+  ['quantity_3c_20tagged_5fquantity_3c_20tag_2c_20float_20_3e_2c_20float_20_3e_1512',['quantity&lt; tagged_quantity&lt; Tag, float &gt;, float &gt;',['../classemlabcpp_1_1quantity.html',1,'emlabcpp']]],
+  ['quaternion_1513',['quaternion',['../classemlabcpp_1_1quaternion.html',1,'emlabcpp']]]
 ];

@@ -120,7 +120,7 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab8e62fc48d59f60062a17163a6d21c1e"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1string__buffer.html#ab8e62fc48d59f60062a17163a6d21c1e">string_buffer</a> ()</td></tr>
 <tr class="separator:ab8e62fc48d59f60062a17163a6d21c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06a29350e1009e407fd3461492cf8a14"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1string__buffer.html#a06a29350e1009e407fd3461492cf8a14">string_buffer</a> (std::string_view sv)</td></tr>
+<tr class="memitem:a06a29350e1009e407fd3461492cf8a14"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1string__buffer.html#a06a29350e1009e407fd3461492cf8a14">string_buffer</a> (std::string_view <a class="el" href="structemlabcpp_1_1string__buffer.html#a2a31bb2ea75deeabd5d2197c8ff8e8d0">sv</a>)</td></tr>
 <tr class="separator:a06a29350e1009e407fd3461492cf8a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87822a3efcd60d2a8c23612d457a0ef3"><td class="memTemplParams" colspan="2">template&lt;std::size_t M&gt; </td></tr>
 <tr class="memitem:a87822a3efcd60d2a8c23612d457a0ef3"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1string__buffer.html#a87822a3efcd60d2a8c23612d457a0ef3">string_buffer</a> (char const (&amp;msg)[M])</td></tr>
@@ -130,6 +130,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ace0b6e0c9e9dcde1f342a5c0d9f4f8d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ac3cf0deb5ceeaee22d586246f0ae7f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1string__buffer.html#a0ac3cf0deb5ceeaee22d586246f0ae7f">operator std::string_view</a> () const</td></tr>
 <tr class="separator:a0ac3cf0deb5ceeaee22d586246f0ae7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a31bb2ea75deeabd5d2197c8ff8e8d0"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1string__buffer.html#a2a31bb2ea75deeabd5d2197c8ff8e8d0">sv</a> () const</td></tr>
+<tr class="separator:a2a31bb2ea75deeabd5d2197c8ff8e8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaba924cefd60952221e2dc805d010bbb"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1string__buffer.html#aaba924cefd60952221e2dc805d010bbb">size</a> () const</td></tr>
 <tr class="separator:aaba924cefd60952221e2dc805d010bbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dc0b4fb57e5388c395aa5151e4c5e8b"><td class="memTemplParams" colspan="2">template&lt;std::size_t M&gt; </td></tr>
@@ -216,7 +218,7 @@ template&lt;std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ac6a2f5b7b14c057c158d28c8e7538839">emlabcpp::min()</a>, and <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#ac6a2f5b7b14c057c158d28c8e7538839">emlabcpp::min()</a>, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a>, and <a class="el" href="structemlabcpp_1_1string__buffer.html#a2a31bb2ea75deeabd5d2197c8ff8e8d0">emlabcpp::string_buffer&lt; N &gt;::sv()</a>.</p>
 
 </div>
 </div>
@@ -401,6 +403,35 @@ template&lt;std::size_t N&gt; </div>
 
 </div>
 </div>
+<a id="a2a31bb2ea75deeabd5d2197c8ff8e8d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a31bb2ea75deeabd5d2197c8ff8e8d0">&#9670;&nbsp;</a></span>sv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string_view <a class="el" href="structemlabcpp_1_1string__buffer.html">emlabcpp::string_buffer</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;::sv </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data()</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="ad3fb49b9adf76d2a6e5f15041000af70"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad3fb49b9adf76d2a6e5f15041000af70">&#9670;&nbsp;</a></span>capacity</h2>
@@ -435,7 +466,7 @@ template&lt;std::size_t N&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a></li>
-    <li class="footer">Generated on Sun Jul 27 2025 20:01:11 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Aug 29 2025 17:10:52 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

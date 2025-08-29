@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['z_5faxis_1266',['z_axis',['../namespaceemlabcpp.html#a9562476a49ff3f90e84d658dd3bafbb9',1,'emlabcpp']]],
-  ['zip_1267',['zip',['../namespaceemlabcpp.html#a41ab261a0f296f3c9862e59e12339885',1,'emlabcpp::zip(Ts &amp;&amp;... cont)'],['../namespaceemlabcpp.html#a81d4ae07c2d875b52377456faf19fe92',1,'emlabcpp::zip(Tuple &amp;&amp;frst, Tuples &amp;&amp;... tpls)']]],
-  ['zip_2eh_1268',['zip.h',['../zip_8h.html',1,'']]],
-  ['zip_5fiterator_1269',['zip_iterator',['../classemlabcpp_1_1zip__iterator.html',1,'emlabcpp::zip_iterator&lt; Iterators &gt;'],['../classemlabcpp_1_1zip__iterator.html#a7e0dc6458a07aadfde46318f50a40e51',1,'emlabcpp::zip_iterator::zip_iterator()']]]
+  ['y_5faxis_1271',['y_axis',['../namespaceemlabcpp.html#aaf41298fd59d19888d3fee5cea2fe4d8',1,'emlabcpp']]],
+  ['yield_5fvalue_1272',['yield_value',['../structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#ac60930d0aece6d536056c03dc9a9d4ae',1,'emlabcpp::coro::request_reply::promise_type']]]
 ];

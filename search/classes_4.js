@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['empty_5fnode_5fimpl_1358',['empty_node_impl',['../structemlabcpp_1_1testing_1_1empty__node__impl.html',1,'emlabcpp::testing']]],
-  ['endianess_5fwrapper_1359',['endianess_wrapper',['../structemlabcpp_1_1protocol_1_1endianess__wrapper.html',1,'emlabcpp::protocol']]],
-  ['endpoint_1360',['endpoint',['../classemlabcpp_1_1protocol_1_1endpoint.html',1,'emlabcpp::protocol']]],
-  ['endpoint_3c_20packet_2c_20packet_20_3e_1361',['endpoint&lt; Packet, Packet &gt;',['../classemlabcpp_1_1protocol_1_1endpoint.html',1,'emlabcpp::protocol']]],
-  ['endpoint_5fload_5ferror_1362',['endpoint_load_error',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error',1,'emlabcpp::protocol']]],
-  ['error_1363',['error',['../namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1error',1,'emlabcpp::rpc::error'],['../structemlabcpp_1_1testing_1_1error.html',1,'emlabcpp::testing::error&lt; Err &gt;']]],
-  ['error_5fawaiter_1364',['error_awaiter',['../structemlabcpp_1_1coro_1_1error__awaiter.html',1,'emlabcpp::coro']]],
-  ['error_5frecord_1365',['error_record',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record',1,'emlabcpp::protocol']]],
-  ['exec_5frequest_1366',['exec_request',['../structemlabcpp_1_1testing_1_1exec__request.html',1,'emlabcpp::testing']]],
-  ['executor_1367',['executor',['../classemlabcpp_1_1testing_1_1executor.html',1,'emlabcpp::testing']]]
+  ['data_5fiterator_5fof_1357',['data_iterator_of',['../namespaceemlabcpp.html#structemlabcpp_1_1data__iterator__of',1,'emlabcpp']]],
+  ['data_5fpromise_1358',['data_promise',['../structemlabcpp_1_1coro_1_1data__promise.html',1,'emlabcpp::coro']]],
+  ['data_5fpromise_3c_20void_20_3e_1359',['data_promise&lt; void &gt;',['../structemlabcpp_1_1coro_1_1data__promise_3_01void_01_4.html',1,'emlabcpp::coro']]],
+  ['decode_5fcobs_5fiter_1360',['decode_cobs_iter',['../classemlabcpp_1_1decode__cobs__iter.html',1,'emlabcpp']]],
+  ['decompose_5fanything_1361',['decompose_anything',['../structemlabcpp_1_1detail_1_1decompose__anything.html',1,'emlabcpp::detail']]],
+  ['defer_1362',['defer',['../classemlabcpp_1_1defer.html',1,'emlabcpp']]],
+  ['deleter_1363',['deleter',['../structemlabcpp_1_1pmr_1_1deleter.html',1,'emlabcpp::pmr']]],
+  ['derive_1364',['derive',['../structemlabcpp_1_1rpc_1_1derive.html',1,'emlabcpp::rpc']]],
+  ['derived_5fstorage_1365',['derived_storage',['../classemlabcpp_1_1derived__storage.html',1,'emlabcpp']]],
+  ['deser_5fres_1366',['deser_res',['../namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res',1,'emlabcpp::cfg']]]
 ];
