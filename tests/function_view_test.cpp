@@ -23,6 +23,8 @@
 
 #include "emlabcpp/experimental/function_view.h"
 
+#include "emlabcpp/concepts.h"
+
 #include <gtest/gtest.h>
 
 namespace emlabcpp

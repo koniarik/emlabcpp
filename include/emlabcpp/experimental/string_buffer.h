@@ -34,13 +34,12 @@ namespace emlabcpp
 {
 
 template < std::size_t N >
-struct string_buffer : std::array< char, N >
+struct string_buffer
 {
         static constexpr std::size_t capacity = N;
         using base_type                       = std::array< char, N >;
 
         constexpr string_buffer()
-          : base_type{}
         {
                 std::fill_n( this->data(), N, '\0' );
         }
@@ -69,17 +68,56 @@ struct string_buffer : std::array< char, N >
 
         operator std::string_view() const
         {
-                return std::string_view( this->data() );
+                return this->sv();
         }
 
         std::string_view sv() const
         {
-                return std::string_view( this->data() );
+                return std::string_view( this->data(), size() );
+        }
+
+        constexpr auto begin()
+        {
+                return data_.begin();
+        }
+
+        constexpr auto begin() const
+        {
+                return data_.begin();
+        }
+
+        constexpr auto end()
+        {
+                return data_.end();
+        }
+
+        constexpr auto end() const
+        {
+                return data_.end();
+        }
+
+        constexpr char* data()
+        {
+                return data_.data();
+        }
+
+        constexpr char const* data() const
+        {
+                return data_.data();
         }
 
         [[nodiscard]] constexpr std::size_t size() const
         {
-                return strlen( this->data() );
+                for ( std::size_t i = 0; i < N; i++ )
+                        if ( data_[i] == '\0' )
+                                return i;
+                return N;
+        }
+
+        template < std::size_t M >
+        constexpr auto operator<=>( string_buffer< M > const& other ) const noexcept
+        {
+                return std::string_view{ *this } <=> std::string_view{ other };
         }
 
         template < std::size_t M >
@@ -92,6 +130,19 @@ struct string_buffer : std::array< char, N >
         {
                 return std::string_view{ *this } == other;
         }
+
+        string_buffer& extend( std::string_view sv )
+        {
+                std::size_t curr_size = size();
+                std::copy_n(
+                    sv.begin(),
+                    std::min( sv.size(), N - 1 - curr_size ),
+                    this->begin() + curr_size );
+                return *this;
+        }
+
+private:
+        std::array< char, N > data_;
 };
 
 namespace bits
