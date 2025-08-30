@@ -6,11 +6,7 @@ var hierarchy =
     [ "emlabcpp::are_same<... >", "namespaceemlabcpp.html#structemlabcpp_1_1are__same", null ],
     [ "std::array< T >", null, [
       [ "emlabcpp::min_max< float >", "structemlabcpp_1_1min__max.html", null ],
-      [ "emlabcpp::string_buffer< 128 >", "structemlabcpp_1_1string__buffer.html", null ],
-      [ "emlabcpp::string_buffer< 32 >", "structemlabcpp_1_1string__buffer.html", null ],
-      [ "emlabcpp::string_buffer< mark_size >", "structemlabcpp_1_1string__buffer.html", null ],
-      [ "emlabcpp::min_max< T >", "structemlabcpp_1_1min__max.html", null ],
-      [ "emlabcpp::string_buffer< N >", "structemlabcpp_1_1string__buffer.html", null ]
+      [ "emlabcpp::min_max< T >", "structemlabcpp_1_1min__max.html", null ]
     ] ],
     [ "emlabcpp::coro::request_reply< RequestType, ReplyType >::awaiter", "structemlabcpp_1_1coro_1_1request__reply_1_1awaiter.html", null ],
     [ "emlabcpp::protocol::backup_converter< typename, endian >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1backup__converter", null ],
@@ -322,7 +318,11 @@ var hierarchy =
     [ "emlabcpp::status< status, update_status_e >", "structemlabcpp_1_1status.html", [
       [ "emlabcpp::cfg::status", "structemlabcpp_1_1cfg_1_1status.html", null ]
     ] ],
+    [ "emlabcpp::string_buffer< N >", "structemlabcpp_1_1string__buffer.html", null ],
+    [ "emlabcpp::string_buffer< 128 >", "structemlabcpp_1_1string__buffer.html", null ],
     [ "emlabcpp::string_buffer< 128 >< 32 >", "structemlabcpp_1_1string__buffer.html", null ],
+    [ "emlabcpp::string_buffer< 32 >", "structemlabcpp_1_1string__buffer.html", null ],
+    [ "emlabcpp::string_buffer< mark_size >", "structemlabcpp_1_1string__buffer.html", null ],
     [ "emlabcpp::tag< V >", "structemlabcpp_1_1tag.html", null ],
     [ "emlabcpp::protocol::tag_group< Ds >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1tag__group", null ],
     [ "emlabcpp::testing::test_finished", "structemlabcpp_1_1testing_1_1test__finished.html", null ],
