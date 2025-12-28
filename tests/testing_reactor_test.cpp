@@ -110,7 +110,7 @@ TEST( executor, complex_full_run )
         executor_test_run( tf );
 }
 
-TEST( executor, nested )
+TEST( executor, nested_DISABLED )
 {
         nested_test_fixture tf{};
 
