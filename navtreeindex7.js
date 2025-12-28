@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90":[0,2,0,2,9],
 "namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90a1869d56535e8b1449a6da54ff5e11f50":[0,2,0,2,9,0],
 "namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90a2baa69eafc7204f3bd8648eba580c489":[0,2,0,2,9,1],
 "namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90add0f1fac7b1452a7c98db1c15fa9b7bb":[0,2,0,2,9,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76ac4e2cca74f2a682c3f462ee09d0f8621":[0,2,0,9,130,6],
 "namespaceemlabcpp_1_1testing.html#acbd9645e3f3070dc31de4a5d5c22be05":[0,2,0,9,72],
 "namespaceemlabcpp_1_1testing.html#ace52aae1880a8e3ab02b4b65a298c1b3":[0,2,0,9,98],
-"namespaceemlabcpp_1_1testing.html#acf293f858331c93ba18fa6cda9936aaf":[0,2,0,9,117],
-"namespaceemlabcpp_1_1testing.html#ad2555bf321e83b853a729cab30d39ccd":[0,2,0,9,148]
+"namespaceemlabcpp_1_1testing.html#acf293f858331c93ba18fa6cda9936aaf":[0,2,0,9,117]
 };
