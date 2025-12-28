@@ -56,7 +56,9 @@ struct register_handler
                 message_type res( max_size );
                 static_assert( def::size_type::max_val <= max_size );
                 bounded const used = def::serialize_at(
-                    std::span< std::byte, def::size_type::max_val >( res ), val );
+                    std::span< std::byte, def::size_type::max_val >(
+                        res.data(), def::size_type::max_val ),
+                    val );
                 res.resize( *used );
                 return res;
         }
