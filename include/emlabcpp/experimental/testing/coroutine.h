@@ -114,7 +114,7 @@ public:
                 return false;
         }
 
-        void await_suspend( auto const& h )
+        void await_suspend( std::coroutine_handle< promise_type > const& h )
         {
                 h.promise().iface = this;
         }
