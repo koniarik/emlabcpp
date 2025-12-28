@@ -53,10 +53,18 @@ inline std::ostream& operator<<( std::ostream& os, protocol_test_fixture const& 
         return os;
 }
 
+struct free_deleter
+{
+        void operator()( void* p )
+        {
+                std::free( p );
+        }
+};
+
 template < typename T >
 inline std::string pretty_name()
 {
-        std::unique_ptr< char, decltype( std::free )& > name{ nullptr, std::free };
+        std::unique_ptr< char, free_deleter > name{ nullptr };
 
         int tmp = 0;
         name.reset( abi::__cxa_demangle( typeid( T ).name(), nullptr, nullptr, &tmp ) );
