@@ -2,6 +2,8 @@ var hierarchy =
 [
     [ "emlabcpp::_member_function_traits< MemberFunctionPtr >", "namespaceemlabcpp.html#structemlabcpp_1_1__member__function__traits", null ],
     [ "emlabcpp::_member_function_traits< ReturnType(Object::*)(ArgTypes...) >", "namespaceemlabcpp.html#structemlabcpp_1_1__member__function__traits_3_01ReturnType_07Object_1_1_5_08_07ArgTypes_8_8_8_08_01_4", null ],
+    [ "emlabcpp::_overflow_strategy< N >", "structemlabcpp_1_1__overflow__strategy.html", null ],
+    [ "emlabcpp::_spacer_strategy< N >", "structemlabcpp_1_1__spacer__strategy.html", null ],
     [ "emlabcpp::pmr::allocator< T >", "classemlabcpp_1_1pmr_1_1allocator.html", null ],
     [ "emlabcpp::are_same<... >", "namespaceemlabcpp.html#structemlabcpp_1_1are__same", null ],
     [ "std::array< T >", null, [
@@ -282,8 +284,8 @@ var hierarchy =
     ] ],
     [ "emlabcpp::simplex< Item, N >", "classemlabcpp_1_1simplex.html", null ],
     [ "emlabcpp::protocol::sized_buffer< CounterDef, D >", "namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1sized__buffer", null ],
-    [ "emlabcpp::static_circular_buffer< T, N >", "classemlabcpp_1_1static__circular__buffer.html", null ],
-    [ "emlabcpp::static_circular_buffer< std::byte, Def::message_type::capacity *2 >", "classemlabcpp_1_1static__circular__buffer.html", null ],
+    [ "emlabcpp::static_circular_buffer< T, N, Strategy >", "structemlabcpp_1_1static__circular__buffer.html", null ],
+    [ "emlabcpp::static_circular_buffer< std::byte, Def::message_type::capacity *2 >", "structemlabcpp_1_1static__circular__buffer.html", null ],
     [ "emlabcpp::static_function_base< CallableType, Capacity, Align >", "namespaceemlabcpp.html#classemlabcpp_1_1static__function__base", null ],
     [ "emlabcpp::static_function_base< bool(controller_reactor_variant const &), 16 >", "namespaceemlabcpp.html#namespaceemlabcpp", null ],
     [ "emlabcpp::static_function_base< bool(reactor_controller_variant const &), 32 >", "namespaceemlabcpp.html#namespaceemlabcpp", null ],
@@ -306,6 +308,7 @@ var hierarchy =
     ] ],
     [ "emlabcpp::impl::static_size< std::tuple< Ts... > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html", null ],
     [ "emlabcpp::static_storage< T, N >", "structemlabcpp_1_1static__storage.html", null ],
+    [ "emlabcpp::static_storage< T, max_size >", "structemlabcpp_1_1static__storage.html", null ],
     [ "emlabcpp::static_vector< T, N >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::static_vector< uint16_t, PoolCount >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::status< Derived, Enum >", "structemlabcpp_1_1status.html", null ],

@@ -1,9 +1,10 @@
 <map id="include/emlabcpp/static_circular_buffer.h" name="include/emlabcpp/static_circular_buffer.h">
-<area shape="rect" id="node1" title=" " alt="" coords="224,5,401,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="317,5,495,47"/>
 <area shape="rect" id="node2" href="$iterator_8h.html" title=" " alt="" coords="40,95,129,121"/>
 <area shape="rect" id="node4" href="$static__storage_8h.html" title=" " alt="" coords="181,95,316,121"/>
 <area shape="rect" id="node8" href="$view_8h.html" title=" " alt="" coords="370,95,442,121"/>
-<area shape="rect" id="node11" title=" " alt="" coords="466,95,525,121"/>
+<area shape="rect" id="node11" title=" " alt="" coords="466,95,533,121"/>
+<area shape="rect" id="node12" title=" " alt="" coords="557,95,615,121"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,169,76,196"/>
 <area shape="rect" id="node5" title=" " alt="" coords="100,169,171,196"/>
 <area shape="rect" id="node6" title=" " alt="" coords="195,169,273,196"/>

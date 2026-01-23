@@ -238,8 +238,12 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class implementing circular buffer of any type for up to N elements.  <a href="classemlabcpp_1_1static__circular__buffer.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__spacer__strategy.html">_spacer_strategy</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html">_overflow_strategy</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class implementing circular buffer of any type for up to N elements.  <a href="structemlabcpp_1_1static__circular__buffer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:classemlabcpp_1_1static__function__base"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">static_function_base</a></td></tr>
 <tr class="separator:classemlabcpp_1_1static__function__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -979,14 +983,20 @@ Functions</h2></td></tr>
 <tr class="memitem:ace588590ccd59087b704005a3c04caae"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; <a class="el" href="classemlabcpp_1_1iterators_1_1numeric__iterator.html">iterators::numeric_iterator</a>&lt; Numeric &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ace588590ccd59087b704005a3c04caae">range</a> (Numeric to)</td></tr>
 <tr class="memdesc:ace588590ccd59087b704005a3c04caae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds numeric view over interval [0, to)  <a href="namespaceemlabcpp.html#ace588590ccd59087b704005a3c04caae">More...</a><br /></td></tr>
 <tr class="separator:ace588590ccd59087b704005a3c04caae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb7a13ab6e29803606f42ee502862fb9"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:acb7a13ab6e29803606f42ee502862fb9"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#acb7a13ab6e29803606f42ee502862fb9">_select_index_type</a> ()</td></tr>
+<tr class="separator:acb7a13ab6e29803606f42ee502862fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca1fb4f03e617ea065ee7d2718055e9b"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:aca1fb4f03e617ea065ee7d2718055e9b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aca1fb4f03e617ea065ee7d2718055e9b">_select_strategy</a> ()</td></tr>
+<tr class="separator:aca1fb4f03e617ea065ee7d2718055e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3006d6f69314abae91dc0740a404ddf"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:ad3006d6f69314abae91dc0740a404ddf"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad3006d6f69314abae91dc0740a404ddf">operator&lt;=&gt;</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
+<tr class="memitem:ad3006d6f69314abae91dc0740a404ddf"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ad3006d6f69314abae91dc0740a404ddf">operator&lt;=&gt;</a> (<a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:ad3006d6f69314abae91dc0740a404ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45f4b2a0c37593a9fe9fa24e82055731"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:a45f4b2a0c37593a9fe9fa24e82055731"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a45f4b2a0c37593a9fe9fa24e82055731">operator==</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
+<tr class="memitem:a45f4b2a0c37593a9fe9fa24e82055731"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a45f4b2a0c37593a9fe9fa24e82055731">operator==</a> (<a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:a45f4b2a0c37593a9fe9fa24e82055731"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6181af592879c12a867b98e75a8fafef"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:a6181af592879c12a867b98e75a8fafef"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6181af592879c12a867b98e75a8fafef">operator!=</a> (<a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
+<tr class="memitem:a6181af592879c12a867b98e75a8fafef"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a6181af592879c12a867b98e75a8fafef">operator!=</a> (<a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;lh, <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;rh)</td></tr>
 <tr class="separator:a6181af592879c12a867b98e75a8fafef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a335b4e955623092b8021cbbb539eaeda"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
 <tr class="memitem:a335b4e955623092b8021cbbb539eaeda"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a335b4e955623092b8021cbbb539eaeda">requires</a> (<a class="el" href="namespaceemlabcpp.html#a3d6bbe05fdc4482798a8777fd89bd79c">trivial_for_static_storage</a>&lt; T &gt;) struct <a class="el" href="structemlabcpp_1_1static__storage.html">static_storage</a>&lt; T</td></tr>
@@ -998,9 +1008,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aa6a005d416169624e48fd25482bb644b"><td class="memTemplItemLeft" align="right" valign="top">constexpr T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa6a005d416169624e48fd25482bb644b">emplace_item</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const i, Args &amp;&amp;... <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">args</a>) noexcept(std::is_nothrow_constructible_v&lt; T, Args... &gt;)</td></tr>
 <tr class="memdesc:aa6a005d416169624e48fd25482bb644b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an item at position i with arguments args...  <a href="namespaceemlabcpp.html#aa6a005d416169624e48fd25482bb644b">More...</a><br /></td></tr>
 <tr class="separator:aa6a005d416169624e48fd25482bb644b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab02c8301ef4db0c17e59d9e6b100420a"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab02c8301ef4db0c17e59d9e6b100420a">delete_item</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const i) noexcept(std::is_nothrow_destructible_v&lt; T &gt;)</td></tr>
-<tr class="memdesc:ab02c8301ef4db0c17e59d9e6b100420a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deconstructs an item at position i.  <a href="namespaceemlabcpp.html#ab02c8301ef4db0c17e59d9e6b100420a">More...</a><br /></td></tr>
-<tr class="separator:ab02c8301ef4db0c17e59d9e6b100420a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0334c599c319b6adfd809af12ba844f8"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0334c599c319b6adfd809af12ba844f8">delete_item</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const) noexcept(std::is_nothrow_destructible_v&lt; T &gt;)</td></tr>
+<tr class="memdesc:a0334c599c319b6adfd809af12ba844f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deconstructs an item at position i.  <a href="namespaceemlabcpp.html#a0334c599c319b6adfd809af12ba844f8">More...</a><br /></td></tr>
+<tr class="separator:a0334c599c319b6adfd809af12ba844f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38e01294f96a5357c8e80f5c27d081b3"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceemlabcpp.html#a32d3de1ecae7eb79f5f6073bcb407b70">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a38e01294f96a5357c8e80f5c27d081b3">operator[]</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const i) noexcept</td></tr>
 <tr class="memdesc:a38e01294f96a5357c8e80f5c27d081b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a reference to item at position i.  <a href="namespaceemlabcpp.html#a38e01294f96a5357c8e80f5c27d081b3">More...</a><br /></td></tr>
 <tr class="separator:a38e01294f96a5357c8e80f5c27d081b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2426,6 +2436,56 @@ template&lt;typename T , template&lt; typename &gt; class Fun&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="acb7a13ab6e29803606f42ee502862fb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb7a13ab6e29803606f42ee502862fb9">&#9670;&nbsp;</a></span>_select_index_type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto emlabcpp::_select_index_type </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#abe9cf42b0add3aa7eac2b215455f98ed">max()</a>, and <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>.</p>
+
+</div>
+</div>
+<a id="aca1fb4f03e617ea065ee7d2718055e9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca1fb4f03e617ea065ee7d2718055e9b">&#9670;&nbsp;</a></span>_select_strategy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto emlabcpp::_select_strategy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>.</p>
+
+</div>
+</div>
 <a id="a50ffa44557c5251237a919d0843f13cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a50ffa44557c5251237a919d0843f13cc">&#9670;&nbsp;</a></span>abs() <span class="overload">[1/2]</span></h2>
 
@@ -3582,8 +3642,8 @@ template&lt;decomposable_0 T&gt; </div>
 
 </div>
 </div>
-<a id="ab02c8301ef4db0c17e59d9e6b100420a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab02c8301ef4db0c17e59d9e6b100420a">&#9670;&nbsp;</a></span>delete_item()</h2>
+<a id="a0334c599c319b6adfd809af12ba844f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0334c599c319b6adfd809af12ba844f8">&#9670;&nbsp;</a></span>delete_item()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3595,7 +3655,7 @@ template&lt;decomposable_0 T&gt; </div>
           <td class="memname">constexpr void emlabcpp::delete_item </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -5838,13 +5898,13 @@ template&lt;typename T , std::size_t N&gt; </div>
         <tr>
           <td class="memname">bool emlabcpp::operator!= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -7122,13 +7182,13 @@ template&lt;typename T , std::size_t N&gt; </div>
         <tr>
           <td class="memname">auto emlabcpp::operator&lt;=&gt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -7139,7 +7199,7 @@ template&lt;typename T , std::size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426">emlabcpp::static_circular_buffer&lt; T, N &gt;::begin()</a>, and <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#aa8165951ae18e5a305ee580be7c749d4">emlabcpp::static_circular_buffer&lt; T, N &gt;::end()</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a3a0aed5f291946cd3b4871894adfa77c">emlabcpp::static_circular_buffer&lt; T, N, Strategy &gt;::begin()</a>, and <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a12df6aacce8e6c067099dce9371e8e69">emlabcpp::static_circular_buffer&lt; T, N, Strategy &gt;::end()</a>.</p>
 
 </div>
 </div>
@@ -7300,13 +7360,13 @@ template&lt;typename T , std::size_t N&gt; </div>
         <tr>
           <td class="memname">bool emlabcpp::operator== </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>lh</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>rh</em>&#160;</td>
         </tr>
         <tr>
@@ -7317,7 +7377,7 @@ template&lt;typename T , std::size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#af6923c24f500869e457a4ca7f2fb9426">emlabcpp::static_circular_buffer&lt; T, N &gt;::begin()</a>, <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#aa8165951ae18e5a305ee580be7c749d4">emlabcpp::static_circular_buffer&lt; T, N &gt;::end()</a>, <a class="el" href="namespaceemlabcpp.html#a504dbf8012c154e4c54aae3af67e08c9">equal()</a>, and <a class="el" href="classemlabcpp_1_1static__circular__buffer.html#a1e075ae0be996c278fb28a8afe471fe7">emlabcpp::static_circular_buffer&lt; T, N &gt;::size()</a>.</p>
+<p class="reference">References <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a3a0aed5f291946cd3b4871894adfa77c">emlabcpp::static_circular_buffer&lt; T, N, Strategy &gt;::begin()</a>, <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a12df6aacce8e6c067099dce9371e8e69">emlabcpp::static_circular_buffer&lt; T, N, Strategy &gt;::end()</a>, <a class="el" href="namespaceemlabcpp.html#a504dbf8012c154e4c54aae3af67e08c9">equal()</a>, and <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#ae8159f70d7c308cc2e5fcc6193eb4ea5">emlabcpp::static_circular_buffer&lt; T, N, Strategy &gt;::size()</a>.</p>
 
 </div>
 </div>
@@ -10673,7 +10733,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Sun Dec 28 2025 18:25:21 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jan 23 2026 22:10:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
