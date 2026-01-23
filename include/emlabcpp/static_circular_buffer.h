@@ -27,6 +27,7 @@
 #include "./static_storage.h"
 #include "./view.h"
 
+#include <atomic>
 #include <limits>
 
 namespace emlabcpp
@@ -34,6 +35,158 @@ namespace emlabcpp
 
 template < typename T >
 class static_circular_buffer_iterator;
+
+template < std::size_t N >
+constexpr auto _select_index_type()
+{
+        if constexpr ( N <= std::numeric_limits< std::uint8_t >::max() )
+                return std::atomic_uint8_t{};
+        else if constexpr ( N <= std::numeric_limits< std::uint16_t >::max() )
+                return std::atomic_uint16_t{};
+        else if constexpr ( N <= std::numeric_limits< std::uint32_t >::max() )
+                return std::atomic_uint32_t{};
+        else
+                return std::atomic_uint64_t{};
+}
+
+template < std::size_t N >
+struct _spacer_strategy
+{
+        static constexpr std::size_t max_size = N + 1;
+
+        using index_type = decltype( _select_index_type< N >() );
+        using size_type  = typename index_type::value_type;
+
+        void incr_front() noexcept
+        {
+                from_ = ( from_ + 1 ) % max_size;
+        }
+
+        void incr_front( size_type n ) noexcept
+        {
+                from_ = ( from_ + n ) % max_size;
+        }
+
+        auto front_idx() const noexcept
+        {
+                return from_.load();
+        }
+
+        void incr_back() noexcept
+        {
+                to_ = ( to_ + 1 ) % max_size;
+        }
+
+        void incr_back( size_type n ) noexcept
+        {
+                to_ = ( to_ + n ) % max_size;
+        }
+
+        auto back_idx() const noexcept
+        {
+                return to_.load();
+        }
+
+        size_type size() const noexcept
+        {
+                if ( to_ >= from_ )
+                        return to_ - from_;
+                return static_cast< size_type >( to_ + ( max_size - from_ ) );
+        }
+
+        bool empty() const noexcept
+        {
+                return from_ == to_;
+        }
+
+        bool full() const noexcept
+        {
+                return size() == N;
+        }
+
+        index_type last_idx() const noexcept
+        {
+                return ( to_ + max_size - 1 ) % max_size;
+        }
+
+private:
+        index_type from_ = 0;
+        index_type to_   = 0;
+};
+
+template < std::size_t N >
+struct _overflow_strategy
+{
+        static_assert( N && !( N & ( N - 1 ) ), "N must be power of two" );
+        static constexpr std::size_t max_size = N;
+
+        using index_type = decltype( _select_index_type< N >() );
+        using size_type  = typename index_type::value_type;
+
+        void incr_front() noexcept
+        {
+                from_ = from_ + 1;
+        }
+
+        void incr_front( size_type n ) noexcept
+        {
+                from_ = from_ + n;
+        }
+
+        auto front_idx() const noexcept
+        {
+                return from_.load() % max_size;
+        }
+
+        void incr_back() noexcept
+        {
+                to_ = to_ + 1;
+        }
+
+        void incr_back( size_type n ) noexcept
+        {
+                to_ = to_ + n;
+        }
+
+        auto back_idx() const noexcept
+        {
+                return to_.load() % max_size;
+        }
+
+        auto size() const noexcept
+        {
+                return static_cast< size_type >( to_ - from_ );
+        }
+
+        bool empty() const noexcept
+        {
+                return from_ == to_;
+        }
+
+        bool full() const noexcept
+        {
+                return size() == static_cast< size_type >( max_size );
+        }
+
+        index_type last_idx() const noexcept
+        {
+                return ( to_ + max_size - 1 ) % max_size;
+        }
+
+private:
+        index_type from_ = 0;
+        index_type to_   = 0;
+};
+
+template < typename T, std::size_t N >
+auto _select_strategy()
+{
+        static constexpr bool is_power_of_two = N && !( N & ( N - 1 ) );
+        if constexpr ( is_power_of_two )
+                return _overflow_strategy< N >{};
+        else
+                return _spacer_strategy< N >{};
+}
 
 /// Class implementing circular buffer of any type for up to N elements. This should work for
 /// generic type T, not just simple types.
@@ -46,22 +199,19 @@ class static_circular_buffer_iterator;
 /// In case of copy or move operations, the buffer does not have to store the data internally in
 /// same manner, the data are equivavlent only from the perspective of push/pop operations.
 ///
-template < typename T, std::size_t N >
-class static_circular_buffer
+template < typename T, std::size_t N, typename Strategy = decltype( _select_strategy< T, N >() ) >
+struct static_circular_buffer
 {
+        static constexpr std::size_t max_size = Strategy::max_size;
 
-public:
-        static constexpr std::size_t max_size = N;
-
-        // XXX: derive this
-        using index_type = int32_t;
+        using index_type = typename Strategy::index_type;
+        using size_type  = typename Strategy::size_type;
 
         static_assert(
-            N < std::numeric_limits< index_type >::max(),
+            N < std::numeric_limits< typename index_type::value_type >::max(),
             "static_circular_buffer: N must be less than index_type max value" );
 
         using value_type      = T;
-        using size_type       = uint32_t;
         using reference       = T&;
         using const_reference = T const&;
         using iterator        = static_circular_buffer_iterator< T >;
@@ -101,35 +251,40 @@ public:
 
         /// methods for handling the front side of the circular buffer
 
-        [[nodiscard]] iterator begin()
+        [[nodiscard]] iterator begin() noexcept
         {
-                return iterator{ storage_.data(), storage_.data() + N, storage_.data() + from_ };
+                return iterator{
+                    storage_.data(),
+                    storage_.data() + max_size,
+                    storage_.data() + strategy_.front_idx() };
         }
 
-        [[nodiscard]] const_iterator begin() const
+        [[nodiscard]] const_iterator begin() const noexcept
         {
                 return const_iterator{
-                    storage_.data(), storage_.data() + N, storage_.data() + from_ };
+                    storage_.data(),
+                    storage_.data() + max_size,
+                    storage_.data() + strategy_.front_idx() };
         }
 
-        [[nodiscard]] std::reverse_iterator< iterator > rbegin()
+        [[nodiscard]] std::reverse_iterator< iterator > rbegin() noexcept
         {
                 return std::make_reverse_iterator( end() );
         };
 
-        [[nodiscard]] std::reverse_iterator< const_iterator > rbegin() const
+        [[nodiscard]] std::reverse_iterator< const_iterator > rbegin() const noexcept
         {
                 return std::make_reverse_iterator( end() );
         };
 
-        [[nodiscard]] reference front()
+        [[nodiscard]] reference front() noexcept
         {
-                return storage_[static_cast< size_type >( from_ )];
+                return storage_[static_cast< size_type >( strategy_.front_idx() )];
         }
 
-        [[nodiscard]] const_reference front() const
+        [[nodiscard]] const_reference front() const noexcept
         {
-                return storage_[static_cast< size_type >( from_ )];
+                return storage_[static_cast< size_type >( strategy_.front_idx() )];
         }
 
         [[nodiscard]] T take_front()
@@ -141,49 +296,62 @@ public:
 
         void pop_front()
         {
-                storage_.delete_item( static_cast< size_type >( from_ ) );
-                from_ = next( from_ );
-                if ( from_ == to_ )
-                        from_ = -1;
+                storage_.delete_item( static_cast< size_type >( strategy_.front_idx() ) );
+                strategy_.incr_front();
         }
 
         void pop_front( size_type n )
         {
-                for ( size_type i = 0; i < n; i++ )
-                        pop_front();
+                auto idx      = strategy_.front_idx();
+                auto capacity = max_size - idx;
+                if ( capacity >= n ) {
+                        for ( size_type i = 0; i < n; i++ )
+                                storage_.delete_item( static_cast< size_type >( idx + i ) );
+                } else {
+                        for ( size_type i = 0; i < capacity; i++ )
+                                storage_.delete_item( static_cast< size_type >( idx + i ) );
+                        for ( size_type i = 0; i < n - capacity; i++ )
+                                storage_.delete_item( static_cast< size_type >( i ) );
+                }
+                strategy_.incr_front( n );
         }
 
         /// methods for handling the back side of the circular buffer
 
-        [[nodiscard]] iterator end()
+        [[nodiscard]] iterator end() noexcept
         {
-                return iterator{ storage_.data(), storage_.data() + N, storage_.data() + to_ };
+                return iterator{
+                    storage_.data(),
+                    storage_.data() + max_size,
+                    storage_.data() + strategy_.back_idx() };
         }
 
-        [[nodiscard]] const_iterator end() const
+        [[nodiscard]] const_iterator end() const noexcept
         {
                 return const_iterator{
-                    storage_.data(), storage_.data() + N, storage_.data() + to_ };
+                    storage_.data(),
+                    storage_.data() + max_size,
+                    storage_.data() + strategy_.back_idx() };
         }
 
-        [[nodiscard]] std::reverse_iterator< iterator > rend()
+        [[nodiscard]] std::reverse_iterator< iterator > rend() noexcept
         {
                 return std::make_reverse_iterator( begin() );
         };
 
-        [[nodiscard]] std::reverse_iterator< const_iterator > rend() const
+        [[nodiscard]] std::reverse_iterator< const_iterator > rend() const noexcept
         {
                 return std::make_reverse_iterator( begin() );
         };
 
-        [[nodiscard]] reference back()
+        [[nodiscard]] reference back() noexcept
         {
-                return storage_[static_cast< size_type >( prev( to_ ) )];
+                return storage_[static_cast< size_type >( strategy_.last_idx() )];
         }
 
-        [[nodiscard]] const_reference back() const
+        [[nodiscard]] const_reference back() const noexcept
         {
-                return storage_[static_cast< size_type >( prev( to_ ) )];
+                return storage_[static_cast< size_type >( strategy_.last_idx() )];
         }
 
         void push_back( T item )
@@ -195,39 +363,51 @@ public:
         T& emplace_back( Args&&... args )
         {
                 T& ref = storage_.emplace_item(
-                    static_cast< size_type >( to_ ), std::forward< Args >( args )... );
-                if ( from_ == -1 )
-                        from_ = to_;
-                to_ = next( to_ );
+                    static_cast< size_type >( strategy_.back_idx() ),
+                    std::forward< Args >( args )... );
+                strategy_.incr_back();
                 return ref;
+        }
+
+        void append_range_back( auto&& range )
+        {
+                auto idx      = strategy_.back_idx();
+                auto capacity = static_cast< size_type >( max_size - idx );
+                auto n        = std::size( range );
+                if ( capacity >= n ) {
+                        std::uninitialized_copy_n(
+                            std::begin( range ), n, &storage_[static_cast< size_type >( idx )] );
+                } else {
+                        std::uninitialized_copy_n(
+                            std::begin( range ),
+                            capacity,
+                            &storage_[static_cast< size_type >( idx )] );
+                        std::uninitialized_copy_n(
+                            std::begin( range ) + capacity, n - capacity, &storage_[0] );
+                }
+                strategy_.incr_back( static_cast< size_type >( n ) );
         }
 
         /// other methods
 
-        [[nodiscard]] constexpr size_type capacity() const
+        [[nodiscard]] constexpr size_type capacity() const noexcept
         {
                 return N;
         }
 
         [[nodiscard]] size_type size() const
         {
-                if ( from_ == -1 )
-                        return 0;
-                auto t = static_cast< size_type >( to_ );
-                auto f = static_cast< size_type >( from_ );
-                if ( t >= f )
-                        return t - f;
-                return t + ( N - f );
+                return static_cast< size_type >( strategy_.size() );
         }
 
-        [[nodiscard]] bool empty() const
+        [[nodiscard]] bool empty() const noexcept
         {
-                return from_ == -1;
+                return strategy_.empty();
         }
 
-        [[nodiscard]] bool full() const
+        [[nodiscard]] bool full() const noexcept
         {
-                return from_ != -1 && to_ == from_;
+                return strategy_.full();
         }
 
         void clear()
@@ -241,9 +421,8 @@ public:
         }
 
 private:
-        static_storage< T, N > storage_;
-        index_type             from_ = -1;  /// index of the first item
-        index_type             to_   = 0;   /// index past the last item
+        static_storage< T, max_size > storage_;
+        Strategy                      strategy_;
 
         void purge()
         {
@@ -253,32 +432,15 @@ private:
 
         void copy_from( static_circular_buffer const& other )
         {
-                from_       = 0;
-                to_         = static_cast< index_type >( other.size() );
-                size_type i = 0;
-                for ( T const& item : other )
-                        storage_.emplace_item( i++, item );
+                for ( auto const& item : other )
+                        emplace_back( item );
         }
 
         void move_from( static_circular_buffer& other ) noexcept
         {
                 static_assert( std::is_nothrow_move_constructible_v< T > );
-                from_       = 0;
-                to_         = static_cast< index_type >( other.size() );
-                size_type i = 0;
-                for ( T& item : other )
-                        storage_.emplace_item( i++, std::move( item ) );
-        }
-
-        /// Use this only when moving the indexes in the circular buffer - bullet-proof.
-        [[nodiscard]] static constexpr index_type next( index_type const i ) noexcept
-        {
-                return static_cast< size_type >( i + 1 ) % N;
-        }
-
-        [[nodiscard]] static constexpr index_type prev( index_type const i ) noexcept
-        {
-                return i == 0 ? N - 1 : i - 1;
+                for ( auto& item : other )
+                        emplace_back( std::move( item ) );
         }
 
         template < typename U >
@@ -383,8 +545,9 @@ public:
 
         static_circular_buffer_iterator& operator--() noexcept
         {
-                if ( p_ == beg_ )
-                        p_ = end_;
+                p_--;
+                if ( p_ == ( beg_ - 1 ) )
+                        p_ = end_ - 1;
                 return *this;
         }
 

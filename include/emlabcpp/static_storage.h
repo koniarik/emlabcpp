@@ -127,9 +127,8 @@ struct static_storage< T, N >
 
         /// Deconstructs an item at position i
         constexpr void
-        delete_item( size_type const i ) noexcept( std::is_nothrow_destructible_v< T > )
+        delete_item( size_type const ) noexcept( std::is_nothrow_destructible_v< T > )
         {
-                data_[i] = T{};
         }
 
         /// Provides a reference to item at position i

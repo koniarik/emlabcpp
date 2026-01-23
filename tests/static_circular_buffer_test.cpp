@@ -311,6 +311,123 @@ TEST( static_circular_buffer_test, back )
         EXPECT_EQ( tbuff.back(), 8 );
 }
 
+TEST( static_circular_buffer_test, iterator_decrement )
+{
+        trivial_buffer tbuff;
+        for ( int const i : { 1, 2, 3, 4, 5 } )
+                tbuff.push_back( i );
+
+        std::vector< int > rev;
+        for ( auto it = tbuff.end(); it != tbuff.begin(); ) {
+                --it;
+                std::cout << *it << "\n";
+                rev.push_back( *it );
+        }
+
+        std::vector< int > expected = { 5, 4, 3, 2, 1 };
+        EXPECT_EQ( rev, expected );
+}
+
+TEST( static_circular_buffer_test, wraparound_sequence )
+{
+        trivial_buffer tbuff;
+        for ( int i = 1; i <= 7; ++i )
+                tbuff.push_back( i );
+
+        // remove three items so we force wrap-around on subsequent pushes
+        tbuff.pop_front();
+        tbuff.pop_front();
+        tbuff.pop_front();
+
+        for ( int i = 8; i <= 10; ++i )
+                tbuff.push_back( i );
+
+        std::vector< int > res;
+        for ( int const v : tbuff )
+                res.push_back( v );
+
+        std::vector< int > expected = { 4, 5, 6, 7, 8, 9, 10 };
+        EXPECT_EQ( res, expected );
+}
+
+TEST( static_circular_buffer_test, full_copy_move )
+{
+        trivial_buffer tbuff;
+        for ( int i = 1; i <= 7; ++i )
+                tbuff.push_back( i );
+
+        trivial_buffer cpy{ tbuff };
+        EXPECT_EQ( cpy, tbuff );
+
+        trivial_buffer moved{ std::move( tbuff ) };
+        EXPECT_EQ( cpy, moved );
+}
+
+TEST( static_circular_buffer_test, append_range_back_trivial_no_wrap )
+{
+        trivial_buffer tbuff;
+        // start with two items
+        tbuff.push_back( 1 );
+        tbuff.push_back( 2 );
+
+        std::vector< int > to_append = { 10, 11, 12 };
+        tbuff.append_range_back( to_append );
+
+        std::vector< int > res;
+        for ( int v : tbuff )
+                res.push_back( v );
+
+        std::vector< int > expected = { 1, 2, 10, 11, 12 };
+        EXPECT_EQ( res, expected );
+        EXPECT_EQ( tbuff.size(), expected.size() );
+}
+
+TEST( static_circular_buffer_test, append_range_back_trivial_wrap )
+{
+        trivial_buffer tbuff;
+        // fill buffer
+        for ( int i = 1; i <= 7; ++i )
+                tbuff.push_back( i );
+
+        // remove three items so back_idx is near end and append will wrap
+        tbuff.pop_front();
+        tbuff.pop_front();
+        tbuff.pop_front();
+
+        std::vector< int > to_append = { 8, 9, 10 };
+        tbuff.append_range_back( to_append );
+
+        std::vector< int > res;
+        for ( int v : tbuff )
+                res.push_back( v );
+
+        std::vector< int > expected = { 4, 5, 6, 7, 8, 9, 10 };
+        EXPECT_EQ( res, expected );
+        EXPECT_EQ( tbuff.size(), expected.size() );
+}
+
+TEST( static_circular_buffer_test, append_range_back_object_wrap )
+{
+        obj_buffer obuff;
+        for ( std::string s : { "a", "b", "c", "d", "e", "f", "g" } )
+                obuff.push_back( std::move( s ) );
+
+        obuff.pop_front();
+        obuff.pop_front();
+        obuff.pop_front();
+
+        std::vector< std::string > to_append = { "h", "i", "j" };
+        obuff.append_range_back( to_append );
+
+        std::vector< std::string > res;
+        for ( auto const& s : obuff )
+                res.push_back( s );
+
+        std::vector< std::string > expected = { "d", "e", "f", "g", "h", "i", "j" };
+        EXPECT_EQ( res, expected );
+        EXPECT_EQ( obuff.size(), expected.size() );
+}
+
 struct operations_counter_circular_buffer
 {
         using container_type           = static_circular_buffer< operations_counter, 32 >;
