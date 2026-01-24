@@ -307,8 +307,10 @@ var hierarchy =
       [ "emlabcpp::static_size< T >", "structemlabcpp_1_1static__size.html", null ]
     ] ],
     [ "emlabcpp::impl::static_size< std::tuple< Ts... > >", "structemlabcpp_1_1impl_1_1static__size_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html", null ],
-    [ "emlabcpp::static_storage< T, N >", "structemlabcpp_1_1static__storage.html", null ],
-    [ "emlabcpp::static_storage< T, max_size >", "structemlabcpp_1_1static__storage.html", null ],
+    [ "emlabcpp::static_storage_base", "structemlabcpp_1_1static__storage__base.html", [
+      [ "emlabcpp::static_storage< T, max_size >", "structemlabcpp_1_1static__storage.html", null ],
+      [ "emlabcpp::static_storage< T, N >", "structemlabcpp_1_1static__storage.html", null ]
+    ] ],
     [ "emlabcpp::static_vector< T, N >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::static_vector< uint16_t, PoolCount >", "classemlabcpp_1_1static__vector.html", null ],
     [ "emlabcpp::status< Derived, Enum >", "structemlabcpp_1_1status.html", null ],

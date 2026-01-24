@@ -93,6 +93,9 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1__overflow__strategy
 </div><!--header-->
 <div class="contents">
 
+<p>Strategy for managing indices in circular buffer via overflowing indices.  
+ <a href="structemlabcpp_1_1__overflow__strategy.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="static__circular__buffer_8h_source.html">static_circular_buffer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -130,7 +133,13 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:aebb4b3a3519b75fcbe2829f3b45a2e67"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#aebb4b3a3519b75fcbe2829f3b45a2e67">max_size</a> = <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a></td></tr>
 <tr class="separator:aebb4b3a3519b75fcbe2829f3b45a2e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;std::size_t N&gt;<br />
+struct emlabcpp::_overflow_strategy&lt; N &gt;</h3>
+
+<p>Strategy for managing indices in circular buffer via overflowing indices. </p>
+<p>This strategy allows to use all N slots of the buffer by allowing the indices to overflow. This works correctly as long as buffer size is power of two. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="af8c4b05098a9da9f7ea7317b85f16be6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af8c4b05098a9da9f7ea7317b85f16be6">&#9670;&nbsp;</a></span>index_type</h2>
 
@@ -478,7 +487,7 @@ template&lt;std::size_t N&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html">_overflow_strategy</a></li>
-    <li class="footer">Generated on Fri Jan 23 2026 22:10:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 24 2026 10:31:52 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

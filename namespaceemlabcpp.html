@@ -239,8 +239,10 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__circular__buffer__iterator.html">static_circular_buffer_iterator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__spacer__strategy.html">_spacer_strategy</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strategy for managing indices in circular buffer via empty slot.  <a href="structemlabcpp_1_1__spacer__strategy.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html">_overflow_strategy</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strategy for managing indices in circular buffer via overflowing indices.  <a href="structemlabcpp_1_1__overflow__strategy.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class implementing circular buffer of any type for up to N elements.  <a href="structemlabcpp_1_1static__circular__buffer.html#details">More...</a><br /></td></tr>
@@ -248,6 +250,8 @@ Classes</h2></td></tr>
 <tr class="memitem:classemlabcpp_1_1static__function__base"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#classemlabcpp_1_1static__function__base">static_function_base</a></td></tr>
 <tr class="separator:classemlabcpp_1_1static__function__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_01_4.html">static_function_base&lt; ReturnType(ArgTypes...), Capacity, Align &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__storage__base.html">static_storage_base</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__storage.html">static_storage</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Continuous data container that can contain N of uninitialized elements.  <a href="structemlabcpp_1_1static__storage.html#details">More...</a><br /></td></tr>
@@ -1008,9 +1012,17 @@ Functions</h2></td></tr>
 <tr class="memitem:aa6a005d416169624e48fd25482bb644b"><td class="memTemplItemLeft" align="right" valign="top">constexpr T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa6a005d416169624e48fd25482bb644b">emplace_item</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const i, Args &amp;&amp;... <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">args</a>) noexcept(std::is_nothrow_constructible_v&lt; T, Args... &gt;)</td></tr>
 <tr class="memdesc:aa6a005d416169624e48fd25482bb644b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an item at position i with arguments args...  <a href="namespaceemlabcpp.html#aa6a005d416169624e48fd25482bb644b">More...</a><br /></td></tr>
 <tr class="separator:aa6a005d416169624e48fd25482bb644b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0334c599c319b6adfd809af12ba844f8"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0334c599c319b6adfd809af12ba844f8">delete_item</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const) noexcept(std::is_nothrow_destructible_v&lt; T &gt;)</td></tr>
-<tr class="memdesc:a0334c599c319b6adfd809af12ba844f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deconstructs an item at position i.  <a href="namespaceemlabcpp.html#a0334c599c319b6adfd809af12ba844f8">More...</a><br /></td></tr>
-<tr class="separator:a0334c599c319b6adfd809af12ba844f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff5c1c0f2ffdf3cfa0b07d15f7a77c9f"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aff5c1c0f2ffdf3cfa0b07d15f7a77c9f">copy_n</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const i, <a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const n, auto iter) noexcept(std::is_nothrow_copy_constructible_v&lt; T &gt;)</td></tr>
+<tr class="memdesc:aff5c1c0f2ffdf3cfa0b07d15f7a77c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies <code>n</code> items from iterator <code>iter</code> to storage starting at position <code>i</code>  <a href="namespaceemlabcpp.html#aff5c1c0f2ffdf3cfa0b07d15f7a77c9f">More...</a><br /></td></tr>
+<tr class="separator:aff5c1c0f2ffdf3cfa0b07d15f7a77c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4274587250c873c829f74cff4604694b"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a4274587250c873c829f74cff4604694b">move_n</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const i, <a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const n, auto iter) noexcept(std::is_nothrow_move_constructible_v&lt; T &gt;)</td></tr>
+<tr class="memdesc:a4274587250c873c829f74cff4604694b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves <code>n</code> items from iterator <code>iter</code> to storage starting at position <code>i</code>  <a href="namespaceemlabcpp.html#a4274587250c873c829f74cff4604694b">More...</a><br /></td></tr>
+<tr class="separator:a4274587250c873c829f74cff4604694b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac72a7af970792a62490d9ce1e05c8ffb"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ac72a7af970792a62490d9ce1e05c8ffb">delete_n</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const, <a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const) noexcept</td></tr>
+<tr class="separator:ac72a7af970792a62490d9ce1e05c8ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18ab1734695086031c31de204076a9e1"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a18ab1734695086031c31de204076a9e1">delete_item</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const) noexcept</td></tr>
+<tr class="memdesc:a18ab1734695086031c31de204076a9e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deconstructs an item at position i.  <a href="namespaceemlabcpp.html#a18ab1734695086031c31de204076a9e1">More...</a><br /></td></tr>
+<tr class="separator:a18ab1734695086031c31de204076a9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38e01294f96a5357c8e80f5c27d081b3"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceemlabcpp.html#a32d3de1ecae7eb79f5f6073bcb407b70">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a38e01294f96a5357c8e80f5c27d081b3">operator[]</a> (<a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const i) noexcept</td></tr>
 <tr class="memdesc:a38e01294f96a5357c8e80f5c27d081b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a reference to item at position i.  <a href="namespaceemlabcpp.html#a38e01294f96a5357c8e80f5c27d081b3">More...</a><br /></td></tr>
 <tr class="separator:a38e01294f96a5357c8e80f5c27d081b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3406,6 +3418,52 @@ template&lt;container Container, typename Iterator &gt; </div>
 
 </div>
 </div>
+<a id="aff5c1c0f2ffdf3cfa0b07d15f7a77c9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff5c1c0f2ffdf3cfa0b07d15f7a77c9f">&#9670;&nbsp;</a></span>copy_n()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto emlabcpp::copy_n </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto&#160;</td>
+          <td class="paramname"><em>iter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies <code>n</code> items from iterator <code>iter</code> to storage starting at position <code>i</code> </p>
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1static__storage__base.html#a6e2ef7b0255a44ffec5f36d0773bb5f9">emlabcpp::static_storage_base::_copy_n()</a>, and <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data()</a>.</p>
+
+</div>
+</div>
 <a id="a89767bdacebf048b6e8cc6a17b9663a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89767bdacebf048b6e8cc6a17b9663a0">&#9670;&nbsp;</a></span>cos()</h2>
 
@@ -3642,8 +3700,8 @@ template&lt;decomposable_0 T&gt; </div>
 
 </div>
 </div>
-<a id="a0334c599c319b6adfd809af12ba844f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0334c599c319b6adfd809af12ba844f8">&#9670;&nbsp;</a></span>delete_item()</h2>
+<a id="a18ab1734695086031c31de204076a9e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18ab1734695086031c31de204076a9e1">&#9670;&nbsp;</a></span>delete_item()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3667,6 +3725,42 @@ template&lt;decomposable_0 T&gt; </div>
 </div><div class="memdoc">
 
 <p>Deconstructs an item at position i. </p>
+
+</div>
+</div>
+<a id="ac72a7af970792a62490d9ce1e05c8ffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac72a7af970792a62490d9ce1e05c8ffb">&#9670;&nbsp;</a></span>delete_n()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void emlabcpp::delete_n </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -5614,6 +5708,52 @@ template&lt;container Container, container_invocable&lt; Container &gt; UnaryCal
 <p>of 'f(x)' calls. Returns the default value of the 'f(x)' return type if container is empty. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, <a class="el" href="namespaceemlabcpp.html#a685395cc470dfed697a40d2c718af4e9">for_each()</a>, <a class="el" href="structstd_1_1numeric__limits_3_01T_01_4.html#ab2251fa06cfdeeb61d213db89ad08554">std::numeric_limits&lt; T &gt;::lowest()</a>, <a class="el" href="namespaceemlabcpp.html#abe9cf42b0add3aa7eac2b215455f98ed">max()</a>, <a class="el" href="namespaceemlabcpp.html#ac6a2f5b7b14c057c158d28c8e7538839">min()</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+
+</div>
+</div>
+<a id="a4274587250c873c829f74cff4604694b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4274587250c873c829f74cff4604694b">&#9670;&nbsp;</a></span>move_n()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto emlabcpp::move_n </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceemlabcpp.html#a1f96077b9c4ba6a57d7dc290fb7670c5">size_type</a> const&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto&#160;</td>
+          <td class="paramname"><em>iter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves <code>n</code> items from iterator <code>iter</code> to storage starting at position <code>i</code> </p>
+
+<p class="reference">References <a class="el" href="structemlabcpp_1_1static__storage__base.html#aea1860b5a3f5a15c3fb089df4d1fdb7a">emlabcpp::static_storage_base::_move_n()</a>, and <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data()</a>.</p>
 
 </div>
 </div>
@@ -9800,7 +9940,7 @@ template&lt;typename T &gt; </div>
 <div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>( a ); } || <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { <a class="code" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">std::data</a>( a ); } ) &amp;&amp;</div>
 <div class="line">    (</div>
 <div class="line">        <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { size( a ); } || <a class="code" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a>( T a ) { std::size( a ); } )</div>
-<div class="ttc" id="anamespaceemlabcpp_html_a22d3558f494b4daf086216cedf167ba7"><div class="ttname"><a href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data</a></div><div class="ttdeci">constexpr pointer data() noexcept</div><div class="ttdoc">Returns pointer to first item of the storage.</div><div class="ttdef"><b>Definition:</b> static_storage.h:108</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a22d3558f494b4daf086216cedf167ba7"><div class="ttname"><a href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data</a></div><div class="ttdeci">constexpr pointer data() noexcept</div><div class="ttdoc">Returns pointer to first item of the storage.</div><div class="ttdef"><b>Definition:</b> static_storage.h:168</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -10169,7 +10309,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
 <div class="line">        <span class="keyword">static</span> constexpr std::size_t capacity = <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a></div>
-<div class="ttc" id="anamespaceemlabcpp_html_aefd95e49f36531f3571bdf192561e42c"><div class="ttname"><a href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a></div><div class="ttdeci">N</div><div class="ttdef"><b>Definition:</b> static_storage.h:97</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_aefd95e49f36531f3571bdf192561e42c"><div class="ttname"><a href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a></div><div class="ttdeci">N</div><div class="ttdef"><b>Definition:</b> static_storage.h:157</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -10733,7 +10873,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Fri Jan 23 2026 22:10:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 24 2026 10:31:52 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

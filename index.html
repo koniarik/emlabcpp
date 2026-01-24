@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a></p><div align="center"></div><div align="center">C++ embedded library</div><div align="center"><hr  />
-</div><div align="center"><a href="https://koniarik.github.io/emlabcpp/index.html">Documentation</a></div><div align="center"></div><p>An opinionated C++20 library focusing on embedded development. It provides a wide set of tools, from complex mechanisms (protocol library) to simple utilites (view).</p>
+</div><div align="center"><a href="https://koniarik.github.io/emlabcpp/index.html">Documentation</a></div><div align="center"></div><p>An opinionated C++23 library focusing on embedded development. It provides a wide set of tools, from complex mechanisms (protocol library) to simple utilites (view).</p>
 <p>Want help? Find <code>veverak</code> on <a href="https://discord.com/invite/embedded">Amulius Embedded Discord</a></p>
 <ul>
 <li><a href="#Installation">Installation</a></li>
@@ -288,7 +288,7 @@ types.h</h3>
 <div class="line"><span class="keyword">using</span> fun_t = decltype(fun);</div>
 <div class="line"> </div>
 <div class="line">static_assert(std::is_same_v&lt;mapped_t&lt;data, fun_t&gt;, std::string&gt;);</div>
-<div class="ttc" id="anamespaceemlabcpp_html_a22d3558f494b4daf086216cedf167ba7"><div class="ttname"><a href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data</a></div><div class="ttdeci">constexpr pointer data() noexcept</div><div class="ttdoc">Returns pointer to first item of the storage.</div><div class="ttdef"><b>Definition:</b> static_storage.h:108</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a22d3558f494b4daf086216cedf167ba7"><div class="ttname"><a href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data</a></div><div class="ttdeci">constexpr pointer data() noexcept</div><div class="ttdoc">Returns pointer to first item of the storage.</div><div class="ttdef"><b>Definition:</b> static_storage.h:168</div></div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md20"></a>
 view.h</h3>
 <p>Simple container storing a pair of iterators - non-owning container of data. This make it possible to pass a subset of container to API expecting a container itself. It is also more sensible for functions that would return <code>std::pair</code> of iterators.</p>
@@ -349,7 +349,7 @@ zip.h</h3>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jan 23 2026 22:10:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 24 2026 10:31:52 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

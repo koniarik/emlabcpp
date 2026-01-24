@@ -119,66 +119,96 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aee29c64a129ae803a4c74e6b7cd0e1df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#aee29c64a129ae803a4c74e6b7cd0e1df">static_circular_buffer</a> () noexcept=default</td></tr>
+<tr class="memdesc:aee29c64a129ae803a4c74e6b7cd0e1df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructed circular buffer is empty.  <a href="structemlabcpp_1_1static__circular__buffer.html#aee29c64a129ae803a4c74e6b7cd0e1df">More...</a><br /></td></tr>
 <tr class="separator:aee29c64a129ae803a4c74e6b7cd0e1df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5a588bcbb278130ee6f6d6f76b75fe9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#aa5a588bcbb278130ee6f6d6f76b75fe9">static_circular_buffer</a> (<a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a> const &amp;other)</td></tr>
 <tr class="separator:aa5a588bcbb278130ee6f6d6f76b75fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3af0fbe46731976097d851dbcc639e93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a3af0fbe46731976097d851dbcc639e93">static_circular_buffer</a> (<a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a> &amp;&amp;other) noexcept</td></tr>
 <tr class="separator:a3af0fbe46731976097d851dbcc639e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f687548226b7b9ef130cc67c9d36cb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a7f687548226b7b9ef130cc67c9d36cb2">operator=</a> (<a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a> const &amp;other)</td></tr>
+<tr class="memdesc:a7f687548226b7b9ef130cc67c9d36cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the buffer by destructing all contained elements and copies from other buffer.  <a href="structemlabcpp_1_1static__circular__buffer.html#a7f687548226b7b9ef130cc67c9d36cb2">More...</a><br /></td></tr>
 <tr class="separator:a7f687548226b7b9ef130cc67c9d36cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afda6576099bc9dc22422f79b5d494aa6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#afda6576099bc9dc22422f79b5d494aa6">operator=</a> (<a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:afda6576099bc9dc22422f79b5d494aa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the buffer by destructing all contained elements and moves from other buffer.  <a href="structemlabcpp_1_1static__circular__buffer.html#afda6576099bc9dc22422f79b5d494aa6">More...</a><br /></td></tr>
 <tr class="separator:afda6576099bc9dc22422f79b5d494aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a0aed5f291946cd3b4871894adfa77c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#afd685d6bb261f319a881d987ee14015e">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a3a0aed5f291946cd3b4871894adfa77c">begin</a> () noexcept</td></tr>
-<tr class="memdesc:a3a0aed5f291946cd3b4871894adfa77c"><td class="mdescLeft">&#160;</td><td class="mdescRight">methods for handling the front side of the circular buffer  <a href="structemlabcpp_1_1static__circular__buffer.html#a3a0aed5f291946cd3b4871894adfa77c">More...</a><br /></td></tr>
+<tr class="memdesc:a3a0aed5f291946cd3b4871894adfa77c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator to first element.  <a href="structemlabcpp_1_1static__circular__buffer.html#a3a0aed5f291946cd3b4871894adfa77c">More...</a><br /></td></tr>
 <tr class="separator:a3a0aed5f291946cd3b4871894adfa77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0619e98d3ed8f64162f4c95da34f4c1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a2049c5f7f96c8c2751156e30ad1a6100">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a0619e98d3ed8f64162f4c95da34f4c1d">begin</a> () const noexcept</td></tr>
+<tr class="memdesc:a0619e98d3ed8f64162f4c95da34f4c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator to first element.  <a href="structemlabcpp_1_1static__circular__buffer.html#a0619e98d3ed8f64162f4c95da34f4c1d">More...</a><br /></td></tr>
 <tr class="separator:a0619e98d3ed8f64162f4c95da34f4c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49bb9828a3a962d14c4743b00d2b2ad1"><td class="memItemLeft" align="right" valign="top">std::reverse_iterator&lt; <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#afd685d6bb261f319a881d987ee14015e">iterator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a49bb9828a3a962d14c4743b00d2b2ad1">rbegin</a> () noexcept</td></tr>
+<tr class="memdesc:a49bb9828a3a962d14c4743b00d2b2ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse iterator to last element.  <a href="structemlabcpp_1_1static__circular__buffer.html#a49bb9828a3a962d14c4743b00d2b2ad1">More...</a><br /></td></tr>
 <tr class="separator:a49bb9828a3a962d14c4743b00d2b2ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00ea97c2a07aec19070e672a6a856e67"><td class="memItemLeft" align="right" valign="top">std::reverse_iterator&lt; <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a2049c5f7f96c8c2751156e30ad1a6100">const_iterator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a00ea97c2a07aec19070e672a6a856e67">rbegin</a> () const noexcept</td></tr>
+<tr class="memdesc:a00ea97c2a07aec19070e672a6a856e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse iterator to last element.  <a href="structemlabcpp_1_1static__circular__buffer.html#a00ea97c2a07aec19070e672a6a856e67">More...</a><br /></td></tr>
 <tr class="separator:a00ea97c2a07aec19070e672a6a856e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada0aa4700f104f4734c75cc6aeb24753"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a434bcc3c459dfa145760a206bdfec825">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#ada0aa4700f104f4734c75cc6aeb24753">front</a> () noexcept</td></tr>
+<tr class="memdesc:ada0aa4700f104f4734c75cc6aeb24753"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to first element.  <a href="structemlabcpp_1_1static__circular__buffer.html#ada0aa4700f104f4734c75cc6aeb24753">More...</a><br /></td></tr>
 <tr class="separator:ada0aa4700f104f4734c75cc6aeb24753"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4d7e4de7b371ebdeaf097f11436d903"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#aae6a90dde02699ec13faac8fa6f48d88">const_reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#aa4d7e4de7b371ebdeaf097f11436d903">front</a> () const noexcept</td></tr>
+<tr class="memdesc:aa4d7e4de7b371ebdeaf097f11436d903"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to first element.  <a href="structemlabcpp_1_1static__circular__buffer.html#aa4d7e4de7b371ebdeaf097f11436d903">More...</a><br /></td></tr>
 <tr class="separator:aa4d7e4de7b371ebdeaf097f11436d903"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcbebc95ea8807a19227f1188ed1b4ec"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#adcbebc95ea8807a19227f1188ed1b4ec">take_front</a> ()</td></tr>
+<tr class="memdesc:adcbebc95ea8807a19227f1188ed1b4ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes and returns first element, is safe in SPSC scenario.  <a href="structemlabcpp_1_1static__circular__buffer.html#adcbebc95ea8807a19227f1188ed1b4ec">More...</a><br /></td></tr>
 <tr class="separator:adcbebc95ea8807a19227f1188ed1b4ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31da728805ccd44d9b55f35aba4a5008"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a31da728805ccd44d9b55f35aba4a5008">take_front</a> (auto &amp;&amp;buffer)</td></tr>
+<tr class="memdesc:a31da728805ccd44d9b55f35aba4a5008"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes and moves first n elements into provided buffer, is safe in SPSC scenario.  <a href="structemlabcpp_1_1static__circular__buffer.html#a31da728805ccd44d9b55f35aba4a5008">More...</a><br /></td></tr>
+<tr class="separator:a31da728805ccd44d9b55f35aba4a5008"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cfc87584eecd59d659f47357d04c2a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a6cfc87584eecd59d659f47357d04c2a3">pop_front</a> ()</td></tr>
+<tr class="memdesc:a6cfc87584eecd59d659f47357d04c2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes first element, is safe in SPSC scenario.  <a href="structemlabcpp_1_1static__circular__buffer.html#a6cfc87584eecd59d659f47357d04c2a3">More...</a><br /></td></tr>
 <tr class="separator:a6cfc87584eecd59d659f47357d04c2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fc25d8ec0b4643d6b3a50ec583291b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a9fc25d8ec0b4643d6b3a50ec583291b0">pop_front</a> (<a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a7d2169a8457ca3a5fd20ccb4e280eadf">size_type</a> n)</td></tr>
+<tr class="memdesc:a9fc25d8ec0b4643d6b3a50ec583291b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes first n elements, is safe in SPSC scenario.  <a href="structemlabcpp_1_1static__circular__buffer.html#a9fc25d8ec0b4643d6b3a50ec583291b0">More...</a><br /></td></tr>
 <tr class="separator:a9fc25d8ec0b4643d6b3a50ec583291b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12df6aacce8e6c067099dce9371e8e69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#afd685d6bb261f319a881d987ee14015e">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a12df6aacce8e6c067099dce9371e8e69">end</a> () noexcept</td></tr>
-<tr class="memdesc:a12df6aacce8e6c067099dce9371e8e69"><td class="mdescLeft">&#160;</td><td class="mdescRight">methods for handling the back side of the circular buffer  <a href="structemlabcpp_1_1static__circular__buffer.html#a12df6aacce8e6c067099dce9371e8e69">More...</a><br /></td></tr>
+<tr class="memdesc:a12df6aacce8e6c067099dce9371e8e69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator to one-past-last element.  <a href="structemlabcpp_1_1static__circular__buffer.html#a12df6aacce8e6c067099dce9371e8e69">More...</a><br /></td></tr>
 <tr class="separator:a12df6aacce8e6c067099dce9371e8e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accb1da737cd759a624dac11075ff976b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a2049c5f7f96c8c2751156e30ad1a6100">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#accb1da737cd759a624dac11075ff976b">end</a> () const noexcept</td></tr>
+<tr class="memdesc:accb1da737cd759a624dac11075ff976b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator to one-past-last element.  <a href="structemlabcpp_1_1static__circular__buffer.html#accb1da737cd759a624dac11075ff976b">More...</a><br /></td></tr>
 <tr class="separator:accb1da737cd759a624dac11075ff976b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ad1938369e54da14358e00c624d332f"><td class="memItemLeft" align="right" valign="top">std::reverse_iterator&lt; <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#afd685d6bb261f319a881d987ee14015e">iterator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a3ad1938369e54da14358e00c624d332f">rend</a> () noexcept</td></tr>
+<tr class="memdesc:a3ad1938369e54da14358e00c624d332f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse iterator to one-before-first element.  <a href="structemlabcpp_1_1static__circular__buffer.html#a3ad1938369e54da14358e00c624d332f">More...</a><br /></td></tr>
 <tr class="separator:a3ad1938369e54da14358e00c624d332f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7d97d39b96cc628914b0d265f1b980a"><td class="memItemLeft" align="right" valign="top">std::reverse_iterator&lt; <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a2049c5f7f96c8c2751156e30ad1a6100">const_iterator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#aa7d97d39b96cc628914b0d265f1b980a">rend</a> () const noexcept</td></tr>
+<tr class="memdesc:aa7d97d39b96cc628914b0d265f1b980a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse iterator to one-before-first element.  <a href="structemlabcpp_1_1static__circular__buffer.html#aa7d97d39b96cc628914b0d265f1b980a">More...</a><br /></td></tr>
 <tr class="separator:aa7d97d39b96cc628914b0d265f1b980a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a001ba032aabeb60ec3f93a7ce8b8a84f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a434bcc3c459dfa145760a206bdfec825">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a001ba032aabeb60ec3f93a7ce8b8a84f">back</a> () noexcept</td></tr>
+<tr class="memdesc:a001ba032aabeb60ec3f93a7ce8b8a84f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to last element.  <a href="structemlabcpp_1_1static__circular__buffer.html#a001ba032aabeb60ec3f93a7ce8b8a84f">More...</a><br /></td></tr>
 <tr class="separator:a001ba032aabeb60ec3f93a7ce8b8a84f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d524d5703e6d82f031c93a54b06f0d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#aae6a90dde02699ec13faac8fa6f48d88">const_reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a2d524d5703e6d82f031c93a54b06f0d3">back</a> () const noexcept</td></tr>
+<tr class="memdesc:a2d524d5703e6d82f031c93a54b06f0d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to last element.  <a href="structemlabcpp_1_1static__circular__buffer.html#a2d524d5703e6d82f031c93a54b06f0d3">More...</a><br /></td></tr>
 <tr class="separator:a2d524d5703e6d82f031c93a54b06f0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f69989e0f0cf36180e6773188f1c854"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a9f69989e0f0cf36180e6773188f1c854">push_back</a> (T item)</td></tr>
+<tr class="memdesc:a9f69989e0f0cf36180e6773188f1c854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts item at the back, is safe in SPSC scenario.  <a href="structemlabcpp_1_1static__circular__buffer.html#a9f69989e0f0cf36180e6773188f1c854">More...</a><br /></td></tr>
 <tr class="separator:a9f69989e0f0cf36180e6773188f1c854"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a697621c4f56f9c15b86b00a0e8357326"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:a697621c4f56f9c15b86b00a0e8357326"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a697621c4f56f9c15b86b00a0e8357326">emplace_back</a> (Args &amp;&amp;... <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">args</a>)</td></tr>
+<tr class="memdesc:a697621c4f56f9c15b86b00a0e8357326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts item constructed with args... at the back, is safe in SPSC scenario.  <a href="structemlabcpp_1_1static__circular__buffer.html#a697621c4f56f9c15b86b00a0e8357326">More...</a><br /></td></tr>
 <tr class="separator:a697621c4f56f9c15b86b00a0e8357326"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42c22c06b99712526b874cca51783bde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a42c22c06b99712526b874cca51783bde">append_range_back</a> (auto &amp;&amp;<a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>)</td></tr>
-<tr class="separator:a42c22c06b99712526b874cca51783bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4af4ac45cc643f5f1e9cd0d01ea8fb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#af4af4ac45cc643f5f1e9cd0d01ea8fb7">copy_range_back</a> (auto &amp;&amp;<a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>)</td></tr>
+<tr class="memdesc:af4af4ac45cc643f5f1e9cd0d01ea8fb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts range by copy at the back, is safe in SPSC scenario.  <a href="structemlabcpp_1_1static__circular__buffer.html#af4af4ac45cc643f5f1e9cd0d01ea8fb7">More...</a><br /></td></tr>
+<tr class="separator:af4af4ac45cc643f5f1e9cd0d01ea8fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1e81bba9de5422ded42f250da51ed2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#af1e81bba9de5422ded42f250da51ed2e">move_range_back</a> (auto &amp;&amp;<a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>)</td></tr>
+<tr class="memdesc:af1e81bba9de5422ded42f250da51ed2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts range by move at the back, is safe in SPSC scenario.  <a href="structemlabcpp_1_1static__circular__buffer.html#af1e81bba9de5422ded42f250da51ed2e">More...</a><br /></td></tr>
+<tr class="separator:af1e81bba9de5422ded42f250da51ed2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74a3524a22aa70a38f79c2ff37722a51"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a7d2169a8457ca3a5fd20ccb4e280eadf">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a74a3524a22aa70a38f79c2ff37722a51">capacity</a> () const noexcept</td></tr>
-<tr class="memdesc:a74a3524a22aa70a38f79c2ff37722a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">other methods  <a href="structemlabcpp_1_1static__circular__buffer.html#a74a3524a22aa70a38f79c2ff37722a51">More...</a><br /></td></tr>
+<tr class="memdesc:a74a3524a22aa70a38f79c2ff37722a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns maximum capacity of the buffer.  <a href="structemlabcpp_1_1static__circular__buffer.html#a74a3524a22aa70a38f79c2ff37722a51">More...</a><br /></td></tr>
 <tr class="separator:a74a3524a22aa70a38f79c2ff37722a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8159f70d7c308cc2e5fcc6193eb4ea5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a7d2169a8457ca3a5fd20ccb4e280eadf">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#ae8159f70d7c308cc2e5fcc6193eb4ea5">size</a> () const</td></tr>
+<tr class="memdesc:ae8159f70d7c308cc2e5fcc6193eb4ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns current size of the buffer.  <a href="structemlabcpp_1_1static__circular__buffer.html#ae8159f70d7c308cc2e5fcc6193eb4ea5">More...</a><br /></td></tr>
 <tr class="separator:ae8159f70d7c308cc2e5fcc6193eb4ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95471898f84a2a583999188b57dd6893"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a95471898f84a2a583999188b57dd6893">empty</a> () const noexcept</td></tr>
+<tr class="memdesc:a95471898f84a2a583999188b57dd6893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the buffer is empty.  <a href="structemlabcpp_1_1static__circular__buffer.html#a95471898f84a2a583999188b57dd6893">More...</a><br /></td></tr>
 <tr class="separator:a95471898f84a2a583999188b57dd6893"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd5c31f47c9cda48d81817103fde4d89"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#acd5c31f47c9cda48d81817103fde4d89">full</a> () const noexcept</td></tr>
+<tr class="memdesc:acd5c31f47c9cda48d81817103fde4d89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the buffer is full.  <a href="structemlabcpp_1_1static__circular__buffer.html#acd5c31f47c9cda48d81817103fde4d89">More...</a><br /></td></tr>
 <tr class="separator:acd5c31f47c9cda48d81817103fde4d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a688123d00aac1574cc93fb4f6e8ae252"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a688123d00aac1574cc93fb4f6e8ae252">clear</a> ()</td></tr>
+<tr class="memdesc:a688123d00aac1574cc93fb4f6e8ae252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the buffer by destructing all contained elements.  <a href="structemlabcpp_1_1static__circular__buffer.html#a688123d00aac1574cc93fb4f6e8ae252">More...</a><br /></td></tr>
 <tr class="separator:a688123d00aac1574cc93fb4f6e8ae252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a262ee394016c3477962ff8a711f756eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a262ee394016c3477962ff8a711f756eb">~static_circular_buffer</a> ()</td></tr>
+<tr class="memdesc:a262ee394016c3477962ff8a711f756eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor destructs all contained elements.  <a href="structemlabcpp_1_1static__circular__buffer.html#a262ee394016c3477962ff8a711f756eb">More...</a><br /></td></tr>
 <tr class="separator:a262ee394016c3477962ff8a711f756eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -197,12 +227,10 @@ Friends</h2></td></tr>
 struct emlabcpp::static_circular_buffer&lt; T, N, Strategy &gt;</h3>
 
 <p>Class implementing circular buffer of any type for up to N elements. </p>
-<p>This should work for generic type T, not just simple types.</p>
 <p>It is safe in "single consumer single producer" scenario between main loop and interrupts. Because of that the behavior is as follows:</p><ul>
 <li>on insertion, item is inserted and than index is advanced</li>
-<li>on removal, item is removed and than index is advanced</li>
+<li>on removal, item is removed and than index is advanced </li>
 </ul>
-<p>In case of copy or move operations, the buffer does not have to store the data internally in same manner, the data are equivavlent only from the perspective of push/pop operations. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a2049c5f7f96c8c2751156e30ad1a6100"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2049c5f7f96c8c2751156e30ad1a6100">&#9670;&nbsp;</a></span>const_iterator</h2>
@@ -342,6 +370,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
+<p>Default constructed circular buffer is empty. </p>
+
 </div>
 </div>
 <a id="aa5a588bcbb278130ee6f6d6f76b75fe9"></a>
@@ -425,39 +455,11 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
+<p>Destructor destructs all contained elements. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a42c22c06b99712526b874cca51783bde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42c22c06b99712526b874cca51783bde">&#9670;&nbsp;</a></span>append_range_back()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_strategy&lt; T, N &gt;() )&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::append_range_back </td>
-          <td>(</td>
-          <td class="paramtype">auto &amp;&amp;&#160;</td>
-          <td class="paramname"><em>range</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>, and <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">emlabcpp::range()</a>.</p>
-
-</div>
-</div>
 <a id="a2d524d5703e6d82f031c93a54b06f0d3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d524d5703e6d82f031c93a54b06f0d3">&#9670;&nbsp;</a></span>back() <span class="overload">[1/2]</span></h2>
 
@@ -482,6 +484,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reference to last element. </p>
 
 </div>
 </div>
@@ -510,6 +514,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
+<p>Reference to last element. </p>
+
 </div>
 </div>
 <a id="a0619e98d3ed8f64162f4c95da34f4c1d"></a>
@@ -536,6 +542,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Iterator to first element. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>.</p>
 
@@ -566,7 +574,7 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
-<p>methods for handling the front side of the circular buffer </p>
+<p>Iterator to first element. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>.</p>
 
@@ -597,7 +605,7 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
-<p>other methods </p>
+<p>Returns maximum capacity of the buffer. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a>.</p>
 
@@ -627,6 +635,40 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Clears the buffer by destructing all contained elements. </p>
+
+</div>
+</div>
+<a id="af4af4ac45cc643f5f1e9cd0d01ea8fb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4af4ac45cc643f5f1e9cd0d01ea8fb7">&#9670;&nbsp;</a></span>copy_range_back()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_strategy&lt; T, N &gt;() )&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::copy_range_back </td>
+          <td>(</td>
+          <td class="paramtype">auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>range</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inserts range by copy at the back, is safe in SPSC scenario. </p>
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>, and <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">emlabcpp::range()</a>.</p>
 
 </div>
 </div>
@@ -658,6 +700,8 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Inserts item constructed with args... at the back, is safe in SPSC scenario. </p>
+
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">emlabcpp::args</a>.</p>
 
 </div>
@@ -687,6 +731,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
+<p>Returns whether the buffer is empty. </p>
+
 </div>
 </div>
 <a id="accb1da737cd759a624dac11075ff976b"></a>
@@ -713,6 +759,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Iterator to one-past-last element. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>.</p>
 
@@ -743,7 +791,7 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
-<p>methods for handling the back side of the circular buffer </p>
+<p>Iterator to one-past-last element. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>.</p>
 
@@ -774,6 +822,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
+<p>Reference to first element. </p>
+
 </div>
 </div>
 <a id="ada0aa4700f104f4734c75cc6aeb24753"></a>
@@ -801,6 +851,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
+<p>Reference to first element. </p>
+
 </div>
 </div>
 <a id="acd5c31f47c9cda48d81817103fde4d89"></a>
@@ -827,6 +879,40 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns whether the buffer is full. </p>
+
+</div>
+</div>
+<a id="af1e81bba9de5422ded42f250da51ed2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1e81bba9de5422ded42f250da51ed2e">&#9670;&nbsp;</a></span>move_range_back()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_strategy&lt; T, N &gt;() )&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::move_range_back </td>
+          <td>(</td>
+          <td class="paramtype">auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>range</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inserts range by move at the back, is safe in SPSC scenario. </p>
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>, and <a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">emlabcpp::range()</a>.</p>
 
 </div>
 </div>
@@ -856,6 +942,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
+<p>Clears the buffer by destructing all contained elements and moves from other buffer. </p>
+
 </div>
 </div>
 <a id="a7f687548226b7b9ef130cc67c9d36cb2"></a>
@@ -884,6 +972,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
+<p>Clears the buffer by destructing all contained elements and copies from other buffer. </p>
+
 </div>
 </div>
 <a id="a6cfc87584eecd59d659f47357d04c2a3"></a>
@@ -910,6 +1000,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Removes first element, is safe in SPSC scenario. </p>
 
 </div>
 </div>
@@ -938,6 +1030,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Removes first n elements, is safe in SPSC scenario. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>.</p>
 
@@ -969,6 +1063,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
+<p>Inserts item at the back, is safe in SPSC scenario. </p>
+
 </div>
 </div>
 <a id="a00ea97c2a07aec19070e672a6a856e67"></a>
@@ -995,6 +1091,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reverse iterator to last element. </p>
 
 </div>
 </div>
@@ -1023,6 +1121,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
+<p>Reverse iterator to last element. </p>
+
 </div>
 </div>
 <a id="aa7d97d39b96cc628914b0d265f1b980a"></a>
@@ -1049,6 +1149,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reverse iterator to one-before-first element. </p>
 
 </div>
 </div>
@@ -1077,6 +1179,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
+<p>Reverse iterator to one-before-first element. </p>
+
 </div>
 </div>
 <a id="ae8159f70d7c308cc2e5fcc6193eb4ea5"></a>
@@ -1104,10 +1208,12 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </table>
 </div><div class="memdoc">
 
+<p>Returns current size of the buffer. </p>
+
 </div>
 </div>
 <a id="adcbebc95ea8807a19227f1188ed1b4ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcbebc95ea8807a19227f1188ed1b4ec">&#9670;&nbsp;</a></span>take_front()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adcbebc95ea8807a19227f1188ed1b4ec">&#9670;&nbsp;</a></span>take_front() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1130,6 +1236,40 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Removes and returns first element, is safe in SPSC scenario. </p>
+
+</div>
+</div>
+<a id="a31da728805ccd44d9b55f35aba4a5008"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31da728805ccd44d9b55f35aba4a5008">&#9670;&nbsp;</a></span>take_front() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_strategy&lt; T, N &gt;() )&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::take_front </td>
+          <td>(</td>
+          <td class="paramtype">auto &amp;&amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes and moves first n elements into provided buffer, is safe in SPSC scenario. </p>
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a>.</p>
 
 </div>
 </div>
@@ -1194,7 +1334,7 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a></li>
-    <li class="footer">Generated on Fri Jan 23 2026 22:10:15 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Jan 24 2026 10:31:52 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

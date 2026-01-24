@@ -275,6 +275,7 @@ var annotated_dup =
       [ "static_circular_buffer", "structemlabcpp_1_1static__circular__buffer.html", "structemlabcpp_1_1static__circular__buffer" ],
       [ "static_function_base", "namespaceemlabcpp.html#classemlabcpp_1_1static__function__base", null ],
       [ "static_function_base< ReturnType(ArgTypes...), Capacity, Align >", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_01_4.html", "classemlabcpp_1_1static__function__base_3_01ReturnType_07ArgTypes_8_8_8_08_00_01Capacity_00_01Align_01_4" ],
+      [ "static_storage_base", "structemlabcpp_1_1static__storage__base.html", "structemlabcpp_1_1static__storage__base" ],
       [ "static_storage", "structemlabcpp_1_1static__storage.html", "structemlabcpp_1_1static__storage" ],
       [ "static_vector", "classemlabcpp_1_1static__vector.html", "classemlabcpp_1_1static__vector" ],
       [ "status", "structemlabcpp_1_1status.html", "structemlabcpp_1_1status" ],
