@@ -50,6 +50,11 @@ constexpr auto _select_index_type()
                 return std::atomic_uint64_t{};
 }
 
+/// Strategy for managing indices in circular buffer via empty slot
+///
+/// This strategy uses one slot as empty slot to distinguish between full and empty buffer.
+/// Thus the maximum number of storable elements is N-1 where N is the size of the buffer.
+///
 template < std::size_t N >
 struct _spacer_strategy
 {
@@ -60,12 +65,12 @@ struct _spacer_strategy
 
         void incr_front() noexcept
         {
-                from_ = ( from_ + 1 ) % max_size;
+                from_ = static_cast< size_type >( ( from_ + 1 ) % max_size );
         }
 
         void incr_front( size_type n ) noexcept
         {
-                from_ = ( from_ + n ) % max_size;
+                from_ = static_cast< size_type >( ( from_ + n ) % max_size );
         }
 
         auto front_idx() const noexcept
@@ -75,7 +80,7 @@ struct _spacer_strategy
 
         void incr_back() noexcept
         {
-                to_ = ( to_ + 1 ) % max_size;
+                to_ = static_cast< size_type >( ( to_ + 1 ) % max_size );
         }
 
         void incr_back( size_type n ) noexcept
@@ -115,6 +120,11 @@ private:
         index_type to_   = 0;
 };
 
+/// Strategy for managing indices in circular buffer via overflowing indices
+///
+/// This strategy allows to use all N slots of the buffer by allowing the indices to overflow.
+/// This works correctly as long as buffer size is power of two.
+///
 template < std::size_t N >
 struct _overflow_strategy
 {
@@ -189,16 +199,12 @@ auto _select_strategy()
                 return _spacer_strategy< N >{};
 }
 
-/// Class implementing circular buffer of any type for up to N elements. This should work for
-/// generic type T, not just simple types.
+/// Class implementing circular buffer of any type for up to N elements.
 ///
 /// It is safe in "single consumer single producer" scenario between main loop and interrupts.
 /// Because of that the behavior is as follows:
 ///  - on insertion, item is inserted and than index is advanced
 ///  - on removal, item is removed and than index is advanced
-///
-/// In case of copy or move operations, the buffer does not have to store the data internally in
-/// same manner, the data are equivavlent only from the perspective of push/pop operations.
 ///
 template < typename T, std::size_t N, typename Strategy = decltype( _select_strategy< T, N >() ) >
 struct static_circular_buffer
@@ -218,6 +224,7 @@ struct static_circular_buffer
         using iterator        = static_circular_buffer_iterator< T >;
         using const_iterator  = static_circular_buffer_iterator< T const >;
 
+        /// Default constructed circular buffer is empty
         static_circular_buffer() noexcept = default;
 
         static_circular_buffer( static_circular_buffer const& other )
@@ -231,6 +238,8 @@ struct static_circular_buffer
                 other.clear();
         }
 
+        /// Clears the buffer by destructing all contained elements and copies
+        /// from other buffer.
         static_circular_buffer& operator=( static_circular_buffer const& other )
         {
                 if ( this == &other )
@@ -240,6 +249,8 @@ struct static_circular_buffer
                 return *this;
         }
 
+        /// Clears the buffer by destructing all contained elements and moves
+        /// from other buffer.
         static_circular_buffer& operator=( static_circular_buffer&& other ) noexcept
         {
                 if ( this == &other )
@@ -250,8 +261,7 @@ struct static_circular_buffer
                 return *this;
         }
 
-        /// methods for handling the front side of the circular buffer
-
+        /// Iterator to first element
         [[nodiscard]] iterator begin() noexcept
         {
                 return iterator{
@@ -260,6 +270,7 @@ struct static_circular_buffer
                     storage_.data() + strategy_.front_idx() };
         }
 
+        /// Iterator to first element
         [[nodiscard]] const_iterator begin() const noexcept
         {
                 return const_iterator{
@@ -268,26 +279,31 @@ struct static_circular_buffer
                     storage_.data() + strategy_.front_idx() };
         }
 
+        /// Reverse iterator to last element
         [[nodiscard]] std::reverse_iterator< iterator > rbegin() noexcept
         {
                 return std::make_reverse_iterator( end() );
         };
 
+        /// Reverse iterator to last element
         [[nodiscard]] std::reverse_iterator< const_iterator > rbegin() const noexcept
         {
                 return std::make_reverse_iterator( end() );
         };
 
+        /// Reference to first element
         [[nodiscard]] reference front() noexcept
         {
                 return storage_[static_cast< size_type >( strategy_.front_idx() )];
         }
 
+        /// Reference to first element
         [[nodiscard]] const_reference front() const noexcept
         {
                 return storage_[static_cast< size_type >( strategy_.front_idx() )];
         }
 
+        /// Removes and returns first element, is safe in SPSC scenario
         [[nodiscard]] T take_front()
         {
                 T item = std::move( front() );
@@ -295,27 +311,45 @@ struct static_circular_buffer
                 return item;
         }
 
+        /// Removes and moves first n elements into provided buffer, is safe in SPSC scenario
+        void take_front( auto&& buffer )
+        {
+                auto  n        = static_cast< size_type >( std::size( buffer ) );
+                auto  iter     = std::begin( buffer );
+                auto  idx      = static_cast< size_type >( strategy_.front_idx() );
+                auto* p        = storage_.data() + idx;
+                auto  capacity = static_cast< size_type >( max_size - idx );
+                if ( capacity >= n ) {
+                        std::move( p, p + n, iter );
+                } else {
+                        iter = std::move( p, p + capacity, iter );
+                        std::move( storage_.data(), storage_.data() + idx + n - capacity, iter );
+                }
+                strategy_.incr_front( n );
+        }
+
+        /// Removes first element, is safe in SPSC scenario
         void pop_front()
         {
                 storage_.delete_item( static_cast< size_type >( strategy_.front_idx() ) );
                 strategy_.incr_front();
         }
 
+        /// Removes first n elements, is safe in SPSC scenario
         void pop_front( size_type n )
         {
-                auto idx      = strategy_.front_idx();
+                auto idx      = static_cast< size_type >( strategy_.front_idx() );
                 auto capacity = max_size - idx;
                 if ( capacity >= n ) {
-                        storage_.delete_n( static_cast< size_type >( idx ), n );
+                        storage_.delete_n( idx, n );
                 } else {
-                        storage_.delete_n( static_cast< size_type >( idx ), capacity );
+                        storage_.delete_n( idx, capacity );
                         storage_.delete_n( 0, n - capacity );
                 }
                 strategy_.incr_front( n );
         }
 
-        /// methods for handling the back side of the circular buffer
-
+        /// Iterator to one-past-last element
         [[nodiscard]] iterator end() noexcept
         {
                 return iterator{
@@ -324,6 +358,7 @@ struct static_circular_buffer
                     storage_.data() + strategy_.back_idx() };
         }
 
+        /// Iterator to one-past-last element
         [[nodiscard]] const_iterator end() const noexcept
         {
                 return const_iterator{
@@ -332,31 +367,37 @@ struct static_circular_buffer
                     storage_.data() + strategy_.back_idx() };
         }
 
+        /// Reverse iterator to one-before-first element
         [[nodiscard]] std::reverse_iterator< iterator > rend() noexcept
         {
                 return std::make_reverse_iterator( begin() );
         };
 
+        /// Reverse iterator to one-before-first element
         [[nodiscard]] std::reverse_iterator< const_iterator > rend() const noexcept
         {
                 return std::make_reverse_iterator( begin() );
         };
 
+        /// Reference to last element
         [[nodiscard]] reference back() noexcept
         {
                 return storage_[static_cast< size_type >( strategy_.last_idx() )];
         }
 
+        /// Reference to last element
         [[nodiscard]] const_reference back() const noexcept
         {
                 return storage_[static_cast< size_type >( strategy_.last_idx() )];
         }
 
+        /// Inserts item at the back, is safe in SPSC scenario
         void push_back( T item )
         {
                 emplace_back( std::move( item ) );
         }
 
+        /// Inserts item constructed with args... at the back, is safe in SPSC scenario
         template < typename... Args >
         T& emplace_back( Args&&... args )
         {
@@ -367,78 +408,77 @@ struct static_circular_buffer
                 return ref;
         }
 
+        /// Inserts range by copy at the back, is safe in SPSC scenario
         void copy_range_back( auto&& range )
         {
-                auto idx      = strategy_.back_idx();
+                auto idx      = static_cast< size_type >( strategy_.back_idx() );
                 auto capacity = static_cast< size_type >( max_size - idx );
                 auto n        = std::size( range );
+                auto iter     = std::begin( range );
                 if ( capacity >= n ) {
-                        storage_.copy_n( static_cast< size_type >( idx ), n, std::begin( range ) );
+                        storage_.copy_n( idx, n, iter );
                 } else {
-                        auto iter = std::begin( range );
-                        storage_.copy_n( static_cast< size_type >( idx ), capacity, iter );
-                        std::advance( iter, capacity );
+                        iter = storage_.copy_n( idx, capacity, iter );
                         storage_.copy_n( 0, n - capacity, iter );
                 }
                 strategy_.incr_back( static_cast< size_type >( n ) );
         }
 
+        /// Inserts range by move at the back, is safe in SPSC scenario
         void move_range_back( auto&& range )
         {
-                auto idx      = strategy_.back_idx();
+                auto idx      = static_cast< size_type >( strategy_.back_idx() );
                 auto capacity = static_cast< size_type >( max_size - idx );
                 auto n        = std::size( range );
+                auto iter     = std::begin( range );
                 if ( capacity >= n ) {
-                        storage_.move_n( static_cast< size_type >( idx ), n, std::begin( range ) );
+                        storage_.move_n( idx, n, iter );
                 } else {
-                        auto iter = std::begin( range );
-                        storage_.move_n( static_cast< size_type >( idx ), capacity, iter );
-                        std::advance( iter, capacity );
+                        iter = storage_.move_n( idx, capacity, iter );
                         storage_.move_n( 0, n - capacity, iter );
                 }
                 strategy_.incr_back( static_cast< size_type >( n ) );
         }
 
-        /// other methods
-
+        /// Returns maximum capacity of the buffer
         [[nodiscard]] constexpr size_type capacity() const noexcept
         {
                 return N;
         }
 
+        /// Returns current size of the buffer
         [[nodiscard]] size_type size() const
         {
                 return static_cast< size_type >( strategy_.size() );
         }
 
+        /// Returns whether the buffer is empty
         [[nodiscard]] bool empty() const noexcept
         {
                 return strategy_.empty();
         }
 
+        /// Returns whether the buffer is full
         [[nodiscard]] bool full() const noexcept
         {
                 return strategy_.full();
         }
 
+        /// Clears the buffer by destructing all contained elements
         void clear()
         {
-                purge();
+                pop_front( size() );
         }
 
+        /// Destructor destructs all contained elements
         ~static_circular_buffer()
         {
-                purge();
+                clear();
         }
 
 private:
         static_storage< T, max_size > storage_;
         Strategy                      strategy_;
-
-        void purge()
-        {
-                pop_front( size() );
-        }
 
         template < typename U >
         friend class static_circular_buffer_iterator;
@@ -540,11 +580,27 @@ public:
                 return *this;
         }
 
+        static_circular_buffer_iterator& operator+=( difference_type v ) noexcept
+        {
+                p_ += v;
+                while ( p_ >= end_ )
+                        p_ -= ( end_ - beg_ );
+                return *this;
+        }
+
         static_circular_buffer_iterator& operator--() noexcept
         {
                 p_--;
                 if ( p_ == ( beg_ - 1 ) )
                         p_ = end_ - 1;
+                return *this;
+        }
+
+        static_circular_buffer_iterator& operator-=( difference_type v ) noexcept
+        {
+                p_ -= v;
+                while ( p_ < beg_ )
+                        p_ += ( end_ - beg_ );
                 return *this;
         }
 

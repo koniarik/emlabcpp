@@ -448,6 +448,135 @@ TEST( static_circular_buffer_test, move_range_back_moves_not_copies )
         EXPECT_EQ( operations_counter::copy_count, 0 );
 }
 
+TEST( static_circular_buffer_test, move_range_back_trivial_no_wrap )
+{
+        trivial_buffer src;
+        for ( int i = 1; i <= 5; ++i )
+                src.push_back( i );
+
+        trivial_buffer dest;
+        dest.move_range_back( src );
+
+        std::vector< int > res;
+        for ( int v : dest )
+                res.push_back( v );
+
+        std::vector< int > expected = { 1, 2, 3, 4, 5 };
+        EXPECT_EQ( res, expected );
+        // source remains unchanged size-wise
+        EXPECT_EQ( src.size(), expected.size() );
+}
+
+TEST( static_circular_buffer_test, move_range_back_trivial_wrap )
+{
+        trivial_buffer src;
+        // make idx near the end so capacity < n
+        for ( int i = 1; i <= src.capacity(); ++i )
+                src.push_back( i );
+
+        trivial_buffer dest;
+        dest.move_range_back( src );
+
+        std::vector< int > res;
+        for ( int v : dest )
+                res.push_back( v );
+
+        std::vector< int > expected;
+        for ( int i = 1; i <= src.capacity(); ++i )
+                expected.push_back( i );
+
+        EXPECT_EQ( res, expected );
+        EXPECT_EQ( src.size(), expected.size() );
+}
+
+TEST( static_circular_buffer_test, move_range_back_moves_not_copies_wrap )
+{
+        using oc_buf = static_circular_buffer< operations_counter, 16 >;
+
+        oc_buf src;
+        // fill to make back_idx large so move splits across end
+        constexpr std::size_t n = 12;
+        for ( std::size_t i = 0; i < n; ++i )
+                src.emplace_back();
+
+        operations_counter::reset();
+
+        oc_buf dest;
+        dest.move_range_back( src );
+
+        EXPECT_EQ( dest.size(), n );
+        EXPECT_EQ( operations_counter::move_count, n );
+        EXPECT_EQ( operations_counter::copy_count, 0 );
+        EXPECT_EQ( src.size(), n );
+}
+
+TEST( static_circular_buffer_test, take_front_trivial_no_wrap )
+{
+        trivial_buffer tbuff;
+        for ( int i = 1; i <= 5; ++i )
+                tbuff.push_back( i );
+
+        std::vector< int > out( 3 );
+        tbuff.take_front( out );
+
+        std::vector< int > expected_out = { 1, 2, 3 };
+        EXPECT_EQ( out, expected_out );
+        EXPECT_EQ( tbuff.size(), 2 );
+
+        std::vector< int > remaining;
+        for ( int v : tbuff )
+                remaining.push_back( v );
+        std::vector< int > expected_remaining = { 4, 5 };
+        EXPECT_EQ( remaining, expected_remaining );
+}
+
+TEST( static_circular_buffer_test, take_front_trivial_wrap )
+{
+        trivial_buffer tbuff;
+        for ( int i = 1; i <= 7; ++i )
+                tbuff.push_back( i );
+
+        // pop 4 so front moves forward
+        tbuff.pop_front();
+        tbuff.pop_front();
+        tbuff.pop_front();
+        tbuff.pop_front();
+
+        // now push to wrap around
+        tbuff.push_back( 8 );
+        tbuff.push_back( 9 );
+
+        // buffer content should be {5,6,7,8,9}
+        std::vector< int > out( 4 );
+        tbuff.take_front( out );
+
+        std::vector< int > expected_out = { 5, 6, 7, 8 };
+        EXPECT_EQ( out, expected_out );
+        EXPECT_EQ( tbuff.size(), 1 );
+        EXPECT_EQ( tbuff.front(), 9 );
+}
+
+TEST( static_circular_buffer_test, take_front_moves_not_copies )
+{
+        using oc_buf = static_circular_buffer< operations_counter, 16 >;
+
+        oc_buf                src;
+        constexpr std::size_t n = 6;
+        for ( std::size_t i = 0; i < n; ++i )
+                src.emplace_back();
+
+        // prepare destination and then reset counters so only moves from take_front are counted
+        std::vector< operations_counter > dest( n );
+        operations_counter::reset();
+
+        src.take_front( dest );
+
+        EXPECT_EQ( src.size(), 0 );
+        EXPECT_EQ( dest.size(), n );
+        EXPECT_EQ( operations_counter::move_count, n );
+        EXPECT_EQ( operations_counter::copy_count, 0 );
+}
+
 struct operations_counter_circular_buffer
 {
         using container_type           = static_circular_buffer< operations_counter, 32 >;

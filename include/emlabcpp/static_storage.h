@@ -24,16 +24,54 @@
 #pragma once
 
 #include <cstddef>
+#include <cstring>
 #include <memory>
 #include <utility>
 
 namespace emlabcpp
 {
 
+struct static_storage_base
+{
+        template < typename F, typename T >
+        static F _copy_n( F first, std::size_t n, T* dest )
+        {
+                if constexpr ( std::is_trivially_copy_constructible_v< T > ) {
+                        std::memcpy( dest, &*first, n * sizeof( T ) );
+                        std::advance(
+                            first,
+                            static_cast< typename std::iterator_traits< F >::difference_type >(
+                                n ) );
+                        return first;
+                } else {
+                        for ( std::size_t i = 0; i < n; ++i, ++first, ++dest )
+                                ::new ( dest ) T( *first );
+                        return first;
+                }
+        }
+
+        template < typename F, typename T >
+        static F _move_n( F first, std::size_t n, T* dest )
+        {
+                if constexpr ( std::is_trivially_move_constructible_v< T > ) {
+                        std::memcpy( dest, &*first, n * sizeof( T ) );
+                        std::advance(
+                            first,
+                            static_cast< typename std::iterator_traits< F >::difference_type >(
+                                n ) );
+                        return first;
+                } else {
+                        for ( std::size_t i = 0; i < n; ++i, ++first, ++dest )
+                                ::new ( dest ) T( std::move( *first ) );
+                        return first;
+                }
+        }
+};
+
 /// Continuous data container that can contain N of uninitialized elements. Bookkeeping (what item
 /// is initialized and what is not) is up to owner of this structure.
 template < typename T, std::size_t N >
-struct static_storage
+struct static_storage : static_storage_base
 {
         static constexpr std::size_t capacity = N;
 
@@ -64,18 +102,21 @@ struct static_storage
                 return *std::construct_at( data() + i, std::forward< Args >( args )... );
         }
 
-        constexpr void copy_n( size_type const i, size_type const n, auto iter ) noexcept(
+        /// Copies `n` items from iterator `iter` to storage starting at position `i`
+        constexpr auto copy_n( size_type const i, size_type const n, auto iter ) noexcept(
             std::is_nothrow_copy_constructible_v< T > )
         {
-                std::uninitialized_copy_n( iter, n, data() + i );
+                return static_storage_base::_copy_n( iter, n, data() + i );
         }
 
-        constexpr void move_n( size_type const i, size_type const n, auto iter ) noexcept(
+        /// Moves `n` items from iterator `iter` to storage starting at position `i`
+        constexpr auto move_n( size_type const i, size_type const n, auto iter ) noexcept(
             std::is_nothrow_move_constructible_v< T > )
         {
-                std::uninitialized_move_n( iter, n, data() + i );
+                return static_storage_base::_move_n( iter, n, data() + i );
         }
 
+        /// Deconstructs `n` items starting at position i
         constexpr void delete_n( size_type const i, size_type const n ) noexcept(
             std::is_nothrow_destructible_v< T > )
         {
@@ -144,16 +185,18 @@ struct static_storage< T, N >
                 return data_[i];
         }
 
-        constexpr void copy_n( size_type const i, size_type const n, auto iter ) noexcept(
+        /// Copies `n` items from iterator `iter` to storage starting at position `i`
+        constexpr auto copy_n( size_type const i, size_type const n, auto iter ) noexcept(
             std::is_nothrow_copy_constructible_v< T > )
         {
-                std::uninitialized_copy_n( iter, n, data() + i );
+                return static_storage_base::_copy_n( iter, n, data() + i );
         }
 
-        constexpr void move_n( size_type const i, size_type const n, auto iter ) noexcept(
+        /// Moves `n` items from iterator `iter` to storage starting at position `i`
+        constexpr auto move_n( size_type const i, size_type const n, auto iter ) noexcept(
             std::is_nothrow_move_constructible_v< T > )
         {
-                std::uninitialized_move_n( iter, n, data() + i );
+                return static_storage_base::_move_n( iter, n, data() + i );
         }
 
         constexpr void delete_n( size_type const, size_type const ) noexcept

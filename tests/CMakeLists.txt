@@ -40,7 +40,6 @@ function(emlabcpp_setup_test target)
             -Wextra
             -Wpedantic
             -Wnon-virtual-dtor
-            -Wold-style-cast
             -Wcast-align
             -Wunused
             -Woverloaded-virtual
