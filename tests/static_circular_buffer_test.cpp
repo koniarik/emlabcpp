@@ -363,7 +363,7 @@ TEST( static_circular_buffer_test, full_copy_move )
         EXPECT_EQ( cpy, moved );
 }
 
-TEST( static_circular_buffer_test, append_range_back_trivial_no_wrap )
+TEST( static_circular_buffer_test, copy_range_back_trivial_no_wrap )
 {
         trivial_buffer tbuff;
         // start with two items
@@ -371,7 +371,7 @@ TEST( static_circular_buffer_test, append_range_back_trivial_no_wrap )
         tbuff.push_back( 2 );
 
         std::vector< int > to_append = { 10, 11, 12 };
-        tbuff.append_range_back( to_append );
+        tbuff.copy_range_back( to_append );
 
         std::vector< int > res;
         for ( int v : tbuff )
@@ -382,7 +382,7 @@ TEST( static_circular_buffer_test, append_range_back_trivial_no_wrap )
         EXPECT_EQ( tbuff.size(), expected.size() );
 }
 
-TEST( static_circular_buffer_test, append_range_back_trivial_wrap )
+TEST( static_circular_buffer_test, copy_range_back_trivial_wrap )
 {
         trivial_buffer tbuff;
         // fill buffer
@@ -395,7 +395,7 @@ TEST( static_circular_buffer_test, append_range_back_trivial_wrap )
         tbuff.pop_front();
 
         std::vector< int > to_append = { 8, 9, 10 };
-        tbuff.append_range_back( to_append );
+        tbuff.copy_range_back( to_append );
 
         std::vector< int > res;
         for ( int v : tbuff )
@@ -406,7 +406,7 @@ TEST( static_circular_buffer_test, append_range_back_trivial_wrap )
         EXPECT_EQ( tbuff.size(), expected.size() );
 }
 
-TEST( static_circular_buffer_test, append_range_back_object_wrap )
+TEST( static_circular_buffer_test, copy_range_back_object_wrap )
 {
         obj_buffer obuff;
         for ( std::string s : { "a", "b", "c", "d", "e", "f", "g" } )
@@ -417,7 +417,7 @@ TEST( static_circular_buffer_test, append_range_back_object_wrap )
         obuff.pop_front();
 
         std::vector< std::string > to_append = { "h", "i", "j" };
-        obuff.append_range_back( to_append );
+        obuff.copy_range_back( to_append );
 
         std::vector< std::string > res;
         for ( auto const& s : obuff )
@@ -426,6 +426,26 @@ TEST( static_circular_buffer_test, append_range_back_object_wrap )
         std::vector< std::string > expected = { "d", "e", "f", "g", "h", "i", "j" };
         EXPECT_EQ( res, expected );
         EXPECT_EQ( obuff.size(), expected.size() );
+}
+
+TEST( static_circular_buffer_test, move_range_back_moves_not_copies )
+{
+        using oc_buf = static_circular_buffer< operations_counter, 16 >;
+
+        oc_buf                src;
+        constexpr std::size_t n = 8;
+        for ( std::size_t i = 0; i < n; ++i )
+                src.emplace_back();
+
+        // reset counters so we only measure the moves performed by move_range_back
+        operations_counter::reset();
+
+        oc_buf dest;
+        dest.move_range_back( src );
+
+        EXPECT_EQ( dest.size(), n );
+        EXPECT_EQ( operations_counter::move_count, n );
+        EXPECT_EQ( operations_counter::copy_count, 0 );
 }
 
 struct operations_counter_circular_buffer

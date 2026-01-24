@@ -33,7 +33,7 @@
 namespace emlabcpp::cfg
 {
 
-std::byte operator"" _b( unsigned long long int val )
+std::byte operator""_b( unsigned long long int val )
 {
         assert( val <= std::numeric_limits< uint8_t >::max() );
         return std::byte{ static_cast< uint8_t >( val ) };
@@ -673,11 +673,12 @@ struct memory
                 std::vector< page_info > result;
                 for ( std::size_t i = 0; i < page_count(); ++i ) {
                         auto addr = static_cast< uint32_t >( i * page_size );
-                        result.emplace_back( page_info{
-                            .addr  = addr,
-                            .cells = std::span< cell >{
-                                reinterpret_cast< cell* >( buffer.data() + addr ),
-                                page_size / cell_size } } );
+                        result.emplace_back(
+                            page_info{
+                                .addr  = addr,
+                                .cells = std::span< cell >{
+                                    reinterpret_cast< cell* >( buffer.data() + addr ),
+                                    page_size / cell_size } } );
                 }
                 return result;
         }

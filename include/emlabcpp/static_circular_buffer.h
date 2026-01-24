@@ -29,6 +29,7 @@
 
 #include <atomic>
 #include <limits>
+#include <ranges>
 
 namespace emlabcpp
 {
@@ -221,12 +222,12 @@ struct static_circular_buffer
 
         static_circular_buffer( static_circular_buffer const& other )
         {
-                copy_from( other );
+                copy_range_back( other );
         }
 
         static_circular_buffer( static_circular_buffer&& other ) noexcept
         {
-                move_from( other );
+                move_range_back( other );
                 other.clear();
         }
 
@@ -235,7 +236,7 @@ struct static_circular_buffer
                 if ( this == &other )
                         return *this;
                 clear();
-                copy_from( other );
+                copy_range_back( other );
                 return *this;
         }
 
@@ -244,7 +245,7 @@ struct static_circular_buffer
                 if ( this == &other )
                         return *this;
                 clear();
-                move_from( other );
+                move_range_back( other );
                 other.clear();
                 return *this;
         }
@@ -305,13 +306,10 @@ struct static_circular_buffer
                 auto idx      = strategy_.front_idx();
                 auto capacity = max_size - idx;
                 if ( capacity >= n ) {
-                        for ( size_type i = 0; i < n; i++ )
-                                storage_.delete_item( static_cast< size_type >( idx + i ) );
+                        storage_.delete_n( static_cast< size_type >( idx ), n );
                 } else {
-                        for ( size_type i = 0; i < capacity; i++ )
-                                storage_.delete_item( static_cast< size_type >( idx + i ) );
-                        for ( size_type i = 0; i < n - capacity; i++ )
-                                storage_.delete_item( static_cast< size_type >( i ) );
+                        storage_.delete_n( static_cast< size_type >( idx ), capacity );
+                        storage_.delete_n( 0, n - capacity );
                 }
                 strategy_.incr_front( n );
         }
@@ -369,21 +367,34 @@ struct static_circular_buffer
                 return ref;
         }
 
-        void append_range_back( auto&& range )
+        void copy_range_back( auto&& range )
         {
                 auto idx      = strategy_.back_idx();
                 auto capacity = static_cast< size_type >( max_size - idx );
                 auto n        = std::size( range );
                 if ( capacity >= n ) {
-                        std::uninitialized_copy_n(
-                            std::begin( range ), n, &storage_[static_cast< size_type >( idx )] );
+                        storage_.copy_n( static_cast< size_type >( idx ), n, std::begin( range ) );
                 } else {
-                        std::uninitialized_copy_n(
-                            std::begin( range ),
-                            capacity,
-                            &storage_[static_cast< size_type >( idx )] );
-                        std::uninitialized_copy_n(
-                            std::begin( range ) + capacity, n - capacity, &storage_[0] );
+                        auto iter = std::begin( range );
+                        storage_.copy_n( static_cast< size_type >( idx ), capacity, iter );
+                        std::advance( iter, capacity );
+                        storage_.copy_n( 0, n - capacity, iter );
+                }
+                strategy_.incr_back( static_cast< size_type >( n ) );
+        }
+
+        void move_range_back( auto&& range )
+        {
+                auto idx      = strategy_.back_idx();
+                auto capacity = static_cast< size_type >( max_size - idx );
+                auto n        = std::size( range );
+                if ( capacity >= n ) {
+                        storage_.move_n( static_cast< size_type >( idx ), n, std::begin( range ) );
+                } else {
+                        auto iter = std::begin( range );
+                        storage_.move_n( static_cast< size_type >( idx ), capacity, iter );
+                        std::advance( iter, capacity );
+                        storage_.move_n( 0, n - capacity, iter );
                 }
                 strategy_.incr_back( static_cast< size_type >( n ) );
         }
@@ -426,21 +437,7 @@ private:
 
         void purge()
         {
-                while ( !empty() )
-                        pop_front();
-        }
-
-        void copy_from( static_circular_buffer const& other )
-        {
-                for ( auto const& item : other )
-                        emplace_back( item );
-        }
-
-        void move_from( static_circular_buffer& other ) noexcept
-        {
-                static_assert( std::is_nothrow_move_constructible_v< T > );
-                for ( auto& item : other )
-                        emplace_back( std::move( item ) );
+                pop_front( size() );
         }
 
         template < typename U >

@@ -9,7 +9,7 @@ C++ embedded library
 
 </div>
 
-An opinionated C++20 library focusing on embedded development.
+An opinionated C++23 library focusing on embedded development.
 It provides a wide set of tools, from complex mechanisms (protocol library) to simple utilites (view).
 
 Want help? Find `veverak` on [Amulius Embedded Discord](https://discord.com/invite/embedded)

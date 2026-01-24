@@ -64,6 +64,25 @@ struct static_storage
                 return *std::construct_at( data() + i, std::forward< Args >( args )... );
         }
 
+        constexpr void copy_n( size_type const i, size_type const n, auto iter ) noexcept(
+            std::is_nothrow_copy_constructible_v< T > )
+        {
+                std::uninitialized_copy_n( iter, n, data() + i );
+        }
+
+        constexpr void move_n( size_type const i, size_type const n, auto iter ) noexcept(
+            std::is_nothrow_move_constructible_v< T > )
+        {
+                std::uninitialized_move_n( iter, n, data() + i );
+        }
+
+        constexpr void delete_n( size_type const i, size_type const n ) noexcept(
+            std::is_nothrow_destructible_v< T > )
+        {
+                for ( size_type j = 0; j < n; ++j )
+                        std::destroy_at( data() + i + j );
+        }
+
         /// Deconstructs an item at position i
         constexpr void
         delete_item( size_type const i ) noexcept( std::is_nothrow_destructible_v< T > )
@@ -125,9 +144,24 @@ struct static_storage< T, N >
                 return data_[i];
         }
 
+        constexpr void copy_n( size_type const i, size_type const n, auto iter ) noexcept(
+            std::is_nothrow_copy_constructible_v< T > )
+        {
+                std::uninitialized_copy_n( iter, n, data() + i );
+        }
+
+        constexpr void move_n( size_type const i, size_type const n, auto iter ) noexcept(
+            std::is_nothrow_move_constructible_v< T > )
+        {
+                std::uninitialized_move_n( iter, n, data() + i );
+        }
+
+        constexpr void delete_n( size_type const, size_type const ) noexcept
+        {
+        }
+
         /// Deconstructs an item at position i
-        constexpr void
-        delete_item( size_type const ) noexcept( std::is_nothrow_destructible_v< T > )
+        constexpr void delete_item( size_type const ) noexcept
         {
         }
 
