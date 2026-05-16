@@ -345,7 +345,7 @@ var namespaceemlabcpp =
     [ "default_epsilon", "namespaceemlabcpp.html#a20db02f115d34db629106a39c5194e18", null ],
     [ "element_of", "namespaceemlabcpp.html#a3895ca2fd367021e74c1915f724c0242", null ],
     [ "error_category_v", "namespaceemlabcpp.html#a7a999d4d070e6093a61ed03027d5b142", null ],
-    [ "error_category_v< bool >", "namespaceemlabcpp.html#ac2da3401ebabce9ca0d8a567b0043b94", null ],
+    [ "error_category_v< bool >", "namespaceemlabcpp.html#a88b3d8ba029a3ecc685fe742f4e26490", null ],
     [ "error_type", "namespaceemlabcpp.html#a849e2b4c12ed0a40b06dd1761d1a441f", null ],
     [ "f", "namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9", null ],
     [ "gettable_container", "namespaceemlabcpp.html#adb54eee14fc87e50de7f6ed35ad1aba0", null ],
