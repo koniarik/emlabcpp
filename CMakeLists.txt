@@ -13,18 +13,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(
-  emlabcpp STATIC
-  src/experimental/testing/reactor.cpp
-  src/experimental/testing/reactor_interface_adapter.cpp
-  src/experimental/testing/protocol.cpp
-  src/experimental/testing/parameters.cpp
-  src/experimental/testing/collect.cpp
-  src/experimental/testing/interface.cpp
-  src/experimental/testing/json.cpp
-  src/experimental/testing/controller.cpp)
-target_include_directories(emlabcpp PUBLIC include/)
-target_include_directories(emlabcpp PRIVATE src/)
-emlabcpp_compile_options(emlabcpp)
+  emlabcpp INTERFACE)
+target_include_directories(emlabcpp INTERFACE include/)
 
 file(GLOB_RECURSE EMLABCPP_INCLUDE_FILES "include/*.h")
 

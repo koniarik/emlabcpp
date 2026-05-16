@@ -1,38 +1,25 @@
 
-# conditionally enables sanitizers
-CXX_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) )  -O0 -fno-inline -g
-LINKER_FLAGS = $(if $(SANITIZER), -fsanitize=$(SANITIZER) ) -O0 -fno-inline -g
-GENERATOR:=$(shell if [ -x "$$(which ninja)" ]; then echo "Ninja"; else echo "Unix Makefiles"; fi)
+PRESET ?= debug
 
-EXTRAARGS=-DCMAKE_CXX_FLAGS="$(CXX_FLAGS)" -DCMAKE_EXE_LINKER_FLAGS="$(LINKER_FLAGS)" -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DEMLABCPP_TESTS_ENABLED=ON -G "$(GENERATOR)"
+.PHONY: all test clean clang-tidy clang-format cmake-format conan doc
 
+all:
+	cmake --workflow --preset $(PRESET)
 
-.PHONY: clean build_test exec_test test
-
-test: build_test
-	cd build/norm && ctest --output-on-failure
+test:
+	cmake --workflow --preset $(PRESET)
 
 clean:
 	rm -rf ./build
 
 configure:
-	cmake -Bbuild/norm $(EXTRAARGS)
+	cmake --preset $(PRESET)
 
-build_test: configure
-	cmake --build build/norm
-
-build_coverage:
-	cmake -Bbuild/cov $(EXTRAARGS) -DEMLABCPP_COVERAGE_ENABLED=ON
-	cmake --build build/cov
-
-run_coverage: build_coverage
-	cd build/cov && ctest -T Test
-
-coverage: run_coverage
-	gcovr --decisions --calls -p --html-details -o build/cov/index.html -r .
+build:
+	cmake --build --preset $(PRESET)
 
 clang-tidy: configure
-	find src/ include/ \( -iname "*.hpp" -or -iname "*.cpp" \) -print0 | parallel -0 clang-tidy -p build/norm {}
+	find src/ include/ \( -iname "*.hpp" -or -iname "*.cpp" \) -print0 | parallel -0 clang-tidy -p build {}
 
 clang-format:
 	find ./ \( -iname "*.h" -o -iname "*.cpp" \) | xargs clang-format -i

@@ -66,7 +66,7 @@ public:
                 return p;
         }
 
-        [[nodiscard]] result
+        [[nodiscard]] bool
         deallocate( void* const ptr, std::size_t const, std::size_t const ) override
         {
 
@@ -76,9 +76,9 @@ public:
                 std::size_t const spot_i = ( pval - bval ) / PoolSize;
 
                 if ( spot_i >= PoolCount )
-                        return result::ERROR;
+                        return false;
                 free_.push_back( static_cast< uint16_t >( spot_i ) );
-                return result::SUCCESS;
+                return true;
         }
 
         [[nodiscard]] bool is_equal( pmr::memory_resource const& other ) const noexcept override

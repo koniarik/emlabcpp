@@ -67,9 +67,9 @@ struct : pmr::memory_resource
                 return nullptr;
         }
 
-        result deallocate( void*, std::size_t, std::size_t )
+        bool deallocate( void*, std::size_t, std::size_t )
         {
-                return result::ERROR;
+                return false;
         }
 
         bool is_equal( memory_resource const& ) const noexcept

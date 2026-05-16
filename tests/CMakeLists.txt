@@ -18,15 +18,15 @@ cpmaddpackage("gh:nlohmann/json@3.11.3")
 
 target_compile_options(
   emlabcpp
-  PUBLIC -DEMLABCPP_USE_NLOHMANN_JSON
+  INTERFACE -DEMLABCPP_USE_NLOHMANN_JSON
          -DEMLABCPP_ASSERT_NATIVE
          #-DEMLABCPP_USE_MAGIC_ENUM # dropped until clang issues resolved
          -DEMLABCPP_USE_GTEST
          -DEMLABCPP_USE_LOGGING
          -DEMLABCPP_USE_DEMANGLING
          -DEMLABCPP_USE_OSTREAM)
-target_include_directories(emlabcpp SYSTEM PUBLIC third-party/)
-target_link_libraries(emlabcpp PUBLIC nlohmann_json)
+target_include_directories(emlabcpp SYSTEM INTERFACE third-party/)
+target_link_libraries(emlabcpp INTERFACE nlohmann_json)
 
 function(emlabcpp_setup_test target)
   target_link_libraries(${target} emlabcpp)
@@ -57,6 +57,7 @@ function(emlabcpp_setup_test target)
             -DEMLABCPP_USE_NLOHMANN_JSON
             -DEMLABCPP_USE_MAGIC_ENUM
             -DEMLABCPP_USE_GTEST)
+  emlabcpp_compile_options(${target})
   if(EMLABCPP_COVERAGE_ENABLED)
     emlabcpp_target_enable_coverage(${target})
   endif()

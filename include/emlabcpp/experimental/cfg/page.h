@@ -21,7 +21,6 @@
 /// SOFTWARE.
 #pragma once
 
-#include "../../result.h"
 #include "./base.h"
 
 #include <cstdint>

@@ -22,8 +22,8 @@
 #pragma once
 
 #include "../../algorithm.h"
+#include "../../error_code.h"
 #include "../../protocol/converter.h"
-#include "../../result.h"
 #include "./page.h"
 
 #include <cstdint>
@@ -180,7 +180,7 @@ inline bool is_free_cell( std::span< std::byte, cell_size > cell )
         } );
 }
 
-enum class update_status_e : uint8_t
+enum class status : uint8_t
 {
         SUCCESS      = 0x00,
         FULL         = 0x01,
@@ -198,16 +198,54 @@ enum class update_status_e : uint8_t
         MEM_NOT_PAGE_MULTIPLY_ERROR,
 };
 
-struct [[nodiscard]] status : emlabcpp::status< status, update_status_e >
+struct status_category : error_category< status >
 {
-        using emlabcpp::status< status, update_status_e >::status;
-
-        using enum update_status_e;
+        [[nodiscard]] char const* message( error_value_type code ) const noexcept override
+        {
+                auto s = static_cast< status >( code );
+                switch ( s ) {
+                case status::SUCCESS:
+                        return "success";
+                case status::FULL:
+                        return "not enough space to store the value";
+                case status::MISSING_PAGE:
+                        return "no page header found in memory";
+                case status::SERIALIZE_VALUE_ERROR:
+                        return "failed to serialize the value";
+                case status::WRITE_ERROR:
+                        return "failed to write to memory";
+                case status::READ_ERROR:
+                        return "failed to read from memory";
+                case status::DESER_ERROR:
+                        return "failed to deserialize the value";
+                case status::RESET_KEYS_ERROR:
+                        return "failed to reset keys";
+                case status::CLEAR_ERROR:
+                        return "failed to clear page";
+                case status::LOCATE_FAILED_ERROR:
+                        return "failed to locate page";
+                case status::ON_KVAL_ERROR:
+                        return "error in on_kval callback";
+                case status::MEM_NOT_PAGE_MULTIPLY_ERROR:
+                        return "memory size is not a multiple of page size";
+                default:
+                        return "unknown error";
+                }
+        }
 };
+}  // namespace emlabcpp::cfg
 
+namespace emlabcpp
+{
+template <>
+inline constexpr cfg::status_category error_category_v< cfg::status > = {};
+}
+
+namespace emlabcpp::cfg
+{
 struct read_iface
 {
-        virtual result read( std::size_t addr, std::span< std::byte, cell_size > data ) = 0;
+        virtual error_code read( std::size_t addr, std::span< std::byte, cell_size > data ) = 0;
 
         virtual ~read_iface() = default;
 };
@@ -233,7 +271,7 @@ locate_current_page( std::size_t mem_size, std::size_t page_size, read_iface& if
         for ( uint32_t i = 0; i < mem_size / page_size; i++ ) {
                 std::byte data[cell_size] = {};
                 auto      addr            = i * page_size;
-                if ( iface.read( addr, data ) != result::SUCCESS )
+                if ( !iface.read( addr, data ) )
                         return { .status = status::READ_ERROR };
                 auto st = hdr_to_hdr_state( data );
                 if ( !st ) {
@@ -267,7 +305,7 @@ locate_next_page( std::size_t mem_size, std::size_t page_size, read_iface& iface
         for ( uint32_t i = 0; i < mem_size / page_size; i++ ) {
                 std::byte data[cell_size] = {};
                 auto      addr            = i * page_size;
-                if ( iface.read( addr, data ) != result::SUCCESS )
+                if ( !iface.read( addr, data ) )
                         return { .status = status::READ_ERROR };
                 auto st = hdr_to_hdr_state( data );
                 if ( !st )
@@ -285,7 +323,7 @@ locate_next_page( std::size_t mem_size, std::size_t page_size, read_iface& iface
 
 struct update_iface : iface_base
 {
-        virtual result write( std::size_t start_addr, std::span< std::byte const > data ) = 0;
+        virtual error_code write( std::size_t start_addr, std::span< std::byte const > data ) = 0;
 
         virtual cache_res check_key_cache( uint32_t key )                                  = 0;
         virtual bool      value_changed( uint32_t key, std::span< std::byte const > data ) = 0;
@@ -293,10 +331,10 @@ struct update_iface : iface_base
         virtual opt< std::span< std::byte const > >
         serialize_value( uint32_t key, std::span< std::byte > buffer ) = 0;
 
-        virtual result          reset_keys()      = 0;
+        virtual error_code      reset_keys()      = 0;
         virtual opt< uint32_t > take_unseen_key() = 0;
 
-        virtual result clear_page( std::size_t addr ) = 0;
+        virtual error_code clear_page( std::size_t addr ) = 0;
 };
 
 inline bool decr_addr( std::size_t& addr, std::size_t n, std::size_t start_addr )
@@ -324,11 +362,10 @@ std::span< std::byte > manifest_value(
                         auto buffer_offset = ( cell_val - i - 1 ) * cell_size;
                         if ( buffer_offset + cell_size > buffer.size() )
                                 return {};
-                        if ( iface.read(
+                        if ( !iface.read(
                                  addr,
                                  std::span< std::byte, cell_size >{
-                                     buffer.data() + buffer_offset, cell_size } ) !=
-                             result::SUCCESS )
+                                     buffer.data() + buffer_offset, cell_size } ) )
                                 return {};
                 }
                 return buffer.subspan( 0, cell_val * cell_size );
@@ -355,7 +392,7 @@ store_key( std::size_t& addr, std::size_t end_addr, uint32_t key, update_iface& 
         if ( capacity < data.size() )
                 return status::FULL;
 
-        if ( iface.write( addr, data ) != result::SUCCESS )
+        if ( !iface.write( addr, data ) )
                 return status::WRITE_ERROR;
         addr += data.size();
         return status::SUCCESS;
@@ -381,8 +418,7 @@ update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface
         for ( ;; ) {
                 if ( !decr_addr( addr, 1, start_addr ) )
                         break;
-                if ( iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) !=
-                     result::SUCCESS )
+                if ( !iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) )
                         return status::READ_ERROR;
                 if ( is_free_cell( tmp ) ) {
                         last_free = addr;
@@ -397,8 +433,7 @@ update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface
         for ( ;; ) {
                 if ( !decr_addr( addr, 1, start_addr ) )
                         break;
-                if ( iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) !=
-                     result::SUCCESS )
+                if ( !iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) )
                         return status::READ_ERROR;
                 auto c = deser_cell( tmp );
                 if ( !c )
@@ -439,14 +474,14 @@ inline status update( std::size_t mem_size, std::size_t page_size, update_iface&
         if ( status != status::SUCCESS )
                 return status;
 
-        if ( iface.reset_keys() != result::SUCCESS )
+        if ( !iface.reset_keys() )
                 return status::RESET_KEYS_ERROR;
 
-        if ( iface.clear_page( addr ) != result::SUCCESS )
+        if ( !iface.clear_page( addr ) )
                 return status::CLEAR_ERROR;
 
         auto hdr = get_hdr( page_st );
-        if ( iface.write( addr, std::span< std::byte >{ hdr } ) != result::SUCCESS )
+        if ( !iface.write( addr, std::span< std::byte >{ hdr } ) )
                 return status::WRITE_ERROR;
         addr += cell_size;
 
@@ -458,7 +493,7 @@ struct load_iface : iface_base
 
         virtual cache_res check_key_cache( uint32_t key ) = 0;
 
-        virtual result on_kval( uint32_t key, std::span< std::byte > ) = 0;
+        virtual error_code on_kval( uint32_t key, std::span< std::byte > ) = 0;
 };
 
 inline status load_stored_config( std::size_t start_addr, std::size_t end_addr, load_iface& iface )
@@ -470,8 +505,7 @@ inline status load_stored_config( std::size_t start_addr, std::size_t end_addr, 
         for ( ;; ) {
                 if ( !decr_addr( addr, 1, start_addr ) )
                         break;
-                if ( iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) !=
-                     result::SUCCESS )
+                if ( !iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) )
                         return status::READ_ERROR;
                 // XXX: copy-pasta from other function
                 auto c = deser_cell( tmp );
@@ -487,7 +521,7 @@ inline status load_stored_config( std::size_t start_addr, std::size_t end_addr, 
                 std::span< std::byte > val_sp =
                     manifest_value( is_seq, val, start_addr, addr, iface, buffer );
 
-                if ( iface.on_kval( key, val_sp ) != result::SUCCESS )
+                if ( !iface.on_kval( key, val_sp ) )
                         return status::ON_KVAL_ERROR;
         }
 

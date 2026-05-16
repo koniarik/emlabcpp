@@ -78,7 +78,7 @@ public:
                 return p;
         }
 
-        [[nodiscard]] result
+        [[nodiscard]] bool
         deallocate( void* const ptr, std::size_t const bytes, std::size_t const ) override
         {
                 std::byte* node_ptr = reinterpret_cast< std::byte* >( ptr ) + bytes + node_size;
@@ -94,7 +94,7 @@ public:
                         set_node( next_ptr, prev_ptr, next_next_ptr );
                 }
 
-                return result::SUCCESS;
+                return true;
         }
 
         [[nodiscard]] bool is_equal( pmr::memory_resource const& other ) const noexcept override

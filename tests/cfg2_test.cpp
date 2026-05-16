@@ -81,12 +81,12 @@ TEST( cfg, seq )
                 {
                 }
 
-                result read( std::size_t addr, std::span< std::byte, cell_size > data ) override
+                error_code read( std::size_t addr, std::span< std::byte, cell_size > data ) override
                 {
                         if ( addr + cell_size > buffer.size() )
-                                return result::ERROR;
+                                return false;
                         std::memcpy( data.data(), &buffer[addr], cell_size );
-                        return result::SUCCESS;
+                        return true;
                 }
         };
 
@@ -227,21 +227,21 @@ struct buffer_builder
 
 auto mem_read_f( auto& mem )
 {
-        return [&]( std::size_t addr, std::span< std::byte, cell_size > buffer ) {
+        return [&]( std::size_t addr, std::span< std::byte, cell_size > buffer ) -> error_code {
                 if ( addr + cell_size > mem.size() )
-                        return result::ERROR;
+                        return false;
                 std::memcpy( buffer.data(), &mem[addr], cell_size );
-                return result::SUCCESS;
+                return true;
         };
 }
 
 auto mem_write_f( auto& mem )
 {
-        return [&]( std::size_t addr, std::span< std::byte const > buffer ) {
+        return [&]( std::size_t addr, std::span< std::byte const > buffer ) -> error_code {
                 if ( addr + buffer.size() > mem.size() )
-                        return result::ERROR;
+                        return false;
                 std::memcpy( &mem[addr], buffer.data(), buffer.size() );
-                return result::SUCCESS;
+                return true;
         };
 }
 
@@ -270,15 +270,15 @@ TEST( cfg, update )
                         return { buffer, sizeof( buffer ) };
                 }
 
-                result read( std::size_t addr, std::span< std::byte, cell_size > data ) override
+                error_code read( std::size_t addr, std::span< std::byte, cell_size > data ) override
                 {
                         return mem_read_f( mem )( addr, data );
                 }
 
-                result write( std::size_t, std::span< std::byte const > ) override
+                error_code write( std::size_t, std::span< std::byte const > ) override
                 {
                         EXPECT_TRUE( false ) << "write not expected";
-                        return result::SUCCESS;
+                        return true;
                 }
 
                 cache_res check_key_cache( uint32_t ) override
@@ -297,10 +297,10 @@ TEST( cfg, update )
                         return unexpected_serialize( k, buffer );
                 }
 
-                result reset_keys() override
+                error_code reset_keys() override
                 {
                         EXPECT_TRUE( false ) << "reset not expected";
-                        return result::SUCCESS;
+                        return true;
                 }
 
                 opt< uint32_t > take_unseen_key() override
@@ -308,10 +308,10 @@ TEST( cfg, update )
                         return {};
                 }
 
-                result clear_page( std::size_t ) override
+                error_code clear_page( std::size_t ) override
                 {
                         EXPECT_TRUE( false ) << "clear not expected";
-                        return result::SUCCESS;
+                        return true;
                 }
         };
 
@@ -331,7 +331,7 @@ TEST( cfg, update )
                         return { buffer, sizeof( buffer ) };
                 }
 
-                result read( std::size_t addr, std::span< std::byte, cell_size > data ) override
+                error_code read( std::size_t addr, std::span< std::byte, cell_size > data ) override
                 {
                         return mem_read_f( mem )( addr, data );
                 }
@@ -341,11 +341,11 @@ TEST( cfg, update )
                         return cache_res::NOT_SEEN;
                 }
 
-                result on_kval( uint32_t key, std::span< std::byte > data ) override
+                error_code on_kval( uint32_t key, std::span< std::byte > data ) override
                 {
                         EXPECT_FALSE( res.contains( key ) );
                         res[key] = std::vector< std::byte >( data.begin(), data.end() );
-                        return result::SUCCESS;
+                        return true;
                 }
         };
 
@@ -394,12 +394,13 @@ TEST( cfg, update )
                         return { buffer, sizeof( buffer ) };
                 }
 
-                result read( std::size_t addr, std::span< std::byte, cell_size > data ) override
+                error_code read( std::size_t addr, std::span< std::byte, cell_size > data ) override
                 {
                         return mem_read_f( mem )( addr, data );
                 }
 
-                result write( std::size_t start_addr, std::span< std::byte const > data ) override
+                error_code
+                write( std::size_t start_addr, std::span< std::byte const > data ) override
                 {
                         return mem_write_f( mem )( start_addr, data );
                 }
@@ -433,16 +434,16 @@ TEST( cfg, update )
                         return pop_from_container( keys );
                 }
 
-                result reset_keys() override
+                error_code reset_keys() override
                 {
                         EXPECT_TRUE( false ) << "reset not expected";
-                        return result::SUCCESS;
+                        return true;
                 }
 
-                result clear_page( std::size_t addr ) override
+                error_code clear_page( std::size_t addr ) override
                 {
                         EXPECT_TRUE( false ) << "clear not expected at addr: " << addr;
-                        return result::SUCCESS;
+                        return true;
                 }
         };
 
@@ -723,7 +724,7 @@ TEST( cfg, integration )
                         return buff;
                 }
 
-                result read( std::size_t addr, std::span< std::byte, cell_size > data ) override
+                error_code read( std::size_t addr, std::span< std::byte, cell_size > data ) override
                 {
                         auto r = mem_read_f( mem.buffer )( addr, data );
                         std::cout << "reading " << addr << ":" << convert_view< int >( data )
@@ -731,7 +732,8 @@ TEST( cfg, integration )
                         return r;
                 }
 
-                result write( std::size_t start_addr, std::span< std::byte const > data ) override
+                error_code
+                write( std::size_t start_addr, std::span< std::byte const > data ) override
                 {
                         std::cout << "writing " << start_addr << ":" << convert_view< int >( data )
                                   << std::endl;
@@ -769,19 +771,19 @@ TEST( cfg, integration )
                         return pop_from_container( keys_seen );
                 }
 
-                result reset_keys() override
+                error_code reset_keys() override
                 {
                         std::cout << "resetting keys" << std::endl;
                         keys_seen = cfg.keys();
-                        return result::SUCCESS;
+                        return true;
                 }
 
-                result clear_page( std::size_t addr ) override
+                error_code clear_page( std::size_t addr ) override
                 {
                         std::cout << "clearing page at addr: " << addr << std::endl;
                         auto p = mem.pages()[addr / mem.page_size];
                         p.clear();
-                        return result::SUCCESS;
+                        return true;
                 }
         };
 
@@ -804,7 +806,7 @@ TEST( cfg, integration )
                         return buff;
                 }
 
-                result read( std::size_t addr, std::span< std::byte, cell_size > data ) override
+                error_code read( std::size_t addr, std::span< std::byte, cell_size > data ) override
                 {
                         auto r = mem_read_f( mem.buffer )( addr, data );
                         std::cout << "lreading " << addr << ":" << convert_view< int >( data )
@@ -818,14 +820,14 @@ TEST( cfg, integration )
                         return key_check_unseen_container( keys_seen, key );
                 }
 
-                result on_kval( uint32_t key, std::span< std::byte > data ) override
+                error_code on_kval( uint32_t key, std::span< std::byte > data ) override
                 {
                         auto&& val = cfg.value( key );
                         if ( val.size() > data.size() ) {
                                 std::cout << "Value size mismatch for key " << key << ": expected "
                                           << val.size() << ", got " << data.size() << std::endl;
                                 EXPECT_EQ( val.size(), data.size() );
-                                return result::ERROR;
+                                return false;
                         }
                         std::span< std::byte > data2{ data.begin(), val.size() };
                         bool equal = std::ranges::equal( cfg.value( key ), data2 );
@@ -838,7 +840,7 @@ TEST( cfg, integration )
                                     return b == 0x00_b;
                             } );
                         EXPECT_TRUE( rest_is_zero );
-                        return result_e::SUCCESS;
+                        return true;
                 }
         };
 
