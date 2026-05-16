@@ -56,11 +56,17 @@ inline constexpr bool_category error_category_v< bool > = {};
 struct [[nodiscard]] error_code
 {
         template < error_type T >
+        requires( !std::same_as< T, error_code > )
         constexpr error_code( T x )
           : code_( error_category_v< T >.cast( x ) )
           , category_( &error_category_v< T > )
         {
         }
+
+        constexpr error_code( error_code const& ) noexcept            = default;
+        constexpr error_code( error_code&& ) noexcept                 = default;
+        constexpr error_code& operator=( error_code const& ) noexcept = default;
+        constexpr error_code& operator=( error_code&& ) noexcept      = default;
 
         [[nodiscard]] constexpr char const* message() const noexcept
         {
