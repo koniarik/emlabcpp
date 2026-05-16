@@ -96,6 +96,40 @@
       ]
     },
     {
+      "name": "asan",
+      "steps": [
+        {
+          "name": "asan",
+          "type": "configure"
+        },
+        {
+          "name": "asan",
+          "type": "build"
+        },
+        {
+          "name": "asan",
+          "type": "test"
+        }
+      ]
+    },
+    {
+      "name": "ubsan",
+      "steps": [
+        {
+          "name": "ubsan",
+          "type": "configure"
+        },
+        {
+          "name": "ubsan",
+          "type": "build"
+        },
+        {
+          "name": "ubsan",
+          "type": "test"
+        }
+      ]
+    },
+    {
       "name": "release",
       "steps": [
         {
