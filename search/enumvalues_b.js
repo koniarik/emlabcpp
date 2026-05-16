@@ -1,12 +1,7 @@
 var searchData=
 [
-  ['param_5fchild_2682',['PARAM_CHILD',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa635fd949e556b317f5a5422ab69c45b5',1,'emlabcpp::testing']]],
-  ['param_5fchild_5fcount_2683',['PARAM_CHILD_COUNT',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa8ef363444f05b891ef402c9abb530351',1,'emlabcpp::testing']]],
-  ['param_5ferror_2684',['PARAM_ERROR',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aab705bd275e3f4aa8d88067b1c25a8880',1,'emlabcpp::testing']]],
-  ['param_5fkey_2685',['PARAM_KEY',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa588a485ee5046bd1f4f654d5e58809af',1,'emlabcpp::testing']]],
-  ['param_5ftype_2686',['PARAM_TYPE',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa3624918944d320b7cc07f4ca99a99b91',1,'emlabcpp::testing']]],
-  ['param_5fvalue_2687',['PARAM_VALUE',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa5a762008e8eca4531fef87b0164b2cdf',1,'emlabcpp::testing']]],
-  ['param_5fvalue_5fkey_2688',['PARAM_VALUE_KEY',['../namespaceemlabcpp_1_1testing.html#abb07fe9541c63a9babdb6f577489443aa988a042b19386ddc31b0c9663700abab',1,'emlabcpp::testing']]],
-  ['port_5fmatch_5ferror_2689',['PORT_MATCH_ERROR',['../namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafad7cee373ed46d900f608c5970cdfe643',1,'emlabcpp::protocol']]],
-  ['protocol_5ferror_2690',['PROTOCOL_ERROR',['../namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37dafa89fc9790558c285c0664b57f3251ebc1',1,'emlabcpp::protocol::PROTOCOL_ERROR()'],['../namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459a23f149f0f9ae9ed9e0119e7209178a5d',1,'emlabcpp::testing::PROTOCOL_ERROR()']]]
+  ['seen_2052',['SEEN',['../namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569aa597a8fc234b2ba1eef93584cae80a4a',1,'emlabcpp::cfg']]],
+  ['serialize_5fvalue_5ferror_2053',['SERIALIZE_VALUE_ERROR',['../namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a22c56f00f69874ec57d71a7df536af95',1,'emlabcpp::cfg']]],
+  ['single_2054',['SINGLE',['../namespaceemlabcpp_1_1cfg.html#a3253aa7b8e8920075a179e593c278a7aa0679273e201afd0bf57af3961f8a23b8',1,'emlabcpp::cfg']]],
+  ['success_2055',['SUCCESS',['../namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511ad0749aaba8b833466dfcbb0428e4f89c',1,'emlabcpp::cfg']]]
 ];

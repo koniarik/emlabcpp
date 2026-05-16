@@ -1,7 +1,7 @@
 var namespaceemlabcpp_1_1cfg =
 [
     [ "deser_res", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1deser__res_dup" ],
-    [ "status", "structemlabcpp_1_1cfg_1_1status.html", null ],
+    [ "status_category", "structemlabcpp_1_1cfg_1_1status__category.html", "structemlabcpp_1_1cfg_1_1status__category" ],
     [ "read_iface", "structemlabcpp_1_1cfg_1_1read__iface.html", "structemlabcpp_1_1cfg_1_1read__iface" ],
     [ "iface_base", "structemlabcpp_1_1cfg_1_1iface__base.html", "structemlabcpp_1_1cfg_1_1iface__base" ],
     [ "locate_current_info", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1locate__current__info", "namespaceemlabcpp_1_1cfg_structemlabcpp_1_1cfg_1_1locate__current__info_dup" ],
@@ -23,19 +23,19 @@ var namespaceemlabcpp_1_1cfg =
       [ "B", "namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a9d5ed678fe57bcca610140957afab571", null ],
       [ "C", "namespaceemlabcpp_1_1cfg.html#a895b7d25c90721a0397f1792bf3ae1f1a0d61f8370cad1d412f80b84d143e1257", null ]
     ] ],
-    [ "update_status_e", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884a", [
-      [ "SUCCESS", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aad0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "FULL", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aaba7de5bc6888294e5884b024a4c894f1", null ],
-      [ "MISSING_PAGE", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa3913e80f3f73f86b9c2f5866176db5b3", null ],
-      [ "SERIALIZE_VALUE_ERROR", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa22c56f00f69874ec57d71a7df536af95", null ],
-      [ "WRITE_ERROR", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa6ffd8aa558c1ab84ddc0a01e4f14ed0d", null ],
-      [ "READ_ERROR", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa54481c80b10e75ecba9c621f1eee91fe", null ],
-      [ "DESER_ERROR", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa081a2309acbc244b189bf034dfee54b9", null ],
-      [ "RESET_KEYS_ERROR", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aad38780829469bc4424e463535b2e53f2", null ],
-      [ "CLEAR_ERROR", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aabd5afe2bb84e771da655084ba65ec880", null ],
-      [ "LOCATE_FAILED_ERROR", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa7124b595d6bea63be33f421a93d12e42", null ],
-      [ "ON_KVAL_ERROR", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa815f591e504db48567e28db94d8305c9", null ],
-      [ "MEM_NOT_PAGE_MULTIPLY_ERROR", "namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aafcd4be9bff35d134e6f9f40d1dcb0d2f", null ]
+    [ "status", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511", [
+      [ "SUCCESS", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "FULL", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511aba7de5bc6888294e5884b024a4c894f1", null ],
+      [ "MISSING_PAGE", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a3913e80f3f73f86b9c2f5866176db5b3", null ],
+      [ "SERIALIZE_VALUE_ERROR", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a22c56f00f69874ec57d71a7df536af95", null ],
+      [ "WRITE_ERROR", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a6ffd8aa558c1ab84ddc0a01e4f14ed0d", null ],
+      [ "READ_ERROR", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a54481c80b10e75ecba9c621f1eee91fe", null ],
+      [ "DESER_ERROR", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a081a2309acbc244b189bf034dfee54b9", null ],
+      [ "RESET_KEYS_ERROR", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511ad38780829469bc4424e463535b2e53f2", null ],
+      [ "CLEAR_ERROR", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511abd5afe2bb84e771da655084ba65ec880", null ],
+      [ "LOCATE_FAILED_ERROR", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a7124b595d6bea63be33f421a93d12e42", null ],
+      [ "ON_KVAL_ERROR", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a815f591e504db48567e28db94d8305c9", null ],
+      [ "MEM_NOT_PAGE_MULTIPLY_ERROR", "namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511afcd4be9bff35d134e6f9f40d1dcb0d2f", null ]
     ] ],
     [ "byte_to_hdr", "namespaceemlabcpp_1_1cfg.html#af5e9b572f5cddc375659a5a0222c67b6", null ],
     [ "closest_multiple_of", "namespaceemlabcpp_1_1cfg.html#ab79d43de96c836d78ad14ea5922d954b", null ],

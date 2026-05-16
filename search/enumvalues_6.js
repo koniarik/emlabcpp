@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['input_5fmessage_5fprotocol_5ferror_2669',['INPUT_MESSAGE_PROTOCOL_ERROR',['../namespaceemlabcpp_1_1testing.html#acaa3eb138817e4e8e0040cb830a35d76a70e33cdaf6aa8a512fd227a8415c7b98',1,'emlabcpp::testing']]],
-  ['internal_5ferror_2670',['INTERNAL_ERROR',['../namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459ae8c0c70879b5895c615677261d64a1ee',1,'emlabcpp::testing']]]
+  ['locate_5ffailed_5ferror_2042',['LOCATE_FAILED_ERROR',['../namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a7124b595d6bea63be33f421a93d12e42',1,'emlabcpp::cfg']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['msgid_2640',['msgid',['../namespaceemlabcpp_1_1testing.html#a9a994539be0b8174f39b99382de81459',1,'emlabcpp::testing']]],
-  ['multiplexer_5fenum_2641',['multiplexer_enum',['../namespaceemlabcpp_1_1protocol.html#a95e0cc87ac4f73ef63f5a43c3bc37daf',1,'emlabcpp::protocol']]]
+  ['wait_5fstate_2032',['wait_state',['../namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90',1,'emlabcpp::coro']]]
 ];

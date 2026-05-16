@@ -95,8 +95,8 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2handler_8h.html',''
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="algorithm_8h_source.html">../../algorithm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="error__code_8h_source.html">../../error_code.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="converter_8h_source.html">../../protocol/converter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="result_8h_source.html">../../result.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="page_8h_source.html">./page.h</a>&quot;</code><br />
 <code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;optional&gt;</code><br />
@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2handler_8h.html',''
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="experimental_2cfg_2handler_8h__incl.svg" width="1179" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="experimental_2cfg_2handler_8h__incl.svg" width="1106" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('experimental_2cfg_2handler_8h.html',''
 Classes</h2></td></tr>
 <tr class="memitem:structemlabcpp_1_1cfg_1_1deser__res"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1deser__res">emlabcpp::cfg::deser_res</a></td></tr>
 <tr class="separator:structemlabcpp_1_1cfg_1_1deser__res"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1status.html">emlabcpp::cfg::status</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1status__category.html">emlabcpp::cfg::status_category</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1cfg_1_1read__iface.html">emlabcpp::cfg::read_iface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,33 +162,33 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:aeea787a784189c5391178f02805f3569"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19c8d7fad65c73110fa460db8482884a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884a">emlabcpp::cfg::update_status_e</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aad0749aaba8b833466dfcbb0428e4f89c">emlabcpp::cfg::SUCCESS</a> = 0x00
+<tr class="memitem:ae2458d86df94b4aab0a993d841d06511"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511">emlabcpp::cfg::status</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511ad0749aaba8b833466dfcbb0428e4f89c">emlabcpp::cfg::SUCCESS</a> = 0x00
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aaba7de5bc6888294e5884b024a4c894f1">emlabcpp::cfg::FULL</a> = 0x01
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511aba7de5bc6888294e5884b024a4c894f1">emlabcpp::cfg::FULL</a> = 0x01
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa3913e80f3f73f86b9c2f5866176db5b3">emlabcpp::cfg::MISSING_PAGE</a> = 0x02
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a3913e80f3f73f86b9c2f5866176db5b3">emlabcpp::cfg::MISSING_PAGE</a> = 0x02
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa22c56f00f69874ec57d71a7df536af95">emlabcpp::cfg::SERIALIZE_VALUE_ERROR</a>
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a22c56f00f69874ec57d71a7df536af95">emlabcpp::cfg::SERIALIZE_VALUE_ERROR</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa6ffd8aa558c1ab84ddc0a01e4f14ed0d">emlabcpp::cfg::WRITE_ERROR</a>
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a6ffd8aa558c1ab84ddc0a01e4f14ed0d">emlabcpp::cfg::WRITE_ERROR</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa54481c80b10e75ecba9c621f1eee91fe">emlabcpp::cfg::READ_ERROR</a>
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a54481c80b10e75ecba9c621f1eee91fe">emlabcpp::cfg::READ_ERROR</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa081a2309acbc244b189bf034dfee54b9">emlabcpp::cfg::DESER_ERROR</a>
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a081a2309acbc244b189bf034dfee54b9">emlabcpp::cfg::DESER_ERROR</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aad38780829469bc4424e463535b2e53f2">emlabcpp::cfg::RESET_KEYS_ERROR</a>
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511ad38780829469bc4424e463535b2e53f2">emlabcpp::cfg::RESET_KEYS_ERROR</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aabd5afe2bb84e771da655084ba65ec880">emlabcpp::cfg::CLEAR_ERROR</a>
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511abd5afe2bb84e771da655084ba65ec880">emlabcpp::cfg::CLEAR_ERROR</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa7124b595d6bea63be33f421a93d12e42">emlabcpp::cfg::LOCATE_FAILED_ERROR</a>
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a7124b595d6bea63be33f421a93d12e42">emlabcpp::cfg::LOCATE_FAILED_ERROR</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa815f591e504db48567e28db94d8305c9">emlabcpp::cfg::ON_KVAL_ERROR</a>
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a815f591e504db48567e28db94d8305c9">emlabcpp::cfg::ON_KVAL_ERROR</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aafcd4be9bff35d134e6f9f40d1dcb0d2f">emlabcpp::cfg::MEM_NOT_PAGE_MULTIPLY_ERROR</a>
+&#160;&#160;<a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511afcd4be9bff35d134e6f9f40d1dcb0d2f">emlabcpp::cfg::MEM_NOT_PAGE_MULTIPLY_ERROR</a>
 <br />
  }</td></tr>
-<tr class="separator:a19c8d7fad65c73110fa460db8482884a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ae2458d86df94b4aab0a993d841d06511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -291,15 +291,7 @@ val</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::cfg::locate_current_info:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1cfg_1_1locate__current__info__coll__graph.svg" width="204" height="232"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="fieldtable">
+<div class="textblock"></div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
 <a id="a751fdc17a923f78d368355585b45024b"></a>size_t</td>
@@ -308,7 +300,7 @@ addr</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="aa1fe6aeec4cc5b29bbf6e24677a106ea"></a><a class="el" href="structemlabcpp_1_1cfg_1_1status.html">status</a></td>
+<a id="aa1fe6aeec4cc5b29bbf6e24677a106ea"></a><a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511">status</a></td>
 <td class="fieldname">
 status</td>
 <td class="fielddoc">
@@ -328,15 +320,7 @@ status</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"></div><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::cfg::locate_next_info:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1cfg_1_1locate__next__info__coll__graph.svg" width="204" height="232"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="fieldtable">
+<div class="textblock"></div><table class="fieldtable">
 <tr><th colspan="3">Class Members</th></tr>
 <tr><td class="fieldtype">
 <a id="a8b27dc68a07a3ab8c127712edc3bfb8c"></a>size_t</td>
@@ -351,7 +335,7 @@ state</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="a9d5b063727bb763e2fe381e09719bd7c"></a><a class="el" href="structemlabcpp_1_1cfg_1_1status.html">status</a></td>
+<a id="a9d5b063727bb763e2fe381e09719bd7c"></a><a class="el" href="namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511">status</a></td>
 <td class="fieldname">
 status</td>
 <td class="fielddoc">
@@ -366,7 +350,7 @@ status</td>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_833cf07299c67ab119396183470d94f1.html">experimental</a></li><li class="navelem"><a class="el" href="dir_b8d3940418ab59971bff71afaa8cab2b.html">cfg</a></li><li class="navelem"><a class="el" href="experimental_2cfg_2handler_8h.html">handler.h</a></li>
-    <li class="footer">Generated on Sat Jan 24 2026 10:31:52 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat May 16 2026 17:25:01 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

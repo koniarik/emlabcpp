@@ -112,7 +112,7 @@
 <!-- Node33 -->
 <g id="node8" class="node">
 <title>Node33</title>
-<g id="a_node8"><a xlink:href="protocol_2error_8h.html" target="_top" xlink:title=" ">
+<g id="a_node8"><a xlink:href="error_8h.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="red" points="465.5,-0.5 465.5,-19.5 519.5,-19.5 519.5,-0.5 465.5,-0.5"/>
 <text text-anchor="middle" x="492.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">./error.h</text>
 </a>

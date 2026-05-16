@@ -1,9 +1,6 @@
 <map id="include/emlabcpp/experimental/cfg/page.h" name="include/emlabcpp/experimental/cfg/page.h">
-<area shape="rect" id="node1" title=" " alt="" coords="193,5,421,47"/>
-<area shape="rect" id="node2" href="$result_8h.html" title=" " alt="" coords="135,95,229,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="241,169,307,196"/>
-<area shape="rect" id="node6" href="$experimental_2cfg_2base_8h.html" title=" " alt="" coords="308,95,381,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="406,95,481,121"/>
-<area shape="rect" id="node3" href="$algorithm_8h.html" title=" " alt="" coords="5,169,111,196"/>
-<area shape="rect" id="node4" href="$status_8h.html" title=" " alt="" coords="134,169,217,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="23,5,251,47"/>
+<area shape="rect" id="node2" href="$experimental_2cfg_2base_8h.html" title=" " alt="" coords="5,95,79,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="103,95,170,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="194,95,269,121"/>
 </map>

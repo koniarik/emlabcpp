@@ -1,5 +1,0 @@
-var structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4 =
-[
-    [ "from_value", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4.html#acd272387f9210e2d2ee97983646c53ea", null ],
-    [ "to_value", "structemlabcpp_1_1testing_1_1value__type__converter_3_01std_1_1chrono_1_1duration_3_01Rep_00_01Ratio_01_4_01_4.html#a0f91f0f7add2f29382f6e4833011d117", null ]
-];

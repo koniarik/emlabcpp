@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['new_5fdelete_5fresource_2eh_1701',['new_delete_resource.h',['../new__delete__resource_8h.html',1,'']]],
-  ['numeric_2eh_1702',['numeric.h',['../numeric_8h.html',1,'']]]
+  ['owning_5fcoroutine_5fhandle_2eh_1288',['owning_coroutine_handle.h',['../owning__coroutine__handle_8h.html',1,'']]]
 ];

@@ -5,7 +5,7 @@ var experimental_2cfg_2handler_8h =
       [ "key", "namespaceemlabcpp_1_1cfg.html#ad94b2a447ade816358dae65968f15b38", null ],
       [ "val", "namespaceemlabcpp_1_1cfg.html#a6c1f54129c3dd7b5eb4e142295cc49f6", null ]
     ] ],
-    [ "status", "structemlabcpp_1_1cfg_1_1status.html", null ],
+    [ "status_category", "structemlabcpp_1_1cfg_1_1status__category.html", "structemlabcpp_1_1cfg_1_1status__category" ],
     [ "read_iface", "structemlabcpp_1_1cfg_1_1read__iface.html", "structemlabcpp_1_1cfg_1_1read__iface" ],
     [ "iface_base", "structemlabcpp_1_1cfg_1_1iface__base.html", "structemlabcpp_1_1cfg_1_1iface__base" ],
     [ "locate_current_info", "namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1locate__current__info", [
@@ -28,19 +28,19 @@ var experimental_2cfg_2handler_8h =
       [ "SINGLE", "experimental_2cfg_2handler_8h.html#a3253aa7b8e8920075a179e593c278a7aa0679273e201afd0bf57af3961f8a23b8", null ],
       [ "MULTI", "experimental_2cfg_2handler_8h.html#a3253aa7b8e8920075a179e593c278a7aaf26be970aac1b06fa62b87562bc73deb", null ]
     ] ],
-    [ "update_status_e", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884a", [
-      [ "SUCCESS", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884aad0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "FULL", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884aaba7de5bc6888294e5884b024a4c894f1", null ],
-      [ "MISSING_PAGE", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884aa3913e80f3f73f86b9c2f5866176db5b3", null ],
-      [ "SERIALIZE_VALUE_ERROR", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884aa22c56f00f69874ec57d71a7df536af95", null ],
-      [ "WRITE_ERROR", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884aa6ffd8aa558c1ab84ddc0a01e4f14ed0d", null ],
-      [ "READ_ERROR", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884aa54481c80b10e75ecba9c621f1eee91fe", null ],
-      [ "DESER_ERROR", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884aa081a2309acbc244b189bf034dfee54b9", null ],
-      [ "RESET_KEYS_ERROR", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884aad38780829469bc4424e463535b2e53f2", null ],
-      [ "CLEAR_ERROR", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884aabd5afe2bb84e771da655084ba65ec880", null ],
-      [ "LOCATE_FAILED_ERROR", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884aa7124b595d6bea63be33f421a93d12e42", null ],
-      [ "ON_KVAL_ERROR", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884aa815f591e504db48567e28db94d8305c9", null ],
-      [ "MEM_NOT_PAGE_MULTIPLY_ERROR", "experimental_2cfg_2handler_8h.html#a19c8d7fad65c73110fa460db8482884aafcd4be9bff35d134e6f9f40d1dcb0d2f", null ]
+    [ "status", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511", [
+      [ "SUCCESS", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "FULL", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511aba7de5bc6888294e5884b024a4c894f1", null ],
+      [ "MISSING_PAGE", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511a3913e80f3f73f86b9c2f5866176db5b3", null ],
+      [ "SERIALIZE_VALUE_ERROR", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511a22c56f00f69874ec57d71a7df536af95", null ],
+      [ "WRITE_ERROR", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511a6ffd8aa558c1ab84ddc0a01e4f14ed0d", null ],
+      [ "READ_ERROR", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511a54481c80b10e75ecba9c621f1eee91fe", null ],
+      [ "DESER_ERROR", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511a081a2309acbc244b189bf034dfee54b9", null ],
+      [ "RESET_KEYS_ERROR", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511ad38780829469bc4424e463535b2e53f2", null ],
+      [ "CLEAR_ERROR", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511abd5afe2bb84e771da655084ba65ec880", null ],
+      [ "LOCATE_FAILED_ERROR", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511a7124b595d6bea63be33f421a93d12e42", null ],
+      [ "ON_KVAL_ERROR", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511a815f591e504db48567e28db94d8305c9", null ],
+      [ "MEM_NOT_PAGE_MULTIPLY_ERROR", "experimental_2cfg_2handler_8h.html#ae2458d86df94b4aab0a993d841d06511afcd4be9bff35d134e6f9f40d1dcb0d2f", null ]
     ] ],
     [ "closest_multiple_of", "experimental_2cfg_2handler_8h.html#ab79d43de96c836d78ad14ea5922d954b", null ],
     [ "decr_addr", "experimental_2cfg_2handler_8h.html#a8330bb3636ab2c5674b18551b0cc168e", null ],

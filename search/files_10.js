@@ -1,15 +1,13 @@
 var searchData=
 [
-  ['range_2eh_1717',['range.h',['../range_8h.html',1,'']]],
-  ['reactor_2eh_1718',['reactor.h',['../reactor_8h.html',1,'']]],
-  ['reactor_5finterface_5fadapter_2eh_1719',['reactor_interface_adapter.h',['../reactor__interface__adapter_8h.html',1,'']]],
-  ['readme_2emd_1720',['README.md',['../README_8md.html',1,'']]],
-  ['recursive_2eh_1721',['recursive.h',['../recursive_8h.html',1,'']]],
-  ['register_5fhandler_2eh_1722',['register_handler.h',['../register__handler_8h.html',1,'']]],
-  ['register_5fmap_2eh_1723',['register_map.h',['../register__map_8h.html',1,'']]],
-  ['request_5fadapter_2eh_1724',['request_adapter.h',['../request__adapter_8h.html',1,'']]],
-  ['request_5freply_2eh_1725',['request_reply.h',['../request__reply_8h.html',1,'']]],
-  ['result_2eh_1726',['result.h',['../result_8h.html',1,'']]],
-  ['round_5frobin_5fexecutor_2eh_1727',['round_robin_executor.h',['../round__robin__executor_8h.html',1,'']]],
-  ['rpc_2eh_1728',['rpc.h',['../rpc_8h.html',1,'']]]
+  ['sequencer_2eh_1308',['sequencer.h',['../sequencer_8h.html',1,'']]],
+  ['serializer_2eh_1309',['serializer.h',['../serializer_8h.html',1,'']]],
+  ['simplex_2eh_1310',['simplex.h',['../simplex_8h.html',1,'']]],
+  ['stack_5fresource_2eh_1311',['stack_resource.h',['../stack__resource_8h.html',1,'']]],
+  ['static_5fcircular_5fbuffer_2eh_1312',['static_circular_buffer.h',['../static__circular__buffer_8h.html',1,'']]],
+  ['static_5ffunction_2eh_1313',['static_function.h',['../static__function_8h.html',1,'']]],
+  ['static_5fstorage_2eh_1314',['static_storage.h',['../static__storage_8h.html',1,'']]],
+  ['static_5fvector_2eh_1315',['static_vector.h',['../static__vector_8h.html',1,'']]],
+  ['streams_2eh_1316',['streams.h',['../streams_8h.html',1,'']]],
+  ['string_5fbuffer_2eh_1317',['string_buffer.h',['../string__buffer_8h.html',1,'']]]
 ];

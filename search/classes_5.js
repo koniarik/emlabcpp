@@ -1,13 +1,12 @@
 var searchData=
 [
-  ['empty_5fnode_5fimpl_1388',['empty_node_impl',['../structemlabcpp_1_1testing_1_1empty__node__impl.html',1,'emlabcpp::testing']]],
-  ['endianess_5fwrapper_1389',['endianess_wrapper',['../structemlabcpp_1_1protocol_1_1endianess__wrapper.html',1,'emlabcpp::protocol']]],
-  ['endpoint_1390',['endpoint',['../classemlabcpp_1_1protocol_1_1endpoint.html',1,'emlabcpp::protocol']]],
-  ['endpoint_3c_20packet_2c_20packet_20_3e_1391',['endpoint&lt; Packet, Packet &gt;',['../classemlabcpp_1_1protocol_1_1endpoint.html',1,'emlabcpp::protocol']]],
-  ['endpoint_5fload_5ferror_1392',['endpoint_load_error',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error',1,'emlabcpp::protocol']]],
-  ['error_1393',['error',['../namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1error',1,'emlabcpp::rpc::error'],['../structemlabcpp_1_1testing_1_1error.html',1,'emlabcpp::testing::error&lt; Err &gt;']]],
-  ['error_5fawaiter_1394',['error_awaiter',['../structemlabcpp_1_1coro_1_1error__awaiter.html',1,'emlabcpp::coro']]],
-  ['error_5frecord_1395',['error_record',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record',1,'emlabcpp::protocol']]],
-  ['exec_5frequest_1396',['exec_request',['../structemlabcpp_1_1testing_1_1exec__request.html',1,'emlabcpp::testing']]],
-  ['executor_1397',['executor',['../classemlabcpp_1_1testing_1_1executor.html',1,'emlabcpp::testing']]]
+  ['endianess_5fwrapper_1061',['endianess_wrapper',['../structemlabcpp_1_1protocol_1_1endianess__wrapper.html',1,'emlabcpp::protocol']]],
+  ['endpoint_1062',['endpoint',['../classemlabcpp_1_1protocol_1_1endpoint.html',1,'emlabcpp::protocol']]],
+  ['endpoint_5fload_5ferror_1063',['endpoint_load_error',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1endpoint__load__error',1,'emlabcpp::protocol']]],
+  ['error_1064',['error',['../namespaceemlabcpp_1_1rpc.html#structemlabcpp_1_1rpc_1_1error',1,'emlabcpp::rpc']]],
+  ['error_5fawaiter_1065',['error_awaiter',['../structemlabcpp_1_1coro_1_1error__awaiter.html',1,'emlabcpp::coro']]],
+  ['error_5fcategory_1066',['error_category',['../structemlabcpp_1_1error__category.html',1,'emlabcpp']]],
+  ['error_5fcategory_3c_20status_20_3e_1067',['error_category&lt; status &gt;',['../structemlabcpp_1_1error__category.html',1,'emlabcpp']]],
+  ['error_5fcode_1068',['error_code',['../structemlabcpp_1_1error__code.html',1,'emlabcpp']]],
+  ['error_5frecord_1069',['error_record',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record',1,'emlabcpp::protocol']]]
 ];

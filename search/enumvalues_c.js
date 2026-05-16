@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['read_5ferror_2691',['READ_ERROR',['../namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aa54481c80b10e75ecba9c621f1eee91fe',1,'emlabcpp::cfg']]],
-  ['ready_2692',['READY',['../namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90a2baa69eafc7204f3bd8648eba580c489',1,'emlabcpp::coro']]],
-  ['reset_5fkeys_5ferror_2693',['RESET_KEYS_ERROR',['../namespaceemlabcpp_1_1cfg.html#a19c8d7fad65c73110fa460db8482884aad38780829469bc4424e463535b2e53f2',1,'emlabcpp::cfg']]]
+  ['waiting_2056',['WAITING',['../namespaceemlabcpp_1_1coro.html#afb2acc7f50eb3babda185eae41c67d90a1869d56535e8b1449a6da54ff5e11f50',1,'emlabcpp::coro']]],
+  ['write_5ferror_2057',['WRITE_ERROR',['../namespaceemlabcpp_1_1cfg.html#ae2458d86df94b4aab0a993d841d06511a6ffd8aa558c1ab84ddc0a01e4f14ed0d',1,'emlabcpp::cfg']]]
 ];
