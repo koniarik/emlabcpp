@@ -32,7 +32,7 @@ struct undefined_error_category : error_category< T >
 };
 
 template < typename T >
-extern undefined_error_category< T > const error_category_v;
+inline undefined_error_category< T > const error_category_v;
 
 template < typename T >
 concept error_type = requires { error_category_v< T >; };
@@ -51,14 +51,13 @@ struct bool_category : _error_category
 };
 
 template <>
-inline constexpr bool_category error_category_v< bool > = {};
+inline bool_category const error_category_v< bool > = {};
 
 struct [[nodiscard]] error_code
 {
         template < typename T >
-                requires( !std::same_as< std::remove_cvref_t< T >, error_code > &&
-                          error_type< T > )
-        constexpr error_code( T x )
+        requires( !std::same_as< std::remove_cvref_t< T >, error_code > && error_type< T > )
+        error_code( T x )
           : code_( error_category_v< T >.cast( x ) )
           , category_( &error_category_v< T > )
         {
@@ -92,8 +91,7 @@ struct [[nodiscard]] error_code
         [[nodiscard]] constexpr bool operator==( error_code const& ) const noexcept = default;
 
         template < typename T >
-                requires( !std::same_as< std::remove_cvref_t< T >, error_code > &&
-                          error_type< T > )
+        requires( !std::same_as< std::remove_cvref_t< T >, error_code > && error_type< T > )
         [[nodiscard]] constexpr bool operator==( T x ) const noexcept
         {
                 return *this == error_code( x );

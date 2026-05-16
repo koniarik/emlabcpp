@@ -407,7 +407,7 @@ struct converter< std::bitset< N >, Endianess >
         {
                 for ( std::size_t const i : range( max_size ) ) {
                         std::bitset< 8 > byte;
-                        for ( std::size_t const j : range( 8u ) )
+                        for ( std::size_t const j : range( std::min( std::size_t{ 8 }, N - i * 8 ) ) )
                                 byte[j] = item[i * 8 + j];
                         bget( buffer, i ) = static_cast< std::byte >( byte.to_ulong() );
                 }
@@ -421,7 +421,7 @@ struct converter< std::bitset< N >, Endianess >
                         return { 0, &SIZE_ERR };
                 for ( std::size_t const i : range( max_size ) ) {
                         std::bitset< 8 > byte = static_cast< uint8_t >( bget( buffer, i ) );
-                        for ( std::size_t const j : range( 8u ) )
+                        for ( std::size_t const j : range( std::min( std::size_t{ 8 }, N - i * 8 ) ) )
                                 value[i * 8 + j] = byte[j];
                 }
                 return conversion_result{ max_size };
