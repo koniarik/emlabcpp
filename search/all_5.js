@@ -37,7 +37,7 @@ var searchData=
   ['error_5fcategory_3c_20status_20_3e_276',['error_category&lt; status &gt;',['../structemlabcpp_1_1error__category.html',1,'emlabcpp']]],
   ['error_5fcategory_5fv_277',['error_category_v',['../namespaceemlabcpp.html#a7a999d4d070e6093a61ed03027d5b142',1,'emlabcpp']]],
   ['error_5fcategory_5fv_3c_20bool_20_3e_278',['error_category_v&lt; bool &gt;',['../namespaceemlabcpp.html#ac2da3401ebabce9ca0d8a567b0043b94',1,'emlabcpp']]],
-  ['error_5fcode_279',['error_code',['../structemlabcpp_1_1error__code.html',1,'emlabcpp::error_code'],['../structemlabcpp_1_1error__code.html#a9266368387703eeaaef1e1d277ce07f0',1,'emlabcpp::error_code::error_code()']]],
+  ['error_5fcode_279',['error_code',['../structemlabcpp_1_1error__code.html',1,'emlabcpp::error_code'],['../structemlabcpp_1_1error__code.html#a21e48481497b4231c2900af2b89c798e',1,'emlabcpp::error_code::error_code(error_code &amp;&amp;) noexcept=default'],['../structemlabcpp_1_1error__code.html#a26dc148babc648555bb845f1580adc3f',1,'emlabcpp::error_code::error_code(error_code const &amp;) noexcept=default']]],
   ['error_5fcode_2eh_280',['error_code.h',['../error__code_8h.html',1,'']]],
   ['error_5fmark_281',['error_mark',['../namespaceemlabcpp_1_1protocol.html#a53258509ef594ffcca73ea55a640dd63',1,'emlabcpp::protocol::error_record']]],
   ['error_5frecord_282',['error_record',['../namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1error__record',1,'emlabcpp::protocol']]],
