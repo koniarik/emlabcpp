@@ -1,16 +1,16 @@
 var searchData=
 [
-  ['pid_1568',['pid',['../structemlabcpp_1_1pid.html#a0a4faf3e2e5b67d91a3d16b31a8c73c1',1,'emlabcpp::pid']]],
-  ['point_5fangle_1569',['point_angle',['../namespaceemlabcpp.html#a6855f415eda103a7b9807510a531e9fd',1,'emlabcpp']]],
-  ['point_5fcast_1570',['point_cast',['../namespaceemlabcpp.html#a0c12c6cbb44c2e1859d1d358f5669b69',1,'emlabcpp']]],
-  ['pool_5fresource_1571',['pool_resource',['../classemlabcpp_1_1pmr_1_1pool__resource.html#a4b23fda7e50718afee695c9939cc5ead',1,'emlabcpp::pmr::pool_resource::pool_resource()'],['../classemlabcpp_1_1pmr_1_1pool__resource.html#adce1491cdfc468a6e0965ee4fe7209c6',1,'emlabcpp::pmr::pool_resource::pool_resource(pool_resource const &amp;)=delete'],['../classemlabcpp_1_1pmr_1_1pool__resource.html#aa5d037464142251e37a1ba8c4e895f2e',1,'emlabcpp::pmr::pool_resource::pool_resource(pool_resource &amp;&amp;)=delete']]],
-  ['pop_5ffrom_5fcontainer_1572',['pop_from_container',['../namespaceemlabcpp_1_1cfg.html#a174ebbb5a7228e134864f65fa417a3d9',1,'emlabcpp::cfg']]],
-  ['pop_5ffront_1573',['pop_front',['../structemlabcpp_1_1static__circular__buffer.html#a6cfc87584eecd59d659f47357d04c2a3',1,'emlabcpp::static_circular_buffer::pop_front()'],['../structemlabcpp_1_1static__circular__buffer.html#a9fc25d8ec0b4643d6b3a50ec583291b0',1,'emlabcpp::static_circular_buffer::pop_front(size_type n)']]],
-  ['pose_1574',['pose',['../structemlabcpp_1_1pose.html#ae713fd78d34a49c4a679bdab0fc62c50',1,'emlabcpp::pose::pose()'],['../structemlabcpp_1_1pose.html#acaf38d4acdaf68056709869fcf8bdc13',1,'emlabcpp::pose::pose(point&lt; 3 &gt; const &amp;position)'],['../structemlabcpp_1_1pose.html#a4ddbb3055e1ebafc02de6ae2a3c6cf0a',1,'emlabcpp::pose::pose(quaternion const &amp;orientation)'],['../structemlabcpp_1_1pose.html#ae5dfa4e5e36b7a72110d555751189c53',1,'emlabcpp::pose::pose(point&lt; 3 &gt; const &amp;position, quaternion const &amp;orientation)']]],
-  ['pow_1575',['pow',['../namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6',1,'emlabcpp']]],
-  ['pretty_5fprint_5fmsg_5fformat_1576',['pretty_print_msg_format',['../namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630',1,'emlabcpp::protocol']]],
-  ['pretty_5ftype_5fname_1577',['pretty_type_name',['../namespaceemlabcpp.html#a5b62f09ff5468bc513cac30ace3d6c58',1,'emlabcpp']]],
-  ['promise_1578',['promise',['../classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#abddcc2e8d07c32656a8f192a9702a4d3',1,'emlabcpp::coro::owning_coroutine_handle::promise() const'],['../classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#ab6d9a5331aee1be6fcdb89e1ba205559',1,'emlabcpp::coro::owning_coroutine_handle::promise()']]],
-  ['purge_1579',['purge',['../classemlabcpp_1_1static__vector.html#a15ad87b524bfba15c3b2da2642c75e5f',1,'emlabcpp::static_vector']]],
-  ['push_5fback_1580',['push_back',['../structemlabcpp_1_1static__circular__buffer.html#a9f69989e0f0cf36180e6773188f1c854',1,'emlabcpp::static_circular_buffer']]]
+  ['pid_1569',['pid',['../structemlabcpp_1_1pid.html#a0a4faf3e2e5b67d91a3d16b31a8c73c1',1,'emlabcpp::pid']]],
+  ['point_5fangle_1570',['point_angle',['../namespaceemlabcpp.html#a6855f415eda103a7b9807510a531e9fd',1,'emlabcpp']]],
+  ['point_5fcast_1571',['point_cast',['../namespaceemlabcpp.html#a0c12c6cbb44c2e1859d1d358f5669b69',1,'emlabcpp']]],
+  ['pool_5fresource_1572',['pool_resource',['../classemlabcpp_1_1pmr_1_1pool__resource.html#a4b23fda7e50718afee695c9939cc5ead',1,'emlabcpp::pmr::pool_resource::pool_resource()'],['../classemlabcpp_1_1pmr_1_1pool__resource.html#adce1491cdfc468a6e0965ee4fe7209c6',1,'emlabcpp::pmr::pool_resource::pool_resource(pool_resource const &amp;)=delete'],['../classemlabcpp_1_1pmr_1_1pool__resource.html#aa5d037464142251e37a1ba8c4e895f2e',1,'emlabcpp::pmr::pool_resource::pool_resource(pool_resource &amp;&amp;)=delete']]],
+  ['pop_5ffrom_5fcontainer_1573',['pop_from_container',['../namespaceemlabcpp_1_1cfg.html#a174ebbb5a7228e134864f65fa417a3d9',1,'emlabcpp::cfg']]],
+  ['pop_5ffront_1574',['pop_front',['../structemlabcpp_1_1static__circular__buffer.html#a6cfc87584eecd59d659f47357d04c2a3',1,'emlabcpp::static_circular_buffer::pop_front()'],['../structemlabcpp_1_1static__circular__buffer.html#a9fc25d8ec0b4643d6b3a50ec583291b0',1,'emlabcpp::static_circular_buffer::pop_front(size_type n)']]],
+  ['pose_1575',['pose',['../structemlabcpp_1_1pose.html#ae713fd78d34a49c4a679bdab0fc62c50',1,'emlabcpp::pose::pose()'],['../structemlabcpp_1_1pose.html#acaf38d4acdaf68056709869fcf8bdc13',1,'emlabcpp::pose::pose(point&lt; 3 &gt; const &amp;position)'],['../structemlabcpp_1_1pose.html#a4ddbb3055e1ebafc02de6ae2a3c6cf0a',1,'emlabcpp::pose::pose(quaternion const &amp;orientation)'],['../structemlabcpp_1_1pose.html#ae5dfa4e5e36b7a72110d555751189c53',1,'emlabcpp::pose::pose(point&lt; 3 &gt; const &amp;position, quaternion const &amp;orientation)']]],
+  ['pow_1576',['pow',['../namespaceemlabcpp.html#a9b9eb800885b61e8071ef11e69debdf6',1,'emlabcpp']]],
+  ['pretty_5fprint_5fmsg_5fformat_1577',['pretty_print_msg_format',['../namespaceemlabcpp_1_1protocol.html#ad9bfce78b138b4a8753b18562c30b630',1,'emlabcpp::protocol']]],
+  ['pretty_5ftype_5fname_1578',['pretty_type_name',['../namespaceemlabcpp.html#a5b62f09ff5468bc513cac30ace3d6c58',1,'emlabcpp']]],
+  ['promise_1579',['promise',['../classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#abddcc2e8d07c32656a8f192a9702a4d3',1,'emlabcpp::coro::owning_coroutine_handle::promise() const'],['../classemlabcpp_1_1coro_1_1owning__coroutine__handle.html#ab6d9a5331aee1be6fcdb89e1ba205559',1,'emlabcpp::coro::owning_coroutine_handle::promise()']]],
+  ['purge_1580',['purge',['../classemlabcpp_1_1static__vector.html#a15ad87b524bfba15c3b2da2642c75e5f',1,'emlabcpp::static_vector']]],
+  ['push_5fback_1581',['push_back',['../structemlabcpp_1_1static__circular__buffer.html#a9f69989e0f0cf36180e6773188f1c854',1,'emlabcpp::static_circular_buffer']]]
 ];

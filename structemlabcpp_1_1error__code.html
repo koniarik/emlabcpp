@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1error__code.html',''
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structemlabcpp_1_1error__code-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">emlabcpp::error_code Struct Reference</div>  </div>
@@ -92,6 +93,14 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1error__code.html',''
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="error__code_8h_source.html">error_code.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for emlabcpp::error_code:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structemlabcpp_1_1error__code__coll__graph.svg" width="207" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -116,9 +125,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a65df7fbbb425c3912e04df13b7c74275"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0baa807ad8222b768d0551b34689e877"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1error__code.html#a0baa807ad8222b768d0551b34689e877">operator==</a> (<a class="el" href="structemlabcpp_1_1error__code.html">error_code</a> const &amp;) const noexcept=default</td></tr>
 <tr class="separator:a0baa807ad8222b768d0551b34689e877"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a660439e0ab9238141f2c02186b25fd00"><td class="memTemplParams" colspan="2">template&lt;error_type T&gt; </td></tr>
-<tr class="memitem:a660439e0ab9238141f2c02186b25fd00"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1error__code.html#a660439e0ab9238141f2c02186b25fd00">operator==</a> (T x) const noexcept</td></tr>
-<tr class="separator:a660439e0ab9238141f2c02186b25fd00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0e9932a765422a83a739f3893e2c150"><td class="memTemplParams" colspan="2">template&lt;error_type T&gt; </td></tr>
+<tr class="memitem:af0e9932a765422a83a739f3893e2c150"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1error__code.html#af0e9932a765422a83a739f3893e2c150">requires</a> (!std::same_as&lt; std::remove_cvref_t&lt; T &gt;, <a class="el" href="structemlabcpp_1_1error__code.html">error_code</a> &gt;) const expr bool operator</td></tr>
+<tr class="separator:af0e9932a765422a83a739f3893e2c150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ac5ce027c58311238f4e1f471f106f889"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1__error__category.html">_error_category</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1error__code.html#ac5ce027c58311238f4e1f471f106f889">category_</a></td></tr>
+<tr class="separator:ac5ce027c58311238f4e1f471f106f889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a26dc148babc648555bb845f1580adc3f"></a>
@@ -302,7 +316,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a0baa807ad8222b768d0551b34689e877"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0baa807ad8222b768d0551b34689e877">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0baa807ad8222b768d0551b34689e877">&#9670;&nbsp;</a></span>operator==()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -327,36 +341,28 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a660439e0ab9238141f2c02186b25fd00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a660439e0ab9238141f2c02186b25fd00">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
+<a id="af0e9932a765422a83a739f3893e2c150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0e9932a765422a83a739f3893e2c150">&#9670;&nbsp;</a></span>requires() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;error_type T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool emlabcpp::error_code::operator== </td>
+          <td class="memname">emlabcpp::error_code::requires </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">!std::same_as&lt; std::remove_cvref_t&lt; T &gt;, <a class="el" href="structemlabcpp_1_1error__code.html">error_code</a> &gt;&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <a id="a44f36a097b5a00e231b4c83e38156092"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44f36a097b5a00e231b4c83e38156092">&#9670;&nbsp;</a></span>requires()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a44f36a097b5a00e231b4c83e38156092">&#9670;&nbsp;</a></span>requires() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -408,6 +414,21 @@ template&lt;error_type T&gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac5ce027c58311238f4e1f471f106f889"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5ce027c58311238f4e1f471f106f889">&#9670;&nbsp;</a></span>category_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structemlabcpp_1_1__error__category.html">_error_category</a> const* emlabcpp::error_code::category_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/emlabcpp/<a class="el" href="error__code_8h_source.html">error_code.h</a></li>
 </ul>
@@ -417,7 +438,7 @@ template&lt;error_type T&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1error__code.html">error_code</a></li>
-    <li class="footer">Generated on Sat May 16 2026 18:13:13 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat May 16 2026 18:27:32 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
