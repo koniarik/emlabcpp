@@ -91,6 +91,7 @@ struct [[nodiscard]] error_code
         [[nodiscard]] constexpr bool operator==( error_code const& ) const noexcept = default;
 
         template < error_type T >
+                requires( !std::same_as< std::remove_cvref_t< T >, error_code > )
         [[nodiscard]] constexpr bool operator==( T x ) const noexcept
         {
                 return *this == error_code( x );
