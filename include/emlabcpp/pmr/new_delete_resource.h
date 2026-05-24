@@ -1,6 +1,6 @@
 /// MIT License
 ///
-/// Copyright (c) 2025 Jan Veverak Koniarik
+/// Copyright (c) 2025-2026 Jan Veverak Koniarik
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -39,10 +39,10 @@ struct new_delete_resource_impl : memory_resource
                 return ::operator new( bytes, std::align_val_t{ alignment } );
         };
 
-        result deallocate( void* p, std::size_t, std::size_t alignment ) override
+        bool deallocate( void* p, std::size_t, std::size_t alignment ) override
         {
                 ::operator delete( p, std::align_val_t{ alignment } );
-                return result::SUCCESS;
+                return true;
         };
 
         [[nodiscard]] bool is_equal( memory_resource const& ) const noexcept override
