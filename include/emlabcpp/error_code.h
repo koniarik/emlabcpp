@@ -64,7 +64,7 @@ struct bool_category : _error_category
 {
         [[nodiscard]] constexpr error_value_type cast( bool x ) const
         {
-                return x ? 1 : 0;
+                return x ? 0 : 1;
         }
 
         [[nodiscard]] char const* message( error_value_type code ) const noexcept override
@@ -103,7 +103,7 @@ struct [[nodiscard]] error_code
 
         [[nodiscard]] constexpr operator bool() const noexcept
         {
-                return code_ != 0;
+                return code_ == 0;
         }
 
         [[nodiscard]] constexpr error_value_type value() const noexcept
