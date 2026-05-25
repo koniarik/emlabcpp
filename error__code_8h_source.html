@@ -132,7 +132,7 @@ $(document).ready(function(){initNavTree('error__code_8h_source.html',''); initR
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
 <div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1bool__category.html#aa0ab1bc5a61b64dd69a41273089bd083">   65</a></span>&#160;        [[nodiscard]] constexpr <a class="code" href="namespaceemlabcpp.html#ad5570bb17eff09c888e67d8cefae88b2">error_value_type</a> <a class="code" href="structemlabcpp_1_1bool__category.html#aa0ab1bc5a61b64dd69a41273089bd083">cast</a>( <span class="keywordtype">bool</span> x )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">return</span> x ? 1 : 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">return</span> x ? 0 : 1;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1bool__category.html#a0ec24c166a90057618e64c7113f94b46">   70</a></span>&#160;        [[nodiscard]] <span class="keywordtype">char</span> <span class="keyword">const</span>* <a class="code" href="structemlabcpp_1_1bool__category.html#a0ec24c166a90057618e64c7113f94b46">message</a>( <a class="code" href="namespaceemlabcpp.html#ad5570bb17eff09c888e67d8cefae88b2">error_value_type</a> code ) <span class="keyword">const</span> noexcept <span class="keyword">override</span></div>
@@ -171,7 +171,7 @@ $(document).ready(function(){initNavTree('error__code_8h_source.html',''); initR
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
 <div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1error__code.html#aac4499def29cd4c4dd1c618be2ecbe78">  104</a></span>&#160;        [[nodiscard]] constexpr <span class="keyword">operator</span> bool() const noexcept</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordflow">return</span> code_ != 0;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordflow">return</span> code_ == 0;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
 <div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="structemlabcpp_1_1error__code.html#a65df7fbbb425c3912e04df13b7c74275">  109</a></span>&#160;        [[nodiscard]] constexpr <a class="code" href="namespaceemlabcpp.html#ad5570bb17eff09c888e67d8cefae88b2">error_value_type</a> <a class="code" href="structemlabcpp_1_1error__code.html#a65df7fbbb425c3912e04df13b7c74275">value</a>() const noexcept</div>
@@ -226,7 +226,7 @@ $(document).ready(function(){initNavTree('error__code_8h_source.html',''); initR
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="error__code_8h.html">error_code.h</a></li>
-    <li class="footer">Generated on Sun May 24 2026 19:18:24 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon May 25 2026 19:20:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

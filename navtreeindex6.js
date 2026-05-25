@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"page_8h.html#a895b7d25c90721a0397f1792bf3ae1f1a7fc56270e7a70fa81a5935b72eacbe29":[2,0,0,0,1,0,2,0,0],
 "page_8h.html#a895b7d25c90721a0397f1792bf3ae1f1a9d5ed678fe57bcca610140957afab571":[2,0,0,0,1,0,2,0,1],
 "page_8h.html#a8e03f9106771ab434a50622f4432bee0":[2,0,0,0,1,0,2,4],
 "page_8h.html#aa07d2882335c5c88fe6c2c5b827c1a98":[2,0,0,0,1,0,2,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "structemlabcpp_1_1bits_1_1is__string__buffer.html":[1,0,0,0,0],
 "structemlabcpp_1_1bits_1_1is__string__buffer.html#a85f1043c1ad092dd94895839ff0cf5ce":[1,0,0,0,0,0],
 "structemlabcpp_1_1bits_1_1is__string__buffer_3_01string__buffer_3_01N_01_4_01_4.html":[1,0,0,0,1],
-"structemlabcpp_1_1bits_1_1is__string__buffer_3_01string__buffer_3_01N_01_4_01_4.html#aecfbaa967375b75c4d59b5ae20858e4d":[1,0,0,0,1,0],
-"structemlabcpp_1_1bool__category.html":[1,0,0,15]
+"structemlabcpp_1_1bits_1_1is__string__buffer_3_01string__buffer_3_01N_01_4_01_4.html#aecfbaa967375b75c4d59b5ae20858e4d":[1,0,0,0,1,0]
 };
