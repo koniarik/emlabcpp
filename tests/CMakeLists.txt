@@ -19,12 +19,12 @@ cpmaddpackage("gh:nlohmann/json@3.11.3")
 target_compile_options(
   emlabcpp
   INTERFACE -DEMLABCPP_USE_NLOHMANN_JSON
-         -DEMLABCPP_ASSERT_NATIVE
-         #-DEMLABCPP_USE_MAGIC_ENUM # dropped until clang issues resolved
-         -DEMLABCPP_USE_GTEST
-         -DEMLABCPP_USE_LOGGING
-         -DEMLABCPP_USE_DEMANGLING
-         -DEMLABCPP_USE_OSTREAM)
+            -DEMLABCPP_ASSERT_NATIVE
+            # -DEMLABCPP_USE_MAGIC_ENUM # dropped until clang issues resolved
+            -DEMLABCPP_USE_GTEST
+            -DEMLABCPP_USE_LOGGING
+            -DEMLABCPP_USE_DEMANGLING
+            -DEMLABCPP_USE_OSTREAM)
 target_include_directories(emlabcpp SYSTEM INTERFACE third-party/)
 target_link_libraries(emlabcpp INTERFACE nlohmann_json)
 
@@ -78,4 +78,6 @@ add_custom_command(
           ${CMAKE_CURRENT_SOURCE_DIR}/gen_readme_cpp.py)
 add_executable(readme ${CMAKE_BINARY_DIR}/readme.cpp)
 target_link_libraries(readme PUBLIC emlabcpp gtest GTest::gtest_main)
+# README snippets declare values only to show how an API is called.
+target_compile_options(readme PRIVATE -Wno-unused -Wno-unused-parameter)
 add_test(NAME readme COMMAND readme)
