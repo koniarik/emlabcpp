@@ -1,20 +1,34 @@
+# SYSTEM of FetchContent_Declare needs CMake 3.25.
+cmake_minimum_required(VERSION 3.25)
+
 include(GoogleTest)
+include(FetchContent)
 
-include(third-party/CPM.cmake)
-
-cpmaddpackage(
-  NAME
+FetchContent_Declare(
   googletest
-  GITHUB_REPOSITORY
-  google/googletest
-  GIT_TAG
-  v1.16.0
-  VERSION
-  1.16.0
-  OPTIONS
-  "INSTALL_GTEST OFF"
-  "gtest_force_shared_crt")
-cpmaddpackage("gh:nlohmann/json@3.11.3")
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG v1.18.0
+  GIT_SHALLOW TRUE
+  SYSTEM)
+set(INSTALL_GTEST
+    OFF
+    CACHE BOOL "")
+set(gtest_force_shared_crt
+    ON
+    CACHE BOOL "")
+FetchContent_Declare(
+  nlohmann_json
+  GIT_REPOSITORY https://github.com/nlohmann/json.git
+  GIT_TAG v3.11.3
+  GIT_SHALLOW TRUE
+  SYSTEM)
+FetchContent_Declare(
+  magic_enum
+  GIT_REPOSITORY https://github.com/Neargye/magic_enum.git
+  GIT_TAG v0.9.8
+  GIT_SHALLOW TRUE
+  SYSTEM)
+FetchContent_MakeAvailable(googletest nlohmann_json magic_enum)
 
 target_compile_options(
   emlabcpp
@@ -25,8 +39,7 @@ target_compile_options(
             -DEMLABCPP_USE_LOGGING
             -DEMLABCPP_USE_DEMANGLING
             -DEMLABCPP_USE_OSTREAM)
-target_include_directories(emlabcpp SYSTEM INTERFACE third-party/)
-target_link_libraries(emlabcpp INTERFACE nlohmann_json)
+target_link_libraries(emlabcpp INTERFACE nlohmann_json magic_enum::magic_enum)
 
 function(emlabcpp_setup_test target)
   target_link_libraries(${target} emlabcpp)
