@@ -71,7 +71,7 @@ public:
 
         template < size_type M >
         constexpr explicit message( std::array< value_type, M > const& inpt ) noexcept
-          : message( view{ inpt } )
+          : message( data_view( inpt ) )
         {
                 static_assert( M <= N );
         }

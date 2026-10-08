@@ -37,7 +37,7 @@ jobs:
               run: cmake --preset windows-debug
 
             - name: build
-              run: cmake --build --preset windows-debug
+              run: cmake --build --preset windows-debug -- -k 0
 
             - name: test
               run: ctest --preset windows-debug --output-on-failure

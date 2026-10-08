@@ -79,7 +79,7 @@ struct valid_test_case : protocol_test_fixture
                 bounded const                     used = pitem::serialize_at(
                     std::span< std::byte, pitem::max_size >( buffer.begin(), pitem::max_size ),
                     val );
-                message_type const source_msg( view_n( buffer.begin(), *used ) );
+                message_type const source_msg( view_n( buffer.data(), *used ) );
                 match(
                     test_handler::extract< Key >( source_msg ),
                     [&]( protocol::error_record const& err ) {
