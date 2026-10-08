@@ -27,6 +27,9 @@
 #include "./util.hpp"
 
 #include <array>
+#include <bit>
+#include <cstddef>
+#include <cstdint>
 #include <cstring>
 
 namespace emlabcpp::pmr
@@ -63,14 +66,14 @@ public:
                 std::byte* prev_ptr  = top_;
                 node const prev_node = get_node( prev_ptr );
 
-                auto* const p = reinterpret_cast< std::byte* >( align( top_, alignment ) );
-
-                std::byte* new_top = p + bytes + node_size;
-
-                if ( new_top + node_size > buff_.data() + buff_.size() )
+                auto const        top_addr = std::bit_cast< std::uintptr_t >( top_ );
+                std::size_t const padding  = align_addr( top_addr, alignment ) - top_addr;
+                std::size_t const space    = free_space();
+                if ( bytes > space || padding + node_size > space - bytes )
                         return nullptr;
 
-                top_ = new_top;
+                auto* const p = top_ + padding;
+                top_          = p + bytes + node_size;
 
                 set_node( top_, prev_ptr, nullptr );
                 set_node( prev_ptr, prev_node.prev_ptr, top_ );
@@ -83,6 +86,14 @@ public:
             std::size_t const bytes,
             std::size_t const /*alignment*/ ) override
         {
+                auto const addr  = std::bit_cast< std::uintptr_t >( ptr );
+                auto const begin = std::bit_cast< std::uintptr_t >( buff_.data() );
+                if ( addr < begin || addr - begin > buff_.size() )
+                        return false;
+                std::size_t const rest = buff_.size() - ( addr - begin );
+                if ( bytes > rest || node_size > rest - bytes )
+                        return false;
+
                 std::byte* node_ptr = reinterpret_cast< std::byte* >( ptr ) + bytes + node_size;
                 auto [prev_ptr, next_ptr] = get_node( node_ptr );
 
@@ -106,12 +117,17 @@ public:
 
         [[nodiscard]] bool is_full() const noexcept override
         {
-                return top_ == buff_.data() + buff_.size();
+                return free_space() <= node_size;
         }
 
         ~stack_resource() override = default;
 
 private:
+        [[nodiscard]] std::size_t free_space() const noexcept
+        {
+                return static_cast< std::size_t >( buff_.data() + buff_.size() - top_ );
+        }
+
         node get_node( std::byte* ptr )
         {
                 ptr -= sizeof( std::byte* );

@@ -25,7 +25,9 @@
 #include "emlabcpp/pmr/new_delete_resource.hpp"
 #include "emlabcpp/pmr/stack_resource.hpp"
 
+#include <cstddef>
 #include <gtest/gtest.h>
+#include <limits>
 
 namespace emlabcpp
 {
@@ -91,6 +93,40 @@ TEST( PMR, new_delete_resource_is_equal )
 
         EXPECT_TRUE( nd.is_equal( pmr::new_delete_resource() ) );
         EXPECT_FALSE( nd.is_equal( stack ) );
+}
+
+TEST( PMR, stack_resource_rejects_oversized )
+{
+        pmr::stack_resource< 64 > stack;
+
+        EXPECT_EQ( stack.allocate( std::numeric_limits< std::size_t >::max() - 8, 1 ), nullptr );
+        EXPECT_EQ( stack.allocate( 1, std::size_t{ 1 } << 20 ), nullptr );
+}
+
+TEST( PMR, stack_resource_is_full )
+{
+        pmr::stack_resource< 128 > stack;
+        EXPECT_FALSE( stack.is_full() );
+
+        while ( stack.allocate( 1, 1 ) != nullptr ) {
+        }
+        EXPECT_TRUE( stack.is_full() );
+}
+
+TEST( PMR, stack_resource_rejects_foreign_pointer )
+{
+        pmr::stack_resource< 64 > stack;
+        int                       foreign = 0;
+
+        EXPECT_FALSE( stack.deallocate( &foreign, sizeof( foreign ), alignof( int ) ) );
+}
+
+TEST( PMR, new_delete_resource_returns_null_on_failure )
+{
+        auto const size =
+            static_cast< std::size_t >( std::numeric_limits< std::ptrdiff_t >::max() );
+
+        EXPECT_EQ( pmr::new_delete_resource().allocate( size, 16 ), nullptr );
 }
 
 TEST( PMR, allocator_throws )

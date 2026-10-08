@@ -95,6 +95,11 @@ file(GLOB TESTS ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 add_executable(emlabcpp_tests ${TESTS} util/operations_counter.cpp)
 target_link_libraries(emlabcpp_tests gtest GTest::gtest_main)
 emlabcpp_setup_test(emlabcpp_tests)
+# AddressSanitizer aborts on impossible allocations unless told to return null,
+# which the memory resource tests rely on.
+set_tests_properties(
+  emlabcpp_tests_test PROPERTIES ENVIRONMENT
+                                 ASAN_OPTIONS=allocator_may_return_null=1)
 
 # Compiles each public header on its own; the verify target is not part of ALL,
 # so the tests depend on it.

@@ -32,11 +32,9 @@ namespace emlabcpp::pmr
 {
 struct new_delete_resource_impl : memory_resource
 {
-        // TODO: maybe guarding in try/catch?
-
         void* allocate( std::size_t bytes, std::size_t alignment ) override
         {
-                return ::operator new( bytes, std::align_val_t{ alignment } );
+                return ::operator new( bytes, std::align_val_t{ alignment }, std::nothrow );
         };
 
         bool deallocate( void* p, std::size_t /*bytes*/, std::size_t alignment ) override
