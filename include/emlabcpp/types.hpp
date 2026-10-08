@@ -27,6 +27,7 @@
 #include "./types/base.hpp"
 
 #include <string>
+#include <typeinfo>
 
 #ifdef EMLABCPP_USE_DEMANGLING
 #include <cxxabi.h>
