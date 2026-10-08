@@ -16,6 +16,15 @@ jobs:
         uses: ./.github/workflows/arch_base.yml
         with:
             cmd: CC=clang CXX=clang++ make clang-tidy
+    install:
+        uses: ./.github/workflows/arch_base.yml
+        with:
+            cmd: >-
+                cmake -S . -B _build/install -G Ninja -DCMAKE_INSTALL_PREFIX=$PWD/_install &&
+                cmake --build _build/install --target install &&
+                cmake -S tests/install -B _build/install-consumer -G Ninja -DCMAKE_PREFIX_PATH=$PWD/_install &&
+                cmake --build _build/install-consumer &&
+                ./_build/install-consumer/consumer
     pre-commit:
         runs-on: ubuntu-24.04
         steps:

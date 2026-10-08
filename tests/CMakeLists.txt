@@ -30,8 +30,9 @@ FetchContent_Declare(
   SYSTEM)
 FetchContent_MakeAvailable(googletest nlohmann_json magic_enum)
 
+add_library(emlabcpp_test_options INTERFACE)
 target_compile_options(
-  emlabcpp
+  emlabcpp_test_options
   INTERFACE -DEMLABCPP_USE_NLOHMANN_JSON
             -DEMLABCPP_ASSERT_NATIVE
             # -DEMLABCPP_USE_MAGIC_ENUM # dropped until clang issues resolved
@@ -39,7 +40,11 @@ target_compile_options(
             -DEMLABCPP_USE_LOGGING
             -DEMLABCPP_USE_DEMANGLING
             -DEMLABCPP_USE_OSTREAM)
-target_link_libraries(emlabcpp INTERFACE nlohmann_json magic_enum::magic_enum)
+target_link_libraries(emlabcpp_test_options INTERFACE nlohmann_json
+                                                      magic_enum::magic_enum)
+# BUILD_INTERFACE keeps the test options out of the installed package.
+target_link_libraries(emlabcpp
+                      INTERFACE $<BUILD_INTERFACE:emlabcpp_test_options>)
 
 function(emlabcpp_setup_test target)
   target_link_libraries(${target} emlabcpp)
