@@ -244,6 +244,17 @@ TEST( static_vector_test, view )
         EXPECT_EQ( ss.str(), "1,2,3,4" );
 }
 
+TEST( static_vector_test, fill )
+{
+        obj_buffer const filled( 3, "x"s );
+        EXPECT_EQ( filled.size(), 3 );
+        for ( std::string const& item : filled )
+                EXPECT_EQ( item, "x" );
+
+        obj_buffer const clamped( buffer_size + 5, "y"s );
+        EXPECT_EQ( clamped.size(), buffer_size );
+}
+
 struct operations_counter_static_vector
 {
         using container_type           = static_vector< operations_counter, 32 >;

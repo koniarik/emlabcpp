@@ -58,10 +58,11 @@ public:
                 other.clear();
         }
 
-        static_vector( std::size_t M, T const& item )
+        static_vector( std::size_t n, T const& item )
         {
-                M = std::max( M, N );
-                std::uninitialized_fill( begin(), begin() + M, item );
+                n = std::min( n, N );
+                std::uninitialized_fill( begin(), begin() + n, item );
+                size_ = n;
         }
 
         template < std::size_t M >
